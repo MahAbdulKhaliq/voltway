@@ -14,6 +14,14 @@
         "notes": "Hyundai Canada states 84.0 kWh for the Preferred Long Range RWD only; assumed to be the same Long Range pack.",
         "low_confidence": true
       }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-hyundai-au-ioniq-5-2026-spec",
+        "notes": "Battery voltage 697 V (Australian-market sheet; same pack)."
+      }
     ]
   },
   "charge_port": [

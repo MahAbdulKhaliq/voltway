@@ -3,11 +3,60 @@
   "model_id": "hyundai/ioniq-9",
   "year": 2026,
   "name": "Standard",
-  "drivetrain": "unknown",
+  "drivetrain": "rwd",
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 110.3,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-hyundai-ca-ioniq-9-2026",
+        "notes": "Page says “110.3kWh battery” without saying gross or usable; recorded as gross."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-hyundai-ca-ioniq-9-2026"
+      }
+    ]
+  },
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-ioniq-9-2026",
+      "notes": "NACS port; AC and DC CCS adapters included."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-ioniq-9-2026"
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 24,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-ioniq-9-2026",
+      "notes": "“Approximately 24 mins” 10–80% on a 350 kW charger; model-wide claim."
+    }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "IONIQ 9"
+      "name": "IONIQ 9",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-hyundai-ca-ioniq-9-2026"
+        }
+      ]
     }
   ]
 }

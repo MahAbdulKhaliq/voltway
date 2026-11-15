@@ -1,0 +1,73 @@
+---
+// Cars tab (B11): make → model accordions; each variant opens in the Charging tab.
+// Native <details> elements, so it works without JavaScript.
+import Base from '../../layouts/Base.astro';
+import { t, type MessageKey } from '../../i18n/t.ts';
+import { loadIndex } from '../../lib/data.ts';
+import { formatNumber } from '../../lib/units.ts';
+import { displayMinutes } from '../../lib/charging.ts';
+
+const cars = loadIndex().filter((e) => e.sold_in_canada);
+const byName = (a: string, b: string) => a.localeCompare(b, 'en', { sensitivity: 'base' });
+const makes = [...new Set(cars.map((c) => c.make))].sort(byName).map((make) => {
+  const ofMake = cars.filter((c) => c.make === make);
+  const models = [...new Set(ofMake.map((c) => `${c.model}|${c.year}`))]
+    .map((k) => {
+      const [model, year] = k.split('|');
+      return { model, year: Number(year), variants: ofMake.filter((c) => c.model === model && c.year === Number(year)).sort((a, b) => byName(a.name, b.name)) };
+    })
+    .sort((a, b) => byName(a.model, b.model) || b.year - a.year);
+  return { make, models };
+});
+---
+
+<Base title={t('cars.title')} active="cars">
+  <h1>{t('cars.title')}</h1>
+  <p class="muted">{t('cars.intro')}</p>
+  <p class="small muted">{t('home.count', { count: cars.length, models: makes.reduce((n, m) => n + m.models.length, 0) })} · {t('home.estimatedNote')}</p>
+
+  <div class="makes">
+    {makes.map((m) => (
+      <details class="make card">
+        <summary><span class="name">{m.make}</span> <span class="muted small">{m.models.length === 1 ? t('cars.models1') : t('cars.models', { count: m.models.length })}</span></summary>
+        <div class="models">
+          {m.models.map((md) => (
+            <details class="model">
+              <summary><span class="name">{md.model}</span> <span class="muted small">{md.year} · {t(`body.${md.variants[0].body_type}` as MessageKey)} · {md.variants.length === 1 ? t('home.variants1') : t('home.variants', { count: md.variants.length })}</span></summary>
+              <ul>
+                {md.variants.map((v) => (
+                  <li>
+                    <a href={`/charging?car=${v.id}`}>{v.name}</a>
+                    <span class="figs small muted">
+                      {v.range_km !== null && <span data-km={String(v.range_km)}>{t('fmt.km', { value: formatNumber(v.range_km) })}</span>}
+                      {v.dc_max_kw !== null && <span>{t('fmt.kw', { value: formatNumber(v.dc_max_kw) })}</span>}
+                      {v.derived.minutes_10_80 !== null && (
+                        <span title={t('tile.time1080')}>{v.derived.estimated ? t('fmt.approxMin', { value: displayMinutes(v.derived.minutes_10_80, true) }) : t('fmt.min', { value: displayMinutes(v.derived.minutes_10_80, false) })}</span>
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
+        </div>
+      </details>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .makes { display: grid; gap: 10px; margin-top: 16px; }
+  .make { padding: 0; }
+  .make > summary { padding: 14px 18px; font-size: 1.1rem; }
+  summary { cursor: pointer; display: flex; align-items: baseline; gap: 10px; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '▸'; color: var(--muted); transition: transform 0.15s; display: inline-block; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .name { font-weight: 650; }
+  .models { padding: 0 18px 12px 34px; display: grid; gap: 2px; }
+  .model > summary { padding: 8px 0; border-top: 1px solid var(--border); }
+  .model ul { list-style: none; margin: 0 0 8px; padding: 0 0 0 22px; }
+  .model li { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; flex-wrap: wrap; }
+  .figs { display: inline-flex; gap: 12px; }
+</style>

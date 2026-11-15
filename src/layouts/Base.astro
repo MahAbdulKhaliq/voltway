@@ -5,8 +5,8 @@
 import '../styles/global.css';
 import { t } from '../i18n/t.ts';
 
-interface Props { title?: string; description?: string }
-const { title, description = t('site.tagline') } = Astro.props;
+interface Props { title?: string; description?: string; active?: 'charging' | 'cars' }
+const { title, description = t('site.tagline'), active } = Astro.props;
 const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
 ---
 
@@ -25,7 +25,8 @@ const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
       <div class="wrap bar">
         <a class="logo" href="/">⚡ {t('site.name')}</a>
         <nav aria-label={t('nav.main')}>
-          <a href="/">{t('nav.cars')}</a>
+          <a href="/charging" aria-current={active === 'charging' ? 'page' : undefined}>{t('nav.charging')}</a>
+          <a href="/cars" aria-current={active === 'cars' ? 'page' : undefined}>{t('nav.cars')}</a>
         </nav>
         <div class="units" role="group" aria-label={t('units.label')}>
           <button type="button" data-unit="km" aria-pressed="true">{t('units.km')}</button>
@@ -60,6 +61,7 @@ const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
   nav { display: flex; gap: 16px; flex: 1; }
   nav a { color: var(--text); text-decoration: none; font-weight: 500; }
   nav a:hover { color: var(--accent); }
+  nav a[aria-current='page'] { color: var(--accent); box-shadow: inset 0 -2px 0 var(--accent); padding-bottom: 2px; }
   .units { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
   .units button { border: 0; background: transparent; color: var(--muted); padding: 4px 12px; font: inherit; font-size: 0.875rem; cursor: pointer; }
   .units button[aria-pressed='true'] { background: var(--accent); color: var(--accent-ink); }

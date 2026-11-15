@@ -99,3 +99,25 @@ th { font-weight: 600; color: var(--muted); font-size: 0.875rem; }
   .stack-table td { display: flex; justify-content: space-between; gap: 12px; border: 0; padding: 4px 0; }
   .stack-table td::before { content: attr(data-label); color: var(--muted); font-size: 0.875rem; }
 }
+
+/* Source badges (shared by the Astro SourceBadge and the React Badge) */
+.badge { display: inline-block; position: relative; font-size: 0.75rem; vertical-align: middle; }
+.badge summary {
+  list-style: none; cursor: pointer; display: inline-flex; gap: 4px; align-items: center;
+  padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--surface-2); color: var(--muted); white-space: nowrap;
+}
+.badge summary::-webkit-details-marker { display: none; }
+.badge.kind-rated_nrcan summary, .badge.kind-rated_epa summary { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, transparent); background: var(--accent-soft); }
+.badge.kind-estimated summary { color: var(--estimated); border-style: dashed; background: var(--estimated-soft); font-style: italic; }
+.badge.low summary { border-style: dotted; }
+.differ { color: var(--warn); }
+.pop {
+  position: absolute; z-index: 5; top: calc(100% + 6px); left: 0; width: min(320px, 80vw);
+  background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 10px;
+  box-shadow: var(--shadow); padding: 12px; font-size: 0.875rem; line-height: 1.4;
+}
+.pop p { margin: 0 0 8px; }
+.pop ul { margin: 0; padding-left: 18px; }
+.pop-title { font-weight: 600; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.fv { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; }

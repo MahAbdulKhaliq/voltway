@@ -2,7 +2,7 @@ import { cpSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
-import { buildCars, hasConflict, rank, resolve } from '../scripts/lib/build.ts';
+import { buildCars, hasConflict, oneWheelPerSize, rank, resolve } from '../scripts/lib/build.ts';
 import { chooseTemplate, estimateCurve } from '../src/lib/estimated-curve.ts';
 import type { SourcedValue } from '../src/lib/types.ts';
 
@@ -173,3 +173,17 @@ describe('the real build', () => {
   });
 });
 
+
+describe('hand-entered wheels (B14)', () => {
+  it('keeps one entry per size when two sources list wheels', () => {
+    const out = oneWheelPerSize([
+      { diameter_in: 19, is_standard: false, source_id: 'src-a' },
+      { diameter_in: 21, is_standard: false, source_id: 'src-a' },
+      { diameter_in: 19, is_standard: true, source_id: 'src-b' },
+    ]);
+    expect(out).toEqual([
+      { diameter_in: 19, is_standard: true, source_id: 'src-a' },
+      { diameter_in: 21, is_standard: false, source_id: 'src-a' },
+    ]);
+  });
+});

@@ -10,6 +10,11 @@
 //       "drivetrain": "rwd",                      // optional, replaces "unknown"
 //       "fields": { "battery.capacity_gross_kwh": [ {value, unit, kind, source_id, notes?} ], ... },
 //       "trims": { "*" | "<trim id>": { "heat_pump": [ ... ], "ac_max_kw": [ ... ] } } } } }
+//
+// Trim "wheels" (B14) are a list of factory options rather than sourced values, but each entry
+// carries its own source_id, so they merge the same way:
+//   "wheels": [ { "diameter_in": 20, "is_standard": true, "source_id": "src-…", "notes"?, "low_confidence"? } ]
+// Trim keys: heat_pump, ac_max_kw, range_km, wheels.
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';

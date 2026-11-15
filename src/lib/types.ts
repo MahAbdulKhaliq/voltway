@@ -55,7 +55,7 @@ export interface TrimOut {
   consumption_city_wh_per_km: Field<number>;
   consumption_highway_wh_per_km: Field<number>;
   ac_max_kw: Field<number>;     // the trim's own onboard charger (B7), when known
-  wheels: { diameter_in: number; is_standard: boolean; tire_size?: string; source_id?: string }[];
+  wheels: { diameter_in: number; is_standard: boolean; tire_size?: string; source_id?: string; notes?: string; low_confidence?: boolean }[];
 }
 
 export interface Derived {

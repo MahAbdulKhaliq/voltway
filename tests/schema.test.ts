@@ -100,6 +100,16 @@ describe('sourced values (vehicle-data-model.md §3)', () => {
     expect(errors.some((e) => e.includes('/trims/0/heat_pump'))).toBe(true);
   });
 
+  it('rejects a hand-entered wheel size without a source (B14)', () => {
+    const errors = errorsAfter(VARIANT, (v) => { delete v.trims[0].wheels[0].source_id; });
+    expect(errors.some((e) => e.includes('/trims/0/wheels/0') && e.includes('source_id'))).toBe(true);
+  });
+
+  it('rejects a wheel size citing an unknown source (B14)', () => {
+    const errors = errorsAfter(VARIANT, (v) => { v.trims[0].wheels[0].source_id = 'src-made-up'; });
+    expect(errors).toContainEqual(expect.stringContaining('cites unknown source "src-made-up"'));
+  });
+
   it('requires low_confidence when the source URL is only a homepage', () => {
     const errors = errorsAfter(VARIANT, (v) => { delete v.charge_port[0].low_confidence; });
     expect(errors).toContainEqual(expect.stringContaining('only a homepage'));

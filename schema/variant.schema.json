@@ -64,13 +64,17 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["diameter_in", "is_standard"],
+            "description": "One factory wheel option. Hand-entered, so it names its source like any other figure (B14).",
+            "required": ["diameter_in", "is_standard", "source_id"],
             "additionalProperties": false,
             "properties": {
               "diameter_in": { "type": "number", "minimum": 12, "maximum": 26 },
               "tire_size": { "type": "string", "minLength": 1 },
               "is_standard": { "type": "boolean" },
-              "rated_range_km": { "$ref": "common.schema.json#/$defs/field_km" }
+              "rated_range_km": { "$ref": "common.schema.json#/$defs/field_km" },
+              "source_id": { "$ref": "common.schema.json#/$defs/sourceId" },
+              "notes": { "type": "string", "minLength": 1 },
+              "low_confidence": { "type": "boolean" }
             }
           }
         },

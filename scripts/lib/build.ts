@@ -156,6 +156,20 @@ export interface BuildResult {
 }
 
 /**
+ * Hand-entered wheels can come from several sources (B14). Keep one entry per diameter, in
+ * the order first listed, standard when any source says so. The first source's entry is kept.
+ */
+export function oneWheelPerSize(list: TrimOut['wheels']): TrimOut['wheels'] {
+  const out = new Map<number, TrimOut['wheels'][number]>();
+  for (const w of list) {
+    const seen = out.get(w.diameter_in);
+    if (!seen) out.set(w.diameter_in, { ...w });
+    else if (w.is_standard) seen.is_standard = true;
+  }
+  return [...out.values()];
+}
+
+/**
  * Rating rows for the wheel-size effect. Each source that rates the same car at several wheel
  * sizes gets a small adapter here; NRCan is the first (its model names carry "(20" Wheels)").
  * An EPA, WLTP or other adapter would push rows of the same shape.
@@ -271,7 +285,7 @@ export function buildCars(root: string): BuildResult {
         : [];
       const ac = resolve('ac_max_kw', asCands([...(t.ac_max_kw ?? []), ...acFromName])) as Field<number>;
       const wheels: TrimOut['wheels'] = t.wheels?.length
-        ? t.wheels
+        ? oneWheelPerSize(t.wheels)
         : hints?.wheel_in
           ? [{ diameter_in: hints.wheel_in, is_standard: true, ...(nrcanSource ? { source_id: nrcanSource } : {}) }]
           : openevWheels;

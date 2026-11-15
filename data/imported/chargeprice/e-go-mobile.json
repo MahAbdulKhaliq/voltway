@@ -1,0 +1,53 @@
+{
+  "source": "chargeprice",
+  "source_id": "src-chargeprice-archive-2025-04",
+  "make": "e-go-mobile",
+  "records": [
+    {
+      "source_key": "ca7bb6f1-a46a-4477-a532-c0fa4cbd5bd3",
+      "year": 2022,
+      "make": "e.GO Mobile",
+      "model": "x",
+      "capacity_usable_kwh": [
+        {
+          "value": 27,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 27,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    }
+  ]
+}

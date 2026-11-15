@@ -1,0 +1,53 @@
+{
+  "source": "chargeprice",
+  "source_id": "src-chargeprice-archive-2025-04",
+  "make": "man",
+  "records": [
+    {
+      "source_key": "e7717ac1-90fa-4bea-9272-52afc10facc4",
+      "year": 2020,
+      "make": "MAN",
+      "model": "e TGE",
+      "capacity_usable_kwh": [
+        {
+          "value": 35.8,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 40,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    }
+  ]
+}

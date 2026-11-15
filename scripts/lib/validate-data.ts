@@ -22,6 +22,7 @@ const SCHEMA_FILES = [
   'crosswalk-row.schema.json',
   'imported-nrcan.schema.json',
   'imported-openev.schema.json',
+  'imported-chargeprice.schema.json',
 ] as const;
 
 const SCHEMA_BASE = 'https://github.com/MahAbdulKhaliq/voltway/schema/';
@@ -46,6 +47,7 @@ function loadValidators(schemaDir: string) {
     crosswalkRow: get('crosswalk-row.schema.json'),
     importedNrcan: get('imported-nrcan.schema.json'),
     importedOpenev: get('imported-openev.schema.json'),
+    importedChargeprice: get('imported-chargeprice.schema.json'),
   };
 }
 
@@ -258,6 +260,31 @@ export function validateRepo(root: string): ValidationResult {
     checkSourced(data, file);
   }
 
+  // --- Imported Chargeprice archive records ---
+  const chargepriceKeys = new Set<string>();
+  let chargepriceFiles = 0;
+  for (const rel of listJson(join(dataDir, 'imported', 'chargeprice'))) {
+    const file = `data/imported/chargeprice/${rel}`;
+    const data = read('imported/chargeprice', rel) as
+      | { make: string; records: { source_key: string; curve?: { points: { soc_percent: number }[] } }[] }
+      | undefined;
+    if (data === undefined || !check(v.importedChargeprice, data, file)) continue;
+    chargepriceFiles++;
+    if (rel !== `${data.make}.json`) errors.push(`${file}: file name must be ${data.make}.json`);
+    data.records.forEach((r, i) => {
+      if (chargepriceKeys.has(r.source_key)) errors.push(`${file}: duplicate source_key "${r.source_key}"`);
+      chargepriceKeys.add(r.source_key);
+      const pts = r.curve?.points ?? [];
+      for (let j = 1; j < pts.length; j++) {
+        if (pts[j].soc_percent <= pts[j - 1].soc_percent) {
+          errors.push(`${file}: records[${i}].curve points must be sorted by soc_percent with no repeats`);
+          break;
+        }
+      }
+    });
+    checkSourced(data, file);
+  }
+
   // --- Crosswalk ---
   let crosswalkCount = 0;
   const crosswalkFile = join(root, 'crosswalk', 'crosswalk.csv');
@@ -280,6 +307,9 @@ export function validateRepo(root: string): ValidationResult {
       if (row.source === 'openev' && openevFiles > 0 && !openevKeys.has(row.source_key as string)) {
         errors.push(`${where}: OpenEV key "${row.source_key}" is not in data/imported/openev`);
       }
+      if (row.source === 'chargeprice' && chargepriceFiles > 0 && !chargepriceKeys.has(row.source_key as string)) {
+        errors.push(`${where}: Chargeprice key "${row.source_key}" is not in data/imported/chargeprice`);
+      }
       const key = `${variantId}|${row.source}`;
       if (seen.has(key)) errors.push(`${where}: ${variantId} already has a ${row.source} row`);
       seen.add(key);
@@ -297,6 +327,7 @@ export function validateRepo(root: string): ValidationResult {
       crosswalk_rows: crosswalkCount,
       nrcan_records: nrcanKeys.size,
       openev_records: openevKeys.size,
+      chargeprice_records: chargepriceKeys.size,
     },
   };
 }

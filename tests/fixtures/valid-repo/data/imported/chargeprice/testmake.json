@@ -1,0 +1,21 @@
+{
+  "source": "chargeprice",
+  "source_id": "src-test-oem-spec",
+  "make": "testmake",
+  "records": [
+    {
+      "source_key": "00000000-0000-4000-8000-000000000001",
+      "year": 2025,
+      "make": "Testmake",
+      "model": "Sparkle",
+      "variant": "Long Range AWD",
+      "capacity_usable_kwh": [{ "value": 70, "unit": "kWh", "kind": "manufacturer", "source_id": "src-test-oem-spec", "low_confidence": true }],
+      "curve": {
+        "kind": "tested",
+        "source_id": "src-test-oem-spec",
+        "points": [{ "soc_percent": 0, "power_kw": 150 }, { "soc_percent": 47, "power_kw": 193 }, { "soc_percent": 100, "power_kw": 11 }],
+        "notes": "Test fixture curve"
+      }
+    }
+  ]
+}

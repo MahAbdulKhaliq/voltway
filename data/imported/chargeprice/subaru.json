@@ -1,0 +1,134 @@
+{
+  "source": "chargeprice",
+  "source_id": "src-chargeprice-archive-2025-04",
+  "make": "subaru",
+  "records": [
+    {
+      "source_key": "1a1dee6f-b8cc-434d-9e29-d49d30444927",
+      "year": 2022,
+      "make": "Subaru",
+      "model": "awd",
+      "capacity_usable_kwh": [
+        {
+          "value": 64,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 64,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "70b58a2f-76e8-fcb9-a2f9-638914d7f429",
+      "year": 2022,
+      "make": "Subaru",
+      "model": "Solterra",
+      "variant": "AWD",
+      "capacity_usable_kwh": [
+        {
+          "value": 64,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve": {
+        "kind": "tested",
+        "source_id": "src-chargeprice-archive-2025-04",
+        "points": [
+          {
+            "soc_percent": 0,
+            "power_kw": 142.5
+          },
+          {
+            "soc_percent": 10,
+            "power_kw": 150
+          },
+          {
+            "soc_percent": 30,
+            "power_kw": 150
+          },
+          {
+            "soc_percent": 50,
+            "power_kw": 120
+          },
+          {
+            "soc_percent": 80,
+            "power_kw": 70
+          },
+          {
+            "soc_percent": 90,
+            "power_kw": 40
+          },
+          {
+            "soc_percent": 100,
+            "power_kw": 20
+          }
+        ],
+        "notes": "Measured curve as published in the Chargeprice Open EV Data archive, which described its measured curves as simplified versions of Fastned charging charts (battery around 30 °C). Chain recorded in data-sources.md; the original chargeprice/open-ev-data README is no longer online to re-check (2026-11-15)."
+      }
+    }
+  ]
+}

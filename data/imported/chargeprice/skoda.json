@@ -1,0 +1,2195 @@
+{
+  "source": "chargeprice",
+  "source_id": "src-chargeprice-archive-2025-04",
+  "make": "skoda",
+  "records": [
+    {
+      "source_key": "2d867f57-3c8d-443c-874f-1836d100bd28",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "85x",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "28231795-37f7-4cec-b0cd-aed44b474369",
+      "year": 2020,
+      "make": "Skoda",
+      "model": "CITIGOe iV",
+      "capacity_usable_kwh": [
+        {
+          "value": 32.3,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 37,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "ffcd3116-4e17-49ff-a926-941c062643ea",
+      "year": 2020,
+      "make": "Skoda",
+      "model": "CITIGOe iV",
+      "variant": "CCS",
+      "capacity_usable_kwh": [
+        {
+          "value": 32.3,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 34,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve": {
+        "kind": "tested",
+        "source_id": "src-chargeprice-archive-2025-04",
+        "points": [
+          {
+            "soc_percent": 0,
+            "power_kw": 32
+          },
+          {
+            "soc_percent": 27,
+            "power_kw": 34
+          },
+          {
+            "soc_percent": 80,
+            "power_kw": 14
+          },
+          {
+            "soc_percent": 100,
+            "power_kw": 7
+          }
+        ],
+        "notes": "Measured curve as published in the Chargeprice Open EV Data archive, which described its measured curves as simplified versions of Fastned charging charts (battery around 30 °C). Chain recorded in data-sources.md; the original chargeprice/open-ev-data README is no longer online to re-check (2026-11-15)."
+      }
+    },
+    {
+      "source_key": "339435bb-2b25-45d4-91cf-8271aaf25516",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "coupe 60",
+      "capacity_usable_kwh": [
+        {
+          "value": 58,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 58,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "422b7e3d-7cee-4083-bce0-9e499cf1e210",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "coupe 85",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "08eb0427-0305-4fba-a528-0af536c1babc",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "coupe 85x",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "514c2c60-15d5-47c2-a346-64c5c9083969",
+      "year": 2022,
+      "make": "Skoda",
+      "model": "coupe iv 60",
+      "capacity_usable_kwh": [
+        {
+          "value": 58,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 58,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "cb336e48-dd22-4022-9e1f-3a33258648a1",
+      "year": 2022,
+      "make": "Skoda",
+      "model": "coupe iv 80",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "4e12736a-963d-4eff-8419-3df67b14d7ea",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "coupe iv 80x",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "07f6978a-997d-4b9a-b7af-323ddd9a9461",
+      "year": 2022,
+      "make": "Skoda",
+      "model": "coupe iv rs",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "2e0ceb00-7345-40a2-9608-b26cdddd7103",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "coupe rs",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "3568f6a2-06e9-437b-be27-e93f21e529b0",
+      "year": 2024,
+      "make": "Skoda",
+      "model": "Elroq",
+      "variant": "85",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 175,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "9930db05-3314-4b9d-b169-e9acca4324fc",
+      "year": 2024,
+      "make": "Skoda",
+      "model": "Elroq",
+      "variant": "60",
+      "capacity_usable_kwh": [
+        {
+          "value": 59,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 165,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "b81a13b0-beca-447b-a6aa-11d0689c1773",
+      "year": 2024,
+      "make": "Skoda",
+      "model": "Elroq",
+      "variant": "50",
+      "capacity_usable_kwh": [
+        {
+          "value": 52,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 145,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "1f174522-5c12-4658-8fa9-70ec4a673327",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "Enyaq",
+      "variant": "RS",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 175,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "8c8b6921-b0d7-41bd-8f45-fff68ed8b34a",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "Enyaq",
+      "variant": "85",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 135,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "93728022-b25a-4385-863b-efa610ca0f35",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "Enyaq",
+      "variant": "85x",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 175,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "cdda9d0c-0c6b-400a-b2b3-ed69cdde18ac",
+      "year": 2024,
+      "make": "Skoda",
+      "model": "Enyaq",
+      "variant": "50",
+      "capacity_usable_kwh": [
+        {
+          "value": 52,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 145,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "d14682ea-0eeb-49ea-b299-b7a4e16d4807",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "Enyaq 60",
+      "capacity_usable_kwh": [
+        {
+          "value": 58,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 58,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "facd3365-c221-4ea6-8ad4-3bd22eeb1a2e",
+      "year": 2025,
+      "make": "Skoda",
+      "model": "Enyaq 60",
+      "capacity_usable_kwh": [
+        {
+          "value": 59,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 165,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "aa2744a9-e72b-4420-8b4a-d0d22ab6d35d",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "Enyaq 85",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "6f6a1ab7-410c-4b5c-b887-e6bfb61f6811",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "Enyaq Coupe",
+      "variant": "85",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 135,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "a0da502a-5e68-4dc7-949d-754f397a7809",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "Enyaq Coupe",
+      "variant": "85x",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 175,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "f3e34027-0e72-485a-9899-9186b4422371",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "Enyaq Coupe",
+      "variant": "RS",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 175,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "917d4d68-6eab-432e-89cb-433489080f63",
+      "year": 2025,
+      "make": "Skoda",
+      "model": "Enyaq Coupe 60",
+      "capacity_usable_kwh": [
+        {
+          "value": 59,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 165,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "86011e18-e79d-42d4-b9aa-f35e37d408c4",
+      "year": 2022,
+      "make": "Skoda",
+      "model": "Enyaq Coupe iV 60",
+      "capacity_usable_kwh": [
+        {
+          "value": 58,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 124,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "47eaa8b3-822e-444c-8ce0-2fbe27918013",
+      "year": 2022,
+      "make": "Skoda",
+      "model": "Enyaq Coupe iV 80",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 143,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "210a3c32-be96-4442-9a6a-72b0fdc5c922",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "Enyaq Coupe iV 80x",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 175,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "e2d073f2-fc0d-43e6-a4e8-6658e0269779",
+      "year": 2022,
+      "make": "Skoda",
+      "model": "Enyaq Coupe iV RS",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 175,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "18bb40bd-321b-4326-a404-e46652538830",
+      "year": 2020,
+      "make": "Skoda",
+      "model": "Enyaq iV",
+      "variant": "82 kWh 50 kW-DC",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "4dc6b014-8612-4fa7-bb34-9ea4d7fa5220",
+      "year": 2020,
+      "make": "Skoda",
+      "model": "Enyaq iV",
+      "variant": "62 kWh 50 kW-DC",
+      "capacity_usable_kwh": [
+        {
+          "value": 58,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "55ac0aaf-6bae-4a8e-ba50-4a9a7ab5b4af",
+      "year": 2020,
+      "make": "Skoda",
+      "model": "Enyaq iV",
+      "variant": "62 kWh 100 kW-DC",
+      "capacity_usable_kwh": [
+        {
+          "value": 58,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "aa69b5e8-fc4e-40f8-8060-2c96248f62ef",
+      "year": 2020,
+      "make": "Skoda",
+      "model": "Enyaq iV",
+      "variant": "82 kWh 125 kW-DC",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 125,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve": {
+        "kind": "tested",
+        "source_id": "src-chargeprice-archive-2025-04",
+        "points": [
+          {
+            "soc_percent": 0,
+            "power_kw": 125
+          },
+          {
+            "soc_percent": 35,
+            "power_kw": 125
+          },
+          {
+            "soc_percent": 50,
+            "power_kw": 100
+          },
+          {
+            "soc_percent": 70,
+            "power_kw": 70
+          },
+          {
+            "soc_percent": 80,
+            "power_kw": 70
+          },
+          {
+            "soc_percent": 90,
+            "power_kw": 37
+          },
+          {
+            "soc_percent": 100,
+            "power_kw": 25
+          }
+        ],
+        "notes": "Measured curve as published in the Chargeprice Open EV Data archive, which described its measured curves as simplified versions of Fastned charging charts (battery around 30 °C). Chain recorded in data-sources.md; the original chargeprice/open-ev-data README is no longer online to re-check (2026-11-15)."
+      }
+    },
+    {
+      "source_key": "ff261470-8556-4051-afec-c049abd5fe6a",
+      "year": 2020,
+      "make": "Skoda",
+      "model": "Enyaq iV",
+      "variant": "55 kWh",
+      "capacity_usable_kwh": [
+        {
+          "value": 52,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "d2fd2689-1c85-4702-a964-697715939586",
+      "year": 2021,
+      "make": "Skoda",
+      "model": "Enyaq iV 50",
+      "capacity_usable_kwh": [
+        {
+          "value": 52,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "347f39e5-1a15-41f5-84aa-6ec3ba8dc2b7",
+      "year": 2021,
+      "make": "Skoda",
+      "model": "Enyaq iV 60",
+      "capacity_usable_kwh": [
+        {
+          "value": 58,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 124,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "42a6226d-3e59-4c09-bdc9-e60fdcfe3a5a",
+      "year": 2021,
+      "make": "Skoda",
+      "model": "Enyaq iV 80",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 143,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "a3f439e7-557a-4895-a3d2-81124f291417",
+      "year": 2021,
+      "make": "Skoda",
+      "model": "Enyaq iV 80x",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 175,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "d446603f-b1b9-41a7-b337-4ad2d24e36d7",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "Enyaq iV RS",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 175,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "e4d7b9b8-a722-488a-9204-ff76974107d3",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "Enyaq RS",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "49e1116d-bfa0-4821-aee7-479b59cb70da",
+      "year": 2020,
+      "make": "Skoda",
+      "model": "iv",
+      "capacity_usable_kwh": [
+        {
+          "value": 32.3,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 32.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 32.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "b70be6bf-1656-4e85-9b55-edc29ad90c22",
+      "year": 2021,
+      "make": "Skoda",
+      "model": "iv 50",
+      "capacity_usable_kwh": [
+        {
+          "value": 52,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 52,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "cf0249f0-5d1a-4e44-8de1-30cb7bc62957",
+      "year": 2021,
+      "make": "Skoda",
+      "model": "iv 60",
+      "capacity_usable_kwh": [
+        {
+          "value": 58,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 58,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "5cab1484-6a23-4819-a6db-f77bc37e74d4",
+      "year": 2021,
+      "make": "Skoda",
+      "model": "iv 80",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "09929dff-cebe-49a4-be8b-b6615f17c0b4",
+      "year": 2021,
+      "make": "Skoda",
+      "model": "iv 80x",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    },
+    {
+      "source_key": "a9e3268e-2b4e-46a9-b326-580e5f738ee0",
+      "year": 2023,
+      "make": "Skoda",
+      "model": "iv rs",
+      "capacity_usable_kwh": [
+        {
+          "value": 77,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 77,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    }
+  ]
+}

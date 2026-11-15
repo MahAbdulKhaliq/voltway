@@ -42,7 +42,7 @@ describe('valid data', () => {
   it('the fixture passes with no errors', () => {
     const { errors, counts } = validateRepo(makeRepo());
     expect(errors).toEqual([]);
-    expect(counts).toMatchObject({ sources: 3, makes: 1, models: 1, variants: 1, curves: 1, crosswalk_rows: 1, nrcan_records: 1, openev_records: 1 });
+    expect(counts).toMatchObject({ sources: 3, makes: 1, models: 1, variants: 1, curves: 1, crosswalk_rows: 1, nrcan_records: 1, openev_records: 1, chargeprice_records: 1 });
   });
 
   it('the real repository data passes', () => {

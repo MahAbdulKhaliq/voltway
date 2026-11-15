@@ -1,0 +1,99 @@
+{
+  "source": "chargeprice",
+  "source_id": "src-chargeprice-archive-2025-04",
+  "make": "dongfeng",
+  "records": [
+    {
+      "source_key": "7e216838-52f3-46eb-9017-6f8e5b0e1e6c",
+      "year": 2025,
+      "make": "Dongfeng",
+      "model": "Box 31.4 kWh",
+      "capacity_usable_kwh": [
+        {
+          "value": 29,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 57,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "flagged_default"
+    },
+    {
+      "source_key": "89ef2a99-63db-4436-89ec-f58cd33fa639",
+      "year": 2024,
+      "make": "Dongfeng",
+      "model": "Box 42.3 kWh",
+      "capacity_usable_kwh": [
+        {
+          "value": 40,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 60,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-chargeprice-archive-2025-04",
+          "low_confidence": true,
+          "notes": "The Chargeprice archive does not cite a source for its specs."
+        }
+      ],
+      "curve_skipped": "generic_shape"
+    }
+  ]
+}

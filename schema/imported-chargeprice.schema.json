@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MahAbdulKhaliq/voltway/schema/imported-chargeprice.schema.json",
+  "title": "Imported Chargeprice archive records (one make)",
+  "description": "Written by scripts/import-chargeprice.ts. source_key is the archive's vehicle UUID; crosswalk rows point to it. Only measured, non-generic curves are kept; curve_skipped says why one was dropped. File: data/imported/chargeprice/<make>.json",
+  "type": "object",
+  "required": ["source", "source_id", "make", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "source": { "const": "chargeprice" },
+    "source_id": { "$ref": "common.schema.json#/$defs/sourceId" },
+    "make": { "$ref": "common.schema.json#/$defs/slug" },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_key", "year", "make", "model"],
+        "additionalProperties": false,
+        "properties": {
+          "source_key": { "type": "string", "pattern": "^[0-9a-f-]{36}$" },
+          "year": { "type": "integer", "minimum": 2008, "maximum": 2100 },
+          "make": { "type": "string", "minLength": 1 },
+          "model": { "type": "string", "minLength": 1 },
+          "variant": { "type": "string", "minLength": 1 },
+          "capacity_usable_kwh": { "$ref": "common.schema.json#/$defs/field_kwh" },
+          "dc_max_kw": { "$ref": "common.schema.json#/$defs/field_kw" },
+          "ac_max_kw": { "$ref": "common.schema.json#/$defs/field_kw" },
+          "nominal_voltage_class": { "$ref": "variant.schema.json#/$defs/fact_voltage_class" },
+          "curve": {
+            "type": "object",
+            "required": ["kind", "source_id", "points", "notes"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": { "const": "tested" },
+              "source_id": { "$ref": "common.schema.json#/$defs/sourceId" },
+              "points": { "$ref": "curve.schema.json#/properties/points" },
+              "notes": { "type": "string", "minLength": 1 }
+            }
+          },
+          "curve_skipped": { "enum": ["flagged_default", "generic_shape", "no_curve"] }
+        },
+        "oneOf": [
+          { "type": "object", "properties": { "curve": true }, "required": ["curve"] },
+          { "type": "object", "properties": { "curve_skipped": true }, "required": ["curve_skipped"] }
+        ]
+      }
+    }
+  }
+}

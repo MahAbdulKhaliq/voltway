@@ -88,12 +88,13 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 
 - [x] **4.1 Car pages** — `src/pages/cars/[...id].astro`. Done when: one static page per variant at `/cars/make/model/year/variant`, key tiles with badges, specs, trims, sources.
   - Verified 2026-11-16: 84 static pages at /cars/make/model/year/variant; sibling variants as links (no separate trim selector: trims are shown in a table), six key tiles with badges, grouped specs, trims table (per-trim NRCan range, heat pump), sources list, not-sold-in-Canada banner. Home page lists every car until Phase 5.
+  - **Changed 2026-11-16 (owner decision B11):** per-variant pages replaced by the **Charging tab** (`/charging`, also the home page): Make → Model → Year → Variant → Trim dropdowns, key figures, curve viewer, specs, trims, sources on one screen; URL follows the choice. **Cars tab** (`/cars`) lists make → model accordions linking into Charging. Old `/cars/<id>` links redirect. Files: `src/components/CarExplorer.tsx`, `src/components/react/Badge.tsx`, `src/components/ChargingPage.astro`, `src/pages/{index,charging}.astro`, `src/pages/cars/index.astro`, `src/pages/cars/[...id].astro`.
 - [ ] **4.2 Curve viewer island** — `src/components/CurveViewer.tsx`. Done when: every MVP item in charging-curve-viewer.md §2, §4, §5 works in the browser (checked manually).
   - Progress 2026-11-16: `src/components/CurveViewer.tsx` works in the browser: curve dropdown, SoC sliders, presets 50–350 kW + custom + No limit, range basis, SoC/time toggle, results panel (time, km added, km/10 min, average kW, lost to charger limit, curve source), More detail (peak, minutes above 100/150/200 kW, raw points table, conditions, basis), warm-battery note, estimated banner with explanation, dashed estimated line, ~ rounding, km/mi live. **Not done:** draggable window guides on the chart (the sliders set the window instead).
 
 ## Phase 5: Browse + picker
 
-- [ ] **5.1 Browse** — `src/pages/cars/index.astro`, `src/components/Browse.tsx`. Done when: cards/table, all MVP filters and sorts in database-ui.md §4, Canada on by default.
+- [ ] **5.1 Browse** — `src/pages/cars/index.astro` (now the Cars tab accordions, B11), `src/components/Browse.tsx`. Filters and sorting get added to the Cars tab. Done when: cards/table, all MVP filters and sorts in database-ui.md §4, Canada on by default.
 - [ ] **5.2 First-load picker + My car** — Done when: search and step pickers work, "Just browsing" skips, My car persists and drives the header chip and default car.
 
 ## Phase 6: Compare

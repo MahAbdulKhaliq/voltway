@@ -1,0 +1,17 @@
+---
+// The Charging tab (B11). Used by both / (home) and /charging.
+import Base from '../layouts/Base.astro';
+import CarExplorer from './CarExplorer.tsx';
+import { t } from '../i18n/t.ts';
+import { loadIndex } from '../lib/data.ts';
+
+const index = loadIndex();
+---
+<Base title={t('charging.title')} active="charging">
+  <p class="muted intro">{t('charging.intro')}</p>
+  <CarExplorer client:load index={index} />
+  <noscript><p class="banner">{t('charging.noJs')} <a href="/cars">{t('nav.cars')}</a></p></noscript>
+</Base>
+<style>
+  .intro { margin: 0 0 16px; }
+</style>

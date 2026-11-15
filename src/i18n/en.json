@@ -5,20 +5,36 @@
   "home.comingSoon": "Phase 1 is under construction.",
   "nav.compareCount": "Compare ({count})",
   "nav.cars": "Cars",
+  "nav.charging": "Charging",
   "nav.main": "Main",
+  "charging.title": "Charging",
+  "charging.intro": "Pick a car to see how fast it charges, with a source on every figure.",
+  "charging.selectVehicle": "Select vehicle",
+  "charging.make": "Make",
+  "charging.model": "Model",
+  "charging.year": "Year",
+  "charging.variant": "Variant",
+  "charging.trim": "Trim",
+  "charging.loading": "Loading…",
+  "charging.loadError": "Couldn't load this car. Try another, or reload the page.",
+  "charging.noJs": "The charging tool needs JavaScript. You can still browse every car in the Cars tab.",
+  "charging.redirecting": "This car now lives in the Charging tab.",
+  "charging.openInCharging": "Open in Charging",
+  "cars.title": "Cars",
+  "cars.intro": "Every EV in the database, by make and model. Pick a variant to open it in the Charging tab.",
+  "cars.models": "{count} models",
+  "cars.expandAll": "Expand all",
+  "cars.collapseAll": "Collapse all",
   "units.label": "Distance units",
   "units.km": "km",
   "units.mi": "mi",
-
   "home.title": "EVs sold in Canada",
   "home.intro": "Every figure on Voltway shows where it came from. Pick a car to see its specs and charging curve.",
   "home.count": "{count} variants across {models} models",
   "home.variants": "{count} variants",
   "home.estimatedNote": "~ = estimated",
-
   "footer.note": "Figures are estimates for comparison. Check the manufacturer before you buy or plan a trip.",
   "footer.data": "Data: NRCan Fuel Consumption Ratings (Open Government Licence – Canada), OpenEV Data (CDLA-Permissive-2.0), Open EV Data (https://github.com/KilowattApp/open-ev-data).",
-
   "kind.rated_nrcan": "Official (Canada)",
   "kind.rated_epa": "Official (US)",
   "kind.rated_wltp": "WLTP",
@@ -26,7 +42,6 @@
   "kind.tested": "Tested",
   "kind.community": "Community",
   "kind.estimated": "Estimated",
-
   "badge.unknown": "Unknown",
   "badge.source": "Source",
   "badge.accessed": "Accessed {date}",
@@ -36,7 +51,6 @@
   "badge.lowConfidence": "Low confidence",
   "badge.lowConfidenceHelp": "The source is weak (for example a homepage, an uncited dataset or a quick web lookup).",
   "badge.open": "Show source for {label}",
-
   "car.backToCars": "All cars",
   "car.variant": "Variant",
   "car.variants": "Other variants of the {year} {model}",
@@ -56,7 +70,6 @@
   "car.wheelStandard": "{size}″ standard",
   "car.licence": "Licence: {licence}",
   "car.reportProblem": "Something wrong? Report it on GitHub.",
-
   "tile.range": "Range",
   "tile.efficiency": "Efficiency",
   "tile.battery": "Usable battery",
@@ -64,12 +77,10 @@
   "tile.dcPeak": "DC peak",
   "tile.time1080": "10–80% charge",
   "tile.kmPer10": "Added per 10 min",
-
   "group.battery": "Battery",
   "group.charging": "Charging",
   "group.efficiency": "Efficiency & range",
   "group.ports": "Ports & access",
-
   "field.capacity_usable_kwh": "Usable capacity",
   "field.capacity_gross_kwh": "Total capacity",
   "field.chemistry": "Chemistry",
@@ -88,7 +99,6 @@
   "field.curb_weight_kg": "Curb weight",
   "field.drivetrain": "Drivetrain",
   "field.heat_pump": "Heat pump",
-
   "value.nacs": "NACS (Tesla)",
   "value.ccs1": "CCS1",
   "value.chademo": "CHAdeMO",
@@ -114,7 +124,6 @@
   "value.rwd": "Rear-wheel drive",
   "value.awd": "All-wheel drive",
   "value.unknown": "Unknown",
-
   "body.sedan": "Sedan",
   "body.hatchback": "Hatchback",
   "body.suv": "SUV",
@@ -124,7 +133,6 @@
   "body.wagon": "Wagon",
   "body.coupe": "Coupe",
   "body.unknown": "Vehicle",
-
   "fmt.km": "{value} km",
   "fmt.mi": "{value} mi",
   "fmt.kwh": "{value} kWh",
@@ -136,7 +144,6 @@
   "fmt.kwh100km": "{value} kWh/100 km",
   "fmt.kwh100mi": "{value} kWh/100 mi",
   "fmt.per10min": "{value} per 10 min",
-
   "viewer.title": "Charging curve",
   "viewer.curve": "Curve",
   "viewer.start": "Start",
@@ -182,5 +189,7 @@
   "viewer.option.community": "Community",
   "viewer.option.manufacturer": "Manufacturer",
   "viewer.option.estimated": "Estimated",
-  "viewer.chartTable": "Chart data as a table"
+  "viewer.chartTable": "Chart data as a table",
+  "cars.models1": "1 model",
+  "home.variants1": "1 variant"
 }

@@ -64,7 +64,8 @@ for (const [variantId, rows] of byVariant) {
   const head = parseName(nrcanRows[0].rec.model);
   // Variant name: NRCan's words after the model name, as NRCan writes them (minus wheel/charger/pack hints).
   const words = head.base.split(' ');
-  const variantName = words.slice(prefixLen).join(' ').trim() || 'Standard';
+  // A pack size in NRCan's name splits variants (e.g. F-150 Lightning 123 vs 131 kWh), so keep it in the name.
+  const variantName = (words.slice(prefixLen).join(' ').trim() || 'Standard') + (head.pack_kwh ? ` (${head.pack_kwh} kWh)` : '');
   const ev = rows.find((r) => r.source === 'openev');
   const evDrive = ev ? openevByKey.get(ev.source_key)?.drivetrain : undefined;
   const drivetrain = head.drivetrain ?? (evDrive === 'fwd' || evDrive === 'rwd' || evDrive === 'awd' ? evDrive : 'unknown');

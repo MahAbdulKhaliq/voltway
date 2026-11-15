@@ -3,7 +3,51 @@
   "model_id": "kia/ev9",
   "year": 2026,
   "name": "Light",
-  "drivetrain": "unknown",
+  "drivetrain": "rwd",
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-ev9-2026"
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-ev9-2026"
+    }
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 76.1,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-slashgear-2026-ev9",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked). Gross capacity."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-slashgear-2026-ev9",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ]
+  },
+  "published_10_80_min": [
+    {
+      "value": 20,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-ev9-2026",
+      "notes": "Light RWD, “as little as 20 minutes” on a 350 kW charger."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

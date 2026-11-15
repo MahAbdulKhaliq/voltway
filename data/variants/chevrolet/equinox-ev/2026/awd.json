@@ -4,14 +4,54 @@
   "year": 2026,
   "name": "AWD",
   "drivetrain": "awd",
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 85,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-chevrolet-equinox-ev",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked). “85 kWh battery pack”; gross or usable not stated."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-chevrolet-equinox-ev",
+      "low_confidence": true,
+      "notes": "Quick web lookup (rough, not cross-checked)."
+    }
+  ],
   "trims": [
     {
       "id": "11-5-kw-charger",
-      "name": "AWD (11.5 kW Charger)"
+      "name": "AWD (11.5 kW Charger)",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-chevrolet-equinox-ev",
+          "low_confidence": true,
+          "notes": "Quick web lookup (rough, not cross-checked)."
+        }
+      ]
     },
     {
       "id": "19-2-kw-charger",
-      "name": "AWD (19.2 kW Charger)"
+      "name": "AWD (19.2 kW Charger)",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-chevrolet-equinox-ev",
+          "low_confidence": true,
+          "notes": "Quick web lookup (rough, not cross-checked)."
+        }
+      ]
     }
   ]
 }

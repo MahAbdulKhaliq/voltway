@@ -4,14 +4,63 @@
   "year": 2025,
   "name": "Long Range",
   "drivetrain": "rwd",
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 77.4,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-auto123-ioniq-6-2025",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-auto123-ioniq-6-2025",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-auto123-ioniq-6-2025",
+      "low_confidence": true,
+      "notes": "Quick web lookup (rough, not cross-checked)."
+    }
+  ],
   "trims": [
     {
       "id": "18-in-wheels",
-      "name": "Long Range (18\" Wheels)"
+      "name": "Long Range (18\" Wheels)",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-auto123-ioniq-6-2025",
+          "low_confidence": true,
+          "notes": "Quick web lookup (rough, not cross-checked). Dealer spec sheet lists a heat pump on RWD and AWD."
+        }
+      ]
     },
     {
       "id": "20-in-wheels",
-      "name": "Long Range (20\" Wheels)"
+      "name": "Long Range (20\" Wheels)",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-auto123-ioniq-6-2025",
+          "low_confidence": true,
+          "notes": "Quick web lookup (rough, not cross-checked). Dealer spec sheet lists a heat pump on RWD and AWD."
+        }
+      ]
     }
   ]
 }

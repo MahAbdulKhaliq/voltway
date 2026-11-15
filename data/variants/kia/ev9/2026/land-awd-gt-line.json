@@ -4,10 +4,52 @@
   "year": 2026,
   "name": "Land AWD GT-Line",
   "drivetrain": "awd",
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-ev9-2026"
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-ev9-2026"
+    }
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 99.8,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-slashgear-2026-ev9",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked). Gross capacity."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-slashgear-2026-ev9",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ]
+  },
   "trims": [
     {
       "id": "standard",
-      "name": "Land AWD GT-Line"
+      "name": "Land AWD GT-Line",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-kia-ca-ev9-2026"
+        }
+      ]
     }
   ]
 }

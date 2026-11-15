@@ -5,7 +5,9 @@ Owner's instruction (2026-11-15): find **rough** info online, don't dig deep. Ap
 ## Applied already
 - `research/hyundai-2026.json`: IONIQ 5 (800V), IONIQ 9 (110.3 kWh, 800V, NACS, heat pump, 24 min), Kona Electric (64.8 kWh, FWD, 43 min, low confidence). Read directly from the pages, so not low confidence except where marked.
 
-## Found, not yet applied
+## Applied in research/batch-2026-11-16.json (except where noted)
+
+LYRIQ figures were not applied (no usable source URL for them). Silverado per-trim battery sizes still unknown.
 
 **Kia EV6 2025** (read directly on kia.ca: https://www.kia.ca/en/vehicles/ev6)
 - NACS port, Supercharger access ("access to thousands of additional fast-charge stations across Canada and the United States")

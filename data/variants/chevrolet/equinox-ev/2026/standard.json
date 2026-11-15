@@ -4,10 +4,41 @@
   "year": 2026,
   "name": "Standard",
   "drivetrain": "fwd",
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 85,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-chevrolet-equinox-ev",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked). “85 kWh battery pack”; gross or usable not stated."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-chevrolet-equinox-ev",
+      "low_confidence": true,
+      "notes": "Quick web lookup (rough, not cross-checked)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Equinox EV"
+      "name": "Equinox EV",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-chevrolet-equinox-ev",
+          "low_confidence": true,
+          "notes": "Quick web lookup (rough, not cross-checked)."
+        }
+      ]
     }
   ]
 }

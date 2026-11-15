@@ -1,0 +1,3440 @@
+{
+  "source": "openev",
+  "source_id": "src-openev-v1-24-0",
+  "make": "ford",
+  "records": [
+    {
+      "source_key": "ford:e_transit:2023:e_transit",
+      "year": 2023,
+      "make": "Ford",
+      "model": "E-Transit",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford E-Transit 2023",
+          "url": "https://www.ford.com/commercial-trucks/e-transit/"
+        },
+        {
+          "type": "oem",
+          "title": "Ford E-Transit Brasil",
+          "url": "https://www.ford.com.br/eletrificacao/veiculos-eletricos/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 198,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 68,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 64,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 115,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 317,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2690,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:e_transit:2024:e_transit",
+      "year": 2024,
+      "make": "Ford",
+      "model": "E-Transit",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford E-Transit 2024",
+          "url": "https://www.ford.com/commercial-trucks/e-transit/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 198,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 68,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 64,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 115,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 317,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2690,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:e_transit:2025:e_transit",
+      "year": 2025,
+      "make": "Ford",
+      "model": "E-Transit",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford E-Transit 2025",
+          "url": "https://www.ford.com/commercial-trucks/e-transit/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 198,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 68,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 64,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 115,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 317,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2690,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2023:f_150_lightning",
+      "year": 2023,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Pro",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning 2023",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 370,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2023:f_150_lightning_lariat",
+      "year": 2023,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Lariat",
+      "variant": "Lariat",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning Lariat 2023",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 131,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 123,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 515,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2023:f_150_lightning_platinum",
+      "year": 2023,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Platinum",
+      "variant": "Platinum",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning Platinum 2023",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 420,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 131,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 123,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 515,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2023:f_150_lightning_pro",
+      "year": 2023,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Pro",
+      "variant": "Pro",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning Pro 2023",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 370,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2023:f_150_lightning_xlt",
+      "year": 2023,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "XLT",
+      "variant": "XLT",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning XLT 2023",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 370,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2024:f_150_lightning",
+      "year": 2024,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Pro",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning 2024",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 370,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2024:f_150_lightning_lariat",
+      "year": 2024,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Lariat",
+      "variant": "Lariat",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning Lariat 2024",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 131,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 123,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 515,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2024:f_150_lightning_platinum",
+      "year": 2024,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Platinum",
+      "variant": "Platinum",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning Platinum 2024",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 420,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 131,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 123,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 515,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2024:f_150_lightning_pro",
+      "year": 2024,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Pro",
+      "variant": "Pro",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning Pro 2024",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 370,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2024:f_150_lightning_xlt",
+      "year": 2024,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "XLT",
+      "variant": "XLT",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning XLT 2024",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 370,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2025:f_150_lightning",
+      "year": 2025,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Pro",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning 2025",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 370,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2025:f_150_lightning_lariat",
+      "year": 2025,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Lariat",
+      "variant": "Lariat",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning Lariat 2025",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 131,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 123,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 515,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2025:f_150_lightning_platinum",
+      "year": 2025,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Platinum",
+      "variant": "Platinum",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning Platinum 2025",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 420,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 131,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 123,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 515,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2025:f_150_lightning_pro",
+      "year": 2025,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "Pro",
+      "variant": "Pro",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning Pro 2025",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 370,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:f_150_lightning:2025:f_150_lightning_xlt",
+      "year": 2025,
+      "make": "Ford",
+      "model": "F-150 Lightning",
+      "trim": "XLT",
+      "variant": "XLT",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford F-150 Lightning XLT 2025",
+          "url": "https://www.ford.com/trucks/f150/f150-lightning/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 318,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.3,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 155,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 370,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2670,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2023:mustang_mach_e",
+      "year": 2023,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Select",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E Official Specifications",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        },
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E Brasil",
+          "url": "https://www.ford.com.br/eletrificacao/veiculos-eletricos/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 198,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 75.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 379,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 513,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2023:mustang_mach_e_extended_range",
+      "year": 2023,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Extended Range",
+      "variant": "Extended Range",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E Extended Range",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 258,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98.8,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 490,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 610,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2023:mustang_mach_e_gt",
+      "year": 2023,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "GT",
+      "variant": "GT",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E GT",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 358,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 88,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 418,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 490,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2023:mustang_mach_e_premium",
+      "year": 2023,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Premium",
+      "variant": "Premium",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E Premium",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 258,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 88,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 435,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 600,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2023:mustang_mach_e_select",
+      "year": 2023,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Select",
+      "variant": "Select",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E Select",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 198,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 75.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 379,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 513,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2024:mustang_mach_e",
+      "year": 2024,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Select",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E 2024",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 198,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 75.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 379,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 513,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2024:mustang_mach_e_extended_range",
+      "year": 2024,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Extended Range",
+      "variant": "Extended Range",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E Extended Range 2024",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 258,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98.8,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 490,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 610,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2024:mustang_mach_e_gt",
+      "year": 2024,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "GT",
+      "variant": "GT",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E GT 2024",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 358,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 88,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 418,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 490,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2024:mustang_mach_e_premium",
+      "year": 2024,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Premium",
+      "variant": "Premium",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E Premium 2024",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 258,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 88,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 435,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 600,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2024:mustang_mach_e_select",
+      "year": 2024,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Select",
+      "variant": "Select",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E Select 2024",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 198,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 75.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 379,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 513,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2025:mustang_mach_e",
+      "year": 2025,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Select",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E 2025",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 198,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 75.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 379,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 513,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2025:mustang_mach_e_extended_range",
+      "year": 2025,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Extended Range",
+      "variant": "Extended Range",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E Extended Range 2025",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 258,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98.8,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 91,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 490,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 610,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2025:mustang_mach_e_gt",
+      "year": 2025,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "GT",
+      "variant": "GT",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E GT 2025",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 358,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 88,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 418,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 490,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2025:mustang_mach_e_premium",
+      "year": 2025,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Premium",
+      "variant": "Premium",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E Premium 2025",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 258,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 88,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 435,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 600,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "ford:mustang_mach_e:2025:mustang_mach_e_select",
+      "year": 2025,
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "trim": "Select",
+      "variant": "Select",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Ford Mustang Mach-E Select 2025",
+          "url": "https://www.ford.com/suvs/mach-e/"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 198,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 75.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 379,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 513,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2108,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    }
+  ]
+}

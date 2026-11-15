@@ -1,0 +1,1796 @@
+{
+  "source": "openev",
+  "source_id": "src-openev-v1-24-0",
+  "make": "peugeot",
+  "records": [
+    {
+      "source_key": "peugeot:e_2008:2023:e_2008",
+      "year": 2023,
+      "make": "Peugeot",
+      "model": "e-2008",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-2008 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 50,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 46,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 345,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1550,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_2008:2024:e_2008",
+      "year": 2024,
+      "make": "Peugeot",
+      "model": "e-2008",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-2008 2024 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 115,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 54,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 50,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 406,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1550,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_2008:2025:e_2008",
+      "year": 2025,
+      "make": "Peugeot",
+      "model": "e-2008",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-2008 2025 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 115,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 54,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 50,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 406,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1550,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_208:2023:e_208",
+      "year": 2023,
+      "make": "Peugeot",
+      "model": "e-208",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-208 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 50,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 46,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 362,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1455,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_208:2024:e_208",
+      "year": 2024,
+      "make": "Peugeot",
+      "model": "e-208",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-208 2024 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 115,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 54,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 50,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 400,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1455,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_208:2025:e_208",
+      "year": 2025,
+      "make": "Peugeot",
+      "model": "e-208",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-208 2025 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 115,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 54,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 50,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 410,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1455,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_3008:2023:e_3008",
+      "year": 2023,
+      "make": "Peugeot",
+      "model": "e-3008",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-3008 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 157,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 73,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 525,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_3008:2024:e_3008",
+      "year": 2024,
+      "make": "Peugeot",
+      "model": "e-3008",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-3008 2024 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 157,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 73,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 525,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_3008:2024:e_3008_long_range",
+      "year": 2024,
+      "make": "Peugeot",
+      "model": "e-3008",
+      "trim": "Base",
+      "variant": "Long Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-3008 Long Range 2024 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 170,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 96.9,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 700,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_3008:2025:e_3008",
+      "year": 2025,
+      "make": "Peugeot",
+      "model": "e-3008",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-3008 2025 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 157,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 73,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 525,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_3008:2025:e_3008_dual_motor",
+      "year": 2025,
+      "make": "Peugeot",
+      "model": "e-3008",
+      "trim": "Base",
+      "variant": "Dual Motor",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-3008 Dual Motor 2025 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 239,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 73,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 490,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_3008:2025:e_3008_long_range",
+      "year": 2025,
+      "make": "Peugeot",
+      "model": "e-3008",
+      "trim": "Base",
+      "variant": "Long Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-3008 Long Range 2025 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 170,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 96.9,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 701,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_408:2024:e_408",
+      "year": 2024,
+      "make": "Peugeot",
+      "model": "e-408",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-408 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 157,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 73,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 453,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_408:2025:e_408",
+      "year": 2025,
+      "make": "Peugeot",
+      "model": "e-408",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-408 2025 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 157,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 73,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 453,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_5008:2024:e_5008",
+      "year": 2024,
+      "make": "Peugeot",
+      "model": "e-5008",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-5008 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 157,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 73,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 500,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_5008:2024:e_5008_long_range",
+      "year": 2024,
+      "make": "Peugeot",
+      "model": "e-5008",
+      "trim": "Base",
+      "variant": "Long Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-5008 Long Range 2024 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 170,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 96.9,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 668,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_5008:2025:e_5008",
+      "year": 2025,
+      "make": "Peugeot",
+      "model": "e-5008",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-5008 2025 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 157,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 73,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 500,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_5008:2025:e_5008_dual_motor",
+      "year": 2025,
+      "make": "Peugeot",
+      "model": "e-5008",
+      "trim": "Base",
+      "variant": "Dual Motor",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-5008 Dual Motor 2025 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 239,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 73,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 70,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 467,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "peugeot:e_5008:2025:e_5008_long_range",
+      "year": 2025,
+      "make": "Peugeot",
+      "model": "e-5008",
+      "trim": "Base",
+      "variant": "Long Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Peugeot e-5008 Long Range 2025 Official Specifications",
+          "url": "https://www.peugeot.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 170,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 98,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 96.9,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 160,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 668,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    }
+  ]
+}

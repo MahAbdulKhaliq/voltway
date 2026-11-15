@@ -1,0 +1,21 @@
+{
+  "source": "openev",
+  "source_id": "src-test-oem-spec",
+  "make": "testmake",
+  "records": [
+    {
+      "source_key": "testmake:sparkle:2025:awd",
+      "year": 2025,
+      "make": "Testmake",
+      "model": "Sparkle",
+      "trim": "AWD",
+      "drivetrain": "awd",
+      "markets": ["CA", "US"],
+      "upstream_sources": [{ "type": "oem", "url": "https://example.com/ca/en/sparkle/2025/specifications" }],
+      "capacity_usable_kwh": [{ "value": 70, "unit": "kWh", "kind": "manufacturer", "source_id": "src-test-oem-spec" }],
+      "dc_max_kw": [{ "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-test-oem-spec" }],
+      "charge_port": [{ "value": "nacs", "kind": "manufacturer", "source_id": "src-test-oem-spec" }],
+      "heat_pump": [{ "value": "standard_or_optional", "kind": "manufacturer", "source_id": "src-test-oem-spec" }]
+    }
+  ]
+}

@@ -1,0 +1,1549 @@
+{
+  "source": "openev",
+  "source_id": "src-openev-v1-24-0",
+  "make": "lexus",
+  "records": [
+    {
+      "source_key": "lexus:es_350e:2025:es_350e",
+      "year": 2025,
+      "make": "Lexus",
+      "model": "ES 350e",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus ES 350e 2025 Official Specifications",
+          "url": "https://www.lexus.com/models/ES"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 165,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 72.8,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 66,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 600,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 380,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1950,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:es_500e:2025:es_500e",
+      "year": 2025,
+      "make": "Lexus",
+      "model": "ES 500e",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus ES 500e 2025 Official Specifications",
+          "url": "https://www.lexus.com/models/ES"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 252,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 72.8,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 66,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 600,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 380,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2050,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:rz_450e:2023:rz_450e",
+      "year": 2023,
+      "make": "Lexus",
+      "model": "RZ 450e",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus RZ 450e 2023 Official Specifications",
+          "url": "https://www.lexus.com/models/RZ"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 230,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 71.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 65.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 220,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2050,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:rz_450e:2023:rz_450e_luxury",
+      "year": 2023,
+      "make": "Lexus",
+      "model": "RZ 450e",
+      "trim": "Luxury",
+      "variant": "Luxury",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus RZ 450e Luxury 2023 Official Specifications",
+          "url": "https://www.lexus.com/models/RZ"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 230,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 71.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 65.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 220,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2050,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:rz_450e:2023:rz_450e_premium",
+      "year": 2023,
+      "make": "Lexus",
+      "model": "RZ 450e",
+      "trim": "Premium",
+      "variant": "Premium",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus RZ 450e Premium 2023 Official Specifications",
+          "url": "https://www.lexus.com/models/RZ"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 230,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 71.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 65.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 220,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2050,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:rz_450e:2024:rz_450e",
+      "year": 2024,
+      "make": "Lexus",
+      "model": "RZ 450e",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus RZ 450e 2024 Official Specifications",
+          "url": "https://www.lexus.com/models/RZ"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 230,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 71.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 65.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 220,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2050,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:rz_450e:2024:rz_450e_luxury",
+      "year": 2024,
+      "make": "Lexus",
+      "model": "RZ 450e",
+      "trim": "Luxury",
+      "variant": "Luxury",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus RZ 450e Luxury 2024 Official Specifications",
+          "url": "https://www.lexus.com/models/RZ"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 230,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 71.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 65.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 220,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2050,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:rz_450e:2024:rz_450e_premium",
+      "year": 2024,
+      "make": "Lexus",
+      "model": "RZ 450e",
+      "trim": "Premium",
+      "variant": "Premium",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus RZ 450e Premium 2024 Official Specifications",
+          "url": "https://www.lexus.com/models/RZ"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 230,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 71.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 65.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 220,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2050,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:rz_450e:2025:rz_450e",
+      "year": 2025,
+      "make": "Lexus",
+      "model": "RZ 450e",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus RZ 450e 2025 Official Specifications",
+          "url": "https://www.lexus.com/models/RZ"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 230,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 71.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 65.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 220,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2050,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:rz_450e:2025:rz_450e_luxury",
+      "year": 2025,
+      "make": "Lexus",
+      "model": "RZ 450e",
+      "trim": "Luxury",
+      "variant": "Luxury",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus RZ 450e Luxury 2025 Official Specifications",
+          "url": "https://www.lexus.com/models/RZ"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 230,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 71.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 65.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 220,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2050,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:rz_450e:2025:rz_450e_premium",
+      "year": 2025,
+      "make": "Lexus",
+      "model": "RZ 450e",
+      "trim": "Premium",
+      "variant": "Premium",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus RZ 450e Premium 2025 Official Specifications",
+          "url": "https://www.lexus.com/models/RZ"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 230,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 71.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 65.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 220,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2050,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:ux_300e:2023:ux_300e",
+      "year": 2023,
+      "make": "Lexus",
+      "model": "UX 300e",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus UX 300e 2023 Official Specifications",
+          "url": "https://www.lexus.com/models/UX"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 54.3,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 50.3,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 315,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 196,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1780,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:ux_300e:2024:ux_300e",
+      "year": 2024,
+      "make": "Lexus",
+      "model": "UX 300e",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus UX 300e 2024 Official Specifications",
+          "url": "https://www.lexus.com/models/UX"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 54.3,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 50.3,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 315,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 196,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1780,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "lexus:ux_300e:2025:ux_300e",
+      "year": 2025,
+      "make": "Lexus",
+      "model": "UX 300e",
+      "trim": "Base",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Lexus UX 300e 2025 Official Specifications",
+          "url": "https://www.lexus.com/models/UX"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 54.3,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 50.3,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 6.6,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 315,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 196,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1780,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    }
+  ]
+}

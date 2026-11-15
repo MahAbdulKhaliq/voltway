@@ -1,0 +1,467 @@
+{
+  "source": "openev",
+  "source_id": "src-openev-v1-24-0",
+  "make": "rolls-royce",
+  "records": [
+    {
+      "source_key": "rolls_royce:spectre:2023:spectre",
+      "year": 2023,
+      "make": "Rolls-Royce",
+      "model": "Spectre",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Rolls-Royce Spectre Official Launch",
+          "url": "https://www.rolls-roycemotorcars.com/en_US/showroom/spectre.html"
+        },
+        {
+          "type": "press",
+          "title": "Rolls-Royce Spectre: First Electric Rolls-Royce",
+          "url": "https://www.press.rolls-roycemotorcars.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 430,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 105.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 102,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": [
+        {
+          "value": "nmc",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 22,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 195,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 520,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 446,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2975,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "rolls_royce:spectre:2024:spectre",
+      "year": 2024,
+      "make": "Rolls-Royce",
+      "model": "Spectre",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Rolls-Royce Spectre 2024 Official Specifications",
+          "url": "https://www.rolls-roycemotorcars.com/en_US/showroom/spectre.html"
+        },
+        {
+          "type": "press",
+          "title": "Rolls-Royce Spectre 2024",
+          "url": "https://www.press.rolls-roycemotorcars.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 430,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 105.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 102,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": [
+        {
+          "value": "nmc",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 22,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 195,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 520,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 446,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2975,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "rolls_royce:spectre:2025:spectre",
+      "year": 2025,
+      "make": "Rolls-Royce",
+      "model": "Spectre",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Rolls-Royce Spectre 2025 Official Specifications",
+          "url": "https://www.rolls-roycemotorcars.com/en_US/showroom/spectre.html"
+        },
+        {
+          "type": "press",
+          "title": "Rolls-Royce Spectre 2025",
+          "url": "https://www.press.rolls-roycemotorcars.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 430,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 105.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 102,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": [
+        {
+          "value": "nmc",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 22,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 195,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 520,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 446,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2975,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "rolls_royce:spectre:2025:spectre_black_badge",
+      "year": 2025,
+      "make": "Rolls-Royce",
+      "model": "Spectre",
+      "trim": "Base",
+      "variant": "Black Badge",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Rolls-Royce Spectre Black Badge 2025 Official Launch",
+          "url": "https://www.rolls-roycemotorcars.com/en_US/showroom/spectre/black-badge.html"
+        },
+        {
+          "type": "press",
+          "title": "Rolls-Royce Spectre Black Badge: Enhanced Performance",
+          "url": "https://www.press.rolls-roycemotorcars.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 485,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 105.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 102,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": [
+        {
+          "value": "nmc",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 22,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 195,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 404,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "With 23-inch wheels"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2900,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    }
+  ]
+}

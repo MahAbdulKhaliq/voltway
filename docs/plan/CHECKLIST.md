@@ -38,9 +38,10 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
   - Files: `scripts/fetch-nrcan.ts`, `scripts/import-nrcan.ts`, `scripts/lib/nrcan.ts`, `schema/imported-nrcan.schema.json`, `sources/nrcan/`, `data/imported/nrcan/`, `data/sources/src-nrcan-bev-2026-09.json`, `tests/nrcan.test.ts`
   - Done when: the raw CSV is committed with its fetch date; imported records hold Wh/km (= kWh/100 km × 10), range km and 240 V recharge h as `rated_nrcan` sourced values; a unit test checks the conversion on a known row.
   - Verified 2026-11-15: 1,250 rows (2012–2026) → 15 files; `sources/nrcan/FETCHED.json` records fetch date + sha256; conversion tested on a verbatim 2026 Volvo EX30 row; a test re-derives 2026.json from the raw CSV and compares; validator rejects bare numbers in imports and crosswalk keys missing from the import. Motor kW also imported (as `rated_nrcan`) to help matching.
-- [ ] **1.3 OpenEV Data importer**
-  - Files: `scripts/import-openev.ts`, `sources/openev/`, `data/imported/openev/`
+- [x] **1.3 OpenEV Data importer**
+  - Files: `scripts/fetch-openev.ts`, `scripts/import-openev.ts`, `scripts/lib/openev.ts`, `schema/imported-openev.schema.json`, `sources/openev/`, `data/imported/openev/`, `data/sources/src-openev-v1-24-0.json`, `tests/openev.test.ts`
   - Done when: a pinned release is imported; values are tagged manufacturer-via-OpenEV; homepage-only source URLs carry `low_confidence`; validate passes.
+  - Verified 2026-11-15: v1.24.0 pinned (sha256 in FETCHED.json); 665 North American records → 38 make files; all values cite `src-openev-v1-24-0`; 24% of records flagged `low_confidence`; validate OK; 14 OpenEV tests incl. a full re-derivation of the committed import from the raw release. Mapping rules in DESIGN.md. No Kia (D13 confirmed); no curves in this release.
 - [ ] **1.4 Chargeprice importer**
   - Files: `scripts/import-chargeprice.ts`, `sources/chargeprice/`, `data/imported/chargeprice/`
   - Done when: measured curves import as `tested` with the Fastned → Chargeprice chain in notes; default curves are skipped and listed in a log; the MIT attribution is in the source record.

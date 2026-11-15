@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MahAbdulKhaliq/voltway/schema/imported-openev.schema.json",
+  "title": "Imported OpenEV Data records (one make)",
+  "description": "Written by scripts/import-openev.ts from a pinned OpenEV Data release. North American records only (markets include CA or US). source_key is OpenEV's unique_code; crosswalk rows point to it. File: data/imported/openev/<make>.json",
+  "type": "object",
+  "required": ["source", "source_id", "make", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "source": { "const": "openev" },
+    "source_id": { "$ref": "common.schema.json#/$defs/sourceId" },
+    "make": { "$ref": "common.schema.json#/$defs/slug" },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_key", "year", "make", "model", "trim", "markets", "upstream_sources"],
+        "additionalProperties": false,
+        "properties": {
+          "source_key": { "type": "string", "pattern": "^[a-z0-9_-]+:[a-z0-9_-]+:[0-9]{4}:[a-z0-9_-]+$" },
+          "year": { "type": "integer", "minimum": 2010, "maximum": 2100 },
+          "make": { "type": "string", "minLength": 1 },
+          "model": { "type": "string", "minLength": 1 },
+          "trim": { "type": "string", "minLength": 1 },
+          "variant": { "type": "string", "minLength": 1 },
+          "drivetrain": { "enum": ["fwd", "rwd", "awd"] },
+          "markets": { "type": "array", "items": { "type": "string", "pattern": "^[A-Z]{2}$" } },
+          "upstream_sources": {
+            "description": "OpenEV's own citations for this record, kept for the sources panel and for review.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["type", "url"],
+              "additionalProperties": false,
+              "properties": {
+                "type": { "type": "string" },
+                "title": { "type": "string" },
+                "url": { "type": "string" }
+              }
+            }
+          },
+          "motor_kw": { "$ref": "common.schema.json#/$defs/field_kw" },
+          "capacity_gross_kwh": { "$ref": "common.schema.json#/$defs/field_kwh" },
+          "capacity_usable_kwh": { "$ref": "common.schema.json#/$defs/field_kwh" },
+          "chemistry": { "$ref": "variant.schema.json#/$defs/fact_chemistry" },
+          "nominal_voltage_class": { "$ref": "variant.schema.json#/$defs/fact_voltage_class" },
+          "ac_max_kw": { "$ref": "common.schema.json#/$defs/field_kw" },
+          "dc_max_kw": { "$ref": "common.schema.json#/$defs/field_kw" },
+          "charge_port": { "$ref": "variant.schema.json#/$defs/fact_charge_port" },
+          "heat_pump": {
+            "description": "OpenEV only says a heat pump exists, not standard vs optional, so imports use 'standard_or_optional'. Never shown as 'standard'.",
+            "oneOf": [
+              { "$ref": "common.schema.json#/$defs/unknown" },
+              { "type": "array", "minItems": 1, "items": { "allOf": [{ "$ref": "common.schema.json#/$defs/sourcedFact" }, { "type": "object", "properties": { "value": { "const": "standard_or_optional" } } }] } }
+            ]
+          },
+          "range_km": { "$ref": "common.schema.json#/$defs/field_km" },
+          "curb_weight_kg": { "$ref": "common.schema.json#/$defs/field_kg" },
+          "published_10_80_min": { "$ref": "common.schema.json#/$defs/field_minutes" },
+          "wheels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["diameter_in", "is_standard"],
+              "additionalProperties": false,
+              "properties": {
+                "diameter_in": { "type": "number", "minimum": 12, "maximum": 26 },
+                "is_standard": { "type": "boolean" },
+                "tire_size": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

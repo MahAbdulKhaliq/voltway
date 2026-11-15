@@ -1,6 +1,8 @@
 # Voltway
 
-Voltway is a free, no-login website for Canadian EV drivers and shoppers: trustworthy EV specs and charging curves where **every figure shows its source**.
+Voltway is a free, no-login website for EV drivers and shoppers: trustworthy EV specs and charging curves where **every figure shows its source**.
+
+Current coverage: EVs sold in Canada, with official ratings from Natural Resources Canada (NRCan). The data model and UI are built so more markets can be added.
 
 Phase 1 (in progress): vehicle database + charging curves. A charger map and a trip planner follow in later phases.
 

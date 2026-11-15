@@ -48,3 +48,15 @@ describe('dictionary', () => {
     }
   });
 });
+
+describe('trim labels in the Charging dropdown', async () => {
+  const { trimLabel } = await import('../src/components/CarExplorer.tsx');
+  it('drops the repeated variant name', () => {
+    expect(trimLabel('eDrive40 Gran Coupe (18" Wheels)', 'eDrive40 Gran Coupe')).toBe('18" Wheels');
+    expect(trimLabel('Long Range AWD (20" Wheels)', 'Long Range AWD')).toBe('20" Wheels');
+  });
+  it('keeps names that do not start with the variant name', () => {
+    expect(trimLabel('Platinum', 'Standard')).toBe('Platinum');
+    expect(trimLabel('Long Range', 'Long Range')).toBe('Long Range');
+  });
+});

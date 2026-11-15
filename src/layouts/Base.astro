@@ -4,6 +4,7 @@
 // small script below when the visitor picks miles (database-ui.md §9).
 import '../styles/global.css';
 import { t } from '../i18n/t.ts';
+import { COVERAGE } from '../config.ts';
 
 interface Props { title?: string; description?: string; active?: 'charging' | 'cars' }
 const { title, description = t('site.tagline'), active } = Astro.props;
@@ -39,6 +40,7 @@ const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
     </main>
     <footer class="site-footer">
       <div class="wrap">
+        <p>{t('scope.note', { market: COVERAGE.market, regulator: COVERAGE.regulator })}</p>
         <p>{t('footer.note')}</p>
         <p class="small">{t('footer.data')}</p>
       </div>
@@ -46,6 +48,8 @@ const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
 
     <script>
       import { applyUnits, currentUnit, setUnit } from '../scripts/units-client.ts';
+      import { initBadges } from '../scripts/badges-client.ts';
+      initBadges();
       applyUnits(currentUnit());
       document.querySelectorAll<HTMLButtonElement>('.units button').forEach((b) =>
         b.addEventListener('click', () => setUnit(b.dataset.unit === 'mi' ? 'mi' : 'km')),

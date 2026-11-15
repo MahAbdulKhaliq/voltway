@@ -1,0 +1,20 @@
+{
+  "source": "nrcan",
+  "source_id": "src-test-regulator",
+  "year": 2025,
+  "records": [
+    {
+      "source_key": "2025 · Testmake · Sparkle AWD, LR",
+      "year": 2025,
+      "make": "Testmake",
+      "model": "Sparkle AWD, LR",
+      "vehicle_class": "Sport utility vehicle: Small",
+      "motor_kw": [{ "value": 250, "unit": "kW", "kind": "rated_nrcan", "source_id": "src-test-regulator" }],
+      "consumption_city_wh_per_km": [{ "value": 170, "unit": "Wh/km", "kind": "rated_nrcan", "source_id": "src-test-regulator" }],
+      "consumption_highway_wh_per_km": [{ "value": 200, "unit": "Wh/km", "kind": "rated_nrcan", "source_id": "src-test-regulator" }],
+      "consumption_combined_wh_per_km": [{ "value": 184, "unit": "Wh/km", "kind": "rated_nrcan", "source_id": "src-test-regulator" }],
+      "range_km": [{ "value": 450, "unit": "km", "kind": "rated_nrcan", "source_id": "src-test-regulator" }],
+      "recharge_time_240v_h": [{ "value": 8, "unit": "h", "kind": "rated_nrcan", "source_id": "src-test-regulator" }]
+    }
+  ]
+}

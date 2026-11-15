@@ -20,6 +20,7 @@ const SCHEMA_FILES = [
   'variant.schema.json',
   'curve.schema.json',
   'crosswalk-row.schema.json',
+  'imported-nrcan.schema.json',
 ] as const;
 
 const SCHEMA_BASE = 'https://github.com/MahAbdulKhaliq/voltway/schema/';
@@ -42,6 +43,7 @@ function loadValidators(schemaDir: string) {
     variant: get('variant.schema.json'),
     curve: get('curve.schema.json'),
     crosswalkRow: get('crosswalk-row.schema.json'),
+    importedNrcan: get('imported-nrcan.schema.json'),
   };
 }
 
@@ -219,6 +221,25 @@ export function validateRepo(root: string): ValidationResult {
     if (ids.length > 1) errors.push(`data/curves/${variant}: ${ids.length} curves are display defaults (${ids.join(', ')}); at most one allowed`);
   }
 
+  // --- Imported NRCan ratings ---
+  const nrcanKeys = new Set<string>();
+  let nrcanFiles = 0;
+  for (const rel of listJson(join(dataDir, 'imported', 'nrcan'))) {
+    const file = `data/imported/nrcan/${rel}`;
+    const data = read('imported/nrcan', rel) as
+      | { year: number; source_id: string; records: { source_key: string; year: number }[] }
+      | undefined;
+    if (data === undefined || !check(v.importedNrcan, data, file)) continue;
+    nrcanFiles++;
+    if (rel !== `${data.year}.json`) errors.push(`${file}: file name must be ${data.year}.json`);
+    data.records.forEach((r, i) => {
+      if (r.year !== data.year) errors.push(`${file}: records[${i}] has year ${r.year}, expected ${data.year}`);
+      if (nrcanKeys.has(r.source_key)) errors.push(`${file}: duplicate source_key "${r.source_key}"`);
+      nrcanKeys.add(r.source_key);
+    });
+    checkSourced(data, file);
+  }
+
   // --- Crosswalk ---
   let crosswalkCount = 0;
   const crosswalkFile = join(root, 'crosswalk', 'crosswalk.csv');
@@ -235,6 +256,9 @@ export function validateRepo(root: string): ValidationResult {
       crosswalkCount++;
       const variantId = row.our_variant_id as string;
       if (!variants.has(variantId)) errors.push(`${where}: variant "${variantId}" has no file in data/variants`);
+      if (row.source === 'nrcan' && nrcanFiles > 0 && !nrcanKeys.has(row.source_key as string)) {
+        errors.push(`${where}: NRCan key "${row.source_key}" is not in data/imported/nrcan`);
+      }
       const key = `${variantId}|${row.source}`;
       if (seen.has(key)) errors.push(`${where}: ${variantId} already has a ${row.source} row`);
       seen.add(key);
@@ -250,6 +274,7 @@ export function validateRepo(root: string): ValidationResult {
       variants: variants.size,
       curves: curveCount,
       crosswalk_rows: crosswalkCount,
+      nrcan_records: nrcanKeys.size,
     },
   };
 }

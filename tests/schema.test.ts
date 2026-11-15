@@ -42,7 +42,7 @@ describe('valid data', () => {
   it('the fixture passes with no errors', () => {
     const { errors, counts } = validateRepo(makeRepo());
     expect(errors).toEqual([]);
-    expect(counts).toMatchObject({ sources: 3, makes: 1, models: 1, variants: 1, curves: 1, crosswalk_rows: 1 });
+    expect(counts).toMatchObject({ sources: 3, makes: 1, models: 1, variants: 1, curves: 1, crosswalk_rows: 1, nrcan_records: 1 });
   });
 
   it('the real repository data passes', () => {
@@ -179,7 +179,7 @@ describe('charging curves (vehicle-data-model.md §5)', () => {
 describe('crosswalk (vehicle-data-model.md §6)', () => {
   it('parses quoted CSV fields containing commas', () => {
     const rows = parseCsv(readFileSync(join(FIXTURE, 'crosswalk', 'crosswalk.csv'), 'utf8'));
-    expect(rows[0].source_key).toBe('2025 · TESTMAKE · SPARKLE AWD, LR');
+    expect(rows[0].source_key).toBe('2025 · Testmake · Sparkle AWD, LR');
   });
 
   it('rejects a row for an unknown variant', () => {

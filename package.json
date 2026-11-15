@@ -9,6 +9,9 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "fetch:nrcan": "tsx scripts/fetch-nrcan.ts",
+    "import:nrcan": "tsx scripts/import-nrcan.ts",
+    "data:import": "npm run import:nrcan",
     "validate": "tsx scripts/validate.ts",
     "data:build": "tsx scripts/build-data.ts",
     "prebuild": "npm run validate && npm run data:build",

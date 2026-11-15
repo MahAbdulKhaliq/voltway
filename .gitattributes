@@ -1,1 +1,4 @@
 * text=auto eol=lf
+
+# Raw downloads are kept byte-for-byte so their checksums stay valid.
+sources/** -text

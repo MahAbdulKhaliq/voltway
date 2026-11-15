@@ -49,6 +49,7 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 - [ ] **1.5 Match suggester + crosswalk**
   - Files: `scripts/match.ts`, `crosswalk/crosswalk.csv`, `crosswalk/unmatched.md`
   - Done when: suggestions are written with `confirmed=false`; unmatched records are listed; the owner has confirmed the starter-set rows; the build ignores unconfirmed rows (tested).
+  - Progress 2026-11-15: `scripts/lib/match.ts` + `scripts/suggest-matches.ts` done (12 tests). Proposed starter set in `crosswalk/starter-set.json` (25 models → 84 proposed variants); `crosswalk/suggestions.csv` (all `confirmed=false`) and `crosswalk/REVIEW.md` generated, incl. "no candidate found" lines for unmatched variants. **Waiting on:** owner review of REVIEW.md (starter list, variant grouping, matches) and the onboard-charger question. "Build ignores unconfirmed rows" is tested in 1.7.
 - [ ] **1.6 Starter set + hand entry**
   - Files: `data/makes/`, `data/models/`, `data/variants/`, `data/curves/`, `data/sources/`
   - Done when: the owner has approved the ~25-car list; each car has every MVP field filled or explicitly `"unknown"`; each hand-entered figure cites a specific-page source.

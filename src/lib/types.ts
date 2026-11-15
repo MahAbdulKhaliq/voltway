@@ -51,8 +51,11 @@ export interface TrimOut {
   aliases?: string[];
   heat_pump: Field<string>;
   range_km: Field<number>;      // only set when it differs from the variant's
-  ac_max_kw: Field<number>;     // only set when it differs from the variant's (B7)
-  wheels: { diameter_in: number; is_standard: boolean; tire_size?: string }[];
+  consumption_combined_wh_per_km: Field<number>; // only set when the trim is rated on its own
+  consumption_city_wh_per_km: Field<number>;
+  consumption_highway_wh_per_km: Field<number>;
+  ac_max_kw: Field<number>;     // the trim's own onboard charger (B7), when known
+  wheels: { diameter_in: number; is_standard: boolean; tire_size?: string; source_id?: string }[];
 }
 
 export interface Derived {

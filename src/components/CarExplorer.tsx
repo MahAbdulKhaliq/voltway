@@ -9,10 +9,12 @@ import { displayMinutes } from '../lib/charging.ts';
 import { getItem, setItem, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CarDetail, Field, IndexEntry } from '../lib/types.ts';
+import { applyWheelEffect, type WheelEffect } from '../lib/wheel-effect.ts';
+import { display } from '../lib/format.ts';
 import CurveViewer from './CurveViewer.tsx';
 import { Badge, Value } from './react/Badge.tsx';
 
-interface Props { index: IndexEntry[] }
+interface Props { index: IndexEntry[]; wheelEffect: WheelEffect | null }
 
 const LAST_CAR = 'voltway.lastCar';
 const uniq = <T,>(xs: T[]) => [...new Set(xs)];
@@ -32,13 +34,15 @@ const GROUPS: { title: MessageKey; fields: string[] }[] = [
   { title: 'group.ports', fields: ['charge_port', 'supercharger_access'] },
 ];
 
-export default function CarExplorer({ index }: Props) {
+export default function CarExplorer({ index, wheelEffect }: Props) {
   const cars = useMemo(() => index.filter((e) => e.sold_in_canada), [index]);
   const [carId, setCarId] = useState<string | null>(null);
   const [trimId, setTrimId] = useState<string | null>(null);
   const [car, setCar] = useState<CarDetail | null>(null);
   const [error, setError] = useState(false);
   const [unit, setUnit] = useState<DistanceUnit>('km');
+  const [wheelIn, setWheelIn] = useState<number | null>(null); // null = the trim's rated wheels
+  useEffect(() => setWheelIn(null), [carId, trimId]);
 
   // First car: the link (?car=), else the last one viewed, else the first in the list.
   useEffect(() => {
@@ -96,8 +100,44 @@ export default function CarExplorer({ index }: Props) {
   const label = (k: string) => t(`field.${k}` as MessageKey);
   const usable = f.capacity_usable_kwh ?? null;
   const battery = usable ?? f.capacity_gross_kwh ?? null;
-  const range: Field = trim?.range_km ?? f.range_km ?? null;
   const ac: Field = trim?.ac_max_kw ?? f.ac_max_kw ?? null;
+  // Figures rated for this trim when it has its own rating, else the variant's.
+  const rated: Record<string, Field> = {
+    range_km: trim?.range_km ?? f.range_km ?? null,
+    consumption_combined_wh_per_km: trim?.consumption_combined_wh_per_km ?? f.consumption_combined_wh_per_km ?? null,
+    consumption_city_wh_per_km: trim?.consumption_city_wh_per_km ?? f.consumption_city_wh_per_km ?? null,
+    consumption_highway_wh_per_km: trim?.consumption_highway_wh_per_km ?? f.consumption_highway_wh_per_km ?? null,
+  };
+  // Wheel size (B13): the trim's rated wheels are the baseline; another size gives a rough estimate.
+  const baseWheel = trim?.wheels.find((w) => w.is_standard) ?? trim?.wheels[0];
+  const baseIn = baseWheel?.diameter_in ?? null;
+  const chosenIn = wheelIn ?? baseIn;
+  const adjusting = Boolean(wheelEffect && baseIn !== null && chosenIn !== null && chosenIn !== baseIn);
+  const factor = adjusting ? applyWheelEffect(baseIn!, chosenIn!, wheelEffect!, {}).factor : 1;
+  const pct = (x: number) => formatNumber(x * 100, 1);
+  const basis = wheelEffect
+    ? t('wheel.basis', { size: chosenIn ?? '', base: baseIn ?? '', pct: pct(wheelEffect.pct_per_inch), low: pct(wheelEffect.low), high: pct(wheelEffect.high), pairs: wheelEffect.pairs })
+    : '';
+  const estimate = (k: string): Field => {
+    const r = rated[k];
+    if (!adjusting || !r || typeof r.value.value !== 'number') return r;
+    const v = k === 'range_km' ? r.value.value / factor : r.value.value * factor;
+    return {
+      value: { value: Math.round(v * 10) / 10, unit: r.value.unit, kind: 'estimated', source_id: wheelEffect!.source_ids[0] ?? r.value.source_id, notes: basis },
+      others: [r.value, ...r.others],
+      conflict: false,
+    };
+  };
+  const shown: Record<string, Field> = Object.fromEntries(Object.keys(rated).map((k) => [k, estimate(k)]));
+  const range = shown.range_km;
+  const ratedLine = (k: string) =>
+    adjusting && rated[k] ? <span className="rated">{t('tile.rated', { value: display(rated[k]!.value, unit).text })}</span> : null;
+  const factorySizes = new Set((car?.trims ?? []).flatMap((x) => x.wheels.map((w) => w.diameter_in)));
+  const officialTrim = adjusting ? car?.trims.find((x) => x.id !== trim?.id && x.wheels.some((w) => w.diameter_in === chosenIn) && (x.range_km || x.consumption_combined_wh_per_km)) : undefined;
+  const sizes =
+    baseIn !== null
+      ? [...new Set([...Array.from({ length: 11 }, (_, i) => 14 + i), baseIn, ...factorySizes])].sort((a, b) => a - b)
+      : [];
   const defaultCurve = car?.curves.find((c) => c.is_display_default);
   const curveField: Field = defaultCurve
     ? { value: { value: 0, kind: defaultCurve.kind, source_id: defaultCurve.source_id, notes: defaultCurve.basis ?? defaultCurve.notes }, others: [], conflict: false }
@@ -153,8 +193,28 @@ export default function CarExplorer({ index }: Props) {
           <section aria-labelledby="key">
             <h2 id="key" className="sr-only">{t('car.keyFigures')}</h2>
             <div className="tiles">
-              <div className="tile card"><p className="tl">{t('tile.range')}</p><p className="tv"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} /></p></div>
-              <div className="tile card"><p className="tl">{t('tile.efficiency')}</p><p className="tv"><Value field={f.consumption_combined_wh_per_km ?? null} sources={sources} label={t('tile.efficiency')} unit={unit} /></p></div>
+              <div className="tile card"><p className="tl">{t('tile.range')}</p><p className="tv"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={adjusting} />{ratedLine('range_km')}</p></div>
+              <div className="tile card"><p className="tl">{t('tile.efficiency')}</p><p className="tv"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={adjusting} />{ratedLine('consumption_combined_wh_per_km')}</p></div>
+              <div className="tile card wheels"><p className="tl">{t('wheel.label')}</p><div className="tv">
+                {baseIn !== null && wheelEffect ? (
+                  <>
+                    <select value={chosenIn ?? ''} onChange={(e) => setWheelIn(Number(e.target.value))} aria-label={t('wheel.label')}>
+                      {sizes.map((n) => (
+                        <option key={n} value={n}>
+                          {n === baseIn ? t('wheel.rated', { size: n }) : factorySizes.has(n) ? t('wheel.factory', { size: n }) : t('wheel.option', { size: n })}
+                        </option>
+                      ))}
+                    </select>
+                    {baseWheel?.tire_size && <span className="rated">{t('wheel.tire', { tire: baseWheel.tire_size })}</span>}
+                    {adjusting && <span className="rated">{t('wheel.change', { pct: (factor >= 1 ? '+' : '') + pct(factor - 1) })}</span>}
+                    {officialTrim && (
+                      <button type="button" className="linkish" onClick={() => setTrimId(officialTrim.id)}>{t('wheel.useOfficial', { trim: trimLabel(officialTrim.name, car?.name ?? '') })}</button>
+                    )}
+                  </>
+                ) : (
+                  <><span className="unknown">{t('badge.unknown')}</span><span className="rated">{t('wheel.unknownHelp')}</span></>
+                )}
+              </div></div>
               <div className="tile card"><p className="tl">{usable ? t('tile.battery') : t('tile.batteryGross')}</p><p className="tv"><Value field={battery} sources={sources} label={t('tile.battery')} unit={unit} /></p></div>
               <div className="tile card"><p className="tl">{t('tile.dcPeak')}</p><p className="tv"><Value field={f.dc_max_kw ?? null} sources={sources} label={t('tile.dcPeak')} unit={unit} /></p></div>
               <div className="tile card"><p className="tl">{t('tile.time1080')}</p><p className="tv">
@@ -164,7 +224,7 @@ export default function CarExplorer({ index }: Props) {
               </p></div>
               <div className="tile card"><p className="tl">{t('tile.kmPer10')}</p><p className="tv">
                 {d && d.km_per_10_min !== null ? (
-                  <span className="fv">{d.estimated ? '~' : ''}{distance(d.km_per_10_min)} <Badge field={curveField} sources={sources} label={t('tile.kmPer10')} unit={unit} /></span>
+                  <span className="fv">{d.estimated || adjusting ? '~' : ''}{distance(d.km_per_10_min / factor)} <Badge field={curveField} sources={sources} label={t('tile.kmPer10')} unit={unit} /></span>
                 ) : <span className="unknown">{t('badge.unknown')}</span>}
               </p></div>
             </div>
@@ -179,9 +239,9 @@ export default function CarExplorer({ index }: Props) {
                 usableKwh={(battery?.value.value as number) ?? null}
                 batteryIsGross={!usable && Boolean(f.capacity_gross_kwh)}
                 consumption={{
-                  highway: (f.consumption_highway_wh_per_km?.value.value as number) ?? null,
-                  combined: (f.consumption_combined_wh_per_km?.value.value as number) ?? null,
-                  city: (f.consumption_city_wh_per_km?.value.value as number) ?? null,
+                  highway: (shown.consumption_highway_wh_per_km?.value.value as number) ?? null,
+                  combined: (shown.consumption_combined_wh_per_km?.value.value as number) ?? null,
+                  city: (shown.consumption_city_wh_per_km?.value.value as number) ?? null,
                 }}
                 sources={sources.map((s) => ({ id: s.id, title: s.title, url: s.url }))}
               />
@@ -197,8 +257,8 @@ export default function CarExplorer({ index }: Props) {
                   <table className="stack-table">
                     <tbody>
                       {g.fields.map((k) => {
-                        const field: Field = k === 'range_km' ? range : k === 'ac_max_kw' ? ac : f[k] ?? null;
-                        return <tr key={k}><th scope="row">{label(k)}</th><td data-label={label(k)}><Value field={field} sources={sources} label={label(k)} unit={unit} /></td></tr>;
+                        const field: Field = k in shown ? shown[k] : k === 'ac_max_kw' ? ac : f[k] ?? null;
+                        return <tr key={k}><th scope="row">{label(k)}</th><td data-label={label(k)}><Value field={field} sources={sources} label={label(k)} unit={unit} approx={adjusting && k in shown} />{k in shown && ratedLine(k)}</td></tr>;
                       })}
                       {g.title === 'group.ports' && (
                         <tr><th scope="row">{t('field.heat_pump')}</th><td data-label={t('field.heat_pump')}><Value field={trim?.heat_pump ?? null} sources={sources} label={t('field.heat_pump')} unit={unit} /></td></tr>
@@ -259,6 +319,9 @@ export default function CarExplorer({ index }: Props) {
         .explorer .tl { margin: 0 0 6px; color: var(--muted); font-size: 0.85rem; }
         .explorer .tv { margin: 0; font-size: 1.25rem; font-weight: 650; }
         .explorer .tv .badge { font-weight: 400; }
+        .explorer .linkish { display: block; margin-top: 6px; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: 0.8rem; font-weight: 600; text-align: left; cursor: pointer; text-decoration: underline; }
+        .explorer .rated { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-top: 4px; }
+        .explorer .wheels select { font: inherit; font-size: 1rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 4px 8px; width: 100%; }
         .explorer .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
         .explorer .spec-grid th { width: 46%; }
         .explorer tr.current td:first-child { font-weight: 650; }

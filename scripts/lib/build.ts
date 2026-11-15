@@ -6,6 +6,8 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseCsv } from './csv.ts';
+import { parseName } from './match.ts';
+import { deriveWheelEffect, type RatingRow, type WheelEffect } from '../../src/lib/wheel-effect.ts';
 import { calculateCharge } from '../../src/lib/charging.ts';
 import { estimateCurve } from '../../src/lib/estimated-curve.ts';
 import { MVP_FIELDS, type CarDetail, type CurveOut, type Field, type IndexEntry, type Source, type SourcedValue, type TrimOut } from '../../src/lib/types.ts';
@@ -141,10 +143,32 @@ function ownFields(v: any): Record<string, SourcedValue[]> {
   return out;
 }
 
+export interface Estimates {
+  /** Rough wheel-size effect on consumption (B13); null when no source rates a car at two sizes. */
+  wheel: WheelEffect | null;
+}
+
 export interface BuildResult {
   cars: CarDetail[];
   index: IndexEntry[];
+  estimates: Estimates;
   report: { cars: number; unknownByField: Record<string, number>; conflicts: number; curves: Record<string, number> };
+}
+
+/**
+ * Rating rows for the wheel-size effect. Each source that rates the same car at several wheel
+ * sizes gets a small adapter here; NRCan is the first (its model names carry "(20" Wheels)").
+ * An EPA, WLTP or other adapter would push rows of the same shape.
+ */
+export function ratingRows(imported: Record<string, Map<string, any>>): RatingRow[] {
+  const rows: RatingRow[] = [];
+  for (const r of imported.nrcan?.values() ?? []) {
+    const p = parseName(r.model);
+    const c = r.consumption_combined_wh_per_km?.[0];
+    if (!p.wheel_in || !c) continue;
+    rows.push({ group: `nrcan|${r.year}|${r.make}|${p.base}|${r.motor_kw?.[0]?.value}`, wheel_in: p.wheel_in, wh_per_km: c.value, source_id: c.source_id });
+  }
+  return rows;
 }
 
 export function buildCars(root: string): BuildResult {
@@ -196,6 +220,7 @@ export function buildCars(root: string): BuildResult {
     if (primaryNrcan) for (const k of NRCAN_FIELDS) add(k, primaryNrcan[k]);
 
     let openevHeatPump: SourcedValue[] | undefined;
+    let openevWheels: TrimOut['wheels'] = [];
     const importedCurves: CurveOut[] = [];
     for (const r of rows) {
       const rec = imported[r.source]?.get(r.source_key);
@@ -203,6 +228,11 @@ export function buildCars(root: string): BuildResult {
       if (r.source === 'openev') {
         for (const [ours, theirs] of Object.entries(OPENEV_FIELDS)) add(ours, rec[theirs]);
         if (Array.isArray(rec.heat_pump)) openevHeatPump = rec.heat_pump;
+        if (Array.isArray(rec.wheels) && rec.wheels.length) {
+          // Imported records don't repeat their file's source id; any of their values carries it.
+          const src = [rec.dc_max_kw, rec.capacity_usable_kwh, rec.range_km].find((x) => Array.isArray(x))?.[0]?.source_id as string | undefined;
+          openevWheels = rec.wheels.map((w: TrimOut['wheels'][number]) => ({ ...w, ...(src ? { source_id: src } : {}) }));
+        }
       } else if (r.source === 'chargeprice') {
         for (const [ours, theirs] of Object.entries(CHARGEPRICE_FIELDS)) add(ours, rec[theirs]);
         if (rec.curve) {
@@ -225,22 +255,37 @@ export function buildCars(root: string): BuildResult {
     }
     for (const k of MVP_FIELDS) if (!fields[k]) unknownByField[k] = (unknownByField[k] ?? 0) + 1;
 
-    // Trims: own heat pump, else OpenEV's "standard or optional"; NRCan per-trim range when it differs.
-    const variantRange = fields.range_km?.value.value;
+    // Trims: own heat pump, else OpenEV's "standard or optional". When NRCan rates a trim on its
+    // own row (wheel or charger splits), that row's range and consumption apply to the trim, and
+    // the wheel size / onboard charger NRCan writes in its model name become trim facts.
+    const asCands = (xs: unknown) => (Array.isArray(xs) ? (xs as SourcedValue[]) : []).map((x) => ({ v: x, via: viaOf(x.source_id) }));
+    const differs = (f: Field, variantField: Field) => (f && f.value.value !== variantField?.value.value ? f : null);
     const trims: TrimOut[] = (v.trims ?? []).map((t: any): TrimOut => {
-      const hp: Candidate[] = [...(t.heat_pump ?? []), ...(openevHeatPump ?? [])].map((x: SourcedValue) => ({ v: x, via: viaOf(x.source_id) }));
+      const hp = asCands([...(t.heat_pump ?? []), ...(openevHeatPump ?? [])]);
       const trimRow = imported.nrcan.get(nrcanFor(t.id)?.source_key ?? '');
-      const rangeCands: Candidate[] = [...(t.range_km ?? []), ...(trimRow?.range_km ?? [])].map((x: SourcedValue) => ({ v: x, via: viaOf(x.source_id) }));
-      const range = resolve('range_km', rangeCands);
-      const ac = resolve('ac_max_kw', (t.ac_max_kw ?? []).map((x: SourcedValue) => ({ v: x, via: viaOf(x.source_id) })));
+      const nrcanSource = trimRow?.range_km?.[0]?.source_id as string | undefined;
+      const hints = trimRow ? parseName(trimRow.model) : null;
+      const per = (k: string) => resolve(k, asCands([...(t[k] ?? []), ...(trimRow?.[k] ?? [])])) as Field<number>;
+      const acFromName: SourcedValue[] = hints?.charger_kw && nrcanSource
+        ? [{ value: hints.charger_kw, unit: 'kW', kind: 'rated_nrcan', source_id: nrcanSource, notes: `From NRCan's model name: “${trimRow.model}”.` }]
+        : [];
+      const ac = resolve('ac_max_kw', asCands([...(t.ac_max_kw ?? []), ...acFromName])) as Field<number>;
+      const wheels: TrimOut['wheels'] = t.wheels?.length
+        ? t.wheels
+        : hints?.wheel_in
+          ? [{ diameter_in: hints.wheel_in, is_standard: true, ...(nrcanSource ? { source_id: nrcanSource } : {}) }]
+          : openevWheels;
       return {
         id: t.id,
         name: t.name,
         ...(t.aliases ? { aliases: t.aliases } : {}),
         heat_pump: resolve('heat_pump', hp) as Field<string>,
-        range_km: range && range.value.value !== variantRange ? (range as Field<number>) : null,
-        ac_max_kw: ac as Field<number>,
-        wheels: t.wheels ?? [],
+        range_km: differs(per('range_km'), fields.range_km) as Field<number>,
+        consumption_combined_wh_per_km: differs(per('consumption_combined_wh_per_km'), fields.consumption_combined_wh_per_km) as Field<number>,
+        consumption_city_wh_per_km: differs(per('consumption_city_wh_per_km'), fields.consumption_city_wh_per_km) as Field<number>,
+        consumption_highway_wh_per_km: differs(per('consumption_highway_wh_per_km'), fields.consumption_highway_wh_per_km) as Field<number>,
+        ac_max_kw: ac,
+        wheels,
       };
     });
 
@@ -336,5 +381,10 @@ export function buildCars(root: string): BuildResult {
     derived: c.derived,
   }));
 
-  return { cars, index, report: { cars: cars.length, unknownByField, conflicts, curves: curveKinds } };
+  return {
+    cars,
+    index,
+    estimates: { wheel: deriveWheelEffect(ratingRows(imported)) },
+    report: { cars: cars.length, unknownByField, conflicts, curves: curveKinds },
+  };
 }

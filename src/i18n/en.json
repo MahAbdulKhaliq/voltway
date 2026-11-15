@@ -190,5 +190,15 @@
   "home.variants1": "1 variant",
   "scope.note": "Currently covers EVs sold in {market}. Official range and efficiency ratings come from {regulator}; every other figure names its source.",
   "scope.short": "Coverage: {market} · official ratings from {regulator}",
-  "car.notInMarket": "This variant isn't in {regulator}'s ratings, so it may not be sold in {market}."
+  "car.notInMarket": "This variant isn't in {regulator}'s ratings, so it may not be sold in {market}.",
+  "wheel.label": "Wheels",
+  "wheel.rated": "{size}″ (as rated)",
+  "wheel.factory": "{size}″ (factory option)",
+  "wheel.option": "{size}″",
+  "wheel.tire": "Tires: {tire}",
+  "wheel.change": "{pct}% energy per km vs. rated wheels",
+  "wheel.unknownHelp": "The rating doesn't say which wheels it used, so size changes can't be estimated yet.",
+  "wheel.basis": "Rough estimate for {size}″ wheels instead of the rated {base}″. Official ratings that test the same car on two wheel sizes ({pairs} pairs) show about {pct}% more energy per km for each extra inch (middle half of pairs: {low}% to {high}%). Tire width, weight and type aren't modelled.",
+  "tile.rated": "Rated: {value}",
+  "wheel.useOfficial": "Official rating exists: switch to the {trim} trim"
 }

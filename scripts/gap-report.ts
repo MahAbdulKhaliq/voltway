@@ -5,6 +5,7 @@
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseCsv } from './lib/csv.ts';
+import { parseName } from './lib/match.ts';
 
 const root = process.cwd();
 const listJson = (dir: string): string[] => {
@@ -55,6 +56,7 @@ const lines: string[] = [
 const totals = new Map<string, number>();
 let variantCount = 0;
 let complete = 0;
+let no1080 = 0; // not an MVP field (many makers don't publish one), so it doesn't block "complete"
 const byModel = new Map<string, string[]>();
 for (const f of listJson(join(root, 'data/variants'))) {
   const v = load(f);
@@ -74,9 +76,19 @@ for (const f of listJson(join(root, 'data/variants'))) {
   const hp = (v.trims ?? []).every((t: any) => filled(t.heat_pump));
   const hpImport = recs.some((x) => x.source === 'openev' && filled(x.rec.heat_pump));
   if (!hp) gaps.push(hpImport ? 'heat pump (OpenEV says standard-or-optional only)' : 'heat pump');
+  // Wheels (B14): the trim's own sourced entries, the wheel size in its NRCan row's name, or OpenEV's list.
+  const openevWheels = recs.some((x) => x.source === 'openev' && filled(x.rec.wheels));
+  const trimHasWheels = (t: any) => {
+    if (filled(t.wheels) || openevWheels) return true;
+    const row = rows.find((r) => r.source === 'nrcan' && r.our_trim_id === t.id); // same rule as the build
+    const rec = row && imported.nrcan.get(row.source_key);
+    return Boolean(rec && parseName(rec.model).wheel_in);
+  };
+  if (!(v.trims ?? []).every(trimHasWheels)) gaps.push('wheel sizes');
   const hasCurve = recs.some((x) => x.source === 'chargeprice' && x.rec.curve) || existsSync(join(root, 'data/curves', v.id));
   const has1080 = filled(v.published_10_80_min) || recs.some((x) => x.source === 'openev' && filled(x.rec.published_10_80_min));
   for (const g of gaps) totals.set(g, (totals.get(g) ?? 0) + 1);
+  if (!has1080) no1080++;
   if (gaps.length === 0) complete++;
   const model = v.model_id;
   const note = [hasCurve ? '📈 measured curve' : 'estimated curve', has1080 ? 'has published 10–80%' : 'no published 10–80%'].join(' · ');
@@ -85,7 +97,7 @@ for (const f of listJson(join(root, 'data/variants'))) {
 
 lines.push(`**${complete} of ${variantCount} variants complete.** Missing, by field:`, '');
 for (const [g, n] of [...totals].sort((a, b) => b[1] - a[1])) lines.push(`- ${g}: ${n}`);
-lines.push('');
+lines.push('', `Also: ${no1080} of ${variantCount} variants have no published 10–80 % time (optional; used to calibrate estimated curves, 2.2).`, '');
 for (const [model, items] of byModel) lines.push(`## ${model}`, '', ...items, '');
 writeFileSync(join(root, 'crosswalk/GAPS.md'), lines.join('\n'));
-console.log(`gaps: ${complete}/${variantCount} variants complete; ${[...totals].map(([g, n]) => `${g} ${n}`).join(' · ')}`);
+console.log(`gaps: ${complete}/${variantCount} variants complete; ${[...totals].map(([g, n]) => `${g} ${n}`).join(' · ')}; no published 10–80% ${no1080}`);

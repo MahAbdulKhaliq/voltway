@@ -14,11 +14,12 @@ A batch path (e.g. `research/batch-2026-11-17-lyriq-tesla.json`), or a list of v
 1. **The page says it.** Reopen the cited source URL (WebFetch). Is this exact value there, for this car, model year and (where it matters) trim? Quote the phrase you found, or say "not found".
    - If the page can't be read (blocked, empty, too large), say so; don't mark it wrong, mark it **unverifiable**.
 2. **Right car and market.** Not another model year, another market's version (port, charger, battery differ), or a different trim.
-3. **Units and labels.** kWh vs kW, gross vs usable (a bare "battery capacity" must not be recorded as usable), min vs h, unit matches the field.
-4. **Kind.** `manufacturer` only for figures the manufacturer states; `tested` only for independent measurements; `estimated` never for looked-up facts.
-5. **Source quality.** URL is specific (not a homepage), `accessed_on` set, source `type` sensible; quick lookups carry `low_confidence: true` and a note.
-6. **Fit with existing data.** Compare with what the car already has (`data/variants/...`, and `npm run data:build` then `public/data/cars/<id>.json` for imported values). Flag differences over 5 % between same-kind values.
-7. **Validity.** Run `npx tsx scripts/add-facts.ts <batch> --check` (writes nothing). Never apply a batch.
+3. **Preconditioning and wheels.** `battery.preconditioning`: does the page support the exact value (navigation-triggered vs manual control vs both)? Cabin/comfort preheating isn't battery preconditioning. Trim `wheels`: right diameter for that Canadian trim, `is_standard` right (standard vs optional), not another market's package.
+4. **Units and labels.** kWh vs kW, gross vs usable (a bare "battery capacity" must not be recorded as usable), min vs h, unit matches the field.
+5. **Kind.** `manufacturer` only for figures the manufacturer states; `tested` only for independent measurements; `estimated` never for looked-up facts.
+6. **Source quality.** URL is specific (not a homepage), `accessed_on` set, source `type` sensible; quick lookups carry `low_confidence: true` and a note.
+7. **Fit with existing data.** Compare with what the car already has (`data/variants/...`, and `npm run data:build` then `public/data/cars/<id>.json` for imported values). Flag differences over 5 % between same-kind values.
+8. **Validity.** Run `npx tsx scripts/add-facts.ts <batch> --check` (writes nothing). Never apply a batch.
 
 ## Output
 Write `research/<batch name>.check.md` and reply with the same content:

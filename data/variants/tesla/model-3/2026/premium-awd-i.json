@@ -4,6 +4,15 @@
   "year": 2026,
   "name": "Premium AWD-I",
   "drivetrain": "awd",
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "community",
+      "source_id": "src-thinkev-tesla-model-3-2026",
+      "low_confidence": true,
+      "notes": "Quick web lookup. Source lists a NACS port for the 2026 Model 3; Supercharger access follows from that."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

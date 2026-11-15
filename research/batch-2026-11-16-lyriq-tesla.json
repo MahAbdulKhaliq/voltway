@@ -1,0 +1,250 @@
+{
+  "sources": [
+    {
+      "id": "src-thechargeport-tesla-model-y",
+      "type": "community",
+      "title": "The Charge Port – Tesla Model Y",
+      "url": "https://thechargeport.com/ev/tesla-model-y",
+      "accessed_on": "2026-11-15",
+      "notes": "US-oriented guide: says the Model Y has a standard heat pump (not per trim); native NACS."
+    },
+    {
+      "id": "src-thinkev-tesla-model-3-2026",
+      "type": "community",
+      "title": "thinkEV – 2026 Tesla Model 3",
+      "url": "https://thinkev.ca/compare/tesla-model-3-2026",
+      "accessed_on": "2026-11-15",
+      "notes": "Canadian listing with one headline spec set (75 kWh NMC, 250 kW, 25 min, NACS, 510 hp AWD), apparently the Performance trim."
+    }
+  ],
+  "variants": {
+    "tesla/model-3/2026/performance-awd": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-thinkev-tesla-model-3-2026",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Source lists a NACS port for the 2026 Model 3; Supercharger access follows from that."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 25,
+            "unit": "min",
+            "kind": "community",
+            "source_id": "src-thinkev-tesla-model-3-2026",
+            "low_confidence": true,
+            "notes": "Quick web lookup. 25 min 10–80 % from one spec block that does not name the trim (assumed Performance)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2026/performance": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-thinkev-tesla-model-3-2026",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Source lists a NACS port for the 2026 Model 3; Supercharger access follows from that."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 25,
+            "unit": "min",
+            "kind": "community",
+            "source_id": "src-thinkev-tesla-model-3-2026",
+            "low_confidence": true,
+            "notes": "Quick web lookup. 25 min 10–80 % from one spec block that does not name the trim (assumed Performance)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2026/premium-awd-i": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-thinkev-tesla-model-3-2026",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Source lists a NACS port for the 2026 Model 3; Supercharger access follows from that."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2026/premium-i": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-thinkev-tesla-model-3-2026",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Source lists a NACS port for the 2026 Model 3; Supercharger access follows from that."
+          }
+        ]
+      }
+    },
+    "tesla/model-y/2026/long-range-awd-b-pre-6-11-25": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
+          }
+        ]
+      }
+    },
+    "tesla/model-y/2026/long-range-awd-b": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "source_id": "src-thechargeport-tesla-model-y",
+              "low_confidence": true,
+              "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
+            }
+          ]
+        }
+      }
+    },
+    "tesla/model-y/2026/long-range-awd-i": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
+          }
+        ]
+      }
+    },
+    "tesla/model-y/2026/performance-b": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "source_id": "src-thechargeport-tesla-model-y",
+              "low_confidence": true,
+              "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
+            }
+          ]
+        }
+      }
+    },
+    "tesla/model-y/2026/premium-awd-b": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "source_id": "src-thechargeport-tesla-model-y",
+              "low_confidence": true,
+              "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
+            }
+          ]
+        }
+      }
+    },
+    "tesla/model-y/2026/rwd-b": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "source_id": "src-thechargeport-tesla-model-y",
+              "low_confidence": true,
+              "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
+            }
+          ]
+        }
+      }
+    },
+    "tesla/model-y/2026/standard-b": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "source_id": "src-thechargeport-tesla-model-y",
+              "low_confidence": true,
+              "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

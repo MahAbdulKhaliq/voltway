@@ -4,6 +4,15 @@
   "year": 2026,
   "name": "Long Range AWD-B (pre-6/11/25)",
   "drivetrain": "awd",
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "community",
+      "source_id": "src-thechargeport-tesla-model-y",
+      "low_confidence": true,
+      "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

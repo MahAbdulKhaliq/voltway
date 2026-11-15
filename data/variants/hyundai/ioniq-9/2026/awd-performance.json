@@ -4,10 +4,50 @@
   "year": 2026,
   "name": "AWD Performance",
   "drivetrain": "awd",
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 110.3,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-hyundai-ca-ioniq-9-2026",
+        "notes": "Page says “110.3kWh battery” without saying gross or usable; recorded as gross."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-hyundai-ca-ioniq-9-2026"
+      }
+    ]
+  },
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-ioniq-9-2026",
+      "notes": "NACS port; AC and DC CCS adapters included."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-ioniq-9-2026"
+    }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "AWD Performance"
+      "name": "AWD Performance",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-hyundai-ca-ioniq-9-2026"
+        }
+      ]
     }
   ]
 }

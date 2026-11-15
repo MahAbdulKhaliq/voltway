@@ -1,0 +1,75 @@
+{
+  "sources": [
+    {
+      "id": "src-hyundai-au-ioniq-5-2026-spec",
+      "type": "oem",
+      "title": "Hyundai Australia – 2026 IONIQ 5 Specification Sheet (PDF)",
+      "url": "https://www.hyundai.com/content/dam/hyundai/au/en/models/ioniq5/docs/2026-IONIQ-5-Specification-Sheet.pdf",
+      "accessed_on": "2026-11-15",
+      "notes": "Australian-market sheet. Used only for hardware shared with the Canadian car (84 kWh liquid-cooled lithium-ion pack, 697 V). Its Type 2 port and 10.5 kW onboard charger are Australian-spec and not used."
+    },
+    {
+      "id": "src-hyundai-ca-ioniq-9-2026",
+      "type": "oem",
+      "title": "Hyundai Canada – 2026 IONIQ 9 showroom page",
+      "url": "https://www.hyundaicanada.com/en/showroom/2026/ioniq-9",
+      "accessed_on": "2026-11-15",
+      "notes": "States a 110.3 kWh battery (not saying gross or usable), 800V charging architecture, NACS port with AC and DC CCS adapters, Tesla Supercharger access, a standard heat pump, about 24 minutes 10–80% on a 350 kW charger, and an 'Essential RWD' base trim. The trim comparison table did not load."
+    },
+    {
+      "id": "src-hyundai-ca-kona-electric-2026",
+      "type": "oem",
+      "title": "Hyundai Canada – 2026 KONA Electric showroom page",
+      "url": "https://www.hyundaicanada.com/en/showroom/2026/kona-electric",
+      "accessed_on": "2026-11-15",
+      "notes": "States a 64.8 kWh battery (not saying gross or usable), front-wheel drive, a heat pump (not saying standard or optional), and 10–80% in about 43 minutes on a Level 3 charger (>100 kW); its FAQ also says about 45 minutes, so the time is low confidence. Port type not stated."
+    }
+  ],
+  "variants": {
+    "hyundai/ioniq-5/2026/long-range": {
+      "fields": { "battery.nominal_voltage_class": [{ "value": "800v", "kind": "manufacturer", "source_id": "src-hyundai-au-ioniq-5-2026-spec", "notes": "Battery voltage 697 V (Australian-market sheet; same pack)." }] }
+    },
+    "hyundai/ioniq-5/2026/long-range-awd": {
+      "fields": { "battery.nominal_voltage_class": [{ "value": "800v", "kind": "manufacturer", "source_id": "src-hyundai-au-ioniq-5-2026-spec", "notes": "Battery voltage 697 V (Australian-market sheet; same pack)." }] }
+    },
+    "hyundai/ioniq-5/2026/long-range-awd-xrt": {
+      "fields": { "battery.nominal_voltage_class": [{ "value": "800v", "kind": "manufacturer", "source_id": "src-hyundai-au-ioniq-5-2026-spec", "notes": "Battery voltage 697 V (Australian-market sheet; same pack)." }] }
+    },
+    "hyundai/ioniq-9/2026/standard": {
+      "drivetrain": "rwd",
+      "fields": {
+        "battery.capacity_gross_kwh": [{ "value": 110.3, "unit": "kWh", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026", "notes": "Page says “110.3kWh battery” without saying gross or usable; recorded as gross." }],
+        "battery.nominal_voltage_class": [{ "value": "800v", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }],
+        "charge_port": [{ "value": "nacs", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026", "notes": "NACS port; AC and DC CCS adapters included." }],
+        "supercharger_access": [{ "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }],
+        "published_10_80_min": [{ "value": 24, "unit": "min", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026", "notes": "“Approximately 24 mins” 10–80% on a 350 kW charger; model-wide claim." }]
+      },
+      "trims": { "*": { "heat_pump": [{ "value": "standard", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }] } }
+    },
+    "hyundai/ioniq-9/2026/awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [{ "value": 110.3, "unit": "kWh", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026", "notes": "Page says “110.3kWh battery” without saying gross or usable; recorded as gross." }],
+        "battery.nominal_voltage_class": [{ "value": "800v", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }],
+        "charge_port": [{ "value": "nacs", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026", "notes": "NACS port; AC and DC CCS adapters included." }],
+        "supercharger_access": [{ "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }]
+      },
+      "trims": { "*": { "heat_pump": [{ "value": "standard", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }] } }
+    },
+    "hyundai/ioniq-9/2026/awd-performance": {
+      "fields": {
+        "battery.capacity_gross_kwh": [{ "value": 110.3, "unit": "kWh", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026", "notes": "Page says “110.3kWh battery” without saying gross or usable; recorded as gross." }],
+        "battery.nominal_voltage_class": [{ "value": "800v", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }],
+        "charge_port": [{ "value": "nacs", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026", "notes": "NACS port; AC and DC CCS adapters included." }],
+        "supercharger_access": [{ "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }]
+      },
+      "trims": { "*": { "heat_pump": [{ "value": "standard", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }] } }
+    },
+    "hyundai/kona-electric/2026/standard": {
+      "drivetrain": "fwd",
+      "fields": {
+        "battery.capacity_gross_kwh": [{ "value": 64.8, "unit": "kWh", "kind": "manufacturer", "source_id": "src-hyundai-ca-kona-electric-2026", "notes": "Page says “64.8 kWh high-voltage battery” without saying gross or usable; recorded as gross." }],
+        "published_10_80_min": [{ "value": 43, "unit": "min", "kind": "manufacturer", "source_id": "src-hyundai-ca-kona-electric-2026", "low_confidence": true, "notes": "“Approximately 43 minutes” on a Level 3 charger (>100 kW); the same page's FAQ says about 45 minutes." }]
+      }
+    }
+  }
+}

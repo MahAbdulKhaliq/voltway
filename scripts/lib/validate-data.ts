@@ -148,7 +148,9 @@ export function validateRepo(root: string): ValidationResult {
   const modelYears = new Map<string, Set<number>>();
   for (const rel of listJson(join(dataDir, 'models'))) {
     const file = `data/models/${rel}`;
-    const data = read('models', rel) as { id: string; make_id: string; years: { year: number }[] } | undefined;
+    const data = read('models', rel) as
+      | { id: string; make_id: string; years: { year: number; generation?: string }[]; generations?: { id: string; first_year: number; last_year?: number }[] }
+      | undefined;
     if (data === undefined || !check(v.model, data, file)) continue;
     const expectedId = rel.replace(/\.json$/, '');
     if (data.id !== expectedId) errors.push(`${file}: id "${data.id}" must match its path "${expectedId}"`);
@@ -158,6 +160,20 @@ export function validateRepo(root: string): ValidationResult {
     for (const y of data.years) {
       if (years.has(y.year)) errors.push(`${file}: year ${y.year} listed twice`);
       years.add(y.year);
+    }
+    // Generations (B17): ids unique, years in order and not overlapping; each year's generation exists and covers it.
+    const gens = [...(data.generations ?? [])].sort((a, b) => a.first_year - b.first_year);
+    gens.forEach((g, i) => {
+      if (gens.findIndex((x) => x.id === g.id) !== i) errors.push(`${file}: generation "${g.id}" listed twice`);
+      if (g.last_year !== undefined && g.last_year < g.first_year) errors.push(`${file}: generation "${g.id}" ends before it starts`);
+      const next = gens[i + 1];
+      if (next && (g.last_year === undefined || g.last_year >= next.first_year)) errors.push(`${file}: generation "${g.id}" overlaps "${next.id}" (give it a last_year before ${next.first_year})`);
+    });
+    for (const y of data.years) {
+      if (!y.generation) continue;
+      const g = gens.find((x) => x.id === y.generation);
+      if (!g) errors.push(`${file}: year ${y.year} names generation "${y.generation}", which isn't listed`);
+      else if (y.year < g.first_year || (g.last_year !== undefined && y.year > g.last_year)) errors.push(`${file}: year ${y.year} is outside generation "${g.id}" (${g.first_year}–${g.last_year ?? 'current'})`);
     }
     modelYears.set(data.id, years);
   }

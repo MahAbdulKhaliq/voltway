@@ -10,7 +10,7 @@ The main session coordinates; agents research and check; only the main session a
 ## 1. Pick the work
 1. `git checkout main && git pull`, then a branch `data/research-<YYYY-MM-DD>-<slug>`.
 2. `npm run data:build && npm run gaps`. Read `crosswalk/GAPS.md`: per-variant gaps, curve state (measured / borrowed / template only) and 10–80 % times.
-3. Group models into batches of 2–3 models, keeping **platform siblings together** (e.g. IONIQ 5 + IONIQ 6 + EV6 on E-GMP; bZ + Solterra + C-HR; Equinox/Blazer/LYRIQ on Ultium) so one researcher can find a curve once and borrow it across same-pack variants. If the owner named cars or fields, start there.
+3. Group models into batches of 2–3 models, keeping **platform siblings together** (e.g. IONIQ 5 + IONIQ 6 + EV6 on E-GMP; bZ + Solterra + C-HR; Equinox/Blazer/LYRIQ on Ultium) so one researcher can find a curve once and borrow it across same-pack variants. If the owner named cars or fields, start there. Older model years (back to 2010, e.g. a 2017 Bolt EV) are researched the same way; keep a model's years of one generation in the same batch so carry-over estimates can be checked across them.
 
 ## 2. Research (parallel)
 Start one `ev-data-researcher` per group, in the background, in one message. Prompt each with:

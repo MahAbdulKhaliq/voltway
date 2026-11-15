@@ -11,6 +11,22 @@
     "make_id": { "$ref": "common.schema.json#/$defs/slug" },
     "name": { "type": "string", "minLength": 1 },
     "body_type": { "enum": ["sedan", "hatchback", "suv", "crossover", "truck", "van", "wagon", "coupe"] },
+    "generations": {
+      "description": "Generations of the model line (B17). A generation with no last_year is still current. The model counts as discontinued only when every generation has ended and nothing later is listed; that is derived, never stored.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "first_year"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/slug" },
+          "name": { "description": "e.g. \"First generation\" or \"2024 refresh\"", "type": "string", "minLength": 1 },
+          "first_year": { "type": "integer", "minimum": 2010, "maximum": 2100 },
+          "last_year": { "type": "integer", "minimum": 2010, "maximum": 2100 },
+          "notes": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
     "years": {
       "type": "array",
       "minItems": 1,
@@ -25,7 +41,8 @@
             "items": { "type": "string", "pattern": "^[A-Z]{2}$" },
             "uniqueItems": true
           },
-          "availability_status": { "enum": ["production", "discontinued", "announced"] }
+          "availability_status": { "description": "What this model year is: built and sold (any past or current year), or announced and not yet on sale. An older year of a car still in production is not discontinued (B17).", "enum": ["production", "announced"] },
+          "generation": { "description": "Id of the generation this year belongs to (B17).", "$ref": "common.schema.json#/$defs/slug" }
         }
       }
     }

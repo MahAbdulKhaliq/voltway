@@ -4,10 +4,53 @@
   "year": 2026,
   "name": "Long Range",
   "drivetrain": "rwd",
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 84,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-hyundai-ca-ioniq-5-2026",
+        "notes": "Hyundai Canada states “a battery capacity of 84.0 kWh” for the Preferred Long Range RWD without saying gross or usable; recorded as gross."
+      }
+    ]
+  },
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-ioniq-5-2026",
+      "notes": "NACS charge port; two CCS adapters (AC and DC) included."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-ioniq-5-2026",
+      "notes": "Through its NACS port."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 18,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-ioniq-5-2026",
+      "notes": "“Approximately 18 minutes” from 10% to 80% on a 350 kW charger (manufacturer claim)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Long Range"
+      "name": "Long Range",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-hyundai-ca-ioniq-5-2026"
+        }
+      ]
     }
   ]
 }

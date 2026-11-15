@@ -3,7 +3,28 @@
   "model_id": "chevrolet/silverado-ev",
   "year": 2026,
   "name": "Trail Boss Ext Range",
-  "drivetrain": "unknown",
+  "drivetrain": "awd",
+  "dc_max_kw": [
+    {
+      "value": 350,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-gm-silverado-ev-2026-spec",
+      "low_confidence": true,
+      "notes": "Quick web lookup (rough, not cross-checked). “Up to 350 kW” public DC fast charging."
+    }
+  ],
+  "battery": {
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-gm-silverado-ev-2026-spec",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked). Charges at about 800 V."
+      }
+    ]
+  },
   "trims": [
     {
       "id": "standard",

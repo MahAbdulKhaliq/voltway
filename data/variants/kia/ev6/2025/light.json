@@ -3,7 +3,62 @@
   "model_id": "kia/ev6",
   "year": 2025,
   "name": "Light",
-  "drivetrain": "unknown",
+  "drivetrain": "rwd",
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-ev6-2025"
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-ev6-2025"
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-ev6-2025-specs",
+      "low_confidence": true,
+      "notes": "Spec table value; not confirmed per trim."
+    }
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 63,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-2025-ev6-specs",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked). 63 kWh standard-range pack."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-2025-ev6-specs",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 180,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-2025-ev6-specs",
+      "low_confidence": true,
+      "notes": "Quick web lookup (rough, not cross-checked). US figure."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

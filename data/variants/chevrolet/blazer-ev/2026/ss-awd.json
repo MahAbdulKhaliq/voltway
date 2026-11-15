@@ -4,6 +4,27 @@
   "year": 2026,
   "name": "SS AWD",
   "drivetrain": "awd",
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 102,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-thinkev-blazer-ev-2026",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-thinkev-blazer-ev-2026",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ]
+  },
   "trims": [
     {
       "id": "standard",

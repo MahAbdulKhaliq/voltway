@@ -7,7 +7,15 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Niro EV"
+      "name": "Niro EV",
+      "heat_pump": [
+        {
+          "value": "optional",
+          "kind": "manufacturer",
+          "source_id": "src-kia-ca-niro-ev-2026",
+          "notes": "Page says the heat pump is “available”."
+        }
+      ]
     }
   ]
 }

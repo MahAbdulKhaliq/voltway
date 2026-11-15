@@ -62,7 +62,9 @@ export function rank(group: Group, v: SourcedValue, via: 'oem' | 'openev' | 'cha
     r = { rated_nrcan: 0, rated_epa: 1, manufacturer: 2, tested: 3, community: 4, estimated: 5, rated_wltp: 9 }[k];
   } else if (group === 'spec') {
     // Manufacturer (direct) → tested → manufacturer via OpenEV → Chargeprice → community → estimated.
-    if (k === 'manufacturer') r = via === 'openev' ? 2 : via === 'chargeprice' ? 3 : 0;
+    // Only a manufacturer's own page is "direct"; manufacturer figures reported elsewhere
+    // (datasets, press or quick web lookups) rank below tested.
+    if (k === 'manufacturer') r = via === 'oem' ? 0 : via === 'chargeprice' ? 3 : 2;
     else r = { tested: 1, community: 4, estimated: 5, rated_nrcan: 6, rated_epa: 6, rated_wltp: 7 }[k] ?? 8;
   } else if (group === 'fact') {
     // Manufacturer page → OpenEV Data → other.

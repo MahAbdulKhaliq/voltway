@@ -4,6 +4,37 @@
   "year": 2026,
   "name": "LT/RS AWD",
   "drivetrain": "awd",
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 85,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-thinkev-blazer-ev-2026",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-thinkev-blazer-ev-2026",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 190,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-thinkev-blazer-ev-2026",
+      "low_confidence": true,
+      "notes": "Quick web lookup (rough, not cross-checked). Canadian listing; not confirmed by Chevrolet."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

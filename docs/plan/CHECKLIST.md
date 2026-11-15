@@ -20,11 +20,13 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
   - Verified 2026-11-15: Node v26.13.1 (LTS), Astro 7.4, `npm test` 4 passing, `npm run build` → `dist/index.html`, `astro check` 0 errors. *Note:* `scripts/validate.ts` and `scripts/build-data.ts` are placeholders until 1.1 / 1.7.
   - Files: `.gitignore`, `README.md`, `package.json`, `astro.config.mjs`, `tsconfig.json`, `src/pages/index.astro`
   - Done when: `node --version` is an even-numbered LTS; `git status` works; `npm run build` produces `dist/`; `npm test` runs (Vitest) with at least one passing test.
-- [ ] **0.5 GitHub repo + CI** (owner approves repo name first)
+- [x] **0.5 GitHub repo + CI** (owner approves repo name first)
   - Files: `.github/workflows/ci.yml`
   - Done when: the public repo exists, `main` is pushed, and the CI workflow passes on a test PR.
-- [ ] **0.6 Vercel import** (owner does it in the dashboard)
+  - Progress 2026-11-15: repo `MahAbdulKhaliq/voltway` created (public), `main` pushed, CI green on the push to main and on test PR #1 (merged).
+- [x] **0.6 Vercel import** (owner does it in the dashboard)
   - Done when: the connector shows a READY production deployment, and the test PR has a READY preview deployment.
+  - Verified 2026-11-15 **without the connector** (it returns 403 until the owner approves it for their Vercel account): Vercel's GitHub status was "success" on `main` and on PR #1; production https://voltway-ten.vercel.app/ returns HTTP 200 with our page; the owner opened the PR preview (protected by Vercel Authentication). Re-check through the connector once it's approved.
 
 ## Phase 1: Data layer
 

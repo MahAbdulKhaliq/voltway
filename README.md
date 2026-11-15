@@ -4,6 +4,7 @@ Voltway is a free, no-login website for Canadian EV drivers and shoppers: trustw
 
 Phase 1 (in progress): vehicle database + charging curves. A charger map and a trip planner follow in later phases.
 
+- Live site: https://voltway-ten.vercel.app/
 - Static site built with [Astro](https://astro.build), hosted on Vercel.
 - Vehicle data is stored as JSON in this repository and validated against JSON Schemas in `schema/` at build time.
 - Build plan: [`docs/plan/`](docs/plan/).

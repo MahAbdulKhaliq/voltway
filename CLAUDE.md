@@ -31,6 +31,9 @@ The full design lives **outside this repo** in `G:\Work\Ideating\EV-App-Planning
 
 ## Vercel
 
+- Project `voltway` (account `mahabdulkhaliq`). Production: https://voltway-ten.vercel.app/ (`voltway.vercel.app` belongs to someone else). Repo: https://github.com/MahAbdulKhaliq/voltway
+- Preview deployments are behind Vercel Authentication (the owner must be signed in to open them).
+
 - The Vercel connector is connected. Use it freely to **read** projects, deployments and logs.
 - **Ask the owner before changing any Vercel setting or creating anything there.** The owner does dashboard setup (like importing the repo) themselves, with step-by-step guidance.
 

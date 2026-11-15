@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MahAbdulKhaliq/voltway/schema/source.schema.json",
+  "title": "Source",
+  "description": "One record in the sources table (vehicle-data-model.md §3), reused by every figure that came from it. File: data/sources/<id>.json",
+  "type": "object",
+  "required": ["id", "type", "title", "url", "accessed_on"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/sourceId" },
+    "type": { "enum": ["regulatory", "oem", "testing_org", "community", "dataset", "estimate"] },
+    "title": { "type": "string", "minLength": 1 },
+    "url": {
+      "description": "Link to the exact page or file, not a homepage. Homepage-only URLs force low_confidence on every value citing them.",
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "license": { "type": "string", "minLength": 1 },
+    "attribution": { "description": "Credit text the license requires.", "type": "string", "minLength": 1 },
+    "accessed_on": { "$ref": "common.schema.json#/$defs/date" },
+    "via": {
+      "description": "Chain of custody when a value reached us through another dataset, e.g. Fastned → Chargeprice.",
+      "type": "string",
+      "minLength": 1
+    },
+    "notes": { "type": "string", "minLength": 1 }
+  }
+}

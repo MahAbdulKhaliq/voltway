@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MahAbdulKhaliq/voltway/schema/model.schema.json",
+  "title": "Model",
+  "description": "A product line across years, with one entry per model year (vehicle-data-model.md §2, §4). sold_in_canada is not stored: the build derives it from confirmed NRCan crosswalk rows. File: data/models/<make>/<model>.json",
+  "type": "object",
+  "required": ["id", "make_id", "name", "body_type", "years"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "description": "<make>/<model>", "type": "string", "pattern": "^[a-z0-9-]+/[a-z0-9-]+$" },
+    "make_id": { "$ref": "common.schema.json#/$defs/slug" },
+    "name": { "type": "string", "minLength": 1 },
+    "body_type": { "enum": ["sedan", "hatchback", "suv", "crossover", "truck", "van", "wagon", "coupe"] },
+    "years": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["year", "markets", "availability_status"],
+        "additionalProperties": false,
+        "properties": {
+          "year": { "type": "integer", "minimum": 2010, "maximum": 2100 },
+          "markets": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[A-Z]{2}$" },
+            "uniqueItems": true
+          },
+          "availability_status": { "enum": ["production", "discontinued", "announced"] }
+        }
+      }
+    }
+  }
+}

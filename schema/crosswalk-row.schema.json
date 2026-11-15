@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MahAbdulKhaliq/voltway/schema/crosswalk-row.schema.json",
+  "title": "Crosswalk row",
+  "description": "Links one of our variants to one source's own record (vehicle-data-model.md §6). One row of crosswalk/crosswalk.csv. Only confirmed rows are used by the build.",
+  "type": "object",
+  "required": ["our_variant_id", "source", "source_key", "match_method", "confirmed"],
+  "additionalProperties": false,
+  "properties": {
+    "our_variant_id": { "type": "string", "pattern": "^[a-z0-9-]+/[a-z0-9-]+/[0-9]{4}/[a-z0-9-]+$" },
+    "source": { "enum": ["nrcan", "openev", "chargeprice", "fueleconomy"] },
+    "source_key": { "type": "string", "minLength": 1 },
+    "match_method": { "enum": ["automatic", "manual"] },
+    "confirmed": { "type": "boolean" },
+    "notes": { "type": "string" }
+  }
+}

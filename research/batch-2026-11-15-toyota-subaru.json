@@ -1,0 +1,407 @@
+{
+  "sources": [
+    {
+      "id": "src-toyota-ca-media-bz-2026",
+      "type": "oem",
+      "title": "Toyota Canada media: bZ adds range, charging and exterior updates for 2026",
+      "url": "https://media.toyota.ca/en/releases/2025/toyota-bz-all-electric-suv-adds-range--charging-and-exterior-upd.html",
+      "accessed_on": "2026-11-15",
+      "notes": "Battery 57.7 kWh (XLE FWD) / 77 kWh (AWD); NACS; 11 kW AC; 10-80% in around 30 min; preconditioning; heat pump; wheels."
+    },
+    {
+      "id": "src-toyota-ca-media-bz-woodland-2026",
+      "type": "oem",
+      "title": "Toyota Canada media: bZ Woodland",
+      "url": "https://media.toyota.ca/en/releases/2026/toyota-s-bz-lineup-gains-rugged--powerful-new-all-electric-bz-wo.html",
+      "accessed_on": "2026-11-15",
+      "notes": "74.7 kWh total; NACS; 11 kW AC; 10-80% in around 30 min; preconditioning; 18-in wheels."
+    },
+    {
+      "id": "src-toyota-ca-media-c-hr-2026",
+      "type": "oem",
+      "title": "Toyota Canada media: 2026 C-HR battery electric vehicle",
+      "url": "https://media.toyota.ca/en/releases/2025/toyota-debuts-stylish--powerful-2026-c-hr-battery-electric-vehic.html",
+      "accessed_on": "2026-11-15",
+      "notes": "77 kWh total; NACS; 11 kW AC; 10-80% in around 30 min; preconditioning; SE FWD 18-in wheels."
+    },
+    {
+      "id": "src-subaru-ca-newswire-solterra-2026",
+      "type": "oem",
+      "title": "Subaru Canada news release: all-new 2026 Solterra EV",
+      "url": "https://newswire.ca/news-releases/subaru-debuts-all-new-2026-solterra-ev-800059542.html",
+      "accessed_on": "2026-11-15",
+      "notes": "Subaru Canada release on Newswire. 77.0 kWh, about 150 kW, 10-80% in about 35 min, 11 kW, NACS with Supercharger access (footnoted as anticipated, date to be determined)."
+    }
+  ],
+  "variants": {
+    "toyota/bz/2026/standard": {
+      "drivetrain": "fwd",
+      "fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026"
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026",
+            "notes": "11 kW on-board AC charger. Page says \"across all trims\"."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 30,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026",
+            "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026",
+            "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "manufacturer",
+              "source_id": "src-toyota-ca-media-bz-2026",
+              "low_confidence": true,
+              "notes": "Quick web lookup. Page lists \"Heat pump system for both heating and air-conditioning\" for the model without trim qualifier; recorded as standard. Page names no trims; trim coverage unconfirmed."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-toyota-ca-media-bz-2026",
+              "notes": "XLE: 18-in multi-spoke black/silver alloy with plastic covers. Variant is the XLE FWD (57.7 kWh)."
+            }
+          ]
+        }
+      }
+    },
+    "toyota/bz/2026/awd": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026"
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026",
+            "notes": "11 kW on-board AC charger. Page says \"across all trims\"."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 30,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026",
+            "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026",
+            "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "manufacturer",
+              "source_id": "src-toyota-ca-media-bz-2026",
+              "low_confidence": true,
+              "notes": "Quick web lookup. Page lists \"Heat pump system for both heating and air-conditioning\" for the model without trim qualifier; recorded as standard. Page names no trims; trim coverage unconfirmed."
+            }
+          ]
+        }
+      }
+    },
+    "toyota/bz/2026/limited-awd": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026"
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026",
+            "notes": "11 kW on-board AC charger. Page says \"across all trims\"."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 30,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026",
+            "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-2026",
+            "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "manufacturer",
+              "source_id": "src-toyota-ca-media-bz-2026",
+              "low_confidence": true,
+              "notes": "Quick web lookup. Page lists \"Heat pump system for both heating and air-conditioning\" for the model without trim qualifier; recorded as standard. Page names no trims; trim coverage unconfirmed."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 20,
+              "is_standard": true,
+              "source_id": "src-toyota-ca-media-bz-2026",
+              "notes": "Limited AWD: 20-inch black multi-spoke alloy wheels."
+            }
+          ]
+        }
+      }
+    },
+    "toyota/bz/2026/woodland-awd": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-woodland-2026"
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-woodland-2026",
+            "notes": "11 kW on-board AC charger."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 30,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-woodland-2026",
+            "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-woodland-2026",
+            "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination. Automatic start needs a Toyota Drive Connect trial or subscription."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-toyota-ca-media-bz-woodland-2026",
+              "low_confidence": true,
+              "notes": "Quick web lookup. 18-inch aluminum wheels with removable aero covers."
+            }
+          ]
+        }
+      }
+    },
+    "toyota/bz/2026/woodland-awd-all-terrain-tire": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-woodland-2026"
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-woodland-2026",
+            "notes": "11 kW on-board AC charger."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 30,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-woodland-2026",
+            "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-bz-woodland-2026",
+            "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination. Automatic start needs a Toyota Drive Connect trial or subscription."
+          }
+        ]
+      }
+    },
+    "toyota/c-hr/2026/standard": {
+      "drivetrain": "fwd",
+      "fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-c-hr-2026"
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-c-hr-2026",
+            "notes": "11 kW on-board AC charger."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 30,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-c-hr-2026",
+            "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-c-hr-2026",
+            "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-toyota-ca-media-c-hr-2026",
+              "notes": "SE (FWD): 18-in wheels with black alloy inserts."
+            }
+          ]
+        }
+      }
+    },
+    "toyota/c-hr/2026/awd": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-c-hr-2026"
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-c-hr-2026",
+            "notes": "11 kW on-board AC charger."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 30,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-c-hr-2026",
+            "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-toyota-ca-media-c-hr-2026",
+            "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
+          }
+        ]
+      }
+    },
+    "subaru/solterra/2026/awd": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-subaru-ca-newswire-solterra-2026"
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 35,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-subaru-ca-newswire-solterra-2026",
+            "notes": "\"approximately 35 minutes\" at up to ~150 kW."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-subaru-ca-newswire-solterra-2026",
+            "notes": "Page: \"when navigating to a charging station or activated by the driver\"."
+          }
+        ]
+      }
+    }
+  }
+}

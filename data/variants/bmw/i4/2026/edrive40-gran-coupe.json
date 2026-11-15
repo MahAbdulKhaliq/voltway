@@ -4,6 +4,15 @@
   "year": 2026,
   "name": "eDrive40 Gran Coupe",
   "drivetrain": "rwd",
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-thinkev-bmw-i4-2026",
+      "low_confidence": true,
+      "notes": "Quick web lookup."
+    }
+  ],
   "trims": [
     {
       "id": "18-in-wheels",

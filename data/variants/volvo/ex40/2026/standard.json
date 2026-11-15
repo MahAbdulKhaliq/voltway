@@ -4,6 +4,24 @@
   "year": 2026,
   "name": "Standard",
   "drivetrain": "fwd",
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-volvo-hamilton-ex40-2026-charging",
+      "low_confidence": true,
+      "notes": "Quick web lookup. Canadian dealer article says the EX40 natively uses CCS (CCS1 for North America). Page says only 'CCS'; CCS1 inferred from the North American market."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-volvo-hamilton-ex40-2026-charging",
+      "low_confidence": true,
+      "notes": "Quick web lookup. Volvo's NACS adapter gives access to over 18,000 Tesla Supercharger stations in Canada and the US."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

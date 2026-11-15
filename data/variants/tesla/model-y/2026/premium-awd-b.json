@@ -25,6 +25,22 @@
           "low_confidence": true,
           "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
         }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-tslna-model-y-price-canada-2026",
+          "low_confidence": true,
+          "notes": "Quick web lookup. Canadian page, Premium AWD."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-tslna-model-y-price-canada-2026",
+          "low_confidence": true,
+          "notes": "Quick web lookup. +$2,600 option."
+        }
       ]
     }
   ]

@@ -4,6 +4,32 @@
   "year": 2026,
   "name": "AWD",
   "drivetrain": "awd",
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-subaru-ca-newswire-solterra-2026"
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 35,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-subaru-ca-newswire-solterra-2026",
+      "notes": "\"approximately 35 minutes\" at up to ~150 kW."
+    }
+  ],
+  "battery": {
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-subaru-ca-newswire-solterra-2026",
+        "notes": "Page: \"when navigating to a charging station or activated by the driver\"."
+      }
+    ]
+  },
   "trims": [
     {
       "id": "standard",

@@ -1,0 +1,19 @@
+---
+// A figure with its source badge, or "Unknown" in grey when no source has it (§7).
+import { t } from '../i18n/t.ts';
+import { display } from '../lib/format.ts';
+import type { Field, Source } from '../lib/types.ts';
+import SourceBadge from './SourceBadge.astro';
+
+interface Props { field: Field; sources: Source[]; label: string; approx?: boolean }
+const { field, sources, label, approx = false } = Astro.props;
+const d = field ? display(field.value) : null;
+---
+{d ? (
+  <span class="fv"><span class="v" {...d.attrs}>{approx ? '~' : ''}{d.text}</span> <SourceBadge field={field} sources={sources} label={label} /></span>
+) : (
+  <span class="unknown">{t('badge.unknown')}</span>
+)}
+<style>
+  .fv { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+</style>

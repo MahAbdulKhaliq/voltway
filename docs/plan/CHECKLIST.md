@@ -71,20 +71,25 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 
 ## Phase 3: UI foundation
 
-- [ ] **3.1 i18n + units + storage**
+- [x] **3.1 i18n + units + storage**
   - Files: `src/i18n/en.json`, `src/i18n/t.ts`, `src/lib/units.ts`, `src/lib/storage.ts`
   - Done when: tests cover missing-key detection, unit conversions, and storage that throws silently falling back to memory.
-- [ ] **3.2 Layout, header, themes**
+  - Verified 2026-11-16: `tests/ui-lib.test.ts` covers unit conversions, Canadian number formatting, storage falling back to memory, and labels for every kind and enum value; `t()` throws on a missing key (i18n.test.ts). Also `src/lib/format.ts`, `src/scripts/units-client.ts`.
+- [x] **3.2 Layout, header, themes**
   - Files: `src/layouts/Base.astro`, `src/components/Header.astro`
   - Done when: header shows Cars, Compare (n), My car, km|mi (no Map/Trip); light/dark follows the device.
-- [ ] **3.3 SourceBadge**
+  - Verified 2026-11-16 in the browser: header shows Cars and km|mi; Compare and My car stay hidden until Phases 5–6 build them (CLAUDE.md: hide links to parts that do not exist); no Map/Trip; dark theme follows the device; no horizontal scroll at 375 px.
+- [x] **3.3 SourceBadge**
   - Files: `src/components/SourceBadge.tsx`
   - Done when: it shows the kind text, opens to source + other figures, shows ⚠ on conflicts, grey "Unknown", estimated style with "~".
+  - Verified 2026-11-16: `src/components/SourceBadge.astro` (+ `FieldValue.astro`) shows the kind text and opens (native details element, no JS) to source, date, notes and other figures; ⚠ on conflicts; grey "Unknown"; dashed italic style for estimated; dotted border for low confidence.
 
 ## Phase 4: Car page + curve viewer
 
-- [ ] **4.1 Car pages** — `src/pages/cars/[...id].astro`. Done when: one static page per variant at `/cars/make/model/year/variant`, key tiles with badges, specs, trims, sources.
+- [x] **4.1 Car pages** — `src/pages/cars/[...id].astro`. Done when: one static page per variant at `/cars/make/model/year/variant`, key tiles with badges, specs, trims, sources.
+  - Verified 2026-11-16: 84 static pages at /cars/make/model/year/variant; sibling variants as links (no separate trim selector: trims are shown in a table), six key tiles with badges, grouped specs, trims table (per-trim NRCan range, heat pump), sources list, not-sold-in-Canada banner. Home page lists every car until Phase 5.
 - [ ] **4.2 Curve viewer island** — `src/components/CurveViewer.tsx`. Done when: every MVP item in charging-curve-viewer.md §2, §4, §5 works in the browser (checked manually).
+  - Progress 2026-11-16: `src/components/CurveViewer.tsx` works in the browser: curve dropdown, SoC sliders, presets 50–350 kW + custom + No limit, range basis, SoC/time toggle, results panel (time, km added, km/10 min, average kW, lost to charger limit, curve source), More detail (peak, minutes above 100/150/200 kW, raw points table, conditions, basis), warm-battery note, estimated banner with explanation, dashed estimated line, ~ rounding, km/mi live. **Not done:** draggable window guides on the chart (the sliders set the window instead).
 
 ## Phase 5: Browse + picker
 

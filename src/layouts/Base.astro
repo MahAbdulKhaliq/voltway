@@ -1,0 +1,67 @@
+---
+// Page shell: header (Cars + km|mi; Compare, My car, Map and Trip appear as they're built),
+// main content and footer. Distances render in km and are converted in place by the
+// small script below when the visitor picks miles (database-ui.md §9).
+import '../styles/global.css';
+import { t } from '../i18n/t.ts';
+
+interface Props { title?: string; description?: string }
+const { title, description = t('site.tagline') } = Astro.props;
+const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip" href="#main">{t('site.skip')}</a>
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="logo" href="/">⚡ {t('site.name')}</a>
+        <nav aria-label={t('nav.main')}>
+          <a href="/">{t('nav.cars')}</a>
+        </nav>
+        <div class="units" role="group" aria-label={t('units.label')}>
+          <button type="button" data-unit="km" aria-pressed="true">{t('units.km')}</button>
+          <button type="button" data-unit="mi" aria-pressed="false">{t('units.mi')}</button>
+        </div>
+      </div>
+    </header>
+    <main id="main" class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>{t('footer.note')}</p>
+        <p class="small">{t('footer.data')}</p>
+      </div>
+    </footer>
+
+    <script>
+      import { applyUnits, currentUnit, setUnit } from '../scripts/units-client.ts';
+      applyUnits(currentUnit());
+      document.querySelectorAll<HTMLButtonElement>('.units button').forEach((b) =>
+        b.addEventListener('click', () => setUnit(b.dataset.unit === 'mi' ? 'mi' : 'km')),
+      );
+    </script>
+  </body>
+</html>
+
+<style>
+  .site-header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 20; }
+  .bar { display: flex; align-items: center; gap: 20px; min-height: 56px; }
+  .logo { font-weight: 700; text-decoration: none; color: var(--text); font-size: 1.1rem; }
+  nav { display: flex; gap: 16px; flex: 1; }
+  nav a { color: var(--text); text-decoration: none; font-weight: 500; }
+  nav a:hover { color: var(--accent); }
+  .units { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+  .units button { border: 0; background: transparent; color: var(--muted); padding: 4px 12px; font: inherit; font-size: 0.875rem; cursor: pointer; }
+  .units button[aria-pressed='true'] { background: var(--accent); color: var(--accent-ink); }
+  .site-footer { border-top: 1px solid var(--border); color: var(--muted); padding: 20px 0 32px; font-size: 0.9rem; }
+</style>

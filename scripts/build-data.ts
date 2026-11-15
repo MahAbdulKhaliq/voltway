@@ -1,3 +1,25 @@
-// PLACEHOLDER until checklist item 1.7: will merge sources, apply precedence,
-// generate estimated curves and export public/data/.
-console.log('data:build: no data yet (checklist 1.7). Nothing to export.');
+// `npm run data:build`: runs the data build (scripts/lib/build.ts) and writes
+//   public/data/index.json          small list for browse/search
+//   public/data/cars/<id>.json      one detail file per variant
+// public/data/ is generated on every build (and git-ignored); the source of truth is data/.
+
+import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { buildCars } from './lib/build.ts';
+
+const root = process.cwd();
+const out = join(root, 'public', 'data');
+const { cars, index, report } = buildCars(root);
+
+rmSync(out, { recursive: true, force: true });
+mkdirSync(join(out, 'cars'), { recursive: true });
+writeFileSync(join(out, 'index.json'), JSON.stringify(index));
+for (const car of cars) {
+  const file = join(out, 'cars', `${car.id}.json`);
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(file, JSON.stringify(car));
+}
+
+const unknown = Object.entries(report.unknownByField).map(([k, n]) => `${k} ${n}`).join(', ');
+console.log(`data:build: ${report.cars} cars → public/data/ · default curves ${JSON.stringify(report.curves)} · ${report.conflicts} fields flagged "sources differ"`);
+if (unknown) console.log(`  still "Unknown" (shown as such on the site): ${unknown}`);

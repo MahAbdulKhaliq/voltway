@@ -59,9 +59,10 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 
 ## Phase 2: Charging maths + calibration
 
-- [ ] **2.1 Charging maths**
+- [x] **2.1 Charging maths**
   - Files: `src/lib/charging.ts`, `tests/charging.test.ts`
   - Done when: tests pass for a flat curve (time = kWh/kW), a charger cap (lost time > 0), linear interpolation between points, 0%/100% edges, and km per 10 min.
+  - Verified 2026-11-15: 18 tests pass, incl. the QA.md hand example (49 kWh, 29.4 min, 58.8 min on 50 kW, ≈83.3 km/10 min), the exact ln 3 integral for a linear curve, partial charger caps, minutes above 100/150/200 kW, start = end, 0→100 %, non-step-aligned windows, unknown consumption, and rejected inputs. Midpoint rule over 0.5 % steps; no loss factor (C9); estimated results rounded to 5 min by `displayMinutes`.
 - [ ] **2.2 Template calibration**
   - Files: `scripts/calibrate.ts`, planning `charging-curve-viewer.md` §9
   - Done when: the calibration report is shown to the owner, the owner approves the tuned numbers, and they are recorded in §9 and used by `estimated-curve.ts`.

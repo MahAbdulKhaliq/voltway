@@ -1,0 +1,31 @@
+{
+  "$comment": "Proposed Phase 1 starter set (checklist 1.6): ~25 popular Canadian EVs at their latest NRCan model year. OWNER APPROVAL PENDING. `nrcan_model_prefix` selects NRCan rows for that make + year whose model starts with it. Edit this list, then run `npm run suggest:matches` to regenerate crosswalk/REVIEW.md.",
+  "status": "proposed",
+  "models": [
+    { "make": "Tesla", "nrcan_model_prefix": "Model Y", "year": 2026, "our_make": "tesla", "our_model": "model-y", "name": "Model Y", "body_type": "suv" },
+    { "make": "Tesla", "nrcan_model_prefix": "Model 3", "year": 2026, "our_make": "tesla", "our_model": "model-3", "name": "Model 3", "body_type": "sedan" },
+    { "make": "Hyundai", "nrcan_model_prefix": "IONIQ 5", "year": 2026, "our_make": "hyundai", "our_model": "ioniq-5", "name": "IONIQ 5", "body_type": "crossover" },
+    { "make": "Hyundai", "nrcan_model_prefix": "IONIQ 6", "year": 2025, "our_make": "hyundai", "our_model": "ioniq-6", "name": "IONIQ 6", "body_type": "sedan" },
+    { "make": "Hyundai", "nrcan_model_prefix": "IONIQ 9", "year": 2026, "our_make": "hyundai", "our_model": "ioniq-9", "name": "IONIQ 9", "body_type": "suv" },
+    { "make": "Hyundai", "nrcan_model_prefix": "Kona Electric", "year": 2026, "our_make": "hyundai", "our_model": "kona-electric", "name": "Kona Electric", "body_type": "crossover" },
+    { "make": "Kia", "nrcan_model_prefix": "EV6", "year": 2025, "our_make": "kia", "our_model": "ev6", "name": "EV6", "body_type": "crossover" },
+    { "make": "Kia", "nrcan_model_prefix": "EV9", "year": 2026, "our_make": "kia", "our_model": "ev9", "name": "EV9", "body_type": "suv" },
+    { "make": "Kia", "nrcan_model_prefix": "Niro EV", "year": 2026, "our_make": "kia", "our_model": "niro-ev", "name": "Niro EV", "body_type": "crossover" },
+    { "make": "Chevrolet", "nrcan_model_prefix": "Equinox EV", "year": 2026, "our_make": "chevrolet", "our_model": "equinox-ev", "name": "Equinox EV", "body_type": "suv" },
+    { "make": "Chevrolet", "nrcan_model_prefix": "Blazer EV", "year": 2026, "our_make": "chevrolet", "our_model": "blazer-ev", "name": "Blazer EV", "body_type": "suv" },
+    { "make": "Chevrolet", "nrcan_model_prefix": "Silverado EV", "year": 2026, "our_make": "chevrolet", "our_model": "silverado-ev", "name": "Silverado EV", "body_type": "truck" },
+    { "make": "Ford", "nrcan_model_prefix": "Mustang Mach-E", "year": 2026, "our_make": "ford", "our_model": "mustang-mach-e", "name": "Mustang Mach-E", "body_type": "crossover" },
+    { "make": "Ford", "nrcan_model_prefix": "F-150 Lightning", "year": 2025, "our_make": "ford", "our_model": "f-150-lightning", "name": "F-150 Lightning", "body_type": "truck" },
+    { "make": "Volkswagen", "nrcan_model_prefix": "ID.4", "year": 2026, "our_make": "volkswagen", "our_model": "id-4", "name": "ID.4", "body_type": "suv" },
+    { "make": "Toyota", "nrcan_model_prefix": "bZ", "year": 2026, "our_make": "toyota", "our_model": "bz", "name": "bZ", "body_type": "suv" },
+    { "make": "Toyota", "nrcan_model_prefix": "C-HR", "year": 2026, "our_make": "toyota", "our_model": "c-hr", "name": "C-HR", "body_type": "crossover" },
+    { "make": "Subaru", "nrcan_model_prefix": "Solterra", "year": 2026, "our_make": "subaru", "our_model": "solterra", "name": "Solterra", "body_type": "suv" },
+    { "make": "Nissan", "nrcan_model_prefix": "ARIYA", "year": 2026, "our_make": "nissan", "our_model": "ariya", "name": "ARIYA", "body_type": "crossover" },
+    { "make": "Nissan", "nrcan_model_prefix": "LEAF", "year": 2026, "our_make": "nissan", "our_model": "leaf", "name": "LEAF", "body_type": "crossover" },
+    { "make": "Volvo", "nrcan_model_prefix": "EX30", "year": 2026, "our_make": "volvo", "our_model": "ex30", "name": "EX30", "body_type": "suv" },
+    { "make": "Volvo", "nrcan_model_prefix": "EX40", "year": 2026, "our_make": "volvo", "our_model": "ex40", "name": "EX40", "body_type": "suv" },
+    { "make": "Polestar", "nrcan_model_prefix": "2 ", "year": 2025, "our_make": "polestar", "our_model": "polestar-2", "name": "Polestar 2", "body_type": "sedan" },
+    { "make": "Cadillac", "nrcan_model_prefix": "LYRIQ", "year": 2026, "our_make": "cadillac", "our_model": "lyriq", "name": "LYRIQ", "body_type": "suv" },
+    { "make": "BMW", "nrcan_model_prefix": "i4", "year": 2026, "our_make": "bmw", "our_model": "i4", "name": "i4 Gran Coupe", "body_type": "sedan" }
+  ]
+}

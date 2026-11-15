@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MahAbdulKhaliq/voltway/schema/imported-nrcan.schema.json",
+  "title": "Imported NRCan ratings (one model year)",
+  "description": "Written by scripts/import-nrcan.ts. Each record is one NRCan row; source_key is what crosswalk rows point to. File: data/imported/nrcan/<year>.json",
+  "type": "object",
+  "required": ["source", "source_id", "year", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "source": { "const": "nrcan" },
+    "source_id": { "$ref": "common.schema.json#/$defs/sourceId" },
+    "year": { "type": "integer", "minimum": 2010, "maximum": 2100 },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_key", "year", "make", "model", "vehicle_class", "motor_kw", "consumption_city_wh_per_km", "consumption_highway_wh_per_km", "consumption_combined_wh_per_km", "range_km", "recharge_time_240v_h"],
+        "additionalProperties": false,
+        "properties": {
+          "source_key": { "type": "string", "minLength": 1 },
+          "year": { "type": "integer" },
+          "make": { "type": "string", "minLength": 1 },
+          "model": { "type": "string", "minLength": 1 },
+          "vehicle_class": { "type": "string", "minLength": 1 },
+          "motor_kw": { "$ref": "common.schema.json#/$defs/field_kw" },
+          "consumption_city_wh_per_km": { "$ref": "common.schema.json#/$defs/field_wh_per_km" },
+          "consumption_highway_wh_per_km": { "$ref": "common.schema.json#/$defs/field_wh_per_km" },
+          "consumption_combined_wh_per_km": { "$ref": "common.schema.json#/$defs/field_wh_per_km" },
+          "range_km": { "$ref": "common.schema.json#/$defs/field_km" },
+          "recharge_time_240v_h": { "$ref": "common.schema.json#/$defs/field_hours" }
+        }
+      }
+    }
+  }
+}

@@ -34,9 +34,10 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
   - Files: `schema/*.schema.json`, `scripts/validate.ts`, `scripts/lib/validate-data.ts`, `scripts/lib/csv.ts`, `tests/schema.test.ts`, `tests/fixtures/valid-repo/` (invalid cases are made by editing a temp copy of the valid fixture, one rule per test)
   - Verified 2026-11-15: 28 schema tests pass, covering every case below plus missing kind/unit, bad enum, homepage-only source, id/path mismatch, unsorted or repeated SoC, stored "estimated" curve, bad crosswalk rows. `npm run validate` OK on the (still empty) real data; `astro check` 0 errors.
   - Done when: `npm run validate` passes on the real data, and tests prove each of these fails: a bare number, a sourced value with no `source_id`, a `source_id` not in the sources table, a one-point curve, an unsorted curve, a wrong unit, two display-default curves on one variant.
-- [ ] **1.2 NRCan fetch + importer**
-  - Files: `scripts/fetch-nrcan.ts`, `scripts/import-nrcan.ts`, `sources/nrcan/`, `data/imported/nrcan/`, `data/sources/src-nrcan-bev-*.json`
+- [x] **1.2 NRCan fetch + importer**
+  - Files: `scripts/fetch-nrcan.ts`, `scripts/import-nrcan.ts`, `scripts/lib/nrcan.ts`, `schema/imported-nrcan.schema.json`, `sources/nrcan/`, `data/imported/nrcan/`, `data/sources/src-nrcan-bev-2026-09.json`, `tests/nrcan.test.ts`
   - Done when: the raw CSV is committed with its fetch date; imported records hold Wh/km (= kWh/100 km × 10), range km and 240 V recharge h as `rated_nrcan` sourced values; a unit test checks the conversion on a known row.
+  - Verified 2026-11-15: 1,250 rows (2012–2026) → 15 files; `sources/nrcan/FETCHED.json` records fetch date + sha256; conversion tested on a verbatim 2026 Volvo EX30 row; a test re-derives 2026.json from the raw CSV and compares; validator rejects bare numbers in imports and crosswalk keys missing from the import. Motor kW also imported (as `rated_nrcan`) to help matching.
 - [ ] **1.3 OpenEV Data importer**
   - Files: `scripts/import-openev.ts`, `sources/openev/`, `data/imported/openev/`
   - Done when: a pinned release is imported; values are tagged manufacturer-via-OpenEV; homepage-only source URLs carry `low_confidence`; validate passes.

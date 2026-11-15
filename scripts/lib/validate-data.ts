@@ -200,7 +200,7 @@ export function validateRepo(root: string): ValidationResult {
   for (const rel of listJson(join(dataDir, 'curves'))) {
     const file = `data/curves/${rel}`;
     const data = read('curves', rel) as
-      | { id: string; variant_id: string; points: { soc_percent: number }[]; is_display_default: boolean }
+      | { id: string; variant_id: string; points: { soc_percent: number }[]; is_display_default: boolean; based_on?: { variant_id: string } }
       | undefined;
     if (data === undefined || !check(v.curve, data, file)) continue;
     curveCount++;
@@ -210,6 +210,8 @@ export function validateRepo(root: string): ValidationResult {
     if (data.id !== curveId) errors.push(`${file}: id "${data.id}" must match its file name "${curveId}"`);
     if (data.variant_id !== variantFromPath) errors.push(`${file}: variant_id "${data.variant_id}" must match its folder "${variantFromPath}"`);
     if (!variants.has(data.variant_id)) errors.push(`${file}: variant "${data.variant_id}" has no file in data/variants`);
+    if (data.based_on && !variants.has(data.based_on.variant_id)) errors.push(`${file}: based_on variant "${data.based_on.variant_id}" has no file in data/variants`);
+    if (data.based_on?.variant_id === data.variant_id) errors.push(`${file}: a borrowed curve can't be based on its own variant`);
     for (let i = 1; i < data.points.length; i++) {
       if (data.points[i].soc_percent <= data.points[i - 1].soc_percent) {
         errors.push(`${file}: points must be sorted by soc_percent with no repeats (point ${i} is ${data.points[i].soc_percent}% after ${data.points[i - 1].soc_percent}%)`);

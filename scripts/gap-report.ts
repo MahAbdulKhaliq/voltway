@@ -56,6 +56,7 @@ const lines: string[] = [
 const totals = new Map<string, number>();
 let variantCount = 0;
 let complete = 0;
+let noCurve = 0; // variants whose only curve is the template estimate (or none, without a DC peak)
 let no1080 = 0; // not an MVP field (many makers don't publish one), so it doesn't block "complete"
 const byModel = new Map<string, string[]>();
 for (const f of listJson(join(root, 'data/variants'))) {
@@ -85,19 +86,23 @@ for (const f of listJson(join(root, 'data/variants'))) {
     return Boolean(rec && parseName(rec.model).wheel_in);
   };
   if (!(v.trims ?? []).every(trimHasWheels)) gaps.push('wheel sizes');
-  const hasCurve = recs.some((x) => x.source === 'chargeprice' && x.rec.curve) || existsSync(join(root, 'data/curves', v.id));
+  // Curves (B16): measured (imported or stored), borrowed from a same-pack sibling, or template only.
+  const stored = existsSync(join(root, 'data/curves', v.id)) ? readdirSync(join(root, 'data/curves', v.id)).filter((n) => n.endsWith('.json')).map((n) => load(join(root, 'data/curves', v.id, n))) : [];
+  const curveState = recs.some((x) => x.source === 'chargeprice' && x.rec.curve) || stored.some((c: any) => c.kind !== 'estimated')
+    ? 'measured' : stored.length ? 'borrowed' : 'template';
   const has1080 = filled(v.published_10_80_min) || recs.some((x) => x.source === 'openev' && filled(x.rec.published_10_80_min));
   for (const g of gaps) totals.set(g, (totals.get(g) ?? 0) + 1);
   if (!has1080) no1080++;
+  if (curveState === 'template') noCurve++;
   if (gaps.length === 0) complete++;
   const model = v.model_id;
-  const note = [hasCurve ? '📈 measured curve' : 'estimated curve', has1080 ? 'has published 10–80%' : 'no published 10–80%'].join(' · ');
+  const note = [{ measured: '📈 measured curve', borrowed: 'borrowed sibling curve', template: 'template curve only' }[curveState], has1080 ? 'has published 10–80%' : 'no published 10–80%'].join(' · ');
   byModel.set(model, [...(byModel.get(model) ?? []), `- \`${v.id}\` (${note}): ${gaps.length ? gaps.join(', ') : '✅ complete'}`]);
 }
 
 lines.push(`**${complete} of ${variantCount} variants complete.** Missing, by field:`, '');
 for (const [g, n] of [...totals].sort((a, b) => b[1] - a[1])) lines.push(`- ${g}: ${n}`);
-lines.push('', `Also: ${no1080} of ${variantCount} variants have no published 10–80 % time (optional; used to calibrate estimated curves, 2.2).`, '');
+lines.push('', `Also: ${noCurve} of ${variantCount} variants have no measured or borrowed charging curve (template only), and ${no1080} have no published 10–80 % time. Neither blocks "complete", but research should look for both (B15, B16).`, '');
 for (const [model, items] of byModel) lines.push(`## ${model}`, '', ...items, '');
 writeFileSync(join(root, 'crosswalk/GAPS.md'), lines.join('\n'));
-console.log(`gaps: ${complete}/${variantCount} variants complete; ${[...totals].map(([g, n]) => `${g} ${n}`).join(' · ')}; no published 10–80% ${no1080}`);
+console.log(`gaps: ${complete}/${variantCount} variants complete; ${[...totals].map(([g, n]) => `${g} ${n}`).join(' · ')}; template curve only ${noCurve}; no published 10–80% ${no1080}`);

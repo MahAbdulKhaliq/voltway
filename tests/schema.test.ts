@@ -166,9 +166,16 @@ describe('charging curves (vehicle-data-model.md §5)', () => {
     expect(errors.some((e) => e.includes('/points/4/soc_percent'))).toBe(true);
   });
 
-  it('rejects a stored curve of kind "estimated" (estimates are generated at build)', () => {
-    const errors = errorsAfter(CURVE, (c) => { c.kind = 'estimated'; });
-    expect(errors.some((e) => e.includes('/kind'))).toBe(true);
+  it('rejects a stored estimated curve that does not say which sibling it is borrowed from (B16)', () => {
+    const errors = errorsAfter(CURVE, (c) => { c.kind = 'estimated'; c.low_confidence = true; });
+    expect(errors).toContainEqual(expect.stringContaining("required property 'based_on'"));
+  });
+
+  it('rejects based_on on a measured curve, and a sibling that does not exist (B16)', () => {
+    expect(errorsAfter(CURVE, (c) => { c.based_on = { variant_id: 'testmake/sparkle/2025/long-range-awd', reason: 'x' }; }))
+      .toContainEqual(expect.stringContaining('/based_on'));
+    expect(errorsAfter(CURVE, (c) => { c.kind = 'estimated'; c.low_confidence = true; c.based_on = { variant_id: 'testmake/sparkle/2025/nope', reason: 'Same pack.' }; }))
+      .toContainEqual(expect.stringContaining('based_on variant "testmake/sparkle/2025/nope" has no file'));
   });
 
   it('rejects two display-default curves on one variant', () => {

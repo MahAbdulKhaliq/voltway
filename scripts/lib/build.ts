@@ -308,6 +308,8 @@ export function buildCars(root: string): BuildResult {
       ...storedCurves.filter((c) => c.variant_id === v.id).map((c): CurveOut => ({
         id: c.id, kind: c.kind, source_id: c.source_id, points: c.points, is_display_default: Boolean(c.is_display_default),
         ...(c.notes ? { notes: c.notes } : {}), ...(c.conditions ? { conditions: c.conditions } : {}), ...(c.low_confidence ? { low_confidence: true } : {}),
+        // B16: a curve borrowed from a same-pack sibling explains itself in the "Why estimated?" note.
+        ...(c.based_on ? { based_on: c.based_on, basis: c.based_on.reason } : {}),
       })),
       ...importedCurves,
     ];
@@ -322,7 +324,9 @@ export function buildCars(root: string): BuildResult {
     }
     if (curves.length && !curves.some((c) => c.is_display_default)) {
       const order = { tested: 0, community: 1, manufacturer: 2, estimated: 3 };
-      const best = [...curves].sort((a, b) => order[a.kind] - order[b.kind] || Number(a.low_confidence ?? false) - Number(b.low_confidence ?? false))[0];
+      // Within "estimated", a borrowed sibling curve (B16) beats the template.
+      const borrowed = (c: CurveOut) => (c.based_on ? 0 : 1);
+      const best = [...curves].sort((a, b) => order[a.kind] - order[b.kind] || borrowed(a) - borrowed(b) || Number(a.low_confidence ?? false) - Number(b.low_confidence ?? false))[0];
       best.is_display_default = true;
     }
     const defaultCurve = curves.find((c) => c.is_display_default);

@@ -17,6 +17,7 @@
     "import:chargeprice": "tsx scripts/import-chargeprice.ts",
     "data:import": "npm run import:nrcan && npm run import:openev && npm run import:chargeprice",
     "suggest:matches": "tsx scripts/suggest-matches.ts",
+    "gaps": "tsx scripts/gap-report.ts",
     "validate": "tsx scripts/validate.ts",
     "data:build": "tsx scripts/build-data.ts",
     "prebuild": "npm run validate && npm run data:build",

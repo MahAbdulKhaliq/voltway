@@ -42,9 +42,10 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
   - Files: `scripts/fetch-openev.ts`, `scripts/import-openev.ts`, `scripts/lib/openev.ts`, `schema/imported-openev.schema.json`, `sources/openev/`, `data/imported/openev/`, `data/sources/src-openev-v1-24-0.json`, `tests/openev.test.ts`
   - Done when: a pinned release is imported; values are tagged manufacturer-via-OpenEV; homepage-only source URLs carry `low_confidence`; validate passes.
   - Verified 2026-11-15: v1.24.0 pinned (sha256 in FETCHED.json); 665 North American records → 38 make files; all values cite `src-openev-v1-24-0`; 24% of records flagged `low_confidence`; validate OK; 14 OpenEV tests incl. a full re-derivation of the committed import from the raw release. Mapping rules in DESIGN.md. No Kia (D13 confirmed); no curves in this release.
-- [ ] **1.4 Chargeprice importer**
-  - Files: `scripts/import-chargeprice.ts`, `sources/chargeprice/`, `data/imported/chargeprice/`
+- [x] **1.4 Chargeprice importer**
+  - Files: `scripts/fetch-chargeprice.ts`, `scripts/import-chargeprice.ts`, `scripts/lib/chargeprice.ts`, `schema/imported-chargeprice.schema.json`, `sources/chargeprice/`, `data/imported/chargeprice/` (incl. `SKIPPED.md`), `data/sources/src-chargeprice-archive-2025-04.json`, `tests/chargeprice.test.ts`
   - Done when: measured curves import as `tested` with the Fastned → Chargeprice chain in notes; default curves are skipped and listed in a log; the MIT attribution is in the source record.
+  - Verified 2026-11-15: pinned commit 32d7dc5; 1,282 cars → 69 files; 122 curves `tested` with the chain in notes; 407 flagged-default + 753 unflagged generic shapes skipped and listed in SKIPPED.md; attribution text is the licence's exact wording. **Owner review pending** on the generic-shape filter (DESIGN.md).
 - [ ] **1.5 Match suggester + crosswalk**
   - Files: `scripts/match.ts`, `crosswalk/crosswalk.csv`, `crosswalk/unmatched.md`
   - Done when: suggestions are written with `confirmed=false`; unmatched records are listed; the owner has confirmed the starter-set rows; the build ignores unconfirmed rows (tested).

@@ -4,11 +4,16 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { CarDetail, IndexEntry } from './types.ts';
+import type { WheelEffect } from './wheel-effect.ts';
 
 const dir = join(process.cwd(), 'public', 'data');
 
 export function loadIndex(): IndexEntry[] {
   return JSON.parse(readFileSync(join(dir, 'index.json'), 'utf8'));
+}
+
+export function loadEstimates(): { wheel: WheelEffect | null } {
+  return JSON.parse(readFileSync(join(dir, 'estimates.json'), 'utf8'));
 }
 
 export function loadCar(id: string): CarDetail {

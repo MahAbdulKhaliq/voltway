@@ -9,11 +9,12 @@ import { buildCars } from './lib/build.ts';
 
 const root = process.cwd();
 const out = join(root, 'public', 'data');
-const { cars, index, report } = buildCars(root);
+const { cars, index, estimates, report } = buildCars(root);
 
 rmSync(out, { recursive: true, force: true });
 mkdirSync(join(out, 'cars'), { recursive: true });
 writeFileSync(join(out, 'index.json'), JSON.stringify(index));
+writeFileSync(join(out, 'estimates.json'), JSON.stringify(estimates));
 for (const car of cars) {
   const file = join(out, 'cars', `${car.id}.json`);
   mkdirSync(dirname(file), { recursive: true });

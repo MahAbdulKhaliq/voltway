@@ -1,14 +1,13 @@
 {
   "site.name": "Voltway",
-  "site.tagline": "Canadian EV specs and charging curves, with a source on every figure.",
+  "site.tagline": "EV specs and charging curves, with a source on every figure.",
   "site.skip": "Skip to content",
-  "home.comingSoon": "Phase 1 is under construction.",
   "nav.compareCount": "Compare ({count})",
   "nav.cars": "Cars",
   "nav.charging": "Charging",
   "nav.main": "Main",
   "charging.title": "Charging",
-  "charging.intro": "Pick a car to see how fast it charges, with a source on every figure.",
+  "charging.intro": "Pick a car to see how fast it charges. Every figure shows where it came from.",
   "charging.selectVehicle": "Select vehicle",
   "charging.make": "Make",
   "charging.model": "Model",
@@ -28,8 +27,6 @@
   "units.label": "Distance units",
   "units.km": "km",
   "units.mi": "mi",
-  "home.title": "EVs sold in Canada",
-  "home.intro": "Every figure on Voltway shows where it came from. Pick a car to see its specs and charging curve.",
   "home.count": "{count} variants across {models} models",
   "home.variants": "{count} variants",
   "home.estimatedNote": "~ = estimated",
@@ -54,7 +51,6 @@
   "car.backToCars": "All cars",
   "car.variant": "Variant",
   "car.variants": "Other variants of the {year} {model}",
-  "car.notSoldInCanada": "This variant isn't listed in NRCan's ratings, so it may not be sold in Canada.",
   "car.keyFigures": "Key figures",
   "car.curve": "Charging curve",
   "car.specs": "Specifications",
@@ -191,5 +187,8 @@
   "viewer.option.estimated": "Estimated",
   "viewer.chartTable": "Chart data as a table",
   "cars.models1": "1 model",
-  "home.variants1": "1 variant"
+  "home.variants1": "1 variant",
+  "scope.note": "Currently covers EVs sold in {market}. Official range and efficiency ratings come from {regulator}; every other figure names its source.",
+  "scope.short": "Coverage: {market} · official ratings from {regulator}",
+  "car.notInMarket": "This variant isn't in {regulator}'s ratings, so it may not be sold in {market}."
 }

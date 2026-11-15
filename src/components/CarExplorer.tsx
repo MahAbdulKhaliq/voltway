@@ -4,6 +4,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
+import { COVERAGE } from '../config.ts';
 import { displayMinutes } from '../lib/charging.ts';
 import { getItem, setItem, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
@@ -16,6 +17,13 @@ interface Props { index: IndexEntry[] }
 const LAST_CAR = 'voltway.lastCar';
 const uniq = <T,>(xs: T[]) => [...new Set(xs)];
 const byName = (a: string, b: string) => a.localeCompare(b, 'en', { sensitivity: 'base' });
+
+/** Trim names repeat the variant ("eDrive40 Gran Coupe (18″ Wheels)"); the dropdown shows only what differs. */
+export function trimLabel(trim: string, variant: string): string {
+  if (trim === variant) return trim;
+  const rest = trim.startsWith(variant) ? trim.slice(variant.length).trim().replace(/^\((.*)\)$/, '$1') : '';
+  return rest || trim;
+}
 
 const GROUPS: { title: MessageKey; fields: string[] }[] = [
   { title: 'group.battery', fields: ['capacity_usable_kwh', 'capacity_gross_kwh', 'chemistry', 'nominal_voltage_class', 'preconditioning'] },
@@ -125,7 +133,7 @@ export default function CarExplorer({ index }: Props) {
           </label>
           <label><span>{t('charging.trim')}</span>
             <select value={trim?.id ?? ''} disabled={!car || car.trims.length < 2} onChange={(e) => setTrimId(e.target.value)}>
-              {(car?.trims ?? []).map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}
+              {(car?.trims ?? []).map((x) => <option key={x.id} value={x.id}>{trimLabel(x.name, car?.name ?? "")}</option>)}
             </select>
           </label>
         </div>
@@ -140,7 +148,7 @@ export default function CarExplorer({ index }: Props) {
             <p className="muted eyebrow">{car.year} · {car.make.name} · {t(`body.${car.model.body_type}` as MessageKey)} · {t(`value.${car.drivetrain}` as MessageKey)}</p>
             <h1>{car.model.name} <span className="variant">{car.name}</span></h1>
           </header>
-          {!car.sold_in_canada && <p className="banner">{t('car.notSoldInCanada')}</p>}
+          {!car.sold_in_canada && <p className="banner">{t('car.notInMarket', { market: COVERAGE.market, regulator: COVERAGE.regulatorShort })}</p>}
 
           <section aria-labelledby="key">
             <h2 id="key" className="sr-only">{t('car.keyFigures')}</h2>
@@ -241,8 +249,8 @@ export default function CarExplorer({ index }: Props) {
         .explorer { display: grid; gap: 24px; }
         .explorer .picker h2 { font-size: 1.05rem; }
         .explorer .selects { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
-        .explorer .selects label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); }
-        .explorer .selects select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
+        .explorer .selects label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
+        .explorer .selects select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; width: 100%; min-width: 0; text-overflow: ellipsis; }
         .explorer .selects select:disabled { opacity: 0.6; }
         .explorer .eyebrow { margin: 0 0 4px; font-size: 0.9rem; }
         .explorer .variant { color: var(--muted); font-weight: 500; }

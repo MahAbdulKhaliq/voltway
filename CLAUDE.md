@@ -1,6 +1,6 @@
 # Voltway
 
-A free, no-login website for Canadian EV drivers and shoppers: source-labelled EV specs and charging curves (Phase 1), then a charger map (Phase 2) and a road-trip planner (Phase 3).
+A free, no-login website for EV drivers and shoppers (data currently covers Canada; branding is market-neutral, B12): source-labelled EV specs and charging curves (Phase 1), then a charger map (Phase 2) and a road-trip planner (Phase 3).
 
 ## Design docs: the source of truth
 

@@ -41,6 +41,7 @@ export interface CurveOut {
   is_display_default: boolean;
   notes?: string;
   basis?: string;               // estimated curves: template and inputs used
+  based_on?: { variant_id: string; reason: string }; // borrowed from a same-pack sibling (B16)
   conditions?: Record<string, unknown>;
   low_confidence?: boolean;
 }

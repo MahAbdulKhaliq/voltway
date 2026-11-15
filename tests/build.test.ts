@@ -1,4 +1,4 @@
-import { cpSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -103,6 +103,21 @@ describe('buildCars on the fixture', () => {
   it('keeps the stored tested curve as default over the generated estimate', () => {
     const [car] = buildCars(repo()).cars;
     expect(car.curves.map((c) => [c.kind, c.is_display_default])).toEqual([['tested', true], ['estimated', false]]);
+  });
+
+  it('prefers a curve borrowed from a same-pack sibling over the template, and explains it (B16)', () => {
+    const d = repo();
+    const file = join(d, 'data/curves', V, 'test-2025.json');
+    const c = JSON.parse(readFileSync(file, 'utf8'));
+    rmSync(file);
+    writeFileSync(join(d, 'data/curves', V, 'borrowed.json'), JSON.stringify({
+      ...c, id: 'borrowed', kind: 'estimated', low_confidence: true, is_display_default: false,
+      based_on: { variant_id: 'testmake/sparkle/2025/twin', reason: 'Same 80 kWh 800 V pack.' },
+    }));
+    const [car] = buildCars(d).cars;
+    const def = car.curves.find((x) => x.is_display_default);
+    expect(def).toMatchObject({ id: 'borrowed', kind: 'estimated', basis: 'Same 80 kWh 800 V pack.' });
+    expect(car.curves.filter((x) => x.kind === 'estimated')).toHaveLength(2);
   });
 
   it('makes the estimate the default only when nothing measured exists', () => {

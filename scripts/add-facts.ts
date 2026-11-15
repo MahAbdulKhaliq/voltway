@@ -15,8 +15,18 @@
 // carries its own source_id, so they merge the same way:
 //   "wheels": [ { "diameter_in": 20, "is_standard": true, "source_id": "src-…", "notes"?, "low_confidence"? } ]
 // Trim keys: heat_pump, ac_max_kw, range_km, wheels.
+//
+// Charging curves (B16) go in a variant's "curves" list and are written to
+// data/curves/<variant id>/<curve id>.json (an existing file with the same id is replaced):
+//   "curves": [ { "id": "outofspec-2025", "kind": "tested" | "community" | "manufacturer",
+//                 "source_id": "src-…", "points": [ {"soc_percent": 10, "power_kw": 230}, … ],
+//                 "conditions"?: {…}, "notes"?, "low_confidence"? },
+//               { "id": "borrowed-ev6-2025", "kind": "estimated", "low_confidence": true,
+//                 "based_on": { "variant_id": "kia/ev6/2025/wind", "reason": "Same 84 kWh 800 V pack…" },
+//                 "source_id": "<the sibling curve's source>", "points": [ … copied … ] } ]
+// The data build picks the default curve; batches never set is_display_default.
 
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { cpSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -27,6 +37,7 @@ interface Patch {
   drivetrain?: string;
   fields?: Record<string, Sourced[]>;
   trims?: Record<string, Record<string, Sourced[]>>;
+  curves?: ({ id: string } & Record<string, unknown>)[];
 }
 
 // `--check`: apply to a temporary copy of the data and run the full validator; real files untouched.
@@ -72,6 +83,14 @@ for (const [id, patch] of Object.entries(spec.variants)) {
   const { id: _id, model_id, year, name, drivetrain, carry_over_from, trims, ...rest } = v;
   const ordered = { id: v.id, model_id, year, name, drivetrain, ...(carry_over_from ? { carry_over_from } : {}), ...rest, trims };
   writeFileSync(file, JSON.stringify(ordered, null, 2) + '\n');
+  for (const c of patch.curves ?? []) {
+    if ('is_display_default' in c) throw new Error(`${id}: curve "${c.id}" sets is_display_default; the build picks the default`);
+    const dir = join(root, 'data/curves', id);
+    mkdirSync(dir, { recursive: true });
+    const { id: curveId, ...rest } = c;
+    writeFileSync(join(dir, `${curveId}.json`), JSON.stringify({ id: curveId, variant_id: id, ...rest, is_display_default: false }, null, 2) + '\n');
+    if (!check) console.log(`curve ${id}/${curveId}`);
+  }
   if (!check) console.log(`updated ${id}`);
 }
 

@@ -182,7 +182,7 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
             <span>{t('viewer.curve')}</span>
             <select value={curve.id} onChange={(e) => setCurveId(e.target.value)}>
               {curves.map((c) => (
-                <option key={c.id} value={c.id}>{kindLabel(c.kind)}{c.id.startsWith('chargeprice') ? ` (${c.id.split('-')[1]})` : ''}</option>
+                <option key={c.id} value={c.id}>{c.based_on ? t('viewer.option.borrowed') : kindLabel(c.kind)}{c.id.startsWith('chargeprice') ? ` (${c.id.split('-')[1]})` : ''}</option>
               ))}
             </select>
           </label>

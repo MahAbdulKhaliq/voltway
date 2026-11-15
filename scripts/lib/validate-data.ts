@@ -164,6 +164,7 @@ export function validateRepo(root: string): ValidationResult {
 
   // --- Variants ---
   const variants = new Set<string>();
+  const trimsByVariant = new Map<string, Set<string>>();
   const carryOvers: { file: string; target: string }[] = [];
   for (const rel of listJson(join(dataDir, 'variants'))) {
     const file = `data/variants/${rel}`;
@@ -187,6 +188,7 @@ export function validateRepo(root: string): ValidationResult {
     if (data.carry_over_from) carryOvers.push({ file, target: data.carry_over_from });
     checkSourced(data, file);
     variants.add(data.id);
+    trimsByVariant.set(data.id, trimIds);
   }
   for (const { file, target } of carryOvers) {
     if (!variants.has(target)) errors.push(`${file}: carry_over_from "${target}" is not a known variant`);
@@ -297,10 +299,14 @@ export function validateRepo(root: string): ValidationResult {
       if (raw.confirmed === 'true') row.confirmed = true;
       else if (raw.confirmed === 'false') row.confirmed = false;
       if (raw.notes === '') delete row.notes;
+      if (raw.our_trim_id === '' || raw.our_trim_id === undefined) delete row.our_trim_id;
       if (!check(v.crosswalkRow, row, where)) return;
       crosswalkCount++;
       const variantId = row.our_variant_id as string;
       if (!variants.has(variantId)) errors.push(`${where}: variant "${variantId}" has no file in data/variants`);
+      else if (row.our_trim_id && !trimsByVariant.get(variantId)?.has(row.our_trim_id as string)) {
+        errors.push(`${where}: trim "${row.our_trim_id}" is not a trim of ${variantId}`);
+      }
       if (row.source === 'nrcan' && nrcanFiles > 0 && !nrcanKeys.has(row.source_key as string)) {
         errors.push(`${where}: NRCan key "${row.source_key}" is not in data/imported/nrcan`);
       }
@@ -310,8 +316,8 @@ export function validateRepo(root: string): ValidationResult {
       if (row.source === 'chargeprice' && chargepriceFiles > 0 && !chargepriceKeys.has(row.source_key as string)) {
         errors.push(`${where}: Chargeprice key "${row.source_key}" is not in data/imported/chargeprice`);
       }
-      const key = `${variantId}|${row.source}`;
-      if (seen.has(key)) errors.push(`${where}: ${variantId} already has a ${row.source} row`);
+      const key = `${variantId}|${row.source}|${row.our_trim_id ?? ''}`;
+      if (seen.has(key)) errors.push(`${where}: ${variantId}${row.our_trim_id ? ` trim ${row.our_trim_id}` : ""} already has a ${row.source} row`);
       seen.add(key);
     });
   }

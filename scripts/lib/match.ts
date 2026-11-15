@@ -147,6 +147,10 @@ export function scoreCandidate(target: NrcanTarget, c: Candidate, modelTokens?: 
     else { score += 0.1; reasons.push(`candidate ${cDrive}, NRCan row not marked AWD`); }
   }
 
+  if (t.pack_kwh && c.usable_kwh && Math.abs(c.usable_kwh - t.pack_kwh) / t.pack_kwh > 0.05) {
+    score -= 0.1;
+    reasons.push(`pack differs (${c.usable_kwh} vs ${t.pack_kwh} kWh)`);
+  }
   if (powerDiff !== undefined) {
     if (powerClose) { score += 0.2; reasons.push(`motor power ${c.motor_kw} kW ≈ ${target.motor_kw} kW`); }
     else if (powerDiff > 0.2) { score -= 0.1; reasons.push(`motor power differs (${c.motor_kw} vs ${target.motor_kw} kW)`); }

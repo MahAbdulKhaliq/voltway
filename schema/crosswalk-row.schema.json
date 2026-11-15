@@ -12,6 +12,7 @@
     "source_key": { "type": "string", "minLength": 1 },
     "match_method": { "enum": ["automatic", "manual"] },
     "confirmed": { "type": "boolean" },
+    "our_trim_id": { "description": "When a source rates trims separately (e.g. NRCan rows split by wheel size or onboard charger), the trim this row belongs to.", "$ref": "common.schema.json#/$defs/slug" },
     "notes": { "type": "string" }
   }
 }

@@ -200,3 +200,31 @@ describe('crosswalk (vehicle-data-model.md §6)', () => {
     expect(validateRepo(dir).errors.some((e) => e.includes('/confirmed'))).toBe(true);
   });
 });
+
+describe('crosswalk trim links (B7/B8)', () => {
+  const header = 'our_variant_id,source,source_key,match_method,confirmed,our_trim_id,notes';
+  const write = (dir: string, row: string) => writeFileSync(join(dir, 'crosswalk', 'crosswalk.csv'), `${header}\n${row}\n`);
+
+  it('accepts a row linked to an existing trim', () => {
+    const dir = makeRepo();
+    write(dir, 'testmake/sparkle/2025/long-range-awd,nrcan,"2025 · Testmake · Sparkle AWD, LR",automatic,true,base,');
+    expect(validateRepo(dir).errors).toEqual([]);
+  });
+
+  it('rejects a row linked to a trim the variant does not have', () => {
+    const dir = makeRepo();
+    write(dir, 'testmake/sparkle/2025/long-range-awd,nrcan,"2025 · Testmake · Sparkle AWD, LR",automatic,true,nope,');
+    expect(validateRepo(dir).errors).toContainEqual(expect.stringContaining('trim "nope" is not a trim of'));
+  });
+
+  it('accepts drivetrain "unknown" but not a guess', () => {
+    expect(errorsAfter(VARIANT, (v) => { v.drivetrain = 'unknown'; })).toEqual([]);
+    expect(errorsAfter(VARIANT, (v) => { v.drivetrain = '2wd'; }).some((e) => e.includes('/drivetrain'))).toBe(true);
+  });
+
+  it('accepts a trim-level ac_max_kw override', () => {
+    expect(errorsAfter(VARIANT, (v) => {
+      v.trims[0].ac_max_kw = [{ value: 19.2, unit: 'kW', kind: 'manufacturer', source_id: 'src-test-oem-spec' }];
+    })).toEqual([]);
+  });
+});

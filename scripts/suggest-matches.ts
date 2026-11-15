@@ -61,7 +61,7 @@ for (const m of starter.models) {
     const head = group[0];
     const p = parseName(head.model);
     const rest = p.tokens.slice(prefixTokens.length);
-    const slug = slugify(rest.join(' ')) || (p.drivetrain ?? 'standard');
+    const slug = [slugify(rest.join(' ')) || (p.drivetrain ?? 'standard'), p.pack_kwh ? `${p.pack_kwh}-kwh`.replace('.', '-') : ''].filter(Boolean).join('-');
     const variantId = `${m.our_make}/${m.our_model}/${m.year}/${slug}`;
     const split = group.length > 1;
     const hints = group.map((r) => {

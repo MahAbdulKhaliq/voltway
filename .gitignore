@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+
+# Astro build output and cache
+dist/
+.astro/
+
+# generated data (rebuilt by `npm run data:build`)
+public/data/
+
+# Vercel CLI local link
+.vercel/
+
+# env files (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# logs and OS junk
+npm-debug.log*
+*.log
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea/

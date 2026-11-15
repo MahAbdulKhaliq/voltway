@@ -1,0 +1,41 @@
+# Voltway
+
+A free, no-login website for Canadian EV drivers and shoppers: source-labelled EV specs and charging curves (Phase 1), then a charger map (Phase 2) and a road-trip planner (Phase 3).
+
+## Design docs: the source of truth
+
+The full design lives **outside this repo** in `G:\Work\Ideating\EV-App-Planning`.
+
+- Read `overview.md` first, then the detailed docs it links to.
+- **Where `overview.md` and a detailed doc disagree, the detailed doc wins.**
+- Phase 1 docs: `data-sources.md`, `vehicle-data-model.md`, `charging-curve-viewer.md`, `database-ui.md`, `phase1-stack.md`. Build order: `roadmap.md`. Open questions: `gaps-and-questions.md`.
+- The build plan for this repo is in `docs/plan/` (`DESIGN.md`, `CHECKLIST.md`, `QA.md`). Work from `CHECKLIST.md`.
+
+## Rules
+
+- **Don't change design decisions on your own.** If something in the docs doesn't work in practice, tell the owner and propose a change. The owner decides.
+- **When the owner approves a change,** update the matching planning doc **and** `gaps-and-questions.md` (with the date), then `docs/plan/DESIGN.md` / `CHECKLIST.md` if affected.
+- **Build in phases, in `roadmap.md` order.** Current scope: **Phase 1 only** (vehicle database + charging curves). Do not build the map or the route planner yet, and hide links to parts that don't exist.
+- **Data layer before UI:** schema, importers (NRCan, OpenEV Data, Chargeprice) and the crosswalk table come before any screens.
+- **No bare numbers.** Every vehicle figure is a sourced value with `value`, `unit`, `kind` and `source_id` (`vehicle-data-model.md` §3). "unknown" is an allowed value. The build must fail on an unsourced figure.
+- **All on-screen text is translatable.** No hard-coded user-facing strings in components or pages: use the i18n dictionary (`src/i18n/`). English for v1; French later.
+- **Metric internally,** convert to miles only on screen. Derived numbers (10–80% time, km per 10 min) are calculated, never stored.
+- **Automation suggests, a person approves.** Crosswalk matches are confirmed by the owner; no outside data goes live without review.
+
+## Stack (decided in `phase1-stack.md`)
+
+- Fully static site: **Astro** (TypeScript), interactive islands in **React**, charts with **ECharts**, in-browser search with MiniSearch.
+- Data as **JSON files** in a **public GitHub repo**, validated with **JSON Schema** (ajv) at build time.
+- Hosting: **Vercel**, free Hobby plan (non-commercial). Phase 3 adds a Vercel Function for routing; nothing server-side before then.
+- GitHub Actions: CI on pull requests; scheduled data checks that open pull requests.
+
+## Vercel
+
+- The Vercel connector is connected. Use it freely to **read** projects, deployments and logs.
+- **Ask the owner before changing any Vercel setting or creating anything there.** The owner does dashboard setup (like importing the repo) themselves, with step-by-step guidance.
+
+## Working style: this is a learning project
+
+- The owner is new to **Astro** and **Vercel**. Briefly explain new concepts as they come up (islands, static generation, preview deployments, build settings, etc.).
+- Walk the owner through any setup they must do themselves.
+- Ask before outward-facing actions (creating the GitHub repo, pushing, opening PRs).

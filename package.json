@@ -1,0 +1,37 @@
+{
+  "name": "voltway",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Canadian EV specs and charging curves, with a source on every figure.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "validate": "tsx scripts/validate.ts",
+    "data:build": "tsx scripts/build-data.ts",
+    "prebuild": "npm run validate && npm run data:build",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/react": "^7.1.9",
+    "astro": "^7.4.12",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.0"
+  }
+}

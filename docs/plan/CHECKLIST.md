@@ -46,10 +46,11 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
   - Files: `scripts/fetch-chargeprice.ts`, `scripts/import-chargeprice.ts`, `scripts/lib/chargeprice.ts`, `schema/imported-chargeprice.schema.json`, `sources/chargeprice/`, `data/imported/chargeprice/` (incl. `SKIPPED.md`), `data/sources/src-chargeprice-archive-2025-04.json`, `tests/chargeprice.test.ts`
   - Done when: measured curves import as `tested` with the Fastned → Chargeprice chain in notes; default curves are skipped and listed in a log; the MIT attribution is in the source record.
   - Verified 2026-11-15: pinned commit 32d7dc5; 1,282 cars → 69 files; 122 curves `tested` with the chain in notes; 407 flagged-default + 753 unflagged generic shapes skipped and listed in SKIPPED.md; attribution text is the licence's exact wording. **Owner review pending** on the generic-shape filter (DESIGN.md).
-- [ ] **1.5 Match suggester + crosswalk**
+- [x] **1.5 Match suggester + crosswalk**
   - Files: `scripts/match.ts`, `crosswalk/crosswalk.csv`, `crosswalk/unmatched.md`
   - Done when: suggestions are written with `confirmed=false`; unmatched records are listed; the owner has confirmed the starter-set rows; the build ignores unconfirmed rows (tested).
   - Progress 2026-11-15: `scripts/lib/match.ts` + `scripts/suggest-matches.ts` done (12 tests). Proposed starter set in `crosswalk/starter-set.json` (25 models → 84 proposed variants); `crosswalk/suggestions.csv` (all `confirmed=false`) and `crosswalk/REVIEW.md` generated, incl. "no candidate found" lines for unmatched variants. **Waiting on:** owner review of REVIEW.md (starter list, variant grouping, matches) and the onboard-charger question. "Build ignores unconfirmed rows" is tested in 1.7.
+  - Verified 2026-11-16: owner confirmed the starter rows (B8; 197 rows `confirmed=true` in `crosswalk/crosswalk.csv`); `tests/build.test.ts` "ignores unconfirmed crosswalk rows" passes. Stale matches withdrawn under B9 (IONIQ 5 Long Range).
 - [ ] **1.6 Starter set + hand entry**
   - Files: `data/makes/`, `data/models/`, `data/variants/`, `data/curves/`, `data/sources/`
   - Done when: the owner has approved the ~25-car list; each car has every MVP field filled or explicitly `"unknown"`; each hand-entered figure cites a specific-page source.

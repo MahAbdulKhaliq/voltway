@@ -38,3 +38,10 @@ Tesla Model Y, Model 3 · Ford Mach-E, F-150 Lightning · VW ID.4 · Toyota bZ, 
 
 ## Open points for the owner
 - Many manufacturers give one "battery capacity" without saying gross or usable. Charging maths needs usable. Currently recorded as gross with a note; decide in 1.7 whether to fall back to gross (labelled estimated) when usable is missing.
+
+## 2026-11-15: LYRIQ + Tesla Model 3/Y quick lookup (research/batch-2026-11-16-lyriq-tesla.json, --check OK, not applied)
+tesla.com, cadillaccanada.ca product pages returned 403 (not worked around). Used search results, thinkEV, The Charge Port.
+- **Tesla Model 3 (all 4 variants):** Supercharger access = yes (https://www.tesla.com/en_ca/support/charging/supercharging, low confidence). Performance and Performance AWD: 10-80% 25 min (https://thinkev.ca/compare/tesla-model-3-2026, community, low; one spec set, matched by 510 hp AWD). Heat pump per trim not found.
+- **Tesla Model Y (all 7 variants):** Supercharger = yes (same Tesla page); heat pump "standard" for all trims (https://thechargeport.com/ev/tesla-model-y, US-oriented, not per trim, low). That page also lists 225 kW DC (Standard) / 250 kW (Premium, Performance) and NACS: not added (OpenEV already supplies DC/port).
+- **Cadillac LYRIQ:** nothing added. Chemistry (NCMA seen earlier, no usable URL), heat pump and Supercharger access not stated on any readable page. Port conflict: Cadillac Canada snippet lists NACS on some trims; CarGurus/The Charge Port say 2026 is CCS1 with a $225-275 NACS DC adapter (2027 is native NACS).
+- LYRIQ wheels (not in batch format): 20 in on Luxury/Premium Luxury/Sport trims, 22 in on Signature/V (autodealcanada.ca, trim names unreliable); V: 22 in per dealer listing, though a Canadian page snippet mentions 20 in split 6-spoke on the V. Not verified per Standard/AWD/V variant.

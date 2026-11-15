@@ -1,4 +1,5 @@
-// `npx tsx scripts/add-facts.ts <facts.json>`: merges researched facts into variant files.
+// `npx tsx scripts/add-facts.ts <facts.json> [--check]`: merges researched facts into variant files.
+// With --check it validates the batch against a temporary copy and writes nothing.
 // The facts file lists sources (written to data/sources/) and, per variant, sourced values
 // to add. A value replaces an earlier one from the same source for the same field, so
 // re-running is safe; values from other sources are kept side by side (§3).
@@ -12,6 +13,9 @@
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { cpSync, mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { validateRepo } from './lib/validate-data.ts';
 
 type Sourced = { source_id: string; [k: string]: unknown };
 interface Patch {
@@ -20,8 +24,15 @@ interface Patch {
   trims?: Record<string, Record<string, Sourced[]>>;
 }
 
-const root = process.cwd();
-const spec = JSON.parse(readFileSync(process.argv[2], 'utf8')) as { sources: { id: string }[]; variants: Record<string, Patch> };
+// `--check`: apply to a temporary copy of the data and run the full validator; real files untouched.
+const check = process.argv.includes('--check');
+const batchPath = process.argv.slice(2).find((a) => !a.startsWith('--'));
+if (!batchPath) throw new Error('Usage: npx tsx scripts/add-facts.ts <batch.json> [--check]');
+const spec = JSON.parse(readFileSync(batchPath, 'utf8')) as { sources: { id: string }[]; variants: Record<string, Patch> };
+
+const realRoot = process.cwd();
+const root = check ? mkdtempSync(join(tmpdir(), 'voltway-check-')) : realRoot;
+if (check) for (const d of ['schema', 'data', 'crosswalk']) cpSync(join(realRoot, d), join(root, d), { recursive: true });
 
 for (const s of spec.sources) {
   writeFileSync(join(root, 'data/sources', `${s.id}.json`), JSON.stringify(s, null, 2) + '\n');
@@ -56,5 +67,16 @@ for (const [id, patch] of Object.entries(spec.variants)) {
   const { id: _id, model_id, year, name, drivetrain, carry_over_from, trims, ...rest } = v;
   const ordered = { id: v.id, model_id, year, name, drivetrain, ...(carry_over_from ? { carry_over_from } : {}), ...rest, trims };
   writeFileSync(file, JSON.stringify(ordered, null, 2) + '\n');
-  console.log(`updated ${id}`);
+  if (!check) console.log(`updated ${id}`);
+}
+
+if (check) {
+  const { errors, counts } = validateRepo(root);
+  rmSync(root, { recursive: true, force: true });
+  if (errors.length) {
+    console.error(`check: ${errors.length} error(s); nothing was written\n`);
+    for (const e of errors) console.error(`  ✗ ${e}`);
+    process.exit(1);
+  }
+  console.log(`check: OK, batch is valid (${counts.variants} variants, ${counts.sources} sources after applying); nothing was written`);
 }

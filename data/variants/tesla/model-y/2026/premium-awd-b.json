@@ -4,10 +4,28 @@
   "year": 2026,
   "name": "Premium AWD-B",
   "drivetrain": "awd",
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "community",
+      "source_id": "src-thechargeport-tesla-model-y",
+      "low_confidence": true,
+      "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
+    }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Premium AWD-B"
+      "name": "Premium AWD-B",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "community",
+          "source_id": "src-thechargeport-tesla-model-y",
+          "low_confidence": true,
+          "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
+        }
+      ]
     }
   ]
 }

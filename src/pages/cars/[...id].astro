@@ -1,0 +1,160 @@
+---
+// Car page (database-ui.md §5): one static page per variant, generated at build time.
+// Sections: header + variant links, key figures, charging curve, specs, trims, sources.
+import Base from '../../layouts/Base.astro';
+import FieldValue from '../../components/FieldValue.astro';
+import SourceBadge from '../../components/SourceBadge.astro';
+import CurveViewer from '../../components/CurveViewer.tsx';
+import { t, type MessageKey } from '../../i18n/t.ts';
+import { loadCar, loadIndex } from '../../lib/data.ts';
+import { formatNumber } from '../../lib/units.ts';
+import { displayMinutes } from '../../lib/charging.ts';
+import type { Field } from '../../lib/types.ts';
+
+export function getStaticPaths() {
+  return loadIndex().map((e) => ({ params: { id: e.id } }));
+}
+
+const { id } = Astro.params as { id: string };
+const car = loadCar(id);
+const siblings = loadIndex().filter((e) => e.id !== car.id && e.id.startsWith(`${car.model.id}/${car.year}/`));
+const f = car.fields;
+const label = (k: string) => t(`field.${k}` as MessageKey);
+const title = `${car.year} ${car.make.name} ${car.model.name} ${car.name}`;
+
+const usable = f.capacity_usable_kwh;
+const battery = usable ?? f.capacity_gross_kwh;
+const defaultCurve = car.curves.find((c) => c.is_display_default);
+const curveField: Field | null = defaultCurve
+  ? { value: { value: 0, kind: defaultCurve.kind, source_id: defaultCurve.source_id, notes: defaultCurve.basis ?? defaultCurve.notes }, others: [], conflict: false }
+  : null;
+const d = car.derived;
+
+const groups: { title: MessageKey; fields: string[] }[] = [
+  { title: 'group.battery', fields: ['capacity_usable_kwh', 'capacity_gross_kwh', 'chemistry', 'nominal_voltage_class', 'preconditioning'] },
+  { title: 'group.charging', fields: ['dc_max_kw', 'ac_max_kw', 'published_10_80_min', 'recharge_time_240v_h'] },
+  { title: 'group.efficiency', fields: ['range_km', 'consumption_combined_wh_per_km', 'consumption_city_wh_per_km', 'consumption_highway_wh_per_km'] },
+  { title: 'group.ports', fields: ['charge_port', 'supercharger_access'] },
+];
+const viewerProps = {
+  curves: car.curves,
+  usableKwh: (battery?.value.value as number) ?? null,
+  batteryIsGross: !usable && Boolean(f.capacity_gross_kwh),
+  consumption: {
+    highway: (f.consumption_highway_wh_per_km?.value.value as number) ?? null,
+    combined: (f.consumption_combined_wh_per_km?.value.value as number) ?? null,
+    city: (f.consumption_city_wh_per_km?.value.value as number) ?? null,
+  },
+  sources: car.sources.map((s) => ({ id: s.id, title: s.title, url: s.url })),
+};
+---
+
+<Base title={title}>
+  <p class="small"><a href="/">← {t('car.backToCars')}</a></p>
+
+  <header class="car-head">
+    <p class="muted eyebrow">{car.year} · {car.make.name} · {t(`body.${car.model.body_type}` as MessageKey)}</p>
+    <h1>{car.model.name} <span class="variant">{car.name}</span></h1>
+    <p class="muted">{t(`value.${car.drivetrain}` as MessageKey)}</p>
+    {siblings.length > 0 && (
+      <nav class="siblings" aria-label={t('car.variants', { year: car.year, model: car.model.name })}>
+        <span class="muted small">{t('car.variants', { year: car.year, model: car.model.name })}:</span>
+        {siblings.map((s) => <a href={`/cars/${s.id}`}>{s.name}</a>)}
+      </nav>
+    )}
+  </header>
+
+  {!car.sold_in_canada && <p class="banner">{t('car.notSoldInCanada')}</p>}
+
+  <section class="section" aria-labelledby="key">
+    <h2 id="key">{t('car.keyFigures')}</h2>
+    <div class="tiles">
+      <div class="tile card"><p class="tl">{t('tile.range')}</p><p class="tv"><FieldValue field={f.range_km} sources={car.sources} label={t('tile.range')} /></p></div>
+      <div class="tile card"><p class="tl">{t('tile.efficiency')}</p><p class="tv"><FieldValue field={f.consumption_combined_wh_per_km} sources={car.sources} label={t('tile.efficiency')} /></p></div>
+      <div class="tile card"><p class="tl">{usable ? t('tile.battery') : t('tile.batteryGross')}</p><p class="tv"><FieldValue field={battery} sources={car.sources} label={t('tile.battery')} /></p></div>
+      <div class="tile card"><p class="tl">{t('tile.dcPeak')}</p><p class="tv"><FieldValue field={f.dc_max_kw} sources={car.sources} label={t('tile.dcPeak')} /></p></div>
+      <div class="tile card"><p class="tl">{t('tile.time1080')}</p><p class="tv">
+        {d.minutes_10_80 !== null ? (
+          <span class="fv">{d.estimated ? t('fmt.approxMin', { value: displayMinutes(d.minutes_10_80, true) }) : t('fmt.min', { value: displayMinutes(d.minutes_10_80, false) })} <SourceBadge field={curveField} sources={car.sources} label={t('tile.time1080')} /></span>
+        ) : <span class="unknown">{t('badge.unknown')}</span>}
+      </p></div>
+      <div class="tile card"><p class="tl">{t('tile.kmPer10')}</p><p class="tv">
+        {d.km_per_10_min !== null ? (
+          <span class="fv">{d.estimated ? '~' : ''}<span data-km={String(d.km_per_10_min)}>{t('fmt.km', { value: formatNumber(d.km_per_10_min) })}</span> <SourceBadge field={curveField} sources={car.sources} label={t('tile.kmPer10')} /></span>
+        ) : <span class="unknown">{t('badge.unknown')}</span>}
+      </p></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="curve">
+    <h2 id="curve">{t('car.curve')}</h2>
+    {car.curves.length ? <CurveViewer client:visible {...viewerProps} /> : <p class="card muted">{t('car.noCurve')}</p>}
+  </section>
+
+  <section class="section" aria-labelledby="specs">
+    <h2 id="specs">{t('car.specs')}</h2>
+    <div class="spec-grid">
+      {groups.map((g) => (
+        <div class="card">
+          <h3>{t(g.title)}</h3>
+          <table class="stack-table">
+            <tbody>
+              {g.fields.map((k) => (
+                <tr><th scope="row">{label(k)}</th><td data-label={label(k)}><FieldValue field={f[k] ?? null} sources={car.sources} label={label(k)} /></td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="trims">
+    <h2 id="trims">{t('car.trims')}</h2>
+    <div class="card">
+      <table class="stack-table">
+        <thead><tr><th>{t('car.trimName')}</th><th>{t('field.heat_pump')}</th><th>{t('car.wheels')}</th><th>{t('car.trimRange')}</th></tr></thead>
+        <tbody>
+          {car.trims.map((tr) => (
+            <tr>
+              <td data-label={t('car.trimName')}>{tr.name}</td>
+              <td data-label={t('field.heat_pump')}><FieldValue field={tr.heat_pump} sources={car.sources} label={t('field.heat_pump')} /></td>
+              <td data-label={t('car.wheels')}>{tr.wheels.length ? tr.wheels.map((w) => t(w.is_standard ? 'car.wheelStandard' : 'car.wheelSize', { size: w.diameter_in })).join(', ') : <span class="unknown">{t('badge.unknown')}</span>}</td>
+              <td data-label={t('car.trimRange')}>{tr.range_km ? <FieldValue field={tr.range_km} sources={car.sources} label={t('car.trimRange')} /> : <span class="muted">{t('car.sameAsVariant')}</span>}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sources">
+    <h2 id="sources">{t('car.sources')}</h2>
+    <p class="muted">{t('car.sourcesIntro')}</p>
+    <ul class="sources">
+      {car.sources.map((s) => (
+        <li>
+          <a href={s.url} rel="noopener" target="_blank">{s.title}</a>
+          <span class="muted small"> · {t('badge.accessed', { date: s.accessed_on })}{s.license && <> · {t('car.licence', { licence: s.license })}</>}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="small"><a href="https://github.com/MahAbdulKhaliq/voltway/issues" rel="noopener" target="_blank">{t('car.reportProblem')}</a></p>
+  </section>
+</Base>
+
+<style>
+  .eyebrow { margin: 0 0 4px; font-size: 0.9rem; }
+  .variant { color: var(--muted); font-weight: 500; }
+  .siblings { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; margin-top: 8px; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 12px; }
+  .tile { padding: 14px 16px; }
+  .tl { margin: 0 0 6px; color: var(--muted); font-size: 0.85rem; }
+  .tv { margin: 0; font-size: 1.25rem; font-weight: 650; }
+  .tv :global(.badge) { font-weight: 400; }
+  .fv { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+  .spec-grid th { width: 46%; }
+  .sources { padding-left: 18px; }
+  .sources li { margin-bottom: 6px; }
+</style>

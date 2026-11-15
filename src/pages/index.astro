@@ -1,20 +1,62 @@
 ---
-// Placeholder home page (checklist 0.4/0.6): proves the build and deploy pipeline.
-// The real first-load car picker arrives in Phase 5.
-import { t } from '../i18n/t';
+// Home: every car, grouped by make and model, linking to its car page.
+// Temporary until the first-load picker and the browse screen (checklist Phase 5).
+import Base from '../layouts/Base.astro';
+import { t, type MessageKey } from '../i18n/t.ts';
+import { loadIndex } from '../lib/data.ts';
+import { formatNumber } from '../lib/units.ts';
+import { displayMinutes } from '../lib/charging.ts';
+
+const index = loadIndex().filter((e) => e.sold_in_canada);
+const byModel = new Map<string, typeof index>();
+for (const e of index) {
+  const key = `${e.make}|${e.model}|${e.year}`;
+  byModel.set(key, [...(byModel.get(key) ?? []), e]);
+}
+const groups = [...byModel.entries()].sort(([a], [b]) => a.localeCompare(b));
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{t('site.name')}</title>
-  </head>
-  <body>
-    <main>
-      <h1>{t('site.name')}</h1>
-      <p>{t('site.tagline')}</p>
-      <p>{t('home.comingSoon')}</p>
-    </main>
-  </body>
-</html>
+<Base>
+  <section class="hero">
+    <h1>{t('home.title')}</h1>
+    <p class="muted lead">{t('home.intro')}</p>
+    <p class="small muted">{t('home.count', { count: index.length, models: groups.length })} · {t('home.estimatedNote')}</p>
+  </section>
+
+  <div class="grid">
+    {groups.map(([key, variants]) => {
+      const [make, model, year] = key.split('|');
+      return (
+        <article class="card model">
+          <p class="muted small eyebrow">{year} · {make} · {t(`body.${variants[0].body_type}` as MessageKey)}</p>
+          <h2>{model}</h2>
+          <ul>
+            {variants.sort((a, b) => a.name.localeCompare(b.name)).map((v) => (
+              <li>
+                <a href={`/cars/${v.id}`}>{v.name}</a>
+                <span class="figs small muted">
+                  {v.range_km !== null && <span data-km={String(v.range_km)}>{t('fmt.km', { value: formatNumber(v.range_km) })}</span>}
+                  {v.dc_max_kw !== null && <span>{t('fmt.kw', { value: formatNumber(v.dc_max_kw) })}</span>}
+                  {v.derived.minutes_10_80 !== null && (
+                    <span title={t('tile.time1080')}>{v.derived.estimated ? t('fmt.approxMin', { value: displayMinutes(v.derived.minutes_10_80, true) }) : t('fmt.min', { value: displayMinutes(v.derived.minutes_10_80, false) })}</span>
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      );
+    })}
+  </div>
+</Base>
+
+<style>
+  .hero { margin-bottom: 20px; }
+  .lead { font-size: 1.1rem; max-width: 60ch; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .model h2 { margin-bottom: 8px; }
+  .eyebrow { margin: 0 0 2px; }
+  .model ul { list-style: none; margin: 0; padding: 0; }
+  .model li { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .figs { display: inline-flex; gap: 10px; }
+</style>

@@ -25,11 +25,13 @@
     "preview": "astro preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check": "astro check"
+    "check": "astro check",
+    "predev": "npm run data:build"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.9",
     "astro": "^7.4.12",
+    "echarts": "^6.1.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },

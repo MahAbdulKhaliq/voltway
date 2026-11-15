@@ -60,7 +60,7 @@ for (const [variantId, rows] of byVariant) {
   const [make, model, year] = variantId.split('/');
   const sm = starter.models.find((m) => m.our_make === make && m.our_model === model && String(m.year) === year)!;
   const nrcanRows = rows.filter((r) => r.source === 'nrcan').map((r) => ({ key: r.source_key, rec: nrcanByKey.get(r.source_key)! }));
-  const prefixLen = tokenize(sm.nrcan_model_prefix).length;
+  const prefixLen = sm.nrcan_model_prefix.trim().split(/\s+/).length; // words, not tokens: "F-150" is one word but two tokens
   const head = parseName(nrcanRows[0].rec.model);
   // Variant name: NRCan's words after the model name, as NRCan writes them (minus wheel/charger/pack hints).
   const words = head.base.split(' ');

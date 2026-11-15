@@ -11,7 +11,7 @@
     "model_id": { "type": "string", "pattern": "^[a-z0-9-]+/[a-z0-9-]+$" },
     "year": { "type": "integer", "minimum": 2010, "maximum": 2100 },
     "name": { "type": "string", "minLength": 1 },
-    "drivetrain": { "enum": ["fwd", "rwd", "awd"] },
+    "drivetrain": { "description": "\"unknown\" until confirmed; never guessed (data model principle 3).", "enum": ["fwd", "rwd", "awd", "unknown"] },
     "carry_over_from": {
       "description": "A previous year's variant id this one is unchanged from (§2 carry-over rule).",
       "type": "string",
@@ -75,6 +75,7 @@
           }
         },
         "range_km": { "description": "Only when the trim's rating differs from the variant's.", "$ref": "common.schema.json#/$defs/field_km" },
+        "ac_max_kw": { "description": "Only when the trim's onboard charger differs from the variant's (B7, e.g. 11.5 vs 19.2 kW). Overrides the variant value.", "$ref": "common.schema.json#/$defs/field_kw" },
         "price_msrp_cad": { "$ref": "common.schema.json#/$defs/field_cad" }
       }
     },

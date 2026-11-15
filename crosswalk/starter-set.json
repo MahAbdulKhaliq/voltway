@@ -1,6 +1,6 @@
 {
-  "$comment": "Proposed Phase 1 starter set (checklist 1.6): ~25 popular Canadian EVs at their latest NRCan model year. OWNER APPROVAL PENDING. `nrcan_model_prefix` selects NRCan rows for that make + year whose model starts with it. Edit this list, then run `npm run suggest:matches` to regenerate crosswalk/REVIEW.md.",
-  "status": "proposed",
+  "$comment": "Proposed Phase 1 starter set (checklist 1.6): ~25 popular Canadian EVs at their latest NRCan model year. Approved by the owner 2026-11-15 (B8). `nrcan_model_prefix` selects NRCan rows for that make + year whose model starts with it. Edit this list, then run `npm run suggest:matches` to regenerate crosswalk/REVIEW.md.",
+  "status": "approved 2026-11-15",
   "models": [
     { "make": "Tesla", "nrcan_model_prefix": "Model Y", "year": 2026, "our_make": "tesla", "our_model": "model-y", "name": "Model Y", "body_type": "suv" },
     { "make": "Tesla", "nrcan_model_prefix": "Model 3", "year": 2026, "our_make": "tesla", "our_model": "model-3", "name": "Model 3", "body_type": "sedan" },

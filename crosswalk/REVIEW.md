@@ -402,18 +402,18 @@ NRCan:
 
 ## 2025 Ford F-150 Lightning
 
-### `ford/f-150-lightning/2025/extended-range`
+### `ford/f-150-lightning/2025/extended-range-123-kwh`
 
 NRCan:
 - `2025 · Ford · F-150 Lightning Extended Range (123 kWh)` · 483 km · 420 kW
 - OpenEV Data: ★ 2025 F-150 Lightning Platinum Platinum `ford:f_150_lightning:2025:f_150_lightning_platinum` (123 kWh · awd) · score 0.6 · name 67% similar; candidate is AWD; NRCan row not marked, but power matches; motor power 420 kW ≈ 420 kW; same model year
 - Chargeprice: *no candidate found*
 
-### `ford/f-150-lightning/2025/extended-range`
+### `ford/f-150-lightning/2025/extended-range-131-kwh`
 
 NRCan:
 - `2025 · Ford · F-150 Lightning Extended Range (131 kWh)` · 515 km · 420 kW
-- OpenEV Data: ★ 2025 F-150 Lightning Platinum Platinum `ford:f_150_lightning:2025:f_150_lightning_platinum` (123 kWh · awd) · score 0.6 · name 67% similar; candidate is AWD; NRCan row not marked, but power matches; motor power 420 kW ≈ 420 kW; same model year
+- OpenEV Data: ★ 2025 F-150 Lightning Platinum Platinum `ford:f_150_lightning:2025:f_150_lightning_platinum` (123 kWh · awd) · score 0.5 ⚠ · name 67% similar; candidate is AWD; NRCan row not marked, but power matches; pack differs (123 vs 131 kWh); motor power 420 kW ≈ 420 kW; same model year
 - Chargeprice: *no candidate found*
 
 ### `ford/f-150-lightning/2025/platinum`
@@ -423,11 +423,11 @@ NRCan:
 - OpenEV Data: ★ 2025 F-150 Lightning Platinum Platinum `ford:f_150_lightning:2025:f_150_lightning_platinum` (123 kWh · awd) · score 0.95 · name 100% similar; all NRCan name words present; candidate is AWD; NRCan row not marked, but power matches; motor power 420 kW ≈ 420 kW; same model year
 - Chargeprice: *no candidate found*
 
-### `ford/f-150-lightning/2025/pro-extended-range`
+### `ford/f-150-lightning/2025/pro-extended-range-131-kwh`
 
 NRCan:
 - `2025 · Ford · F-150 Lightning PRO Extended Range (131 kWh)` · 515 km · 420 kW
-- OpenEV Data: ★ 2025 F-150 Lightning Platinum Platinum `ford:f_150_lightning:2025:f_150_lightning_platinum` (123 kWh · awd) · score 0.56 · name 60% similar; candidate is AWD; NRCan row not marked, but power matches; motor power 420 kW ≈ 420 kW; same model year
+- OpenEV Data: ★ 2025 F-150 Lightning Platinum Platinum `ford:f_150_lightning:2025:f_150_lightning_platinum` (123 kWh · awd) · score 0.46 ⚠ · name 60% similar; candidate is AWD; NRCan row not marked, but power matches; pack differs (123 vs 131 kWh); motor power 420 kW ≈ 420 kW; same model year
 - Chargeprice: *no candidate found*
 
 ### `ford/f-150-lightning/2025/standard-range`

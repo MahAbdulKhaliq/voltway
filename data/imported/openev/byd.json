@@ -1,0 +1,697 @@
+{
+  "source": "openev",
+  "source_id": "src-openev-v1-24-0",
+  "make": "byd",
+  "records": [
+    {
+      "source_key": "byd:yuan_plus:2023:yuan_plus",
+      "year": 2023,
+      "make": "BYD",
+      "model": "Yuan Plus",
+      "trim": "Standard Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "AU",
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "NZ",
+        "PT",
+        "SG",
+        "TH",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "BYD Brazil Official Website - Yuan Plus",
+          "url": "https://www.byd.com/br"
+        },
+        {
+          "type": "oem",
+          "title": "BYD Europe Official Website - Atto 3",
+          "url": "https://www.byd.com/eu/car/atto3.html"
+        },
+        {
+          "type": "oem",
+          "title": "BYD UK Official Website - Atto 3",
+          "url": "https://www.byd.com/en/car/atto-3"
+        },
+        {
+          "type": "oem",
+          "title": "BYD Germany Official Website - Atto 3",
+          "url": "https://www.byd.com/de/car/atto-3"
+        },
+        {
+          "type": "oem",
+          "title": "BYD Australia Official Website - Atto 3",
+          "url": "https://www.byd.com/au/car/atto-3"
+        },
+        {
+          "type": "oem",
+          "title": "BYD China Official Website - Yuan Plus",
+          "url": "https://www.byd.com/cn/car/yuanplus"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 49.92,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 49,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": [
+        {
+          "value": "lfp",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 70,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 320,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1750,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "byd:yuan_plus:2023:yuan_plus_extended_range",
+      "year": 2023,
+      "make": "BYD",
+      "model": "Yuan Plus",
+      "trim": "Standard Range",
+      "variant": "Extended Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "AU",
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "NZ",
+        "PT",
+        "SG",
+        "TH",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "BYD Brazil Official Website - Yuan Plus Extended Range",
+          "url": "https://www.byd.com/br"
+        },
+        {
+          "type": "oem",
+          "title": "BYD Europe Official Website - Atto 3 Extended Range",
+          "url": "https://www.byd.com/eu/car/atto3.html"
+        },
+        {
+          "type": "oem",
+          "title": "BYD China Official Website - Yuan Plus Extended",
+          "url": "https://www.byd.com/cn/car/yuanplus"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 60.48,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 60,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": [
+        {
+          "value": "lfp",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 70,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 420,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1785,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "byd:yuan_plus:2024:yuan_plus",
+      "year": 2024,
+      "make": "BYD",
+      "model": "Yuan Plus",
+      "trim": "Standard Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "AU",
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "NZ",
+        "PT",
+        "SG",
+        "TH",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "BYD Brazil Official Website - Yuan Plus 2024",
+          "url": "https://www.byd.com/br"
+        },
+        {
+          "type": "oem",
+          "title": "BYD Europe Official Website - Atto 3",
+          "url": "https://www.byd.com/eu/car/atto3.html"
+        },
+        {
+          "type": "oem",
+          "title": "BYD UK Official Website - Atto 3",
+          "url": "https://www.byd.com/en/car/atto-3"
+        },
+        {
+          "type": "oem",
+          "title": "BYD Germany Official Website - Atto 3",
+          "url": "https://www.byd.com/de/car/atto-3"
+        },
+        {
+          "type": "oem",
+          "title": "BYD Australia Official Website - Atto 3",
+          "url": "https://www.byd.com/au/car/atto-3"
+        },
+        {
+          "type": "oem",
+          "title": "BYD China Official Website - Yuan Plus",
+          "url": "https://www.byd.com/cn/car/yuanplus"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 49.92,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 49,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": [
+        {
+          "value": "lfp",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 70,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 320,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1750,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "byd:yuan_plus:2024:yuan_plus_extended_range",
+      "year": 2024,
+      "make": "BYD",
+      "model": "Yuan Plus",
+      "trim": "Standard Range",
+      "variant": "Extended Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "AU",
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "NZ",
+        "PT",
+        "SG",
+        "TH",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "BYD Brazil Official Website - Yuan Plus Extended Range 2024",
+          "url": "https://www.byd.com/br"
+        },
+        {
+          "type": "oem",
+          "title": "BYD Europe Official Website - Atto 3 Extended Range",
+          "url": "https://www.byd.com/eu/car/atto3.html"
+        },
+        {
+          "type": "oem",
+          "title": "BYD China Official Website - Yuan Plus Extended",
+          "url": "https://www.byd.com/cn/car/yuanplus"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 60.48,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 60,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": [
+        {
+          "value": "lfp",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 70,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 420,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1785,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "byd:yuan_plus:2025:yuan_plus",
+      "year": 2025,
+      "make": "BYD",
+      "model": "Yuan Plus",
+      "trim": "Standard Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "AU",
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "NZ",
+        "PT",
+        "SG",
+        "TH",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "BYD Global Official Website - Atto 3",
+          "url": "https://www.byd.com/en/car/atto-3"
+        },
+        {
+          "type": "oem",
+          "title": "BYD Brazil - Yuan Plus",
+          "url": "https://www.byd.com/br/cars/yuan-plus"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 49.92,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 49.92,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": [
+        {
+          "value": "lfp",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 70,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 345,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1690,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "byd:yuan_plus:2025:yuan_plus_extended_range",
+      "year": 2025,
+      "make": "BYD",
+      "model": "Yuan Plus",
+      "trim": "Extended Range",
+      "variant": "Extended Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "AU",
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "NZ",
+        "PT",
+        "SG",
+        "TH",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "BYD Global - Atto 3 Specs",
+          "url": "https://www.byd.com/en/car/atto-3"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 60.48,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 60.48,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": [
+        {
+          "value": "lfp",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 88,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 420,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1750,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    }
+  ]
+}

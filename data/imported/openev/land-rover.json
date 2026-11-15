@@ -1,0 +1,1675 @@
+{
+  "source": "openev",
+  "source_id": "src-openev-v1-24-0",
+  "make": "land-rover",
+  "records": [
+    {
+      "source_key": "land_rover:range_rover_evoque_phev:2023:range_rover_evoque_phev",
+      "year": 2023,
+      "make": "Land Rover",
+      "model": "Range Rover Evoque PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Evoque PHEV 2023 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-evoque"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 221,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 66,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_evoque_phev:2023:range_rover_evoque_phev_p300e",
+      "year": 2023,
+      "make": "Land Rover",
+      "model": "Range Rover Evoque PHEV",
+      "trim": "Base",
+      "variant": "P300e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Evoque PHEV P300e 2023 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-evoque"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 221,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 66,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_evoque_phev:2024:range_rover_evoque_phev",
+      "year": 2024,
+      "make": "Land Rover",
+      "model": "Range Rover Evoque PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Evoque PHEV 2024 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-evoque"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 221,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 66,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_evoque_phev:2024:range_rover_evoque_phev_p300e",
+      "year": 2024,
+      "make": "Land Rover",
+      "model": "Range Rover Evoque PHEV",
+      "trim": "Base",
+      "variant": "P300e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Evoque PHEV P300e 2024 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-evoque"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 221,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 66,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_evoque_phev:2025:range_rover_evoque_phev",
+      "year": 2025,
+      "make": "Land Rover",
+      "model": "Range Rover Evoque PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Evoque PHEV 2025 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-evoque"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 221,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 66,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_evoque_phev:2025:range_rover_evoque_phev_p300e",
+      "year": 2025,
+      "make": "Land Rover",
+      "model": "Range Rover Evoque PHEV",
+      "trim": "Base",
+      "variant": "P300e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Evoque PHEV P300e 2025 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-evoque"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 221,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 15,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 66,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_phev:2023:range_rover_phev",
+      "year": 2023,
+      "make": "Land Rover",
+      "model": "Range Rover PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover PHEV 2023 Official Specifications",
+          "url": "https://www.landrover.com/range-rover"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 338,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_phev:2023:range_rover_phev_p460e",
+      "year": 2023,
+      "make": "Land Rover",
+      "model": "Range Rover PHEV",
+      "trim": "Base",
+      "variant": "P460e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover PHEV P460e 2023 Official Specifications",
+          "url": "https://www.landrover.com/range-rover"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 338,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_phev:2024:range_rover_phev",
+      "year": 2024,
+      "make": "Land Rover",
+      "model": "Range Rover PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover PHEV 2024 Official Specifications",
+          "url": "https://www.landrover.com/range-rover"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 338,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_phev:2024:range_rover_phev_p460e",
+      "year": 2024,
+      "make": "Land Rover",
+      "model": "Range Rover PHEV",
+      "trim": "Base",
+      "variant": "P460e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover PHEV P460e 2024 Official Specifications",
+          "url": "https://www.landrover.com/range-rover"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 338,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_phev:2025:range_rover_phev",
+      "year": 2025,
+      "make": "Land Rover",
+      "model": "Range Rover PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover PHEV 2025 Official Specifications",
+          "url": "https://www.landrover.com/range-rover"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 404,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_phev:2025:range_rover_phev_p550e",
+      "year": 2025,
+      "make": "Land Rover",
+      "model": "Range Rover PHEV",
+      "trim": "Base",
+      "variant": "P550e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover PHEV P550e 2025 Official Specifications",
+          "url": "https://www.landrover.com/range-rover"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 404,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_sport_phev:2023:range_rover_sport_phev",
+      "year": 2023,
+      "make": "Land Rover",
+      "model": "Range Rover Sport PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Sport PHEV 2023 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-sport"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 323,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_sport_phev:2023:range_rover_sport_phev_p440e",
+      "year": 2023,
+      "make": "Land Rover",
+      "model": "Range Rover Sport PHEV",
+      "trim": "Base",
+      "variant": "P440e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Sport PHEV P440e 2023 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-sport"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 323,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_sport_phev:2024:range_rover_sport_phev",
+      "year": 2024,
+      "make": "Land Rover",
+      "model": "Range Rover Sport PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Sport PHEV 2024 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-sport"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 323,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_sport_phev:2024:range_rover_sport_phev_p440e",
+      "year": 2024,
+      "make": "Land Rover",
+      "model": "Range Rover Sport PHEV",
+      "trim": "Base",
+      "variant": "P440e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Sport PHEV P440e 2024 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-sport"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 323,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_sport_phev:2025:range_rover_sport_phev",
+      "year": 2025,
+      "make": "Land Rover",
+      "model": "Range Rover Sport PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Sport PHEV 2025 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-sport"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 404,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_sport_phev:2025:range_rover_sport_phev_p550e",
+      "year": 2025,
+      "make": "Land Rover",
+      "model": "Range Rover Sport PHEV",
+      "trim": "Base",
+      "variant": "P550e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Sport PHEV P550e 2025 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-sport"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 404,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 38.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 113,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_velar_phev:2023:range_rover_velar_phev",
+      "year": 2023,
+      "make": "Land Rover",
+      "model": "Range Rover Velar PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Velar PHEV 2023 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-velar"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 297,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 53,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_velar_phev:2023:range_rover_velar_phev_p400e",
+      "year": 2023,
+      "make": "Land Rover",
+      "model": "Range Rover Velar PHEV",
+      "trim": "Base",
+      "variant": "P400e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Velar PHEV P400e 2023 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-velar"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 297,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 53,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_velar_phev:2024:range_rover_velar_phev",
+      "year": 2024,
+      "make": "Land Rover",
+      "model": "Range Rover Velar PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Velar PHEV 2024 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-velar"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 297,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 53,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_velar_phev:2024:range_rover_velar_phev_p400e",
+      "year": 2024,
+      "make": "Land Rover",
+      "model": "Range Rover Velar PHEV",
+      "trim": "Base",
+      "variant": "P400e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Velar PHEV P400e 2024 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-velar"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 297,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 53,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_velar_phev:2025:range_rover_velar_phev",
+      "year": 2025,
+      "make": "Land Rover",
+      "model": "Range Rover Velar PHEV",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Velar PHEV 2025 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-velar"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 297,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 53,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    },
+    {
+      "source_key": "land_rover:range_rover_velar_phev:2025:range_rover_velar_phev_p400e",
+      "year": 2025,
+      "make": "Land Rover",
+      "model": "Range Rover Velar PHEV",
+      "trim": "Base",
+      "variant": "P400e",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Range Rover Velar PHEV P400e 2025 Official Specifications",
+          "url": "https://www.landrover.com/range-rover-velar"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 297,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 17.1,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": "unknown",
+      "ac_max_kw": [
+        {
+          "value": 7,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 53,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range"
+        }
+      ]
+    }
+  ]
+}

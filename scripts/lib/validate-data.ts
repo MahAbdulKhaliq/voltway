@@ -21,6 +21,7 @@ const SCHEMA_FILES = [
   'curve.schema.json',
   'crosswalk-row.schema.json',
   'imported-nrcan.schema.json',
+  'imported-openev.schema.json',
 ] as const;
 
 const SCHEMA_BASE = 'https://github.com/MahAbdulKhaliq/voltway/schema/';
@@ -44,6 +45,7 @@ function loadValidators(schemaDir: string) {
     curve: get('curve.schema.json'),
     crosswalkRow: get('crosswalk-row.schema.json'),
     importedNrcan: get('imported-nrcan.schema.json'),
+    importedOpenev: get('imported-openev.schema.json'),
   };
 }
 
@@ -240,6 +242,22 @@ export function validateRepo(root: string): ValidationResult {
     checkSourced(data, file);
   }
 
+  // --- Imported OpenEV Data records ---
+  const openevKeys = new Set<string>();
+  let openevFiles = 0;
+  for (const rel of listJson(join(dataDir, 'imported', 'openev'))) {
+    const file = `data/imported/openev/${rel}`;
+    const data = read('imported/openev', rel) as { make: string; records: { source_key: string }[] } | undefined;
+    if (data === undefined || !check(v.importedOpenev, data, file)) continue;
+    openevFiles++;
+    if (rel !== `${data.make}.json`) errors.push(`${file}: file name must be ${data.make}.json`);
+    for (const r of data.records) {
+      if (openevKeys.has(r.source_key)) errors.push(`${file}: duplicate source_key "${r.source_key}"`);
+      openevKeys.add(r.source_key);
+    }
+    checkSourced(data, file);
+  }
+
   // --- Crosswalk ---
   let crosswalkCount = 0;
   const crosswalkFile = join(root, 'crosswalk', 'crosswalk.csv');
@@ -259,6 +277,9 @@ export function validateRepo(root: string): ValidationResult {
       if (row.source === 'nrcan' && nrcanFiles > 0 && !nrcanKeys.has(row.source_key as string)) {
         errors.push(`${where}: NRCan key "${row.source_key}" is not in data/imported/nrcan`);
       }
+      if (row.source === 'openev' && openevFiles > 0 && !openevKeys.has(row.source_key as string)) {
+        errors.push(`${where}: OpenEV key "${row.source_key}" is not in data/imported/openev`);
+      }
       const key = `${variantId}|${row.source}`;
       if (seen.has(key)) errors.push(`${where}: ${variantId} already has a ${row.source} row`);
       seen.add(key);
@@ -275,6 +296,7 @@ export function validateRepo(root: string): ValidationResult {
       curves: curveCount,
       crosswalk_rows: crosswalkCount,
       nrcan_records: nrcanKeys.size,
+      openev_records: openevKeys.size,
     },
   };
 }

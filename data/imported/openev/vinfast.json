@@ -1,0 +1,1111 @@
+{
+  "source": "openev",
+  "source_id": "src-openev-v1-24-0",
+  "make": "vinfast",
+  "records": [
+    {
+      "source_key": "vinfast:vf_8:2023:vf_8",
+      "year": 2023,
+      "make": "VinFast",
+      "model": "VF 8",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 8 Official Specifications",
+          "url": "https://vinfastauto.com/vf-8"
+        },
+        {
+          "type": "press",
+          "title": "VinFast VF 8 Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/VinFast_VF_8"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 260,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 333,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2540,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "vinfast:vf_8:2023:vf_8_eco_awd",
+      "year": 2023,
+      "make": "VinFast",
+      "model": "VF 8",
+      "trim": "Base",
+      "variant": "Eco AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 8 Eco AWD Specifications",
+          "url": "https://vinfastauto.com/vf-8"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 260,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 333,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2540,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "vinfast:vf_8:2023:vf_8_plus_awd",
+      "year": 2023,
+      "make": "VinFast",
+      "model": "VF 8",
+      "trim": "Base",
+      "variant": "Plus AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 8 Plus AWD Specifications",
+          "url": "https://vinfastauto.com/vf-8"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 300,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 307,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2540,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "vinfast:vf_8:2024:vf_8",
+      "year": 2024,
+      "make": "VinFast",
+      "model": "VF 8",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 8 Official Specifications",
+          "url": "https://vinfastauto.com/vf-8"
+        },
+        {
+          "type": "press",
+          "title": "VinFast VF 8 Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/VinFast_VF_8"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 260,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 333,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2540,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "vinfast:vf_8:2024:vf_8_eco_awd",
+      "year": 2024,
+      "make": "VinFast",
+      "model": "VF 8",
+      "trim": "Base",
+      "variant": "Eco AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 8 Eco AWD Specifications",
+          "url": "https://vinfastauto.com/vf-8"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 260,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 333,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2540,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "vinfast:vf_8:2024:vf_8_plus_awd",
+      "year": 2024,
+      "make": "VinFast",
+      "model": "VF 8",
+      "trim": "Base",
+      "variant": "Plus AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 8 Plus AWD Specifications",
+          "url": "https://vinfastauto.com/vf-8"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 300,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 307,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2540,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "vinfast:vf_8:2025:vf_8",
+      "year": 2025,
+      "make": "VinFast",
+      "model": "VF 8",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 8 Official Specifications",
+          "url": "https://vinfastauto.com/vf-8"
+        },
+        {
+          "type": "press",
+          "title": "VinFast VF 8 Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/VinFast_VF_8"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 260,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 333,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2540,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "vinfast:vf_8:2025:vf_8_eco_awd",
+      "year": 2025,
+      "make": "VinFast",
+      "model": "VF 8",
+      "trim": "Base",
+      "variant": "Eco AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 8 Eco AWD Specifications",
+          "url": "https://vinfastauto.com/vf-8"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 260,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 333,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2540,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "vinfast:vf_8:2025:vf_8_plus_awd",
+      "year": 2025,
+      "make": "VinFast",
+      "model": "VF 8",
+      "trim": "Base",
+      "variant": "Plus AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 8 Plus AWD Specifications",
+          "url": "https://vinfastauto.com/vf-8"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 300,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 82,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 307,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2540,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "vinfast:vf_9:2023:vf_9",
+      "year": 2023,
+      "make": "VinFast",
+      "model": "VF 9",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 9 Official Specifications",
+          "url": "https://vinfastauto.com/vf-9"
+        },
+        {
+          "type": "press",
+          "title": "VinFast VF 9 Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/VinFast_VF_9"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 300,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 92,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 92,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 485,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "vinfast:vf_9:2024:vf_9",
+      "year": 2024,
+      "make": "VinFast",
+      "model": "VF 9",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 9 Official Specifications",
+          "url": "https://vinfastauto.com/vf-9"
+        },
+        {
+          "type": "press",
+          "title": "VinFast VF 9 Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/VinFast_VF_9"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 300,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 92,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 92,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 485,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "vinfast:vf_9:2025:vf_9",
+      "year": 2025,
+      "make": "VinFast",
+      "model": "VF 9",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "US",
+        "VN"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "VinFast VF 9 Official Specifications",
+          "url": "https://vinfastauto.com/vf-9"
+        },
+        {
+          "type": "press",
+          "title": "VinFast VF 9 Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/VinFast_VF_9"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 300,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 92,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 92,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 485,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,505 @@
+{
+  "source": "openev",
+  "source_id": "src-openev-v1-24-0",
+  "make": "karma-automotive",
+  "records": [
+    {
+      "source_key": "karma_automotive:gs_6:2023:gs_6",
+      "year": 2023,
+      "make": "Karma Automotive",
+      "model": "GS-6",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Karma GS-6 Official Specifications",
+          "url": "https://www.karmaautomotive.com/gs-6"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 400,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 28,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 24,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 80,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range for PHEV"
+        }
+      ]
+    },
+    {
+      "source_key": "karma_automotive:gs_6:2024:gs_6",
+      "year": 2024,
+      "make": "Karma Automotive",
+      "model": "GS-6",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Karma GS-6 Official Specifications",
+          "url": "https://www.karmaautomotive.com/gs-6"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 400,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 28,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 24,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 80,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range for PHEV"
+        }
+      ]
+    },
+    {
+      "source_key": "karma_automotive:gs_6:2025:gs_6",
+      "year": 2025,
+      "make": "Karma Automotive",
+      "model": "GS-6",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Karma GS-6 Official Specifications",
+          "url": "https://www.karmaautomotive.com/gs-6"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 400,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 28,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 24,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 80,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range for PHEV"
+        }
+      ]
+    },
+    {
+      "source_key": "karma_automotive:revero_gt:2023:revero_gt",
+      "year": 2023,
+      "make": "Karma Automotive",
+      "model": "Revero GT",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Karma Revero GT Official Specifications",
+          "url": "https://www.karmaautomotive.com/revero-gt"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 400,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 28,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 24,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 80,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range for PHEV"
+        }
+      ]
+    },
+    {
+      "source_key": "karma_automotive:revero_gt:2024:revero_gt",
+      "year": 2024,
+      "make": "Karma Automotive",
+      "model": "Revero GT",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Karma Revero GT Official Specifications",
+          "url": "https://www.karmaautomotive.com/revero-gt"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 400,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 28,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 24,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 80,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range for PHEV"
+        }
+      ]
+    },
+    {
+      "source_key": "karma_automotive:revero_gt:2025:revero_gt",
+      "year": 2025,
+      "make": "Karma Automotive",
+      "model": "Revero GT",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Karma Revero GT Official Specifications",
+          "url": "https://www.karmaautomotive.com/revero-gt"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 400,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 28,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 24,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 50,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 80,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "Electric-only range for PHEV"
+        }
+      ]
+    }
+  ]
+}

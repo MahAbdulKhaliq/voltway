@@ -1,0 +1,2564 @@
+{
+  "source": "openev",
+  "source_id": "src-openev-v1-24-0",
+  "make": "hyundai",
+  "records": [
+    {
+      "source_key": "hyundai:ioniq_5:2023:ioniq_5",
+      "year": 2023,
+      "make": "Hyundai",
+      "model": "IONIQ 5",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 5 Official Specifications",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 168,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 507,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 488,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1950,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_5:2023:ioniq_5_awd",
+      "year": 2023,
+      "make": "Hyundai",
+      "model": "IONIQ 5",
+      "trim": "AWD",
+      "variant": "AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 5 AWD Official Specifications",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 239,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 480,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 412,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2110,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_5:2024:ioniq_5",
+      "year": 2024,
+      "make": "Hyundai",
+      "model": "IONIQ 5",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 5 Official Specifications 2024",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 168,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 507,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 488,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1950,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_5:2024:ioniq_5_awd",
+      "year": 2024,
+      "make": "Hyundai",
+      "model": "IONIQ 5",
+      "trim": "AWD",
+      "variant": "AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 5 AWD Official Specifications 2024",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 239,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 480,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 412,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2110,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_5:2024:ioniq_5_n",
+      "year": 2024,
+      "make": "Hyundai",
+      "model": "IONIQ 5",
+      "trim": "N",
+      "variant": "N",
+      "drivetrain": "awd",
+      "markets": [
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 5 N Official Specifications",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 448,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 84,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 78,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 350,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2235,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_5:2025:ioniq_5",
+      "year": 2025,
+      "make": "Hyundai",
+      "model": "IONIQ 5",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 5 Official Specifications 2025",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 168,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 507,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 488,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1950,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_5:2025:ioniq_5_awd",
+      "year": 2025,
+      "make": "Hyundai",
+      "model": "IONIQ 5",
+      "trim": "AWD",
+      "variant": "AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 5 AWD Official Specifications 2025",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 239,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 480,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 412,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2110,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_5:2025:ioniq_5_n",
+      "year": 2025,
+      "make": "Hyundai",
+      "model": "IONIQ 5",
+      "trim": "N",
+      "variant": "N",
+      "drivetrain": "awd",
+      "markets": [
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 5 N Official Specifications 2025",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 448,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 84,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 78,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 350,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2235,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_6:2023:ioniq_6",
+      "year": 2023,
+      "make": "Hyundai",
+      "model": "IONIQ 6",
+      "trim": "Standard Range",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 6 Standard Range Official Specifications",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 111,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 53,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 50,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 429,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 361,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1785,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_6:2023:ioniq_6_awd",
+      "year": 2023,
+      "make": "Hyundai",
+      "model": "IONIQ 6",
+      "trim": "AWD",
+      "variant": "AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 6 AWD Official Specifications",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 239,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 583,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 497,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2110,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_6:2023:ioniq_6_long_range",
+      "year": 2023,
+      "make": "Hyundai",
+      "model": "IONIQ 6",
+      "trim": "Long Range",
+      "variant": "Long Range",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 6 Long Range Official Specifications",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 168,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 614,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 581,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1950,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_6:2024:ioniq_6",
+      "year": 2024,
+      "make": "Hyundai",
+      "model": "IONIQ 6",
+      "trim": "Standard Range",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 6 Standard Range Official Specifications 2024",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 111,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 53,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 50,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 429,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 361,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1785,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_6:2024:ioniq_6_awd",
+      "year": 2024,
+      "make": "Hyundai",
+      "model": "IONIQ 6",
+      "trim": "AWD",
+      "variant": "AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 6 AWD Official Specifications 2024",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 239,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 583,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 497,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2110,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_6:2024:ioniq_6_long_range",
+      "year": 2024,
+      "make": "Hyundai",
+      "model": "IONIQ 6",
+      "trim": "Long Range",
+      "variant": "Long Range",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 6 Long Range Official Specifications 2024",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 168,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 614,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 581,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1950,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_6:2025:ioniq_6",
+      "year": 2025,
+      "make": "Hyundai",
+      "model": "IONIQ 6",
+      "trim": "Standard Range",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 6 Standard Range Official Specifications 2025",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 111,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 53,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 50,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 429,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 361,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1785,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_6:2025:ioniq_6_awd",
+      "year": 2025,
+      "make": "Hyundai",
+      "model": "IONIQ 6",
+      "trim": "AWD",
+      "variant": "AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 6 AWD Official Specifications 2025",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 239,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 583,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 497,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2110,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_6:2025:ioniq_6_long_range",
+      "year": 2025,
+      "make": "Hyundai",
+      "model": "IONIQ 6",
+      "trim": "Long Range",
+      "variant": "Long Range",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 6 Long Range Official Specifications 2025",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 168,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 72.6,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 220,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 614,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 581,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1950,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:ioniq_9:2025:ioniq_9",
+      "year": 2025,
+      "make": "Hyundai",
+      "model": "IONIQ 9",
+      "trim": "Long Range AWD",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai IONIQ 9 Official Specifications",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 283,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 110.3,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 99.5,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 350,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 620,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2650,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:kona_electric:2023:kona_electric",
+      "year": 2023,
+      "make": "Hyundai",
+      "model": "Kona Electric",
+      "trim": "Standard Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai Kona Electric Standard Range Official Specifications",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 39.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 36,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 305,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 258,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1685,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:kona_electric:2023:kona_electric_long_range",
+      "year": 2023,
+      "make": "Hyundai",
+      "model": "Kona Electric",
+      "trim": "Long Range",
+      "variant": "Long Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai Kona Electric Long Range Official Specifications",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 64,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 58,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 484,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 415,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1820,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:kona_electric:2024:kona_electric",
+      "year": 2024,
+      "make": "Hyundai",
+      "model": "Kona Electric",
+      "trim": "Standard Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai Kona Electric Standard Range Official Specifications 2024",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 39.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 36,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 305,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 258,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1685,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:kona_electric:2024:kona_electric_long_range",
+      "year": 2024,
+      "make": "Hyundai",
+      "model": "Kona Electric",
+      "trim": "Long Range",
+      "variant": "Long Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai Kona Electric Long Range Official Specifications 2024",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 64,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 58,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 484,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 415,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1820,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:kona_electric:2025:kona_electric",
+      "year": 2025,
+      "make": "Hyundai",
+      "model": "Kona Electric",
+      "trim": "Standard Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai Kona Electric Standard Range Official Specifications 2025",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 39.2,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 36,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 305,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 258,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1685,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    },
+    {
+      "source_key": "hyundai:kona_electric:2025:kona_electric_long_range",
+      "year": 2025,
+      "make": "Hyundai",
+      "model": "Kona Electric",
+      "trim": "Long Range",
+      "variant": "Long Range",
+      "drivetrain": "fwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Hyundai Kona Electric Long Range Official Specifications 2025",
+          "url": "https://www.hyundai.com"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 150,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 64,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 58,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "400v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 7.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 100,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "charge_port": "unknown",
+      "heat_pump": "unknown",
+      "range_km": [
+        {
+          "value": 484,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        },
+        {
+          "value": 415,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 1820,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "low_confidence": true
+        }
+      ]
+    }
+  ]
+}

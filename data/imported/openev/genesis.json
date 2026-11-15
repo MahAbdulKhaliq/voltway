@@ -1,0 +1,1567 @@
+{
+  "source": "openev",
+  "source_id": "src-openev-v1-24-0",
+  "make": "genesis",
+  "records": [
+    {
+      "source_key": "genesis:electrified_g80:2023:electrified_g80",
+      "year": 2023,
+      "make": "Genesis",
+      "model": "Electrified G80",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis Electrified G80 2023 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/electrified-g80.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 272,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 87.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 80.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 520,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 282,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2250,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:electrified_g80:2024:electrified_g80",
+      "year": 2024,
+      "make": "Genesis",
+      "model": "Electrified G80",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis Electrified G80 2024 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/electrified-g80.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 272,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 87.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 80.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 520,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 282,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2250,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:electrified_g80:2025:electrified_g80",
+      "year": 2025,
+      "make": "Genesis",
+      "model": "Electrified G80",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis Electrified G80 2025 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/electrified-g80.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 272,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 87.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 80.7,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 520,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 282,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2250,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:gv60:2023:gv60",
+      "year": 2023,
+      "make": "Genesis",
+      "model": "GV60",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis GV60 2023 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/gv60.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 168,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 74,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 451,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 294,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2100,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:gv60:2023:gv60_advanced",
+      "year": 2023,
+      "make": "Genesis",
+      "model": "GV60",
+      "trim": "Advanced",
+      "variant": "Advanced",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis GV60 Advanced 2023 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/gv60.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 234,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 74,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 294,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2180,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:gv60:2023:gv60_performance",
+      "year": 2023,
+      "make": "Genesis",
+      "model": "GV60",
+      "trim": "Performance",
+      "variant": "Performance",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis GV60 Performance 2023 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/gv60.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 320,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 74,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 294,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2180,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:gv60:2024:gv60",
+      "year": 2024,
+      "make": "Genesis",
+      "model": "GV60",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis GV60 2024 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/gv60.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 168,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 74,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 451,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 294,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2100,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:gv60:2024:gv60_advanced",
+      "year": 2024,
+      "make": "Genesis",
+      "model": "GV60",
+      "trim": "Advanced",
+      "variant": "Advanced",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis GV60 Advanced 2024 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/gv60.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 234,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 74,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 294,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2180,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:gv60:2024:gv60_performance",
+      "year": 2024,
+      "make": "Genesis",
+      "model": "GV60",
+      "trim": "Performance",
+      "variant": "Performance",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis GV60 Performance 2024 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/gv60.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 320,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 74,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 294,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2180,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:gv60:2025:gv60",
+      "year": 2025,
+      "make": "Genesis",
+      "model": "GV60",
+      "trim": "Base",
+      "drivetrain": "rwd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis GV60 2025 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/gv60.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 168,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 74,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 451,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 294,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2100,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:gv60:2025:gv60_advanced",
+      "year": 2025,
+      "make": "Genesis",
+      "model": "GV60",
+      "trim": "Advanced",
+      "variant": "Advanced",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis GV60 Advanced 2025 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/gv60.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 234,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 74,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 294,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2180,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:gv60:2025:gv60_performance",
+      "year": 2025,
+      "make": "Genesis",
+      "model": "GV60",
+      "trim": "Performance",
+      "variant": "Performance",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis GV60 Performance 2025 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/gv60.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 320,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 74,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 470,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 294,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2180,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:gv70_electrified:2024:gv70_electrified",
+      "year": 2024,
+      "make": "Genesis",
+      "model": "GV70 Electrified",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis GV70 Electrified 2024 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/gv70-electrified.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 234,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 74,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 451,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 294,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2180,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    },
+    {
+      "source_key": "genesis:gv70_electrified:2025:gv70_electrified",
+      "year": 2025,
+      "make": "Genesis",
+      "model": "GV70 Electrified",
+      "trim": "Base",
+      "drivetrain": "awd",
+      "markets": [
+        "BR",
+        "CN",
+        "DE",
+        "FR",
+        "GB",
+        "IT",
+        "JP",
+        "PT",
+        "US"
+      ],
+      "upstream_sources": [
+        {
+          "type": "oem",
+          "title": "Genesis GV70 Electrified 2025 Official Specifications",
+          "url": "https://www.genesis.com/us/en/genesis/gv70-electrified.html"
+        }
+      ],
+      "motor_kw": [
+        {
+          "value": 234,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_gross_kwh": [
+        {
+          "value": 77.4,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "capacity_usable_kwh": [
+        {
+          "value": 74,
+          "unit": "kWh",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "chemistry": "unknown",
+      "nominal_voltage_class": [
+        {
+          "value": "800v",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "dc_max_kw": [
+        {
+          "value": 235,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "charge_port": [
+        {
+          "value": "ccs1",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "heat_pump": [
+        {
+          "value": "standard_or_optional",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0",
+          "notes": "OpenEV Data reports a heat pump but not whether it is standard or optional."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 451,
+          "unit": "km",
+          "kind": "rated_wltp",
+          "source_id": "src-openev-v1-24-0"
+        },
+        {
+          "value": 294,
+          "unit": "km",
+          "kind": "rated_epa",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ],
+      "curb_weight_kg": [
+        {
+          "value": 2180,
+          "unit": "kg",
+          "kind": "manufacturer",
+          "source_id": "src-openev-v1-24-0"
+        }
+      ]
+    }
+  ]
+}

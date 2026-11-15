@@ -134,6 +134,27 @@ describe('records and ids', () => {
     expect(errors).toContainEqual(expect.stringContaining('no entry for year 2025'));
   });
 
+  it('does not allow a model year to be marked discontinued (B17)', () => {
+    const errors = errorsAfter('data/models/testmake/sparkle.json', (m) => { m.years[0].availability_status = 'discontinued'; });
+    expect(errors.some((e) => e.includes('availability_status'))).toBe(true);
+  });
+
+  it('accepts generations, and checks each year sits inside its generation (B17)', () => {
+    const M = 'data/models/testmake/sparkle.json';
+    expect(errorsAfter(M, (m) => {
+      m.generations = [{ id: 'gen-1', name: 'First generation', first_year: 2017, last_year: 2023 }, { id: 'gen-2', name: 'Second generation', first_year: 2025 }];
+      m.years[0].generation = 'gen-2';
+    })).toEqual([]);
+    expect(errorsAfter(M, (m) => {
+      m.generations = [{ id: 'gen-1', name: 'First generation', first_year: 2017, last_year: 2023 }];
+      m.years[0].generation = 'gen-1';
+    })).toContainEqual(expect.stringContaining('outside generation "gen-1"'));
+    expect(errorsAfter(M, (m) => {
+      m.generations = [{ id: 'gen-1', name: 'First', first_year: 2017 }, { id: 'gen-2', name: 'Second', first_year: 2025 }];
+    })).toContainEqual(expect.stringContaining('overlaps "gen-2"'));
+    expect(errorsAfter(M, (m) => { m.years[0].generation = 'gen-9'; })).toContainEqual(expect.stringContaining('isn\'t listed'));
+  });
+
   it('rejects duplicate trim ids', () => {
     const errors = errorsAfter(VARIANT, (v) => { v.trims.push({ id: 'base', name: 'Base again' }); });
     expect(errors).toContainEqual(expect.stringContaining('trim id "base" used twice'));

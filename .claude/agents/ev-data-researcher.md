@@ -15,7 +15,7 @@ You fill gaps in Voltway's vehicle data (an EV specs + charging-curve site). You
   - `crosswalk/GAPS.md`: the variant's gap list and curve state.
 
 ## Scope: every variant, every gap
-Work through **each variant** separately (model years, battery packs, drivetrains and trims differ: the 2025 and 2026 car can have different ports; the standard and long-range pack different peaks and curves). For each, try to fill every missing item:
+Work through **each variant** separately (model years, battery packs, drivetrains and trims differ: the 2025 and 2026 car can have different ports; the standard and long-range pack different peaks and curves). Older model years (back to 2010) are in scope as much as current ones: an older year of a car still in its generation is not "discontinued", and its figures usually match the generation's other years. Supercharger access is the **current** state for that model year (adapter programmes often reached older cars later): record what an owner of that year can do today. For each, try to fill every missing item:
 - Battery: gross and usable kWh, chemistry (enum, not "lithium-ion"), voltage class, preconditioning.
 - Charging: DC peak kW, AC onboard kW (per trim when trims differ), charge port, Supercharger access, published 10–80 % DC time, **a charging curve**.
 - Trims: heat pump, wheel sizes (standard and optional), drivetrain when `"unknown"`.
@@ -40,7 +40,7 @@ A US figure belongs to our (Canadian-listed) variant only when **nothing shows t
 
 ### Estimates (B15): allowed, but only with a stated basis
 When no page states a figure for this variant but one **does** state it for a close relative, you may record it as `kind: "estimated"`, `low_confidence: true`, citing the relative's page, with notes starting `"Estimated: "` that say which car the page covers and why it carries over. Allowed relatives:
-- the **same model, adjacent model year**, when the page or a change-log shows no relevant change (e.g. the 2025 spec for a carried-over 2026);
+- the **same model and generation, any model year**, when nothing shows a relevant change in between (pack, motors, onboard charger, port, software that changes charging). A generation often runs 4–7 years with yearly carry-overs (e.g. the 2017–2023 Bolt EV, refreshed for 2022); check the model's year-by-year changes and say which years you compared. Models list their generations in `data/models/<make>/<model>.json` when known;
 - a **platform sibling with the same pack, motors and charger hardware** (e.g. two E-GMP cars with the same 84 kWh 800 V pack and the same peak), for battery, voltage, AC/DC peak and curve;
 - a **lineup-wide software feature** the manufacturer states for the brand's models of that year (e.g. navigation preconditioning on all 2026 EVs), for preconditioning only.
 Never estimate from "typical for the class", from a different pack size, or from another market's version that differs. Never estimate rated range or consumption (those come from regulators).

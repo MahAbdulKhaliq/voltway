@@ -4,14 +4,56 @@
   "year": 2026,
   "name": "Long Range AWD",
   "drivetrain": "awd",
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 84,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-hyundai-ca-ioniq-5-2026",
+        "notes": "Hyundai Canada states 84.0 kWh for the Preferred Long Range RWD only; assumed to be the same Long Range pack.",
+        "low_confidence": true
+      }
+    ]
+  },
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-ioniq-5-2026",
+      "notes": "NACS charge port; two CCS adapters (AC and DC) included."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-ioniq-5-2026",
+      "notes": "Through its NACS port."
+    }
+  ],
   "trims": [
     {
       "id": "19-in-wheels",
-      "name": "Long Range AWD (19\" Wheels)"
+      "name": "Long Range AWD (19\" Wheels)",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-hyundai-ca-ioniq-5-2026"
+        }
+      ]
     },
     {
       "id": "20-in-wheels",
-      "name": "Long Range AWD (20\" Wheels)"
+      "name": "Long Range AWD (20\" Wheels)",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-hyundai-ca-ioniq-5-2026"
+        }
+      ]
     }
   ]
 }

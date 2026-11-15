@@ -4,6 +4,41 @@
   "year": 2026,
   "name": "Woodland AWD (All-Terrain Tire)",
   "drivetrain": "awd",
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-toyota-ca-media-bz-woodland-2026"
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-toyota-ca-media-bz-woodland-2026",
+      "notes": "11 kW on-board AC charger."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 30,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-toyota-ca-media-bz-woodland-2026",
+      "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
+    }
+  ],
+  "battery": {
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-toyota-ca-media-bz-woodland-2026",
+        "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination. Automatic start needs a Toyota Drive Connect trial or subscription."
+      }
+    ]
+  },
   "trims": [
     {
       "id": "standard",

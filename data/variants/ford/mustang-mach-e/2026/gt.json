@@ -7,7 +7,31 @@
   "trims": [
     {
       "id": "standard",
-      "name": "GT"
+      "name": "GT",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-ford-ca-mach-e-gt-2026",
+          "notes": "Listed as Vapor Injection Heat Pump on the GT page."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "tire_size": "245/45R20",
+          "source_id": "src-ford-ca-mach-e-gt-2026",
+          "notes": "20 in Monochromatic High-Gloss Black-Painted, all-season."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "tire_size": "245/45R20",
+          "source_id": "src-ford-ca-mach-e-gt-2026",
+          "notes": "Optional 20 in machined-face with Carbonized Grey pockets, summer tires."
+        }
+      ]
     }
   ]
 }

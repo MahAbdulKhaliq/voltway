@@ -4,6 +4,14 @@
   "year": 2025,
   "name": "Dual Motor Performance Pack",
   "drivetrain": "awd",
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-polestar-ca-tesla-supercharger-network",
+      "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter, ordered via a Polestar Service Point. Page names the Polestar 2 without model years."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

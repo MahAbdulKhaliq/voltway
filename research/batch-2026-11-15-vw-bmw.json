@@ -1,0 +1,70 @@
+{
+  "sources": [
+    {
+      "id": "src-thinkev-vw-id4-2026",
+      "type": "community",
+      "title": "thinkEV Canada - 2026 Volkswagen ID.4",
+      "url": "https://thinkev.ca/compare/volkswagen-id4-2026",
+      "accessed_on": "2026-11-15",
+      "notes": "Lists CCS1, 135 kW DC, NMC 82 kWh; names only a Base version and unnamed longer-range versions."
+    },
+    {
+      "id": "src-thinkev-bmw-i4-2026",
+      "type": "community",
+      "title": "thinkEV Canada - 2026 BMW i4 eDrive40",
+      "url": "https://thinkev.ca/compare/bmw-i4-edrive40-2026",
+      "accessed_on": "2026-11-15",
+      "notes": "Lists CCS1 connector, 205 kW DC. Page covers the i4 range."
+    }
+  ],
+  "variants": {
+    "volkswagen/id-4/2026/standard": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-thinkev-vw-id4-2026",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Canadian listing says CCS1."
+          }
+        ]
+      }
+    },
+    "volkswagen/id-4/2026/awd": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-thinkev-vw-id4-2026",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Page says NMC, 82 kWh."
+          }
+        ],
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-thinkev-vw-id4-2026",
+            "low_confidence": true,
+            "notes": "Quick web lookup. Canadian listing says CCS1."
+          }
+        ]
+      }
+    },
+    "bmw/i4/2026/edrive40-gran-coupe": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-thinkev-bmw-i4-2026",
+            "low_confidence": true,
+            "notes": "Quick web lookup."
+          }
+        ]
+      }
+    }
+  }
+}

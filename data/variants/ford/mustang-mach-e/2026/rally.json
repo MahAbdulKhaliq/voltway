@@ -7,7 +7,30 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Rally"
+      "name": "Rally",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-ford-ca-mach-e-rally-2026",
+          "notes": "Listed as Vapor Injection Heat Pump on the Rally page."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "tire_size": "235/55R19",
+          "source_id": "src-ford-ca-mach-e-rally-2026",
+          "notes": "Michelin CrossClimate2 all-season."
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": false,
+          "source_id": "src-ford-ca-mach-e-rally-2026",
+          "notes": "Optional 19 in High-Gloss Oxford White; no tire size listed."
+        }
+      ]
     }
   ]
 }

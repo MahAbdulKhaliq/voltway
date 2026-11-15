@@ -35,6 +35,15 @@
       "notes": "Quick web lookup (rough, not cross-checked). Canadian listing; not confirmed by Chevrolet."
     }
   ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-guideautoweb-gm-nacs-adapter",
+      "low_confidence": true,
+      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

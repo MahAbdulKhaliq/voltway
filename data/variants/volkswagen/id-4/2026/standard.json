@@ -4,6 +4,15 @@
   "year": 2026,
   "name": "Standard",
   "drivetrain": "awd",
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-thinkev-vw-id4-2026",
+      "low_confidence": true,
+      "notes": "Quick web lookup. Canadian listing says CCS1."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -1,0 +1,28 @@
+{
+  "id": "testmake/sparkle/2025/long-range-awd",
+  "model_id": "testmake/sparkle",
+  "year": 2025,
+  "name": "Long Range AWD",
+  "drivetrain": "awd",
+  "battery": {
+    "capacity_usable_kwh": [{ "value": 70, "unit": "kWh", "kind": "manufacturer", "source_id": "src-test-oem-spec" }],
+    "chemistry": "unknown",
+    "nominal_voltage_class": [{ "value": "800v", "kind": "manufacturer", "source_id": "src-test-oem-spec" }]
+  },
+  "dc_max_kw": [{ "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-test-oem-spec" }],
+  "charge_port": [{ "value": "nacs", "kind": "manufacturer", "source_id": "src-test-homepage", "low_confidence": true }],
+  "consumption_highway_wh_per_km": [{ "value": 200, "unit": "Wh/km", "kind": "rated_nrcan", "source_id": "src-test-regulator" }],
+  "range_km": [
+    { "value": 450, "unit": "km", "kind": "rated_nrcan", "source_id": "src-test-regulator" },
+    { "value": 455, "unit": "km", "kind": "manufacturer", "source_id": "src-test-oem-spec", "notes": "With 19-inch wheels" }
+  ],
+  "trims": [
+    {
+      "id": "base",
+      "name": "Base",
+      "aliases": ["SE"],
+      "heat_pump": [{ "value": "optional", "kind": "manufacturer", "source_id": "src-test-oem-spec" }],
+      "wheels": [{ "diameter_in": 19, "is_standard": true }, { "diameter_in": 21, "is_standard": false }]
+    }
+  ]
+}

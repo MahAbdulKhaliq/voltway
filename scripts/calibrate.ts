@@ -75,7 +75,7 @@ lines.push('');
 lines.push('## Notes for the owner', '');
 lines.push(`- Groups with fewer than ${THIN} cars are marked ⚠ thin: their tuning rests on very little data.`);
 lines.push('- Cars with a measured curve already show that curve; calibration matters for the cars that only have a template.');
-lines.push('- Approving these numbers updates `TEMPLATES` in `src/lib/estimated-curve.ts`, removes the "uncalibrated" note from estimated curves, and records the table in charging-curve-viewer.md §9.');
+lines.push('- "Now" is whatever `TEMPLATES` holds when the script runs; approved numbers go into `TEMPLATES`, charging-curve-viewer.md §9 and gaps-and-questions.md.');
 
 // Cars still outside ±15 % after tuning, for the owner to weigh (§9 step 5: split a template only if a group can't fit).
 const misses = cases

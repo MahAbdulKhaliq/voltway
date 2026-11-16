@@ -74,7 +74,8 @@ describe('estimated curves (charging-curve-viewer.md §9)', () => {
     const c = estimateCurve({ dcMaxKw: 200, chemistry: 'nmc', voltageClass: '800v', sourceId: 'src-x' });
     expect(c.kind).toBe('estimated');
     expect(c.points.find((p) => p.soc_percent === 10)?.power_kw).toBe(200);
-    expect(c.points.find((p) => p.soc_percent === 80)?.power_kw).toBe(90);
+    expect(c.points.find((p) => p.soc_percent === 80)?.power_kw).toBe(84); // 0.42 × 200 (B41)
+    expect(c.basis).not.toMatch(/calibrated/);
     expect(c.basis).toMatch(/800V NMC.*200 kW/);
   });
 });

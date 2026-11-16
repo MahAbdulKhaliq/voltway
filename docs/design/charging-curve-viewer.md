@@ -146,16 +146,16 @@ In v1, the results panel shows a small note when a **800V car** is paired with a
 
 For variants with no measured curve. Each template is a list of **SoC → fraction of the car's peak DC kW**. The estimated curve is the template × `dc_max_kw`.
 
-**These numbers are uncalibrated placeholders** that sketch typical shapes. They must be tuned against measured curves before launch (see calibration below).
+**Calibrated 2026-11-16 (B41).** The table started as uncalibrated placeholders; the owner approved the tuned 30–80 % values from `docs/plan/calibration-report.md` (19 reference cars; within ±15 %: 15 → 16). Old values are shown struck through where they changed.
 
 | SoC | **400V NMC/NCA** | **800V NMC/NCA** | **LFP** (any voltage) |
 |-----|------------------|------------------|-----------------------|
 | 0% | 0.70 | 0.75 | 0.80 |
 | 10% | 1.00 | 1.00 | 1.00 |
-| 30% | 1.00 | 1.00 | 0.90 |
-| 50% | 0.75 | 0.95 | 0.75 |
-| 70% | 0.55 | 0.70 | 0.60 |
-| 80% | 0.45 | 0.45 | 0.50 |
+| 30% | ~~1.00~~ 0.97 | ~~1.00~~ 0.96 | ~~0.90~~ 0.81 |
+| 50% | ~~0.75~~ 0.71 | ~~0.95~~ 0.90 | ~~0.75~~ 0.63 |
+| 70% | ~~0.55~~ 0.51 | ~~0.70~~ 0.64 | ~~0.60~~ 0.47 |
+| 80% | ~~0.45~~ 0.43 | ~~0.45~~ 0.42 | ~~0.50~~ 0.42 |
 | 90% | 0.25 | 0.15 | 0.30 |
 | 100% | 0.08 | 0.05 | 0.10 |
 
@@ -167,6 +167,8 @@ For variants with no measured curve. Each template is a list of **SoC → fracti
 3. Compare the **10–80% times**. The target is to be within about **±15%** for most cars (a starting goal). Manufacturer claims tend to be best-case, so give tested figures more weight when the two differ.
 4. Adjust the template numbers until most cars fall inside the target, and record the result in this doc.
 5. If one template can't fit a group (for example a brand with a very flat curve), split it into a separate template.
+
+**Result (2026-11-16, B41):** a weighted Huber fit (tested curves count most) moved only the 30–80 % points. Still outside ±15 %: Silverado EV (−36 %), LYRIQ (−26 %) and Kona (−20 %), all estimated faster than their reference; GM Ultium may need its own template once tested GM curves exist. LFP rests on one car (EX30). No template split for now. Re-run with `npm run calibrate` as references are added.
 
 ### How estimated curves are shown
 - Dashed line, an "Estimated" badge, and an expandable explanation: "Based on a typical 800V NMC curve and this car's 220 kW peak. No measured curve available yet."

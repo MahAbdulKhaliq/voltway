@@ -146,7 +146,7 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 
 # Phase 2 build checklist: charger map (tag [2])
 
-Built from [DESIGN-map.md](DESIGN-map.md) (approved 2026-11-16; owner decisions B26–B29). Data layer before UI. Each item ships as its own PR on green CI. Phase 1b items above follow once M10 passes.
+Built from [DESIGN-map.md](DESIGN-map.md) (approved 2026-11-16; owner decisions B26–B29, then B31–B35 after QA). Data layer before UI. Each item ships as its own PR on green CI. Phase 1b items above follow once M10 passes.
 
 **Agents for this phase (added 2026-11-16 at the owner's request):** `.claude/agents/map-data-auditor.md` audits the charger data after M1–M3 and on refresh PRs; `.claude/agents/map-ui-checker.md` runs QA.md MU1–MU16 in the browser after M6–M8.
 
@@ -184,4 +184,5 @@ Built from [DESIGN-map.md](DESIGN-map.md) (approved 2026-11-16; owner decisions 
 
 ## Independent QA
 
-- [ ] **[2] M10** Run the `qa-reviewer` subagent against `docs/plan/QA.md` Phase 2; fix findings; re-run on fixed items.
+- [x] **[2] M10** Run the `qa-reviewer` subagent against `docs/plan/QA.md` Phase 2; fix findings; re-run on fixed items.
+  - Verified 2026-11-16. First run: `qa-reviewer` PASS WITH ISSUES (0 blockers, 2 should-fix, 13 minor; `qa-phase2-2026-11-16.md` in the session notes); fixes in PR #57, owner decisions B31–B35 in PR #58, built as M11 (PR #59) and M12 (PR #60). Re-check: `qa-reviewer` PASS WITH ISSUES (0 blockers; 1 should-fix and 5 minor doc/comment leftovers, all fixed in this PR); `map-ui-checker` MU1, MU6–MU10, MU14, MU15, MU18, QA #1 (L2-only 11,956) and QA #6 pass (`map-ui-recheck-2026-11-16.md` in the session notes). Its MU17 run was cut short by a branch switch; MU17 then re-checked by hand (Enter opens the station with focus on its name, the list updates after zoom, hidden at 375 px). Not covered: real geolocation prompt, live run of the new "checks failed with no change" step, the merge path (M5).

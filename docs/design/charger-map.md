@@ -42,7 +42,7 @@ From [data-sources.md](data-sources.md) §5. The fields this design uses:
 | Field | Used for |
 |-------|----------|
 | `ev_level2_evse_num`, `ev_dc_fast_num` | **Level** (Level 2 vs. Level 3). Stations with only Level 1 are dropped. |
-| `ev_charging_units` → `connectors` → `power_kw`, `port_count` | **Power bands** and port counts per plug |
+| `ev_charging_units` → `connectors` → `power_kw`, `port_count` | **kW range filter** (B35) and port counts per plug |
 | `ev_connector_types` | **Plug filter:** `J1772`, `J1772COMBO` (CCS1), `TESLA` (NACS), `CHADEMO` |
 | `ev_network` | Network name: the source calls Superchargers "Tesla" and destination chargers "Tesla Destination" |
 | `access_code`, `access_detail_code`, `restricted_access` | Hide private stations. Flag "customers only" and limited hours. |
@@ -59,7 +59,7 @@ From [data-sources.md](data-sources.md) §5. The fields this design uses:
 Scheduled GitHub Action (daily)
    → pull all Canadian electric stations from AFDC
    → keep public Level 2 / Level 3, drop Level 1-only and private
-   → assign level, power bands and plugs per station (rules in vision.md)
+   → assign level and plugs per station, keeping each port's rated kW for the range filter (rules in vision.md)
    → sanity checks (below)
    → write map data files → deploy with the static site
 ```
@@ -128,7 +128,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 | **Ports** | One line per plug and power: "**2 × CCS1 · 180 kW**", "1 × CHAdeMO · 50 kW", "4 × NACS · 250 kW" |
 | Access | Public / customers only / limited hours. **Tesla note** where it applies (§7) |
 | Pricing | The text as provided, or "Not listed" |
-| Status | Available / temporarily unavailable (with expected date if given) |
+| Status | Available / temporarily unavailable (with the expected date only while it is in the future, B32) |
 | **Directions** | "Open in Google Maps" / "Open in Apple Maps" links. **No in-app navigation in v1.** |
 | Footer | "Data: NRCan / NLR AFDC · updated [date]" |
 

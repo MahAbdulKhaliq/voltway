@@ -72,16 +72,6 @@
       "notes": "InsideEVs tester (2025 LT Extended Range, 350 kW charger) did 10-80% in about 40 min; the article also calls 40 min a Chevrolet claim, though The Charge Port says Chevrolet published no time. Single rounded test, conditions not stated."
     }
   ],
-  "consumption_highway_wh_per_km": [
-    {
-      "value": 349,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-insideevs-silverado-ev-lt-er-test-2025",
-      "low_confidence": true,
-      "notes": "Test: 70 mph (113 km/h) steady, 20-35 F (about -7 to 2 C) with headwinds, wheel size not stated, battery-side (car-reported energy) | 2025 Silverado EV LT Extended Range (same dual-motor AWD and Extended pack as our 2026 LT). 179.9 kWh reported by the car over 320.6 mi: 179.9 / 320.6 = 561.1 Wh/mi / 1.609344 = 349 Wh/km. Cold and windy, so well above a mild-weather figure; battery capacity about 182 kWh per the article. Other Silverado test seen (not attached, different pack): Trail Boss Max Range 70 mph, 454 mi, about 2.1 mi/kWh. | NOT FOR CALIBRATION: cold (20-35 F) with headwinds inflate this figure; exclude it from the highway-factor fit (item 3.7)."
-    }
-  ],
   "trims": [
     {
       "id": "11-5-kw-charger",

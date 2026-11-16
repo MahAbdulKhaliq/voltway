@@ -47,3 +47,7 @@ Files: `G:\Work\EV Charging App\.claude\worktrees\friendly-haslett-5b3e50\resear
 3. Silverado LT ER highway 349: kept as a real tested figure but its note now says "NOT FOR CALIBRATION" (cold, headwinds); item 3.7 must exclude it. The owner may prefer to drop it.
 4. Wording: Lyriq, Mach-E and Lightning notes now give the repo's usable/gross figures, the unconfirmed Lyriq pack match, and the rounded 3.1 mi/kWh.
 5. WT weights, Equinox, Mach-E, Lightning, Lyriq values unchanged.
+
+## Owner decision B48 (2026-11-16, on PR #78)
+
+The owner dropped every value marked "NOT FOR CALIBRATION" from the data (not from this batch file, which stays as the audit trail): tested consumption baselines must be mild-weather, near-standard tests. Removed from `data/variants/**`: IONIQ 5 long-range AWD (3 °C), EV6 Land AWD (0 °C), LEAF Platinum+ (~3 °C), Silverado EV LT ext range (cold + headwinds). Sources no longer cited (`src-insideevs-leaf-70mph-2026`, `src-insideevs-silverado-ev-lt-er-test-2025`) were deleted from `data/sources/`. Re-running add-facts on this batch would bring them back: don't.

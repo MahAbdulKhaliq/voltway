@@ -69,16 +69,6 @@
       "notes": "Guide Auto lists 2,090 kg (4,608 lb) for the Canadian Preferred AWD on 19-inch wheels (matches US SE AWD 4,608 lb). The 20-inch (Ultimate Package) trim may weigh more; its figure was not found, so the value is for the 19-inch trim."
     }
   ],
-  "consumption_highway_wh_per_km": [
-    {
-      "value": 248,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-nyland-sheet-2026-10",
-      "low_confidence": true,
-      "notes": "Test: 120 km/h steady, 3 °C, dry, 20-inch wheels (255/45-20 Continental VC8, winter tyres per sheet), battery-side (car display; sheet does not say explicitly) | Nyland, 'Hyundai Ioniq 5 AWD 84 kWh' (post-2025 84 kWh pack, 78.4 kWh measured; AWD). Matches our 20-inch Long Range AWD trim and the 84 kWh pack; model year not stated (84 kWh pack = 2025+). Motor output not checked against the Canadian car. Cold test, so a mild-weather figure would be lower. 90 km/h, 3 °C: 174 Wh/km. Other test seen, not recorded: InsideEVs 70 mph test of the Ioniq 5 N (84 kWh, different motors and tyres): 2.7 mi/kWh = 370 Wh/mi = 230 Wh/km.. | NOT FOR CALIBRATION: cold test (3 °C, winter tyres); exclude from the highway-factor fit (item 3.7)."
-    }
-  ],
   "trims": [
     {
       "id": "19-in-wheels",

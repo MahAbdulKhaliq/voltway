@@ -30,3 +30,7 @@
 3. C-HR AWD note now says the cited page is the XSE (20-inch) trim and the SE AWD 18-inch wasn't checked.
 4. LEAF Platinum+ weight kept (low_confidence); note says EV Specifications states no source. Not re-cited to cars.com (not opened).
 5. LEAF highway 222: kept; note adds that it is a cold (≈3 °C) test to consider excluding in item 3.7.
+
+## Owner decision B48 (2026-11-16, on PR #78)
+
+The owner dropped every value marked "NOT FOR CALIBRATION" from the data (not from this batch file, which stays as the audit trail): tested consumption baselines must be mild-weather, near-standard tests. Removed from `data/variants/**`: IONIQ 5 long-range AWD (3 °C), EV6 Land AWD (0 °C), LEAF Platinum+ (~3 °C), Silverado EV LT ext range (cold + headwinds). Sources no longer cited (`src-insideevs-leaf-70mph-2026`, `src-insideevs-silverado-ev-lt-er-test-2025`) were deleted from `data/sources/`. Re-running add-facts on this batch would bring them back: don't.

@@ -62,6 +62,8 @@ For each stretch of the route:
 
 **Why × 1.15:** official highway ratings come from lab cycles that are slower than Canadian highway driving (100–110 km/h). The 1.15 factor is a **placeholder to calibrate** against tested highway figures, like the curve templates (R10). **Decided (B46, 2026-11-16):** no car had a tested highway figure yet, so Phase 3 first researches tested highway consumption (110–120 km/h range tests) for about 20 cars, then calibrates the factor; until the owner approves the result, 1.15 ships marked "not yet calibrated".
 
+**Baseline tests only (B48, 2026-11-16):** a tested figure is stored only from a mild-weather, near-standard test (dry, roughly 15–30 °C, normal tyres, no strong wind); climate, wheel and elevation effects come from conservative formula adjustments, not from cold- or wind-affected tests.
+
 ### 2. Elevation
 - **Climbing:** add the energy needed to lift the car: `mass × 9.81 × metres climbed`, ÷ 0.9 for drivetrain losses.
 - **Descending:** take back **60%** of the descent energy (regenerative braking).

@@ -29,3 +29,7 @@ Kept (6 of 8): Model 3 161, Ioniq 6 197, Niro 223, Polestar SM 218, Polestar Per
 1. Dropped `volkswagen/id-4/2026/awd` (pre-2024 car; motors differ from our 2026 AWD).
 2. Cold tests kept but their notes now carry a consistent "NOT FOR CALIBRATION: cold test" marker so item 3.7 can exclude them: IONIQ 5 AWD (3 °C), EV6 Land AWD (0 °C). The same marker was put on the LEAF Platinum+ (≈3 °C, other batch) and the Silverado LT ER (cold + headwinds, other batch). IONIQ 6 (9 °C) kept with a "low weight" note.
 3. Polestar 2 pack figures (78/75 kWh, probably stale) and Niro EV usable 68.4 kWh: not changed here; listed as follow-ups in the PR.
+
+## Owner decision B48 (2026-11-16, on PR #78)
+
+The owner dropped every value marked "NOT FOR CALIBRATION" from the data (not from this batch file, which stays as the audit trail): tested consumption baselines must be mild-weather, near-standard tests. Removed from `data/variants/**`: IONIQ 5 long-range AWD (3 °C), EV6 Land AWD (0 °C), LEAF Platinum+ (~3 °C), Silverado EV LT ext range (cold + headwinds). Sources no longer cited (`src-insideevs-leaf-70mph-2026`, `src-insideevs-silverado-ev-lt-er-test-2025`) were deleted from `data/sources/`. Re-running add-facts on this batch would bring them back: don't.

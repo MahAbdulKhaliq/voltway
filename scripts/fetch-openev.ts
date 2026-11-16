@@ -21,7 +21,9 @@ async function main() {
   const api = tag
     ? `https://api.github.com/repos/${REPO}/releases/tags/${encodeURIComponent(tag)}`
     : `https://api.github.com/repos/${REPO}/releases/latest`;
-  const res = await fetch(api, { headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'voltway-data-fetch' } });
+  // In GitHub Actions the token avoids the shared runners' anonymous rate limit.
+  const auth: Record<string, string> = process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {};
+  const res = await fetch(api, { headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'voltway-data-fetch', ...auth } });
   if (!res.ok) throw new Error(`Release lookup failed: HTTP ${res.status}`);
   const release = (await res.json()) as Release;
 

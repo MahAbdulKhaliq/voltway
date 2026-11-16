@@ -1,5 +1,7 @@
 # Phase 1 build plan: EV vehicle database + charging curves
 
+> **Read with the decisions log.** This plan was written at the start of the build. Later owner decisions change parts of it: B11 (one Charging screen with dropdowns, no per-variant `/cars/...` pages), B18–B20 (layout, cost, themes, side nav instead of header links), B21 (1a/1b split), B23 (1.6 closed), B24 (measured range of curves), B25 (efficiency options later). Where this file and `docs/design/gaps-and-questions.md` §12 disagree, the decision wins.
+
 ## Context
 The design for a free, no-login Canadian EV web app is finished in `docs/design/` (overview.md + detailed docs; detailed docs win on conflict). Phase 1 = vehicle database + charging curves only (no map, no trip planner). `G:\Work\EV Charging App` is empty and not a git repo. Stack is decided in phase1-stack.md: static Astro site, data as JSON in a public GitHub repo, JSON Schema validation at build, Vercel Hobby hosting.
 

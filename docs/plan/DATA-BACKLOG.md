@@ -35,3 +35,8 @@ Needs a model-specific 2026 owner's manual page (search excerpts and generic pag
 - bZ 57.7 kWh pack: chemistry (Wikipedia says LFP, unverified) and DC peak.
 - Gross capacity: Toyota/Subaru Canada say 77 kWh, US says 74.7 kWh (both recorded; pick one to display).
 - Thorough rounds (B15/B16 flow) for Ford, VW/BMW, Nissan, Volvo/Polestar.
+
+## 5. Product follow-ups from Phase 1a QA (2026-11-16)
+- **Efficiency unit options (B25):** add Wh/km and mi/kWh beside kWh/100 km (database-ui §9).
+- **Cars with no curve at all:** the 2026 IONIQ 5 Long Range variants, the EV9 Light and the bZ Standard have no DC peak, so no curve can be estimated. Finding their DC peaks gives them a curve.
+- **Precedence ignores kind for hand-entered facts** (`scripts/lib/build.ts` resolve, ~line 73): an `estimated` fact from a carmaker-type source would outrank a `manufacturer` value from OpenEV. No current data triggers it; rank by kind within the same source type.

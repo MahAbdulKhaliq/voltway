@@ -9,6 +9,7 @@ import { parseCsv } from './csv.ts';
 import { parseName } from './match.ts';
 import { deriveWheelEffect, type RatingRow, type WheelEffect } from '../../src/lib/wheel-effect.ts';
 import { calculateCharge } from '../../src/lib/charging.ts';
+import { t as msg } from '../../src/i18n/t.ts';
 import { estimateCurve } from '../../src/lib/estimated-curve.ts';
 import { MVP_FIELDS, type CarDetail, type CurveOut, type Field, type IndexEntry, type Source, type SourcedValue, type TrimOut } from '../../src/lib/types.ts';
 
@@ -256,7 +257,7 @@ export function buildCars(root: string): BuildResult {
             source_id: rec.curve.source_id,
             points: rec.curve.points,
             is_display_default: false,
-            notes: `${rec.curve.notes} Recorded for the ${rec.year} ${rec.make} ${rec.model}${rec.variant ? ` ${rec.variant}` : ''}.`,
+            notes: `${rec.curve.notes} ${msg('curve.recordedFor', { car: [rec.year, rec.make, rec.model, rec.variant].filter(Boolean).join(' ') })}`,
           });
         }
       }
@@ -281,7 +282,7 @@ export function buildCars(root: string): BuildResult {
       const hints = trimRow ? parseName(trimRow.model) : null;
       const per = (k: string) => resolve(k, asCands([...(t[k] ?? []), ...(trimRow?.[k] ?? [])])) as Field<number>;
       const acFromName: SourcedValue[] = hints?.charger_kw && nrcanSource
-        ? [{ value: hints.charger_kw, unit: 'kW', kind: 'rated_nrcan', source_id: nrcanSource, notes: `From NRCan's model name: “${trimRow.model}”.` }]
+        ? [{ value: hints.charger_kw, unit: 'kW', kind: 'rated_nrcan', source_id: nrcanSource, notes: msg('note.nrcanModelName', { name: trimRow.model }) }]
         : [];
       const ac = resolve('ac_max_kw', asCands([...(t.ac_max_kw ?? []), ...acFromName])) as Field<number>;
       const wheels: TrimOut['wheels'] = t.wheels?.length
@@ -337,13 +338,14 @@ export function buildCars(root: string): BuildResult {
     const gross = fields.capacity_gross_kwh?.value.value as number | undefined;
     const kwh = usable ?? gross;
     const whPerKm = fields.consumption_highway_wh_per_km?.value.value as number | undefined;
-    let derived: CarDetail['derived'] = { minutes_10_80: null, km_per_10_min: null, estimated: true, battery_basis: null };
+    let derived: CarDetail['derived'] = { minutes_10_80: null, km_per_10_min: null, estimated: true, extrapolated: false, battery_basis: null };
     if (defaultCurve && kwh) {
       const r = calculateCharge({ points: defaultCurve.points, usableKwh: kwh, startSoc: 10, endSoc: 80, whPerKm });
       derived = {
         minutes_10_80: Math.round(r.minutes * 10) / 10,
         km_per_10_min: r.kmPer10Min === null ? null : Math.round(r.kmPer10Min),
-        estimated: defaultCurve.kind === 'estimated' || usable === undefined,
+        estimated: defaultCurve.kind === 'estimated' || usable === undefined || r.extrapolated,
+        extrapolated: r.extrapolated,
         battery_basis: usable !== undefined ? 'usable' : 'gross',
       };
     }

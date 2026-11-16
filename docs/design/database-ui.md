@@ -171,6 +171,8 @@ The data model gives every figure a *kind* and a source. On screen:
 
 ## 9. Units and language (U4) ✅
 
+*B25 (2026-11-16): the Wh/km and mi/kWh options are deferred until after the map; v1 shows kWh/100 km, or kWh/100 mi when miles are chosen.*
+
 **Changed 2026-11-15 (B19):** the km/mi switch lives in the curve controls on the Charging tab, not the header; the header has a hamburger menu of pages.
 
 | Setting | Default | Options |

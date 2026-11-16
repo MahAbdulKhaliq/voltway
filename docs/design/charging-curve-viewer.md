@@ -63,7 +63,7 @@ Add up across the window:
 ### Charging losses (C9) ✅
 **Decision:** in v1, **no loss factor in the time calculation.** The curve's kW is treated as the power going into the battery, and energy is labeled "**added to battery**".
 
-- **Why:** it keeps the maths transparent and in line with how most published curves are presented. Losses mostly affect **energy drawn from the charger**, which matters for **cost**, and cost is out of scope for v1.
+- **Why:** it keeps the maths transparent and in line with how most published curves are presented. Losses mostly affect **energy drawn from the charger**, which matters for **cost**, and cost is out of scope for v1. *(Superseded by B19: cost is in v1.)*
 - **Added 2026-11-15 (B19):** cost is in v1 after all: price per kWh input (default C$0.45), cost = energy added ÷ 0.92 × price, with the drawn kWh and the assumed losses shown.
 - **Originally:** when cost is added, show "drawn from charger ≈ added ÷ efficiency" with a stated assumption, for example ~90–95% for DC. That figure is an assumption to check then.
 - **Note for imports:** when a source says whether its curve was measured at the charger or the battery, record it in the curve's `conditions`.
@@ -174,9 +174,14 @@ For variants with no measured curve. Each template is a list of **SoC → fracti
 
 ---
 
+### Measured range of a curve (B24) ✅
+**Decision (2026-11-16):** a measured curve is only measured between its first and last points. Beyond them the viewer still holds the nearest measured power (so any window can be calculated), but that part of the line is **dashed** and labelled "Not measured", a note gives the measured range, and any result whose window reaches into it (including the 10–80 % tile) is shown as **estimated** ("~", rounded to 5 minutes, Estimated badge). Estimated curves also carry an "Estimated" tag on the line.
+
+---
+
 ## 10. Out of scope for v1
 
-- **Charging cost** (and with it, losses at the charger, §3)
+- ~~**Charging cost**~~: in v1 after all (B19, 2026-11-15; see §3)
 - **Road-trip mode** inside the viewer (Phase 3, the route planner, covers trips)
 - **Leaderboards.** A ranked "fastest charging" list is a nice later idea. It ties into the database's rankings (D6).
 - **Custom vehicle entry** (users typing in their own car's specs)

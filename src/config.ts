@@ -1,13 +1,17 @@
 // Coverage settings. The product isn't branded to one country; this says which market the
 // current data covers, so the UI can state it openly. Adding markets later = new data + config.
 
+import { t } from './i18n/t.ts';
+
 export const COVERAGE = {
+  /** Market code; its names below come from the i18n dictionary. */
+  marketCode: 'CA',
   /** The market the vehicle list covers today. */
-  market: 'Canada',
+  market: t('market.CA.name'),
   /** Where the official efficiency and range ratings come from. */
-  regulator: 'Natural Resources Canada (NRCan)',
+  regulator: t('market.CA.regulator'),
   /** Short name of that regulator's ratings, for compact notes. */
-  regulatorShort: 'NRCan',
+  regulatorShort: t('market.CA.regulatorShort'),
   /** Currency for charging cost (B19). */
   currency: 'CAD',
   /** Formatting locale for money. */

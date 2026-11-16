@@ -179,6 +179,26 @@ describe('the real build', () => {
     }
   });
 
+  it('passes the output check (every figure anywhere in a car file is sourced)', async () => {
+    const { outputProblems } = await import('../scripts/lib/output-check.ts');
+    const cars = buildCars(REPO).cars;
+    expect(cars.flatMap(outputProblems)).toEqual([]);
+    const broken = structuredClone(cars[0]);
+    const tr = broken.trims[0] as unknown as Record<string, unknown>;
+    tr.range_km = { value: { value: 1, unit: 'km', kind: 'tested', source_id: 'src-nowhere' }, others: [], conflict: false };
+    expect(outputProblems(broken).length).toBeGreaterThan(0);
+  });
+
+  it('marks 10–80 % as estimated when the window reaches past the measured points (B24)', () => {
+    for (const car of buildCars(REPO).cars) {
+      const c = car.curves.find((x) => x.is_display_default);
+      if (!c || car.derived.minutes_10_80 === null) continue;
+      const outside = c.points[0].soc_percent > 10 || c.points.at(-1)!.soc_percent < 80;
+      expect(car.derived.extrapolated).toBe(outside);
+      if (outside) expect(car.derived.estimated).toBe(true);
+    }
+  });
+
   it('every cited source exists', () => {
     for (const car of buildCars(REPO).cars) {
       const ids = new Set(car.sources.map((s) => s.id));

@@ -3,6 +3,7 @@
 // checklist 2.2 tunes them against published 10–80 % times (target ±15 %).
 
 import type { CurveOut } from './types.ts';
+import { t, type MessageKey } from '../i18n/t.ts';
 
 export type TemplateId = '400v-nmc' | '800v-nmc' | 'lfp';
 
@@ -13,11 +14,6 @@ export const TEMPLATES: Record<TemplateId, number[]> = {
   lfp: [0.8, 1.0, 0.9, 0.75, 0.6, 0.5, 0.3, 0.1],
 };
 
-const LABEL: Record<TemplateId, string> = {
-  '400v-nmc': '400V NMC',
-  '800v-nmc': '800V NMC',
-  lfp: 'LFP',
-};
 
 export interface EstimateInput {
   dcMaxKw: number;
@@ -30,9 +26,9 @@ export interface EstimateInput {
 export function chooseTemplate(chemistry: string | null, voltageClass: string | null): { id: TemplateId; caveats: string[] } {
   const caveats: string[] = [];
   if (chemistry === 'lfp' || chemistry === 'lmfp') return { id: 'lfp', caveats };
-  if (!chemistry) caveats.push('chemistry unknown, NMC template used');
+  if (!chemistry) caveats.push(t('curve.template.chemistryUnknown'));
   if (voltageClass === '800v') return { id: '800v-nmc', caveats };
-  if (!voltageClass) caveats.push('voltage class unknown, 400V template used');
+  if (!voltageClass) caveats.push(t('curve.template.voltageUnknown'));
   return { id: '400v-nmc', caveats };
 }
 
@@ -45,6 +41,6 @@ export function estimateCurve(input: EstimateInput): CurveOut {
     source_id: input.sourceId,
     points: SOC.map((soc, i) => ({ soc_percent: soc, power_kw: Math.round(TEMPLATES[id][i] * peak * 10) / 10 })),
     is_display_default: false,
-    basis: [`Typical ${LABEL[id]} curve × this car's ${peak} kW peak`, ...caveats, 'template not yet calibrated'].join('; '),
+    basis: [t('curve.template.basis', { template: t(`curve.template.${id}` as MessageKey), peak }), ...caveats, t('curve.template.uncalibrated')].join('; '),
   };
 }

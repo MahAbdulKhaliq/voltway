@@ -1,6 +1,6 @@
 ---
 // Page shell (B20): menu button (left) → side panel with a theme toggle, page search and the
-// list of pages; then the logo; main content; footer. Compare, My car and Trip join
+// list of pages; then the logo; main content; footer. Trip joins
 // PAGES as they're built. The map is the home page (B26). Distances render in km and are converted in place when the
 // visitor picks miles (database-ui.md §9; the switch lives in the curve controls, B19).
 import '../styles/global.css';
@@ -8,7 +8,7 @@ import { t, type MessageKey } from '../i18n/t.ts';
 import { COVERAGE } from '../config.ts';
 import HeaderChips from '../components/HeaderChips.tsx';
 
-type Page = 'map' | 'charging' | 'cars' | 'about';
+type Page = 'map' | 'charging' | 'cars' | 'compare' | 'about';
 // fill: the page is one full-screen tool (the map): no width limit and no footer; credits live in the tool.
 interface Props { title?: string; description?: string; active?: Page; fill?: boolean }
 const { title, description = t('site.tagline'), active, fill = false } = Astro.props;
@@ -19,6 +19,7 @@ const PAGES: { id: Page; href: string }[] = [
   { id: 'map', href: '/' },
   { id: 'charging', href: '/charging' },
   { id: 'cars', href: '/cars' },
+  { id: 'compare', href: '/compare' },
   { id: 'about', href: '/about' },
 ];
 const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
@@ -49,7 +50,7 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
           <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" /></svg>
         </button>
         <a class="logo" href="/">⚡ {t('site.name')}</a>
-        <HeaderChips client:idle />
+        <HeaderChips client:idle showCompare />
       </div>
     </header>
 

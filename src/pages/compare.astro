@@ -1,0 +1,17 @@
+---
+// Compare (database-ui.md §6, charging-curve-viewer.md §6, DESIGN-1b 6.1): up to four cars side by
+// side. The list lives in the browser (and in ?cars=), so the page itself is one island.
+import Base from '../layouts/Base.astro';
+import Compare from '../components/Compare.tsx';
+import { t } from '../i18n/t.ts';
+import { loadIndex } from '../lib/data.ts';
+
+const index = loadIndex();
+---
+
+<Base title={t('compare.title')} active="compare">
+  <h1>{t('compare.title')}</h1>
+  <p class="muted">{t('compare.intro')}</p>
+  <Compare client:load index={index} />
+  <noscript><p class="banner">{t('browse.noJs')}</p></noscript>
+</Base>

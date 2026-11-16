@@ -157,7 +157,7 @@ Standalone checks for the charger map against [DESIGN-map.md](DESIGN-map.md) and
 | MU7 | The kW slider appears only under a ticked level; stops are L2 0/3.6/7.2/11.5/19.2/Max and L3 0/50/100/150/250/350/Max; the range is written in words; arrow keys move a handle one stop; the handles can't cross; narrowing it shows the unknown-power note (B35) |
 | MU8 | Filter choices persist after reload |
 | MU9 | Level 2 data is requested only once Level 2 is first ticked (Network tab) |
-| MU10 | Station panel: name, network, level badge; port lines like "2 × CCS1 · 180 kW"; access + customers-only / limited-hours warning; pricing or "Not listed"; status with date; Google and Apple Maps links; "Data: NRCan / NLR AFDC · updated {date}" |
+| MU10 | Station panel: name, network, level badge; port lines like "2 × CCS1 · 180 kW"; access + customers-only / limited-hours warning; pricing or "Not listed"; status, with the expected date only if it is in the future (B32); Google and Apple Maps links; "Data: NRCan / NLR AFDC · updated {date}" |
 | MU11 | Supercharger sites show the generic Tesla note; Destination sites the customers-only note; no My car toggle (B28) |
 | MU12 | Locate me asks only on click and centres the map; denied shows a message; nothing stored |
 | MU13 | No place search box (B29) |
@@ -182,5 +182,5 @@ Standalone checks for the charger map against [DESIGN-map.md](DESIGN-map.md) and
 | MB1–MB4 | | |
 | MD1–MD8 | | |
 | MW1–MW3 | | |
-| MU1–MU16 | | |
+| MU1–MU18 | | |
 | MP1–MP3 | | |

@@ -1,7 +1,8 @@
 // The charger map (charger-map.md, DESIGN-map.md M6–M8). Mounted with client:only="react":
 // MapLibre draws with WebGL in the browser, so there is nothing to render at build time.
 //
-// Data: public/data/map/l3.json loads at start; l2.json only once Level 2 is first ticked.
+// Data: public/data/map/l3.json (every site with a Level 3 port, mixed sites included) loads
+// whenever either level is ticked; l2.json (Level 2-only sites) only once Level 2 is first ticked.
 // Filtering runs here (src/lib/map-filter.ts) and the result goes to one clustered GeoJSON
 // source with setData, so clusters always count only what the filters let through.
 // A theme change swaps the base style, which drops our layers; 'style.load' adds them back.
@@ -342,7 +343,7 @@ export default function ChargerMap() {
     };
   }, []);
 
-  // Station data: each level's file loads the first time that level is ticked.
+  // Station data: each file loads the first time it is needed (l3.json for either level).
   useEffect(() => {
     for (const lv of LEVELS) {
       // l3.json also holds every mixed site (Level 3 and Level 2 ports), so the Level 2 view needs it too.

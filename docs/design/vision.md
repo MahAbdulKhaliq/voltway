@@ -94,8 +94,8 @@ Each band **includes its upper edge**, so a charger exactly on an edge goes in t
 
 **Rules:**
 - **Level comes from the data source's classification** (Level 2 vs. DC fast), not from the power value. A 20 kW DC unit is still Level 3.
-- **Sites with mixed hardware:** a site appears in a band if **any** of its ports fall in it.
-- **Unknown power:** public data often has no kW figure, especially for Level 2. Such chargers go in an **"Unknown power"** band, which is on by default so chargers don't vanish from the map.
+- **Sites with mixed hardware:** a site shows if **any** of its ports match the filters.
+- **Unknown power:** public data often has no kW figure, especially for Level 2. Such chargers show while the kW slider covers its full range (the default), so they don't vanish from the map (B35).
 
 ---
 

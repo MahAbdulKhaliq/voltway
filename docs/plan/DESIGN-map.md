@@ -1,7 +1,7 @@
 # Phase 2 build plan: the charger map (approved 2026-11-16)
 
 ## Context
-Phase 1a passed independent QA, so owner decision B21's gate is met and Phase 2 (the charger map) starts now. The design is `docs/design/charger-map.md`, with power bands from `vision.md` and the AFDC source from `data-sources.md` §5. The map is a static MapLibre map of every public Level 2 and Level 3 charger in Canada, using a daily AFDC pull and simple level, power-band and plug filters. There is no server. Phase 1b (Cars filters, My car, Compare, calibration) comes after the map.
+Phase 1a passed independent QA, so owner decision B21's gate is met and Phase 2 (the charger map) starts now. The design is `docs/design/charger-map.md`, with power bands from `vision.md` (since replaced by kW range sliders, B35) and the AFDC source from `data-sources.md` §5. The map is a static MapLibre map of every public Level 2 and Level 3 charger in Canada, using a daily AFDC pull and simple level, power and plug filters (power bands at first; kW range sliders since B35). There is no server. Phase 1b (Cars filters, My car, Compare, calibration) comes after the map.
 
 ### Owner answers (2026-11-16), to record as B26–B29
 | ID | Decision | Docs to update |
@@ -98,7 +98,7 @@ Each item ships as its own PR on green CI (standing rule). Explain new concepts 
 - **Unit tests:** `npx vitest run` covers classification, band edges, sanity checks and map filtering. `npm run validate`, `npx astro check` and `npm run build` (map files and size) must pass.
 - **Workflow:** a manual `charger-refresh` run on GitHub shows the merge path and the blocked path.
 - **Browser:** the `voltway-dev` preview checks:
-  - map loads as home, clusters, pins and icons, filter defaults and persistence, band reveal, L2 lazy load;
+  - map loads as home, clusters, pins and icons, filter defaults and persistence, slider reveal under a ticked level (B35), L2 lazy load, Stations in view (B34);
   - station panel rows, Tesla notes, Locate me (allowed and denied);
   - phone width 375 px, dark mode, keyboard use, no console errors.
 

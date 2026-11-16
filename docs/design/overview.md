@@ -61,7 +61,7 @@ Each phase ships on its own. The header gains **Map** and **Trip** as they're bu
 
 - **Data:** NLR (formerly NREL) AFDC (covers Canada), **pulled daily** and published as static files, about 15,000 locations. Automatic checks stop a bad update (for example a >10% drop in stations).
 - **Map:** MapLibre + **OpenFreeMap** tiles (free, no key), with self-hosted Protomaps as a fallback. **Covers all of Canada.**
-- **Filters:** Level 3 (shown by default) / Level 2 → **power bands** (each includes its upper edge, plus "Unknown power") → plugs (CCS1, NACS, CHAdeMO, J1772) → "**Chargers my car can use**".
+- **Filters:** Level 3 (shown by default) / Level 2 → **a kW range slider per level** (B35; unknown power shows at the full range) → plugs (CCS1, NACS, CHAdeMO, J1772) → "**Chargers my car can use**".
 
   | Level 2 | ≤3.6 · 3.7–7.2 · 7.3–11.5 · 11.6–19.2 kW |
   |---------|-------------------------------------------|

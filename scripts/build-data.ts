@@ -19,12 +19,15 @@ const { cars, index, estimates, report } = buildCars(root);
 // Fail the build on any unsourced figure in the output, not only in the input (rule: no bare numbers).
 const problems = cars.flatMap(outputProblems);
 
-// Charger map: built from the imported AFDC file when it exists.
+// Charger map: built from the imported AFDC file, which is committed; a missing file fails the build
+// instead of quietly shipping a site without map data.
 const stationsFile = join(root, 'data', 'imported', 'afdc', 'stations.json');
-const map = existsSync(stationsFile)
-  ? buildMap(JSON.parse(readFileSync(stationsFile, 'utf8')) as StationsFile)
-  : null;
-if (map) {
+if (!existsSync(stationsFile)) {
+  console.error('data:build: data/imported/afdc/stations.json is missing; run npm run import:afdc.');
+  process.exit(1);
+}
+const map = buildMap(JSON.parse(readFileSync(stationsFile, 'utf8')) as StationsFile);
+{
   const sourceIds = new Set(readdirSync(join(root, 'data', 'sources')).map((f) => f.replace(/\.json$/, '')));
   problems.push(...mapOutputProblems('map/l3.json', map.l3, sourceIds), ...mapOutputProblems('map/l2.json', map.l2, sourceIds));
 }

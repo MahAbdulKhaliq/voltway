@@ -246,7 +246,9 @@ export default function ChargerMap() {
   // Station data: each level's file loads the first time that level is ticked.
   useEffect(() => {
     for (const lv of LEVELS) {
-      if (!filters.levels[lv] || load[lv] !== 'idle') continue;
+      // l3.json also holds every mixed site (Level 3 and Level 2 ports), so the Level 2 view needs it too.
+      const needed = lv === 3 ? filters.levels[3] || filters.levels[2] : filters.levels[2];
+      if (!needed || load[lv] !== 'idle') continue;
       setLoad((s) => ({ ...s, [lv]: 'loading' }));
       loadLevel(lv).then(
         (features) => {
@@ -329,8 +331,9 @@ export default function ChargerMap() {
   const toggle = <K extends keyof MapFilters>(group: K, key: keyof MapFilters[K]) =>
     setFilters((f) => ({ ...f, [group]: { ...f[group], [key]: !f[group][key] } }));
 
-  const busy = LEVELS.some((lv) => filters.levels[lv] && load[lv] === 'loading');
-  const failed = LEVELS.some((lv) => filters.levels[lv] && load[lv] === 'error');
+  const wanted = (lv: ChargerLevel) => (lv === 3 ? filters.levels[3] || filters.levels[2] : filters.levels[2]);
+  const busy = LEVELS.some((lv) => wanted(lv) && load[lv] === 'loading');
+  const failed = LEVELS.some((lv) => wanted(lv) && load[lv] === 'error');
   const count = pins.features.length;
   const levelLabel: Record<ChargerLevel, MessageKey> = { 3: 'map.level3', 2: 'map.level2' };
 

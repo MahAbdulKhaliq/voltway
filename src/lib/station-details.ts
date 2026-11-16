@@ -30,6 +30,15 @@ export function accessDetail(code: string | undefined): AccessDetail | null {
   return (ACCESS_DETAILS as readonly string[]).includes(code ?? '') ? (code as AccessDetail) : null;
 }
 
+/**
+ * Whether the access row is a warning: restricted sites (customers only, limited hours…), and
+ * also open sites the source marks "limited hours" or "call ahead", which can turn a driver away.
+ */
+export function accessWarning(s: Pick<MapStationProps, 'rs' | 'ad'>): boolean {
+  const d = accessDetail(s.ad);
+  return s.rs === 1 || d === 'LIMITED_HOURS' || d === 'CALL';
+}
+
 /** §7: Superchargers get the generic access note, Tesla Destination sites the customers-only note. */
 export function teslaNote(network: string | undefined): 'supercharger' | 'destination' | null {
   if (network === 'Tesla') return 'supercharger';

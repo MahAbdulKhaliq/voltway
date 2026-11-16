@@ -70,6 +70,13 @@ jobs:
         if: steps.import.outputs.changed != 'true'
         run: echo "No station was added, removed or changed. No pull request." >> "$GITHUB_STEP_SUMMARY"
 
+      # A failed check with nothing to commit would otherwise end green and nobody would hear.
+      - name: Checks failed with no change
+        if: steps.import.outputs.changed != 'true' && steps.import.outputs.checks != 'pass'
+        run: |
+          echo "::error::Charger refresh: the sanity checks failed although no station changed. See the import step's output."
+          exit 1
+
       - name: Commit the new data
         if: steps.import.outputs.changed == 'true'
         run: |

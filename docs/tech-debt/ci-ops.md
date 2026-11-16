@@ -25,5 +25,9 @@
 - **Impact:** each daily refresh commits `data/imported/afdc/stations.json` (~6.6 MB, one station per line) and `public/data/map/*.json`. Git stores changed files whole (compressed), so busy days add up to a few MB each. Over a year that could make clones slow.
 - **Fix:** check repo size every few months (`git count-objects -vH`). If it grows fast: commit only on real station changes (already the rule for merging), stop committing the built `public/data/map` files and build them on Vercel instead, or move the data to a separate repo or Git LFS.
 
+### TD-O6 A blocked charger PR stays open through later quiet days
+- **Since:** 2026-11-16, Phase 2 QA (M10, report `qa-phase2-2026-11-16.md` in the session notes). When a refresh is blocked, the PR stays open; if the next days have no changes, nothing updates or closes it, and only the first day's failed run emails the owner.
+- **Fix:** on a quiet day, if `data/charger-refresh` has an open PR, fail the run (or comment on the PR) so it isn't forgotten. (Fixed in the same QA PR: a failed check with *no* change now fails the run instead of ending green.)
+
 ## Closed
 - (none yet)

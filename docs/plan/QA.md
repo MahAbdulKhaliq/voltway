@@ -3,7 +3,7 @@
 A standalone guide for verifying Phase 1 with no memory of how it was built. Read these first:
 
 - `docs/plan/DESIGN.md` (the build plan) and `CLAUDE.md` (the rules)
-- Planning docs in `G:\Work\Ideating\EV-App-Planning`: `vehicle-data-model.md`, `data-sources.md`, `charging-curve-viewer.md`, `database-ui.md`, `phase1-stack.md`. **Detailed docs win over `overview.md`.**
+- Planning docs in `docs/design/`: `vehicle-data-model.md`, `data-sources.md`, `charging-curve-viewer.md`, `database-ui.md`, `phase1-stack.md`. **Detailed docs win over `overview.md`.**
 
 Report every gap: what you checked, what you expected (with doc + section), what you saw.
 

@@ -1,7 +1,7 @@
 # Phase 1 build plan: EV vehicle database + charging curves
 
 ## Context
-The design for a free, no-login Canadian EV web app is finished in `G:\Work\Ideating\EV-App-Planning` (overview.md + detailed docs; detailed docs win on conflict). Phase 1 = vehicle database + charging curves only (no map, no trip planner). `G:\Work\EV Charging App` is empty and not a git repo. Stack is decided in phase1-stack.md: static Astro site, data as JSON in a public GitHub repo, JSON Schema validation at build, Vercel Hobby hosting.
+The design for a free, no-login Canadian EV web app is finished in `docs/design/` (overview.md + detailed docs; detailed docs win on conflict). Phase 1 = vehicle database + charging curves only (no map, no trip planner). `G:\Work\EV Charging App` is empty and not a git repo. Stack is decided in phase1-stack.md: static Astro site, data as JSON in a public GitHub repo, JSON Schema validation at build, Vercel Hobby hosting.
 
 **Decisions made in this planning chat (to be written into the planning docs in step 0.3):**
 - Interactive islands: **React**. Charts: **ECharts**. → phase1-stack.md §3/§6
@@ -35,7 +35,7 @@ The design for a free, no-login Canadian EV web app is finished in `G:\Work\Idea
 - **Vercel:** you import the repo in the Vercel dashboard (I'll give click-by-click steps and explain preview vs production deploys). I'll only use the connector to read projects/deployments/logs.
 
 ## Phase 0 — Project foundation
-0.1 **`CLAUDE.md`** in the project: points to `G:\Work\Ideating\EV-App-Planning` (overview.md first, detailed docs win), and records the rules: docs are source of truth; propose, don't change design; approved changes update the matching doc + gaps-and-questions.md; build in roadmap order (Phase 1 only now); the stack; every figure carries kind + source (no bare numbers); all on-screen text translatable; learning project (explain Vercel/Astro concepts, walk through manual setup); Vercel connector read-only without asking.
+0.1 **`CLAUDE.md`** in the project: points to `docs/design/` (overview.md first, detailed docs win), and records the rules: docs are source of truth; propose, don't change design; approved changes update the matching doc + gaps-and-questions.md; build in roadmap order (Phase 1 only now); the stack; every figure carries kind + source (no bare numbers); all on-screen text translatable; learning project (explain Vercel/Astro concepts, walk through manual setup); Vercel connector read-only without asking.
 0.2 `docs/plan/DESIGN.md` (this plan, linking to the planning docs), `docs/plan/CHECKLIST.md` (items with files + "Done when"), `docs/plan/QA.md` (standalone verification guide + results table) — per your global workflow.
 0.3 Update planning docs with the decisions above.
 0.4 `git init`, `.gitignore`, README with license credits placeholder; scaffold Astro (TypeScript strict) + `@astrojs/react` + Vitest + ajv; npm scripts: `data:import`, `data:build`, `validate`, `test`, `build` (build runs validate + data:build first).

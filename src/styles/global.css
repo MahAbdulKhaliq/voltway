@@ -204,6 +204,40 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .map-filters .legend { margin: 8px 0 6px; }
 .map-filters .legend-item { display: inline-flex; align-items: center; gap: 6px; }
 .map-count { margin: 0; padding: 8px 12px; border-top: 1px solid var(--border); }
+
+/* Locate me: bottom left on desktop, above the attribution. */
+.map-locate { position: absolute; left: 12px; bottom: 40px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; min-height: 40px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); font: inherit; font-weight: 600; cursor: pointer; }
+.map-locate:disabled { cursor: progress; opacity: 0.8; }
+.map-locate-msg { position: absolute; left: 12px; bottom: 90px; z-index: 2; margin: 0; max-width: min(360px, calc(100% - 24px)); padding: 8px 12px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.map-you { pointer-events: none; width: 18px; height: 18px; border-radius: 50%; background: #1D4ED8; border: 3px solid #FFFFFF; box-shadow: 0 0 0 2px #1D4ED8, 0 1px 4px rgba(0,0,0,0.4); }
+
+/* Station details: a side panel on the right on desktop, a bottom sheet on phones. */
+.station-panel { position: absolute; top: 12px; right: 52px; bottom: 40px; z-index: 4; width: 340px; display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.station-head { display: flex; align-items: flex-start; gap: 8px; padding: 12px 12px 10px 14px; border-bottom: 1px solid var(--border); }
+.station-head > div { flex: 1; min-width: 0; }
+.station-head h2 { font-size: 1.05rem; margin: 0 0 6px; overflow-wrap: anywhere; }
+.station-head h2:focus { outline: none; }
+.station-head h2:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.station-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; }
+.level-badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-weight: 600; font-size: 0.8rem; }
+.station-address { margin: 6px 0 0; }
+.station-close { flex: none; display: grid; place-items: center; width: 36px; height: 36px; background: none; border: 1px solid transparent; border-radius: var(--radius); color: inherit; cursor: pointer; }
+.station-close:hover { border-color: var(--border); }
+.station-body { flex: 1; overflow-y: auto; padding: 0 14px; }
+.station-body section { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.station-body section:last-child { border-bottom: 0; }
+.station-body h3 { font-size: 0.85rem; font-weight: 600; color: var(--muted); margin: 0 0 4px; }
+.station-body p { margin: 4px 0 0; }
+.station-body .banner { margin-top: 6px; }
+.station-ports, .station-links { list-style: none; margin: 0; padding: 0; }
+.station-ports li { font-weight: 600; padding: 2px 0; }
+.station-links li { padding: 3px 0; }
+.station-foot { padding: 8px 14px; border-top: 1px solid var(--border); }
+.station-foot p { margin: 0; }
+
 @media (max-width: 640px) {
   .map-panel { left: 8px; right: 52px; width: auto; top: 8px; max-height: calc(100% - 80px); }
+  .map-locate { left: 8px; bottom: 36px; }
+  .map-locate-msg { left: 8px; bottom: 84px; }
+  .station-panel { top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 62%; border-radius: 14px 14px 0 0; border-bottom: 0; }
 }

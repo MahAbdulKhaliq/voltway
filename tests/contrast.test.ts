@@ -58,3 +58,16 @@ describe('map pin colours (charger-map §5)', async () => {
     }
   });
 });
+
+describe('station panel and Locate me colours (M8)', async () => {
+  const { PIN } = await import('../src/lib/map-icons.ts');
+  it('level badge text reads on both level fills (4.5:1)', () => {
+    for (const fill of [PIN.fill[3], PIN.fill[2]]) expect(contrast(PIN.glyph, fill)).toBeGreaterThanOrEqual(4.5);
+  });
+  it('selected-pin ring (#111827) stands out from its white disc (3:1)', () => {
+    expect(contrast('#111827', '#FFFFFF')).toBeGreaterThanOrEqual(3);
+  });
+  it('"your location" dot: white border on the blue fill (3:1)', () => {
+    expect(contrast('#FFFFFF', '#1D4ED8')).toBeGreaterThanOrEqual(3);
+  });
+});

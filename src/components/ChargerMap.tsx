@@ -6,7 +6,7 @@
 // source with setData, so clusters always count only what the filters let through.
 // A theme change swaps the base style, which drops our layers; 'style.load' adds them back.
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import maplibregl, { type GeoJSONSource } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { MAP } from '../config.ts';
@@ -14,10 +14,11 @@ import { t, type MessageKey } from '../i18n/t.ts';
 import { getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import { currentTheme } from '../scripts/theme-client.ts';
 import type { FeatureCollection, Point } from 'geojson';
-import type { MapFeature, MapFeatureCollection } from '../lib/map-data.ts';
+import type { MapFeature, MapFeatureCollection, MapMeta } from '../lib/map-data.ts';
 import { filterStations, LEVELS, readFilters, type MapFilters } from '../lib/map-filter.ts';
 import { bandsFor, PLUGS, type ChargerLevel } from '../lib/power-bands.ts';
 import { BOLT, drawPin, PIN, PLUG, pinId } from '../lib/map-icons.ts';
+import StationPanel from './StationPanel.tsx';
 
 interface SavedView {
   center: [number, number];
@@ -39,8 +40,11 @@ function savedView(): SavedView {
 const styleFor = (theme: 'light' | 'dark') => (theme === 'dark' ? MAP.darkStyleUrl : MAP.styleUrl);
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
+/** Filter for the ring under the selected pin (-1 matches nothing). */
+const selectedFilter = (id: number | null) => ['==', ['get', 'i'], id ?? -1] as maplibregl.FilterSpecification;
+
 /** Adds pin images, the clustered source and its layers. Safe to call after every style load. */
-function addOverlay(map: maplibregl.Map, data: FeatureCollection) {
+function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: number | null) {
   for (const lv of LEVELS) {
     for (const t of [false, true]) {
       const id = pinId(lv, t);
@@ -74,6 +78,19 @@ function addOverlay(map: maplibregl.Map, data: FeatureCollection) {
       'text-allow-overlap': true,
     },
     paint: { 'text-color': '#FFFFFF' },
+  });
+  map.addLayer({
+    id: 'selected',
+    type: 'circle',
+    source: 'stations',
+    filter: selectedFilter(selected),
+    paint: {
+      // White disc with a dark ring: stands out on the light and the dark base map.
+      'circle-radius': 18,
+      'circle-color': '#FFFFFF',
+      'circle-stroke-color': '#111827',
+      'circle-stroke-width': 3,
+    },
   });
   map.addLayer({
     id: 'pins',
@@ -135,6 +152,11 @@ export default function ChargerMap() {
   const [stations, setStations] = useState<Record<ChargerLevel, MapFeature[]>>({ 3: [], 2: [] });
   const [load, setLoad] = useState<Record<ChargerLevel, Load>>({ 3: 'idle', 2: 'idle' });
   const [panelOpen, setPanelOpen] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 768);
+  const [selected, setSelected] = useState<number | null>(null);
+  const selectedRef = useRef<number | null>(null);
+  const [meta, setMeta] = useState<MapMeta | null>(null);
+  const [locate, setLocate] = useState<'idle' | 'busy' | 'denied' | 'failed' | 'unsupported'>('idle');
+  const youRef = useRef<maplibregl.Marker | null>(null);
 
   // The map itself, once.
   useEffect(() => {
@@ -153,7 +175,7 @@ export default function ChargerMap() {
     mapRef.current = map;
     map.touchZoomRotate.disableRotation();
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-    map.on('style.load', () => addOverlay(map, pinsRef.current));
+    map.on('style.load', () => addOverlay(map, pinsRef.current, selectedRef.current));
     map.once('load', () => setMapStatus('ready'));
     // The dark style names a few POI icons its sprite lacks; draw them blank instead of warning.
     map.on('styleimagemissing', (e) => {
@@ -163,7 +185,9 @@ export default function ChargerMap() {
       // Only a failed style or tile source means the map itself is broken.
       if (!map.isStyleLoaded() && (e.error as { status?: number } | undefined)?.status !== 404) setMapStatus('error');
     });
-    map.on('moveend', () => {
+    map.on('moveend', (e) => {
+      // The fly to a located position is not saved: Locate me stores nothing (charger-map §5).
+      if ((e as { locate?: boolean }).locate) return;
       const c = map.getCenter();
       const round = (x: number) => Math.round(x * 1e4) / 1e4;
       setJSON(KEYS.mapView, { center: [round(c.lng), round(c.lat)], zoom: Math.round(map.getZoom() * 100) / 100 });
@@ -176,6 +200,20 @@ export default function ChargerMap() {
       const src = map.getSource('stations') as GeoJSONSource;
       const zoom = await src.getClusterExpansionZoom(f.properties.cluster_id as number);
       map.easeTo({ center: (f.geometry as Point).coordinates as [number, number], zoom });
+    });
+    // A pin opens its station panel; a click on empty map closes it.
+    map.on('click', (e) => {
+      const hit = map.queryRenderedFeatures(e.point, { layers: ['pins', 'clusters'] })[0];
+      if (!hit) setSelected(null);
+      else if (hit.layer.id === 'pins') {
+        setSelected(hit.properties.i as number);
+        if (window.innerWidth <= 640) {
+          setPanelOpen(false);
+          // Keep the pin visible above the bottom sheet.
+          const at = (hit.geometry as Point).coordinates as [number, number];
+          map.easeTo({ center: at, offset: [0, -map.getContainer().clientHeight * 0.3] });
+        }
+      }
     });
     for (const layer of ['clusters', 'pins']) {
       map.on('mouseenter', layer, () => (map.getCanvas().style.cursor = 'pointer'));
@@ -224,6 +262,60 @@ export default function ChargerMap() {
     (mapRef.current?.getSource('stations') as GeoJSONSource | undefined)?.setData(pins);
   }, [pins]);
   useEffect(() => setJSON(KEYS.mapFilters, filters), [filters]);
+
+  // The selected station: looked up from the loaded data, ringed on the map.
+  const station = useMemo(() => {
+    if (selected === null) return null;
+    return stations[3].find((f) => f.properties.i === selected) ?? stations[2].find((f) => f.properties.i === selected) ?? null;
+  }, [selected, stations]);
+  useEffect(() => {
+    selectedRef.current = selected;
+    const map = mapRef.current;
+    if (map?.getLayer('selected')) map.setFilter('selected', selectedFilter(selected));
+  }, [selected]);
+  const closeStation = useCallback(() => setSelected(null), []);
+
+  // Data date for the panel footer.
+  useEffect(() => {
+    fetch(`${MAP.dataUrl}/meta.json`)
+      .then((r) => (r.ok ? (r.json() as Promise<MapMeta>) : null))
+      .then(setMeta, () => setMeta(null));
+  }, []);
+
+  // Locate me: asks the browser only on click; the position is used to centre the map and kept nowhere.
+  const locateMe = () => {
+    const map = mapRef.current;
+    if (!map) return;
+    if (!('geolocation' in navigator)) return setLocate('unsupported');
+    setLocate('busy');
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        const at: [number, number] = [coords.longitude, coords.latitude];
+        youRef.current?.remove();
+        const dot = document.createElement('div');
+        dot.className = 'map-you';
+        dot.setAttribute('role', 'img');
+        dot.setAttribute('aria-label', t('map.you'));
+        youRef.current = new maplibregl.Marker({ element: dot }).setLngLat(at).addTo(map);
+        map.flyTo({ center: at, zoom: Math.max(map.getZoom(), 12) }, { locate: true });
+        setLocate('idle');
+      },
+      (err) => setLocate(err.code === err.PERMISSION_DENIED ? 'denied' : 'failed'),
+      { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 },
+    );
+  };
+  // Failure messages clear themselves; the button stays for another try.
+  useEffect(() => {
+    if (locate === 'idle' || locate === 'busy') return;
+    const id = setTimeout(() => setLocate('idle'), 10000);
+    return () => clearTimeout(id);
+  }, [locate]);
+  const locateMsg: Partial<Record<typeof locate, MessageKey>> = {
+    busy: 'map.locating',
+    denied: 'map.locateDenied',
+    failed: 'map.locateFailed',
+    unsupported: 'map.locateUnsupported',
+  };
 
   const toggle = <K extends keyof MapFilters>(group: K, key: keyof MapFilters[K]) =>
     setFilters((f) => ({ ...f, [group]: { ...f[group], [key]: !f[group][key] } }));
@@ -304,6 +396,22 @@ export default function ChargerMap() {
               : count === 1 ? t('map.count.one') : t('map.count', { count: count.toLocaleString('en-CA') })}
         </p>
       </div>
+
+      <button type="button" className="map-locate" onClick={locateMe} disabled={locate === 'busy'}>
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="currentColor" />
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="12" cy="12" r="7.5" stroke="currentColor" strokeWidth="2" fill="none" />
+        </svg>
+        <span>{t('map.locate')}</span>
+      </button>
+      {locateMsg[locate] && (
+        <p className="map-locate-msg small" role={locate === 'busy' ? 'status' : 'alert'}>
+          {t(locateMsg[locate]!)}
+        </p>
+      )}
+
+      {station && <StationPanel station={station} updated={meta?.updated ?? null} onClose={closeStation} />}
 
       {mapStatus === 'loading' && (
         <p className="map-status" role="status">

@@ -42,6 +42,16 @@
       "notes": "Quick web lookup. Model-wide figure; pack/trim not stated on the page."
     }
   ],
+  "curb_weight_kg": [
+    {
+      "value": 1919,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-carscom-leaf-sv-plus-2026",
+      "low_confidence": true,
+      "notes": "Converted from 4,231 lb (US SV+ FWD): 4,231 x 0.45359 = 1,919. Matches EV Specifications 1,919 kg. Guide Auto gives a Canadian lineup range of 1,802-1,991 kg."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

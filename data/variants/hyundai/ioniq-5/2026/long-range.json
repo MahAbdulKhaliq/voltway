@@ -67,6 +67,16 @@
       "notes": "US page: home charging up to 10.9 kW. Hyundai Canada page does not state it. EV Database lists 11 kW for the European car."
     }
   ],
+  "curb_weight_kg": [
+    {
+      "value": 1985,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-guideauto-ioniq5-2026-preferred-rwd",
+      "low_confidence": true,
+      "notes": "Guide Auto lists 1,985 kg (4,376 lb) for the Canadian Preferred RWD (84.0 kWh); matches the US 2026 SE RWD (4,376 lb). Canadian spec relayed by a car guide, not read on Hyundai Canada."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

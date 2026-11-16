@@ -1,0 +1,155 @@
+{
+  "sources": [
+    {
+      "id": "src-insideevs-equinox-ev-range-test-2024",
+      "type": "testing_org",
+      "title": "InsideEVs - 2024 Chevrolet Equinox EV range test: over 300 miles at 70 mph",
+      "url": "https://insideevs.com/news/732566/chevrolet-equinox-ev-range-test/",
+      "accessed_on": "2026-11-16",
+      "notes": "FWD 2RS, 70 mph constant, mid-80s F, 303 mi on 90.2 kWh (car display)."
+    },
+    {
+      "id": "src-insideevs-silverado-ev-lt-er-test-2025",
+      "type": "testing_org",
+      "title": "InsideEVs / Out of Spec - 2025 Chevrolet Silverado EV LT Extended Range 70 mph highway test",
+      "url": "https://insideevs.com/news/747136/2025-chevrolet-silverado-ev-lt-extended-range-test-highway/",
+      "accessed_on": "2026-11-16",
+      "notes": "320.6 mi, 179.9 kWh reported by the car, 20-35 F with headwinds."
+    },
+    {
+      "id": "src-insideevs-lyriq-70mph-2023",
+      "type": "testing_org",
+      "title": "InsideEVs - 2023 Cadillac Lyriq range test at 70 mph",
+      "url": "https://insideevs.com/reviews/675643/cadillac-lyriq-range-test-review/",
+      "accessed_on": "2026-11-16",
+      "notes": "RWD Lyriq, constant 70 mph, 330 mi, 104.7 kWh per the vehicle energy gauge, 3.1 mi/kWh."
+    },
+    {
+      "id": "src-insideevs-mach-e-premium-awd-2023",
+      "type": "testing_org",
+      "title": "InsideEVs - 2023 Ford Mustang Mach-E Premium (AWD, extended range) 70 mph range test",
+      "url": "https://insideevs.com/reviews/663649/ford-mustang-mache-range-test/",
+      "accessed_on": "2026-11-16",
+      "notes": "AWD extended range (91 kWh usable), constant 70 mph, upper 50s to mid-60s F, 285 mi at 3.1 mi/kWh."
+    },
+    {
+      "id": "src-insideevs-f150-lightning-lariat-er-2022",
+      "type": "testing_org",
+      "title": "InsideEVs - 2022 Ford F-150 Lightning (Lariat, Extended Range) 70 mph range test",
+      "url": "https://insideevs.com/reviews/598000/ford-f150-lightning-range-test-review/",
+      "accessed_on": "2026-11-16",
+      "notes": "131 kWh usable, constant 70 mph, low 70s to ~80 F, 270 mi at 2.1 mi/kWh."
+    }
+  ],
+  "variants": {
+    "chevrolet/silverado-ev/2026/wt-std-range": {
+      "fields": {
+        "curb_weight_kg": [
+          {
+            "value": 3358,
+            "unit": "kg",
+            "kind": "manufacturer",
+            "source_id": "src-gm-silverado-ev-2026-spec",
+            "notes": "GM 2026 Silverado EV Specification Guide, WT page: base curb weight 7,403 lb / 3,358 kg for the 4WT (14-module) Standard Range."
+          }
+        ]
+      }
+    },
+    "chevrolet/silverado-ev/2026/wt-ext-range": {
+      "fields": {
+        "curb_weight_kg": [
+          {
+            "value": 3675,
+            "unit": "kg",
+            "kind": "manufacturer",
+            "source_id": "src-gm-silverado-ev-2026-spec",
+            "notes": "GM 2026 Silverado EV Specification Guide, WT page: base curb weight 8,102 lb / 3,675 kg for the 5WT (20-module) Extended Range."
+          }
+        ]
+      }
+    },
+    "chevrolet/silverado-ev/2026/wt-max-range": {
+      "fields": {
+        "curb_weight_kg": [
+          {
+            "value": 3839,
+            "unit": "kg",
+            "kind": "manufacturer",
+            "source_id": "src-gm-silverado-ev-2026-spec",
+            "notes": "GM 2026 Silverado EV Specification Guide, WT page: base curb weight 8,464 lb / 3,839 kg for the 8WT (24-module) Maximum Range."
+          }
+        ]
+      }
+    },
+    "chevrolet/silverado-ev/2026/lt-ext-range": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 349,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-insideevs-silverado-ev-lt-er-test-2025",
+            "low_confidence": true,
+            "notes": "Test: 70 mph (113 km/h) steady, 20-35 F (about -7 to 2 C) with headwinds, wheel size not stated, battery-side (car-reported energy) | 2025 Silverado EV LT Extended Range (same dual-motor AWD and Extended pack as our 2026 LT). 179.9 kWh reported by the car over 320.6 mi: 179.9 / 320.6 = 561.1 Wh/mi / 1.609344 = 349 Wh/km. Cold and windy, so well above a mild-weather figure; battery capacity about 182 kWh per the article. Other Silverado test seen (not attached, different pack): Trail Boss Max Range 70 mph, 454 mi, about 2.1 mi/kWh. | NOT FOR CALIBRATION: cold (20-35 F) with headwinds inflate this figure; exclude it from the highway-factor fit (item 3.7)."
+          }
+        ]
+      }
+    },
+    "chevrolet/equinox-ev/2026/standard": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 185,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-insideevs-equinox-ev-range-test-2024",
+            "low_confidence": true,
+            "notes": "Test: 70 mph (113 km/h) steady, mid-80s F (~29 C), climate 70 F low fan, wheel size not stated, battery-side (car display) | 2024 Equinox EV FWD 2RS (same generation and 85 kWh pack as our 2026 FWD). Car reported 90.2 kWh used over 303 mi (3.4 mi/kWh): 90.2 kWh / 303 mi = 297.7 Wh/mi / 1.609344 = 185 Wh/km. Hot weather with A/C load. Other tests seen: Consumer Reports AWD 304 mi at 70 mph (no energy figure, paywalled)."
+          }
+        ]
+      }
+    },
+    "cadillac/lyriq/2026/standard": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 197,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-insideevs-lyriq-70mph-2023",
+            "low_confidence": true,
+            "notes": "Test: 70 mph (113 km/h) steady, upper 60s to ~80 F (about 20-27 C), wheel size not stated, battery-side (vehicle energy gauge) | 2023 Lyriq RWD (same generation; Cadillac-listed usable 102 kWh). 104.7 kWh over 330 mi: 104.7 / 330 = 317.3 Wh/mi / 1.609344 = 197 Wh/km (article says 3.1 mi/kWh). Other test seen: Car and Driver 75 mph, 2023 RWD 20-inch, 270 mi (via Autoblog, no consumption). | Main session: the page calls 102 kWh usable while our data has 95 usable / 100.4 gross, and the gauge read 104.7 kWh used; 2023 to 2026 RWD pack/motor match is plausible but not confirmed."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2026/extended-range-awd": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 200,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-insideevs-mach-e-premium-awd-2023",
+            "low_confidence": true,
+            "notes": "Test: 70 mph (113 km/h) steady, upper 50s to mid-60s F (about 15-18 C), dry, wheel size not stated, battery-side (car display, not confirmed) | 2023 Mach-E Premium AWD extended range (91 kWh usable; same generation and pack as our 2026 AWD ER). Article reports 3.1 mi/kWh over 285 mi: 1000 / (3.1 x 1.609344) = 200 Wh/km. Other tests seen: 2021 First Edition AWD ER 285 mi; 2021 RWD Route 1 18-inch 287.4 mi (no energy figure). | Main session: 3.1 mi/kWh is a rounded figure (197-204 Wh/km); the page states no kWh total. Our data lists 91 kWh usable."
+          }
+        ]
+      }
+    },
+    "ford/f-150-lightning/2025/extended-range-131-kwh": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 296,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-insideevs-f150-lightning-lariat-er-2022",
+            "low_confidence": true,
+            "notes": "Test: 70 mph (113 km/h) steady, low 70s to ~80 F (about 22-26 C), wheel size not stated, battery-side (car display, not confirmed) | 2022 Lightning Lariat Extended Range, 131 kWh usable, dual-motor AWD (same pack and generation as our 2025 ER 131 kWh). 2.1 mi/kWh over 270 mi: 1000 / (2.1 x 1.609344) = 296 Wh/km (article: 29.5 kWh/100 km). Other tests seen: Out of Spec Platinum about 258-260 mi on roughly 130 kWh; Consumer Reports Lariat ER 270 mi. | Main session: the page calls 131 kWh usable; our data has 131 gross / 123 usable. Same pack."
+          }
+        ]
+      }
+    }
+  }
+}

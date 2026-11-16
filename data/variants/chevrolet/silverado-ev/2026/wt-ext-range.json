@@ -62,6 +62,15 @@
       "notes": "Article: 2027 gets NACS instead of the CCS1 used in the 2024-2026 model years. US site; Canadian 2026 truck assumed the same (GM Canada adapter programme for Silverado EV implies CCS1)."
     }
   ],
+  "curb_weight_kg": [
+    {
+      "value": 3675,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-gm-silverado-ev-2026-spec",
+      "notes": "GM 2026 Silverado EV Specification Guide, WT page: base curb weight 8,102 lb / 3,675 kg for the 5WT (20-module) Extended Range."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

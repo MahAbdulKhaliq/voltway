@@ -25,6 +25,16 @@
       "notes": "“Approximately 43 minutes” on a Level 3 charger (>100 kW); the same page's FAQ says about 45 minutes."
     }
   ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 214,
+      "unit": "Wh/km",
+      "kind": "tested",
+      "source_id": "src-insideevs-kona-ev-lr-75mph-test",
+      "low_confidence": true,
+      "notes": "Test: ~75 mph (about 120 km/h) steady, ~14 C, dry, low wind, wheels not stated, battery-side vs wall-side not stated (article gives kWh per 100 km, probably car display) | InsideEVs 75 mph test of a Kona Electric Long Range (64.8 kWh, same generation and pack). Full-test figure 21.4 kWh per 100 km = 214 Wh/km (first 33 mi 20.3, midpoint 20.5 kWh/100 km). 132 mi driven with 18 % left. Test car was a 2024 (same generation and pack). Wind at his back on the first leg, against on the return."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -4,6 +4,26 @@
   "year": 2026,
   "name": "Standard",
   "drivetrain": "unknown",
+  "curb_weight_kg": [
+    {
+      "value": 1688,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-guideauto-niro-2026-ev-wind",
+      "low_confidence": true,
+      "notes": "Guide Auto lists \"Weight\" 1,688 kg (3,721 lb) for the Canadian 2026 Niro EV Wind (64.8 kWh, 17-inch); presumed curb weight. Other Canadian Niro EV trims may weigh slightly more; the variant has one trim."
+    }
+  ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 223,
+      "unit": "Wh/km",
+      "kind": "tested",
+      "source_id": "src-nyland-sheet-2026-10",
+      "low_confidence": true,
+      "notes": "Test: 120 km/h steady, 11 °C, dry, 17-inch wheels (215/55-17 Continental EC6, summer tyres), battery-side (car display; sheet does not say explicitly) | Nyland, 'Kia Niro EV' (second-generation SG2, 64.3 kWh measured; 64.8 kWh gross pack). Guide Auto (Canada) lists the 2026 Niro EV Wind at 64.8 kWh with 17-inch wheels, which matches; note our variant shows usable 68.4 kWh from the Chargeprice archive, which looks inconsistent with 64.8 kWh gross. Test car model year not stated. 90 km/h, 12 °C: 154 Wh/km. Other test seen, not recorded: Automobile-Propre (France) 18.8 kWh/100 km at constant 110 km/h, ~12 °C, winter tyres, 23.6 kWh/100 km at a 120 km/h motorway average with traffic.."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

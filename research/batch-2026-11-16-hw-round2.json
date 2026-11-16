@@ -1,0 +1,112 @@
+{
+  "sources": [
+    {
+      "id": "src-nyland-sheet-2026-10",
+      "type": "testing_org",
+      "title": "Bjørn Nyland - EV range test results spreadsheet (90 and 120 km/h tests)",
+      "url": "https://docs.google.com/spreadsheets/d/1V6ucyFGKWuSQzvI8lMzvvWJHrBS82echMVJH37kwgjE/edit#gid=735351678",
+      "accessed_on": "2026-11-16",
+      "notes": "Public Google Sheet of Nyland's constant-speed tests (columns: car, surface, temperature, tyres, season, speed, Wh/km, measured capacity, range). Read as CSV export, gid 735351678. Also relayed by https://www.zerofy.net/ev-database.html."
+    }
+  ],
+  "variants": {
+    "tesla/model-3/2026/premium-awd-i": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 161,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-nyland-sheet-2026-10",
+            "low_confidence": true,
+            "notes": "Test: 120 km/h steady, 19 °C, dry, 18-inch wheels (235/45-18 Michelin e-Primacy), battery-side (car display; sheet does not say explicitly) | Nyland, 'Tesla Model 3 LR Highland' (dual-motor Long Range AWD, Highland generation, 74.5 kWh measured usable; same 82 kWh gross NMC pack and layout as our Premium AWD-I). Our trim's standard wheel is 18-inch, same as the test. Test car model year not stated (Highland = 2024+). Same car at 90 km/h, 17 °C: 123 Wh/km. Winter row (3 °C, wet, Falken winter tyres): 226 Wh/km at 120 km/h. Not used: evmagazine.eu/zerofy repeat the same 161 figure.."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-6/2025/long-range": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 197,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-nyland-sheet-2026-10",
+            "low_confidence": true,
+            "notes": "Test: 120 km/h steady, 9 °C, dry, 18-inch wheels (225/55-18 Continental VC7, winter tyres per sheet), battery-side (car display; sheet does not say explicitly) | Nyland, 'Hyundai Ioniq 6 RWD' (77.4 kWh gross pack, 75.1 kWh measured; autohled.cz says his 2023 tests were pre-facelift cars). Our 2025 Long Range RWD has the same 77.4 kWh pack, 800 V; assumed the 2025 refresh did not change pack or motor (not verified against a changelog). Matches our 18-inch trim. 90 km/h, 9 °C: 149 Wh/km. Cool, winter-tyre test, so a mild-weather figure would be lower. Other test seen, not recorded: ArenaEV LR AWD 77.4 kWh, 24 °C, 130 km/h: 22.3 kWh/100 km (speed outside 110-120 range).. | Main session: cool test (9 °C, winter tyres); borderline for calibration, give it low weight."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2026/long-range-awd": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 248,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-nyland-sheet-2026-10",
+            "low_confidence": true,
+            "notes": "Test: 120 km/h steady, 3 °C, dry, 20-inch wheels (255/45-20 Continental VC8, winter tyres per sheet), battery-side (car display; sheet does not say explicitly) | Nyland, 'Hyundai Ioniq 5 AWD 84 kWh' (post-2025 84 kWh pack, 78.4 kWh measured; AWD). Matches our 20-inch Long Range AWD trim and the 84 kWh pack; model year not stated (84 kWh pack = 2025+). Motor output not checked against the Canadian car. Cold test, so a mild-weather figure would be lower. 90 km/h, 3 °C: 174 Wh/km. Other test seen, not recorded: InsideEVs 70 mph test of the Ioniq 5 N (84 kWh, different motors and tyres): 2.7 mi/kWh = 370 Wh/mi = 230 Wh/km.. | NOT FOR CALIBRATION: cold test (3 °C, winter tyres); exclude from the highway-factor fit (item 3.7)."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2025/land-awd": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 256,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-nyland-sheet-2026-10",
+            "low_confidence": true,
+            "notes": "Test: 120 km/h steady, 0 °C, dry, 20-inch wheels (255/45-20 Nokian R5 EV, winter tyres per sheet), battery-side (car display; sheet does not say explicitly) | Nyland, 'Kia EV6 AWD facelift' (2025-refresh 84 kWh pack, 78.4 kWh measured). Matches our Land AWD 20-inch trim and the 84 kWh pack; Euro car, motor output not checked against the Canadian Land AWD. Cold test, so a mild-weather figure would be lower. 90 km/h, 0 °C: 187 Wh/km. Not used: 'EV6 GT facelift' (different, 21-inch, GT motors): 249 Wh/km at 20 °C.. | NOT FOR CALIBRATION: cold test (0 °C, winter tyres); exclude from the highway-factor fit (item 3.7)."
+          }
+        ]
+      }
+    },
+    "kia/niro-ev/2026/standard": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 223,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-nyland-sheet-2026-10",
+            "low_confidence": true,
+            "notes": "Test: 120 km/h steady, 11 °C, dry, 17-inch wheels (215/55-17 Continental EC6, summer tyres), battery-side (car display; sheet does not say explicitly) | Nyland, 'Kia Niro EV' (second-generation SG2, 64.3 kWh measured; 64.8 kWh gross pack). Guide Auto (Canada) lists the 2026 Niro EV Wind at 64.8 kWh with 17-inch wheels, which matches; note our variant shows usable 68.4 kWh from the Chargeprice archive, which looks inconsistent with 64.8 kWh gross. Test car model year not stated. 90 km/h, 12 °C: 154 Wh/km. Other test seen, not recorded: Automobile-Propre (France) 18.8 kWh/100 km at constant 110 km/h, ~12 °C, winter tyres, 23.6 kWh/100 km at a 120 km/h motorway average with traffic.."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2025/single-motor": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 218,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-nyland-sheet-2026-10",
+            "low_confidence": true,
+            "notes": "Test: 120 km/h steady, 15 °C, dry, 20-inch wheels (245/40-20 Continental PreCon 6), battery-side (car display; sheet does not say explicitly) | Nyland, 'Polestar 2 LR SM refresh' (2024+ refresh: rear single motor, 79.1 kWh measured, i.e. the 82 kWh refresh pack). Our variant shows 78/75 kWh from OpenEV, which looks stale for the 2024+ refresh; I attached the test to the real refresh car, so check our pack figure. Matches our 20-inch trim. 90 km/h, 16 °C: 153 Wh/km.."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2025/dual-motor-performance-pack": {
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 222,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-nyland-sheet-2026-10",
+            "low_confidence": true,
+            "notes": "Test: 120 km/h steady, 11 °C, dry, 20-inch wheels (245/40-20 Continental SC6), battery-side (car display; sheet does not say explicitly) | Nyland, 'Polestar 2 Performance 2024' (dual motor Performance, 79.1 kWh measured, 82 kWh refresh pack). Our variant shows 78/75 kWh from OpenEV, which looks stale for the 2024+ refresh; I attached the test to the real refresh car, so check our pack figure. 90 km/h, 11 °C: 169 Wh/km. Winter row for 'Polestar 2 LR DM' 2024 (not Performance, 19-inch, -6 °C wet): 266 Wh/km, not used.."
+          }
+        ]
+      }
+    }
+  }
+}

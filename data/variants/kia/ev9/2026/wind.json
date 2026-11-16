@@ -97,6 +97,16 @@
       "notes": "US Kia spec via dealer: 24 min at 350 kW (CCS). Kia notes NACS/Supercharger times are longer."
     }
   ],
+  "curb_weight_kg": [
+    {
+      "value": 2418,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-guideauto-ev9-2026-wind-rwd",
+      "low_confidence": true,
+      "notes": "Guide Auto lists \"Weight\" 2,418 kg (5,331 lb) for the Canadian Wind RWD (99.8 kWh); presumed curb weight."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

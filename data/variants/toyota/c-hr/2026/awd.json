@@ -66,6 +66,16 @@
       "notes": "InsideEVs states the C-HR charges at a 150 kW maximum (Toyota figure)."
     }
   ],
+  "curb_weight_kg": [
+    {
+      "value": 2000,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-guideautoweb-chr-xse-awd-2026",
+      "low_confidence": true,
+      "notes": "Canadian XSE AWD: 2,000 kg (4,409 lb) listed as Weight; applied to both 18- and 20-inch trims as the source gives one XSE AWD figure. US AWD SE 4,322 lb / XSE 4,366 lb differ. The cited page is the XSE AWD (20-inch) trim; the 18-inch SE AWD weight was not checked (US data suggests about 1 % lighter)."
+    }
+  ],
   "trims": [
     {
       "id": "18-in-wheels",

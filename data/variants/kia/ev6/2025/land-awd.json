@@ -77,6 +77,16 @@
       "notes": "“As little as 20 minutes” on a 350 kW charger (best case)."
     }
   ],
+  "curb_weight_kg": [
+    {
+      "value": 2100,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-guideauto-ev6-2025-land-awd",
+      "low_confidence": true,
+      "notes": "Guide Auto lists \"Weight\" 2,100 kg (4,630 lb) for the Canadian Land AWD (84.0 kWh, P235/55R19); US Wind and GT-Line AWD are also 4,630 lb (KBB). Presumed curb weight; applies to the 19-inch trim, the 20-inch trim may differ."
+    }
+  ],
   "trims": [
     {
       "id": "19-in-wheels",

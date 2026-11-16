@@ -4,6 +4,16 @@
   "year": 2025,
   "name": "Extended Range (131 kWh)",
   "drivetrain": "awd",
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 296,
+      "unit": "Wh/km",
+      "kind": "tested",
+      "source_id": "src-insideevs-f150-lightning-lariat-er-2022",
+      "low_confidence": true,
+      "notes": "Test: 70 mph (113 km/h) steady, low 70s to ~80 F (about 22-26 C), wheel size not stated, battery-side (car display, not confirmed) | 2022 Lightning Lariat Extended Range, 131 kWh usable, dual-motor AWD (same pack and generation as our 2025 ER 131 kWh). 2.1 mi/kWh over 270 mi: 1000 / (2.1 x 1.609344) = 296 Wh/km (article: 29.5 kWh/100 km). Other tests seen: Out of Spec Platinum about 258-260 mi on roughly 130 kWh; Consumer Reports Lariat ER 270 mi. | Main session: the page calls 131 kWh usable; our data has 131 gross / 123 usable. Same pack."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

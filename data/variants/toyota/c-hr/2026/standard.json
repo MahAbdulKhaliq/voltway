@@ -66,6 +66,16 @@
       "notes": "InsideEVs states the C-HR charges at a 150 kW maximum (Toyota figure)."
     }
   ],
+  "curb_weight_kg": [
+    {
+      "value": 1900,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-guideautoweb-chr-se-fwd-2026",
+      "low_confidence": true,
+      "notes": "Canadian SE FWD: 1,900 kg (4,189 lb) listed as Weight (matches Toyota Canada summary excerpt 1900 (4188.8)). US lists only AWD (SE 4,322 lb)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

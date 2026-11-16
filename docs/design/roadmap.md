@@ -31,7 +31,7 @@ Design docs to write, in order:
 
 ## Phase 2: Charger map
 
-**Goal:** a simple map of Level 2 and Level 3 chargers with plug types and power-band filters.
+**Goal:** a simple map of Level 2 and Level 3 chargers with plug types and kW range filters (B35).
 
 *Placed before routing because the route planner needs the same charger data.*
 

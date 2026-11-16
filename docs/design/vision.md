@@ -73,9 +73,11 @@ Similar to PlugShare or ChargePoint, but simpler.
 - A map of **all public chargers**.
 - Scope is **Level 2 and Level 3** chargers. Level 1 is left out.
 - Each charger shows its **plug types**: J1772, CCS1, NACS and **CHAdeMO** (N2 ✅).
-- Users filter by level, using **simple power bands instead of a kilowatt slider**. The band checkboxes only appear once their level is selected, and all bands are on by default.
+- Users filter by level, then by power with **a kW range slider per level** (B35, 2026-11-16; this replaced the original band checkboxes). The slider only appears once its level is selected and covers the full range by default. Details in [charger-map.md](charger-map.md) §4.
 
 ### Power bands (N1) ✅
+
+*Since B35 (2026-11-16) the map filters with kW range sliders, not these bands. The bands still describe typical hardware, and the slider stops sit on their edges.*
 
 Each band **includes its upper edge**, so a charger exactly on an edge goes in the lower band. Bands are based on the charger's **rated maximum power**.
 

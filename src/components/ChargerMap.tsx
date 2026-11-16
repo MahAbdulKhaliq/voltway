@@ -277,7 +277,11 @@ export default function ChargerMap() {
     const map = mapRef.current;
     if (map?.getLayer('selected')) map.setFilter('selected', selectedFilter(selected));
   }, [selected]);
-  const closeStation = useCallback(() => setSelected(null), []);
+  // Closing hands focus back to the map, so keyboard users don't land on <body>.
+  const closeStation = useCallback(() => {
+    setSelected(null);
+    mapRef.current?.getCanvas().focus();
+  }, []);
 
   // Data date for the panel footer.
   useEffect(() => {
@@ -304,7 +308,8 @@ export default function ChargerMap() {
         map.flyTo({ center: at, zoom: Math.max(map.getZoom(), 12) }, { locate: true });
         setLocate('idle');
       },
-      (err) => setLocate(err.code === err.PERMISSION_DENIED ? 'denied' : 'failed'),
+      // 1 = PERMISSION_DENIED (compared by value: the constant isn't on every error object).
+      (err) => setLocate(err.code === 1 ? 'denied' : 'failed'),
       { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 },
     );
   };

@@ -24,6 +24,29 @@
           "source_id": "src-thechargeport-tesla-model-y",
           "low_confidence": true,
           "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
+        },
+        {
+          "value": "standard",
+          "kind": "estimated",
+          "low_confidence": true,
+          "source_id": "src-evdb-model-y-premium-awd-juniper",
+          "notes": "Estimated: EV Database lists heat pump as standard equipment on the Model Y Premium AWD (Juniper, Berlin); same model and generation carries it over. Not confirmed for this exact variant."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-tslna-model-y-price-canada-2026",
+          "low_confidence": true,
+          "notes": "Canadian Premium AWD: 19-inch standard, 20-inch +$2,600. Mapped to Long Range AWD-B by content (same 542 km NRCan range, same pack and weight as Premium AWD-B); trim naming not confirmed."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-tslna-model-y-price-canada-2026",
+          "low_confidence": true,
+          "notes": "20-inch option +$2,600 on Premium AWD; mapping as above."
         }
       ]
     }

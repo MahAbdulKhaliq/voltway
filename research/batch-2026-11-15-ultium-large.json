@@ -1,0 +1,543 @@
+{
+  "sources": [
+    {
+      "id": "src-insideevs-silverado-battery",
+      "type": "community",
+      "title": "InsideEVs: Chevy Silverado EV battery explained",
+      "url": "https://insideevs.com/news/720662/chevy-silverado-ev-battery-explained/",
+      "accessed_on": "2026-11-15",
+      "notes": "RST (top, 24-module) pack: NMC pouch cells, 213.7 kWh gross (calculated), 204 kWh usable (reported), 350 kW peak, split pack charges at about 800 V."
+    },
+    {
+      "id": "src-insideevs-silverado-test",
+      "type": "testing_org",
+      "title": "InsideEVs: Charging The Chevy Silverado EV: An $89 Shock For A 10-80% Recharge",
+      "url": "https://insideevs.com/news/766666/ev-smaller-battery-chevy-silverado/",
+      "accessed_on": "2026-11-15",
+      "notes": "2025 LT Extended Range (170 kWh): 10-80% in 40 min on a 350 kW charger; no SoC/kW points in text."
+    },
+    {
+      "id": "src-thinkev-silverado-2026",
+      "type": "community",
+      "title": "thinkEV: Chevrolet Silverado EV 2026 (Canada)",
+      "url": "https://thinkev.ca/compare/chevrolet-silverado-ev-2026",
+      "accessed_on": "2026-11-15",
+      "notes": "Lists NMC chemistry for the model (single spec set, no trim split)."
+    },
+    {
+      "id": "src-evcs-2027-silverado",
+      "type": "community",
+      "title": "EVChargingStations: 2027 Chevrolet Silverado EV",
+      "url": "https://evchargingstations.com/chargingnews/2027-chevrolet-silverado-ev/",
+      "accessed_on": "2026-11-15",
+      "notes": "2027 gets NACS instead of the CCS1 used in 2024-2026; 2027 expected to be a carry-over with the same powertrain and battery."
+    },
+    {
+      "id": "src-thechargeport-silverado",
+      "type": "community",
+      "title": "The Charge Port: 2026 Chevrolet Silverado EV",
+      "url": "https://thechargeport.com/ev/chevrolet-silverado-ev",
+      "accessed_on": "2026-11-15",
+      "notes": "Onboard charger by trim (US): 2026 WT Max 19.2 kW; 2027 WT/LT Standard 11.5 kW."
+    },
+    {
+      "id": "src-cars-silverado-471782",
+      "type": "community",
+      "title": "Cars.com: 2026 Silverado EV e4WD Crew Cab Standard Range Work Truck specs",
+      "url": "https://www.cars.com/research/chevrolet-silverado_ev-2026/specs/471782",
+      "accessed_on": "2026-11-15",
+      "notes": "18 x 8.0 in steel (US)."
+    },
+    {
+      "id": "src-cars-silverado-471783",
+      "type": "community",
+      "title": "Cars.com: 2026 Silverado EV e4WD Crew Cab Extended Range Work Truck specs",
+      "url": "https://www.cars.com/research/chevrolet-silverado_ev-2026/specs/471783",
+      "accessed_on": "2026-11-15",
+      "notes": "18 x 8.0 in aluminum, LT265/70R18 (US)."
+    },
+    {
+      "id": "src-cars-silverado-471784",
+      "type": "community",
+      "title": "Cars.com: 2026 Silverado EV e4WD Crew Cab Max Range Work Truck specs",
+      "url": "https://www.cars.com/research/chevrolet-silverado_ev-2026/specs/471784",
+      "accessed_on": "2026-11-15",
+      "notes": "18 x 8.0 in (US)."
+    },
+    {
+      "id": "src-cars-silverado-471785",
+      "type": "community",
+      "title": "Cars.com: 2026 Silverado EV e4WD Crew Cab Standard Range LT specs",
+      "url": "https://www.cars.com/research/chevrolet-silverado_ev-2026/specs/471785",
+      "accessed_on": "2026-11-15",
+      "notes": "18 x 8.5 in aluminum, LT265/70R18 (US)."
+    },
+    {
+      "id": "src-cars-silverado-471786",
+      "type": "community",
+      "title": "Cars.com: 2026 Silverado EV e4WD Crew Cab Extended Range LT specs",
+      "url": "https://www.cars.com/research/chevrolet-silverado_ev-2026/specs/471786",
+      "accessed_on": "2026-11-15",
+      "notes": "18 x 8.5 in aluminum, LT265/70R18 (US)."
+    },
+    {
+      "id": "src-cars-silverado-471788",
+      "type": "community",
+      "title": "Cars.com: 2026 Silverado EV e4WD Crew Cab Extended Range Trail Boss specs",
+      "url": "https://www.cars.com/research/chevrolet-silverado_ev-2026/specs/471788",
+      "accessed_on": "2026-11-15",
+      "notes": "18 x 8.5 in aluminum, LT285/75R18 (US)."
+    },
+    {
+      "id": "src-thechargeport-lyriq",
+      "type": "community",
+      "title": "The Charge Port: 2026 Cadillac Lyriq",
+      "url": "https://thechargeport.com/ev/cadillac-lyriq",
+      "accessed_on": "2026-11-15",
+      "notes": "The 2026 car kept its CCS1 port; 10-80% about 40 min per Cadillac 2026 specs; every Lyriq 102 kWh. US page."
+    },
+    {
+      "id": "src-cargurus-lyriq-2026",
+      "type": "community",
+      "title": "CarGurus: 2026 Cadillac Lyriq Pricing, Specs, and Release Date",
+      "url": "https://www.cargurus.com/Cars/articles/2026-cadillac-lyriq-pricing-specs-release-date",
+      "accessed_on": "2026-11-15",
+      "notes": "2026 CCS port standard; Cadillac says 10-80% in about 40 min; 20 in standard, 22 in available on Luxury/Sport/Premium, standard on Signature."
+    },
+    {
+      "id": "src-cars-lyriq-468062",
+      "type": "community",
+      "title": "Cars.com: 2026 Cadillac LYRIQ Luxury (RWD) specs",
+      "url": "https://www.cars.com/research/cadillac-lyriq-2026/specs/468062",
+      "accessed_on": "2026-11-15",
+      "notes": "20 in aluminum, 265/50R20, RWD (US)."
+    },
+    {
+      "id": "src-cars-lyriq-468080",
+      "type": "community",
+      "title": "Cars.com: 2026 Cadillac LYRIQ-V specs",
+      "url": "https://www.cars.com/research/cadillac-lyriq-2026/specs/468080",
+      "accessed_on": "2026-11-15",
+      "notes": "22 in, 275/40R22, AWD (US)."
+    },
+    {
+      "id": "src-evdb-lyriq-v",
+      "type": "community",
+      "title": "EV Database: Cadillac LYRIQ-V (MY26)",
+      "url": "https://ev-database.org/car/3266/Cadillac-LYRIQ-V",
+      "accessed_on": "2026-11-15",
+      "notes": "Lists GM Ultium 140Ah NMC pouch cells (non-US-spec figures 95/91 kWh, 130 kW: not used)."
+    }
+  ],
+  "variants": {
+    "chevrolet/silverado-ev/2026/wt-std-range": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-thinkev-silverado-2026",
+            "low_confidence": true,
+            "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
+          }
+        ],
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-evcs-2027-silverado",
+            "low_confidence": true,
+            "notes": "Article: 2027 gets NACS instead of the CCS1 used in the 2024-2026 model years. US site; Canadian 2026 truck assumed the same (GM Canada adapter programme for Silverado EV implies CCS1)."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-cars-silverado-471782",
+              "low_confidence": true,
+              "notes": "US Cars.com: Standard Range Work Truck 18 x 8.0 in steel; US trim mapped to Canadian WT Std Range by name and pack."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "chevrolet/silverado-ev/2026/wt-ext-range": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-thinkev-silverado-2026",
+            "low_confidence": true,
+            "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
+          }
+        ],
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-evcs-2027-silverado",
+            "low_confidence": true,
+            "notes": "Article: 2027 gets NACS instead of the CCS1 used in the 2024-2026 model years. US site; Canadian 2026 truck assumed the same (GM Canada adapter programme for Silverado EV implies CCS1)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 170,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-silverado-test",
+            "low_confidence": true,
+            "notes": "InsideEVs: 2025 LT Extended Range has a 170 kWh pack (bare capacity, treated as gross); Wikipedia agrees. WT Extended assumed to use the same Extended pack."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-cars-silverado-471783",
+              "low_confidence": true,
+              "notes": "US Cars.com: Extended Range Work Truck 18 x 8.0 in aluminum."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "chevrolet/silverado-ev/2026/wt-max-range": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-thinkev-silverado-2026",
+            "low_confidence": true,
+            "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
+          }
+        ],
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-evcs-2027-silverado",
+            "low_confidence": true,
+            "notes": "Article: 2027 gets NACS instead of the CCS1 used in the 2024-2026 model years. US site; Canadian 2026 truck assumed the same (GM Canada adapter programme for Silverado EV implies CCS1)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 204,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-silverado-battery",
+            "low_confidence": true,
+            "notes": "InsideEVs: usable capacity (reported) 204 kWh for the 24-module RST pack (2024), which is the Max Range pack carried over."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-silverado",
+            "low_confidence": true,
+            "notes": "The Charge Port lists the fleet-only WT Max Range at 19.2 kW; the listing carries no model year. US page."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-cars-silverado-471784",
+              "low_confidence": true,
+              "notes": "US Cars.com: Max Range Work Truck 18 x 8.0 in."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "chevrolet/silverado-ev/2026/lt-std-range": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-thinkev-silverado-2026",
+            "low_confidence": true,
+            "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
+          }
+        ],
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-evcs-2027-silverado",
+            "low_confidence": true,
+            "notes": "Article: 2027 gets NACS instead of the CCS1 used in the 2024-2026 model years. US site; Canadian 2026 truck assumed the same (GM Canada adapter programme for Silverado EV implies CCS1)."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-cars-silverado-471785",
+              "low_confidence": true,
+              "notes": "US Cars.com: Standard Range LT 18 x 8.5 in aluminum."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "chevrolet/silverado-ev/2026/lt-ext-range": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-thinkev-silverado-2026",
+            "low_confidence": true,
+            "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
+          }
+        ],
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-evcs-2027-silverado",
+            "low_confidence": true,
+            "notes": "Article: 2027 gets NACS instead of the CCS1 used in the 2024-2026 model years. US site; Canadian 2026 truck assumed the same (GM Canada adapter programme for Silverado EV implies CCS1)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 170,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-silverado-test",
+            "low_confidence": true,
+            "notes": "InsideEVs: 2025 LT Extended Range has a 170 kWh pack (bare capacity, treated as gross); Wikipedia agrees."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 40,
+            "unit": "min",
+            "kind": "tested",
+            "source_id": "src-insideevs-silverado-test",
+            "low_confidence": true,
+            "notes": "InsideEVs tester (2025 LT Extended Range, 350 kW charger) did 10-80% in about 40 min; the article also calls 40 min a Chevrolet claim, though The Charge Port says Chevrolet published no time. Single rounded test, conditions not stated."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-cars-silverado-471786",
+              "low_confidence": true,
+              "notes": "US Cars.com: Extended Range LT 18 x 8.5 in aluminum (applied to both charger trims)."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "chevrolet/silverado-ev/2026/trail-boss-ext-range": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-thinkev-silverado-2026",
+            "low_confidence": true,
+            "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
+          }
+        ],
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-evcs-2027-silverado",
+            "low_confidence": true,
+            "notes": "Article: 2027 gets NACS instead of the CCS1 used in the 2024-2026 model years. US site; Canadian 2026 truck assumed the same (GM Canada adapter programme for Silverado EV implies CCS1)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 170,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-silverado-test",
+            "low_confidence": true,
+            "notes": "InsideEVs: 2025 LT Extended Range has a 170 kWh pack (bare capacity, treated as gross). Trail Boss Extended assumed to use the same Extended pack."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-cars-silverado-471788",
+              "low_confidence": true,
+              "notes": "US Cars.com: Extended Range Trail Boss 18 x 8.5 in aluminum, LT285/75R18; Guide Auto (Canada) also says 18 in with 35 in AT tires."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "cadillac/lyriq/2026/standard": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-lyriq-v",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists the LYRIQ-V (MY26) cells as GM Ultium 140Ah NMC pouch. GM describes Ultium cells as NCMA (NMC family with aluminium), closest enum value nmc. Same Ultium cells assumed across LYRIQ trims; the page also shows non-US-spec pack figures that were not used."
+          }
+        ],
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-lyriq",
+            "low_confidence": true,
+            "notes": "Page: the 2026 car kept its CCS1 port (US). thinkEV (Canada) says the 2027 LYRIQ trades the CCS connector on current models for NACS; EVChargingStations says earlier years used CCS1. Conflicts with OpenEV (nacs, probably 2027 data). No Canadian GM page read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 40,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-cargurus-lyriq-2026",
+            "low_confidence": true,
+            "notes": "Cadillac says 10-80% in about 40 min at a public DC fast charger (CarGurus; The Charge Port repeats it for LYRIQ and LYRIQ-V). Model-level claim."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "wheels": [
+            {
+              "diameter_in": 20,
+              "is_standard": true,
+              "source_id": "src-cars-lyriq-468062",
+              "low_confidence": true,
+              "notes": "US Cars.com: Luxury RWD 20 in aluminum, 265/50R20. CarGurus: 20 in standard on non-Signature trims. Signature trims are 22 in standard, so this is the base size."
+            },
+            {
+              "diameter_in": 22,
+              "is_standard": false,
+              "source_id": "src-cargurus-lyriq-2026",
+              "low_confidence": true,
+              "notes": "CarGurus: 22 in available on Luxury, Sport, Premium Luxury, Premium Sport (standard on Signature)."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "cadillac/lyriq/2026/awd": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-lyriq-v",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists the LYRIQ-V (MY26) cells as GM Ultium 140Ah NMC pouch. GM describes Ultium cells as NCMA (NMC family with aluminium), closest enum value nmc. Same Ultium cells assumed across LYRIQ trims; the page also shows non-US-spec pack figures that were not used."
+          }
+        ],
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-lyriq",
+            "low_confidence": true,
+            "notes": "Page: the 2026 car kept its CCS1 port (US). thinkEV (Canada) says the 2027 LYRIQ trades the CCS connector on current models for NACS; EVChargingStations says earlier years used CCS1. Conflicts with OpenEV (nacs, probably 2027 data). No Canadian GM page read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 40,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-cargurus-lyriq-2026",
+            "low_confidence": true,
+            "notes": "Cadillac says 10-80% in about 40 min at a public DC fast charger (CarGurus; The Charge Port repeats it for LYRIQ and LYRIQ-V). Model-level claim."
+          }
+        ]
+      },
+      "trims": {},
+      "curves": []
+    },
+    "cadillac/lyriq/2026/v": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-lyriq-v",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists the LYRIQ-V (MY26) cells as GM Ultium 140Ah NMC pouch. GM describes Ultium cells as NCMA (NMC family with aluminium), closest enum value nmc. Same Ultium cells assumed across LYRIQ trims; the page also shows non-US-spec pack figures that were not used."
+          }
+        ],
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-lyriq",
+            "low_confidence": true,
+            "notes": "Page: the 2026 car kept its CCS1 port (US). thinkEV (Canada) says the 2027 LYRIQ trades the CCS connector on current models for NACS; EVChargingStations says earlier years used CCS1. Conflicts with OpenEV (nacs, probably 2027 data). No Canadian GM page read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 40,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-cargurus-lyriq-2026",
+            "low_confidence": true,
+            "notes": "Cadillac says 10-80% in about 40 min at a public DC fast charger (CarGurus; The Charge Port repeats it for LYRIQ and LYRIQ-V). Model-level claim."
+          }
+        ]
+      },
+      "trims": {
+        "*": {
+          "wheels": [
+            {
+              "diameter_in": 22,
+              "is_standard": true,
+              "source_id": "src-cars-lyriq-468080",
+              "low_confidence": true,
+              "notes": "US Cars.com: LYRIQ-V 22 in, 275/40R22. A Canadian snippet reportedly mentioned 20 in; not confirmed."
+            }
+          ]
+        }
+      },
+      "curves": []
+    }
+  }
+}

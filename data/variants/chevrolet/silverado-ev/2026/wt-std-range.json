@@ -23,6 +23,15 @@
         "low_confidence": true,
         "notes": "Quick web lookup (rough, not cross-checked). Charges at about 800 V."
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-thinkev-silverado-2026",
+        "low_confidence": true,
+        "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
+      }
     ]
   },
   "supercharger_access": [
@@ -34,10 +43,28 @@
       "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
     }
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-evcs-2027-silverado",
+      "low_confidence": true,
+      "notes": "Article: 2027 gets NACS instead of the CCS1 used in the 2024-2026 model years. US site; Canadian 2026 truck assumed the same (GM Canada adapter programme for Silverado EV implies CCS1)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "WT Std Range"
+      "name": "WT Std Range",
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-cars-silverado-471782",
+          "low_confidence": true,
+          "notes": "US Cars.com: Standard Range Work Truck 18 x 8.0 in steel; US trim mapped to Canadian WT Std Range by name and pack."
+        }
+      ]
     }
   ]
 }

@@ -13,14 +13,76 @@
       "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
     }
   ],
+  "battery": {
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-lyriq-v",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database lists the LYRIQ-V (MY26) cells as GM Ultium 140Ah NMC pouch. GM describes Ultium cells as NCMA (NMC family with aluminium), closest enum value nmc. Same Ultium cells assumed across LYRIQ trims; the page also shows non-US-spec pack figures that were not used."
+      }
+    ]
+  },
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-lyriq",
+      "low_confidence": true,
+      "notes": "Page: the 2026 car kept its CCS1 port (US). thinkEV (Canada) says the 2027 LYRIQ trades the CCS connector on current models for NACS; EVChargingStations says earlier years used CCS1. Conflicts with OpenEV (nacs, probably 2027 data). No Canadian GM page read."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 40,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-cargurus-lyriq-2026",
+      "low_confidence": true,
+      "notes": "Cadillac says 10-80% in about 40 min at a public DC fast charger (CarGurus; The Charge Port repeats it for LYRIQ and LYRIQ-V). Model-level claim."
+    }
+  ],
   "trims": [
     {
       "id": "11-5-kw-charger",
-      "name": "(11.5 kW Charger)"
+      "name": "(11.5 kW Charger)",
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-cars-lyriq-468062",
+          "low_confidence": true,
+          "notes": "US Cars.com: Luxury RWD 20 in aluminum, 265/50R20. CarGurus: 20 in standard on non-Signature trims. Signature trims are 22 in standard, so this is the base size."
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": false,
+          "source_id": "src-cargurus-lyriq-2026",
+          "low_confidence": true,
+          "notes": "CarGurus: 22 in available on Luxury, Sport, Premium Luxury, Premium Sport (standard on Signature)."
+        }
+      ]
     },
     {
       "id": "19-2-kw-charger",
-      "name": "(19.2 kW Charger)"
+      "name": "(19.2 kW Charger)",
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-cars-lyriq-468062",
+          "low_confidence": true,
+          "notes": "US Cars.com: Luxury RWD 20 in aluminum, 265/50R20. CarGurus: 20 in standard on non-Signature trims. Signature trims are 22 in standard, so this is the base size."
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": false,
+          "source_id": "src-cargurus-lyriq-2026",
+          "low_confidence": true,
+          "notes": "CarGurus: 22 in available on Luxury, Sport, Premium Luxury, Premium Sport (standard on Signature)."
+        }
+      ]
     }
   ]
 }

@@ -16,7 +16,16 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Long Range AWD-I"
+      "name": "Long Range AWD-I",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "estimated",
+          "low_confidence": true,
+          "source_id": "src-evdb-model-y-premium-awd-juniper",
+          "notes": "Estimated: EV Database lists heat pump as standard equipment on the Model Y Premium AWD (Juniper, Berlin); same model and generation carries it over. Not confirmed for this exact variant."
+        }
+      ]
     }
   ]
 }

@@ -37,8 +37,35 @@
         "source_id": "src-toyota-ca-media-c-hr-2026",
         "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
       }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 77,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-toyota-ca-media-c-hr-2026",
+        "notes": "Toyota Canada release: \"a total capacity of 77-kWh\" (usable not stated)."
+      },
+      {
+        "value": 74.7,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-pressroom-toyota-chr-2026",
+        "low_confidence": true,
+        "notes": "Toyota USA release: 74.7 kWh total capacity. Conflicts with Toyota Canada 77 kWh (probably the same pack stated differently)."
+      }
     ]
   },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-chr-review-2026",
+      "low_confidence": true,
+      "notes": "InsideEVs states the C-HR charges at a 150 kW maximum (Toyota figure)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

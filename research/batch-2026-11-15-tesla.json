@@ -1,0 +1,346 @@
+{
+  "sources": [
+    {
+      "id": "src-evdb-model-3-performance-highland",
+      "type": "community",
+      "title": "EV Database - Tesla Model 3 Performance (Highland) 2025-2026",
+      "url": "https://ev-database.org/car/3332/Tesla-Model-3-Performance",
+      "accessed_on": "2026-11-15",
+      "notes": "European listing: Heat pump Yes, HP Standard Equipment Yes; Preconditioning possible, automatically using navigation Yes."
+    },
+    {
+      "id": "src-evdb-model-3-lr-awd-highland",
+      "type": "community",
+      "title": "EV Database - Tesla Model 3 Long Range AWD (Highland) 2023-2025",
+      "url": "https://ev-database.org/uk/car/1992/Tesla-Model-3-Long-Range-AWD",
+      "accessed_on": "2026-11-15",
+      "notes": "European listing of the Highland AWD (predecessor name of Premium AWD): heat pump standard; preconditioning possible, automatic via navigation."
+    },
+    {
+      "id": "src-evdb-model-3-rwd-highland",
+      "type": "community",
+      "title": "EV Database - Tesla Model 3 RWD (Highland) 2025-2026",
+      "url": "https://ev-database.org/imp/car/3403/Tesla-Model-3-RWD",
+      "accessed_on": "2026-11-15",
+      "notes": "European listing of the LFP RWD: heat pump standard; preconditioning possible, automatic via navigation; LFP (CATL)."
+    },
+    {
+      "id": "src-evdb-model-y-premium-awd-juniper",
+      "type": "community",
+      "title": "EV Database - Tesla Model Y Premium AWD (Juniper)",
+      "url": "https://ev-database.org/car/3843/Tesla-Model-Y-Premium-AWD",
+      "accessed_on": "2026-11-15",
+      "notes": "European (Berlin) listing: HP Standard Equipment Yes; Preconditioning possible, can start automatically with navigation."
+    },
+    {
+      "id": "src-abstractocean-model-y-standard",
+      "type": "community",
+      "title": "Abstract Ocean - Model Y Standard equipment differences",
+      "url": "https://www.abstractocean.com/blogs/news/model-y-standard-equipment-differences",
+      "accessed_on": "2026-11-15",
+      "notes": "Retail-accessory blog: \"The heat pump and the mobile charger both stay\" on the Model Y Standard; 18-inch wheels."
+    },
+    {
+      "id": "src-driveteslacanada-model-y-standard-canada",
+      "type": "community",
+      "title": "Drive Tesla Canada - Tesla launches Model Y Standard in Canada starting at $49K",
+      "url": "https://driveteslacanada.ca/model-y/tesla-launches-model-y-standard-in-canada-starting-at-49k/",
+      "accessed_on": "2026-11-15",
+      "notes": "Canadian Model Y Standard: 18-inch Aperture wheels are the only option; imported from Giga Berlin."
+    },
+    {
+      "id": "src-iphoneincanada-model-3-awd-2026",
+      "type": "community",
+      "title": "iPhone in Canada - Tesla launches new Model 3 AWD trim in Canada for $49,990",
+      "url": "https://www.iphoneincanada.ca/2026/06/05/tesla-launches-new-model-3-awd-trim-in-canada-for-49990/",
+      "accessed_on": "2026-11-15",
+      "notes": "Canadian Premium AWD (Shanghai-built): 570 km on standard 18-inch wheels, 520 km with 19-inch; peak DC up to 250 kW."
+    },
+    {
+      "id": "src-auto123-model-3-2026-canada",
+      "type": "community",
+      "title": "Auto123 - 2026 Tesla Model 3 price in Canada",
+      "url": "https://www.auto123.com/en/news/tesla-model3-2026-price-canada-china/73871/",
+      "accessed_on": "2026-11-15",
+      "notes": "Canadian Premium RWD: 463 km on 18-inch wheels, 413 km with 19-inch. Page does not say which size is standard."
+    },
+    {
+      "id": "src-driveteslacanada-model-3-performance-tires",
+      "type": "community",
+      "title": "Drive Tesla Canada - Model 3 Performance buyers can choose summer or all-season tires",
+      "url": "https://driveteslacanada.ca/news/tesla-now-lets-model-3-performance-buyers-choose-between-summer-and-all-season-tires/",
+      "accessed_on": "2026-11-15",
+      "notes": "US configurator change: Model 3 Performance comes standard with 20-inch Warp wheels. Canadian applicability not stated."
+    },
+    {
+      "id": "src-tmc-manual-battery-preconditioning",
+      "type": "community",
+      "title": "Tesla Motors Club - Manually start battery preconditioning",
+      "url": "https://teslamotorsclub.com/tmc/threads/manually-start-battery-preconditioning.174158/",
+      "accessed_on": "2026-11-15",
+      "notes": "Forum (2019-2022): no manual battery preconditioning control; software decides when navigating to a Supercharger."
+    }
+  ],
+  "variants": {
+    "tesla/model-3/2026/performance-awd": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "low_confidence": true,
+              "source_id": "src-evdb-model-3-performance-highland",
+              "notes": "EV Database Performance (Highland) lists heat pump standard equipment (European listing; same model generation as the Canadian Shanghai-built car)."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 20,
+              "is_standard": true,
+              "source_id": "src-driveteslacanada-model-3-performance-tires",
+              "low_confidence": true,
+              "notes": "US report: Model 3 Performance comes standard with 20-inch Warp wheels. Canadian Performance assumed the same (same trim name); not confirmed."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "tesla/model-3/2026/performance": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "low_confidence": true,
+              "source_id": "src-evdb-model-3-performance-highland",
+              "notes": "EV Database Performance (Highland) lists heat pump standard equipment (European listing; same model generation)."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 20,
+              "is_standard": true,
+              "source_id": "src-driveteslacanada-model-3-performance-tires",
+              "low_confidence": true,
+              "notes": "US report: Model 3 Performance comes standard with 20-inch Warp wheels. Canadian Performance assumed the same (same trim name); not confirmed."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "tesla/model-3/2026/premium-awd-i": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "low_confidence": true,
+              "source_id": "src-evdb-model-3-lr-awd-highland",
+              "notes": "EV Database Long Range AWD (Highland) lists heat pump standard; mapped to Premium AWD by content (same Highland AWD car, renamed). Fact-check: the cited EV Database page may be the pre-Highland LR AWD; low confidence."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-iphoneincanada-model-3-awd-2026",
+              "low_confidence": true,
+              "notes": "Canadian Premium AWD: 570 km range quoted for the standard 18-inch wheels."
+            },
+            {
+              "diameter_in": 19,
+              "is_standard": false,
+              "source_id": "src-iphoneincanada-model-3-awd-2026",
+              "low_confidence": true,
+              "notes": "Upgrading to 19-inch wheels reduces range to 520 km (option; price not on page)."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "tesla/model-3/2026/premium-i": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "low_confidence": true,
+              "source_id": "src-evdb-model-3-rwd-highland",
+              "notes": "EV Database RWD (Highland, LFP) lists heat pump standard equipment (European listing)."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-auto123-model-3-2026-canada",
+              "low_confidence": true,
+              "notes": "Canadian Premium RWD: 463 km range with 18-inch wheels (the headline rating), 413 km with 19-inch. Page does not say which is standard; 18-inch inferred as standard from the headline range."
+            },
+            {
+              "diameter_in": 19,
+              "is_standard": false,
+              "source_id": "src-auto123-model-3-2026-canada",
+              "low_confidence": true,
+              "notes": "19-inch option; range 413 km."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "tesla/model-y/2026/premium-awd-b": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "low_confidence": true,
+              "source_id": "src-evdb-model-y-premium-awd-juniper",
+              "notes": "EV Database Model Y Premium AWD (Juniper) lists HP Standard Equipment Yes (European, Berlin-built listing)."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "tesla/model-y/2026/long-range-awd-b": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "estimated",
+              "low_confidence": true,
+              "source_id": "src-evdb-model-y-premium-awd-juniper",
+              "notes": "Estimated: EV Database lists heat pump as standard equipment on the Model Y Premium AWD (Juniper, Berlin); same model and generation carries it over. Not confirmed for this exact variant."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 19,
+              "is_standard": true,
+              "source_id": "src-tslna-model-y-price-canada-2026",
+              "low_confidence": true,
+              "notes": "Canadian Premium AWD: 19-inch standard, 20-inch +$2,600. Mapped to Long Range AWD-B by content (same 542 km NRCan range, same pack and weight as Premium AWD-B); trim naming not confirmed."
+            },
+            {
+              "diameter_in": 20,
+              "is_standard": false,
+              "source_id": "src-tslna-model-y-price-canada-2026",
+              "low_confidence": true,
+              "notes": "20-inch option +$2,600 on Premium AWD; mapping as above."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "tesla/model-y/2026/long-range-awd-b-pre-6-11-25": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "estimated",
+              "low_confidence": true,
+              "source_id": "src-evdb-model-y-premium-awd-juniper",
+              "notes": "Estimated: EV Database lists heat pump as standard equipment on the Model Y Premium AWD (Juniper, Berlin); same model and generation carries it over. Not confirmed for this exact variant."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "tesla/model-y/2026/long-range-awd-i": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "estimated",
+              "low_confidence": true,
+              "source_id": "src-evdb-model-y-premium-awd-juniper",
+              "notes": "Estimated: EV Database lists heat pump as standard equipment on the Model Y Premium AWD (Juniper, Berlin); same model and generation carries it over. Not confirmed for this exact variant."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "tesla/model-y/2026/performance-b": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "estimated",
+              "low_confidence": true,
+              "source_id": "src-evdb-model-y-premium-awd-juniper",
+              "notes": "Estimated: EV Database lists heat pump as standard equipment on the Model Y Premium AWD (Juniper, Berlin); same model and generation carries it over. Not confirmed for this exact variant."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "tesla/model-y/2026/rwd-b": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "low_confidence": true,
+              "source_id": "src-abstractocean-model-y-standard",
+              "notes": "Retail-accessory blog says the heat pump stays on the Model Y Standard (US-oriented, not a Tesla page). Canadian RWD and Standard both rate 463 km (NRCan) so treated as the same car."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-driveteslacanada-model-y-standard-canada",
+              "low_confidence": true,
+              "notes": "Canadian Model Y Standard: 18-inch Aperture is the only option (tslna.com also lists RWD as 18-inch only). rwd-b and standard-b both rate 463 km (NRCan), so both mapped to this trim by content."
+            }
+          ]
+        }
+      },
+      "curves": []
+    },
+    "tesla/model-y/2026/standard-b": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "value": "standard",
+              "kind": "community",
+              "low_confidence": true,
+              "source_id": "src-abstractocean-model-y-standard",
+              "notes": "Retail-accessory blog says the heat pump stays on the Model Y Standard (US-oriented, not a Tesla page). Canadian RWD and Standard both rate 463 km (NRCan) so treated as the same car."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-driveteslacanada-model-y-standard-canada",
+              "low_confidence": true,
+              "notes": "Canadian Model Y Standard: 18-inch Aperture is the only option (tslna.com also lists RWD as 18-inch only). rwd-b and standard-b both rate 463 km (NRCan), so both mapped to this trim by content."
+            }
+          ]
+        }
+      },
+      "curves": []
+    }
+  }
+}

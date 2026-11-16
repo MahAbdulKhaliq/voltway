@@ -37,8 +37,62 @@
         "source_id": "src-toyota-ca-media-bz-2026",
         "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
       }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-bz-charging-limit-2026",
+        "low_confidence": true,
+        "notes": "Toyota chief engineer (via InsideEVs): bZ \"still runs on a 400-volt electrical architecture\". Autopian: pack 391 V."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 77,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-toyota-ca-media-bz-2026",
+        "notes": "Toyota Canada release lists 77 kWh for XLE AWD and Limited AWD (total, usable not stated). US release says 74.7 kWh for the same trims; NRCan ranges match US EPA ranges, so probably the same pack stated differently."
+      },
+      {
+        "value": 74.7,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-pressroom-toyota-bz-2026",
+        "low_confidence": true,
+        "notes": "Toyota USA release: 74.7 kWh total capacity for XLE AWD and Limited AWD. Conflicts with Toyota Canada 77 kWh."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-autopian-bz-2026",
+        "low_confidence": true,
+        "notes": "Autopian (chief engineer interview): \"The larger pack retains the same chemistry and cells as the previous version\" (NMC). GreenCars: \"still has nickel-manganese-cobalt cathodes\". Relayed by press."
+      }
     ]
   },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-bz-charging-limit-2026",
+      "low_confidence": true,
+      "notes": "InsideEVs relays Toyota: bZ charging \"capped at 150 kilowatts\". Model-level, not stated per pack."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-toyota-ca-media-bz-onsale-2026",
+      "low_confidence": true,
+      "notes": "Toyota Canada release: \"Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network\"; 2026 has a native NACS port. Wording is not model-specific."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -42,6 +42,29 @@ export function deriveWheelEffect(rows: RatingRow[]): WheelEffect | null {
   return { pct_per_inch: round(quantile(per, 0.5)), low: round(quantile(per, 0.25)), high: round(quantile(per, 0.75)), pairs: per.length, source_ids: [...sources].sort() };
 }
 
+interface TrimWheels {
+  wheels: { diameter_in: number; is_standard: boolean }[];
+  range_km?: unknown;
+  consumption_combined_wh_per_km?: unknown;
+}
+
+/** A trim's standard wheel size (or its only listed one); null when unknown. */
+export const standardWheel = (t: TrimWheels | undefined): number | null =>
+  (t?.wheels.find((w) => w.is_standard) ?? t?.wheels[0])?.diameter_in ?? null;
+
+/** True when the trim carries an official rating of its own (else it shares the variant's). */
+export const ratedOnItsOwn = (t: TrimWheels | undefined) => Boolean(t?.range_km || t?.consumption_combined_wh_per_km);
+
+/**
+ * The wheel size the shown rating belongs to. A trim rated on its own: its wheels. Otherwise the
+ * variant's rating, which comes from the first trim's row (scripts/lib/build.ts), so the first
+ * trim's wheels; falls back to the trim's own wheels when the first trim's are unknown.
+ */
+export function ratedWheelFor(trims: TrimWheels[], trim: TrimWheels | undefined): number | null {
+  if (ratedOnItsOwn(trim)) return standardWheel(trim);
+  return standardWheel(trims[0]) ?? standardWheel(trim);
+}
+
 /**
  * Applies the effect: consumption scales by (1 + pct × Δinches); range by the inverse
  * (same battery, more energy per km). Returns the factor so callers can say what changed.

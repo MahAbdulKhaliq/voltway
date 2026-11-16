@@ -1,7 +1,7 @@
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { buildCars, ratingRows } from '../scripts/lib/build.ts';
-import { applyWheelEffect, deriveWheelEffect, type RatingRow } from '../src/lib/wheel-effect.ts';
+import { applyWheelEffect, deriveWheelEffect, ratedWheelFor, standardWheel, type RatingRow } from '../src/lib/wheel-effect.ts';
 
 const REPO = join(import.meta.dirname, '..');
 const row = (group: string, wheel_in: number, wh_per_km: number, source_id = 'src-a'): RatingRow => ({ group, wheel_in, wh_per_km, source_id });
@@ -64,5 +64,23 @@ describe('the real build: per-trim ratings and wheels', () => {
   it('builds rating rows from NRCan names with a source on each', () => {
     const rows = ratingRows({ nrcan: new Map([['k', { year: 2026, make: 'X', model: 'Y AWD (20" Wheels)', motor_kw: [{ value: 200 }], consumption_combined_wh_per_km: [{ value: 200, source_id: 'src-n' }] }]]) });
     expect(rows).toEqual([{ group: 'nrcan|2026|X|Y AWD|200', wheel_in: 20, wh_per_km: 200, source_id: 'src-n' }]);
+  });
+});
+
+describe('ratedWheelFor (4.3: which wheels the shown rating belongs to)', () => {
+  const w = (n: number) => [{ diameter_in: n, is_standard: true }];
+  const base = { wheels: w(19) };
+  const ownRated = { wheels: w(20), range_km: { value: 1 } };
+  const unrated = { wheels: w(21) };
+  it("uses the trim's own wheels when it is rated on its own", () => {
+    expect(ratedWheelFor([base, ownRated], ownRated)).toBe(20);
+  });
+  it("uses the first trim's wheels (the variant's rating) for a trim without its own", () => {
+    expect(ratedWheelFor([base, unrated], unrated)).toBe(19);
+    expect(ratedWheelFor([base, unrated], base)).toBe(19);
+  });
+  it("falls back to the trim's wheels when the first trim's are unknown", () => {
+    expect(ratedWheelFor([{ wheels: [] }, unrated], unrated)).toBe(21);
+    expect(standardWheel({ wheels: [] })).toBeNull();
   });
 });

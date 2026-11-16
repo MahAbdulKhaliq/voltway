@@ -9,7 +9,7 @@ import { displayMinutes } from '../lib/charging.ts';
 import { getItem, setItem, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CarDetail, Field, IndexEntry } from '../lib/types.ts';
-import { applyWheelEffect, type WheelEffect } from '../lib/wheel-effect.ts';
+import { applyWheelEffect, ratedOnItsOwn, ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
 import { display } from '../lib/format.ts';
 import CurveViewer from './CurveViewer.tsx';
 import { Badge, Value, sourceNumber } from './react/Badge.tsx';
@@ -112,10 +112,11 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     consumption_city_wh_per_km: trim?.consumption_city_wh_per_km ?? f.consumption_city_wh_per_km ?? null,
     consumption_highway_wh_per_km: trim?.consumption_highway_wh_per_km ?? f.consumption_highway_wh_per_km ?? null,
   };
-  // Wheel size (B13): the trim's rated wheels are the baseline; another size gives a rough estimate.
+  // Wheel size (B13): the wheels the shown rating belongs to are the baseline (the trim's own when it
+  // is rated on its own, else the variant's); the trim's wheels or a picked size give a rough estimate.
   const baseWheel = trim?.wheels.find((w) => w.is_standard) ?? trim?.wheels[0];
-  const baseIn = baseWheel?.diameter_in ?? null;
-  const chosenIn = wheelIn ?? baseIn;
+  const baseIn = car && trim ? ratedWheelFor(car.trims, trim) : null;
+  const chosenIn = wheelIn ?? baseWheel?.diameter_in ?? baseIn;
   const adjusting = Boolean(wheelEffect && baseIn !== null && chosenIn !== null && chosenIn !== baseIn);
   const factor = adjusting ? applyWheelEffect(baseIn!, chosenIn!, wheelEffect!, {}).factor : 1;
   const pct = (x: number) => formatNumber(x * 100, 1);
@@ -171,6 +172,21 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
       )}
     </label>
   );
+  // Trims table (4.3): a trim with no rating of its own but other wheels than the variant's rating
+  // gets the wheel estimate instead of "Same as variant".
+  const variantWheel = car ? standardWheel(car.trims[0]) : null;
+  const trimRange = (x: NonNullable<typeof trim>): { field: Field; approx: boolean } | null => {
+    if (x.range_km) return { field: x.range_km, approx: false };
+    const own = standardWheel(x);
+    const r = f.range_km;
+    if (ratedOnItsOwn(x) || !wheelEffect || own === null || variantWheel === null || own === variantWheel || !r || typeof r.value.value !== 'number') return null;
+    const est = applyWheelEffect(variantWheel, own, wheelEffect, { rangeKm: r.value.value });
+    const notes = t('wheel.basis', { size: own, base: variantWheel, pct: pct(wheelEffect.pct_per_inch), low: pct(wheelEffect.low), high: pct(wheelEffect.high), pairs: wheelEffect.pairs });
+    return {
+      field: { value: { value: Math.round(est.rangeKm! * 10) / 10, unit: r.value.unit, kind: 'estimated', source_id: wheelEffect.source_ids[0] ?? r.value.source_id, notes }, others: [r.value, ...r.others], conflict: false },
+      approx: true,
+    };
+  };
   const d = car?.derived;
   const distance = (km: number) => t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(km, unit)) });
   const sources = car?.sources ?? [];
@@ -295,14 +311,14 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
               <table className="stack-table">
                 <thead><tr><th>{t('car.trimName')}</th><th>{t('field.heat_pump')}</th><th>{t('car.wheels')}</th><th>{t('car.trimRange')}</th></tr></thead>
                 <tbody>
-                  {car.trims.map((x) => (
+                  {car.trims.map((x) => { const tr = trimRange(x); return (
                     <tr key={x.id} className={x.id === trim?.id ? 'current' : ''}>
                       <td data-label={t('car.trimName')}>{x.name}</td>
                       <td data-label={t('field.heat_pump')}><Value field={x.heat_pump} sources={sources} label={t('field.heat_pump')} unit={unit} /></td>
                       <td data-label={t('car.wheels')}>{x.wheels.length ? x.wheels.map((w) => t(w.is_standard ? 'car.wheelStandard' : 'car.wheelSize', { size: w.diameter_in })).join(', ') : <span className="unknown">{t('badge.unknown')}</span>}</td>
-                      <td data-label={t('car.trimRange')}>{x.range_km ? <Value field={x.range_km} sources={sources} label={t('car.trimRange')} unit={unit} /> : <span className="muted">{t('car.sameAsVariant')}</span>}</td>
+                      <td data-label={t('car.trimRange')}>{tr ? <Value field={tr.field} sources={sources} label={t('car.trimRange')} unit={unit} approx={tr.approx} /> : <span className="muted">{t('car.sameAsVariant')}</span>}</td>
                     </tr>
-                  ))}
+                  ); })}
                 </tbody>
               </table>
             </div>

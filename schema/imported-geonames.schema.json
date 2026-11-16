@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MahAbdulKhaliq/voltway/schema/imported-geonames.schema.json",
+  "title": "Imported GeoNames places (Canada)",
+  "description": "Written by scripts/fetch-geonames.ts from the GeoNames CA.zip dump (B45, data-sources.md §5a): current populated places in Canada with population ≥ 1,000, for From/To suggestions on the trip planner. The data build turns it into public/data/places.json. File: data/imported/geonames/places.json",
+  "type": "object",
+  "required": ["source", "source_id", "url", "fetched_at", "zip_sha256", "min_population", "places"],
+  "additionalProperties": false,
+  "properties": {
+    "source": { "const": "geonames-ca" },
+    "source_id": { "$ref": "common.schema.json#/$defs/sourceId" },
+    "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+    "fetched_at": { "type": "string", "format": "date-time" },
+    "zip_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "min_population": { "const": 1000 },
+    "places": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "ascii_name", "province", "lat", "lon", "population"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "description": "GeoNames id.", "type": "integer", "minimum": 1 },
+          "name": { "description": "Name as GeoNames spells it, accents kept (Montréal).", "type": "string", "minLength": 1 },
+          "ascii_name": { "type": "string", "minLength": 1 },
+          "province": { "enum": ["AB", "BC", "MB", "NB", "NL", "NS", "NT", "NU", "ON", "PE", "QC", "SK", "YT"] },
+          "lat": { "description": "Canada only.", "type": "number", "minimum": 41, "maximum": 84 },
+          "lon": { "type": "number", "minimum": -142, "maximum": -52 },
+          "population": { "type": "integer", "minimum": 1000 }
+        }
+      }
+    }
+  }
+}

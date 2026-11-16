@@ -2,6 +2,7 @@
 //   public/data/index.json          small list for browse/search
 //   public/data/cars/<id>.json      one detail file per variant
 //   public/data/map/{l3,l2,meta}.json  charger map (scripts/lib/map-build.ts)
+//   public/data/places.json         trip planner From/To places (GeoNames, B45)
 // public/data/ is generated on every build (and git-ignored); the source of truth is data/.
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
@@ -9,6 +10,7 @@ import { dirname, join } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import type { StationsFile } from './lib/afdc.ts';
 import { buildCars } from './lib/build.ts';
+import { toPlaceRows, type Place } from './lib/geonames.ts';
 import { buildMap } from './lib/map-build.ts';
 import { mapOutputProblems, outputProblems } from './lib/output-check.ts';
 
@@ -31,6 +33,14 @@ const map = buildMap(JSON.parse(readFileSync(stationsFile, 'utf8')) as StationsF
   const sourceIds = new Set(readdirSync(join(root, 'data', 'sources')).map((f) => f.replace(/\.json$/, '')));
   problems.push(...mapOutputProblems('map/l3.json', map.l3, sourceIds), ...mapOutputProblems('map/l2.json', map.l2, sourceIds));
 }
+
+// Places for the trip planner (B45): also committed; a missing file fails the build.
+const placesPath = join(root, 'data', 'imported', 'geonames', 'places.json');
+if (!existsSync(placesPath)) {
+  console.error('data:build: data/imported/geonames/places.json is missing; run npm run fetch:geonames.');
+  process.exit(1);
+}
+const placesFile = JSON.parse(readFileSync(placesPath, 'utf8')) as { places: Place[] };
 
 if (problems.length) {
   console.error(`data:build: ${problems.length} unsourced or incomplete item(s) in the output:`);
@@ -61,4 +71,11 @@ if (map) {
     sizes.push(`${name} ${(json.length / 1e6).toFixed(2)} MB (${(gzipSync(json).length / 1e6).toFixed(2)} MB gz)`);
   }
   console.log(`data:build: map ${map.meta.counts.l3} L3 + ${map.meta.counts.l2} L2-only stations → public/data/map/ · ${sizes.join(', ')}`);
+}
+
+// Trip planner places (B45): short-key rows for From/To suggestions, from the committed GeoNames import.
+{
+  const json = JSON.stringify(toPlaceRows(placesFile.places));
+  writeFileSync(join(out, 'places.json'), json);
+  console.log(`data:build: ${placesFile.places.length} places → public/data/places.json · ${(json.length / 1e6).toFixed(2)} MB (${(gzipSync(json).length / 1e6).toFixed(2)} MB gz)`);
 }

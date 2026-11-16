@@ -1,0 +1,10 @@
+{
+  "id": "src-geonames",
+  "type": "dataset",
+  "title": "GeoNames geographical database – Canada export (CA.zip): populated places",
+  "url": "https://download.geonames.org/export/dump/",
+  "license": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+  "attribution": "Place names: GeoNames (geonames.org), licensed under CC BY 4.0. Only places with population of 1,000 or more are used, with coordinates rounded.",
+  "accessed_on": "2026-11-16",
+  "notes": "Owner decision B45: From/To suggestions on the trip planner. Downloaded by hand with npm run fetch:geonames, which writes data/imported/geonames/places.json (with the zip's checksum); refreshed when needed."
+}

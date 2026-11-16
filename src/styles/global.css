@@ -187,3 +187,23 @@ body.fill-page { height: 100dvh; display: flex; flex-direction: column; overflow
 main.fill { flex: 1; min-height: 0; position: relative; }
 .charger-map, .charger-map .map-canvas { position: absolute; inset: 0; }
 .charger-map .map-status { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); margin: 0; padding: 8px 14px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); z-index: 2; max-width: calc(100% - 32px); }
+
+/* Map filter panel: top left on desktop; full width under the header on phones. */
+.map-panel { position: absolute; top: 12px; left: 12px; z-index: 3; width: 260px; max-height: calc(100% - 60px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.map-panel-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 12px; background: none; border: 0; color: inherit; font: inherit; font-weight: 600; cursor: pointer; text-align: left; border-radius: var(--radius); }
+.map-panel-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.map-filters { overflow-y: auto; padding: 0 12px 4px; border-top: 1px solid var(--border); }
+.map-filters[hidden] { display: none; }
+.map-filters fieldset { border: 0; margin: 10px 0 0; padding: 0; }
+.map-filters legend { font-weight: 600; font-size: 0.85rem; color: var(--muted); padding: 0; margin-bottom: 4px; }
+.map-filters ul { list-style: none; margin: 0; padding: 0; }
+.map-filters .bands { padding-left: 30px; }
+.map-filters .check { display: flex; align-items: center; gap: 8px; min-height: 32px; cursor: pointer; }
+.map-filters .check input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); flex: none; }
+.map-filters .check.level { font-weight: 600; }
+.map-filters .legend { margin: 8px 0 6px; }
+.map-filters .legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.map-count { margin: 0; padding: 8px 12px; border-top: 1px solid var(--border); }
+@media (max-width: 640px) {
+  .map-panel { left: 8px; right: 52px; width: auto; top: 8px; max-height: calc(100% - 80px); }
+}

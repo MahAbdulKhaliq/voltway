@@ -48,3 +48,13 @@ describe('theme contrast (WCAG AA, B20)', () => {
     });
   }
 });
+
+describe('map pin colours (charger-map §5)', async () => {
+  const { PIN } = await import('../src/lib/map-icons.ts');
+  it('white glyphs read on every pin fill (4.5:1), and the fills stand out from a white ring (3:1)', () => {
+    for (const fill of [PIN.fill[3], PIN.fill[2], PIN.unavailable]) {
+      expect(contrast(PIN.glyph, fill)).toBeGreaterThanOrEqual(4.5);
+      expect(contrast(PIN.ring, fill)).toBeGreaterThanOrEqual(3);
+    }
+  });
+});

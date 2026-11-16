@@ -133,8 +133,9 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 
 ## Phase 8: Data refresh automation
 
-- [ ] **[1a] 8.1 Scheduled checks** — `.github/workflows/data-refresh.yml`. Done when: a manual run opens a PR when the NRCan/OpenEV copy differs, and does nothing when it doesn't.
+- [x] **[1a] 8.1 Scheduled checks** — `.github/workflows/data-refresh.yml`. Done when: a manual run opens a PR when the NRCan/OpenEV copy differs, and does nothing when it doesn't.
   - Progress 2026-11-15: `.github/workflows/data-refresh.yml` (monthly + manual) runs fetch:nrcan and fetch:openev, then `scripts/check-sources.ts` compares checksums with the committed copy: unchanged → `sources/` restored, no PR; changed → branch `data/source-refresh` pushed and a PR opened or updated, listing new/removed/changed cars (`scripts/lib/source-diff.ts`, tests in `tests/source-diff.test.ts`). Both paths checked locally (real fetch = no change; simulated NRCan edition = 1 new, 1 removed, 1 changed). **Verified on GitHub 2026-11-15:** manual run on main → "no change, no PR". **Not yet verified:** the PR-opening path, which needs the repo setting "Allow GitHub Actions to create and approve pull requests" (currently off; owner's call).
+  - **Verified 2026-11-16:** the owner asked for the repo setting "Allow GitHub Actions to create and approve pull requests" to be turned on (default token permissions stay read-only). A manual run on a throwaway branch with an altered NRCan sha256 opened PR #39 from `data/source-refresh` (raw `sources/` copy only; body said "no rows changed"). Closed, and both branches deleted.
 
 ## Phase 9: Independent QA
 

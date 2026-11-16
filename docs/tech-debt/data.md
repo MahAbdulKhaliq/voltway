@@ -1,6 +1,6 @@
-# Data backlog (future improvements)
+# Data debt
 
-Checklist 1.6 was closed for Phase 1a on 2026-11-16 (owner decision **B23**): the current data is good enough to ship. Missing fields already show as "Unknown" on the site, so nothing here blocks the map. This file lists what to improve later, roughly in order of value. Run the `fill-data-gaps` skill for research items. Crosswalk items need an owner decision first (B8/B9).
+Checklist 1.6 was closed for Phase 1a on 2026-11-16 (owner decision **B23**): the current data is good enough to ship. Missing fields already show as "Unknown" on the site, so nothing here blocks the map. This file lists data to improve later (code and product items are in the other files in this folder; see README.md), roughly in order of value. Run the `fill-data-gaps` skill for research items. Crosswalk items need an owner decision first (B8/B9).
 
 State at closing (`npm run gaps`, 2026-11-15): 6/84 variants complete. Missing: preconditioning 69, wheel sizes 32, Supercharger access 30, chemistry 30, heat pump 22 (+23 where OpenEV says standard-or-optional only), usable battery 21, AC 8, port 7, DC 5, voltage 5, drivetrain 4. Template curve only: 69. No published 10–80 %: 57.
 
@@ -12,6 +12,7 @@ These came up during research. Each needs a match changed in `crosswalk/crosswal
 - **Model Y Standard (rwd-b, standard-b)**: stored 78/75 kWh LFP at 170 kW (OpenEV). The evidence points to ~64 kWh gross / ~60 usable at 175 kW (EV Database, Electric Autonomy, Electrek, Tesla Canada table). The two variants may be duplicates (both 463 km). Model 3 Premium RWD may have the same issue. Their derived 10–80 % times rest on these inputs.
 
 ## 2. Charging curves (biggest visible gain)
+- **Cars with no curve at all:** the 2026 IONIQ 5 Long Range variants, the EV9 Light and the bZ Standard have no DC peak, so not even an estimated curve can be made (QA 9.1 #3). Finding their DC peaks fixes it.
 69 variants use the template curve. Rule from round 2: a curve tested on another model year, or borrowed from a sibling, needs a **shown pack match** (cells, supplier, kWh), not just matching database figures. A tested curve may hold only points quoted in the source.
 - **Silverado EV Max Range**: State Of Charge 2024 RST test (EVChargingStations, `.../2024-chevrolet-silverado-ev-rst-dc-fast-charging-analysis-10-80/`). Usable if a source ties the 2024 RST pack to the 2026 WT Max.
 - **LYRIQ**: State Of Charge 2024 AWD test. Needs a 2024→2026 pack carry-over source; drop the unquoted points (10 %, 40 %, 53 %).
@@ -36,7 +37,3 @@ Needs a model-specific 2026 owner's manual page (search excerpts and generic pag
 - Gross capacity: Toyota/Subaru Canada say 77 kWh, US says 74.7 kWh (both recorded; pick one to display).
 - Thorough rounds (B15/B16 flow) for Ford, VW/BMW, Nissan, Volvo/Polestar.
 
-## 5. Product follow-ups from Phase 1a QA (2026-11-16)
-- **Efficiency unit options (B25):** add Wh/km and mi/kWh beside kWh/100 km (database-ui §9).
-- **Cars with no curve at all:** the 2026 IONIQ 5 Long Range variants, the EV9 Light and the bZ Standard have no DC peak, so no curve can be estimated. Finding their DC peaks gives them a curve.
-- **Precedence ignores kind for hand-entered facts** (`scripts/lib/build.ts` resolve, ~line 73): an `estimated` fact from a carmaker-type source would outrank a `manufacturer` value from OpenEV. No current data triggers it; rank by kind within the same source type.

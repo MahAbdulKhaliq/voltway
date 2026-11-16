@@ -29,3 +29,24 @@ export function outputProblems(car: CarDetail): string[] {
   walk(car, '');
   return problems;
 }
+
+/**
+ * Map output check (DESIGN-map.md M4): every station in a built map file must carry the
+ * source_id of a listed source record, and have coordinates and at least one port.
+ */
+export function mapOutputProblems(
+  file: string,
+  fc: { features: { properties: { i: number; src?: string; p?: unknown[] }; geometry: { coordinates: number[] } }[] },
+  sourceIds: ReadonlySet<string>,
+): string[] {
+  const problems: string[] = [];
+  for (const f of fc.features) {
+    const { i, src, p } = f.properties;
+    if (!src) problems.push(`${file} station ${i}: no source_id`);
+    else if (!sourceIds.has(src)) problems.push(`${file} station ${i}: cites unlisted source ${src}`);
+    if (!Array.isArray(p) || p.length === 0) problems.push(`${file} station ${i}: no ports`);
+    const [lon, lat] = f.geometry.coordinates;
+    if (!Number.isFinite(lon) || !Number.isFinite(lat)) problems.push(`${file} station ${i}: no coordinates`);
+  }
+  return problems;
+}

@@ -111,6 +111,7 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 - [ ] **7.1 About & sources** — Done when: every required license credit is shown.
 - [ ] **7.2 Accessibility + phone layout** — Done when: charts have a table view, best values use icon + bold, tables stack at phone width.
   - Progress 2026-11-15 (B18): Charging tab collapsed into accordions (vehicle picker with car preview, curve first, then Car figures and assumptions, Specifications, Trims, numbered Sources); Wikipedia-style [n] source references; curve controls no longer overlap, two per row on phones. Checked at 375 px and desktop width.
+  - Progress 2026-11-15 (B19): price per kWh input (default C$0.45, Canadian Supercharger typical) and cost result (energy ÷ 0.92 assumed DC efficiency × price); km/mi switch moved into the curve controls; header shows a hamburger menu of pages. Checked at 375 px and desktop width.
 
 ## Phase 8: Data refresh automation
 

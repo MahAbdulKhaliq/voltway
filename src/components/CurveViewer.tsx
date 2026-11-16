@@ -13,6 +13,10 @@ import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CurveOut } from '../lib/types.ts';
 import { SourceRef } from './react/Badge.tsx';
+import { COST, COVERAGE } from '../config.ts';
+import { setUnit as switchUnit } from '../scripts/units-client.ts';
+
+const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', currency: COVERAGE.currency });
 
 echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, MarkAreaComponent, CanvasRenderer]);
 
@@ -26,10 +30,10 @@ interface Props {
 
 type Basis = 'highway' | 'combined' | 'city';
 type Preset = 'none' | '50' | '100' | '150' | '250' | '350' | 'custom';
-interface Settings { start: number; end: number; preset: Preset; customKw: number }
+interface Settings { start: number; end: number; preset: Preset; customKw: number; price: number }
 
 const PRESETS: Preset[] = ['none', '50', '100', '150', '250', '350', 'custom'];
-const DEFAULTS: Settings = { start: 10, end: 80, preset: 'none', customKw: 120 };
+const DEFAULTS: Settings = { start: 10, end: 80, preset: 'none', customKw: 120, price: COST.defaultPricePerKwh };
 
 const cssVar = (name: string, fallback: string) =>
   typeof window === 'undefined' ? fallback : getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
@@ -76,6 +80,8 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
     }
   }, [curve, usableKwh, settings.start, settings.end, chargerKw, whPerKm]);
 
+  // B19: billed energy is what the charger delivers, so add the assumed charging losses.
+  const drawnKwh = result ? result.energyKwh / COST.dcEfficiency : 0;
   const minutes = (m: number) => (estimated ? t('fmt.approxMin', { value: displayMinutes(m, true) }) : t('fmt.min', { value: displayMinutes(m, false) }));
   const distance = (km: number) => t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(km, unit)) });
 
@@ -216,12 +222,27 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
             {(['highway', 'combined', 'city'] as Basis[]).map((b) => <option key={b} value={b}>{t(`viewer.basis.${b}` as MessageKey)}</option>)}
           </select>
         </label>
-        <fieldset className="toggle">
+        <fieldset className="toggle axis-toggle">
           <legend>{t('viewer.xAxis')}</legend>
           {(['soc', 'time'] as const).map((x) => (
             <button key={x} type="button" aria-pressed={xAxis === x} onClick={() => setXAxis(x)}>{t(`viewer.axis.${x}` as MessageKey)}</button>
           ))}
         </fieldset>
+        <fieldset className="toggle">
+          <legend>{t('viewer.units')}</legend>
+          {(['km', 'mi'] as const).map((u) => (
+            <button key={u} type="button" aria-pressed={unit === u} onClick={() => switchUnit(u)}>{t(`units.${u}` as MessageKey)}</button>
+          ))}
+        </fieldset>
+        <label title={t('viewer.priceHelp')}>
+          <span>{t('viewer.price', { currency: COVERAGE.currency })}</span>
+          <input
+            type="number" inputMode="decimal" min={0} max={5} step={0.01}
+            value={settings.price}
+            aria-describedby="price-help"
+            onChange={(e) => update({ price: Math.max(0, Number(e.target.value) || 0) })}
+          />
+        </label>
       </div>
 
       <div className="results" aria-live="polite">
@@ -231,6 +252,10 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
             <div className="r"><p className="rl">{t('viewer.result.km', { basis: t(`viewer.basis.${basis}` as MessageKey) })}</p><p className="rv">{result.kmAdded !== null ? `${estimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>}</p></div>
             <div className="r"><p className="rl">{t('viewer.result.per10')}</p><p className="rv">{result.kmPer10Min !== null ? `${estimated ? '~' : ''}${distance(result.kmPer10Min)}` : <span className="unknown small">{t('badge.unknown')}</span>}</p></div>
             <div className="r"><p className="rl">{t('viewer.result.avg')}</p><p className="rv">{t('fmt.kw', { value: formatNumber(result.averageKw) })}</p></div>
+            <div className="r" title={t('viewer.result.costNote', { kwh: formatNumber(drawnKwh, 1), loss: Math.round((1 - COST.dcEfficiency) * 100) })}>
+              <p className="rl">{t('viewer.result.cost', { start: settings.start, end: settings.end })}</p>
+              <p className="rv">~{money.format(drawnKwh * settings.price)}</p>
+            </div>
             {chargerKw !== null && result.lostToChargerMinutes > 0.05 && (
               <div className="r"><p className="rl">{t('viewer.result.lost')}</p><p className="rv">{t('viewer.result.lostValue', { value: formatNumber(result.lostToChargerMinutes), kw: chargerKw })}</p></div>
             )}
@@ -245,6 +270,8 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
         {t('viewer.curveFrom', { kind: curve.based_on ? t('viewer.option.borrowed') : kindLabel(curve.kind) })}
         {source && <> <a href={source.url} target="_blank" rel="noopener">{source.title}</a> <SourceRef n={source.n} /></>}
         {' · '}{t('viewer.warm')}
+        {result && <> {t('viewer.result.costNote', { kwh: formatNumber(drawnKwh, 1), loss: Math.round((1 - COST.dcEfficiency) * 100) })}. </>}
+        <span id="price-help">{t('viewer.priceHelp')}</span>
       </p>
 
       <details className="more">
@@ -269,6 +296,7 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
         .viewer .controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px 16px; align-items: end; }
         .viewer .controls > * { min-width: 0; }
         .viewer .curve-pick { grid-column: span 2; }
+        @media (min-width: 641px) { .viewer .axis-toggle { grid-column: span 2; } }
         .viewer label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
         .viewer select, .viewer input[type=number] { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; width: 100%; min-width: 0; text-overflow: ellipsis; }
         .viewer input[type=range] { accent-color: var(--accent); width: 100%; margin: 6px 0; }

@@ -2,7 +2,7 @@
 // Inputs → calculateCharge() → results panel + ECharts chart. Settings are remembered
 // in the browser; km/mi follows the header switch ("voltway:units" event).
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent, MarkAreaComponent, MarkLineComponent, TooltipComponent } from 'echarts/components';
@@ -21,6 +21,8 @@ const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', c
 echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, MarkAreaComponent, CanvasRenderer]);
 
 interface Props {
+  /** Extra controls from the car section (B20: the wheel-size picker), shown with the others. */
+  extraControls?: ReactNode;
   curves: CurveOut[];
   usableKwh: number | null;
   batteryIsGross: boolean;
@@ -38,13 +40,14 @@ const DEFAULTS: Settings = { start: 10, end: 80, preset: 'none', customKw: 120, 
 const cssVar = (name: string, fallback: string) =>
   typeof window === 'undefined' ? fallback : getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
 
-export default function CurveViewer({ curves, usableKwh, batteryIsGross, consumption, sources }: Props) {
+export default function CurveViewer({ extraControls, curves, usableKwh, batteryIsGross, consumption, sources }: Props) {
   const initial = curves.find((c) => c.is_display_default) ?? curves[0];
   const [curveId, setCurveId] = useState(initial.id);
   const [settings, setSettings] = useState<Settings>(DEFAULTS);
   const [basis, setBasis] = useState<Basis>('highway');
   const [xAxis, setXAxis] = useState<'soc' | 'time'>('soc');
   const [unit, setUnit] = useState<DistanceUnit>('km');
+  const [themeTick, setThemeTick] = useState(0);
   const chartEl = useRef<HTMLDivElement>(null);
   const chart = useRef<echarts.ECharts | null>(null);
 
@@ -54,7 +57,16 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
     const onUnits = (e: Event) => setUnit((e as CustomEvent<DistanceUnit>).detail);
     window.addEventListener('voltway:units', onUnits);
-    return () => window.removeEventListener('voltway:units', onUnits);
+    // Theme change (B20): the chart is a canvas, so redraw it with the new colours.
+    const onTheme = () => setThemeTick((n) => n + 1);
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    window.addEventListener('voltway:theme', onTheme);
+    media.addEventListener('change', onTheme);
+    return () => {
+      window.removeEventListener('voltway:units', onUnits);
+      window.removeEventListener('voltway:theme', onTheme);
+      media.removeEventListener('change', onTheme);
+    };
   }, []);
   const update = (patch: Partial<Settings>) => {
     setSettings((s) => {
@@ -164,7 +176,7 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
     const onResize = () => chart.current?.resize();
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
-  }, [curve, settings, chargerKw, xAxis, result]);
+  }, [curve, settings, chargerKw, xAxis, result, themeTick]);
 
   useEffect(() => () => { chart.current?.dispose(); chart.current = null; }, []);
 
@@ -222,6 +234,7 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
             {(['highway', 'combined', 'city'] as Basis[]).map((b) => <option key={b} value={b}>{t(`viewer.basis.${b}` as MessageKey)}</option>)}
           </select>
         </label>
+        {extraControls}
         <fieldset className="toggle axis-toggle">
           <legend>{t('viewer.xAxis')}</legend>
           {(['soc', 'time'] as const).map((x) => (
@@ -296,13 +309,15 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
         .viewer .controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px 16px; align-items: end; }
         .viewer .controls > * { min-width: 0; }
         .viewer .curve-pick { grid-column: span 2; }
-        @media (min-width: 641px) { .viewer .axis-toggle { grid-column: span 2; } }
+        .viewer .control-note { display: block; font-size: 0.8rem; color: var(--muted); }
+        .viewer .control-note.linkish { padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: 0.8rem; font-weight: 600; text-align: left; cursor: pointer; text-decoration: underline; }
+        .viewer .axis-toggle { grid-column: span 2; }
         .viewer label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
-        .viewer select, .viewer input[type=number] { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; width: 100%; min-width: 0; text-overflow: ellipsis; }
+        .viewer select, .viewer input[type=number] { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 6px 8px; width: 100%; min-width: 0; text-overflow: ellipsis; }
         .viewer input[type=range] { accent-color: var(--accent); width: 100%; margin: 6px 0; }
         .viewer .toggle { border: 0; padding: 0; margin: 0; min-width: 0; min-inline-size: 0; display: flex; gap: 0; flex-wrap: nowrap; }
         .viewer .toggle legend { font-size: 0.875rem; color: var(--muted); margin-bottom: 4px; padding: 0; }
-        .viewer .toggle button { flex: 1 1 0; white-space: nowrap; font: inherit; font-size: 0.875rem; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 6px 10px; cursor: pointer; }
+        .viewer .toggle button { flex: 1 1 0; white-space: nowrap; font: inherit; font-size: 0.875rem; border: 1px solid var(--field-border); background: var(--surface); color: var(--text); padding: 6px 10px; cursor: pointer; }
         .viewer .toggle button:first-of-type { border-radius: 8px 0 0 8px; }
         .viewer .toggle button:last-of-type { border-radius: 0 8px 8px 0; border-left: 0; }
         .viewer .toggle button[aria-pressed=true] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }

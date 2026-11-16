@@ -1,14 +1,24 @@
 ---
-// Page shell: header (logo + hamburger menu of pages, B19; Compare, My car, Map and Trip join the menu as they're built),
-// main content and footer. Distances render in km and are converted in place by the
-// small script below when the visitor picks miles (database-ui.md §9).
+// Page shell (B20): menu button (left) → side panel with a theme toggle, page search and the
+// list of pages; then the logo; main content; footer. Compare, My car, Map and Trip join
+// PAGES as they're built. Distances render in km and are converted in place when the
+// visitor picks miles (database-ui.md §9; the switch lives in the curve controls, B19).
 import '../styles/global.css';
-import { t } from '../i18n/t.ts';
+import { t, type MessageKey } from '../i18n/t.ts';
 import { COVERAGE } from '../config.ts';
 
-interface Props { title?: string; description?: string; active?: 'charging' | 'cars' }
+type Page = 'charging' | 'cars';
+interface Props { title?: string; description?: string; active?: Page }
 const { title, description = t('site.tagline'), active } = Astro.props;
 const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
+
+// Pages in the menu. Search matches the name, the description and the keywords.
+const PAGES: { id: Page; href: string }[] = [
+  { id: 'charging', href: '/charging' },
+  { id: 'cars', href: '/cars' },
+];
+const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
+  t((part === 'name' ? `nav.${id}` : `nav.${id}.${part}`) as MessageKey);
 ---
 
 <!doctype html>
@@ -19,23 +29,54 @@ const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
     <meta name="description" content={description} />
     <title>{pageTitle}</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- Apply a saved theme before first paint, so there is no flash of the wrong theme. -->
+    <script is:inline>
+      try {
+        var saved = localStorage.getItem('voltway.theme');
+        if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <a class="skip" href="#main">{t('site.skip')}</a>
     <header class="site-header">
       <div class="wrap bar">
+        <button type="button" class="icon-btn menu-btn" aria-haspopup="dialog" aria-controls="side-nav" aria-label={t('nav.menu')}>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" /></svg>
+        </button>
         <a class="logo" href="/">⚡ {t('site.name')}</a>
-        <nav class="menu" aria-label={t('nav.main')}>
-          <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-menu" aria-label={t('nav.menu')} data-open-label={t('nav.close')} data-closed-label={t('nav.menu')}>
-            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" /></svg>
-          </button>
-          <ul id="site-menu" class="menu-list" hidden>
-            <li><a href="/charging" aria-current={active === 'charging' ? 'page' : undefined}>{t('nav.charging')}</a></li>
-            <li><a href="/cars" aria-current={active === 'cars' ? 'page' : undefined}>{t('nav.cars')}</a></li>
-          </ul>
-        </nav>
       </div>
     </header>
+
+    <dialog id="side-nav" class="side-nav" aria-label={t('nav.main')}>
+      <div class="side-top">
+        <button type="button" class="icon-btn theme-btn" data-light-label={t('theme.toLight')} data-dark-label={t('theme.toDark')} aria-label={t('theme.toDark')}>
+          <svg class="i-moon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></svg>
+          <svg class="i-sun" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+        </button>
+        <button type="button" class="icon-btn close-btn" aria-label={t('nav.close')}>
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+        </button>
+      </div>
+      <label class="search">
+        <span class="sr-only">{t('nav.search')}</span>
+        <input type="search" placeholder={t('nav.search')} autocomplete="off" aria-controls="page-list" />
+      </label>
+      <nav aria-label={t('nav.main')}>
+        <ul id="page-list" class="page-list">
+          {PAGES.map((p) => (
+            <li data-search={`${page(p.id, 'name')} ${page(p.id, 'desc')} ${page(p.id, 'keywords')}`.toLowerCase()}>
+              <a href={p.href} aria-current={active === p.id ? 'page' : undefined}>
+                <span class="pl-name">{page(p.id, 'name')}</span>
+                <span class="pl-desc">{page(p.id, 'desc')}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="no-match" role="status" hidden>{t('nav.noMatch')}</p>
+      </nav>
+    </dialog>
+
     <main id="main" class="wrap">
       <slot />
     </main>
@@ -50,55 +91,87 @@ const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
     <script>
       import { applyUnits, currentUnit, setUnit } from '../scripts/units-client.ts';
       import { initBadges } from '../scripts/badges-client.ts';
+      import { currentTheme, setTheme } from '../scripts/theme-client.ts';
       initBadges();
       applyUnits(currentUnit());
-      // km/mi buttons live in the page now (B19: in the curve controls); any .units button still works.
       document.querySelectorAll<HTMLButtonElement>('.units button').forEach((b) =>
         b.addEventListener('click', () => setUnit(b.dataset.unit === 'mi' ? 'mi' : 'km')),
       );
 
-      // Hamburger menu (B19): opens a list of pages; closes on Escape, outside click or a link.
-      const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
-      const list = document.getElementById('site-menu');
-      if (btn && list) {
-        const setOpen = (open: boolean) => {
-          list.hidden = !open;
-          btn.setAttribute('aria-expanded', String(open));
-          btn.setAttribute('aria-label', (open ? btn.dataset.openLabel : btn.dataset.closedLabel) ?? '');
-        };
-        btn.addEventListener('click', () => {
-          const open = list.hidden !== false; // hidden can also be "until-found"
-          setOpen(open);
-          if (open) list.querySelector<HTMLAnchorElement>('a')?.focus();
-        });
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && !list.hidden) { setOpen(false); btn.focus(); }
-        });
-        document.addEventListener('click', (e) => {
-          if (!list.hidden && !(e.target as Element).closest('.menu')) setOpen(false);
-        });
-      }
+      // Side nav (B20): a modal <dialog>, so focus stays inside and Escape closes it.
+      const nav = document.getElementById('side-nav') as HTMLDialogElement;
+      const menuBtn = document.querySelector<HTMLButtonElement>('.menu-btn')!;
+      const search = nav.querySelector<HTMLInputElement>('input[type=search]')!;
+      const items = [...nav.querySelectorAll<HTMLLIElement>('.page-list li')];
+      const noMatch = nav.querySelector<HTMLElement>('.no-match')!;
+      const filter = () => {
+        const words = search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+        let shown = 0;
+        for (const li of items) {
+          const hit = words.every((w) => (li.dataset.search ?? '').includes(w));
+          li.hidden = !hit;
+          if (hit) shown++;
+        }
+        noMatch.hidden = shown > 0;
+      };
+      menuBtn.addEventListener('click', () => { nav.showModal(); search.focus(); });
+      nav.querySelector('.close-btn')!.addEventListener('click', () => nav.close());
+      nav.addEventListener('click', (e) => { if (e.target === nav) nav.close(); }); // backdrop
+      nav.addEventListener('close', () => { search.value = ''; filter(); menuBtn.focus(); });
+      search.addEventListener('input', filter);
+      search.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') nav.querySelector<HTMLAnchorElement>('.page-list li:not([hidden]) a')?.click();
+      });
+
+      // Theme toggle (B20): follows the device until the visitor picks, then remembers.
+      const themeBtn = nav.querySelector<HTMLButtonElement>('.theme-btn')!;
+      const syncThemeBtn = () => {
+        const dark = currentTheme() === 'dark';
+        themeBtn.setAttribute('aria-label', (dark ? themeBtn.dataset.lightLabel : themeBtn.dataset.darkLabel) ?? '');
+        themeBtn.dataset.current = dark ? 'dark' : 'light';
+      };
+      themeBtn.addEventListener('click', () => { setTheme(currentTheme() === 'dark' ? 'light' : 'dark'); syncThemeBtn(); });
+      matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncThemeBtn);
+      syncThemeBtn();
     </script>
   </body>
 </html>
 
 <style>
   .site-header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 20; }
-  .bar { display: flex; align-items: center; gap: 20px; min-height: 56px; }
+  .bar { display: flex; align-items: center; gap: 12px; min-height: 56px; }
   .logo { font-weight: 700; text-decoration: none; color: var(--text); font-size: 1.1rem; }
-  .menu { margin-left: auto; position: relative; }
-  .menu-btn {
-    display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
-    border: 1px solid var(--border); border-radius: 10px; background: transparent; color: var(--text); cursor: pointer;
+  .icon-btn {
+    display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: none;
+    border: 1px solid var(--field-border); border-radius: 10px; background: transparent; color: var(--text); cursor: pointer;
   }
-  .menu-btn:hover, .menu-btn[aria-expanded='true'] { background: var(--surface-2); }
-  .menu-list {
-    position: absolute; right: 0; top: calc(100% + 8px); min-width: 200px; margin: 0; padding: 6px; list-style: none;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow);
+  .icon-btn:hover { background: var(--surface-2); }
+
+  .side-nav {
+    margin: 0; inset: 0 auto 0 0; height: 100dvh; max-height: 100dvh; width: min(320px, 86vw);
+    padding: 16px; border: 0; border-right: 1px solid var(--border);
+    background: var(--surface); color: var(--text); box-shadow: var(--shadow);
   }
-  .menu-list[hidden] { display: none; }
-  .menu-list a { display: block; padding: 10px 12px; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 500; }
-  .menu-list a:hover { background: var(--surface-2); }
-  .menu-list a[aria-current='page'] { color: var(--accent); background: var(--accent-soft); }
+  .side-nav[open] { display: flex; flex-direction: column; gap: 14px; animation: slide-in 0.18s ease-out; }
+  .side-nav::backdrop { background: rgb(2 6 23 / 55%); }
+  @keyframes slide-in { from { transform: translateX(-100%); } to { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .side-nav[open] { animation: none; } }
+  .side-top { display: flex; justify-content: space-between; }
+  .theme-btn .i-sun { display: none; }
+  .theme-btn[data-current='dark'] .i-sun { display: block; }
+  .theme-btn[data-current='dark'] .i-moon { display: none; }
+  .search input {
+    width: 100%; font: inherit; color: var(--text); background: var(--surface);
+    border: 1px solid var(--field-border); border-radius: 10px; padding: 10px 12px;
+  }
+  .page-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+  .page-list li[hidden] { display: none; }
+  .page-list a { display: grid; gap: 2px; padding: 10px 12px; border-radius: 10px; color: var(--text); text-decoration: none; }
+  .page-list a:hover { background: var(--surface-2); }
+  .page-list a[aria-current='page'] { background: var(--accent-soft); }
+  .page-list a[aria-current='page'] .pl-name { color: var(--accent); }
+  .pl-name { font-weight: 600; }
+  .pl-desc { font-size: 0.85rem; color: var(--muted); }
+  .no-match { color: var(--muted); margin: 0 12px; }
   .site-footer { border-top: 1px solid var(--border); color: var(--muted); padding: 20px 0 32px; font-size: 0.9rem; }
 </style>

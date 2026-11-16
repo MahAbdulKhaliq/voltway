@@ -204,7 +204,7 @@
   "wheel.useOfficial": "Official rating exists: switch to the {trim} trim",
   "charging.pickedCar": "{year} {make} {model} · {variant}",
   "car.details": "Car figures and assumptions",
-  "car.detailsHelp": "The figures behind the charging maths. Change the wheel size to see its rough effect.",
+  "car.detailsHelp": "The figures behind the charging maths. If you pick another wheel size in the curve controls, range and efficiency here change to a rough estimate (~).",
   "car.trimCount.one": "1 trim",
   "car.trimCount.other": "{count} trims",
   "car.sourceCount.one": "1 source",
@@ -217,5 +217,13 @@
   "viewer.result.costNote": "{kwh} kWh drawn, including ~{loss}% charging losses (assumed)",
   "viewer.units": "Distance",
   "nav.menu": "Menu",
-  "nav.close": "Close menu"
+  "nav.close": "Close menu",
+  "nav.charging.desc": "Charging curves, times and cost for one car",
+  "nav.charging.keywords": "curve charge time speed kw cost price calculator dcfc fast",
+  "nav.cars.desc": "Every car, grouped by make and model",
+  "nav.cars.keywords": "vehicles models list browse specs database",
+  "nav.search": "Search pages",
+  "nav.noMatch": "No pages match.",
+  "theme.toDark": "Switch to dark theme",
+  "theme.toLight": "Switch to light theme"
 }

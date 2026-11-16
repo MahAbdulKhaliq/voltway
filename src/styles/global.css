@@ -1,47 +1,72 @@
 /* Voltway base styles: a clean consumer surface, data-rich underneath (database-ui.md §8).
    Colours are tokens; dark mode follows the device setting. */
 
+/* Slate + blue (owner decision B20). Every text/control pair passes WCAG AA in both themes;
+   tests/contrast.test.ts reads these blocks and fails the build if one doesn't.
+   --border is decorative (cards, dividers); --field-border outlines controls (3:1). */
 :root {
-  --bg: #f7f8f6;
-  --surface: #ffffff;
-  --surface-2: #eef1ec;
-  --text: #17201b;
-  --muted: #5b665f;
-  --border: #d9dfd8;
-  --accent: #0b7a53;
-  --accent-ink: #ffffff;
-  --accent-soft: #dff2e9;
-  --warn: #9a5b00;
-  --warn-soft: #fff1d6;
-  --estimated: #6b4fa0;
-  --estimated-soft: #efe9f8;
-  --unknown: #8a938d;
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-2: #F1F5F9;
+  --text: #0F172A;
+  --muted: #475569;
+  --border: #E2E8F0;
+  --field-border: #64748B;
+  --accent: #1D4ED8;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #DBEAFE;
+  --warn: #92400E;
+  --warn-soft: #FEF3C7;
+  --estimated: #6D28D9;
+  --estimated-soft: #EDE9FE;
+  --unknown: #526175;
   --radius: 12px;
-  --shadow: 0 1px 2px rgb(16 24 20 / 6%), 0 4px 16px rgb(16 24 20 / 5%);
+  --shadow: 0 1px 2px rgb(15 23 42 / 6%), 0 4px 16px rgb(15 23 42 / 5%);
   --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   color-scheme: light;
 }
 
+/* Dark: the device setting, unless the visitor picked light (data-theme on <html>, B20). */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f1412;
-    --surface: #161d1a;
-    --surface-2: #1d2622;
-    --text: #e7ece9;
-    --muted: #9aa6a0;
-    --border: #2b3632;
-    --accent: #3fcf96;
-    --accent-ink: #062016;
-    --accent-soft: #163428;
-    --warn: #f0b354;
-    --warn-soft: #3a2a0d;
-    --estimated: #b9a2e6;
-    --estimated-soft: #2a2238;
-    --unknown: #7c8782;
-    --shadow: 0 1px 2px rgb(0 0 0 / 30%);
+  :root:not([data-theme="light"]) {
+    --bg: #0B1120;
+    --surface: #111827;
+    --surface-2: #1F2937;
+    --text: #E5E7EB;
+    --muted: #A1AAB8;
+    --border: #273244;
+    --field-border: #6B7280;
+    --accent: #60A5FA;
+    --accent-ink: #0B1120;
+    --accent-soft: #172F52;
+    --warn: #FBBF24;
+    --warn-soft: #33260A;
+    --estimated: #C4B5FD;
+    --estimated-soft: #2A1E4A;
+    --unknown: #9CA3AF;
+    --shadow: 0 1px 2px rgb(0 0 0 / 40%);
     color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1120;
+  --surface: #111827;
+  --surface-2: #1F2937;
+  --text: #E5E7EB;
+  --muted: #A1AAB8;
+  --border: #273244;
+  --field-border: #6B7280;
+  --accent: #60A5FA;
+  --accent-ink: #0B1120;
+  --accent-soft: #172F52;
+  --warn: #FBBF24;
+  --warn-soft: #33260A;
+  --estimated: #C4B5FD;
+  --estimated-soft: #2A1E4A;
+  --unknown: #9CA3AF;
+  --shadow: 0 1px 2px rgb(0 0 0 / 40%);
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -151,3 +176,5 @@ details.acc[open] > summary::after { transform: rotate(-135deg) translate(-2px, 
   .acc-body { padding: 0 14px 14px; }
   .card { padding: 14px; }
 }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

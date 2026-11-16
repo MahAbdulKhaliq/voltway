@@ -146,6 +146,31 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const curveField: Field = defaultCurve
     ? { value: { value: 0, kind: defaultCurve.kind, source_id: defaultCurve.source_id, notes: defaultCurve.basis ?? defaultCurve.notes }, others: [], conflict: false }
     : null;
+  // Wheel size (B13), shown with the curve controls since it changes range and km added (B20).
+  const wheelControl = (
+    <label className="wheel-pick">
+      <span>{t('wheel.label')}</span>
+      {baseIn !== null && wheelEffect ? (
+        <>
+          <select value={chosenIn ?? ''} onChange={(e) => setWheelIn(Number(e.target.value))}>
+            {sizes.map((n) => (
+              <option key={n} value={n}>
+                {n === baseIn ? t('wheel.rated', { size: n }) : factorySizes.has(n) ? t('wheel.factory', { size: n }) : t('wheel.option', { size: n })}
+              </option>
+            ))}
+          </select>
+          {adjusting
+            ? <span className="control-note">{t('wheel.change', { pct: (factor >= 1 ? '+' : '') + pct(factor - 1) })}</span>
+            : baseWheel?.tire_size && <span className="control-note">{t('wheel.tire', { tire: baseWheel.tire_size })}</span>}
+          {officialTrim && (
+            <button type="button" className="control-note linkish" onClick={() => setTrimId(officialTrim.id)}>{t('wheel.useOfficial', { trim: trimLabel(officialTrim.name, car?.name ?? '') })}</button>
+          )}
+        </>
+      ) : (
+        <span className="unknown" title={t('wheel.unknownHelp')}>{t('badge.unknown')}</span>
+      )}
+    </label>
+  );
   const d = car?.derived;
   const distance = (km: number) => t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(km, unit)) });
   const sources = car?.sources ?? [];
@@ -209,6 +234,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
             <h2 id="curve">{t('car.curve')}</h2>
             {car.curves.length ? (
               <CurveViewer
+                extraControls={wheelControl}
                 key={car.id}
                 curves={car.curves}
                 usableKwh={(battery?.value.value as number) ?? null}
@@ -228,26 +254,6 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
             <div className="tiles">
               <div className="tile card"><p className="tl">{t('tile.range')}</p><div className="tv"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={adjusting} />{ratedLine('range_km')}</div></div>
               <div className="tile card"><p className="tl">{t('tile.efficiency')}</p><div className="tv"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={adjusting} />{ratedLine('consumption_combined_wh_per_km')}</div></div>
-              <div className="tile card wheels"><p className="tl">{t('wheel.label')}</p><div className="tv">
-                {baseIn !== null && wheelEffect ? (
-                  <>
-                    <select value={chosenIn ?? ''} onChange={(e) => setWheelIn(Number(e.target.value))} aria-label={t('wheel.label')}>
-                      {sizes.map((n) => (
-                        <option key={n} value={n}>
-                          {n === baseIn ? t('wheel.rated', { size: n }) : factorySizes.has(n) ? t('wheel.factory', { size: n }) : t('wheel.option', { size: n })}
-                        </option>
-                      ))}
-                    </select>
-                    {baseWheel?.tire_size && <span className="rated">{t('wheel.tire', { tire: baseWheel.tire_size })}</span>}
-                    {adjusting && <span className="rated">{t('wheel.change', { pct: (factor >= 1 ? '+' : '') + pct(factor - 1) })}</span>}
-                    {officialTrim && (
-                      <button type="button" className="linkish" onClick={() => setTrimId(officialTrim.id)}>{t('wheel.useOfficial', { trim: trimLabel(officialTrim.name, car?.name ?? '') })}</button>
-                    )}
-                  </>
-                ) : (
-                  <><span className="unknown">{t('badge.unknown')}</span><span className="rated">{t('wheel.unknownHelp')}</span></>
-                )}
-              </div></div>
               <div className="tile card"><p className="tl">{usable ? t('tile.battery') : t('tile.batteryGross')}</p><div className="tv"><Value field={battery} sources={sources} label={t('tile.battery')} unit={unit} /></div></div>
               <div className="tile card"><p className="tl">{t('tile.dcPeak')}</p><div className="tv"><Value field={f.dc_max_kw ?? null} sources={sources} label={t('tile.dcPeak')} unit={unit} /></div></div>
               <div className="tile card"><p className="tl">{t('tile.time1080')}</p><div className="tv">
@@ -321,7 +327,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
         .explorer { display: grid; gap: 24px; }
         .explorer .selects { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
         .explorer .selects label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
-        .explorer .selects select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; width: 100%; min-width: 0; text-overflow: ellipsis; }
+        .explorer .selects select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 8px 10px; width: 100%; min-width: 0; text-overflow: ellipsis; }
         .explorer .selects select:disabled { opacity: 0.6; }
         .explorer .eyebrow { margin: 0 0 4px; font-size: 0.9rem; }
         .explorer .variant { color: var(--muted); font-weight: 500; }
@@ -336,7 +342,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
         .explorer .tv .badge { font-weight: 400; }
         .explorer .linkish { display: block; margin-top: 6px; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: 0.8rem; font-weight: 600; text-align: left; cursor: pointer; text-decoration: underline; }
         .explorer .rated { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-top: 4px; }
-        .explorer .wheels select { font: inherit; font-size: 1rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 4px 8px; width: 100%; }
+        .explorer .wheels select { font: inherit; font-size: 1rem; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 4px 8px; width: 100%; }
         .explorer .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 12px; }
         .explorer .spec-grid th { width: 46%; }
         .explorer tr.current td:first-child { font-weight: 650; }

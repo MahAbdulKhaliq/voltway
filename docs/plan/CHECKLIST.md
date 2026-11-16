@@ -1,7 +1,11 @@
-# Phase 1 build checklist
+# Phase 1 build checklist (1a before the map, 1b after: B21)
 
 Built from [DESIGN.md](DESIGN.md). Planning docs: `G:\Work\Ideating\EV-App-Planning` (detailed docs win over overview.md).
 Tick an item only when its **Done when** is verified. Note skipped or stubbed work inline.
+
+**Build split (owner decision B21, 2026-11-15).** Items tagged **[1a]** are finished before the charger map (Phase 2) starts; items tagged **[1b]** come after the map. Phase 2 build starts once every [1a] item is ticked and QA (9.1) passes on them.
+- **[1a] before the map:** 1.6 (to its done bar; deeper research continues later), 1.8, 4.2, 4.3, 7.1, 7.2, 8.1, 9.1
+- **[1b] after the map:** 2.2, 5.1, 5.2, 6.1
 
 ---
 
@@ -51,7 +55,7 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
   - Done when: suggestions are written with `confirmed=false`; unmatched records are listed; the owner has confirmed the starter-set rows; the build ignores unconfirmed rows (tested).
   - Progress 2026-11-15: `scripts/lib/match.ts` + `scripts/suggest-matches.ts` done (12 tests). Proposed starter set in `crosswalk/starter-set.json` (25 models → 84 proposed variants); `crosswalk/suggestions.csv` (all `confirmed=false`) and `crosswalk/REVIEW.md` generated, incl. "no candidate found" lines for unmatched variants. **Waiting on:** owner review of REVIEW.md (starter list, variant grouping, matches) and the onboard-charger question. "Build ignores unconfirmed rows" is tested in 1.7.
   - Verified 2026-11-16: owner confirmed the starter rows (B8; 197 rows `confirmed=true` in `crosswalk/crosswalk.csv`); `tests/build.test.ts` "ignores unconfirmed crosswalk rows" passes. Stale matches withdrawn under B9 (IONIQ 5 Long Range).
-- [ ] **1.6 Starter set + hand entry**
+- [ ] **[1a] 1.6 Starter set + hand entry**
   - Files: `data/makes/`, `data/models/`, `data/variants/`, `data/curves/`, `data/sources/`
   - Done when: the owner has approved the ~25-car list; each car has every MVP field filled or explicitly `"unknown"`; each hand-entered figure cites a specific-page source.
   - Progress 2026-11-15: owner approved the starter set, grouping and matches (B8), plus B6 and B7. `scripts/create-starter-records.ts` generated 13 makes, 25 models, 84 variant skeletons (one trim per NRCan row) and 197 confirmed crosswalk rows (NRCan rows linked to their trim via `our_trim_id`). 19 variants have drivetrain `"unknown"` until hand entry. F-150 Lightning ER split into `-123-kwh` / `-131-kwh` ids (pack size added to slugs). Hand entry started: 2026 IONIQ 5 Long Range variants (port, Supercharger access, heat pump, 84.0 kWh gross, 10–80% claim) from Hyundai Canada; their stale OpenEV 2025 / Chargeprice 2021 matches dropped under B9. **Still to do:** hand entry for the other models (see `npm run gaps`), plus IONIQ 5 usable kWh, DC kW and voltage from a 2025+ source. **Paused 2026-11-15** (owner out of usage): owner wants rough quick web lookups, not deep research. Applied: `research/hyundai-2026.json`. Found but not applied: `research/NOTES.md` (Kia, IONIQ 6, GM). Next: apply NOTES.md findings, then look up the remaining models listed there.
@@ -63,6 +67,9 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
   - Files: `scripts/build-data.ts`, `src/lib/precedence.ts`, `src/lib/estimated-curve.ts`, `public/data/index.json`, `public/data/cars/*.json`
   - Done when: `npm run build` writes the index + one file per car; tests cover precedence order (incl. direct OEM > tested > via OpenEV > Chargeprice), the >5% conflict flag, estimated curves never default when a measured curve exists, and `sold_in_canada` derived from confirmed NRCan rows.
   - Verified 2026-11-16: `npm run build` writes public/data/index.json + 84 car files (9 tested and 51 estimated default curves; 24 cars have no DC peak yet, so no curve). 20 build tests: precedence for range/spec/fact groups incl. B4, WLTP never default, >5 % and fact conflicts, estimated never default when measured exists, sold_in_canada from confirmed NRCan rows, unconfirmed rows ignored, every cited source exists. Files live in `scripts/lib/build.ts`, `src/lib/estimated-curve.ts`, `src/lib/types.ts`. Gross-capacity fallback noted in DESIGN.md.
+- [ ] **[1a] 1.8 EV6 Chargeprice match** (owner decision)
+  - Files: `crosswalk/crosswalk.csv`, planning `gaps-and-questions.md`
+  - Done when: the owner has decided whether `kia/ev6/2025/light` and `wind` stay matched to Chargeprice's "EV6 GT" record (it gives the 63 kWh Light 80 kWh usable and the EV6 a 400 V class), the crosswalk reflects it, and `npm run data:build` shows no variant with usable > gross.
 
 ## Phase 2: Charging maths + calibration
 
@@ -70,7 +77,7 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
   - Files: `src/lib/charging.ts`, `tests/charging.test.ts`
   - Done when: tests pass for a flat curve (time = kWh/kW), a charger cap (lost time > 0), linear interpolation between points, 0%/100% edges, and km per 10 min.
   - Verified 2026-11-15: 18 tests pass, incl. the QA.md hand example (49 kWh, 29.4 min, 58.8 min on 50 kW, ≈83.3 km/10 min), the exact ln 3 integral for a linear curve, partial charger caps, minutes above 100/150/200 kW, start = end, 0→100 %, non-step-aligned windows, unknown consumption, and rejected inputs. Midpoint rule over 0.5 % steps; no loss factor (C9); estimated results rounded to 5 min by `displayMinutes`.
-- [ ] **2.2 Template calibration**
+- [ ] **[1b] 2.2 Template calibration**
   - Files: `scripts/calibrate.ts`, planning `charging-curve-viewer.md` §9
   - Done when: the calibration report is shown to the owner, the owner approves the tuned numbers, and they are recorded in §9 and used by `estimated-curve.ts`.
 
@@ -94,30 +101,33 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 - [x] **4.1 Car pages** — `src/pages/cars/[...id].astro`. Done when: one static page per variant at `/cars/make/model/year/variant`, key tiles with badges, specs, trims, sources.
   - Verified 2026-11-16: 84 static pages at /cars/make/model/year/variant; sibling variants as links (no separate trim selector: trims are shown in a table), six key tiles with badges, grouped specs, trims table (per-trim NRCan range, heat pump), sources list, not-sold-in-Canada banner. Home page lists every car until Phase 5.
   - **Changed 2026-11-16 (owner decision B11):** per-variant pages replaced by the **Charging tab** (`/charging`, also the home page): Make → Model → Year → Variant → Trim dropdowns, key figures, curve viewer, specs, trims, sources on one screen; URL follows the choice. **Cars tab** (`/cars`) lists make → model accordions linking into Charging. Old `/cars/<id>` links redirect. Files: `src/components/CarExplorer.tsx`, `src/components/react/Badge.tsx`, `src/components/ChargingPage.astro`, `src/pages/{index,charging}.astro`, `src/pages/cars/index.astro`, `src/pages/cars/[...id].astro`.
-- [ ] **4.2 Curve viewer island** — `src/components/CurveViewer.tsx`. Done when: every MVP item in charging-curve-viewer.md §2, §4, §5 works in the browser (checked manually).
+- [ ] **[1a] 4.2 Curve viewer island** — `src/components/CurveViewer.tsx`. Done when: every MVP item in charging-curve-viewer.md §2, §4, §5 works in the browser (checked manually).
   - Progress 2026-11-16: `src/components/CurveViewer.tsx` works in the browser: curve dropdown, SoC sliders, presets 50–350 kW + custom + No limit, range basis, SoC/time toggle, results panel (time, km added, km/10 min, average kW, lost to charger limit, curve source), More detail (peak, minutes above 100/150/200 kW, raw points table, conditions, basis), warm-battery note, estimated banner with explanation, dashed estimated line, ~ rounding, km/mi live. **Not done:** draggable window guides on the chart (the sliders set the window instead).
+- [ ] **[1a] 4.3 Trim range estimate** (B13 applied to the Trims table)
+  - Files: `src/components/CarExplorer.tsx`, `src/lib/wheel-effect.ts`
+  - Done when: a trim with no rating of its own but different wheels shows an estimated range ("~", Estimated badge, wheel basis) instead of "Same as variant"; trims with their own rating keep it.
 
 ## Phase 5: Browse + picker
 
-- [ ] **5.1 Browse** — `src/pages/cars/index.astro` (now the Cars tab accordions, B11), `src/components/Browse.tsx`. Filters and sorting get added to the Cars tab. Done when: cards/table, all MVP filters and sorts in database-ui.md §4, Canada on by default.
-- [ ] **5.2 First-load picker + My car** — Done when: search and step pickers work, "Just browsing" skips, My car persists and drives the header chip and default car.
+- [ ] **[1b] 5.1 Browse** — `src/pages/cars/index.astro` (now the Cars tab accordions, B11), `src/components/Browse.tsx`. Filters and sorting get added to the Cars tab. Done when: cards/table, all MVP filters and sorts in database-ui.md §4, Canada on by default.
+- [ ] **[1b] 5.2 First-load picker + My car** — Done when: search and step pickers work, "Just browsing" skips, My car persists and drives the header chip and default car.
 
 ## Phase 6: Compare
 
-- [ ] **6.1 Compare screen** — `src/pages/compare.astro`, `src/components/Compare.tsx`. Done when: every item in database-ui.md §6 and charging-curve-viewer.md §6 works.
+- [ ] **[1b] 6.1 Compare screen** — `src/pages/compare.astro`, `src/components/Compare.tsx`. Done when: every item in database-ui.md §6 and charging-curve-viewer.md §6 works.
 
 ## Phase 7: About & polish
 
-- [ ] **7.1 About & sources** — Done when: every required license credit is shown.
-- [ ] **7.2 Accessibility + phone layout** — Done when: charts have a table view, best values use icon + bold, tables stack at phone width.
+- [ ] **[1a] 7.1 About & sources** — Done when: every required license credit is shown.
+- [ ] **[1a] 7.2 Accessibility + phone layout** — Done when: charts have a table view, best values use icon + bold, tables stack at phone width. (B21: "best values use icon + bold" moves with Compare to 6.1 [1b].)
   - Progress 2026-11-15 (B18): Charging tab collapsed into accordions (vehicle picker with car preview, curve first, then Car figures and assumptions, Specifications, Trims, numbered Sources); Wikipedia-style [n] source references; curve controls no longer overlap, two per row on phones. Checked at 375 px and desktop width.
   - Progress 2026-11-15 (B19): price per kWh input (default C$0.45, Canadian Supercharger typical) and cost result (energy ÷ 0.92 assumed DC efficiency × price); km/mi switch moved into the curve controls; header shows a hamburger menu of pages. Checked at 375 px and desktop width.
   - Progress 2026-11-15 (B20): slate + blue palette, light and dark, WCAG AA enforced by `tests/contrast.test.ts`; theme toggle (follows device until picked, saved, no flash); menu button top left opens a side panel with theme toggle, page search and pages; wheel-size picker moved into the curve controls. Checked at 375 px and desktop, both themes.
 
 ## Phase 8: Data refresh automation
 
-- [ ] **8.1 Scheduled checks** — `.github/workflows/data-refresh.yml`. Done when: a manual run opens a PR when the NRCan/OpenEV copy differs, and does nothing when it doesn't.
+- [ ] **[1a] 8.1 Scheduled checks** — `.github/workflows/data-refresh.yml`. Done when: a manual run opens a PR when the NRCan/OpenEV copy differs, and does nothing when it doesn't.
 
 ## Phase 9: Independent QA
 
-- [ ] **9.1** Run the `qa-reviewer` subagent against `docs/plan/QA.md`; fix findings; re-run on fixed items.
+- [ ] **[1a] 9.1** Run the `qa-reviewer` subagent against `docs/plan/QA.md`; fix findings; re-run on fixed items.

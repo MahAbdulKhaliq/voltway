@@ -15,7 +15,7 @@ The full design lives **outside this repo** in `G:\Work\Ideating\EV-App-Planning
 
 - **Don't change design decisions on your own.** If something in the docs doesn't work in practice, tell the owner and propose a change. The owner decides.
 - **When the owner approves a change,** update the matching planning doc **and** `gaps-and-questions.md` (with the date), then `docs/plan/DESIGN.md` / `CHECKLIST.md` if affected.
-- **Build in phases, in `roadmap.md` order.** Current scope: **Phase 1 only** (vehicle database + charging curves). Do not build the map or the route planner yet, and hide links to parts that don't exist.
+- **Build in phases, in `roadmap.md` order.** Current scope: **Phase 1a** (vehicle database + charging curves, the items tagged [1a] in `CHECKLIST.md`). Owner decision B21: the charger map (Phase 2) starts once Phase 1a passes QA; Phase 1b (Cars filters, first-load picker + My car, Compare, template calibration) follows the map. Do not build the map or the route planner before then, and hide links to parts that don't exist.
 - **Data layer before UI:** schema, importers (NRCan, OpenEV Data, Chargeprice) and the crosswalk table come before any screens.
 - **No bare numbers.** Every vehicle figure is a sourced value with `value`, `unit`, `kind` and `source_id` (`vehicle-data-model.md` §3). "unknown" is an allowed value. The build must fail on an unsourced figure.
 - **All on-screen text is translatable.** No hard-coded user-facing strings in components or pages: use the i18n dictionary (`src/i18n/`). English for v1; French later.

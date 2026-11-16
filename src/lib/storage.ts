@@ -57,4 +57,8 @@ export const KEYS = {
   theme: 'voltway.theme',
   mapView: 'voltway.mapView',
   mapFilters: 'voltway.mapFilters',
+  myCar: 'voltway.myCar',
+  compare: 'voltway.compare',
+  browse: 'voltway.browse',
+  mapCarNudge: 'voltway.mapCarNudge',
 } as const;

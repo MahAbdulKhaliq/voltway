@@ -102,6 +102,11 @@ export interface IndexEntry {
   voltage_class: string | null;
   heat_pump: string[];          // distinct trim heat-pump values
   chemistry: string | null;
+  /** Combined consumption (Wh/km), for the efficiency sort. */
+  consumption_wh_per_km: number | null;
+  supercharger_access: string | null;
+  /** Trim names and aliases, for search. */
+  trims: string[];
   curve_kind: CurveOut['kind'] | null;
   derived: Derived;
 }

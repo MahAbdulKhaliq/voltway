@@ -397,6 +397,9 @@ export function buildCars(root: string): BuildResult {
     voltage_class: str(c.fields.nominal_voltage_class),
     heat_pump: [...new Set(c.trims.map((t) => (t.heat_pump ? String(t.heat_pump.value.value) : 'unknown')))],
     chemistry: str(c.fields.chemistry),
+    consumption_wh_per_km: num(c.fields.consumption_combined_wh_per_km),
+    supercharger_access: str(c.fields.supercharger_access),
+    trims: [...new Set(c.trims.flatMap((t) => [t.name, ...(t.aliases ?? [])]))],
     curve_kind: c.curves.find((x) => x.is_display_default)?.kind ?? null,
     derived: c.derived,
   }));

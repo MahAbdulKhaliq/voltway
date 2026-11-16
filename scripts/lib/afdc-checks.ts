@@ -1,5 +1,5 @@
 // Sanity checks for a new AFDC import against the last committed one, plus a
-// change summary for the daily refresh PR (DESIGN-map.md M3, charger-map.md §3).
+// change summary for the refresh PR (DESIGN-map.md M3, charger-map.md §3).
 // The refresh PR merges itself on green (B27), so these checks are the gate:
 // a failed check stops the import and leaves the committed file as it was.
 

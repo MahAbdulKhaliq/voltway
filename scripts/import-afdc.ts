@@ -5,7 +5,7 @@
 // Before writing, the new result is checked against the committed file
 // (scripts/lib/afdc-checks.ts). A failed check writes nothing to data/ and exits 1.
 // Either way a change summary goes to sources/afdc-ca/summary.md (git-ignored),
-// which the daily refresh workflow uses as the PR body.
+// which the refresh workflow uses as the PR body.
 // `--skip-checks` writes anyway (owner override after a real, reviewed drop).
 
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -45,7 +45,7 @@ const result = checkAfdc(prev, next);
 writeFileSync(summaryFile, summaryMarkdown(result, meta.fetched_at));
 
 // In GitHub Actions, tell the refresh workflow whether the checks passed and whether any
-// station changed (the header's fetch date changes every day, so a plain git diff can't tell).
+// station changed (the header's fetch date changes on every pull, so a plain git diff can't tell).
 const t = result.totals;
 const changedCount = t.added.L3 + t.added.L2 + t.removed.L3 + t.removed.L2 + t.changed.L3 + t.changed.L2;
 if (process.env.GITHUB_OUTPUT) {

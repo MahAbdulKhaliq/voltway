@@ -100,7 +100,7 @@ From the other Phase 1 docs:
 
 Phase 1's static setup shouldn't block later phases:
 
-- **Phase 2, charger map:** about 15,000 Canadian charger locations (see data-sources.md) is still small enough to serve as **static files**, refreshed daily or weekly by a scheduled action. The real question is **map tiles** (S3).
+- **Phase 2, charger map:** about 15,000 Canadian charger locations (see data-sources.md) is still small enough to serve as **static files**, refreshed monthly by a scheduled action (B36). The real question is **map tiles** (S3).
 - **Phase 3, routing:** needs a **routing engine** and probably **elevation data**. Those can't be static. It will most likely mean a **free tier of a hosted routing API**, or a small server. That's where "free" gets tested (S3).
 - **When server code is needed (Phase 3),** it becomes **Vercel Functions** in the same project. They deploy with the site, with no separate service or account.
 
@@ -127,7 +127,7 @@ One of the owner's goals is to **learn something new** with this project. The st
 | **Vercel:** deploys from GitHub, preview deployments, project settings | Phase 1, from day one |
 | **Astro:** static pages per car, interactive "islands" (curve viewer, filters) | Phase 1 |
 | **Data as code:** JSON Schema validation, import scripts, a crosswalk table | Phase 1 data layer |
-| **GitHub Actions:** scheduled jobs that open pull requests | Phase 1 updates, Phase 2 daily charger pull |
+| **GitHub Actions:** scheduled jobs that open pull requests | Phase 1 updates, Phase 2 monthly charger pull |
 | **Charting:** lines, shaded areas and overlays in ECharts or Chart.js | Phase 1 curve viewer |
 | **Web maps:** MapLibre, vector tiles, clustering | Phase 2 |
 | **Serverless functions:** Vercel Functions, secret keys in environment variables, CDN caching headers, rate limiting | Phase 3 |

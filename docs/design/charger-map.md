@@ -56,7 +56,7 @@ From [data-sources.md](data-sources.md) §5. The fields this design uses:
 
 ### Pipeline (same static pattern as Phase 1)
 ```
-Scheduled GitHub Action (daily)
+Scheduled GitHub Action (monthly, B36; also by hand)
    → pull all Canadian electric stations from AFDC
    → keep public Level 2 / Level 3, drop Level 1-only and private
    → assign level and plugs per station, keeping each port's rated kW for the range filter (rules in vision.md)
@@ -67,12 +67,12 @@ Scheduled GitHub Action (daily)
 **Size:** about 15,000 Canadian charging locations (NRCan reported ~14,700 in March 2026). As compact map data that's a few MB, so it can ship as **static files**. If it gets large, split it into one Level 2 file and one Level 3 file, so Level 3 (the smaller set, more often wanted) loads first.
 
 ### Automatic checks instead of human review
-Phase 1's rule is "a person approves every change". That doesn't work for thousands of stations changing daily, so the map relies on **automatic checks**:
+Phase 1's rule is "a person approves every change". That doesn't work for thousands of stations changing between pulls, so the map relies on **automatic checks**:
 - **Stop the update** if the station count drops by more than **10%** from the last good pull (likely an API problem, not real closures).
 - **Stop the update** if required fields go missing across many stations.
 - Otherwise, publish automatically and log what changed.
 
-**How it goes live (B27, 2026-11-16):** the daily Action opens a pull request with the change summary, runs the full CI steps itself, and **merges it automatically** when the sanity checks and CI pass. If anything fails, the PR stays open and the run fails so the owner is notified. This exception to "a person approves" covers charger data only; vehicle data keeps human review.
+**How it goes live (B27, 2026-11-16):** the scheduled Action (monthly since B36) opens a pull request with the change summary, runs the full CI steps itself, and **merges it automatically** when the sanity checks and CI pass. If anything fails, the PR stays open and the run fails so the owner is notified. This exception to "a person approves" covers charger data only; vehicle data keeps human review.
 
 ### Open Charge Map: later, not v1 (N7) ✅
 - **v1 uses AFDC only.** One source keeps the data simple and avoids duplicate stations.

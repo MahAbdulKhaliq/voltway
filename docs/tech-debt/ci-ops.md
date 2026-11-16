@@ -20,9 +20,9 @@
 - **Impact:** the map's tiles come from OpenFreeMap, a free service with no uptime promise. If it goes down or changes terms, the map shows pins on a blank background (or the "map couldn't load" message).
 - **Fix:** host a Protomaps PMTiles extract of Canada on Cloudflare R2 (free tier) and point `MAP.styleUrl` / `MAP.darkStyleUrl` in `src/config.ts` at it. It's a config change by design; nothing is set up yet. Needs an owner step (R2 account).
 
-### TD-O5 Repo growth from daily charger-data commits (watch item)
+### TD-O5 Repo growth from charger-data commits (watch item)
 - **Since:** 2026-11-16, Phase 2 plan (DESIGN-map.md M9).
-- **Impact:** each daily refresh commits `data/imported/afdc/stations.json` (~6.6 MB, one station per line) and `public/data/map/*.json`. Git stores changed files whole (compressed), so busy days add up to a few MB each. Over a year that could make clones slow.
+- **Impact:** each refresh (monthly since B36, so about 12 a year) commits `data/imported/afdc/stations.json` (~6.6 MB, one station per line) and `public/data/map/*.json`. Git stores changed files whole (compressed), so each refresh adds a few MB. Monthly, that is slow growth.
 - **Fix:** check repo size every few months (`git count-objects -vH`). If it grows fast: commit only on real station changes (already the rule for merging), stop committing the built `public/data/map` files and build them on Vercel instead, or move the data to a separate repo or Git LFS.
 
 ### TD-O6 A blocked charger PR stays open through later quiet days

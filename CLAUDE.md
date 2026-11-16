@@ -21,7 +21,7 @@ The full design lives in **`docs/design/`** (moved into the repo 2026-11-15 so d
 - **No bare numbers.** Every vehicle figure is a sourced value with `value`, `unit`, `kind` and `source_id` (`vehicle-data-model.md` §3). "unknown" is an allowed value. The build must fail on an unsourced figure.
 - **All on-screen text is translatable.** No hard-coded user-facing strings in components or pages: use the i18n dictionary (`src/i18n/`). English for v1; French later.
 - **Metric internally,** convert to miles only on screen. Derived numbers (10–80% time, km per 10 min) are calculated, never stored.
-- **Automation suggests, a person approves.** Crosswalk matches are confirmed by the owner; no outside data goes live without review. *Exception (B27):* the daily charger-map data merges itself once its automatic sanity checks and CI pass.
+- **Automation suggests, a person approves.** Crosswalk matches are confirmed by the owner; no outside data goes live without review. *Exception (B27):* the monthly (B36) charger-map data refresh merges itself once its automatic sanity checks and CI pass.
 
 ## Stack (decided in `phase1-stack.md`)
 

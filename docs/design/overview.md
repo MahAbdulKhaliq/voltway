@@ -59,7 +59,7 @@ Each phase ships on its own. The header gains **Map** and **Trip** as they're bu
 
 ## 4. Phase 2: Charger map
 
-- **Data:** NLR (formerly NREL) AFDC (covers Canada), **pulled daily** and published as static files, about 15,000 locations. Automatic checks stop a bad update (for example a >10% drop in stations).
+- **Data:** NLR (formerly NREL) AFDC (covers Canada), **pulled monthly** (B36) and published as static files, about 15,000 locations. Automatic checks stop a bad update (for example a >10% drop in stations).
 - **Map:** MapLibre + **OpenFreeMap** tiles (free, no key), with self-hosted Protomaps as a fallback. **Covers all of Canada.**
 - **Filters:** Level 3 (shown by default) / Level 2 → **a kW range slider per level** (B35; unknown power shows at the full range) → plugs (CCS1, NACS, CHAdeMO, J1772) → "**Chargers my car can use**".
 
@@ -89,7 +89,7 @@ Each phase ships on its own. The header gains **Map** and **Trip** as they're bu
                 ┌──────── Public git repository (data + code) ────────┐
                 │ NRCan · OpenEV Data · Chargeprice · hand entry      │
                 │ → import → match → precedence → schema checks       │
-                │ AFDC chargers → daily pull → automatic checks       │
+                │ AFDC chargers → monthly pull → automatic checks       │
                 └───────────────────────┬─────────────────────────────┘
                                         ▼  build (GitHub Actions)
           ┌────────────────── Static website (Astro, Vercel) ──────────────────────┐

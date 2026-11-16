@@ -35,6 +35,7 @@ type Preset = 'none' | '50' | '100' | '150' | '250' | '350' | 'custom';
 interface Settings { start: number; end: number; preset: Preset; customKw: number; price: number }
 
 const PRESETS: Preset[] = ['none', '50', '100', '150', '250', '350', 'custom'];
+const GRAB_PX = 12; // how close (px) a pointer must be to grab a window guide
 const DEFAULTS: Settings = { start: 10, end: 80, preset: 'none', customKw: 120, price: COST.defaultPricePerKwh };
 
 const cssVar = (name: string, fallback: string) =>
@@ -50,6 +51,10 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
   const [themeTick, setThemeTick] = useState(0);
   const chartEl = useRef<HTMLDivElement>(null);
   const chart = useRef<echarts.ECharts | null>(null);
+  // Draggable window guides (§5): pointer handlers are wired once and read the latest state here.
+  const live = useRef({ start: settings.start, end: settings.end, xAxis });
+  live.current = { start: settings.start, end: settings.end, xAxis };
+  const dragging = useRef<'start' | 'end' | null>(null);
 
   // Remembered settings and units (browser only, after hydration).
   useEffect(() => {
@@ -97,10 +102,45 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
   const minutes = (m: number) => (estimated ? t('fmt.approxMin', { value: displayMinutes(m, true) }) : t('fmt.min', { value: displayMinutes(m, false) }));
   const distance = (km: number) => t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(km, unit)) });
 
+  // Grab a start/end guide within a few pixels and drag it; it moves the sliders (same settings).
+  const wireGuideDrag = (c: echarts.ECharts) => {
+    const zr = c.getZr();
+    const px = (soc: number) => (c.convertToPixel({ gridIndex: 0 }, [soc, 0]) as number[])[0];
+    const near = (x: number): 'start' | 'end' | null => {
+      const { start, end } = live.current;
+      const ds = Math.abs(px(start) - x);
+      const de = Math.abs(px(end) - x);
+      if (Math.min(ds, de) > GRAB_PX) return null;
+      if (ds === de) return x < px(start) ? 'start' : 'end'; // overlapping guides: pick by side
+      return ds < de ? 'start' : 'end';
+    };
+    zr.on('mousedown', (e) => {
+      if (live.current.xAxis === 'soc') dragging.current = near(e.offsetX);
+    });
+    zr.on('mousemove', (e) => {
+      if (live.current.xAxis !== 'soc') return;
+      if (!dragging.current) {
+        zr.setCursorStyle(near(e.offsetX) ? 'ew-resize' : 'default');
+        return;
+      }
+      const raw = (c.convertFromPixel({ gridIndex: 0 }, [e.offsetX, e.offsetY]) as number[])[0];
+      const soc = Math.round(Math.min(100, Math.max(0, raw)));
+      const { start, end } = live.current;
+      if (dragging.current === 'start') update({ start: Math.min(soc, end) });
+      else update({ end: Math.max(soc, start) });
+    });
+    const stop = () => { dragging.current = null; };
+    zr.on('mouseup', stop);
+    zr.on('globalout', stop);
+  };
+
   // Chart.
   useEffect(() => {
     if (!chartEl.current) return;
-    chart.current ??= echarts.init(chartEl.current, undefined, { renderer: 'canvas' });
+    if (!chart.current) {
+      chart.current = echarts.init(chartEl.current, undefined, { renderer: 'canvas' });
+      wireGuideDrag(chart.current);
+    }
     const accent = cssVar('--accent', '#0b7a53');
     const est = cssVar('--estimated', '#6b4fa0');
     const muted = cssVar('--muted', '#5b665f');

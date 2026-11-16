@@ -27,7 +27,7 @@ Design docs to write, in order:
 - Remaining non-blocking Phase 1 questions are in the gaps file (for example D10, D13–D16, C4, C11).
 - **Ready to build** whenever you start. Plan mode is the right tool then, to turn these docs into a step-by-step build plan.
 
-**Build split (2026-11-15, owner decision B21):** **Phase 1a** (About & sources, data gaps to "filled or unknown", EV6 match and trim-range fixes, draggable SoC guides, accessibility/phone pass, scheduled data check, then QA) is finished **before** the map. **Phase 1b** (Cars tab filters/sorts, first-load picker + My car, Compare, template calibration) follows the map. Phase 2 build starts once Phase 1a passes QA.
+**Build split (2026-11-15, owner decision B21):** **Phase 1a** (About & sources, data gaps to "filled or unknown", EV6 match and trim-range fixes, draggable SoC guides, accessibility/phone pass, scheduled data check, then QA) is finished **before** the map. **Phase 1b** (Cars tab filters/sorts, first-load picker + My car, Compare, template calibration) follows the map. Phase 2 build starts once Phase 1a passes QA. (B23, 2026-11-16: data gaps closed with the current data; further research is in `docs/plan/DATA-BACKLOG.md`.)
 
 ## Phase 2: Charger map
 

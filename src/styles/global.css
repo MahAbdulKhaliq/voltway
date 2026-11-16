@@ -123,6 +123,9 @@ th { font-weight: 600; color: var(--muted); font-size: 0.875rem; }
   .stack-table tr { display: block; border-bottom: 1px solid var(--border); padding: 6px 0; }
   .stack-table td { display: flex; justify-content: space-between; gap: 12px; border: 0; padding: 4px 0; }
   .stack-table td::before { content: attr(data-label); color: var(--muted); font-size: 0.875rem; }
+  /* A row that already has its own heading (th scope=row) doesn't repeat it on the value. */
+  .stack-table th[scope='row'] + td::before { content: none; }
+  .stack-table th[scope='row'] { display: block; border: 0; padding: 4px 0 0; color: var(--muted); font-size: 0.875rem; font-weight: 600; }
 }
 
 /* Source badges (shared by the Astro SourceBadge and the React Badge) */

@@ -1,5 +1,13 @@
 ---
-// Home = the Charging tab (decision B11).
-import ChargingPage from '../components/ChargingPage.astro';
+// Home = the charger map (B26). The Charging tab moved to /charging.
+import Base from '../layouts/Base.astro';
+import ChargerMap from '../components/ChargerMap.tsx';
+import { t } from '../i18n/t.ts';
+
+const text = { label: t('map.label'), loading: t('map.loading'), error: t('map.error') };
 ---
-<ChargingPage />
+<Base title={t('map.title')} description={t('nav.map.desc')} active="map" fill>
+  <h1 class="sr-only">{t('map.title')}</h1>
+  <ChargerMap client:only="react" text={text} />
+  <noscript><p class="banner">{t('map.error')}</p></noscript>
+</Base>

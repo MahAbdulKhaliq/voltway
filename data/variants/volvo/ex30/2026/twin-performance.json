@@ -14,6 +14,16 @@
       "notes": "Quick web lookup. Review states about 26 min 10-80% at a compatible station (153 kW peak); not specific to this trim."
     }
   ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 245,
+      "unit": "Wh/km",
+      "kind": "tested",
+      "source_id": "src-insideevs-nyland-ex30-twin-2024",
+      "low_confidence": true,
+      "notes": "Test: 75 mph (120 km/h) steady, 14 C (57 F), 20-inch wheels, battery-side (Nyland's registered consumption; page does not say explicitly) | Bjorn Nyland, 2024 EX30 Twin Motor Performance, 69 kWh gross (page says 64 kWh usable; our data says 66 kWh usable, same 69 kWh gross NMC pack). Page states 245 Wh/km (394 Wh/mile, 2.5 mi/kWh), range 267 km. Cool weather, so a mild-weather figure would be lower. Video ID L2aS-a81nIc not confirmed."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

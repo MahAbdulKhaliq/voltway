@@ -77,6 +77,26 @@
       "notes": "“As little as 20 minutes” on a 350 kW charger (best case)."
     }
   ],
+  "curb_weight_kg": [
+    {
+      "value": 2100,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-guideauto-ev6-2025-land-awd",
+      "low_confidence": true,
+      "notes": "Guide Auto lists \"Weight\" 2,100 kg (4,630 lb) for the Canadian Land AWD (84.0 kWh, P235/55R19); US Wind and GT-Line AWD are also 4,630 lb (KBB). Presumed curb weight; applies to the 19-inch trim, the 20-inch trim may differ."
+    }
+  ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 256,
+      "unit": "Wh/km",
+      "kind": "tested",
+      "source_id": "src-nyland-sheet-2026-10",
+      "low_confidence": true,
+      "notes": "Test: 120 km/h steady, 0 °C, dry, 20-inch wheels (255/45-20 Nokian R5 EV, winter tyres per sheet), battery-side (car display; sheet does not say explicitly) | Nyland, 'Kia EV6 AWD facelift' (2025-refresh 84 kWh pack, 78.4 kWh measured). Matches our Land AWD 20-inch trim and the 84 kWh pack; Euro car, motor output not checked against the Canadian Land AWD. Cold test, so a mild-weather figure would be lower. 90 km/h, 0 °C: 187 Wh/km. Not used: 'EV6 GT facelift' (different, 21-inch, GT motors): 249 Wh/km at 20 °C.. | NOT FOR CALIBRATION: cold test (0 °C, winter tyres); exclude from the highway-factor fit (item 3.7)."
+    }
+  ],
   "trims": [
     {
       "id": "19-in-wheels",

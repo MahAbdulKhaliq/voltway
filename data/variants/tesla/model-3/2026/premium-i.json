@@ -13,6 +13,16 @@
       "notes": "Quick web lookup. Source lists a NACS port for the 2026 Model 3; Supercharger access follows from that."
     }
   ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 154,
+      "unit": "Wh/km",
+      "kind": "tested",
+      "source_id": "src-insideevs-nyland-model3-lfp-2024",
+      "low_confidence": true,
+      "notes": "Test: 74.5 mph steady (page figure; ≈120 km/h is our conversion), ~19 C (66-67 F ambient), road conditions not stated, wheel size not stated, battery-side (Nyland's registered/car-display consumption; page does not say explicitly) | Bjorn Nyland, Norway, 2024 Model 3 RWD LFP 60.9 kWh gross (Highland, same generation, pack and RWD layout as our 60/57 kWh LFP Premium-I; test is a 2024 car, our variant is 2026). Page states 4.03 mi/kWh = 154 Wh/km (1000 / (4.03 x 1.609344) = 154). Same test at 56 mph (90 km/h): 5.49 mi/kWh = 114 Wh/km. Video: https://www.youtube.com/watch?v=n323lX3NUKI, timestamp not known. Not the same market as ours (EU car), wheels unknown."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

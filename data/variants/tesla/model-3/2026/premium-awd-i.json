@@ -13,6 +13,16 @@
       "notes": "Quick web lookup. Source lists a NACS port for the 2026 Model 3; Supercharger access follows from that."
     }
   ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 161,
+      "unit": "Wh/km",
+      "kind": "tested",
+      "source_id": "src-nyland-sheet-2026-10",
+      "low_confidence": true,
+      "notes": "Test: 120 km/h steady, 19 °C, dry, 18-inch wheels (235/45-18 Michelin e-Primacy), battery-side (car display; sheet does not say explicitly) | Nyland, 'Tesla Model 3 LR Highland' (dual-motor Long Range AWD, Highland generation, 74.5 kWh measured usable; same 82 kWh gross NMC pack and layout as our Premium AWD-I). Our trim's standard wheel is 18-inch, same as the test. Test car model year not stated (Highland = 2024+). Same car at 90 km/h, 17 °C: 123 Wh/km. Winter row (3 °C, wet, Falken winter tyres): 226 Wh/km at 120 km/h. Not used: evmagazine.eu/zerofy repeat the same 161 figure.."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

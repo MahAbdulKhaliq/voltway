@@ -44,6 +44,16 @@
       "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
     }
   ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 185,
+      "unit": "Wh/km",
+      "kind": "tested",
+      "source_id": "src-insideevs-equinox-ev-range-test-2024",
+      "low_confidence": true,
+      "notes": "Test: 70 mph (113 km/h) steady, mid-80s F (~29 C), climate 70 F low fan, wheel size not stated, battery-side (car display) | 2024 Equinox EV FWD 2RS (same generation and 85 kWh pack as our 2026 FWD). Car reported 90.2 kWh used over 303 mi (3.4 mi/kWh): 90.2 kWh / 303 mi = 297.7 Wh/mi / 1.609344 = 185 Wh/km. Hot weather with A/C load. Other tests seen: Consumer Reports AWD 304 mi at 70 mph (no energy figure, paywalled)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

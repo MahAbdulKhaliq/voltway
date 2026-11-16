@@ -72,6 +72,15 @@
       "notes": "The Charge Port lists the fleet-only WT Max Range at 19.2 kW; the listing carries no model year. US page."
     }
   ],
+  "curb_weight_kg": [
+    {
+      "value": 3839,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-gm-silverado-ev-2026-spec",
+      "notes": "GM 2026 Silverado EV Specification Guide, WT page: base curb weight 8,464 lb / 3,839 kg for the 8WT (24-module) Maximum Range."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

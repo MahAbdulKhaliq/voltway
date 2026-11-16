@@ -66,6 +66,16 @@
       "notes": "Toyota Canada release: \"Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network\"; 2026 has a native NACS port. Wording is not model-specific."
     }
   ],
+  "curb_weight_kg": [
+    {
+      "value": 1840,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-guideautoweb-bz-xle-fwd-2026",
+      "low_confidence": true,
+      "notes": "Relay of Toyota Canada figure for the XLE FWD (57.7 kWh, matches our variant): 1,840 kg (4,057 lb) listed as Weight. Matches US 4,057 lb for XLE FWD."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

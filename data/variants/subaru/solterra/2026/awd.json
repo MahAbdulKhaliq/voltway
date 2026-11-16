@@ -83,6 +83,16 @@
       "notes": "Drive Tesla Canada relays Subaru: all Solterra owners can access more than 25,000 Superchargers in Canada and the US via the SubaruConnect app; InsideEVs tested the 2026 car on a V3 Supercharger. (Subaru Canada's Newswire release itself footnotes access as 'anticipated'.)"
     }
   ],
+  "curb_weight_kg": [
+    {
+      "value": 2020,
+      "unit": "kg",
+      "kind": "manufacturer",
+      "source_id": "src-subaruoflethbridge-solterra-2026",
+      "low_confidence": true,
+      "notes": "Converted from 4,453 lb (x0.45359 = 2,019.8): Canadian dealer page base curb weight for the base AWD trim (338 hp). Luxury AWD 4,542 lb and Technology AWD 4,486 lb are heavier; US Premium AWD is 4,395 lb."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

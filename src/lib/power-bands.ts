@@ -1,61 +1,64 @@
-// Power bands for the charger map (vision.md "Power bands", N1).
-// Each band includes its upper edge, so a charger exactly on an edge goes in the
-// lower band. Level comes from the data source's classification, never from kW.
-// Shared by the data build and the map's filters, so both use the same edges.
+// Power filtering for the charger map (charger-map.md §4, B35): one two-handle kW slider per
+// level. The handles snap to fixed stops; a range is a pair of stop indices [lo, hi] with lo < hi.
+// A port matches when stops[lo] ≤ kW ≤ stops[hi] (both ends included); the last stop is "Max",
+// meaning no upper limit. Ports with no kW figure match only while the range is the full one.
+// Level comes from the data source's classification, never from kW.
 
 export type ChargerLevel = 2 | 3;
 export type Plug = 'j1772' | 'ccs1' | 'nacs' | 'chademo';
 export const PLUGS: readonly Plug[] = ['ccs1', 'nacs', 'chademo', 'j1772'];
 
-export type BandId =
-  | 'l2_le_3_6'
-  | 'l2_le_7_2'
-  | 'l2_le_11_5'
-  | 'l2_gt_11_5'
-  | 'l3_le_50'
-  | 'l3_le_100'
-  | 'l3_le_250'
-  | 'l3_gt_250'
-  | 'l2_unknown'
-  | 'l3_unknown';
-
-/** Upper edges per level, in order; anything above the last edge is the top band. */
-const EDGES: Record<ChargerLevel, readonly [number, BandId][]> = {
-  2: [
-    [3.6, 'l2_le_3_6'],
-    [7.2, 'l2_le_7_2'],
-    [11.5, 'l2_le_11_5'],
-  ],
-  3: [
-    [50, 'l3_le_50'],
-    [100, 'l3_le_100'],
-    [250, 'l3_le_250'],
-  ],
+/** Slider stops in kW. They sit on the vision.md band edges (plus 150 and 350 for Level 3). */
+export const POWER_STOPS: Record<ChargerLevel, readonly number[]> = {
+  2: [0, 3.6, 7.2, 11.5, 19.2, Number.POSITIVE_INFINITY],
+  3: [0, 50, 100, 150, 250, 350, Number.POSITIVE_INFINITY],
 };
-const TOP: Record<ChargerLevel, BandId> = { 2: 'l2_gt_11_5', 3: 'l3_gt_250' };
-const UNKNOWN: Record<ChargerLevel, BandId> = { 2: 'l2_unknown', 3: 'l3_unknown' };
 
-/** Bands in display order for one level, "unknown" last. */
-export function bandsFor(level: ChargerLevel): BandId[] {
-  return [...EDGES[level].map(([, id]) => id), TOP[level], UNKNOWN[level]];
+/** Indices into POWER_STOPS[level]: [low handle, high handle], low < high. */
+export type PowerRange = readonly [number, number];
+
+export const fullRange = (level: ChargerLevel): PowerRange => [0, POWER_STOPS[level].length - 1];
+
+export function isFullRange(level: ChargerLevel, r: PowerRange): boolean {
+  return r[0] === 0 && r[1] === POWER_STOPS[level].length - 1;
 }
 
-/** The band a port of this level and rated power falls in. null/0/negative kW = unknown. */
-export function bandOf(level: ChargerLevel, kw: number | null): BandId {
-  if (kw == null || !Number.isFinite(kw) || kw <= 0) return UNKNOWN[level];
-  for (const [edge, id] of EDGES[level]) if (kw <= edge) return id;
-  return TOP[level];
+/** A usable range for this level: two integers in bounds, low below high. */
+export function isValidRange(level: ChargerLevel, r: unknown): r is PowerRange {
+  const last = POWER_STOPS[level].length - 1;
+  return (
+    Array.isArray(r) &&
+    r.length === 2 &&
+    r.every((x) => Number.isInteger(x)) &&
+    r[0] >= 0 &&
+    r[1] <= last &&
+    r[0] < r[1]
+  );
 }
 
-export interface PortLike {
-  level: ChargerLevel;
-  plug: Plug;
-  kw: number | null;
+/** Whether a port of this level and rated power passes the range. null/0/negative kW = unknown. */
+export function inPowerRange(level: ChargerLevel, kw: number | null, r: PowerRange): boolean {
+  if (kw == null || !Number.isFinite(kw) || kw <= 0) return isFullRange(level, r);
+  const s = POWER_STOPS[level];
+  return kw >= s[r[0]] && kw <= s[r[1]];
 }
 
-/** Every band any of a site's ports falls in (a mixed site appears in each). */
-export function siteBands(ports: readonly PortLike[]): Set<BandId> {
-  return new Set(ports.map((p) => bandOf(p.level, p.kw)));
+/** How the range reads in words: which message, and the kW figures it needs. */
+export type RangeWords =
+  | { key: 'any' }
+  | { key: 'upTo'; max: number }
+  | { key: 'from'; min: number }
+  | { key: 'between'; min: number; max: number };
+
+export function rangeWords(level: ChargerLevel, r: PowerRange): RangeWords {
+  const s = POWER_STOPS[level];
+  const min = s[r[0]];
+  const max = s[r[1]];
+  const noMax = !Number.isFinite(max);
+  if (min === 0 && noMax) return { key: 'any' };
+  if (min === 0) return { key: 'upTo', max };
+  if (noMax) return { key: 'from', min };
+  return { key: 'between', min, max };
 }
 
 export type TeslaNetwork = 'supercharger' | 'destination' | null;

@@ -5,7 +5,7 @@
 //   public/data/map/l2.json   Level 2-only stations, loaded when Level 2 is first ticked
 //   public/data/map/meta.json updated date, counts, source
 // No station is in both files, so the client can merge them without duplicates.
-// Bands are not stored: the map derives them from the ports with src/lib/power-bands.ts.
+// Power ranges are not stored: the map filters each port's kW with src/lib/power-bands.ts.
 // Pure: the caller reads and writes files.
 
 import type { Station, StationsFile } from './afdc.ts';

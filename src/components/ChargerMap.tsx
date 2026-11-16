@@ -16,7 +16,14 @@ import { currentTheme } from '../scripts/theme-client.ts';
 import type { FeatureCollection, Point } from 'geojson';
 import type { MapFeature, MapFeatureCollection, MapMeta } from '../lib/map-data.ts';
 import { filterStations, LEVELS, readFilters, type MapFilters } from '../lib/map-filter.ts';
-import { bandsFor, PLUGS, type ChargerLevel } from '../lib/power-bands.ts';
+import {
+  isFullRange,
+  PLUGS,
+  POWER_STOPS,
+  rangeWords,
+  type ChargerLevel,
+  type PowerRange,
+} from '../lib/power-bands.ts';
 import { BOLT, drawPin, PIN, PLUG, pinId } from '../lib/map-icons.ts';
 import StationPanel from './StationPanel.tsx';
 
@@ -132,6 +139,85 @@ function PinIcon({ level, unavailable = false }: { level: ChargerLevel; unavaila
         </g>
       )}
     </svg>
+  );
+}
+
+const kwText = (kw: number) => kw.toLocaleString('en-CA', { maximumFractionDigits: 1 });
+
+/** One stop as a short tick label ("0", "3.6", "Max") and as spoken text ("3.6 kW", "No limit"). */
+const stopLabel = (kw: number) => (Number.isFinite(kw) ? kwText(kw) : t('map.power.maxStop'));
+const stopSpoken = (kw: number) => (Number.isFinite(kw) ? t('map.power.kw', { kw: kwText(kw) }) : t('map.power.noLimit'));
+
+/**
+ * Two-handle kW slider for one level (charger-map §4, B35): two native range inputs over one rail,
+ * so each handle keeps the browser's keyboard and screen-reader support. Handles snap to the
+ * level's stops and can't cross or meet.
+ */
+function PowerSlider({
+  level,
+  levelName,
+  value,
+  onChange,
+}: {
+  level: ChargerLevel;
+  levelName: string;
+  value: PowerRange;
+  onChange: (r: PowerRange) => void;
+}) {
+  const stops = POWER_STOPS[level];
+  const last = stops.length - 1;
+  const [lo, hi] = value;
+  const w = rangeWords(level, value);
+  const words =
+    w.key === 'any'
+      ? t('map.power.any')
+      : w.key === 'upTo'
+        ? t('map.power.upTo', { max: kwText(w.max) })
+        : w.key === 'from'
+          ? t('map.power.from', { min: kwText(w.min) })
+          : t('map.power.between', { min: kwText(w.min), max: kwText(w.max) });
+  const pct = (i: number) => `${(i / last) * 100}%`;
+  const wordsId = `power-words-l${level}`;
+  return (
+    <div className="power">
+      <p className="power-words" id={wordsId} aria-live="polite">
+        {words}
+      </p>
+      <div className="power-track">
+        <div className="power-rail" aria-hidden="true" />
+        <div className="power-fill" aria-hidden="true" style={{ left: pct(lo), width: `calc(${pct(hi)} - ${pct(lo)})` }} />
+        <input
+          type="range"
+          min={0}
+          max={last}
+          step={1}
+          value={lo}
+          aria-label={t('map.power.min', { level: levelName })}
+          aria-valuetext={stopSpoken(stops[lo])}
+          aria-describedby={wordsId}
+          onChange={(e) => onChange([Math.min(Number(e.target.value), hi - 1), hi])}
+        />
+        <input
+          type="range"
+          min={0}
+          max={last}
+          step={1}
+          value={hi}
+          aria-label={t('map.power.max', { level: levelName })}
+          aria-valuetext={stopSpoken(stops[hi])}
+          aria-describedby={wordsId}
+          onChange={(e) => onChange([lo, Math.max(Number(e.target.value), lo + 1)])}
+        />
+      </div>
+      <ol className="power-ticks" aria-hidden="true">
+        {stops.map((kw, i) => (
+          <li key={i} style={{ left: pct(i) }}>
+            {stopLabel(kw)}
+          </li>
+        ))}
+      </ol>
+      {!isFullRange(level, value) && <p className="power-note small muted">{t('map.power.unknownHidden')}</p>}
+    </div>
   );
 }
 
@@ -366,16 +452,12 @@ export default function ChargerMap() {
                   <span>{t(levelLabel[lv])}</span>
                 </label>
                 {filters.levels[lv] && (
-                  <ul className="bands">
-                    {bandsFor(lv).map((b) => (
-                      <li key={b}>
-                        <label className="check">
-                          <input type="checkbox" checked={filters.bands[b]} onChange={() => toggle('bands', b)} />
-                          <span>{t(`map.band.${b}` as MessageKey)}</span>
-                        </label>
-                      </li>
-                    ))}
-                  </ul>
+                  <PowerSlider
+                    level={lv}
+                    levelName={t(levelLabel[lv])}
+                    value={filters.power[lv]}
+                    onChange={(r) => setFilters((f) => ({ ...f, power: { ...f.power, [lv]: r } }))}
+                  />
                 )}
               </div>
             ))}

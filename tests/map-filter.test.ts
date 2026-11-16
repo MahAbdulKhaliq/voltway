@@ -129,3 +129,144 @@ describe('kW range (charger-map §4, B35)', () => {
     expect(rangeWords(2, [2, 3])).toEqual({ key: 'between', min: 7.2, max: 11.5 });
   });
 });
+
+// ---- 5.2b: My car (B28) and links into the map (B31)
+import {
+  applyMapLink,
+  carCanUse,
+  carPlugs,
+  linkPlugs,
+  mapLink,
+  needsAdapter,
+  topDcKw,
+  carMapInfo,
+} from '../src/lib/map-filter.ts';
+
+const featNw = (i: number, p: MapPort[], nw?: string): MapFeature => ({
+  type: 'Feature',
+  geometry: { type: 'Point', coordinates: [-75, 45] },
+  properties: { i, n: `S${i}`, p, src: 'src-afdc-ca', ...(nw ? { nw } : {}) },
+});
+
+describe('carPlugs: car → plugs rule (charger-map §4)', () => {
+  it('NACS car → NACS only', () => {
+    expect(carPlugs('nacs', 'yes')).toEqual({ plugs: ['nacs'], superchargerAdapter: false });
+  });
+  it('CCS1 car with no Supercharger access → CCS1 (+ J1772)', () => {
+    expect(carPlugs('ccs1', 'no')).toEqual({ plugs: ['ccs1', 'j1772'], superchargerAdapter: false });
+    expect(carPlugs('ccs1', undefined)).toEqual({ plugs: ['ccs1', 'j1772'], superchargerAdapter: false });
+  });
+  it('CCS1 via adapter → CCS1, plus Superchargers marked "needs adapter"', () => {
+    const r = carPlugs('ccs1', 'via_adapter')!;
+    expect(r).toEqual({ plugs: ['ccs1', 'j1772'], superchargerAdapter: true });
+    expect(carCanUse(r, 'nacs', 'Tesla')).toBe(true);
+    expect(needsAdapter(r, 'nacs', 'Tesla')).toBe(true);
+    expect(carCanUse(r, 'nacs', 'Tesla Destination')).toBe(false);
+    expect(carCanUse(r, 'nacs', undefined)).toBe(false);
+    expect(needsAdapter(r, 'ccs1', 'Tesla')).toBe(false);
+  });
+  it('"yes" on a CCS1 car → CCS1 + NACS, no adapter mark', () => {
+    const r = carPlugs('ccs1', 'yes')!;
+    expect(r.plugs).toContain('nacs');
+    expect(needsAdapter(r, 'nacs', 'Tesla')).toBe(false);
+  });
+  it('unknown port → null (toggle disabled)', () => {
+    expect(carPlugs(undefined, 'yes')).toBeNull();
+    expect(carPlugs('unknown', 'no')).toBeNull();
+    expect(carPlugs({ value: 'ccs1' }, 'no')).toBeNull();
+  });
+});
+
+describe('My car filter', () => {
+  const sc = featNw(1, [[3, 'nacs', 250, 8]], 'Tesla');
+  const ea = featNw(2, [[3, 'ccs1', 150, 4], [3, 'chademo', 50, 1]], 'Electrify America');
+  const td = featNw(3, [[3, 'nacs', 72, 2]]);
+  const all = [sc, ea, td];
+  const on = { ...defaultFilters(), myCar: true };
+  const ids = (car: ReturnType<typeof carPlugs>, f = on) => filterStations(all, f, car).features.map((x) => x.properties.i);
+
+  it('off, or with no car, changes nothing', () => {
+    expect(ids(carPlugs('nacs', 'yes'), defaultFilters())).toEqual([1, 2, 3]);
+    expect(ids(null)).toEqual([1, 2, 3]);
+  });
+  it('NACS car (a Tesla) sees NACS sites only', () => {
+    expect(ids(carPlugs('nacs', 'yes'))).toEqual([1, 3]);
+  });
+  it('CCS1 via adapter: Superchargers yes, non-Supercharger NACS no', () => {
+    expect(ids(carPlugs('ccs1', 'via_adapter'))).toEqual([1, 2]);
+  });
+  it('CCS1 with no access: CCS1 sites only', () => {
+    expect(ids(carPlugs('ccs1', 'no'))).toEqual([2]);
+  });
+  it('still respects the plug ticks', () => {
+    const f = { ...on, plugs: { ...on.plugs, nacs: false } };
+    expect(ids(carPlugs('ccs1', 'via_adapter'), f)).toEqual([2]);
+  });
+  it('readFilters keeps a saved myCar flag', () => {
+    expect(readFilters({ myCar: true }).myCar).toBe(true);
+    expect(readFilters({ myCar: 'yes' }).myCar).toBe(false);
+    expect(defaultFilters().myCar).toBe(false);
+  });
+});
+
+describe('topDcKw (B31 "How fast would my car charge here?")', () => {
+  const ports: MapPort[] = [[3, 'nacs', 250, 8], [3, 'ccs1', 150, 2], [2, 'j1772', 19.2, 2], [3, 'chademo', null, 1]];
+  it('max DC kW over all ports with no car', () => {
+    expect(topDcKw(ports)).toBe(250);
+  });
+  it('only ports the car can use', () => {
+    expect(topDcKw(ports, carPlugs('ccs1', 'no'))).toBe(150);
+    expect(topDcKw(ports, carPlugs('ccs1', 'via_adapter'), 'Tesla')).toBe(250);
+    expect(topDcKw(ports, carPlugs('chademo', 'no'))).toBeNull();
+  });
+  it('null for a Level 2 only site', () => {
+    expect(topDcKw([[2, 'j1772', 7.2, 4]])).toBeNull();
+  });
+});
+
+describe('map link (B31 "Find chargers this fast")', () => {
+  it('builds the link with plugs (adapter cars include NACS)', () => {
+    expect(linkPlugs(carPlugs('ccs1', 'via_adapter')!)).toEqual(['ccs1', 'j1772', 'nacs']);
+    expect(mapLink(150, ['ccs1', 'nacs'])).toBe('/?power=150&plugs=ccs1%2Cnacs');
+    expect(mapLink(99.6, null)).toBe('/?power=100');
+  });
+  it('null when no link params', () => {
+    expect(applyMapLink('', defaultFilters())).toBeNull();
+    expect(applyMapLink('?foo=1', defaultFilters())).toBeNull();
+  });
+  it('kW → the L3 stop at or below it as min, Max as max; L3 on, L2 off', () => {
+    const base = { ...defaultFilters(), levels: { 3: false, 2: true } };
+    const cases: [string, number][] = [['150', 3], ['149', 2], ['50', 1], ['7', 0], ['400', 5], ['350', 5], ['1000', 5]];
+    for (const [kw, lo] of cases) {
+      const f = applyMapLink(`?power=${kw}`, base)!;
+      expect(f.power[3], kw).toEqual([lo, POWER_STOPS[3].length - 1]);
+      expect(f.levels).toEqual({ 3: true, 2: false });
+    }
+  });
+  it('bad kW leaves power alone; plugs set exactly; unknown plugs ignored', () => {
+    const f = applyMapLink('?power=abc&plugs=ccs1,bogus,nacs', defaultFilters())!;
+    expect(f.power).toEqual(defaultFilters().power);
+    expect(f.plugs).toEqual({ ccs1: true, nacs: true, chademo: false, j1772: false });
+    const g = applyMapLink('?plugs=bogus', defaultFilters())!;
+    expect(g.plugs).toEqual(defaultFilters().plugs);
+  });
+  it('does not mutate the base filters', () => {
+    const base = defaultFilters();
+    applyMapLink('?power=150&plugs=nacs', base);
+    expect(base).toEqual(defaultFilters());
+  });
+});
+
+describe('carMapInfo (car file → map info)', () => {
+  const sv = (value: string) => ({ value: { value, kind: 'manufacturer', source_id: 's' }, others: [], conflict: false });
+  it('reads make, port and access', () => {
+    const tesla = carMapInfo({ make: { id: 'tesla' }, fields: { charge_port: sv('nacs'), supercharger_access: sv('yes') } });
+    expect(tesla).toEqual({ isTesla: true, access: 'yes', rule: { plugs: ['nacs'], superchargerAdapter: false } });
+    const ioniq = carMapInfo({ make: { id: 'hyundai' }, fields: { charge_port: sv('ccs1'), supercharger_access: sv('via_adapter') } });
+    expect(ioniq.rule?.superchargerAdapter).toBe(true);
+  });
+  it('missing fields → unknown port', () => {
+    expect(carMapInfo({ make: { id: 'bmw' }, fields: { charge_port: null } }).rule).toBeNull();
+    expect(carMapInfo(null)).toEqual({ isTesla: false, access: null, rule: null });
+  });
+});

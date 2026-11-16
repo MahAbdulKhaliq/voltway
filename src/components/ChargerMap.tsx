@@ -16,7 +16,16 @@ import { getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import { currentTheme } from '../scripts/theme-client.ts';
 import type { FeatureCollection, Point } from 'geojson';
 import type { MapFeature, MapFeatureCollection, MapMeta } from '../lib/map-data.ts';
-import { filterStations, LEVELS, readFilters, type MapFilters } from '../lib/map-filter.ts';
+import {
+  applyMapLink,
+  carMapInfo,
+  filterStations,
+  LEVELS,
+  readFilters,
+  type CarMapInfo,
+  type MapFilters,
+} from '../lib/map-filter.ts';
+import { getMyCar, type MyCar } from '../lib/my-car.ts';
 import {
   isFullRange,
   PLUGS,
@@ -236,7 +245,15 @@ export default function ChargerMap() {
   const mapRef = useRef<maplibregl.Map | null>(null);
   const pinsRef = useRef<FeatureCollection>(EMPTY);
   const [mapStatus, setMapStatus] = useState<'loading' | 'ready' | 'error'>('loading');
-  const [filters, setFilters] = useState<MapFilters>(() => readFilters(getJSON<unknown>(KEYS.mapFilters, null)));
+  // Saved filters, then a "Find chargers this fast" link (B31) on top; the params are stripped below.
+  const [filters, setFilters] = useState<MapFilters>(() => {
+    const saved = readFilters(getJSON<unknown>(KEYS.mapFilters, null));
+    return (typeof window !== 'undefined' && applyMapLink(window.location.search, saved)) || saved;
+  });
+  // My car (B28): its plug rule for "Chargers my car can use", read from its car file.
+  const [myCar, setMyCarState] = useState<MyCar | null>(() => getMyCar());
+  const [carInfo, setCarInfo] = useState<CarMapInfo | null>(null);
+  const [nudgeGone, setNudgeGone] = useState(() => getJSON<boolean>(KEYS.mapCarNudge, false) === true);
   const [stations, setStations] = useState<Record<ChargerLevel, MapFeature[]>>({ 3: [], 2: [] });
   const [load, setLoad] = useState<Record<ChargerLevel, Load>>({ 3: 'idle', 2: 'idle' });
   const [panelOpen, setPanelOpen] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 768);
@@ -249,6 +266,36 @@ export default function ChargerMap() {
   const [view, setView] = useState<{ bounds: Bounds; center: [number, number] } | null>(null);
   const [listOpen, setListOpen] = useState(false);
   const listItemRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search);
+    if (!q.has('power') && !q.has('plugs')) return;
+    q.delete('power');
+    q.delete('plugs');
+    const rest = q.toString();
+    history.replaceState(history.state, '', window.location.pathname + (rest ? `?${rest}` : '') + window.location.hash);
+  }, []);
+  useEffect(() => {
+    const on = (e: Event) => setMyCarState((e as CustomEvent<MyCar | null>).detail ?? null);
+    window.addEventListener('voltway:mycar', on);
+    return () => window.removeEventListener('voltway:mycar', on);
+  }, []);
+  useEffect(() => {
+    setCarInfo(null);
+    if (!myCar) return;
+    let live = true;
+    fetch(`/data/cars/${myCar.carId}.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((file) => live && setCarInfo(carMapInfo(file)), () => live && setCarInfo(carMapInfo(null)));
+    return () => {
+      live = false;
+    };
+  }, [myCar]);
+  const carRule = myCar ? carInfo?.rule ?? null : null;
+  const dismissNudge = () => {
+    setJSON(KEYS.mapCarNudge, true);
+    setNudgeGone(true);
+  };
 
   // The map itself, once.
   useEffect(() => {
@@ -362,7 +409,10 @@ export default function ChargerMap() {
 
   // Filters → pins → map source; choices are saved.
   // The files never overlap (l3 = any Level 3 port, l2 = Level 2-only), so merging is safe.
-  const pins = useMemo(() => filterStations([...stations[3], ...stations[2]], filters), [stations, filters]);
+  const pins = useMemo(
+    () => filterStations([...stations[3], ...stations[2]], filters, carRule),
+    [stations, filters, carRule],
+  );
   useEffect(() => {
     pinsRef.current = pins;
     (mapRef.current?.getSource('stations') as GeoJSONSource | undefined)?.setData(pins);
@@ -390,8 +440,8 @@ export default function ChargerMap() {
   }, []);
 
   const list = useMemo(
-    () => (listOpen && view ? stationsInView([...stations[3], ...stations[2]], filters, view.bounds, view.center) : null),
-    [listOpen, view, stations, filters],
+    () => (listOpen && view ? stationsInView([...stations[3], ...stations[2]], filters, view.bounds, view.center, undefined, carRule) : null),
+    [listOpen, view, stations, filters, carRule],
   );
   const openFromList = (item: ListItem, el: HTMLButtonElement) => {
     listItemRef.current = el;
@@ -442,7 +492,7 @@ export default function ChargerMap() {
     unsupported: 'map.locateUnsupported',
   };
 
-  const toggle = <K extends keyof MapFilters>(group: K, key: keyof MapFilters[K]) =>
+  const toggle = <K extends 'levels' | 'plugs'>(group: K, key: keyof MapFilters[K]) =>
     setFilters((f) => ({ ...f, [group]: { ...f[group], [key]: !f[group][key] } }));
 
   const wanted = (lv: ChargerLevel) => (lv === 3 ? filters.levels[3] || filters.levels[2] : filters.levels[2]);
@@ -470,6 +520,28 @@ export default function ChargerMap() {
         </button>
 
         <div id="map-filters" className="map-filters" hidden={!panelOpen}>
+          {myCar && (
+            <fieldset className="map-mycar">
+              <legend className="sr-only">{t('map.myCar.legend')}</legend>
+              <label className="check">
+                <input
+                  type="checkbox"
+                  checked={filters.myCar && !!carRule}
+                  disabled={!carRule}
+                  aria-describedby={carInfo && !carRule ? 'map-mycar-note' : undefined}
+                  onChange={() => setFilters((f) => ({ ...f, myCar: !f.myCar }))}
+                />
+                <span>{t('map.myCar.toggle')}</span>
+              </label>
+              {myCar.label && <p className="small muted">{myCar.label}</p>}
+              {carInfo && !carRule && (
+                <p id="map-mycar-note" className="small muted">{t('map.myCar.unknownPort')}</p>
+              )}
+              {filters.myCar && carRule?.superchargerAdapter && (
+                <p className="small muted">{t('map.myCar.adapterNote')}</p>
+              )}
+            </fieldset>
+          )}
           <fieldset>
             <legend>{t('map.levelPower')}</legend>
             {LEVELS.map((lv) => (
@@ -585,7 +657,27 @@ export default function ChargerMap() {
         </p>
       )}
 
-      {station && <StationPanel station={station} updated={meta?.updated ?? null} onClose={closeStation} />}
+      {!myCar && !nudgeGone && (
+        <div className="map-nudge small" role="note">
+          <a href="/charging?pick=1">{t('map.nudge.set')}</a>
+          <span className="muted"> {t('map.nudge.why')}</span>
+          <button type="button" className="map-nudge-close" aria-label={t('map.nudge.dismiss')} onClick={dismissNudge}>
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+      )}
+
+      {station && (
+        <StationPanel
+          station={station}
+          updated={meta?.updated ?? null}
+          onClose={closeStation}
+          myCar={myCar}
+          carInfo={myCar ? carInfo : null}
+        />
+      )}
 
       {mapStatus === 'loading' && (
         <p className="map-status" role="status">

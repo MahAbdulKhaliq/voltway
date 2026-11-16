@@ -12,6 +12,7 @@ import type { CarDetail, Field, IndexEntry } from '../lib/types.ts';
 import { applyWheelEffect, ratedOnItsOwn, ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
 import { display } from '../lib/format.ts';
 import CurveViewer from './CurveViewer.tsx';
+import { carMapInfo, linkPlugs } from '../lib/map-filter.ts';
 import CarPicker from './CarPicker.tsx';
 import { addToCompare, getCompare, getMyCar, setMyCar, type AddResult, type MyCar } from '../lib/my-car.ts';
 import { Badge, Value, sourceNumber } from './react/Badge.tsx';
@@ -50,6 +51,8 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const [myCar, setMyCarState] = useState<MyCar | null>(null);
   const [compare, setCompareList] = useState<string[]>([]);
   const [compareNote, setCompareNote] = useState<AddResult | null>(null);
+  // B31: "How fast would my car charge here?" links carry the station's top DC kW (?kw=) for this car only.
+  const [linkKw, setLinkKw] = useState<{ carId: string; kw: number } | null>(null);
   useEffect(() => setWheelIn(null), [carId, trimId]);
 
   // First car (B37): the link (?car=), else My car, else the first-load picker. An empty
@@ -65,6 +68,8 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     if (known(linked) && params.get('pick') !== '1') {
       setCarId(linked);
       setTrimId(params.get('trim'));
+      const kw = Number(params.get('kw'));
+      if (params.has('kw') && Number.isFinite(kw) && kw >= 1 && kw <= 1000) setLinkKw({ carId: linked!, kw: Math.round(kw) });
     } else if (known(mine?.carId) && params.get('pick') !== '1') {
       setCarId(mine!.carId);
       setTrimId(mine!.trimId);
@@ -241,6 +246,8 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   };
   // Trims matter only when the variant has several; "no trim" means its first (standard) trim.
   const firstTrim = car?.trims[0]?.id ?? null;
+  const carRule = useMemo(() => (car ? carMapInfo(car).rule : null), [car]);
+  const mapPlugs = carRule ? linkPlugs(carRule) : null;
   const isMine = Boolean(myCar && car && myCar.carId === car.id && (car.trims.length < 2 || (myCar.trimId ?? firstTrim) === (trimId ?? firstTrim)));
   const inCompare = Boolean(carId && compare.includes(carId));
 
@@ -319,6 +326,8 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
               <CurveViewer
                 extraControls={wheelControl}
                 key={car.id}
+                initialChargerKw={linkKw?.carId === car.id ? linkKw.kw : null}
+                mapPlugs={mapPlugs}
                 curves={car.curves}
                 usableKwh={(battery?.value.value as number) ?? null}
                 batteryIsGross={!usable && Boolean(f.capacity_gross_kwh)}

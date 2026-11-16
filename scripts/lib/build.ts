@@ -342,7 +342,7 @@ export function buildCars(root: string): BuildResult {
     if (defaultCurve && kwh) {
       const r = calculateCharge({ points: defaultCurve.points, usableKwh: kwh, startSoc: 10, endSoc: 80, whPerKm });
       derived = {
-        minutes_10_80: Math.round(r.minutes * 10) / 10,
+        minutes_10_80: Math.round(r.minutes * 1000) / 1000, // near-exact, so tiles match the viewer (QA re-check)
         km_per_10_min: r.kmPer10Min === null ? null : Math.round(r.kmPer10Min),
         estimated: defaultCurve.kind === 'estimated' || usable === undefined || r.extrapolated,
         extrapolated: r.extrapolated,

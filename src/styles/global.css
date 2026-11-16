@@ -128,7 +128,7 @@ th { font-weight: 600; color: var(--muted); font-size: 0.875rem; }
   .stack-table th[scope='row'] { display: block; border: 0; padding: 4px 0 0; color: var(--muted); font-size: 0.875rem; font-weight: 600; }
 }
 
-/* Source badges (shared by the Astro SourceBadge and the React Badge) */
+/* Source badges (react/Badge.tsx) */
 .badge { display: inline-block; position: relative; font-size: 0.75rem; vertical-align: middle; }
 .badge summary {
   list-style: none; cursor: pointer; display: inline-flex; gap: 4px; align-items: center;

@@ -20,4 +20,13 @@ First run: 2026-11-16, `qa-reviewer` subagent against `docs/plan/QA.md`, scoped 
 | 15 | Bad `?car=` link fails silently | Fixed: a notice says the link didn't match. |
 | 16 | Hand-entered facts ignore kind in precedence (theoretical) | Tracked in `docs/tech-debt/code.md`. |
 
-Re-check of the fixed items: see below.
+## Re-check (2026-11-16, `qa-reviewer`, commit 043c479)
+Verdict: **pass with issues**; Phase 1a can pass. Eight fixes confirmed; follow-ups, fixed in the next PR:
+- Tile and viewer still differed by 1 unit on 26 of 90 car-trims (10–80 % minutes stored rounded to 0.1). Now stored to 0.001: 0 time differences and 1 per-10 difference left, an exact x.5 tie (IONIQ 9 AWD Performance, 186.50 vs 186.50).
+- Output check missed figures with no `kind`, and wheels with no source. It now checks every scalar `value` and every wheel, with tests. (`validate` already caught these in the full build.)
+- Time-axis chart ignored B24: now dashed when the window uses the unmeasured part.
+- "Added to battery" no longer gets "~" for an estimated curve (energy is exact); only for the gross-capacity fallback.
+- Stale CHECKLIST 3.3 text, a CSS comment and an unused import fixed.
+- Logged as tech debt instead: Chargeprice notes in English (TD-C3), the TypeError on a bare trim number (TD-C7), the wheel "~" difference (TD-C8), the silent bad `?trim=` (TD-P4).
+
+**Result: Phase 1a passes QA (9.1 ticked 2026-11-16).** Not covered: real-phone touch and screen-reader passes (TD-T1, TD-T2).

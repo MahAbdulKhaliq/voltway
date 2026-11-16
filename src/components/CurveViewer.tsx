@@ -236,7 +236,7 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
               {
                 name: t('viewer.delivered'), type: 'line', step: 'end', showSymbol: false,
                 data: steps.map((s) => [s.elapsedMin, s.deliveredKw]),
-                lineStyle: { color: lineColor, width: 2.5, type: curve.kind === 'estimated' ? 'dashed' : 'solid' },
+                lineStyle: { color: lineColor, width: 2.5, type: curve.kind === 'estimated' || result?.extrapolated ? 'dashed' : 'solid' },
                 areaStyle: { color: lineColor, opacity: 0.18 },
                 ...(limitLine ? { markLine: limitLine } : {}),
               },
@@ -335,7 +335,7 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
             <div className="r"><p className="rl">{t('viewer.result.time', { start: settings.start, end: settings.end })}</p><p className="rv">{minutes(result.minutes)}</p></div>
             <div className="r"><p className="rl">{t('viewer.result.km', { basis: t(`viewer.basis.${basis}` as MessageKey) })}</p><p className="rv">{result.kmAdded !== null ? `${estimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>}</p></div>
             <div className="r"><p className="rl">{t('viewer.result.per10')}</p><p className="rv">{result.kmPer10Min !== null ? `${estimated ? '~' : ''}${distance(result.kmPer10Min)}` : <span className="unknown small">{t('badge.unknown')}</span>}</p></div>
-            <div className="r"><p className="rl">{t('viewer.result.added')}</p><p className="rv">{estimated ? '~' : ''}{t('fmt.kwh', { value: formatNumber(result.energyKwh, 1) })}</p></div>
+            <div className="r"><p className="rl">{t('viewer.result.added')}</p><p className="rv">{batteryIsGross ? '~' : ''}{t('fmt.kwh', { value: formatNumber(result.energyKwh, 1) })}</p></div>
             <div className="r"><p className="rl">{t('viewer.result.avg')}</p><p className="rv">{t('fmt.kw', { value: formatNumber(result.averageKw) })}</p></div>
             <div className="r" title={t('viewer.result.costNote', { kwh: formatNumber(drawnKwh, 1), loss: Math.round((1 - COST.dcEfficiency) * 100) })}>
               <p className="rl">{t('viewer.result.cost', { start: settings.start, end: settings.end })}</p>

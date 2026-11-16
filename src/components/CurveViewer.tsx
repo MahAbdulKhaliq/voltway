@@ -318,7 +318,7 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
         )}
       </div>
 
-      <div ref={chartEl} className="chart" role="img" aria-label={t('viewer.title')} />
+      <div ref={chartEl} className="chart" role="img" aria-label={t('viewer.chartAlt', { kw: formatNumber(Math.max(...curve.points.map((p) => p.power_kw))) })} />
       <p className="small muted curve-note">
         {t('viewer.curveFrom', { kind: curve.based_on ? t('viewer.option.borrowed') : kindLabel(curve.kind) })}
         {source && <> <a href={source.url} target="_blank" rel="noopener">{source.title}</a> <SourceRef n={source.n} /></>}

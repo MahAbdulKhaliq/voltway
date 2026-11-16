@@ -377,6 +377,10 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
                       {g.title === 'group.ports' && (
                         <tr><th scope="row">{t('field.heat_pump')}</th><td data-label={t('field.heat_pump')}><Value field={trim?.heat_pump ?? null} sources={sources} label={t('field.heat_pump')} unit={unit} /></td></tr>
                       )}
+                      {g.title === 'group.efficiency' && (
+                        // B47: the route planner's mass; a missing one shows as Estimated with its basis.
+                        <tr><th scope="row">{label('curb_weight_kg')}</th><td data-label={label('curb_weight_kg')}><Value field={f.curb_weight_kg ?? null} sources={sources} label={label('curb_weight_kg')} unit={unit} /></td></tr>
+                      )}
                     </tbody>
                   </table>
                 </div>

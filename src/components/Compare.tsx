@@ -209,7 +209,9 @@ export default function Compare({ index }: Props) {
   const fieldOf = (r: Row, k: string): Field =>
     k === 'heat_pump' ? r.car.trims[0]?.heat_pump ?? null : k === 'ac_max_kw' ? r.car.fields.ac_max_kw ?? r.car.trims[0]?.ac_max_kw ?? null : r.car.fields[k] ?? null;
   const groups = GROUPS.map((g) => ({ ...g, fields: g.title === 'group.ports' ? [...g.fields, 'heat_pump'] : g.fields }));
-  const ready = rows.length === ids.length;
+  // Ready once every car has loaded or failed; a failed car keeps its column, shown as unknown.
+  const ready = ids.every((id) => cars[id]);
+  const slotRows = ids.map((id) => rows.find((r) => r.id === id) ?? null);
   const failed = ids.filter((id) => cars[id] === 'error');
 
   return (
@@ -230,6 +232,34 @@ export default function Compare({ index }: Props) {
         </div>
       ) : (
         <>
+          <ul className="cmp-cars" aria-label={t('compare.cars')}>
+            {ids.map((id, slot) => {
+              const sibs = siblings(id);
+              const label = name(id);
+              return (
+                <li key={id} className="card cmp-car" style={{ borderTopColor: carVar(slot) }}>
+                  <span className="car-name">{label}</span>
+                  {sibs.length > 1 ? (
+                    <select aria-label={t('compare.variantFor', { car: label })} value={id} onChange={(e) => change(replaceAt(ids, slot, e.target.value))}>
+                      {sibs.map((s) => (
+                        <option key={s.id} value={s.id} disabled={s.id !== id && ids.includes(s.id)}>{s.name}</option>
+                      ))}
+                    </select>
+                  ) : (
+                    <span className="variant">{byId.get(id)?.name}</span>
+                  )}
+                  {cars[id] === 'error' && <span className="small unknown">{t('compare.notLoaded')}</span>}
+                  <span className="car-actions">
+                    <a className="small" href={`/charging?car=${id}`}>{t('compare.open')}</a>
+                    <button type="button" className="btn small" onClick={() => change(ids.filter((x) => x !== id))} aria-label={t('compare.removeFor', { car: `${label} ${byId.get(id)?.name ?? ''}` })}>
+                      {t('compare.remove')}
+                    </button>
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+
           <section aria-labelledby="cmp-curves" className="card cmp-curves">
             <h2 id="cmp-curves">{t('compare.curves')}</h2>
             <div className="controls">
@@ -318,41 +348,19 @@ export default function Compare({ index }: Props) {
                 <thead>
                   <tr>
                     <td className="corner" />
-                    {ids.map((id, slot) => {
-                      const sibs = siblings(id);
-                      const label = name(id);
-                      return (
-                        <th key={id} scope="col" className="car-head" style={{ borderTopColor: carVar(slot) }}>
-                          <span className="car-name">{label}</span>
-                          {sibs.length > 1 ? (
-                            <select
-                              aria-label={t('compare.variantFor', { car: label })}
-                              value={id}
-                              onChange={(e) => change(replaceAt(ids, slot, e.target.value))}
-                            >
-                              {sibs.map((s) => (
-                                <option key={s.id} value={s.id} disabled={s.id !== id && ids.includes(s.id)}>{s.name}</option>
-                              ))}
-                            </select>
-                          ) : (
-                            <span className="variant">{byId.get(id)?.name}</span>
-                          )}
-                          <span className="car-actions">
-                            <a className="small" href={`/charging?car=${id}`}>{t('compare.open')}</a>
-                            <button type="button" className="btn small" onClick={() => change(ids.filter((x) => x !== id))} aria-label={t('compare.removeFor', { car: `${label} ${byId.get(id)?.name ?? ''}` })}>
-                              {t('compare.remove')}
-                            </button>
-                          </span>
-                        </th>
-                      );
-                    })}
+                    {ids.map((id, slot) => (
+                      <th key={id} scope="col" className="car-head" style={{ borderTopColor: carVar(slot) }}>
+                        <span className="car-name">{name(id)}</span>
+                        <span className="variant">{byId.get(id)?.name}</span>
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 {ready &&
                   groups.map((g) => {
                     const fieldRows = g.fields
                       .map((k) => {
-                        const fields = rows.map((r) => fieldOf(r, k));
+                        const fields = slotRows.map((r) => (r ? fieldOf(r, k) : null));
                         const values = fields.map((f) => f?.value.value ?? null);
                         return { k, fields, values };
                       })
@@ -367,12 +375,12 @@ export default function Compare({ index }: Props) {
                           return (
                             <tr key={k}>
                               <th scope="row">{label}</th>
-                              {rows.map((r, i) => (
-                                <td key={r.id} className={best.includes(i) ? 'best' : undefined}>
+                              {slotRows.map((r, i) => (
+                                <td key={ids[i]} className={best.includes(i) ? 'best' : undefined}>
                                   {best.includes(i) && (
                                     <span className="best-mark"><span aria-hidden="true">★ </span><span className="sr-only">{t('compare.best')} </span></span>
                                   )}
-                                  <Value field={fields[i]} sources={r.car.sources} label={label} unit={unit} />
+                                  {r ? <Value field={fields[i]} sources={r.car.sources} label={label} unit={unit} /> : <span className="unknown">{t('badge.unknown')}</span>}
                                 </td>
                               ))}
                             </tr>
@@ -383,7 +391,7 @@ export default function Compare({ index }: Props) {
                   })}
               </table>
             </div>
-            {onlyDiff && ready && groups.every((g) => g.fields.every((k) => !rowDiffers(rows.map((r) => fieldOf(r, k)?.value.value ?? null)))) && (
+            {onlyDiff && ready && groups.every((g) => g.fields.every((k) => !rowDiffers(slotRows.map((r) => (r ? fieldOf(r, k)?.value.value ?? null : null))))) && (
               <p className="muted">{t('compare.noDiff')}</p>
             )}
             {ids.length < 4 && <p className="small"><a href="/cars">{t('compare.addMore')}</a></p>}
@@ -423,9 +431,14 @@ export default function Compare({ index }: Props) {
         .cmp-table tbody th[scope="row"], .cmp-table .corner { position: sticky; left: 0; z-index: 1; width: 160px; font-weight: 600; font-size: 0.9rem; color: var(--muted); }
         .cmp-table .car-head { border-top: 5px solid; vertical-align: bottom; }
         .cmp-table .car-name { display: block; font-weight: 700; }
-        .cmp-table .car-head select { width: 100%; margin: 4px 0; }
         .cmp-table .variant { display: block; margin: 4px 0; color: var(--muted); font-weight: 400; }
-        .cmp-table .car-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-weight: 400; }
+        .cmp-cars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+        .cmp-car { border-top: 5px solid; padding: 12px 14px; display: grid; gap: 6px; align-content: start; }
+        .cmp-car .car-name { font-weight: 700; }
+        .cmp-car select { width: 100%; }
+        .cmp-car .variant { color: var(--muted); }
+        .cmp-car .car-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+        .cmp-table tbody th[scope="row"] { hyphens: auto; }
         .cmp-table .group-row th { background: var(--surface-2); color: var(--text); font-size: 0.9rem; position: sticky; left: 0; }
         .cmp-table td.best { font-weight: 700; }
         .cmp-table td.best .v { font-weight: 700; }
@@ -435,6 +448,8 @@ export default function Compare({ index }: Props) {
           .cmp-table tbody th[scope="row"], .cmp-table .corner { width: 110px; font-size: 0.8rem; }
           .table-scroll.snap { scroll-snap-type: x mandatory; scroll-padding-left: 110px; }
           .cmp-table .car-head { scroll-snap-align: start; }
+          .cmp-cars { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+          .cmp-car { padding: 10px; }
           .cmp-results tbody th, .cmp-results thead th:first-child { white-space: normal; min-width: 120px; max-width: 140px; position: sticky; left: 0; z-index: 1; background: var(--surface); }
         }
       `}</style>

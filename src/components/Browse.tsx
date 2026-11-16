@@ -34,6 +34,7 @@ export default function Browse({ index }: Props) {
   const [notice, setNotice] = useState<string | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
   const sheetBtn = useRef<HTMLButtonElement>(null);
+  const sheetRef = useRef<HTMLElement>(null);
   const search = useMemo(() => makeCarSearch(index), [index]);
 
   // Remembered choices, units and the comparison list (browser only, after hydration).
@@ -56,7 +57,17 @@ export default function Browse({ index }: Props) {
   // Escape closes the phone sheet and returns focus to its button.
   useEffect(() => {
     if (!sheetOpen) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { setSheetOpen(false); sheetBtn.current?.focus(); } };
+    // The phone sheet is modal: focus moves in, Tab stays inside, Escape closes.
+    sheetRef.current?.querySelector<HTMLElement>('.bf-close')?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { setSheetOpen(false); sheetBtn.current?.focus(); return; }
+      if (e.key !== 'Tab' || !sheetRef.current) return;
+      const els = [...sheetRef.current.querySelectorAll<HTMLElement>('button:not([disabled]), input:not([disabled]), select:not([disabled]), a[href]')];
+      if (!els.length) return;
+      const first = els[0], last = els[els.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [sheetOpen]);
@@ -221,7 +232,7 @@ export default function Browse({ index }: Props) {
       </div>
 
       <div className="browse-main">
-        <aside id="browse-filters" className={`browse-filters card${sheetOpen ? ' open' : ''}`} aria-label={t('browse.filters')}>
+        <aside id="browse-filters" ref={sheetRef} className={`browse-filters card${sheetOpen ? ' open' : ''}`} aria-label={t('browse.filters')} role={sheetOpen ? 'dialog' : undefined} aria-modal={sheetOpen || undefined}>
           <div className="bf-head">
             <h2 className="bf-title">{t('browse.filters')}</h2>
             <button type="button" className="btn small" onClick={() => setState((s) => ({ ...s, filters: defaultFilters(index) }))} disabled={active === 0}>{t('browse.clear')}</button>
@@ -231,10 +242,11 @@ export default function Browse({ index }: Props) {
           </div>
           {panel}
         </aside>
-        {sheetOpen && <div className="bf-backdrop" onClick={() => setSheetOpen(false)} aria-hidden="true" />}
+        {sheetOpen && <div className="bf-backdrop" onClick={() => { setSheetOpen(false); sheetBtn.current?.focus(); }} aria-hidden="true" />}
 
-        <section className="browse-results" aria-live="polite" aria-busy={!ready}>
-          <p className="small muted browse-count"><strong>{count}</strong> · {t('browse.estimatedHelp')}</p>
+        <section className="browse-results" aria-busy={!ready}>
+          {/* Only the count is live, so a filter change reads one line, not every card. */}
+          <p className="small muted browse-count" role="status"><strong>{count}</strong> · {t('browse.estimatedHelp')}</p>
           {notice && <p className="banner small" role="status">{notice}</p>}
           {results.length === 0 && <p className="muted">{t('browse.noResults')}</p>}
 

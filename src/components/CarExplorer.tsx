@@ -72,7 +72,15 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     }
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
     const onUnits = (e: Event) => setUnit((e as CustomEvent<DistanceUnit>).detail);
-    const onMine = (e: Event) => setMyCarState((e as CustomEvent<MyCar | null>).detail);
+    const onMine = (e: Event) => {
+      const mine = (e as CustomEvent<MyCar | null>).detail;
+      setMyCarState(mine);
+      // "Forget my car" (QP5): the first-load picker returns, and a reload stays on it.
+      if (mine === null) {
+        setShowPicker(true);
+        history.replaceState(null, '', '/charging');
+      }
+    };
     const onCompare = (e: Event) => setCompareList((e as CustomEvent<string[]>).detail);
     window.addEventListener('voltway:units', onUnits);
     window.addEventListener('voltway:mycar', onMine);

@@ -148,11 +148,14 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 
 Built from [DESIGN-map.md](DESIGN-map.md) (approved 2026-11-16; owner decisions B26–B29). Data layer before UI. Each item ships as its own PR on green CI. Phase 1b items above follow once M10 passes.
 
+**Agents for this phase (added 2026-11-16 at the owner's request):** `.claude/agents/map-data-auditor.md` audits the charger data after M1–M3 and on refresh PRs; `.claude/agents/map-ui-checker.md` runs QA.md MU1–MU16 in the browser after M6–M8.
+
 **Owner steps:** free API key from developer.nlr.gov; add it as the GitHub Actions secret `NLR_API_KEY` and to a local `.env` (git-ignored).
 
 ## Data layer
 
-- [ ] **[2] M0 Record decisions + plan files** — `gaps-and-questions.md` (B26–B29), `charger-map.md`, `data-sources.md`, `overview.md`, `database-ui.md`, `CLAUDE.md`, `docs/plan/DESIGN-map.md`, this section, `QA.md` Phase 2. Done when: the docs PR is merged.
+- [x] **[2] M0 Record decisions + plan files** — `gaps-and-questions.md` (B26–B29), `charger-map.md`, `data-sources.md`, `overview.md`, `database-ui.md`, `CLAUDE.md`, `docs/plan/DESIGN-map.md`, this section, `QA.md` Phase 2. Done when: the docs PR is merged.
+  - Verified 2026-11-16: merged as PR #44 (CI green).
 - [ ] **[2] M1 AFDC fetch + source record** — `scripts/fetch-afdc.ts`, `sources/afdc-ca/` (raw if under ~10 MB, else checksum only), `data/sources/src-afdc-ca.json`. Done when: a local run with the key writes the data and `FETCHED.json` (URL, time, checksum, count); count in the expected range (~14–16k locations incl. L1/planned); licence/attribution confirmed (owner asked if unclear).
 - [ ] **[2] M2 Normalize + classify** — `scripts/lib/afdc.ts`, `tests/afdc.test.ts`, `tests/fixtures/afdc/`, `data/imported/afdc/stations.json`, `schema/imported-afdc.schema.json`. Done when: tests cover every band edge and the value just above it (3.6/7.2/11.5/50/100/250), unknown power, mixed sites, a 20 kW DC unit staying Level 3, private/L1-only/planned drops, Supercharger vs Destination flags; `npm run validate` passes.
 - [ ] **[2] M3 Sanity checks + change summary** — `scripts/lib/afdc-checks.ts`, tests. Done when: tests cover pass, >10 % drop and missing required fields (>2 %), and the summary lists added/removed/changed by province and level.

@@ -4,7 +4,7 @@ Phase 3 of [roadmap.md](roadmap.md). The simple, threshold-based trip planner fr
 
 **Design principle (Q-V1):** routing stays **simple and easy to follow**. Accuracy comes from the Phase 1 vehicle data, not from a complex model.
 
-*Researched 2026-11-15. Free-tier limits change, so re-check them at build time.*
+*Researched 2026-11-15; re-checked 2026-11-16 at Phase 3 planning: the ORS free Standard plan still gives 2,000 directions and 1,000 geocodes per day, and its API now lives at **`api.heigit.org`** (the old `api.openrouteservice.org` host is deprecated). Over the daily limit ORS answers 403, over the per-minute limit 429.*
 
 ---
 
@@ -33,7 +33,7 @@ Phases 1 and 2 are fully static. Routing **can't be**, because it needs a road n
 A static site can't hide an API key. Anyone could copy it and use up the daily allowance. A **Vercel Function** (a tiny piece of server code that deploys with the site) sits in between:
 - **Holds the ORS key** out of sight, in a Vercel **environment variable**.
 - **Caches** repeated routes and searches (the same city pair is often asked for again), using **CDN cache headers** on its responses.
-- **Limits each visitor** to a reasonable number of trips per hour, so one person can't use up the day's allowance (S7). Options to choose at build time: Vercel's firewall rate-limit rules, or a small free key-value store.
+- **Limits each visitor** to a reasonable number of trips per hour, so one person can't use up the day's allowance (S7). **Decided (B44, 2026-11-16):** one **Vercel firewall rate-limit rule** on `/api/*` (the Hobby plan includes one), about 30 requests per visitor per hour, set up by the owner in the dashboard. When the rule or ORS says no, the page shows "Trip planning is busy, try again later" (S7).
 - **Doesn't log** addresses beyond what it needs for the cache.
 
 That's the **first and only server-side piece** in the whole app. It lives in the **same project as the site**, so there's no extra service or account.
@@ -60,12 +60,12 @@ For each stretch of the route:
 | The variant has a **tested highway consumption** (data model `kind: tested`) | That figure, as is |
 | Otherwise | **NRCan highway consumption × 1.15** |
 
-**Why × 1.15:** official highway ratings come from lab cycles that are slower than Canadian highway driving (100–110 km/h). The 1.15 factor is a **placeholder to calibrate** against tested highway figures, like the curve templates (R10).
+**Why × 1.15:** official highway ratings come from lab cycles that are slower than Canadian highway driving (100–110 km/h). The 1.15 factor is a **placeholder to calibrate** against tested highway figures, like the curve templates (R10). **Decided (B46, 2026-11-16):** no car had a tested highway figure yet, so Phase 3 first researches tested highway consumption (110–120 km/h range tests) for about 20 cars, then calibrates the factor; until the owner approves the result, 1.15 ships marked "not yet calibrated".
 
 ### 2. Elevation
 - **Climbing:** add the energy needed to lift the car: `mass × 9.81 × metres climbed`, ÷ 0.9 for drivetrain losses.
 - **Descending:** take back **60%** of the descent energy (regenerative braking).
-- **Mass:** the variant's curb weight + 150 kg (driver and luggage). If curb weight is unknown, a default by body type (D17).
+- **Mass:** the variant's curb weight + 150 kg (driver and luggage). If curb weight is unknown, a default by body type (D17). **Decided (B47, 2026-11-16):** the default is the **median of the sourced curb weights** for that body type in our own data (the overall median when a body type has fewer than 3), worked out at build time and shown as Estimated with that basis. A research pass also fills the missing weights.
 - **Why include it:** it's cheap (ORS supplies the elevation) and it matters a lot on mountain trips in BC and Alberta, while having little effect in Ontario.
 
 ### 3. Not modeled in v1
@@ -131,7 +131,7 @@ Uses the **Phase 1 curve maths** (charging-curve-viewer.md §3) with no changes:
 ## 6. Address search (S6) ✅
 
 To stay inside the 1,000 searches per day:
-1. As the user types, match first against the **static list of Canadian places** already used by the map (charger-map.md §5). That needs no service.
+1. As the user types, match first against a **static list of Canadian places**. That needs no service. **Decided (B45, 2026-11-16):** the list is **GeoNames** places with population ≥ 1,000 (CC BY 4.0, credited on About; see data-sources.md §5a). The map never got its own list (B29).
 2. Call **ORS geocoding** only when the user presses Search or picks "Search full address", **not on every keystroke**.
 3. Cache results through the function's CDN cache headers.
 4. **"Use my location"** works for From (browser location, only when asked).

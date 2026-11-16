@@ -276,3 +276,86 @@ Covers the items tagged [1b] in `CHECKLIST.md`: template calibration (2.2), Cars
 | QM1–QM7 | | |
 | QX1–QX7 | | |
 | QR1–QR3 | | |
+
+---
+
+# Phase 3: Route planner (DESIGN-3.md, route-planner.md, user-flows.md §2–§3)
+
+Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-planner.md). Owner decisions: B44 (rate limit), B45 (GeoNames places), B46 (highway factor research + calibration), B47 (curb weight defaults). Dev server: `.claude/launch.json` "voltway-dev" (port 4321); the function needs `ORS_API_KEY` in `.env` locally. Check at desktop width and 375 px, light and dark. Clean up `voltway.*` storage keys after testing.
+
+## 1. Build and rules
+
+| # | Check | Edge cases |
+|---|-------|-----------|
+| QT1 | `npx vitest run`, `npx astro check` (0 errors), `npm run build` pass | |
+| QT2 | Build output: every page prerendered; only `/api/route` and `/api/geocode` are functions | |
+| QT3 | No new hard-coded user-facing strings (all in `src/i18n/en.json`); no new unsourced vehicle figure (curb-weight defaults are `kind: estimated` with a basis) | |
+| QT4 | The ORS key is read only on the server (`src/pages/api/*`, `src/lib/ors.ts`), never in client code, `public/` or a response | Search the built client files in `dist/` for the variable name and the key |
+
+## 2. Data (3.1, 3.2, 3.3)
+
+| # | Check | Edge cases |
+|---|-------|-----------|
+| QD1 | `public/data/places.json` exists: Canadian places with population ≥ 1,000 and their province; Toronto, Montréal, Whitehorse and Iqaluit present; About credits GeoNames (CC BY 4.0) | Accented names keep their accents |
+| QD2 | Every built car has a curb weight; the filled-in ones show Estimated with "median of N sourced …" | A body type with fewer than 3 sourced cars uses the overall median |
+| QD3 | Tested highway figures (once 3.3 is merged) are `kind: tested` with a source each; the owner merged the data PR | |
+
+## 3. Energy and stop logic (3.4–3.6, route-planner §3–§5)
+
+| # | Check | Edge cases |
+|---|-------|-----------|
+| QE1 | Base consumption: tested highway if present, else NRCan highway × factor (1.15 until R10 is approved) | |
+| QE2 | A climb adds `m·9.81·Δh / 0.9`; a descent returns 60 %; mass = curb weight + 150 kg | Unknown weight → body-type default, result marked estimated |
+| QE3 | SoC drop uses usable kWh; the gross fallback marks the trip estimated | |
+| QE4 | Stop window: arrive between threshold and threshold + 20 %, ≤ 2 km from the route; highest usable kW (capped at the car's DC peak); ties → furthest along | |
+| QE5 | Fallbacks: 10 km, then the last earlier compatible charger, then a "charging gap" warning | Destination reached below threshold → an extra stop |
+| QE6 | Compatibility = the map's "Chargers my car can use" rule (B38, B42); temporarily unavailable and restricted stations skipped; a non-Tesla at a Supercharger flagged | A CCS1 car without Supercharger access is never routed to one |
+| QE7 | Charging time = the Phase 1 curve maths from arrival % to 80 % at min(curve, charger kW), + 5 min per stop; estimated curves show "~" | |
+| QE8 | Total time = driving + detours + charging + overhead; "Change car" re-plans from the same route with no new `/api/route` request | |
+
+## 4. The function (3.8–3.10, route-planner §2, B44)
+
+| # | Check | Edge cases |
+|---|-------|-----------|
+| QF1 | `/api/route?from=lon,lat&to=lon,lat` returns a trimmed route with elevation, distance and duration | Missing, non-numeric or out-of-area coordinates → 400 |
+| QF2 | `/api/geocode?q=` returns at most 5 Canadian results | Empty `q` → 400 |
+| QF3 | Responses carry CDN cache headers; a repeat call on the deployment shows `x-vercel-cache: HIT` | Coordinates are rounded so near-identical requests share the cache |
+| QF4 | ORS daily limit (403), per-minute limit (429) or a timeout → 503 `busy`; the page shows "Trip planning is busy, try again later" | |
+| QF5 | The firewall rule blocks a burst from one IP; the page shows the busy message | |
+| QF6 | The function writes no addresses or coordinates to the logs | |
+
+## 5. Trip screen (3.11–3.14, route-planner §1, §6, §7; user-flows §2)
+
+| # | Check | Edge cases |
+|---|-------|-----------|
+| QS1 | "Trip" in the header nav and side menu; `/trip` loads with no console errors | |
+| QS2 | From/To suggest places while typing with no network request; "Search full address" calls `/api/geocode` only on press; "Use my location" fills From only when pressed | "montreal" finds Montréal; location denied → a message |
+| QS3 | The car comes from My car, with an inline picker when there is none; start 90 % and threshold 15 % by default, both adjustable | |
+| QS4 | Toronto → Montréal with an IONIQ 5 plans sensible stops; Calgary → Vancouver uses more energy than the same distance on the flat | A route that needs no stop shows none |
+| QS5 | Map: the route line and numbered stop pins; a pin opens the same station panel as the map | |
+| QS6 | Itinerary per route-planner §7: depart %, legs, stops (arrive % → 80 %, kW + plug, charging + 5 min), arrival %, totals | The km/mi switch updates distances |
+| QS7 | Warnings: estimated curve, Tesla network, charging gap (try a long northern route), detour, uncalibrated factor; the winter footer and the K2 disclaimer always; the charger data date shown | |
+| QS8 | Per stop: Google Maps and Apple Maps links, Open charger, and "See the charging curve for this stop" → `/charging` at arrival % → 80 % capped at that kW; saved curve settings unchanged afterwards | |
+| QS9 | Map station panel → "Plan a trip to here" opens `/trip` with To filled in | |
+| QS10 | The last trip is restored on reload; the share link appears only after opting in, and it reproduces the trip in a fresh browser | A corrupt `voltway.lastTrip` → an empty form, no crash |
+| QS11 | 375 px: the itinerary is a bottom sheet with no sideways scroll; dark mode readable; the keyboard reaches everything (combobox ARIA, itinerary list) | |
+| QS12 | States: no route found, busy, offline, no compatible chargers at all — each has a clear message | |
+
+## 6. Rules and process
+
+| # | Check |
+|---|-------|
+| QR4 | B44–B47 recorded in `gaps-and-questions.md` and the matching design docs |
+| QR5 | Ticked [3] items are genuinely done; anything skipped is noted inline |
+| QR6 | No waypoints, cost, live status or re-planning (route-planner §8 "later"); no links to parts that don't exist |
+
+## Phase 3 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QT1–QT4 | | |
+| QD1–QD3 | | |
+| QE1–QE8 | | |
+| QF1–QF6 | | |
+| QS1–QS12 | | |
+| QR4–QR6 | | |

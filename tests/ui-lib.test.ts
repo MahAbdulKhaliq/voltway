@@ -49,6 +49,18 @@ describe('dictionary', () => {
   });
 });
 
+describe('runtime-built dictionary keys (QA 9.1)', () => {
+  it('has every key the viewer builds at runtime', () => {
+    const keys = new Set(Object.keys(en));
+    for (const k of ['preconditioned', 'battery_temp_c', 'ambient_temp_c', 'charger_kw', 'charger_max_voltage_v', 'measured_at']) expect(keys.has(`condition.${k}`), k).toBe(true);
+    for (const v of ['yes', 'no', 'unknown', 'charger', 'battery']) expect(keys.has(`condition.value.${v}`), v).toBe(true);
+    for (const k of ['tested', 'community', 'manufacturer', 'estimated', 'borrowed']) expect(keys.has(`viewer.option.${k}`), k).toBe(true);
+    for (const k of ['highway', 'combined', 'city']) expect(keys.has(`viewer.basis.${k}`), k).toBe(true);
+    for (const k of ['soc', 'time']) expect(keys.has(`viewer.axis.${k}`), k).toBe(true);
+    for (const k of ['400v-nmc', '800v-nmc', 'lfp']) expect(keys.has(`curve.template.${k}`), k).toBe(true);
+  });
+});
+
 describe('trim labels in the Charging dropdown', async () => {
   const { trimLabel } = await import('../src/components/CarExplorer.tsx');
   it('drops the repeated variant name', () => {

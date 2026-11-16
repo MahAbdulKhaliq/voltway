@@ -49,7 +49,7 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 - [x] **1.4 Chargeprice importer**
   - Files: `scripts/fetch-chargeprice.ts`, `scripts/import-chargeprice.ts`, `scripts/lib/chargeprice.ts`, `schema/imported-chargeprice.schema.json`, `sources/chargeprice/`, `data/imported/chargeprice/` (incl. `SKIPPED.md`), `data/sources/src-chargeprice-archive-2025-04.json`, `tests/chargeprice.test.ts`
   - Done when: measured curves import as `tested` with the Fastned → Chargeprice chain in notes; default curves are skipped and listed in a log; the MIT attribution is in the source record.
-  - Verified 2026-11-15: pinned commit 32d7dc5; 1,282 cars → 69 files; 122 curves `tested` with the chain in notes; 407 flagged-default + 753 unflagged generic shapes skipped and listed in SKIPPED.md; attribution text is the licence's exact wording. **Owner review pending** on the generic-shape filter (DESIGN.md).
+  - Verified 2026-11-15: pinned commit 32d7dc5; 1,282 cars → 69 files; 122 curves `tested` with the chain in notes; 407 flagged-default (counted in SKIPPED.md, marked `curve_skipped` in the import JSON) + 753 unflagged generic shapes (listed one by one in SKIPPED.md) skipped; attribution text is the licence's exact wording. **Owner review pending** on the generic-shape filter (DESIGN.md).
 - [x] **1.5 Match suggester + crosswalk**
   - Files: `scripts/match.ts`, `crosswalk/crosswalk.csv`, `crosswalk/unmatched.md`
   - Done when: suggestions are written with `confirmed=false`; unmatched records are listed; the owner has confirmed the starter-set rows; the build ignores unconfirmed rows (tested).
@@ -95,7 +95,7 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
   - Done when: header shows Cars, Compare (n), My car, km|mi (no Map/Trip); light/dark follows the device.
   - Verified 2026-11-16 in the browser: header shows Cars and km|mi; Compare and My car stay hidden until Phases 5–6 build them (CLAUDE.md: hide links to parts that do not exist); no Map/Trip; dark theme follows the device; no horizontal scroll at 375 px.
 - [x] **3.3 SourceBadge**
-  - Files: `src/components/SourceBadge.tsx`
+  - Files: `src/components/react/Badge.tsx` (the unused Astro versions were removed 2026-11-16, QA 9.1)
   - Done when: it shows the kind text, opens to source + other figures, shows ⚠ on conflicts, grey "Unknown", estimated style with "~".
   - Verified 2026-11-16: `src/components/SourceBadge.astro` (+ `FieldValue.astro`) shows the kind text and opens (native details element, no JS) to source, date, notes and other figures; ⚠ on conflicts; grey "Unknown"; dashed italic style for estimated; dotted border for low confidence.
 

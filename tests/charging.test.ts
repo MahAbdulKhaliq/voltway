@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { calculateCharge, displayMinutes, powerAt, type CurvePoint } from '../src/lib/charging.ts';
+import { calculateCharge, displayMinutes, powerAt, measuredSpan, usesExtension, type CurvePoint } from '../src/lib/charging.ts';
 
 const flat = (kw: number): CurvePoint[] => [{ soc_percent: 0, power_kw: kw }, { soc_percent: 100, power_kw: kw }];
 
@@ -142,5 +142,21 @@ describe('displayMinutes', () => {
   });
   it('rounds measured results to the minute', () => {
     expect(displayMinutes(23.4, false)).toBe(23);
+  });
+});
+
+describe('measured span (B24)', () => {
+  const pts = [{ soc_percent: 18, power_kw: 200 }, { soc_percent: 80, power_kw: 100 }];
+  it('flags a window that reaches past the first or last point', () => {
+    expect(calculateCharge({ points: pts, usableKwh: 80, startSoc: 10, endSoc: 80 }).extrapolated).toBe(true);
+    expect(calculateCharge({ points: pts, usableKwh: 80, startSoc: 20, endSoc: 80 }).extrapolated).toBe(false);
+    expect(calculateCharge({ points: pts, usableKwh: 80, startSoc: 20, endSoc: 90 }).extrapolated).toBe(true);
+    expect(usesExtension(pts, 50, 50)).toBe(false);
+    expect(measuredSpan(pts)).toEqual({ from: 18, to: 80 });
+  });
+  it('shows an empty window as 0 min, not ~5 (QA 9.1)', () => {
+    expect(displayMinutes(0, true)).toBe(0);
+    expect(displayMinutes(0, false)).toBe(0);
+    expect(displayMinutes(1, true)).toBe(5);
   });
 });

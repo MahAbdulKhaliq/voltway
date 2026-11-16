@@ -6,10 +6,19 @@
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { buildCars } from './lib/build.ts';
+import { outputProblems } from './lib/output-check.ts';
 
 const root = process.cwd();
 const out = join(root, 'public', 'data');
 const { cars, index, estimates, report } = buildCars(root);
+
+// Fail the build on any unsourced figure in the output, not only in the input (rule: no bare numbers).
+const problems = cars.flatMap(outputProblems);
+if (problems.length) {
+  console.error(`data:build: ${problems.length} unsourced figure(s) in the output:`);
+  for (const p of problems.slice(0, 20)) console.error(`  ${p}`);
+  process.exit(1);
+}
 
 rmSync(out, { recursive: true, force: true });
 mkdirSync(join(out, 'cars'), { recursive: true });

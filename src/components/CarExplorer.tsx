@@ -44,6 +44,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const [unit, setUnit] = useState<DistanceUnit>('km');
   const [wheelIn, setWheelIn] = useState<number | null>(null); // null = the trim's rated wheels
   const [pickerOpen, setPickerOpen] = useState(false); // B18: closed once a car is chosen
+  const [linkMissing, setLinkMissing] = useState(false); // a ?car= link that matches no car
   useEffect(() => setWheelIn(null), [carId, trimId]);
 
   // First car: the link (?car=), else the last one viewed, else the first in the list.
@@ -53,6 +54,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     const first = cars.find((c) => c.id === wanted) ?? [...cars].sort((a, b) => byName(a.make, b.make) || byName(a.model, b.model))[0];
     setCarId(first?.id ?? null);
     setTrimId(params.get('trim'));
+    setLinkMissing(params.has('car') && !cars.some((c) => c.id === params.get('car')));
     // No link and no remembered car: the shown car is just the first in the list, so open the picker.
     setPickerOpen(!cars.some((c) => c.id === wanted));
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
@@ -95,7 +97,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const pick = (make: string, model?: string, year?: number) => {
     const pool = cars.filter((c) => c.make === make && (!model || c.model === model) && (!year || c.year === year));
     const sorted = [...pool].sort((a, b) => byName(a.model, b.model) || b.year - a.year || byName(a.name, b.name));
-    if (sorted[0]) { setCarId(sorted[0].id); setTrimId(null); }
+    if (sorted[0]) { setCarId(sorted[0].id); setTrimId(null); setLinkMissing(false); }
   };
 
   const loading = !car || car.id !== carId;
@@ -144,8 +146,13 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
       ? [...new Set([...Array.from({ length: 11 }, (_, i) => 14 + i), baseIn, ...factorySizes])].sort((a, b) => a - b)
       : [];
   const defaultCurve = car?.curves.find((c) => c.is_display_default);
+  // B24: when the 10–80 % window reaches past the measured points, the tiles' figures are estimated.
+  const extended = Boolean(car?.derived.extrapolated) && defaultCurve?.kind !== 'estimated';
+  const extendedNote = extended && defaultCurve
+    ? t('tile.extendedNote', { from: formatNumber(defaultCurve.points[0].soc_percent), to: formatNumber(defaultCurve.points.at(-1)!.soc_percent) })
+    : '';
   const curveField: Field = defaultCurve
-    ? { value: { value: 0, kind: defaultCurve.kind, source_id: defaultCurve.source_id, notes: defaultCurve.basis ?? defaultCurve.notes }, others: [], conflict: false }
+    ? { value: { value: 0, kind: extended ? 'estimated' : defaultCurve.kind, source_id: defaultCurve.source_id, notes: extended ? extendedNote : defaultCurve.basis ?? defaultCurve.notes }, others: [], conflict: false }
     : null;
   // Wheel size (B13), shown with the curve controls since it changes range and km added (B20).
   const wheelControl = (
@@ -188,6 +195,10 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     };
   };
   const d = car?.derived;
+  // Added per 10 min (QA 9.1): uses the shown trim's highway consumption (and wheel estimate), like the viewer.
+  const hwWh = shown.consumption_highway_wh_per_km?.value.value as number | undefined;
+  const mathsKwh = battery?.value.value as number | undefined;
+  const per10 = d && d.minutes_10_80 && hwWh && mathsKwh ? ((mathsKwh * 0.7 * 1000) / hwWh / d.minutes_10_80) * 10 : null;
   const distance = (km: number) => t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(km, unit)) });
   const sources = car?.sources ?? [];
   // Closed "Car figures" section still shows the headline numbers.
@@ -223,7 +234,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
             </select>
           </label>
           <label><span>{t('charging.variant')}</span>
-            <select value={carId ?? ''} onChange={(e) => { setCarId(e.target.value); setTrimId(null); }}>
+            <select value={carId ?? ''} onChange={(e) => { setCarId(e.target.value); setTrimId(null); setLinkMissing(false); }}>
               {variants.map((v) => <option key={v.id} value={v.id}>{v.name}</option>)}
             </select>
           </label>
@@ -235,6 +246,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
         </div>
       </Accordion>
 
+      {linkMissing && <p className="banner" role="status">{t('charging.linkNotFound')}</p>}
       {error && <p className="banner">{t('charging.loadError')}</p>}
       {!error && loading && <p className="muted">{t('charging.loading')}</p>}
 
@@ -278,8 +290,8 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
                 ) : <span className="unknown">{t('badge.unknown')}</span>}
               </div></div>
               <div className="tile card"><p className="tl">{t('tile.kmPer10')}</p><div className="tv">
-                {d && d.km_per_10_min !== null ? (
-                  <span className="fv">{d.estimated || adjusting ? '~' : ''}{distance(d.km_per_10_min / factor)} <Badge field={curveField} sources={sources} label={t('tile.kmPer10')} unit={unit} /></span>
+                {per10 !== null ? (
+                  <span className="fv">{d!.estimated || adjusting ? '~' : ''}{distance(per10)} <Badge field={curveField} sources={sources} label={t('tile.kmPer10')} unit={unit} /></span>
                 ) : <span className="unknown">{t('badge.unknown')}</span>}
               </div></div>
             </div>

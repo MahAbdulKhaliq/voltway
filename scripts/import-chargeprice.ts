@@ -1,6 +1,7 @@
 // `npm run import:chargeprice`: reads the pinned archive in sources/chargeprice/ and writes
 // cars (not motorbikes/microcars), one file per make, to data/imported/chargeprice/<make>.json.
-// Also writes data/imported/chargeprice/SKIPPED.md listing every dropped curve and why.
+// Also writes data/imported/chargeprice/SKIPPED.md: unflagged generic shapes listed one by one;
+// curves Chargeprice itself flags as defaults are counted there and marked `curve_skipped` in the import JSON.
 
 import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';

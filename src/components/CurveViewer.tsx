@@ -5,10 +5,10 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
-import { GridComponent, MarkAreaComponent, MarkLineComponent, TooltipComponent } from 'echarts/components';
+import { GridComponent, MarkAreaComponent, MarkLineComponent, MarkPointComponent, TooltipComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 import { t, type MessageKey } from '../i18n/t.ts';
-import { calculateCharge, displayMinutes, powerAt } from '../lib/charging.ts';
+import { calculateCharge, displayMinutes, measuredSpan, powerAt } from '../lib/charging.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CurveOut } from '../lib/types.ts';
@@ -18,7 +18,7 @@ import { setUnit as switchUnit } from '../scripts/units-client.ts';
 
 const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', currency: COVERAGE.currency });
 
-echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, MarkAreaComponent, CanvasRenderer]);
+echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, MarkPointComponent, MarkAreaComponent, CanvasRenderer]);
 
 interface Props {
   /** Extra controls from the car section (B20: the wheel-size picker), shown with the others. */
@@ -83,7 +83,9 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
   };
 
   const curve = curves.find((c) => c.id === curveId) ?? initial;
-  const estimated = curve.kind === 'estimated' || batteryIsGross;
+  // B24: a measured curve is only measured between its first and last points.
+  const span = measuredSpan(curve.points);
+  const partial = curve.kind !== 'estimated' && (span.from > 0 || span.to < 100);
   const chargerKw = settings.preset === 'none' ? null : settings.preset === 'custom' ? Math.max(1, settings.customKw || 1) : Number(settings.preset);
   const whPerKm = consumption[basis] ?? consumption.highway ?? consumption.combined ?? undefined;
   const source = sources.find((s) => s.id === curve.source_id);
@@ -96,6 +98,7 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
       return null;
     }
   }, [curve, usableKwh, settings.start, settings.end, chargerKw, whPerKm]);
+  const estimated = curve.kind === 'estimated' || batteryIsGross || Boolean(result?.extrapolated);
 
   // B19: billed energy is what the charger delivers, so add the assumed charging losses.
   const drawnKwh = result ? result.energyKwh / COST.dcEfficiency : 0;
@@ -154,13 +157,36 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
       const s = steps.find((x) => x.soc >= soc - 1e-9);
       return s ? s.elapsedMin : soc <= settings.start ? 0 : steps.at(-1)?.elapsedMin ?? 0;
     };
-    const carData: [number, number][] = [];
-    for (let s = 0; s <= 100; s += 1) carData.push([s, powerAt(curve.points, s)]);
+    // B24: the measured part is drawn solid; the flat extension beyond the first/last point is dashed.
+    const carData: [number, number | null][] = [];
+    const extData: [number, number | null][] = [];
+    for (let s = 0; s <= 100; s += 1) {
+      const kw = powerAt(curve.points, s);
+      if (!partial || (s >= span.from && s <= span.to)) carData.push([s, kw]);
+      else extData.push([s, kw]);
+    }
+    if (partial) {
+      // Exact end points, so both lines meet the measured ends at fractional SoC.
+      const first = curve.points[0].power_kw;
+      const last = curve.points.at(-1)!.power_kw;
+      carData.push([span.from, first], [span.to, last]);
+      if (span.from > 0) extData.push([span.from, first]);
+      if (span.to < 100) extData.push([span.to, last]);
+      carData.sort((a, b) => a[0] - b[0]);
+      extData.sort((a, b) => a[0] - b[0]);
+      // Break the dashed line between the two ends so it doesn't cross the measured part.
+      const gapAt = extData.findIndex((p) => p[0] >= span.to);
+      if (span.from > 0 && span.to < 100 && gapAt > 0) extData.splice(gapAt, 0, [(span.from + span.to) / 2, null]);
+    }
+    const tagAt = Math.min(Math.max(50, span.from), span.to);
+    const estTag = curve.kind === 'estimated'
+      ? { markPoint: { silent: true, symbol: 'circle', symbolSize: 0, label: { show: true, position: 'top' as const, formatter: t('viewer.estimatedTag'), color: est, fontStyle: 'italic' as const }, data: [{ coord: [tagAt, powerAt(curve.points, tagAt)] }] } }
+      : {};
     const delivered: [number, number][] = [];
     for (let s = settings.start; s <= settings.end; s += 0.5) delivered.push([s, Math.min(powerAt(curve.points, s), chargerKw ?? Infinity)]);
 
     const limitLine = chargerKw
-      ? { silent: true, symbol: 'none', lineStyle: { color: warn, type: 'dashed' as const }, label: { formatter: `${t('viewer.chargerLimit')} ${chargerKw} kW`, color: warn }, data: [{ yAxis: chargerKw }] }
+      ? { silent: true, symbol: 'none', lineStyle: { color: warn, type: 'dashed' as const }, label: { formatter: t('viewer.chargerLimitValue', { kw: formatNumber(chargerKw) }), color: warn }, data: [{ yAxis: chargerKw }] }
       : undefined;
 
     const option: echarts.EChartsCoreOption =
@@ -187,7 +213,11 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
                 name: t('viewer.carCurve'), type: 'line', data: carData, showSymbol: false, z: 2,
                 lineStyle: { color: lineColor, width: 2.5, type: curve.kind === 'estimated' ? 'dashed' : 'solid' },
                 ...(limitLine ? { markLine: limitLine } : {}),
+                ...estTag,
               },
+              ...(partial
+                ? [{ name: t('viewer.extendedTag'), type: 'line', data: extData, showSymbol: false, z: 2, connectNulls: false, lineStyle: { color: est, width: 2, type: 'dashed' as const } }]
+                : []),
             ],
           }
         : {
@@ -234,6 +264,7 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
         </div>
       )}
       {batteryIsGross && <p className="banner small">{t('viewer.grossNote')}</p>}
+      {partial && <p className="banner small estimated">{t('viewer.extendedNote', { from: formatNumber(span.from), to: formatNumber(span.to) })}</p>}
 
       <div className="controls">
         {curves.length > 1 && (
@@ -304,6 +335,7 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
             <div className="r"><p className="rl">{t('viewer.result.time', { start: settings.start, end: settings.end })}</p><p className="rv">{minutes(result.minutes)}</p></div>
             <div className="r"><p className="rl">{t('viewer.result.km', { basis: t(`viewer.basis.${basis}` as MessageKey) })}</p><p className="rv">{result.kmAdded !== null ? `${estimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>}</p></div>
             <div className="r"><p className="rl">{t('viewer.result.per10')}</p><p className="rv">{result.kmPer10Min !== null ? `${estimated ? '~' : ''}${distance(result.kmPer10Min)}` : <span className="unknown small">{t('badge.unknown')}</span>}</p></div>
+            <div className="r"><p className="rl">{t('viewer.result.added')}</p><p className="rv">{estimated ? '~' : ''}{t('fmt.kwh', { value: formatNumber(result.energyKwh, 1) })}</p></div>
             <div className="r"><p className="rl">{t('viewer.result.avg')}</p><p className="rv">{t('fmt.kw', { value: formatNumber(result.averageKw) })}</p></div>
             <div className="r" title={t('viewer.result.costNote', { kwh: formatNumber(drawnKwh, 1), loss: Math.round((1 - COST.dcEfficiency) * 100) })}>
               <p className="rl">{t('viewer.result.cost', { start: settings.start, end: settings.end })}</p>
@@ -336,7 +368,7 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
           </ul>
         )}
         {(curve.notes || curve.basis) && <p className="small"><strong>{t('viewer.notes')}:</strong> {curve.basis ?? curve.notes}</p>}
-        {curve.conditions && <p className="small"><strong>{t('viewer.conditions')}:</strong> {Object.entries(curve.conditions).map(([k, v]) => `${k}: ${v}`).join(' · ')}</p>}
+        {curve.conditions && <p className="small"><strong>{t('viewer.conditions')}:</strong> {Object.entries(curve.conditions).map(([k, v]) => t(`condition.${k}` as MessageKey, { value: typeof v === 'number' ? formatNumber(v) : t(`condition.value.${String(v)}` as MessageKey) })).join(' · ')}</p>}
         <table className="points">
           <caption className="small muted">{t('viewer.points')} · {t('viewer.chartTable')}</caption>
           <thead><tr><th>{t('viewer.pointSoc')}</th><th>{t('viewer.pointKw')}</th></tr></thead>

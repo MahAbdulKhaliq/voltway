@@ -39,6 +39,20 @@ export interface ChargeResult {
   peakAtSoc: number;
   minutesAbove: Record<100 | 150 | 200, number>;
   steps: ChargeStep[];         // for the power-vs-time chart
+  /** B24: true when the window reaches past the curve's first or last point (flat extension). */
+  extrapolated: boolean;
+}
+
+/** SoC range the curve's points actually cover (B24). Outside it, powerAt() extends flat. */
+export function measuredSpan(points: CurvePoint[]): { from: number; to: number } {
+  return { from: points[0].soc_percent, to: points[points.length - 1].soc_percent };
+}
+
+/** True when a start→end window uses SoC outside the measured span (B24). */
+export function usesExtension(points: CurvePoint[], startSoc: number, endSoc: number): boolean {
+  if (endSoc <= startSoc) return false;
+  const { from, to } = measuredSpan(points);
+  return startSoc < from - 1e-9 || endSoc > to + 1e-9;
 }
 
 /** Power at any SoC, joining points with straight lines; flat beyond the first/last point. */
@@ -110,6 +124,7 @@ export function calculateCharge(input: ChargeInput): ChargeResult {
     peakAtSoc,
     minutesAbove: above,
     steps,
+    extrapolated: usesExtension(points, startSoc, endSoc),
   };
 }
 
@@ -118,5 +133,6 @@ export function calculateCharge(input: ChargeInput): ChargeResult {
  * 5 minutes so they don't look more precise than they are (charging-curve-viewer.md §9).
  */
 export function displayMinutes(minutes: number, estimated: boolean): number {
+  if (!(minutes > 0)) return 0; // an empty window takes no time (QA 9.1)
   return estimated ? Math.max(5, Math.round(minutes / 5) * 5) : Math.round(minutes);
 }

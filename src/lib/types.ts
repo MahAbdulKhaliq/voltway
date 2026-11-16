@@ -63,8 +63,10 @@ export interface Derived {
   /** Uncapped 10–80 % with the default curve; null when inputs are missing. */
   minutes_10_80: number | null;
   km_per_10_min: number | null;
-  /** True when the time comes from an estimated curve or a gross-capacity fallback. */
+  /** True when the time comes from an estimated curve, a gross-capacity fallback, or SoC outside the measured points (B24). */
   estimated: boolean;
+  /** B24: the 10–80 % window reaches past the default curve's measured points. */
+  extrapolated: boolean;
   /** Which battery figure the maths used. */
   battery_basis: 'usable' | 'gross' | null;
 }

@@ -1,7 +1,7 @@
 // Turns the raw AFDC pull (sources/afdc-ca/stations-raw.json) into the compact,
 // source-faithful station list in data/imported/afdc/stations.json.
-// Keeps facts only (ports with level, plug, rated kW and count); bands and other
-// derived values are worked out at build time from src/lib/power-bands.ts.
+// Keeps facts only (ports with level, plug, rated kW and count); power ranges and other
+// derived values are worked out on the client with src/lib/power-bands.ts.
 // Rules: charger-map.md §3, §6, §7 and vision.md "Power bands".
 
 import type { ChargerLevel, Plug } from '../../src/lib/power-bands.ts';

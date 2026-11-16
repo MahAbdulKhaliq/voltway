@@ -1,54 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { levelOf, normalizeStations, serializeStationsFile, type RawStation } from '../scripts/lib/afdc.ts';
-import { bandOf, bandsFor, siteBands, teslaNetwork } from '../src/lib/power-bands.ts';
+import { teslaNetwork } from '../src/lib/power-bands.ts';
 
-describe('power bands (vision.md N1: upper edge inclusive)', () => {
-  const cases: [2 | 3, number, string][] = [
-    [2, 3.6, 'l2_le_3_6'],
-    [2, 3.7, 'l2_le_7_2'],
-    [2, 7.2, 'l2_le_7_2'],
-    [2, 7.3, 'l2_le_11_5'],
-    [2, 11.5, 'l2_le_11_5'],
-    [2, 11.6, 'l2_gt_11_5'],
-    [2, 19.2, 'l2_gt_11_5'],
-    [3, 24, 'l3_le_50'],
-    [3, 50, 'l3_le_50'],
-    [3, 50.1, 'l3_le_100'],
-    [3, 100, 'l3_le_100'],
-    [3, 100.5, 'l3_le_250'],
-    [3, 250, 'l3_le_250'],
-    [3, 250.1, 'l3_gt_250'],
-    [3, 400, 'l3_gt_250'],
-  ];
-  it.each(cases)('Level %i at %s kW → %s', (level, kw, band) => {
-    expect(bandOf(level, kw)).toBe(band);
-  });
-
-  it('puts missing, zero or invalid kW in the level\'s "Unknown power" band', () => {
-    expect(bandOf(2, null)).toBe('l2_unknown');
-    expect(bandOf(3, null)).toBe('l3_unknown');
-    expect(bandOf(3, 0)).toBe('l3_unknown');
-    expect(bandOf(2, Number.NaN)).toBe('l2_unknown');
-  });
-
-  it('a low-power DC port stays Level 3 (level never comes from kW)', () => {
-    expect(bandOf(3, 20)).toBe('l3_le_50');
-  });
-
-  it('lists bands in display order with unknown last', () => {
-    expect(bandsFor(3)).toEqual(['l3_le_50', 'l3_le_100', 'l3_le_250', 'l3_gt_250', 'l3_unknown']);
-    expect(bandsFor(2)).toHaveLength(5);
-  });
-
-  it('a mixed site is in every band any of its ports falls in', () => {
-    const bands = siteBands([
-      { level: 3, plug: 'ccs1', kw: 350 },
-      { level: 3, plug: 'chademo', kw: 50 },
-      { level: 2, plug: 'j1772', kw: null },
-    ]);
-    expect([...bands].sort()).toEqual(['l2_unknown', 'l3_gt_250', 'l3_le_50']);
-  });
-
+describe('Tesla networks', () => {
   it('recognises the Tesla networks by AFDC\'s names', () => {
     expect(teslaNetwork('Tesla')).toBe('supercharger');
     expect(teslaNetwork('Tesla Destination')).toBe('destination');

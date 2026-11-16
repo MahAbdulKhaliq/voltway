@@ -1,26 +1,33 @@
-// Charger-map filters (charger-map.md §4, DESIGN-map.md M7). Pure, so it is unit-tested
-// and shared by the map island. A port matches when its level, its power band and its plug
-// are all ticked; a station shows when ANY of its ports matches.
+// Charger-map filters (charger-map.md §4, DESIGN-map.md M7, M11). Pure, so it is unit-tested
+// and shared by the map island. A port matches when its level is ticked, its rated kW is inside
+// that level's slider range (B35) and its plug is ticked; a station shows when ANY port matches.
 
-import { bandOf, bandsFor, PLUGS, type BandId, type ChargerLevel, type Plug } from './power-bands.ts';
+import {
+  fullRange,
+  inPowerRange,
+  isValidRange,
+  PLUGS,
+  type ChargerLevel,
+  type Plug,
+  type PowerRange,
+} from './power-bands.ts';
 import type { Feature, FeatureCollection, Point } from 'geojson';
 import type { MapFeature, MapPort } from './map-data.ts';
 
 export interface MapFilters {
   levels: Record<ChargerLevel, boolean>;
-  bands: Record<BandId, boolean>;
+  /** kW slider range per level, as stop indices (power-bands.ts). */
+  power: Record<ChargerLevel, PowerRange>;
   plugs: Record<Plug, boolean>;
 }
 
 export const LEVELS: readonly ChargerLevel[] = [3, 2];
 
-/** Level 3 on, Level 2 off (N8); every band, "Unknown power" included, and every plug on. */
+/** Level 3 on, Level 2 off (N8); each slider at its full range (unknown power shown); every plug on. */
 export function defaultFilters(): MapFilters {
-  const bands = {} as Record<BandId, boolean>;
-  for (const l of LEVELS) for (const b of bandsFor(l)) bands[b] = true;
   const plugs = {} as Record<Plug, boolean>;
   for (const p of PLUGS) plugs[p] = true;
-  return { levels: { 3: true, 2: false }, bands, plugs };
+  return { levels: { 3: true, 2: false }, power: { 3: fullRange(3), 2: fullRange(2) }, plugs };
 }
 
 /** Saved choices from browser storage, checked key by key; anything missing or odd keeps its default. */
@@ -33,13 +40,19 @@ export function readFilters(saved: unknown): MapFilters {
     for (const k of Object.keys(into) as K[]) if (typeof from[k] === 'boolean') into[k] = from[k] as boolean;
   };
   copy(f.levels as Record<string, boolean>, s.levels);
-  copy(f.bands, s.bands);
   copy(f.plugs, s.plugs);
+  // Saves from before B35 hold "bands" instead of "power"; those keep the full range.
+  if (s.power && typeof s.power === 'object') {
+    for (const lv of LEVELS) {
+      const r = s.power[lv];
+      if (isValidRange(lv, r)) f.power[lv] = [r[0], r[1]];
+    }
+  }
   return f;
 }
 
 export function portMatches([level, plug, kw]: MapPort, f: MapFilters): boolean {
-  return f.levels[level] === true && f.bands[bandOf(level, kw)] === true && f.plugs[plug] === true;
+  return f.levels[level] === true && inPowerRange(level, kw, f.power[level]) && f.plugs[plug] === true;
 }
 
 /** The highest level among a station's matching ports (3 or 2), or 0 when none match. */

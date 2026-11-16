@@ -8,7 +8,7 @@
 // which the daily refresh workflow uses as the PR body.
 // `--skip-checks` writes anyway (owner override after a real, reviewed drop).
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { normalizeStations, serializeStationsFile, type RawStation, type StationsFile } from './lib/afdc.ts';
 import { checkAfdc, summaryMarkdown } from './lib/afdc-checks.ts';
@@ -44,6 +44,14 @@ const prev = existsSync(outFile) ? (JSON.parse(readFileSync(outFile, 'utf8')) as
 const result = checkAfdc(prev, next);
 writeFileSync(summaryFile, summaryMarkdown(result, meta.fetched_at));
 
+// In GitHub Actions, tell the refresh workflow whether the checks passed and whether any
+// station changed (the header's fetch date changes every day, so a plain git diff can't tell).
+const t = result.totals;
+const changedCount = t.added.L3 + t.added.L2 + t.removed.L3 + t.removed.L2 + t.changed.L3 + t.changed.L2;
+if (process.env.GITHUB_OUTPUT) {
+  appendFileSync(process.env.GITHUB_OUTPUT, `ok=${result.ok}\nchanged=${changedCount > 0}\nsummary=${summaryFile}\n`);
+}
+
 console.log(
   `import:afdc: ${raw.fuel_stations.length} raw → ${stations.length} kept; dropped ${JSON.stringify(dropped)}; ignored ports ${JSON.stringify(ignored_ports)}`,
 );
@@ -56,7 +64,6 @@ if (!result.ok) console.warn('import:afdc: checks failed but --skip-checks was g
 
 mkdirSync(outDir, { recursive: true });
 writeFileSync(outFile, serializeStationsFile(next));
-const t = result.totals;
 console.log(
   `import:afdc: checks ${result.ok ? 'passed' : 'skipped'}; added ${t.added.L3 + t.added.L2}, removed ${t.removed.L3 + t.removed.L2}, changed ${t.changed.L3 + t.changed.L2}. Summary in ${summaryFile}.`,
 );

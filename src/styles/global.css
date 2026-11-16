@@ -332,3 +332,30 @@ main.fill { flex: 1; min-height: 0; position: relative; }
   .bf-backdrop { display: block; position: fixed; inset: 0; z-index: 39; background: rgb(2 6 23 / 55%); }
   .browse-table td { white-space: normal; }
 }
+
+/* First-load picker (5.2a, B37) */
+.car-picker { padding: 20px 22px; display: grid; gap: 10px; max-width: 760px; }
+.cp-title { margin: 0; font-size: 1.6rem; }
+.cp-intro, .cp-or, .cp-trim-note { margin: 0; }
+.cp-label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 4px; }
+.cp-search { position: relative; }
+.cp-search input { width: 100%; padding: 10px 12px; font-size: 1rem; }
+.cp-suggest { list-style: none; margin: 4px 0 0; padding: 4px; position: absolute; left: 0; right: 0; z-index: 20; background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; box-shadow: var(--shadow); max-height: 320px; overflow-y: auto; }
+.cp-suggest li { padding: 8px 10px; border-radius: 6px; cursor: pointer; }
+.cp-suggest li.on, .cp-suggest li[role=option]:hover { background: var(--accent-soft); }
+.cp-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.cp-steps label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
+.cp-steps select { width: 100%; min-width: 0; }
+.cp-steps select:disabled { opacity: 0.6; }
+.cp-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 6px; }
+.cp-browse { margin-left: auto; font-weight: 600; }
+
+/* Header chips (B40) */
+.chips { margin-left: auto; display: flex; align-items: center; gap: 8px; min-width: 0; }
+.chip { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; min-height: 36px; padding: 4px 12px; border: 1px solid var(--field-border); border-radius: 999px; background: var(--surface); color: var(--text); font: inherit; font-size: 0.875rem; text-decoration: none; cursor: pointer; white-space: nowrap; }
+.chip:hover { background: var(--surface-2); }
+.chip-text { overflow: hidden; text-overflow: ellipsis; max-width: 40vw; }
+.chip-menu { position: relative; min-width: 0; }
+.chip-pop { position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; min-width: 190px; display: grid; padding: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); }
+.chip-pop [role=menuitem] { display: block; padding: 8px 10px; border: 0; border-radius: 6px; background: none; color: var(--text); font: inherit; font-size: 0.9rem; text-align: left; text-decoration: none; cursor: pointer; }
+.chip-pop [role=menuitem]:hover, .chip-pop [role=menuitem]:focus-visible { background: var(--accent-soft); }

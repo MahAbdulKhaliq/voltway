@@ -6,6 +6,7 @@
 import '../styles/global.css';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { COVERAGE } from '../config.ts';
+import HeaderChips from '../components/HeaderChips.tsx';
 
 type Page = 'map' | 'charging' | 'cars' | 'about';
 // fill: the page is one full-screen tool (the map): no width limit and no footer; credits live in the tool.
@@ -48,6 +49,7 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
           <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" /></svg>
         </button>
         <a class="logo" href="/">⚡ {t('site.name')}</a>
+        <HeaderChips client:idle />
       </div>
     </header>
 
@@ -143,7 +145,7 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
 <style>
   .site-header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 20; }
   .bar { display: flex; align-items: center; gap: 12px; min-height: 56px; }
-  .logo { font-weight: 700; text-decoration: none; color: var(--text); font-size: 1.1rem; }
+  .logo { font-weight: 700; text-decoration: none; color: var(--text); font-size: 1.1rem; white-space: nowrap; }
   .icon-btn {
     display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: none;
     border: 1px solid var(--field-border); border-radius: 10px; background: transparent; color: var(--text); cursor: pointer;

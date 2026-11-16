@@ -6,18 +6,19 @@ import { useEffect, useMemo, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { COVERAGE } from '../config.ts';
 import { displayMinutes } from '../lib/charging.ts';
-import { getItem, setItem, KEYS } from '../lib/storage.ts';
+import { getItem, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CarDetail, Field, IndexEntry } from '../lib/types.ts';
 import { applyWheelEffect, ratedOnItsOwn, ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
 import { display } from '../lib/format.ts';
 import CurveViewer from './CurveViewer.tsx';
+import CarPicker from './CarPicker.tsx';
+import { addToCompare, getCompare, getMyCar, setMyCar, type AddResult, type MyCar } from '../lib/my-car.ts';
 import { Badge, Value, sourceNumber } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
 
 interface Props { index: IndexEntry[]; wheelEffect: WheelEffect | null }
 
-const LAST_CAR = 'voltway.lastCar';
 const uniq = <T,>(xs: T[]) => [...new Set(xs)];
 const byName = (a: string, b: string) => a.localeCompare(b, 'en', { sensitivity: 'base' });
 
@@ -32,7 +33,7 @@ const GROUPS: { title: MessageKey; fields: string[] }[] = [
   { title: 'group.battery', fields: ['capacity_usable_kwh', 'capacity_gross_kwh', 'chemistry', 'nominal_voltage_class', 'preconditioning'] },
   { title: 'group.charging', fields: ['dc_max_kw', 'ac_max_kw', 'published_10_80_min', 'recharge_time_240v_h'] },
   { title: 'group.efficiency', fields: ['range_km', 'consumption_combined_wh_per_km', 'consumption_city_wh_per_km', 'consumption_highway_wh_per_km'] },
-  { title: 'group.ports', fields: ['charge_port', 'supercharger_access'] },
+  { title: 'group.ports', fields: ['charge_port', 'supercharger_access', 'adapters_included'] },
 ];
 
 export default function CarExplorer({ index, wheelEffect }: Props) {
@@ -45,22 +46,43 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const [wheelIn, setWheelIn] = useState<number | null>(null); // null = the trim's rated wheels
   const [pickerOpen, setPickerOpen] = useState(false); // B18: closed once a car is chosen
   const [linkMissing, setLinkMissing] = useState(false); // a ?car= link that matches no car
+  const [showPicker, setShowPicker] = useState(false); // B37: the first-load picker
+  const [myCar, setMyCarState] = useState<MyCar | null>(null);
+  const [compare, setCompareList] = useState<string[]>([]);
+  const [compareNote, setCompareNote] = useState<AddResult | null>(null);
   useEffect(() => setWheelIn(null), [carId, trimId]);
 
-  // First car: the link (?car=), else the last one viewed, else the first in the list.
+  // First car (B37): the link (?car=), else My car, else the first-load picker. An empty
+  // ?car= counts as no link (TD-P4); ?pick=1 (from the header's "Change car") opens the picker.
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const wanted = params.get('car') ?? getItem(LAST_CAR);
-    const first = cars.find((c) => c.id === wanted) ?? [...cars].sort((a, b) => byName(a.make, b.make) || byName(a.model, b.model))[0];
-    setCarId(first?.id ?? null);
-    setTrimId(params.get('trim'));
-    setLinkMissing(params.has('car') && !cars.some((c) => c.id === params.get('car')));
-    // No link and no remembered car: the shown car is just the first in the list, so open the picker.
-    setPickerOpen(!cars.some((c) => c.id === wanted));
+    const linked = params.get('car') || null;
+    const mine = getMyCar();
+    const known = (id: string | null | undefined) => Boolean(id && cars.some((c) => c.id === id));
+    setMyCarState(mine);
+    setCompareList(getCompare());
+    setLinkMissing(known(linked) ? false : Boolean(linked));
+    if (known(linked) && params.get('pick') !== '1') {
+      setCarId(linked);
+      setTrimId(params.get('trim'));
+    } else if (known(mine?.carId) && params.get('pick') !== '1') {
+      setCarId(mine!.carId);
+      setTrimId(mine!.trimId);
+    } else {
+      setShowPicker(true);
+    }
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
     const onUnits = (e: Event) => setUnit((e as CustomEvent<DistanceUnit>).detail);
+    const onMine = (e: Event) => setMyCarState((e as CustomEvent<MyCar | null>).detail);
+    const onCompare = (e: Event) => setCompareList((e as CustomEvent<string[]>).detail);
     window.addEventListener('voltway:units', onUnits);
-    return () => window.removeEventListener('voltway:units', onUnits);
+    window.addEventListener('voltway:mycar', onMine);
+    window.addEventListener('voltway:compare', onCompare);
+    return () => {
+      window.removeEventListener('voltway:units', onUnits);
+      window.removeEventListener('voltway:mycar', onMine);
+      window.removeEventListener('voltway:compare', onCompare);
+    };
   }, [cars]);
 
   // Load the chosen car; keep the URL and "last car" in step.
@@ -76,7 +98,6 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
         setTrimId((tr) => (c.trims.some((x) => x.id === tr) ? tr : c.trims[0]?.id ?? null));
       })
       .catch(() => alive && setError(true));
-    setItem(LAST_CAR, carId);
     return () => { alive = false; };
   }, [carId]);
 
@@ -207,6 +228,31 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     .map((x) => display(x.value, unit).text)
     .join(' · ');
 
+  const labelFor = (id: string) => {
+    const e = cars.find((c) => c.id === id);
+    return e ? `${e.model} ${e.name}` : id;
+  };
+  const choose = (id: string, trim: string | null) => {
+    setMyCar({ carId: id, trimId: trim, label: labelFor(id) });
+    setCarId(id);
+    setTrimId(trim);
+    setShowPicker(false);
+    setLinkMissing(false);
+  };
+  // Trims matter only when the variant has several; "no trim" means its first (standard) trim.
+  const firstTrim = car?.trims[0]?.id ?? null;
+  const isMine = Boolean(myCar && car && myCar.carId === car.id && (car.trims.length < 2 || (myCar.trimId ?? firstTrim) === (trimId ?? firstTrim)));
+  const inCompare = Boolean(carId && compare.includes(carId));
+
+  if (showPicker) {
+    return (
+      <div className="explorer">
+        {linkMissing && <p className="banner" role="status">{t('charging.linkNotFound')}</p>}
+        <CarPicker cars={cars} onPick={choose} onCancel={carId || myCar ? () => { setShowPicker(false); if (!carId && myCar) { setCarId(myCar.carId); setTrimId(myCar.trimId); } } : undefined} />
+      </div>
+    );
+  }
+
   return (
     <div className="explorer">
       <Accordion
@@ -255,6 +301,15 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
           <header className="car-head">
             <p className="muted eyebrow">{car.year} · {car.make.name} · {t(`body.${car.model.body_type}` as MessageKey)} · {t(`value.${car.drivetrain}` as MessageKey)}</p>
             <h1>{car.model.name} <span className="variant">{car.name}</span></h1>
+            <div className="car-actions">
+              <button type="button" className={`btn small${isMine ? ' primary' : ''}`} aria-pressed={isMine} onClick={() => !isMine && setMyCar({ carId: car.id, trimId: car.trims.length > 1 ? trimId : null, label: labelFor(car.id) })}>
+                {isMine ? t('mycar.isMine') : t('mycar.set')}
+              </button>
+              <button type="button" className="btn small" disabled={inCompare} onClick={() => setCompareNote(addToCompare(car.id))}>
+                {inCompare ? t('browse.compareAdded') : t('browse.compare')}
+              </button>
+            </div>
+            {compareNote === 'full' && <p className="banner small" role="status">{t('browse.compareFull')}</p>}
           </header>
           {!car.sold_in_canada && <p className="banner">{t('car.notInMarket', { market: COVERAGE.market, regulator: COVERAGE.regulatorShort })}</p>}
 
@@ -353,6 +408,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
 
       <style>{`
         .explorer { display: grid; gap: 24px; }
+        .explorer .car-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
         .explorer .selects { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
         .explorer .selects label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
         .explorer .selects select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 8px 10px; width: 100%; min-width: 0; text-overflow: ellipsis; }

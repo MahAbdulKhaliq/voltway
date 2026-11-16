@@ -154,18 +154,18 @@ In order of preference:
 
 ## 5. Chargers (needed for Phase 2, but checked now)
 
-### NREL AFDC Alternative Fuel Stations API ⭐ primary
+### NLR (formerly NREL) AFDC Alternative Fuel Stations API ⭐ primary
 - **Covers Canada:** `country=CA`. NRCan's own station locator is built on it.
 - **Fields that fit the vision:**
   - Connector types: `J1772`, `J1772COMBO` (CCS1), `TESLA` (NACS), `CHADEMO` ✅ all four plugs in the vision
   - Port counts per level: `ev_level2_evse_num`, `ev_dc_fast_num` → Level 2 vs. Level 3
   - `ev_charging_units` → connectors → **`power_kw`**, which feeds the power bands. *Note:* the field is mostly rated maximum power, but sometimes actual power delivered.
   - `ev_network` (including "Tesla Supercharger" and "Tesla Destination"), `access_code` (public/private), `restricted_access`, `status_code` (available / planned / temporarily unavailable), `ev_pricing`
-- **Access:** free, with an API key from developer.nrel.gov.
+- **Access:** free, with an API key from **developer.nlr.gov** (the old developer.nrel.gov host was retired 2026-05-29). 1,000 requests per hour per key; DEMO_KEY is 50 per day.
 - **Watch out:**
   - Expect **missing `power_kw` values**, which is why the vision has an "Unknown power" band.
   - Reports suggest NRCan's data **doesn't capture every network**. NRCan reported about **39,654 public ports at 14,743 locations** as of March 2026.
-  - developer.nrel.gov couldn't be reached during this research, so its rate limits and terms are **unconfirmed**.
+  - The API docs state no licence or attribution terms (checked 2026-11-16). Canadian records come from NRCan, so the exact licence wording is confirmed during build (map checklist M1) before anything is published.
 - **Links:** [field dictionary](https://afdc.energy.gov/data_download/alt_fuel_stations_format) · [EV charging units endpoint](https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/ev-charging-units)
 
 ### Open Charge Map: secondary, fills gaps

@@ -1,5 +1,7 @@
 # Phase 1 build plan: EV vehicle database + charging curves
 
+> **Phase 2 (charger map):** see [DESIGN-map.md](DESIGN-map.md), approved 2026-11-16.
+
 > **Read with the decisions log.** This plan was written at the start of the build. Later owner decisions change parts of it: B11 (one Charging screen with dropdowns, no per-variant `/cars/...` pages), B18–B20 (layout, cost, themes, side nav instead of header links), B21 (1a/1b split), B23 (1.6 closed), B24 (measured range of curves), B25 (efficiency options later). Where this file and `docs/design/gaps-and-questions.md` §12 disagree, the decision wins.
 
 ## Context

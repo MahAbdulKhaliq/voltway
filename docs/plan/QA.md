@@ -107,3 +107,78 @@ Use `npm run dev` or the deployed site. Test at desktop and phone width (375 px)
 | U1–U17 | | |
 | T1–T2 | | |
 | P1–P3 | | |
+
+---
+
+# Phase 2 QA guide: charger map
+
+Standalone checks for the charger map against [DESIGN-map.md](DESIGN-map.md) and `docs/design/charger-map.md` (detailed doc wins), with owner decisions B26–B29 in `docs/design/gaps-and-questions.md` §12. Dev server: `.claude/launch.json` "voltway-dev" (port 4321). Clear localStorage before and after UI checks.
+
+## 1. Build and tests
+
+| # | Check | How |
+|---|-------|-----|
+| MB1 | Unit tests pass | `npx vitest run` |
+| MB2 | Validate, type-check and build pass | `npm run validate`, `npx astro check`, `npm run build` |
+| MB3 | Map files exist and are small | `public/data/map/l3.json`, `l2.json`, `meta.json`; gzip each (`gzip -c f \| wc -c`), under ~2 MB |
+| MB4 | No unsourced station | the output check fails the build if a station lacks the AFDC `source_id` (try removing one in a scratch copy) |
+
+## 2. Data rules (vision.md "Power bands", charger-map.md §3, §6)
+
+| # | Check | How |
+|---|-------|-----|
+| MD1 | Level comes from the source's classification, not kW | find a DC station under 25 kW in `stations.json`; it is Level 3 |
+| MD2 | Band edges include the upper edge (3.6, 7.2, 11.5, 50, 100, 250) | read `tests/afdc.test.ts`; each edge and the value just above it is tested |
+| MD3 | Missing kW goes to "Unknown power" | test + a real station with no `power_kw` |
+| MD4 | Mixed sites appear in every matching band | test + filter check in the browser |
+| MD5 | Private, Level 1-only and planned stations are dropped | count them in the raw pull vs `stations.json` |
+| MD6 | Temporarily unavailable kept, with expected date when given | find a `T` station |
+| MD7 | Sanity checks stop the update | tests: >10 % drop, >2 % missing required fields |
+| MD8 | API host is developer.nlr.gov; key comes from env / secret, never committed | grep the repo for the key and for `nrel.gov` |
+
+## 3. Refresh workflow (B27)
+
+| # | Check | How |
+|---|-------|-----|
+| MW1 | Manual run with changes opens a PR, runs the CI steps itself and merges it | Actions → charger-refresh → Run workflow; check the PR and Vercel deploy |
+| MW2 | No change = no PR | re-run right after MW1 |
+| MW3 | A failed check leaves the PR open and fails the run | run on a test branch with a simulated drop |
+
+## 4. Map screen (charger-map.md §2, §4–§7; B26, B28, B29)
+
+| # | Check |
+|---|-------|
+| MU1 | `/` is the map; nav shows Map, Charging, Cars, About; `/charging` works |
+| MU2 | Attribution shows © OpenStreetMap contributors and OpenFreeMap |
+| MU3 | First visit opens on southern Ontario/Québec; a moved view is restored after reload |
+| MU4 | Clusters show counts; clicking one zooms in |
+| MU5 | Level 3 pins are bolts, Level 2 pins plugs (not colour alone); temporarily unavailable pins greyed with a mark |
+| MU6 | Defaults: Level 3 on, Level 2 off; all bands on incl. "Unknown power"; all four plugs on |
+| MU7 | Band boxes appear only under a ticked level; a site shows if any port matches |
+| MU8 | Filter choices persist after reload |
+| MU9 | Level 2 data is requested only once Level 2 is first ticked (Network tab) |
+| MU10 | Station panel: name, network, level badge; port lines like "2 × CCS1 · 180 kW"; access + customers-only / limited-hours warning; pricing or "Not listed"; status with date; Google and Apple Maps links; "Data: NRCan / NLR AFDC · updated {date}" |
+| MU11 | Supercharger sites show the generic Tesla note; Destination sites the customers-only note; no My car toggle (B28) |
+| MU12 | Locate me asks only on click and centres the map; denied shows a message; nothing stored |
+| MU13 | No place search box (B29) |
+| MU14 | Phone width 375 px: bottom sheet, no sideways scroll; dark mode readable; filters and panel usable by keyboard |
+| MU15 | No console errors; all new text comes from `src/i18n/en.json` |
+| MU16 | About lists AFDC/NRCan, OpenFreeMap and OSM credits |
+
+## 5. Rules and process
+
+| # | Check |
+|---|-------|
+| MP1 | B26–B29 recorded in `gaps-and-questions.md` and matching docs |
+| MP2 | Ticked Phase 2 checklist items are genuinely done; stubs noted |
+| MP3 | No map link or feature beyond the design (no network filter, planned toggle, OCM, routing) |
+
+## Phase 2 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| MB1–MB4 | | |
+| MD1–MD8 | | |
+| MW1–MW3 | | |
+| MU1–MU16 | | |
+| MP1–MP3 | | |

@@ -43,3 +43,26 @@ export const MAP = {
   /** Built map data (scripts/lib/map-build.ts). */
   dataUrl: '/data/map',
 } as const;
+
+/**
+ * Trip planner energy model (route-planner.md §3, R1). Kept simple on purpose (Q-V1).
+ * Each value is a stated assumption from the design, not a vehicle figure.
+ */
+export const TRIP = {
+  /** NRCan highway consumption × this when the car has no tested highway figure. Placeholder until R10 (B46). */
+  highwayFactor: 1.15,
+  /** False until the owner approves a calibrated factor (R10, B46); the trip screen says "not yet calibrated". */
+  highwayCalibrated: false,
+  /** Driver and luggage added to curb weight (kg). */
+  payloadKg: 150,
+  /** Drivetrain efficiency when climbing: lift energy ÷ this. */
+  climbEfficiency: 0.9,
+  /** Share of descent energy recovered by regenerative braking. */
+  regenShare: 0.6,
+  /** Default starting battery % (R9) and stop threshold %. */
+  defaultStartSoc: 90,
+  defaultThresholdSoc: 15,
+  /** Charge target at each stop (Q-V2) and minutes added per stop for parking, plugging in and paying (§5). */
+  chargeToSoc: 80,
+  stopOverheadMin: 5,
+} as const;

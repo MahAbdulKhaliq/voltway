@@ -7,7 +7,7 @@ import '../styles/global.css';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { COVERAGE } from '../config.ts';
 
-type Page = 'charging' | 'cars';
+type Page = 'charging' | 'cars' | 'about';
 interface Props { title?: string; description?: string; active?: Page }
 const { title, description = t('site.tagline'), active } = Astro.props;
 const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
@@ -16,6 +16,7 @@ const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
 const PAGES: { id: Page; href: string }[] = [
   { id: 'charging', href: '/charging' },
   { id: 'cars', href: '/cars' },
+  { id: 'about', href: '/about' },
 ];
 const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
   t((part === 'name' ? `nav.${id}` : `nav.${id}.${part}`) as MessageKey);
@@ -84,7 +85,7 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
       <div class="wrap">
         <p>{t('scope.note', { market: COVERAGE.market, regulator: COVERAGE.regulator })}</p>
         <p>{t('footer.note')}</p>
-        <p class="small">{t('footer.data')}</p>
+        <p class="small">{t('footer.data')} <a href="/about#data">{t('footer.about')}</a></p>
       </div>
     </footer>
 

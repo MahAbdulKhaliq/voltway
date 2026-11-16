@@ -23,5 +23,20 @@
 - **Since:** 2026-11-16, owner decision **B30** (M1). Charger data is used under NLR's terms; NRCan's site terms allow non-commercial reproduction only "as is", and it is unclear whether they cover data reached through the AFDC API.
 - **Fix (optional):** email nrcan.copyright-droitdauteur.rncan@canada.ca to confirm transformed, non-commercial reuse with credit is fine; record the answer in `data/sources/src-afdc-ca.json`.
 
+### TD-P6 `adapters_included` is not in the vehicle data model
+- **Since:** 2026-11-16, Phase 2 plan (DESIGN-map.md M9).
+- **Impact:** "Chargers my car can use" (Phase 1b, checklist 5.2, B28) needs to know which adapters come with a car (e.g. NACS→CCS1) as well as `charge_port` and `supercharger_access`. Without it, a CCS1 car with a bundled adapter can't be shown Superchargers.
+- **Fix:** with 5.2: add `adapters_included` (sourced values, like every figure) to `vehicle-data-model.md` and the schema, then research it with `fill-data-gaps`.
+
+### TD-P7 Which Superchargers are open to non-Teslas (N9)
+- **Since:** 2026-11-16, Phase 2 plan (DESIGN-map.md M9).
+- **Impact:** AFDC doesn't record per-site non-Tesla access, so every Supercharger shows the same generic note ("access varies by site, check the Tesla app"). Drivers of other cars can't filter to sites they can use.
+- **Fix:** look for an open source of per-site access (charger-map.md §7). Tesla's own site list is not openly licensed.
+
+### TD-P8 Open Charge Map as a second charger source (N7)
+- **Since:** 2026-11-16, Phase 2 plan (DESIGN-map.md M9).
+- **Impact:** v1 uses AFDC only. Networks or sites AFDC lacks are missing from the map.
+- **Fix:** later, if gaps show up: add OCM with the duplicate rule in charger-map.md §3 (same network, within ~50 m, overlapping plugs = one station; prefer AFDC). OCM's licence and attribution terms need checking first.
+
 ## Closed
 - 2026-11-16, PR #41: "Added to battery" result shown (QA #7); notice for unmatched `?car=` links (QA #15); "Estimated" tag on estimated lines (QA #11).

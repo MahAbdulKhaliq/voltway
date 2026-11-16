@@ -1,6 +1,6 @@
 ---
 name: map-data-auditor
-description: Independently audits Voltway's charger-map data (AFDC Canada pull → data/imported/afdc/stations.json → public/data/map/*.json) against the classification rules: level, power bands, plugs, access, status, Tesla flags. Spot-checks a sample against the raw records and flags oddities. Read-only apart from its report file. Use after the fetch/normalize code changes, on a daily refresh PR, or on request.
+description: Independently audits Voltway's charger-map data (AFDC Canada pull → data/imported/afdc/stations.json → public/data/map/*.json) against the classification rules: level, power bands, plugs, access, status, Tesla flags. Spot-checks a sample against the raw records and flags oddities. Read-only apart from its report file. Use after the fetch/normalize code changes, on a refresh PR, or on request.
 tools: Read, Grep, Glob, Bash, Write
 model: sonnet
 ---

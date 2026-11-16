@@ -7,7 +7,7 @@ Phase 1a passed independent QA, so owner decision B21's gate is met and Phase 2 
 | ID | Decision | Docs to update |
 |----|----------|----------------|
 | B26 | **The map becomes the home page** (`/`). Charging moves to its own tab at `/charging`, which already exists. This replaces B11's "Home = Charging". | `database-ui.md`/`user-flows.md` home references, `charger-map.md` |
-| B27 | **Daily charger data goes live through a PR that merges itself** once the sanity checks and the full CI steps pass. This is an exception to "a person approves" (S4), for charger data only. Vehicle data keeps human review. | `charger-map.md` §3, `phase1-stack.md` §4, CLAUDE.md rules line |
+| B27 | **Daily (monthly since B36) charger data goes live through a PR that merges itself** once the sanity checks and the full CI steps pass. This is an exception to "a person approves" (S4), for charger data only. Vehicle data keeps human review. | `charger-map.md` §3, `phase1-stack.md` §4, CLAUDE.md rules line |
 | B28 | **"Chargers my car can use" and the My-car-specific Tesla notes move to Phase 1b** (built with 5.2 My car). v1 always shows the generic Tesla note. | `charger-map.md` §4, §7 |
 | B29 | **No place search in v1.** "Locate me" plus pan and zoom only. Search comes with Phase 3 address search (S6). | `charger-map.md` §5 |
 
@@ -47,7 +47,7 @@ Phase 1a passed independent QA, so owner decision B21's gate is met and Phase 2 
   - *Done when:* tests cover the pass case, the >10 % drop and missing fields.
 - **M4 Map data build:** extend `scripts/build-data.ts` to write `public/data/map/l3.json` and `l2.json` (compact GeoJSON, short property keys) plus `meta.json` (updated date, counts). Extend `output-check.ts` so every station carries the AFDC `source_id`.
   - *Done when:* `npm run build` succeeds and the files are under ~2 MB gzipped (L3 well under).
-- **M5 Daily refresh workflow:** `.github/workflows/charger-refresh.yml`, running daily and on demand with the secret `NLR_API_KEY`. Steps: fetch → normalize → checks.
+- **M5 Scheduled refresh workflow:** `.github/workflows/charger-refresh.yml`, running monthly (B36; daily as first planned) and on demand with the secret `NLR_API_KEY`. Steps: fetch → normalize → checks.
   - If nothing changed, exit quietly. Otherwise force-push `data/charger-refresh`, open or update the PR with the summary, and run validate/test/astro check/build **in the workflow itself**. PRs opened with `GITHUB_TOKEN` don't trigger `ci.yml`, so the workflow can't rely on it.
   - When all of that is green, `gh pr merge --squash --delete-branch`. Vercel deploys on merge through its own Git integration.
   - If a check fails, the PR stays open, nothing merges and the run fails so the owner is notified.
@@ -81,7 +81,7 @@ Phase 1a passed independent QA, so owner decision B21's gate is met and Phase 2 
 - **M9 About + tech debt:** add AFDC/NRCan, OpenFreeMap and OSM credits to `about.astro` `DATASETS`/credits. Log in `docs/tech-debt/`:
   - the Protomaps/R2 fallback not set up;
   - `adapters_included` missing (for 1b);
-  - repo growth from daily data commits (watch item);
+  - repo growth from data commits (watch item; monthly since B36);
   - N9 (which Superchargers are open to non-Teslas);
   - OCM later.
 

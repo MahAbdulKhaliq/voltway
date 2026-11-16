@@ -35,7 +35,7 @@ Design docs to write, in order:
 
 *Placed before routing because the route planner needs the same charger data.*
 
-- ✅ [`charger-map.md`](charger-map.md) drafted: free map tiles (OpenFreeMap, with Protomaps as a fallback), a daily AFDC pull as static files, filters, popups, status, Tesla access
+- ✅ [`charger-map.md`](charger-map.md) drafted: free map tiles (OpenFreeMap, with Protomaps as a fallback), a monthly AFDC pull as static files (B36), filters, popups, status, Tesla access
 - **Coverage decided: all of Canada.** Map tiles are free for the whole country.
 - **✅ Phase 2 design is complete.** N8 is decided (Level 3 only by default). Non-blocking: N9, S6.
 

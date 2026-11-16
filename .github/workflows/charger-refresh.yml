@@ -1,4 +1,4 @@
-# Daily charger-map data refresh (CHECKLIST M5, DESIGN-map.md, owner decision B27).
+# Monthly charger-map data refresh (CHECKLIST M5, DESIGN-map.md, owner decisions B27, B36).
 # Downloads the AFDC Canada stations, normalizes them and runs the sanity checks
 # (scripts/lib/afdc-checks.ts). If any station changed, it opens (or updates) a pull
 # request, runs the full CI steps here, and merges the PR itself when all of them pass.
@@ -16,7 +16,7 @@ name: Charger refresh
 
 on:
   schedule:
-    - cron: '41 10 * * *' # 10:41 UTC daily
+    - cron: '41 10 1 * *' # 10:41 UTC on the 1st of each month (B36); run by hand any time
   workflow_dispatch:
     inputs:
       simulate_drop:

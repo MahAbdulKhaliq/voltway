@@ -180,7 +180,7 @@ export interface StationsFile {
   stations: Station[];
 }
 
-/** Pretty header, then one station per line, so daily diffs show only changed stations. */
+/** Pretty header, then one station per line, so refresh diffs show only changed stations. */
 export function serializeStationsFile(f: StationsFile): string {
   const { stations, ...head } = f;
   const headJson = JSON.stringify(head, null, 2).replace(/\n}$/, '');

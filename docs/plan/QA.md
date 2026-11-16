@@ -253,7 +253,7 @@ Covers the items tagged [1b] in `CHECKLIST.md`: template calibration (2.2), Cars
 | QX2 | Header per car: name, variant selector, remove; empty state links to Cars | |
 | QX3 | One colour per car across header, curve line and table | |
 | QX4 | Overlay: shared SoC window and charger power; results table (time, km added, km/10 min, avg kW, curve badge) sortable, default km/10 min; mixed tested/estimated note | |
-| QX5 | Spec table grouped like the Charging tab; best value per row with icon + bold (not colour alone), lower-is-better for 10–80 % and consumption; ties for best all marked (nothing marked when every known value is equal) | Unknowns never "best" |
+| QX5 | Spec table grouped like the Charging tab; best value per row with icon + bold (not colour alone), lower-is-better for 10–80 % and consumption; ties for best all marked (nothing marked when every known value is equal or fewer than two cars have a figure) | Unknowns never "best" |
 | QX6 | "Only show differences" hides identical rows | |
 | QX7 | 375 px: two cars visible, swipe for the rest; dark mode; keyboard | |
 

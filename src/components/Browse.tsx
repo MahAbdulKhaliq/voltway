@@ -242,7 +242,7 @@ export default function Browse({ index }: Props) {
           </div>
           {panel}
         </aside>
-        {sheetOpen && <div className="bf-backdrop" onClick={() => setSheetOpen(false)} aria-hidden="true" />}
+        {sheetOpen && <div className="bf-backdrop" onClick={() => { setSheetOpen(false); sheetBtn.current?.focus(); }} aria-hidden="true" />}
 
         <section className="browse-results" aria-busy={!ready}>
           {/* Only the count is live, so a filter change reads one line, not every card. */}

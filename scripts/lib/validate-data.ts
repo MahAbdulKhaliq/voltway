@@ -23,6 +23,7 @@ const SCHEMA_FILES = [
   'imported-nrcan.schema.json',
   'imported-openev.schema.json',
   'imported-chargeprice.schema.json',
+  'imported-afdc.schema.json',
 ] as const;
 
 const SCHEMA_BASE = 'https://github.com/MahAbdulKhaliq/voltway/schema/';
@@ -48,6 +49,7 @@ function loadValidators(schemaDir: string) {
     importedNrcan: get('imported-nrcan.schema.json'),
     importedOpenev: get('imported-openev.schema.json'),
     importedChargeprice: get('imported-chargeprice.schema.json'),
+    importedAfdc: get('imported-afdc.schema.json'),
   };
 }
 
@@ -340,6 +342,23 @@ export function validateRepo(root: string): ValidationResult {
     });
   }
 
+  // --- Imported AFDC charging stations (charger map) ---
+  let afdcStations = 0;
+  if (existsSync(join(dataDir, 'imported', 'afdc', 'stations.json'))) {
+    const file = 'data/imported/afdc/stations.json';
+    const data = read('imported/afdc', 'stations.json') as { source_id: string; stations: { id: number }[] } | undefined;
+    if (data !== undefined && check(v.importedAfdc, data, file)) {
+      if (!sources.has(data.source_id)) errors.push(`${file}: cites unknown source "${data.source_id}"`);
+      for (let i = 1; i < data.stations.length; i++) {
+        if (data.stations[i].id <= data.stations[i - 1].id) {
+          errors.push(`${file}: stations must be sorted by id with no repeats (at index ${i}, id ${data.stations[i].id})`);
+          break;
+        }
+      }
+      afdcStations = data.stations.length;
+    }
+  }
+
   return {
     errors,
     counts: {
@@ -352,6 +371,7 @@ export function validateRepo(root: string): ValidationResult {
       nrcan_records: nrcanKeys.size,
       openev_records: openevKeys.size,
       chargeprice_records: chargepriceKeys.size,
+      afdc_stations: afdcStations,
     },
   };
 }

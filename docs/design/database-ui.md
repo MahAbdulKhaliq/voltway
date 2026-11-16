@@ -27,13 +27,13 @@ Header:  [Logo]   Charging   Cars   Compare (n)   Map*   Trip*   [My car: IONIQ 
                                                         * Phase 2 and 3, hidden until built
 ```
 
-**Changed 2026-11-16 (owner's decision, B11):** the car page is replaced by a **Charging tab**, modeled on better-dcfc-calculator's charging page. One screen holds **Make → Model → Year → Variant → Trim dropdowns**, then the key figures, the curve viewer, and the full specs, trims and sources below. Switching car or trim never leaves the page. The **Cars tab** lists cars as **make → model accordions**; picking a variant opens it in the Charging tab. **Charging is the home page.** §5 below describes the content of the Charging tab's car section.
+**Changed 2026-11-16 (owner's decision, B11):** the car page is replaced by a **Charging tab**, modeled on better-dcfc-calculator's charging page. One screen holds **Make → Model → Year → Variant → Trim dropdowns**, then the key figures, the curve viewer, and the full specs, trims and sources below. Switching car or trim never leaves the page. The **Cars tab** lists cars as **make → model accordions** *(superseded by B39: cards or a table with search, filters and sorts, §4)*; picking a variant opens it in the Charging tab. **Charging is the home page.** §5 below describes the content of the Charging tab's car section.
 
 | Screen | Purpose | |
 |--------|---------|-|
 | **Pick your car** | First-load picker | MVP |
 | **Charging** (home until B26; at `/charging` once the map ships, which becomes the home page) | Dropdowns to pick make, model, year, variant and trim; everything about that car on one screen (§5) | MVP |
-| **Cars** | Make → model accordions of every car; filters and sorting (§4) to be added there | MVP |
+| **Cars** | Every car as cards or a table, with search, filters and sorting (§4, B39) | MVP |
 | **Compare** | Up to 4 cars side by side | MVP |
 | **About & sources** | Method, data sources, **required license credits** | MVP (licenses require it) |
 

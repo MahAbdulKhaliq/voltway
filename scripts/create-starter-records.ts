@@ -9,7 +9,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { parseCsv, toCsv } from './lib/csv.ts';
-import { parseName, slugify, tokenize } from './lib/match.ts';
+import { parseName, slugify } from './lib/match.ts';
 
 const root = process.cwd();
 const APPROVAL = 'Approved by the owner 2026-11-15 (B8).';

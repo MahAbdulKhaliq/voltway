@@ -15,5 +15,9 @@
 ### TD-P3 Retired planning folder
 - **Since:** 2026-11-15. `G:\Work\Ideating\EV-App-Planning` was replaced by `docs/design/` but still exists. **Needs owner** (delete or keep).
 
+### TD-P4 A bad `?trim=` falls back silently
+- **Since:** 2026-11-16, QA re-check. An unmatched car link now shows a notice, but an unmatched trim quietly shows the first trim. An empty `?car=` also ignores the remembered car.
+- **Fix:** reuse the link notice for trims; treat an empty `?car=` as absent.
+
 ## Closed
 - 2026-11-16, PR #41: "Added to battery" result shown (QA #7); notice for unmatched `?car=` links (QA #15); "Estimated" tag on estimated lines (QA #11).

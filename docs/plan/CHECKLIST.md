@@ -97,7 +97,7 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 - [x] **3.3 SourceBadge**
   - Files: `src/components/react/Badge.tsx` (the unused Astro versions were removed 2026-11-16, QA 9.1)
   - Done when: it shows the kind text, opens to source + other figures, shows ⚠ on conflicts, grey "Unknown", estimated style with "~".
-  - Verified 2026-11-16: `src/components/SourceBadge.astro` (+ `FieldValue.astro`) shows the kind text and opens (native details element, no JS) to source, date, notes and other figures; ⚠ on conflicts; grey "Unknown"; dashed italic style for estimated; dotted border for low confidence.
+  - Verified 2026-11-16 (then in `SourceBadge.astro`/`FieldValue.astro`, now `react/Badge.tsx`): shows the kind text and opens (native details element, no JS) to source, date, notes and other figures; ⚠ on conflicts; grey "Unknown"; dashed italic style for estimated; dotted border for low confidence.
 
 ## Phase 4: Car page + curve viewer
 
@@ -139,4 +139,5 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 
 ## Phase 9: Independent QA
 
-- [ ] **[1a] 9.1** Run the `qa-reviewer` subagent against `docs/plan/QA.md`; fix findings; re-run on fixed items.
+- [x] **[1a] 9.1** Run the `qa-reviewer` subagent against `docs/plan/QA.md`; fix findings; re-run on fixed items.
+  - Verified 2026-11-16: first run found 16 issues (pass with issues); fixes in PR #41 and the re-check follow-up; owner decisions B24, B25. Re-check passed. Details: `docs/plan/QA-RESULTS-1a.md`; remaining debt: `docs/tech-debt/`. **Phase 1a done.**

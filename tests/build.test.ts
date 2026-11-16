@@ -187,6 +187,13 @@ describe('the real build', () => {
     const tr = broken.trims[0] as unknown as Record<string, unknown>;
     tr.range_km = { value: { value: 1, unit: 'km', kind: 'tested', source_id: 'src-nowhere' }, others: [], conflict: false };
     expect(outputProblems(broken).length).toBeGreaterThan(0);
+    // No kind and no source (QA re-check), and a wheel with no source.
+    const bare = structuredClone(cars[0]);
+    (bare.trims[0] as unknown as Record<string, unknown>).range_km = { value: { value: 999, unit: 'km' }, others: [], conflict: false };
+    expect(outputProblems(bare).some((p) => p.includes('no kind'))).toBe(true);
+    const wheel = structuredClone(cars[0]);
+    wheel.trims[0].wheels = [{ diameter_in: 19, is_standard: true }];
+    expect(outputProblems(wheel).some((p) => p.includes('wheel'))).toBe(true);
   });
 
   it('marks 10–80 % as estimated when the window reaches past the measured points (B24)', () => {

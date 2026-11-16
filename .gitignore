@@ -26,3 +26,6 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# AFDC raw pull (~50 MB, re-downloaded daily); only FETCHED.json is committed
+sources/afdc-ca/stations-raw.json

@@ -1,0 +1,11 @@
+{
+  "id": "src-afdc-ca",
+  "type": "dataset",
+  "title": "Alternative Fuel Stations API – Canadian electric stations (AFDC, U.S. DOE / NLR; Canadian records from Natural Resources Canada)",
+  "url": "https://developer.nlr.gov/docs/transportation/alt-fuel-stations-v1/all/",
+  "license": "NLR data terms (https://www.nlr.gov/disclaimer): free to use and copy, with credit to DOE/NLR; no endorsement. Used under these terms by owner decision B30.",
+  "attribution": "Charger data: U.S. Department of Energy (DOE) / National Laboratory of the Rockies (NLR) Alternative Fuels Data Center, with Canadian station data from Natural Resources Canada. Provided \"as is\"; no endorsement implied.",
+  "accessed_on": "2026-11-16",
+  "via": "Natural Resources Canada → AFDC Alternative Fuel Stations API (developer.nlr.gov)",
+  "notes": "Pulled daily by .github/workflows/charger-refresh.yml (npm run fetch:afdc). Raw pull is git-ignored; sources/afdc-ca/FETCHED.json records each pull. NRCan's own site terms are unclear for transformed reuse (B30, docs/tech-debt/product.md TD-P5)."
+}

@@ -60,7 +60,8 @@ export function readFilters(saved: unknown): MapFilters {
 // ---- My car (B28, B38): which plugs the car can use, from its charge_port and supercharger_access.
 
 /** The plugs a car can use. `superchargerAdapter`: it can also use Tesla Supercharger (NACS)
- *  ports, with an adapter. A CCS1 or CHAdeMO inlet also takes J1772 (its AC half). */
+ *  ports, with an adapter. A CCS1 or CHAdeMO inlet also takes J1772 (its AC half); a NACS car
+ *  sees J1772 sites too, since most come with a J1772 adapter (owner decision B42). */
 export interface CarPlugRule {
   plugs: readonly Plug[];
   superchargerAdapter: boolean;
@@ -70,7 +71,7 @@ export interface CarPlugRule {
 export function carPlugs(port: unknown, access: unknown): CarPlugRule | null {
   switch (port) {
     case 'nacs':
-      return { plugs: ['nacs'], superchargerAdapter: false };
+      return { plugs: ['nacs', 'j1772'], superchargerAdapter: false };
     case 'ccs1':
       if (access === 'yes') return { plugs: ['ccs1', 'j1772', 'nacs'], superchargerAdapter: false };
       return { plugs: ['ccs1', 'j1772'], superchargerAdapter: access === 'via_adapter' };

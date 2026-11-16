@@ -36,7 +36,7 @@ Phase 2 (charger map) is done except M5, which waits for the 2026-12-01 monthly 
 - Schema (B38): `adapters_included` as an optional sourced field (`data/schema`, `vehicle-data-model.md`, MVP_FIELDS unchanged). The build passes it through and the specs table shows it (Ports & access). TD-P6 is reworded.
 
 **PR 4: map side (B28, B31)**
-- `ChargerMap.tsx`: when My car is set, a "Chargers my car can use" toggle in the filter panel, saved with the map filters. Pure logic goes in `map-filter.ts` (`carPlugs(car)`): NACS car → NACS; CCS1 → CCS1, plus NACS Supercharger ports marked "needs adapter" when `supercharger_access` = via_adapter; `yes` with a CCS1 port → CCS1 + NACS; unknown port → toggle disabled with a note. Tests in `map-filter.test.ts`. The map index needs the car's port and access; read them from `/data/cars/<id>.json` (one fetch).
+- `ChargerMap.tsx`: when My car is set, a "Chargers my car can use" toggle in the filter panel, saved with the map filters. Pure logic goes in `map-filter.ts` (`carPlugs(car)`): NACS car → NACS + J1772 (B42); CCS1 → CCS1, plus NACS Supercharger ports marked "needs adapter" when `supercharger_access` = via_adapter; `yes` with a CCS1 port → CCS1 + NACS; unknown port → toggle disabled with a note. Tests in `map-filter.test.ts`. The map index needs the car's port and access; read them from `/data/cars/<id>.json` (one fetch).
 - The dismissable "Set my car" nudge on the map (B37) appears only when no My car is set.
 - `StationPanel.tsx` Tesla note: hidden when My car's make is Tesla; the via-adapter wording when `supercharger_access` = via_adapter.
 - B31 links:

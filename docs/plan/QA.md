@@ -239,7 +239,7 @@ Covers the items tagged [1b] in `CHECKLIST.md`: template calibration (2.2), Cars
 |---|-------|-----------|
 | QM1 | No My car: no toggle; a dismissable "Set my car" prompt, gone after dismiss + reload; map never blocked | |
 | QM2 | With My car: "Chargers my car can use" toggle in the filter panel; saved with filters | |
-| QM3 | Toggle on: NACS car → NACS ports only; CCS1 car without Supercharger access → CCS1 only; CCS1 car with `via_adapter` → CCS1 + Superchargers marked "needs adapter"; unknown port → toggle disabled with a note | |
+| QM3 | Toggle on: NACS car → NACS ports, plus J1772 when Level 2 is on (B42); CCS1 car without Supercharger access → CCS1 only; CCS1 car with `via_adapter` → CCS1 + Superchargers marked "needs adapter"; unknown port → toggle disabled with a note | |
 | QM4 | Tesla note hidden when My car is a Tesla; via-adapter wording for a via-adapter car; generic note otherwise | |
 | QM5 | Curve viewer with a charger preset → "Find chargers this fast" opens the map at that L3 range ("N kW and up") and the car's plugs; params removed from the URL | Preset "No limit" hides the link |
 | QM6 | Station panel → "How fast would my car charge here?" (only with My car and DC ports) opens `/charging` for My car capped at the station's top kW; saved curve settings unchanged afterwards | L2-only station: no link |
@@ -249,7 +249,7 @@ Covers the items tagged [1b] in `CHECKLIST.md`: template calibration (2.2), Cars
 
 | # | Check | Edge cases |
 |---|-------|-----------|
-| QX1 | `/compare` lists the saved cars; `?cars=a,b` link shows the same view in a fresh browser | Unknown id in the link → notice, rest shown; >4 ids → first 4 |
+| QX1 | `/compare` lists the saved cars; `?cars=a,b` link shows the same view in a fresh browser, with a "shared comparison" banner when it differs from the saved list; the banner goes and the list is saved after the first change (B43) | Unknown id in the link → notice, rest shown; >4 ids → first 4 |
 | QX2 | Header per car: name, variant selector, remove; empty state links to Cars | |
 | QX3 | One colour per car across header, curve line and table | |
 | QX4 | Overlay: shared SoC window and charger power; results table (time, km added, km/10 min, avg kW, curve badge) sortable, default km/10 min; mixed tested/estimated note | |

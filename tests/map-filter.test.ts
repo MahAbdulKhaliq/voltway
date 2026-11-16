@@ -149,8 +149,8 @@ const featNw = (i: number, p: MapPort[], nw?: string): MapFeature => ({
 });
 
 describe('carPlugs: car → plugs rule (charger-map §4)', () => {
-  it('NACS car → NACS only', () => {
-    expect(carPlugs('nacs', 'yes')).toEqual({ plugs: ['nacs'], superchargerAdapter: false });
+  it('NACS car → NACS (+ J1772, by adapter; B42)', () => {
+    expect(carPlugs('nacs', 'yes')).toEqual({ plugs: ['nacs', 'j1772'], superchargerAdapter: false });
   });
   it('CCS1 car with no Supercharger access → CCS1 (+ J1772)', () => {
     expect(carPlugs('ccs1', 'no')).toEqual({ plugs: ['ccs1', 'j1772'], superchargerAdapter: false });
@@ -181,7 +181,8 @@ describe('My car filter', () => {
   const sc = featNw(1, [[3, 'nacs', 250, 8]], 'Tesla');
   const ea = featNw(2, [[3, 'ccs1', 150, 4], [3, 'chademo', 50, 1]], 'Electrify America');
   const td = featNw(3, [[3, 'nacs', 72, 2]]);
-  const all = [sc, ea, td];
+  const l2 = featNw(4, [[2, 'j1772', 7.2, 2]]);
+  const all = [sc, ea, td, l2];
   const on = { ...defaultFilters(), myCar: true };
   const ids = (car: ReturnType<typeof carPlugs>, f = on) => filterStations(all, f, car).features.map((x) => x.properties.i);
 
@@ -189,8 +190,11 @@ describe('My car filter', () => {
     expect(ids(carPlugs('nacs', 'yes'), defaultFilters())).toEqual([1, 2, 3]);
     expect(ids(null)).toEqual([1, 2, 3]);
   });
-  it('NACS car (a Tesla) sees NACS sites only', () => {
+  it('NACS car (a Tesla) sees NACS sites, and J1772 sites once Level 2 is on (B42)', () => {
     expect(ids(carPlugs('nacs', 'yes'))).toEqual([1, 3]);
+    const withL2 = { ...on, levels: { 3: true, 2: true } as const };
+    expect(ids(carPlugs('nacs', 'yes'), withL2)).toEqual([1, 3, 4]);
+    expect(ids(carPlugs('ccs1', 'no'), withL2)).toEqual([2, 4]);
   });
   it('CCS1 via adapter: Superchargers yes, non-Supercharger NACS no', () => {
     expect(ids(carPlugs('ccs1', 'via_adapter'))).toEqual([1, 2]);
@@ -261,7 +265,7 @@ describe('carMapInfo (car file → map info)', () => {
   const sv = (value: string) => ({ value: { value, kind: 'manufacturer', source_id: 's' }, others: [], conflict: false });
   it('reads make, port and access', () => {
     const tesla = carMapInfo({ make: { id: 'tesla' }, fields: { charge_port: sv('nacs'), supercharger_access: sv('yes') } });
-    expect(tesla).toEqual({ isTesla: true, access: 'yes', rule: { plugs: ['nacs'], superchargerAdapter: false } });
+    expect(tesla).toEqual({ isTesla: true, access: 'yes', rule: { plugs: ['nacs', 'j1772'], superchargerAdapter: false } });
     const ioniq = carMapInfo({ make: { id: 'hyundai' }, fields: { charge_port: sv('ccs1'), supercharger_access: sv('via_adapter') } });
     expect(ioniq.rule?.superchargerAdapter).toBe(true);
   });

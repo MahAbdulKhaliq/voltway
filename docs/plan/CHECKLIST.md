@@ -67,9 +67,10 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
   - Files: `scripts/build-data.ts`, `src/lib/precedence.ts`, `src/lib/estimated-curve.ts`, `public/data/index.json`, `public/data/cars/*.json`
   - Done when: `npm run build` writes the index + one file per car; tests cover precedence order (incl. direct OEM > tested > via OpenEV > Chargeprice), the >5% conflict flag, estimated curves never default when a measured curve exists, and `sold_in_canada` derived from confirmed NRCan rows.
   - Verified 2026-11-16: `npm run build` writes public/data/index.json + 84 car files (9 tested and 51 estimated default curves; 24 cars have no DC peak yet, so no curve). 20 build tests: precedence for range/spec/fact groups incl. B4, WLTP never default, >5 % and fact conflicts, estimated never default when measured exists, sold_in_canada from confirmed NRCan rows, unconfirmed rows ignored, every cited source exists. Files live in `scripts/lib/build.ts`, `src/lib/estimated-curve.ts`, `src/lib/types.ts`. Gross-capacity fallback noted in DESIGN.md.
-- [ ] **[1a] 1.8 EV6 Chargeprice match** (owner decision)
+- [x] **[1a] 1.8 EV6 Chargeprice match** (owner decision)
   - Files: `crosswalk/crosswalk.csv`, planning `gaps-and-questions.md`
   - Done when: the owner has decided whether `kia/ev6/2025/light` and `wind` stay matched to Chargeprice's "EV6 GT" record (it gives the 63 kWh Light 80 kWh usable and the EV6 a 400 V class), the crosswalk reflects it, and `npm run data:build` shows no variant with usable > gross.
+  - Verified 2026-11-15 (B22): the owner chose to unmatch all three (Light, Wind → "EV6 GT"; Land AWD → 2024 "Long Range AWD"); rows kept with confirmed=false and a note. `npm run data:build`: no variant has usable > gross; the three EV6 variants show usable Unknown (gross fallback) and 800V.
 
 ## Phase 2: Charging maths + calibration
 

@@ -26,7 +26,25 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Performance AWD"
+      "name": "Performance AWD",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "community",
+          "low_confidence": true,
+          "source_id": "src-evdb-model-3-performance-highland",
+          "notes": "EV Database Performance (Highland) lists heat pump standard equipment (European listing; same model generation as the Canadian Shanghai-built car)."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-driveteslacanada-model-3-performance-tires",
+          "low_confidence": true,
+          "notes": "US report: Model 3 Performance comes standard with 20-inch Warp wheels. Canadian Performance assumed the same (same trim name); not confirmed."
+        }
+      ]
     }
   ]
 }

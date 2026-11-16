@@ -24,6 +24,13 @@
           "source_id": "src-thechargeport-tesla-model-y",
           "low_confidence": true,
           "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
+        },
+        {
+          "value": "standard",
+          "kind": "estimated",
+          "low_confidence": true,
+          "source_id": "src-evdb-model-y-premium-awd-juniper",
+          "notes": "Estimated: EV Database lists heat pump as standard equipment on the Model Y Premium AWD (Juniper, Berlin); same model and generation carries it over. Not confirmed for this exact variant."
         }
       ],
       "wheels": [

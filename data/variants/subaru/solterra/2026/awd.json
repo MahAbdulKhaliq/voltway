@@ -28,12 +28,74 @@
         "source_id": "src-subaru-ca-newswire-solterra-2026",
         "notes": "Page: \"when navigating to a charging station or activated by the driver\"."
       }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 77,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-subaru-ca-newswire-solterra-2026",
+        "notes": "Subaru Canada release: \"powered by a 77.0-kWh lithium-ion battery\" (usable not stated)."
+      },
+      {
+        "value": 74.7,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-subaru-us-media-solterra-2026",
+        "low_confidence": true,
+        "notes": "Subaru USA release: 74.7 kWh. Conflicts with Subaru Canada 77.0 kWh (NRCan 446 km vs EPA 278-288 mi suggests the same pack)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-solterra-nacs-test-2026",
+        "low_confidence": true,
+        "notes": "InsideEVs: 2026 Solterra has a \"400-volt architecture\"."
+      }
     ]
   },
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-subaru-ca-newswire-solterra-2026",
+      "notes": "Subaru Canada: \"an improved 11kW onboard charger\". Existing 6.6 kW (Chargeprice archive) is the older Solterra."
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-subaru-ca-newswire-solterra-2026",
+      "notes": "Subaru Canada: DCFC \"at speeds of approximately 150 kW\"; Subaru USA \"up to an estimated 150 kW\"."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-driveteslacanada-toyota-subaru-sc-2025",
+      "low_confidence": true,
+      "notes": "Drive Tesla Canada relays Subaru: all Solterra owners can access more than 25,000 Superchargers in Canada and the US via the SubaruConnect app; InsideEVs tested the 2026 car on a V3 Supercharger. (Subaru Canada's Newswire release itself footnotes access as 'anticipated'.)"
+    }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "AWD"
+      "name": "AWD",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "manufacturer",
+          "source_id": "src-cargurus-ca-solterra-2026",
+          "low_confidence": true,
+          "notes": "CarGurus Canada review: \"a heat pump is standard in Canada\". Subaru pages do not mention it."
+        }
+      ]
     }
   ]
 }

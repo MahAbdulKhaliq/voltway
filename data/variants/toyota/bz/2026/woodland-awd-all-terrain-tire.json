@@ -37,8 +37,45 @@
         "source_id": "src-toyota-ca-media-bz-woodland-2026",
         "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination. Automatic start needs a Toyota Drive Connect trial or subscription."
       }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-insideevs-bz-charging-limit-2026",
+        "low_confidence": true,
+        "notes": "Estimated: the source covers the 2026 bZ's 74.7 kWh pack, not the Woodland by name; Woodland uses the same 74.7 kWh pack (Toyota Canada Woodland release). Toyota chief engineer (via InsideEVs): bZ \"still runs on a 400-volt electrical architecture\". Autopian: pack 391 V."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 74.7,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-toyota-ca-media-bz-woodland-2026",
+        "notes": "Toyota Canada Woodland release: \"total capacity of 74.7 kWh\" (usable not stated)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-autopian-bz-2026",
+        "low_confidence": true,
+        "notes": "Estimated: the source covers the 2026 bZ's 74.7 kWh pack, not the Woodland by name; Woodland uses the same 74.7 kWh pack (Toyota Canada Woodland release). Autopian (chief engineer interview): \"The larger pack retains the same chemistry and cells as the previous version\" (NMC). GreenCars: \"still has nickel-manganese-cobalt cathodes\". Relayed by press."
+      }
     ]
   },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-insideevs-bz-charging-limit-2026",
+      "low_confidence": true,
+      "notes": "Estimated: the source covers the 2026 bZ's 74.7 kWh pack, not the Woodland by name; Woodland uses the same 74.7 kWh pack (Toyota Canada Woodland release). InsideEVs relays Toyota: bZ charging \"capped at 150 kilowatts\". Model-level, not stated per pack."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

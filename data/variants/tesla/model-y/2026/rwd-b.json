@@ -24,6 +24,22 @@
           "source_id": "src-thechargeport-tesla-model-y",
           "low_confidence": true,
           "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
+        },
+        {
+          "value": "standard",
+          "kind": "community",
+          "low_confidence": true,
+          "source_id": "src-abstractocean-model-y-standard",
+          "notes": "Retail-accessory blog says the heat pump stays on the Model Y Standard (US-oriented, not a Tesla page). Canadian RWD and Standard both rate 463 km (NRCan) so treated as the same car."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-driveteslacanada-model-y-standard-canada",
+          "low_confidence": true,
+          "notes": "Canadian Model Y Standard: 18-inch Aperture is the only option (tslna.com also lists RWD as 18-inch only). rwd-b and standard-b both rate 463 km (NRCan), so both mapped to this trim by content."
         }
       ]
     }

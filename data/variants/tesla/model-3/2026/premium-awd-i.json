@@ -16,7 +16,32 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Premium AWD-I"
+      "name": "Premium AWD-I",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "community",
+          "low_confidence": true,
+          "source_id": "src-evdb-model-3-lr-awd-highland",
+          "notes": "EV Database Long Range AWD (Highland) lists heat pump standard; mapped to Premium AWD by content (same Highland AWD car, renamed). Fact-check: the cited EV Database page may be the pre-Highland LR AWD; low confidence."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-iphoneincanada-model-3-awd-2026",
+          "low_confidence": true,
+          "notes": "Canadian Premium AWD: 570 km range quoted for the standard 18-inch wheels."
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": false,
+          "source_id": "src-iphoneincanada-model-3-awd-2026",
+          "low_confidence": true,
+          "notes": "Upgrading to 19-inch wheels reduces range to 520 km (option; price not on page)."
+        }
+      ]
     }
   ]
 }

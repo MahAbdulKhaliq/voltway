@@ -16,7 +16,32 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Premium-I"
+      "name": "Premium-I",
+      "heat_pump": [
+        {
+          "value": "standard",
+          "kind": "community",
+          "low_confidence": true,
+          "source_id": "src-evdb-model-3-rwd-highland",
+          "notes": "EV Database RWD (Highland, LFP) lists heat pump standard equipment (European listing)."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-auto123-model-3-2026-canada",
+          "low_confidence": true,
+          "notes": "Canadian Premium RWD: 463 km range with 18-inch wheels (the headline rating), 413 km with 19-inch. Page does not say which is standard; 18-inch inferred as standard from the headline range."
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": false,
+          "source_id": "src-auto123-model-3-2026-canada",
+          "low_confidence": true,
+          "notes": "19-inch option; range 413 km."
+        }
+      ]
     }
   ]
 }

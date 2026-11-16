@@ -37,8 +37,35 @@
         "source_id": "src-toyota-ca-media-bz-2026",
         "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
       }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-bz-charging-limit-2026",
+        "low_confidence": true,
+        "notes": "Toyota chief engineer (via InsideEVs): bZ \"still runs on a 400-volt electrical architecture\". Autopian gives the 57.7 kWh pack as 288.6 V."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 57.7,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-toyota-ca-media-bz-2026",
+        "notes": "Toyota Canada: \"A 57.7-kWh battery will also be available on a XLE FWD model\" (total, usable not stated). US release says the same."
+      }
     ]
   },
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-toyota-ca-media-bz-onsale-2026",
+      "low_confidence": true,
+      "notes": "Toyota Canada release: \"Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network\"; 2026 has a native NACS port. Wording is not model-specific."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -13,10 +13,9 @@ Phase 1 (in progress): vehicle database + charging curves. A charger map and a t
 
 ## Data sources and credits
 
-Full credits will appear on the site's About & sources page. Data used:
+Full credits, with each licence, are on the site's About & sources page (`/about`). Data used:
 
 - **NRCan Fuel Consumption Ratings (BEV)**, Natural Resources Canada. Open Government Licence – Canada.
 - **OpenEV Data**. CDLA-Permissive-2.0.
-- **Open EV Data (Chargeprice, archived)**, charging curves derived from Fastned's published charts. MIT License.
+- **Open EV Data (https://github.com/KilowattApp/open-ev-data)** (Chargeprice archive), charging curves derived from Fastned's published charts. MIT License with Attribution Requirement, Copyright (c) 2024 Tijs Teulings; full notice in `src/licenses/open-ev-data-mit.txt`.
 
-*Exact attribution text to be filled in from each license when the importers are built.*

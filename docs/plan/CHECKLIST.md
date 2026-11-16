@@ -120,7 +120,8 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 
 ## Phase 7: About & polish
 
-- [ ] **[1a] 7.1 About & sources** — Done when: every required license credit is shown.
+- [x] **[1a] 7.1 About & sources** — Done when: every required license credit is shown.
+  - Verified 2026-11-15: `/about` (`src/pages/about.astro`, in the side-nav and linked from the footer) shows method (badge kinds, precedence, estimates, review), and a card per open dataset built from its `data/sources/` record: NRCan with the OGL-Canada statement and licence link; OpenEV Data with the CDLA-Permissive-2.0 statement and licence link; Open EV Data (KilowattApp fork) with the required attribution and the full MIT notice (`src/licenses/open-ev-data-mit.txt`, fetched verbatim from the pinned commit). Build fails if one of them loses its licence or attribution. Checked at 375 px and desktop.
 - [ ] **[1a] 7.2 Accessibility + phone layout** — Done when: charts have a table view, best values use icon + bold, tables stack at phone width. (B21: "best values use icon + bold" moves with Compare to 6.1 [1b].)
   - Progress 2026-11-15 (B18): Charging tab collapsed into accordions (vehicle picker with car preview, curve first, then Car figures and assumptions, Specifications, Trims, numbered Sources); Wikipedia-style [n] source references; curve controls no longer overlap, two per row on phones. Checked at 375 px and desktop width.
   - Progress 2026-11-15 (B19): price per kWh input (default C$0.45, Canadian Supercharger typical) and cost result (energy ÷ 0.92 assumed DC efficiency × price); km/mi switch moved into the curve controls; header shows a hamburger menu of pages. Checked at 375 px and desktop width.

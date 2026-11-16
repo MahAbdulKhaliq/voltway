@@ -1,0 +1,110 @@
+---
+// About & sources (7.1, database-ui.md §2): method, data sources and every required licence
+// credit. The three open datasets come from data/sources/; their attribution text is stored
+// with the source record so the credit shown here matches what the data build cites.
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import Base from '../layouts/Base.astro';
+import { t, type MessageKey } from '../i18n/t.ts';
+import { COVERAGE, COST } from '../config.ts';
+import { loadEstimates, loadIndex } from '../lib/data.ts';
+import { formatNumber } from '../lib/units.ts';
+import type { Source } from '../lib/types.ts';
+// The MIT licence asks for its copyright and permission notice to be included verbatim.
+import openEvMit from '../licenses/open-ev-data-mit.txt?raw';
+
+const sourceDir = join(process.cwd(), 'data', 'sources');
+const allSources: Source[] = readdirSync(sourceDir)
+  .filter((f) => f.endsWith('.json'))
+  .map((f) => JSON.parse(readFileSync(join(sourceDir, f), 'utf8')));
+
+// Licence texts (links, not translated) per open dataset, keyed by source id.
+const DATASETS: { id: string; key: 'nrcan' | 'openev' | 'chargeprice'; licenceUrl: string; notice?: string }[] = [
+  { id: 'src-nrcan-bev-2026-09', key: 'nrcan', licenceUrl: 'https://open.canada.ca/en/open-government-licence-canada' },
+  { id: 'src-openev-v1-24-0', key: 'openev', licenceUrl: 'https://cdla.dev/permissive-2-0/' },
+  { id: 'src-chargeprice-archive-2025-04', key: 'chargeprice', licenceUrl: 'https://github.com/KilowattApp/open-ev-data/blob/32d7dc59e7b8b7391572ca1e132a1517be9a3b5e/LICENSE', notice: openEvMit },
+];
+const datasets = DATASETS.map((d) => {
+  const s = allSources.find((x) => x.id === d.id);
+  if (!s?.license || !s.attribution) throw new Error(`About page: source ${d.id} needs a license and attribution`);
+  return { ...d, source: s };
+});
+const otherCount = allSources.filter((s) => !DATASETS.some((d) => d.id === s.id)).length;
+
+const cars = loadIndex();
+const wheel = loadEstimates().wheel;
+const pct = (x: number) => formatNumber(x * 100, 1);
+const KINDS = ['rated_nrcan', 'rated_epa', 'rated_wltp', 'manufacturer', 'tested', 'community', 'estimated'] as const;
+const REPO = 'https://github.com/MahAbdulKhaliq/voltway';
+---
+
+<Base title={t('about.title')} description={t('about.intro')} active="about">
+  <h1>{t('about.title')}</h1>
+  <p>{t('about.intro')}</p>
+  <p class="muted">{t('about.coverage', { market: COVERAGE.market, count: cars.length })}</p>
+
+  <section aria-labelledby="method">
+    <h2 id="method">{t('about.method')}</h2>
+    <p>{t('about.methodIntro')}</p>
+    <dl class="kinds card">
+      {KINDS.map((k) => (
+        <div><dt>{t(`kind.${k}` as MessageKey)}</dt><dd>{t(`about.kind.${k}` as MessageKey)}</dd></div>
+      ))}
+      <div><dt>{t('badge.unknown')}</dt><dd>{t('about.kind.unknown')}</dd></div>
+    </dl>
+    <p>{t('about.precedence', { regulator: COVERAGE.regulator })}</p>
+    <ul>
+      <li>{t('about.estimate.curves')}</li>
+      <li>{wheel ? t('about.estimate.wheels', { pct: pct(wheel.pct_per_inch), pairs: wheel.pairs }) : t('about.estimate.wheelsNone')}</li>
+      <li>{t('about.estimate.cost', { eff: formatNumber(COST.dcEfficiency * 100) })}</li>
+      <li>{t('about.estimate.derived')}</li>
+    </ul>
+    <p>{t('about.review')}</p>
+  </section>
+
+  <section aria-labelledby="data">
+    <h2 id="data">{t('about.data')}</h2>
+    <p>{t('about.dataIntro')}</p>
+    {datasets.map((d) => (
+      <article class="card dataset" aria-labelledby={`ds-${d.key}`}>
+        <h3 id={`ds-${d.key}`}>{t(`about.ds.${d.key}.name` as MessageKey)}</h3>
+        <p>{t(`about.ds.${d.key}.use` as MessageKey)}</p>
+        <p class="credit">{d.source.attribution}</p>
+        <p class="small muted">
+          {t('about.licence')} <a href={d.licenceUrl} rel="noopener license" target="_blank">{d.source.license}</a>{' · '}
+          <a href={d.source.url} rel="noopener" target="_blank">{t('about.sourceLink')}</a>{' · '}
+          {t('badge.accessed', { date: d.source.accessed_on })}
+        </p>
+        {d.notice && (
+          <details>
+            <summary>{t('about.fullNotice')}</summary>
+            <pre class="notice">{d.notice}</pre>
+          </details>
+        )}
+      </article>
+    ))}
+    <p>{t('about.others', { count: otherCount })}</p>
+    <p class="small muted">{t('about.noAffiliation')}</p>
+  </section>
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">{t('about.problem')}</h2>
+    <p>{t('about.problemText')} <a href={`${REPO}/issues`} rel="noopener" target="_blank">{t('about.issues')}</a></p>
+    <p class="small muted">{t('about.code')} <a href={REPO} rel="noopener" target="_blank">{t('about.repo')}</a></p>
+  </section>
+</Base>
+
+<style>
+  section { margin-top: 2rem; }
+  .kinds { display: grid; gap: 0.5rem; margin: 1rem 0; }
+  .kinds div { display: grid; grid-template-columns: minmax(9rem, max-content) 1fr; gap: 0.75rem; }
+  .kinds dt { font-weight: 600; }
+  .kinds dd { margin: 0; }
+  .dataset { margin: 1rem 0; }
+  .dataset h3 { margin-top: 0; }
+  .credit { font-style: italic; }
+  .notice { white-space: pre-wrap; font-size: 0.8rem; overflow-wrap: anywhere; }
+  @media (max-width: 480px) {
+    .kinds div { grid-template-columns: 1fr; gap: 0.1rem; }
+  }
+</style>

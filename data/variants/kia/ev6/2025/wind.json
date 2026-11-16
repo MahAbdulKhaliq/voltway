@@ -47,6 +47,15 @@
         "low_confidence": true,
         "notes": "Quick web lookup (rough, not cross-checked)."
       }
+    ],
+    "chemistry": [
+      {
+        "low_confidence": true,
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-ev6-gt",
+        "notes": "Estimated: EV Database lists NMC cathode for the 84 kWh EV6 GT (same 84 kWh / 697 V pack as Wind and Land); The Weekly Driver lists the 2025 EV6 Long Range under the SK On NCM 811 pouch pack."
+      }
     ]
   },
   "dc_max_kw": [
@@ -77,6 +86,16 @@
           "value": "standard",
           "kind": "manufacturer",
           "source_id": "src-kia-ca-ev6-2025"
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-kia-us-ev6-2026-specs",
+          "tire_size": "235/55R19",
+          "low_confidence": true,
+          "notes": "Kia US page: Wind 19 in black alloy standard. US trims mapped to Canadian by name and pack only."
         }
       ]
     }

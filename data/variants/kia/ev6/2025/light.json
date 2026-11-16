@@ -62,7 +62,26 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Light"
+      "name": "Light",
+      "heat_pump": [
+        {
+          "low_confidence": true,
+          "value": "none",
+          "kind": "manufacturer",
+          "source_id": "src-kia-us-ev6-2026-specs",
+          "notes": "Kia US page lists the range-preserving heat pump as \"Not available\" on the 63 kWh Light; Canadian equivalence not confirmed."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-kia-us-ev6-2026-specs",
+          "tire_size": "235/55R19",
+          "low_confidence": true,
+          "notes": "Kia US page: Light 19 in dark gray alloy standard."
+        }
+      ]
     }
   ]
 }

@@ -52,6 +52,8 @@ From [data-sources.md](data-sources.md) §5. The fields this design uses:
 
 **Access:** a free API key from developer.nlr.gov (1,000 requests per hour), stored as the GitHub Actions secret `NLR_API_KEY`. One pull a day is plenty.
 
+**Licence (B30, 2026-11-16):** used under NLR's data terms (free to use and copy, credit DOE/NLR, no endorsement). Credits name DOE/NLR and NRCan. Network name note: Superchargers appear as network **"Tesla"**, not "Tesla Supercharger"; Destination chargers as "Tesla Destination".
+
 ### Pipeline (same static pattern as Phase 1)
 ```
 Scheduled GitHub Action (daily)

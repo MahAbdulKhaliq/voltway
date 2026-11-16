@@ -6,6 +6,8 @@ Phase 2 of [roadmap.md](roadmap.md). A simple map of public Level 2 and Level 3 
 
 ---
 
+**Where it lives (B26, 2026-11-16):** the map is the **home page**; the Charging tab moves to `/charging`.
+
 ## 1. Goals
 
 - **Show every public Level 2 and Level 3 charger in Canada** on one fast map.
@@ -32,7 +34,9 @@ Phase 2 of [roadmap.md](roadmap.md). A simple map of public Level 2 and Level 3 
 
 ## 3. Charger data
 
-### Source: NREL AFDC, Canada only ✅
+### Source: AFDC, Canada only ✅
+
+*Renamed 2026-11-16:* NREL is now the **National Laboratory of the Rockies (NLR)**, and the API host moved from `developer.nrel.gov` (retired 2026-05-29) to **`developer.nlr.gov`**. Same paths and fields. Rate limit confirmed at 1,000 requests per hour per key.
 From [data-sources.md](data-sources.md) §5. The fields this design uses:
 
 | Field | Used for |
@@ -46,7 +50,7 @@ From [data-sources.md](data-sources.md) §5. The fields this design uses:
 | `ev_pricing` (+ `ev_pricing_fr`) | Pricing text, shown as given |
 | Name, address, coordinates, `updated_at`-style date | Popup and "last updated" note |
 
-**Access:** a free API key. The default limit is reportedly about 1,000 requests per hour, which is more than enough for one scheduled pull a day. Check the real limit in the API's response headers.
+**Access:** a free API key from developer.nlr.gov (1,000 requests per hour), stored as the GitHub Actions secret `NLR_API_KEY`. One pull a day is plenty.
 
 ### Pipeline (same static pattern as Phase 1)
 ```
@@ -65,6 +69,8 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 - **Stop the update** if the station count drops by more than **10%** from the last good pull (likely an API problem, not real closures).
 - **Stop the update** if required fields go missing across many stations.
 - Otherwise, publish automatically and log what changed.
+
+**How it goes live (B27, 2026-11-16):** the daily Action opens a pull request with the change summary, runs the full CI steps itself, and **merges it automatically** when the sanity checks and CI pass. If anything fails, the PR stays open and the run fails so the owner is notified. This exception to "a person approves" covers charger data only; vehicle data keeps human review.
 
 ### Open Charge Map: later, not v1 (N7) ✅
 - **v1 uses AFDC only.** One source keeps the data simple and avoids duplicate stations.
@@ -91,6 +97,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 ☑ CCS1 ☑ NACS ☑ CHAdeMO ☑ J1772. All on by default.
 
 ### "Chargers my car can use" ✅
+- **Moved to Phase 1b (B28, 2026-11-16):** built together with My car (checklist 5.2), since My car doesn't exist yet. The map ships without it.
 - A toggle that appears when **My car** is set (from Phase 1).
 - It filters by the car's `charge_port`, plus **adapters_included** and **supercharger_access** from the data model.
 - Example: a CCS1 car with Supercharger access through an adapter sees CCS1 sites **and** Superchargers, with Superchargers marked "needs adapter".
@@ -119,11 +126,11 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 | Pricing | The text as provided, or "Not listed" |
 | Status | Available / temporarily unavailable (with expected date if given) |
 | **Directions** | "Open in Google Maps" / "Open in Apple Maps" links. **No in-app navigation in v1.** |
-| Footer | "Data: NRCan / NREL AFDC · updated [date]" |
+| Footer | "Data: NRCan / NLR AFDC · updated [date]" |
 
 ### Finding a place
 - **"Locate me":** uses the browser's location, **only when asked**. Nothing is stored.
-- **Search by place name:** v1 uses a **static list of Canadian places** (cities, towns), so no search service is needed. GeoNames (CC BY 4.0) is one possible source. Full address search comes with routing in Phase 3 (S6).
+- **Search by place name: not in v1 (B29, 2026-11-16).** v1 has "Locate me" plus pan and zoom. Place search arrives with Phase 3 address search (S6). *Original proposal:* v1 uses a **static list of Canadian places** (cities, towns), so no search service is needed. GeoNames (CC BY 4.0) is one possible source. Full address search comes with routing in Phase 3 (S6).
 - **Default view:** the user's last map position (saved in the browser), or else a view of southern Ontario and Québec, where most chargers are.
 
 ---
@@ -145,6 +152,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 
 **v1 approach, kept simple and honest:**
 - Tesla **Supercharger** sites are shown with a note: "**Tesla network.** Non-Tesla access varies by site and usually needs the Tesla app and possibly an adapter. Check the Tesla app."
+- *Phase 1b (B28):* the two My car variations below come with My car. v1 always shows the generic note.
 - If **My car** is a Tesla, the note is hidden.
 - If **My car** has `supercharger_access: via adapter`, the note says "Your car can use Superchargers **with an adapter** where the site is open to non-Teslas."
 - **Tesla Destination** sites (Level 2) get a short note that some are customers-only.
@@ -157,7 +165,8 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 - Live availability
 - Open Charge Map as a second source
 - Network filter, "hide restricted" filter, "show planned" toggle
-- Full address search (Phase 3)
+- Place-name and address search (Phase 3, B29)
+- "Chargers my car can use" and My-car Tesla notes (Phase 1b, B28)
 - Directions inside the app (Phase 3 covers trips, and v1 links out to Google/Apple Maps)
 - Reviews, photos, check-ins (PlugShare-style community features)
 - Level 1 chargers

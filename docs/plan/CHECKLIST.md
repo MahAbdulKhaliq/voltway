@@ -141,3 +141,31 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 
 - [x] **[1a] 9.1** Run the `qa-reviewer` subagent against `docs/plan/QA.md`; fix findings; re-run on fixed items.
   - Verified 2026-11-16: first run found 16 issues (pass with issues); fixes in PR #41 and the re-check follow-up; owner decisions B24, B25. Re-check passed. Details: `docs/plan/QA-RESULTS-1a.md`; remaining debt: `docs/tech-debt/`. **Phase 1a done.**
+
+---
+
+# Phase 2 build checklist: charger map (tag [2])
+
+Built from [DESIGN-map.md](DESIGN-map.md) (approved 2026-11-16; owner decisions B26–B29). Data layer before UI. Each item ships as its own PR on green CI. Phase 1b items above follow once M10 passes.
+
+**Owner steps:** free API key from developer.nlr.gov; add it as the GitHub Actions secret `NLR_API_KEY` and to a local `.env` (git-ignored).
+
+## Data layer
+
+- [ ] **[2] M0 Record decisions + plan files** — `gaps-and-questions.md` (B26–B29), `charger-map.md`, `data-sources.md`, `overview.md`, `database-ui.md`, `CLAUDE.md`, `docs/plan/DESIGN-map.md`, this section, `QA.md` Phase 2. Done when: the docs PR is merged.
+- [ ] **[2] M1 AFDC fetch + source record** — `scripts/fetch-afdc.ts`, `sources/afdc-ca/` (raw if under ~10 MB, else checksum only), `data/sources/src-afdc-ca.json`. Done when: a local run with the key writes the data and `FETCHED.json` (URL, time, checksum, count); count in the expected range (~14–16k locations incl. L1/planned); licence/attribution confirmed (owner asked if unclear).
+- [ ] **[2] M2 Normalize + classify** — `scripts/lib/afdc.ts`, `tests/afdc.test.ts`, `tests/fixtures/afdc/`, `data/imported/afdc/stations.json`, `schema/imported-afdc.schema.json`. Done when: tests cover every band edge and the value just above it (3.6/7.2/11.5/50/100/250), unknown power, mixed sites, a 20 kW DC unit staying Level 3, private/L1-only/planned drops, Supercharger vs Destination flags; `npm run validate` passes.
+- [ ] **[2] M3 Sanity checks + change summary** — `scripts/lib/afdc-checks.ts`, tests. Done when: tests cover pass, >10 % drop and missing required fields (>2 %), and the summary lists added/removed/changed by province and level.
+- [ ] **[2] M4 Map data build** — `scripts/build-data.ts`, `scripts/lib/output-check.ts` → `public/data/map/{l3,l2,meta}.json`. Done when: `npm run build` passes, every station carries the AFDC `source_id`, files under ~2 MB gzipped.
+- [ ] **[2] M5 Daily refresh workflow** — `.github/workflows/charger-refresh.yml`. Done when: a manual run on GitHub opens and auto-merges a PR after running validate/test/astro check/build itself, and a simulated >10 % drop leaves the PR unmerged and fails the run.
+
+## UI
+
+- [ ] **[2] M6 Map page + nav (B26)** — `maplibre-gl`, `src/components/ChargerMap.tsx` (`client:only="react"`), `src/pages/index.astro`, `src/layouts/Base.astro`, `src/config.ts` (`MAP.styleUrl`), `src/lib/storage.ts` (`KEYS.mapView`), `src/i18n/en.json`. Done when: home shows the map (desktop and 375 px, no console errors), OSM + OpenFreeMap attribution visible, last view restored, `/charging` still works.
+- [ ] **[2] M7 Pins, clusters, filters** — `src/lib/map-filter.ts` + tests, filter panel. Done when: tests pass (any-port-matches, defaults); browser: clusters with counts zoom on click, bolt/plug icons, greyed temporarily-unavailable pins, Level 3 on / Level 2 off by default, bands appear under ticked levels incl. "Unknown power", plug boxes, choices saved (`KEYS.mapFilters`), L2 file loads only when first ticked, keyboard and phone width work.
+- [ ] **[2] M8 Station details + Locate me** — side panel / phone bottom sheet. Done when: every row of charger-map §5's popup table shows (ports, access warnings, generic Tesla and Destination notes, pricing or "Not listed", status with date, Google/Apple Maps links, data date footer); Locate me works and a denied permission shows a message; contrast tests pass.
+- [ ] **[2] M9 About credits + tech debt** — `src/pages/about.astro`, `docs/tech-debt/`. Done when: About credits AFDC/NRCan, OpenFreeMap and OSM; tech debt lists the Protomaps/R2 fallback, `adapters_included` (for 5.2), repo growth from daily data commits, N9 and OCM.
+
+## Independent QA
+
+- [ ] **[2] M10** Run the `qa-reviewer` subagent against `docs/plan/QA.md` Phase 2; fix findings; re-run on fixed items.

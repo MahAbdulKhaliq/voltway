@@ -59,7 +59,7 @@ Each phase ships on its own. The header gains **Map** and **Trip** as they're bu
 
 ## 4. Phase 2: Charger map
 
-- **Data:** NREL AFDC (covers Canada), **pulled daily** and published as static files, about 15,000 locations. Automatic checks stop a bad update (for example a >10% drop in stations).
+- **Data:** NLR (formerly NREL) AFDC (covers Canada), **pulled daily** and published as static files, about 15,000 locations. Automatic checks stop a bad update (for example a >10% drop in stations).
 - **Map:** MapLibre + **OpenFreeMap** tiles (free, no key), with self-hosted Protomaps as a fallback. **Covers all of Canada.**
 - **Filters:** Level 3 (shown by default) / Level 2 → **power bands** (each includes its upper edge, plus "Unknown power") → plugs (CCS1, NACS, CHAdeMO, J1772) → "**Chargers my car can use**".
 
@@ -114,7 +114,7 @@ Each phase ships on its own. The header gains **Map** and **Trip** as they're bu
 | Builds, scheduled data pulls | GitHub Actions (public repo) | Free for public repos |
 | Map tiles | OpenFreeMap | No key, no published limits (as-is, donation-funded) |
 | Fallback tiles | Protomaps on Cloudflare R2 | 10 GB storage, free egress |
-| Charger data | NREL AFDC API | Free key (~1,000 requests/hour) |
+| Charger data | NLR AFDC API (developer.nlr.gov) | Free key (~1,000 requests/hour) |
 | Routing, elevation | openrouteservice | 2,000 routes/day |
 | Address search | openrouteservice | 1,000/day (local place list first) |
 | Key protection | Vercel Functions | Included in the Hobby plan (check current limits) |

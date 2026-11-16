@@ -32,7 +32,7 @@ Header:  [Logo]   Charging   Cars   Compare (n)   Map*   Trip*   [My car: IONIQ 
 | Screen | Purpose | |
 |--------|---------|-|
 | **Pick your car** | First-load picker | MVP |
-| **Charging** (home) | Dropdowns to pick make, model, year, variant and trim; everything about that car on one screen (§5) | MVP |
+| **Charging** (home until B26; at `/charging` once the map ships, which becomes the home page) | Dropdowns to pick make, model, year, variant and trim; everything about that car on one screen (§5) | MVP |
 | **Cars** | Make → model accordions of every car; filters and sorting (§4) to be added there | MVP |
 | **Compare** | Up to 4 cars side by side | MVP |
 | **About & sources** | Method, data sources, **required license credits** | MVP (licenses require it) |

@@ -1,6 +1,6 @@
 # Phase 1 build checklist (1a before the map, 1b after: B21)
 
-Built from [DESIGN.md](DESIGN.md). Planning docs: `G:\Work\Ideating\EV-App-Planning` (detailed docs win over overview.md).
+Built from [DESIGN.md](DESIGN.md). Planning docs: `docs/design/` (detailed docs win over overview.md).
 Tick an item only when its **Done when** is verified. Note skipped or stubbed work inline.
 
 **Build split (owner decision B21, 2026-11-15).** Items tagged **[1a]** are finished before the charger map (Phase 2) starts; items tagged **[1b]** come after the map. Phase 2 build starts once every [1a] item is ticked and QA (9.1) passes on them.

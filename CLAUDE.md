@@ -4,7 +4,7 @@ A free, no-login website for EV drivers and shoppers (data currently covers Cana
 
 ## Design docs: the source of truth
 
-The full design lives **outside this repo** in `G:\Work\Ideating\EV-App-Planning`.
+The full design lives in **`docs/design/`** (moved into the repo 2026-11-15 so design changes are versioned with the code; the old `G:\Work\Ideating\EV-App-Planning` folder is retired, don't edit it).
 
 - Read `overview.md` first, then the detailed docs it links to.
 - **Where `overview.md` and a detailed doc disagree, the detailed doc wins.**

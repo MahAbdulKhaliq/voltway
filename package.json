@@ -15,6 +15,7 @@
     "import:openev": "tsx scripts/import-openev.ts",
     "fetch:chargeprice": "tsx scripts/fetch-chargeprice.ts",
     "fetch:afdc": "tsx scripts/fetch-afdc.ts",
+    "import:afdc": "tsx scripts/import-afdc.ts",
     "import:chargeprice": "tsx scripts/import-chargeprice.ts",
     "data:import": "npm run import:nrcan && npm run import:openev && npm run import:chargeprice",
     "suggest:matches": "tsx scripts/suggest-matches.ts",

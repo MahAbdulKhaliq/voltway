@@ -1,19 +1,21 @@
 ---
 // Page shell (B20): menu button (left) → side panel with a theme toggle, page search and the
-// list of pages; then the logo; main content; footer. Compare, My car, Map and Trip join
-// PAGES as they're built. Distances render in km and are converted in place when the
+// list of pages; then the logo; main content; footer. Compare, My car and Trip join
+// PAGES as they're built. The map is the home page (B26). Distances render in km and are converted in place when the
 // visitor picks miles (database-ui.md §9; the switch lives in the curve controls, B19).
 import '../styles/global.css';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { COVERAGE } from '../config.ts';
 
-type Page = 'charging' | 'cars' | 'about';
-interface Props { title?: string; description?: string; active?: Page }
-const { title, description = t('site.tagline'), active } = Astro.props;
+type Page = 'map' | 'charging' | 'cars' | 'about';
+// fill: the page is one full-screen tool (the map): no width limit and no footer; credits live in the tool.
+interface Props { title?: string; description?: string; active?: Page; fill?: boolean }
+const { title, description = t('site.tagline'), active, fill = false } = Astro.props;
 const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
 
 // Pages in the menu. Search matches the name, the description and the keywords.
 const PAGES: { id: Page; href: string }[] = [
+  { id: 'map', href: '/' },
   { id: 'charging', href: '/charging' },
   { id: 'cars', href: '/cars' },
   { id: 'about', href: '/about' },
@@ -38,7 +40,7 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
       } catch (e) {}
     </script>
   </head>
-  <body>
+  <body class={fill ? "fill-page" : undefined}>
     <a class="skip" href="#main">{t('site.skip')}</a>
     <header class="site-header">
       <div class="wrap bar">
@@ -78,16 +80,16 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
       </nav>
     </dialog>
 
-    <main id="main" class="wrap">
+    <main id="main" class={fill ? 'fill' : 'wrap'}>
       <slot />
     </main>
-    <footer class="site-footer">
+    {!fill && <footer class="site-footer">
       <div class="wrap">
         <p>{t('scope.note', { market: COVERAGE.market, regulator: COVERAGE.regulator })}</p>
         <p>{t('footer.note')}</p>
         <p class="small">{t('footer.data')} <a href="/about#data">{t('footer.about')}</a></p>
       </div>
-    </footer>
+    </footer>}
 
     <script>
       import { applyUnits, currentUnit, setUnit } from '../scripts/units-client.ts';

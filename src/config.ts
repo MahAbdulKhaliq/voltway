@@ -28,3 +28,18 @@ export const COST = {
   /** Energy drawn from a DC charger ≈ energy added ÷ this (charging-curve-viewer.md §3: ~90–95 %). Assumption. */
   dcEfficiency: 0.92,
 } as const;
+
+/**
+ * Charger map (charger-map.md §2). Base map tiles from OpenFreeMap: free, no key. Switching to
+ * the self-hosted Protomaps fallback means changing these style URLs only.
+ */
+export const MAP = {
+  styleUrl: 'https://tiles.openfreemap.org/styles/positron',
+  darkStyleUrl: 'https://tiles.openfreemap.org/styles/dark',
+  /** The tiles credit OpenFreeMap and OpenMapTiles; OSM's licence asks for this exact wording too. */
+  attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>',
+  /** First visit: southern Ontario and Québec, where most chargers are. [lon, lat], zoom. */
+  defaultView: { center: [-76.2, 45.0] as [number, number], zoom: 5.6 },
+  /** Built map data (scripts/lib/map-build.ts). */
+  dataUrl: '/data/map',
+} as const;

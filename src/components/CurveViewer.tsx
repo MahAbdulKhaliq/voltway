@@ -15,6 +15,8 @@ import type { CurveOut } from '../lib/types.ts';
 import { SourceRef } from './react/Badge.tsx';
 import { COST, COVERAGE } from '../config.ts';
 import { setUnit as switchUnit } from '../scripts/units-client.ts';
+import { mapLink } from '../lib/map-filter.ts';
+import type { Plug } from '../lib/power-bands.ts';
 
 const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', currency: COVERAGE.currency });
 
@@ -28,6 +30,10 @@ interface Props {
   batteryIsGross: boolean;
   consumption: { highway: number | null; combined: number | null; city: number | null };
   sources: { id: string; title: string; url: string; n: number }[];
+  /** A charger cap from a map link (B31): shown as the custom preset, never saved over the remembered settings. */
+  initialChargerKw?: number | null;
+  /** The car's plugs, for the "Find chargers this fast" map link (B31); null when its port is unknown. */
+  mapPlugs?: Plug[] | null;
 }
 
 type Basis = 'highway' | 'combined' | 'city';
@@ -41,7 +47,16 @@ const DEFAULTS: Settings = { start: 10, end: 80, preset: 'none', customKw: 120, 
 const cssVar = (name: string, fallback: string) =>
   typeof window === 'undefined' ? fallback : getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
 
-export default function CurveViewer({ extraControls, curves, usableKwh, batteryIsGross, consumption, sources }: Props) {
+export default function CurveViewer({
+  extraControls,
+  curves,
+  usableKwh,
+  batteryIsGross,
+  consumption,
+  sources,
+  initialChargerKw = null,
+  mapPlugs = null,
+}: Props) {
   const initial = curves.find((c) => c.is_display_default) ?? curves[0];
   const [curveId, setCurveId] = useState(initial.id);
   const [settings, setSettings] = useState<Settings>(DEFAULTS);
@@ -55,10 +70,16 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
   const live = useRef({ start: settings.start, end: settings.end, xAxis });
   live.current = { start: settings.start, end: settings.end, xAxis };
   const dragging = useRef<'start' | 'end' | null>(null);
+  // While a map link's charger cap is shown, the remembered preset stays what it was (B31).
+  const keptCharger = useRef<Pick<Settings, 'preset' | 'customKw'> | null>(null);
 
   // Remembered settings and units (browser only, after hydration).
   useEffect(() => {
-    setSettings({ ...DEFAULTS, ...getJSON<Partial<Settings>>(KEYS.curveSettings, {}) });
+    const saved = { ...DEFAULTS, ...getJSON<Partial<Settings>>(KEYS.curveSettings, {}) };
+    if (initialChargerKw != null) {
+      keptCharger.current = { preset: saved.preset, customKw: saved.customKw };
+      setSettings({ ...saved, preset: 'custom', customKw: initialChargerKw });
+    } else setSettings(saved);
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
     const onUnits = (e: Event) => setUnit((e as CustomEvent<DistanceUnit>).detail);
     window.addEventListener('voltway:units', onUnits);
@@ -77,7 +98,8 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
     setSettings((s) => {
       const next = { ...s, ...patch };
       if (next.start > next.end) next.start = next.end;
-      setJSON(KEYS.curveSettings, next);
+      if ('preset' in patch || 'customKw' in patch) keptCharger.current = null;
+      setJSON(KEYS.curveSettings, keptCharger.current ? { ...next, ...keptCharger.current } : next);
       return next;
     });
   };
@@ -298,6 +320,11 @@ export default function CurveViewer({ extraControls, curves, usableKwh, batteryI
             <span>{t('viewer.customKw')}</span>
             <input type="number" min={1} max={1000} value={settings.customKw} onChange={(e) => update({ customKw: Number(e.target.value) })} />
           </label>
+        )}
+        {chargerKw != null && (
+          <p className="find-chargers small">
+            <a href={mapLink(chargerKw, mapPlugs)}>{t('viewer.findChargers')}</a>
+          </p>
         )}
         <label>
           <span>{t('viewer.rangeBasis')}</span>

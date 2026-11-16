@@ -4,6 +4,8 @@
 import { useEffect, useRef } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import type { MapFeature } from '../lib/map-data.ts';
+import { needsAdapter, topDcKw, type CarMapInfo } from '../lib/map-filter.ts';
+import type { MyCar } from '../lib/my-car.ts';
 import { PIN } from '../lib/map-icons.ts';
 import {
   accessDetail,
@@ -29,14 +31,35 @@ interface Props {
   /** Date of the last data pull (meta.json), for the footer. */
   updated: string | null;
   onClose: () => void;
+  /** My car and what the map knows about it (B28, B31); null when none is set or it is still loading. */
+  myCar?: MyCar | null;
+  carInfo?: CarMapInfo | null;
 }
 
-export default function StationPanel({ station, updated, onClose }: Props) {
+export default function StationPanel({ station, updated, onClose, myCar = null, carInfo = null }: Props) {
   const s = station.properties;
   const heading = useRef<HTMLHeadingElement>(null);
   const level = stationLevel(s.p);
   const status = stationStatus(s, localDate());
   const tesla = teslaNote(s.nw);
+  const rule = carInfo?.rule ?? null;
+  // My-car Tesla note (charger-map §7): hidden for a Tesla; adapter wording for a via-adapter car.
+  const superNote: MessageKey | null =
+    tesla !== 'supercharger' || carInfo?.isTesla
+      ? null
+      : carInfo?.access === 'via_adapter'
+        ? 'map.station.teslaAdapter'
+        : 'map.station.tesla';
+  // "How fast would my car charge here?" (B31): only with My car and a DC port it can use.
+  const capKw = myCar ? topDcKw(s.p, rule, s.nw) : null;
+  const curveHref =
+    myCar && capKw != null
+      ? `/charging?${new URLSearchParams({
+          car: myCar.carId,
+          ...(myCar.trimId ? { trim: myCar.trimId } : {}),
+          kw: String(Math.round(capKw)),
+        }).toString()}`
+      : null;
   const detail = accessDetail(s.ad);
   const address = addressLine(s);
   const links = directionsUrls(station.geometry.coordinates);
@@ -85,11 +108,18 @@ export default function StationPanel({ station, updated, onClose }: Props) {
                     plug: t(`value.${plug}` as MessageKey),
                     power: k === null ? t('map.station.unknownPower') : t('map.station.kw', { kw: k }),
                   })}
+                  {needsAdapter(rule, plug, s.nw) && <> · <strong>{t('map.station.needsAdapter')}</strong></>}
                 </li>
               );
             })}
           </ul>
         </section>
+
+        {curveHref && (
+          <p className="station-curve">
+            <a href={curveHref}>{t('map.station.howFast')}</a>
+          </p>
+        )}
 
         <section>
           <h3>{t('map.station.access')}</h3>
@@ -105,9 +135,14 @@ export default function StationPanel({ station, updated, onClose }: Props) {
             </p>
           )}
           {s.h && <p className="small">{t('map.station.hours', { hours: s.h })}</p>}
-          {tesla && (
+          {superNote && (
             <p className="banner small" role="note">
-              {t(tesla === 'supercharger' ? 'map.station.tesla' : 'map.station.teslaDestination')}
+              {t(superNote)}
+            </p>
+          )}
+          {tesla === 'destination' && (
+            <p className="banner small" role="note">
+              {t('map.station.teslaDestination')}
             </p>
           )}
         </section>

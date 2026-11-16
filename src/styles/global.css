@@ -222,7 +222,13 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .map-filters .check.level { font-weight: 600; }
 .map-filters .legend { margin: 8px 0 6px; }
 .map-filters .legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.map-filters .map-mycar p { margin: 0 0 4px 26px; }
 .map-count { margin: 0; padding: 8px 12px; border-top: 1px solid var(--border); }
+/* "Set my car" prompt (B37): small, dismissable, bottom centre. */
+.map-nudge { position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%); z-index: 2; display: flex; align-items: center; gap: 4px; max-width: min(420px, calc(100% - 24px)); padding: 6px 6px 6px 12px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.map-nudge a { font-weight: 600; white-space: nowrap; }
+.map-nudge-close { flex: none; display: grid; place-items: center; width: 32px; height: 32px; margin-left: 4px; background: none; border: 0; border-radius: var(--radius); color: inherit; cursor: pointer; }
+.map-nudge-close:focus-visible { outline: 2px solid var(--accent); }
 /* Stations in view (B34): wide screens only for now (TD-P11). */
 .map-list-wrap { border-top: 1px solid var(--border); display: flex; flex-direction: column; min-height: 0; }
 .map-list-toggle { margin: 6px 12px; padding: 6px 10px; background: none; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font: inherit; font-size: 0.9rem; cursor: pointer; text-align: left; }
@@ -263,6 +269,7 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .station-ports, .station-links { list-style: none; margin: 0; padding: 0; }
 .station-ports li { font-weight: 600; padding: 2px 0; }
 .station-links li { padding: 3px 0; }
+.station-curve { margin: 10px 0 0; font-weight: 600; }
 .station-foot { padding: 8px 14px; border-top: 1px solid var(--border); }
 .station-foot p { margin: 0; }
 
@@ -270,6 +277,7 @@ main.fill { flex: 1; min-height: 0; position: relative; }
   .map-panel { left: 8px; right: 52px; width: auto; top: 8px; max-height: calc(100% - 80px); }
   .map-locate { left: 8px; bottom: 36px; }
   .map-locate-msg { left: 8px; bottom: 84px; }
+  .map-nudge { left: 8px; right: 8px; bottom: 84px; transform: none; max-width: none; }
   .station-panel { top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 62%; border-radius: 14px 14px 0 0; border-bottom: 0; }
 }
 

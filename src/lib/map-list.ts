@@ -3,7 +3,7 @@
 // stations matching the filters inside the view, nearest the map centre first, capped.
 
 import type { ChargerLevel } from './power-bands.ts';
-import { matchLevel, portMatches, type MapFilters } from './map-filter.ts';
+import { matchLevel, portMatches, type CarPlugRule, type MapFilters } from './map-filter.ts';
 import type { MapFeature } from './map-data.ts';
 
 export const LIST_CAP = 50;
@@ -41,18 +41,19 @@ export function stationsInView(
   bounds: Bounds,
   center: readonly [number, number],
   cap = LIST_CAP,
+  car?: CarPlugRule | null,
 ): { items: ListItem[]; total: number } {
   const hits: { item: ListItem; d: number }[] = [];
   for (const feat of features) {
     const at = feat.geometry.coordinates;
     if (!inBounds(at, bounds)) continue;
     const ports = feat.properties.p;
-    const level = matchLevel(ports, f);
+    const level = matchLevel(ports, f, car, feat.properties.nw);
     if (!level) continue;
     let maxKw: number | null = null;
     for (const p of ports) {
       const kw = p[2];
-      if (p[0] !== level || !portMatches(p, f) || kw == null || !Number.isFinite(kw) || kw <= 0) continue;
+      if (p[0] !== level || !portMatches(p, f, car, feat.properties.nw) || kw == null || !Number.isFinite(kw) || kw <= 0) continue;
       if (maxKw == null || kw > maxKw) maxKw = kw;
     }
     const item: ListItem = { i: feat.properties.i, name: feat.properties.n, level, maxKw, at };

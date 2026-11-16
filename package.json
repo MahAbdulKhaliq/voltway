@@ -22,6 +22,7 @@
     "suggest:matches": "tsx scripts/suggest-matches.ts",
     "gaps": "tsx scripts/gap-report.ts",
     "calibrate": "tsx scripts/calibrate.ts",
+    "calibrate:highway": "tsx scripts/calibrate-highway.ts",
     "validate": "tsx scripts/validate.ts",
     "data:build": "tsx scripts/build-data.ts",
     "prebuild": "npm run validate && npm run data:build",

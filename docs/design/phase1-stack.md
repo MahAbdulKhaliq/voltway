@@ -92,7 +92,7 @@ From the other Phase 1 docs:
 | **Hand-entered data** (curves, trims, heat pump) | When found | Edited directly in the data repository, through a pull request |
 | **OTA charging updates** | Rare | Added as a new **curve version** (vehicle-data-model.md §5) |
 
-**Rule:** automation **suggests**, a person **approves**. Nothing from an outside source goes live without review. That's the accuracy pitch applied to updates.
+**Rule:** automation **suggests**, a person **approves**. Nothing from an outside source goes live without review. That's the accuracy pitch applied to updates. *Exception (B27, 2026-11-16):* the daily charger-map data merges itself once its automatic sanity checks and CI pass (charger-map.md §3).
 
 ---
 

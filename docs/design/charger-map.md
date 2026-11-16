@@ -44,7 +44,7 @@ From [data-sources.md](data-sources.md) §5. The fields this design uses:
 | `ev_level2_evse_num`, `ev_dc_fast_num` | **Level** (Level 2 vs. Level 3). Stations with only Level 1 are dropped. |
 | `ev_charging_units` → `connectors` → `power_kw`, `port_count` | **Power bands** and port counts per plug |
 | `ev_connector_types` | **Plug filter:** `J1772`, `J1772COMBO` (CCS1), `TESLA` (NACS), `CHADEMO` |
-| `ev_network` | Network name, including "Tesla Supercharger" vs. "Tesla Destination" |
+| `ev_network` | Network name: the source calls Superchargers "Tesla" and destination chargers "Tesla Destination" |
 | `access_code`, `access_detail_code`, `restricted_access` | Hide private stations. Flag "customers only" and limited hours. |
 | `status_code` | Available / planned / temporarily unavailable (§6) |
 | `ev_pricing` (+ `ev_pricing_fr`) | Pricing text, shown as given |

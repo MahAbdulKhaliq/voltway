@@ -166,7 +166,7 @@ In order of preference:
   - Expect **missing `power_kw` values**, which is why the vision has an "Unknown power" band.
   - Reports suggest NRCan's data **doesn't capture every network**. NRCan reported about **39,654 public ports at 14,743 locations** as of March 2026.
   - The API docs state no licence or attribution terms (checked 2026-11-16). Canadian records come from NRCan, so the exact licence wording is confirmed during build (map checklist M1) before anything is published.
-- **Links:** [field dictionary](https://afdc.energy.gov/data_download/alt_fuel_stations_format) · [EV charging units endpoint](https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/ev-charging-units)
+- **Links:** [field dictionary](https://afdc.energy.gov/data_download/alt_fuel_stations_format) · [EV charging units endpoint](https://developer.nlr.gov/docs/transportation/alt-fuel-stations-v1/ev-charging-units)
 
 ### Open Charge Map: secondary, fills gaps
 - **License:** user-contributed data is CC BY 4.0. **Imported data keeps its original provider's license**, and **visible attribution for each provider is required**.

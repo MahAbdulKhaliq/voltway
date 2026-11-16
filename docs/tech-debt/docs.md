@@ -14,5 +14,8 @@
 - **Since:** 2026-11-16. QA.md still expects the efficiency options (U16) and doesn't test the measured-range rule (B24).
 - **Fix:** update U16 (deferred by B25) and add B24 checks to M4/U12 before the next QA run.
 
+### TD-D4 M2's checklist line names `tests/fixtures/afdc/`
+- **Since:** 2026-11-16, Phase 2 QA (M10, report `qa-phase2-2026-11-16.md` in the session notes). The AFDC fixtures are written inside `tests/afdc.test.ts`; the folder doesn't exist. Harmless.
+
 ## Closed
 - 2026-11-16, PR #41: cost lines in `charging-curve-viewer.md` (B19); skip-log wording (QA #12); CHECKLIST 3.3 file reference (QA #14).

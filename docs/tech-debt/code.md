@@ -40,6 +40,16 @@
 - **Since:** 2026-11-16, M8 (PR #54). AFDC gives pricing in English (`pr`) and French (`pf`); the panel shows `pr`.
 - **Fix:** with the French site: pick `pf` when the locale is French, falling back to `pr`. Dates in the panel are also formatted with a fixed `en-CA` locale (see TD-C3).
 
+### TD-C10 A missing translation key blanks the whole map
+- **Since:** 2026-11-16, Phase 2 QA (M10, report `qa-phase2-2026-11-16.md` in the session notes).
+- **Impact:** `t()` throws on an unknown key (by design, so builds fail). The map is `client:only`, so a key that slips through would throw in the browser with no error boundary, and the map area goes blank. Also: `en-CA` is hard-coded for numbers and dates in the map and panel (see TD-C3), and the OSM credit HTML lives in `src/config.ts` rather than `en.json`.
+- **Fix:** wrap `ChargerMap` in a small React error boundary showing `map.error`; move the locale to one setting with the French work.
+
+### TD-C11 The panel's "updated" date only moves on days with changes
+- **Since:** 2026-11-16, Phase 2 QA (M10, report `qa-phase2-2026-11-16.md` in the session notes).
+- **Impact:** `meta.json` is rebuilt only when the refresh commits (a station changed). After quiet days the footer date is older than the last successful check, so the data looks staler than it is.
+- **Fix:** have the refresh record its last successful check (e.g. a small `checked_at` file committed weekly, or the run date via the Actions API at build time), or reword the footer to "data as of".
+
 ## Closed
 - 2026-11-16, QA re-check PR: TD-C6 unused `tokenize` import removed; output check now also covers figures with no kind and wheels; 10–80 % minutes stored precisely so tiles match the viewer.
 - 2026-11-16, PR #41: dead `SourceBadge.astro` / `FieldValue.astro` removed (QA #14); output check added to the data build (QA #6, #9); empty window "~5 min" (QA #10).

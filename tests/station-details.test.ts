@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   accessDetail,
+  accessWarning,
   addressLine,
   directionsUrls,
   formatKw,
@@ -45,6 +46,13 @@ describe('access and Tesla notes (§5, §7)', () => {
     expect(accessDetail('LIMITED_HOURS')).toBe('LIMITED_HOURS');
     expect(accessDetail('SOMETHING_NEW')).toBeNull();
     expect(accessDetail(undefined)).toBeNull();
+  });
+  it('warns for restricted sites and for open sites with limited hours or call ahead', () => {
+    expect(accessWarning({ rs: 1 })).toBe(true);
+    expect(accessWarning({ ad: 'LIMITED_HOURS' })).toBe(true);
+    expect(accessWarning({ ad: 'CALL' })).toBe(true);
+    expect(accessWarning({ ad: 'CREDIT_CARD_ALWAYS' })).toBe(false);
+    expect(accessWarning({})).toBe(false);
   });
   it('Supercharger vs Destination', () => {
     expect(teslaNote('Tesla')).toBe('supercharger');

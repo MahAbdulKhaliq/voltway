@@ -38,5 +38,13 @@
 - **Impact:** v1 uses AFDC only. Networks or sites AFDC lacks are missing from the map.
 - **Fix:** later, if gaps show up: add OCM with the duplicate rule in charger-map.md §3 (same network, within ~50 m, overlapping plugs = one station; prefer AFDC). OCM's licence and attribution terms need checking first.
 
+### TD-P9 Stations can't be opened by keyboard
+- **Since:** 2026-11-16, Phase 2 QA (M10, report `qa-phase2-2026-11-16.md` in the session notes). Pins are drawn on the map canvas, so keyboard and screen-reader users can filter but can't open a station.
+- **Fix (needs owner):** a "Stations in view" list (nearest first, capped) next to the filters, each item opening the panel; or keyboard focus cycling through visible pins.
+
+### TD-P10 The top Level 2 band holds a few ports above 19.2 kW
+- **Since:** 2026-11-16, Phase 2 QA (M10, report `qa-phase2-2026-11-16.md` in the session notes). The "11.6–19.2 kW" box also covers the 3 source ports listed above 19.2 kW (likely data errors or DC-ish units).
+- **Fix (needs owner, wording only):** relabel as "Over 11.5 kW", or leave as is.
+
 ## Closed
 - 2026-11-16, PR #41: "Added to battery" result shown (QA #7); notice for unmatched `?car=` links (QA #15); "Estimated" tag on estimated lines (QA #11).

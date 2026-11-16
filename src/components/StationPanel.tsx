@@ -7,6 +7,7 @@ import type { MapFeature } from '../lib/map-data.ts';
 import { PIN } from '../lib/map-icons.ts';
 import {
   accessDetail,
+  accessWarning,
   addressLine,
   directionsUrls,
   formatKw,
@@ -92,10 +93,10 @@ export default function StationPanel({ station, updated, onClose }: Props) {
 
         <section>
           <h3>{t('map.station.access')}</h3>
-          {s.rs ? (
+          {accessWarning(s) ? (
             <p className="banner small" role="note">
-              {t('map.station.restricted')}
-              {detail && <> {t(`map.station.ad.${detail}` as MessageKey)}</>}
+              {s.rs ? t('map.station.restricted') : t('map.station.public')}
+              {detail && <>{s.rs ? ' ' : ' · '}{t(`map.station.ad.${detail}` as MessageKey)}</>}
             </p>
           ) : (
             <p>

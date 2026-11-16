@@ -1,0 +1,77 @@
+# Monthly check of the upstream datasets (8.1, DESIGN.md Phase 8). Downloads the current NRCan
+# ratings CSV and the latest OpenEV Data release; if either differs from the copy committed in
+# sources/, it opens (or updates) a pull request listing new, removed and changed cars.
+# When nothing differs it does nothing. Importing and going live stay a person's job.
+#
+# Needs: Settings → Actions → General → "Allow GitHub Actions to create and approve pull
+# requests". Without it, the branch is still pushed and the run summary links to open the PR.
+name: Data refresh
+
+on:
+  schedule:
+    - cron: '17 9 3 * *' # 09:17 UTC on the 3rd of each month
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: data-refresh
+  cancel-in-progress: false
+
+env:
+  BRANCH: data/source-refresh
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+
+      - name: Download current upstream copies
+        run: |
+          npm run fetch:nrcan
+          npm run fetch:openev
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Compare with the committed copies
+        id: diff
+        run: npx tsx scripts/check-sources.ts "$RUNNER_TEMP/refresh-body.md"
+
+      - name: Nothing changed
+        if: steps.diff.outputs.changed != 'true'
+        run: echo "Upstream data matches the committed copies. No pull request." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open or update the refresh pull request
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add sources
+          git commit -m "Data refresh: new upstream copy in sources/ ($(date -u +%F))"
+          git push --force origin "$BRANCH"
+          title="Data refresh: upstream data changed ($(date -u +%F))"
+          if [ "$(gh pr view "$BRANCH" --json state -q .state 2>/dev/null)" = "OPEN" ]; then
+            gh pr edit "$BRANCH" --title "$title" --body-file "$RUNNER_TEMP/refresh-body.md"
+            echo "Updated the open refresh pull request." >> "$GITHUB_STEP_SUMMARY"
+          elif gh pr create --head "$BRANCH" --base main --title "$title" --body-file "$RUNNER_TEMP/refresh-body.md"; then
+            echo "Opened a refresh pull request." >> "$GITHUB_STEP_SUMMARY"
+          else
+            {
+              echo "Upstream data changed. Branch \`$BRANCH\` is pushed, but Actions may not open pull requests in this repo."
+              echo "Open it here: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/compare/main...${BRANCH}?expand=1"
+              echo
+              cat "$RUNNER_TEMP/refresh-body.md"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1 # fail the run so the owner gets notified
+          fi

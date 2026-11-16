@@ -7,6 +7,8 @@ A standalone guide for verifying Phase 1 with no memory of how it was built. Rea
 
 Report every gap: what you checked, what you expected (with doc + section), what you saw.
 
+**Scope (owner decision B21, 2026-11-15):** the first QA run covers **Phase 1a** only: the items tagged [1a] in `CHECKLIST.md`. Cars tab filters and sorts, the first-load picker and My car, Compare, and template calibration are **Phase 1b** (after the charger map). Report a missing 1b feature as "deferred (1b)", not as a gap. Also check the later owner decisions B18–B20 (accordions and numbered sources, cost and units, themes and side nav) in `gaps-and-questions.md`.
+
 ---
 
 ## 1. Build and tests

@@ -25,6 +25,7 @@ import {
   type PowerRange,
 } from '../lib/power-bands.ts';
 import { BOLT, drawPin, PIN, PLUG, pinId } from '../lib/map-icons.ts';
+import { stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
 import StationPanel from './StationPanel.tsx';
 
 interface SavedView {
@@ -243,6 +244,10 @@ export default function ChargerMap() {
   const [meta, setMeta] = useState<MapMeta | null>(null);
   const [locate, setLocate] = useState<'idle' | 'busy' | 'denied' | 'failed' | 'unsupported'>('idle');
   const youRef = useRef<maplibregl.Marker | null>(null);
+  // "Stations in view" (B34): the current view, refreshed when the map stops moving.
+  const [view, setView] = useState<{ bounds: Bounds; center: [number, number] } | null>(null);
+  const [listOpen, setListOpen] = useState(false);
+  const listItemRef = useRef<HTMLButtonElement | null>(null);
 
   // The map itself, once.
   useEffect(() => {
@@ -266,7 +271,15 @@ export default function ChargerMap() {
     map.touchZoomRotate.disableRotation();
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
     map.on('style.load', () => addOverlay(map, pinsRef.current, selectedRef.current));
+    const reportView = () => {
+      const b = map.getBounds();
+      const c = map.getCenter();
+      setView({ bounds: [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()], center: [c.lng, c.lat] });
+    };
+    // The bounds are known at once; 'load' waits for every tile, which can take a while.
+    reportView();
     map.once('load', () => setMapStatus('ready'));
+    map.on('moveend', reportView);
     // The dark style names a few POI icons its sprite lacks; draw them blank instead of warning.
     map.on('styleimagemissing', (e) => {
       if (!map.hasImage(e.id)) map.addImage(e.id, { width: 1, height: 1, data: new Uint8Array(4) });
@@ -365,11 +378,25 @@ export default function ChargerMap() {
     const map = mapRef.current;
     if (map?.getLayer('selected')) map.setFilter('selected', selectedFilter(selected));
   }, [selected]);
-  // Closing hands focus back to the map, so keyboard users don't land on <body>.
+  // Closing hands focus back to the list item it was opened from, or else to the map,
+  // so keyboard users don't land on <body>.
   const closeStation = useCallback(() => {
     setSelected(null);
-    mapRef.current?.getCanvas().focus();
+    const item = listItemRef.current;
+    listItemRef.current = null;
+    if (item?.isConnected) item.focus();
+    else mapRef.current?.getCanvas().focus();
   }, []);
+
+  const list = useMemo(
+    () => (listOpen && view ? stationsInView([...stations[3], ...stations[2]], filters, view.bounds, view.center) : null),
+    [listOpen, view, stations, filters],
+  );
+  const openFromList = (item: ListItem, el: HTMLButtonElement) => {
+    listItemRef.current = el;
+    setSelected(item.i);
+    mapRef.current?.easeTo({ center: item.at });
+  };
 
   // Data date for the panel footer.
   useEffect(() => {
@@ -489,6 +516,58 @@ export default function ChargerMap() {
               ? filters.levels[2] && load[2] === 'loading' ? t('map.loadingL2') : t('map.loadingStations')
               : count === 1 ? t('map.count.one') : t('map.count', { count: count.toLocaleString('en-CA') })}
         </p>
+
+        <div className="map-list-wrap">
+          <button
+            type="button"
+            className="map-list-toggle"
+            aria-expanded={listOpen}
+            aria-controls="map-list"
+            onClick={() => setListOpen((o) => !o)}
+          >
+            {t('map.list.toggle')}
+          </button>
+          {listOpen && list && (
+            <div id="map-list" className="map-list">
+              {list.total === 0 ? (
+                <p className="small muted">{t('map.list.none')}</p>
+              ) : (
+                <>
+                  {list.total > list.items.length && (
+                    <p className="small muted">
+                      {t('map.list.more', {
+                        shown: list.items.length,
+                        total: list.total.toLocaleString('en-CA'),
+                      })}
+                    </p>
+                  )}
+                  <ul aria-label={t('map.list.label')}>
+                    {list.items.map((it) => (
+                      <li key={it.i}>
+                        <button
+                          type="button"
+                          aria-current={selected === it.i ? 'true' : undefined}
+                          onClick={(e) => openFromList(it, e.currentTarget)}
+                        >
+                          <span className="map-list-name">{it.name}</span>
+                          <span className="small muted">
+                            {[
+                              t(levelLabel[it.level]),
+                              it.maxKw == null ? t('map.station.unknownPower') : t('map.list.upTo', { kw: kwText(it.maxKw) }),
+                              it.city,
+                            ]
+                              .filter(Boolean)
+                              .join(' · ')}
+                          </span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+          )}
+        </div>
       </div>
 
       <button type="button" className="map-locate" onClick={locateMe} disabled={locate === 'busy'}>

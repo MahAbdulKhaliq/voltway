@@ -2,9 +2,9 @@ import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:f
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
-import { buildCars, hasConflict, oneWheelPerSize, rank, resolve } from '../scripts/lib/build.ts';
+import { buildCars, fillCurbWeights, hasConflict, oneWheelPerSize, rank, resolve } from '../scripts/lib/build.ts';
 import { chooseTemplate, estimateCurve } from '../src/lib/estimated-curve.ts';
-import type { SourcedValue } from '../src/lib/types.ts';
+import type { CarDetail, Source, SourcedValue } from '../src/lib/types.ts';
 
 const REPO = join(import.meta.dirname, '..');
 const sv = (value: number | string, kind: SourcedValue['kind'], source_id: string, extra: Partial<SourcedValue> = {}): SourcedValue => ({ value, kind, source_id, ...extra });
@@ -228,5 +228,62 @@ describe('hand-entered wheels (B14)', () => {
       { diameter_in: 19, is_standard: true, source_id: 'src-a' },
       { diameter_in: 21, is_standard: false, source_id: 'src-a' },
     ]);
+  });
+});
+
+describe('curb weight defaults (B47)', () => {
+  const src = (id: string): Source => ({ id, type: 'dataset', title: id, url: `https://example.com/${id}`, accessed_on: '2026-11-16' });
+  const sources = new Map(['src-a', 'src-b'].map((id) => [id, src(id)]));
+  let n = 0;
+  const car = (body: string, kg?: number, source_id = 'src-a'): CarDetail => ({
+    id: `m/x/2026/${n++}`,
+    make: { id: 'm', name: 'M' },
+    model: { id: 'm/x', name: 'X', body_type: body },
+    year: 2026,
+    name: 'X',
+    sold_in_canada: true,
+    fields: { curb_weight_kg: kg === undefined ? null : { value: { value: kg, unit: 'kg', kind: 'manufacturer', source_id }, others: [], conflict: false } },
+    trims: [],
+    curves: [],
+    derived: { minutes_10_80: null, km_per_10_min: null, estimated: true, extrapolated: false, battery_basis: null },
+    sources: kg === undefined ? [] : [src(source_id)],
+  } as unknown as CarDetail);
+
+  it('fills a missing weight with the median of its body type, as estimated with its basis', () => {
+    const cars = [car('suv', 2000), car('suv', 2400, 'src-b'), car('suv', 2100), car('suv', 2300), car('suv')];
+    fillCurbWeights(cars, sources);
+    const w = cars[4].fields.curb_weight_kg!.value;
+    expect(w).toMatchObject({ value: 2200, unit: 'kg', kind: 'estimated', source_id: 'src-a' });
+    expect(w.notes).toContain('median of 4 sourced SUVs');
+    expect(cars[4].sources.map((s) => s.id)).toEqual(['src-a']); // the cited source is listed
+  });
+
+  it('falls back to the overall median when the body type has fewer than 3 sourced weights', () => {
+    const cars = [car('sedan', 1800), car('sedan', 1900), car('sedan', 2000), car('truck', 3000), car('truck', 3200), car('truck')];
+    fillCurbWeights(cars, sources);
+    const w = cars[5].fields.curb_weight_kg!.value;
+    expect(w).toMatchObject({ value: 2000, kind: 'estimated' });
+    expect(w.notes).toContain('median of 5 sourced cars of every body type');
+  });
+
+  it('leaves sourced weights untouched and never counts estimates in a median', () => {
+    const cars = [car('suv', 2000), car('suv', 2100), car('suv', 2900), car('suv')];
+    const before = structuredClone(cars.slice(0, 3).map((c) => c.fields.curb_weight_kg));
+    fillCurbWeights(cars, sources);
+    expect(cars.slice(0, 3).map((c) => c.fields.curb_weight_kg)).toEqual(before);
+    const later = car('suv');
+    fillCurbWeights([...cars, later], sources); // a second pass sees 3 sourced weights, not 4
+    expect(later.fields.curb_weight_kg!.value).toMatchObject({ value: 2100, kind: 'estimated' });
+    expect(later.fields.curb_weight_kg!.value.notes).toContain('median of 3 sourced');
+  });
+
+  it('gives every car in the real build a weight, each sourced or estimated with a basis', () => {
+    const { cars } = buildCars(REPO);
+    expect(cars.length).toBeGreaterThan(0);
+    for (const c of cars) {
+      const w = c.fields.curb_weight_kg?.value;
+      expect(w, c.id).toBeTruthy();
+      if (w!.kind === 'estimated') expect(w!.notes).toMatch(/median of \d+ sourced /);
+    }
   });
 });

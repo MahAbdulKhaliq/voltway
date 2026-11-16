@@ -23,6 +23,24 @@
         "low_confidence": true,
         "notes": "Quick web lookup (rough, not cross-checked)."
       }
+    ],
+    "chemistry": [
+      {
+        "low_confidence": true,
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-ioniq6-lr-awd",
+        "notes": "Estimated: EV Database lists NMC cathode, 77.4 kWh, 697 V for the IONIQ 6 Long Range (MY23-25, European), same model and generation and pack."
+      }
+    ],
+    "preconditioning": [
+      {
+        "low_confidence": true,
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-greencarreports-ioniq6-battery-conditioning",
+        "notes": "Estimated: navigation trigger (DC charger as destination/waypoint) stated for the 2023 IONIQ 6 (no manual control then); manual start via Bluelink app or in-car button stated on Hyundai Ireland's IONIQ 6 page (src-hyundai-ie-ioniq6-features). Combined across years/markets."
+      }
     ]
   },
   "ac_max_kw": [
@@ -33,6 +51,31 @@
       "source_id": "src-auto123-ioniq-6-2025",
       "low_confidence": true,
       "notes": "Quick web lookup (rough, not cross-checked)."
+    }
+  ],
+  "charge_port": [
+    {
+      "low_confidence": true,
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-faq",
+      "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier use CCS and need a NACS adapter; IONIQ 6 not named."
+    },
+    {
+      "low_confidence": true,
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-nacs-checker",
+      "notes": "US page: 2025 IONIQ 6 kept CCS1 (model ended with MY2025)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "low_confidence": true,
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-faq",
+      "notes": "Hyundai Canada FAQ: owners of CCS-port 2025-and-earlier Hyundai EVs reach Tesla Superchargers (146 Canadian stations) with a separately available NACS adapter. IONIQ 6 not named. A forum post claims a free Canadian adapter programme from 2026-06-01; not confirmed on a Hyundai page."
     }
   ],
   "trims": [

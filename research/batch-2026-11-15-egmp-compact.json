@@ -1,0 +1,418 @@
+{
+  "sources": [
+    {
+      "id": "src-hyundai-ca-faq",
+      "type": "oem",
+      "title": "Hyundai Canada - Frequently Asked Questions (NACS and Supercharger access)",
+      "url": "https://www.hyundaicanada.com/en/about/faq",
+      "accessed_on": "2026-11-15",
+      "notes": "States IONIQ 5 and IONIQ 9 (2026 model year onwards) have a NACS port; other CCS EVs incl. 2026 KONA Electric and Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately. Does not name IONIQ 6 or IONIQ 5 N."
+    },
+    {
+      "id": "src-hyundai-ca-ioniq-5-n-2027",
+      "type": "oem",
+      "title": "Hyundai Canada - 2027 IONIQ 5 N",
+      "url": "https://www.hyundaicanada.com/en/showroom/ioniq-5-n",
+      "accessed_on": "2026-11-15",
+      "notes": "2027 model-year page: 84 kWh battery, charge speed 238 kW on a 350 kW DCFC, 10-80% about 18 min, N-exclusive 21 in forged wheels, \"Heat pump, battery thermal management and preconditioning system\". No NACS/Supercharger wording."
+    },
+    {
+      "id": "src-cargurus-2026-ioniq-5-n",
+      "type": "community",
+      "title": "CarGurus - 2026 Hyundai Ioniq 5 N pricing, specs, release date",
+      "url": "https://www.cargurus.com/research/articles/2026-hyundai-ioniq-5-n-pricing-specs-release-date",
+      "accessed_on": "2026-11-15",
+      "notes": "US article: 2026 IONIQ 5 N has a standard NACS port (new for 2026), 84 kWh, standard 21 in forged wheels, 10-80% about 18 min."
+    },
+    {
+      "id": "src-thechargeport-nacs-checker",
+      "type": "community",
+      "title": "The Charge Port - NACS Port & Adapter Checker 2026",
+      "url": "https://thechargeport.com/nacs-checker",
+      "accessed_on": "2026-11-15",
+      "notes": "US-oriented: IONIQ 5 N 2025 and IONIQ 6 2025 use CCS1 and need an adapter (IONIQ 6 ended with MY2025); Kia EV6 2025-2026 has native NACS (GT excluded)."
+    },
+    {
+      "id": "src-thechargeport-ioniq5-2026",
+      "type": "community",
+      "title": "The Charge Port - 2026 Hyundai Ioniq 5",
+      "url": "https://thechargeport.com/ev/hyundai-ioniq-5",
+      "accessed_on": "2026-11-15",
+      "notes": "US-oriented: home charging up to 10.9 kW, native NACS on 2025+ models, 84 kWh on long-range trims. Does not state a DC peak."
+    },
+    {
+      "id": "src-weeklydriver-hyundai-egmp-84",
+      "type": "community",
+      "title": "The Weekly Driver - Hyundai E-GMP 84 kWh battery",
+      "url": "https://theweeklydriver.com/reliability/batteries/hyundai-egmp-84/",
+      "accessed_on": "2026-11-15",
+      "notes": "Lists the 84 kWh pack as 81 kWh usable, NCM 811 pouch cells from SK On, 697 V; used in 2025 IONIQ 5 Long Range/XRT, IONIQ 5 N and 2025 Kia EV6 Long Range. No primary source cited on the page."
+    },
+    {
+      "id": "src-evdb-ev6-gt",
+      "type": "community",
+      "title": "EV Database - Kia EV6 GT",
+      "url": "https://ev-database.org/imp/car/3079/Kia-EV6-GT",
+      "accessed_on": "2026-11-15",
+      "notes": "84.0 kWh nominal, 80.0 kWh usable (estimated), NMC cathode, 697 V nominal. GT only; same 84 kWh pack as other long-range EV6."
+    },
+    {
+      "id": "src-evdb-ioniq6-lr-awd",
+      "type": "community",
+      "title": "EV Database - Hyundai IONIQ 6 Long Range AWD (MY23-25)",
+      "url": "https://ev-database.org/car/1719/Hyundai-IONIQ-6-Long-Range-AWD",
+      "accessed_on": "2026-11-15",
+      "notes": "77.4 kWh nominal, 74.0 kWh usable (conflicts with 72.6 already recorded), NMC cathode, 697 V nominal. European car."
+    },
+    {
+      "id": "src-hmgma-2025-ioniq-5-xrt",
+      "type": "oem",
+      "title": "Hyundai Motor Manufacturing Alabama - Hyundai debuts U.S.-built 2025 IONIQ 5 range, including XRT",
+      "url": "https://www.hmgma.com/2024/09/03/hyundai-debuts-u-s-built-2025-ioniq-5-range-including-new-adventure-ready-xrt/",
+      "accessed_on": "2026-11-15",
+      "notes": "US release: XRT has unique black 18 in wheels with 235/60R18 all-terrain tires, 84 kWh dual-motor AWD only, NACS port with CCS adapter."
+    },
+    {
+      "id": "src-kia-us-ev6-2026-specs",
+      "type": "oem",
+      "title": "Kia US - 2026 EV6 specifications and trim comparison",
+      "url": "http://www.kia.com/us/en/ev6/specs-compare",
+      "accessed_on": "2026-11-15",
+      "notes": "US: Light 63 kWh, other trims 84 kWh; 10.9 kW onboard charger; NACS standard; 19 in alloy standard on Light/Wind/GT-Line (20 in optional on GT-Line AWD); range-preserving heat pump \"Not available\" on Light, \"Available\" on others. No DC peak kW."
+    },
+    {
+      "id": "src-greencarreports-ioniq6-battery-conditioning",
+      "type": "community",
+      "title": "Green Car Reports - 2023 Hyundai IONIQ 5 and IONIQ 6 cut real-world fast-charging time",
+      "url": "https://www.greencarreports.com/news/1137628_2023-hyundai-ioniq-5-ioniq-6-cut-real-world-fast-charging-time",
+      "accessed_on": "2026-11-15",
+      "notes": "2023 IONIQ 6: Battery Conditioning starts when a DC fast charger is set as destination/waypoint; at that time no manual control."
+    },
+    {
+      "id": "src-hyundai-ie-ioniq6-features",
+      "type": "oem",
+      "title": "Hyundai Ireland - IONIQ 6 Features",
+      "url": "https://hyundai.ie/ioniq6/Features.html",
+      "accessed_on": "2026-11-15",
+      "notes": "European IONIQ 6: battery pre-conditioning can be started remotely via the Bluelink app or a button inside the car. Navigation trigger not mentioned on this page."
+    }
+  ],
+  "variants": {
+    "hyundai/ioniq-5/2026/long-range": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "low_confidence": true,
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-hyundai-egmp-84",
+            "notes": "Estimated: page lists the 84 kWh E-GMP pack (2025 IONIQ 5 Long Range/XRT) as SK On NCM 811 pouch; EV Database also says NMC for the 84 kWh IONIQ 5. Hyundai Canada only says lithium-ion."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "low_confidence": true,
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "US page: home charging up to 10.9 kW. Hyundai Canada page does not state it. EV Database lists 11 kW for the European car."
+          }
+        ]
+      },
+      "trims": {
+        "standard": {
+          "wheels": [
+            {
+              "diameter_in": 19,
+              "is_standard": true,
+              "source_id": "src-hyundai-ca-ioniq-5-2026",
+              "low_confidence": true,
+              "notes": "Hyundai Canada 2026 page lists 19 in Aero alloy wheels as an exclusive feature; legal note refers to the Preferred Long Range RWD. Per-trim table did not load."
+            }
+          ]
+        }
+      }
+    },
+    "hyundai/ioniq-5/2026/long-range-awd": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "low_confidence": true,
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-hyundai-egmp-84",
+            "notes": "Estimated: page lists the 84 kWh E-GMP pack (2025 IONIQ 5 Long Range/XRT) as SK On NCM 811 pouch; EV Database also says NMC for the 84 kWh IONIQ 5. Hyundai Canada only says lithium-ion."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "low_confidence": true,
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "US page: home charging up to 10.9 kW. Hyundai Canada page does not state it. EV Database lists 11 kW for the European car."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2026/long-range-awd-xrt": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "low_confidence": true,
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-hyundai-egmp-84",
+            "notes": "Estimated: page lists the 84 kWh E-GMP pack (2025 IONIQ 5 Long Range/XRT) as SK On NCM 811 pouch; EV Database also says NMC for the 84 kWh IONIQ 5. Hyundai Canada only says lithium-ion."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "low_confidence": true,
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "US page: home charging up to 10.9 kW. Hyundai Canada page does not state it. EV Database lists 11 kW for the European car."
+          }
+        ]
+      },
+      "trims": {
+        "standard": {
+          "wheels": [
+            {
+              "diameter_in": 18,
+              "is_standard": true,
+              "source_id": "src-hmgma-2025-ioniq-5-xrt",
+              "tire_size": "235/60R18",
+              "low_confidence": true,
+              "notes": "US release for 2025 XRT: unique black 18 in wheels, 235/60R18 all-terrain tires. Canadian XRT assumed identical (same model, year-to-year carryover)."
+            }
+          ]
+        }
+      }
+    },
+    "hyundai/ioniq-5/2026/n": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "low_confidence": true,
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-hyundai-egmp-84",
+            "notes": "Estimated: page lists the 2025 IONIQ 5 N under the same 84 kWh SK On NCM 811 pouch pack."
+          }
+        ],
+        "charge_port": [
+          {
+            "low_confidence": true,
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: IONIQ 5 (2026 MY onwards) has a NACS port; N not named separately."
+          },
+          {
+            "low_confidence": true,
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-cargurus-2026-ioniq-5-n",
+            "notes": "US article: NACS becomes standard on the 2026 IONIQ 5 N (2025 N was CCS1 per The Charge Port)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "low_confidence": true,
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Through its NACS port (same FAQ statement for IONIQ 5 2026+)."
+          }
+        ]
+      },
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "low_confidence": true,
+              "value": "standard",
+              "kind": "estimated",
+              "source_id": "src-hyundai-ca-ioniq-5-n-2027",
+              "notes": "Estimated: 2027 Canadian N page lists \"Heat pump, battery thermal management and preconditioning system\" in the performance section; 2026 assumed the same."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 21,
+              "is_standard": true,
+              "source_id": "src-cargurus-2026-ioniq-5-n",
+              "tire_size": "275/35R21",
+              "low_confidence": true,
+              "notes": "CarGurus: standard 21 in forged wheels on the 2026 N; Hyundai Canada 2027 page says N-exclusive 21 in forged alloys with 275/35R21 Pirelli P-Zero."
+            }
+          ]
+        }
+      }
+    },
+    "hyundai/ioniq-6/2025/long-range": {
+      "fields": {
+        "charge_port": [
+          {
+            "low_confidence": true,
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier use CCS and need a NACS adapter; IONIQ 6 not named."
+          },
+          {
+            "low_confidence": true,
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-nacs-checker",
+            "notes": "US page: 2025 IONIQ 6 kept CCS1 (model ended with MY2025)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "low_confidence": true,
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: owners of CCS-port 2025-and-earlier Hyundai EVs reach Tesla Superchargers (146 Canadian stations) with a separately available NACS adapter. IONIQ 6 not named. A forum post claims a free Canadian adapter programme from 2026-06-01; not confirmed on a Hyundai page."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "low_confidence": true,
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-ioniq6-lr-awd",
+            "notes": "Estimated: EV Database lists NMC cathode, 77.4 kWh, 697 V for the IONIQ 6 Long Range (MY23-25, European), same model and generation and pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "low_confidence": true,
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-greencarreports-ioniq6-battery-conditioning",
+            "notes": "Estimated: navigation trigger (DC charger as destination/waypoint) stated for the 2023 IONIQ 6 (no manual control then); manual start via Bluelink app or in-car button stated on Hyundai Ireland's IONIQ 6 page (src-hyundai-ie-ioniq6-features). Combined across years/markets."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-6/2025/long-range-awd": {
+      "fields": {
+        "charge_port": [
+          {
+            "low_confidence": true,
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier use CCS and need a NACS adapter; IONIQ 6 not named."
+          },
+          {
+            "low_confidence": true,
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-nacs-checker",
+            "notes": "US page: 2025 IONIQ 6 kept CCS1 (model ended with MY2025)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "low_confidence": true,
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: owners of CCS-port 2025-and-earlier Hyundai EVs reach Tesla Superchargers (146 Canadian stations) with a separately available NACS adapter. IONIQ 6 not named. A forum post claims a free Canadian adapter programme from 2026-06-01; not confirmed on a Hyundai page."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "low_confidence": true,
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-ioniq6-lr-awd",
+            "notes": "Estimated: EV Database lists NMC cathode, 77.4 kWh, 697 V for the IONIQ 6 Long Range (MY23-25, European), same model and generation and pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "low_confidence": true,
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-greencarreports-ioniq6-battery-conditioning",
+            "notes": "Estimated: navigation trigger (DC charger as destination/waypoint) stated for the 2023 IONIQ 6 (no manual control then); manual start via Bluelink app or in-car button stated on Hyundai Ireland's IONIQ 6 page (src-hyundai-ie-ioniq6-features). Combined across years/markets."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2025/wind": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "low_confidence": true,
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-gt",
+            "notes": "Estimated: EV Database lists NMC cathode for the 84 kWh EV6 GT (same 84 kWh / 697 V pack as Wind and Land); The Weekly Driver lists the 2025 EV6 Long Range under the SK On NCM 811 pouch pack."
+          }
+        ]
+      },
+      "trims": {
+        "standard": {
+          "wheels": [
+            {
+              "diameter_in": 19,
+              "is_standard": true,
+              "source_id": "src-kia-us-ev6-2026-specs",
+              "tire_size": "235/55R19",
+              "low_confidence": true,
+              "notes": "Kia US page: Wind 19 in black alloy standard. US trims mapped to Canadian by name and pack only."
+            }
+          ]
+        }
+      }
+    },
+    "kia/ev6/2025/land-awd": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "low_confidence": true,
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-gt",
+            "notes": "Estimated: EV Database lists NMC cathode for the 84 kWh EV6 GT (same 84 kWh / 697 V pack as Wind and Land); The Weekly Driver lists the 2025 EV6 Long Range under the SK On NCM 811 pouch pack."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2025/light": {
+      "trims": {
+        "standard": {
+          "heat_pump": [
+            {
+              "low_confidence": true,
+              "value": "none",
+              "kind": "manufacturer",
+              "source_id": "src-kia-us-ev6-2026-specs",
+              "notes": "Kia US page lists the range-preserving heat pump as \"Not available\" on the 63 kWh Light; Canadian equivalence not confirmed."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 19,
+              "is_standard": true,
+              "source_id": "src-kia-us-ev6-2026-specs",
+              "tire_size": "235/55R19",
+              "low_confidence": true,
+              "notes": "Kia US page: Light 19 in dark gray alloy standard."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

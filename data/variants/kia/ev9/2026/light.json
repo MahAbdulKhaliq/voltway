@@ -37,6 +37,34 @@
         "low_confidence": true,
         "notes": "Quick web lookup (rough, not cross-checked)."
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-evseekers-ev9-battery",
+        "low_confidence": true,
+        "notes": "Page says both the 76.1 and 99.8 kWh packs use NMC cells from SK On."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-kia-manual-mv1-2026-battery-conditioning",
+        "low_confidence": true,
+        "notes": "Manual switch plus conditioning timed to a fast charger set as waypoint/destination (MV1 2026 manual; MV1 is the EV9 per the en_US specs page). Cited page is the UK copy; the en_US copy of this page was not found. Manual says the feature applies only to vehicles with a battery heater."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 73,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-evdb-ev9-761",
+        "low_confidence": true,
+        "notes": "EV Database 76.1 kWh pack: 73.0 kWh usable (EVKX says 75.0 net)."
+      }
     ]
   },
   "published_10_80_min": [
@@ -48,10 +76,30 @@
       "notes": "Light RWD, “as little as 20 minutes” on a 350 kW charger."
     }
   ],
+  "ac_max_kw": [
+    {
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-edwards-kia-ev9-light-2026",
+      "low_confidence": true,
+      "notes": "US Kia spec sheet via dealer: onboard charger 10.9 (unit omitted on page)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Light"
+      "name": "Light",
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "tire_size": "255/60R19",
+          "source_id": "src-edwards-kia-ev9-light-2026",
+          "low_confidence": true,
+          "notes": "US dealer spec sheet for the 2026 Light."
+        }
+      ]
     }
   ]
 }

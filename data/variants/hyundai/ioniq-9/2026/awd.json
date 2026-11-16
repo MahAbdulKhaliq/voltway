@@ -20,6 +20,15 @@
         "kind": "manufacturer",
         "source_id": "src-hyundai-ca-ioniq-9-2026"
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-electrek-ioniq9-review-2026",
+        "low_confidence": true,
+        "notes": "Review says 110.3 kWh NMC pack (relayed; NCM/NMC are the same family). Same pack across the three variants."
+      }
     ]
   },
   "charge_port": [

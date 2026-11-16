@@ -1,0 +1,694 @@
+{
+  "sources": [
+    {
+      "id": "src-insideevs-ev9-fast-charging-test",
+      "type": "testing_org",
+      "title": "InsideEVs - 2024 Kia EV9 Fast Charging Test",
+      "url": "https://insideevs.com/reviews/733580/kia-ev9-fast-charging-test/",
+      "accessed_on": "2026-11-15",
+      "notes": "2024 EV9 GT-Line AWD (99.8 kWh) on a 350 kW Electrify America charger; peak 216 kW; text gives power at several SoC points. Temperature and preconditioning not stated."
+    },
+    {
+      "id": "src-evercars-ioniq9-charge-test",
+      "type": "community",
+      "title": "EverCars - 2026 Hyundai IONIQ 9 charging test 10-80% results",
+      "url": "https://www.evercars.com/resources/2026-hyundai-ioniq-9-charging-test-10-80-results",
+      "accessed_on": "2026-11-15",
+      "notes": "EverTV test, 400 kW charger, car arrived at 5% and timer started at 10%; 211 kW at 10%, 235 kW peak at 60%, 124 kW at 80%, 23 min 19 s for 10-80%. Trim not stated; car did not allow preconditioning."
+    },
+    {
+      "id": "src-electrek-ioniq9-review-2026",
+      "type": "community",
+      "title": "Electrek - 2026 Hyundai IONIQ 9 review",
+      "url": "https://electrek.co/2026/05/14/hyundai-ioniq-9-2026-review/",
+      "accessed_on": "2026-11-15",
+      "notes": "110.3 kWh NMC pack; up to ~237 kW at a 350 kW 800 V station, 10-80% in 24 min (relays Hyundai figures)."
+    },
+    {
+      "id": "src-evdb-ioniq9-lr-rwd",
+      "type": "community",
+      "title": "EV Database - Hyundai IONIQ 9 Long Range RWD",
+      "url": "https://ev-database.org/car/3067/Hyundai-IONIQ-9-Long-Range-RWD",
+      "accessed_on": "2026-11-15",
+      "notes": "European listing: 110.3 kWh nominal, 106.0 kWh usable, 11 kW AC onboard charger. Same pack worldwide; Canadian onboard charger not confirmed."
+    },
+    {
+      "id": "src-evspecs-ioniq9-rwd-s",
+      "type": "community",
+      "title": "EV Specifications - 2026 Hyundai IONIQ 9 RWD S",
+      "url": "https://www.evspecifications.com/en/model/0ff7339",
+      "accessed_on": "2026-11-15",
+      "notes": "US RWD S: 19-inch 8Jx19 wheels with 255/60R19 tires, RWD."
+    },
+    {
+      "id": "src-evdb-ev9-998-awd",
+      "type": "community",
+      "title": "EV Database - Kia EV9 99.8 kWh AWD",
+      "url": "https://ev-database.org/car/1835/Kia-EV9-998-kWh-AWD",
+      "accessed_on": "2026-11-15",
+      "notes": "96.0 kWh usable (estimated), 99.8 kWh nominal, Kia claimed max 210 kW DC, 24 min 10-80% claim, 11 kW AC."
+    },
+    {
+      "id": "src-evdb-ev9-gt",
+      "type": "community",
+      "title": "EV Database - Kia EV9 99.8 kWh AWD GT",
+      "url": "https://ev-database.org/car/3196/Kia-EV9-998-kWh-AWD-GT",
+      "accessed_on": "2026-11-15",
+      "notes": "GT: 96.0 kWh usable, 99.8 kWh nominal, 206 kW DC (matches Kia Australia spec sheet per Zecar), 11 kW AC. European listing."
+    },
+    {
+      "id": "src-evdb-ev9-761",
+      "type": "community",
+      "title": "EV Database - Kia EV9 76.1 kWh RWD",
+      "url": "https://ev-database.org/car/1833/Kia-EV9-761-kWh-RWD",
+      "accessed_on": "2026-11-15",
+      "notes": "76.1 kWh nominal, 73.0 kWh usable, 11 kW AC. Peak DC listed 210 kW (conflicts with 230-240 kW elsewhere)."
+    },
+    {
+      "id": "src-evseekers-ev9-battery",
+      "type": "community",
+      "title": "EV Seekers - Kia EV9 battery and charging",
+      "url": "https://evseekers.com/kia-ev9-battery-and-charging/",
+      "accessed_on": "2026-11-15",
+      "notes": "States both the 76.1 kWh and 99.8 kWh packs use NMC cells supplied by SK On."
+    },
+    {
+      "id": "src-edwards-kia-ev9-light-2026",
+      "type": "community",
+      "title": "Edwards Auto Group - 2026 Kia EV9 Light specs (US)",
+      "url": "https://www.edwardsautogroup.com/vehicle-specs/2026-model-year-vehicles/kia/ev9/light/",
+      "accessed_on": "2026-11-15",
+      "notes": "US dealer spec sheet: 19-inch alloy, 255/60R19, onboard charger 10.9, NACS port."
+    },
+    {
+      "id": "src-edwards-kia-ev9-wind-2026",
+      "type": "community",
+      "title": "Edwards Auto Group - 2026 Kia EV9 Wind specs (US)",
+      "url": "https://www.edwardsautogroup.com/vehicle-specs/2026-model-year-vehicles/kia/ev9/wind/",
+      "accessed_on": "2026-11-15",
+      "notes": "US dealer spec sheet: 19-inch alloy, 255/60R19, onboard charger 10.9, 10-80% 24 min at 350 kW (83 min at 50 kW). US Wind is AWD."
+    },
+    {
+      "id": "src-edwards-kia-ev9-land-2026",
+      "type": "community",
+      "title": "Edwards Auto Group - 2026 Kia EV9 Land specs (US)",
+      "url": "https://www.edwardsautogroup.com/vehicle-specs/2026-model-year-vehicles/kia/ev9/land/",
+      "accessed_on": "2026-11-15",
+      "notes": "US dealer spec sheet: 20-inch alloy, 275/50R20, onboard charger 10.9, 10-80% 24 min at 350 kW."
+    },
+    {
+      "id": "src-edwards-kia-ev9-gt-line-2026",
+      "type": "community",
+      "title": "Edwards Auto Group - 2026 Kia EV9 GT-Line specs (US)",
+      "url": "https://www.edwardsautogroup.com/vehicle-specs/2026-model-year-vehicles/kia/ev9/gt-line/",
+      "accessed_on": "2026-11-15",
+      "notes": "US dealer spec sheet: 21-inch alloy, 285/45R21, onboard charger 10.9, NACS port."
+    },
+    {
+      "id": "src-kia-ca-ev9-gt-release",
+      "type": "oem",
+      "title": "Kia Canada - EV9 GT Canadian unveiling (Montreal International Auto Show)",
+      "url": "https://newswire.ca/news-releases/the-high-performance-ev9-gt-has-its-canadian-unveiling-at-the-montreal-international-auto-show-872969577.html",
+      "accessed_on": "2026-11-15",
+      "notes": "Kia Canada release: 21-inch alloy wheels with 285/45R21 tires; 800 V charging 10-80% in less than 25 minutes; 160 kW front + 270 kW rear motors."
+    },
+    {
+      "id": "src-kia-manual-mv1-2026-battery-conditioning",
+      "type": "oem",
+      "title": "Kia owner manual (MV1, 2026) - Battery conditioning mode",
+      "url": "https://ownersmanual.kia.com/full_webhelp/MV1/2026/en_GB/topics/t00027.html",
+      "accessed_on": "2026-11-15",
+      "notes": "Manual switch to turn battery conditioning on/off; setting a fast charger as waypoint/destination conditions the battery for arrival. Applies only to vehicles with a battery heater. MV1 is the EV9 (en_US MV1 specs page lists the 76.1/99.8 kWh packs and EV9 trims). UK copy of the page."
+    }
+  ],
+  "variants": {
+    "hyundai/ioniq-9/2026/standard": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-electrek-ioniq9-review-2026",
+            "low_confidence": true,
+            "notes": "Review says 110.3 kWh NMC pack (relayed; NCM/NMC are the same family). Same pack across the three variants."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 106,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq9-lr-rwd",
+            "low_confidence": true,
+            "notes": "European listing for the same 110.3 kWh pack: 106.0 kWh usable (other sites say 106.3 or 107). Pack is common to all markets. Conflict: the awd and awd-performance records hold 99.5 kWh (OpenEV) for the same 110.3 kWh pack; not reconciled."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq9-lr-rwd",
+            "low_confidence": true,
+            "notes": "European listing: 11 kW (3-phase 16 A). Canadian onboard charger not confirmed on a Canadian page."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 237,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-electrek-ioniq9-review-2026",
+            "low_confidence": true,
+            "notes": "Electrek review states up to ~237 kW on a 350 kW 800 V charger, not attributed to Hyundai; the same article measured nearly 215 kW. Third-party figures range 233-250 kW."
+          }
+        ]
+      },
+      "trims": {
+        "standard": {
+          "wheels": [
+            {
+              "diameter_in": 19,
+              "is_standard": true,
+              "tire_size": "255/60R19",
+              "source_id": "src-evspecs-ioniq9-rwd-s",
+              "low_confidence": true,
+              "notes": "US RWD S listing (the only RWD trim); Canadian Standard assumed to be the same trim, not confirmed on a Canadian page."
+            }
+          ]
+        }
+      },
+      "curves": [
+        {
+          "id": "evercars-2026",
+          "kind": "community",
+          "source_id": "src-evercars-ioniq9-charge-test",
+          "low_confidence": true,
+          "points": [
+            {
+              "soc_percent": 10,
+              "power_kw": 211
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 235
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 124
+            }
+          ],
+          "conditions": {
+            "preconditioned": "no",
+            "charger_kw": 400
+          },
+          "notes": "Sparse (3 points) EverTV test of a 2026 IONIQ 9, trim not stated; shape between points is a straight-line assumption. Peak 235 kW at 60%. Car did not allow preconditioning. Electrek measured a lower peak (~215 kW) on a different charger; InsideEVs relays 243 kW with no SoC points. Timer started at 10% after arriving at 5%."
+        }
+      ]
+    },
+    "hyundai/ioniq-9/2026/awd": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-electrek-ioniq9-review-2026",
+            "low_confidence": true,
+            "notes": "Review says 110.3 kWh NMC pack (relayed; NCM/NMC are the same family). Same pack across the three variants."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-9/2026/awd-performance": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-electrek-ioniq9-review-2026",
+            "low_confidence": true,
+            "notes": "Review says 110.3 kWh NMC pack (relayed; NCM/NMC are the same family). Same pack across the three variants."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2026/land-awd-gt-line": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database lists NMC for the 99.8 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-kia-manual-mv1-2026-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Manual switch plus conditioning timed to a fast charger set as waypoint/destination (MV1 2026 manual; MV1 is the EV9 per the en_US specs page). Cited page is the UK copy; the en_US copy of this page was not found. Manual says the feature applies only to vehicles with a battery heater."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-edwards-kia-ev9-gt-line-2026",
+            "low_confidence": true,
+            "notes": "US Kia spec sheet via dealer: 210 max DC (99.8 kWh pack). InsideEVs measured 216 kW on a 2024 GT-Line. Replaces an unsourced 240 kW."
+          }
+        ]
+      },
+      "trims": {
+        "standard": {
+          "wheels": [
+            {
+              "diameter_in": 21,
+              "is_standard": true,
+              "tire_size": "285/45R21",
+              "source_id": "src-edwards-kia-ev9-gt-line-2026",
+              "low_confidence": true,
+              "notes": "US dealer spec sheet for GT-Line; Canadian trim mapped by name."
+            }
+          ]
+        }
+      },
+      "curves": [
+        {
+          "id": "insideevs-2024",
+          "kind": "tested",
+          "source_id": "src-insideevs-ev9-fast-charging-test",
+          "low_confidence": true,
+          "points": [
+            {
+              "soc_percent": 18,
+              "power_kw": 200
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 44,
+              "power_kw": 209
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 216
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 201
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 180
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 103
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "charger_kw": 350
+          },
+          "notes": "Tested on a 2024 EV9 GT-Line AWD, 99.8 kWh pack, carried over to 2026 (same pack; 2026 changes the port to NACS, no pack change found). Points read from article text, not a table. Conditions: Electrify America 350 kW, Northern California; temperature not stated. First point is about 200 kW almost immediately (test started near 18%). Session was interrupted once and restarted."
+        }
+      ]
+    },
+    "kia/ev9/2026/land-awd": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database lists NMC for the 99.8 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-kia-manual-mv1-2026-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Manual switch plus conditioning timed to a fast charger set as waypoint/destination (MV1 2026 manual; MV1 is the EV9 per the en_US specs page). Cited page is the UK copy; the en_US copy of this page was not found. Manual says the feature applies only to vehicles with a battery heater."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed maximum 210 kW for the 99.8 kWh pack; Edwards GT-Line US sheet also says 210 max DC. InsideEVs measured 216 kW. Replaces an unsourced 240 kW."
+          }
+        ]
+      },
+      "trims": {
+        "standard": {
+          "wheels": [
+            {
+              "diameter_in": 20,
+              "is_standard": true,
+              "tire_size": "275/50R20",
+              "source_id": "src-edwards-kia-ev9-land-2026",
+              "low_confidence": true,
+              "notes": "US dealer spec sheet for Land; Canadian trim mapped by name."
+            }
+          ]
+        }
+      },
+      "curves": [
+        {
+          "id": "borrowed-ev9-gt-line-2026",
+          "kind": "estimated",
+          "low_confidence": true,
+          "source_id": "src-insideevs-ev9-fast-charging-test",
+          "based_on": {
+            "variant_id": "kia/ev9/2026/land-awd-gt-line",
+            "reason": "Same 99.8 kWh gross NMC 800 V pack as the GT-Line (both AWD); stated peak ~210 kW vs tested 216 kW (within 5%). Usable 96 kWh for both per EV Database."
+          },
+          "points": [
+            {
+              "soc_percent": 18,
+              "power_kw": 200
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 44,
+              "power_kw": 209
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 216
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 201
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 180
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 103
+            }
+          ]
+        }
+      ]
+    },
+    "kia/ev9/2026/wind": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database lists NMC for the 99.8 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-kia-manual-mv1-2026-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Manual switch plus conditioning timed to a fast charger set as waypoint/destination (MV1 2026 manual; MV1 is the EV9 per the en_US specs page). Cited page is the UK copy; the en_US copy of this page was not found. Manual says the feature applies only to vehicles with a battery heater."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 96,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database (European listing) 96.0 kWh usable for the 99.8 kWh pack; page marks it estimated. Australian Kia fact sheet also says 96."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-edwards-kia-ev9-wind-2026",
+            "low_confidence": true,
+            "notes": "US Kia spec sheet via dealer: onboard charger 10.9 (unit omitted on page). US Wind is AWD, Canadian Wind here is RWD; onboard charger assumed identical."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed maximum 210 kW for the 99.8 kWh pack (EV Database measured 209). InsideEVs measured 216 kW."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 24,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-edwards-kia-ev9-wind-2026",
+            "low_confidence": true,
+            "notes": "US Kia spec via dealer: 24 min at 350 kW (CCS). Kia notes NACS/Supercharger times are longer."
+          }
+        ]
+      },
+      "trims": {
+        "standard": {
+          "wheels": [
+            {
+              "diameter_in": 19,
+              "is_standard": true,
+              "tire_size": "255/60R19",
+              "source_id": "src-edwards-kia-ev9-wind-2026",
+              "low_confidence": true,
+              "notes": "US dealer spec sheet for Wind (AWD); Canadian RWD Wind assumed to have the same wheels."
+            }
+          ]
+        }
+      },
+      "curves": [
+        {
+          "id": "borrowed-ev9-gt-line-2026",
+          "kind": "estimated",
+          "low_confidence": true,
+          "source_id": "src-insideevs-ev9-fast-charging-test",
+          "based_on": {
+            "variant_id": "kia/ev9/2026/land-awd-gt-line",
+            "reason": "Same 99.8 kWh gross NMC 800 V pack; sibling tested car is the AWD GT-Line, this Canadian Wind is single-motor RWD. Stated peak ~210 kW vs tested 216 kW (2.8%, within 5%)."
+          },
+          "points": [
+            {
+              "soc_percent": 18,
+              "power_kw": 200
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 44,
+              "power_kw": 209
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 216
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 201
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 180
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 103
+            }
+          ]
+        }
+      ]
+    },
+    "kia/ev9/2026/gt": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database lists NMC for the 99.8 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-kia-manual-mv1-2026-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Manual switch plus conditioning timed to a fast charger set as waypoint/destination (MV1 2026 manual; MV1 is the EV9 per the en_US specs page). Cited page is the UK copy; the en_US copy of this page was not found. Manual says the feature applies only to vehicles with a battery heater."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 96,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-gt",
+            "low_confidence": true,
+            "notes": "EV Database GT listing: 96.0 kWh usable of 99.8 kWh nominal."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-gt",
+            "low_confidence": true,
+            "notes": "EV Database (European listing): 11 kW AC; US sheets give 10.9 kW for other EV9 trims. No GT-specific US/Canadian page found."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 206,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-gt",
+            "low_confidence": true,
+            "notes": "EV Database lists 206 kW for the GT, matching an Australian Kia spec sheet (via Zecar). Other 99.8 kWh trims: 210 kW."
+          }
+        ]
+      },
+      "trims": {
+        "standard": {
+          "wheels": [
+            {
+              "diameter_in": 21,
+              "is_standard": true,
+              "tire_size": "285/45R21",
+              "source_id": "src-kia-ca-ev9-gt-release",
+              "notes": "Kia Canada release: 21-inch alloy wheels with 285/45R21 tires on the EV9 GT."
+            }
+          ]
+        }
+      },
+      "curves": [
+        {
+          "id": "borrowed-ev9-gt-line-2026",
+          "kind": "estimated",
+          "low_confidence": true,
+          "source_id": "src-insideevs-ev9-fast-charging-test",
+          "based_on": {
+            "variant_id": "kia/ev9/2026/land-awd-gt-line",
+            "reason": "Same 99.8 kWh gross NMC 800 V pack (96 kWh usable); GT peak 206 kW vs 216 kW tested on GT-Line (4.6%, within 5%). GT motors differ (160/270 kW) but the pack is the same."
+          },
+          "points": [
+            {
+              "soc_percent": 18,
+              "power_kw": 200
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 44,
+              "power_kw": 209
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 216
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 201
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 180
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 103
+            }
+          ]
+        }
+      ]
+    },
+    "kia/ev9/2026/light": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Page says both the 76.1 and 99.8 kWh packs use NMC cells from SK On."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-kia-manual-mv1-2026-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Manual switch plus conditioning timed to a fast charger set as waypoint/destination (MV1 2026 manual; MV1 is the EV9 per the en_US specs page). Cited page is the UK copy; the en_US copy of this page was not found. Manual says the feature applies only to vehicles with a battery heater."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-761",
+            "low_confidence": true,
+            "notes": "EV Database 76.1 kWh pack: 73.0 kWh usable (EVKX says 75.0 net)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-edwards-kia-ev9-light-2026",
+            "low_confidence": true,
+            "notes": "US Kia spec sheet via dealer: onboard charger 10.9 (unit omitted on page)."
+          }
+        ]
+      },
+      "trims": {
+        "standard": {
+          "wheels": [
+            {
+              "diameter_in": 19,
+              "is_standard": true,
+              "tire_size": "255/60R19",
+              "source_id": "src-edwards-kia-ev9-light-2026",
+              "low_confidence": true,
+              "notes": "US dealer spec sheet for the 2026 Light."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

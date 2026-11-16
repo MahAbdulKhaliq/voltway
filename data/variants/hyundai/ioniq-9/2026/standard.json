@@ -20,6 +20,25 @@
         "kind": "manufacturer",
         "source_id": "src-hyundai-ca-ioniq-9-2026"
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-electrek-ioniq9-review-2026",
+        "low_confidence": true,
+        "notes": "Review says 110.3 kWh NMC pack (relayed; NCM/NMC are the same family). Same pack across the three variants."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 106,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-evdb-ioniq9-lr-rwd",
+        "low_confidence": true,
+        "notes": "European listing for the same 110.3 kWh pack: 106.0 kWh usable (other sites say 106.3 or 107). Pack is common to all markets. Conflict: the awd and awd-performance records hold 99.5 kWh (OpenEV) for the same 110.3 kWh pack; not reconciled."
+      }
     ]
   },
   "charge_port": [
@@ -46,6 +65,26 @@
       "notes": "“Approximately 24 mins” 10–80% on a 350 kW charger; model-wide claim."
     }
   ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "community",
+      "source_id": "src-evdb-ioniq9-lr-rwd",
+      "low_confidence": true,
+      "notes": "European listing: 11 kW (3-phase 16 A). Canadian onboard charger not confirmed on a Canadian page."
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 237,
+      "unit": "kW",
+      "kind": "community",
+      "source_id": "src-electrek-ioniq9-review-2026",
+      "low_confidence": true,
+      "notes": "Electrek review states up to ~237 kW on a 350 kW 800 V charger, not attributed to Hyundai; the same article measured nearly 215 kW. Third-party figures range 233-250 kW."
+    }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -55,6 +94,16 @@
           "value": "standard",
           "kind": "manufacturer",
           "source_id": "src-hyundai-ca-ioniq-9-2026"
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "tire_size": "255/60R19",
+          "source_id": "src-evspecs-ioniq9-rwd-s",
+          "low_confidence": true,
+          "notes": "US RWD S listing (the only RWD trim); Canadian Standard assumed to be the same trim, not confirmed on a Canadian page."
         }
       ]
     }

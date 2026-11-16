@@ -22,6 +22,15 @@
         "source_id": "src-hyundai-au-ioniq-5-2026-spec",
         "notes": "Battery voltage 697 V (Australian-market sheet; same pack)."
       }
+    ],
+    "chemistry": [
+      {
+        "low_confidence": true,
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-hyundai-egmp-84",
+        "notes": "Estimated: page lists the 84 kWh E-GMP pack (2025 IONIQ 5 Long Range/XRT) as SK On NCM 811 pouch; EV Database also says NMC for the 84 kWh IONIQ 5. Hyundai Canada only says lithium-ion."
+      }
     ]
   },
   "charge_port": [
@@ -40,6 +49,16 @@
       "notes": "Through its NACS port."
     }
   ],
+  "ac_max_kw": [
+    {
+      "low_confidence": true,
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-ioniq5-2026",
+      "notes": "US page: home charging up to 10.9 kW. Hyundai Canada page does not state it. EV Database lists 11 kW for the European car."
+    }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -49,6 +68,16 @@
           "value": "standard",
           "kind": "manufacturer",
           "source_id": "src-hyundai-ca-ioniq-5-2026"
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-hmgma-2025-ioniq-5-xrt",
+          "tire_size": "235/60R18",
+          "low_confidence": true,
+          "notes": "US release for 2025 XRT: unique black 18 in wheels, 235/60R18 all-terrain tires. Canadian XRT assumed identical (same model, year-to-year carryover)."
         }
       ]
     }

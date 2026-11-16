@@ -47,6 +47,15 @@
         "low_confidence": true,
         "notes": "Quick web lookup (rough, not cross-checked)."
       }
+    ],
+    "chemistry": [
+      {
+        "low_confidence": true,
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-ev6-gt",
+        "notes": "Estimated: EV Database lists NMC cathode for the 84 kWh EV6 GT (same 84 kWh / 697 V pack as Wind and Land); The Weekly Driver lists the 2025 EV6 Long Range under the SK On NCM 811 pouch pack."
+      }
     ]
   },
   "dc_max_kw": [

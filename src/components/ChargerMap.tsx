@@ -168,7 +168,11 @@ export default function ChargerMap() {
       style: styleFor(theme),
       center: view.center,
       zoom: view.zoom,
-      attributionControl: { compact: false, customAttribution: MAP.attribution },
+      // B30: the charger data credit (DOE/NLR, NRCan) sits on the map itself, linking to About.
+      attributionControl: {
+        compact: false,
+        customAttribution: [MAP.attribution, `<a href="/about#data">${t('map.chargerCredit')}</a>`],
+      },
       dragRotate: false,
       pitchWithRotate: false,
     });

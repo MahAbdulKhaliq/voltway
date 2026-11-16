@@ -19,11 +19,18 @@ const allSources: Source[] = readdirSync(sourceDir)
   .map((f) => JSON.parse(readFileSync(join(sourceDir, f), 'utf8')));
 
 // Licence texts (links, not translated) per open dataset, keyed by source id.
-const DATASETS: { id: string; key: 'nrcan' | 'openev' | 'chargeprice'; licenceUrl: string; notice?: string }[] = [
+const DATASETS: { id: string; key: 'nrcan' | 'openev' | 'chargeprice' | 'afdc'; licenceUrl: string; notice?: string }[] = [
   { id: 'src-nrcan-bev-2026-09', key: 'nrcan', licenceUrl: 'https://open.canada.ca/en/open-government-licence-canada' },
   { id: 'src-openev-v1-24-0', key: 'openev', licenceUrl: 'https://cdla.dev/permissive-2-0/' },
   { id: 'src-chargeprice-archive-2025-04', key: 'chargeprice', licenceUrl: 'https://github.com/KilowattApp/open-ev-data/blob/32d7dc59e7b8b7391572ca1e132a1517be9a3b5e/LICENSE', notice: openEvMit },
+  // Charger map (B30: used under NLR's data terms).
+  { id: 'src-afdc-ca', key: 'afdc', licenceUrl: 'https://www.nlr.gov/disclaimer' },
 ];
+// Base-map credits (charger-map.md §2): not datasets in data/sources/, so listed here.
+const MAP_CREDITS = [
+  { key: 'osm', url: 'https://www.openstreetmap.org/', licenceUrl: 'https://www.openstreetmap.org/copyright' },
+  { key: 'ofm', url: 'https://openfreemap.org/', licenceUrl: 'https://github.com/hyperknot/openfreemap/blob/main/LICENSE.md' },
+] as const;
 const datasets = DATASETS.map((d) => {
   const s = allSources.find((x) => x.id === d.id);
   if (!s?.license || !s.attribution) throw new Error(`About page: source ${d.id} needs a license and attribution`);
@@ -83,6 +90,19 @@ const REPO = 'https://github.com/MahAbdulKhaliq/voltway';
         )}
       </article>
     ))}
+    <h3 id="map-credits">{t('about.mapCredits')}</h3>
+    <p>{t('about.mapIntro')}</p>
+    {MAP_CREDITS.map((m) => (
+      <article class="card dataset" aria-labelledby={`map-${m.key}`}>
+        <h4 id={`map-${m.key}`}>{t(`about.map.${m.key}.name` as MessageKey)}</h4>
+        <p class="credit">{t(`about.map.${m.key}.credit` as MessageKey)}</p>
+        <p class="small muted">
+          {t('about.licence')} <a href={m.licenceUrl} rel="noopener license" target="_blank">{t(`about.map.${m.key}.licence` as MessageKey)}</a>{' · '}
+          <a href={m.url} rel="noopener" target="_blank">{t('about.website')}</a>
+        </p>
+      </article>
+    ))}
+    <p class="small muted">{t('about.map.maplibre')}</p>
     <p>{t('about.others', { count: otherCount })}</p>
     <p class="small muted">{t('about.noAffiliation')}</p>
   </section>
@@ -101,7 +121,7 @@ const REPO = 'https://github.com/MahAbdulKhaliq/voltway';
   .kinds dt { font-weight: 600; }
   .kinds dd { margin: 0; }
   .dataset { margin: 1rem 0; }
-  .dataset h3 { margin-top: 0; }
+  .dataset h3, .dataset h4 { margin-top: 0; }
   .credit { font-style: italic; }
   .notice { white-space: pre-wrap; font-size: 0.8rem; overflow-wrap: anywhere; }
   @media (max-width: 480px) {

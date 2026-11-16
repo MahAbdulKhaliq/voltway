@@ -36,6 +36,10 @@
 - **Since:** 2026-11-16, QA re-check. The tile marks the per-10-min figure "~" when the wheel size is adjusted; the viewer's results don't.
 - **Fix:** pass the wheel-estimate flag into the viewer.
 
+### TD-C9 The station panel shows English pricing only
+- **Since:** 2026-11-16, M8 (PR #54). AFDC gives pricing in English (`pr`) and French (`pf`); the panel shows `pr`.
+- **Fix:** with the French site: pick `pf` when the locale is French, falling back to `pr`. Dates in the panel are also formatted with a fixed `en-CA` locale (see TD-C3).
+
 ## Closed
 - 2026-11-16, QA re-check PR: TD-C6 unused `tokenize` import removed; output check now also covers figures with no kind and wheels; 10–80 % minutes stored precisely so tiles match the viewer.
 - 2026-11-16, PR #41: dead `SourceBadge.astro` / `FieldValue.astro` removed (QA #14); output check added to the data build (QA #6, #9); empty window "~5 min" (QA #10).

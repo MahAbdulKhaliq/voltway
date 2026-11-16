@@ -44,7 +44,7 @@ Design docs to write, in order:
 **Goal:** the simple threshold-based planner: stop at a fast charger near the user's threshold (default 15%) and charge to 80%.
 
 - ✅ [`route-planner.md`](route-planner.md) drafted: openrouteservice behind a Vercel Function (the app's only server-side piece), a simple energy model with elevation, threshold stop rules, Phase 1 curve maths for charging time, itinerary and warnings
-- **✅ Phase 3 design is complete.** R9 is decided (90% start). Non-blocking, for build time: R10, D17, S7.
+- **✅ Phase 3 design is complete.** R9 is decided (90% start). Non-blocking, for build time: R10, D17, S7. **Build plan approved 2026-11-16** (`docs/plan/DESIGN-3.md`; owner decisions B44–B47 settle S7 and D17 and set the R10 calibration plan).
 
 **✅ All three phases are now designed.** Every part fits in free tiers. How the parts connect is in [user-flows.md](user-flows.md), and positioning against other tools is in [competitors.md](competitors.md).
 

@@ -179,6 +179,17 @@ In order of preference:
 
 ---
 
+## 5a. Places (Phase 3 trip planner, B45, added 2026-11-16)
+
+### GeoNames ⭐ place names for From/To suggestions
+- **What:** Canadian populated places (cities, towns, villages) with name, province and coordinates. Phase 3 keeps places with **population ≥ 1,000** (about 3,000 rows) as a static file, so typing in From/To suggests places with no service call (route-planner.md §6).
+- **License:** **CC BY 4.0**. Credit GeoNames on the About page.
+- **Access:** a free download (`CA.zip` or `cities1000.zip` from download.geonames.org), refreshed by hand when needed; no key.
+- **Full addresses** still go to ORS geocoding, only when the visitor presses Search.
+- **Link:** [GeoNames export](https://download.geonames.org/export/dump/)
+
+---
+
 ## 6. New gaps this research found
 
 | ID | Gap | Notes |

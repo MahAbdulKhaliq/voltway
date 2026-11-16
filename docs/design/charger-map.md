@@ -103,7 +103,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 ### "Chargers my car can use" ✅
 - **Moved to Phase 1b (B28, 2026-11-16):** built together with My car (checklist 5.2), since My car doesn't exist yet. The map ships without it.
 - A toggle that appears when **My car** is set (from Phase 1).
-- It filters by the car's `charge_port`, plus **adapters_included** and **supercharger_access** from the data model.
+- It filters by the car's `charge_port` and **supercharger_access** from the data model (B38, 2026-11-16: `adapters_included` isn't researched yet, so it is not used; it can refine this later).
 - Example: a CCS1 car with Supercharger access through an adapter sees CCS1 sites **and** Superchargers, with Superchargers marked "needs adapter".
 
 ### Network

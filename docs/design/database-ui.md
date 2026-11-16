@@ -42,6 +42,8 @@ No accounts, but **every car and comparison has its own URL**, so people can boo
 - `/charging?car=hyundai/ioniq-5/2024/long-range-awd` (old `/cars/…` links redirect here)
 - `/compare?cars=hyundai/ioniq-5/2024/long-range-awd,tesla/model-y/2025/long-range-awd`
 
+**B40 (2026-11-16):** the header shows **My car** and **Compare (n)** as chips at the top right (Compare hidden while empty); Compare is also in the side menu.
+
 Curve settings (SoC window, charger power) can be included in the link too (*later*).
 
 ---
@@ -55,6 +57,8 @@ Curve settings (SoC window, charger power) can be included in the link too (*lat
 4. The car is saved in the browser and the visitor lands on **that car's page**.
 
 **"Just browsing" link** → skips straight to **Cars**. *Assumption:* the owner wants picking a car to be the main path, but not a wall. Choosing a car is **not required** to browse, and later not required to view the map (N6). Trip planning will ask for a car when it's needed.
+
+**Where it shows (B37, 2026-11-16):** the map is the home page (B26), so the picker lives on the **Charging tab**: it shows there whenever no My car is set and no car link was opened. The map is never blocked; with no My car it shows a small, dismissable "Set my car" prompt.
 
 **Afterwards:** the **"My car"** chip in the header shows the saved car. It opens a menu: change car, go to its page, forget it.
 
@@ -73,6 +77,8 @@ Curve settings (SoC window, charger power) can be included in the link too (*lat
 ## 4. Cars: browse screen (D6) ✅
 
 ### Layout
+**B39 (2026-11-16):** this layout replaces B11's make → model accordions. Each card opens the car in the Charging tab.
+
 - **Search** at the top.
 - **Filters** in a side panel (a bottom sheet on phones).
 - **Results** as **cards** by default, with a **table** toggle for dense comparison. The table view is effectively the "rankings" from D6: sort by any column.

@@ -184,3 +184,95 @@ Standalone checks for the charger map against [DESIGN-map.md](DESIGN-map.md) and
 | MW1–MW3 | | |
 | MU1–MU18 | | |
 | MP1–MP3 | | |
+
+---
+
+# Phase 1b QA guide
+
+Covers the items tagged [1b] in `CHECKLIST.md`: template calibration (2.2), Cars browse (5.1), picker + My car (5.2a), map toggle and cross-links (5.2b), Compare (6.1). Read `docs/plan/DESIGN-1b.md`, owner decisions **B37–B40** in `gaps-and-questions.md`, then `database-ui.md` §2–§7, `charging-curve-viewer.md` §6 and §9, `charger-map.md` §4 and §7, `user-flows.md` §1–§2. Report every gap with doc + section, expected and seen. Dev server: `.claude/launch.json` "voltway-dev" (port 4321). Clear localStorage between scenarios.
+
+## 1. Build and tests
+
+| # | Check | How |
+|---|-------|-----|
+| QB1 | Tests, types, build | `npx vitest run`, `npx astro check` (0 errors), `npm run build` |
+| QB2 | CI green on every 1b PR | GitHub PR checks |
+| QB3 | All new text translatable | grep new components for hard-coded user-facing strings; every label from `src/i18n/en.json` |
+
+## 2. Calibration (2.2, charging-curve-viewer.md §9)
+
+| # | Check | Edge cases |
+|---|-------|-----------|
+| QC1 | `npm run calibrate` prints/writes `docs/plan/calibration-report.md`: every car with a tested curve or published 10–80 %, its template, reference, estimate, error, before and after | A car with both: the tested curve is the reference |
+| QC2 | After tuning most cars are within ±15 %; thin groups (e.g. LFP) flagged; no split template unless justified | |
+| QC3 | Owner approval recorded (gaps-and-questions, dated); `TEMPLATES` equals §9's table; estimated curves no longer say "uncalibrated" | Templates still fall after their peak (monotonic) |
+
+## 3. Cars tab (5.1, database-ui.md §4, B39)
+
+| # | Check | Edge cases |
+|---|-------|-----------|
+| QL1 | `/cars` shows cards by default; table toggle; no accordions | |
+| QL2 | Every §4 filter exists with its default (Sold in Canada on, years current + previous) and narrows the list; count shown; Clear filters resets | A min filter on a car with "Unknown" range drops it only while the filter is set |
+| QL3 | Sorts: name, range, efficiency, DC peak, 10–80 %, km/10 min (table default), newest; table headers sortable with `aria-sort` | Unknown values sort last in both directions |
+| QL4 | Cards: name, variant, range, 10–80 %, km/10 min, port, Tested/Estimated badge, "+ Compare"; estimated figures show "~" | |
+| QL5 | Search finds "ioniq 5", "model y", a trim alias | Empty result shows a message |
+| QL6 | Filters, sort and view survive reload; km/mi switch updates figures | Corrupt `voltway.browse` value → defaults, no crash |
+| QL7 | 375 px: filters in a bottom sheet, table stacks, no sideways scroll; dark mode readable; keyboard reaches everything | |
+
+## 4. Picker + My car (5.2a, database-ui.md §3, B37, B40)
+
+| # | Check | Edge cases |
+|---|-------|-----------|
+| QP1 | `/charging` with no My car and no link shows "Which EV do you drive, or want to?" with search + step selects | A `?car=` link skips the picker |
+| QP2 | Search suggests as you type; arrows + Enter pick; step selects reach a variant; trim optional with the "standard trim" note | |
+| QP3 | "Just browsing" → `/cars`, sets nothing | |
+| QP4 | Picking sets My car; header chip shows it; reload of `/charging` lands on it | |
+| QP5 | Chip menu: change (picker), open (its Charging page), forget (chip clears, picker returns) | |
+| QP6 | Charging tab: "Set as my car" and "+ Compare"; Compare (n) chip hidden at 0, updates live, max 4 with a clear message | |
+| QP7 | Storage blocked (e.g. stub localStorage to throw): everything works, forgets on reload | |
+| QP8 | `adapters_included` is in the schema as optional sourced values; shows "Unknown" in Ports & access (B38) | |
+| QP9 | An empty `?car=` behaves like no link (TD-P4 part) | |
+
+## 5. Map with My car (5.2b, charger-map.md §4, §7; user-flows.md §2; B28, B31, B37, B38)
+
+| # | Check | Edge cases |
+|---|-------|-----------|
+| QM1 | No My car: no toggle; a dismissable "Set my car" prompt, gone after dismiss + reload; map never blocked | |
+| QM2 | With My car: "Chargers my car can use" toggle in the filter panel; saved with filters | |
+| QM3 | Toggle on: NACS car → NACS ports only; CCS1 car without Supercharger access → CCS1 only; CCS1 car with `via_adapter` → CCS1 + Superchargers marked "needs adapter"; unknown port → toggle disabled with a note | |
+| QM4 | Tesla note hidden when My car is a Tesla; via-adapter wording for a via-adapter car; generic note otherwise | |
+| QM5 | Curve viewer with a charger preset → "Find chargers this fast" opens the map at that L3 range ("N kW and up") and the car's plugs; params removed from the URL | Preset "No limit" hides the link |
+| QM6 | Station panel → "How fast would my car charge here?" (only with My car and DC ports) opens `/charging` for My car capped at the station's top kW; saved curve settings unchanged afterwards | L2-only station: no link |
+| QM7 | `map-ui-checker` MU1–MU18 still pass | |
+
+## 6. Compare (6.1, database-ui.md §6, charging-curve-viewer.md §6)
+
+| # | Check | Edge cases |
+|---|-------|-----------|
+| QX1 | `/compare` lists the saved cars; `?cars=a,b` link shows the same view in a fresh browser | Unknown id in the link → notice, rest shown; >4 ids → first 4 |
+| QX2 | Header per car: name, variant selector, remove; empty state links to Cars | |
+| QX3 | One colour per car across header, curve line and table | |
+| QX4 | Overlay: shared SoC window and charger power; results table (time, km added, km/10 min, avg kW, curve badge) sortable, default km/10 min; mixed tested/estimated note | |
+| QX5 | Spec table grouped like the Charging tab; best value per row with icon + bold (not colour alone), lower-is-better for 10–80 % and consumption; ties all marked | Unknowns never "best" |
+| QX6 | "Only show differences" hides identical rows | |
+| QX7 | 375 px: two cars visible, swipe for the rest; dark mode; keyboard | |
+
+## 7. Rules and process
+
+| # | Check |
+|---|-------|
+| QR1 | B37–B40 recorded in `gaps-and-questions.md` and the matching docs |
+| QR2 | Ticked 1b items are genuinely done; anything skipped noted inline |
+| QR3 | No route planner links; only parts that exist are linked |
+
+## Phase 1b results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QB1–QB3 | | |
+| QC1–QC3 | | |
+| QL1–QL7 | | |
+| QP1–QP9 | | |
+| QM1–QM7 | | |
+| QX1–QX7 | | |
+| QR1–QR3 | | |

@@ -54,6 +54,8 @@ export default function Compare({ index }: Props) {
   const [onlyDiff, setOnlyDiff] = useState(false);
   const [sort, setSort] = useState<{ col: Col; dir: SortDir }>({ col: 'per10', dir: 'desc' });
   const [themeTick, setThemeTick] = useState(0);
+  // Opened from a shared link whose list differs from the visitor's saved one: say so until they edit it.
+  const [shared, setShared] = useState(false);
   const chartEl = useRef<HTMLDivElement>(null);
   const chart = useRef<echarts.ECharts | null>(null);
 
@@ -62,6 +64,8 @@ export default function Compare({ index }: Props) {
     const link = readCarsParam(location.search, (id) => byId.has(id));
     if (link) {
       setIds(link.ids);
+      const own = getCompare();
+      if (link.ids.length && (own.length !== link.ids.length || own.some((id, i) => id !== link.ids[i]))) setShared(true);
       if (link.unknown.length || link.dropped) setNotice({ unknown: link.unknown, dropped: link.dropped });
     } else setIds(getCompare().filter((id) => byId.has(id)));
     const saved = getJSON<Partial<{ start: number; end: number; preset: Preset; customKw: number }>>(KEYS.curveSettings, {});
@@ -92,6 +96,7 @@ export default function Compare({ index }: Props) {
   const change = (next: string[]) => {
     setIds(next);
     setCompare(next);
+    setShared(false);
   };
 
   // Car files, each fetched once.
@@ -223,6 +228,7 @@ export default function Compare({ index }: Props) {
           {notice.dropped > 0 && t('compare.dropped', { count: notice.dropped })}
         </p>
       )}
+      {shared && <p className="banner small" role="note">{t('compare.sharedView')}</p>}
       {failed.length > 0 && <p className="banner small" role="alert">{t('compare.loadError')}</p>}
 
       {ids.length === 0 ? (

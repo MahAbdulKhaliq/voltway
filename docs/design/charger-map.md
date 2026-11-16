@@ -105,6 +105,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 - A toggle that appears when **My car** is set (from Phase 1).
 - It filters by the car's `charge_port` and **supercharger_access** from the data model (B38, 2026-11-16: `adapters_included` isn't researched yet, so it is not used; it can refine this later).
 - Example: a CCS1 car with Supercharger access through an adapter sees CCS1 sites **and** Superchargers, with Superchargers marked "needs adapter".
+- **NACS cars also see J1772 sites (B42, 2026-11-16):** most come with a J1772 → NACS adapter. A note about that adapter in the station panel is *later* (TD-P12).
 
 ### Network
 *Later:* filter by network (Tesla, FLO, Petro-Canada, Electrify Canada, Circuit électrique, ChargePoint…). It's a useful filter but not part of the simple v1 set.

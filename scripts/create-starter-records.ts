@@ -10,6 +10,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { parseCsv, toCsv } from './lib/csv.ts';
 import { parseName, slugify } from './lib/match.ts';
+import { dropRun } from './lib/names.ts';
 
 const root = process.cwd();
 const APPROVAL = 'Approved by the owner 2026-11-15 (B8).';
@@ -62,10 +63,14 @@ for (const [variantId, rows] of byVariant) {
   const nrcanRows = rows.filter((r) => r.source === 'nrcan').map((r) => ({ key: r.source_key, rec: nrcanByKey.get(r.source_key)! }));
   const prefixLen = sm.nrcan_model_prefix.trim().split(/\s+/).length; // words, not tokens: "F-150" is one word but two tokens
   const head = parseName(nrcanRows[0].rec.model);
+  // Words our model name adds after NRCan's prefix ("Gran Coupe" in "i4 Gran Coupe") are dropped from
+  // the variant and trim names, so the screen doesn't say "i4 Gran Coupe eDrive40 Gran Coupe".
+  const modelExtra = sm.name.trim().split(/s+/).slice(prefixLen);
+  const tail = (name: string) => dropRun(name.split(' ').slice(prefixLen), modelExtra).join(' ').trim();
   // Variant name: NRCan's words after the model name, as NRCan writes them (minus wheel/charger/pack hints).
   const words = head.base.split(' ');
   // A pack size in NRCan's name splits variants (e.g. F-150 Lightning 123 vs 131 kWh), so keep it in the name.
-  const variantName = (words.slice(prefixLen).join(' ').trim() || 'Standard') + (head.pack_kwh ? ` (${head.pack_kwh} kWh)` : '');
+  const variantName = (dropRun(words.slice(prefixLen), modelExtra).join(' ').trim() || 'Standard') + (head.pack_kwh ? ` (${head.pack_kwh} kWh)` : '');
   const ev = rows.find((r) => r.source === 'openev');
   const evDrive = ev ? openevByKey.get(ev.source_key)?.drivetrain : undefined;
   const drivetrain = head.drivetrain ?? (evDrive === 'fwd' || evDrive === 'rwd' || evDrive === 'awd' ? evDrive : 'unknown');
@@ -75,7 +80,7 @@ for (const [variantId, rows] of byVariant) {
     const hint = [p.wheel_in && `${p.wheel_in}-in-wheels`, p.charger_kw && `${String(p.charger_kw).replace('.', '-')}-kw-charger`].filter(Boolean).join('-');
     const id = nrcanRows.length === 1 ? 'standard' : hint || slugify(rec.model.split(' ').slice(prefixLen).join(' ')) || 'standard';
     crosswalk.push({ our_variant_id: variantId, source: 'nrcan', source_key: key, match_method: 'automatic', confirmed: true, our_trim_id: id, notes: APPROVAL });
-    return { id, name: rec.model.split(' ').slice(prefixLen).join(' ') || sm.name };
+    return { id, name: tail(rec.model) || sm.name };
   });
 
   for (const r of rows.filter((x) => x.source !== 'nrcan')) {

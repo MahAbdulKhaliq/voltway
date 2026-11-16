@@ -43,6 +43,11 @@
 - **Impact:** screen-reader users on phones still can't open a station.
 - **Fix:** a phone layout for the list (for example its own sheet, or a tab in the filter sheet), as the owner suggested.
 
+### TD-P12 J1772 adapter note for NACS cars
+- **Since:** 2026-11-16 (B42). With "Chargers my car can use" on, a NACS car also sees J1772 sites, since most come with a J1772 → NACS adapter.
+- **Impact:** a driver without that adapter isn't told they need one.
+- **Fix:** an informational note in the station panel (or the filter panel) for J1772 ports when My car has a NACS port, as the owner suggested.
+
 ## Closed
 - 2026-11-16, M12: TD-P9 (stations unreachable by keyboard) closed by the "Stations in view" list (B34); phones are TD-P11.
 - 2026-11-16: TD-P10 (top Level 2 band label) no longer applies: the owner replaced the power-band boxes with kW range sliders whose top stop is "Max" (B35, M11).

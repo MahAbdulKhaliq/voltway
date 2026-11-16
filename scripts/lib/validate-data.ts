@@ -24,6 +24,7 @@ const SCHEMA_FILES = [
   'imported-openev.schema.json',
   'imported-chargeprice.schema.json',
   'imported-afdc.schema.json',
+  'imported-geonames.schema.json',
 ] as const;
 
 const SCHEMA_BASE = 'https://github.com/MahAbdulKhaliq/voltway/schema/';
@@ -50,6 +51,7 @@ function loadValidators(schemaDir: string) {
     importedOpenev: get('imported-openev.schema.json'),
     importedChargeprice: get('imported-chargeprice.schema.json'),
     importedAfdc: get('imported-afdc.schema.json'),
+    importedGeonames: get('imported-geonames.schema.json'),
   };
 }
 
@@ -359,6 +361,22 @@ export function validateRepo(root: string): ValidationResult {
     }
   }
 
+  // --- Imported GeoNames places (trip planner From/To suggestions, B45) ---
+  let geonamesPlaces = 0;
+  if (existsSync(join(dataDir, 'imported', 'geonames', 'places.json'))) {
+    const file = 'data/imported/geonames/places.json';
+    const data = read('imported/geonames', 'places.json') as { source_id: string; places: { id: number }[] } | undefined;
+    if (data !== undefined && check(v.importedGeonames, data, file)) {
+      if (!sources.has(data.source_id)) errors.push(`${file}: cites unknown source "${data.source_id}"`);
+      const ids = new Set<number>();
+      for (const p of data.places) {
+        if (ids.has(p.id)) errors.push(`${file}: GeoNames id ${p.id} appears twice`);
+        ids.add(p.id);
+      }
+      geonamesPlaces = data.places.length;
+    }
+  }
+
   return {
     errors,
     counts: {
@@ -372,6 +390,7 @@ export function validateRepo(root: string): ValidationResult {
       openev_records: openevKeys.size,
       chargeprice_records: chargepriceKeys.size,
       afdc_stations: afdcStations,
+      geonames_places: geonamesPlaces,
     },
   };
 }

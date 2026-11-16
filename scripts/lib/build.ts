@@ -187,6 +187,55 @@ export function ratingRows(imported: Record<string, Map<string, any>>): RatingRo
   return rows;
 }
 
+/** Body types with fewer sourced weights than this use the overall median instead (B47). */
+export const MIN_WEIGHTS_PER_BODY = 3;
+
+const median = (xs: number[]): number => {
+  const s = [...xs].sort((a, b) => a - b);
+  const m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+};
+
+/**
+ * Curb weight defaults (B47, route-planner.md §3): a car with no sourced curb weight gets the
+ * median of our own sourced weights for its body type (the overall median when fewer than
+ * MIN_WEIGHTS_PER_BODY cars of that type have one), as an `estimated` value with its basis.
+ * It cites the source most of the sample came from, which is added to the car's source list.
+ * Sourced weights are never changed. Mutates `cars` in place.
+ */
+export function fillCurbWeights(cars: CarDetail[], sources: Map<string, Source>): void {
+  const sourced = cars.flatMap((c) => {
+    const w = c.fields.curb_weight_kg?.value;
+    return w && typeof w.value === 'number' && w.kind !== 'estimated' ? [{ body: c.model.body_type, kg: w.value, source_id: w.source_id }] : [];
+  });
+  if (!sourced.length) return;
+  const estimate = (sample: typeof sourced, group: string): SourcedValue => {
+    const tally = new Map<string, number>();
+    for (const s of sample) tally.set(s.source_id, (tally.get(s.source_id) ?? 0) + 1);
+    const source_id = [...tally].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0];
+    return {
+      value: Math.round(median(sample.map((s) => s.kg))),
+      unit: 'kg',
+      kind: 'estimated',
+      source_id,
+      notes: msg('weight.basis', { count: sample.length, group: msg(`weight.group.${group}` as Parameters<typeof msg>[0]) }),
+    };
+  };
+  const overall = estimate(sourced, 'all');
+  const byBody = new Map<string, SourcedValue>();
+  for (const body of new Set(sourced.map((s) => s.body))) {
+    const sample = sourced.filter((s) => s.body === body);
+    if (sample.length >= MIN_WEIGHTS_PER_BODY) byBody.set(body, estimate(sample, body));
+  }
+  for (const c of cars) {
+    if (c.fields.curb_weight_kg) continue;
+    const value = byBody.get(c.model.body_type) ?? overall;
+    c.fields.curb_weight_kg = { value: { ...value }, others: [], conflict: false };
+    const src = sources.get(value.source_id);
+    if (src && !c.sources.some((s) => s.id === src.id)) c.sources = [...c.sources, src].sort((a, b) => a.id.localeCompare(b.id));
+  }
+}
+
 export function buildCars(root: string): BuildResult {
   const sources = new Map<string, Source>(listJson(join(root, 'data/sources')).map((f) => { const s = load(f); return [s.id, s]; }));
   const makes = new Map<string, any>(listJson(join(root, 'data/makes')).map((f) => { const m = load(f); return [m.id, m]; }));
@@ -379,6 +428,8 @@ export function buildCars(root: string): BuildResult {
       sources: [...cited].sort().map((id) => sources.get(id)).filter((s): s is Source => Boolean(s)),
     });
   }
+
+  fillCurbWeights(cars, sources);
 
   const num = (f: Field) => (f && typeof f.value.value === 'number' ? f.value.value : null);
   const str = (f: Field) => (f && typeof f.value.value === 'string' ? f.value.value : null);

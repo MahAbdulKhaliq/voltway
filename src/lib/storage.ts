@@ -54,4 +54,5 @@ export function setJSON(key: string, value: unknown): void {
 export const KEYS = {
   units: 'voltway.units',
   curveSettings: 'voltway.curveSettings',
+  theme: 'voltway.theme',
 } as const;

@@ -12,7 +12,8 @@ import type { CarDetail, Field, IndexEntry } from '../lib/types.ts';
 import { applyWheelEffect, type WheelEffect } from '../lib/wheel-effect.ts';
 import { display } from '../lib/format.ts';
 import CurveViewer from './CurveViewer.tsx';
-import { Badge, Value } from './react/Badge.tsx';
+import { Badge, Value, sourceNumber } from './react/Badge.tsx';
+import { Accordion } from './react/Accordion.tsx';
 
 interface Props { index: IndexEntry[]; wheelEffect: WheelEffect | null }
 
@@ -42,6 +43,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const [error, setError] = useState(false);
   const [unit, setUnit] = useState<DistanceUnit>('km');
   const [wheelIn, setWheelIn] = useState<number | null>(null); // null = the trim's rated wheels
+  const [pickerOpen, setPickerOpen] = useState(false); // B18: closed once a car is chosen
   useEffect(() => setWheelIn(null), [carId, trimId]);
 
   // First car: the link (?car=), else the last one viewed, else the first in the list.
@@ -51,6 +53,8 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     const first = cars.find((c) => c.id === wanted) ?? [...cars].sort((a, b) => byName(a.make, b.make) || byName(a.model, b.model))[0];
     setCarId(first?.id ?? null);
     setTrimId(params.get('trim'));
+    // No link and no remembered car: the shown car is just the first in the list, so open the picker.
+    setPickerOpen(!cars.some((c) => c.id === wanted));
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
     const onUnits = (e: Event) => setUnit((e as CustomEvent<DistanceUnit>).detail);
     window.addEventListener('voltway:units', onUnits);
@@ -145,11 +149,22 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const d = car?.derived;
   const distance = (km: number) => t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(km, unit)) });
   const sources = car?.sources ?? [];
+  // Closed "Car figures" section still shows the headline numbers.
+  const detailsPreview = [battery, range, f.dc_max_kw ?? null]
+    .filter((x): x is NonNullable<Field> => Boolean(x))
+    .map((x) => display(x.value, unit).text)
+    .join(' · ');
 
   return (
     <div className="explorer">
-      <section className="card picker" aria-labelledby="pick">
-        <h2 id="pick">{t('charging.selectVehicle')}</h2>
+      <Accordion
+        className="picker"
+        headingId="pick"
+        title={t('charging.selectVehicle')}
+        preview={current ? t('charging.pickedCar', { year: current.year, make: current.make, model: current.model, variant: current.name }) : null}
+        open={pickerOpen}
+        onToggle={setPickerOpen}
+      >
         <div className="selects">
           <label><span>{t('charging.make')}</span>
             <select value={current?.make ?? ''} onChange={(e) => pick(e.target.value)}>
@@ -177,7 +192,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
             </select>
           </label>
         </div>
-      </section>
+      </Accordion>
 
       {error && <p className="banner">{t('charging.loadError')}</p>}
       {!error && loading && <p className="muted">{t('charging.loading')}</p>}
@@ -190,11 +205,29 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
           </header>
           {!car.sold_in_canada && <p className="banner">{t('car.notInMarket', { market: COVERAGE.market, regulator: COVERAGE.regulatorShort })}</p>}
 
-          <section aria-labelledby="key">
-            <h2 id="key" className="sr-only">{t('car.keyFigures')}</h2>
+          <section aria-labelledby="curve">
+            <h2 id="curve">{t('car.curve')}</h2>
+            {car.curves.length ? (
+              <CurveViewer
+                key={car.id}
+                curves={car.curves}
+                usableKwh={(battery?.value.value as number) ?? null}
+                batteryIsGross={!usable && Boolean(f.capacity_gross_kwh)}
+                consumption={{
+                  highway: (shown.consumption_highway_wh_per_km?.value.value as number) ?? null,
+                  combined: (shown.consumption_combined_wh_per_km?.value.value as number) ?? null,
+                  city: (shown.consumption_city_wh_per_km?.value.value as number) ?? null,
+                }}
+                sources={sources.map((s) => ({ id: s.id, title: s.title, url: s.url, n: sourceNumber(sources, s.id) }))}
+              />
+            ) : <p className="card muted">{t('car.noCurve')}</p>}
+          </section>
+
+          <Accordion headingId="key" title={t('car.details')} preview={detailsPreview}>
+            <p className="muted small acc-help">{t('car.detailsHelp')}</p>
             <div className="tiles">
-              <div className="tile card"><p className="tl">{t('tile.range')}</p><p className="tv"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={adjusting} />{ratedLine('range_km')}</p></div>
-              <div className="tile card"><p className="tl">{t('tile.efficiency')}</p><p className="tv"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={adjusting} />{ratedLine('consumption_combined_wh_per_km')}</p></div>
+              <div className="tile card"><p className="tl">{t('tile.range')}</p><div className="tv"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={adjusting} />{ratedLine('range_km')}</div></div>
+              <div className="tile card"><p className="tl">{t('tile.efficiency')}</p><div className="tv"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={adjusting} />{ratedLine('consumption_combined_wh_per_km')}</div></div>
               <div className="tile card wheels"><p className="tl">{t('wheel.label')}</p><div className="tv">
                 {baseIn !== null && wheelEffect ? (
                   <>
@@ -215,41 +248,22 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
                   <><span className="unknown">{t('badge.unknown')}</span><span className="rated">{t('wheel.unknownHelp')}</span></>
                 )}
               </div></div>
-              <div className="tile card"><p className="tl">{usable ? t('tile.battery') : t('tile.batteryGross')}</p><p className="tv"><Value field={battery} sources={sources} label={t('tile.battery')} unit={unit} /></p></div>
-              <div className="tile card"><p className="tl">{t('tile.dcPeak')}</p><p className="tv"><Value field={f.dc_max_kw ?? null} sources={sources} label={t('tile.dcPeak')} unit={unit} /></p></div>
-              <div className="tile card"><p className="tl">{t('tile.time1080')}</p><p className="tv">
+              <div className="tile card"><p className="tl">{usable ? t('tile.battery') : t('tile.batteryGross')}</p><div className="tv"><Value field={battery} sources={sources} label={t('tile.battery')} unit={unit} /></div></div>
+              <div className="tile card"><p className="tl">{t('tile.dcPeak')}</p><div className="tv"><Value field={f.dc_max_kw ?? null} sources={sources} label={t('tile.dcPeak')} unit={unit} /></div></div>
+              <div className="tile card"><p className="tl">{t('tile.time1080')}</p><div className="tv">
                 {d && d.minutes_10_80 !== null ? (
                   <span className="fv">{d.estimated ? t('fmt.approxMin', { value: displayMinutes(d.minutes_10_80, true) }) : t('fmt.min', { value: displayMinutes(d.minutes_10_80, false) })} <Badge field={curveField} sources={sources} label={t('tile.time1080')} unit={unit} /></span>
                 ) : <span className="unknown">{t('badge.unknown')}</span>}
-              </p></div>
-              <div className="tile card"><p className="tl">{t('tile.kmPer10')}</p><p className="tv">
+              </div></div>
+              <div className="tile card"><p className="tl">{t('tile.kmPer10')}</p><div className="tv">
                 {d && d.km_per_10_min !== null ? (
                   <span className="fv">{d.estimated || adjusting ? '~' : ''}{distance(d.km_per_10_min / factor)} <Badge field={curveField} sources={sources} label={t('tile.kmPer10')} unit={unit} /></span>
                 ) : <span className="unknown">{t('badge.unknown')}</span>}
-              </p></div>
+              </div></div>
             </div>
-          </section>
+          </Accordion>
 
-          <section aria-labelledby="curve">
-            <h2 id="curve">{t('car.curve')}</h2>
-            {car.curves.length ? (
-              <CurveViewer
-                key={car.id}
-                curves={car.curves}
-                usableKwh={(battery?.value.value as number) ?? null}
-                batteryIsGross={!usable && Boolean(f.capacity_gross_kwh)}
-                consumption={{
-                  highway: (shown.consumption_highway_wh_per_km?.value.value as number) ?? null,
-                  combined: (shown.consumption_combined_wh_per_km?.value.value as number) ?? null,
-                  city: (shown.consumption_city_wh_per_km?.value.value as number) ?? null,
-                }}
-                sources={sources.map((s) => ({ id: s.id, title: s.title, url: s.url }))}
-              />
-            ) : <p className="card muted">{t('car.noCurve')}</p>}
-          </section>
-
-          <section aria-labelledby="specs">
-            <h2 id="specs">{t('car.specs')}</h2>
+          <Accordion headingId="specs" title={t('car.specs')}>
             <div className="spec-grid">
               {GROUPS.map((g) => (
                 <div className="card" key={g.title}>
@@ -268,11 +282,10 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
                 </div>
               ))}
             </div>
-          </section>
+          </Accordion>
 
-          <section aria-labelledby="trims">
-            <h2 id="trims">{t('car.trims')}</h2>
-            <div className="card">
+          <Accordion headingId="trims" title={t('car.trims')} preview={t(car.trims.length === 1 ? 'car.trimCount.one' : 'car.trimCount.other', { count: car.trims.length })}>
+            <div>
               <table className="stack-table">
                 <thead><tr><th>{t('car.trimName')}</th><th>{t('field.heat_pump')}</th><th>{t('car.wheels')}</th><th>{t('car.trimRange')}</th></tr></thead>
                 <tbody>
@@ -287,46 +300,51 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
                 </tbody>
               </table>
             </div>
-          </section>
+          </Accordion>
 
-          <section aria-labelledby="sources">
-            <h2 id="sources">{t('car.sources')}</h2>
-            <p className="muted">{t('car.sourcesIntro')}</p>
-            <ul className="sources">
-              {sources.map((s) => (
-                <li key={s.id}>
+          <Accordion id="sources-acc" headingId="sources" title={t('car.sources')} preview={t(sources.length === 1 ? 'car.sourceCount.one' : 'car.sourceCount.other', { count: sources.length })}>
+            <p className="muted small">{t('car.sourcesIntro')}</p>
+            <ol className="sources">
+              {sources.map((s, i) => (
+                <li key={s.id} id={`source-${i + 1}`}>
                   <a href={s.url} rel="noopener" target="_blank">{s.title}</a>
                   <span className="muted small"> · {t('badge.accessed', { date: s.accessed_on })}{s.license && <> · {t('car.licence', { licence: s.license })}</>}</span>
                 </li>
               ))}
-            </ul>
-            <p className="small"><a href="https://github.com/MahAbdulKhaliq/voltway/issues" rel="noopener" target="_blank">{t('car.reportProblem')}</a></p>
-          </section>
+            </ol>
+          </Accordion>
+          <p className="small report"><a href="https://github.com/MahAbdulKhaliq/voltway/issues" rel="noopener" target="_blank">{t('car.reportProblem')}</a></p>
         </>
       )}
 
       <style>{`
         .explorer { display: grid; gap: 24px; }
-        .explorer .picker h2 { font-size: 1.05rem; }
         .explorer .selects { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
         .explorer .selects label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
         .explorer .selects select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; width: 100%; min-width: 0; text-overflow: ellipsis; }
         .explorer .selects select:disabled { opacity: 0.6; }
         .explorer .eyebrow { margin: 0 0 4px; font-size: 0.9rem; }
         .explorer .variant { color: var(--muted); font-weight: 500; }
-        .explorer .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 12px; }
-        .explorer .tile { padding: 14px 16px; }
+        .explorer .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+        .explorer .tile { padding: 12px 14px; }
+        .explorer .acc .card { box-shadow: none; background: var(--surface-2); border-color: transparent; }
+        .explorer .acc .spec-grid .card { padding: 14px 16px; }
+        .explorer .acc-help { margin: 0 0 12px; }
+        .explorer .report { margin: -12px 0 0; }
         .explorer .tl { margin: 0 0 6px; color: var(--muted); font-size: 0.85rem; }
         .explorer .tv { margin: 0; font-size: 1.25rem; font-weight: 650; }
         .explorer .tv .badge { font-weight: 400; }
         .explorer .linkish { display: block; margin-top: 6px; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: 0.8rem; font-weight: 600; text-align: left; cursor: pointer; text-decoration: underline; }
         .explorer .rated { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-top: 4px; }
         .explorer .wheels select { font: inherit; font-size: 1rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 4px 8px; width: 100%; }
-        .explorer .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+        .explorer .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 12px; }
         .explorer .spec-grid th { width: 46%; }
         .explorer tr.current td:first-child { font-weight: 650; }
-        .explorer .sources { padding-left: 18px; }
-        .explorer .sources li { margin-bottom: 6px; }
+        .explorer .sources { padding-left: 28px; margin: 0; }
+        .explorer .sources li { margin-bottom: 6px; padding: 2px 6px; border-radius: 6px; scroll-margin: 96px; }
+        .explorer .sources li.flash { animation: src-flash 2s ease-out; }
+        @keyframes src-flash { from { background: var(--accent-soft); } to { background: transparent; } }
+        @media (max-width: 640px) { .explorer { gap: 16px; } .explorer .tv { font-size: 1.1rem; } .explorer .wheels select { font-size: 0.85rem; padding: 4px 6px; } }
         .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
       `}</style>
     </div>

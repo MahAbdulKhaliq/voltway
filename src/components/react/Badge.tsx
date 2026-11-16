@@ -7,13 +7,41 @@ import type { DistanceUnit } from '../../lib/units.ts';
 
 interface Props { field: Field; sources: Source[]; label: string; unit: DistanceUnit }
 
+/** Wikipedia-style reference numbers (B18): a source's number is its place in the page's source list. */
+export const sourceNumber = (sources: { id: string }[], id: string) => sources.findIndex((s) => s.id === id) + 1;
+
+/** Opens the Sources section, scrolls to source n and highlights it. */
+export function openSource(n: number) {
+  const box = document.getElementById('sources-acc') as HTMLDetailsElement | null;
+  if (box) box.open = true;
+  const item = document.getElementById(`source-${n}`);
+  if (!item) return;
+  item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  item.classList.remove('flash');
+  void item.offsetWidth; // restart the highlight animation
+  item.classList.add('flash');
+  item.querySelector('a')?.focus({ preventScroll: true });
+}
+
+/** "[n]" link to source n in the Sources section. */
+export function SourceRef({ n }: { n: number }) {
+  if (n < 1) return null;
+  return (
+    <a className="ref" href={`#source-${n}`} aria-label={t('badge.ref', { n })} onClick={(e) => { e.preventDefault(); openSource(n); }}>
+      [{n}]
+    </a>
+  );
+}
+
 export function Badge({ field, sources, label, unit }: Props) {
   if (!field) return null;
   const main = field.value;
   const src = (id: string) => sources.find((s) => s.id === id);
   const mainSource = src(main.source_id);
+  const n = sourceNumber(sources, main.source_id);
   const cls = ['badge', `kind-${main.kind}`, main.low_confidence ? 'low' : ''].filter(Boolean).join(' ');
   return (
+    <span className="cite">
     <details className={cls}>
       <summary aria-label={t('badge.open', { label })}>
         {kindLabel(main.kind)}
@@ -23,7 +51,7 @@ export function Badge({ field, sources, label, unit }: Props) {
         <p className="pop-title">{t('badge.source')}</p>
         {mainSource ? (
           <p>
-            <a href={mainSource.url} rel="noopener" target="_blank">{mainSource.title}</a>
+            {n > 0 && <>[{n}] </>}<a href={mainSource.url} rel="noopener" target="_blank">{mainSource.title}</a>
             <br />
             <span className="muted small">{t('badge.accessed', { date: mainSource.accessed_on })}</span>
           </p>
@@ -40,7 +68,7 @@ export function Badge({ field, sources, label, unit }: Props) {
                 return (
                   <li key={i}>
                     {display(o, unit).text} · {kindLabel(o.kind)}
-                    {s && <> · <a href={s.url} rel="noopener" target="_blank">{s.title}</a></>}
+                    {s && <> · <SourceRef n={sourceNumber(sources, s.id)} /> <a href={s.url} rel="noopener" target="_blank">{s.title}</a></>}
                   </li>
                 );
               })}
@@ -49,6 +77,8 @@ export function Badge({ field, sources, label, unit }: Props) {
         )}
       </div>
     </details>
+    <SourceRef n={n} />
+    </span>
   );
 }
 

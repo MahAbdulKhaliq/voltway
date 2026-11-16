@@ -12,6 +12,7 @@ import { calculateCharge, displayMinutes, powerAt } from '../lib/charging.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CurveOut } from '../lib/types.ts';
+import { SourceRef } from './react/Badge.tsx';
 
 echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, MarkAreaComponent, CanvasRenderer]);
 
@@ -20,7 +21,7 @@ interface Props {
   usableKwh: number | null;
   batteryIsGross: boolean;
   consumption: { highway: number | null; combined: number | null; city: number | null };
-  sources: { id: string; title: string; url: string }[];
+  sources: { id: string; title: string; url: string; n: number }[];
 }
 
 type Basis = 'highway' | 'combined' | 'city';
@@ -178,7 +179,7 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
 
       <div className="controls">
         {curves.length > 1 && (
-          <label>
+          <label className="curve-pick">
             <span>{t('viewer.curve')}</span>
             <select value={curve.id} onChange={(e) => setCurveId(e.target.value)}>
               {curves.map((c) => (
@@ -227,13 +228,12 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
         {result ? (
           <>
             <div className="r"><p className="rl">{t('viewer.result.time', { start: settings.start, end: settings.end })}</p><p className="rv">{minutes(result.minutes)}</p></div>
-            <div className="r"><p className="rl">{t('viewer.result.km', { basis: t(`viewer.basis.${basis}` as MessageKey) })}</p><p className="rv">{result.kmAdded !== null ? `+${estimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>}</p></div>
+            <div className="r"><p className="rl">{t('viewer.result.km', { basis: t(`viewer.basis.${basis}` as MessageKey) })}</p><p className="rv">{result.kmAdded !== null ? `${estimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>}</p></div>
             <div className="r"><p className="rl">{t('viewer.result.per10')}</p><p className="rv">{result.kmPer10Min !== null ? `${estimated ? '~' : ''}${distance(result.kmPer10Min)}` : <span className="unknown small">{t('badge.unknown')}</span>}</p></div>
             <div className="r"><p className="rl">{t('viewer.result.avg')}</p><p className="rv">{t('fmt.kw', { value: formatNumber(result.averageKw) })}</p></div>
             {chargerKw !== null && result.lostToChargerMinutes > 0.05 && (
               <div className="r"><p className="rl">{t('viewer.result.lost')}</p><p className="rv">{t('viewer.result.lostValue', { value: formatNumber(result.lostToChargerMinutes), kw: chargerKw })}</p></div>
             )}
-            <div className="r"><p className="rl">{t('viewer.curve')}</p><p className="rv small-badge">{kindLabel(curve.kind)}{source && <> · <a href={source.url} target="_blank" rel="noopener">{source.title}</a></>}</p></div>
           </>
         ) : (
           <p className="unknown">{t('badge.unknown')}</p>
@@ -241,7 +241,11 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
       </div>
 
       <div ref={chartEl} className="chart" role="img" aria-label={t('viewer.title')} />
-      <p className="small muted">{t('viewer.warm')}</p>
+      <p className="small muted curve-note">
+        {t('viewer.curveFrom', { kind: curve.based_on ? t('viewer.option.borrowed') : kindLabel(curve.kind) })}
+        {source && <> <a href={source.url} target="_blank" rel="noopener">{source.title}</a> <SourceRef n={source.n} /></>}
+        {' · '}{t('viewer.warm')}
+      </p>
 
       <details className="more">
         <summary>{t('viewer.moreDetail')}</summary>
@@ -262,22 +266,29 @@ export default function CurveViewer({ curves, usableKwh, batteryIsGross, consump
 
       <style>{`
         .viewer { display: grid; gap: 16px; }
-        .viewer .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px 16px; align-items: end; }
-        .viewer label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); }
-        .viewer select, .viewer input[type=number] { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; }
-        .viewer input[type=range] { accent-color: var(--accent); width: 100%; }
-        .viewer .toggle { border: 0; padding: 0; margin: 0; display: flex; gap: 0; flex-wrap: wrap; }
+        .viewer .controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px 16px; align-items: end; }
+        .viewer .controls > * { min-width: 0; }
+        .viewer .curve-pick { grid-column: span 2; }
+        .viewer label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
+        .viewer select, .viewer input[type=number] { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; width: 100%; min-width: 0; text-overflow: ellipsis; }
+        .viewer input[type=range] { accent-color: var(--accent); width: 100%; margin: 6px 0; }
+        .viewer .toggle { border: 0; padding: 0; margin: 0; min-width: 0; min-inline-size: 0; display: flex; gap: 0; flex-wrap: nowrap; }
         .viewer .toggle legend { font-size: 0.875rem; color: var(--muted); margin-bottom: 4px; padding: 0; }
-        .viewer .toggle button { font: inherit; font-size: 0.875rem; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 6px 10px; cursor: pointer; }
+        .viewer .toggle button { flex: 1 1 0; white-space: nowrap; font: inherit; font-size: 0.875rem; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 6px 10px; cursor: pointer; }
         .viewer .toggle button:first-of-type { border-radius: 8px 0 0 8px; }
         .viewer .toggle button:last-of-type { border-radius: 0 8px 8px 0; border-left: 0; }
         .viewer .toggle button[aria-pressed=true] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
-        .viewer .results { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-        .viewer .r { background: var(--surface-2); border-radius: 10px; padding: 10px 12px; }
+        .viewer .results { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+        .viewer .r { background: var(--surface-2); border-radius: 10px; padding: 8px 12px; min-width: 0; }
         .viewer .rl { margin: 0; color: var(--muted); font-size: 0.8rem; }
-        .viewer .rv { margin: 2px 0 0; font-weight: 650; font-size: 1.15rem; }
-        .viewer .small-badge { font-size: 0.9rem; font-weight: 500; }
+        .viewer .rv { margin: 2px 0 0; font-weight: 650; font-size: 1.15rem; overflow-wrap: anywhere; }
         .viewer .chart { width: 100%; height: 320px; }
+        .viewer .curve-note { margin: -8px 0 0; }
+        @media (max-width: 640px) {
+          .viewer { gap: 12px; padding: 14px; }
+          .viewer .rv { font-size: 1.05rem; }
+          .viewer .chart { height: 260px; }
+        }
         .viewer .more summary { cursor: pointer; font-weight: 600; }
         .viewer .points { max-width: 320px; margin-top: 8px; }
         .viewer .points caption { text-align: left; }

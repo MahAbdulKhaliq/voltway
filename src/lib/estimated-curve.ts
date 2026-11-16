@@ -1,6 +1,6 @@
 // Estimated charging curves for variants with no measured curve (charging-curve-viewer.md §9).
-// Each template is SoC → fraction of the car's peak DC kW. UNCALIBRATED placeholders until
-// checklist 2.2 tunes them against published 10–80 % times (target ±15 %).
+// Each template is SoC → fraction of the car's peak DC kW. Calibrated 2026-11-16 (checklist 2.2,
+// owner decision B41) against measured curves and published 10–80 % times: docs/plan/calibration-report.md.
 
 import type { CurveOut } from './types.ts';
 import { t, type MessageKey } from '../i18n/t.ts';
@@ -9,9 +9,9 @@ export type TemplateId = '400v-nmc' | '800v-nmc' | 'lfp';
 
 export const TEMPLATE_SOC = [0, 10, 30, 50, 70, 80, 90, 100];
 export const TEMPLATES: Record<TemplateId, number[]> = {
-  '400v-nmc': [0.7, 1.0, 1.0, 0.75, 0.55, 0.45, 0.25, 0.08],
-  '800v-nmc': [0.75, 1.0, 1.0, 0.95, 0.7, 0.45, 0.15, 0.05],
-  lfp: [0.8, 1.0, 0.9, 0.75, 0.6, 0.5, 0.3, 0.1],
+  '400v-nmc': [0.7, 1.0, 0.97, 0.71, 0.51, 0.43, 0.25, 0.08],
+  '800v-nmc': [0.75, 1.0, 0.96, 0.9, 0.64, 0.42, 0.15, 0.05],
+  lfp: [0.8, 1.0, 0.81, 0.63, 0.47, 0.42, 0.3, 0.1],
 };
 
 
@@ -41,6 +41,6 @@ export function estimateCurve(input: EstimateInput): CurveOut {
     source_id: input.sourceId,
     points: TEMPLATE_SOC.map((soc, i) => ({ soc_percent: soc, power_kw: Math.round(TEMPLATES[id][i] * peak * 10) / 10 })),
     is_display_default: false,
-    basis: [t('curve.template.basis', { template: t(`curve.template.${id}` as MessageKey), peak }), ...caveats, t('curve.template.uncalibrated')].join('; '),
+    basis: [t('curve.template.basis', { template: t(`curve.template.${id}` as MessageKey), peak }), ...caveats].join('; '),
   };
 }

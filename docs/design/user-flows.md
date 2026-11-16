@@ -27,8 +27,8 @@ These links are what make the parts feel like one app. **Phase** shows when each
 |------|------|----|-------|
 | Car page | **"Set as my car"** | Updates My car everywhere | 1 |
 | Car card / car page | **"+ Compare"** | Compare screen | 1 |
-| Curve viewer, charger preset | **"Find chargers this fast"** | Map, filtered to the matching power band + the car's plugs | 2 |
-| **Charger popup** | **"How fast would my car charge here?"** | Curve viewer for My car, **capped at this charger's kW** | 2 |
+| Curve viewer, charger preset | **"Find chargers this fast"** | Map, filtered to the matching kW range + the car's plugs | 1b (B31) |
+| **Charger popup** | **"How fast would my car charge here?"** | Curve viewer for My car, **capped at this charger's kW** | 1b (B31) |
 | Charger popup | **"Plan a trip to here"** | Trip planner with this charger as the destination | 3 |
 | **Trip stop** | **"See the charging curve for this stop"** | Curve viewer set to **this stop's arrival % → 80%**, capped at the charger's kW | 3 |
 | Trip stop | Open charger | Same popup as the map | 3 |

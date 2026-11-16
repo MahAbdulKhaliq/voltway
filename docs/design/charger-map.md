@@ -1,6 +1,6 @@
 # Charger Map
 
-Phase 2 of [roadmap.md](roadmap.md). A simple map of public Level 2 and Level 3 chargers in Canada, with plug types and power-band filters. Covers N3, N5, N7 and the map part of S3 in [gaps-and-questions.md](gaps-and-questions.md). The power bands and their rules are already set in [vision.md](vision.md) ("Power bands").
+Phase 2 of [roadmap.md](roadmap.md). A simple map of public Level 2 and Level 3 chargers in Canada, with plug types, kW range filters (B35) and plug filters. Covers N3, N5, N7 and the map part of S3 in [gaps-and-questions.md](gaps-and-questions.md). The power bands in [vision.md](vision.md) ("Power bands") set where the slider stops sit.
 
 *Researched 2026-11-15. Free-tier terms change, so re-check them at build time.*
 
@@ -11,7 +11,7 @@ Phase 2 of [roadmap.md](roadmap.md). A simple map of public Level 2 and Level 3 
 ## 1. Goals
 
 - **Show every public Level 2 and Level 3 charger in Canada** on one fast map.
-- **Simpler than PlugShare:** level checkboxes, then power bands, then plug types. No kW slider.
+- **Simpler than PlugShare:** level checkboxes, then a kW range slider per level (B35, replacing the original power bands), then plug types.
 - **Stay inside the Phase 1 setup:** a static site and free hosting. **No server.**
 - **Tie into the car database:** "Show only chargers my car can use".
 
@@ -82,18 +82,20 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 
 ## 4. Filters
 
-### Level and power bands (from vision.md)
+### Level and power (kW range sliders, B35 ✅)
 ```
 ☑ Level 3 (fast)                    ☐ Level 2 (slow)
-    ☑ Up to 50 kW                       (bands appear when ticked)
-    ☑ 51–100 kW
-    ☑ 101–250 kW
-    ☑ Over 250 kW
-    ☑ Unknown power
+    Power: Any power                    (slider appears when ticked)
+    ●━━━━━━━━━━━━━━━━━━━━━━━━●
+    0   50  100  150  250  350  Max
 ```
 - **Default: Level 3 on, Level 2 off (N8 ✅, decided 2026-11-15).** Most people open a charger map looking for fast charging, and Level 2 more than triples the number of pins. The user's own filter choice is saved in the browser.
-- Band checkboxes appear only when their level is ticked. All bands are on by default.
-- A site shows if **any** of its ports match the ticked bands.
+- **One two-handle kW slider per level** (decided 2026-11-16, B35; it replaced the power-band checkboxes). It appears only when its level is ticked and covers the full range by default.
+- **Stops** (the handles snap to these, in kW): Level 2: 0, 3.6, 7.2, 11.5, 19.2, Max. Level 3: 0, 50, 100, 150, 250, 350, Max. "Max" means no upper limit, so ports listed above the top figure are never lost. The stops sit on the old band edges, plus 150 and 350 for Level 3, where much hardware sits.
+- A port matches when **min ≤ its rated kW ≤ max** (both ends included, so "50 kW and up" includes 50 kW units). The handles can't cross or meet.
+- **Unknown power:** ports with no kW figure match only while the slider covers its **full range**. Once the range is narrowed, a short note under the slider says they're hidden.
+- The current range is written above the slider in words: "Any power", "Up to 100 kW", "50 kW and up", "50–150 kW". Each handle has its own label and spoken value for screen readers, and arrow keys move it one stop.
+- A site shows if **any** of its ports match the level, the kW range and a ticked plug.
 
 ### Plugs
 ☑ CCS1 ☑ NACS ☑ CHAdeMO ☑ J1772. All on by default.
@@ -131,7 +133,13 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 | Footer | "Data: NRCan / NLR AFDC · updated [date]" |
 
 ### Finding a place
-- **"Locate me":** uses the browser's location, **only when asked**. Nothing is stored.
+- **"Locate me":** uses the browser's location, **only when asked**. Nothing is stored. A later pan or zoom saves the view as usual, even near the user's location (B33 ✅, 2026-11-16).
+
+### Stations in view (B34 ✅, 2026-11-16)
+- Pins are drawn on a canvas, which keyboards and screen readers can't reach. So the filter panel has a **"Stations in view"** list: the stations that match the filters inside the current map view, **nearest the map centre first, capped at 50**, with a line saying how many are listed when there are more.
+- Each item is a button showing the station name, its level and top power, and its city. Choosing one opens its station panel and centres the map on it.
+- The list opens with a toggle button under the station count and updates when the map stops moving. When the view holds too many stations, it says to zoom in.
+- **Wide screens (over 640 px) first.** On phones the panel and the bottom sheet compete for space; a phone version may follow (TD-P11).
 - **Search by place name: not in v1 (B29, 2026-11-16).** v1 has "Locate me" plus pan and zoom. Place search arrives with Phase 3 address search (S6). *Original proposal:* v1 uses a **static list of Canadian places** (cities, towns), so no search service is needed. GeoNames (CC BY 4.0) is one possible source. Full address search comes with routing in Phase 3 (S6).
 - **Default view:** the user's last map position (saved in the browser), or else a view of southern Ontario and Québec, where most chargers are.
 
@@ -142,7 +150,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 - **No live availability** ("in use", "free now") in v1. That data is usually paid or network-specific.
 - AFDC gives a slower status, which is shown:
   - **Available:** normal pin
-  - **Temporarily unavailable:** greyed pin, with the expected reopening date if given
+  - **Temporarily unavailable:** greyed pin, with the expected reopening date **only while that date is still in the future** (B32 ✅, 2026-11-16). Most dates in the source have already passed, and a past date would mislead.
   - **Planned:** **hidden by default.** *Later:* a "Show planned" toggle
 - Every popup says **when the data was last updated**, so people know it isn't live.
 
@@ -169,6 +177,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 - Network filter, "hide restricted" filter, "show planned" toggle
 - Place-name and address search (Phase 3, B29)
 - "Chargers my car can use" and My-car Tesla notes (Phase 1b, B28)
+- The "Find chargers this fast" and "How fast would my car charge here?" links (Phase 1b, B31)
 - Directions inside the app (Phase 3 covers trips, and v1 links out to Google/Apple Maps)
 - Reviews, photos, check-ins (PlugShare-style community features)
 - Level 1 chargers

@@ -86,6 +86,10 @@ Phase 1a passed independent QA, so owner decision B21's gate is met and Phase 2 
   - OCM later.
 
   *Done when:* About lists every map credit and the tech-debt entries exist.
+- **M11 kW range sliders (B35, owner change after QA):** replace the band checkboxes with one two-handle kW slider per level (charger-map.md §4: stops, both ends included, unknown power only at full range, words above the slider). Saved choices move to stop indices; old saved filters fall back to defaults for power.
+  - *Done when:* unit tests cover the range rule (both edges, top stop = no limit, unknown power only at full range, any-port rule, saved-choice checks), and a browser check shows the sliders under ticked levels, keyboard steps, the count changing, persistence and 375 px.
+- **M12 Stations in view (B34, owner change after QA, closes TD-P9):** a toggle under the station count opens a list of matching stations in the current view, nearest the centre first, capped at 50, over 640 px wide. Each item opens the station panel and centres the map.
+  - *Done when:* unit tests cover the in-view, sort and cap logic; a browser check shows the list updating after a pan, a keyboard user opening a station from it, and the list hidden at 375 px. TD-P11 logs the phone version.
 - **M10 Independent QA:** run `qa-reviewer` against the new Phase 2 section of `QA.md`, fix what it finds and re-check.
 
 Each item ships as its own PR on green CI (standing rule). Explain new concepts as they come up: map tiles and vector styles, GeoJSON, clustering, `client:only`, Actions secrets, and why bot PRs don't trigger CI.

@@ -175,6 +175,11 @@ Built from [DESIGN-map.md](DESIGN-map.md) (approved 2026-11-16; owner decisions 
 - [x] **[2] M9 About credits + tech debt** — `src/pages/about.astro`, `docs/tech-debt/`. Done when: About credits AFDC/NRCan, OpenFreeMap and OSM; tech debt lists the Protomaps/R2 fallback, `adapters_included` (for 5.2), repo growth from daily data commits, N9 and OCM.
   - Verified 2026-11-16: About lists AFDC (DOE/NLR + NRCan, from `src-afdc-ca.json`), OpenStreetMap (ODbL), OpenFreeMap (MIT; OpenMapTiles and Positron/CARTO design credits, per OpenFreeMap's LICENSE.md) and MapLibre; the map's attribution line now also carries "Chargers: NRCan / NLR AFDC" linking to About (B30). Tech debt: TD-O4 base-map fallback, TD-O5 repo growth, TD-P6 `adapters_included`, TD-P7 N9, TD-P8 OCM, plus TD-C9 (French pricing, from M8). Checked in the browser (About desktop; map attribution at 375 px).
 
+## Owner changes after QA (2026-11-16, B31–B35)
+
+- [ ] **[2] M11 kW range sliders (B35)** — `src/lib/power-bands.ts`, `src/lib/map-filter.ts` + tests, `src/components/ChargerMap.tsx`, `src/styles/global.css`, `src/i18n/en.json`. Done when: tests cover min ≤ kW ≤ max with both edges, the "Max" stop as no limit, unknown power only at full range, any-port rule, saved-choice checks; browser: slider only under a ticked level, words above it, arrow keys step one stop, count changes, choice survives reload, 375 px and dark mode work.
+- [ ] **[2] M12 Stations in view (B34, TD-P9)** — `src/lib/map-filter.ts` (or a new `src/lib/map-list.ts`) + tests, `src/components/ChargerMap.tsx`, `src/i18n/en.json`. Done when: tests cover in-view, nearest-first and the cap of 50; browser: list updates after a pan, an item opens the station panel and centres the map by keyboard, list hidden at 375 px; TD-P9 closed, TD-P11 (phones) logged.
+
 ## Independent QA
 
 - [ ] **[2] M10** Run the `qa-reviewer` subagent against `docs/plan/QA.md` Phase 2; fix findings; re-run on fixed items.

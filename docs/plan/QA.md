@@ -128,9 +128,9 @@ Standalone checks for the charger map against [DESIGN-map.md](DESIGN-map.md) and
 | # | Check | How |
 |---|-------|-----|
 | MD1 | Level comes from the source's classification, not kW | find a DC station under 25 kW in `stations.json`; it is Level 3 |
-| MD2 | Band edges include the upper edge (3.6, 7.2, 11.5, 50, 100, 250) | read `tests/afdc.test.ts`; each edge and the value just above it is tested |
-| MD3 | Missing kW goes to "Unknown power" | test + a real station with no `power_kw` |
-| MD4 | Mixed sites appear in every matching band | test + filter check in the browser |
+| MD2 | kW range includes both ends; "Max" means no limit (B35) | read `tests/map-filter.test.ts`; a port exactly on the min and on the max matches, one just outside does not |
+| MD3 | Missing kW shows only while the level's slider covers its full range (B35) | test + a real station with no `power_kw` |
+| MD4 | A mixed site shows when any port matches the level, range and plug | test + filter check in the browser |
 | MD5 | Private, Level 1-only and planned stations are dropped | count them in the raw pull vs `stations.json` |
 | MD6 | Temporarily unavailable kept, with expected date when given | find a `T` station |
 | MD7 | Sanity checks stop the update | tests: >10 % drop, >2 % missing required fields |
@@ -153,8 +153,8 @@ Standalone checks for the charger map against [DESIGN-map.md](DESIGN-map.md) and
 | MU3 | First visit opens on southern Ontario/Québec; a moved view is restored after reload |
 | MU4 | Clusters show counts; clicking one zooms in |
 | MU5 | Level 3 pins are bolts, Level 2 pins plugs (not colour alone); temporarily unavailable pins greyed with a mark |
-| MU6 | Defaults: Level 3 on, Level 2 off; all bands on incl. "Unknown power"; all four plugs on |
-| MU7 | Band boxes appear only under a ticked level; a site shows if any port matches |
+| MU6 | Defaults: Level 3 on, Level 2 off; each slider at its full range ("Any power"); all four plugs on |
+| MU7 | The kW slider appears only under a ticked level; stops are L2 0/3.6/7.2/11.5/19.2/Max and L3 0/50/100/150/250/350/Max; the range is written in words; arrow keys move a handle one stop; the handles can't cross; narrowing it shows the unknown-power note (B35) |
 | MU8 | Filter choices persist after reload |
 | MU9 | Level 2 data is requested only once Level 2 is first ticked (Network tab) |
 | MU10 | Station panel: name, network, level badge; port lines like "2 × CCS1 · 180 kW"; access + customers-only / limited-hours warning; pricing or "Not listed"; status with date; Google and Apple Maps links; "Data: NRCan / NLR AFDC · updated {date}" |
@@ -164,12 +164,14 @@ Standalone checks for the charger map against [DESIGN-map.md](DESIGN-map.md) and
 | MU14 | Phone width 375 px: bottom sheet, no sideways scroll; dark mode readable; filters and panel usable by keyboard |
 | MU15 | No console errors; all new text comes from `src/i18n/en.json` |
 | MU16 | About lists AFDC/NRCan, OpenFreeMap and OSM credits |
+| MU17 | "Stations in view" (over 640 px): the toggle opens a list of matching stations in view, nearest the centre first, at most 50 with a "more" line; it updates after a pan; Tab + Enter on an item opens the station panel and centres the map; the list isn't offered at 375 px (B34) |
+| MU18 | A temporarily unavailable station shows its expected date only when it is in the future (B32); after Locate me, a later pan saves the view (B33) |
 
 ## 5. Rules and process
 
 | # | Check |
 |---|-------|
-| MP1 | B26–B29 recorded in `gaps-and-questions.md` and matching docs |
+| MP1 | B26–B35 recorded in `gaps-and-questions.md` and matching docs |
 | MP2 | Ticked Phase 2 checklist items are genuinely done; stubs noted |
 | MP3 | No map link or feature beyond the design (no network filter, planned toggle, OCM, routing) |
 

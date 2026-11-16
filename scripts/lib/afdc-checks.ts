@@ -124,7 +124,7 @@ function pct(x: number): string {
 export function summaryMarkdown(r: CheckResult, fetchedAt: string): string {
   const lines: string[] = [];
   lines.push(`## Charger data refresh (AFDC Canada, fetched ${fetchedAt})`, '');
-  lines.push(r.ok ? '**Sanity checks: passed.**' : '**Sanity checks: FAILED.** The committed data was not changed.', '');
+  lines.push(r.ok ? '**Sanity checks: passed.**' : '**Sanity checks: FAILED.** Nothing goes live until the owner reviews this.', '');
   for (const f of r.failures) lines.push(`- ${f}`);
   if (r.failures.length) lines.push('');
   lines.push(

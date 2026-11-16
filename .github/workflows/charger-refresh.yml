@@ -1,0 +1,124 @@
+# Daily charger-map data refresh (CHECKLIST M5, DESIGN-map.md, owner decision B27).
+# Downloads the AFDC Canada stations, normalizes them and runs the sanity checks
+# (scripts/lib/afdc-checks.ts). If any station changed, it opens (or updates) a pull
+# request, runs the full CI steps here, and merges the PR itself when all of them pass.
+#
+# Why CI runs here: pull requests opened with the workflow's GITHUB_TOKEN don't start
+# other workflows (GitHub's guard against loops), so ci.yml would never run on them.
+#
+# Blocked path: a failed sanity check or CI step leaves the PR open and unmerged and
+# fails the run, so the owner is emailed. The owner can review and merge it by hand.
+# A manual run with "simulate_drop" ticked removes 15 % of stations to test this path.
+#
+# Needs: the NLR_API_KEY Actions secret, and Settings → Actions → General →
+# "Allow GitHub Actions to create and approve pull requests" (already on for data-refresh.yml).
+name: Charger refresh
+
+on:
+  schedule:
+    - cron: '41 10 * * *' # 10:41 UTC daily
+  workflow_dispatch:
+    inputs:
+      simulate_drop:
+        description: 'Test the blocked path: drop 15 % of stations so the checks fail'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: charger-refresh
+  cancel-in-progress: false
+
+env:
+  BRANCH: data/charger-refresh
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+
+      - name: Download AFDC Canada stations
+        run: npm run fetch:afdc
+        env:
+          NLR_API_KEY: ${{ secrets.NLR_API_KEY }}
+
+      - name: Simulate a drop (test run only)
+        if: inputs.simulate_drop
+        run: npx tsx scripts/simulate-afdc-drop.ts 0.15
+
+      - name: Normalize and run the sanity checks
+        id: import
+        run: |
+          if npm run import:afdc; then
+            echo "checks=pass" >> "$GITHUB_OUTPUT"
+          else
+            echo "checks=fail" >> "$GITHUB_OUTPUT"
+            # Write the data anyway, so the PR shows the owner what the source now says.
+            npm run import:afdc -- --skip-checks
+          fi
+
+      - name: Nothing changed
+        if: steps.import.outputs.changed != 'true'
+        run: echo "No station was added, removed or changed. No pull request." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit the new data
+        if: steps.import.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add data/imported/afdc/stations.json sources/afdc-ca/FETCHED.json
+          git commit -m "Charger data refresh ($(date -u +%F))"
+
+      # The same steps as ci.yml. Each records its result; one failing doesn't skip the others.
+      - name: CI steps
+        id: ci
+        if: steps.import.outputs.changed == 'true'
+        run: |
+          status=pass
+          results=""
+          for step in "npm run validate" "npm test" "npx astro check" "npm run build"; do
+            if $step; then results+="- \`$step\`: passed"$'\n'; else results+="- \`$step\`: **failed**"$'\n'; status=fail; fi
+          done
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          { echo; echo "### CI steps (run in this workflow)"; echo; printf '%s' "$results"; } >> "$SUMMARY_FILE"
+        env:
+          SUMMARY_FILE: ${{ steps.import.outputs.summary }}
+
+      - name: Open or update the pull request
+        if: steps.import.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SUMMARY_FILE: ${{ steps.import.outputs.summary }}
+        run: |
+          git push --force origin "$BRANCH"
+          title="Charger data refresh ($(date -u +%F))"
+          if [ "$(gh pr view "$BRANCH" --json state -q .state 2>/dev/null)" = "OPEN" ]; then
+            gh pr edit "$BRANCH" --title "$title" --body-file "$SUMMARY_FILE"
+          else
+            gh pr create --head "$BRANCH" --base main --title "$title" --body-file "$SUMMARY_FILE"
+          fi
+          cat "$SUMMARY_FILE" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Merge (checks and CI passed, B27)
+        if: steps.import.outputs.changed == 'true' && steps.import.outputs.checks == 'pass' && steps.ci.outputs.status == 'pass'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr merge "$BRANCH" --squash --delete-branch
+          echo "Merged. Vercel deploys from main." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Blocked (left open for the owner)
+        if: steps.import.outputs.changed == 'true' && (steps.import.outputs.checks != 'pass' || steps.ci.outputs.status != 'pass')
+        run: |
+          echo "::error::Charger refresh blocked: sanity checks ${{ steps.import.outputs.checks }}, CI ${{ steps.ci.outputs.status }}. The pull request stays open and unmerged."
+          exit 1

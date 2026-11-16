@@ -38,10 +38,12 @@
 - **Impact:** v1 uses AFDC only. Networks or sites AFDC lacks are missing from the map.
 - **Fix:** later, if gaps show up: add OCM with the duplicate rule in charger-map.md §3 (same network, within ~50 m, overlapping plugs = one station; prefer AFDC). OCM's licence and attribution terms need checking first.
 
-### TD-P9 Stations can't be opened by keyboard
-- **Since:** 2026-11-16, Phase 2 QA (M10, report `qa-phase2-2026-11-16.md` in the session notes). Pins are drawn on the map canvas, so keyboard and screen-reader users can filter but can't open a station.
-- **Fix (decided 2026-11-16, B34):** a "Stations in view" list in the filter panel (nearest first, capped at 50), each item opening the panel. Being built as M12.
+### TD-P11 "Stations in view" on phones
+- **Since:** 2026-11-16, M12 (B34). The list is offered only over 640 px wide: on phones the filter panel and the station bottom sheet already compete for the screen.
+- **Impact:** screen-reader users on phones still can't open a station.
+- **Fix:** a phone layout for the list (for example its own sheet, or a tab in the filter sheet), as the owner suggested.
 
 ## Closed
+- 2026-11-16, M12: TD-P9 (stations unreachable by keyboard) closed by the "Stations in view" list (B34); phones are TD-P11.
 - 2026-11-16: TD-P10 (top Level 2 band label) no longer applies: the owner replaced the power-band boxes with kW range sliders whose top stop is "Max" (B35, M11).
 - 2026-11-16, PR #41: "Added to battery" result shown (QA #7); notice for unmatched `?car=` links (QA #15); "Estimated" tag on estimated lines (QA #11).

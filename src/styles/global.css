@@ -223,6 +223,18 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .map-filters .legend { margin: 8px 0 6px; }
 .map-filters .legend-item { display: inline-flex; align-items: center; gap: 6px; }
 .map-count { margin: 0; padding: 8px 12px; border-top: 1px solid var(--border); }
+/* Stations in view (B34): wide screens only for now (TD-P11). */
+.map-list-wrap { border-top: 1px solid var(--border); display: flex; flex-direction: column; min-height: 0; }
+.map-list-toggle { margin: 6px 12px; padding: 6px 10px; background: none; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font: inherit; font-size: 0.9rem; cursor: pointer; text-align: left; }
+.map-list-toggle[aria-expanded="true"] { border-color: var(--accent); }
+.map-list-toggle:focus-visible, .map-list button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.map-list { overflow-y: auto; max-height: 40vh; padding: 0 6px 6px; }
+.map-list p { margin: 2px 6px 6px; }
+.map-list ul { list-style: none; margin: 0; padding: 0; }
+.map-list li button { display: flex; flex-direction: column; gap: 1px; width: 100%; padding: 6px; background: none; border: 0; border-radius: 6px; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.map-list li button:hover, .map-list li button[aria-current="true"] { background: var(--surface-2); }
+.map-list-name { font-weight: 600; font-size: 0.9rem; }
+@media (max-width: 640px) { .map-list-wrap { display: none; } }
 
 /* Locate me: bottom left on desktop, above the attribution. */
 .map-locate { position: absolute; left: 12px; bottom: 40px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; min-height: 40px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); font: inherit; font-weight: 600; cursor: pointer; }

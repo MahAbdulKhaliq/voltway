@@ -33,6 +33,10 @@
     "dc_max_kw": { "$ref": "common.schema.json#/$defs/field_kw" },
     "charge_port": { "$ref": "#/$defs/fact_charge_port" },
     "supercharger_access": { "$ref": "#/$defs/fact_supercharger_access" },
+    "adapters_included": {
+      "description": "Charging adapter that comes with the car from the factory (B38, optional; unknown until researched).",
+      "$ref": "#/$defs/fact_adapters_included"
+    },
     "consumption_combined_wh_per_km": { "$ref": "common.schema.json#/$defs/field_wh_per_km" },
     "consumption_city_wh_per_km": { "$ref": "common.schema.json#/$defs/field_wh_per_km" },
     "consumption_highway_wh_per_km": { "$ref": "common.schema.json#/$defs/field_wh_per_km" },
@@ -112,6 +116,12 @@
       "oneOf": [
         { "$ref": "common.schema.json#/$defs/unknown" },
         { "type": "array", "minItems": 1, "items": { "allOf": [{ "$ref": "common.schema.json#/$defs/sourcedFact" }, { "type": "object", "properties": { "value": { "enum": ["yes", "no", "via_adapter"] } } }] } }
+      ]
+    },
+    "fact_adapters_included": {
+      "oneOf": [
+        { "$ref": "common.schema.json#/$defs/unknown" },
+        { "type": "array", "minItems": 1, "items": { "allOf": [{ "$ref": "common.schema.json#/$defs/sourcedFact" }, { "type": "object", "properties": { "value": { "enum": ["none", "nacs_to_ccs1", "ccs1_to_nacs"] } } }] } }
       ]
     },
     "fact_heat_pump": {

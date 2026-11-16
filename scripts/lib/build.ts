@@ -50,6 +50,7 @@ export const FIELD_GROUP: Record<string, Group> = {
   preconditioning: 'fact',
   charge_port: 'fact',
   supercharger_access: 'fact',
+  adapters_included: 'fact',
   heat_pump: 'fact',
 };
 

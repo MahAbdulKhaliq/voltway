@@ -4,7 +4,8 @@
 
 import { getJSON, setJSON, KEYS } from './storage.ts';
 
-export interface MyCar { carId: string; trimId: string | null }
+/** `label` is the short name the header chip shows ("IONIQ 5 Long Range AWD"). */
+export interface MyCar { carId: string; trimId: string | null; label?: string }
 export const COMPARE_MAX = 4;
 const ID = /^[a-z0-9-]+\/[a-z0-9-]+\/\d{4}\/[a-z0-9-]+$/;
 
@@ -17,7 +18,9 @@ export function readMyCar(saved: unknown): MyCar | null {
   if (!saved || typeof saved !== 'object') return null;
   const s = saved as Record<string, unknown>;
   if (typeof s.carId !== 'string' || !ID.test(s.carId)) return null;
-  return { carId: s.carId, trimId: typeof s.trimId === 'string' && s.trimId ? s.trimId : null };
+  const out: MyCar = { carId: s.carId, trimId: typeof s.trimId === 'string' && s.trimId ? s.trimId : null };
+  if (typeof s.label === 'string' && s.label) out.label = s.label.slice(0, 80);
+  return out;
 }
 
 export const getMyCar = (): MyCar | null => readMyCar(getJSON<unknown>(KEYS.myCar, null));

@@ -95,6 +95,13 @@ describe('sourced values (vehicle-data-model.md §3)', () => {
     expect(errors.some((e) => e.includes('/range_km/0') && e.includes('unit'))).toBe(true);
   });
 
+  it('accepts adapters_included as unknown or a sourced fact, and rejects odd values (B38)', () => {
+    expect(errorsAfter(VARIANT, (v) => { v.adapters_included = 'unknown'; })).toEqual([]);
+    const sid = (v: any) => v.trims[0].heat_pump[0].source_id;
+    expect(errorsAfter(VARIANT, (v) => { v.adapters_included = [{ value: 'nacs_to_ccs1', kind: 'manufacturer', source_id: sid(v) }]; })).toEqual([]);
+    expect(errorsAfter(VARIANT, (v) => { v.adapters_included = [{ value: 'magic', kind: 'manufacturer', source_id: sid(v) }]; }).some((e) => e.includes('/adapters_included'))).toBe(true);
+  });
+
   it('rejects a categorical fact outside its enum', () => {
     const errors = errorsAfter(VARIANT, (v) => { v.trims[0].heat_pump[0].value = 'maybe'; });
     expect(errors.some((e) => e.includes('/trims/0/heat_pump'))).toBe(true);

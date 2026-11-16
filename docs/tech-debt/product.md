@@ -17,7 +17,7 @@
 
 ### TD-P4 A bad `?trim=` falls back silently
 - **Since:** 2026-11-16, QA re-check. An unmatched car link now shows a notice, but an unmatched trim quietly shows the first trim. An empty `?car=` also ignores the remembered car.
-- **Fix:** reuse the link notice for trims; treat an empty `?car=` as absent.
+- **Fix:** reuse the link notice for trims. *(The empty `?car=` part was fixed in 5.2a.)*
 
 ### TD-P5 NRCan licence wording for charger data
 - **Since:** 2026-11-16, owner decision **B30** (M1). Charger data is used under NLR's terms; NRCan's site terms allow non-commercial reproduction only "as is", and it is unclear whether they cover data reached through the AFDC API.

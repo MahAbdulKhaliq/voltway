@@ -80,7 +80,7 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
   - Files: `src/lib/charging.ts`, `tests/charging.test.ts`
   - Done when: tests pass for a flat curve (time = kWh/kW), a charger cap (lost time > 0), linear interpolation between points, 0%/100% edges, and km per 10 min.
   - Verified 2026-11-15: 18 tests pass, incl. the QA.md hand example (49 kWh, 29.4 min, 58.8 min on 50 kW, ≈83.3 km/10 min), the exact ln 3 integral for a linear curve, partial charger caps, minutes above 100/150/200 kW, start = end, 0→100 %, non-step-aligned windows, unknown consumption, and rejected inputs. Midpoint rule over 0.5 % steps; no loss factor (C9); estimated results rounded to 5 min by `displayMinutes`.
-- [ ] **[1b] 2.2 Template calibration**
+- [ ] **[1b] 2.2 Template calibration** (detailed item in the Phase 1b section at the end)
   - Files: `scripts/calibrate.ts`, planning `charging-curve-viewer.md` §9
   - Done when: the calibration report is shown to the owner, the owner approves the tuned numbers, and they are recorded in §9 and used by `estimated-curve.ts`.
 
@@ -114,12 +114,12 @@ Tick an item only when its **Done when** is verified. Note skipped or stubbed wo
 
 ## Phase 5: Browse + picker
 
-- [ ] **[1b] 5.1 Browse** — `src/pages/cars/index.astro` (now the Cars tab accordions, B11), `src/components/Browse.tsx`. Filters and sorting get added to the Cars tab. Done when: cards/table, all MVP filters and sorts in database-ui.md §4, Canada on by default.
-- [ ] **[1b] 5.2 First-load picker + My car** — Done when: search and step pickers work, "Just browsing" skips, My car persists and drives the header chip and default car.
+- [ ] **[1b] 5.1 Browse** (detailed item in the Phase 1b section at the end) — `src/pages/cars/index.astro` (now the Cars tab accordions, B11), `src/components/Browse.tsx`. Filters and sorting get added to the Cars tab. Done when: cards/table, all MVP filters and sorts in database-ui.md §4, Canada on by default.
+- [ ] **[1b] 5.2 First-load picker + My car** (split into 5.2a/5.2b in the Phase 1b section at the end) — Done when: search and step pickers work, "Just browsing" skips, My car persists and drives the header chip and default car.
 
 ## Phase 6: Compare
 
-- [ ] **[1b] 6.1 Compare screen** — `src/pages/compare.astro`, `src/components/Compare.tsx`. Done when: every item in database-ui.md §6 and charging-curve-viewer.md §6 works.
+- [ ] **[1b] 6.1 Compare screen** (detailed item in the Phase 1b section at the end) — `src/pages/compare.astro`, `src/components/Compare.tsx`. Done when: every item in database-ui.md §6 and charging-curve-viewer.md §6 works.
 
 ## Phase 7: About & polish
 
@@ -186,3 +186,17 @@ Built from [DESIGN-map.md](DESIGN-map.md) (approved 2026-11-16; owner decisions 
 
 - [x] **[2] M10** Run the `qa-reviewer` subagent against `docs/plan/QA.md` Phase 2; fix findings; re-run on fixed items.
   - Verified 2026-11-16. First run: `qa-reviewer` PASS WITH ISSUES (0 blockers, 2 should-fix, 13 minor; `qa-phase2-2026-11-16.md` in the session notes); fixes in PR #57, owner decisions B31–B35 in PR #58, built as M11 (PR #59) and M12 (PR #60). Re-check: `qa-reviewer` PASS WITH ISSUES (0 blockers; 1 should-fix and 5 minor doc/comment leftovers, all fixed in this PR); `map-ui-checker` MU1, MU6–MU10, MU14, MU15, MU18, QA #1 (L2-only 11,956) and QA #6 pass (`map-ui-recheck-2026-11-16.md` in the session notes). Its MU17 run was cut short by a branch switch; MU17 then re-checked by hand (Enter opens the station with focus on its name, the list updates after zoom, hidden at 375 px). Not covered: real geolocation prompt, live run of the new "checks failed with no change" step, the merge path (M5).
+
+---
+
+# Phase 1b build checklist (tag [1b])
+
+Built from [DESIGN-1b.md](DESIGN-1b.md) (approved 2026-11-16; owner decisions B37–B40). One PR per item, self-merged on green CI. Tick an item here and its one-liner above together.
+
+- [ ] **[1b] P0 Plan files + decisions** — `docs/plan/DESIGN-1b.md`, this section, `QA.md` Phase 1b, `gaps-and-questions.md` (B37–B40), `database-ui.md` §2–§4, `charger-map.md` §4, `vehicle-data-model.md`, `docs/tech-debt/product.md` TD-P6, `CLAUDE.md` scope. Done when: the docs PR is merged.
+- [ ] **[1b] 2.2 Template calibration** — `scripts/calibrate.ts` (`npm run calibrate`), `tests/calibrate.test.ts`, `docs/plan/calibration-report.md`; after approval `src/lib/estimated-curve.ts`, `charging-curve-viewer.md` §9, `gaps-and-questions.md`. Done when: tests cover the per-car error and tested-over-published weighting; the report lists every calibration car (template vs reference 10–80 %, error) before and after tuning, per template, with thin groups flagged; **the owner approves the numbers**; `TEMPLATES` uses them, the "uncalibrated" note is gone, §9 records them, and `npm run build` passes.
+- [ ] **[1b] 5.1 Cars tab: browse** — `src/lib/browse.ts` + `tests/browse.test.ts`, `src/components/Browse.tsx`, `src/pages/cars/index.astro`, `src/lib/types.ts` + `scripts/lib/build.ts` (efficiency in the index), `src/lib/storage.ts` (`KEYS.browse`), `src/i18n/en.json`. Done when: tests cover every §4 filter (incl. unknown values failing an active min/max), every sort, search, and saved-state checks; browser: cards by default and a sortable table (`aria-sort`), filter panel (bottom sheet at 375 px), Canada on by default, result count and Clear filters, estimated badges in results, choices survive reload, a card opens `/charging?car=`, no sideways scroll at 375 px, dark mode OK.
+- [ ] **[1b] 5.2a Picker + My car + header chips** — `src/lib/my-car.ts` + tests, `src/components/CarPicker.tsx`, `src/components/CarExplorer.tsx`, `src/components/HeaderChips.tsx`, `src/layouts/Base.astro`, `src/lib/storage.ts`, schema + build for optional `adapters_included` (B38), `src/i18n/en.json`. Done when: tests cover My car / compare-list storage (incl. max 4, bad saved data, storage blocked); browser: `/charging` with no My car and no link shows the picker; search suggests as you type and works by keyboard; step selects reach a variant; trim optional; "Just browsing" goes to `/cars`; picking sets My car and the header chip; reload lands on My car; chip menu changes, opens and forgets; "Set as my car" and "+ Compare" on the Charging tab; Compare (n) chip hidden at 0 and updates live; an empty `?car=` is ignored (TD-P4 part); `adapters_included` validates and shows "Unknown"; works with storage blocked.
+- [ ] **[1b] 5.2b Map: my-car toggle, Tesla notes, cross-links (B28, B31, B37)** — `src/lib/map-filter.ts` + tests, `src/components/{ChargerMap,StationPanel,CurveViewer}.tsx`, `src/i18n/en.json`. Done when: tests cover the car → plugs rule (NACS car, CCS1 car, CCS1 via adapter, `yes` on CCS1, unknown port) and the URL-param reader; browser: the toggle appears only with My car and filters correctly for a NACS car, a CCS1 via-adapter car (Superchargers marked "needs adapter") and a Tesla; Tesla note hidden for a Tesla, adapter wording for a via-adapter car; the "Set my car" prompt shows with no My car and stays dismissed; "Find chargers this fast" opens the map at the matching L3 range and plugs; "How fast would my car charge here?" opens the curve capped at that station's top DC kW without overwriting saved curve settings.
+- [ ] **[1b] 6.1 Compare** — `src/pages/compare.astro`, `src/components/Compare.tsx`, `src/lib/compare.ts` + tests, shared chart code from `CurveViewer.tsx`, `tests/contrast.test.ts` (car colours), `src/i18n/en.json`. Done when: tests cover best value per row with its direction, ties, unknowns, "only differences" and list ops; browser: up to 4 cars from "+ Compare" or `?cars=` (the link reproduces the view), variant selector and remove, one colour per car across header, line and table, overlay with shared SoC window and charger power, sortable results table (km/10 min default), mixed tested/estimated note, spec table with best values as icon + bold, differences toggle, two cars per screen with swipe at 375 px, dark mode OK.
+- [ ] **[1b] 9.2 Independent QA** — run `qa-reviewer` against `QA.md` Phase 1b and `map-ui-checker` on the map changes; fix findings; re-run on fixed items. Done when: both re-checks pass with no blockers.

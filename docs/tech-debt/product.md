@@ -26,7 +26,7 @@
 ### TD-P6 `adapters_included` is not in the vehicle data model
 - **Since:** 2026-11-16, Phase 2 plan (DESIGN-map.md M9).
 - **Impact:** "Chargers my car can use" (Phase 1b, checklist 5.2, B28) needs to know which adapters come with a car (e.g. NACS→CCS1) as well as `charge_port` and `supercharger_access`. Without it, a CCS1 car with a bundled adapter can't be shown Superchargers.
-- **Fix:** with 5.2: add `adapters_included` (sourced values, like every figure) to `vehicle-data-model.md` and the schema, then research it with `fill-data-gaps`.
+- **Fix:** B38 (2026-11-16): 5.2 adds the field to the schema (optional, "Unknown") and the toggle works from `charge_port` + `supercharger_access`. Still to do: research the values with `fill-data-gaps`, then let the toggle use them.
 
 ### TD-P7 Which Superchargers are open to non-Teslas (N9)
 - **Since:** 2026-11-16, Phase 2 plan (DESIGN-map.md M9).

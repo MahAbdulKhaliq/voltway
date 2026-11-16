@@ -7,7 +7,7 @@ import { t, type MessageKey } from '../i18n/t.ts';
 
 export type TemplateId = '400v-nmc' | '800v-nmc' | 'lfp';
 
-const SOC = [0, 10, 30, 50, 70, 80, 90, 100];
+export const TEMPLATE_SOC = [0, 10, 30, 50, 70, 80, 90, 100];
 export const TEMPLATES: Record<TemplateId, number[]> = {
   '400v-nmc': [0.7, 1.0, 1.0, 0.75, 0.55, 0.45, 0.25, 0.08],
   '800v-nmc': [0.75, 1.0, 1.0, 0.95, 0.7, 0.45, 0.15, 0.05],
@@ -39,7 +39,7 @@ export function estimateCurve(input: EstimateInput): CurveOut {
     id: `estimated-${id}`,
     kind: 'estimated',
     source_id: input.sourceId,
-    points: SOC.map((soc, i) => ({ soc_percent: soc, power_kw: Math.round(TEMPLATES[id][i] * peak * 10) / 10 })),
+    points: TEMPLATE_SOC.map((soc, i) => ({ soc_percent: soc, power_kw: Math.round(TEMPLATES[id][i] * peak * 10) / 10 })),
     is_display_default: false,
     basis: [t('curve.template.basis', { template: t(`curve.template.${id}` as MessageKey), peak }), ...caveats, t('curve.template.uncalibrated')].join('; '),
   };

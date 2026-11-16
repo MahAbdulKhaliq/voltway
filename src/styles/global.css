@@ -20,6 +20,10 @@
   --estimated: #6D28D9;
   --estimated-soft: #EDE9FE;
   --unknown: #526175;
+  --car-1: #1D4ED8;
+  --car-2: #C2410C;
+  --car-3: #047857;
+  --car-4: #BE185D;
   --radius: 12px;
   --shadow: 0 1px 2px rgb(15 23 42 / 6%), 0 4px 16px rgb(15 23 42 / 5%);
   --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -45,6 +49,10 @@
     --estimated: #C4B5FD;
     --estimated-soft: #2A1E4A;
     --unknown: #9CA3AF;
+    --car-1: #60A5FA;
+    --car-2: #FB923C;
+    --car-3: #34D399;
+    --car-4: #F472B6;
     --shadow: 0 1px 2px rgb(0 0 0 / 40%);
     color-scheme: dark;
   }
@@ -65,6 +73,10 @@
   --estimated: #C4B5FD;
   --estimated-soft: #2A1E4A;
   --unknown: #9CA3AF;
+  --car-1: #60A5FA;
+  --car-2: #FB923C;
+  --car-3: #34D399;
+  --car-4: #F472B6;
   --shadow: 0 1px 2px rgb(0 0 0 / 40%);
   color-scheme: dark;
 }
@@ -364,6 +376,10 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .chip:hover { background: var(--surface-2); }
 .chip-text { overflow: hidden; text-overflow: ellipsis; max-width: 40vw; }
 .chip-menu { position: relative; min-width: 0; }
+/* Both chips (Compare + My car) must fit beside the logo at 375 px: they shrink, text ellipsised. */
+.chips > .chip, .chips > .chip-menu, .chip-menu > .chip { min-width: 0; flex-shrink: 1; }
+.chips > a.chip[href="/compare"] { flex-shrink: 0; } /* the count stays readable; My car shortens */
+@media (max-width: 420px) { .chips { gap: 6px; } .chip { padding: 4px 9px; } }
 .chip-pop { position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; min-width: 190px; display: grid; padding: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); }
 .chip-pop [role=menuitem] { display: block; padding: 8px 10px; border: 0; border-radius: 6px; background: none; color: var(--text); font: inherit; font-size: 0.9rem; text-align: left; text-decoration: none; cursor: pointer; }
 .chip-pop [role=menuitem]:hover, .chip-pop [role=menuitem]:focus-visible { background: var(--accent-soft); }

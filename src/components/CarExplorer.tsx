@@ -14,6 +14,7 @@ import { display } from '../lib/format.ts';
 import CurveViewer from './CurveViewer.tsx';
 import { carMapInfo, linkPlugs } from '../lib/map-filter.ts';
 import CarPicker from './CarPicker.tsx';
+import { GROUPS } from '../lib/spec-groups.ts';
 import { addToCompare, getCompare, getMyCar, setMyCar, type AddResult, type MyCar } from '../lib/my-car.ts';
 import { Badge, Value, sourceNumber } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
@@ -29,13 +30,6 @@ export function trimLabel(trim: string, variant: string): string {
   const rest = trim.startsWith(variant) ? trim.slice(variant.length).trim().replace(/^\((.*)\)$/, '$1') : '';
   return rest || trim;
 }
-
-const GROUPS: { title: MessageKey; fields: string[] }[] = [
-  { title: 'group.battery', fields: ['capacity_usable_kwh', 'capacity_gross_kwh', 'chemistry', 'nominal_voltage_class', 'preconditioning'] },
-  { title: 'group.charging', fields: ['dc_max_kw', 'ac_max_kw', 'published_10_80_min', 'recharge_time_240v_h'] },
-  { title: 'group.efficiency', fields: ['range_km', 'consumption_combined_wh_per_km', 'consumption_city_wh_per_km', 'consumption_highway_wh_per_km'] },
-  { title: 'group.ports', fields: ['charge_port', 'supercharger_access', 'adapters_included'] },
-];
 
 export default function CarExplorer({ index, wheelEffect }: Props) {
   const cars = useMemo(() => index.filter((e) => e.sold_in_canada), [index]);

@@ -60,7 +60,7 @@ export default function HeaderChips({ showCompare = false }: Props) {
   return (
     <div className="chips">
       {showCompare && count > 0 && (
-        <a className="chip" href="/compare">{t('compare.chip', { count })}</a>
+        <a className="chip" href="/compare"><span className="chip-text">{t('compare.chip', { count })}</span></a>
       )}
       {mine ? (
         <div className="chip-menu" ref={root}>
@@ -76,7 +76,7 @@ export default function HeaderChips({ showCompare = false }: Props) {
           )}
         </div>
       ) : (
-        <a className="chip" href="/charging?pick=1">{t('mycar.none')}</a>
+        <a className="chip" href="/charging?pick=1"><span className="chip-text">{t('mycar.none')}</span></a>
       )}
     </div>
   );

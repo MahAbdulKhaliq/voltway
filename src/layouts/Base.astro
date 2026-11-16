@@ -1,5 +1,5 @@
 ---
-// Page shell: header (Cars + km|mi; Compare, My car, Map and Trip appear as they're built),
+// Page shell: header (logo + hamburger menu of pages, B19; Compare, My car, Map and Trip join the menu as they're built),
 // main content and footer. Distances render in km and are converted in place by the
 // small script below when the visitor picks miles (database-ui.md §9).
 import '../styles/global.css';
@@ -25,14 +25,15 @@ const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
     <header class="site-header">
       <div class="wrap bar">
         <a class="logo" href="/">⚡ {t('site.name')}</a>
-        <nav aria-label={t('nav.main')}>
-          <a href="/charging" aria-current={active === 'charging' ? 'page' : undefined}>{t('nav.charging')}</a>
-          <a href="/cars" aria-current={active === 'cars' ? 'page' : undefined}>{t('nav.cars')}</a>
+        <nav class="menu" aria-label={t('nav.main')}>
+          <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-menu" aria-label={t('nav.menu')} data-open-label={t('nav.close')} data-closed-label={t('nav.menu')}>
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" /></svg>
+          </button>
+          <ul id="site-menu" class="menu-list" hidden>
+            <li><a href="/charging" aria-current={active === 'charging' ? 'page' : undefined}>{t('nav.charging')}</a></li>
+            <li><a href="/cars" aria-current={active === 'cars' ? 'page' : undefined}>{t('nav.cars')}</a></li>
+          </ul>
         </nav>
-        <div class="units" role="group" aria-label={t('units.label')}>
-          <button type="button" data-unit="km" aria-pressed="true">{t('units.km')}</button>
-          <button type="button" data-unit="mi" aria-pressed="false">{t('units.mi')}</button>
-        </div>
       </div>
     </header>
     <main id="main" class="wrap">
@@ -51,9 +52,32 @@ const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
       import { initBadges } from '../scripts/badges-client.ts';
       initBadges();
       applyUnits(currentUnit());
+      // km/mi buttons live in the page now (B19: in the curve controls); any .units button still works.
       document.querySelectorAll<HTMLButtonElement>('.units button').forEach((b) =>
         b.addEventListener('click', () => setUnit(b.dataset.unit === 'mi' ? 'mi' : 'km')),
       );
+
+      // Hamburger menu (B19): opens a list of pages; closes on Escape, outside click or a link.
+      const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
+      const list = document.getElementById('site-menu');
+      if (btn && list) {
+        const setOpen = (open: boolean) => {
+          list.hidden = !open;
+          btn.setAttribute('aria-expanded', String(open));
+          btn.setAttribute('aria-label', (open ? btn.dataset.openLabel : btn.dataset.closedLabel) ?? '');
+        };
+        btn.addEventListener('click', () => {
+          const open = list.hidden !== false; // hidden can also be "until-found"
+          setOpen(open);
+          if (open) list.querySelector<HTMLAnchorElement>('a')?.focus();
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !list.hidden) { setOpen(false); btn.focus(); }
+        });
+        document.addEventListener('click', (e) => {
+          if (!list.hidden && !(e.target as Element).closest('.menu')) setOpen(false);
+        });
+      }
     </script>
   </body>
 </html>
@@ -62,12 +86,19 @@ const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
   .site-header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 20; }
   .bar { display: flex; align-items: center; gap: 20px; min-height: 56px; }
   .logo { font-weight: 700; text-decoration: none; color: var(--text); font-size: 1.1rem; }
-  nav { display: flex; gap: 16px; flex: 1; }
-  nav a { color: var(--text); text-decoration: none; font-weight: 500; }
-  nav a:hover { color: var(--accent); }
-  nav a[aria-current='page'] { color: var(--accent); box-shadow: inset 0 -2px 0 var(--accent); padding-bottom: 2px; }
-  .units { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
-  .units button { border: 0; background: transparent; color: var(--muted); padding: 4px 12px; font: inherit; font-size: 0.875rem; cursor: pointer; }
-  .units button[aria-pressed='true'] { background: var(--accent); color: var(--accent-ink); }
+  .menu { margin-left: auto; position: relative; }
+  .menu-btn {
+    display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+    border: 1px solid var(--border); border-radius: 10px; background: transparent; color: var(--text); cursor: pointer;
+  }
+  .menu-btn:hover, .menu-btn[aria-expanded='true'] { background: var(--surface-2); }
+  .menu-list {
+    position: absolute; right: 0; top: calc(100% + 8px); min-width: 200px; margin: 0; padding: 6px; list-style: none;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow);
+  }
+  .menu-list[hidden] { display: none; }
+  .menu-list a { display: block; padding: 10px 12px; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 500; }
+  .menu-list a:hover { background: var(--surface-2); }
+  .menu-list a[aria-current='page'] { color: var(--accent); background: var(--accent-soft); }
   .site-footer { border-top: 1px solid var(--border); color: var(--muted); padding: 20px 0 32px; font-size: 0.9rem; }
 </style>

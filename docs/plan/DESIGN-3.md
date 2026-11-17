@@ -67,7 +67,7 @@ I explain what an env var and a function are as we go. **No Vercel settings are 
 - ORS 403/429 and timeouts → `503 {error: "busy"}`. No address logging. The key never leaves the server.
 - Tests with a mocked `fetch`: validation, mapping, the busy path, and cache headers.
 
-**3.10 Firewall rule (B44, owner in the dashboard, guided).** One rate-limit rule: path starts with `/api/`, about 30 requests per IP per hour (fixed window), action 429 (or Deny if Hobby forces an upgrade for 429). The client treats 429, 403 and 503 the same way: the busy message.
+**3.10 Firewall rule (B44, owner in the dashboard, guided).** One rate-limit rule: path starts with `/api/`, 30 requests per IP per 10 minutes (fixed window; Hobby caps the window at 600 s; owner set 2026-11-16), action 429 (or Deny if Hobby forces an upgrade for 429). The client treats 429, 403 and 503 the same way: the busy message.
 
 ## Phase 3c: Trip screen
 

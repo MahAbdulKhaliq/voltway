@@ -33,7 +33,7 @@ Phases 1 and 2 are fully static. Routing **can't be**, because it needs a road n
 A static site can't hide an API key. Anyone could copy it and use up the daily allowance. A **Vercel Function** (a tiny piece of server code that deploys with the site) sits in between:
 - **Holds the ORS key** out of sight, in a Vercel **environment variable**.
 - **Caches** repeated routes and searches (the same city pair is often asked for again), using **CDN cache headers** on its responses.
-- **Limits each visitor** to a reasonable number of trips per hour, so one person can't use up the day's allowance (S7). **Decided (B44, 2026-11-16):** one **Vercel firewall rate-limit rule** on `/api/*` (the Hobby plan includes one), about 30 requests per visitor per hour, set up by the owner in the dashboard. When the rule or ORS says no, the page shows "Trip planning is busy, try again later" (S7).
+- **Limits each visitor** to a reasonable number of trips per hour, so one person can't use up the day's allowance (S7). **Decided (B44, 2026-11-16):** one **Vercel firewall rate-limit rule** on `/api/*` (the Hobby plan includes one), 30 requests per visitor per 10 minutes (Hobby caps the window at 10 min; owner set 2026-11-16, to lower if needed), set up by the owner in the dashboard. When the rule or ORS says no, the page shows "Trip planning is busy, try again later" (S7).
 - **Doesn't log** addresses beyond what it needs for the cache.
 
 That's the **first and only server-side piece** in the whole app. It lives in the **same project as the site**, so there's no extra service or account.

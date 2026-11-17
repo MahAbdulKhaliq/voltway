@@ -13,6 +13,8 @@ interface Props {
   onPick: (carId: string, trimId: string | null) => void;
   /** Shown when the visitor came to change an existing My car. */
   onCancel?: () => void;
+  /** Heading level: 1 on its own page (default), 2 when placed inside another page. */
+  level?: 1 | 2;
 }
 
 const MAX_SUGGESTIONS = 8;
@@ -27,7 +29,8 @@ function trimText(trim: string, variant: string): string {
   return rest || trim;
 }
 
-export default function CarPicker({ cars, onPick, onCancel }: Props) {
+export default function CarPicker({ cars, onPick, onCancel, level = 1 }: Props) {
+  const Heading = level === 1 ? "h1" : "h2";
   const id = useId();
   const search = useMemo(() => makeCarSearch(cars), [cars]);
   const byId = useMemo(() => new Map(cars.map((c) => [c.id, c])), [cars]);
@@ -80,7 +83,7 @@ export default function CarPicker({ cars, onPick, onCancel }: Props) {
 
   return (
     <section className="car-picker card" aria-labelledby={`${id}-title`}>
-      <h1 id={`${id}-title`} className="cp-title">{t('picker.title')}</h1>
+      <Heading id={`${id}-title`} className="cp-title">{t('picker.title')}</Heading>
       <p className="muted cp-intro">{t('picker.intro')}</p>
 
       <div className="cp-search">

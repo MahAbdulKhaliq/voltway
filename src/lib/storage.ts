@@ -61,4 +61,5 @@ export const KEYS = {
   compare: 'voltway.compare',
   browse: 'voltway.browse',
   mapCarNudge: 'voltway.mapCarNudge',
+  lastTrip: 'voltway.lastTrip',
 } as const;

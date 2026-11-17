@@ -61,6 +61,8 @@ import type { IndexEntry } from '../lib/types.ts';
 import { createBaseMap } from '../lib/map-base.ts';
 import { openCarPicker } from '../lib/car-label.ts';
 import { sliceRoute } from '../lib/route-geo.ts';
+import { useMapSheet } from './useMapSheet.ts';
+import { SHEET_MEDIA } from '../lib/sheet.ts';
 
 interface SavedView {
   center: [number, number];
@@ -341,7 +343,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const [load, setLoad] = useState<Record<ChargerLevel, Load>>({ 3: 'idle', 2: 'idle' });
   const [plugsOpen, setPlugsOpen] = useState(false);
   const [keyOpen, setKeyOpen] = useState(false);
-  const [panelOpen, setPanelOpen] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 768);
+  // Filters start open on wide screens; phones (upright or sideways, B59) start with the sheet small.
+  const [panelOpen, setPanelOpen] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 768 && !matchMedia(SHEET_MEDIA).matches);
   const [selected, setSelected] = useState<number | null>(null);
   const selectedRef = useRef<number | null>(null);
   const [meta, setMeta] = useState<MapMeta | null>(null);
@@ -457,7 +460,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       if (!hit) setSelected(null);
       else if (hit.layer.id === 'pins') {
         setSelected(hit.properties.i as number);
-        if (window.innerWidth <= 640) {
+        if (matchMedia(SHEET_MEDIA).matches) {
           setPanelOpen(false);
           // Keep the pin visible above the bottom sheet.
           const at = (hit.geometry as Point).coordinates as [number, number];
@@ -548,7 +551,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     const map = mapRef.current;
     setPlace(end);
     setSelected(null);
-    if (window.innerWidth <= 640) setPanelOpen(false);
+    if (sheet.phone) setPanelOpen(false);
     if (!map) return;
     placeRef.current?.remove();
     const dot = document.createElement('div');
@@ -576,6 +579,25 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
 
   const T = useTrip(myCar, load[3] === 'ready' ? stations[3] : null, load[3] === 'error');
   const { plan, routeData } = T;
+  // B59: on phones the panel is a draggable bottom sheet over a full-height map.
+  const sheet = useMapSheet();
+  const { setSnap } = sheet;
+  // The sheet follows what the visitor is doing: browsing peeks, filters and trips open half way.
+  useEffect(() => { setSnap(routeMode ? 'half' : panelOpen ? 'half' : 'peek'); }, [routeMode, panelOpen, setSnap]);
+  useEffect(() => {
+    if (!T.current) return;
+    // Half way, so the route stays in view. A charging-gap warning is a safety message: the sheet
+    // scrolls it up under the handle so it is in view too.
+    setSnap('half');
+    const timer = setTimeout(() => {
+      const panel = sheet.panelRef.current, warn = panel?.querySelector<HTMLElement>('.ti-gap-warn');
+      if (!panel || !warn || !sheet.phone) return;
+      const handle = panel.querySelector<HTMLElement>('.sheet-handle')?.offsetHeight ?? 0;
+      const below = warn.getBoundingClientRect().top - panel.getBoundingClientRect().top - handle;
+      if (below > 0 && warn.getBoundingClientRect().bottom > panel.getBoundingClientRect().bottom) panel.scrollTop += below - 8;
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [T.current, setSnap]); // eslint-disable-line react-hooks/exhaustive-deps
   const enterRoute = useCallback((opts: Parameters<typeof T.start>[0] = {}) => {
     placeRef.current?.remove();
     placeRef.current = null;
@@ -587,6 +609,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   }, [T.start]); // eslint-disable-line react-hooks/exhaustive-deps
   const closeRoute = () => {
     T.stop();
+    // Phones: back to the plain map with the sheet small (route mode had opened the panel).
+    if (sheet.phone) setPanelOpen(false);
     setRouteMode(false);
     setSelected(null);
     clearTripParams();
@@ -638,9 +662,11 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     const map = mapRef.current;
     if (!map || !routeMode || !routeData || !T.current || fittedKey.current === routeData.key) return;
     fittedKey.current = routeData.key;
-    const phone = window.innerWidth <= 640;
+    // Phones (B59): the map runs under the pill (top), the round buttons (right) and the sheet,
+    // which opens half way for a plan (bottom).
+    const phone = sheet.phone;
     map.fitBounds(boundsOf(routeData.route.coords.map((p) => [p[0], p[1]] as [number, number])), {
-      padding: phone ? { top: 120, bottom: 220, left: 30, right: 30 } : { top: 40, bottom: 60, left: 420, right: 60 },
+      padding: phone ? { top: 84, bottom: sheet.heightFor('half') + 24, left: 28, right: 64 } : { top: 40, bottom: 60, left: 420, right: 60 },
       duration: 600,
     });
   }, [routeMode, routeData, T.current]);
@@ -729,10 +755,16 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const plugsOn = PLUGS.filter((p) => filters.plugs[p]).length;
 
   return (
-    <div className="charger-map">
+    <div className="charger-map" ref={sheet.rootRef}>
       <div ref={box} className="map-canvas" role="region" aria-label={t('map.label')} />
 
-      <div className={`map-panel${routeMode ? ' route' : ''}`}>
+      <div className={`map-panel${routeMode ? ' route' : ''}`} ref={sheet.panelRef} style={sheet.panelStyle} {...sheet.panelProps}>
+        {sheet.phone && (
+          <button type="button" className="sheet-handle" {...sheet.handleProps}
+            aria-label={t('map.sheet.handle', { size: t(`map.sheet.${sheet.snap}` as MessageKey) })}>
+            <span aria-hidden="true" />
+          </button>
+        )}
         {routeMode ? (
           <RoutePanel
             trip={T}
@@ -947,10 +979,12 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       )}
       <button type="button" className="map-key-btn" aria-expanded={keyOpen} aria-controls="map-key" onClick={() => setKeyOpen((o) => !o)}>
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" fill="none" />
-          <path d="M12 11v6M12 7.5v.01" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+          <circle cx="5.5" cy="6.5" r="2" fill="currentColor" />
+          <circle cx="5.5" cy="12" r="2" fill="currentColor" />
+          <circle cx="5.5" cy="17.5" r="2" fill="currentColor" />
+          <path d="M10 6.5h10M10 12h10M10 17.5h7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
         </svg>
-        <span>{t('map.key.toggle')}</span>
+        <span className="map-btn-label">{t('map.key.toggle')}</span>
       </button>
       <button type="button" className="map-locate" onClick={() => locateMe()} disabled={locate === 'busy'}>
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
@@ -958,7 +992,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
           <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           <circle cx="12" cy="12" r="7.5" stroke="currentColor" strokeWidth="2" fill="none" />
         </svg>
-        <span>{t('map.locate')}</span>
+        <span className="map-btn-label">{t('map.locate')}</span>
       </button>
       </div>
 

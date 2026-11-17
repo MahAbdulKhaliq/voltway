@@ -419,6 +419,7 @@ Run `npx vitest run`, `npx astro check` and `npm run build` first. Check every i
 | QR27 | B56 locate on load: the map centres on the visitor after the browser's prompt; nothing is asked or shown when permission was refused; a trip link does not locate; a late answer does not move a map the visitor has already moved or a trip they opened; nothing is stored | Real phone (first-time prompt) |
 | QR28 | B57: chargers stay grouped up to zoom 15, so downtown pins don't pile up | Downtown Toronto at zoom 14.5 |
 | QR29 | B58: one car picker (the header dialog); the trip form's prompt opens it; a suggestion selects without closing; "Select car" saves; plug switches shown before saving | Same car re-picked keeps its switches |
+| QR31 | B59: on phones, round icon Map key / Locate me, compact credits, a draggable sheet (peek / half / full, keyboard too), no zoom buttons on touch; the route fits the visible map | 320 px wide; landscape phone; a mouse at 375 px keeps the zoom buttons |
 | QR30 | B58: tags show from zoom 9 in on any group size; Charging with no car shows the first car | "Forget my car" on Charging |
 
 ## Phase 4 results

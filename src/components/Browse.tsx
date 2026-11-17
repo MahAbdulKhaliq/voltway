@@ -270,6 +270,7 @@ export default function Browse({ index }: Props) {
           )}
 
           {state.view === 'table' && results.length > 0 && (
+            <div className="table-scroll" role="region" aria-label={t('browse.tableRegion')} tabIndex={0}>
             <table className="stack-table browse-table">
               <thead>
                 <tr>
@@ -300,6 +301,7 @@ export default function Browse({ index }: Props) {
                 ))}
               </tbody>
             </table>
+            </div>
           )}
         </section>
       </div>

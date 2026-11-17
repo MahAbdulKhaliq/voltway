@@ -24,7 +24,7 @@ import {
   type CarMapInfo,
   type MapFilters,
 } from '../lib/map-filter.ts';
-import { getMyCar, type MyCar } from '../lib/my-car.ts';
+import { getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import {
   isFullRange,
   PLUGS,
@@ -37,9 +37,14 @@ import { BOLT, drawPin, PIN, PLUG, pinId } from '../lib/map-icons.ts';
 import { fastNear, NEAR_PLACE_KM, stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
 import PlaceField, { loadPlaces } from './PlaceField.tsx';
 import type { PlaceSearch, TripEnd } from '../lib/place-search.ts';
-import { tripToPlaceHref } from '../lib/trip-link.ts';
+import { readTripLink } from '../lib/trip-link.ts';
 import StationPanel from './StationPanel.tsx';
+import RoutePanel from './RoutePanel.tsx';
+import { useTrip } from './useTrip.ts';
+import { addTripLayers, boundsOf, setTripOverlay, STOP_LAYERS, type TripOverlay } from '../lib/trip-overlay.ts';
+import type { IndexEntry } from '../lib/types.ts';
 import { createBaseMap } from '../lib/map-base.ts';
+import { sliceRoute } from '../lib/route-geo.ts';
 
 interface SavedView {
   center: [number, number];
@@ -242,7 +247,16 @@ async function loadLevel(level: ChargerLevel): Promise<MapFeature[]> {
   return ((await res.json()) as MapFeatureCollection).features;
 }
 
-export default function ChargerMap() {
+/** Drops the trip parameters (?from, ?to, ?start, ?min) from the address bar. */
+function clearTripParams() {
+  const q = new URLSearchParams(window.location.search);
+  if (!['from', 'to', 'start', 'min'].some((k) => q.has(k))) return;
+  for (const k of ['from', 'to', 'start', 'min']) q.delete(k);
+  const rest = q.toString();
+  history.replaceState(history.state, '', window.location.pathname + (rest ? `?${rest}` : '') + window.location.hash);
+}
+
+export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const box = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const pinsRef = useRef<FeatureCollection>(EMPTY);
@@ -274,6 +288,10 @@ export default function ChargerMap() {
   const [whereKey, setWhereKey] = useState(0);
   const placeRef = useRef<maplibregl.Marker | null>(null);
   const placeCardRef = useRef<HTMLHeadingElement | null>(null);
+  // Route mode (B50, 3.18): the planner on this map.
+  const [routeMode, setRouteMode] = useState(false);
+  const tripOverlayRef = useRef<TripOverlay | null>(null);
+  const stopIdsRef = useRef<number[]>([]);
 
   useEffect(() => {
     const q = new URLSearchParams(window.location.search);
@@ -316,7 +334,10 @@ export default function ChargerMap() {
       container: box.current,
       center: view.center,
       zoom: view.zoom,
-      onStyleLoad: (m) => addOverlay(m, pinsRef.current, selectedRef.current),
+      onStyleLoad: (m) => {
+        addOverlay(m, pinsRef.current, selectedRef.current);
+        addTripLayers(m, tripOverlayRef.current);
+      },
     });
     mapRef.current = map;
     const reportView = () => {
@@ -350,6 +371,12 @@ export default function ChargerMap() {
     });
     // A pin opens its station panel; a click on empty map closes it.
     map.on('click', (e) => {
+      const stopHit = map.getLayer('trip-stops') ? map.queryRenderedFeatures(e.point, { layers: STOP_LAYERS })[0] : undefined;
+      if (stopHit) {
+        const id = stopIdsRef.current[stopHit.properties.i as number];
+        if (id !== undefined) setSelected(id);
+        return;
+      }
       const hit = map.queryRenderedFeatures(e.point, { layers: ['pins', 'clusters'] })[0];
       if (!hit) setSelected(null);
       else if (hit.layer.id === 'pins') {
@@ -362,7 +389,7 @@ export default function ChargerMap() {
         }
       }
     });
-    for (const layer of ['clusters', 'pins']) {
+    for (const layer of ['clusters', 'pins', ...STOP_LAYERS]) {
       map.on('mouseenter', layer, () => (map.getCanvas().style.cursor = 'pointer'));
       map.on('mouseleave', layer, () => (map.getCanvas().style.cursor = ''));
     }
@@ -377,7 +404,7 @@ export default function ChargerMap() {
   useEffect(() => {
     for (const lv of LEVELS) {
       // l3.json also holds every mixed site (Level 3 and Level 2 ports), so the Level 2 view needs it too.
-      const needed = lv === 3 ? filters.levels[3] || filters.levels[2] || place !== null : filters.levels[2];
+      const needed = lv === 3 ? filters.levels[3] || filters.levels[2] || place !== null || routeMode : filters.levels[2];
       if (!needed || load[lv] !== 'idle') continue;
       setLoad((s) => ({ ...s, [lv]: 'loading' }));
       loadLevel(lv).then(
@@ -388,7 +415,7 @@ export default function ChargerMap() {
         () => setLoad((s) => ({ ...s, [lv]: 'error' })),
       );
     }
-  }, [filters.levels, load, place]);
+  }, [filters.levels, load, place, routeMode]);
 
   // Filters → pins → map source; choices are saved.
   // The files never overlap (l3 = any Level 3 port, l2 = Level 2-only), so merging is safe.
@@ -472,6 +499,70 @@ export default function ChargerMap() {
     [place, load, stations, filters, carRule],
   );
 
+  const T = useTrip(myCar, load[3] === 'ready' ? stations[3] : null);
+  const { plan, routeData } = T;
+  const enterRoute = useCallback((opts: Parameters<typeof T.start>[0] = {}) => {
+    placeRef.current?.remove();
+    placeRef.current = null;
+    setPlace(null);
+    setSelected(null);
+    setRouteMode(true);
+    setPanelOpen(true);
+    T.start(opts);
+  }, [T.start]); // eslint-disable-line react-hooks/exhaustive-deps
+  const closeRoute = () => {
+    T.stop();
+    setRouteMode(false);
+    setSelected(null);
+    clearTripParams();
+  };
+  // A trip link (/?from=…&to=…, the share link) opens route mode; both ends plan at once.
+  useEffect(() => {
+    const link = readTripLink(window.location.search);
+    if (link) enterRoute({ link });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // The route on the map: drawn when the plan is for the ends in the form, cleared otherwise.
+  const stopIds = useMemo(() => (plan && T.current ? plan.stops.map((st) => st.station.i) : []), [plan, T.current]);
+  const selectedStop = selected !== null && stopIds.includes(selected) ? stopIds.indexOf(selected) : null;
+  useEffect(() => {
+    stopIdsRef.current = stopIds;
+    const o: TripOverlay | null =
+      routeMode && plan && routeData && T.current && T.trip.from && T.trip.to
+        ? {
+            line: routeData.route.coords.map((p) => [p[0], p[1]] as [number, number]),
+            gaps: plan.gaps.map((g) => sliceRoute(routeData.route, g.fromKm, g.toKm)),
+            from: [T.trip.from.lon, T.trip.from.lat],
+            to: [T.trip.to.lon, T.trip.to.lat],
+            stops: plan.stops.map((st) => st.lonLat),
+            selected: selectedStop,
+          }
+        : null;
+    tripOverlayRef.current = o;
+    const map = mapRef.current;
+    if (map?.isStyleLoaded() || map?.getSource('stations')) setTripOverlay(map, o);
+  }, [routeMode, plan, routeData, T.current, T.trip.from, T.trip.to, selectedStop, stopIds]);
+  // A new route: fit it in the view beside the panel (or above the sheet on phones).
+  const fittedKey = useRef('');
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !routeData || !T.current || fittedKey.current === routeData.key) return;
+    fittedKey.current = routeData.key;
+    const phone = window.innerWidth <= 640;
+    map.fitBounds(boundsOf(routeData.route.coords.map((p) => [p[0], p[1]] as [number, number])), {
+      padding: phone ? { top: 120, bottom: 220, left: 30, right: 30 } : { top: 40, bottom: 60, left: 420, right: 60 },
+      duration: 600,
+    });
+  }, [routeData, T.current]);
+  useEffect(() => { if (!routeMode) fittedKey.current = ''; }, [routeMode]);
+  const openStop = (i: number, button: HTMLButtonElement) => {
+    const st = plan?.stops[i];
+    if (!st) return;
+    listItemRef.current = button;
+    setSelected(st.station.i);
+    mapRef.current?.easeTo({ center: st.lonLat });
+  };
+
   // Locate me: asks the browser only on click; the position is used to centre the map and kept nowhere.
   const locateMe = () => {
     const map = mapRef.current;
@@ -521,7 +612,20 @@ export default function ChargerMap() {
     <div className="charger-map">
       <div ref={box} className="map-canvas" role="region" aria-label={t('map.label')} />
 
-      <div className="map-panel">
+      <div className={`map-panel${routeMode ? ' route' : ''}`}>
+        {routeMode ? (
+          <RoutePanel
+            trip={T}
+            cars={cars}
+            myCar={myCar}
+            onPickCar={(c) => { setMyCar(c); setMyCarState(c); }}
+            search={placeSearch}
+            selectedStop={selectedStop}
+            onOpenStop={openStop}
+            onClose={closeRoute}
+            updated={meta?.updated ?? null}
+          />
+        ) : (<>
         <div className="map-where">
           <PlaceField
             key={whereKey}
@@ -532,6 +636,11 @@ export default function ChargerMap() {
             value={place}
             search={placeSearch}
             onChange={pickPlace}
+            extra={
+              <button type="button" className="btn small map-route-btn" onClick={() => enterRoute()}>
+                {t('route.open')}
+              </button>
+            }
           />
         </div>
         <button
@@ -669,6 +778,7 @@ export default function ChargerMap() {
             </div>
           )}
         </div>
+        </>)}
       </div>
 
       <button type="button" className="map-locate" onClick={locateMe} disabled={locate === 'busy'}>
@@ -716,7 +826,7 @@ export default function ChargerMap() {
                   ? t('map.place.nearOne', { km: NEAR_PLACE_KM })
                   : t('map.place.near', { n: nearCount.toLocaleString('en-CA'), km: NEAR_PLACE_KM })}
           </p>
-          <a className="btn primary" href={tripToPlaceHref(place)}>{t('map.place.route')}</a>
+          <button type="button" className="btn primary" onClick={() => enterRoute({ to: place })}>{t('map.place.route')}</button>
         </section>
       )}
 
@@ -727,6 +837,11 @@ export default function ChargerMap() {
           onClose={closeStation}
           myCar={myCar}
           carInfo={myCar ? carInfo : null}
+          onRouteHere={selectedStop === null ? () => {
+            const p = station.properties;
+            const [lon, lat] = station.geometry.coordinates;
+            enterRoute({ to: { label: p.c && !p.n.includes(p.c) ? `${p.n}, ${p.c}` : p.n, lat, lon } });
+          } : undefined}
         />
       )}
 

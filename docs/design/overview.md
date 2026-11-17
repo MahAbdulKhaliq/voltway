@@ -29,7 +29,7 @@ Details: [vision.md](vision.md) · [competitors.md](competitors.md)
 | **2** | **Charger map** (Level 2/3, Canada-wide) | ✅ Designed |
 | **3** | **Route planner** (simple threshold-based) | ✅ Designed |
 
-Each phase ships on its own. The header gains **Map** and **Trip** as they're built. Details: [roadmap.md](roadmap.md)
+Each phase ships on its own. The header gains **Map** as it's built; the trip planner lives on the map (B50). Details: [roadmap.md](roadmap.md)
 
 ---
 

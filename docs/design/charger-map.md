@@ -134,6 +134,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 | Footer | "Data: NRCan / NLR AFDC · updated [date]" |
 
 ### Finding a place
+- **"Where to?" box (B50 ✅, 2026-11-16):** instant suggestions from the GeoNames place list (B45), "Search full address" on press. Picking a place flies the map there and opens a **place card**: the place name, the number of fast chargers nearby, and **Route here**, which starts the trip planner on this map ([route-planner.md](route-planner.md) §1).
 - **"Locate me":** uses the browser's location, **only when asked**. Nothing is stored. A later pan or zoom saves the view as usual, even near the user's location (B33 ✅, 2026-11-16).
 
 ### Stations in view (B34 ✅, 2026-11-16)

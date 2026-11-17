@@ -109,6 +109,8 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 - Example: a CCS1 car with Supercharger access through an adapter sees CCS1 sites **and** Superchargers, with Superchargers marked "needs adapter".
 - **NACS cars also see J1772 sites (B42, 2026-11-16):** most come with a J1772 → NACS adapter. A note about that adapter in the station panel is *later* (TD-P12).
 
+*Phase 4 (2026-11-17, DESIGN-4 4.9):* the filters open from one "Chargers" control that shows how many filters are on. While this toggle is ticked, the plug boxes for plugs the car can't use are shown unticked and locked, with a one-line note, so the two never disagree.
+
 ### Network
 *Later:* filter by network (Tesla, FLO, Petro-Canada, Electrify Canada, Circuit électrique, ChargePoint…). It's a useful filter but not part of the simple v1 set.
 

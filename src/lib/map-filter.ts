@@ -105,6 +105,26 @@ export function carCanUse(rule: CarPlugRule, plug: Plug, network: string | undef
 /** The car rule in force: only while the toggle is on. */
 const activeRule = (f: MapFilters, car: CarPlugRule | null | undefined) => (f.myCar && car ? car : null);
 
+/** Whether the car can use this plug type anywhere (a Supercharger adapter counts for NACS). The
+ *  plug boxes use it so they never look ticked for a plug "Chargers my car can use" hides. */
+export const carTakesPlug = (rule: CarPlugRule, plug: Plug): boolean =>
+  rule.plugs.includes(plug) || (plug === 'nacs' && rule.superchargerAdapter);
+
+/** How many filters hide chargers compared with the defaults: the car filter, fast chargers
+ *  switched off, a narrowed power range on a ticked level, and any unticked plug the car filter
+ *  doesn't already rule out. Shown beside the "Chargers" control (DESIGN-4 4.9). */
+export function narrowedCount(f: MapFilters, car?: CarPlugRule | null): number {
+  const rule = activeRule(f, car);
+  const d = defaultFilters();
+  let n = rule ? 1 : 0;
+  if (!f.levels[3]) n++;
+  for (const lv of LEVELS) {
+    if (f.levels[lv] && (f.power[lv][0] !== d.power[lv][0] || f.power[lv][1] !== d.power[lv][1])) n++;
+  }
+  if (PLUGS.some((p) => !f.plugs[p] && (!rule || carTakesPlug(rule, p)))) n++;
+  return n;
+}
+
 export function portMatches(
   [level, plug, kw]: MapPort,
   f: MapFilters,

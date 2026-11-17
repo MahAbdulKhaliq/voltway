@@ -18,7 +18,9 @@ import type { MapFeature, MapFeatureCollection, MapMeta } from '../lib/map-data.
 import {
   applyMapLink,
   carMapInfo,
+  carTakesPlug,
   filterStations,
+  narrowedCount,
   LEVELS,
   readFilters,
   type CarMapInfo,
@@ -616,6 +618,9 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const busy = LEVELS.some((lv) => wanted(lv) && load[lv] === 'loading');
   const failed = LEVELS.some((lv) => wanted(lv) && load[lv] === 'error');
   const count = pins.features.length;
+  /** The car filter in force (ticked, and the car's port is known). */
+  const carFilter = filters.myCar && carRule ? carRule : null;
+  const narrowed = narrowedCount(filters, carRule);
   const levelLabel: Record<ChargerLevel, MessageKey> = { 3: 'map.level3', 2: 'map.level2' };
 
   return (
@@ -695,6 +700,9 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
           </svg>
           <span>{t('map.filters')}</span>
+          {narrowed > 0 && (
+            <span className="map-filters-on small">{narrowed === 1 ? t('map.filters.on.one') : t('map.filters.on', { count: narrowed })}</span>
+          )}
         </button>
 
         <div id="map-filters" className="map-filters" hidden={!panelOpen}>
@@ -744,15 +752,28 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
           <fieldset>
             <legend>{t('map.plugs')}</legend>
             <ul className="plugs">
-              {PLUGS.map((p) => (
-                <li key={p}>
-                  <label className="check">
-                    <input type="checkbox" checked={filters.plugs[p]} onChange={() => toggle('plugs', p)} />
-                    <span>{t(`value.${p}` as MessageKey)}</span>
-                  </label>
-                </li>
-              ))}
+              {PLUGS.map((p) => {
+                /* A plug the car filter hides is shown unticked and locked, so the boxes agree with it. */
+                const ruledOut = !!carFilter && !carTakesPlug(carFilter, p);
+                return (
+                  <li key={p}>
+                    <label className={`check${ruledOut ? ' off' : ''}`}>
+                      <input
+                        type="checkbox"
+                        checked={filters.plugs[p] && !ruledOut}
+                        disabled={ruledOut}
+                        aria-describedby={ruledOut ? 'map-plugs-note' : undefined}
+                        onChange={() => toggle('plugs', p)}
+                      />
+                      <span>{t(`value.${p}` as MessageKey)}</span>
+                    </label>
+                  </li>
+                );
+              })}
             </ul>
+            {carFilter && PLUGS.some((p) => !carTakesPlug(carFilter, p)) && (
+              <p id="map-plugs-note" className="small muted plugs-note">{t('map.plugs.carNote')}</p>
+            )}
           </fieldset>
 
           <p className="legend small muted">

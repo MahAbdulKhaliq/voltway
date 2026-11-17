@@ -13,6 +13,12 @@ type Page = 'map' | 'charging' | 'cars' | 'compare' | 'about';
 interface Props { title?: string; description?: string; active?: Page; fill?: boolean }
 const { title, description = t('site.tagline'), active, fill = false } = Astro.props;
 const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
+// Link preview (P.3): what LinkedIn, Slack and messaging apps show for a shared link.
+// Links on the site have no trailing slash (/charging), so the canonical URL doesn't either.
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isNotFound = path === '/404';
+const pageUrl = new URL(path, Astro.site).href;
+const ogImage = new URL('/og.png', Astro.site).href;
 
 // Pages in the menu. Search matches the name, the description and the keywords.
 const PAGES: { id: Page; href: string }[] = [
@@ -33,6 +39,17 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{pageTitle}</title>
+    {!isNotFound && <link rel="canonical" href={pageUrl} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={t('site.name')} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    {!isNotFound && <meta property="og:url" content={pageUrl} />}
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t('site.ogAlt')} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <!-- Apply a saved theme before first paint, so there is no flash of the wrong theme. -->
     <script is:inline>

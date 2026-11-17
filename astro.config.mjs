@@ -9,6 +9,8 @@ import vercel from '@astrojs/vercel';
 // (src/pages/api/*, `prerender = false`), which the Vercel adapter deploys as a Vercel Function so the
 // openrouteservice key stays on the server (route-planner.md §2). Everything else stays static.
 export default defineConfig({
+  // The production address: absolute URLs for the link preview (og:url, og:image; checklist P.3).
+  site: 'https://voltway-ten.vercel.app',
   output: 'static',
   adapter: vercel(),
   integrations: [react()],

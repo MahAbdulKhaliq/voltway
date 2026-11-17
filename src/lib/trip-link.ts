@@ -73,6 +73,12 @@ export function readSavedTrip(saved: unknown): TripQuery | null {
   return { from, to, ...socPair(s.startSoc, s.thresholdSoc) };
 }
 
+/** The saved battery settings (B62: the browser keeps no trip ends, only these). */
+export function readSavedSettings(saved: unknown): { startSoc: number; thresholdSoc: number } {
+  const s = saved && typeof saved === 'object' ? (saved as Record<string, unknown>) : {};
+  return socPair(s.startSoc, s.thresholdSoc);
+}
+
 /** The API's "lon,lat" form, rounded to 3 decimals (~100 m) as the function does, so the CDN cache key is shared. */
 export const apiPoint = (e: TripEnd): string => `${round(e.lon, 3)},${round(e.lat, 3)}`;
 

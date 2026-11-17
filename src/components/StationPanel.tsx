@@ -36,9 +36,11 @@ interface Props {
   carInfo?: CarMapInfo | null;
   /** "Route here" (B50): opens route mode on the same map with this station as To. */
   onRouteHere?: () => void;
+  /** Back to the Stations in view list (B62): shown while that list is switched on. */
+  onBack?: () => void;
 }
 
-export default function StationPanel({ station, updated, onClose, myCar = null, carInfo = null, onRouteHere }: Props) {
+export default function StationPanel({ station, updated, onClose, myCar = null, carInfo = null, onRouteHere, onBack }: Props) {
   const s = station.properties;
   const heading = useRef<HTMLHeadingElement>(null);
   const level = stationLevel(s.p);
@@ -70,14 +72,21 @@ export default function StationPanel({ station, updated, onClose, myCar = null, 
   // Move focus to the new station's name so keyboard and screen-reader users land in the panel.
   useEffect(() => heading.current?.focus(), [s.i]);
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && (onBack ?? onClose)();
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [onClose]);
+  }, [onClose, onBack]);
 
   return (
     <aside className="station-panel" aria-labelledby="station-name">
       <header className="station-head">
+        {onBack && (
+          <button type="button" className="station-close station-back" aria-label={t('map.station.back')} title={t('map.station.back')} onClick={onBack}>
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+          </button>
+        )}
         <div>
           <h2 id="station-name" ref={heading} tabIndex={-1}>
             {s.n}

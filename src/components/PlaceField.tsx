@@ -21,9 +21,11 @@ interface FieldProps {
   /** Keep the label for screen readers only (the "Where to?" box). */
   hideLabel?: boolean;
   autoFocus?: boolean;
+  /** The typed text, on every keystroke (B62: the trip hint shows only for text not picked). */
+  onText?: (text: string) => void;
 }
 
-export default function PlaceField({ label, value, onChange, search, extra, placeholder, hideLabel, autoFocus }: FieldProps) {
+export default function PlaceField({ label, value, onChange, search, extra, placeholder, hideLabel, autoFocus, onText }: FieldProps) {
   const id = useId();
   const [text, setText] = useState(value?.label ?? '');
   const [open, setOpen] = useState(false);
@@ -91,7 +93,7 @@ export default function PlaceField({ label, value, onChange, search, extra, plac
           autoFocus={autoFocus}
           autoComplete="off"
           value={text}
-          onChange={(e) => { setText(e.target.value); setOpen(true); setRemote(null); setRemoteState('idle'); if (value) onChange(null); }}
+          onChange={(e) => { setText(e.target.value); onText?.(e.target.value); setOpen(true); setRemote(null); setRemoteState('idle'); if (value) onChange(null); }}
           onFocus={() => setOpen(true)}
           onBlur={() => setTimeout(() => setOpen(false), 150)}
           onKeyDown={onKey}

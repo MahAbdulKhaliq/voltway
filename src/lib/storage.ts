@@ -62,4 +62,5 @@ export const KEYS = {
   browse: 'voltway.browse',
   mapCarNudge: 'voltway.mapCarNudge',
   lastTrip: 'voltway.lastTrip',
+  recentDestinations: 'voltway.recentDestinations',
 } as const;

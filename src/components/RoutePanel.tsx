@@ -35,6 +35,9 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
   const [sheetOpen, setSheetOpen] = useState(false);
   // Swapping remounts both fields so each shows its new end (a field keeps typed text otherwise).
   const [swaps, setSwaps] = useState(0);
+  // Ends typed but not picked from the suggestions (B62): only then does the "pick from the list" hint show.
+  const [loose, setLoose] = useState({ from: false, to: false });
+  useEffect(() => setLoose({ from: false, to: false }), [swaps]);
   const folded = current && !editing;
   // Opening route mode, folding the form and Edit each replace the control that had focus:
   // focus moves to the panel's heading so keyboard and screen-reader users keep their place (3.20).
@@ -97,6 +100,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
             value={trip.from}
             search={search}
             onChange={(from) => T.setTrip((x) => ({ ...x, from }))}
+            onText={(v) => setLoose((l) => ({ ...l, from: v.trim() !== '' }))}
             extra={
               <button type="button" className="route-locate" onClick={() => T.locate()} disabled={T.locating === 'busy'}
                 aria-label={T.locating === 'busy' ? t('trip.locating') : t('trip.useLocation')} title={t('trip.useLocation')}
@@ -110,7 +114,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
             }
           />
           {T.locating === 'denied' && <p className="small muted" role="status">{t('trip.locationDenied')}</p>}
-          <PlaceField key={`to-${swaps}`} label={t('trip.to')} hideLabel placeholder={t('trip.toPlaceholder')} value={trip.to} search={search} onChange={(to) => T.setTrip((x) => ({ ...x, to }))} />
+          <PlaceField key={`to-${swaps}`} label={t('trip.to')} hideLabel placeholder={t('trip.toPlaceholder')} value={trip.to} search={search} onChange={(to) => T.setTrip((x) => ({ ...x, to }))} onText={(v) => setLoose((l) => ({ ...l, to: v.trim() !== '' }))} />
           </div>
           <button type="button" className="btn route-swap" aria-label={t('route.swap')} title={t('route.swap')} onClick={() => { T.swap(); setSwaps((n) => n + 1); }} disabled={!trip.from && !trip.to}>
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -176,7 +180,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
             </button>
             {current && <button type="button" className="btn" onClick={() => setEditing(false)}>{t('route.showPlan')}</button>}
           </div>
-          {(!trip.from || !trip.to) && <p className="small muted tp-hint">{t('trip.needEnds')}</p>}
+          {((loose.from && !trip.from) || (loose.to && !trip.to)) && <p className="small muted tp-hint">{t('trip.needEnds')}</p>}
         </form>
       )}
 

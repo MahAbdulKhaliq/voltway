@@ -8,7 +8,8 @@ import { t } from '../i18n/t.ts';
 import type { MyCar } from '../lib/my-car.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import type { TripEnd } from '../lib/place-search.ts';
-import { apiPoint, readSavedTrip, SOC_LIMITS, writeTripLink, type TripQuery } from '../lib/trip-link.ts';
+import { apiPoint, readSavedSettings, SOC_LIMITS, writeTripLink, type TripQuery } from '../lib/trip-link.ts';
+import { addRecent, readRecent } from '../lib/recent-destinations.ts';
 import { planCarFrom, type PlanCarResult } from '../lib/trip-car.ts';
 import { planTrip, type TripPlan } from '../lib/trip-plan.ts';
 import { buildRoute, type Route } from '../lib/route-geo.ts';
@@ -91,7 +92,10 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
     const { from, to } = trip;
     if (!from || !to) return;
     setShareUrl('');
-    setJSON(KEYS.lastTrip, trip);
+    // B62: the browser keeps the battery settings and the destination (Previous destinations),
+    // never where the trip started.
+    setJSON(KEYS.lastTrip, { startSoc: trip.startSoc, thresholdSoc: trip.thresholdSoc });
+    setJSON(KEYS.recentDestinations, addRecent(readRecent(getJSON<unknown>(KEYS.recentDestinations, null)), to));
     const key = endsKey(trip);
     if (routeData?.key === key) return; // Same ends: the stops re-plan from the route already here.
     if (inflight.current === key) return; // Already asking for this route.
@@ -138,13 +142,14 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
   }, []);
 
   /**
-   * Opens route mode. A link's ends win (both ends → plan at once); otherwise the last trip fills
-   * the form, with `to` (Route here) replacing its destination. From falls back to the browser
-   * location only when the browser already allows it (B33): nothing is asked without a press.
+   * Opens route mode. A link's ends win (both ends → plan at once); otherwise the form starts with
+   * the saved battery settings and `to` (a searched place or a previous destination). From falls
+   * back to the browser location only when the browser already allows it (B33): nothing is asked
+   * without a press. No start is remembered (B62).
    */
   const start = useCallback((opts: { to?: TripEnd; link?: TripQuery } = {}) => {
-    const saved = readSavedTrip(getJSON<unknown>(KEYS.lastTrip, null));
-    const base = opts.link ? { ...opts.link, from: opts.link.from ?? saved?.from ?? null } : { ...(saved ?? BLANK), ...(opts.to ? { to: opts.to } : {}) };
+    const settings = readSavedSettings(getJSON<unknown>(KEYS.lastTrip, null));
+    const base: TripQuery = opts.link ? opts.link : { ...BLANK, ...settings, to: opts.to ?? null };
     setTrip(base);
     setShareUrl('');
     autoPlan.current = Boolean(opts.link?.from && opts.link?.to);

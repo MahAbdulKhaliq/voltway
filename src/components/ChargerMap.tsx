@@ -52,14 +52,14 @@ import {
 import { fastNear, NEAR_PLACE_KM, stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
 import PlaceField, { loadPlaces } from './PlaceField.tsx';
 import type { PlaceSearch, TripEnd } from '../lib/place-search.ts';
-import { readSavedTrip, readTripLink, stationEnd, type TripQuery } from '../lib/trip-link.ts';
+import { readTripLink, stationEnd } from '../lib/trip-link.ts';
+import { readRecent } from '../lib/recent-destinations.ts';
 import StationPanel from './StationPanel.tsx';
 import RoutePanel from './RoutePanel.tsx';
 import { useTrip } from './useTrip.ts';
 import { addTripLayers, boundsOf, setTripOverlay, STOP_LAYERS, type TripOverlay } from '../lib/trip-overlay.ts';
 import type { IndexEntry } from '../lib/types.ts';
 import { createBaseMap } from '../lib/map-base.ts';
-import { openCarPicker } from '../lib/car-label.ts';
 import { sliceRoute } from '../lib/route-geo.ts';
 import { useMapSheet } from './useMapSheet.ts';
 import { SHEET_MEDIA } from '../lib/sheet.ts';
@@ -362,15 +362,12 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const routeBtnRef = useRef<HTMLButtonElement | null>(null);
   // Route mode (B50, 3.18): the planner on this map.
   const [routeMode, setRouteMode] = useState(false);
-  // The last trip with both ends (DESIGN-4 4.10): offered as a one-tap row on the home card. It is
-  // read from the browser after load and again when route mode closes; no route is asked for
-  // until the visitor taps it.
-  const [lastTrip, setLastTrip] = useState<TripQuery | null>(null);
-  useEffect(() => {
-    if (routeMode) return;
-    const saved = readSavedTrip(getJSON<unknown>(KEYS.lastTrip, null));
-    setLastTrip(saved?.from && saved.to ? saved : null);
-  }, [routeMode]);
+  // Previous destinations (B62): places trips were planned to, from this browser, offered from a
+  // button beside Map key. Read after load and whenever route mode opens or closes.
+  const [recent, setRecent] = useState<TripEnd[]>([]);
+  const [recentOpen, setRecentOpen] = useState(false);
+  useEffect(() => { setRecent(readRecent(getJSON<unknown>(KEYS.recentDestinations, null))); }, [routeMode]);
+  const forgetRecent = () => { setJSON(KEYS.recentDestinations, []); setRecent([]); setRecentOpen(false); };
   const tripOverlayRef = useRef<TripOverlay | null>(null);
   const stopIdsRef = useRef<number[]>([]);
 
@@ -529,10 +526,31 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     else mapRef.current?.getCanvas().focus();
   }, []);
 
+  // Stations in view (B62): the count of stations on screen now is the switch's number, so it is
+  // worked out on every move; the list itself shows only while the switch is on.
   const list = useMemo(
-    () => (listOpen && view ? stationsInView([...stations[3], ...stations[2]], filters, view.bounds, view.center, undefined, carRule) : null),
-    [listOpen, view, stations, filters, carRule],
+    () => (view ? stationsInView([...stations[3], ...stations[2]], filters, view.bounds, view.center, undefined, carRule) : null),
+    [view, stations, filters, carRule],
   );
+  // Back from a station's details to the list, focusing the row it was opened from.
+  const backTo = useRef<number | null>(null);
+  const backToList = useCallback(() => {
+    backTo.current = selectedRef.current;
+    listItemRef.current = null;
+    setSelected(null);
+  }, []);
+  // The details' close button closes the list too.
+  const closeAll = useCallback(() => {
+    setListOpen(false);
+    closeStation();
+  }, [closeStation]);
+  useEffect(() => {
+    if (selected !== null || backTo.current === null) return;
+    const row = document.querySelector<HTMLButtonElement>(`#map-list button[data-i="${backTo.current}"]`);
+    backTo.current = null;
+    if (row) row.focus();
+    else document.querySelector<HTMLButtonElement>('.map-inview-toggle')?.focus();
+  }, [selected]);
   const openFromList = (item: ListItem, el: HTMLButtonElement) => {
     listItemRef.current = el;
     setSelected(item.i);
@@ -753,7 +771,6 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const wanted = (lv: ChargerLevel) => (lv === 3 ? filters.levels[3] || filters.levels[2] : filters.levels[2]);
   const busy = LEVELS.some((lv) => wanted(lv) && load[lv] === 'loading');
   const failed = LEVELS.some((lv) => wanted(lv) && load[lv] === 'error');
-  const count = pins.features.length;
   /** The car filter in force (ticked, and the car's port is known). */
   const narrowed = narrowedCount(filters, carRule);
   const levelLabel: Record<ChargerLevel, MessageKey> = { 3: 'map.level3', 2: 'map.level2' };
@@ -809,26 +826,6 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
                     ? t('map.place.nearOne', { km: NEAR_PLACE_KM })
                     : t('map.place.near', { n: nearCount.toLocaleString('en-CA'), km: NEAR_PLACE_KM })}
             </p>
-          )}
-        </div>
-        <div className="map-car">
-          {myCar && (
-            <button type="button" className="car-tile" onClick={openCarPicker}>
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 13l1.6-4.4A2 2 0 0 1 7.5 7.3h9a2 2 0 0 1 1.9 1.3L20 13M4 13h16v5H4v-5ZM7 18v1.5M17 18v1.5M7.5 15.5h.01M16.5 15.5h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              </svg>
-              <span className="car-tile-text"><span className="muted">{t('car.tile.label')}</span> <strong>{myCar.label ?? cars.find((c) => c.id === myCar.carId)?.name ?? myCar.carId}</strong></span>
-              <span className="car-tile-change small">{t('car.tile.change')}</span>
-            </button>
-          )}
-          {lastTrip && (
-            <button type="button" className="car-tile last-trip" onClick={() => enterRoute({ link: lastTrip })}>
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 12a8 8 0 1 0 2.6-5.9M4 5v4h4M12 8v4l3 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              </svg>
-              <span className="car-tile-text"><span className="muted">{t('trip.last.label')}</span> <strong>{t('trip.last.ends', { from: lastTrip.from!.label, to: lastTrip.to!.label })}</strong></span>
-              <span className="car-tile-change small">{t('trip.last.plan')}</span>
-            </button>
           )}
         </div>
         <button
@@ -907,60 +904,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             ? t('map.dataError')
             : busy
               ? filters.levels[2] && load[2] === 'loading' ? t('map.loadingL2') : t('map.loadingStations')
-              : count === 1 ? t('map.count.one') : t('map.count', { count: count.toLocaleString('en-CA') })}
+              : null}
         </p>
-
-        <div className="map-list-wrap">
-          <button
-            type="button"
-            className="map-list-toggle"
-            aria-expanded={listOpen}
-            aria-controls="map-list"
-            onClick={() => setListOpen((o) => !o)}
-          >
-            {t('map.list.toggle')}
-          </button>
-          {listOpen && list && (
-            <div id="map-list" className="map-list">
-              {list.total === 0 ? (
-                <p className="small muted">{t('map.list.none')}</p>
-              ) : (
-                <>
-                  {list.total > list.items.length && (
-                    <p className="small muted">
-                      {t('map.list.more', {
-                        shown: list.items.length,
-                        total: list.total.toLocaleString('en-CA'),
-                      })}
-                    </p>
-                  )}
-                  <ul aria-label={t('map.list.label')}>
-                    {list.items.map((it) => (
-                      <li key={it.i}>
-                        <button
-                          type="button"
-                          aria-current={selected === it.i ? 'true' : undefined}
-                          onClick={(e) => openFromList(it, e.currentTarget)}
-                        >
-                          <span className="map-list-name">{it.name}</span>
-                          <span className="small muted">
-                            {[
-                              t(levelLabel[it.level]),
-                              it.maxKw == null ? t('map.station.unknownPower') : t('map.list.upTo', { kw: kwText(it.maxKw) }),
-                              it.city,
-                            ]
-                              .filter(Boolean)
-                              .join(' · ')}
-                          </span>
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-            </div>
-          )}
-        </div>
         </>)}
       </div>
 
@@ -969,6 +914,22 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         <p className="map-locate-msg small" role={locate === 'busy' ? 'status' : 'alert'}>
           {t(locateMsg[locate]!)}
         </p>
+      )}
+      {recentOpen && recent.length > 0 && (
+        <section id="map-recent" className="map-key map-recent" aria-labelledby="map-recent-title">
+          <h2 id="map-recent-title" className="map-key-title">{t('map.recent.title')}</h2>
+          <ul>
+            {recent.map((d) => (
+              <li key={`${d.label}-${d.lat}`}>
+                <button type="button" className="map-recent-item" aria-label={t('map.recent.plan', { place: d.label })} onClick={() => { setRecentOpen(false); enterRoute({ to: d }); }}>
+                  <span className="map-recent-name">{d.label}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" /></svg>
+                </button>
+              </li>
+            ))}
+          </ul>
+          <button type="button" className="link-btn small map-recent-forget" onClick={forgetRecent}>{t('map.recent.forget')}</button>
+        </section>
       )}
       {keyOpen && (
         <section id="map-key" className="map-key" aria-labelledby="map-key-title" tabIndex={0}>
@@ -994,7 +955,15 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
           <p className="small muted map-key-note">{t('map.key.tagsNote')} {t('map.key.trip')}</p>
         </section>
       )}
-      <button type="button" className="map-key-btn" aria-expanded={keyOpen} aria-controls="map-key" onClick={() => setKeyOpen((o) => !o)}>
+      {recent.length > 0 && !routeMode && (
+        <button type="button" className="map-key-btn" aria-expanded={recentOpen} aria-controls="map-recent" onClick={() => { setKeyOpen(false); setRecentOpen((o) => !o); }}>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 12a8 8 0 1 0 2.6-5.9M4 5v4h4M12 8v4l3 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          </svg>
+          <span className="map-btn-label">{t('map.recent.toggle')}</span>
+        </button>
+      )}
+      <button type="button" className="map-key-btn" aria-expanded={keyOpen} aria-controls="map-key" onClick={() => { setRecentOpen(false); setKeyOpen((o) => !o); }}>
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="5.5" cy="6.5" r="2" fill="currentColor" />
           <circle cx="5.5" cy="12" r="2" fill="currentColor" />
@@ -1014,11 +983,58 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       </div>
 
 
+      {!routeMode && !station && (
+        <section className={`map-inview${listOpen ? ' open' : ''}`} aria-label={t('map.list.toggle')}>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={listOpen}
+            aria-controls="map-list"
+            className="map-inview-toggle"
+            onClick={() => setListOpen((o) => !o)}
+          >
+            <span className="map-inview-name">{t('map.list.toggle')}</span>
+            <span className="map-inview-count">{busy || !list ? '…' : list.total.toLocaleString('en-CA')}</span>
+            <span className="map-switch" aria-hidden="true"><span /></span>
+          </button>
+          {listOpen && list && (
+            <div id="map-list" className="map-list">
+              {list.total === 0 ? (
+                <p className="small muted">{t('map.list.none')}</p>
+              ) : (
+                <>
+                  <ul aria-label={t('map.list.label')}>
+                    {list.items.map((it) => (
+                      <li key={it.i}>
+                        <button type="button" data-i={it.i} onClick={(e) => openFromList(it, e.currentTarget)}>
+                          <span className="map-list-name">{it.name}</span>
+                          <span className="small muted">
+                            {[
+                              t(levelLabel[it.level]),
+                              it.maxKw == null ? t('map.station.unknownPower') : t('map.list.upTo', { kw: kwText(it.maxKw) }),
+                              it.city,
+                            ]
+                              .filter(Boolean)
+                              .join(' · ')}
+                          </span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                  {list.total > list.items.length && <p className="small muted map-list-note">{t('map.list.nearest', { shown: list.items.length })}</p>}
+                </>
+              )}
+            </div>
+          )}
+        </section>
+      )}
+
       {station && (
         <StationPanel
           station={station}
           updated={meta?.updated ?? null}
-          onClose={closeStation}
+          onClose={listOpen ? closeAll : closeStation}
+          onBack={listOpen ? backToList : undefined}
           myCar={myCar}
           carInfo={myCar && carInfo ? { ...carInfo, rule: carRule } : null}
           onRouteHere={selectedStop === null ? () => enterRoute({ to: stationEnd(station) }) : undefined}

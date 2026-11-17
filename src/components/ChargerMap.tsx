@@ -481,6 +481,11 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     placeRef.current = new maplibregl.Marker({ element: dot, anchor: 'bottom' }).setLngLat([end.lon, end.lat]).addTo(map);
     map.flyTo({ center: [end.lon, end.lat], zoom: Math.max(Math.min(map.getZoom(), 12), 10) });
   };
+  // A picked place moves focus to its card: the phone keyboard closes so "Route here" is visible,
+  // and keyboard and screen-reader users hear the place and its charger count next.
+  useEffect(() => {
+    if (place) placeCardRef.current?.focus({ preventScroll: true });
+  }, [place]);
   const closePlace = useCallback(() => {
     placeRef.current?.remove();
     placeRef.current = null;

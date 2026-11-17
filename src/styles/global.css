@@ -254,6 +254,24 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .map-list-name { font-weight: 600; font-size: 0.9rem; }
 @media (max-width: 640px) { .map-list-wrap { display: none; } }
 
+/* "Where to?" (B50, 3.17): the box tops the map panel; a picked place gets a pin and a card. */
+.map-where { padding: 8px 8px 4px; }
+.map-where .tp-field { gap: 0; }
+.map-where .field-input { width: 100%; }
+.map-where .cp-suggest { top: 100%; }
+.map-place { position: absolute; left: 304px; bottom: 40px; z-index: 3; /* beside the 280 px panel */ width: 280px; display: grid; gap: 8px; padding: 12px 14px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.map-place p { margin: 0; }
+.map-place .btn { justify-self: start; text-decoration: none; }
+.map-place-head { display: flex; align-items: flex-start; gap: 8px; }
+.map-place-head h2 { flex: 1; margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
+.map-place-head h2:focus { outline: none; }
+.map-place-close { flex: none; display: grid; place-items: center; width: 32px; height: 32px; margin: -6px -8px 0 0; background: none; border: 0; border-radius: var(--radius); color: inherit; cursor: pointer; }
+.map-place-close:focus-visible { outline: 2px solid var(--accent); }
+.map-place-pin { width: 22px; height: 30px; background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 30'%3E%3Cpath d='M11 1C5.5 1 1 5.4 1 10.9 1 18.3 11 29 11 29s10-10.7 10-18.1C21 5.4 16.5 1 11 1z' fill='%231D4ED8' stroke='%23FFFFFF' stroke-width='2'/%3E%3Ccircle cx='11' cy='11' r='4' fill='%23FFFFFF'/%3E%3C/svg%3E"); pointer-events: none; }
+@media (max-width: 640px) {
+  .map-place { left: 0; right: 0; bottom: 0; width: auto; border-radius: 14px 14px 0 0; border-bottom: 0; padding-bottom: 16px; }
+}
+
 /* Locate me: bottom left on desktop, above the attribution. */
 .map-locate { position: absolute; left: 12px; bottom: 40px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; min-height: 40px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); font: inherit; font-weight: 600; cursor: pointer; }
 .map-locate:disabled { cursor: progress; opacity: 0.8; }

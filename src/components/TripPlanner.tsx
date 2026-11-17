@@ -2,14 +2,15 @@
 // the car (My car), start % and threshold, then one /api/route call; the stops are planned here
 // in the browser (trip-plan.ts), so changing the car re-plans the same route with no new request.
 
-import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import CarPicker from './CarPicker.tsx';
+import PlaceField, { loadPlaces } from './PlaceField.tsx';
 import TripResults, { stopsText } from './TripResults.tsx';
 import { carMapInfo } from '../lib/map-filter.ts';
 import { getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
-import { makePlaceSearch, type PlaceRow, type PlaceSearch, type TripEnd } from '../lib/place-search.ts';
+import type { PlaceSearch } from '../lib/place-search.ts';
 import { apiPoint, readSavedTrip, readTripLink, SOC_LIMITS, writeTripLink, type TripQuery } from '../lib/trip-link.ts';
 import { planCarFrom, type PlanCarResult } from '../lib/trip-car.ts';
 import { planTrip, type TripPlan } from '../lib/trip-plan.ts';
@@ -26,123 +27,9 @@ type Status = 'idle' | 'planning' | 'done' | 'badRequest' | 'noRoute' | 'busy' |
 interface RouteData { route: Route; durationMin: number; body: RouteBody; key: string }
 
 // ---- Shared, lazily loaded data (one fetch per visit).
-let placesPromise: Promise<PlaceSearch> | null = null;
-const loadPlaces = () =>
-  (placesPromise ??= fetch('/data/places.json').then((r) => (r.ok ? r.json() : Promise.reject(r.status))).then((rows: PlaceRow[]) => makePlaceSearch(rows)));
 let stationsPromise: Promise<MapFeatureCollection> | null = null;
 const loadStations = () =>
   (stationsPromise ??= fetch(`${MAP.dataUrl}/l3.json`).then((r) => (r.ok ? r.json() : Promise.reject(r.status))));
-
-
-// ---- One From/To field: instant suggestions from the place list, and the address service on press.
-
-interface FieldProps {
-  label: string;
-  value: TripEnd | null;
-  onChange: (end: TripEnd | null) => void;
-  search: PlaceSearch | null;
-  extra?: React.ReactNode;
-}
-
-function PlaceField({ label, value, onChange, search, extra }: FieldProps) {
-  const id = useId();
-  const [text, setText] = useState(value?.label ?? '');
-  const [open, setOpen] = useState(false);
-  const [active, setActive] = useState(-1);
-  const [remote, setRemote] = useState<TripEnd[] | null>(null);
-  const [remoteState, setRemoteState] = useState<'idle' | 'loading' | 'none' | 'busy' | 'offline'>('idle');
-
-  // Show a picked end's label; clearing the pick (while typing) leaves the typed text alone.
-  useEffect(() => { if (value) setText(value.label); }, [value]);
-  const local = useMemo(() => (search && open ? search(text) : []), [search, text, open]);
-  const options = remote ?? local;
-  useEffect(() => setActive(-1), [text, remote]);
-
-  const pick = (end: TripEnd) => {
-    onChange(end);
-    setText(end.label);
-    setOpen(false);
-    setRemote(null);
-    setRemoteState('idle');
-  };
-  const searchAddress = async () => {
-    const q = text.trim();
-    if (q.length < 3) return;
-    setOpen(true);
-    setRemoteState('loading');
-    try {
-      const r = await fetch(`/api/geocode?q=${encodeURIComponent(q)}`);
-      if (!r.ok) throw new Error(String(r.status));
-      const { places } = (await r.json()) as { places: { label: string; lat: number; lon: number }[] };
-      setRemote(places);
-      setRemoteState(places.length ? 'idle' : 'none');
-    } catch {
-      setRemote([]);
-      setRemoteState(navigator.onLine === false ? 'offline' : 'busy');
-    }
-  };
-  const listId = `${id}-list`;
-  const optId = (i: number) => `${id}-opt-${i}`;
-  const showList = open && text.trim() !== '' && (value?.label !== text || remote !== null);
-  const onKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Escape') { setOpen(false); setRemote(null); return; }
-    if (!showList || !options.length) {
-      if (e.key === 'Enter') { e.preventDefault(); searchAddress(); }
-      return;
-    }
-    if (e.key === 'ArrowDown') { e.preventDefault(); setActive((a) => (a + 1) % options.length); }
-    else if (e.key === 'ArrowUp') { e.preventDefault(); setActive((a) => (a <= 0 ? options.length - 1 : a - 1)); }
-    else if (e.key === 'Enter') { e.preventDefault(); pick(options[Math.max(0, active)]); }
-  };
-
-  return (
-    <div className="tp-field">
-      <label htmlFor={`${id}-in`} className="tp-label">{label}</label>
-      <div className="tp-input-row">
-        <input
-          id={`${id}-in`}
-          type="search"
-          className="field-input"
-          role="combobox"
-          aria-expanded={showList}
-          aria-controls={listId}
-          aria-autocomplete="list"
-          aria-activedescendant={showList && active >= 0 ? optId(active) : undefined}
-          placeholder={t('trip.placePlaceholder')}
-          autoComplete="off"
-          value={text}
-          onChange={(e) => { setText(e.target.value); setOpen(true); setRemote(null); setRemoteState('idle'); if (value) onChange(null); }}
-          onFocus={() => setOpen(true)}
-          onBlur={() => setTimeout(() => setOpen(false), 150)}
-          onKeyDown={onKey}
-        />
-        {extra}
-      </div>
-      {showList && (
-        <ul id={listId} role="listbox" className="cp-suggest" aria-label={t('trip.suggestions', { field: label })}>
-          {options.map((o, i) => (
-            <li key={`${o.label}-${i}`} id={optId(i)} role="option" aria-selected={i === active} className={i === active ? 'on' : undefined}
-              onMouseDown={(e) => e.preventDefault()} onClick={() => pick(o)}>
-              {o.label}
-            </li>
-          ))}
-          {remoteState === 'loading' && <li role="presentation" className="muted cp-none">{t('trip.addressSearching')}</li>}
-          {remoteState === 'none' && <li role="presentation" className="muted cp-none">{t('trip.addressNone')}</li>}
-          {remoteState === 'busy' && <li role="presentation" className="muted cp-none">{t('trip.busy')}</li>}
-          {remoteState === 'offline' && <li role="presentation" className="muted cp-none">{t('trip.addressOffline')}</li>}
-          {remote === null && (
-            <li role="presentation" className="tp-address">
-              <button type="button" className="btn small" onMouseDown={(e) => e.preventDefault()} onClick={searchAddress} disabled={text.trim().length < 3}>
-                {t('trip.searchAddress')}
-              </button>
-              {!options.length && <span className="muted small"> {t('trip.noPlace')}</span>}
-            </li>
-          )}
-        </ul>
-      )}
-    </div>
-  );
-}
 
 // ---- The page.
 

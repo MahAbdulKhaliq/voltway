@@ -10,7 +10,7 @@ A one-page summary of the whole design (as of 2026-11-15). Each section links to
 
 | | |
 |-|-|
-| **Pitch** | **Accuracy of vehicle data.** Every figure shows its source. The map and routing stay deliberately simple. |
+| **Pitch** | **A simple, free trip planner and charger map (the lead since B52, 2026-11-16), built on accurate vehicle data.** Every figure shows its source. The map and routing stay deliberately simple. |
 | **Market** | Canada first (North America later). **Branding is market-neutral (B12, 2026-11-16):** the product aims to go worldwide; the current data covers Canada and the site says so openly. |
 | **Users** | Shoppers, owners and enthusiasts, served by **one interface in three layers**: headline → full specs → sources |
 | **Platform** | Website. **No accounts.** Choices are saved in the browser. |

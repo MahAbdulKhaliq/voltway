@@ -1,11 +1,12 @@
 // The base map shared by the charger map and the trip map (DESIGN-3 3.12): OpenFreeMap style per
-// theme, the map credits (B30), zoom buttons, no rotation, and a style swap when the theme changes.
+// theme, recoloured to Voltway's Road Paint look before it draws (DESIGN-4, map-style.ts), the map credits (B30), zoom buttons, no rotation, and a style swap when the theme changes.
 // A style swap drops every added source and layer, so callers add theirs back in `onStyleLoad`.
 
 import maplibregl from 'maplibre-gl';
 import { MAP } from '../config.ts';
 import { t } from '../i18n/t.ts';
 import { currentTheme, type Theme } from '../scripts/theme-client.ts';
+import { MAP_PALETTE, roadPaintStyle } from './map-style.ts';
 
 export const styleFor = (theme: Theme): string => (theme === 'dark' ? MAP.darkStyleUrl : MAP.styleUrl);
 
@@ -29,7 +30,8 @@ export function createBaseMap({ container, center, zoom, bounds, onStyleLoad }: 
   let theme = currentTheme();
   const map = new maplibregl.Map({
     container,
-    style: styleFor(theme),
+    // Starts as bare land in the theme colour; the real style follows once it is fetched and recoloured.
+    style: { version: 8, sources: {}, layers: [{ id: 'land', type: 'background', paint: { 'background-color': MAP_PALETTE[theme].land } }] },
     ...(bounds ? { bounds, fitBoundsOptions: { padding: 40 } } : { center: center ?? MAP.defaultView.center, zoom: zoom ?? MAP.defaultView.zoom }),
     // B30: the charger data credit (DOE/NLR, NRCan) sits on the map itself, linking to About.
     attributionControl: {
@@ -39,6 +41,17 @@ export function createBaseMap({ container, center, zoom, bounds, onStyleLoad }: 
     dragRotate: false,
     pitchWithRotate: false,
   });
+// The hosted style is fetched, recoloured, then committed: the map never shows the stock colours.
+  let disposed = false;
+  const applyStyle = () => {
+    const wanted = theme;
+    fetch(styleFor(wanted))
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(String(res.status)))))
+      .then((style) => { if (!disposed && wanted === theme) map.setStyle(roadPaintStyle(style, wanted), { diff: false }); })
+      // If the style can't be fetched here, let the map try the address itself and report its own error.
+      .catch(() => { if (!disposed && wanted === theme) map.setStyle(styleFor(wanted), { diff: false }); });
+  };
+  applyStyle();
   map.touchZoomRotate.disableRotation();
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
   map.on('style.load', () => onStyleLoad(map));
@@ -51,7 +64,7 @@ export function createBaseMap({ container, center, zoom, bounds, onStyleLoad }: 
     const next = currentTheme();
     if (next !== theme) {
       theme = next;
-      map.setStyle(styleFor(theme));
+      applyStyle();
     }
   };
   window.addEventListener('voltway:theme', onTheme);
@@ -61,6 +74,7 @@ export function createBaseMap({ container, center, zoom, bounds, onStyleLoad }: 
   return {
     map,
     dispose: () => {
+      disposed = true;
       window.removeEventListener('voltway:theme', onTheme);
       mq.removeEventListener('change', onTheme);
       map.remove();

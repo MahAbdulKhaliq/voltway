@@ -26,6 +26,8 @@ Phase 2 of [roadmap.md](roadmap.md). A simple map of public Level 2 and Level 3 
 | **Fallback tiles** | **Protomaps PMTiles** extract of Canada, stored on **Cloudflare R2** | A single static file, no server. R2's free tier (10 GB storage, free egress) should fit a Canada extract, though the exact size isn't confirmed. | A paid tier from a tile provider, if ever needed |
 | **Attribution** | "© OpenStreetMap contributors" + tile provider + charger data sources | Required by the licenses | n/a |
 
+**Look (B53, 2026-11-17):** the map uses Voltway's own colours, "Road Paint": asphalt charcoal land in dark, pale concrete in light, with stronger roads and place names at regional zoom. The tiles, fonts and layer list still come from OpenFreeMap's hosted styles; the site fetches the style and recolours every layer before the map draws it (`src/lib/map-style.ts`). A layer no rule knows keeps its own colour, and if the style can't be recoloured the map falls back to the hosted style as it is. The attribution is unchanged.
+
 **Caveat:** OpenFreeMap is offered as-is, with no uptime guarantee, and is funded by donations. Using **MapLibre** keeps the switch to the Protomaps fallback a configuration change, not a rewrite.
 
 **What this means for "Canada vs. Ontario only":** map tiles **don't force Ontario-only**. Both options are free for all of Canada. **Phase 2 covers all of Canada.** Routing (Phase 3) is the remaining cost question.

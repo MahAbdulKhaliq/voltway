@@ -58,6 +58,7 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
         if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
       } catch (e) {}
     </script>
+    <slot name="head" />
   </head>
   <body class={fill ? "fill-page" : undefined}>
     <a class="skip" href="#main">{t('site.skip')}</a>

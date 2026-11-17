@@ -34,7 +34,10 @@ import {
   type PowerRange,
 } from '../lib/power-bands.ts';
 import { BOLT, drawPin, PIN, PLUG, pinId } from '../lib/map-icons.ts';
-import { stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
+import { fastNear, NEAR_PLACE_KM, stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
+import PlaceField, { loadPlaces } from './PlaceField.tsx';
+import type { PlaceSearch, TripEnd } from '../lib/place-search.ts';
+import { tripToPlaceHref } from '../lib/trip-link.ts';
 import StationPanel from './StationPanel.tsx';
 import { createBaseMap } from '../lib/map-base.ts';
 
@@ -265,6 +268,12 @@ export default function ChargerMap() {
   const [view, setView] = useState<{ bounds: Bounds; center: [number, number] } | null>(null);
   const [listOpen, setListOpen] = useState(false);
   const listItemRef = useRef<HTMLButtonElement | null>(null);
+  // "Where to?" (B50, 3.17): a picked place flies the map there and opens its place card.
+  const [placeSearch, setPlaceSearch] = useState<PlaceSearch | null>(null);
+  const [place, setPlace] = useState<TripEnd | null>(null);
+  const [whereKey, setWhereKey] = useState(0);
+  const placeRef = useRef<maplibregl.Marker | null>(null);
+  const placeCardRef = useRef<HTMLHeadingElement | null>(null);
 
   useEffect(() => {
     const q = new URLSearchParams(window.location.search);
@@ -273,6 +282,9 @@ export default function ChargerMap() {
     q.delete('plugs');
     const rest = q.toString();
     history.replaceState(history.state, '', window.location.pathname + (rest ? `?${rest}` : '') + window.location.hash);
+  }, []);
+  useEffect(() => {
+    loadPlaces().then((s) => setPlaceSearch(() => s)).catch(() => setPlaceSearch(null)); // a function: wrap it, or React calls it as an updater
   }, []);
   useEffect(() => {
     const on = (e: Event) => setMyCarState((e as CustomEvent<MyCar | null>).detail ?? null);
@@ -365,7 +377,7 @@ export default function ChargerMap() {
   useEffect(() => {
     for (const lv of LEVELS) {
       // l3.json also holds every mixed site (Level 3 and Level 2 ports), so the Level 2 view needs it too.
-      const needed = lv === 3 ? filters.levels[3] || filters.levels[2] : filters.levels[2];
+      const needed = lv === 3 ? filters.levels[3] || filters.levels[2] || place !== null : filters.levels[2];
       if (!needed || load[lv] !== 'idle') continue;
       setLoad((s) => ({ ...s, [lv]: 'loading' }));
       loadLevel(lv).then(
@@ -376,7 +388,7 @@ export default function ChargerMap() {
         () => setLoad((s) => ({ ...s, [lv]: 'error' })),
       );
     }
-  }, [filters.levels, load]);
+  }, [filters.levels, load, place]);
 
   // Filters → pins → map source; choices are saved.
   // The files never overlap (l3 = any Level 3 port, l2 = Level 2-only), so merging is safe.
@@ -426,6 +438,39 @@ export default function ChargerMap() {
       .then((r) => (r.ok ? (r.json() as Promise<MapMeta>) : null))
       .then(setMeta, () => setMeta(null));
   }, []);
+
+  const pickPlace = (end: TripEnd | null) => {
+    if (!end) return; // typing clears the pick; the card stays until a new place is picked or it is closed
+    const map = mapRef.current;
+    setPlace(end);
+    setSelected(null);
+    if (window.innerWidth <= 640) setPanelOpen(false);
+    if (!map) return;
+    placeRef.current?.remove();
+    const dot = document.createElement('div');
+    dot.className = 'map-place-pin';
+    dot.setAttribute('role', 'img');
+    dot.setAttribute('aria-label', end.label);
+    placeRef.current = new maplibregl.Marker({ element: dot, anchor: 'bottom' }).setLngLat([end.lon, end.lat]).addTo(map);
+    map.flyTo({ center: [end.lon, end.lat], zoom: Math.max(Math.min(map.getZoom(), 12), 10) });
+  };
+  const closePlace = useCallback(() => {
+    placeRef.current?.remove();
+    placeRef.current = null;
+    setPlace(null);
+    setWhereKey((k) => k + 1); // a fresh, empty box
+  }, []);
+  // Escape closes the place card (unless something else, like an open suggestion list, used it).
+  useEffect(() => {
+    if (!place) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && !e.defaultPrevented && selected === null) closePlace(); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [place, selected, closePlace]);
+  const nearCount = useMemo(
+    () => (place && load[3] === 'ready' ? fastNear(stations[3], filters, [place.lon, place.lat], NEAR_PLACE_KM, carRule) : null),
+    [place, load, stations, filters, carRule],
+  );
 
   // Locate me: asks the browser only on click; the position is used to centre the map and kept nowhere.
   const locateMe = () => {
@@ -477,6 +522,18 @@ export default function ChargerMap() {
       <div ref={box} className="map-canvas" role="region" aria-label={t('map.label')} />
 
       <div className="map-panel">
+        <div className="map-where">
+          <PlaceField
+            key={whereKey}
+            label={t('map.where.label')}
+            placeholder={t('map.where.placeholder')}
+            hideLabel
+            autoFocus={whereKey > 0}
+            value={place}
+            search={placeSearch}
+            onChange={pickPlace}
+          />
+        </div>
         <button
           type="button"
           className="map-panel-toggle"
@@ -638,6 +695,29 @@ export default function ChargerMap() {
             </svg>
           </button>
         </div>
+      )}
+
+      {place && (
+        <section className="map-place" aria-labelledby="map-place-name">
+          <div className="map-place-head">
+            <h2 id="map-place-name" ref={placeCardRef} tabIndex={-1}>{place.label}</h2>
+            <button type="button" className="map-place-close" aria-label={t('map.place.close', { place: place.label })} onClick={closePlace}>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
+          <p className="small" role="status">
+            {nearCount === null
+              ? t('map.place.counting')
+              : nearCount === 0
+                ? t('map.place.nearNone', { km: NEAR_PLACE_KM })
+                : nearCount === 1
+                  ? t('map.place.nearOne', { km: NEAR_PLACE_KM })
+                  : t('map.place.near', { n: nearCount.toLocaleString('en-CA'), km: NEAR_PLACE_KM })}
+          </p>
+          <a className="btn primary" href={tripToPlaceHref(place)}>{t('map.place.route')}</a>
+        </section>
       )}
 
       {station && (

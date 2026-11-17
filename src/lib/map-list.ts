@@ -5,6 +5,7 @@
 import type { ChargerLevel } from './power-bands.ts';
 import { matchLevel, portMatches, type CarPlugRule, type MapFilters } from './map-filter.ts';
 import type { MapFeature } from './map-data.ts';
+import { haversineKm } from './route-geo.ts';
 
 export const LIST_CAP = 50;
 
@@ -62,4 +63,23 @@ export function stationsInView(
   }
   hits.sort((a, b) => a.d - b.d || a.item.i - b.item.i);
   return { items: hits.slice(0, cap).map((h) => h.item), total: hits.length };
+}
+
+/** "N fast chargers within 25 km" for the "Where to?" place card (B50, 3.17): stations with a Level 3
+ *  port matching the current filters (power, plugs, my car), whatever the Level 3 checkbox says. */
+export const NEAR_PLACE_KM = 25;
+export function fastNear(
+  features: readonly MapFeature[],
+  f: MapFilters,
+  at: readonly [number, number],
+  km = NEAR_PLACE_KM,
+  car?: CarPlugRule | null,
+): number {
+  const l3: MapFilters = { ...f, levels: { ...f.levels, 3: true, 2: false } };
+  let n = 0;
+  for (const feat of features) {
+    if (haversineKm(feat.geometry.coordinates as [number, number], at as [number, number]) > km) continue;
+    if (matchLevel(feat.properties.p, l3, car, feat.properties.nw) === 3) n++;
+  }
+  return n;
 }

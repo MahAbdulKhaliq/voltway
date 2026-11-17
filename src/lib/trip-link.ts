@@ -85,10 +85,13 @@ export function linkWindowFrom(params: URLSearchParams): { start: number; end: n
   return s >= 0 && e <= 100 && s < e ? { start: s, end: e } : null;
 }
 
+/** A link that opens the planner with only To filled in ("Route here" on a place card, 3.17). */
+export const tripToPlaceHref = (to: TripEnd): string => `/trip?${new URLSearchParams({ to: writeEnd(to) }).toString()}`;
+
 /** "Plan a trip to here" from a charger (3.13): To = the station, labelled with its name and city. */
 export function tripToHref(station: { geometry: { coordinates: [number, number] }; properties: { n: string; c?: string } }): string {
   const [lon, lat] = station.geometry.coordinates;
   const { n, c } = station.properties;
   const label = c && !n.includes(c) ? `${n}, ${c}` : n;
-  return `/trip?${new URLSearchParams({ to: writeEnd({ label, lat, lon }) }).toString()}`;
+  return tripToPlaceHref({ label, lat, lon });
 }

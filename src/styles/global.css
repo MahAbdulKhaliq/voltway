@@ -419,6 +419,22 @@ main.fill { flex: 1; min-height: 0; position: relative; }
   .trip-map { position: sticky; top: 12px; height: calc(100vh - 120px); }
   .trip-itinerary { max-height: calc(100vh - 120px); overflow-y: auto; }
 }
+.ti-toggle { display: none; }
+.tp-hint { margin: 0; }
+/* Phones: the map fills the screen and the itinerary is a bottom sheet under it (3.14). Closed, the
+   sheet sits below the map (the map credits stay visible); open, it slides over the map and scrolls.
+   It steps aside while a station panel (itself a bottom sheet) is open. */
+@media (max-width: 640px) {
+  .trip-results { position: relative; display: flex; flex-direction: column; gap: 0; height: calc(100svh - 64px); min-height: 480px; }
+  .trip-map { flex: 1 1 auto; min-height: 0; height: auto; border-radius: var(--radius) var(--radius) 0 0; }
+  .trip-itinerary { flex: 0 0 auto; border-radius: 0 0 var(--radius) var(--radius); border-top: 0; }
+  .trip-itinerary .ti-body { display: none; }
+  .trip-itinerary.open { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; max-height: 85%; overflow-y: auto; border-radius: 14px 14px var(--radius) var(--radius); border-top: 1px solid var(--border); box-shadow: var(--shadow); }
+  .trip-itinerary.open .ti-body { display: block; }
+  .trip-itinerary.behind { display: none; }
+  .ti-toggle { display: inline-block; margin-top: 4px; }
+  .trip-itinerary.open .ti-top { position: sticky; top: 0; z-index: 1; background: var(--surface); margin: -20px -20px 0; padding: 16px 20px 8px; border-bottom: 1px solid var(--border); }
+}
 .ti-title { font-size: 1.1rem; margin: 0 0 6px; }
 .ti-total { font-weight: 600; margin: 0; }
 .ti-total-time { margin: 2px 0 10px; }

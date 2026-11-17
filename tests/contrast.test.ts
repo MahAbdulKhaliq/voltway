@@ -22,7 +22,7 @@ const PAIRS: [string, string, number][] = [
   ['accent', 'bg', 4.5], ['accent', 'surface', 4.5], ['accent', 'surface-2', 4.5], ['accent', 'accent-soft', 4.5],
   ['accent-ink', 'accent', 4.5],
   // Road Paint: the label on a filled yellow button; the stop bar and the painted line on a panel.
-  ['paint-ink', 'paint', 4.5], ['paint-edge', 'surface', 3], ['paint-edge', 'bg', 3], ['paint-edge', 'surface-2', 3], ['mark', 'surface', 3], ['mark', 'bg', 3],
+  ['paint-ink', 'paint', 4.5], ['paint', 'band', 3], ['band', 'bg', 1], ['paint-edge', 'surface', 3], ['paint-edge', 'bg', 3], ['paint-edge', 'surface-2', 3], ['mark', 'surface', 3], ['mark', 'bg', 3],
   ['warn', 'surface', 4.5], ['warn', 'bg', 4.5], ['warn', 'warn-soft', 4.5], ['text', 'warn-soft', 4.5],
   ['estimated', 'surface', 4.5], ['estimated', 'estimated-soft', 4.5], ['text', 'estimated-soft', 4.5],
   ['unknown', 'surface', 4.5], ['unknown', 'surface-2', 4.5],

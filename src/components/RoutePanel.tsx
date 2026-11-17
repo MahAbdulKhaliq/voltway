@@ -181,7 +181,6 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
           from={trip.from}
           to={trip.to}
           unit={T.unit}
-          myCar={myCar}
           selected={selectedStop}
           onOpenStop={onOpenStop}
           open={sheetOpen}

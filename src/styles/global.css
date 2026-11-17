@@ -22,6 +22,7 @@
   --accent-soft: #FFF1A8;
   --paint: #FFD400;
   --paint-ink: #1A1B1E;
+  --band: #2B2C30;
   --paint-edge: #1A1B1E;
   --mark: #1A1B1E;
   --warn: #9A3F00;
@@ -55,6 +56,7 @@
     --accent-soft: #3A3310;
     --paint: #FFD400;
     --paint-ink: #1A1B1E;
+    --band: #2B2C30;
     --paint-edge: #FFD400;
     --mark: #F5F3EC;
     --warn: #FF7A1A;
@@ -83,6 +85,7 @@
   --accent-soft: #3A3310;
   --paint: #FFD400;
   --paint-ink: #1A1B1E;
+  --band: #2B2C30;
   --paint-edge: #FFD400;
   --mark: #F5F3EC;
   --warn: #FF7A1A;
@@ -496,29 +499,34 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .tp-hint { margin: 0; }
 .linklike { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
 .ti-toggle { display: none; }
-.ti-title { font-size: 1.1rem; margin: 0 0 6px; }
-.ti-total { font-weight: 600; margin: 0; }
-.ti-total-time { margin: 2px 0 10px; }
-.route-itinerary .banner { margin: 8px 0; }
-.ti-list { list-style: none; margin: 12px 0 0; padding: 0; }
-.ti-list > li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; }
-.ti-list > li > div { padding: 0 0 14px 12px; margin-left: -24px; padding-left: 26px; border-left: 2px solid var(--border); }
-.ti-list > li:last-child > div { border-left-color: transparent; }
+/* Trip result (DESIGN-4 4.8): total time first, then the stops along the painted line. */
+.ti-time { margin: 0; font-size: 2rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.ti-total { font-weight: 600; margin: 4px 0 10px; font-variant-numeric: tabular-nums; }
+.ti-disclaimer { margin: 8px 0 0; }
+.route-itinerary .banner { margin: 8px 0; overflow-wrap: anywhere; }
+.ti-list { list-style: none; margin: 14px 0 0; padding: 0; }
+.ti-list > li { position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; }
+.ti-list > li > div { padding: 0 0 10px; }
 .ti-list p { margin: 0 0 2px; }
+/* The painted line: centre-line yellow on a dark road band, from each mark down to the next.
+   Along a charging gap the yellow is dashed and the band is edged in the warning colour. */
+.ti-list > li:not(:last-child)::before { content: ""; position: absolute; left: 9px; top: 6px; bottom: -6px; width: 10px; border-radius: 2px;
+  background: linear-gradient(to right, var(--band) 0 3px, var(--paint) 3px 7px, var(--band) 7px 10px); }
+.ti-list > li.ti-gap:not(:last-child)::before { background: repeating-linear-gradient(to bottom, var(--paint) 0 9px, transparent 9px 17px) center / 4px 100% no-repeat, var(--band); box-shadow: -2px 0 0 var(--warn), 2px 0 0 var(--warn); }
 .ti-head { overflow-wrap: anywhere; }
-.ti-mark { position: relative; z-index: 1; width: 28px; height: 28px; border-radius: 50%; border: 3px solid var(--surface); box-sizing: border-box; }
-/* Start is a solid mark, the destination a hollow one; a stop is the same mark with its number. */
+.ti-mark { position: relative; z-index: 1; justify-self: center; width: 20px; height: 20px; margin-top: 2px; border-radius: 50%; border: 3px solid var(--surface); box-sizing: content-box; }
+/* Start is a solid mark, the destination a hollow one; a stop is a numbered plate, like its pin on the map. */
 .ti-start .ti-mark { background: var(--mark); }
-.ti-finish .ti-mark { background: var(--surface); box-shadow: inset 0 0 0 3px var(--mark); }
-.ti-num { display: grid; place-items: center; background: var(--mark); color: var(--surface); font-weight: 700; font-size: 0.85rem; border-width: 0; }
-.ti-stop.on .ti-num { outline: 3px solid var(--text); outline-offset: 1px; }
-.ti-soc { font-weight: 600; }
-.ti-leg { color: var(--muted); font-size: 0.875rem; margin-top: 8px !important; padding: 4px 0; }
-/* A leg with no charger the car can use: said in words, with the connector dashed like the map's gap. */
-.ti-leg-gap { color: var(--warn); font-weight: 600; margin: 0 0 4px !important; }
-.ti-list > li.ti-gap > div { border-left: 2px dashed var(--warn); }
-.route-itinerary .banner { overflow-wrap: anywhere; }
-.ti-note {border-left: 3px solid var(--estimated); padding-left: 8px; margin: 4px 0 !important; }
-.ti-links { list-style: none; padding: 0; margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
-.ti-foot { border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px; }
-.ti-foot p { margin: 0 0 6px; }
+.ti-finish .ti-mark { background: var(--surface); box-shadow: inset 0 0 0 4px var(--mark); }
+.ti-num { display: grid; place-items: center; background: var(--mark); color: var(--surface); font-weight: 700; font-size: 0.8rem; font-variant-numeric: tabular-nums; width: 24px; height: 20px; border-radius: 5px; }
+.ti-stop.on .ti-num { outline: 3px solid var(--accent); outline-offset: 1px; }
+.ti-soc { font-weight: 600; font-variant-numeric: tabular-nums; }
+.ti-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 0 0 !important; }
+.ti-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; line-height: 1.5; padding: 0 6px; border: 1px solid var(--field-border); border-radius: 4px; white-space: nowrap; }
+.ti-leg { color: var(--muted); font-size: 0.875rem; margin-top: 6px !important; font-variant-numeric: tabular-nums; }
+/* A leg with no charger the car can use: said in words beside the dashed line. */
+.ti-leg-gap { color: var(--warn); font-weight: 600; }
+.ti-notes { list-style: none; margin: 4px 0 0; padding: 10px 0 0; border-top: 1px solid var(--border); display: grid; gap: 6px; }
+.ti-how { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.ti-how summary { cursor: pointer; font-weight: 600; min-height: 24px; }
+.ti-how p { margin: 6px 0 0; }

@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { TRIP } from '../src/config.ts';
 import type { MapFeature, MapPort, MapStationProps } from '../src/lib/map-data.ts';
 import { carPlugs } from '../src/lib/map-filter.ts';
 import { buildRoute, type LonLat } from '../src/lib/route-geo.ts';
@@ -165,7 +166,7 @@ describe('planTrip: estimates, elevation, settings', () => {
   it('flags the uncalibrated highway factor and estimated car inputs', () => {
     const c = car();
     const p = planTrip({ route: routeOf(100), durationMin: 60, car: { ...c, energy: { ...c.energy, whPerKmBasis: 'rated', massEstimated: true } }, stations: [] });
-    expect(p.uncalibratedFactor).toBe(true);
+    expect(p.uncalibratedFactor).toBe(!TRIP.highwayCalibrated);
     expect(p.carEstimated).toBe(true);
   });
 

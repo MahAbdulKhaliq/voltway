@@ -383,3 +383,25 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .chip-pop { position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; min-width: 190px; display: grid; padding: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); }
 .chip-pop [role=menuitem] { display: block; padding: 8px 10px; border: 0; border-radius: 6px; background: none; color: var(--text); font: inherit; font-size: 0.9rem; text-align: left; text-decoration: none; cursor: pointer; }
 .chip-pop [role=menuitem]:hover, .chip-pop [role=menuitem]:focus-visible { background: var(--accent-soft); }
+
+/* ---- Trip planner (/trip) */
+.tp { display: grid; gap: 16px; }
+.tp-form { display: grid; gap: 12px; max-width: 640px; }
+.tp-field { position: relative; display: grid; gap: 4px; }
+.tp-label { font-size: 0.875rem; font-weight: 600; }
+.tp-input-row { display: flex; gap: 8px; align-items: center; }
+.tp-input-row .field-input { flex: 1; min-width: 0; }
+.tp-field .cp-suggest { top: 100%; }
+.tp-address { padding: 6px 8px; }
+.tp-car { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tp-car-name { flex: 1; min-width: 0; }
+.tp-pcts { display: flex; flex-wrap: wrap; gap: 12px; }
+.tp-pcts label { display: grid; gap: 4px; }
+.tp-pcts .field-input { width: 7rem; }
+.tp-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.tp-error { font-weight: 600; margin: 0; }
+.tp-share { margin: 0; display: grid; gap: 4px; }
+.tp-share .field-input { width: 100%; }
+.tp-result { max-width: 640px; }
+.tp-total { font-weight: 600; margin: 0 0 8px; }
+.tp-stops { margin: 0; padding-left: 1.4em; display: grid; gap: 6px; }

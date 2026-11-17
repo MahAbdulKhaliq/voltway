@@ -33,6 +33,7 @@ The owner's vision for the app, as described in their own words, plus decisions 
 ## Project goals (P5, P6) ✅
 
 - **Always non-commercial.** No ads, payments or paid tiers.
+- **A personal tool and portfolio piece (P5, 2026-11-16):** publicly reachable, shown through the owner's portfolio and perhaps a LinkedIn post, but not launched or advertised more widely. Polish goes where a visitor or reviewer looks first; no work for scale beyond the free tiers.
 - **A learning project:** the owner wants it to teach them something new. Tools are chosen partly for that (Vercel, Astro, serverless functions, web maps). See [phase1-stack.md](phase1-stack.md) §7.
 
 ---

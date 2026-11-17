@@ -18,7 +18,7 @@ import type { MapFeature, MapFeatureCollection, MapMeta } from '../lib/map-data.
 import {
   applyMapLink,
   carMapInfo,
-  carTakesPlug,
+  myCarRule,
   filterStations,
   narrowedCount,
   LEVELS,
@@ -30,12 +30,25 @@ import { getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import {
   isFullRange,
   PLUGS,
+  type Plug,
   POWER_STOPS,
   rangeWords,
   type ChargerLevel,
   type PowerRange,
 } from '../lib/power-bands.ts';
-import { BOLT, drawPin, MAP_MARK, PIN, PLUG, pinId } from '../lib/map-icons.ts';
+import {
+  BOLT,
+  CLUSTER_PROPERTIES,
+  clusterImage,
+  drawMark,
+  MAP_MARK,
+  parseMarkName,
+  pinImage,
+  PIN,
+  PLUG,
+  PLUG_SHAPES,
+  TESLA_T,
+} from '../lib/map-icons.ts';
 import { fastNear, NEAR_PLACE_KM, stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
 import PlaceField, { loadPlaces } from './PlaceField.tsx';
 import type { PlaceSearch, TripEnd } from '../lib/place-search.ts';
@@ -71,27 +84,39 @@ const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 /** Filter for the ring under the selected pin (-1 matches nothing). */
 const selectedFilter = (id: number | null) => ['==', ['get', 'i'], id ?? -1] as maplibregl.FilterSpecification;
 
-/** Adds pin images, the clustered source and its layers. Safe to call after every style load. */
-function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: number | null) {
-  for (const lv of LEVELS) {
-    for (const t of [false, true]) {
-      const id = pinId(lv, t);
-      if (!map.hasImage(id)) map.addImage(id, drawPin(lv, t), { pixelRatio: 2 });
-    }
-  }
+/** Draws a pin or cluster mark the first time the map asks for it (names from map-icons.ts). */
+function addMissingMark(map: maplibregl.Map, id: string) {
+  const spec = parseMarkName(id);
+  if (!spec) return;
+  // MapLibre may already hold a 1×1 placeholder under this name; replace it.
+  const existing = map.getImage(id);
+  if (existing && existing.data.width > 1) return;
+  if (existing) map.removeImage(id);
+  map.addImage(id, drawMark(spec).image, { pixelRatio: 2 });
+}
+
+/** Adds the clustered source and its layers. Safe to call after every style load; the marks are
+ *  drawn on demand (styleimagemissing), so a theme change redraws them too. */
+function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: number | null, trip: boolean) {
   if (map.getSource('stations')) return;
-  map.addSource('stations', { type: 'geojson', data, cluster: true, clusterRadius: 48, clusterMaxZoom: 13 });
+  map.addSource('stations', {
+    type: 'geojson',
+    data,
+    cluster: true,
+    clusterRadius: 48,
+    clusterMaxZoom: 13,
+    clusterProperties: CLUSTER_PROPERTIES as Record<string, unknown>,
+  } as maplibregl.GeoJSONSourceSpecification);
+  // Clusters (B54): a disc split into its Level 2 and Level 3 parts, with speed and plug tags.
   map.addLayer({
     id: 'clusters',
-    type: 'circle',
+    type: 'symbol',
     source: 'stations',
     filter: ['has', 'point_count'],
-    paint: {
-      'circle-color': MAP_MARK.cluster,
-      'circle-opacity': 0.88,
-      'circle-stroke-color': MAP_MARK.clusterRing,
-      'circle-stroke-width': 2,
-      'circle-radius': ['step', ['get', 'point_count'], 14, 25, 18, 100, 22, 500, 27],
+    layout: {
+      'icon-image': clusterImage(trip) as maplibregl.ExpressionSpecification,
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
     },
   });
   map.addLayer({
@@ -126,12 +151,7 @@ function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: numb
     source: 'stations',
     filter: ['!', ['has', 'point_count']],
     layout: {
-      'icon-image': [
-        'concat',
-        'pin-l',
-        ['to-string', ['get', 'lv']],
-        ['case', ['has', 't'], '-t', ''],
-      ],
+      'icon-image': pinImage(trip) as maplibregl.ExpressionSpecification,
       'icon-allow-overlap': true,
       'icon-ignore-placement': true,
       // Level 3 on top of Level 2 where they overlap.
@@ -140,13 +160,16 @@ function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: numb
   });
 }
 
-function PinIcon({ level, unavailable = false }: { level: ChargerLevel; unavailable?: boolean }) {
+function PinIcon({ level, unavailable = false, tesla = false }: { level: ChargerLevel; unavailable?: boolean; tesla?: boolean }) {
+  const fill = unavailable ? PIN.unavailable : tesla && level === 3 ? PIN.tesla : PIN.fill[level];
   return (
     <svg width="22" height="22" viewBox="0 0 28 28" aria-hidden="true">
       <circle cx="14" cy="14" r="13" fill={PIN.ring} />
-      <circle cx="14" cy="14" r="11" fill={unavailable ? PIN.unavailable : PIN.fill[level]} />
+      <circle cx="14" cy="14" r="11" fill={fill} />
       <g transform="translate(6 6) scale(0.6667)">
-        {level === 3 ? (
+        {tesla ? (
+          <path d={TESLA_T} fill={level === 3 ? PIN.teslaGlyph : PIN.tesla} />
+        ) : level === 3 ? (
           <path d={BOLT} fill={PIN.glyph} />
         ) : (
           <path d={PLUG} fill="none" stroke={PIN.glyph} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
@@ -154,11 +177,50 @@ function PinIcon({ level, unavailable = false }: { level: ChargerLevel; unavaila
       </g>
       {unavailable && (
         <g>
-          <circle cx="22" cy="6" r="5.5" fill={PIN.badge} stroke={PIN.ring} strokeWidth="1.5" />
-          <rect x="21.25" y="3" width="1.5" height="4" fill={PIN.badgeMark} />
-          <rect x="21.25" y="8" width="1.5" height="1.5" fill={PIN.badgeMark} />
+          <circle cx="22" cy="22" r="5.5" fill={PIN.badge} stroke={PIN.ring} strokeWidth="1.5" />
+          <rect x="21.25" y="19" width="1.5" height="4" fill={PIN.badgeMark} />
+          <rect x="21.25" y="24" width="1.5" height="1.5" fill={PIN.badgeMark} />
         </g>
       )}
+    </svg>
+  );
+}
+
+/** A plug's face as a small line drawing (B54), in the text colour. */
+function PlugIcon({ plug, size = 18 }: { plug: Plug; size?: number }) {
+  const s = PLUG_SHAPES[plug];
+  return (
+    <svg className="plug-icon" width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+      <path d={s.outline} fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+      {s.dots.map(([cx, cy, r], i) => <circle key={i} cx={cx} cy={cy} r={r} fill="currentColor" />)}
+    </svg>
+  );
+}
+
+/** A group as the map draws it (B55): dark centre with a count, the ring split into a yellow
+ *  Level 3 arc and a white Level 2 arc (here half and half), for the key. */
+function ClusterIcon() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 28 28" aria-hidden="true">
+      <circle cx="14" cy="14" r="13.5" fill={MAP_MARK.clusterRing} />
+      <path d="M14.6 2.5A11 11 0 0 1 14.6 25.5" fill="none" stroke={PIN.fill[3]} strokeWidth="4" />
+      <path d="M13.4 25.5A11 11 0 0 1 13.4 2.5" fill="none" stroke={PIN.fill[2]} strokeWidth="4" />
+      <text x="14" y="18" textAnchor="middle" fontSize="10" fontWeight="700" fill={MAP_MARK.clusterText}>8</text>
+    </svg>
+  );
+}
+
+/** One to three packed bolts on a dark tag, as on the map. */
+function SpeedIcon({ tier }: { tier: number }) {
+  const w = 7 + (tier - 1) * 4.2 + 4;
+  return (
+    <svg width={w * 1.6} height={14 * 1.6} viewBox={`0 0 ${w} 14`} aria-hidden="true">
+      <rect width={w} height="14" rx="4" fill={MAP_MARK.tag} stroke={MAP_MARK.tagEdge} strokeWidth="0.6" />
+      {Array.from({ length: tier }, (_, i) => (
+        <g key={i} transform={`translate(${2 + i * 4.2} 2) scale(${7 / 12} ${10 / 18}) translate(-6 -3)`}>
+          <path d={BOLT} fill={MAP_MARK.tagBolt} stroke={MAP_MARK.tag} strokeWidth="2.2" strokeLinejoin="round" />
+        </g>
+      ))}
     </svg>
   );
 }
@@ -267,7 +329,9 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   // Saved filters, then a "Find chargers this fast" link (B31) on top; the params are stripped below.
   const [filters, setFilters] = useState<MapFilters>(() => {
     const saved = readFilters(getJSON<unknown>(KEYS.mapFilters, null));
-    return (typeof window !== 'undefined' && applyMapLink(window.location.search, saved)) || saved;
+    // B55: the map's "Chargers my car can use" box is gone; My car's plug toggles drive trips instead.
+    const f = (typeof window !== 'undefined' && applyMapLink(window.location.search, saved)) || saved;
+    return { ...f, myCar: false };
   });
   // My car (B28): its plug rule for "Chargers my car can use", read from its car file.
   const [myCar, setMyCarState] = useState<MyCar | null>(() => getMyCar());
@@ -275,6 +339,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const [pickingCar, setPickingCar] = useState(false);
   const [stations, setStations] = useState<Record<ChargerLevel, MapFeature[]>>({ 3: [], 2: [] });
   const [load, setLoad] = useState<Record<ChargerLevel, Load>>({ 3: 'idle', 2: 'idle' });
+  const [plugsOpen, setPlugsOpen] = useState(false);
+  const [keyOpen, setKeyOpen] = useState(false);
   const [panelOpen, setPanelOpen] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 768);
   const [selected, setSelected] = useState<number | null>(null);
   const selectedRef = useRef<number | null>(null);
@@ -332,7 +398,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       live = false;
     };
   }, [myCar]);
-  const carRule = myCar ? carInfo?.rule ?? null : null;
+  /** My car's plug rule (B55): its toggles, or its own plug. Used by the station panel. */
+  const carRule = myCar ? myCarRule(carInfo, myCar.plugs) : null;
 
   // The map itself, once.
   useEffect(() => {
@@ -343,11 +410,12 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       center: view.center,
       zoom: view.zoom,
       onStyleLoad: (m) => {
-        addOverlay(m, pinsRef.current, selectedRef.current);
+        addOverlay(m, pinsRef.current, selectedRef.current, tripOverlayRef.current !== null);
         addTripLayers(m, tripOverlayRef.current);
       },
     });
     mapRef.current = map;
+    map.on('styleimagemissing', (e) => addMissingMark(map, e.id));
     const reportView = () => {
       const b = map.getBounds();
       const c = map.getCenter();
@@ -585,7 +653,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     mapRef.current?.easeTo({ center: st.lonLat });
   };
 
-  // Locate me: asks the browser only on click; the position is used to centre the map and kept nowhere.
+  // Locate me: on load (B56) and on click; the position is used to centre the map and kept nowhere.
   const locateMe = () => {
     const map = mapRef.current;
     if (!map) return;
@@ -608,6 +676,20 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 },
     );
   };
+  // B56 (owner, 2026-11-17): the map locates the visitor as soon as it loads. The browser asks for
+  // permission the first time, as Locate me does. Skipped when a trip link opened route mode, and
+  // skipped quietly when permission was already refused (no error on every visit).
+  const autoLocated = useRef(false);
+  useEffect(() => {
+    if (mapStatus !== 'ready' || autoLocated.current) return;
+    autoLocated.current = true;
+    if (readTripLink(window.location.search) || !('geolocation' in navigator)) return;
+    const perms = (navigator as Navigator & { permissions?: Permissions }).permissions;
+    if (!perms?.query) return locateMe();
+    perms
+      .query({ name: 'geolocation' as PermissionName })
+      .then((s) => s.state !== 'denied' && locateMe(), () => locateMe());
+  }, [mapStatus]); // eslint-disable-line react-hooks/exhaustive-deps
   // Failure messages clear themselves; the button stays for another try.
   useEffect(() => {
     if (locate === 'idle' || locate === 'busy') return;
@@ -629,9 +711,10 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const failed = LEVELS.some((lv) => wanted(lv) && load[lv] === 'error');
   const count = pins.features.length;
   /** The car filter in force (ticked, and the car's port is known). */
-  const carFilter = filters.myCar && carRule ? carRule : null;
   const narrowed = narrowedCount(filters, carRule);
   const levelLabel: Record<ChargerLevel, MessageKey> = { 3: 'map.level3', 2: 'map.level2' };
+  /** Plugs the map is showing now (ticked, and not ruled out by the car filter). */
+  const plugsOn = PLUGS.filter((p) => filters.plugs[p]).length;
 
   return (
     <div className="charger-map">
@@ -725,28 +808,6 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         </button>
 
         <div id="map-filters" className="map-filters" hidden={!panelOpen}>
-          {myCar && (
-            <fieldset className="map-mycar">
-              <legend className="sr-only">{t('map.myCar.legend')}</legend>
-              <label className="check">
-                <input
-                  type="checkbox"
-                  checked={filters.myCar && !!carRule}
-                  disabled={!carRule}
-                  aria-describedby={carInfo && !carRule ? 'map-mycar-note' : undefined}
-                  onChange={() => setFilters((f) => ({ ...f, myCar: !f.myCar }))}
-                />
-                <span>{t('map.myCar.toggle')}</span>
-              </label>
-              {myCar.label && <p className="small muted">{myCar.label}</p>}
-              {carInfo && !carRule && (
-                <p id="map-mycar-note" className="small muted">{t('map.myCar.unknownPort')}</p>
-              )}
-              {filters.myCar && carRule?.superchargerAdapter && (
-                <p className="small muted">{t('map.myCar.adapterNote')}</p>
-              )}
-            </fieldset>
-          )}
           <fieldset>
             <legend>{t('map.levelPower')}</legend>
             {LEVELS.map((lv) => (
@@ -768,36 +829,37 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             ))}
           </fieldset>
 
-          <fieldset>
-            <legend>{t('map.plugs')}</legend>
+          <div className="plugs-group">
+            <button
+              type="button"
+              className="plugs-toggle"
+              aria-expanded={plugsOpen}
+              aria-controls="map-plugs"
+              onClick={() => setPlugsOpen((o) => !o)}
+            >
+              <span>{t('map.plugs')}</span>
+              <span className="plugs-summary small muted">
+                {plugsOn === PLUGS.length ? t('map.plugs.all') : t('map.plugs.some', { n: plugsOn, total: PLUGS.length })}
+              </span>
+              <svg className="chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </button>
+          <fieldset id="map-plugs" hidden={!plugsOpen}>
+            <legend className="sr-only">{t('map.plugs')}</legend>
             <ul className="plugs">
               {PLUGS.map((p) => {
-                /* A plug the car filter hides is shown unticked and locked, so the boxes agree with it. */
-                const ruledOut = !!carFilter && !carTakesPlug(carFilter, p);
                 return (
                   <li key={p}>
-                    <label className={`check${ruledOut ? ' off' : ''}`}>
-                      <input
-                        type="checkbox"
-                        checked={filters.plugs[p] && !ruledOut}
-                        disabled={ruledOut}
-                        aria-describedby={ruledOut ? 'map-plugs-note' : undefined}
-                        onChange={() => toggle('plugs', p)}
-                      />
+                    <label className="check">
+                      <input type="checkbox" checked={filters.plugs[p]} onChange={() => toggle('plugs', p)} />
+                      <PlugIcon plug={p} />
                       <span>{t(`value.${p}` as MessageKey)}</span>
                     </label>
                   </li>
                 );
               })}
             </ul>
-            {carFilter && PLUGS.some((p) => !carTakesPlug(carFilter, p)) && (
-              <p id="map-plugs-note" className="small muted plugs-note">{t('map.plugs.carNote')}</p>
-            )}
           </fieldset>
-
-          <p className="legend small muted">
-            <span className="legend-item"><PinIcon level={3} unavailable /> {t('map.legend.unavailable')}</span>
-          </p>
+          </div>
         </div>
 
         <p className="map-count small" role="status" aria-live="polite">
@@ -862,6 +924,43 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         </>)}
       </div>
 
+      <div className="map-corner">
+      {locateMsg[locate] && (
+        <p className="map-locate-msg small" role={locate === 'busy' ? 'status' : 'alert'}>
+          {t(locateMsg[locate]!)}
+        </p>
+      )}
+      {keyOpen && (
+        <section id="map-key" className="map-key" aria-labelledby="map-key-title">
+          <h2 id="map-key-title" className="map-key-title">{t('map.key.title')}</h2>
+          <ul>
+            <li><PinIcon level={3} /> <span>{t('map.level3')}</span></li>
+            <li><PinIcon level={2} /> <span>{t('map.level2')}</span></li>
+            <li><PinIcon level={3} tesla /> <span>{t('map.key.teslaL3')}</span></li>
+            <li><PinIcon level={2} tesla /> <span>{t('map.key.teslaL2')}</span></li>
+            <li><PinIcon level={3} unavailable /> <span>{t('map.legend.unavailable')}</span></li>
+            <li><ClusterIcon /> <span>{t('map.key.cluster')}</span></li>
+          </ul>
+          <h3 className="map-key-sub">{t('map.key.speed')}</h3>
+          <ul>
+            <li><SpeedIcon tier={1} /> <span>{t('map.key.speed1')}</span></li>
+            <li><SpeedIcon tier={2} /> <span>{t('map.key.speed2')}</span></li>
+            <li><SpeedIcon tier={3} /> <span>{t('map.key.speed3')}</span></li>
+          </ul>
+          <h3 className="map-key-sub">{t('map.key.plugs')}</h3>
+          <ul className="map-key-plugs">
+            {PLUGS.map((p) => <li key={p}><PlugIcon plug={p} /> <span>{t(`value.${p}` as MessageKey)}</span></li>)}
+          </ul>
+          <p className="small muted map-key-note">{t('map.key.tagsNote')} {t('map.key.trip')}</p>
+        </section>
+      )}
+      <button type="button" className="map-key-btn" aria-expanded={keyOpen} aria-controls="map-key" onClick={() => setKeyOpen((o) => !o)}>
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" fill="none" />
+          <path d="M12 11v6M12 7.5v.01" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+        </svg>
+        <span>{t('map.key.toggle')}</span>
+      </button>
       <button type="button" className="map-locate" onClick={locateMe} disabled={locate === 'busy'}>
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="4" fill="currentColor" />
@@ -870,11 +969,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         </svg>
         <span>{t('map.locate')}</span>
       </button>
-      {locateMsg[locate] && (
-        <p className="map-locate-msg small" role={locate === 'busy' ? 'status' : 'alert'}>
-          {t(locateMsg[locate]!)}
-        </p>
-      )}
+      </div>
 
       {place && (
         <section className="map-place" aria-labelledby="map-place-name">
@@ -905,7 +1000,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
           updated={meta?.updated ?? null}
           onClose={closeStation}
           myCar={myCar}
-          carInfo={myCar ? carInfo : null}
+          carInfo={myCar && carInfo ? { ...carInfo, rule: carRule } : null}
           onRouteHere={selectedStop === null ? () => enterRoute({ to: stationEnd(station) }) : undefined}
         />
       )}

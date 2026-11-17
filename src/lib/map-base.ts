@@ -53,7 +53,7 @@ export function createBaseMap({ container, center, zoom, bounds, onStyleLoad }: 
   };
   applyStyle();
   map.touchZoomRotate.disableRotation();
-  // Zoom buttons sit bottom right, above the credits: the top right belongs to the navigation pill (DESIGN-4 4.6).
+  // Zoom buttons sit bottom right, above the credits: the top right belongs to the navigation pill (DESIGN-4 4.6); the map key and Locate me sit with them (B54).
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right');
   map.on('style.load', () => onStyleLoad(map));
   // The dark style names a few POI icons its sprite lacks; draw them blank instead of warning.

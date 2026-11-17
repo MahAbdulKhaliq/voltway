@@ -58,11 +58,12 @@ What this plan rests on:
 ### Layout
 - **Desktop:** the map fills the screen. A planner card floats top left. A small navigation pill (Voltway, Map, Cars, Charging, Compare, menu) floats top right. Map controls sit bottom right.
 - **Phone:** the planner is a bottom sheet. Its summary and any gap warning are always visible above the fold.
-- The site header on the home page becomes the floating pill. Other pages keep a normal header in the new look.
+- The site header on the home page becomes the floating pill. ~~Other pages keep a normal header in the new look.~~ **B54 (2026-11-17): every page uses the same floating pill** (top right; full width minus a margin on phones). On the map it floats over the map; on other pages it stays in view as the page scrolls.
 
 ### Planner card, before a plan
 - One destination search ("Where to?") and a compact **your car** tile.
 - No car yet: the tile says so and opens the picker. The picker is a compact search field, not the page-sized picker.
+- **B54:** the header's "Pick your car" and "Change car" open the full car picker in a **dialog** on whatever page the visitor is on (the car list loads when the dialog opens).
 - Cars that can't be planned are marked in the picker ("no trip planning yet") and sorted last.
 - From defaults to "Your location" when the visitor allows it; otherwise the card asks for From after the destination. Swap is an icon button between the fields.
 - Start battery and stop level stay in a "Car and battery" disclosure, with **Change car** also visible in any message that tells the visitor to change car.
@@ -79,7 +80,8 @@ What this plan rests on:
 
 ### Filters
 - Secondary: a "Chargers" control that opens the filter panel. It shows a count when anything is narrowed.
-- "Chargers my car can use" and the plug boxes must not appear to disagree.
+- ~~"Chargers my car can use" and the plug boxes must not appear to disagree.~~ **B55:** the "Chargers my car can use" tick box is removed. My car has plug toggles (NACS, CCS1, CHAdeMO) in the My car menu: its own plug on, the rest off by default. Trip planning uses them and the trip panel names the plugs used; the car picker dialog explains the default.
+- **B54:** Plugs is a disclosure, closed by default, each plug with its small line drawing. The "temporarily unavailable" line moves to the **Map key** (a toggle above Locate me, bottom right).
 
 ### Selection
 - Selecting a stop highlights it in the list and on the map; chargers off the route stay dimmed while a plan is shown.
@@ -90,6 +92,8 @@ First visit; car chosen; unplannable car; planning; planned; charging gap; not e
 ## Map style
 - Ship Voltway's own MapLibre style for dark and light, built on the OpenFreeMap tile source already in use (`src/config.ts` `MAP.styleUrl` / `darkStyleUrl`).
 - Land, water, roads and labels take palette colours. Roads must stay readable at regional zoom (the critique found the light basemap too pale).
+- **B55 (2026-11-17):** cluster split moves to the ring (dark disc, pale count, white Level 2 arc and yellow Level 3 arc); speed and plug tags only on groups under 20 and on pins; red Tesla Supercharger pins with a T; NACS drawn from the J3400 face; logo = yellow tile with a road in perspective and a bolt centre line.
+- **Clusters and pins (B54):** split cluster discs (white Level 2 part, yellow Level 3 part, vertical line, sized by count), speed bolts top right, plug marks stacked on the left. While a trip shows, chargers off the trip turn grey and faded so only the trip is yellow.
 - Route: yellow with a dark road-band casing. Gap: dashed. Pins and stop numbers keep 3:1 against their casing (`tests/contrast.test.ts`).
 - The attribution wording required by OpenFreeMap / OpenMapTiles / OSM is unchanged.
 

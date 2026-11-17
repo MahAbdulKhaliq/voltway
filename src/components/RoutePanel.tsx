@@ -43,6 +43,14 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
   const headRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => { headRef.current?.focus({ preventScroll: true }); }, [folded]);
 
+  // B55: the DC plugs the plan used (My car's switches), with a way to change them.
+  const dcUsed = planCar?.ok ? planCar.car.rule.plugs.filter((p) => p !== 'j1772') : null;
+  const plugsLine = dcUsed && (
+    <p className="small route-plugs">
+      {dcUsed.length ? t('route.plugs', { plugs: dcUsed.map((p) => t(`value.${p}` as MessageKey)).join(', ') }) : t('route.plugsNone')}{' '}
+      <button type="button" className="link-btn" onClick={() => window.dispatchEvent(new CustomEvent('voltway:mycar-menu'))}>{t('route.plugsChange')}</button>
+    </p>
+  );
   const carLabel = myCar ? (myCar.label ?? cars.find((c) => c.id === myCar.carId)?.name ?? myCar.carId) : '';
   const pickCar = (carId: string) => {
     const e = cars.find((c) => c.id === carId);
@@ -78,6 +86,7 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
         <div className="route-summary">
           <p className="route-ends"><strong>{trip.from?.label}</strong> → <strong>{trip.to?.label}</strong></p>
           <p className="small muted">{t('route.carLine', { car: carLabel, start: trip.startSoc, min: trip.thresholdSoc })}</p>
+          {plugsLine}
           <div className="tp-actions">
             <button type="button" className="btn small" onClick={() => setEditing(true)}>{t('route.edit')}</button>
             <button type="button" className="btn small" onClick={T.share}>{t('trip.share')}</button>
@@ -120,6 +129,7 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
           ) : (
           <div className="route-car">
             <p className="small">{t('route.carLine', { car: carLabel, start: trip.startSoc, min: trip.thresholdSoc })}</p>
+            {plugsLine}
             <button type="button" className="btn small" aria-expanded={settingsOpen} aria-controls="route-settings" onClick={() => setSettingsOpen((o) => !o)}>
               {t('route.settings')}
             </button>

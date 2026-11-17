@@ -17,6 +17,7 @@ import { GROUPS } from '../lib/spec-groups.ts';
 import { getItem, getJSON, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CarDetail, CurveOut, Field, IndexEntry } from '../lib/types.ts';
+import VariantName from './VariantName.tsx';
 import { Value } from './react/Badge.tsx';
 
 echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, CanvasRenderer]);
@@ -252,7 +253,7 @@ export default function Compare({ index }: Props) {
                       ))}
                     </select>
                   ) : (
-                    <span className="variant">{byId.get(id)?.name}</span>
+                    <span className="variant"><VariantName name={byId.get(id)?.name ?? ''} /></span>
                   )}
                   {cars[id] === 'error' && <span className="small unknown">{t('compare.notLoaded')}</span>}
                   <span className="car-actions">
@@ -321,7 +322,7 @@ export default function Compare({ index }: Props) {
                 <tbody>
                   {sorted.map((r) => (
                     <tr key={r.id}>
-                      <th scope="row"><span className="dot" style={{ background: carVar(r.slot) }} aria-hidden="true" />{name(r.id)} <span className="muted">{r.car.name}</span></th>
+                      <th scope="row"><span className="dot" style={{ background: carVar(r.slot) }} aria-hidden="true" />{name(r.id)} <span className="muted"><VariantName name={r.car.name} /></span></th>
                       <td>{minutes(r) ?? <span className="unknown">{t('badge.unknown')}</span>}</td>
                       <td>{r.result?.kmAdded != null ? distance(r.result.kmAdded, r.estimated) : <span className="unknown">{t('badge.unknown')}</span>}</td>
                       <td>{r.result?.kmPer10Min != null ? distance(r.result.kmPer10Min, r.estimated) : <span className="unknown">{t('badge.unknown')}</span>}</td>
@@ -357,7 +358,7 @@ export default function Compare({ index }: Props) {
                     {ids.map((id, slot) => (
                       <th key={id} scope="col" className="car-head" style={{ borderTopColor: carVar(slot) }}>
                         <span className="car-name">{name(id)}</span>
-                        <span className="variant">{byId.get(id)?.name}</span>
+                        <span className="variant"><VariantName name={byId.get(id)?.name ?? ''} /></span>
                       </th>
                     ))}
                   </tr>

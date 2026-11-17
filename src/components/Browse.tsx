@@ -14,6 +14,7 @@ import { valueLabel } from '../lib/format.ts';
 import { addToCompare, getCompare, type AddResult } from '../lib/my-car.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, whPerKmToDisplay, type DistanceUnit } from '../lib/units.ts';
+import VariantName from './VariantName.tsx';
 import type { IndexEntry } from '../lib/types.ts';
 
 interface Props { index: IndexEntry[] }
@@ -256,7 +257,7 @@ export default function Browse({ index }: Props) {
                 <li key={e.id} className="car-card card">
                   <p className="small muted cc-body">{t(`body.${e.body_type}` as MessageKey)} · {e.year}</p>
                   <h3 className="cc-name"><a href={carHref(e.id)} aria-label={t('browse.open', { car: carName(e) })}>{e.make} {e.model}</a></h3>
-                  <p className="cc-variant">{e.name}</p>
+                  <p className="cc-variant"><VariantName name={e.name} /></p>
                   <dl className="cc-figs">
                     <div><dt>{t('tile.range')}</dt><dd>{show(rangeText(e))}</dd></div>
                     <div><dt>{t('tile.time1080')}</dt><dd>{show(timeText(e))}</dd></div>
@@ -288,7 +289,7 @@ export default function Browse({ index }: Props) {
               <tbody>
                 {results.map((e) => (
                   <tr key={e.id}>
-                    <td data-label={t('browse.col.car')}><a href={carHref(e.id)}>{e.make} {e.model} {e.name}</a> <span className="muted small">{e.year}</span></td>
+                    <td data-label={t('browse.col.car')}><a href={carHref(e.id)}>{e.make} {e.model} <VariantName name={e.name} /></a> <span className="muted small">{e.year}</span></td>
                     <td data-label={t('browse.sort.range')}>{show(rangeText(e))}</td>
                     <td data-label={t('browse.sort.efficiency')}>{show(effText(e))}</td>
                     <td data-label={t('browse.sort.dc')}>{show(dcText(e))}</td>

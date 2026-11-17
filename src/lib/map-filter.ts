@@ -65,6 +65,27 @@ export function readFilters(saved: unknown): MapFilters {
 export interface CarPlugRule {
   plugs: readonly Plug[];
   superchargerAdapter: boolean;
+  /** B55: the car has no Supercharger access (data), so Tesla-network NACS ports don't count. */
+  noSupercharger?: boolean;
+}
+
+// ---- My car's plug toggles (B55, 2026-11-17): which DC plugs the driver says the car can use.
+
+export type DcPlug = 'nacs' | 'ccs1' | 'chademo';
+export const DC_PLUGS: readonly DcPlug[] = ['nacs', 'ccs1', 'chademo'];
+export const isDcPlug = (x: unknown): x is DcPlug => typeof x === 'string' && (DC_PLUGS as readonly string[]).includes(x);
+
+/** The default toggles: only the car's own DC plug (no adapters assumed). */
+export function defaultDcPlugs(port: unknown): DcPlug[] {
+  return isDcPlug(port) ? [port] : [];
+}
+
+/** The plug rule from the toggles. J1772 (Level 2) always counts: CCS1 and CHAdeMO inlets take
+ *  it and NACS cars come with an adapter (B42). Supercharger access from the data still applies. */
+export function plugRule(plugs: readonly DcPlug[], access: unknown): CarPlugRule {
+  const rule: CarPlugRule = { plugs: [...DC_PLUGS.filter((p) => plugs.includes(p)), 'j1772'], superchargerAdapter: false };
+  if (access === 'no') rule.noSupercharger = true;
+  return rule;
 }
 
 /** null when the car's port is unknown: the toggle is then disabled with a note. */
@@ -99,6 +120,7 @@ export function needsAdapter(rule: CarPlugRule | null | undefined, plug: Plug, n
 }
 
 export function carCanUse(rule: CarPlugRule, plug: Plug, network: string | undefined): boolean {
+  if (rule.noSupercharger && plug === 'nacs' && network === SUPERCHARGER_NETWORK) return false;
   return rule.plugs.includes(plug) || needsAdapter(rule, plug, network);
 }
 
@@ -148,12 +170,25 @@ export function matchLevel(
   return best;
 }
 
-/** What the map's GeoJSON source holds per pin: id, level for the icon, and the unavailable flag. */
+/** What the map's GeoJSON source holds per pin: id, level for the icon, the unavailable flag, and
+ *  for the at-a-glance marks (B54) the top known Level 3 kW and which plugs are there, both from
+ *  the ports the filters let through. Clusters add these up (map-icons.ts CLUSTER_PROPERTIES). */
 export interface PinProps {
   i: number;
   lv: ChargerLevel;
   t?: 1;
+  /** Top known Level 3 kW among the matching ports, 0 when none is known. */
+  k: number;
+  /** Plug present among the matching ports: CCS1, NACS, CHAdeMO, J1772 (1 or 0). */
+  pc: 0 | 1;
+  pn: 0 | 1;
+  pd: 0 | 1;
+  pj: 0 | 1;
+  /** A Tesla network station (Supercharger or Destination), for its own pin (B55). */
+  te: 0 | 1;
 }
+
+const PLUG_PROP = { ccs1: 'pc', nacs: 'pn', chademo: 'pd', j1772: 'pj' } as const;
 
 /** The pins to draw for these filters. A mixed site shown only for its Level 2 ports gets the Level 2 icon. */
 export function filterStations(
@@ -165,7 +200,14 @@ export function filterStations(
   for (const feat of features) {
     const lv = matchLevel(feat.properties.p, f, car, feat.properties.nw);
     if (!lv) continue;
-    const props: PinProps = { i: feat.properties.i, lv };
+    const nw = feat.properties.nw;
+    const props: PinProps = { i: feat.properties.i, lv, k: 0, pc: 0, pn: 0, pd: 0, pj: 0, te: nw === SUPERCHARGER_NETWORK || nw === 'Tesla Destination' ? 1 : 0 };
+    for (const port of feat.properties.p) {
+      if (!portMatches(port, f, car, feat.properties.nw)) continue;
+      const [level, plug, kw] = port;
+      if (level === 3 && kw != null && Number.isFinite(kw) && kw > props.k) props.k = kw;
+      props[PLUG_PROP[plug]] = 1;
+    }
     if (feat.properties.t) props.t = 1;
     out.push({ type: 'Feature', geometry: feat.geometry, properties: props });
   }
@@ -234,6 +276,8 @@ export function applyMapLink(search: string, base: MapFilters): MapFilters | nul
 export interface CarMapInfo {
   isTesla: boolean;
   access: string | null;
+  /** The car's charge port as the data gives it (null when unknown). */
+  port: string | null;
   rule: CarPlugRule | null;
 }
 
@@ -244,9 +288,20 @@ export function carMapInfo(file: unknown): CarMapInfo {
   };
   const val = (k: string) => c.fields?.[k]?.value?.value;
   const access = val('supercharger_access');
+  const port = val('charge_port');
   return {
     isTesla: c.make?.id === 'tesla',
     access: typeof access === 'string' ? access : null,
+    port: typeof port === 'string' ? port : null,
     rule: carPlugs(val('charge_port'), access),
   };
+}
+
+/** The plug rule in force for My car (B55): its saved toggles, or the default from its port.
+ *  null when neither says anything (port unknown and nothing switched on). */
+export function myCarRule(info: CarMapInfo | null, plugs: readonly DcPlug[] | undefined): CarPlugRule | null {
+  if (!info) return null;
+  const on = plugs ?? defaultDcPlugs(info.port);
+  if (!plugs && !info.rule) return null;
+  return plugRule(on, info.access);
 }

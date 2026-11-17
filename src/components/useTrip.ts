@@ -63,7 +63,7 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
       .catch(() => alive && setDetail(null));
     return () => { alive = false; };
   }, [myCar]);
-  const planCar: PlanCarResult | null = useMemo(() => (detail ? planCarFrom(detail, myCar?.trimId) : null), [detail, myCar]);
+  const planCar: PlanCarResult | null = useMemo(() => (detail ? planCarFrom(detail, myCar?.trimId, myCar?.plugs) : null), [detail, myCar]);
   const carUpdated = useMemo(() => (detail ? detail.sources.map((s) => s.accessed_on).filter(Boolean).sort().at(-1) ?? null : null), [detail]);
 
   const pctValid =

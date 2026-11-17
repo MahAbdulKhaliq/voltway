@@ -348,6 +348,7 @@ export default function TripPlanner({ cars }: Props) {
           </button>
           {plan && current && <button type="button" className="btn" onClick={share}>{t('trip.share')}</button>}
         </div>
+        {(!trip.from || !trip.to) && <p className="small muted tp-hint">{t('trip.needEnds')}</p>}
         {shareUrl && (
           <p className="small tp-share" role="status">
             {t('trip.shareNote')} <input className="field-input" readOnly value={shareUrl} onFocus={(e) => e.target.select()} aria-label={t('trip.shareLink')} />

@@ -1,32 +1,40 @@
 /* Voltway base styles: a clean consumer surface, data-rich underneath (database-ui.md §8).
    Colours are tokens; dark mode follows the device setting. */
 
-/* Slate + blue (owner decision B20). Every text/control pair passes WCAG AA in both themes;
-   tests/contrast.test.ts reads these blocks and fails the build if one doesn't.
+/* Road Paint (owner decision B53, docs/plan/DESIGN-4.md): asphalt and road markings.
+   Every text/control pair passes WCAG AA in both themes; tests/contrast.test.ts reads these
+   blocks and fails the build if one doesn't.
+   --paint is the centre-line yellow: lines and filled buttons (label: --paint-ink). It is the
+     same in both themes and is never text on a light ground.
+   --accent is the text-grade accent (links, focus ring): yellow on asphalt, dark amber on concrete.
+   --mark is the stop bar on the painted line (white on asphalt, dark on concrete).
    --border is decorative (cards, dividers); --field-border outlines controls (3:1). */
 :root {
-  --bg: #F8FAFC;
-  --surface: #FFFFFF;
-  --surface-2: #F1F5F9;
-  --text: #0F172A;
-  --muted: #475569;
-  --border: #E2E8F0;
-  --field-border: #64748B;
-  --accent: #1D4ED8;
+  --bg: #EEEDE8;
+  --surface: #FAF9F5;
+  --surface-2: #E4E3DD;
+  --text: #1A1B1E;
+  --muted: #55544E;
+  --border: #D5D3CB;
+  --field-border: #6E6D66;
+  --accent: #6F5300;
   --accent-ink: #FFFFFF;
-  --accent-soft: #DBEAFE;
-  --warn: #92400E;
-  --warn-soft: #FEF3C7;
-  --estimated: #6D28D9;
-  --estimated-soft: #EDE9FE;
-  --unknown: #526175;
+  --accent-soft: #FFF1A8;
+  --paint: #FFD400;
+  --paint-ink: #1A1B1E;
+  --mark: #1A1B1E;
+  --warn: #9A3F00;
+  --warn-soft: #FFE3CC;
+  --estimated: #5B34C4;
+  --estimated-soft: #E9E3F8;
+  --unknown: #5F5E58;
   --car-1: #1D4ED8;
-  --car-2: #C2410C;
-  --car-3: #047857;
-  --car-4: #BE185D;
+  --car-2: #B03A06;
+  --car-3: #04704F;
+  --car-4: #B3175A;
   --radius: 12px;
-  --shadow: 0 1px 2px rgb(15 23 42 / 6%), 0 4px 16px rgb(15 23 42 / 5%);
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --shadow: 0 1px 2px rgb(26 27 30 / 8%), 0 4px 16px rgb(26 27 30 / 6%);
+  --font: "Archivo Variable", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   color-scheme: light;
 }
@@ -34,50 +42,56 @@
 /* Dark: the device setting, unless the visitor picked light (data-theme on <html>, B20). */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0B1120;
-    --surface: #111827;
-    --surface-2: #1F2937;
-    --text: #E5E7EB;
-    --muted: #A1AAB8;
-    --border: #273244;
-    --field-border: #6B7280;
-    --accent: #60A5FA;
-    --accent-ink: #0B1120;
-    --accent-soft: #172F52;
-    --warn: #FBBF24;
-    --warn-soft: #33260A;
-    --estimated: #C4B5FD;
-    --estimated-soft: #2A1E4A;
-    --unknown: #9CA3AF;
-    --car-1: #60A5FA;
-    --car-2: #FB923C;
-    --car-3: #34D399;
-    --car-4: #F472B6;
-    --shadow: 0 1px 2px rgb(0 0 0 / 40%);
+    --bg: #1A1B1E;
+    --surface: #1F2023;
+    --surface-2: #2A2B2F;
+    --text: #F5F3EC;
+    --muted: #A4A29A;
+    --border: #34353A;
+    --field-border: #7C7A72;
+    --accent: #FFD400;
+    --accent-ink: #1A1B1E;
+    --accent-soft: #3A3310;
+    --paint: #FFD400;
+    --paint-ink: #1A1B1E;
+    --mark: #F5F3EC;
+    --warn: #FF7A1A;
+    --warn-soft: #3A2210;
+    --estimated: #C9B8FF;
+    --estimated-soft: #2C2640;
+    --unknown: #A4A29A;
+    --car-1: #6FB1FF;
+    --car-2: #FF9A4D;
+    --car-3: #4ADE9A;
+    --car-4: #F58BC1;
+    --shadow: 0 1px 2px rgb(0 0 0 / 45%), 0 8px 24px rgb(0 0 0 / 30%);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0B1120;
-  --surface: #111827;
-  --surface-2: #1F2937;
-  --text: #E5E7EB;
-  --muted: #A1AAB8;
-  --border: #273244;
-  --field-border: #6B7280;
-  --accent: #60A5FA;
-  --accent-ink: #0B1120;
-  --accent-soft: #172F52;
-  --warn: #FBBF24;
-  --warn-soft: #33260A;
-  --estimated: #C4B5FD;
-  --estimated-soft: #2A1E4A;
-  --unknown: #9CA3AF;
-  --car-1: #60A5FA;
-  --car-2: #FB923C;
-  --car-3: #34D399;
-  --car-4: #F472B6;
-  --shadow: 0 1px 2px rgb(0 0 0 / 40%);
+  --bg: #1A1B1E;
+  --surface: #1F2023;
+  --surface-2: #2A2B2F;
+  --text: #F5F3EC;
+  --muted: #A4A29A;
+  --border: #34353A;
+  --field-border: #7C7A72;
+  --accent: #FFD400;
+  --accent-ink: #1A1B1E;
+  --accent-soft: #3A3310;
+  --paint: #FFD400;
+  --paint-ink: #1A1B1E;
+  --mark: #F5F3EC;
+  --warn: #FF7A1A;
+  --warn-soft: #3A2210;
+  --estimated: #C9B8FF;
+  --estimated-soft: #2C2640;
+  --unknown: #A4A29A;
+  --car-1: #6FB1FF;
+  --car-2: #FF9A4D;
+  --car-3: #4ADE9A;
+  --car-4: #F58BC1;
+  --shadow: 0 1px 2px rgb(0 0 0 / 45%), 0 8px 24px rgb(0 0 0 / 30%);
   color-scheme: dark;
 }
 

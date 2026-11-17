@@ -3,6 +3,8 @@
 // list of pages; then the logo; main content; footer. Trip joins
 // PAGES as they're built. The map is the home page (B26). Distances render in km and are converted in place when the
 // visitor picks miles (database-ui.md §9; the switch lives in the curve controls, B19).
+// Archivo is bundled with the build and served from this site (no third-party font request, DESIGN-4).
+import '@fontsource-variable/archivo/wght.css';
 import '../styles/global.css';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { COVERAGE } from '../config.ts';

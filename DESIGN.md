@@ -247,7 +247,7 @@ Depth is a single soft shadow plus tonal layering. Floating surfaces over the ma
 
 Rounded, signage-like forms. Full pills (999px) for the nav pill, chips, source badges and the switches; 12px for cards and the planner; 10px for icon buttons, side-menu rows and banners; 8px for buttons and fields. The logo is a 24px yellow tile (6px corners) with a dark road in perspective whose centre line is a yellow bolt (B55).
 
-Map marks are circles with a dark ring: Level 3 pins yellow with a bolt, Level 2 pins white with a plug, unavailable pins grey with an orange "!" badge. Clusters are a dark disc with a pale count and a ring split into a yellow Level 3 arc (from 12 o'clock, clockwise) and a white Level 2 arc, in proportion, with small gaps (B55). Groups of fewer than 20 and single pins carry small dark tags: speed bolts at top right (1, 2 or 3 for ≤ 75, ≤ 150 and > 150 kW) and stacked plug drawings at left (B54). Chargers stay grouped up to zoom 15 (B57).
+Map marks are circles with a dark ring: Level 3 pins yellow with a bolt, Level 2 pins white with a plug, unavailable pins grey with an orange "!" badge. Clusters are a dark disc with a pale count and a ring split into a yellow Level 3 arc (from 12 o'clock, clockwise) and a white Level 2 arc, in proportion, with small gaps (B55). From zoom 9 in, groups of any size and single pins carry small dark tags (B58): speed bolts at top right (1, 2 or 3 for ≤ 75, ≤ 150 and > 150 kW) and stacked plug drawings at left (B54). Chargers stay grouped up to zoom 15 (B57).
 
 ## Components
 

@@ -7,7 +7,7 @@
 //   (from 12 o'clock, clockwise) and a white Level 2 arc, in proportion to the counts (B55).
 // - Speed bolts, top right, from the fastest known Level 3 port: 1 (≤ 75 kW), 2 (≤ 150), 3 (more).
 // - Plug marks: tiny line drawings of the plugs present, stacked left of the mark.
-//   Groups show both tags only below TAG_MAX chargers, so the zoomed-out map stays calm (B55).
+//   Tags show only from TAG_MIN_ZOOM in, on groups of any size and on pins (B58; was a group-size limit).
 // - Tesla network pins (B55): a Tesla-style T instead of the bolt or plug; Superchargers are red.
 // - While a trip shows, every mark is drawn in greys so yellow on the map means the trip.
 //
@@ -112,8 +112,9 @@ export function ringArcs(share: number): { l3: [number, number] | null; l2: [num
   return { l3: [top + RING_GAP / 2, split - RING_GAP / 2], l2: [split + RING_GAP / 2, top + full - RING_GAP / 2] };
 }
 
-/** Groups of this many chargers or more show no speed or plug tags (B55): less clutter zoomed out. */
-export const TAG_MAX = 20;
+/** Speed and plug tags show from this zoom in (B58): the zoomed-out map stays calm, and a big
+ *  station with many stalls still gets its tags once you're close. */
+export const TAG_MIN_ZOOM = 9;
 
 /** Cluster disc radius (CSS px) per size step; the step comes from the station count. */
 export const CLUSTER_RADIUS = [14, 18, 22, 27] as const;
@@ -165,21 +166,22 @@ const shareExpr: Expr = [
   ['max', 1, ['min', 9, ['round', ['/', ['*', 10, ['get', 'n3']], ['+', ['get', 'n2'], ['get', 'n3']]]]]],
 ];
 
-const fewExpr: Expr = ['<', ['get', 'point_count'], TAG_MAX];
-export const clusterImage = (trip: boolean): Expr => [
+const clusterName = (trip: boolean, tags: boolean): Expr => [
   'concat', 'mk-c',
   ['step', ['get', 'point_count'], 0, CLUSTER_STEPS[0], 1, CLUSTER_STEPS[1], 2, CLUSTER_STEPS[2], 3],
-  '-', shareExpr, '-0-', ['case', fewExpr, tierExpr, 0], '-', ['case', fewExpr, maskExpr, 0], trip ? '-1' : '-0', '-0',
+  '-', shareExpr, '-0-', tags ? tierExpr : 0, '-', tags ? maskExpr : 0, trip ? '-1' : '-0', '-0',
 ];
-
-export const pinImage = (trip: boolean): Expr => [
+const pinName = (trip: boolean, tags: boolean): Expr => [
   'concat', 'mk-p0-',
   ['case', ['==', ['get', 'lv'], 3], 10, 0],
   '-', ['case', ['has', 't'], 1, 0],
-  '-', ['case', ['==', ['get', 'lv'], 3], tierExpr, 0],
-  '-', maskExpr, trip ? '-1' : '-0',
+  '-', tags ? ['case', ['==', ['get', 'lv'], 3], tierExpr, 0] : 0,
+  '-', tags ? maskExpr : 0, trip ? '-1' : '-0',
   '-', ['case', ['==', ['get', 'te'], 1], 1, 0],
 ];
+// A zoom step must be the outermost expression in a layout property (MapLibre rule).
+export const clusterImage = (trip: boolean): Expr => ['step', ['zoom'], clusterName(trip, false), TAG_MIN_ZOOM, clusterName(trip, true)];
+export const pinImage = (trip: boolean): Expr => ['step', ['zoom'], pinName(trip, false), TAG_MIN_ZOOM, pinName(trip, true)];
 
 /** What clusters add up from their pins (MapLibre clusterProperties). */
 export const CLUSTER_PROPERTIES = {

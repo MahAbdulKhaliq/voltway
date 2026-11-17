@@ -59,7 +59,7 @@ import { useTrip } from './useTrip.ts';
 import { addTripLayers, boundsOf, setTripOverlay, STOP_LAYERS, type TripOverlay } from '../lib/trip-overlay.ts';
 import type { IndexEntry } from '../lib/types.ts';
 import { createBaseMap } from '../lib/map-base.ts';
-import CarSearchField, { carLabel } from './CarSearchField.tsx';
+import { openCarPicker } from '../lib/car-label.ts';
 import { sliceRoute } from '../lib/route-geo.ts';
 
 interface SavedView {
@@ -337,7 +337,6 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   // My car (B28): its plug rule (B55: its plug switches) for the station panel and trips, read from its car file.
   const [myCar, setMyCarState] = useState<MyCar | null>(() => getMyCar());
   const [carInfo, setCarInfo] = useState<CarMapInfo | null>(null);
-  const [pickingCar, setPickingCar] = useState(false);
   const [stations, setStations] = useState<Record<ChargerLevel, MapFeature[]>>({ 3: [], 2: [] });
   const [load, setLoad] = useState<Record<ChargerLevel, Load>>({ 3: 'idle', 2: 'idle' });
   const [plugsOpen, setPlugsOpen] = useState(false);
@@ -739,7 +738,6 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             trip={T}
             cars={cars}
             myCar={myCar}
-            onPickCar={(c) => { setMyCar(c); setMyCarState(c); }}
             search={placeSearch}
             selectedStop={selectedStop}
             onOpenStop={openStop}
@@ -765,36 +763,16 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
           />
         </div>
         <div className="map-car">
-          {pickingCar ? (
-            <CarSearchField
-              cars={cars}
-              label={t('car.search.label')}
-              autoFocus
-              onPick={(carId) => {
-                const e = cars.find((c) => c.id === carId);
-                const c = { carId, trimId: null, label: e ? carLabel(e) : undefined };
-                setMyCar(c);
-                setMyCarState(c);
-                setPickingCar(false);
-              }}
-              onCancel={() => setPickingCar(false)}
-            />
-          ) : (
-            <button type="button" className="car-tile" onClick={() => setPickingCar(true)}>
+          {myCar && (
+            <button type="button" className="car-tile" onClick={openCarPicker}>
               <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4 13l1.6-4.4A2 2 0 0 1 7.5 7.3h9a2 2 0 0 1 1.9 1.3L20 13M4 13h16v5H4v-5ZM7 18v1.5M17 18v1.5M7.5 15.5h.01M16.5 15.5h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
               </svg>
-              {myCar ? (
-                <>
-                  <span className="car-tile-text"><span className="muted">{t('car.tile.label')}</span> <strong>{myCar.label ?? cars.find((c) => c.id === myCar.carId)?.name ?? myCar.carId}</strong></span>
-                  <span className="car-tile-change small">{t('car.tile.change')}</span>
-                </>
-              ) : (
-                <span className="car-tile-text"><strong>{t('car.tile.none')}</strong> <span className="muted">{t('car.tile.why')}</span></span>
-              )}
+              <span className="car-tile-text"><span className="muted">{t('car.tile.label')}</span> <strong>{myCar.label ?? cars.find((c) => c.id === myCar.carId)?.name ?? myCar.carId}</strong></span>
+              <span className="car-tile-change small">{t('car.tile.change')}</span>
             </button>
           )}
-          {lastTrip && !pickingCar && (
+          {lastTrip && (
             <button type="button" className="car-tile last-trip" onClick={() => enterRoute({ link: lastTrip })}>
               <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4 12a8 8 0 1 0 2.6-5.9M4 5v4h4M12 8v4l3 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />

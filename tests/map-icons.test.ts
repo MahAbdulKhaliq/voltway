@@ -1,6 +1,6 @@
 // At-a-glance map marks (B54): speed tiers, the split of a cluster, and mark names.
 import { describe, expect, it } from 'vitest';
-import { levelShare, markName, parseMarkName, plugBit, plugsInMask, ringArcs, speedTier, PLUG_ORDER, RING_GAP, TAG_MAX, type MarkSpec } from '../src/lib/map-icons.ts';
+import { levelShare, markName, parseMarkName, plugBit, plugsInMask, ringArcs, speedTier, PLUG_ORDER, RING_GAP, TAG_MIN_ZOOM, clusterImage, pinImage, type MarkSpec } from '../src/lib/map-icons.ts';
 
 describe('speedTier', () => {
   it('1 bolt up to 75 kW, 2 up to 150 kW, 3 above; none when unknown', () => {
@@ -39,8 +39,17 @@ describe('ringArcs (B55)', () => {
     const a = ringArcs(8);
     expect((span(a.l3) + RING_GAP) / (span(a.l2) + RING_GAP)).toBeCloseTo(4);
   });
-  it('tags stop at 20 chargers', () => {
-    expect(TAG_MAX).toBe(20);
+  it('tags show from zoom 9 in, on any group size (B58)', () => {
+    expect(TAG_MIN_ZOOM).toBe(9);
+    for (const e of [clusterImage(false), pinImage(true)] as unknown[][]) {
+      expect(e[0]).toBe('step');
+      expect(e[1]).toEqual(['zoom']);
+      expect(e[3]).toBe(9);
+      // Zoomed out: the speed tier and plug mask are both 0. Zoomed in: they come from the data.
+      expect(JSON.stringify(e[2])).not.toContain('"pc"');
+      expect(JSON.stringify(e[4])).toContain('"pc"');
+      expect(JSON.stringify(e)).not.toContain('point_count",20');
+    }
   });
 });
 

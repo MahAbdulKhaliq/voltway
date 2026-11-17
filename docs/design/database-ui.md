@@ -210,3 +210,5 @@ The data model gives every figure a *kind* and a source. On screen:
 |----|----------|
 | U5 | **French language support?** Québec is Canada's largest EV market, and federal data (NRCan) is already bilingual. In v1, or later? |
 | D16 | **How are trims named for Canada?** Canadian trim names often differ from US ones (for example "Preferred" vs. "SEL"). Use Canadian names, with US names as aliases for search? |
+
+**B58 (2026-11-17):** Charging no longer opens on the first-load picker. With no My car and no car link it shows the first car in the list; "Forget my car" does the same. Cars are chosen in the header's car dialog, where picking a search suggestion selects the car and "Select car" (with the plug switches shown) saves it.

@@ -13,8 +13,8 @@ import { applyWheelEffect, ratedOnItsOwn, ratedWheelFor, standardWheel, type Whe
 import { display } from '../lib/format.ts';
 import CurveViewer from './CurveViewer.tsx';
 import { carMapInfo, linkPlugs } from '../lib/map-filter.ts';
-import CarPicker from './CarPicker.tsx';
 import { GROUPS } from '../lib/spec-groups.ts';
+import { carLabel } from '../lib/car-label.ts';
 import { addToCompare, getCompare, getMyCar, setMyCar, type AddResult, type MyCar } from '../lib/my-car.ts';
 import { Badge, Value, sourceNumber } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
@@ -44,7 +44,6 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const [wheelIn, setWheelIn] = useState<number | null>(null); // null = the trim's rated wheels
   const [pickerOpen, setPickerOpen] = useState(false); // B18: closed once a car is chosen
   const [linkMissing, setLinkMissing] = useState(false); // a ?car= link that matches no car
-  const [showPicker, setShowPicker] = useState(false); // B37: the first-load picker
   const [myCar, setMyCarState] = useState<MyCar | null>(null);
   const [compare, setCompareList] = useState<string[]>([]);
   const [compareNote, setCompareNote] = useState<AddResult | null>(null);
@@ -53,8 +52,8 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const [linkWindow, setLinkWindow] = useState<{ carId: string; start: number; end: number } | null>(null);
   useEffect(() => setWheelIn(null), [carId, trimId]);
 
-  // First car (B37): the link (?car=), else My car, else the first-load picker. An empty
-  // ?car= counts as no link (TD-P4); ?pick=1 (from the header's "Change car") opens the picker.
+  // First car: the link (?car=), else My car, else the first car in the list (B58: no first-load
+  // picker; cars are chosen in the header's car dialog). An empty ?car= counts as no link (TD-P4).
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const linked = params.get('car') || null;
@@ -63,7 +62,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     setMyCarState(mine);
     setCompareList(getCompare());
     setLinkMissing(known(linked) ? false : Boolean(linked));
-    if (known(linked) && params.get('pick') !== '1') {
+    if (known(linked)) {
       setCarId(linked);
       setTrimId(params.get('trim'));
       const kw = Number(params.get('kw'));
@@ -71,26 +70,27 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
       // A trip stop's window (3.12): ?from=<arrival %>&to=<charge-to %>.
       const win = linkWindowFrom(params);
       if (win) setLinkWindow({ carId: linked!, ...win });
-    } else if (known(mine?.carId) && params.get('pick') !== '1') {
+    } else if (known(mine?.carId)) {
       setCarId(mine!.carId);
       setTrimId(mine!.trimId);
     } else {
-      setShowPicker(true);
+      setCarId(cars[0]?.id ?? null);
+      setTrimId(null);
     }
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
     const onUnits = (e: Event) => setUnit((e as CustomEvent<DistanceUnit>).detail);
     const onMine = (e: Event) => {
       const mine = (e as CustomEvent<MyCar | null>).detail;
       setMyCarState(mine);
-      // "Forget my car" (QP5): the first-load picker returns, and a reload stays on it.
+      // "Forget my car" (QP5, B58): back to the first car in the list.
       if (mine === null) {
-        setShowPicker(true);
+        setCarId(cars[0]?.id ?? null);
+        setTrimId(null);
         history.replaceState(null, '', '/charging');
       } else if (known(mine.carId)) {
         // Picked in the header's car dialog (B54): show that car here too.
         setCarId(mine.carId);
         setTrimId(mine.trimId);
-        setShowPicker(false);
       }
     };
     const onCompare = (e: Event) => setCompareList((e as CustomEvent<string[]>).detail);
@@ -247,16 +247,10 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     .map((x) => display(x.value, unit).text)
     .join(' · ');
 
+  // The My car label leaves out the regulator's code (4.16, carLabel).
   const labelFor = (id: string) => {
     const e = cars.find((c) => c.id === id);
-    return e ? `${e.model} ${e.name}` : id;
-  };
-  const choose = (id: string, trim: string | null) => {
-    setMyCar({ carId: id, trimId: trim, label: labelFor(id) });
-    setCarId(id);
-    setTrimId(trim);
-    setShowPicker(false);
-    setLinkMissing(false);
+    return e ? carLabel(e) : id;
   };
   // Trims matter only when the variant has several; "no trim" means its first (standard) trim.
   const firstTrim = car?.trims[0]?.id ?? null;
@@ -265,14 +259,6 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const isMine = Boolean(myCar && car && myCar.carId === car.id && (car.trims.length < 2 || (myCar.trimId ?? firstTrim) === (trimId ?? firstTrim)));
   const inCompare = Boolean(carId && compare.includes(carId));
 
-  if (showPicker) {
-    return (
-      <div className="explorer">
-        {linkMissing && <p className="banner" role="status">{t('charging.linkNotFound')}</p>}
-        <CarPicker cars={cars} onPick={choose} onCancel={carId || myCar ? () => { setShowPicker(false); if (!carId && myCar) { setCarId(myCar.carId); setTrimId(myCar.trimId); } } : undefined} />
-      </div>
-    );
-  }
 
   return (
     <div className="explorer">

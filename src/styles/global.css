@@ -545,7 +545,11 @@ a.btn { display: inline-block; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { .chip-plug .switch::after { transition: none; } }
 @media (max-width: 640px) { .chip-plug { min-height: 44px; } }
 .chip-plugs-note { margin: 4px 8px 2px; max-width: 230px; font-size: 0.78rem; color: var(--muted); }
-.picker-plugs-note { margin: 0; padding: 0 22px 18px; }
+.cp-plugs { display: grid; gap: 6px; margin-top: 4px; }
+.cp-plugs .cp-label { margin: 0; }
+.cp-plug-row { display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.cp-plug { border: 1px solid var(--border); }
+.cp-plugs-note { margin: 0; max-width: 60ch; }
 
 /* ---- Trip planner on the charger map (B50): form fields and the itinerary. */
 .tp-field { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }

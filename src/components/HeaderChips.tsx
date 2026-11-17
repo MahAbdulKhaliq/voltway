@@ -4,13 +4,14 @@
 // picker in a dialog on the page the visitor is on (B54); the car list loads when it first opens.
 // The menu also holds My car's plug switches (B55): NACS, CCS1, CHAdeMO, used by the trip
 // planner. The car's own plug is on by default; the trip panel opens this menu with the
-// "voltway:mycar-menu" event.
+// "voltway:mycar-menu" event. The car dialog opens on "voltway:pick-car" (B58) and shows the
+// same switches for the car being chosen.
 
 import { useEffect, useRef, useState } from 'react';
 import { t } from '../i18n/t.ts';
 import { getCompare, getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import CarPicker from './CarPicker.tsx';
-import { carLabel } from './CarSearchField.tsx';
+import { carLabel } from '../lib/car-label.ts';
 import type { IndexEntry } from '../lib/types.ts';
 import { DC_PLUGS, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
 import type { MessageKey } from '../i18n/t.ts';
@@ -52,7 +53,11 @@ export default function HeaderChips({ showCompare = false }: Props) {
     // (added as soon as the menu opens) sees that same click and closes it again.
     const onMenu = () => { focusPlugs.current = true; setTimeout(() => setOpen(true), 0); };
     window.addEventListener('voltway:mycar-menu', onMenu);
+    // B58: the trip form's "Choose your car", "Change car" and the map's car tile open the car dialog.
+    const onPickCar = () => openPickerRef.current(document.activeElement as HTMLElement | null);
+    window.addEventListener('voltway:pick-car', onPickCar);
     return () => {
+      window.removeEventListener('voltway:pick-car', onPickCar);
       window.removeEventListener('voltway:mycar-menu', onMenu);
       window.removeEventListener('voltway:mycar', onMine);
       window.removeEventListener('voltway:compare', onCompare);
@@ -117,15 +122,18 @@ export default function HeaderChips({ showCompare = false }: Props) {
         .catch(() => setCarsFailed(true));
     }
   };
+  const openPickerRef = useRef(openPicker);
+  openPickerRef.current = openPicker;
   const closePicker = () => dialog.current?.close();
   useEffect(() => {
     // Focus the search box once the picker is in the dialog.
     if (picking && cars) dialog.current?.querySelector<HTMLInputElement>('input[type=search]')?.focus();
   }, [picking, cars]);
-  const onPick = (carId: string, trimId: string | null) => {
+  const onPick = (carId: string, trimId: string | null, plugs: DcPlug[] | null) => {
     const e = cars?.find((c) => c.id === carId);
-    // Picking the same car again keeps its plug switches; a different car starts from its own plug.
-    setMyCar({ carId, trimId, label: e ? carLabel(e) : undefined, ...(mine?.carId === carId && mine.plugs ? { plugs: mine.plugs } : {}) });
+    // B58: the plug switches shown in the dialog are saved with the car (none changed and a new
+    // car: its own plug, worked out from its file when needed).
+    setMyCar({ carId, trimId, label: e ? carLabel(e) : undefined, ...(plugs ? { plugs } : {}) });
     closePicker();
   };
 
@@ -189,8 +197,8 @@ export default function HeaderChips({ showCompare = false }: Props) {
         </button>
         {picking && (cars
           ? <>
-              <CarPicker cars={cars} level={2} onPick={onPick} onCancel={closePicker} tripTags />
-              <p className="picker-plugs-note small muted">{t('picker.plugsNote')}</p>
+              <CarPicker cars={cars} level={2} onPick={onPick} onCancel={closePicker} tripTags
+                savedPlugs={mine?.plugs ? { carId: mine.carId, plugs: mine.plugs } : null} initialCar={mine?.carId ?? null} />
             </>
           : <p className="picker-wait" role="status">{carsFailed ? t('picker.loadFailed') : t('picker.loading')}</p>)}
       </dialog>

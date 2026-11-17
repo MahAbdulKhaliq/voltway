@@ -7,6 +7,7 @@ import { MAP } from '../config.ts';
 import { t } from '../i18n/t.ts';
 import { currentTheme, type Theme } from '../scripts/theme-client.ts';
 import { MAP_PALETTE, roadPaintStyle } from './map-style.ts';
+import { SHEET_MEDIA } from './sheet.ts';
 
 export const styleFor = (theme: Theme): string => (theme === 'dark' ? MAP.darkStyleUrl : MAP.styleUrl);
 
@@ -34,8 +35,9 @@ export function createBaseMap({ container, center, zoom, bounds, onStyleLoad }: 
     style: { version: 8, sources: {}, layers: [{ id: 'land', type: 'background', paint: { 'background-color': MAP_PALETTE[theme].land } }] },
     ...(bounds ? { bounds, fitBoundsOptions: { padding: 40 } } : { center: center ?? MAP.defaultView.center, zoom: zoom ?? MAP.defaultView.zoom }),
     // B30: the charger data credit (DOE/NLR, NRCan) sits on the map itself, linking to About.
+    // B59: on phones the credits fold into MapLibre's compact ⓘ button, which opens them.
     attributionControl: {
-      compact: false,
+      compact: matchMedia(SHEET_MEDIA).matches,
       customAttribution: [MAP.attribution, `<a href="/about#data">${t('map.chargerCredit')}</a>`],
     },
     dragRotate: false,
@@ -53,6 +55,12 @@ export function createBaseMap({ container, center, zoom, bounds, onStyleLoad }: 
   };
   applyStyle();
   map.touchZoomRotate.disableRotation();
+  // The compact credits start folded (MapLibre opens them until the first drag).
+  map.once('load', () => {
+    const el = map.getContainer().querySelector('.maplibregl-ctrl-attrib.maplibregl-compact');
+    el?.classList.remove('maplibregl-compact-show');
+    el?.removeAttribute('open');
+  });
   // Zoom buttons sit bottom right, above the credits: the top right belongs to the navigation pill (DESIGN-4 4.6); the map key and Locate me sit with them (B54).
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right');
   map.on('style.load', () => onStyleLoad(map));

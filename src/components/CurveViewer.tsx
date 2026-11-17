@@ -32,6 +32,8 @@ interface Props {
   sources: { id: string; title: string; url: string; n: number }[];
   /** A charger cap from a map link (B31): shown as the custom preset, never saved over the remembered settings. */
   initialChargerKw?: number | null;
+  /** A charging window from a trip stop link (3.12): shown, never saved over the remembered settings. */
+  initialWindow?: { start: number; end: number } | null;
   /** The car's plugs, for the "Find chargers this fast" map link (B31); null when its port is unknown. */
   mapPlugs?: Plug[] | null;
 }
@@ -55,6 +57,7 @@ export default function CurveViewer({
   consumption,
   sources,
   initialChargerKw = null,
+  initialWindow = null,
   mapPlugs = null,
 }: Props) {
   const initial = curves.find((c) => c.is_display_default) ?? curves[0];
@@ -70,16 +73,25 @@ export default function CurveViewer({
   const live = useRef({ start: settings.start, end: settings.end, xAxis });
   live.current = { start: settings.start, end: settings.end, xAxis };
   const dragging = useRef<'start' | 'end' | null>(null);
-  // While a map link's charger cap is shown, the remembered preset stays what it was (B31).
-  const keptCharger = useRef<Pick<Settings, 'preset' | 'customKw'> | null>(null);
+  // While a link's charger cap (B31) or charging window (trip stop) is shown, the remembered values
+  // for those settings stay what they were, until the visitor changes that setting themselves.
+  const kept = useRef<Partial<Settings>>({});
 
   // Remembered settings and units (browser only, after hydration).
   useEffect(() => {
     const saved = { ...DEFAULTS, ...getJSON<Partial<Settings>>(KEYS.curveSettings, {}) };
+    const shown = { ...saved };
     if (initialChargerKw != null) {
-      keptCharger.current = { preset: saved.preset, customKw: saved.customKw };
-      setSettings({ ...saved, preset: 'custom', customKw: initialChargerKw });
-    } else setSettings(saved);
+      kept.current.preset = saved.preset;
+      kept.current.customKw = saved.customKw;
+      Object.assign(shown, { preset: 'custom', customKw: initialChargerKw });
+    }
+    if (initialWindow) {
+      kept.current.start = saved.start;
+      kept.current.end = saved.end;
+      Object.assign(shown, initialWindow);
+    }
+    setSettings(shown);
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
     const onUnits = (e: Event) => setUnit((e as CustomEvent<DistanceUnit>).detail);
     window.addEventListener('voltway:units', onUnits);
@@ -98,8 +110,9 @@ export default function CurveViewer({
     setSettings((s) => {
       const next = { ...s, ...patch };
       if (next.start > next.end) next.start = next.end;
-      if ('preset' in patch || 'customKw' in patch) keptCharger.current = null;
-      setJSON(KEYS.curveSettings, keptCharger.current ? { ...next, ...keptCharger.current } : next);
+      if ('preset' in patch || 'customKw' in patch) { delete kept.current.preset; delete kept.current.customKw; }
+      if ('start' in patch || 'end' in patch) { delete kept.current.start; delete kept.current.end; }
+      setJSON(KEYS.curveSettings, { ...next, ...kept.current });
       return next;
     });
   };

@@ -73,3 +73,33 @@ describe('station panel and Locate me colours (M8)', async () => {
     expect(contrast('#FFFFFF', '#1D4ED8')).toBeGreaterThanOrEqual(3);
   });
 });
+
+// Trip map and itinerary (3.14, route-planner §7). Base-map colours come from the OpenFreeMap
+// styles in config.ts (positron: land, water, wood; dark: land, water, wood), read 2026-11-16.
+const BASE = { light: ['#F2F3F0', '#C2C8CA', '#DCE0DC'], dark: ['#0C0C0C', '#1B1B1D', '#202020'] };
+
+describe('trip map colours (3.14)', async () => {
+  const { TRIP_MAP } = await import('../src/lib/trip-map-style.ts');
+  it('the route line stands out from every light base colour (3:1); its white casing does on dark (3:1)', () => {
+    for (const bg of BASE.light) expect(contrast(TRIP_MAP.route, bg), bg).toBeGreaterThanOrEqual(3);
+    for (const bg of BASE.dark) expect(contrast(TRIP_MAP.casing, bg), bg).toBeGreaterThanOrEqual(3);
+  });
+  it('route, charging gap, pins and ends stand out from their white casing or ring (3:1)', () => {
+    for (const fill of [TRIP_MAP.route, TRIP_MAP.gap, TRIP_MAP.stop, TRIP_MAP.start, TRIP_MAP.end]) {
+      expect(contrast(fill, TRIP_MAP.ring), fill).toBeGreaterThanOrEqual(3);
+    }
+    expect(contrast(TRIP_MAP.selected, TRIP_MAP.ring)).toBeGreaterThanOrEqual(3);
+  });
+  it('the white stop number reads on its pin (4.5:1)', () => {
+    expect(contrast(TRIP_MAP.stopText, TRIP_MAP.stop)).toBeGreaterThanOrEqual(4.5);
+  });
+  it('the itinerary markers in global.css use the same colours as the map', () => {
+    expect(css).toMatch(new RegExp(String.raw`\.ti-start \.ti-mark \{ background: ` + TRIP_MAP.start));
+    expect(css).toMatch(new RegExp(String.raw`\.ti-num \{[^}]*background: ` + TRIP_MAP.stop));
+  });
+  it('itinerary markers (start, numbered stop) stand out from the card in both themes (3:1)', () => {
+    for (const theme of [light, dark]) {
+      for (const fill of [TRIP_MAP.start, TRIP_MAP.stop]) expect(contrast(fill, theme.surface), `${fill} on ${theme.surface}`).toBeGreaterThanOrEqual(3);
+    }
+  });
+});

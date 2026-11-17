@@ -164,7 +164,9 @@ th { font-weight: 600; color: var(--muted); font-size: 0.875rem; }
 
 /* Numbered source references, Wikipedia-style (B18) */
 .cite { display: inline-flex; align-items: flex-start; gap: 1px; }
-.ref { font-size: 0.7rem; font-weight: 500; line-height: 1; text-decoration: none; position: relative; top: -0.35em; padding: 2px 1px; }
+/* The [n] link is a 24×24 px target (WCAG 2.5.8, P.4), with the number drawn small at the top; the
+   negative margins keep the line and the row the same height as before. */
+.ref { display: inline-block; min-width: 24px; height: 24px; margin: -9px -6px -9px -5px; font-size: 0.7rem; font-weight: 500; line-height: 1; text-align: center; text-decoration: none; position: relative; top: -0.15em; padding-top: 2px; }
 .ref:hover { text-decoration: underline; }
 
 /* Accordions (B18): a card with a title, a short preview when closed, and a chevron */
@@ -254,6 +256,50 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .map-list-name { font-weight: 600; font-size: 0.9rem; }
 @media (max-width: 640px) { .map-list-wrap { display: none; } }
 
+/* "Where to?" (B50, 3.17): the box tops the map panel; a picked place gets a pin and a card. */
+.map-where { padding: 8px 8px 4px; }
+.map-where .tp-field { gap: 0; }
+.map-where .field-input { width: 100%; }
+.map-where .cp-suggest { top: 100%; }
+.map-place { position: absolute; left: 304px; bottom: 40px; z-index: 3; /* beside the 280 px panel */ width: 280px; display: grid; gap: 8px; padding: 12px 14px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.map-place p { margin: 0; }
+.map-place .btn { justify-self: start; text-decoration: none; }
+.map-place-head { display: flex; align-items: flex-start; gap: 8px; }
+.map-place-head h2 { flex: 1; margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
+.map-place-head h2:focus { outline: none; }
+.map-place-close { flex: none; display: grid; place-items: center; width: 32px; height: 32px; margin: -6px -8px 0 0; background: none; border: 0; border-radius: var(--radius); color: inherit; cursor: pointer; }
+.map-place-close:focus-visible { outline: 2px solid var(--accent); }
+.map-place-pin { width: 22px; height: 30px; background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 30'%3E%3Cpath d='M11 1C5.5 1 1 5.4 1 10.9 1 18.3 11 29 11 29s10-10.7 10-18.1C21 5.4 16.5 1 11 1z' fill='%231D4ED8' stroke='%23FFFFFF' stroke-width='2'/%3E%3Ccircle cx='11' cy='11' r='4' fill='%23FFFFFF'/%3E%3C/svg%3E"); pointer-events: none; }
+@media (max-width: 640px) {
+  .map-place { left: 0; right: 0; bottom: 0; width: auto; border-radius: 14px 14px 0 0; border-bottom: 0; padding-bottom: 16px; }
+}
+
+/* Route mode (B50, 3.18): the panel holds the route form and the itinerary. Desktop: a wider
+   left column that scrolls; phones: a bottom sheet with the totals showing and the stops folded. */
+.map-route-btn { flex: none; }
+.map-panel.route { width: 380px; max-height: calc(100% - 24px); overflow-y: auto; }
+.route-panel { display: grid; gap: 10px; padding: 10px 14px 14px; }
+.route-head { display: flex; align-items: center; gap: 8px; }
+.route-title { flex: 1; margin: 0; font-size: 1rem; }
+.route-head .map-place-close { margin: 0 -6px 0 0; }
+.route-form { display: grid; gap: 8px; }
+.route-swap-row { display: flex; justify-content: flex-end; margin: -2px 0; }
+.route-swap { display: inline-flex; align-items: center; gap: 4px; }
+.route-car { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.route-car p { flex: 1 1 180px; min-width: 0; margin: 0; }
+.route-settings { display: grid; gap: 10px; justify-items: start; }
+.route-summary { display: grid; gap: 4px; }
+.route-summary p { margin: 0; }
+.route-ends { overflow-wrap: anywhere; }
+.route-car-pick { max-height: 60vh; overflow-y: auto; }
+.route-panel .banner { margin: 0; }
+.route-itinerary { border-top: 1px solid var(--border); padding-top: 10px; }
+@media (max-width: 640px) {
+  .map-panel.route { top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 72%; border-radius: 14px 14px 0 0; border-bottom: 0; }
+  .route-itinerary:not(.open) .ti-body { display: none; }
+  .route-itinerary .ti-toggle { display: inline-block; margin-top: 4px; }
+}
+
 /* Locate me: bottom left on desktop, above the attribution. */
 .map-locate { position: absolute; left: 12px; bottom: 40px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; min-height: 40px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); font: inherit; font-weight: 600; cursor: pointer; }
 .map-locate:disabled { cursor: progress; opacity: 0.8; }
@@ -282,6 +328,7 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .station-ports li { font-weight: 600; padding: 2px 0; }
 .station-links li { padding: 3px 0; }
 .station-curve { margin: 10px 0 0; font-weight: 600; }
+.station-actions { list-style: none; padding: 0; display: grid; gap: 6px; }
 .station-foot { padding: 8px 14px; border-top: 1px solid var(--border); }
 .station-foot p { margin: 0; }
 
@@ -362,6 +409,8 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .cp-search input { width: 100%; padding: 10px 12px; font-size: 1rem; }
 .cp-suggest { list-style: none; margin: 4px 0 0; padding: 4px; position: absolute; left: 0; right: 0; z-index: 20; background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; box-shadow: var(--shadow); max-height: 320px; overflow-y: auto; }
 .cp-suggest li { padding: 8px 10px; border-radius: 6px; cursor: pointer; }
+.cp-suggest-list { list-style: none; margin: 0; padding: 0; }
+.cp-suggest p.cp-none { margin: 0; padding: 8px 10px; }
 .cp-suggest li.on, .cp-suggest li[role=option]:hover { background: var(--accent-soft); }
 .cp-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
 .cp-steps label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
@@ -384,17 +433,13 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .chip-pop [role=menuitem] { display: block; padding: 8px 10px; border: 0; border-radius: 6px; background: none; color: var(--text); font: inherit; font-size: 0.9rem; text-align: left; text-decoration: none; cursor: pointer; }
 .chip-pop [role=menuitem]:hover, .chip-pop [role=menuitem]:focus-visible { background: var(--accent-soft); }
 
-/* ---- Trip planner (/trip) */
-.tp { display: grid; gap: 16px; }
-.tp-form { display: grid; gap: 12px; max-width: 640px; }
+/* ---- Trip planner on the charger map (B50): form fields and the itinerary. */
 .tp-field { position: relative; display: grid; gap: 4px; }
 .tp-label { font-size: 0.875rem; font-weight: 600; }
 .tp-input-row { display: flex; gap: 8px; align-items: center; }
 .tp-input-row .field-input { flex: 1; min-width: 0; }
 .tp-field .cp-suggest { top: 100%; }
 .tp-address { padding: 6px 8px; }
-.tp-car { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.tp-car-name { flex: 1; min-width: 0; }
 .tp-pcts { display: flex; flex-wrap: wrap; gap: 12px; }
 .tp-pcts label { display: grid; gap: 4px; }
 .tp-pcts .field-input { width: 7rem; }
@@ -402,6 +447,27 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .tp-error { font-weight: 600; margin: 0; }
 .tp-share { margin: 0; display: grid; gap: 4px; }
 .tp-share .field-input { width: 100%; }
-.tp-result { max-width: 640px; }
-.tp-total { font-weight: 600; margin: 0 0 8px; }
-.tp-stops { margin: 0; padding-left: 1.4em; display: grid; gap: 6px; }
+.tp-hint { margin: 0; }
+.linklike { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+.ti-toggle { display: none; }
+.ti-title { font-size: 1.1rem; margin: 0 0 6px; }
+.ti-total { font-weight: 600; margin: 0; }
+.ti-total-time { margin: 2px 0 10px; }
+.route-itinerary .banner { margin: 8px 0; }
+.ti-list { list-style: none; margin: 12px 0 0; padding: 0; }
+.ti-list > li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; }
+.ti-list > li > div { padding: 0 0 14px 12px; margin-left: -24px; padding-left: 26px; border-left: 2px solid var(--border); }
+.ti-list > li:last-child > div { border-left-color: transparent; }
+.ti-list p { margin: 0 0 2px; }
+.ti-head { overflow-wrap: anywhere; }
+.ti-mark { position: relative; z-index: 1; width: 28px; height: 28px; border-radius: 50%; border: 3px solid var(--surface); box-sizing: border-box; }
+.ti-start .ti-mark { background: #15803D; }
+.ti-finish .ti-mark { background: var(--text); }
+.ti-num { display: grid; place-items: center; background: #C2410C; color: #FFFFFF; font-weight: 700; font-size: 0.85rem; border-width: 0; }
+.ti-stop.on .ti-num { outline: 3px solid var(--text); outline-offset: 1px; }
+.ti-soc { font-weight: 600; }
+.ti-leg { color: var(--muted); font-size: 0.875rem; margin-top: 8px !important; padding: 4px 0; }
+.ti-note { border-left: 3px solid var(--estimated); padding-left: 8px; margin: 4px 0 !important; }
+.ti-links { list-style: none; padding: 0; margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.ti-foot { border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px; }
+.ti-foot p { margin: 0 0 6px; }

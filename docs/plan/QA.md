@@ -243,7 +243,7 @@ Covers the items tagged [1b] in `CHECKLIST.md`: template calibration (2.2), Cars
 | QM4 | Tesla note hidden when My car is a Tesla; via-adapter wording for a via-adapter car; generic note otherwise | |
 | QM5 | Curve viewer with a charger preset → "Find chargers this fast" opens the map at that L3 range ("N kW and up") and the car's plugs; params removed from the URL | Preset "No limit" hides the link |
 | QM6 | Station panel → "How fast would my car charge here?" (only with My car and DC ports) opens `/charging` for My car capped at the station's top kW; saved curve settings unchanged afterwards | L2-only station: no link |
-| QM7 | `map-ui-checker` MU1–MU18 still pass | |
+| QM7 | `site-ui-checker` (formerly map-ui-checker) MU1–MU18 still pass | |
 
 ## 6. Compare (6.1, database-ui.md §6, charging-curve-viewer.md §6)
 
@@ -304,7 +304,7 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 
 | # | Check | Edge cases |
 |---|-------|-----------|
-| QE1 | Base consumption: tested highway if present, else NRCan highway × factor (1.15 until R10 is approved) | |
+| QE1 | Base consumption: tested highway if present, else NRCan highway × factor (1.08, calibrated, B49) | |
 | QE2 | A climb adds `m·9.81·Δh / 0.9`; a descent returns 60 %; mass = curb weight + 150 kg | Unknown weight → body-type default, result marked estimated |
 | QE3 | SoC drop uses usable kWh; the gross fallback marks the trip estimated | |
 | QE4 | Stop window: arrive between threshold and threshold + 20 %, ≤ 2 km from the route; highest usable kW (capped at the car's DC peak); ties → furthest along | |
@@ -324,11 +324,13 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 | QF5 | The firewall rule blocks a burst from one IP; the page shows the busy message | |
 | QF6 | The function writes no addresses or coordinates to the logs | |
 
-## 5. Trip screen (3.11–3.14, route-planner §1, §6, §7; user-flows §2)
+## 5. Trip planner on the charger map (3.11–3.14, 3.17–3.20; B50; route-planner §1, §6, §7; user-flows §2)
+
+*B50 (2026-11-16): the planner moved onto the charger map at `/`; `/trip` no longer exists. Read "the trip screen" below as the map in route mode.*
 
 | # | Check | Edge cases |
 |---|-------|-----------|
-| QS1 | "Trip" in the header nav and side menu; `/trip` loads with no console errors | |
+| QS1 | No "Trip" in the nav; `/trip` is a 404 and nothing links to it; `/` loads with no console errors | |
 | QS2 | From/To suggest places while typing with no network request; "Search full address" calls `/api/geocode` only on press; "Use my location" fills From only when pressed | "montreal" finds Montréal; location denied → a message |
 | QS3 | The car comes from My car, with an inline picker when there is none; start 90 % and threshold 15 % by default, both adjustable | |
 | QS4 | Toronto → Montréal with an IONIQ 5 plans sensible stops; Calgary → Vancouver uses more energy than the same distance on the flat | A route that needs no stop shows none |
@@ -336,10 +338,14 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 | QS6 | Itinerary per route-planner §7: depart %, legs, stops (arrive % → 80 %, kW + plug, charging + 5 min), arrival %, totals | The km/mi switch updates distances |
 | QS7 | Warnings: estimated curve, Tesla network, charging gap (try a long northern route), detour, uncalibrated factor; the winter footer and the K2 disclaimer always; the charger data date shown | |
 | QS8 | Per stop: Google Maps and Apple Maps links, Open charger, and "See the charging curve for this stop" → `/charging` at arrival % → 80 % capped at that kW; saved curve settings unchanged afterwards | |
-| QS9 | Map station panel → "Plan a trip to here" opens `/trip` with To filled in | |
+| QS9 | Station panel → "Route here" switches the same map to route mode with To filled in | |
 | QS10 | The last trip is restored on reload; the share link appears only after opting in, and it reproduces the trip in a fresh browser | A corrupt `voltway.lastTrip` → an empty form, no crash |
 | QS11 | 375 px: the itinerary is a bottom sheet with no sideways scroll; dark mode readable; the keyboard reaches everything (combobox ARIA, itinerary list) | |
 | QS12 | States: no route found, busy, offline, no compatible chargers at all — each has a clear message | |
+| QS13 | "Where to?" box: picking a place flies the map there with a marker and a place card (name, fast chargers within 25 km, Route here); Escape or close clears it | A place with no chargers nearby says so |
+| QS14 | Route mode: From = last start (or the location only if the browser already allows it, otherwise "Use my location"); swap works; the car · % line expands to change car, start % and threshold | No saved trip and no permission → From is empty with "Use my location" |
+| QS15 | While a route shows, other chargers are faded but visible, filters still apply, and the itinerary replaces the filter panel; Close route restores the plain map | Filters set before Route here still apply to the faded pins (the filter panel is hidden while routing, so they can't change mid-route); Close route shows the filter panel with the same choices |
+| QS16 | The plain charger map still works: filters, Stations in view, Locate me, station panel (MU spot-check) | |
 
 ## 6. Rules and process
 
@@ -357,5 +363,21 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 | QD1–QD3 | | |
 | QE1–QE8 | | |
 | QF1–QF6 | | |
-| QS1–QS12 | | |
+| QS1–QS16 | | |
 | QR4–QR6 | | |
+
+# Polish: showcase pass (P.1–P.7)
+
+| # | Check | Edge cases |
+|---|-------|------------|
+| QP1 | The side menu on every page has a km/mi switch; it matches the Charging tab's switch and changes figures on the open page without a reload (map itinerary, Charging, Cars, Compare) | Reload keeps the choice; switching on the Charging tab updates the menu's pressed state next time the menu opens |
+| QP2 | Escape closes route mode and returns focus to "Where to?" | Escape inside a field with open suggestions only closes the list; with a station panel open, Escape closes the panel first |
+| QP3 | On desktop the place card never covers the "Set my car" toast | 1280 px and 1024 px |
+| QP4 | Every page's HTML has og:title, og:description, og:image (absolute, 1200×630), og:url and twitter:card | The image loads at its URL |
+| QP5 | axe-core reports no serious or critical violations on each page and map state listed in P.4 | Dark and light |
+
+## Polish results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QP1–QP5 | | |

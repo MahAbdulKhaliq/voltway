@@ -1,7 +1,7 @@
 // Trip settings in a link and in browser storage (route-planner.md §7 "Saving and sharing").
 // The last trip is saved in the browser; the share link is opt-in because it holds the places.
-// Link format: /trip?from=<lat>,<lon>,<label>&to=<lat>,<lon>,<label>&start=<%>&min=<%>
-// (positions first, so "Plan a trip to here" can pass a station as to=<lat>,<lon>,<name>).
+// Link format (on the charger map, B50): /?from=<lat>,<lon>,<label>&to=<lat>,<lon>,<label>&start=<%>&min=<%>
+// (positions first, so a label may hold commas, e.g. a station's "name, city").
 
 import { TRIP } from '../config.ts';
 import type { TripEnd } from './place-search.ts';
@@ -73,5 +73,21 @@ export function readSavedTrip(saved: unknown): TripQuery | null {
   return { from, to, ...socPair(s.startSoc, s.thresholdSoc) };
 }
 
-/** The API's "lon,lat" form. */
-export const apiPoint = (e: TripEnd): string => `${round(e.lon, 5)},${round(e.lat, 5)}`;
+/** The API's "lon,lat" form, rounded to 3 decimals (~100 m) as the function does, so the CDN cache key is shared. */
+export const apiPoint = (e: TripEnd): string => `${round(e.lon, 3)},${round(e.lat, 3)}`;
+
+/** The charging window in a "See the charging curve for this stop" link (?from=&to=, whole %); null when absent or odd. */
+export function linkWindowFrom(params: URLSearchParams): { start: number; end: number } | null {
+  if (!params.has('from') || !params.has('to')) return null;
+  const start = Number(params.get('from')), end = Number(params.get('to'));
+  if (!Number.isFinite(start) || !Number.isFinite(end)) return null;
+  const s = Math.round(start), e = Math.round(end);
+  return s >= 0 && e <= 100 && s < e ? { start: s, end: e } : null;
+}
+
+/** "Route here" from a charger (3.13, B50): the station as a trip end, labelled with its name and city. */
+export function stationEnd(station: { geometry: { coordinates: [number, number] }; properties: { n: string; c?: string } }): TripEnd {
+  const [lon, lat] = station.geometry.coordinates;
+  const { n, c } = station.properties;
+  return { label: c && !n.includes(c) ? `${n}, ${c}` : n, lat, lon };
+}

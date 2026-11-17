@@ -127,3 +127,21 @@ export function pointIndexAt(route: Route, km: number): number {
   }
   return lo;
 }
+
+/** The route's points between two distances along it (km), with the cut ends interpolated. For drawing a stretch. */
+export function sliceRoute(route: Route, fromKm: number, toKm: number): [number, number][] {
+  const a = Math.max(0, Math.min(fromKm, toKm)), b = Math.min(route.totalKm, Math.max(fromKm, toKm));
+  if (b <= a) return [];
+  const at = (km: number): [number, number] => {
+    const i = pointIndexAt(route, km);
+    const j = Math.min(i + 1, route.coords.length - 1);
+    const span = route.cumKm[j] - route.cumKm[i];
+    const f = span > 0 ? (km - route.cumKm[i]) / span : 0;
+    const p = route.coords[i], q = route.coords[j];
+    return [p[0] + (q[0] - p[0]) * f, p[1] + (q[1] - p[1]) * f];
+  };
+  const out: [number, number][] = [at(a)];
+  for (let i = pointIndexAt(route, a) + 1; i < route.coords.length && route.cumKm[i] < b; i++) out.push([route.coords[i][0], route.coords[i][1]]);
+  out.push(at(b));
+  return out;
+}

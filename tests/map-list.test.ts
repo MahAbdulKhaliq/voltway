@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { defaultFilters } from '../src/lib/map-filter.ts';
-import { inBounds, LIST_CAP, stationsInView, type Bounds } from '../src/lib/map-list.ts';
+import { fastNear, inBounds, LIST_CAP, stationsInView, type Bounds } from '../src/lib/map-list.ts';
 import type { MapFeature, MapPort } from '../src/lib/map-data.ts';
 
 const feat = (i: number, at: [number, number], p: MapPort[], c?: string): MapFeature => ({
@@ -74,5 +74,28 @@ describe('stationsInView (charger-map §5, B34)', () => {
     expect(stationsInView([mixed], l2only, view, centre).items[0]).toMatchObject({ level: 2, maxKw: 7.2 });
     const unknown = feat(2, centre, [[3, 'nacs', null, 8]]);
     expect(stationsInView([unknown], f, view, centre).items[0].maxKw).toBeNull();
+  });
+});
+
+describe('fastNear: the "Where to?" place card count (B50, 3.17)', () => {
+  // 0.1° of latitude ≈ 11 km; 0.3° ≈ 33 km.
+  const at: [number, number] = [-79.5, 43.5];
+  const l3: MapPort = [3, 'ccs1', 150, 2];
+  const l2: MapPort = [2, 'j1772', 7.2, 2];
+  const list = [
+    feat(1, [-79.5, 43.6], [l3]),
+    feat(2, [-79.5, 43.4], [l3, l2]),
+    feat(3, [-79.5, 43.55], [l2]),
+    feat(4, [-79.5, 43.8], [l3]),
+  ];
+  it('counts Level 3 sites within 25 km, ignoring Level 2-only sites and far ones', () => {
+    expect(fastNear(list, f, at)).toBe(2);
+  });
+  it('counts Level 3 even when the Level 3 checkbox is off, and follows the power filter', () => {
+    expect(fastNear(list, { ...f, levels: { 3: false, 2: true } }, at)).toBe(2);
+    expect(fastNear(list, { ...f, power: { ...f.power, 3: [200, Infinity] } }, at)).toBe(0);
+  });
+  it('is 0 with nothing near', () => {
+    expect(fastNear(list, f, [-100, 60])).toBe(0);
   });
 });

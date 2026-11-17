@@ -182,6 +182,8 @@ The data model gives every figure a *kind* and a source. On screen:
 
 **Changed 2026-11-15 (B19):** the km/mi switch lives in the curve controls on the Charging tab, not the header; the header has a hamburger menu of pages.
 
+**Changed 2026-11-16 (B51):** a second km/mi switch sits in the side menu beside the theme button, so every page (the charger map's route itinerary included) can switch. Both switches share one saved setting.
+
 | Setting | Default | Options |
 |---------|---------|---------|
 | Distance | **km** | mi |

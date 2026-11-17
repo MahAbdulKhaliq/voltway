@@ -199,7 +199,7 @@ export function planTrip(input: PlanInput): TripPlan {
       pick = 'afterGap';
       const next = candidates.filter((c) => c.alongKm > hitKm).sort((a, b) => a.alongKm - b.alongKm)[0];
       gaps.push({ fromKm: pos, toKm: next ? next.alongKm : route.totalKm });
-      if (!next || arrival(next, pos, soc) <= 0) { reachable = false; }
+      // No charger past the gap: drive on; the arrival check after the loop decides reachability.
       if (!next) break;
       chosen = next;
     }
@@ -207,7 +207,7 @@ export function planTrip(input: PlanInput): TripPlan {
     const arriveSoc = arrival(chosen, pos, soc);
     if (arriveSoc <= 0) reachable = false;
     const fromSoc = Math.max(0, arriveSoc);
-    const r = calculateCharge({ points: car.curve.points, usableKwh: car.energy.batteryKwh, startSoc: fromSoc, endSoc: target, chargerKw: chosen.stationKw });
+    const r = calculateCharge({ points: car.curve.points, usableKwh: car.energy.batteryKwh, startSoc: fromSoc, endSoc: target, chargerKw: chosen.usableKw });
     const detourKm = 2 * chosen.offKm;
     const p = chosen.station.properties;
     stops.push({

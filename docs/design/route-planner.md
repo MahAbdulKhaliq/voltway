@@ -10,10 +10,12 @@ Phase 3 of [roadmap.md](roadmap.md). The simple, threshold-based trip planner fr
 
 ## 1. What the user does
 
-1. Enter **From** and **To**.
-2. Check the car (pre-filled from **My car**), **starting battery %** (default **90%**, R9 ✅) and **stop threshold** (default 15%).
-3. Press **Plan trip**.
-4. See the route on the map with charging stops, plus a step-by-step itinerary and trip totals.
+**On the charger map, not a separate page (B50 ✅, 2026-11-16).**
+
+1. Type a place in the map's **"Where to?"** box (**search mode**). The map flies there and a place card shows the fast chargers nearby, with **Route here**. (The station panel has **Route here** too.)
+2. **Route here** switches to **route mode**: **From** (the last start, or "Use my location"; the browser location is used without a press only if the browser already allows it, B33), **To**, a swap button, and one editable line for the car (from **My car**), **starting battery %** (default **90%**, R9 ✅) and **stop threshold** (default 15%).
+3. Press **Plan route**.
+4. The route and its charging stops show on the same map (other chargers stay visible, faded), with the step-by-step itinerary and totals in the side panel (a bottom sheet on phones). **Close route** goes back to the plain map.
 
 ---
 
@@ -60,7 +62,7 @@ For each stretch of the route:
 | The variant has a **tested highway consumption** (data model `kind: tested`) | That figure, as is |
 | Otherwise | **NRCan highway consumption × 1.08** |
 
-**Why a factor:** official highway ratings come from lab cycles that are slower than Canadian highway driving (100–110 km/h). The 1.15 factor is a **placeholder to calibrate** against tested highway figures, like the curve templates (R10). **Decided (B46, 2026-11-16):** no car had a tested highway figure yet, so Phase 3 first researches tested highway consumption (110–120 km/h range tests) for about 20 cars, then calibrates the factor; until the owner approves the result, 1.15 ships marked "not yet calibrated".
+**Why a factor:** official highway ratings come from lab cycles that are slower than Canadian highway driving (100–110 km/h). The 1.15 factor is a **placeholder to calibrate** against tested highway figures, like the curve templates (R10). **Decided (B46, 2026-11-16):** no car had a tested highway figure yet, so Phase 3 first researches tested highway consumption (110–120 km/h range tests) for about 20 cars, then calibrates the factor; until the owner approves the result, 1.15 ships marked "not yet calibrated". **Calibrated (B49, 2026-11-16): 1.08** ships.
 
 **Calibrated (B49, 2026-11-16): 1.08.** Fitted on 14 tested mild-weather highway figures; the owner picked the conservative 75th percentile over the 0.97 best fit. NRCan ratings are wall-side (they include charging losses), the tests mostly battery-side, so the two effects largely cancel. See `docs/plan/highway-calibration-report.md`.
 
@@ -145,10 +147,10 @@ To stay inside the 1,000 searches per day:
 ## 7. Results screen
 
 ### Map
-- The route line, plus numbered **stop pins**. Pins use the Phase 2 style.
+- **The charger map itself (B50).** The route line, plus numbered **stop pins**. Pins use the Phase 2 style. The other chargers stay visible but faded (filters still apply), so an alternative stop is easy to spot.
 - Each stop pin opens the same **popup** as the charger map.
 
-### Itinerary (side panel; bottom sheet on phones)
+### Itinerary (side panel in place of the filters; bottom sheet on phones)
 ```
 🟢 Toronto, ON                    Depart with 90%
    │ 185 km · 1 h 55 min
@@ -178,7 +180,7 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 
 ### Saving and sharing
 - The **last trip** is saved in the browser.
-- **Share link:** *opt-in*, because the link contains the From and To places.
+- **Share link:** *opt-in*, because the link contains the From and To places. It opens the charger map in route mode (`/?from=…&to=…`, B50).
 
 ---
 
@@ -198,6 +200,6 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 **New:**
 | ID | Question |
 |----|----------|
-| R10 | **Calibrating the 1.15 highway factor** against tested highway range figures, before launch. |
+| R10 | ~~**Calibrating the 1.15 highway factor** against tested highway range figures, before launch.~~ ✅ Resolved (B49, 2026-11-16): 1.08. |
 | D17 | **Add `curb_weight_kg` to the variant** (needed for elevation). It's MVP for Phase 3. Sources: OpenEV Data, manufacturer, FuelEconomy.gov. |
 | S7 | **Protecting the function:** per-visitor limits and what to show when the day's allowance runs out ("Trip planning is busy, try again later"). |

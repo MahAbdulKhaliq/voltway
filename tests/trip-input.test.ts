@@ -47,7 +47,7 @@ describe('trip link', () => {
   it('round-trips through the query string', () => {
     expect(readTripLink('?' + writeTripLink(trip))).toEqual(trip);
   });
-  it('accepts a to-only link (Plan a trip to here) with labels holding commas', () => {
+  it('accepts a to-only link (Route here) with labels holding commas', () => {
     const t = readTripLink('?to=45.5,-73.6,Station%2C%20Rue%20X')!;
     expect(t.from).toBeNull();
     expect(t.to).toEqual({ label: 'Station, Rue X', lat: 45.5, lon: -73.6 });
@@ -70,7 +70,7 @@ describe('trip link', () => {
     expect(readSavedTrip({ from: 'x' })).toBeNull();
   });
   it('gives the API lon,lat', () => {
-    expect(apiPoint(trip.from)).toBe('-79.3839,43.6533');
+    expect(apiPoint(trip.from)).toBe('-79.384,43.653');
   });
 });
 
@@ -93,5 +93,37 @@ describe('planCarFrom (every built car)', () => {
       expect(r.car.rule.plugs).toContain('nacs');
       expect(r.car.curve.points.length).toBeGreaterThan(1);
     }
+  });
+});
+
+describe('charging window link (3.12)', () => {
+  it('reads from/to, rejects odd values', async () => {
+    const { linkWindowFrom } = await import('../src/lib/trip-link.ts');
+    const w = (q: string) => linkWindowFrom(new URLSearchParams(q));
+    expect(w('from=17.4&to=80')).toEqual({ start: 17, end: 80 });
+    expect(w('from=0&to=100')).toEqual({ start: 0, end: 100 });
+    expect(w('to=80')).toBeNull();
+    expect(w('from=80&to=20')).toBeNull();
+    expect(w('from=-5&to=80')).toBeNull();
+    expect(w('from=a&to=80')).toBeNull();
+  });
+  it('the stop link carries car, trim, kW and the window', async () => {
+    const { stopCurveHref } = await import('../src/lib/trip-format.ts');
+    const href = stopCurveHref({ carId: 'kia/ev6/2026/land-awd', trimId: 't1' }, { usableKw: 239.6, arriveSoc: 17.6, departSoc: 80 });
+    const q = new URLSearchParams(href.split('?')[1]);
+    expect(href.startsWith('/charging?')).toBe(true);
+    expect(Object.fromEntries(q)).toEqual({ car: 'kia/ev6/2026/land-awd', trim: 't1', kw: '240', from: '18', to: '80' });
+  });
+});
+
+describe('Route here from a station (3.13, B50)', () => {
+  it('makes the station a trip end named with its city (once), which a link carries', async () => {
+    const { stationEnd, readTripLink, writeTripLink } = await import('../src/lib/trip-link.ts');
+    const to = stationEnd({ geometry: { coordinates: [-76.96316, 44.26215] }, properties: { n: 'Napanee, ON - Tesla Supercharger', c: 'Napanee' } });
+    expect(to).toEqual({ label: 'Napanee, ON - Tesla Supercharger', lat: 44.26215, lon: -76.96316 });
+    const t = readTripLink(`?${writeTripLink({ from: null, to, startSoc: 90, thresholdSoc: 15 })}`)!;
+    expect(t.from).toBeNull();
+    expect(t.to).toEqual(to);
+    expect(stationEnd({ geometry: { coordinates: [-75.3, 44.8] }, properties: { n: 'Iroquois Plaza', c: 'Cornwall' } }).label).toBe('Iroquois Plaza, Cornwall');
   });
 });

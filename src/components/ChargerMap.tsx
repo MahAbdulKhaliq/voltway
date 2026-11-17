@@ -13,7 +13,6 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { MAP } from '../config.ts';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { getJSON, setJSON, KEYS } from '../lib/storage.ts';
-import { currentTheme } from '../scripts/theme-client.ts';
 import type { FeatureCollection, Point } from 'geojson';
 import type { MapFeature, MapFeatureCollection, MapMeta } from '../lib/map-data.ts';
 import {
@@ -25,7 +24,7 @@ import {
   type CarMapInfo,
   type MapFilters,
 } from '../lib/map-filter.ts';
-import { getMyCar, type MyCar } from '../lib/my-car.ts';
+import { getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import {
   isFullRange,
   PLUGS,
@@ -35,8 +34,17 @@ import {
   type PowerRange,
 } from '../lib/power-bands.ts';
 import { BOLT, drawPin, PIN, PLUG, pinId } from '../lib/map-icons.ts';
-import { stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
+import { fastNear, NEAR_PLACE_KM, stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
+import PlaceField, { loadPlaces } from './PlaceField.tsx';
+import type { PlaceSearch, TripEnd } from '../lib/place-search.ts';
+import { readTripLink, stationEnd } from '../lib/trip-link.ts';
 import StationPanel from './StationPanel.tsx';
+import RoutePanel from './RoutePanel.tsx';
+import { useTrip } from './useTrip.ts';
+import { addTripLayers, boundsOf, setTripOverlay, STOP_LAYERS, type TripOverlay } from '../lib/trip-overlay.ts';
+import type { IndexEntry } from '../lib/types.ts';
+import { createBaseMap } from '../lib/map-base.ts';
+import { sliceRoute } from '../lib/route-geo.ts';
 
 interface SavedView {
   center: [number, number];
@@ -55,7 +63,6 @@ function savedView(): SavedView {
   return ok ? (v as SavedView) : MAP.defaultView;
 }
 
-const styleFor = (theme: 'light' | 'dark') => (theme === 'dark' ? MAP.darkStyleUrl : MAP.styleUrl);
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
 /** Filter for the ring under the selected pin (-1 matches nothing). */
@@ -240,7 +247,16 @@ async function loadLevel(level: ChargerLevel): Promise<MapFeature[]> {
   return ((await res.json()) as MapFeatureCollection).features;
 }
 
-export default function ChargerMap() {
+/** Drops the trip parameters (?from, ?to, ?start, ?min) from the address bar. */
+function clearTripParams() {
+  const q = new URLSearchParams(window.location.search);
+  if (!['from', 'to', 'start', 'min'].some((k) => q.has(k))) return;
+  for (const k of ['from', 'to', 'start', 'min']) q.delete(k);
+  const rest = q.toString();
+  history.replaceState(history.state, '', window.location.pathname + (rest ? `?${rest}` : '') + window.location.hash);
+}
+
+export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const box = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const pinsRef = useRef<FeatureCollection>(EMPTY);
@@ -266,6 +282,16 @@ export default function ChargerMap() {
   const [view, setView] = useState<{ bounds: Bounds; center: [number, number] } | null>(null);
   const [listOpen, setListOpen] = useState(false);
   const listItemRef = useRef<HTMLButtonElement | null>(null);
+  // "Where to?" (B50, 3.17): a picked place flies the map there and opens its place card.
+  const [placeSearch, setPlaceSearch] = useState<PlaceSearch | null>(null);
+  const [place, setPlace] = useState<TripEnd | null>(null);
+  const [whereKey, setWhereKey] = useState(0);
+  const placeRef = useRef<maplibregl.Marker | null>(null);
+  const placeCardRef = useRef<HTMLHeadingElement | null>(null);
+  // Route mode (B50, 3.18): the planner on this map.
+  const [routeMode, setRouteMode] = useState(false);
+  const tripOverlayRef = useRef<TripOverlay | null>(null);
+  const stopIdsRef = useRef<number[]>([]);
 
   useEffect(() => {
     const q = new URLSearchParams(window.location.search);
@@ -274,6 +300,9 @@ export default function ChargerMap() {
     q.delete('plugs');
     const rest = q.toString();
     history.replaceState(history.state, '', window.location.pathname + (rest ? `?${rest}` : '') + window.location.hash);
+  }, []);
+  useEffect(() => {
+    loadPlaces().then((s) => setPlaceSearch(() => s)).catch(() => setPlaceSearch(null)); // a function: wrap it, or React calls it as an updater
   }, []);
   useEffect(() => {
     const on = (e: Event) => setMyCarState((e as CustomEvent<MyCar | null>).detail ?? null);
@@ -301,24 +330,16 @@ export default function ChargerMap() {
   useEffect(() => {
     if (!box.current) return;
     const view = savedView();
-    let theme = currentTheme();
-    const map = new maplibregl.Map({
+    const { map, dispose } = createBaseMap({
       container: box.current,
-      style: styleFor(theme),
       center: view.center,
       zoom: view.zoom,
-      // B30: the charger data credit (DOE/NLR, NRCan) sits on the map itself, linking to About.
-      attributionControl: {
-        compact: false,
-        customAttribution: [MAP.attribution, `<a href="/about#data">${t('map.chargerCredit')}</a>`],
+      onStyleLoad: (m) => {
+        addOverlay(m, pinsRef.current, selectedRef.current);
+        addTripLayers(m, tripOverlayRef.current);
       },
-      dragRotate: false,
-      pitchWithRotate: false,
     });
     mapRef.current = map;
-    map.touchZoomRotate.disableRotation();
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-    map.on('style.load', () => addOverlay(map, pinsRef.current, selectedRef.current));
     const reportView = () => {
       const b = map.getBounds();
       const c = map.getCenter();
@@ -328,10 +349,6 @@ export default function ChargerMap() {
     reportView();
     map.once('load', () => setMapStatus('ready'));
     map.on('moveend', reportView);
-    // The dark style names a few POI icons its sprite lacks; draw them blank instead of warning.
-    map.on('styleimagemissing', (e) => {
-      if (!map.hasImage(e.id)) map.addImage(e.id, { width: 1, height: 1, data: new Uint8Array(4) });
-    });
     map.on('error', (e) => {
       // Only a failed style or tile source means the map itself is broken.
       if (!map.isStyleLoaded() && (e.error as { status?: number } | undefined)?.status !== 404) setMapStatus('error');
@@ -354,6 +371,12 @@ export default function ChargerMap() {
     });
     // A pin opens its station panel; a click on empty map closes it.
     map.on('click', (e) => {
+      const stopHit = map.getLayer('trip-stops') ? map.queryRenderedFeatures(e.point, { layers: STOP_LAYERS })[0] : undefined;
+      if (stopHit) {
+        const id = stopIdsRef.current[stopHit.properties.i as number];
+        if (id !== undefined) setSelected(id);
+        return;
+      }
       const hit = map.queryRenderedFeatures(e.point, { layers: ['pins', 'clusters'] })[0];
       if (!hit) setSelected(null);
       else if (hit.layer.id === 'pins') {
@@ -366,26 +389,13 @@ export default function ChargerMap() {
         }
       }
     });
-    for (const layer of ['clusters', 'pins']) {
+    for (const layer of ['clusters', 'pins', ...STOP_LAYERS]) {
       map.on('mouseenter', layer, () => (map.getCanvas().style.cursor = 'pointer'));
       map.on('mouseleave', layer, () => (map.getCanvas().style.cursor = ''));
     }
 
-    const onTheme = () => {
-      const next = currentTheme();
-      if (next !== theme) {
-        theme = next;
-        map.setStyle(styleFor(theme));
-      }
-    };
-    window.addEventListener('voltway:theme', onTheme);
-    const mq = matchMedia('(prefers-color-scheme: dark)');
-    mq.addEventListener('change', onTheme);
-
     return () => {
-      window.removeEventListener('voltway:theme', onTheme);
-      mq.removeEventListener('change', onTheme);
-      map.remove();
+      dispose();
       mapRef.current = null;
     };
   }, []);
@@ -394,7 +404,7 @@ export default function ChargerMap() {
   useEffect(() => {
     for (const lv of LEVELS) {
       // l3.json also holds every mixed site (Level 3 and Level 2 ports), so the Level 2 view needs it too.
-      const needed = lv === 3 ? filters.levels[3] || filters.levels[2] : filters.levels[2];
+      const needed = lv === 3 ? filters.levels[3] || filters.levels[2] || place !== null || routeMode : filters.levels[2];
       if (!needed || load[lv] !== 'idle') continue;
       setLoad((s) => ({ ...s, [lv]: 'loading' }));
       loadLevel(lv).then(
@@ -405,7 +415,7 @@ export default function ChargerMap() {
         () => setLoad((s) => ({ ...s, [lv]: 'error' })),
       );
     }
-  }, [filters.levels, load]);
+  }, [filters.levels, load, place, routeMode]);
 
   // Filters → pins → map source; choices are saved.
   // The files never overlap (l3 = any Level 3 port, l2 = Level 2-only), so merging is safe.
@@ -456,6 +466,116 @@ export default function ChargerMap() {
       .then(setMeta, () => setMeta(null));
   }, []);
 
+  const pickPlace = (end: TripEnd | null) => {
+    if (!end) return; // typing clears the pick; the card stays until a new place is picked or it is closed
+    const map = mapRef.current;
+    setPlace(end);
+    setSelected(null);
+    if (window.innerWidth <= 640) setPanelOpen(false);
+    if (!map) return;
+    placeRef.current?.remove();
+    const dot = document.createElement('div');
+    dot.className = 'map-place-pin';
+    dot.setAttribute('role', 'img');
+    dot.setAttribute('aria-label', end.label);
+    placeRef.current = new maplibregl.Marker({ element: dot, anchor: 'bottom' }).setLngLat([end.lon, end.lat]).addTo(map);
+    map.flyTo({ center: [end.lon, end.lat], zoom: Math.max(Math.min(map.getZoom(), 12), 10) });
+  };
+  // A picked place moves focus to its card: the phone keyboard closes so "Route here" is visible,
+  // and keyboard and screen-reader users hear the place and its charger count next.
+  useEffect(() => {
+    if (place) placeCardRef.current?.focus({ preventScroll: true });
+  }, [place]);
+  const closePlace = useCallback(() => {
+    placeRef.current?.remove();
+    placeRef.current = null;
+    setPlace(null);
+    setWhereKey((k) => k + 1); // a fresh, empty box
+  }, []);
+  const nearCount = useMemo(
+    () => (place && load[3] === 'ready' ? fastNear(stations[3], filters, [place.lon, place.lat], NEAR_PLACE_KM, carRule) : null),
+    [place, load, stations, filters, carRule],
+  );
+
+  const T = useTrip(myCar, load[3] === 'ready' ? stations[3] : null, load[3] === 'error');
+  const { plan, routeData } = T;
+  const enterRoute = useCallback((opts: Parameters<typeof T.start>[0] = {}) => {
+    placeRef.current?.remove();
+    placeRef.current = null;
+    setPlace(null);
+    setSelected(null);
+    setRouteMode(true);
+    setPanelOpen(true);
+    T.start(opts);
+  }, [T.start]); // eslint-disable-line react-hooks/exhaustive-deps
+  const closeRoute = () => {
+    T.stop();
+    setRouteMode(false);
+    setSelected(null);
+    clearTripParams();
+    setWhereKey((k) => k + 1); // focus back to the "Where to?" box
+  };
+  const closeRouteRef = useRef(closeRoute);
+  closeRouteRef.current = closeRoute;
+  // Escape closes the place card, or leaves route mode (P.2), unless something else used it first:
+  // an open suggestion list, an open station panel, or the side menu (a dialog closes itself).
+  useEffect(() => {
+    if (!place && !routeMode) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape' || e.defaultPrevented || selected !== null || document.querySelector('dialog[open]')) return;
+      if (place) closePlace();
+      else closeRouteRef.current();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [place, routeMode, selected, closePlace]);
+  // A trip link (/?from=…&to=…, the share link) opens route mode; both ends plan at once.
+  useEffect(() => {
+    const link = readTripLink(window.location.search);
+    if (link) enterRoute({ link });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // The route on the map: drawn when the plan is for the ends in the form, cleared otherwise.
+  const stopIds = useMemo(() => (plan && T.current ? plan.stops.map((st) => st.station.i) : []), [plan, T.current]);
+  const selectedStop = selected !== null && stopIds.includes(selected) ? stopIds.indexOf(selected) : null;
+  useEffect(() => {
+    stopIdsRef.current = stopIds;
+    const o: TripOverlay | null =
+      routeMode && plan && routeData && T.current && T.trip.from && T.trip.to
+        ? {
+            line: routeData.route.coords.map((p) => [p[0], p[1]] as [number, number]),
+            gaps: plan.gaps.map((g) => sliceRoute(routeData.route, g.fromKm, g.toKm)),
+            from: [T.trip.from.lon, T.trip.from.lat],
+            to: [T.trip.to.lon, T.trip.to.lat],
+            stops: plan.stops.map((st) => st.lonLat),
+            selected: selectedStop,
+          }
+        : null;
+    tripOverlayRef.current = o;
+    const map = mapRef.current;
+    if (map?.isStyleLoaded() || map?.getSource('stations')) setTripOverlay(map, o);
+  }, [routeMode, plan, routeData, T.current, T.trip.from, T.trip.to, selectedStop, stopIds]);
+  // A new route: fit it in the view beside the panel (or above the sheet on phones).
+  const fittedKey = useRef('');
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !routeMode || !routeData || !T.current || fittedKey.current === routeData.key) return;
+    fittedKey.current = routeData.key;
+    const phone = window.innerWidth <= 640;
+    map.fitBounds(boundsOf(routeData.route.coords.map((p) => [p[0], p[1]] as [number, number])), {
+      padding: phone ? { top: 120, bottom: 220, left: 30, right: 30 } : { top: 40, bottom: 60, left: 420, right: 60 },
+      duration: 600,
+    });
+  }, [routeMode, routeData, T.current]);
+  useEffect(() => { if (!routeMode) fittedKey.current = ''; }, [routeMode]);
+  const openStop = (i: number, button: HTMLButtonElement) => {
+    const st = plan?.stops[i];
+    if (!st) return;
+    listItemRef.current = button;
+    setSelected(st.station.i);
+    mapRef.current?.easeTo({ center: st.lonLat });
+  };
+
   // Locate me: asks the browser only on click; the position is used to centre the map and kept nowhere.
   const locateMe = () => {
     const map = mapRef.current;
@@ -505,7 +625,37 @@ export default function ChargerMap() {
     <div className="charger-map">
       <div ref={box} className="map-canvas" role="region" aria-label={t('map.label')} />
 
-      <div className="map-panel">
+      <div className={`map-panel${routeMode ? ' route' : ''}`}>
+        {routeMode ? (
+          <RoutePanel
+            trip={T}
+            cars={cars}
+            myCar={myCar}
+            onPickCar={(c) => { setMyCar(c); setMyCarState(c); }}
+            search={placeSearch}
+            selectedStop={selectedStop}
+            onOpenStop={openStop}
+            onClose={closeRoute}
+            updated={meta?.updated ?? null}
+          />
+        ) : (<>
+        <div className="map-where">
+          <PlaceField
+            key={whereKey}
+            label={t('map.where.label')}
+            placeholder={t('map.where.placeholder')}
+            hideLabel
+            autoFocus={whereKey > 0}
+            value={place}
+            search={placeSearch}
+            onChange={pickPlace}
+            extra={
+              <button type="button" className="btn small map-route-btn" onClick={() => enterRoute()}>
+                {t('route.open')}
+              </button>
+            }
+          />
+        </div>
         <button
           type="button"
           className="map-panel-toggle"
@@ -641,6 +791,7 @@ export default function ChargerMap() {
             </div>
           )}
         </div>
+        </>)}
       </div>
 
       <button type="button" className="map-locate" onClick={locateMe} disabled={locate === 'busy'}>
@@ -657,7 +808,7 @@ export default function ChargerMap() {
         </p>
       )}
 
-      {!myCar && !nudgeGone && (
+      {!myCar && !nudgeGone && !place && (
         <div className="map-nudge small" role="note">
           <a href="/charging?pick=1">{t('map.nudge.set')}</a>
           <span className="muted"> {t('map.nudge.why')}</span>
@@ -669,6 +820,29 @@ export default function ChargerMap() {
         </div>
       )}
 
+      {place && (
+        <section className="map-place" aria-labelledby="map-place-name">
+          <div className="map-place-head">
+            <h2 id="map-place-name" ref={placeCardRef} tabIndex={-1}>{place.label}</h2>
+            <button type="button" className="map-place-close" aria-label={t('map.place.close', { place: place.label })} onClick={closePlace}>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
+          <p className="small" role="status">
+            {nearCount === null
+              ? t('map.place.counting')
+              : nearCount === 0
+                ? t('map.place.nearNone', { km: NEAR_PLACE_KM })
+                : nearCount === 1
+                  ? t('map.place.nearOne', { km: NEAR_PLACE_KM })
+                  : t('map.place.near', { n: nearCount.toLocaleString('en-CA'), km: NEAR_PLACE_KM })}
+          </p>
+          <button type="button" className="btn primary" onClick={() => enterRoute({ to: place })}>{t('map.place.route')}</button>
+        </section>
+      )}
+
       {station && (
         <StationPanel
           station={station}
@@ -676,6 +850,7 @@ export default function ChargerMap() {
           onClose={closeStation}
           myCar={myCar}
           carInfo={myCar ? carInfo : null}
+          onRouteHere={selectedStop === null ? () => enterRoute({ to: stationEnd(station) }) : undefined}
         />
       )}
 

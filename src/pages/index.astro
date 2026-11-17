@@ -3,9 +3,16 @@
 import Base from '../layouts/Base.astro';
 import ChargerMap from '../components/ChargerMap.tsx';
 import { t } from '../i18n/t.ts';
+import { loadIndex } from '../lib/data.ts';
+import { MAP } from '../config.ts';
+
+const index = loadIndex();
 ---
 <Base title={t('map.title')} description={t('nav.map.desc')} active="map" fill>
+  <!-- The map always needs l3.json (it also holds the mixed sites shown at Level 2): start the
+       download with the page instead of after the map's script has run (P.5). Same mode as fetch(). -->
+  <link slot="head" rel="preload" href={`${MAP.dataUrl}/l3.json`} as="fetch" crossorigin="anonymous" />
   <h1 class="sr-only">{t('map.title')}</h1>
-  <ChargerMap client:only="react" />
+  <ChargerMap client:only="react" cars={index} />
   <noscript><p class="banner">{t('map.error')}</p></noscript>
 </Base>

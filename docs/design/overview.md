@@ -29,7 +29,7 @@ Details: [vision.md](vision.md) · [competitors.md](competitors.md)
 | **2** | **Charger map** (Level 2/3, Canada-wide) | ✅ Designed |
 | **3** | **Route planner** (simple threshold-based) | ✅ Designed |
 
-Each phase ships on its own. The header gains **Map** and **Trip** as they're built. Details: [roadmap.md](roadmap.md)
+Each phase ships on its own. The header gains **Map** as it's built; the trip planner lives on the map (B50). Details: [roadmap.md](roadmap.md)
 
 ---
 
@@ -148,7 +148,7 @@ Most of these are planned as **later** features. See the "Later" lists in each d
 | Item | ID |
 |------|----|
 | Calibrate the curve templates (target ±15% on 10–80% times) | C8, C12 |
-| Calibrate the 1.15 highway factor | R10 |
+| ~~Calibrate the 1.15 highway factor~~ ✅ 1.08 (B49) | R10 |
 | Add curb weight to vehicles (for elevation) | D17 |
 | Function visitor limits and the "busy" message | S7 |
 | Confirm ORS returns elevation in the route request | §5 |

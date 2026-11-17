@@ -34,9 +34,11 @@ interface Props {
   /** My car and what the map knows about it (B28, B31); null when none is set or it is still loading. */
   myCar?: MyCar | null;
   carInfo?: CarMapInfo | null;
+  /** "Route here" (B50): opens route mode on the same map with this station as To. */
+  onRouteHere?: () => void;
 }
 
-export default function StationPanel({ station, updated, onClose, myCar = null, carInfo = null }: Props) {
+export default function StationPanel({ station, updated, onClose, myCar = null, carInfo = null, onRouteHere }: Props) {
   const s = station.properties;
   const heading = useRef<HTMLHeadingElement>(null);
   const level = stationLevel(s.p);
@@ -115,10 +117,11 @@ export default function StationPanel({ station, updated, onClose, myCar = null, 
           </ul>
         </section>
 
-        {curveHref && (
-          <p className="station-curve">
-            <a href={curveHref}>{t('map.station.howFast')}</a>
-          </p>
+        {(curveHref || onRouteHere) && (
+          <ul className="station-curve station-actions">
+            {curveHref && <li><a href={curveHref}>{t('map.station.howFast')}</a></li>}
+            {onRouteHere && <li><button type="button" className="linklike" onClick={onRouteHere}>{t('map.place.route')}</button></li>}
+          </ul>
         )}
 
         <section>

@@ -487,13 +487,6 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     setPlace(null);
     setWhereKey((k) => k + 1); // a fresh, empty box
   }, []);
-  // Escape closes the place card (unless something else, like an open suggestion list, used it).
-  useEffect(() => {
-    if (!place) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && !e.defaultPrevented && selected === null) closePlace(); };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [place, selected, closePlace]);
   const nearCount = useMemo(
     () => (place && load[3] === 'ready' ? fastNear(stations[3], filters, [place.lon, place.lat], NEAR_PLACE_KM, carRule) : null),
     [place, load, stations, filters, carRule],
@@ -517,6 +510,20 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     clearTripParams();
     setWhereKey((k) => k + 1); // focus back to the "Where to?" box
   };
+  const closeRouteRef = useRef(closeRoute);
+  closeRouteRef.current = closeRoute;
+  // Escape closes the place card, or leaves route mode (P.2), unless something else used it first:
+  // an open suggestion list, an open station panel, or the side menu (a dialog closes itself).
+  useEffect(() => {
+    if (!place && !routeMode) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape' || e.defaultPrevented || selected !== null || document.querySelector('dialog[open]')) return;
+      if (place) closePlace();
+      else closeRouteRef.current();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [place, routeMode, selected, closePlace]);
   // A trip link (/?from=…&to=…, the share link) opens route mode; both ends plan at once.
   useEffect(() => {
     const link = readTripLink(window.location.search);
@@ -796,7 +803,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         </p>
       )}
 
-      {!myCar && !nudgeGone && (
+      {!myCar && !nudgeGone && !place && (
         <div className="map-nudge small" role="note">
           <a href="/charging?pick=1">{t('map.nudge.set')}</a>
           <span className="muted"> {t('map.nudge.why')}</span>

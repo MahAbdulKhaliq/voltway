@@ -1,4 +1,4 @@
-// Owner decision B20: both themes must pass WCAG 2.x AA. Reads the colour tokens straight
+// Owner decisions B20 and B53 (Road Paint): both themes must pass WCAG 2.x AA. Reads the colour tokens straight
 // from global.css so a palette change that breaks contrast fails CI.
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
@@ -30,7 +30,9 @@ const PAIRS: [string, string, number][] = [
   ['muted', 'bg', 4.5], ['muted', 'surface', 4.5], ['muted', 'surface-2', 4.5],
   ['accent', 'bg', 4.5], ['accent', 'surface', 4.5], ['accent', 'surface-2', 4.5], ['accent', 'accent-soft', 4.5],
   ['accent-ink', 'accent', 4.5],
-  ['warn', 'surface', 4.5], ['text', 'warn-soft', 4.5],
+  // Road Paint: the label on a filled yellow button; the stop bar and the painted line on a panel.
+  ['paint-ink', 'paint', 4.5], ['mark', 'surface', 3], ['mark', 'bg', 3],
+  ['warn', 'surface', 4.5], ['warn', 'bg', 4.5], ['warn', 'warn-soft', 4.5], ['text', 'warn-soft', 4.5],
   ['estimated', 'surface', 4.5], ['estimated', 'estimated-soft', 4.5], ['text', 'estimated-soft', 4.5],
   ['unknown', 'surface', 4.5], ['unknown', 'surface-2', 4.5],
   ['field-border', 'surface', 3], ['field-border', 'bg', 3],
@@ -49,6 +51,23 @@ describe('theme contrast (WCAG AA, B20)', () => {
       expect(contrast(theme[fg], theme[bg])).toBeGreaterThanOrEqual(min);
     });
   }
+});
+
+describe('Road Paint yellow rule (DESIGN-4)', () => {
+  it('the paint yellow is the same in both themes, and is text-grade only on asphalt', () => {
+    expect(light.paint).toBe(dark.paint);
+    for (const bg of ['bg', 'surface', 'surface-2']) expect(contrast(dark.paint, dark[bg]), bg).toBeGreaterThanOrEqual(4.5);
+    expect(light.accent).not.toBe(light.paint);
+  });
+  it('the painted line shows on the dark panel (3:1)', () => {
+    expect(contrast(dark.paint, dark.surface)).toBeGreaterThanOrEqual(3);
+  });
+  it('Archivo is the first font and is bundled, not fetched from a font service', () => {
+    expect(css).toMatch(/--font: "Archivo Variable"/);
+    const base = readFileSync(new URL('../src/layouts/Base.astro', import.meta.url), 'utf8');
+    expect(base).toContain("@fontsource-variable/archivo");
+    expect(base).not.toMatch(/fonts.(googleapis|gstatic).com/);
+  });
 });
 
 describe('map pin colours (charger-map §5)', async () => {

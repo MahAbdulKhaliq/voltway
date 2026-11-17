@@ -34,7 +34,6 @@ interface Props {
   /** My car and what the map knows about it (B28, B31); null when none is set or it is still loading. */
   myCar?: MyCar | null;
   carInfo?: CarMapInfo | null;
-  /** "Plan a trip to here" (3.13); off on the trip page's own panel. */
   /** "Route here" (B50): opens route mode on the same map with this station as To. */
   onRouteHere?: () => void;
 }

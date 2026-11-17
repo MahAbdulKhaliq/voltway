@@ -1,7 +1,7 @@
 // Trip settings in a link and in browser storage (route-planner.md §7 "Saving and sharing").
 // The last trip is saved in the browser; the share link is opt-in because it holds the places.
-// Link format: /trip?from=<lat>,<lon>,<label>&to=<lat>,<lon>,<label>&start=<%>&min=<%>
-// (positions first, so "Plan a trip to here" can pass a station as to=<lat>,<lon>,<name>).
+// Link format (on the charger map, B50): /?from=<lat>,<lon>,<label>&to=<lat>,<lon>,<label>&start=<%>&min=<%>
+// (positions first, so a label may hold commas, e.g. a station's "name, city").
 
 import { TRIP } from '../config.ts';
 import type { TripEnd } from './place-search.ts';

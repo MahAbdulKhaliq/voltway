@@ -39,7 +39,7 @@ import { BOLT, drawPin, MAP_MARK, PIN, PLUG, pinId } from '../lib/map-icons.ts';
 import { fastNear, NEAR_PLACE_KM, stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
 import PlaceField, { loadPlaces } from './PlaceField.tsx';
 import type { PlaceSearch, TripEnd } from '../lib/place-search.ts';
-import { readTripLink, stationEnd } from '../lib/trip-link.ts';
+import { readSavedTrip, readTripLink, stationEnd, type TripQuery } from '../lib/trip-link.ts';
 import StationPanel from './StationPanel.tsx';
 import RoutePanel from './RoutePanel.tsx';
 import { useTrip } from './useTrip.ts';
@@ -293,6 +293,15 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const placeCardRef = useRef<HTMLHeadingElement | null>(null);
   // Route mode (B50, 3.18): the planner on this map.
   const [routeMode, setRouteMode] = useState(false);
+  // The last trip with both ends (DESIGN-4 4.10): offered as a one-tap row on the home card. It is
+  // read from the browser after load and again when route mode closes; no route is asked for
+  // until the visitor taps it.
+  const [lastTrip, setLastTrip] = useState<TripQuery | null>(null);
+  useEffect(() => {
+    if (routeMode) return;
+    const saved = readSavedTrip(getJSON<unknown>(KEYS.lastTrip, null));
+    setLastTrip(saved?.from && saved.to ? saved : null);
+  }, [routeMode]);
   const tripOverlayRef = useRef<TripOverlay | null>(null);
   const stopIdsRef = useRef<number[]>([]);
 
@@ -686,6 +695,15 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
               ) : (
                 <span className="car-tile-text"><strong>{t('car.tile.none')}</strong> <span className="muted">{t('car.tile.why')}</span></span>
               )}
+            </button>
+          )}
+          {lastTrip && !pickingCar && (
+            <button type="button" className="car-tile last-trip" onClick={() => enterRoute({ link: lastTrip })}>
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 12a8 8 0 1 0 2.6-5.9M4 5v4h4M12 8v4l3 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+              <span className="car-tile-text"><span className="muted">{t('trip.last.label')}</span> <strong>{t('trip.last.ends', { from: lastTrip.from!.label, to: lastTrip.to!.label })}</strong></span>
+              <span className="car-tile-change small">{t('trip.last.plan')}</span>
             </button>
           )}
         </div>

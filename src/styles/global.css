@@ -305,6 +305,7 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .map-car { padding: 0 8px 8px; }
 .car-tile { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 8px 10px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer; }
 .car-tile:hover { border-color: var(--field-border); }
+.car-tile.last-trip { margin-top: 6px; }
 .car-tile svg { flex: none; }
 .car-tile-text { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .car-tile-change { flex: none; color: var(--accent); text-decoration: underline; text-underline-offset: 0.18em; }

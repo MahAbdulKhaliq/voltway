@@ -5,7 +5,8 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties, type SyntheticEvent, type KeyboardEvent, type PointerEvent } from 'react';
 import { nextSnap, sheetHeights, SHEET_MEDIA, snapAfterDrag, stepSnap, type SheetSnap } from '../lib/sheet.ts';
 
-export function useMapSheet() {
+/** onUserSnap: the visitor moved the sheet (drag, tap or arrow keys) to this height. */
+export function useMapSheet(onUserSnap?: (s: SheetSnap) => void) {
   const rootRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const [phone, setPhone] = useState(false);
@@ -37,6 +38,7 @@ export function useMapSheet() {
 
   const heights = sheetHeights(rootH || (typeof window !== 'undefined' ? window.innerHeight : 800));
   const heightFor = (s: SheetSnap) => heights[s];
+  const userSnap = (s: SheetSnap) => { setSnap(s); onUserSnap?.(s); };
 
   const onPointerDown = (e: PointerEvent<HTMLButtonElement>) => {
     const panel = panelRef.current;
@@ -59,7 +61,7 @@ export function useMapSheet() {
       const end = Math.min(heights.full, Math.max(0, d.h + (d.y - e.clientY)));
       // A drag from a short sheet starts from the height it showed, not from its snap.
       const from: SheetSnap = Math.abs(d.h - heights[snap]) < 24 ? snap : snapAfterDrag(heights, 'peek', d.h);
-      setSnap(snapAfterDrag(heights, from, end));
+      userSnap(snapAfterDrag(heights, from, end));
     }
     setDragH(null);
     // Keep the click that follows a drag from stepping the sheet again.
@@ -67,12 +69,12 @@ export function useMapSheet() {
   };
   const onClick = () => {
     if (drag.current?.moved) return;
-    setSnap((s) => nextSnap(s));
+    userSnap(nextSnap(snap));
   };
   const onKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
       e.preventDefault();
-      setSnap((s) => stepSnap(s, e.key === 'ArrowUp' ? 1 : -1));
+      userSnap(stepSnap(snap, e.key === 'ArrowUp' ? 1 : -1));
     }
   };
   // Tapping or typing in a field (place search, percentages) opens the sheet fully, above the

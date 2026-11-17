@@ -580,10 +580,15 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const T = useTrip(myCar, load[3] === 'ready' ? stations[3] : null, load[3] === 'error');
   const { plan, routeData } = T;
   // B59: on phones the panel is a draggable bottom sheet over a full-height map.
-  const sheet = useMapSheet();
+  // Owner (B59 follow-up): on the plain map, dragging the sheet up opens the Chargers filters and
+  // dragging it back down to peek closes them.
+  const sheet = useMapSheet((s) => { if (!routeMode) setPanelOpen(s !== 'peek'); });
   const { setSnap } = sheet;
-  // The sheet follows what the visitor is doing: browsing peeks, filters and trips open half way.
-  useEffect(() => { setSnap(routeMode ? 'half' : panelOpen ? 'half' : 'peek'); }, [routeMode, panelOpen, setSnap]);
+  // The sheet follows what the visitor is doing: browsing peeks, filters and trips open half way
+  // (a sheet the visitor already pulled up to full stays there).
+  useEffect(() => {
+    setSnap((s) => (routeMode ? 'half' : panelOpen ? (s === 'peek' ? 'half' : s) : 'peek'));
+  }, [routeMode, panelOpen, setSnap]);
   useEffect(() => {
     if (!T.current) return;
     // Half way, so the route stays in view. A charging-gap warning is a safety message: the sheet

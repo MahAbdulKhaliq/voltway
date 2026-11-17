@@ -8,7 +8,7 @@ import { t, type MessageKey } from '../i18n/t.ts';
 import { COVERAGE } from '../config.ts';
 import HeaderChips from '../components/HeaderChips.tsx';
 
-type Page = 'map' | 'trip' | 'charging' | 'cars' | 'compare' | 'about';
+type Page = 'map' | 'charging' | 'cars' | 'compare' | 'about';
 // fill: the page is one full-screen tool (the map): no width limit and no footer; credits live in the tool.
 interface Props { title?: string; description?: string; active?: Page; fill?: boolean }
 const { title, description = t('site.tagline'), active, fill = false } = Astro.props;
@@ -17,7 +17,6 @@ const pageTitle = title ? `${title} · ${t('site.name')}` : t('site.name');
 // Pages in the menu. Search matches the name, the description and the keywords.
 const PAGES: { id: Page; href: string }[] = [
   { id: 'map', href: '/' },
-  { id: 'trip', href: '/trip' },
   { id: 'charging', href: '/charging' },
   { id: 'cars', href: '/cars' },
   { id: 'compare', href: '/compare' },

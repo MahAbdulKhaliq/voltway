@@ -108,7 +108,7 @@ describe('charging window link (3.12)', () => {
     expect(w('from=a&to=80')).toBeNull();
   });
   it('the stop link carries car, trim, kW and the window', async () => {
-    const { stopCurveHref } = await import('../src/components/TripResults.tsx');
+    const { stopCurveHref } = await import('../src/lib/trip-format.ts');
     const href = stopCurveHref({ carId: 'kia/ev6/2026/land-awd', trimId: 't1' }, { usableKw: 239.6, arriveSoc: 17.6, departSoc: 80 });
     const q = new URLSearchParams(href.split('?')[1]);
     expect(href.startsWith('/charging?')).toBe(true);
@@ -116,15 +116,14 @@ describe('charging window link (3.12)', () => {
   });
 });
 
-describe('Plan a trip to here (3.13)', () => {
-  it('links to /trip with the station as To, readable back', async () => {
-    const { tripToHref, readTripLink } = await import('../src/lib/trip-link.ts');
-    const href = tripToHref({ geometry: { coordinates: [-76.96316, 44.26215] }, properties: { n: 'Napanee, ON - Tesla Supercharger', c: 'Napanee' } });
-    expect(href.startsWith('/trip?to=')).toBe(true);
-    const t = readTripLink(href.slice('/trip'.length))!;
+describe('Route here from a station (3.13, B50)', () => {
+  it('makes the station a trip end named with its city (once), which a link carries', async () => {
+    const { stationEnd, readTripLink, writeTripLink } = await import('../src/lib/trip-link.ts');
+    const to = stationEnd({ geometry: { coordinates: [-76.96316, 44.26215] }, properties: { n: 'Napanee, ON - Tesla Supercharger', c: 'Napanee' } });
+    expect(to).toEqual({ label: 'Napanee, ON - Tesla Supercharger', lat: 44.26215, lon: -76.96316 });
+    const t = readTripLink(`?${writeTripLink({ from: null, to, startSoc: 90, thresholdSoc: 15 })}`)!;
     expect(t.from).toBeNull();
-    expect(t.to).toEqual({ label: 'Napanee, ON - Tesla Supercharger', lat: 44.26215, lon: -76.96316 });
-    const t2 = readTripLink(tripToHref({ geometry: { coordinates: [-75.3, 44.8] }, properties: { n: 'Iroquois Plaza', c: 'Cornwall' } }).slice(5))!;
-    expect(t2.to!.label).toBe('Iroquois Plaza, Cornwall');
+    expect(t.to).toEqual(to);
+    expect(stationEnd({ geometry: { coordinates: [-75.3, 44.8] }, properties: { n: 'Iroquois Plaza', c: 'Cornwall' } }).label).toBe('Iroquois Plaza, Cornwall');
   });
 });

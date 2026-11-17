@@ -204,3 +204,5 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 | S7 | **Protecting the function:** per-visitor limits and what to show when the day's allowance runs out ("Trip planning is busy, try again later"). |
 
 **B58 (2026-11-17):** without a chosen car, the trip form shows one "Choose your car" prompt that opens the header's car dialog; "Change car" opens the same dialog. The dialog shows the car's plug switches before saving.
+
+**B61 (2026-11-17):** simpler trip form: From / To with placeholder labels and the map's start / end marks, Use my location as an icon inside From, one car row that opens the battery settings, and a full-width Plan trip.

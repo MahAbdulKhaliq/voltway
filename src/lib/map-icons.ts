@@ -5,12 +5,26 @@
 
 import type { ChargerLevel } from './power-bands.ts';
 
+// Road Paint (DESIGN-4, 4.5): fast chargers are centre-line yellow, slow ones road-marking white,
+// both with a dark glyph and a dark ring so they read on the asphalt and the concrete map.
 export const PIN = {
-  /** Fill per level; white glyph on top (both ≥ 4.5:1 against white, checked in tests/contrast). */
-  fill: { 3: '#C2410C', 2: '#1D4ED8' } as Record<ChargerLevel, string>,
-  unavailable: '#6B7280',
-  glyph: '#FFFFFF',
-  ring: '#FFFFFF',
+  /** Fill per level; dark glyph on top (≥ 4.5:1 on every fill, checked in tests/contrast). */
+  fill: { 3: '#FFD400', 2: '#F5F3EC' } as Record<ChargerLevel, string>,
+  unavailable: '#8A8980',
+  glyph: '#1A1B1E',
+  ring: '#1A1B1E',
+  /** The "!" mark on a temporarily unavailable station: construction orange, the warning colour. */
+  badge: '#FF7A1A',
+  badgeMark: '#1A1B1E',
+} as const;
+
+/** Clusters and the ring under a selected charger. */
+export const MAP_MARK = {
+  cluster: '#1A1B1E',
+  clusterRing: '#FFD400',
+  clusterText: '#F5F3EC',
+  selectedFill: '#F5F3EC',
+  selectedRing: '#1A1B1E',
 } as const;
 
 /** Bolt, filled. */
@@ -56,12 +70,12 @@ export function drawPin(level: ChargerLevel, unavailable: boolean, ratio = 2): I
     // "!" badge, top right
     g.beginPath();
     g.arc(22, 6, 5.5, 0, Math.PI * 2);
-    g.fillStyle = '#111827';
+    g.fillStyle = PIN.badge;
     g.fill();
     g.strokeStyle = PIN.ring;
     g.lineWidth = 1.5;
     g.stroke();
-    g.fillStyle = '#FFFFFF';
+    g.fillStyle = PIN.badgeMark;
     g.fillRect(21.25, 3, 1.5, 4);
     g.fillRect(21.25, 8, 1.5, 1.5);
   }

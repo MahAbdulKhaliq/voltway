@@ -2,6 +2,7 @@
 // from global.css so a palette change that breaks contrast fails CI.
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { contrast } from './contrast-util.ts';
 
 const css = readFileSync(new URL('../src/styles/global.css', import.meta.url), 'utf8');
 
@@ -13,16 +14,6 @@ const darkStart = css.indexOf(':root[data-theme="dark"] {');
 const dark = tokens(css.slice(darkStart, css.indexOf('}', darkStart)));
 const mediaStart = css.indexOf(':root:not([data-theme="light"]) {');
 const darkMedia = tokens(css.slice(mediaStart, css.indexOf('}', mediaStart)));
-
-const lum = (hex: string) => {
-  const [r, g, b] = hex.slice(1).match(/../g)!.map((x) => parseInt(x, 16) / 255)
-    .map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-};
-export const contrast = (a: string, b: string) => {
-  const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m);
-  return (x + 0.05) / (y + 0.05);
-};
 
 // Text needs 4.5:1; control outlines and chart lines (non-text UI) need 3:1.
 const PAIRS: [string, string, number][] = [
@@ -70,55 +61,69 @@ describe('Road Paint yellow rule (DESIGN-4)', () => {
   });
 });
 
-describe('map pin colours (charger-map §5)', async () => {
-  const { PIN } = await import('../src/lib/map-icons.ts');
-  it('white glyphs read on every pin fill (4.5:1), and the fills stand out from a white ring (3:1)', () => {
+describe('map pin colours (charger-map §5, Road Paint 4.5)', async () => {
+  const { PIN, MAP_MARK } = await import('../src/lib/map-icons.ts');
+  const { MAP_PALETTE } = await import('../src/lib/map-style.ts');
+  it('dark glyphs read on every pin fill (4.5:1), and the fills stand out from their dark ring (3:1)', () => {
     for (const fill of [PIN.fill[3], PIN.fill[2], PIN.unavailable]) {
-      expect(contrast(PIN.glyph, fill)).toBeGreaterThanOrEqual(4.5);
-      expect(contrast(PIN.ring, fill)).toBeGreaterThanOrEqual(3);
+      expect(contrast(PIN.glyph, fill), fill).toBeGreaterThanOrEqual(4.5);
+      expect(contrast(PIN.ring, fill), fill).toBeGreaterThanOrEqual(3);
     }
+  });
+  it('the "!" mark reads on its orange badge (4.5:1)', () => {
+    expect(contrast(PIN.badgeMark, PIN.badge)).toBeGreaterThanOrEqual(4.5);
+  });
+  it('every pin shows on both base maps: the fill on asphalt, the ring on concrete (3:1)', () => {
+    for (const fill of [PIN.fill[3], PIN.fill[2], PIN.unavailable]) expect(contrast(fill, MAP_PALETTE.dark.land), fill).toBeGreaterThanOrEqual(3);
+    expect(contrast(PIN.ring, MAP_PALETTE.light.land)).toBeGreaterThanOrEqual(3);
+  });
+  it('clusters: the count reads on the disc (4.5:1); the yellow ring shows on asphalt and the disc on concrete (3:1)', () => {
+    expect(contrast(MAP_MARK.clusterText, MAP_MARK.cluster)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(MAP_MARK.clusterRing, MAP_PALETTE.dark.land)).toBeGreaterThanOrEqual(3);
+    expect(contrast(MAP_MARK.cluster, MAP_PALETTE.light.land)).toBeGreaterThanOrEqual(3);
   });
 });
 
 describe('station panel and Locate me colours (M8)', async () => {
-  const { PIN } = await import('../src/lib/map-icons.ts');
+  const { PIN, MAP_MARK } = await import('../src/lib/map-icons.ts');
   it('level badge text reads on both level fills (4.5:1)', () => {
     for (const fill of [PIN.fill[3], PIN.fill[2]]) expect(contrast(PIN.glyph, fill)).toBeGreaterThanOrEqual(4.5);
   });
-  it('selected-pin ring (#111827) stands out from its white disc (3:1)', () => {
-    expect(contrast('#111827', '#FFFFFF')).toBeGreaterThanOrEqual(3);
+  it('selected-pin ring stands out from its pale disc (3:1)', () => {
+    expect(contrast(MAP_MARK.selectedRing, MAP_MARK.selectedFill)).toBeGreaterThanOrEqual(3);
   });
-  it('"your location" dot: white border on the blue fill (3:1)', () => {
+  it('"your location" dot keeps the map convention: white border on the blue fill (3:1)', () => {
+    expect(css).toMatch(/\.map-you \{[^}]*background: #1D4ED8; border: 3px solid #FFFFFF/);
     expect(contrast('#FFFFFF', '#1D4ED8')).toBeGreaterThanOrEqual(3);
   });
 });
 
-// Trip map and itinerary (3.14, route-planner §7). Base-map colours come from the OpenFreeMap
-// styles in config.ts (positron: land, water, wood; dark: land, water, wood), read 2026-11-16.
-const BASE = { light: ['#F2F3F0', '#C2C8CA', '#DCE0DC'], dark: ['#0C0C0C', '#1B1B1D', '#202020'] };
-
-describe('trip map colours (3.14)', async () => {
+// Trip map and trip list (3.14, Road Paint 4.5; route-planner §7), against Voltway's own base map.
+describe('trip map colours (Road Paint 4.5)', async () => {
   const { TRIP_MAP } = await import('../src/lib/trip-map-style.ts');
-  it('the route line stands out from every light base colour (3:1); its white casing does on dark (3:1)', () => {
-    for (const bg of BASE.light) expect(contrast(TRIP_MAP.route, bg), bg).toBeGreaterThanOrEqual(3);
-    for (const bg of BASE.dark) expect(contrast(TRIP_MAP.casing, bg), bg).toBeGreaterThanOrEqual(3);
+  const { MAP_PALETTE } = await import('../src/lib/map-style.ts');
+  const ground = (p: { land: string; water: string; green: string }) => [p.land, p.water, p.green];
+  it('the yellow line reads on its road band, and on bare asphalt (3:1)', () => {
+    expect(contrast(TRIP_MAP.route, TRIP_MAP.band)).toBeGreaterThanOrEqual(3);
+    for (const bg of ground(MAP_PALETTE.dark)) expect(contrast(TRIP_MAP.route, bg), bg).toBeGreaterThanOrEqual(3);
   });
-  it('route, charging gap, pins and ends stand out from their white casing or ring (3:1)', () => {
-    for (const fill of [TRIP_MAP.route, TRIP_MAP.gap, TRIP_MAP.stop, TRIP_MAP.start, TRIP_MAP.end]) {
-      expect(contrast(fill, TRIP_MAP.ring), fill).toBeGreaterThanOrEqual(3);
-    }
-    expect(contrast(TRIP_MAP.selected, TRIP_MAP.ring)).toBeGreaterThanOrEqual(3);
+  it('the road band stands out from the concrete map (3:1), so the line never relies on yellow against a light ground', () => {
+    for (const bg of ground(MAP_PALETTE.light)) expect(contrast(TRIP_MAP.band, bg), bg).toBeGreaterThanOrEqual(3);
   });
-  it('the white stop number reads on its pin (4.5:1)', () => {
+  it('a charging gap is edged in orange that shows on both maps and against the band (3:1)', () => {
+    expect(contrast(TRIP_MAP.gapEdge, TRIP_MAP.band)).toBeGreaterThanOrEqual(3);
+    expect(contrast(TRIP_MAP.gapEdge, MAP_PALETTE.dark.land)).toBeGreaterThanOrEqual(3);
+  });
+  it('stop number on its pin (4.5:1); pins, ends and the selected ring stand out from their rings (3:1)', () => {
     expect(contrast(TRIP_MAP.stopText, TRIP_MAP.stop)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(TRIP_MAP.stop, TRIP_MAP.stopRing)).toBeGreaterThanOrEqual(3);
+    expect(contrast(TRIP_MAP.start, TRIP_MAP.startRing)).toBeGreaterThanOrEqual(3);
+    expect(contrast(TRIP_MAP.end, TRIP_MAP.endRing)).toBeGreaterThanOrEqual(3);
+    expect(contrast(TRIP_MAP.selectedFill, TRIP_MAP.selectedRing)).toBeGreaterThanOrEqual(3);
   });
-  it('the itinerary markers in global.css use the same colours as the map', () => {
-    expect(css).toMatch(new RegExp(String.raw`\.ti-start \.ti-mark \{ background: ` + TRIP_MAP.start));
-    expect(css).toMatch(new RegExp(String.raw`\.ti-num \{[^}]*background: ` + TRIP_MAP.stop));
-  });
-  it('itinerary markers (start, numbered stop) stand out from the card in both themes (3:1)', () => {
-    for (const theme of [light, dark]) {
-      for (const fill of [TRIP_MAP.start, TRIP_MAP.stop]) expect(contrast(fill, theme.surface), `${fill} on ${theme.surface}`).toBeGreaterThanOrEqual(3);
-    }
+  it('the trip list marks use the theme stop-bar token, which stands out from the card in both themes (3:1)', () => {
+    expect(css).toMatch(/\.ti-start \.ti-mark \{ background: var\(--mark\)/);
+    expect(css).toMatch(/\.ti-num \{[^}]*background: var\(--mark\); color: var\(--surface\)/);
+    for (const theme of [light, dark]) expect(contrast(theme.mark, theme.surface)).toBeGreaterThanOrEqual(4.5);
   });
 });

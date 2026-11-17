@@ -2,7 +2,7 @@
 // unknown layers are left alone, and the things a driver reads at regional zoom keep their contrast.
 import { describe, expect, it } from 'vitest';
 import { MAP_PALETTE, roadPaintStyle } from '../src/lib/map-style.ts';
-import { contrast } from './contrast.test.ts';
+import { contrast } from './contrast-util.ts';
 
 // The layer ids and source layers of OpenFreeMap's "positron" and "dark" styles (read 2026-11-17).
 const style = {

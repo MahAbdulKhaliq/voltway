@@ -5,6 +5,8 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import CarPicker from './CarPicker.tsx';
+import TripResults from './TripResults.tsx';
+import { carMapInfo } from '../lib/map-filter.ts';
 import { getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import { makePlaceSearch, type PlaceRow, type PlaceSearch, type TripEnd } from '../lib/place-search.ts';
@@ -12,10 +14,10 @@ import { apiPoint, readSavedTrip, readTripLink, SOC_LIMITS, writeTripLink, type 
 import { planCarFrom, type PlanCarResult } from '../lib/trip-car.ts';
 import { planTrip, type TripPlan } from '../lib/trip-plan.ts';
 import { buildRoute, type Route } from '../lib/route-geo.ts';
-import type { MapFeatureCollection } from '../lib/map-data.ts';
+import type { MapFeatureCollection, MapMeta } from '../lib/map-data.ts';
 import type { RouteBody } from '../lib/ors.ts';
 import type { CarDetail, IndexEntry } from '../lib/types.ts';
-import { kmTo, formatNumber, type DistanceUnit } from '../lib/units.ts';
+import type { DistanceUnit } from '../lib/units.ts';
 import { MAP, TRIP } from '../config.ts';
 
 interface Props { cars: IndexEntry[] }
@@ -31,13 +33,6 @@ let stationsPromise: Promise<MapFeatureCollection> | null = null;
 const loadStations = () =>
   (stationsPromise ??= fetch(`${MAP.dataUrl}/l3.json`).then((r) => (r.ok ? r.json() : Promise.reject(r.status))));
 
-/** Minutes → "1 h 55 min" / "45 min". */
-export function hoursMinutes(min: number): string {
-  const m = Math.max(0, Math.round(min));
-  const h = Math.floor(m / 60);
-  if (!h) return t('fmt.min', { value: m });
-  return m % 60 ? t('trip.hm', { h, m: m % 60 }) : t('trip.h', { h });
-}
 
 // ---- One From/To field: instant suggestions from the place list, and the address service on press.
 
@@ -201,6 +196,12 @@ export default function TripPlanner({ cars }: Props) {
     return () => { alive = false; };
   }, [myCar]);
 
+  const carInfo = useMemo(() => (detail ? carMapInfo(detail) : null), [detail]);
+  const [updated, setUpdated] = useState<string | null>(null);
+  useEffect(() => {
+    fetch(`${MAP.dataUrl}/meta.json`).then((r) => (r.ok ? r.json() : null)).then((m: MapMeta | null) => setUpdated(m?.updated ?? null)).catch(() => {});
+  }, []);
+
   const planCar: PlanCarResult | null = useMemo(() => (detail ? planCarFrom(detail, myCar?.trimId) : null), [detail, myCar]);
 
   // Plan the stops whenever the route, the car or the percentages change (no network request).
@@ -281,7 +282,6 @@ export default function TripPlanner({ cars }: Props) {
   const canPlan = Boolean(trip.from && trip.to && planCar?.ok && pctValid && status !== 'planning');
   const endsKey = trip.from && trip.to ? `${apiPoint(trip.from)}|${apiPoint(trip.to)}` : "";
   const current = routeData?.key === endsKey;
-  const dist = (km: number) => `${formatNumber(kmTo(km, unit))} ${unit}`;
 
   if (!ready) return <p className="muted">{t('trip.loading')}</p>;
 
@@ -359,29 +359,11 @@ export default function TripPlanner({ cars }: Props) {
         {status !== 'idle' && status !== 'done' && status !== 'planning' && (
           <p className="banner" role="alert">{t(`trip.status.${status}` as MessageKey)}</p>
         )}
-        {plan && current && (
-          <section className="tp-result card" aria-label={t('trip.result')}>
-            <p className="tp-total">
-              {t('trip.total', {
-                distance: dist(plan.totals.distanceKm),
-                drive: hoursMinutes(plan.totals.driveMin),
-                stops: plan.totals.stops,
-                charge: hoursMinutes(plan.totals.chargeMin + plan.totals.overheadMin),
-              })}
-            </p>
-            <ol className="tp-stops">
-              <li>{t('trip.depart', { place: trip.from!.label, soc: plan.startSoc })}</li>
-              {plan.stops.map((s, i) => (
-                <li key={s.station.i}>
-                  {t('trip.stopLine', { n: i + 1, name: s.station.n, arrive: Math.round(s.arriveSoc), depart: Math.round(s.departSoc), kw: formatNumber(s.usableKw), minutes: `${s.estimated ? '~' : ''}${Math.round(s.chargeMin)}` })}
-                </li>
-              ))}
-              <li>{t('trip.arrive', { place: trip.to!.label, soc: Math.round(plan.arriveSoc) })}</li>
-            </ol>
-            {plan.gaps.length > 0 && <p className="banner" role="status">{t('trip.gap')}</p>}
-          </section>
-        )}
+        {plan && current && <p className="sr-only" role="status">{t('trip.planned', { stops: plan.totals.stops })}</p>}
       </div>
+      {plan && current && routeData && myCar && trip.from && trip.to && (
+        <TripResults plan={plan} route={routeData.route} routeKey={routeData.key} from={trip.from} to={trip.to} unit={unit} myCar={myCar} carInfo={carInfo} updated={updated} />
+      )}
     </div>
   );
 }

@@ -75,3 +75,12 @@ export function readSavedTrip(saved: unknown): TripQuery | null {
 
 /** The API's "lon,lat" form. */
 export const apiPoint = (e: TripEnd): string => `${round(e.lon, 5)},${round(e.lat, 5)}`;
+
+/** The charging window in a "See the charging curve for this stop" link (?from=&to=, whole %); null when absent or odd. */
+export function linkWindowFrom(params: URLSearchParams): { start: number; end: number } | null {
+  if (!params.has('from') || !params.has('to')) return null;
+  const start = Number(params.get('from')), end = Number(params.get('to'));
+  if (!Number.isFinite(start) || !Number.isFinite(end)) return null;
+  const s = Math.round(start), e = Math.round(end);
+  return s >= 0 && e <= 100 && s < e ? { start: s, end: e } : null;
+}

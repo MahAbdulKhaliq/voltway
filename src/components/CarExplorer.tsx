@@ -18,6 +18,7 @@ import { GROUPS } from '../lib/spec-groups.ts';
 import { addToCompare, getCompare, getMyCar, setMyCar, type AddResult, type MyCar } from '../lib/my-car.ts';
 import { Badge, Value, sourceNumber } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
+import { linkWindowFrom } from '../lib/trip-link.ts';
 
 interface Props { index: IndexEntry[]; wheelEffect: WheelEffect | null }
 
@@ -47,6 +48,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const [compareNote, setCompareNote] = useState<AddResult | null>(null);
   // B31: "How fast would my car charge here?" links carry the station's top DC kW (?kw=) for this car only.
   const [linkKw, setLinkKw] = useState<{ carId: string; kw: number } | null>(null);
+  const [linkWindow, setLinkWindow] = useState<{ carId: string; start: number; end: number } | null>(null);
   useEffect(() => setWheelIn(null), [carId, trimId]);
 
   // First car (B37): the link (?car=), else My car, else the first-load picker. An empty
@@ -64,6 +66,9 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
       setTrimId(params.get('trim'));
       const kw = Number(params.get('kw'));
       if (params.has('kw') && Number.isFinite(kw) && kw >= 1 && kw <= 1000) setLinkKw({ carId: linked!, kw: Math.round(kw) });
+      // A trip stop's window (3.12): ?from=<arrival %>&to=<charge-to %>.
+      const win = linkWindowFrom(params);
+      if (win) setLinkWindow({ carId: linked!, ...win });
     } else if (known(mine?.carId) && params.get('pick') !== '1') {
       setCarId(mine!.carId);
       setTrimId(mine!.trimId);
@@ -329,6 +334,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
                 extraControls={wheelControl}
                 key={car.id}
                 initialChargerKw={linkKw?.carId === car.id ? linkKw.kw : null}
+                initialWindow={linkWindow?.carId === car.id ? { start: linkWindow.start, end: linkWindow.end } : null}
                 mapPlugs={mapPlugs}
                 curves={car.curves}
                 usableKwh={(battery?.value.value as number) ?? null}

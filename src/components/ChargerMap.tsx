@@ -13,7 +13,6 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { MAP } from '../config.ts';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { getJSON, setJSON, KEYS } from '../lib/storage.ts';
-import { currentTheme } from '../scripts/theme-client.ts';
 import type { FeatureCollection, Point } from 'geojson';
 import type { MapFeature, MapFeatureCollection, MapMeta } from '../lib/map-data.ts';
 import {
@@ -37,6 +36,7 @@ import {
 import { BOLT, drawPin, PIN, PLUG, pinId } from '../lib/map-icons.ts';
 import { stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
 import StationPanel from './StationPanel.tsx';
+import { createBaseMap } from '../lib/map-base.ts';
 
 interface SavedView {
   center: [number, number];
@@ -55,7 +55,6 @@ function savedView(): SavedView {
   return ok ? (v as SavedView) : MAP.defaultView;
 }
 
-const styleFor = (theme: 'light' | 'dark') => (theme === 'dark' ? MAP.darkStyleUrl : MAP.styleUrl);
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
 /** Filter for the ring under the selected pin (-1 matches nothing). */
@@ -301,24 +300,13 @@ export default function ChargerMap() {
   useEffect(() => {
     if (!box.current) return;
     const view = savedView();
-    let theme = currentTheme();
-    const map = new maplibregl.Map({
+    const { map, dispose } = createBaseMap({
       container: box.current,
-      style: styleFor(theme),
       center: view.center,
       zoom: view.zoom,
-      // B30: the charger data credit (DOE/NLR, NRCan) sits on the map itself, linking to About.
-      attributionControl: {
-        compact: false,
-        customAttribution: [MAP.attribution, `<a href="/about#data">${t('map.chargerCredit')}</a>`],
-      },
-      dragRotate: false,
-      pitchWithRotate: false,
+      onStyleLoad: (m) => addOverlay(m, pinsRef.current, selectedRef.current),
     });
     mapRef.current = map;
-    map.touchZoomRotate.disableRotation();
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-    map.on('style.load', () => addOverlay(map, pinsRef.current, selectedRef.current));
     const reportView = () => {
       const b = map.getBounds();
       const c = map.getCenter();
@@ -328,10 +316,6 @@ export default function ChargerMap() {
     reportView();
     map.once('load', () => setMapStatus('ready'));
     map.on('moveend', reportView);
-    // The dark style names a few POI icons its sprite lacks; draw them blank instead of warning.
-    map.on('styleimagemissing', (e) => {
-      if (!map.hasImage(e.id)) map.addImage(e.id, { width: 1, height: 1, data: new Uint8Array(4) });
-    });
     map.on('error', (e) => {
       // Only a failed style or tile source means the map itself is broken.
       if (!map.isStyleLoaded() && (e.error as { status?: number } | undefined)?.status !== 404) setMapStatus('error');
@@ -371,21 +355,8 @@ export default function ChargerMap() {
       map.on('mouseleave', layer, () => (map.getCanvas().style.cursor = ''));
     }
 
-    const onTheme = () => {
-      const next = currentTheme();
-      if (next !== theme) {
-        theme = next;
-        map.setStyle(styleFor(theme));
-      }
-    };
-    window.addEventListener('voltway:theme', onTheme);
-    const mq = matchMedia('(prefers-color-scheme: dark)');
-    mq.addEventListener('change', onTheme);
-
     return () => {
-      window.removeEventListener('voltway:theme', onTheme);
-      mq.removeEventListener('change', onTheme);
-      map.remove();
+      dispose();
       mapRef.current = null;
     };
   }, []);

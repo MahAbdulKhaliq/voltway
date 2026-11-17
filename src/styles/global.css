@@ -405,3 +405,37 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .tp-result { max-width: 640px; }
 .tp-total { font-weight: 600; margin: 0 0 8px; }
 .tp-stops { margin: 0; padding-left: 1.4em; display: grid; gap: 6px; }
+.linklike { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+
+/* Trip results: the map beside the itinerary on wide screens, stacked on narrow ones (3.12). */
+.trip-results { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+.trip-map { position: relative; height: 55vh; min-height: 340px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+.trip-map .trip-map-canvas { position: absolute; inset: 0; }
+.trip-map-loading { margin: 0; padding: 16px; }
+.trip-itinerary { min-width: 0; }
+@media (min-width: 960px) {
+  .trip-results { grid-template-columns: minmax(0, 1fr) 400px; align-items: start; }
+  .trip-map { position: sticky; top: 12px; height: calc(100vh - 120px); }
+  .trip-itinerary { max-height: calc(100vh - 120px); overflow-y: auto; }
+}
+.ti-title { font-size: 1.1rem; margin: 0 0 6px; }
+.ti-total { font-weight: 600; margin: 0; }
+.ti-total-time { margin: 2px 0 10px; }
+.trip-itinerary .banner { margin: 8px 0; }
+.ti-list { list-style: none; margin: 12px 0 0; padding: 0; }
+.ti-list > li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; }
+.ti-list > li > div { padding: 0 0 14px 12px; margin-left: -24px; padding-left: 26px; border-left: 2px solid var(--border); }
+.ti-list > li:last-child > div { border-left-color: transparent; }
+.ti-list p { margin: 0 0 2px; }
+.ti-head { overflow-wrap: anywhere; }
+.ti-mark { position: relative; z-index: 1; width: 28px; height: 28px; border-radius: 50%; border: 3px solid var(--surface); box-sizing: border-box; }
+.ti-start .ti-mark { background: #15803D; }
+.ti-finish .ti-mark { background: var(--text); }
+.ti-num { display: grid; place-items: center; background: #C2410C; color: #FFFFFF; font-weight: 700; font-size: 0.85rem; border-width: 0; }
+.ti-stop.on .ti-num { outline: 3px solid var(--text); outline-offset: 1px; }
+.ti-soc { font-weight: 600; }
+.ti-leg { color: var(--muted); font-size: 0.875rem; margin-top: 8px !important; padding: 4px 0; }
+.ti-note { border-left: 3px solid var(--estimated); padding-left: 8px; margin: 4px 0 !important; }
+.ti-links { list-style: none; padding: 0; margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.ti-foot { border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px; }
+.ti-foot p { margin: 0 0 6px; }

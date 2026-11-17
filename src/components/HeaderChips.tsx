@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from 'react';
 import { t } from '../i18n/t.ts';
 import { getCompare, getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import CarPicker from './CarPicker.tsx';
+import { carLabel } from './CarSearchField.tsx';
 import type { IndexEntry } from '../lib/types.ts';
 import { DC_PLUGS, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
 import type { MessageKey } from '../i18n/t.ts';
@@ -123,7 +124,8 @@ export default function HeaderChips({ showCompare = false }: Props) {
   }, [picking, cars]);
   const onPick = (carId: string, trimId: string | null) => {
     const e = cars?.find((c) => c.id === carId);
-    setMyCar({ carId, trimId, label: e ? `${e.model} ${e.name}` : undefined });
+    // Picking the same car again keeps its plug switches; a different car starts from its own plug.
+    setMyCar({ carId, trimId, label: e ? carLabel(e) : undefined, ...(mine?.carId === carId && mine.plugs ? { plugs: mine.plugs } : {}) });
     closePicker();
   };
 
@@ -187,7 +189,7 @@ export default function HeaderChips({ showCompare = false }: Props) {
         </button>
         {picking && (cars
           ? <>
-              <CarPicker cars={cars} level={2} onPick={onPick} onCancel={closePicker} />
+              <CarPicker cars={cars} level={2} onPick={onPick} onCancel={closePicker} tripTags />
               <p className="picker-plugs-note small muted">{t('picker.plugsNote')}</p>
             </>
           : <p className="picker-wait" role="status">{carsFailed ? t('picker.loadFailed') : t('picker.loading')}</p>)}

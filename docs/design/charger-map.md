@@ -13,7 +13,7 @@ Phase 2 of [roadmap.md](roadmap.md). A simple map of public Level 2 and Level 3 
 - **Show every public Level 2 and Level 3 charger in Canada** on one fast map.
 - **Simpler than PlugShare:** level checkboxes, then a kW range slider per level (B35, replacing the original power bands), then plug types.
 - **Stay inside the Phase 1 setup:** a static site and free hosting. **No server.**
-- **Tie into the car database:** "Show only chargers my car can use".
+- **Tie into the car database:** ~~"Show only chargers my car can use"~~ *(superseded by B55, 2026-11-17: the map box was removed; My car's plug switches drive trip planning, and the station panel still says whether the car can use a station).*
 
 ---
 
@@ -102,7 +102,9 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 ### Plugs
 ☑ CCS1 ☑ NACS ☑ CHAdeMO ☑ J1772. All on by default.
 
-### "Chargers my car can use" ✅
+### ~~"Chargers my car can use"~~ (removed by B55, 2026-11-17)
+*Superseded: the map no longer has this box. My car's NACS / CCS1 / CHAdeMO switches drive trip planning instead (see §5). The history below is kept for the record.*
+
 - **Moved to Phase 1b (B28, 2026-11-16):** built together with My car (checklist 5.2), since My car doesn't exist yet. The map ships without it.
 - A toggle that appears when **My car** is set (from Phase 1).
 - It filters by the car's `charge_port` and **supercharger_access** from the data model (B38, 2026-11-16: `adapters_included` isn't researched yet, so it is not used; it can refine this later).

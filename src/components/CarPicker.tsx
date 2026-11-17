@@ -5,7 +5,8 @@
 
 import { useEffect, useId, useMemo, useState } from 'react';
 import { t } from '../i18n/t.ts';
-import { makeCarSearch } from '../lib/car-search.ts';
+import { makeCarSearch, tripReadyFirst } from '../lib/car-search.ts';
+import VariantName from './VariantName.tsx';
 import type { CarDetail, IndexEntry } from '../lib/types.ts';
 
 interface Props {
@@ -15,12 +16,14 @@ interface Props {
   onCancel?: () => void;
   /** Heading level: 1 on its own page (default), 2 when placed inside another page. */
   level?: 1 | 2;
+  /** In the header's picker dialog (QA 4.20): mark cars the trip planner can't use yet and list them last. */
+  tripTags?: boolean;
 }
 
 const MAX_SUGGESTIONS = 8;
 const uniq = <T,>(xs: T[]) => [...new Set(xs)];
 const byName = (a: string, b: string) => a.localeCompare(b, 'en', { sensitivity: 'base' });
-const label = (e: IndexEntry) => `${e.year} ${e.make} ${e.model} · ${e.name}`;
+const Label = ({ e }: { e: IndexEntry }) => <>{`${e.year} ${e.make} ${e.model} · `}<VariantName name={e.name} /></>;
 
 /** Trim names repeat the variant ("eDrive40 Gran Coupe (18″ Wheels)"); show only what differs. */
 function trimText(trim: string, variant: string): string {
@@ -29,7 +32,7 @@ function trimText(trim: string, variant: string): string {
   return rest || trim;
 }
 
-export default function CarPicker({ cars, onPick, onCancel, level = 1 }: Props) {
+export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags = false }: Props) {
   const Heading = level === 1 ? "h1" : "h2";
   const id = useId();
   const search = useMemo(() => makeCarSearch(cars), [cars]);
@@ -43,7 +46,10 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1 }: Props) 
   const [trim, setTrim] = useState('');
   const [trims, setTrims] = useState<CarDetail['trims']>([]);
 
-  const suggestions = useMemo(() => search(query).slice(0, MAX_SUGGESTIONS).map((x) => byId.get(x)!).filter(Boolean), [query, search, byId]);
+  const suggestions = useMemo(() => {
+    const found = search(query).map((x) => byId.get(x)!).filter(Boolean);
+    return (tripTags ? tripReadyFirst(found) : found).slice(0, MAX_SUGGESTIONS);
+  }, [query, search, byId, tripTags]);
   useEffect(() => setActive(-1), [query]);
 
   const makes = uniq(cars.map((c) => c.make)).sort(byName);
@@ -106,9 +112,10 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1 }: Props) 
         {open && (
           <ul id={listId} role="listbox" className="cp-suggest" aria-label={t('picker.suggestions')}>
             {suggestions.map((s, i) => (
-              <li key={s.id} id={optionId(i)} role="option" aria-selected={i === active} className={i === active ? 'on' : undefined}
+              <li key={s.id} id={optionId(i)} role="option" aria-selected={i === active} className={`car-search-opt${i === active ? ' on' : ''}`}
                 onMouseDown={(e) => e.preventDefault()} onClick={() => onPick(s.id, null)}>
-                {label(s)}
+                <span><Label e={s} /></span>
+                {tripTags && !s.trip_ready && <span className="car-search-tag small muted">{t('car.search.noTrip')}</span>}
               </li>
             ))}
             {suggestions.length === 0 && <li className="muted cp-none" role="presentation">{t('picker.noMatch')}</li>}

@@ -342,7 +342,26 @@ a.btn { display: inline-block; text-decoration: none; }
 .route-head .map-place-close { margin: 0 -6px 0 0; }
 .route-form { display: grid; gap: 8px; }
 .route-ends-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: center; }
-.route-ends-fields { display: grid; gap: 8px; min-width: 0; }
+/* From / To (distilled): the map's own trip marks (yellow start dot, ringed end) joined by a dotted
+   line stand in for the visible labels, which stay for screen readers. */
+.route-ends-fields { position: relative; display: grid; gap: 8px; min-width: 0; padding-left: 22px; }
+.route-ends-fields::before { content: ""; position: absolute; left: 6px; top: 24px; bottom: 24px; border-left: 2px dotted var(--field-border); }
+.route-ends-fields > .tp-field::before { content: ""; position: absolute; left: -22px; top: 21px; width: 14px; height: 14px; margin-top: -7px; border-radius: 50%; box-sizing: border-box; }
+.route-ends-fields > .tp-field:first-of-type::before { background: var(--paint); border: 2px solid var(--paint-edge); }
+.route-ends-fields > .tp-field:last-of-type::before { background: var(--surface); border: 3px solid var(--text); }
+/* Use my location sits inside the From box, so From and To line up. */
+.route-ends-fields .tp-input-row { position: relative; }
+.route-ends-fields .tp-input-row:has(.route-locate) .field-input { padding-right: 46px; }
+.route-locate { position: absolute; right: 3px; top: 50%; transform: translateY(-50%); display: grid; place-items: center; width: 38px; height: 38px; padding: 0; background: none; color: var(--text); border: 0; border-radius: 6px; cursor: pointer; }
+.route-locate:hover { background: var(--accent-soft); }
+.route-locate:disabled { cursor: progress; opacity: 0.6; }
+.route-locate:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.route-car-row .car-tile-text { display: grid; gap: 1px; }
+.route-car-sub { display: block; }
+.route-car-chevron { flex: none; color: var(--muted); transition: transform 0.15s; }
+.route-car-row[aria-expanded=true] .route-car-chevron { transform: rotate(180deg); }
+.route-settings .tp-pcts { width: 100%; }
+.route-go .btn.primary { flex: 1; min-height: 44px; font-size: 1rem; }
 .route-swap { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border-radius: 50%; }
 .route-carmissing { display: grid; gap: 8px; justify-items: start; }
 .route-carmissing p { margin: 0; }

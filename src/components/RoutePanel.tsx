@@ -92,17 +92,25 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           <PlaceField
             key={`from-${swaps}`}
             label={t('trip.from')}
+            hideLabel
+            placeholder={t('trip.fromPlaceholder')}
             value={trip.from}
             search={search}
             onChange={(from) => T.setTrip((x) => ({ ...x, from }))}
             extra={
-              <button type="button" className="btn small" onClick={() => T.locate()} disabled={T.locating === 'busy'}>
-                {T.locating === 'busy' ? t('trip.locating') : t('trip.useLocation')}
+              <button type="button" className="route-locate" onClick={() => T.locate()} disabled={T.locating === 'busy'}
+                aria-label={T.locating === 'busy' ? t('trip.locating') : t('trip.useLocation')} title={t('trip.useLocation')}
+                aria-busy={T.locating === 'busy'}>
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="4" fill="currentColor" />
+                  <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="12" cy="12" r="7.5" stroke="currentColor" strokeWidth="2" fill="none" />
+                </svg>
               </button>
             }
           />
           {T.locating === 'denied' && <p className="small muted" role="status">{t('trip.locationDenied')}</p>}
-          <PlaceField key={`to-${swaps}`} label={t('trip.to')} value={trip.to} search={search} onChange={(to) => T.setTrip((x) => ({ ...x, to }))} />
+          <PlaceField key={`to-${swaps}`} label={t('trip.to')} hideLabel placeholder={t('trip.toPlaceholder')} value={trip.to} search={search} onChange={(to) => T.setTrip((x) => ({ ...x, to }))} />
           </div>
           <button type="button" className="btn route-swap" aria-label={t('route.swap')} title={t('route.swap')} onClick={() => { T.swap(); setSwaps((n) => n + 1); }} disabled={!trip.from && !trip.to}>
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -119,17 +127,25 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
               <span className="car-tile-text"><strong>{t('car.tile.none')}</strong> <span className="muted">{t('route.carWhy')}</span></span>
             </button>
           ) : (
-          <div className="route-car">
-            <p className="small">{t('route.carLine', { car: carLabel, start: trip.startSoc, min: trip.thresholdSoc })}</p>
-            {plugsLine}
-            <button type="button" className="btn small" aria-expanded={settingsOpen} aria-controls="route-settings" onClick={() => setSettingsOpen((o) => !o)}>
-              {t('route.settings')}
-            </button>
-          </div>
+          <button type="button" className="car-tile route-car-row" aria-expanded={settingsOpen} aria-controls="route-settings" onClick={() => setSettingsOpen((o) => !o)}>
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 13l1.6-4.4A2 2 0 0 1 7.5 7.3h9a2 2 0 0 1 1.9 1.3L20 13M4 13h16v5H4v-5ZM7 18v1.5M17 18v1.5M7.5 15.5h.01M16.5 15.5h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+            <span className="car-tile-text">
+              <strong>{carLabel}</strong>
+              <span className="route-car-sub small muted">
+                {t('route.carSub', { start: trip.startSoc, min: trip.thresholdSoc })}
+                {dcUsed && <> · {dcUsed.length ? dcUsed.map((p) => t(`value.${p}` as MessageKey)).join(', ') : t('route.plugsNoneShort')}</>}
+              </span>
+            </span>
+            <span className="sr-only">{t('route.settings')}</span>
+            <svg className="route-car-chevron" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+          </button>
           )}
           {myCar && settingsOpen && (
             <div id="route-settings" className="route-settings">
-              <button type="button" className="btn small" onClick={openCarPicker}>{t('trip.changeCar')}</button>
               <div className="tp-pcts">
                 <label>
                   <span className="tp-label">{t('trip.startSoc')}</span>
@@ -142,6 +158,8 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
                     value={trip.thresholdSoc} onChange={(e) => T.setPct('thresholdSoc', e.target.value)} />
                 </label>
               </div>
+              {plugsLine}
+              <button type="button" className="link-btn small" onClick={openCarPicker}>{t('trip.changeCar')}</button>
             </div>
           )}
           {!T.pctValid && <p className="small tp-error" role="alert">{t('trip.pctInvalid', { ...SOC_LIMITS })}</p>}
@@ -152,7 +170,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
             </div>
           )}
 
-          <div className="tp-actions">
+          <div className="tp-actions route-go">
             <button type="submit" className="btn primary" disabled={!T.canPlan}>
               {status === 'planning' ? t('trip.planning') : t('route.plan')}
             </button>

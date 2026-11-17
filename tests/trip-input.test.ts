@@ -1,13 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { buildCars } from '../scripts/lib/build.ts';
+import { toPlaceRows } from '../scripts/lib/geonames.ts';
 import { TRIP } from '../src/config.ts';
 import { fold, makePlaceSearch, type PlaceRow } from '../src/lib/place-search.ts';
 import { planCarFrom } from '../src/lib/trip-car.ts';
 import { apiPoint, readEnd, readSavedTrip, readTripLink, writeTripLink } from '../src/lib/trip-link.ts';
 import type { CarDetail } from '../src/lib/types.ts';
 
-const places = JSON.parse(readFileSync('public/data/places.json', 'utf8')) as PlaceRow[];
+// From the committed sources in data/ (public/data/ is build output and absent in CI before the build).
+const places = toPlaceRows(JSON.parse(readFileSync('data/imported/geonames/places.json', 'utf8')).places) as PlaceRow[];
 const search = makePlaceSearch(places);
 const first = (q: string) => search(q)[0]?.label;
 
@@ -73,11 +75,7 @@ describe('trip link', () => {
 });
 
 describe('planCarFrom (every built car)', () => {
-  const dir = 'public/data/cars';
-  const files: string[] = [];
-  const walk = (d: string) => readdirSync(d, { withFileTypes: true }).forEach((e) => (e.isDirectory() ? walk(join(d, e.name)) : e.name.endsWith('.json') && files.push(join(d, e.name))));
-  walk(dir);
-  const cars = files.map((f) => JSON.parse(readFileSync(f, 'utf8')) as CarDetail);
+  const cars: CarDetail[] = buildCars('.').cars;
 
   it('plans for most cars; the rest say what is missing', () => {
     const results = cars.map((c) => ({ id: c.id, r: planCarFrom(c) }));

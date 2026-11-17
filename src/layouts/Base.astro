@@ -69,7 +69,11 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
         <button type="button" class="icon-btn menu-btn" aria-haspopup="dialog" aria-controls="side-nav" aria-label={t('nav.menu')}>
           <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" /></svg>
         </button>
-        <a class="logo" href="/">⚡ {t('site.name')}</a>
+        <a class="logo" href="/">
+          <!-- The mark: a yellow tile with the centre-line dashes (Road Paint). -->
+          <svg class="logo-mark" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="var(--paint)" /><path d="M12 4v4M12 10.5v3M12 16v4" stroke="var(--paint-ink)" stroke-width="2.5" stroke-linecap="butt" /></svg>
+          <span>{t('site.name')}</span>
+        </a>
         <HeaderChips client:idle showCompare />
       </div>
     </header>
@@ -168,13 +172,15 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
 </html>
 
 <style>
-  .site-header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 20; }
+  .site-header { background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 20; }
   .bar { display: flex; align-items: center; gap: 12px; min-height: 56px; }
-  .logo { font-weight: 700; text-decoration: none; color: var(--text); font-size: 1.1rem; white-space: nowrap; }
+  .logo { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.02em; text-decoration: none; color: var(--text); font-size: 1.15rem; white-space: nowrap; }
+  .logo-mark { flex: none; }
   .icon-btn {
     display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: none;
-    border: 1px solid var(--field-border); border-radius: 10px; background: transparent; color: var(--text); cursor: pointer;
+    border: 1px solid transparent; border-radius: 10px; background: transparent; color: var(--text); cursor: pointer;
   }
+  .side-nav .icon-btn { border-color: var(--field-border); }
   .icon-btn:hover { background: var(--surface-2); }
 
   .side-nav {
@@ -199,9 +205,9 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
   .page-list li[hidden] { display: none; }
   .page-list a { display: grid; gap: 2px; padding: 10px 12px; border-radius: 10px; color: var(--text); text-decoration: none; }
   .page-list a:hover { background: var(--surface-2); }
-  .page-list a[aria-current='page'] { background: var(--accent-soft); }
-  .page-list a[aria-current='page'] .pl-name { color: var(--accent); }
-  .pl-name { font-weight: 600; }
+  .page-list a[aria-current='page'] { background: var(--paint); color: var(--paint-ink); }
+  .page-list a[aria-current='page'] .pl-desc { color: var(--paint-ink); }
+  .pl-name { font-weight: 700; }
   .pl-desc { font-size: 0.85rem; color: var(--muted); }
   .no-match { color: var(--muted); margin: 0 12px; }
   .site-footer { border-top: 1px solid var(--border); color: var(--muted); padding: 20px 0 32px; font-size: 0.9rem; }

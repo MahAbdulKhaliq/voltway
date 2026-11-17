@@ -238,6 +238,11 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .map-filters fieldset { border: 0; margin: 10px 0 0; padding: 0; }
 .map-filters legend { font-weight: 600; font-size: 0.85rem; color: var(--muted); padding: 0; margin-bottom: 4px; }
 .map-filters ul { list-style: none; margin: 0; padding: 0; }
+/* The four plug boxes sit two by two, so none is cut off below the panel (DESIGN-4 4.9). */
+.map-filters ul.plugs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 8px; }
+.map-filters .check.off { color: var(--muted); cursor: default; }
+.map-filters .plugs-note { margin: 2px 0 0; }
+.map-filters-on { margin-left: auto; font-weight: 600; color: var(--paint-ink); background: var(--paint); border: 1px solid var(--paint-edge); border-radius: 999px; padding: 0 8px; line-height: 1.6; }
 /* kW range slider (B35): two native range inputs over one rail; only the thumbs take the pointer. */
 .map-filters .power { padding: 0 2px 6px 8px; }
 .map-filters .power-words { margin: 0 0 2px; font-size: 0.9rem; }

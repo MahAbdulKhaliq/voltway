@@ -274,3 +274,43 @@ describe('carMapInfo (car file → map info)', () => {
     expect(carMapInfo(null)).toEqual({ isTesla: false, access: null, rule: null });
   });
 });
+
+import { carTakesPlug, narrowedCount } from '../src/lib/map-filter.ts';
+
+describe('narrowedCount / carTakesPlug (DESIGN-4 4.9)', () => {
+  const ccs = carPlugs('ccs1', 'via_adapter')!;
+  const nacs = carPlugs('nacs', 'yes')!;
+  it('is 0 for the defaults, and turning Level 2 on does not count (it shows more)', () => {
+    expect(narrowedCount(defaultFilters())).toBe(0);
+    const f = defaultFilters();
+    f.levels[2] = true;
+    expect(narrowedCount(f)).toBe(0);
+  });
+  it('counts the car filter, fast chargers off, a narrowed range and unticked plugs once each', () => {
+    const f = defaultFilters();
+    f.myCar = true;
+    expect(narrowedCount(f, null)).toBe(0); // port unknown: the filter is not in force
+    expect(narrowedCount(f, ccs)).toBe(1);
+    f.plugs.ccs1 = false;
+    f.plugs.j1772 = false;
+    expect(narrowedCount(f, ccs)).toBe(2);
+    f.power[3] = [1, f.power[3][1]];
+    expect(narrowedCount(f, ccs)).toBe(3);
+    f.levels[3] = false; // its range no longer applies
+    expect(narrowedCount(f, ccs)).toBe(3);
+  });
+  it('does not count an unticked plug the car filter already rules out', () => {
+    const f = defaultFilters();
+    f.myCar = true;
+    f.plugs.chademo = false;
+    expect(narrowedCount(f, ccs)).toBe(1);
+    expect(narrowedCount({ ...f, myCar: false }, ccs)).toBe(1);
+  });
+  it('carTakesPlug: an adapter counts for NACS; other plugs follow the rule', () => {
+    expect(carTakesPlug(ccs, 'nacs')).toBe(true);
+    expect(carTakesPlug(ccs, 'chademo')).toBe(false);
+    expect(carTakesPlug(carPlugs('ccs1', 'no')!, 'nacs')).toBe(false);
+    expect(carTakesPlug(nacs, 'ccs1')).toBe(false);
+    expect(carTakesPlug(nacs, 'j1772')).toBe(true);
+  });
+});

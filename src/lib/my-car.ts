@@ -3,9 +3,17 @@
 // "voltway:mycar" (detail: MyCar | null) and "voltway:compare" (detail: string[]).
 
 import { getJSON, setJSON, KEYS } from './storage.ts';
+import { isDcPlug, type DcPlug } from './map-filter.ts';
 
 /** `label` is the short name the header chip shows ("IONIQ 5 Long Range AWD"). */
-export interface MyCar { carId: string; trimId: string | null; label?: string }
+export interface MyCar {
+  carId: string;
+  trimId: string | null;
+  label?: string;
+  /** B55: the DC plugs the driver switched on in the My car menu. Absent = the car's own plug.
+   *  A newly picked car has none, so the toggles reset when the car changes. */
+  plugs?: DcPlug[];
+}
 export const COMPARE_MAX = 4;
 const ID = /^[a-z0-9-]+\/[a-z0-9-]+\/\d{4}\/[a-z0-9-]+$/;
 
@@ -20,6 +28,7 @@ export function readMyCar(saved: unknown): MyCar | null {
   if (typeof s.carId !== 'string' || !ID.test(s.carId)) return null;
   const out: MyCar = { carId: s.carId, trimId: typeof s.trimId === 'string' && s.trimId ? s.trimId : null };
   if (typeof s.label === 'string' && s.label) out.label = s.label.slice(0, 80);
+  if (Array.isArray(s.plugs)) out.plugs = [...new Set(s.plugs.filter(isDcPlug))];
   return out;
 }
 

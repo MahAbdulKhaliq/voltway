@@ -77,10 +77,30 @@ describe('map pin colours (charger-map §5, Road Paint 4.5)', async () => {
     for (const fill of [PIN.fill[3], PIN.fill[2], PIN.unavailable]) expect(contrast(fill, MAP_PALETTE.dark.land), fill).toBeGreaterThanOrEqual(3);
     expect(contrast(PIN.ring, MAP_PALETTE.light.land)).toBeGreaterThanOrEqual(3);
   });
-  it('clusters: the count reads on the disc (4.5:1); the yellow ring shows on asphalt and the disc on concrete (3:1)', () => {
-    expect(contrast(MAP_MARK.clusterText, MAP_MARK.cluster)).toBeGreaterThanOrEqual(4.5);
-    expect(contrast(MAP_MARK.clusterRing, MAP_PALETTE.dark.land)).toBeGreaterThanOrEqual(3);
-    expect(contrast(MAP_MARK.cluster, MAP_PALETTE.light.land)).toBeGreaterThanOrEqual(3);
+  it('ring clusters (B55): the pale count reads on the dark centre (4.5:1); the arcs stand out from the dark centre and asphalt, the dark edge from concrete (3:1)', () => {
+    expect(contrast(MAP_MARK.clusterText, MAP_MARK.clusterRing)).toBeGreaterThanOrEqual(4.5);
+    for (const fill of [PIN.fill[3], PIN.fill[2], PIN.tripFill[3], PIN.tripFill[2]]) {
+      expect(contrast(fill, MAP_MARK.clusterRing), fill).toBeGreaterThanOrEqual(3);
+      expect(contrast(fill, MAP_PALETTE.dark.land), fill).toBeGreaterThanOrEqual(3);
+    }
+    expect(contrast(MAP_MARK.clusterRing, MAP_PALETTE.light.land)).toBeGreaterThanOrEqual(3);
+  });
+  it('Tesla pins (B55): white T on red and red T on white (3:1); red shows on asphalt, ring on concrete', () => {
+    expect(contrast(PIN.teslaGlyph, PIN.tesla)).toBeGreaterThanOrEqual(3);
+    expect(contrast(PIN.tesla, PIN.fill[2])).toBeGreaterThanOrEqual(3);
+    expect(contrast(PIN.tesla, MAP_PALETTE.dark.land)).toBeGreaterThanOrEqual(3);
+    expect(contrast(PIN.ring, PIN.tesla)).toBeGreaterThanOrEqual(3);
+  });
+  it('trip grey (B54) keeps the dark glyph readable and is not yellow', () => {
+    for (const fill of [PIN.tripFill[3], PIN.tripFill[2]]) expect(contrast(PIN.glyph, fill), fill).toBeGreaterThanOrEqual(4.5);
+    expect(Object.values(PIN.tripFill)).not.toContain(PIN.fill[3]);
+  });
+  it('speed and plug tags (B54): yellow bolts and pale plugs on the dark tag (3:1), the tag edge shows on asphalt', () => {
+    expect(contrast(MAP_MARK.tagBolt, MAP_MARK.tag)).toBeGreaterThanOrEqual(3);
+    expect(contrast(MAP_MARK.tagBoltTrip, MAP_MARK.tag)).toBeGreaterThanOrEqual(3);
+    expect(contrast(MAP_MARK.tagPlug, MAP_MARK.tag)).toBeGreaterThanOrEqual(3);
+    expect(contrast(MAP_MARK.tag, MAP_PALETTE.light.land)).toBeGreaterThanOrEqual(3);
+    expect(contrast(MAP_MARK.tagEdge, MAP_PALETTE.dark.land)).toBeGreaterThanOrEqual(3);
   });
 });
 

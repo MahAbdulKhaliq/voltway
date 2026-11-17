@@ -1,10 +1,12 @@
 // The route drawn on the charger map (B50, 3.18; route-planner.md §7): the route line on a white
 // casing, any charging gap as a dashed red stretch, numbered stop pins, and the start and end.
-// While a route shows, the charger pins and clusters fade so the route stands out.
+// While a route shows, the charger pins and clusters turn grey and fade so the route stands out
+// (B54: the trip is the only yellow on the map).
 
 import type maplibregl from 'maplibre-gl';
 import type { Feature, FeatureCollection, LineString, Point } from 'geojson';
 import { TRIP_MAP } from './trip-map-style.ts';
+import { clusterImage, pinImage } from './map-icons.ts';
 
 export interface TripOverlay {
   line: [number, number][];
@@ -96,11 +98,17 @@ export function setTripOverlay(map: maplibregl.Map, o: TripOverlay | null) {
   fadePins(map, o !== null);
 }
 
-/** Fades the charger pins and clusters while a route shows; restores them after. */
+/** Greys and fades the charger pins and clusters while a route shows; restores them after. */
 export function fadePins(map: maplibregl.Map, faded: boolean) {
   const k = faded ? FADED_OPACITY : 1;
-  if (map.getLayer('pins')) map.setPaintProperty('pins', 'icon-opacity', k);
-  if (map.getLayer('clusters')) map.setPaintProperty('clusters', 'circle-opacity', 0.88 * k);
+  if (map.getLayer('pins')) {
+    map.setPaintProperty('pins', 'icon-opacity', k);
+    map.setLayoutProperty('pins', 'icon-image', pinImage(faded) as maplibregl.ExpressionSpecification);
+  }
+  if (map.getLayer('clusters')) {
+    map.setPaintProperty('clusters', 'icon-opacity', k);
+    map.setLayoutProperty('clusters', 'icon-image', clusterImage(faded) as maplibregl.ExpressionSpecification);
+  }
   if (map.getLayer('cluster-count')) map.setPaintProperty('cluster-count', 'text-opacity', k);
   // The ring under a selected charger stays at full strength, so the open station is easy to find.
 }

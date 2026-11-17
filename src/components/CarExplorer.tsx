@@ -18,6 +18,8 @@ import { GROUPS } from '../lib/spec-groups.ts';
 import { addToCompare, getCompare, getMyCar, setMyCar, type AddResult, type MyCar } from '../lib/my-car.ts';
 import { Badge, Value, sourceNumber } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
+import VariantName from './VariantName.tsx';
+import { splitVariantName } from '../lib/variant-name.ts';
 import { linkWindowFrom } from '../lib/trip-link.ts';
 
 interface Props { index: IndexEntry[]; wheelEffect: WheelEffect | null }
@@ -84,6 +86,11 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
       if (mine === null) {
         setShowPicker(true);
         history.replaceState(null, '', '/charging');
+      } else if (known(mine.carId)) {
+        // Picked in the header's car dialog (B54): show that car here too.
+        setCarId(mine.carId);
+        setTrimId(mine.trimId);
+        setShowPicker(false);
       }
     };
     const onCompare = (e: Event) => setCompareList((e as CustomEvent<string[]>).detail);
@@ -273,7 +280,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
         className="picker"
         headingId="pick"
         title={t('charging.selectVehicle')}
-        preview={current ? t('charging.pickedCar', { year: current.year, make: current.make, model: current.model, variant: current.name }) : null}
+        preview={current ? t('charging.pickedCar', { year: current.year, make: current.make, model: current.model, variant: splitVariantName(current.name).plain }) : null}
         open={pickerOpen}
         onToggle={setPickerOpen}
       >
@@ -314,7 +321,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
         <>
           <header className="car-head">
             <p className="muted eyebrow">{car.year} · {car.make.name} · {t(`body.${car.model.body_type}` as MessageKey)} · {t(`value.${car.drivetrain}` as MessageKey)}</p>
-            <h1>{car.model.name} <span className="variant">{car.name}</span></h1>
+            <h1>{car.model.name} <span className="variant"><VariantName name={car.name} /></span></h1>
             <div className="car-actions">
               <button type="button" className={`btn small${isMine ? ' primary' : ''}`} aria-pressed={isMine} onClick={() => !isMine && setMyCar({ carId: car.id, trimId: car.trims.length > 1 ? trimId : null, label: labelFor(car.id) })}>
                 {isMine ? t('mycar.isMine') : t('mycar.set')}

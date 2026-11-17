@@ -57,16 +57,27 @@ describe('portMatches / matchLevel (any port matches)', () => {
 });
 
 describe('filterStations', () => {
-  it('keeps matching stations as slim pins with level and unavailable flag', () => {
+  it('keeps matching stations as slim pins with level, unavailable flag, top Level 3 kW and plugs (B54)', () => {
     const fc = filterStations(
       [feat(1, [[3, 'ccs1', 150, 2]], 1), feat(2, [[2, 'j1772', 7.2, 2]]), feat(3, [[3, 'chademo', 50, 1], [2, 'j1772', null, 2]])],
       { ...defaultFilters(), levels: { 3: true, 2: true } },
     );
     expect(fc.features.map((x) => x.properties)).toEqual([
-      { i: 1, lv: 3, t: 1 },
-      { i: 2, lv: 2 },
-      { i: 3, lv: 3 },
+      { i: 1, lv: 3, t: 1, k: 150, pc: 1, pn: 0, pd: 0, pj: 0, te: 0 },
+      { i: 2, lv: 2, k: 0, pc: 0, pn: 0, pd: 0, pj: 1, te: 0 },
+      { i: 3, lv: 3, k: 50, pc: 0, pn: 0, pd: 1, pj: 1, te: 0 },
     ]);
+  });
+  it('the marks count only ports the filters let through', () => {
+    const fc = filterStations(
+      [feat(4, [[3, 'ccs1', 350, 2], [3, 'nacs', 250, 4], [2, 'j1772', 7.2, 2]])],
+      { ...defaultFilters(), levels: { 3: true, 2: false }, plugs: { ccs1: false, nacs: true, chademo: true, j1772: true } },
+    );
+    expect(fc.features[0].properties).toEqual({ i: 4, lv: 3, k: 250, pc: 0, pn: 1, pd: 0, pj: 0, te: 0 });
+  });
+  it('an unknown kW leaves k at 0', () => {
+    const fc = filterStations([feat(5, [[3, 'ccs1', null, 1]])], defaultFilters());
+    expect(fc.features[0].properties.k).toBe(0);
   });
 });
 
@@ -265,13 +276,13 @@ describe('carMapInfo (car file → map info)', () => {
   const sv = (value: string) => ({ value: { value, kind: 'manufacturer', source_id: 's' }, others: [], conflict: false });
   it('reads make, port and access', () => {
     const tesla = carMapInfo({ make: { id: 'tesla' }, fields: { charge_port: sv('nacs'), supercharger_access: sv('yes') } });
-    expect(tesla).toEqual({ isTesla: true, access: 'yes', rule: { plugs: ['nacs', 'j1772'], superchargerAdapter: false } });
+    expect(tesla).toEqual({ isTesla: true, access: 'yes', port: 'nacs', rule: { plugs: ['nacs', 'j1772'], superchargerAdapter: false } });
     const ioniq = carMapInfo({ make: { id: 'hyundai' }, fields: { charge_port: sv('ccs1'), supercharger_access: sv('via_adapter') } });
     expect(ioniq.rule?.superchargerAdapter).toBe(true);
   });
   it('missing fields → unknown port', () => {
     expect(carMapInfo({ make: { id: 'bmw' }, fields: { charge_port: null } }).rule).toBeNull();
-    expect(carMapInfo(null)).toEqual({ isTesla: false, access: null, rule: null });
+    expect(carMapInfo(null)).toEqual({ isTesla: false, access: null, port: null, rule: null });
   });
 });
 
@@ -312,5 +323,48 @@ describe('narrowedCount / carTakesPlug (DESIGN-4 4.9)', () => {
     expect(carTakesPlug(carPlugs('ccs1', 'no')!, 'nacs')).toBe(false);
     expect(carTakesPlug(nacs, 'ccs1')).toBe(false);
     expect(carTakesPlug(nacs, 'j1772')).toBe(true);
+  });
+});
+
+import { defaultDcPlugs, myCarRule, plugRule, carCanUse as canUse } from '../src/lib/map-filter.ts';
+
+describe('My car plug switches (B55)', () => {
+  const sv = (value: string) => ({ value: { value, kind: 'manufacturer', source_id: 's' }, others: [], conflict: false });
+  it('defaults to the car\'s own DC plug only', () => {
+    expect(defaultDcPlugs('nacs')).toEqual(['nacs']);
+    expect(defaultDcPlugs('ccs1')).toEqual(['ccs1']);
+    expect(defaultDcPlugs('chademo')).toEqual(['chademo']);
+    expect(defaultDcPlugs('j1772')).toEqual([]);
+    expect(defaultDcPlugs(null)).toEqual([]);
+  });
+  it('the rule holds the switched-on plugs plus J1772, never an adapter guess', () => {
+    expect(plugRule(['ccs1'], 'via_adapter')).toEqual({ plugs: ['ccs1', 'j1772'], superchargerAdapter: false });
+    expect(plugRule(['chademo', 'nacs'], 'yes')).toEqual({ plugs: ['nacs', 'chademo', 'j1772'], superchargerAdapter: false });
+  });
+  it('a CCS1 car with its NACS switch on can use Superchargers unless the data says no access', () => {
+    expect(canUse(plugRule(['ccs1', 'nacs'], 'via_adapter'), 'nacs', 'Tesla')).toBe(true);
+    expect(canUse(plugRule(['ccs1'], 'via_adapter'), 'nacs', 'Tesla')).toBe(false);
+    const none = plugRule(['ccs1', 'nacs'], 'no');
+    expect(canUse(none, 'nacs', 'Tesla')).toBe(false);
+    expect(canUse(none, 'nacs', 'Electrify Canada')).toBe(true);
+  });
+  it('myCarRule: saved switches win; otherwise the own plug; null when nothing is known', () => {
+    const ioniq = carMapInfo({ make: { id: 'hyundai' }, fields: { charge_port: sv('ccs1'), supercharger_access: sv('via_adapter') } });
+    expect(myCarRule(ioniq, undefined)?.plugs).toEqual(['ccs1', 'j1772']);
+    expect(myCarRule(ioniq, ['nacs', 'ccs1'])?.plugs).toEqual(['nacs', 'ccs1', 'j1772']);
+    expect(myCarRule(ioniq, [])?.plugs).toEqual(['j1772']);
+    const unknown = carMapInfo({ make: { id: 'bmw' }, fields: { charge_port: null } });
+    expect(myCarRule(unknown, undefined)).toBeNull();
+    expect(myCarRule(unknown, ['ccs1'])?.plugs).toEqual(['ccs1', 'j1772']);
+    expect(myCarRule(null, ['ccs1'])).toBeNull();
+  });
+});
+
+describe('Tesla network flag (B55)', () => {
+  const f = (i: number, nw?: string) => ({ type: 'Feature' as const, geometry: { type: 'Point' as const, coordinates: [0, 0] as [number, number] }, properties: { i, n: 'S', p: [[3, 'nacs', 250, 4]] as never, src: 's', ...(nw ? { nw } : {}) } });
+  it('marks Superchargers and Tesla Destination, nothing else', () => {
+    const all = { ...defaultFilters(), levels: { 3: true, 2: true } };
+    const te = filterStations([f(1, 'Tesla'), f(2, 'Tesla Destination'), f(3, 'Electrify Canada'), f(4)], all).features.map((x) => x.properties.te);
+    expect(te).toEqual([1, 1, 0, 0]);
   });
 });

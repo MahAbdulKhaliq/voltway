@@ -1,10 +1,18 @@
 // Header chips (B40): My car (menu: open it, change it, forget it) and Compare (n), which is
 // hidden while the list is empty. Both follow the "voltway:mycar" / "voltway:compare" events,
-// so they update live when a page changes them.
+// so they update live when a page changes them. "Pick your car" and "Change car" open the car
+// picker in a dialog on the page the visitor is on (B54); the car list loads when it first opens.
+// The menu also holds My car's plug switches (B55): NACS, CCS1, CHAdeMO, used by the trip
+// planner. The car's own plug is on by default; the trip panel opens this menu with the
+// "voltway:mycar-menu" event.
 
 import { useEffect, useRef, useState } from 'react';
 import { t } from '../i18n/t.ts';
 import { getCompare, getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
+import CarPicker from './CarPicker.tsx';
+import type { IndexEntry } from '../lib/types.ts';
+import { DC_PLUGS, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
+import type { MessageKey } from '../i18n/t.ts';
 
 interface Props { /** Compare chip only once the Compare page exists (CLAUDE.md: hide links to parts not built). */ showCompare?: boolean }
 
@@ -18,6 +26,14 @@ export default function HeaderChips({ showCompare = false }: Props) {
   const [ready, setReady] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const button = useRef<HTMLButtonElement>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const opener = useRef<HTMLElement | null>(null);
+  const [cars, setCars] = useState<IndexEntry[] | null>(null);
+  const [carsFailed, setCarsFailed] = useState(false);
+  const [picking, setPicking] = useState(false);
+  // The car's own port (for the default plug switches), read from its car file when the menu opens.
+  const [port, setPort] = useState<{ carId: string; port: string | null } | null>(null);
+  const focusPlugs = useRef(false);
 
   useEffect(() => {
     setMine(getMyCar());
@@ -30,7 +46,13 @@ export default function HeaderChips({ showCompare = false }: Props) {
     window.addEventListener('voltway:mycar', onMine);
     window.addEventListener('voltway:compare', onCompare);
     window.addEventListener('storage', onStorage);
+    // The trip panel's "Change" next to the plugs it used opens this menu at the plug switches.
+    // Opened after the asking click has finished bubbling, or the click-outside listener below
+    // (added as soon as the menu opens) sees that same click and closes it again.
+    const onMenu = () => { focusPlugs.current = true; setTimeout(() => setOpen(true), 0); };
+    window.addEventListener('voltway:mycar-menu', onMenu);
     return () => {
+      window.removeEventListener('voltway:mycar-menu', onMenu);
       window.removeEventListener('voltway:mycar', onMine);
       window.removeEventListener('voltway:compare', onCompare);
       window.removeEventListener('storage', onStorage);
@@ -44,15 +66,72 @@ export default function HeaderChips({ showCompare = false }: Props) {
     const onClick = (e: MouseEvent) => { if (!root.current?.contains(e.target as Node)) setOpen(false); };
     document.addEventListener('keydown', onKey);
     document.addEventListener('click', onClick);
-    root.current?.querySelector<HTMLElement>('[role=menuitem]')?.focus();
+    const first = focusPlugs.current ? '[role=menuitemcheckbox]' : '[role=menuitem]';
+    const el = root.current?.querySelector<HTMLButtonElement>(first);
+    el?.focus();
+    // The plug switches stay disabled until the car file arrives; the effect below retries then.
+    if (document.activeElement === el) focusPlugs.current = false;
     return () => { document.removeEventListener('keydown', onKey); document.removeEventListener('click', onClick); };
   }, [open]);
+
+  useEffect(() => {
+    if (!open || !mine || port?.carId === mine.carId) return;
+    let live = true;
+    const carId = mine.carId;
+    fetch(`/data/cars/${carId}.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((file) => {
+        const v = file?.fields?.charge_port?.value?.value;
+        if (live) setPort({ carId, port: typeof v === 'string' ? v : null });
+      })
+      .catch(() => live && setPort({ carId, port: null }));
+    return () => { live = false; };
+  }, [open, mine, port]);
+  const plugsOn: DcPlug[] | null = mine
+    ? mine.plugs ?? (port?.carId === mine.carId ? defaultDcPlugs(port.port) : null)
+    : null;
+  // "Change plugs" asked for the switches before they were ready: focus the first one now.
+  useEffect(() => {
+    if (!open || !plugsOn || !focusPlugs.current) return;
+    focusPlugs.current = false;
+    root.current?.querySelector<HTMLElement>('[role=menuitemcheckbox]')?.focus();
+  }, [open, plugsOn]);
+  const togglePlug = (p: DcPlug) => {
+    if (!mine || !plugsOn) return;
+    const next = plugsOn.includes(p) ? plugsOn.filter((x) => x !== p) : [...plugsOn, p];
+    setMyCar({ ...mine, plugs: DC_PLUGS.filter((x) => next.includes(x)) });
+  };
+
+  // The picker dialog: a modal <dialog>, so focus stays inside, Escape closes it and focus goes back.
+  const openPicker = (from: HTMLElement | null) => {
+    opener.current = from ?? button.current;
+    setOpen(false);
+    setPicking(true);
+    dialog.current?.showModal();
+    if (!cars) {
+      setCarsFailed(false);
+      fetch('/data/index.json')
+        .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+        .then((list: IndexEntry[]) => setCars(list))
+        .catch(() => setCarsFailed(true));
+    }
+  };
+  const closePicker = () => dialog.current?.close();
+  useEffect(() => {
+    // Focus the search box once the picker is in the dialog.
+    if (picking && cars) dialog.current?.querySelector<HTMLInputElement>('input[type=search]')?.focus();
+  }, [picking, cars]);
+  const onPick = (carId: string, trimId: string | null) => {
+    const e = cars?.find((c) => c.id === carId);
+    setMyCar({ carId, trimId, label: e ? `${e.model} ${e.name}` : undefined });
+    closePicker();
+  };
 
   if (!ready) return null;
   const onMenuKey = (e: React.KeyboardEvent) => {
     if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
     e.preventDefault();
-    const items = [...(root.current?.querySelectorAll<HTMLElement>('[role=menuitem]') ?? [])];
+    const items = [...(root.current?.querySelectorAll<HTMLElement>('[role=menuitem], [role=menuitemcheckbox]') ?? [])];
     const i = items.indexOf(document.activeElement as HTMLElement);
     items[(i + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length]?.focus();
   };
@@ -70,14 +149,49 @@ export default function HeaderChips({ showCompare = false }: Props) {
           {open && (
             <div className="chip-pop" role="menu" aria-label={t('mycar.menu')} onKeyDown={onMenuKey}>
               <a role="menuitem" href={carHref(mine.carId, mine.trimId)}>{t('mycar.open')}</a>
-              <a role="menuitem" href="/charging?pick=1">{t('mycar.change')}</a>
+              <button type="button" role="menuitem" onClick={() => openPicker(button.current)}>{t('mycar.change')}</button>
               <button type="button" role="menuitem" onClick={() => { setMyCar(null); setOpen(false); button.current?.focus(); }}>{t('mycar.forget')}</button>
+              <div className="chip-plugs" role="group" aria-labelledby="mycar-plugs-label">
+                <p id="mycar-plugs-label" className="chip-plugs-label">{t('mycar.plugs')}</p>
+                {DC_PLUGS.map((p) => (
+                  <button
+                    key={p}
+                    type="button"
+                    role="menuitemcheckbox"
+                    aria-checked={plugsOn ? plugsOn.includes(p) : false}
+                    disabled={!plugsOn}
+                    className="chip-plug"
+                    onClick={(e) => { e.stopPropagation(); togglePlug(p); }}
+                  >
+                    <span className="switch" aria-hidden="true" />
+                    <span>{t(`value.${p}` as MessageKey)}</span>
+                  </button>
+                ))}
+                <p className="chip-plugs-note">{t('mycar.plugsNote')}</p>
+              </div>
             </div>
           )}
         </div>
       ) : (
-        <a className="chip" href="/charging?pick=1"><span className="chip-text">{t('mycar.none')}</span></a>
+        <button type="button" className="chip" aria-haspopup="dialog" onClick={(e) => openPicker(e.currentTarget)}><span className="chip-text">{t('mycar.none')}</span></button>
       )}
+      <dialog
+        ref={dialog}
+        className="picker-dialog"
+        aria-label={t('picker.title')}
+        onClose={() => { setPicking(false); (opener.current?.isConnected ? opener.current : document.querySelector<HTMLElement>('.chips .chip'))?.focus(); }}
+        onClick={(e) => { if (e.target === e.currentTarget) closePicker(); }}
+      >
+        <button type="button" className="icon-btn picker-close" aria-label={t('picker.close')} onClick={closePicker}>
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+        </button>
+        {picking && (cars
+          ? <>
+              <CarPicker cars={cars} level={2} onPick={onPick} onCancel={closePicker} />
+              <p className="picker-plugs-note small muted">{t('picker.plugsNote')}</p>
+            </>
+          : <p className="picker-wait" role="status">{carsFailed ? t('picker.loadFailed') : t('picker.loading')}</p>)}
+      </dialog>
     </div>
   );
 }

@@ -76,7 +76,7 @@ Each phase ships on its own. The header gains **Map** and **Trip** as they're bu
 
 - **Inputs:** From / To, car, starting battery (**90%**), stop threshold (**15%**).
 - **Services:** **openrouteservice** free plan (2,000 routes/day, with elevation), behind a small **Vercel Function** that hides the key, caches and limits each visitor. **The app's only server-side piece.**
-- **Energy:** highway consumption (tested, or NRCan × 1.15) + elevation (climbs cost energy, descents give 60% back).
+- **Energy:** highway consumption (tested, or NRCan × 1.08, calibrated in B49) + elevation (climbs cost energy, descents give 60% back).
 - **Stops:** at the threshold, pick the most powerful compatible fast charger within 2 km of the route (widening to 10 km if needed), and **charge to 80%**. If nothing is found, show a "charging gap" warning.
 - **Charging time** uses the Phase 1 curve maths, plus 5 minutes per stop.
 - **Results:** map, step-by-step itinerary, totals, warnings (estimated curve, Tesla network, gap, detour, winter), and an "estimate only" footer. A before-the-trip planner only. → [route-planner.md](route-planner.md)

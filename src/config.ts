@@ -49,10 +49,14 @@ export const MAP = {
  * Each value is a stated assumption from the design, not a vehicle figure.
  */
 export const TRIP = {
-  /** NRCan highway consumption × this when the car has no tested highway figure. Placeholder until R10 (B46). */
-  highwayFactor: 1.15,
-  /** False until the owner approves a calibrated factor (R10, B46); the trip screen says "not yet calibrated". */
-  highwayCalibrated: false,
+  /**
+   * NRCan highway consumption × this when the car has no tested highway figure. Calibrated against 14 tested
+   * mild-weather highway figures (docs/plan/highway-calibration-report.md); the owner chose the conservative
+   * 75th percentile, 1.08, over the 0.97 best fit (B49, 2026-11-16). Was a 1.15 placeholder.
+   */
+  highwayFactor: 1.08,
+  /** True once the owner approved a calibrated factor (R10, B49); while false the trip screen says "not yet calibrated". */
+  highwayCalibrated: true,
   /** Driver and luggage added to curb weight (kg). */
   payloadKg: 150,
   /** Drivetrain efficiency when climbing: lift energy ÷ this. */

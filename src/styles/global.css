@@ -282,6 +282,7 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .station-ports li { font-weight: 600; padding: 2px 0; }
 .station-links li { padding: 3px 0; }
 .station-curve { margin: 10px 0 0; font-weight: 600; }
+.station-actions { list-style: none; padding: 0; display: grid; gap: 6px; }
 .station-foot { padding: 8px 14px; border-top: 1px solid var(--border); }
 .station-foot p { margin: 0; }
 

@@ -36,10 +36,11 @@ The full design lives in **`docs/design/`** (moved into the repo 2026-11-15 so d
 - Preview deployments are behind Vercel Authentication (the owner must be signed in to open them).
 
 - The Vercel connector is connected. Use it freely to **read** projects, deployments and logs.
-- **Ask the owner before changing any Vercel setting or creating anything there.** The owner does dashboard setup (like importing the repo) themselves, with step-by-step guidance.
+- **Ask the owner before changing any Vercel setting or creating anything there.** For dashboard setup (Vercel, API providers), open the page in the built-in browser, go to the right screen and fill in what you safely can; the owner pastes keys or secrets and clicks Save.
 
 ## Working style: this is a learning project
 
 - The owner is new to **Astro** and **Vercel**. Briefly explain new concepts as they come up (islands, static generation, preview deployments, build settings, etc.).
 - Walk the owner through any setup they must do themselves.
-- Ask before outward-facing actions (creating the GitHub repo, pushing, opening PRs).
+- **Checklist items:** push, open the PR and squash-merge on green CI without asking (the `ship-item` skill). Still ask first for new repos, Vercel changes, data PRs that need owner review, and design changes.
+- **Browser:** before the first built-in browser call, load the `anthropic-skills:built-in-browser` skill. Pass `tabId` on every action, take a screenshot before any click by coordinates (and again after scrolling), and prefer `find`/`read_page` refs. Long browser checks of a screen go to the `site-ui-checker` agent, not the main chat.

@@ -90,7 +90,7 @@ I explain what an env var and a function are as we go. **No Vercel settings are 
 
 **3.14 Polish.** Phone layout at 375 px, dark mode, keyboard access (combobox ARIA as in CarPicker, an itinerary list as the accessible version of the map), and empty, error and busy states.
 
-**3.15 Independent QA.** `qa-reviewer` against the QA.md Phase 3 section, and `map-ui-checker` on `/trip`. The owner can also run `Run QA: follow docs/plan/QA.md against DESIGN-3.md and report every gap.` Fix what they find, then re-check.
+**3.15 Independent QA.** `qa-reviewer` against the QA.md Phase 3 section, and `site-ui-checker` (formerly map-ui-checker) on `/trip`. The owner can also run `Run QA: follow docs/plan/QA.md against DESIGN-3.md and report every gap.` Fix what they find, then re-check.
 
 ## Order and delegation
 Docs PR → 3.1, 3.2, 3.4–3.6 (independent, separate files; 3.1 and the logic stack 3.4→3.5→3.6 can run in parallel sessions) → 3.3 research runs alongside in the background (fill-data-gaps uses its own agents) → 3.8 owner setup can happen any time before 3.9 → 3.9, 3.10 → 3.11–3.14 → 3.7 once 3.3 is merged → 3.15. Each code PR self-merges on green CI (standing rule). Data PRs and the calibration numbers wait for the owner.

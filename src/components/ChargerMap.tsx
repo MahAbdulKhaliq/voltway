@@ -359,7 +359,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const [place, setPlace] = useState<TripEnd | null>(null);
   const [whereKey, setWhereKey] = useState(0);
   const placeRef = useRef<maplibregl.Marker | null>(null);
-  const placeCardRef = useRef<HTMLHeadingElement | null>(null);
+  const routeBtnRef = useRef<HTMLButtonElement | null>(null);
   // Route mode (B50, 3.18): the planner on this map.
   const [routeMode, setRouteMode] = useState(false);
   // The last trip with both ends (DESIGN-4 4.10): offered as a one-tap row on the home card. It is
@@ -547,7 +547,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   }, []);
 
   const pickPlace = (end: TripEnd | null) => {
-    if (!end) return; // typing clears the pick; the card stays until a new place is picked or it is closed
+    // Typing again (or clearing the box) drops the pick and its pin.
+    if (!end) { placeRef.current?.remove(); placeRef.current = null; setPlace(null); return; }
     const map = mapRef.current;
     setPlace(end);
     setSelected(null);
@@ -561,10 +562,10 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     placeRef.current = new maplibregl.Marker({ element: dot, anchor: 'bottom' }).setLngLat([end.lon, end.lat]).addTo(map);
     map.flyTo({ center: [end.lon, end.lat], zoom: Math.max(Math.min(map.getZoom(), 12), 10) });
   };
-  // A picked place moves focus to its card: the phone keyboard closes so "Route here" is visible,
-  // and keyboard and screen-reader users hear the place and its charger count next.
+  // A picked place moves focus to Plan trip (owner 2026-11-17: no separate place card): the phone
+  // keyboard closes so the map shows, and the charger count beside it is announced.
   useEffect(() => {
-    if (place) placeCardRef.current?.focus({ preventScroll: true });
+    if (place) routeBtnRef.current?.focus({ preventScroll: true });
   }, [place]);
   const closePlace = useCallback(() => {
     placeRef.current?.remove();
@@ -793,11 +794,22 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             search={placeSearch}
             onChange={pickPlace}
             extra={
-              <button type="button" className="btn small map-route-btn" onClick={() => enterRoute()}>
+              <button type="button" ref={routeBtnRef} className="btn small map-route-btn" onClick={() => enterRoute(place ? { to: place } : {})}>
                 {t('route.open')}
               </button>
             }
           />
+          {place && (
+            <p className="small muted map-place-near" role="status">
+              {nearCount === null
+                ? t('map.place.counting')
+                : nearCount === 0
+                  ? t('map.place.nearNone', { km: NEAR_PLACE_KM })
+                  : nearCount === 1
+                    ? t('map.place.nearOne', { km: NEAR_PLACE_KM })
+                    : t('map.place.near', { n: nearCount.toLocaleString('en-CA'), km: NEAR_PLACE_KM })}
+            </p>
+          )}
         </div>
         <div className="map-car">
           {myCar && (
@@ -1001,28 +1013,6 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       </button>
       </div>
 
-      {place && (
-        <section className="map-place" aria-labelledby="map-place-name">
-          <div className="map-place-head">
-            <h2 id="map-place-name" ref={placeCardRef} tabIndex={-1}>{place.label}</h2>
-            <button type="button" className="map-place-close" aria-label={t('map.place.close', { place: place.label })} onClick={closePlace}>
-              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </button>
-          </div>
-          <p className="small" role="status">
-            {nearCount === null
-              ? t('map.place.counting')
-              : nearCount === 0
-                ? t('map.place.nearNone', { km: NEAR_PLACE_KM })
-                : nearCount === 1
-                  ? t('map.place.nearOne', { km: NEAR_PLACE_KM })
-                  : t('map.place.near', { n: nearCount.toLocaleString('en-CA'), km: NEAR_PLACE_KM })}
-          </p>
-          <button type="button" className="btn primary" onClick={() => enterRoute({ to: place })}>{t('map.place.route')}</button>
-        </section>
-      )}
 
       {station && (
         <StationPanel

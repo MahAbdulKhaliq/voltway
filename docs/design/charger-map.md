@@ -142,7 +142,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 - Each item is a button showing the station name, its level and top power, and its city. Choosing one opens its station panel and centres the map on it.
 - The list opens with a toggle button under the station count and updates when the map stops moving. When the view holds too many stations, it says to zoom in.
 - **Wide screens (over 640 px) first.** On phones the panel and the bottom sheet compete for space; a phone version may follow (TD-P11).
-- **Search by place name: not in v1 (B29, 2026-11-16).** v1 has "Locate me" plus pan and zoom. Place search arrives with Phase 3 address search (S6). *Original proposal:* v1 uses a **static list of Canadian places** (cities, towns), so no search service is needed. GeoNames (CC BY 4.0) is one possible source. Full address search comes with routing in Phase 3 (S6).
+- **Search by place name: not in v1 (B29, 2026-11-16); superseded by the "Where to?" box (B50, Phase 3).** v1 had "Locate me" plus pan and zoom; Phase 3 added place and address search in the "Where to?" box above. *Original proposal:* v1 uses a **static list of Canadian places** (cities, towns), so no search service is needed. GeoNames (CC BY 4.0) is one possible source. Full address search comes with routing in Phase 3 (S6).
 - **Default view:** the user's last map position (saved in the browser), or else a view of southern Ontario and Québec, where most chargers are.
 
 ---

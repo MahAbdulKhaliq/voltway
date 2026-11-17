@@ -3,7 +3,7 @@
 // while a route is open; Close route goes back to the plain map. After a plan the form folds into
 // a one-line summary with Edit, so the itinerary gets the room.
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import CarPicker from './CarPicker.tsx';
 import Itinerary from './Itinerary.tsx';
@@ -38,6 +38,10 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
   // Swapping remounts both fields so each shows its new end (a field keeps typed text otherwise).
   const [swaps, setSwaps] = useState(0);
   const folded = current && !editing;
+  // Opening route mode, folding the form and Edit each replace the control that had focus:
+  // focus moves to the panel's heading so keyboard and screen-reader users keep their place (3.20).
+  const headRef = useRef<HTMLHeadingElement>(null);
+  useEffect(() => { headRef.current?.focus({ preventScroll: true }); }, [folded]);
 
   const carLabel = myCar ? (myCar.label ?? cars.find((c) => c.id === myCar.carId)?.name ?? myCar.carId) : '';
   const pickCar = (carId: string, trimId: string | null) => {
@@ -47,8 +51,10 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
   };
   // Each new plan (Plan route, or a link that plans at once) folds the form so the itinerary has room.
   const planKey = current ? T.routeData?.key ?? '' : '';
+  const foldedFor = useRef('');
   useEffect(() => {
-    if (!planKey) return;
+    if (!planKey || planKey === foldedFor.current) return; // a car change re-plans the same route: leave the panel as it is
+    foldedFor.current = planKey;
     setEditing(false);
     setSheetOpen(false);
   }, [planKey]);
@@ -60,7 +66,7 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
   return (
     <section className={`route-panel${folded ? ' folded' : ''}`} aria-label={t('route.label')}>
       <div className="route-head">
-        <h2 className="route-title">{t('route.title')}</h2>
+        <h2 className="route-title" ref={headRef} tabIndex={-1}>{t('route.title')}</h2>
         <button type="button" className="map-place-close" aria-label={t('route.close')} onClick={onClose}>
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -77,7 +83,7 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
             <button type="button" className="btn small" onClick={T.share}>{t('trip.share')}</button>
           </div>
         </div>
-      ) : changingCar || !myCar ? (
+      ) : changingCar ? (
         <div className="route-car-pick">
           <CarPicker cars={cars} level={2} onPick={pickCar} onCancel={myCar ? () => setChangingCar(false) : undefined} />
         </div>
@@ -106,13 +112,19 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
           </div>
           <PlaceField key={`to-${swaps}`} label={t('trip.to')} value={trip.to} search={search} onChange={(to) => T.setTrip((x) => ({ ...x, to }))} />
 
+          {!myCar ? (
+            <div className="route-car-pick">
+              <CarPicker cars={cars} level={2} onPick={pickCar} />
+            </div>
+          ) : (
           <div className="route-car">
             <p className="small">{t('route.carLine', { car: carLabel, start: trip.startSoc, min: trip.thresholdSoc })}</p>
             <button type="button" className="btn small" aria-expanded={settingsOpen} aria-controls="route-settings" onClick={() => setSettingsOpen((o) => !o)}>
               {t('route.settings')}
             </button>
           </div>
-          {settingsOpen && (
+          )}
+          {myCar && settingsOpen && (
             <div id="route-settings" className="route-settings">
               <button type="button" className="btn small" onClick={() => setChangingCar(true)}>{t('trip.changeCar')}</button>
               <div className="tp-pcts">

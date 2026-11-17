@@ -499,7 +499,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     [place, load, stations, filters, carRule],
   );
 
-  const T = useTrip(myCar, load[3] === 'ready' ? stations[3] : null);
+  const T = useTrip(myCar, load[3] === 'ready' ? stations[3] : null, load[3] === 'error');
   const { plan, routeData } = T;
   const enterRoute = useCallback((opts: Parameters<typeof T.start>[0] = {}) => {
     placeRef.current?.remove();
@@ -515,6 +515,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     setRouteMode(false);
     setSelected(null);
     clearTripParams();
+    setWhereKey((k) => k + 1); // focus back to the "Where to?" box
   };
   // A trip link (/?from=…&to=…, the share link) opens route mode; both ends plan at once.
   useEffect(() => {
@@ -546,14 +547,14 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const fittedKey = useRef('');
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !routeData || !T.current || fittedKey.current === routeData.key) return;
+    if (!map || !routeMode || !routeData || !T.current || fittedKey.current === routeData.key) return;
     fittedKey.current = routeData.key;
     const phone = window.innerWidth <= 640;
     map.fitBounds(boundsOf(routeData.route.coords.map((p) => [p[0], p[1]] as [number, number])), {
       padding: phone ? { top: 120, bottom: 220, left: 30, right: 30 } : { top: 40, bottom: 60, left: 420, right: 60 },
       duration: 600,
     });
-  }, [routeData, T.current]);
+  }, [routeMode, routeData, T.current]);
   useEffect(() => { if (!routeMode) fittedKey.current = ''; }, [routeMode]);
   const openStop = (i: number, button: HTMLButtonElement) => {
     const st = plan?.stops[i];

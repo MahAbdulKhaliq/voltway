@@ -344,7 +344,7 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 | QS12 | States: no route found, busy, offline, no compatible chargers at all — each has a clear message | |
 | QS13 | "Where to?" box: picking a place flies the map there with a marker and a place card (name, fast chargers within 25 km, Route here); Escape or close clears it | A place with no chargers nearby says so |
 | QS14 | Route mode: From = last start (or the location only if the browser already allows it, otherwise "Use my location"); swap works; the car · % line expands to change car, start % and threshold | No saved trip and no permission → From is empty with "Use my location" |
-| QS15 | While a route shows, other chargers are faded but visible, filters still apply, and the itinerary replaces the filter panel; Close route restores the plain map | Changing a filter while routing re-draws pins without re-planning |
+| QS15 | While a route shows, other chargers are faded but visible, filters still apply, and the itinerary replaces the filter panel; Close route restores the plain map | Filters set before Route here still apply to the faded pins (the filter panel is hidden while routing, so they can't change mid-route); Close route shows the filter panel with the same choices |
 | QS16 | The plain charger map still works: filters, Stations in view, Locate me, station panel (MU spot-check) | |
 
 ## 6. Rules and process

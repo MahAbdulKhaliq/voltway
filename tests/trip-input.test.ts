@@ -47,7 +47,7 @@ describe('trip link', () => {
   it('round-trips through the query string', () => {
     expect(readTripLink('?' + writeTripLink(trip))).toEqual(trip);
   });
-  it('accepts a to-only link (Plan a trip to here) with labels holding commas', () => {
+  it('accepts a to-only link (Route here) with labels holding commas', () => {
     const t = readTripLink('?to=45.5,-73.6,Station%2C%20Rue%20X')!;
     expect(t.from).toBeNull();
     expect(t.to).toEqual({ label: 'Station, Rue X', lat: 45.5, lon: -73.6 });

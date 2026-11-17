@@ -30,8 +30,9 @@ export const endsKey = (q: Pick<TripQuery, 'from' | 'to'>) => (q.from && q.to ? 
 /**
  * @param myCar the map's My car
  * @param l3 the Level 3 stations once loaded (the planner's candidates), else null
+ * @param l3Failed the station data failed to load (planning can't finish)
  */
-export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null) {
+export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed = false) {
   const [trip, setTrip] = useState<TripQuery>(BLANK);
   const [detail, setDetail] = useState<CarDetail | null>(null);
   const [routeData, setRouteData] = useState<RouteData | null>(null);
@@ -42,6 +43,8 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null) {
   const [shareUrl, setShareUrl] = useState('');
   const autoPlan = useRef(false);
   const inflight = useRef('');
+  /** Bumped by Close route, so a route reply that lands after it is ignored. */
+  const generation = useRef(0);
 
   useEffect(() => {
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
@@ -52,8 +55,7 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null) {
 
   // The car file for My car.
   useEffect(() => {
-    setDetail(null);
-    if (!myCar) return;
+    if (!myCar) { setDetail(null); return; }
     let alive = true;
     fetch(`/data/cars/${myCar.carId}.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
@@ -64,13 +66,26 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null) {
   const planCar: PlanCarResult | null = useMemo(() => (detail ? planCarFrom(detail, myCar?.trimId) : null), [detail, myCar]);
   const carUpdated = useMemo(() => (detail ? detail.sources.map((s) => s.accessed_on).filter(Boolean).sort().at(-1) ?? null : null), [detail]);
 
+  const pctValid =
+    trip.startSoc >= SOC_LIMITS.startMin && trip.startSoc <= SOC_LIMITS.startMax &&
+    trip.thresholdSoc >= SOC_LIMITS.thresholdMin && trip.thresholdSoc <= SOC_LIMITS.thresholdMax &&
+    trip.startSoc > trip.thresholdSoc;
+
   // Plan the stops whenever the route, the car, the percentages or the station data change (no request).
+  // Percentages out of range keep the last good plan on screen; the form says what to fix.
   useEffect(() => {
     if (!routeData || !planCar?.ok) { setPlan(null); return; }
-    if (!l3) return; // the stations are still loading; planning follows
+    if (!pctValid) return;
+    if (!l3) { if (l3Failed) setStatus('error'); return; } // still loading: planning follows
     setPlan(planTrip({ route: routeData.route, durationMin: routeData.durationMin, car: planCar.car, stations: l3, startSoc: trip.startSoc, thresholdSoc: trip.thresholdSoc }));
     setStatus('done');
-  }, [routeData, planCar, l3, trip.startSoc, trip.thresholdSoc]);
+  }, [routeData, planCar, l3, l3Failed, pctValid, trip.startSoc, trip.thresholdSoc]);
+
+  // A message about the last request (busy, no route, …) goes once the ends change.
+  const key = endsKey(trip);
+  useEffect(() => {
+    setStatus((s) => (s === 'planning' || s === 'done' || s === 'error' ? s : 'idle'));
+  }, [key]);
 
   const submit = useCallback(async () => {
     const { from, to } = trip;
@@ -81,18 +96,22 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null) {
     if (routeData?.key === key) return; // Same ends: the stops re-plan from the route already here.
     if (inflight.current === key) return; // Already asking for this route.
     inflight.current = key;
+    const gen = generation.current;
     setStatus('planning');
     setPlan(null);
     try {
       const r = await fetch(`/api/route?from=${apiPoint(from)}&to=${apiPoint(to)}`);
+      if (gen !== generation.current) return; // Close route came first
       if (!r.ok) {
         setRouteData(null);
         setStatus(r.status === 400 ? 'badRequest' : r.status === 422 ? 'noRoute' : 'busy'); // 429 (firewall), 503 (ORS) → busy
         return;
       }
       const body = (await r.json()) as RouteBody;
+      if (gen !== generation.current) return;
       setRouteData({ route: buildRoute(body.coords), durationMin: body.durationMin, key });
     } catch {
+      if (gen !== generation.current) return;
       setRouteData(null);
       setStatus(navigator.onLine === false ? 'offline' : 'busy');
     } finally {
@@ -136,6 +155,8 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null) {
 
   /** Leaves route mode: the route and plan go; the last trip stays saved. */
   const stop = useCallback(() => {
+    generation.current += 1;
+    inflight.current = '';
     setRouteData(null);
     setPlan(null);
     setStatus('idle');
@@ -154,13 +175,9 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null) {
     if (Number.isFinite(n)) setTrip((x) => ({ ...x, [k]: n }));
   };
   const swap = () => setTrip((x) => ({ ...x, from: x.to, to: x.from }));
-  const pctValid =
-    trip.startSoc >= SOC_LIMITS.startMin && trip.startSoc <= SOC_LIMITS.startMax &&
-    trip.thresholdSoc >= SOC_LIMITS.thresholdMin && trip.thresholdSoc <= SOC_LIMITS.thresholdMax &&
-    trip.startSoc > trip.thresholdSoc;
   const canPlan = Boolean(trip.from && trip.to && planCar?.ok && pctValid && status !== 'planning');
   /** The plan on screen belongs to the ends in the form. */
-  const current = Boolean(plan && routeData && routeData.key === endsKey(trip));
+  const current = Boolean(plan && routeData && routeData.key === key);
 
   return {
     trip, setTrip, swap, setPct, pctValid, canPlan, current,

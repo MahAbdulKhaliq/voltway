@@ -34,7 +34,7 @@ interface Props {
 
 export default function Itinerary({ plan, from, to, unit, myCar, selected, onOpenStop, open, onToggle, updated, carUpdated }: Props) {
   const bodyId = useId();
-  const dist = (km: number) => `${formatNumber(kmTo(km, unit))} ${unit}`;
+  const dist = (km: number) => t(unit === 'mi' ? 'fmt.mi' : 'fmt.km', { value: formatNumber(kmTo(km, unit)) });
   const tilde = (estimated: boolean) => (estimated ? '~' : '');
   const anyEstimated = plan.carEstimated || plan.stops.some((s) => s.estimated);
   const anyTesla = plan.stops.some((s) => s.teslaNetwork);

@@ -202,3 +202,5 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 | R10 | ~~**Calibrating the 1.15 highway factor** against tested highway range figures, before launch.~~ ✅ Resolved (B49, 2026-11-16): 1.08. |
 | D17 | **Add `curb_weight_kg` to the variant** (needed for elevation). It's MVP for Phase 3. Sources: OpenEV Data, manufacturer, FuelEconomy.gov. |
 | S7 | **Protecting the function:** per-visitor limits and what to show when the day's allowance runs out ("Trip planning is busy, try again later"). |
+
+**B58 (2026-11-17):** without a chosen car, the trip form shows one "Choose your car" prompt that opens the header's car dialog; "Change car" opens the same dialog. The dialog shows the car's plug switches before saving.

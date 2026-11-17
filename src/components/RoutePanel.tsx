@@ -5,7 +5,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
-import CarSearchField, { carLabel as entryLabel } from './CarSearchField.tsx';
+import { openCarPicker } from '../lib/car-label.ts';
 import Itinerary from './Itinerary.tsx';
 import PlaceField from './PlaceField.tsx';
 import type { TripState } from './useTrip.ts';
@@ -19,7 +19,6 @@ interface Props {
   trip: TripState;
   cars: IndexEntry[];
   myCar: MyCar | null;
-  onPickCar: (car: MyCar) => void;
   search: PlaceSearch | null;
   /** The stop whose station panel is open, if any. */
   selectedStop: number | null;
@@ -29,11 +28,10 @@ interface Props {
   updated: string | null;
 }
 
-export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, selectedStop, onOpenStop, onClose, updated }: Props) {
+export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop, onOpenStop, onClose, updated }: Props) {
   const { trip, plan, status, current, planCar } = T;
   const [editing, setEditing] = useState(true);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [changingCar, setChangingCar] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   // Swapping remounts both fields so each shows its new end (a field keeps typed text otherwise).
   const [swaps, setSwaps] = useState(0);
@@ -52,11 +50,6 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
     </p>
   );
   const carLabel = myCar ? (myCar.label ?? cars.find((c) => c.id === myCar.carId)?.name ?? myCar.carId) : '';
-  const pickCar = (carId: string) => {
-    const e = cars.find((c) => c.id === carId);
-    onPickCar({ carId, trimId: null, label: e ? entryLabel(e) : undefined });
-    setChangingCar(false);
-  };
   // Each new plan (Plan route, or a link that plans at once) folds the form so the itinerary has room.
   const planKey = current ? T.routeData?.key ?? '' : '';
   const foldedFor = useRef('');
@@ -118,14 +111,13 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
           </button>
           </div>
 
-          {!myCar || changingCar ? (
-            <CarSearchField
-              cars={cars}
-              label={t('car.search.label')}
-              onPick={pickCar}
-              onCancel={myCar ? () => setChangingCar(false) : undefined}
-              autoFocus={changingCar}
-            />
+          {!myCar ? (
+            <button type="button" className="car-tile route-pickcar" onClick={openCarPicker}>
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 13l1.6-4.4A2 2 0 0 1 7.5 7.3h9a2 2 0 0 1 1.9 1.3L20 13M4 13h16v5H4v-5ZM7 18v1.5M17 18v1.5M7.5 15.5h.01M16.5 15.5h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+              <span className="car-tile-text"><strong>{t('car.tile.none')}</strong> <span className="muted">{t('route.carWhy')}</span></span>
+            </button>
           ) : (
           <div className="route-car">
             <p className="small">{t('route.carLine', { car: carLabel, start: trip.startSoc, min: trip.thresholdSoc })}</p>
@@ -135,9 +127,9 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
             </button>
           </div>
           )}
-          {myCar && !changingCar && settingsOpen && (
+          {myCar && settingsOpen && (
             <div id="route-settings" className="route-settings">
-              <button type="button" className="btn small" onClick={() => setChangingCar(true)}>{t('trip.changeCar')}</button>
+              <button type="button" className="btn small" onClick={openCarPicker}>{t('trip.changeCar')}</button>
               <div className="tp-pcts">
                 <label>
                   <span className="tp-label">{t('trip.startSoc')}</span>
@@ -153,10 +145,10 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
             </div>
           )}
           {!T.pctValid && <p className="small tp-error" role="alert">{t('trip.pctInvalid', { ...SOC_LIMITS })}</p>}
-          {planCar && !planCar.ok && !changingCar && (
+          {planCar && !planCar.ok && (
             <div className="banner small route-carmissing">
               <p role="status">{t('trip.carMissing', { fields: planCar.missing.map((m) => t(`trip.missing.${m}` as MessageKey)).join(', ') })}</p>
-              <button type="button" className="btn small" onClick={() => setChangingCar(true)}>{t('trip.changeCar')}</button>
+              <button type="button" className="btn small" onClick={openCarPicker}>{t('trip.changeCar')}</button>
             </div>
           )}
 

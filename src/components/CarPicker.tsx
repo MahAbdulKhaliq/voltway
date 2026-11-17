@@ -1,23 +1,30 @@
 // First-load picker (database-ui.md §3, N6, B37): "Which EV do you drive, or want to?"
 // A search box with instant suggestions, plus step-by-step Make → Model → Year → Variant
-// selects and an optional trim. "Just browsing" goes to the Cars tab. Shown on the Charging
-// tab when no My car is set and no car link was opened.
+// selects and an optional trim. "Just browsing" goes to the Cars tab. Shown in the header's car
+// dialog (B54). B58: a suggestion selects the car (fills the steps) without saving; with a car
+// selected, its NACS / CCS1 / CHAdeMO switches show (its own plug on) before "Select car" saves.
 
-import { useEffect, useId, useMemo, useState } from 'react';
-import { t } from '../i18n/t.ts';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { t, type MessageKey } from '../i18n/t.ts';
+import { DC_PLUGS, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
 import { makeCarSearch, tripReadyFirst } from '../lib/car-search.ts';
 import VariantName from './VariantName.tsx';
 import type { CarDetail, IndexEntry } from '../lib/types.ts';
 
 interface Props {
   cars: IndexEntry[];
-  onPick: (carId: string, trimId: string | null) => void;
+  /** plugs: the DC plug switches when the visitor changed them or they were saved for this car, else null. */
+  onPick: (carId: string, trimId: string | null, plugs: DcPlug[] | null) => void;
   /** Shown when the visitor came to change an existing My car. */
   onCancel?: () => void;
   /** Heading level: 1 on its own page (default), 2 when placed inside another page. */
   level?: 1 | 2;
   /** In the header's picker dialog (QA 4.20): mark cars the trip planner can't use yet and list them last. */
   tripTags?: boolean;
+  /** My car's saved plug switches (B58): shown again when the same car is selected. */
+  savedPlugs?: { carId: string; plugs: DcPlug[] } | null;
+  /** The car to start on (My car), so "Change car" opens with it selected. */
+  initialCar?: string | null;
 }
 
 const MAX_SUGGESTIONS = 8;
@@ -32,17 +39,23 @@ function trimText(trim: string, variant: string): string {
   return rest || trim;
 }
 
-export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags = false }: Props) {
+export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags = false, savedPlugs = null, initialCar = null }: Props) {
   const Heading = level === 1 ? "h1" : "h2";
   const id = useId();
   const search = useMemo(() => makeCarSearch(cars), [cars]);
   const byId = useMemo(() => new Map(cars.map((c) => [c.id, c])), [cars]);
   const [query, setQuery] = useState('');
   const [active, setActive] = useState(-1);
-  const [make, setMake] = useState('');
-  const [model, setModel] = useState('');
-  const [year, setYear] = useState('');
-  const [variant, setVariant] = useState('');
+  const start = initialCar ? byId.get(initialCar) : undefined;
+  const [make, setMake] = useState(start?.make ?? '');
+  const [model, setModel] = useState(start?.model ?? '');
+  const [year, setYear] = useState(start ? String(start.year) : '');
+  const [variant, setVariant] = useState(start?.id ?? '');
+  // The selected car's own plug (from its file) and any switches the visitor changed here.
+  const [port, setPort] = useState<{ id: string; port: string | null } | null>(null);
+  const [changed, setChanged] = useState<{ id: string; plugs: DcPlug[] } | null>(null);
+  const goRef = useRef<HTMLButtonElement>(null);
+  const focusGo = useRef(false);
   const [trim, setTrim] = useState('');
   const [trims, setTrims] = useState<CarDetail['trims']>([]);
 
@@ -57,21 +70,41 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
   const years = uniq(cars.filter((c) => c.make === make && c.model === model).map((c) => c.year)).sort((a, b) => b - a);
   const variants = cars.filter((c) => c.make === make && c.model === model && String(c.year) === year).sort((a, b) => byName(a.name, b.name));
 
-  // Each step narrows the next; a single choice is filled in for the visitor.
-  useEffect(() => { setModel(models.length === 1 ? models[0] : ''); }, [make]); // eslint-disable-line react-hooks/exhaustive-deps
-  useEffect(() => { setYear(years.length === 1 ? String(years[0]) : ''); }, [make, model]); // eslint-disable-line react-hooks/exhaustive-deps
-  useEffect(() => { setVariant(variants.length === 1 ? variants[0].id : ''); }, [make, model, year]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Each step narrows the next; a single choice is filled in for the visitor. A choice that still
+  // fits (a suggestion fills every step at once) is kept.
+  useEffect(() => { setModel((m) => (models.includes(m) ? m : models.length === 1 ? models[0] : '')); }, [make]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { setYear((y) => (years.some((x) => String(x) === y) ? y : years.length === 1 ? String(years[0]) : '')); }, [make, model]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { setVariant((v) => (variants.some((x) => x.id === v) ? v : variants.length === 1 ? variants[0].id : '')); }, [make, model, year]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Trims for the chosen variant (optional step).
+  // B58: a suggestion selects the car; the dialog stays open on "Select car" and the plug switches.
+  const select = (e: IndexEntry) => {
+    setMake(e.make);
+    setModel(e.model);
+    setYear(String(e.year));
+    setVariant(e.id);
+    setQuery('');
+    focusGo.current = true;
+  };
+  useEffect(() => {
+    if (focusGo.current && variant) { focusGo.current = false; goRef.current?.focus(); }
+  }, [variant]);
+
+  // Trims (optional step) and the car's own plug for the selected variant.
   useEffect(() => {
     setTrim('');
     setTrims([]);
     if (!variant) return;
     let alive = true;
-    fetch(`/data/cars/${variant}.json`)
+    const id = variant;
+    fetch(`/data/cars/${id}.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-      .then((c: CarDetail) => alive && setTrims(c.trims))
-      .catch(() => { /* trims stay optional */ });
+      .then((c: CarDetail & { fields?: { charge_port?: { value?: { value?: unknown } } } }) => {
+        if (!alive) return;
+        setTrims(c.trims);
+        const v = c.fields?.charge_port?.value?.value;
+        setPort({ id, port: typeof v === 'string' ? v : null });
+      })
+      .catch(() => alive && setPort({ id, port: null }));
     return () => { alive = false; };
   }, [variant]);
 
@@ -82,10 +115,22 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
     if (!open || !suggestions.length) return;
     if (e.key === 'ArrowDown') { e.preventDefault(); setActive((a) => (a + 1) % suggestions.length); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); setActive((a) => (a <= 0 ? suggestions.length - 1 : a - 1)); }
-    else if (e.key === 'Enter') { e.preventDefault(); onPick(suggestions[Math.max(0, active)].id, null); }
+    else if (e.key === 'Enter') { e.preventDefault(); select(suggestions[Math.max(0, active)]); }
     else if (e.key === 'Escape') setQuery('');
   };
   const variantName = byId.get(variant)?.name ?? '';
+  // Switches: changed here, else saved for this car, else the car's own plug once its file is in.
+  const plugsOn: DcPlug[] | null = !variant ? null
+    : changed?.id === variant ? changed.plugs
+    : savedPlugs?.carId === variant ? savedPlugs.plugs
+    : port?.id === variant ? defaultDcPlugs(port.port)
+    : null;
+  const togglePlug = (p: DcPlug) => {
+    if (!plugsOn) return;
+    const next = plugsOn.includes(p) ? plugsOn.filter((x) => x !== p) : [...plugsOn, p];
+    setChanged({ id: variant, plugs: DC_PLUGS.filter((x) => next.includes(x)) });
+  };
+  const keptPlugs = changed?.id === variant ? changed.plugs : savedPlugs?.carId === variant ? savedPlugs.plugs : null;
 
   return (
     <section className="car-picker card" aria-labelledby={`${id}-title`}>
@@ -113,7 +158,7 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
           <ul id={listId} role="listbox" className="cp-suggest" aria-label={t('picker.suggestions')}>
             {suggestions.map((s, i) => (
               <li key={s.id} id={optionId(i)} role="option" aria-selected={i === active} className={`car-search-opt${i === active ? ' on' : ''}`}
-                onMouseDown={(e) => e.preventDefault()} onClick={() => onPick(s.id, null)}>
+                onMouseDown={(e) => e.preventDefault()} onClick={() => select(s)}>
                 <span><Label e={s} /></span>
                 {tripTags && !s.trip_ready && <span className="car-search-tag small muted">{t('car.search.noTrip')}</span>}
               </li>
@@ -159,8 +204,31 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
       </div>
       <p className="muted small cp-trim-note">{t('picker.trimNote')}</p>
 
+      {tripTags && variant && (
+        <div className="cp-plugs" role="group" aria-labelledby={`${id}-plugs`}>
+          <p id={`${id}-plugs`} className="cp-label">{t('mycar.plugs')}</p>
+          <div className="cp-plug-row">
+            {DC_PLUGS.map((p) => (
+              <button
+                key={p}
+                type="button"
+                role="switch"
+                aria-checked={plugsOn ? plugsOn.includes(p) : false}
+                disabled={!plugsOn}
+                className="chip-plug cp-plug"
+                onClick={() => togglePlug(p)}
+              >
+                <span className="switch" aria-hidden="true" />
+                <span>{t(`value.${p}` as MessageKey)}</span>
+              </button>
+            ))}
+          </div>
+          <p className="muted small cp-plugs-note">{t('mycar.plugsNote')}</p>
+        </div>
+      )}
+
       <div className="cp-actions">
-        <button type="button" className="btn primary" disabled={!variant} onClick={() => onPick(variant, trim || null)}>{t('picker.go')}</button>
+        <button ref={goRef} type="button" className="btn primary" disabled={!variant} onClick={() => onPick(variant, trim || null, keptPlugs)}>{t('picker.go')}</button>
         {onCancel && <button type="button" className="btn" onClick={onCancel}>{t('picker.cancel')}</button>}
         <a href="/cars" className="cp-browse">{t('picker.browse')}</a>
       </div>

@@ -70,7 +70,7 @@ describe('trip link', () => {
     expect(readSavedTrip({ from: 'x' })).toBeNull();
   });
   it('gives the API lon,lat', () => {
-    expect(apiPoint(trip.from)).toBe('-79.3839,43.6533');
+    expect(apiPoint(trip.from)).toBe('-79.384,43.653');
   });
 });
 

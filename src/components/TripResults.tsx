@@ -29,9 +29,14 @@ interface Props {
   carInfo: CarMapInfo | null;
   /** Charger data date (map meta.json), YYYY-MM-DD. */
   updated: string | null;
+  /** The car's data date: the latest source check, YYYY-MM-DD. */
+  carUpdated?: string | null;
 }
 
 /** Minutes → "1 h 55 min" / "45 min" / "2 h". */
+/** "1 stop" / "3 stops". */
+export const stopsText = (n: number) => (n === 1 ? t('trip.stopsOne') : t('trip.stopsMany', { n }));
+
 export function hoursMinutes(min: number): string {
   const m = Math.max(0, Math.round(min));
   const h = Math.floor(m / 60);
@@ -56,7 +61,7 @@ export function stopCurveHref(car: MyCar, stop: Pick<TripStop, 'usableKw' | 'arr
   return `/charging?${q.toString()}`;
 }
 
-export default function TripResults({ plan, route, routeKey, from, to, unit, myCar, carInfo, updated }: Props) {
+export default function TripResults({ plan, route, routeKey, from, to, unit, myCar, carInfo, updated, carUpdated }: Props) {
   const [selected, setSelected] = useState<number | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
   const bodyId = useId();
@@ -119,13 +124,13 @@ export default function TripResults({ plan, route, routeKey, from, to, unit, myC
           {t('trip.total', {
             distance: dist(plan.totals.distanceKm),
             drive: hoursMinutes(plan.totals.driveMin),
-            stops: plan.totals.stops,
+            stops: stopsText(plan.totals.stops),
             charge: `${tilde(anyEstimated && plan.totals.chargeMin > 0)}${hoursMinutes(plan.totals.chargeMin)}`,
           })}
         </p>
         <p className="small muted ti-total-time">{t('trip.totalTime', { time: hoursMinutes(plan.totals.totalMin) })}</p>
         {noChargers && <p className="banner" role="alert">{t('trip.warn.noChargers')}</p>}
-        {!plan.reachable && <p className="banner" role="alert">{t('trip.warn.unreachable')}</p>}
+        {!plan.reachable && !noChargers && <p className="banner" role="alert">{t('trip.warn.unreachable')}</p>}
         <button type="button" className="btn small ti-toggle" aria-expanded={sheetOpen} aria-controls={bodyId} onClick={() => setSheetOpen((o) => !o)}>
           {sheetOpen ? t('trip.sheetHide') : t('trip.sheetShow')}
         </button>
@@ -133,7 +138,7 @@ export default function TripResults({ plan, route, routeKey, from, to, unit, myC
 
         <div id={bodyId} className="ti-body">
         {/* Warnings that apply to the whole trip (route-planner §7). */}
-        {plan.gaps.length > 0 && (
+        {plan.gaps.length > 0 && !noChargers && (
           <p className="banner" role="note">
             {t('trip.warn.gap', { stretches: plan.gaps.map((g) => t('trip.warn.gapStretch', { from: dist(g.fromKm), to: dist(g.toKm) })).join('; ') })}
           </p>
@@ -161,7 +166,7 @@ export default function TripResults({ plan, route, routeKey, from, to, unit, myC
                     <span className="sr-only">{t('trip.stopN', { n: i + 1 })} </span>
                     <strong>{s.station.n}</strong>
                   </p>
-                  <p className="ti-soc">{t('trip.arriveCharge', { arrive: pct(s.arriveSoc), depart: pct(s.departSoc) })}</p>
+                  <p className="ti-soc">{t('trip.arriveCharge', { arrive: pct(Math.max(0, s.arriveSoc)), depart: pct(s.departSoc) })}</p>
                   <p className="small">
                     {t('trip.stopPower', {
                       kw: formatNumber(s.usableKw),
@@ -210,6 +215,7 @@ export default function TripResults({ plan, route, routeKey, from, to, unit, myC
           <p>{t('trip.disclaimer')}</p>
           <p>{t('trip.assumptions', { payload: TRIP.payloadKg, target: TRIP.chargeToSoc, overhead: TRIP.stopOverheadMin })}</p>
           {updated && <p>{t('map.station.footer', { date: showDate(updated) })}</p>}
+          {carUpdated && <p>{t('trip.carDataDate', { date: showDate(carUpdated) })}</p>}
         </footer>
         </div>
       </div>

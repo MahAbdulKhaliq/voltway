@@ -5,7 +5,7 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import CarPicker from './CarPicker.tsx';
-import TripResults from './TripResults.tsx';
+import TripResults, { stopsText } from './TripResults.tsx';
 import { carMapInfo } from '../lib/map-filter.ts';
 import { getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
@@ -50,7 +50,7 @@ function PlaceField({ label, value, onChange, search, extra }: FieldProps) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(-1);
   const [remote, setRemote] = useState<TripEnd[] | null>(null);
-  const [remoteState, setRemoteState] = useState<'idle' | 'loading' | 'none' | 'busy'>('idle');
+  const [remoteState, setRemoteState] = useState<'idle' | 'loading' | 'none' | 'busy' | 'offline'>('idle');
 
   // Show a picked end's label; clearing the pick (while typing) leaves the typed text alone.
   useEffect(() => { if (value) setText(value.label); }, [value]);
@@ -78,7 +78,7 @@ function PlaceField({ label, value, onChange, search, extra }: FieldProps) {
       setRemoteState(places.length ? 'idle' : 'none');
     } catch {
       setRemote([]);
-      setRemoteState('busy');
+      setRemoteState(navigator.onLine === false ? 'offline' : 'busy');
     }
   };
   const listId = `${id}-list`;
@@ -129,6 +129,7 @@ function PlaceField({ label, value, onChange, search, extra }: FieldProps) {
           {remoteState === 'loading' && <li role="presentation" className="muted cp-none">{t('trip.addressSearching')}</li>}
           {remoteState === 'none' && <li role="presentation" className="muted cp-none">{t('trip.addressNone')}</li>}
           {remoteState === 'busy' && <li role="presentation" className="muted cp-none">{t('trip.busy')}</li>}
+          {remoteState === 'offline' && <li role="presentation" className="muted cp-none">{t('trip.addressOffline')}</li>}
           {remote === null && (
             <li role="presentation" className="tp-address">
               <button type="button" className="btn small" onMouseDown={(e) => e.preventDefault()} onClick={searchAddress} disabled={text.trim().length < 3}>
@@ -197,6 +198,7 @@ export default function TripPlanner({ cars }: Props) {
   }, [myCar]);
 
   const carInfo = useMemo(() => (detail ? carMapInfo(detail) : null), [detail]);
+  const carUpdated = useMemo(() => (detail ? detail.sources.map((s) => s.accessed_on).filter(Boolean).sort().at(-1) ?? null : null), [detail]);
   const [updated, setUpdated] = useState<string | null>(null);
   useEffect(() => {
     fetch(`${MAP.dataUrl}/meta.json`).then((r) => (r.ok ? r.json() : null)).then((m: MapMeta | null) => setUpdated(m?.updated ?? null)).catch(() => {});
@@ -360,10 +362,12 @@ export default function TripPlanner({ cars }: Props) {
         {status !== 'idle' && status !== 'done' && status !== 'planning' && (
           <p className="banner" role="alert">{t(`trip.status.${status}` as MessageKey)}</p>
         )}
-        {plan && current && <p className="sr-only" role="status">{t('trip.planned', { stops: plan.totals.stops })}</p>}
+        {plan && current && (
+          <p className="sr-only" role="status">{plan.reachable ? t('trip.planned', { stops: stopsText(plan.totals.stops) }) : t('trip.plannedUnreachable')}</p>
+        )}
       </div>
       {plan && current && routeData && myCar && trip.from && trip.to && (
-        <TripResults plan={plan} route={routeData.route} routeKey={routeData.key} from={trip.from} to={trip.to} unit={unit} myCar={myCar} carInfo={carInfo} updated={updated} />
+        <TripResults plan={plan} route={routeData.route} routeKey={routeData.key} from={trip.from} to={trip.to} unit={unit} myCar={myCar} carInfo={carInfo} updated={updated} carUpdated={carUpdated} />
       )}
     </div>
   );

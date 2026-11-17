@@ -304,7 +304,7 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 
 | # | Check | Edge cases |
 |---|-------|-----------|
-| QE1 | Base consumption: tested highway if present, else NRCan highway × factor (1.15 until R10 is approved) | |
+| QE1 | Base consumption: tested highway if present, else NRCan highway × factor (1.08, calibrated, B49) | |
 | QE2 | A climb adds `m·9.81·Δh / 0.9`; a descent returns 60 %; mass = curb weight + 150 kg | Unknown weight → body-type default, result marked estimated |
 | QE3 | SoC drop uses usable kWh; the gross fallback marks the trip estimated | |
 | QE4 | Stop window: arrive between threshold and threshold + 20 %, ≤ 2 km from the route; highest usable kW (capped at the car's DC peak); ties → furthest along | |

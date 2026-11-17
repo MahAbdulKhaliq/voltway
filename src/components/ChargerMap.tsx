@@ -453,7 +453,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     setSelected(null);
     const item = listItemRef.current;
     listItemRef.current = null;
-    if (item?.isConnected) item.focus();
+    // A control that is gone or folded away (the stops list on a phone) can't take focus.
+    if (item?.isConnected && item.offsetParent !== null) item.focus();
     else mapRef.current?.getCanvas().focus();
   }, []);
 

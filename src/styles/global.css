@@ -526,6 +526,8 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .ti-finish .ti-mark { background: var(--surface); box-shadow: inset 0 0 0 4px var(--mark); }
 .ti-num { display: grid; place-items: center; background: var(--mark); color: var(--surface); font-weight: 700; font-size: 0.8rem; font-variant-numeric: tabular-nums; width: 24px; height: 20px; border-radius: 5px; }
 .ti-stop.on .ti-num { outline: 3px solid var(--accent); outline-offset: 1px; }
+/* The selected stop: the same stop is ringed on the map. */
+.ti-stop.on > div { background: var(--surface-2); border-radius: 8px; margin: -4px -6px 0; padding: 4px 6px 10px; }
 .ti-soc { font-weight: 600; font-variant-numeric: tabular-nums; }
 .ti-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 0 0 !important; }
 .ti-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; line-height: 1.5; padding: 0 6px; border: 1px solid var(--field-border); border-radius: 4px; white-space: nowrap; }

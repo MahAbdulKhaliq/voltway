@@ -5,7 +5,7 @@
 // said once, with a short tag on the stops they apply to. On phones the stops open with
 // "Show the stops"; the totals, warnings and the "estimate only" line are always visible.
 
-import { useId } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import { t } from '../i18n/t.ts';
 import type { TripEnd } from '../lib/place-search.ts';
 import { gapDetails, hoursMinutes, pct, showDate, stopsText } from '../lib/trip-format.ts';
@@ -33,6 +33,14 @@ interface Props {
 
 export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, open, onToggle, updated, carUpdated }: Props) {
   const bodyId = useId();
+  // A stop picked on the map is brought into view in the list (DESIGN-4 4.11). A folded list on a
+  // phone stays folded: the station panel is what the visitor asked for.
+  const listRef = useRef<HTMLOListElement>(null);
+  useEffect(() => {
+    if (selected === null) return;
+    const li = listRef.current?.querySelector<HTMLElement>(`li[data-stop-item="${selected}"]`);
+    if (li && li.offsetParent !== null) li.scrollIntoView({ block: 'nearest' });
+  }, [selected]);
   const dist = (km: number) => t(unit === 'mi' ? 'fmt.mi' : 'fmt.km', { value: formatNumber(kmTo(km, unit)) });
   const tilde = (estimated: boolean) => (estimated ? '~' : '');
   const anyEstimated = plan.carEstimated || plan.stops.some((s) => s.estimated);
@@ -96,7 +104,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
       </div>
 
       <div id={bodyId} className="ti-body">
-        <ol className="ti-list">
+        <ol className="ti-list" ref={listRef}>
           <li className={`ti-end ti-start${gapClass(0)}`}>
             <span className="ti-mark" aria-hidden="true" />
             <div>
@@ -106,7 +114,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             </div>
           </li>
           {plan.stops.map((s, i) => (
-            <li key={`${s.station.i}-${i}`} className={`ti-stop${selected === i ? ' on' : ''}${gapClass(i + 1)}`}>
+            <li key={`${s.station.i}-${i}`} data-stop-item={i} aria-current={selected === i ? 'true' : undefined} className={`ti-stop${selected === i ? ' on' : ''}${gapClass(i + 1)}`}>
               <span className="ti-mark ti-num" aria-hidden="true">{i + 1}</span>
               <div>
                 <p className="ti-head">

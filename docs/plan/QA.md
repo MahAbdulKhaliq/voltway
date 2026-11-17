@@ -365,3 +365,19 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 | QF1–QF6 | | |
 | QS1–QS16 | | |
 | QR4–QR6 | | |
+
+# Polish: showcase pass (P.1–P.7)
+
+| # | Check | Edge cases |
+|---|-------|------------|
+| QP1 | The side menu on every page has a km/mi switch; it matches the Charging tab's switch and changes figures on the open page without a reload (map itinerary, Charging, Cars, Compare) | Reload keeps the choice; switching on the Charging tab updates the menu's pressed state next time the menu opens |
+| QP2 | Escape closes route mode and returns focus to "Where to?" | Escape inside a field with open suggestions only closes the list; with a station panel open, Escape closes the panel first |
+| QP3 | On desktop the place card never covers the "Set my car" toast | 1280 px and 1024 px |
+| QP4 | Every page's HTML has og:title, og:description, og:image (absolute, 1200×630), og:url and twitter:card | The image loads at its URL |
+| QP5 | axe-core reports no serious or critical violations on each page and map state listed in P.4 | Dark and light |
+
+## Polish results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QP1–QP5 | | |

@@ -74,6 +74,14 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
           <svg class="logo-mark" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="var(--paint)" /><path d="M12 4v4M12 10.5v3M12 16v4" stroke="var(--paint-ink)" stroke-width="2.5" stroke-linecap="butt" /></svg>
           <span>{t('site.name')}</span>
         </a>
+        <!-- The home page's floating pill also lists the pages (wide screens); the side menu has them all. -->
+        {fill && (
+          <nav class="pill-nav" aria-label={t('nav.quick')}>
+            {PAGES.filter((p) => p.id !== 'about').map((p) => (
+              <a href={p.href} aria-current={active === p.id ? 'page' : undefined}>{p.id === 'map' ? t('nav.map.short') : page(p.id, 'name')}</a>
+            ))}
+          </nav>
+        )}
         <HeaderChips client:idle showCompare />
       </div>
     </header>
@@ -182,6 +190,22 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
   }
   .side-nav .icon-btn { border-color: var(--field-border); }
   .icon-btn:hover { background: var(--surface-2); }
+
+  /* Home (a full-screen map, DESIGN-4 4.6): the header floats top right as a pill. */
+  .pill-nav { display: none; }
+  :global(body.fill-page) .site-header { position: absolute; top: 12px; right: 12px; left: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; box-shadow: var(--shadow); }
+  :global(body.fill-page) .bar { max-width: none; margin: 0; min-height: 48px; padding: 0 6px 0 2px; gap: 6px; }
+  :global(body.fill-page) .logo { margin-right: 6px; }
+  :global(body.fill-page) .menu-btn { border-radius: 50%; }
+  @media (min-width: 900px) {
+    :global(body.fill-page) .pill-nav { display: flex; align-items: center; gap: 2px; margin-right: 6px; }
+    .pill-nav a { padding: 6px 10px; border-radius: 999px; color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .pill-nav a:hover { background: var(--surface-2); }
+    .pill-nav a[aria-current='page'] { background: var(--paint); color: var(--paint-ink); }
+  }
+  @media (max-width: 640px) {
+    :global(body.fill-page) .site-header { top: 8px; left: 8px; right: 8px; }
+  }
 
   .side-nav {
     margin: 0; inset: 0 auto 0 0; height: 100dvh; max-height: 100dvh; width: min(320px, 86vw);

@@ -170,7 +170,7 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 |---------|------|
 | **Estimated curve** | The car has no measured curve. Charging times shown with "~" |
 | **Tesla network** | A non-Tesla car is routed to a Supercharger |
-| **Charging gap** | No compatible fast charger was found on a stretch |
+| **Charging gap** | No compatible fast charger was found on a stretch. Always visible under the totals (on phones too, never behind "Show the stops"), named by the places on either side, and it says whether the car is expected to reach the far side (owner-approved fix, 2026-11-16). The leg is also marked in the stop list |
 | **Detour** | A stop is more than 2 km from the route |
 | **Winter** | Always shown in a short footer: "Cold weather can cut range by a lot. This plan assumes mild weather." |
 

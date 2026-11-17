@@ -2,7 +2,7 @@
 
 import { t } from '../i18n/t.ts';
 import type { MyCar } from './my-car.ts';
-import type { TripStop } from './trip-plan.ts';
+import type { TripPlan, TripStop } from './trip-plan.ts';
 import { formatNumber } from './units.ts';
 
 /** "1 stop" / "3 stops". */
@@ -24,6 +24,40 @@ export function showDate(iso: string): string {
 
 /** A whole percent, never below 0 (a stop reached "below empty" reads as 0 %; the warning says why). */
 export const pct = (x: number) => formatNumber(Math.max(0, Math.round(x)));
+
+/** A charging gap in the visitor's terms: which leg it is, the places on either side, and how it ends. */
+export interface GapDetail {
+  /** Index into plan.legs (leg 0 starts at the trip's start). */
+  leg: number;
+  fromName: string;
+  toName: string;
+  distanceKm: number;
+  /** State of charge on reaching the far side. */
+  arriveSoc: number;
+  /** False when the car is expected to run out before the far side. */
+  makesIt: boolean;
+}
+
+/**
+ * Each gap runs from the start or a stop to the next compatible charger (an "afterGap" stop) or to
+ * the destination. Name it by those places, not by distances along the route.
+ */
+export function gapDetails(plan: Pick<TripPlan, 'gaps' | 'legs' | 'stops' | 'arriveSoc'>, fromLabel: string, toLabel: string): GapDetail[] {
+  return plan.gaps.flatMap((g) => {
+    const leg = plan.legs.findIndex((l) => l.fromKm === g.fromKm);
+    if (leg < 0) return [];
+    const far = plan.stops[leg];
+    const arriveSoc = far ? far.arriveSoc : plan.arriveSoc;
+    return [{
+      leg,
+      fromName: leg === 0 ? fromLabel : plan.stops[leg - 1].station.n,
+      toName: far ? far.station.n : toLabel,
+      distanceKm: plan.legs[leg].distanceKm,
+      arriveSoc,
+      makesIt: arriveSoc > 0,
+    }];
+  });
+}
 
 /** "See the charging curve for this stop": the car, this charger's usable kW and this stop's window. */
 export function stopCurveHref(car: MyCar, stop: Pick<TripStop, 'usableKw' | 'arriveSoc' | 'departSoc'>): string {

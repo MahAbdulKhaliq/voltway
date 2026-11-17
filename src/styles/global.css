@@ -467,7 +467,11 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .ti-stop.on .ti-num { outline: 3px solid var(--text); outline-offset: 1px; }
 .ti-soc { font-weight: 600; }
 .ti-leg { color: var(--muted); font-size: 0.875rem; margin-top: 8px !important; padding: 4px 0; }
-.ti-note { border-left: 3px solid var(--estimated); padding-left: 8px; margin: 4px 0 !important; }
+/* A leg with no charger the car can use: said in words, with the connector dashed like the map's gap. */
+.ti-leg-gap { color: var(--warn); font-weight: 600; margin: 0 0 4px !important; }
+.ti-list > li.ti-gap > div { border-left: 2px dashed var(--warn); }
+.route-itinerary .banner { overflow-wrap: anywhere; }
+.ti-note {border-left: 3px solid var(--estimated); padding-left: 8px; margin: 4px 0 !important; }
 .ti-links { list-style: none; padding: 0; margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
 .ti-foot { border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px; }
 .ti-foot p { margin: 0 0 6px; }

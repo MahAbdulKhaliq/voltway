@@ -183,7 +183,7 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
     background: var(--surface); color: var(--text); box-shadow: var(--shadow);
   }
   .side-nav[open] { display: flex; flex-direction: column; gap: 14px; animation: slide-in 0.18s ease-out; }
-  .side-nav::backdrop { background: rgb(2 6 23 / 55%); }
+  .side-nav::backdrop { background: rgb(0 0 0 / 55%); }
   @keyframes slide-in { from { transform: translateX(-100%); } to { transform: none; } }
   @media (prefers-reduced-motion: reduce) { .side-nav[open] { animation: none; } }
   .side-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }

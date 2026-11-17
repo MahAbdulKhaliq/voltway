@@ -147,9 +147,9 @@ export default function Compare({ index }: Props) {
   useEffect(() => {
     if (!chartEl.current || !rows.length) return;
     if (!chart.current) chart.current = echarts.init(chartEl.current, undefined, { renderer: 'canvas' });
-    const muted = cssVar('--muted', '#5b665f');
-    const border = cssVar('--border', '#d9dfd8');
-    const warn = cssVar('--warn', '#9a5b00');
+    const muted = cssVar('--muted', '#55544E');
+    const border = cssVar('--border', '#D5D3CB');
+    const warn = cssVar('--warn', '#9A3F00');
     const axis = { axisLine: { lineStyle: { color: border } }, axisLabel: { color: muted }, splitLine: { lineStyle: { color: border } }, nameTextStyle: { color: muted } };
     const series = rows
       .filter((r) => r.curve)

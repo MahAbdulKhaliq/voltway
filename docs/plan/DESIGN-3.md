@@ -90,7 +90,21 @@ I explain what an env var and a function are as we go. **No Vercel settings are 
 
 **3.14 Polish.** Phone layout at 375 px, dark mode, keyboard access (combobox ARIA as in CarPicker, an itinerary list as the accessible version of the map), and empty, error and busy states.
 
-**3.15 Independent QA.** `qa-reviewer` against the QA.md Phase 3 section, and `site-ui-checker` (formerly map-ui-checker) on `/trip`. The owner can also run `Run QA: follow docs/plan/QA.md against DESIGN-3.md and report every gap.` Fix what they find, then re-check.
+## 3d: The planner moves onto the charger map (B50, owner decision 2026-11-16, after 3.14)
+
+The owner decided one page instead of two: the charger map gets a **"Where to?" box** (search mode → place card → **Route here** → route mode), and `/trip` is removed outright (no redirect). The planning logic (`trip-plan.ts`, `trip-car.ts`, `route-geo.ts`), the function, the itinerary content and the warnings are unchanged; the work is moving the UI.
+
+**3.16 Docs.** B50 in `gaps-and-questions.md`; `route-planner.md` §1, §7; `charger-map.md` §5; `user-flows.md`, `overview.md`; this section; checklist items; QA.md rows.
+
+**3.17 "Where to?" search.** Extract the From/To field from `TripPlanner.tsx` into `PlaceField.tsx`. The map gets the box at the top of its panel (top of the screen on phones). Picking a place flies the map there (about zoom 10) with a small marker and a **place card**: the name, "N fast chargers within 25 km" (counted from the loaded L3 data with the current filters), **Route here** and a close button. Escape or close clears the place.
+
+**3.18 Route mode on the map.** `RoutePanel.tsx` replaces the filter panel while route mode is on: From (last start; "Use my location"; the location without a press only if `navigator.permissions` says it is already granted, B33), To, swap, a one-line summary of car · start % → threshold that expands to the car picker and the two numbers, **Plan route**, then the itinerary (from `TripResults.tsx`) and **Close route**. The route overlay (line, gap stretches, numbered stops, start and end; from `TripMap.tsx`) is drawn on the charger map; other pins drop to about 35 % opacity. Stop pins and "Charger details" open `StationPanel`. The station panel's "Plan a trip to here" becomes **Route here** (in place, no navigation). The last trip restores the form (no auto-plan); `/?from=…&to=…` auto-plans; the share link writes that form.
+
+**3.19 Remove `/trip`.** Delete `src/pages/trip.astro`, the page-only parts of `TripPlanner.tsx` and `TripMap.tsx`, and the "Trip" nav item; drop unused i18n keys; update tests.
+
+**3.20 Phone, dark, keyboard, states on the combined map.** Re-check everything 3.14 covered, now on `/`: the place card and itinerary as bottom sheets at 375 px with no sideways scroll, both themes, the box and the route form by keyboard, the empty, no-route, busy, offline and no-chargers messages, and no console errors. The plain charger map (filters, list, Locate me, station panel) must work as before.
+
+**3.15 Independent QA.** `qa-reviewer` against the QA.md Phase 3 section, and `site-ui-checker` (formerly map-ui-checker) on the charger map with the planner (after 3.16–3.20; B50). The owner can also run `Run QA: follow docs/plan/QA.md against DESIGN-3.md and report every gap.` Fix what they find, then re-check.
 
 ## Order and delegation
 Docs PR → 3.1, 3.2, 3.4–3.6 (independent, separate files; 3.1 and the logic stack 3.4→3.5→3.6 can run in parallel sessions) → 3.3 research runs alongside in the background (fill-data-gaps uses its own agents) → 3.8 owner setup can happen any time before 3.9 → 3.9, 3.10 → 3.11–3.14 → 3.7 once 3.3 is merged → 3.15. Each code PR self-merges on green CI (standing rule). Data PRs and the calibration numbers wait for the owner.

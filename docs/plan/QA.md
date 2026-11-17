@@ -324,11 +324,13 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 | QF5 | The firewall rule blocks a burst from one IP; the page shows the busy message | |
 | QF6 | The function writes no addresses or coordinates to the logs | |
 
-## 5. Trip screen (3.11–3.14, route-planner §1, §6, §7; user-flows §2)
+## 5. Trip planner on the charger map (3.11–3.14, 3.17–3.20; B50; route-planner §1, §6, §7; user-flows §2)
+
+*B50 (2026-11-16): the planner moved onto the charger map at `/`; `/trip` no longer exists. Read "the trip screen" below as the map in route mode.*
 
 | # | Check | Edge cases |
 |---|-------|-----------|
-| QS1 | "Trip" in the header nav and side menu; `/trip` loads with no console errors | |
+| QS1 | No "Trip" in the nav; `/trip` is a 404 and nothing links to it; `/` loads with no console errors | |
 | QS2 | From/To suggest places while typing with no network request; "Search full address" calls `/api/geocode` only on press; "Use my location" fills From only when pressed | "montreal" finds Montréal; location denied → a message |
 | QS3 | The car comes from My car, with an inline picker when there is none; start 90 % and threshold 15 % by default, both adjustable | |
 | QS4 | Toronto → Montréal with an IONIQ 5 plans sensible stops; Calgary → Vancouver uses more energy than the same distance on the flat | A route that needs no stop shows none |
@@ -336,10 +338,14 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 | QS6 | Itinerary per route-planner §7: depart %, legs, stops (arrive % → 80 %, kW + plug, charging + 5 min), arrival %, totals | The km/mi switch updates distances |
 | QS7 | Warnings: estimated curve, Tesla network, charging gap (try a long northern route), detour, uncalibrated factor; the winter footer and the K2 disclaimer always; the charger data date shown | |
 | QS8 | Per stop: Google Maps and Apple Maps links, Open charger, and "See the charging curve for this stop" → `/charging` at arrival % → 80 % capped at that kW; saved curve settings unchanged afterwards | |
-| QS9 | Map station panel → "Plan a trip to here" opens `/trip` with To filled in | |
+| QS9 | Station panel → "Route here" switches the same map to route mode with To filled in | |
 | QS10 | The last trip is restored on reload; the share link appears only after opting in, and it reproduces the trip in a fresh browser | A corrupt `voltway.lastTrip` → an empty form, no crash |
 | QS11 | 375 px: the itinerary is a bottom sheet with no sideways scroll; dark mode readable; the keyboard reaches everything (combobox ARIA, itinerary list) | |
 | QS12 | States: no route found, busy, offline, no compatible chargers at all — each has a clear message | |
+| QS13 | "Where to?" box: picking a place flies the map there with a marker and a place card (name, fast chargers within 25 km, Route here); Escape or close clears it | A place with no chargers nearby says so |
+| QS14 | Route mode: From = last start (or the location only if the browser already allows it, otherwise "Use my location"); swap works; the car · % line expands to change car, start % and threshold | No saved trip and no permission → From is empty with "Use my location" |
+| QS15 | While a route shows, other chargers are faded but visible, filters still apply, and the itinerary replaces the filter panel; Close route restores the plain map | Changing a filter while routing re-draws pins without re-planning |
+| QS16 | The plain charger map still works: filters, Stations in view, Locate me, station panel (MU spot-check) | |
 
 ## 6. Rules and process
 
@@ -357,5 +363,5 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 | QD1–QD3 | | |
 | QE1–QE8 | | |
 | QF1–QF6 | | |
-| QS1–QS12 | | |
+| QS1–QS16 | | |
 | QR4–QR6 | | |

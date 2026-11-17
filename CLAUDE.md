@@ -15,7 +15,7 @@ The full design lives in **`docs/design/`** (moved into the repo 2026-11-15 so d
 
 - **Don't change design decisions on your own.** If something in the docs doesn't work in practice, tell the owner and propose a change. The owner decides.
 - **When the owner approves a change,** update the matching planning doc **and** `gaps-and-questions.md` (with the date), then `docs/plan/DESIGN.md` / `CHECKLIST.md` if affected.
-- **Current scope (2026-11-16): Phase 3** (`docs/plan/DESIGN-3.md`, checklist items tagged [3]): the threshold route planner, with openrouteservice behind a Vercel Function (owner decisions B44–B47). Phases 1a, 1b and 2 are done (Phase 2's M5 waits on the 2026-12-01 refresh).
+- **Current scope (2026-11-16): Phase 3** (`docs/plan/DESIGN-3.md`, checklist items tagged [3]): the threshold route planner, with openrouteservice behind a Vercel Function (owner decisions B44–B50; B50 put the planner on the charger map and removed `/trip`). Phases 1a, 1b and 2 are done (Phase 2's M5 waits on the 2026-12-01 refresh).
 - **Build in phases, in `roadmap.md` order.** Owner decision B21: Phase 1a came first, then the charger map (Phase 2); Phase 1b (Cars filters, first-load picker + My car, Compare, template calibration, and the map ↔ curve cross-links, B31) follows the map. Do not build the route planner before then, and hide links to parts that don't exist.
 - **Data layer before UI:** schema, importers (NRCan, OpenEV Data, Chargeprice) and the crosswalk table come before any screens.
 - **No bare numbers.** Every vehicle figure is a sourced value with `value`, `unit`, `kind` and `source_id` (`vehicle-data-model.md` §3). "unknown" is an allowed value. The build must fail on an unsourced figure.

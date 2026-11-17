@@ -10,10 +10,12 @@ Phase 3 of [roadmap.md](roadmap.md). The simple, threshold-based trip planner fr
 
 ## 1. What the user does
 
-1. Enter **From** and **To**.
-2. Check the car (pre-filled from **My car**), **starting battery %** (default **90%**, R9 ✅) and **stop threshold** (default 15%).
-3. Press **Plan trip**.
-4. See the route on the map with charging stops, plus a step-by-step itinerary and trip totals.
+**On the charger map, not a separate page (B50 ✅, 2026-11-16).**
+
+1. Type a place in the map's **"Where to?"** box (**search mode**). The map flies there and a place card shows the fast chargers nearby, with **Route here**. (The station panel has **Route here** too.)
+2. **Route here** switches to **route mode**: **From** (the last start, or "Use my location"; the browser location is used without a press only if the browser already allows it, B33), **To**, a swap button, and one editable line for the car (from **My car**), **starting battery %** (default **90%**, R9 ✅) and **stop threshold** (default 15%).
+3. Press **Plan route**.
+4. The route and its charging stops show on the same map (other chargers stay visible, faded), with the step-by-step itinerary and totals in the side panel (a bottom sheet on phones). **Close route** goes back to the plain map.
 
 ---
 
@@ -145,10 +147,10 @@ To stay inside the 1,000 searches per day:
 ## 7. Results screen
 
 ### Map
-- The route line, plus numbered **stop pins**. Pins use the Phase 2 style.
+- **The charger map itself (B50).** The route line, plus numbered **stop pins**. Pins use the Phase 2 style. The other chargers stay visible but faded (filters still apply), so an alternative stop is easy to spot.
 - Each stop pin opens the same **popup** as the charger map.
 
-### Itinerary (side panel; bottom sheet on phones)
+### Itinerary (side panel in place of the filters; bottom sheet on phones)
 ```
 🟢 Toronto, ON                    Depart with 90%
    │ 185 km · 1 h 55 min
@@ -178,7 +180,7 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 
 ### Saving and sharing
 - The **last trip** is saved in the browser.
-- **Share link:** *opt-in*, because the link contains the From and To places.
+- **Share link:** *opt-in*, because the link contains the From and To places. It opens the charger map in route mode (`/?from=…&to=…`, B50).
 
 ---
 

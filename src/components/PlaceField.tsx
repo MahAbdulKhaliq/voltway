@@ -99,26 +99,32 @@ export default function PlaceField({ label, value, onChange, search, extra, plac
         {extra}
       </div>
       {showList && (
-        <ul id={listId} role="listbox" className="cp-suggest" aria-label={t('trip.suggestions', { field: label })}>
+        // The dropdown holds the listbox (options only, as ARIA requires) and, below it, the
+        // address-search status and button (P.4: a button inside a listbox is not allowed).
+        <div className="cp-suggest">
+        <ul id={listId} role="listbox" className="cp-suggest-list" aria-label={t('trip.suggestions', { field: label })}>
           {options.map((o, i) => (
             <li key={`${o.label}-${i}`} id={optId(i)} role="option" aria-selected={i === active} className={i === active ? 'on' : undefined}
               onMouseDown={(e) => e.preventDefault()} onClick={() => pick(o)}>
               {o.label}
             </li>
           ))}
-          {remoteState === 'loading' && <li role="presentation" className="muted cp-none">{t('trip.addressSearching')}</li>}
-          {remoteState === 'none' && <li role="presentation" className="muted cp-none">{t('trip.addressNone')}</li>}
-          {remoteState === 'busy' && <li role="presentation" className="muted cp-none">{t('trip.busy')}</li>}
-          {remoteState === 'offline' && <li role="presentation" className="muted cp-none">{t('trip.addressOffline')}</li>}
-          {remote === null && (
-            <li role="presentation" className="tp-address">
-              <button type="button" className="btn small" onMouseDown={(e) => e.preventDefault()} onClick={searchAddress} disabled={text.trim().length < 3}>
-                {t('trip.searchAddress')}
-              </button>
-              {!options.length && <span className="muted small"> {t('trip.noPlace')}</span>}
-            </li>
-          )}
         </ul>
+        <div role="status">
+          {remoteState === 'loading' && <p className="muted cp-none">{t('trip.addressSearching')}</p>}
+          {remoteState === 'none' && <p className="muted cp-none">{t('trip.addressNone')}</p>}
+          {remoteState === 'busy' && <p className="muted cp-none">{t('trip.busy')}</p>}
+          {remoteState === 'offline' && <p className="muted cp-none">{t('trip.addressOffline')}</p>}
+        </div>
+        {remote === null && (
+          <div className="tp-address">
+            <button type="button" className="btn small" onMouseDown={(e) => e.preventDefault()} onClick={searchAddress} disabled={text.trim().length < 3}>
+              {t('trip.searchAddress')}
+            </button>
+            {!options.length && <span className="muted small"> {t('trip.noPlace')}</span>}
+          </div>
+        )}
+        </div>
       )}
     </div>
   );

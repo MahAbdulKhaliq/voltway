@@ -10,6 +10,7 @@ The owner's vision for the app, as described in their own words, plus decisions 
 
 ## Pitch (P2, Q-V1) ✅
 
+- **The trip planner leads (B52, 2026-11-16):** Voltway is first a simple, free trip planner and charger map, and the car database supports it. The primary user is an EV owner planning a trip. Accuracy of the vehicle data (below) is what makes the planner trustworthy; it is no longer the lead pitch on its own.
 - **Accuracy is the pitch for the vehicle data:** specs, charging curves and trim features. The database has to be good, and it's where the app earns trust.
 - **The charger map and routing stay simple** and easy to understand. Being right enough and clear matters more there than modeling every detail.
 

@@ -381,3 +381,40 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 | ID | Pass / Fail | Notes |
 |----|-------------|-------|
 | QP1–QP5 | | |
+
+---
+
+# Phase 4: whole-site redesign, "Road Paint" (`DESIGN-4.md`, B52–B53)
+
+Run `npx vitest run`, `npx astro check` and `npm run build` first. Check every item in dark and light, at 375 px and at desktop width, unless it says otherwise. Test trips: Toronto → Montréal (no gap) and Greater Sudbury → Thunder Bay with a Kia EV6 Wind (a charging gap). `/api/route` allows 30 calls per 10 minutes.
+
+| ID | Check | Edge cases |
+|----|-------|------------|
+| QR1 | Tokens: no old palette colours remain in `src/` outside tests; Archivo loads from the site's own origin (no request to a font host) | Offline reload still shows text |
+| QR2 | `tests/contrast.test.ts` passes: text, muted, warning, estimated, button labels 4.5:1; large text, route, gap, pins 3:1 | Both themes |
+| QR3 | The map uses Voltway's own style on OpenFreeMap tiles; roads and town labels readable at regional zoom; attribution wording unchanged | Theme switch swaps the style without a reload |
+| QR4 | Home, desktop: planner card top left, navigation pill top right, controls bottom right; nothing covers "Locate me" | 1280 px and 1024 px |
+| QR5 | Home, 375 px: planner is a bottom sheet; the map keeps at least 200 px; no sideways scroll | Keyboard open on a real phone |
+| QR6 | First visit (cleared storage): one destination search and a "your car" tile; picking a car is a compact search | "Just browsing" path still reaches the map |
+| QR7 | Unplannable cars (e.g. 2026 IONIQ 5 Long Range AWD) are marked and sorted last in the picker; if chosen, the message contains "Change car" | |
+| QR8 | Trip result: total time is the largest text; distance, stops and charging on one line under it | Zero stops; ten stops |
+| QR9 | Charging gap: warning under the totals, visible with the sheet collapsed; the gap leg is dashed in the list and on the map; names both places | The "not expected to make it" wording |
+| QR10 | Each stop is two lines plus one Details control that opens the station panel; directions and the curve link are reachable from there | Long station names wrap, no overflow |
+| QR11 | Tesla and "your car takes less" notes appear once per trip, with a tag on the stops they apply to | A Tesla car shows no Tesla note |
+| QR12 | "How this was estimated" holds assumptions, the winter note and data dates; "This is an estimate…" is visible without opening it | |
+| QR13 | A six-stop plan's sheet is under 1,600 px tall at 375 px | |
+| QR14 | Filters open from one control with a count when narrowed; all four plugs visible; "my car" and the plug boxes agree | |
+| QR15 | After a reload the last trip is restored or offered in one tap, with no extra `/api/route` call until asked | Cleared storage shows no "Last trip" |
+| QR16 | Selecting a stop highlights it in the list and on the map; Escape and focus return work as in QP2 | Keyboard only |
+| QR17 | Cars, car page, Charging, Compare, About, 404 are in the new look with the same content, filters and links as before; source badges present on every vehicle figure | Compare with 4 cars |
+| QR18 | Charging chart: new palette, estimated curve dashed with its badge, guides drag | km/mi switch |
+| QR19 | Wording: "Trip" used consistently; variant names plain with the regulator suffix secondary; no hard-coded strings in components | |
+| QR20 | axe-core: no serious or critical violations on every page and map state | Both themes |
+| QR21 | No ABRP or car-maker logo, font or asset anywhere; no new third-party request | Network tab |
+| QR22 | Root `DESIGN.md` and `.impeccable/design.json` describe the built tokens and components | |
+
+## Phase 4 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QR1–QR22 | | |

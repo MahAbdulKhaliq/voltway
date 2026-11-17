@@ -230,7 +230,7 @@ Breakpoints, from the built CSS:
 - **≥ 900px:** the nav pill also lists the pages (Map, Charging, Cars, Compare).
 - **≤ 420px:** chips tighten their gaps and padding.
 
-Touch targets: the My car plug switches are 44px tall on phones; chips and the Plugs toggle are 36px, Locate me 40px, and the zoom buttons are MapLibre's own 29px. All meet WCAG 2.2's 24px minimum.
+Touch targets: the My car plug switches are 44px tall on phones; chips and the Plugs toggle are 36px, Locate me 44px, and the zoom buttons 32px (MapLibre's, restyled in the panel surface; hidden on touch screens, B59). All meet WCAG 2.2's 24px minimum.
 
 ## Elevation & Depth
 
@@ -254,6 +254,7 @@ Map marks are circles with a dark ring: Level 3 pins yellow with a bolt, Level 2
 ### Buttons
 - **Shape:** gently rounded (8px).
 - **Primary:** Centre-Line Yellow fill, Paint Ink label, weight 600, 6px 12px padding; the border is ink in light and yellow in dark.
+- **Disabled:** a disabled primary drops the paint: raised surface, muted label, plain border (one yellow means "do this").
 - **Hover / Focus:** primary lightens (yellow mixed 86% with white); secondary moves to the raised surface. Focus is the site-wide 3px accent outline with a 2px offset. Pressed buttons drop 1px.
 - **Secondary:** surface fill, text colour, Field Border outline. `.small` is 0.8rem with 4px 10px padding. Link-style buttons (`.link-btn`) read as inline links ("Change plugs").
 

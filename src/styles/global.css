@@ -288,15 +288,18 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 /* Stations in view (B62): a switch on the right with the count of stations on screen; switched on,
    the list opens under it, in the place a station's details use (they get a Back button to it). */
 .map-inview { position: absolute; top: 72px; right: 12px; z-index: 4; width: 340px; max-height: calc(100% - 72px - 196px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
-.map-inview:not(.open) { width: auto; }
+.map-inview:not(.open), .map-inview:not(.open) .map-inview-toggle { width: auto; border-radius: 999px; }
 .map-inview-toggle { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 8px 12px; background: none; border: 0; border-radius: var(--radius); color: inherit; font: inherit; font-weight: 600; text-align: left; cursor: pointer; }
 .map-inview.open .map-inview-toggle { border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
 .map-inview-name { flex: 1; }
 .map-inview-count { font-variant-numeric: tabular-nums; color: var(--muted); font-weight: 600; }
-.map-switch { flex: none; position: relative; width: 34px; height: 20px; border-radius: 10px; background: var(--field-border); transition: background 0.15s; }
-.map-switch span { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); transition: transform 0.15s; }
-.map-inview-toggle[aria-checked=true] .map-switch { background: var(--accent); }
-.map-inview-toggle[aria-checked=true] .map-switch span { transform: translateX(14px); }
+/* The same switch as My car's plugs (B55): an outlined track that fills with paint when on. */
+.map-switch { flex: none; position: relative; width: 34px; height: 20px; box-sizing: border-box; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--field-border); transition: background 0.15s, border-color 0.15s; }
+.map-switch span { position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted); transition: transform 0.15s, background 0.15s; }
+.map-inview-toggle[aria-checked=true] .map-switch { background: var(--paint); border-color: var(--paint-edge); }
+.map-inview-toggle[aria-checked=true] .map-switch span { transform: translateX(14px); background: var(--paint-ink); }
+.map-inview-toggle:hover .map-switch { border-color: var(--text); }
+@media (prefers-reduced-motion: reduce) { .map-switch, .map-switch span { transition: none; } }
 .map-inview-toggle:focus-visible, .map-list button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .map-list { overflow-y: auto; min-height: 0; padding: 6px; }
 .map-list-note { margin: 6px 6px 2px; }
@@ -310,33 +313,21 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .map-where { padding: 8px 8px 4px; }
 .map-where .tp-field { gap: 0; }
 .map-where .field-input { width: 100%; }
+.map-where .tp-input-row { align-items: stretch; }
+.map-where .map-route-btn { font-size: 0.875rem; padding: 0 12px; }
 .map-where .cp-suggest { top: 100%; }
-.map-place { position: absolute; left: 304px; bottom: 40px; z-index: 3; /* beside the 280 px panel */ width: 280px; display: grid; gap: 8px; padding: 12px 14px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
-.map-place p { margin: 0; }
-.map-place .btn { justify-self: start; text-decoration: none; }
-/* A link styled as a button (404 page, place card). */
+/* A link styled as a button (404 page). */
 a.btn { display: inline-block; text-decoration: none; }
-.map-place-head { display: flex; align-items: flex-start; gap: 8px; }
-.map-place-head h2 { flex: 1; margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
-.map-place-head h2:focus { outline: none; }
 .map-place-close { flex: none; display: grid; place-items: center; width: 32px; height: 32px; margin: -6px -8px 0 0; background: none; border: 0; border-radius: var(--radius); color: inherit; cursor: pointer; }
 .map-place-close:focus-visible { outline: 2px solid var(--accent); }
 .map-place-near { margin: 6px 2px 0; }
 .map-place-pin { width: 22px; height: 30px; background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 30'%3E%3Cpath d='M11 1C5.5 1 1 5.4 1 10.9 1 18.3 11 29 11 29s10-10.7 10-18.1C21 5.4 16.5 1 11 1z' fill='%23FFD400' stroke='%231A1B1E' stroke-width='2'/%3E%3Ccircle cx='11' cy='11' r='4' fill='%231A1B1E'/%3E%3C/svg%3E"); pointer-events: none; }
-@media (max-width: 640px) {
-  .map-place { left: 0; right: 0; bottom: 0; width: auto; border-radius: 14px 14px 0 0; border-bottom: 0; padding-bottom: 16px; }
-}
 
-/* The "your car" tile and the compact car search (DESIGN-4 4.7). */
+/* Car rows (DESIGN-4 4.7; the trip form's car row, B61). */
 .car-tile { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 8px 10px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer; }
 .car-tile:hover { border-color: var(--field-border); }
 .car-tile svg { flex: none; }
 .car-tile-text { flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.car-tile-change { flex: none; color: var(--accent); text-decoration: underline; text-underline-offset: 0.18em; }
-.car-search { display: grid; gap: 4px; }
-.car-search .field-input { width: 100%; }
-/* The suggestions sit in the flow, so the card (or the phone sheet) grows instead of clipping them. */
-.car-search .cp-suggest { position: static; margin: 0; max-height: 260px; }
 .car-search-opt { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .car-search-tag { flex: none; }
 
@@ -378,6 +369,7 @@ a.btn { display: inline-block; text-decoration: none; }
 .route-settings { display: grid; gap: 10px; justify-items: start; }
 .route-summary { display: grid; gap: 4px; }
 .route-summary p { margin: 0; }
+.charger-map p, .station-panel p { text-wrap: pretty; }
 .route-ends { overflow-wrap: anywhere; }
 .route-panel .banner { margin: 0; }
 .route-itinerary { border-top: 1px solid var(--border); padding-top: 10px; }
@@ -400,12 +392,12 @@ a.btn { display: inline-block; text-decoration: none; }
 .map-key li svg { flex: none; }
 .map-key-plugs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .map-key-note { margin: 10px 0 0; }
-.map-recent ul { gap: 2px; }
-.map-recent-item { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 44px; padding: 6px 8px; margin: 0 -8px; box-sizing: content-box; background: none; border: 0; border-radius: 6px; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.map-recent ul { gap: 0; }
+.map-recent-item { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: calc(100% + 16px); min-height: 44px; padding: 6px 8px; margin: 0 -8px; box-sizing: border-box; background: none; border: 0; border-radius: 6px; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .map-recent-item:hover, .map-recent-item:focus-visible { background: var(--accent-soft); }
 .map-recent-item svg { flex: none; color: var(--muted); }
 .map-recent-name { font-weight: 600; overflow-wrap: anywhere; }
-.map-recent-forget { margin-top: 8px; }
+.map-recent-forget { margin-top: 6px; }
 .map-locate { position: relative; display: inline-flex; align-items: center; gap: 0; padding: 0 12px; min-height: 44px; height: 44px; border-radius: 22px !important; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); font: inherit; font-weight: 600; cursor: pointer; }
 .map-locate:disabled { cursor: progress; opacity: 0.8; }
 /* B62: the corner buttons are 44 px circles on every screen; on a pointer screen the name slides
@@ -472,6 +464,23 @@ a.btn { display: inline-block; text-decoration: none; }
   .map-inview .map-list { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; max-height: 62%; background: var(--surface); border-top: 1px solid var(--border); border-radius: 14px 14px 0 0; box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.18); }
 }
 
+/* MapLibre's controls in Road Paint (polish B63): the zoom pair and the credits ⓘ take the panel
+   surface, border and float shadow; their icons are masks filled with the text colour, so both
+   themes read. */
+.charger-map .maplibregl-ctrl-group { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; }
+.charger-map .maplibregl-ctrl-group:not(:empty) { box-shadow: var(--shadow); }
+.charger-map .maplibregl-ctrl-group button { width: 32px; height: 32px; }
+.charger-map .maplibregl-ctrl-group button + button { border-top: 1px solid var(--border); }
+.charger-map .maplibregl-ctrl-group button:not(:disabled):hover { background: var(--surface-2); }
+.charger-map .maplibregl-ctrl-group button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; box-shadow: none; }
+.charger-map .maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon, .charger-map .maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon { background: var(--text); background-image: none; -webkit-mask: var(--icon) center / 14px no-repeat; mask: var(--icon) center / 14px no-repeat; }
+.charger-map .maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M7 1v12M1 7h12' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.charger-map .maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M1 7h12' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.charger-map .maplibregl-ctrl-attrib.maplibregl-compact { background: var(--surface); color: var(--text); border: 1px solid var(--border); box-shadow: var(--shadow); }
+.charger-map .maplibregl-ctrl-attrib a { color: var(--text); }
+.charger-map .maplibregl-ctrl-attrib-button { background: var(--text); background-image: none; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='7' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3Ccircle cx='10' cy='6.7' r='1.1'/%3E%3Cpath d='M10 9.3v4.4' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / 24px no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='7' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3Ccircle cx='10' cy='6.7' r='1.1'/%3E%3Cpath d='M10 9.3v4.4' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / 24px no-repeat; }
+.charger-map .maplibregl-ctrl-attrib-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
 /* Touch screens zoom with a pinch (B59): no + / − buttons; a mouse keeps them. */
 @media (pointer: coarse) {
   .charger-map .maplibregl-ctrl-group:has(.maplibregl-ctrl-zoom-in) { display: none; }
@@ -489,6 +498,7 @@ a.btn { display: inline-block; text-decoration: none; }
 .btn.primary:hover:not(:disabled) { background: color-mix(in srgb, var(--paint) 86%, #FFFFFF); }
 .btn:active:not(:disabled) { transform: translateY(1px); }
 .btn:disabled { cursor: default; opacity: 0.7; }
+.btn.primary:disabled { background: var(--surface-2); color: var(--muted); border-color: var(--border); opacity: 1; }
 .seg { display: inline-flex; }
 .seg button { font: inherit; font-size: 0.875rem; border: 1px solid var(--field-border); background: var(--surface); color: var(--text); padding: 6px 12px; cursor: pointer; }
 .seg button:first-child { border-radius: 8px 0 0 8px; }

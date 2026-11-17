@@ -94,7 +94,7 @@ export default function TripResults({ plan, route, routeKey, from, to, unit, myC
           />
         </Suspense>
         {panelStation && (
-          <StationPanel station={panelStation} updated={updated} onClose={() => setSelected(null)} myCar={myCar} carInfo={carInfo} />
+          <StationPanel station={panelStation} updated={updated} onClose={() => setSelected(null)} myCar={myCar} carInfo={carInfo} tripLink={false} />
         )}
       </div>
 

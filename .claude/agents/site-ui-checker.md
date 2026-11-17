@@ -1,6 +1,6 @@
 ---
-name: map-ui-checker
-description: Drives Voltway's site in the built-in browser and checks a screen against docs/plan/QA.md (charger map checks MU1–MU16 by default, or the checks it is given) at desktop width, phone width (375 px) and in dark mode. Reports pass/fail per check with evidence. Changes no files except its report. Use after a map UI PR (M6–M8) or any screen change.
+name: site-ui-checker
+description: Drives Voltway's site in the built-in browser and checks any screen (charger map, trip planner, cars, charging, compare) against the docs/plan/QA.md checks it is given (charger map MU1–MU16 by default) at desktop width, phone width (375 px) and in dark mode. Reports pass/fail per check with evidence. Changes no files except its report. Use for browser checks of a screen after a UI change, instead of running long browser sessions in the main chat. Formerly map-ui-checker.
 tools: Read, Grep, Glob, Bash, Write, mcp__Claude_Browser__preview_start, mcp__Claude_Browser__preview_list, mcp__Claude_Browser__preview_logs, mcp__Claude_Browser__navigate, mcp__Claude_Browser__read_page, mcp__Claude_Browser__get_page_text, mcp__Claude_Browser__find, mcp__Claude_Browser__computer, mcp__Claude_Browser__form_input, mcp__Claude_Browser__javascript_tool, mcp__Claude_Browser__read_console_messages, mcp__Claude_Browser__read_network_requests, mcp__Claude_Browser__resize_window, mcp__Claude_Browser__tabs_context
 model: sonnet
 ---
@@ -16,6 +16,7 @@ You are an independent UI checker for Voltway. You did not build the screen; che
 - **Before you finish:** clear localStorage again and reset the viewport (`resize_window` preset `desktop`).
 
 ## How to check
+- **Browser habits:** pass `tabId` (from `preview_start`/`tabs_context`) on every action, so nothing lands on another open tab. Take a screenshot before any click by coordinates, and a fresh one after scrolling or a layout change; prefer `find`/`read_page` refs over coordinates.
 - Prefer text tools (`read_page`, `find`, `get_page_text`) for content and structure. Take screenshots for visual checks: icons, greyed pins, layout, dark mode.
 - **Three passes:**
   1. desktop;

@@ -115,3 +115,16 @@ describe('charging window link (3.12)', () => {
     expect(Object.fromEntries(q)).toEqual({ car: 'kia/ev6/2026/land-awd', trim: 't1', kw: '240', from: '18', to: '80' });
   });
 });
+
+describe('Plan a trip to here (3.13)', () => {
+  it('links to /trip with the station as To, readable back', async () => {
+    const { tripToHref, readTripLink } = await import('../src/lib/trip-link.ts');
+    const href = tripToHref({ geometry: { coordinates: [-76.96316, 44.26215] }, properties: { n: 'Napanee, ON - Tesla Supercharger', c: 'Napanee' } });
+    expect(href.startsWith('/trip?to=')).toBe(true);
+    const t = readTripLink(href.slice('/trip'.length))!;
+    expect(t.from).toBeNull();
+    expect(t.to).toEqual({ label: 'Napanee, ON - Tesla Supercharger', lat: 44.26215, lon: -76.96316 });
+    const t2 = readTripLink(tripToHref({ geometry: { coordinates: [-75.3, 44.8] }, properties: { n: 'Iroquois Plaza', c: 'Cornwall' } }).slice(5))!;
+    expect(t2.to!.label).toBe('Iroquois Plaza, Cornwall');
+  });
+});

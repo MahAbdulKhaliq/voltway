@@ -19,6 +19,7 @@ import {
   stationStatus,
   teslaNote,
 } from '../lib/station-details.ts';
+import { tripToHref } from '../lib/trip-link.ts';
 
 /** "2026-12-01" → "Dec 1, 2026" (read as a calendar date, not a UTC instant). */
 function showDate(iso: string): string {
@@ -34,9 +35,11 @@ interface Props {
   /** My car and what the map knows about it (B28, B31); null when none is set or it is still loading. */
   myCar?: MyCar | null;
   carInfo?: CarMapInfo | null;
+  /** "Plan a trip to here" (3.13); off on the trip page's own panel. */
+  tripLink?: boolean;
 }
 
-export default function StationPanel({ station, updated, onClose, myCar = null, carInfo = null }: Props) {
+export default function StationPanel({ station, updated, onClose, myCar = null, carInfo = null, tripLink = true }: Props) {
   const s = station.properties;
   const heading = useRef<HTMLHeadingElement>(null);
   const level = stationLevel(s.p);
@@ -115,10 +118,11 @@ export default function StationPanel({ station, updated, onClose, myCar = null, 
           </ul>
         </section>
 
-        {curveHref && (
-          <p className="station-curve">
-            <a href={curveHref}>{t('map.station.howFast')}</a>
-          </p>
+        {(curveHref || tripLink) && (
+          <ul className="station-curve station-actions">
+            {curveHref && <li><a href={curveHref}>{t('map.station.howFast')}</a></li>}
+            {tripLink && <li><a href={tripToHref(station)}>{t('map.station.planTrip')}</a></li>}
+          </ul>
         )}
 
         <section>

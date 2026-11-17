@@ -243,7 +243,7 @@ Covers the items tagged [1b] in `CHECKLIST.md`: template calibration (2.2), Cars
 | QM4 | Tesla note hidden when My car is a Tesla; via-adapter wording for a via-adapter car; generic note otherwise | |
 | QM5 | Curve viewer with a charger preset → "Find chargers this fast" opens the map at that L3 range ("N kW and up") and the car's plugs; params removed from the URL | Preset "No limit" hides the link |
 | QM6 | Station panel → "How fast would my car charge here?" (only with My car and DC ports) opens `/charging` for My car capped at the station's top kW; saved curve settings unchanged afterwards | L2-only station: no link |
-| QM7 | `map-ui-checker` MU1–MU18 still pass | |
+| QM7 | `site-ui-checker` (formerly map-ui-checker) MU1–MU18 still pass | |
 
 ## 6. Compare (6.1, database-ui.md §6, charging-curve-viewer.md §6)
 

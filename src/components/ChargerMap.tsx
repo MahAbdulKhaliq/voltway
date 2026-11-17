@@ -37,7 +37,7 @@ import { BOLT, drawPin, PIN, PLUG, pinId } from '../lib/map-icons.ts';
 import { fastNear, NEAR_PLACE_KM, stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
 import PlaceField, { loadPlaces } from './PlaceField.tsx';
 import type { PlaceSearch, TripEnd } from '../lib/place-search.ts';
-import { readTripLink } from '../lib/trip-link.ts';
+import { readTripLink, stationEnd } from '../lib/trip-link.ts';
 import StationPanel from './StationPanel.tsx';
 import RoutePanel from './RoutePanel.tsx';
 import { useTrip } from './useTrip.ts';
@@ -837,11 +837,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
           onClose={closeStation}
           myCar={myCar}
           carInfo={myCar ? carInfo : null}
-          onRouteHere={selectedStop === null ? () => {
-            const p = station.properties;
-            const [lon, lat] = station.geometry.coordinates;
-            enterRoute({ to: { label: p.c && !p.n.includes(p.c) ? `${p.n}, ${p.c}` : p.n, lat, lon } });
-          } : undefined}
+          onRouteHere={selectedStop === null ? () => enterRoute({ to: stationEnd(station) }) : undefined}
         />
       )}
 

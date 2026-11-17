@@ -32,7 +32,7 @@ The full design lives in **`docs/design/`** (moved into the repo 2026-11-15 so d
 
 ## Vercel
 
-- Project `voltway` (account `mahabdulkhaliq`). Production: https://voltway-ten.vercel.app/ (`voltway.vercel.app` belongs to someone else). Repo: https://github.com/MahAbdulKhaliq/voltway
+- Project `voltway` (account `mahabdulkhaliq`). Production: https://voltway-routing.vercel.app/ (`voltway.vercel.app` belongs to someone else). Repo: https://github.com/MahAbdulKhaliq/voltway
 - Preview deployments are behind Vercel Authentication (the owner must be signed in to open them).
 
 - The Vercel connector is connected. Use it freely to **read** projects, deployments and logs.

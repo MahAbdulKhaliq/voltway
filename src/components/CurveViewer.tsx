@@ -221,7 +221,7 @@ export default function CurveViewer({
     for (let s = settings.start; s <= settings.end; s += 0.5) delivered.push([s, Math.min(powerAt(curve.points, s), chargerKw ?? Infinity)]);
 
     const limitLine = chargerKw
-      ? { silent: true, symbol: 'none', lineStyle: { color: warn, type: 'dashed' as const }, label: { formatter: t('viewer.chargerLimitValue', { kw: formatNumber(chargerKw) }), color: warn }, data: [{ yAxis: chargerKw }] }
+      ? { silent: true, symbol: 'none', lineStyle: { color: warn, type: 'dashed' as const }, label: { position: 'insideEndTop' as const, formatter: t('viewer.chargerLimitValue', { kw: formatNumber(chargerKw) }), color: warn }, data: [{ yAxis: chargerKw }] }
       : undefined;
 
     const option: echarts.EChartsCoreOption =

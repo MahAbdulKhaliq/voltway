@@ -123,7 +123,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 
 ### Pins
 - **Shape and colour by level:** a bolt icon for Level 3 and a plug icon for Level 2, so the level is never shown by colour alone.
-- **Clusters** when zoomed out, showing a count. Clicking a cluster zooms in. **(B54, 2026-11-17)** The cluster disc is split by a vertical line into a white Level 2 part and a yellow Level 3 part, in proportion to the counts.
+- **Clusters** when zoomed out, showing a count. Clicking a cluster zooms in. Chargers stay grouped **up to zoom 15** so downtown pins don't pile up (B57 ✅, 2026-11-17). **(B54, 2026-11-17)** The cluster disc is split by a vertical line into a white Level 2 part and a yellow Level 3 part, in proportion to the counts.
 - **B55 (2026-11-17) supersedes the split fill:** a cluster is a dark disc with a pale count, its ring divided into a white Level 2 arc and a yellow Level 3 arc in proportion. Speed bolts and plug drawings show only on groups of fewer than 20 and on single pins. **Tesla Superchargers** have a red Level 3 pin with a Tesla-style T; Tesla Destination (Level 2) pins stay white with the T. The map's "Chargers my car can use" tick box is removed; My car's plug toggles (NACS, CCS1, CHAdeMO) drive trip planning instead.
 - **At-a-glance marks (B54):** speed bolts top right of a cluster or Level 3 pin from the fastest known Level 3 port (1 bolt ≤ 75 kW, 2 ≤ 150 kW, 3 above; none when unknown) and tiny plug drawings stacked on the left (CCS1, NACS, CHAdeMO, J1772, stacked). A **Map key** toggle above Locate me explains every mark.
 - **Status shown on the pin:** a greyed pin with a small mark for "temporarily unavailable" (§6).

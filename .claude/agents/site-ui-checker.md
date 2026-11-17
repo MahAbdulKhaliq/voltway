@@ -16,7 +16,7 @@ The caller's brief names:
 If something is missing, use these defaults and say so in the report. Read `CLAUDE.md` first.
 
 ## Setup
-- Reuse the tab you're given (pass its `tabId` on every call), or start the dev server with `preview_start` `{name: "voltway-dev"}` (port 4321). Never start servers with Bash. You may be given a URL instead (e.g. production `https://voltway-ten.vercel.app/`).
+- Reuse the tab you're given (pass its `tabId` on every call), or start the dev server with `preview_start` `{name: "voltway-dev"}` (port 4321). Never start servers with Bash. You may be given a URL instead (e.g. production `https://voltway-routing.vercel.app/`).
 - First-visitor checks: clear localStorage and reload. Keep any storage the brief says to keep (e.g. a test "My car").
 - **Before you finish:** clear what you added to storage, and reset the viewport (`resize_window` preset `desktop`, `colorScheme` `dark`).
 

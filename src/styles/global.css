@@ -164,7 +164,9 @@ th { font-weight: 600; color: var(--muted); font-size: 0.875rem; }
 
 /* Numbered source references, Wikipedia-style (B18) */
 .cite { display: inline-flex; align-items: flex-start; gap: 1px; }
-.ref { font-size: 0.7rem; font-weight: 500; line-height: 1; text-decoration: none; position: relative; top: -0.35em; padding: 2px 1px; }
+/* The [n] link is a 24×24 px target (WCAG 2.5.8, P.4), with the number drawn small at the top; the
+   negative margins keep the line and the row the same height as before. */
+.ref { display: inline-block; min-width: 24px; height: 24px; margin: -9px -6px -9px -5px; font-size: 0.7rem; font-weight: 500; line-height: 1; text-align: center; text-decoration: none; position: relative; top: -0.15em; padding-top: 2px; }
 .ref:hover { text-decoration: underline; }
 
 /* Accordions (B18): a card with a title, a short preview when closed, and a chevron */
@@ -407,6 +409,8 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .cp-search input { width: 100%; padding: 10px 12px; font-size: 1rem; }
 .cp-suggest { list-style: none; margin: 4px 0 0; padding: 4px; position: absolute; left: 0; right: 0; z-index: 20; background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; box-shadow: var(--shadow); max-height: 320px; overflow-y: auto; }
 .cp-suggest li { padding: 8px 10px; border-radius: 6px; cursor: pointer; }
+.cp-suggest-list { list-style: none; margin: 0; padding: 0; }
+.cp-suggest p.cp-none { margin: 0; padding: 8px 10px; }
 .cp-suggest li.on, .cp-suggest li[role=option]:hover { background: var(--accent-soft); }
 .cp-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
 .cp-steps label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }

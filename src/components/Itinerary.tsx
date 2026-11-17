@@ -8,7 +8,7 @@ import { t, type MessageKey } from '../i18n/t.ts';
 import type { MyCar } from '../lib/my-car.ts';
 import type { TripEnd } from '../lib/place-search.ts';
 import { directionsUrls } from '../lib/station-details.ts';
-import { hoursMinutes, pct, showDate, stopCurveHref, stopsText } from '../lib/trip-format.ts';
+import { gapDetails, hoursMinutes, pct, showDate, stopCurveHref, stopsText } from '../lib/trip-format.ts';
 import { NEAR_KM, type TripPlan } from '../lib/trip-plan.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import { TRIP } from '../config.ts';
@@ -40,12 +40,23 @@ export default function Itinerary({ plan, from, to, unit, myCar, selected, onOpe
   const anyTesla = plan.stops.some((s) => s.teslaNetwork);
   /** Nothing compatible anywhere the car needed a charge: say so first, in plain words. */
   const noChargers = plan.stops.length === 0 && plan.gaps.length > 0;
+  const gaps = gapDetails(plan, from.label, to.label);
+  const gapLegs = new Set(gaps.map((g) => g.leg));
+  /** A gap the car won't cross already says so; the general "may not make it" line would repeat it. */
+  const gapSaysUnreachable = gaps.some((g) => !g.makesIt);
 
   const leg = (i: number) => {
     const l = plan.legs[i];
     if (!l) return null;
-    return <p className="ti-leg">{t('trip.legLine', { distance: dist(l.distanceKm), time: hoursMinutes(l.driveMin) })}</p>;
+    return (
+      <>
+        <p className="ti-leg">{t('trip.legLine', { distance: dist(l.distanceKm), time: hoursMinutes(l.driveMin) })}</p>
+        {gapLegs.has(i) && <p className="small ti-leg-gap">{t('trip.legGap')}</p>}
+      </>
+    );
   };
+  /** The list item whose connector runs along a gap leg: the start (leg 0) or stop i (leg i + 1). */
+  const gapClass = (legIndex: number) => (gapLegs.has(legIndex) ? ' ti-gap' : '');
 
   return (
     <div className={`route-itinerary${open ? ' open' : ''}`}>
@@ -61,7 +72,19 @@ export default function Itinerary({ plan, from, to, unit, myCar, selected, onOpe
         </p>
         <p className="small muted ti-total-time">{t('trip.totalTime', { time: hoursMinutes(plan.totals.totalMin) })}</p>
         {noChargers && <p className="banner" role="alert">{t('trip.warn.noChargers')}</p>}
-        {!plan.reachable && !noChargers && <p className="banner" role="alert">{t('trip.warn.unreachable')}</p>}
+        {!plan.reachable && !noChargers && !gapSaysUnreachable && <p className="banner" role="alert">{t('trip.warn.unreachable')}</p>}
+        {/* Charging gaps stay above the fold on phones: they are never behind "Show the stops". */}
+        {!noChargers && gaps.map((g) => (
+          <p key={g.leg} className="banner" role="alert">
+            {t(g.makesIt ? 'trip.warn.gapOk' : 'trip.warn.gapShort', {
+              distance: dist(g.distanceKm),
+              from: g.fromName,
+              to: g.toName,
+              soc: pct(g.arriveSoc),
+              threshold: pct(plan.thresholdSoc),
+            })}
+          </p>
+        ))}
         <button type="button" className="btn small ti-toggle" aria-expanded={open} aria-controls={bodyId} onClick={onToggle}>
           {open ? t('trip.sheetHide') : t('trip.sheetShow')}
         </button>
@@ -69,17 +92,12 @@ export default function Itinerary({ plan, from, to, unit, myCar, selected, onOpe
 
       <div id={bodyId} className="ti-body">
         {/* Warnings that apply to the whole trip (route-planner §7). */}
-        {plan.gaps.length > 0 && !noChargers && (
-          <p className="banner" role="note">
-            {t('trip.warn.gap', { stretches: plan.gaps.map((g) => t('trip.warn.gapStretch', { from: dist(g.fromKm), to: dist(g.toKm) })).join('; ') })}
-          </p>
-        )}
         {anyEstimated && <p className="banner estimated small" role="note">{t('trip.warn.estimated')}</p>}
         {plan.uncalibratedFactor && <p className="banner small" role="note">{t('trip.warn.uncalibrated')}</p>}
         {anyTesla && <p className="banner small" role="note">{t('trip.warn.tesla')}</p>}
 
         <ol className="ti-list">
-          <li className="ti-end ti-start">
+          <li className={`ti-end ti-start${gapClass(0)}`}>
             <span className="ti-mark" aria-hidden="true" />
             <div>
               <p className="ti-head"><strong>{from.label}</strong></p>
@@ -90,7 +108,7 @@ export default function Itinerary({ plan, from, to, unit, myCar, selected, onOpe
           {plan.stops.map((s, i) => {
             const links = directionsUrls(s.lonLat);
             return (
-              <li key={`${s.station.i}-${i}`} className={`ti-stop${selected === i ? ' on' : ''}`}>
+              <li key={`${s.station.i}-${i}`} className={`ti-stop${selected === i ? ' on' : ''}${gapClass(i + 1)}`}>
                 <span className="ti-mark ti-num" aria-hidden="true">{i + 1}</span>
                 <div>
                   <p className="ti-head">

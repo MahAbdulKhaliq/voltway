@@ -3,6 +3,7 @@ import { TRIP } from '../src/config.ts';
 import type { MapFeature, MapPort, MapStationProps } from '../src/lib/map-data.ts';
 import { carPlugs } from '../src/lib/map-filter.ts';
 import { buildRoute, type LonLat } from '../src/lib/route-geo.ts';
+import { gapDetails } from '../src/lib/trip-format.ts';
 import { planTrip, type PlanCar, type PlanInput } from '../src/lib/trip-plan.ts';
 
 // A straight route east along 45° N from 80° W. 1° of longitude there ≈ 78.7 km; the route's own
@@ -119,6 +120,32 @@ describe('planTrip: fallbacks', () => {
     expect(p.gaps).toHaveLength(1);
     expect(p.reachable).toBe(false);
     expect(p.arriveSoc).toBeLessThan(0);
+  });
+});
+
+describe('gapDetails: a gap named by the places on either side', () => {
+  it('start → the first charger past the gap, with the arrival %', () => {
+    const [g, ...rest] = gapDetails(plan(500, [station(340, [ccs(150)])]), 'Home', 'Away');
+    expect(rest).toHaveLength(0);
+    expect(g).toMatchObject({ leg: 0, fromName: 'Home', toName: 'S340', makesIt: true });
+    expect(g.distanceKm).toBeCloseTo(340, 0);
+    expect(g.arriveSoc).toBeCloseTo(5, 0);
+  });
+
+  it('a gap after a stop starts at that stop', () => {
+    const [g] = gapDetails(plan(900, [station(280, [ccs(150)]), station(560, [ccs(150)])]), 'Home', 'Away');
+    expect(g).toMatchObject({ leg: 1, fromName: 'S280', toName: 'S560', makesIt: true });
+  });
+
+  it('says when the car is not expected to make it', () => {
+    let [g] = gapDetails(plan(900, [station(700, [ccs(150)])]), 'Home', 'Away');
+    expect(g).toMatchObject({ leg: 0, toName: 'S700', makesIt: false });
+    [g] = gapDetails(plan(500, []), 'Home', 'Away');
+    expect(g).toMatchObject({ leg: 0, fromName: 'Home', toName: 'Away', makesIt: false });
+  });
+
+  it('no gaps, no details', () => {
+    expect(gapDetails(plan(500, [station(280, [ccs(150)])]), 'Home', 'Away')).toEqual([]);
   });
 });
 

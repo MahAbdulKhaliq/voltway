@@ -171,3 +171,20 @@ Only curb_weight_kg and consumption_highway_wh_per_km (checklist 3.3). Canadian 
 - Car and Driver pages cannot be fetched or searched from this tool (domain blocked), so no C&D figures; not worked around.
 - Not attached: bZ (Nyland bZ4X AWD is the old 71.4 kWh pack; 2026 FWD XLE Plus tests are the 74.7 kWh pack vs our 57.7 kWh standard), Ioniq 9 (Euro 21-inch, motor output unverified), EX30 single-motor ER (our data 51 kWh LFP vs Nyland 65.4 kWh), BMW i4 (pre-July-2025 cars only).
 - Our Polestar 2 2025 variants show 78/75 kWh (OpenEV); Nyland's 2024+ refresh cars measure 79.1 kWh (82 kWh pack). Probably stale pack data.
+
+## 2026-11-16: trip-planner battery gaps (research/batch-2026-11-16-trip-battery.json, --check OK, not applied)
+- Leaf 2026 S+/SV+/Platinum+: usable 75.1 kWh (Nissan global press kit spec table; US press kit says only "75 kWh"). Low confidence (global page, not Canada-specific). The 52 kWh S trim is reported delayed/not sold; no variant for it.
+- Silverado EV 2026 Standard Range (WT, LT): GM spec guide (gmupfitter PDF) shows 4WT = 14 modules (Ext 20, Max 24), no kWh. Usable 119 recorded as estimated (204 x 14/24, InsideEVs RST usable); third-party tables say 119 usable / 125 nominal (Green Cars Compare 403-blocked, search snippets only). IMPORTANT: same GM guide says Standard Range charges at "475 volt, up to 220 kW" (Ext 670 V/300 kW, Max 800 V/350 kW); our existing 350 kW and 800v on std-range variants are the Max pack's values, the batch overwrites them (same source_id). Existing gross 119/170/205 in other Silverado variants may be usable figures mislabelled as gross (Max: 205 gross vs 204 usable in sources).
+- bZ 2026 standard (57.7 kWh FWD): no page states a peak for this pack. dc_max 150 recorded as estimated from InsideEVs/Toyota chief engineer model-level 150 kW cap. No bZ measured curve exists in the DB, so no curve borrowed; none found for the 57.7 pack.
+
+## 2026-11-16: trip-planner ports (research/batch-2026-11-16-trip-ports.json, --check OK, not applied)
+charge_port + supercharger_access for BMW i4 2026 (eDrive40 access only; xDrive40, M60) and Volvo EX30 2026 (3 variants). All low confidence.
+- BMW: i4 stays CCS1; native NACS only for all-new 2026+ models (i5 M60 in US per BMWBlog; iX3, i3 in Canada per BMW Canada release 2026-04-08). Access via Lectron Vortex Plus adapter + RSU: US 2025-12-10, Canada 2026-04-08 (per car as the update arrives). xDrive40/M60 port is estimated from the eDrive40 thinkEV page (covers the i4 range). BMW Canada page text didn't name the i4 in what was read.
+- Volvo EX30: CCS1 from Motor Illustrated (Canadian review incl. Cross Country). Adapter: US dealer page says NACS adapter included with 2026 EX30; Volvo CA NACS page (403 to fetcher, search excerpt only) lists EX30. 2024 Volvo release said EX30 adapter details "later"; no native NACS on any current Volvo except the EX60.
+- Blocked: volvocars.com (US/CA) pages 403, volvodealeraccessories 403, EX30 spec PDF unreadable.
+
+## 2026-11-16: trip-planner HMG (research/batch-2026-11-16-trip-hmg.json, --check OK, not applied)
+- **dc_max_kw (estimated, low confidence):** IONIQ 5 2026 LR / LR AWD / XRT = 260 kW (Hyundai's claimed max for the European 84 kWh car via EV Database; spec line 263; Hyundai Canada 18 min matches the EU claim). EV9 Light = 210 kW (Kia claimed for EU 76.1 kWh RWD via EV Database; Kia NZ brochure agrees; Edmunds reportedly reverses 210/235). No Hyundai/Kia Canada or US page states a car peak.
+- **Curves:** none. No measured E-GMP 84 kWh or EV9 76.1 kWh curve in the DB or found; the EV9 99.8 kWh curve is a different pack so not borrowed for Light. Out of Spec/InsideEVs 2025 IONIQ 5 V3 Supercharger test (126 kW flat, cold) has no per-SoC numbers.
+- **Kona Electric 2026:** ccs1 + via_adapter, read on Hyundai Canada FAQ (names the 2026 KONA Electric). **Niro EV 2026:** ccs1 + via_adapter, low confidence (Kia Canada guide read only as search excerpt; Kia US page confirms adapter needed).
+- Blocked: Hyundai US product-guide PDF unreadable, Edmunds 403, finanzen.net 403, Kia NZ brochure too large, kia.ca guide bodies empty to fetcher.

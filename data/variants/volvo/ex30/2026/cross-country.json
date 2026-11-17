@@ -4,6 +4,15 @@
   "year": 2026,
   "name": "Cross Country",
   "drivetrain": "awd",
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-motorillustrated-ex30-2026",
+      "low_confidence": true,
+      "notes": "Canadian review of the 2026 EX30 line-up including the Cross Country says the EX30 has a CCS1 charge port."
+    }
+  ],
   "trims": [
     {
       "id": "18-in-wheels",

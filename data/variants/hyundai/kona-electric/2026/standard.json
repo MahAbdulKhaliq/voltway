@@ -35,6 +35,22 @@
       "notes": "Test: ~75 mph (about 120 km/h) steady, ~14 C, dry, low wind, wheels not stated, battery-side vs wall-side not stated (article gives kWh per 100 km, probably car display) | InsideEVs 75 mph test of a Kona Electric Long Range (64.8 kWh, same generation and pack). Full-test figure 21.4 kWh per 100 km = 214 Wh/km (first 33 mi 20.3, midpoint 20.5 kWh/100 km). 132 mi driven with 18 % left. Test car was a 2024 (same generation and pack). Wind at his back on the first leg, against on the return."
     }
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-faq-2026-11-16",
+      "notes": "Hyundai Canada FAQ names the 2026 KONA Electric as an EV with a CCS port that can use a NACS adapter available separately."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-faq-2026-11-16",
+      "notes": "Per the same FAQ, with a NACS adapter (sold separately; Hyundai Canada EV hub also advertises a free CCS-to-NACS adapter offer until 2026-12-31 for eligible native-CCS EVs, model list not shown)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

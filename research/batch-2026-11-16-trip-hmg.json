@@ -1,0 +1,72 @@
+{
+  "sources": [
+    {
+      "id": "src-hyundai-ca-faq-2026-11-16",
+      "type": "oem",
+      "title": "Hyundai Canada - Frequently Asked Questions (NACS and Supercharger access)",
+      "url": "https://www.hyundaicanada.com/en/about/faq",
+      "accessed_on": "2026-11-16",
+      "notes": "Read directly: IONIQ 5 and IONIQ 9 from the 2026 model year have a NACS port; other EVs with a CCS port, 'such as the 2026 KONA Electric', and Hyundai EVs of model year 2025 and earlier, can use a NACS adapter 'available separately'. Hyundai Canada EV hub (https://www.hyundaicanada.com/en/evhub/electric-vehicles) adds a free CCS-to-NACS adapter offer for native-CCS Hyundai EVs until 2026-12-31 or while supplies last (Bluelink enrolment and EV Special Care service; eligible models not listed there)."
+    },
+    {
+      "id": "src-kia-us-niro-ev-2026",
+      "type": "oem",
+      "title": "Kia US - 2026 Niro EV",
+      "url": "https://www.kia.com/us/en/niro-ev",
+      "accessed_on": "2026-11-16",
+      "notes": "Read directly: 'Access more than 30,000 NACS compatible Tesla Superchargers w/ a NACS adapter (sold separately)'; 64.8 kWh battery. Does not name the port type."
+    },
+    {
+      "id": "src-kia-ca-nacs-guide-2026",
+      "type": "oem",
+      "title": "Kia Canada - Kia EV Charging Guide: NACS, CCS & Authorized Adapters",
+      "url": "https://www.kia.ca/en/shopping-tools/kia-research/kia-ev-charging-adapter-nacs-ccs-guide-canada",
+      "accessed_on": "2026-11-16",
+      "notes": "Page body not readable by the fetcher; wording taken from a search excerpt: factory NACS ports on 2025+ EV6, 2026 EV9 and 2027 EV5; earlier Kia EVs with CCS1 ports, including Niro EV, need a Kia-approved NACS adapter. Corroborated by the Kia Canada press release of 2025-04-28 (relayed at https://finanzen.net/nachricht/aktien/kia-canada-s-electric-vehicles-adopt-north-american-charging-standard-nacs-14428477, 403 to fetcher, search excerpt only): first NACS Kias are the 2025 EV6 and 2026 EV9; EV6, EV9, Niro EV and current Soul EV owners can buy an accessory adapter at Kia dealers in Canada."
+    }
+  ],
+  "variants": {
+    "hyundai/kona-electric/2026/standard": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq-2026-11-16",
+            "notes": "Hyundai Canada FAQ names the 2026 KONA Electric as an EV with a CCS port that can use a NACS adapter available separately."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq-2026-11-16",
+            "notes": "Per the same FAQ, with a NACS adapter (sold separately; Hyundai Canada EV hub also advertises a free CCS-to-NACS adapter offer until 2026-12-31 for eligible native-CCS EVs, model list not shown)."
+          }
+        ]
+      }
+    },
+    "kia/niro-ev/2026/standard": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "low_confidence": true,
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "notes": "Kia Canada guide (search excerpt): factory NACS only on 2025+ EV6, 2026 EV9, 2027 EV5; CCS1 Kia EVs including Niro EV need an adapter. Kia US 2026 Niro EV page also says Supercharger access needs a NACS adapter. Niro EV not on any factory-NACS list; no page states 'CCS1' for the 2026 Canadian Niro EV outright. Port inferred: the Kia Canada release (2025-04-28, search excerpt) lists only the 2025+ EV6 and 2026 EV9 as factory-NACS and offers Niro EV owners an adapter."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "low_confidence": true,
+            "source_id": "src-kia-us-niro-ev-2026",
+            "notes": "US page: Supercharger access 'w/ a NACS adapter (sold separately)'. Kia Canada (2025-04-28 release, excerpt) says a Kia accessory adapter is sold at all Canadian Kia dealers for Niro EV owners; Tesla app required in Canada."
+          }
+        ]
+      }
+    }
+  }
+}

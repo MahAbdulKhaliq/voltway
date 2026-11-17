@@ -81,7 +81,7 @@ describe('planCarFrom (every built car)', () => {
     const results = cars.map((c) => ({ id: c.id, r: planCarFrom(c) }));
     const failed = results.filter((x) => !x.r.ok);
     expect(results.length).toBeGreaterThan(50);
-    expect(failed.length).toBeLessThanOrEqual(20); // 17 on 2026-11-16: missing port, DC peak or usable kWh (data gaps)
+    expect(failed.length).toBeLessThanOrEqual(5); // 5 on 2026-11-16 (was 17): IONIQ 5 long-range x3, EV9 Light, bZ standard lack a sourced DC peak, so no curve
     for (const f of failed) expect((f.r as { missing: string[] }).missing.length).toBeGreaterThan(0);
   });
   it('a Tesla is a NACS Tesla with a DC peak', () => {

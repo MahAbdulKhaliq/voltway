@@ -4,6 +4,24 @@
   "year": 2026,
   "name": "M60 xDrive",
   "drivetrain": "awd",
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-thinkev-bmw-i4-2026",
+      "low_confidence": true,
+      "notes": "Estimated: thinkEV's 2026 i4 page states CCS1 in the eDrive40 spec table (it gives only range figures for the other trims); same model, generation and year, and the first native NACS BMW is the 2026 i5 M60 (BMWBlog), not the i4 M60."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-bmw-canada-nacs-superchargers-2026-04",
+      "low_confidence": true,
+      "notes": "BMW Canada (2026-04-08): CCS-port BMW BEVs get Supercharger access via RSU and the approved Lectron adapter."
+    }
+  ],
   "trims": [
     {
       "id": "19-in-wheels",

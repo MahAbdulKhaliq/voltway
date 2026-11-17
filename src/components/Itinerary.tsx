@@ -1,14 +1,14 @@
-// The trip itinerary (route-planner.md §7): start → legs and stops → arrival, totals, inline warnings
-// and per-stop links. It is an ordered list, so it is also the accessible version of the route on
-// the map. On the charger map (B50) it sits in the side panel; on phones the panel is a bottom
-// sheet and the stops open with "Show the stops".
+// The trip result (route-planner.md §7; DESIGN-4 4.8): total time first, whole-trip warnings, then
+// start → legs and stops → arrival along the painted line. It is an ordered list, so it is also
+// the accessible version of the route on the map. Each stop is two lines plus one Details control
+// (the station panel holds directions and the curve link). Notes that apply to several stops are
+// said once, with a short tag on the stops they apply to. On phones the stops open with
+// "Show the stops"; the totals, warnings and the "estimate only" line are always visible.
 
 import { useId } from 'react';
-import { t, type MessageKey } from '../i18n/t.ts';
-import type { MyCar } from '../lib/my-car.ts';
+import { t } from '../i18n/t.ts';
 import type { TripEnd } from '../lib/place-search.ts';
-import { directionsUrls } from '../lib/station-details.ts';
-import { gapDetails, hoursMinutes, pct, showDate, stopCurveHref, stopsText } from '../lib/trip-format.ts';
+import { gapDetails, hoursMinutes, pct, showDate, stopsText } from '../lib/trip-format.ts';
 import { NEAR_KM, type TripPlan } from '../lib/trip-plan.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import { TRIP } from '../config.ts';
@@ -18,10 +18,9 @@ interface Props {
   from: TripEnd;
   to: TripEnd;
   unit: DistanceUnit;
-  myCar: MyCar;
   /** The stop whose station panel is open, if any. */
   selected: number | null;
-  /** "Charger details": opens that stop's station panel. */
+  /** "Details": opens that stop's station panel. */
   onOpenStop: (index: number, button: HTMLButtonElement) => void;
   /** Phones: the stops are folded away until opened. */
   open: boolean;
@@ -32,12 +31,14 @@ interface Props {
   carUpdated: string | null;
 }
 
-export default function Itinerary({ plan, from, to, unit, myCar, selected, onOpenStop, open, onToggle, updated, carUpdated }: Props) {
+export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, open, onToggle, updated, carUpdated }: Props) {
   const bodyId = useId();
   const dist = (km: number) => t(unit === 'mi' ? 'fmt.mi' : 'fmt.km', { value: formatNumber(kmTo(km, unit)) });
   const tilde = (estimated: boolean) => (estimated ? '~' : '');
   const anyEstimated = plan.carEstimated || plan.stops.some((s) => s.estimated);
   const anyTesla = plan.stops.some((s) => s.teslaNetwork);
+  const anyAdapter = plan.stops.some((s) => s.teslaNetwork && s.adapter);
+  const anyCarCap = plan.stops.some((s) => s.usableKw < s.stationKw);
   /** Nothing compatible anywhere the car needed a charge: say so first, in plain words. */
   const noChargers = plan.stops.length === 0 && plan.gaps.length > 0;
   const gaps = gapDetails(plan, from.label, to.label);
@@ -55,27 +56,30 @@ export default function Itinerary({ plan, from, to, unit, myCar, selected, onOpe
       </>
     );
   };
-  /** The list item whose connector runs along a gap leg: the start (leg 0) or stop i (leg i + 1). */
+  /** The list item whose line runs along a gap leg: the start (leg 0) or stop i (leg i + 1). */
   const gapClass = (legIndex: number) => (gapLegs.has(legIndex) ? ' ti-gap' : '');
 
   return (
     <div className={`route-itinerary${open ? ' open' : ''}`}>
       <div className="ti-top">
-        <h2 className="ti-title">{t('trip.itinerary')}</h2>
+        <h2 className="sr-only">{t('trip.itinerary')}</h2>
+        <p className="ti-time">
+          <span className="sr-only">{t('trip.totalTimeLabel')} </span>
+          {tilde(anyEstimated && plan.totals.chargeMin > 0)}{hoursMinutes(plan.totals.totalMin)}
+        </p>
         <p className="ti-total">
-          {t('trip.total', {
+          {t('trip.totalLine', {
             distance: dist(plan.totals.distanceKm),
             drive: hoursMinutes(plan.totals.driveMin),
             stops: stopsText(plan.totals.stops),
             charge: `${tilde(anyEstimated && plan.totals.chargeMin > 0)}${hoursMinutes(plan.totals.chargeMin)}`,
           })}
         </p>
-        <p className="small muted ti-total-time">{t('trip.totalTime', { time: hoursMinutes(plan.totals.totalMin) })}</p>
-        {noChargers && <p className="banner" role="alert">{t('trip.warn.noChargers')}</p>}
-        {!plan.reachable && !noChargers && !gapSaysUnreachable && <p className="banner" role="alert">{t('trip.warn.unreachable')}</p>}
+        {noChargers && <p className="banner small" role="alert">{t('trip.warn.noChargers')}</p>}
+        {!plan.reachable && !noChargers && !gapSaysUnreachable && <p className="banner small" role="alert">{t('trip.warn.unreachable')}</p>}
         {/* Charging gaps stay above the fold on phones: they are never behind "Show the stops". */}
         {!noChargers && gaps.map((g) => (
-          <p key={g.leg} className="banner" role="alert">
+          <p key={g.leg} className="banner small" role="alert">
             {t(g.makesIt ? 'trip.warn.gapOk' : 'trip.warn.gapShort', {
               distance: dist(g.distanceKm),
               from: g.fromName,
@@ -85,17 +89,13 @@ export default function Itinerary({ plan, from, to, unit, myCar, selected, onOpe
             })}
           </p>
         ))}
+        <p className="small muted ti-disclaimer">{t('trip.disclaimer')}</p>
         <button type="button" className="btn small ti-toggle" aria-expanded={open} aria-controls={bodyId} onClick={onToggle}>
           {open ? t('trip.sheetHide') : t('trip.sheetShow')}
         </button>
       </div>
 
       <div id={bodyId} className="ti-body">
-        {/* Warnings that apply to the whole trip (route-planner §7). */}
-        {anyEstimated && <p className="banner estimated small" role="note">{t('trip.warn.estimated')}</p>}
-        {plan.uncalibratedFactor && <p className="banner small" role="note">{t('trip.warn.uncalibrated')}</p>}
-        {anyTesla && <p className="banner small" role="note">{t('trip.warn.tesla')}</p>}
-
         <ol className="ti-list">
           <li className={`ti-end ti-start${gapClass(0)}`}>
             <span className="ti-mark" aria-hidden="true" />
@@ -105,50 +105,35 @@ export default function Itinerary({ plan, from, to, unit, myCar, selected, onOpe
               {leg(0)}
             </div>
           </li>
-          {plan.stops.map((s, i) => {
-            const links = directionsUrls(s.lonLat);
-            return (
-              <li key={`${s.station.i}-${i}`} className={`ti-stop${selected === i ? ' on' : ''}${gapClass(i + 1)}`}>
-                <span className="ti-mark ti-num" aria-hidden="true">{i + 1}</span>
-                <div>
-                  <p className="ti-head">
-                    <span className="sr-only">{t('trip.stopN', { n: i + 1 })} </span>
-                    <strong>{s.station.n}</strong>
-                  </p>
-                  <p className="ti-soc">{t('trip.arriveCharge', { arrive: pct(s.arriveSoc), depart: pct(s.departSoc) })}</p>
-                  <p className="small">
-                    {t('trip.stopPower', {
-                      kw: formatNumber(s.usableKw),
-                      plug: t(`value.${s.plug}` as MessageKey),
-                      minutes: `${tilde(s.estimated)}${formatNumber(Math.round(s.chargeMin))}`,
-                      overhead: formatNumber(s.overheadMin),
-                    })}
-                  </p>
-                  {s.usableKw < s.stationKw && <p className="small muted">{t('trip.carCap', { station: formatNumber(s.stationKw) })}</p>}
+          {plan.stops.map((s, i) => (
+            <li key={`${s.station.i}-${i}`} className={`ti-stop${selected === i ? ' on' : ''}${gapClass(i + 1)}`}>
+              <span className="ti-mark ti-num" aria-hidden="true">{i + 1}</span>
+              <div>
+                <p className="ti-head">
+                  <span className="sr-only">{t('trip.stopN', { n: i + 1 })} </span>
+                  <strong>{s.station.n}</strong>
+                </p>
+                <p className="ti-soc">
+                  {t('trip.stopLine', {
+                    arrive: pct(s.arriveSoc),
+                    depart: pct(s.departSoc),
+                    minutes: `${tilde(s.estimated)}${formatNumber(Math.round(s.chargeMin))}`,
+                  })}
+                </p>
+                <p className="ti-row">
+                  <button type="button" className="btn small" data-stop={i} aria-label={t('trip.detailsFor', { name: s.station.n })} onClick={(e) => onOpenStop(i, e.currentTarget)}>
+                    {t('trip.details')}
+                  </button>
+                  {s.teslaNetwork && <span className="ti-tag">{t(s.adapter ? 'trip.tag.adapter' : 'trip.tag.tesla')}</span>}
+                  {s.usableKw < s.stationKw && <span className="ti-tag">{t('trip.tag.carCap')}</span>}
                   {s.offKm > NEAR_KM && (
-                    <p className="small ti-note">{t('trip.warn.detour', { off: dist(s.offKm), min: formatNumber(Math.round(s.detourMin)) })}</p>
+                    <span className="ti-tag">{t('trip.tag.detour', { off: dist(s.offKm), min: formatNumber(Math.round(s.detourMin)) })}</span>
                   )}
-                  {s.teslaNetwork && <p className="small ti-note">{t(s.adapter ? 'trip.warn.teslaStopAdapter' : 'trip.warn.teslaStop')}</p>}
-                  {s.pick === 'afterGap' && <p className="small ti-note">{t('trip.warn.afterGap')}</p>}
-                  <ul className="ti-links small">
-                    <li>
-                      <button type="button" className="linklike" data-stop={i} onClick={(e) => onOpenStop(i, e.currentTarget)}>
-                        {t('trip.openCharger')}
-                      </button>
-                    </li>
-                    <li><a href={stopCurveHref(myCar, s)}>{t('trip.seeCurve')}</a></li>
-                    <li>
-                      <a href={links.google} target="_blank" rel="noopener">{t('map.station.google')} <span className="sr-only">{t('map.station.newTab')}</span></a>
-                    </li>
-                    <li>
-                      <a href={links.apple} target="_blank" rel="noopener">{t('map.station.apple')} <span className="sr-only">{t('map.station.newTab')}</span></a>
-                    </li>
-                  </ul>
-                  {leg(i + 1)}
-                </div>
-              </li>
-            );
-          })}
+                </p>
+                {leg(i + 1)}
+              </div>
+            </li>
+          ))}
           <li className="ti-end ti-finish">
             <span className="ti-mark" aria-hidden="true" />
             <div>
@@ -158,13 +143,30 @@ export default function Itinerary({ plan, from, to, unit, myCar, selected, onOpe
           </li>
         </ol>
 
-        <footer className="ti-foot small muted">
-          <p>{t('trip.winter')}</p>
-          <p>{t('trip.disclaimer')}</p>
-          <p>{t('trip.assumptions', { payload: TRIP.payloadKg, target: TRIP.chargeToSoc, overhead: TRIP.stopOverheadMin })}</p>
-          {updated && <p>{t('map.station.footer', { date: showDate(updated) })}</p>}
-          {carUpdated && <p>{t('trip.carDataDate', { date: showDate(carUpdated) })}</p>}
-        </footer>
+        {/* Said once for the trip; the tags on the stops point here. */}
+        {(anyTesla || anyCarCap) && (
+          <ul className="ti-notes small">
+            {anyTesla && (
+              <li>
+                <span className="ti-tag">{t('trip.tag.tesla')}</span> {t('trip.warn.tesla')}
+                {anyAdapter && <> {t('trip.note.adapter')}</>}
+              </li>
+            )}
+            {anyCarCap && <li><span className="ti-tag">{t('trip.tag.carCap')}</span> {t('trip.note.carCap')}</li>}
+          </ul>
+        )}
+
+        <details className="ti-how small">
+          <summary>{t('trip.how')}</summary>
+          <div className="muted">
+            {anyEstimated && <p>{t('trip.warn.estimated')}</p>}
+            {plan.uncalibratedFactor && <p>{t('trip.warn.uncalibrated')}</p>}
+            <p>{t('trip.assumptions', { payload: TRIP.payloadKg, target: TRIP.chargeToSoc, overhead: TRIP.stopOverheadMin })}</p>
+            <p>{t('trip.winter')}</p>
+            {updated && <p>{t('map.station.footer', { date: showDate(updated) })}</p>}
+            {carUpdated && <p>{t('trip.carDataDate', { date: showDate(carUpdated) })}</p>}
+          </div>
+        </details>
       </div>
     </div>
   );

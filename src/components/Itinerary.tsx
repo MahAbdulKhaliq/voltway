@@ -87,7 +87,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
         {!plan.reachable && !noChargers && !gapSaysUnreachable && <p className="banner small" role="alert">{t('trip.warn.unreachable')}</p>}
         {/* Charging gaps stay above the fold on phones: they are never behind "Show the stops". */}
         {!noChargers && gaps.map((g) => (
-          <p key={g.leg} className="banner small" role="alert">
+          <p key={g.leg} className="banner small ti-gap-warn" role="alert">
             {t(g.makesIt ? 'trip.warn.gapOk' : 'trip.warn.gapShort', {
               distance: dist(g.distanceKm),
               from: g.fromName,

@@ -1,0 +1,930 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-17T20:23:24.362Z",
+  "title": "Design System: Voltway",
+  "extensions": {
+    "colorMeta": {
+      "centre-line-yellow": {
+        "role": "primary",
+        "displayName": "Centre-Line Yellow",
+        "canonical": "#FFD400",
+        "tonalRamp": [
+          "#4D4310",
+          "#89740B",
+          "#C4A405",
+          "#FFD400",
+          "#FDDD3D",
+          "#FCE46D",
+          "#FAEB9E",
+          "#F9F2CF"
+        ]
+      },
+      "paint-ink": {
+        "role": "primary",
+        "displayName": "Paint Ink",
+        "canonical": "#1A1B1E",
+        "tonalRamp": [
+          "#141517",
+          "#16171A",
+          "#18191C",
+          "#1A1B1E",
+          "#525253",
+          "#7E7E7E",
+          "#AAAAA8",
+          "#D7D6D3"
+        ]
+      },
+      "asphalt": {
+        "role": "neutral",
+        "displayName": "Asphalt",
+        "canonical": "#1A1B1E",
+        "tonalRamp": [
+          "#141517",
+          "#16171A",
+          "#18191C",
+          "#1A1B1E",
+          "#525253",
+          "#7E7E7E",
+          "#AAAAA8",
+          "#D7D6D3"
+        ]
+      },
+      "asphalt-surface": {
+        "role": "neutral",
+        "displayName": "Asphalt Surface",
+        "canonical": "#1F2023",
+        "tonalRamp": [
+          "#151619",
+          "#191A1C",
+          "#1C1D20",
+          "#1F2023",
+          "#555657",
+          "#818181",
+          "#ACACAA",
+          "#D7D7D4"
+        ]
+      },
+      "asphalt-surface-raised": {
+        "role": "neutral",
+        "displayName": "Raised Asphalt",
+        "canonical": "#2A2B2F",
+        "tonalRamp": [
+          "#18191C",
+          "#1E1F22",
+          "#242529",
+          "#2A2B2F",
+          "#5E5E60",
+          "#878787",
+          "#B0B0AE",
+          "#D9D8D6"
+        ]
+      },
+      "asphalt-border": {
+        "role": "neutral",
+        "displayName": "Asphalt Border",
+        "canonical": "#34353A",
+        "tonalRamp": [
+          "#1B1C1E",
+          "#232428",
+          "#2C2D31",
+          "#34353A",
+          "#656668",
+          "#8C8C8D",
+          "#B3B3B2",
+          "#DBDAD7"
+        ]
+      },
+      "asphalt-field-border": {
+        "role": "neutral",
+        "displayName": "Field Border (dark)",
+        "canonical": "#7C7A72",
+        "tonalRamp": [
+          "#2D2D2C",
+          "#474744",
+          "#62605B",
+          "#7C7A72",
+          "#9B9992",
+          "#B4B2AC",
+          "#CDCBC6",
+          "#E5E4E0"
+        ]
+      },
+      "road-band": {
+        "role": "neutral",
+        "displayName": "Road Band",
+        "canonical": "#2B2C30",
+        "tonalRamp": [
+          "#18191C",
+          "#1F2023",
+          "#252629",
+          "#2B2C30",
+          "#5E5F61",
+          "#878788",
+          "#B0B0AF",
+          "#D9D9D6"
+        ]
+      },
+      "road-marking-white": {
+        "role": "neutral",
+        "displayName": "Road-Marking White",
+        "canonical": "#F5F3EC",
+        "tonalRamp": [
+          "#4B4B4B",
+          "#848381",
+          "#BCBBB6",
+          "#F5F3EC",
+          "#F6F4EE",
+          "#F6F5EF",
+          "#F7F6F1",
+          "#F8F6F2"
+        ]
+      },
+      "worn-marking": {
+        "role": "neutral",
+        "displayName": "Worn Marking",
+        "canonical": "#A4A29A",
+        "tonalRamp": [
+          "#373736",
+          "#5B5B58",
+          "#807E79",
+          "#A4A29A",
+          "#B9B7B0",
+          "#CAC8C2",
+          "#DBD9D4",
+          "#EBEAE6"
+        ]
+      },
+      "concrete": {
+        "role": "neutral",
+        "displayName": "Concrete",
+        "canonical": "#EEEDE8",
+        "tonalRamp": [
+          "#494A4A",
+          "#80807F",
+          "#B7B7B3",
+          "#EEEDE8",
+          "#F1F0EB",
+          "#F3F2ED",
+          "#F5F4EF",
+          "#F7F6F1"
+        ]
+      },
+      "concrete-surface": {
+        "role": "neutral",
+        "displayName": "Concrete Surface",
+        "canonical": "#FAF9F5",
+        "tonalRamp": [
+          "#4C4D4D",
+          "#868685",
+          "#C0C0BD",
+          "#FAF9F5",
+          "#FAF9F5",
+          "#F9F8F4",
+          "#F9F8F4",
+          "#F8F7F3"
+        ]
+      },
+      "concrete-surface-sunk": {
+        "role": "neutral",
+        "displayName": "Sunk Concrete",
+        "canonical": "#E4E3DD",
+        "tonalRamp": [
+          "#474747",
+          "#7B7B79",
+          "#B0AFAB",
+          "#E4E3DD",
+          "#E9E8E3",
+          "#EDECE7",
+          "#F1F0EB",
+          "#F5F4F0"
+        ]
+      },
+      "concrete-border": {
+        "role": "neutral",
+        "displayName": "Concrete Border",
+        "canonical": "#D5D3CB",
+        "tonalRamp": [
+          "#434343",
+          "#747370",
+          "#A4A39E",
+          "#D5D3CB",
+          "#DEDCD5",
+          "#E5E3DD",
+          "#ECEAE5",
+          "#F3F2ED"
+        ]
+      },
+      "concrete-field-border": {
+        "role": "neutral",
+        "displayName": "Field Border (light)",
+        "canonical": "#6E6D66",
+        "tonalRamp": [
+          "#292A29",
+          "#40403E",
+          "#575752",
+          "#6E6D66",
+          "#919089",
+          "#ACABA5",
+          "#C8C7C2",
+          "#E3E2DE"
+        ]
+      },
+      "concrete-text-muted": {
+        "role": "neutral",
+        "displayName": "Muted Concrete Text",
+        "canonical": "#55544E",
+        "tonalRamp": [
+          "#232323",
+          "#343432",
+          "#444440",
+          "#55544E",
+          "#7E7D77",
+          "#9E9D98",
+          "#BFBEB9",
+          "#E0DFDA"
+        ]
+      },
+      "amber-text": {
+        "role": "primary",
+        "displayName": "Amber Text",
+        "canonical": "#6F5300",
+        "tonalRamp": [
+          "#292310",
+          "#41330B",
+          "#584305",
+          "#6F5300",
+          "#917C3D",
+          "#AD9D6D",
+          "#C8BE9E",
+          "#E3DECF"
+        ]
+      },
+      "amber-soft": {
+        "role": "primary",
+        "displayName": "Pale Yellow",
+        "canonical": "#FFF1A8",
+        "tonalRamp": [
+          "#4D4B3A",
+          "#89825F",
+          "#C4BA83",
+          "#FFF1A8",
+          "#FDF3BB",
+          "#FCF4CA",
+          "#FAF5D9",
+          "#F9F6E8"
+        ]
+      },
+      "yellow-soft-dark": {
+        "role": "primary",
+        "displayName": "Night Yellow",
+        "canonical": "#3A3310",
+        "tonalRamp": [
+          "#1C1B14",
+          "#262313",
+          "#302B11",
+          "#3A3310",
+          "#6A6449",
+          "#908B76",
+          "#B6B2A4",
+          "#DCDAD1"
+        ]
+      },
+      "construction-orange": {
+        "role": "secondary",
+        "displayName": "Construction Orange",
+        "canonical": "#FF7A1A",
+        "tonalRamp": [
+          "#4D2D16",
+          "#894718",
+          "#C46019",
+          "#FF7A1A",
+          "#FD9950",
+          "#FCB27C",
+          "#FACBA7",
+          "#F9E4D2"
+        ]
+      },
+      "construction-orange-deep": {
+        "role": "secondary",
+        "displayName": "Deep Orange",
+        "canonical": "#9A3F00",
+        "tonalRamp": [
+          "#341E10",
+          "#56290B",
+          "#783405",
+          "#9A3F00",
+          "#B26D3D",
+          "#C4926D",
+          "#D7B79E",
+          "#EADBCF"
+        ]
+      },
+      "warn-soft-dark": {
+        "role": "secondary",
+        "displayName": "Night Orange",
+        "canonical": "#3A2210",
+        "tonalRamp": [
+          "#1C1714",
+          "#261B13",
+          "#301E11",
+          "#3A2210",
+          "#6A5749",
+          "#908276",
+          "#B6ACA4",
+          "#DCD7D1"
+        ]
+      },
+      "warn-soft-light": {
+        "role": "secondary",
+        "displayName": "Pale Orange",
+        "canonical": "#FFE3CC",
+        "tonalRamp": [
+          "#4D4743",
+          "#897B71",
+          "#C4AF9E",
+          "#FFE3CC",
+          "#FDE8D6",
+          "#FCECDE",
+          "#FAF0E5",
+          "#F9F4ED"
+        ]
+      },
+      "estimate-violet": {
+        "role": "secondary",
+        "displayName": "Estimate Violet",
+        "canonical": "#C9B8FF",
+        "tonalRamp": [
+          "#403C50",
+          "#6E668A",
+          "#9B8FC5",
+          "#C9B8FF",
+          "#D5C8FC",
+          "#DED4FA",
+          "#E8E1F7",
+          "#F1EEF5"
+        ]
+      },
+      "estimate-violet-deep": {
+        "role": "secondary",
+        "displayName": "Deep Violet",
+        "canonical": "#5B34C4",
+        "tonalRamp": [
+          "#241B41",
+          "#37246D",
+          "#492C98",
+          "#5B34C4",
+          "#8265D0",
+          "#A28CD9",
+          "#C1B3E3",
+          "#E0DAEC"
+        ]
+      },
+      "estimate-soft-dark": {
+        "role": "secondary",
+        "displayName": "Night Violet",
+        "canonical": "#2C2640",
+        "tonalRamp": [
+          "#191820",
+          "#1F1D2B",
+          "#262135",
+          "#2C2640",
+          "#5F5A6D",
+          "#888491",
+          "#B1AEB4",
+          "#D9D8D8"
+        ]
+      },
+      "estimate-soft-light": {
+        "role": "secondary",
+        "displayName": "Pale Violet",
+        "canonical": "#E9E3F8",
+        "tonalRamp": [
+          "#48474E",
+          "#7E7B87",
+          "#B3AFBF",
+          "#E9E3F8",
+          "#EDE8F7",
+          "#F0ECF6",
+          "#F3F0F5",
+          "#F6F4F4"
+        ]
+      },
+      "unknown-light": {
+        "role": "neutral",
+        "displayName": "Unknown (light)",
+        "canonical": "#5F5E58",
+        "tonalRamp": [
+          "#252626",
+          "#393937",
+          "#4C4B47",
+          "#5F5E58",
+          "#85847F",
+          "#A4A39E",
+          "#C2C1BD",
+          "#E1E0DC"
+        ]
+      },
+      "location-blue": {
+        "role": "tertiary",
+        "displayName": "Location Blue",
+        "canonical": "#1D4ED8",
+        "tonalRamp": [
+          "#152246",
+          "#183177",
+          "#1A3FA7",
+          "#1D4ED8",
+          "#5478DF",
+          "#809AE4",
+          "#ABBCEA",
+          "#D7DEEF"
+        ]
+      },
+      "map-water-dark": {
+        "role": "neutral",
+        "displayName": "map-water-dark",
+        "canonical": "#10151C",
+        "tonalRamp": [
+          "#121417",
+          "#111419",
+          "#11151A",
+          "#10151C",
+          "#4A4E52",
+          "#787B7D",
+          "#A7A8A8",
+          "#D5D5D3"
+        ]
+      },
+      "map-water-light": {
+        "role": "neutral",
+        "displayName": "map-water-light",
+        "canonical": "#B4C4CC",
+        "tonalRamp": [
+          "#3B3F43",
+          "#636C71",
+          "#8C989E",
+          "#B4C4CC",
+          "#C5D1D6",
+          "#D3DBDE",
+          "#E0E5E5",
+          "#EEEFED"
+        ]
+      },
+      "map-green-dark": {
+        "role": "neutral",
+        "displayName": "map-green-dark",
+        "canonical": "#1C211E",
+        "tonalRamp": [
+          "#151717",
+          "#171A1A",
+          "#1A1E1C",
+          "#1C211E",
+          "#535753",
+          "#7F817E",
+          "#ABACA8",
+          "#D7D7D3"
+        ]
+      },
+      "map-green-light": {
+        "role": "neutral",
+        "displayName": "map-green-light",
+        "canonical": "#DCE3D5",
+        "tonalRamp": [
+          "#454745",
+          "#777B75",
+          "#AAAFA5",
+          "#DCE3D5",
+          "#E3E8DD",
+          "#E9ECE3",
+          "#EEF0E9",
+          "#F4F4EF"
+        ]
+      },
+      "map-motorway-dark": {
+        "role": "neutral",
+        "displayName": "map-motorway-dark",
+        "canonical": "#55565D",
+        "tonalRamp": [
+          "#232427",
+          "#343539",
+          "#44454B",
+          "#55565D",
+          "#7E7E83",
+          "#9E9EA1",
+          "#BFBFBF",
+          "#E0DFDD"
+        ]
+      },
+      "map-road-casing-light": {
+        "role": "neutral",
+        "displayName": "map-road-casing-light",
+        "canonical": "#A9A79E",
+        "tonalRamp": [
+          "#383837",
+          "#5E5D5A",
+          "#83827C",
+          "#A9A79E",
+          "#BDBBB3",
+          "#CDCBC4",
+          "#DCDBD5",
+          "#ECEBE6"
+        ]
+      },
+      "map-label-dark": {
+        "role": "neutral",
+        "displayName": "map-label-dark",
+        "canonical": "#D8D6CD",
+        "tonalRamp": [
+          "#444443",
+          "#757571",
+          "#A7A59F",
+          "#D8D6CD",
+          "#E0DED7",
+          "#E6E5DE",
+          "#EDEBE6",
+          "#F3F2ED"
+        ]
+      },
+      "map-water-label-dark": {
+        "role": "neutral",
+        "displayName": "map-water-label-dark",
+        "canonical": "#7F8FA3",
+        "tonalRamp": [
+          "#2D3239",
+          "#49515C",
+          "#647080",
+          "#7F8FA3",
+          "#9DA9B7",
+          "#B5BEC7",
+          "#CED3D7",
+          "#E6E7E7"
+        ]
+      },
+      "map-water-label-light": {
+        "role": "neutral",
+        "displayName": "map-water-label-light",
+        "canonical": "#2F4858",
+        "tonalRamp": [
+          "#192026",
+          "#212E37",
+          "#283B47",
+          "#2F4858",
+          "#61747F",
+          "#89979E",
+          "#B2BABD",
+          "#DADDDC"
+        ]
+      },
+      "car-1-dark": {
+        "role": "tertiary",
+        "displayName": "car-1-dark",
+        "canonical": "#6FB1FF",
+        "tonalRamp": [
+          "#293B50",
+          "#41628A",
+          "#588AC5",
+          "#6FB1FF",
+          "#91C3FC",
+          "#ADD1FA",
+          "#C8DFF7",
+          "#E3EDF5"
+        ]
+      },
+      "car-2-dark": {
+        "role": "tertiary",
+        "displayName": "car-2-dark",
+        "canonical": "#FF9A4D",
+        "tonalRamp": [
+          "#4D3523",
+          "#895731",
+          "#C4783F",
+          "#FF9A4D",
+          "#FDB177",
+          "#FCC498",
+          "#FAD6B9",
+          "#F9E9DA"
+        ]
+      },
+      "car-3-dark": {
+        "role": "tertiary",
+        "displayName": "car-3-dark",
+        "canonical": "#4ADE9A",
+        "tonalRamp": [
+          "#204636",
+          "#2E7958",
+          "#3CAB79",
+          "#4ADE9A",
+          "#76E4B0",
+          "#98E9C2",
+          "#BBEED4",
+          "#DEF3E6"
+        ]
+      },
+      "car-4-dark": {
+        "role": "tertiary",
+        "displayName": "car-4-dark",
+        "canonical": "#F58BC1",
+        "tonalRamp": [
+          "#4B3140",
+          "#844F6B",
+          "#BC6D96",
+          "#F58BC1",
+          "#F6A6CE",
+          "#F6BCD8",
+          "#F7D1E2",
+          "#F8E7EC"
+        ]
+      },
+      "car-1-light": {
+        "role": "tertiary",
+        "displayName": "car-1-light",
+        "canonical": "#1D4ED8",
+        "tonalRamp": [
+          "#152246",
+          "#183177",
+          "#1A3FA7",
+          "#1D4ED8",
+          "#5478DF",
+          "#809AE4",
+          "#ABBCEA",
+          "#D7DEEF"
+        ]
+      },
+      "car-2-light": {
+        "role": "tertiary",
+        "displayName": "car-2-light",
+        "canonical": "#B03A06",
+        "tonalRamp": [
+          "#3A1D11",
+          "#61270E",
+          "#89300A",
+          "#B03A06",
+          "#C26941",
+          "#D08F71",
+          "#DFB5A0",
+          "#EDDBCF"
+        ]
+      },
+      "car-3-light": {
+        "role": "tertiary",
+        "displayName": "car-3-light",
+        "canonical": "#04704F",
+        "tonalRamp": [
+          "#0F2A24",
+          "#0B4232",
+          "#085941",
+          "#04704F",
+          "#419278",
+          "#72AD99",
+          "#A3C8BA",
+          "#D3E3DA"
+        ]
+      },
+      "car-4-light": {
+        "role": "tertiary",
+        "displayName": "car-4-light",
+        "canonical": "#4B4D58",
+        "tonalRamp": [
+          "#202226",
+          "#2F3037",
+          "#3D3F47",
+          "#4B4D58",
+          "#76787F",
+          "#999A9E",
+          "#BBBCBD",
+          "#DEDEDC"
+        ]
+      },
+      "supercharger-red": {
+        "role": "tertiary",
+        "displayName": "Supercharger Red",
+        "canonical": "#E82127",
+        "tonalRamp": [
+          "#48171A",
+          "#7D1A1E",
+          "#B31E23",
+          "#E82127",
+          "#EC575A",
+          "#EF8183",
+          "#F2ACAC",
+          "#F6D7D4"
+        ]
+      },
+      "faded-marking": {
+        "role": "neutral",
+        "displayName": "Faded Marking",
+        "canonical": "#8A8980",
+        "tonalRamp": [
+          "#303130",
+          "#4E4E4B",
+          "#6C6C65",
+          "#8A8980",
+          "#A6A59D",
+          "#BCBBB4",
+          "#D2D1CB",
+          "#E8E7E2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page titles and the trip total time."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card and panel titles, stop names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text and controls, tabular figures for numbers."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav links, chips, badges, small notes."
+      }
+    },
+    "shadows": [
+      {
+        "name": "float-light",
+        "value": "0 1px 2px rgb(26 27 30 / 8%), 0 4px 16px rgb(26 27 30 / 6%)",
+        "purpose": "Surfaces floating over the map, light theme."
+      },
+      {
+        "name": "float-dark",
+        "value": "0 1px 2px rgb(0 0 0 / 45%), 0 8px 24px rgb(0 0 0 / 30%)",
+        "purpose": "Surfaces floating over the map, dark theme."
+      }
+    ],
+    "motion": [
+      {
+        "name": "press",
+        "value": "translateY(1px)",
+        "purpose": "Pressed buttons drop 1px."
+      },
+      {
+        "name": "switch",
+        "value": "transform 0.15s",
+        "purpose": "Plug switch knob; off under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "420px"
+      },
+      {
+        "name": "phone",
+        "value": "640px"
+      },
+      {
+        "name": "panel-closed",
+        "value": "767px"
+      },
+      {
+        "name": "nav-links",
+        "value": "900px"
+      },
+      {
+        "name": "content-max",
+        "value": "1120px"
+      }
+    ],
+    "mapPalette": {
+      "source": "src/lib/map-style.ts MAP_PALETTE; src/lib/trip-map-style.ts TRIP_MAP; src/lib/map-icons.ts PIN, MAP_MARK",
+      "note": "Base map recoloured to asphalt (dark) and concrete (light); marks and the trip line use the colours above."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one main action on a surface, e.g. Plan trip.",
+      "html": "<button class=\"ds-btn-primary\">Plan trip</button>",
+      "css": ".ds-btn-primary { font: 600 0.9rem/1.3 \"Archivo Variable\", system-ui, sans-serif; background: #FFD400; color: #1A1B1E; border: 1px solid #FFD400; border-radius: 8px; padding: 6px 12px; cursor: pointer; } .ds-btn-primary:hover { background: color-mix(in srgb, #FFD400 86%, #FFFFFF); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 3px solid #FFD400; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Any other action.",
+      "html": "<button class=\"ds-btn\">Stations in view</button>",
+      "css": ".ds-btn { font: 400 0.9rem/1.3 \"Archivo Variable\", system-ui, sans-serif; background: #1F2023; color: #F5F3EC; border: 1px solid #7C7A72; border-radius: 8px; padding: 6px 12px; cursor: pointer; } .ds-btn:hover { background: #2A2B2F; } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 3px solid #FFD400; outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Search and number fields, e.g. Where to?",
+      "html": "<input class=\"ds-field\" type=\"search\" placeholder=\"Where to?\">",
+      "css": ".ds-field { font: 400 16px/1.5 \"Archivo Variable\", system-ui, sans-serif; background: #1F2023; color: #F5F3EC; border: 1px solid #7C7A72; border-radius: 8px; padding: 6px 10px; width: 240px; } .ds-field::placeholder { color: #A4A29A; } .ds-field:hover { border-color: #F5F3EC; } .ds-field:focus-visible { outline: 3px solid #FFD400; outline-offset: 2px; }"
+    },
+    {
+      "name": "Header Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pick your car / My car and Compare in the nav pill.",
+      "html": "<button class=\"ds-chip\">Pick your car</button>",
+      "css": ".ds-chip { font: 400 0.875rem/1.3 \"Archivo Variable\", system-ui, sans-serif; display: inline-flex; align-items: center; min-height: 36px; padding: 4px 12px; background: #1F2023; color: #F5F3EC; border: 1px solid #7C7A72; border-radius: 999px; cursor: pointer; } .ds-chip:hover { background: #2A2B2F; } .ds-chip:focus-visible { outline: 3px solid #FFD400; outline-offset: 2px; }"
+    },
+    {
+      "name": "Navigation Pill",
+      "kind": "nav",
+      "refersTo": "nav-pill",
+      "description": "The floating header on every page; the current page is painted yellow.",
+      "html": "<nav class=\"ds-pill\"><span class=\"ds-logo\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"0.4\" y=\"0.4\" width=\"23.2\" height=\"23.2\" rx=\"6\" fill=\"#FFD400\" stroke=\"#1A1B1E\" stroke-width=\"0.8\"/><path d=\"M9.4 3h5.2L20 21.5H4Z\" fill=\"#1A1B1E\"/><path d=\"M12.9 4.6 9.7 12.3h2.6l-1.3 6.5 3.8-8.1h-2.7l.8-6.1Z\" fill=\"#FFD400\"/></svg>Voltway</span><a aria-current=\"page\" href=\"#\">Map</a><a href=\"#\">Charging</a><a href=\"#\">Cars</a><a href=\"#\">Compare</a></nav>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 2px; padding: 6px 8px; background: #1F2023; border: 1px solid #34353A; border-radius: 999px; box-shadow: 0 1px 2px rgb(0 0 0 / 45%), 0 8px 24px rgb(0 0 0 / 30%); font-family: \"Archivo Variable\", system-ui, sans-serif; } .ds-logo { display: inline-flex; align-items: center; gap: 8px; margin: 0 10px 0 4px; color: #F5F3EC; font-weight: 800; font-size: 1.15rem; } .ds-pill a { padding: 6px 10px; border-radius: 999px; color: #F5F3EC; text-decoration: none; font-size: 0.9rem; font-weight: 600; } .ds-pill a:hover { background: #2A2B2F; } .ds-pill a[aria-current=\"page\"] { background: #FFD400; color: #1A1B1E; } .ds-pill a:focus-visible { outline: 3px solid #FFD400; outline-offset: 2px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Flat content container on content pages.",
+      "html": "<div class=\"ds-card\"><h3>Charging 10 → 80 %</h3><p class=\"ds-num\">~25 min · 143 kW average</p></div>",
+      "css": ".ds-card { background: #1F2023; color: #F5F3EC; border: 1px solid #34353A; border-radius: 12px; padding: 20px; width: 260px; font-family: \"Archivo Variable\", system-ui, sans-serif; } .ds-card h3 { margin: 0 0 6px; font-size: 1.05rem; font-weight: 600; } .ds-num { margin: 0; color: #A4A29A; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Source Badge",
+      "kind": "chip",
+      "refersTo": "source-badge-official",
+      "description": "On every vehicle figure: official (yellow) and estimated (violet, dashed, italic).",
+      "html": "<span class=\"ds-badge ds-official\">Official (Canada)</span> <span class=\"ds-badge ds-estimated\">Estimated</span>",
+      "css": ".ds-badge { display: inline-flex; padding: 1px 8px; border-radius: 999px; font: 400 0.75rem/1.4 \"Archivo Variable\", system-ui, sans-serif; border: 1px solid; } .ds-official { color: #FFD400; background: #3A3310; border-color: color-mix(in srgb, #FFD400 40%, transparent); } .ds-estimated { color: #C9B8FF; background: #2C2640; border-style: dashed; font-style: italic; }"
+    },
+    {
+      "name": "Trip Line",
+      "kind": "custom",
+      "description": "The planned trip: yellow paint on a road band; a gap is dashed with an orange edge.",
+      "html": "<div class=\"ds-trip\"><svg width=\"320\" height=\"60\" viewBox=\"0 0 320 60\" aria-hidden=\"true\"><path d=\"M10 40 C 70 10, 130 10, 170 30\" stroke=\"#2B2C30\" stroke-width=\"12\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M10 40 C 70 10, 130 10, 170 30\" stroke=\"#FFD400\" stroke-width=\"4.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M170 30 L 300 30\" stroke=\"#FF7A1A\" stroke-width=\"14\" fill=\"none\"/><path d=\"M170 30 L 300 30\" stroke=\"#2B2C30\" stroke-width=\"9\" fill=\"none\"/><path d=\"M170 30 L 300 30\" stroke=\"#FFD400\" stroke-width=\"4.5\" stroke-dasharray=\"9 7\" fill=\"none\"/><circle cx=\"10\" cy=\"40\" r=\"8\" fill=\"#FFD400\" stroke=\"#1A1B1E\" stroke-width=\"3\"/><circle cx=\"170\" cy=\"30\" r=\"12\" fill=\"#F5F3EC\" stroke=\"#1A1B1E\" stroke-width=\"2\"/><text x=\"170\" y=\"34.5\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"#1A1B1E\" font-family=\"system-ui\">1</text><circle cx=\"300\" cy=\"30\" r=\"8\" fill=\"#1A1B1E\" stroke=\"#F5F3EC\" stroke-width=\"3\"/></svg></div>",
+      "css": ".ds-trip { background: #1A1B1E; padding: 12px; border-radius: 12px; display: inline-block; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Road Paint",
+    "overview": "Voltway is a highway at night, and the trip is the paint on it. Surfaces are asphalt charcoal; the one strong colour is centre-line yellow, kept for what the visitor should follow: the planned route, the primary action, the current page. Road-marking white draws stop bars and Level 2 chargers, and construction orange flags trouble (a charging gap, an unavailable charger). The light theme is the same road in daylight: pale concrete surfaces with the same roles, and yellow text turning dark amber where yellow would not read.\n\nThe interface is an Operate tool, used before a trip on a phone or laptop. It is calm and dense rather than decorative: the map fills the screen, and the planner card, navigation pill and map controls float over it on small rounded surfaces. Precision shows in tabular figures, a source badge on every vehicle figure, dashed lines for estimates, and a missing charger drawn as plainly as a present one.\n\nIt deliberately refuses the category default of a dark navy map app with a green accent, and it has no blue, teal or green interface colours. The exceptions are the comparison series and the blue \"you are here\" dot.",
+    "keyCharacteristics": [
+      "Asphalt charcoal and concrete surfaces; one loud colour, centre-line yellow.",
+      "Filled yellow buttons always carry dark ink labels.",
+      "Dashed means \"not certain\": estimated curves, charging gaps.",
+      "Floating pill and card surfaces over a full-screen map.",
+      "Archivo throughout, with tabular figures for every number."
+    ],
+    "rules": [
+      {
+        "name": "The One Paint Rule",
+        "body": "Centre-line yellow marks what to follow: the trip, the primary action, the current place. If two yellow things compete on a screen, one of them is wrong. While a trip shows, charger marks turn grey so the trip is the only yellow on the map (B54).",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink-On-Paint Rule",
+        "body": "Anything filled yellow carries Paint Ink (#1A1B1E) text or glyphs, never white.",
+        "section": "colors"
+      },
+      {
+        "name": "The Amber-In-Daylight Rule",
+        "body": "Yellow is never used for text on concrete; the light theme uses Amber Text (#6F5300) for links and focus.",
+        "section": "colors"
+      },
+      {
+        "name": "The One-Meaning Rule",
+        "body": "Orange means a problem, violet means an estimate, red means Tesla. None of them is decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "Every number a visitor compares (times, kWh, kW, km) uses tabular figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Muted-Suffix Rule",
+        "body": "A variant name's code suffix (\"-B (pre-6/11/25)\") is shown as a separate, muted span after the plain name (4.16), never in the same weight.",
+        "section": "typography"
+      },
+      {
+        "name": "The Float-Only Rule",
+        "body": "Shadows mean \"floating over the map\". Cards on content pages stay flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep Centre-Line Yellow (#FFD400) for the trip, the primary action and the current place, and grey out chargers while a trip shows.",
+      "Do put Paint Ink (#1A1B1E) on every yellow fill.",
+      "Do switch text accents to Amber Text (#6F5300) in the light theme.",
+      "Do dash anything estimated or uncertain, and label it \"Estimated\".",
+      "Do show a source badge on every vehicle figure.",
+      "Do use tabular figures for numbers people compare.",
+      "Do add every new colour pair to `tests/contrast.test.ts` (4.5:1 text, 3:1 graphics and controls)."
+    ],
+    "donts": [
+      "Don't use blue, teal or green for interface chrome; the comparison series and the location dot are the only exceptions.",
+      "Don't put yellow text on concrete or white text on yellow.",
+      "Don't use orange, violet or red for anything but warnings, estimates and Tesla pins.",
+      "Don't add shadows to flat content cards; shadows mean floating over the map.",
+      "Don't show speed or plug tags on groups of 20 or more chargers."
+    ]
+  }
+}

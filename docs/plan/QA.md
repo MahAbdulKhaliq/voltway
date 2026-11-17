@@ -384,7 +384,7 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 
 ---
 
-# Phase 4: whole-site redesign, "Road Paint" (`DESIGN-4.md`, B52–B53)
+# Phase 4: whole-site redesign, "Road Paint" (`DESIGN-4.md`, B52–B57)
 
 Run `npx vitest run`, `npx astro check` and `npm run build` first. Check every item in dark and light, at 375 px and at desktop width, unless it says otherwise. Test trips: Toronto → Montréal (no gap) and Greater Sudbury → Thunder Bay with a Kia EV6 Wind (a charging gap). `/api/route` allows 30 calls per 10 minutes.
 
@@ -395,7 +395,7 @@ Run `npx vitest run`, `npx astro check` and `npm run build` first. Check every i
 | QR3 | The map uses Voltway's own style on OpenFreeMap tiles; roads and town labels readable at regional zoom; attribution wording unchanged | Theme switch swaps the style without a reload |
 | QR4 | Home, desktop: planner card top left, navigation pill top right, controls bottom right; nothing covers "Locate me" | 1280 px and 1024 px |
 | QR5 | Home, 375 px: planner is a bottom sheet; the map keeps at least 200 px; no sideways scroll | Keyboard open on a real phone |
-| QR6 | First visit (cleared storage): one destination search and a "your car" tile; picking a car is a compact search | "Just browsing" path still reaches the map |
+| QR6 | First visit (cleared storage): one destination search and a "your car" tile; picking a car is a compact search | "Just browsing" in the picker goes to Cars (database-ui.md §3); the header's Map link returns to the map |
 | QR7 | Unplannable cars (e.g. 2026 IONIQ 5 Long Range AWD) are marked and sorted last in the picker; if chosen, the message contains "Change car" | |
 | QR8 | Trip result: total time is the largest text; distance, stops and charging on one line under it | Zero stops; ten stops |
 | QR9 | Charging gap: warning under the totals, visible with the sheet collapsed; the gap leg is dashed in the list and on the map; names both places | The "not expected to make it" wording |
@@ -403,18 +403,51 @@ Run `npx vitest run`, `npx astro check` and `npm run build` first. Check every i
 | QR11 | Tesla and "your car takes less" notes appear once per trip, with a tag on the stops they apply to | A Tesla car shows no Tesla note |
 | QR12 | "How this was estimated" holds assumptions, the winter note and data dates; "This is an estimate…" is visible without opening it | |
 | QR13 | A six-stop plan's sheet is under 1,600 px tall at 375 px | |
-| QR14 | Filters open from one control with a count when narrowed; all four plugs visible; "my car" and the plug boxes agree | |
+| QR14 | Filters open from one control with a count when narrowed; Plugs is a disclosure with all four plugs visible; the map has no "Chargers my car can use" box (removed by B55) | |
 | QR15 | After a reload the last trip is restored or offered in one tap, with no extra `/api/route` call until asked | Cleared storage shows no "Last trip" |
 | QR16 | Selecting a stop highlights it in the list and on the map; Escape and focus return work as in QP2 | Keyboard only |
-| QR17 | Cars, car page, Charging, Compare, About, 404 are in the new look with the same content, filters and links as before; source badges present on every vehicle figure | Compare with 4 cars |
+| QR17 | Cars, car page, Charging, Compare, About, 404 are in the new look with the same content, filters and links as before; source badges present on every stored vehicle figure (calculated values such as 10–80 % time carry the "Estimated" row tag instead) | Compare with 4 cars |
 | QR18 | Charging chart: new palette, estimated curve dashed with its badge, guides drag | km/mi switch |
 | QR19 | Wording: "Trip" used consistently; variant names plain with the regulator suffix secondary; no hard-coded strings in components | |
 | QR20 | axe-core: no serious or critical violations on every page and map state | Both themes |
 | QR21 | No ABRP or car-maker logo, font or asset anywhere; no new third-party request | Network tab |
 | QR22 | Root `DESIGN.md` and `.impeccable/design.json` describe the built tokens and components | |
+| QR23 | B54: the small floating header pill is on every page (sticky on content pages); "Pick your car" opens a dialog, not a page; the Map key sits above Locate me and lists every mark | 375 px: the key opens as a popup within the screen |
+| QR24 | B54/B55 marks: clusters are a dark disc with a pale count and a ring split yellow (Level 3, from 12 o'clock) / white (Level 2); speed bolts and plug drawings only on groups under 20 and on pins; NACS drawn from the J3400 face; chargers turn grey while a trip shows | Both themes |
+| QR25 | B55 Tesla and logo: Supercharger pins red with a white T, Destination pins white with a red T, both in the Map key; header, favicon and link preview use the road-and-bolt tile | 16 px favicon readable |
+| QR26 | B55 plugs: the My car menu has NACS / CCS1 / CHAdeMO switches (car's own plug on by default), saved with My car; trips use them and the trip panel says "Plugs used … Change plugs"; the picker dialog explains the default | Re-picking the same car keeps the switches; a different car resets them |
+| QR27 | B56 locate on load: the map centres on the visitor after the browser's prompt; nothing is asked or shown when permission was refused; a trip link does not locate; a late answer does not move a map the visitor has already moved or a trip they opened; nothing is stored | Real phone (first-time prompt) |
+| QR28 | B57: chargers stay grouped up to zoom 15, so downtown pins don't pile up | Downtown Toronto at zoom 14.5 |
 
 ## Phase 4 results
 
 | ID | Pass / Fail | Notes |
 |----|-------------|-------|
-| QR1–QR22 | | |
+| QR1 | Pass | No pre-4.1 colours left in `src/` except `#1D4ED8`, kept on purpose (light car-1 series, location dot). Archivo from the site's own origin (@fontsource), `font-display: swap` with a system fallback. Offline reload not possible in the browser tool. (qa-reviewer; ui-check-4.20) |
+| QR2 | Pass | vitest 537/537 incl. contrast.test.ts; contrast-pairs: all CSS pairs covered. |
+| QR3 | Pass | Own recoloured style on OpenFreeMap tiles; side-menu theme switch swaps the style without a reload (ui-check-4.20); attribution unchanged. |
+| QR4 | Pass | 1280 and 1024 px; nothing covers Locate me (ui-check-4.17 follow-up). |
+| QR5 | Pass | 375×812 and 375×667: sheet, map ≥ 220 px, no sideways scroll. Keyboard on a real phone: owner phone test (4.18). |
+| QR6 | Pass | First visit: search + car tile, compact picker; Just browsing → Cars, Map link back (ui-check-4.20). |
+| QR7 | Pass | Unplannable cars tagged and last, in the planner and (since 4.20) the header dialog; "Change car" in the message. |
+| QR8 | Pass | Total time largest (32 px); 0 stops (Toronto → Hamilton) and 10 stops (Toronto → Halifax) render correctly (ui-check-4.20). |
+| QR9 | Pass | Gap warning under the totals, fully above the fold at 375×812 and 375×667 after the 4.20 fix; dashed leg; both places named. |
+| QR10 | Pass | Two lines + Details; a 72-character station name wraps with no overflow at 375 (ui-check-4.20). |
+| QR11 | Pass | Tesla and Car-limited notes once, tags on their stops; no Tesla note for a Tesla car (ui-check-4.17 follow-up). |
+| QR12 | Pass | Disclaimer outside "How this was estimated"; assumptions, winter note and data dates inside. |
+| QR13 | Pass | Six-stop sheet 1,458–1,473 px at 375. |
+| QR14 | Pass | One Chargers control with a count; Plugs disclosure with four plugs; no "my car" box (B55). |
+| QR15 | Pass | Last trip offered after reload; no /api/route call until asked; none with cleared storage. |
+| QR16 | Pass | Keyboard Details → panel, aria-current, Escape returns focus. |
+| QR17 | Pass | Car page 22 figures / 22 badges; Compare (4 cars) 57 / 57; calculated rows tagged Estimated (ui-check-4.20). |
+| QR18 | Pass | Dashed estimate with badge, guide drag, km/mi; limit label fixed in 4.17. |
+| QR19 | Pass | "Trip" throughout; variant code muted on Cars, Compare, car page and (since 4.20) pickers and chip; no hard-coded strings. |
+| QR20 | Pass | axe 0 serious/critical on every page and map state, incl. trip form, gap trip, 10-stop trip in dark/light × 1280/375 (ui-check-4.17, 4.20). |
+| QR21 | Pass | Only the site's origin and tiles.openfreemap.org. |
+| QR22 | Pass | Root DESIGN.md + .impeccable/design.json; all 48 colours checked against the code (4.20 fixes). |
+| QR23 | Pass | ui-check-4.21-4.25. |
+| QR24 | Pass | ui-check-4.21-4.25, ui-check-4.26-4.30. |
+| QR25 | Pass | ui-check-4.26-4.30; T outline thickened in 4.17. |
+| QR26 | Pass | ui-check-4.26-4.30; re-pick keeps switches (ui-check-4.20). |
+| QR27 | Pass | Stubbed: flies when untouched, stays put after drag/place/trip, quiet when denied, not on trip links (ui-check-4.26-4.30, 4.20). Real first-time prompt: owner phone test (4.18). |
+| QR28 | Pass | Downtown Toronto at zoom 14.5 shows groups (main session check, ui-check-4.20). |

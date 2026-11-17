@@ -6,6 +6,8 @@ import { useEffect, useId, useMemo, useState } from 'react';
 import { t } from '../i18n/t.ts';
 import { makeCarSearch, tripReadyFirst } from '../lib/car-search.ts';
 import type { IndexEntry } from '../lib/types.ts';
+import { splitVariantName } from '../lib/variant-name.ts';
+import VariantName from './VariantName.tsx';
 
 interface Props {
   cars: IndexEntry[];
@@ -17,9 +19,9 @@ interface Props {
 }
 
 const MAX_SUGGESTIONS = 8;
-const optionLabel = (e: IndexEntry) => `${e.year} ${e.make} ${e.model} · ${e.name}`;
-/** The short name shown for a chosen car ("IONIQ 5 Long Range"). */
-export const carLabel = (e: IndexEntry) => `${e.model} ${e.name}`;
+const OptionLabel = ({ e }: { e: IndexEntry }) => <>{`${e.year} ${e.make} ${e.model} · `}<VariantName name={e.name} /></>;
+/** The short name shown for a chosen car ("IONIQ 5 Long Range"), without the regulator's code (4.16). */
+export const carLabel = (e: IndexEntry) => `${e.model} ${splitVariantName(e.name).plain}`;
 
 export default function CarSearchField({ cars, label, onPick, onCancel, autoFocus }: Props) {
   const id = useId();
@@ -75,7 +77,7 @@ export default function CarSearchField({ cars, label, onPick, onCancel, autoFocu
           {suggestions.map((s, i) => (
             <li key={s.id} id={optionId(i)} role="option" aria-selected={i === active} className={`car-search-opt${i === active ? ' on' : ''}`}
               onMouseDown={(e) => e.preventDefault()} onClick={() => onPick(s.id)}>
-              <span>{optionLabel(s)}</span>
+              <span><OptionLabel e={s} /></span>
               {!s.trip_ready && <span className="car-search-tag small muted">{t('car.search.noTrip')}</span>}
             </li>
           ))}

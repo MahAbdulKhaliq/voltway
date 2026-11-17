@@ -334,7 +334,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     const f = (typeof window !== 'undefined' && applyMapLink(window.location.search, saved)) || saved;
     return { ...f, myCar: false };
   });
-  // My car (B28): its plug rule for "Chargers my car can use", read from its car file.
+  // My car (B28): its plug rule (B55: its plug switches) for the station panel and trips, read from its car file.
   const [myCar, setMyCarState] = useState<MyCar | null>(() => getMyCar());
   const [carInfo, setCarInfo] = useState<CarMapInfo | null>(null);
   const [pickingCar, setPickingCar] = useState(false);
@@ -655,11 +655,13 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   };
 
   // Locate me: on load (B56) and on click; the position is used to centre the map and kept nowhere.
-  const locateMe = () => {
+  // auto = the locate on load (B56): it shows no messages, and it does not move the map once the
+  // visitor has moved it, picked a place or opened the trip planner (the answer can come late).
+  const locateMe = (auto = false) => {
     const map = mapRef.current;
     if (!map) return;
-    if (!('geolocation' in navigator)) return setLocate('unsupported');
-    setLocate('busy');
+    if (!('geolocation' in navigator)) return auto ? undefined : setLocate('unsupported');
+    if (!auto) setLocate('busy');
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
         const at: [number, number] = [coords.longitude, coords.latitude];
@@ -669,11 +671,11 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         dot.setAttribute('role', 'img');
         dot.setAttribute('aria-label', t('map.you'));
         youRef.current = new maplibregl.Marker({ element: dot }).setLngLat(at).addTo(map);
-        map.flyTo({ center: at, zoom: Math.max(map.getZoom(), 12) }, { locate: true });
-        setLocate('idle');
+        if (!(auto && interactedRef.current)) map.flyTo({ center: at, zoom: Math.max(map.getZoom(), 12) }, { locate: true });
+        if (!auto) setLocate('idle');
       },
       // 1 = PERMISSION_DENIED (compared by value: the constant isn't on every error object).
-      (err) => setLocate(err.code === 1 ? 'denied' : 'failed'),
+      (err) => { if (!auto) setLocate(err.code === 1 ? 'denied' : 'failed'); },
       { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 },
     );
   };
@@ -681,15 +683,25 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   // permission the first time, as Locate me does. Skipped when a trip link opened route mode, and
   // skipped quietly when permission was already refused (no error on every visit).
   const autoLocated = useRef(false);
+  const interactedRef = useRef(false);
+  useEffect(() => { if (place || routeMode) interactedRef.current = true; }, [place, routeMode]);
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    // Only a visitor's own drag or zoom counts (it carries the browser event).
+    const moved = (e: { originalEvent?: unknown }) => { if (e.originalEvent) interactedRef.current = true; };
+    map.on('movestart', moved);
+    return () => { map.off('movestart', moved); };
+  }, [mapStatus]);
   useEffect(() => {
     if (mapStatus !== 'ready' || autoLocated.current) return;
     autoLocated.current = true;
     if (readTripLink(window.location.search) || !('geolocation' in navigator)) return;
     const perms = (navigator as Navigator & { permissions?: Permissions }).permissions;
-    if (!perms?.query) return locateMe();
+    if (!perms?.query) return locateMe(true);
     perms
       .query({ name: 'geolocation' as PermissionName })
-      .then((s) => s.state !== 'denied' && locateMe(), () => locateMe());
+      .then((s) => s.state !== 'denied' && locateMe(true), () => locateMe(true));
   }, [mapStatus]); // eslint-disable-line react-hooks/exhaustive-deps
   // Failure messages clear themselves; the button stays for another try.
   useEffect(() => {
@@ -962,7 +974,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         </svg>
         <span>{t('map.key.toggle')}</span>
       </button>
-      <button type="button" className="map-locate" onClick={locateMe} disabled={locate === 'busy'}>
+      <button type="button" className="map-locate" onClick={() => locateMe()} disabled={locate === 'busy'}>
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="4" fill="currentColor" />
           <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />

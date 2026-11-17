@@ -93,7 +93,7 @@ First visit; car chosen; unplannable car; planning; planned; charging gap; not e
 - Ship Voltway's own MapLibre style for dark and light, built on the OpenFreeMap tile source already in use (`src/config.ts` `MAP.styleUrl` / `darkStyleUrl`).
 - Land, water, roads and labels take palette colours. Roads must stay readable at regional zoom (the critique found the light basemap too pale).
 - **B55 (2026-11-17):** cluster split moves to the ring (dark disc, pale count, white Level 2 arc and yellow Level 3 arc); speed and plug tags only on groups under 20 and on pins; red Tesla Supercharger pins with a T; NACS drawn from the J3400 face; logo = yellow tile with a road in perspective and a bolt centre line.
-- **Clusters and pins (B54):** split cluster discs (white Level 2 part, yellow Level 3 part, vertical line, sized by count), speed bolts top right, plug marks stacked on the left. While a trip shows, chargers off the trip turn grey and faded so only the trip is yellow.
+- **Clusters and pins (B54):** ~~split cluster discs (white Level 2 part, yellow Level 3 part, vertical line, sized by count)~~ *(replaced by the B55 ring above)*, speed bolts top right, plug marks stacked on the left. While a trip shows, chargers off the trip turn grey and faded so only the trip is yellow.
 - Route: yellow with a dark road-band casing. Gap: dashed. Pins and stop numbers keep 3:1 against their casing (`tests/contrast.test.ts`).
 - The attribution wording required by OpenFreeMap / OpenMapTiles / OSM is unchanged.
 

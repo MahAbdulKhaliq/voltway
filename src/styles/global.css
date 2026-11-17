@@ -103,6 +103,8 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
+/* Anchor targets (e.g. /about#data from the map credit) land below the sticky header pill. */
+html { scroll-padding-top: 80px; }
 body {
   margin: 0;
   background: var(--bg);
@@ -406,6 +408,8 @@ a.btn { display: inline-block; text-decoration: none; }
 @media (max-width: 640px) {
   .charger-map { display: flex; flex-direction: column; }
   .charger-map .map-canvas { position: relative; inset: auto; flex: 1 0 264px; }
+  /* A charging-gap warning is a safety message: give the sheet room so it stays above the fold. */
+  .charger-map:has(.ti-gap-warn) .map-canvas { flex-basis: 220px; }
   .map-panel, .map-panel.route { position: relative; top: auto; left: auto; width: auto; flex: 0 1 auto; min-height: 0; max-height: none; overflow-y: auto; border-width: 1px 0 0; border-radius: 14px 14px 0 0; box-shadow: none; }
   .charger-map .map-status { top: 112px; bottom: auto; }
   .map-corner { top: 64px; /* under the pill */ right: 8px; bottom: auto; max-width: calc(100% - 16px); }

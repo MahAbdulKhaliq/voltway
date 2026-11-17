@@ -113,7 +113,7 @@ export default function TripResults({ plan, route, routeKey, from, to, unit, myC
           />
         </Suspense>
         {panelStation && (
-          <StationPanel station={panelStation} updated={updated} onClose={closePanel} myCar={myCar} carInfo={carInfo} tripLink={false} />
+          <StationPanel station={panelStation} updated={updated} onClose={closePanel} myCar={myCar} carInfo={carInfo} />
         )}
       </div>
 

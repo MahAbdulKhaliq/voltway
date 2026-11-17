@@ -19,7 +19,6 @@ import {
   stationStatus,
   teslaNote,
 } from '../lib/station-details.ts';
-import { tripToHref } from '../lib/trip-link.ts';
 
 /** "2026-12-01" → "Dec 1, 2026" (read as a calendar date, not a UTC instant). */
 function showDate(iso: string): string {
@@ -36,10 +35,11 @@ interface Props {
   myCar?: MyCar | null;
   carInfo?: CarMapInfo | null;
   /** "Plan a trip to here" (3.13); off on the trip page's own panel. */
-  tripLink?: boolean;
+  /** "Route here" (B50): opens route mode on the same map with this station as To. */
+  onRouteHere?: () => void;
 }
 
-export default function StationPanel({ station, updated, onClose, myCar = null, carInfo = null, tripLink = true }: Props) {
+export default function StationPanel({ station, updated, onClose, myCar = null, carInfo = null, onRouteHere }: Props) {
   const s = station.properties;
   const heading = useRef<HTMLHeadingElement>(null);
   const level = stationLevel(s.p);
@@ -118,10 +118,10 @@ export default function StationPanel({ station, updated, onClose, myCar = null, 
           </ul>
         </section>
 
-        {(curveHref || tripLink) && (
+        {(curveHref || onRouteHere) && (
           <ul className="station-curve station-actions">
             {curveHref && <li><a href={curveHref}>{t('map.station.howFast')}</a></li>}
-            {tripLink && <li><a href={tripToHref(station)}>{t('map.station.planTrip')}</a></li>}
+            {onRouteHere && <li><button type="button" className="linklike" onClick={onRouteHere}>{t('map.place.route')}</button></li>}
           </ul>
         )}
 

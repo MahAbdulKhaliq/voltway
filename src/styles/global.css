@@ -272,6 +272,32 @@ main.fill { flex: 1; min-height: 0; position: relative; }
   .map-place { left: 0; right: 0; bottom: 0; width: auto; border-radius: 14px 14px 0 0; border-bottom: 0; padding-bottom: 16px; }
 }
 
+/* Route mode (B50, 3.18): the panel holds the route form and the itinerary. Desktop: a wider
+   left column that scrolls; phones: a bottom sheet with the totals showing and the stops folded. */
+.map-route-btn { flex: none; }
+.map-panel.route { width: 380px; max-height: calc(100% - 24px); overflow-y: auto; }
+.route-panel { display: grid; gap: 10px; padding: 10px 14px 14px; }
+.route-head { display: flex; align-items: center; gap: 8px; }
+.route-title { flex: 1; margin: 0; font-size: 1rem; }
+.route-head .map-place-close { margin: 0 -6px 0 0; }
+.route-form { display: grid; gap: 8px; }
+.route-swap-row { display: flex; justify-content: flex-end; margin: -2px 0; }
+.route-swap { display: inline-flex; align-items: center; gap: 4px; }
+.route-car { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.route-car p { flex: 1 1 180px; min-width: 0; margin: 0; }
+.route-settings { display: grid; gap: 10px; justify-items: start; }
+.route-summary { display: grid; gap: 4px; }
+.route-summary p { margin: 0; }
+.route-ends { overflow-wrap: anywhere; }
+.route-car-pick { max-height: 60vh; overflow-y: auto; }
+.route-panel .banner { margin: 0; }
+.route-itinerary { border-top: 1px solid var(--border); padding-top: 10px; }
+@media (max-width: 640px) {
+  .map-panel.route { top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 72%; border-radius: 14px 14px 0 0; border-bottom: 0; }
+  .route-itinerary:not(.open) .ti-body { display: none; }
+  .route-itinerary .ti-toggle { display: inline-block; margin-top: 4px; }
+}
+
 /* Locate me: bottom left on desktop, above the attribution. */
 .map-locate { position: absolute; left: 12px; bottom: 40px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; min-height: 40px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); font: inherit; font-weight: 600; cursor: pointer; }
 .map-locate:disabled { cursor: progress; opacity: 0.8; }

@@ -104,7 +104,8 @@ function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: numb
     data,
     cluster: true,
     clusterRadius: 48,
-    clusterMaxZoom: 13,
+    // B57 (owner, 2026-11-17): grouped up to zoom 15, so pins and their tags pile up less downtown.
+    clusterMaxZoom: 15,
     clusterProperties: CLUSTER_PROPERTIES as Record<string, unknown>,
   } as maplibregl.GeoJSONSourceSpecification);
   // Clusters (B54): a disc split into its Level 2 and Level 3 parts, with speed and plug tags.
@@ -168,7 +169,7 @@ function PinIcon({ level, unavailable = false, tesla = false }: { level: Charger
       <circle cx="14" cy="14" r="11" fill={fill} />
       <g transform="translate(6 6) scale(0.6667)">
         {tesla ? (
-          <path d={TESLA_T} fill={level === 3 ? PIN.teslaGlyph : PIN.tesla} />
+          <path d={TESLA_T} fill={level === 3 ? PIN.teslaGlyph : PIN.tesla} stroke={level === 3 ? PIN.teslaGlyph : PIN.tesla} strokeWidth="1.1" strokeLinejoin="round" />
         ) : level === 3 ? (
           <path d={BOLT} fill={PIN.glyph} />
         ) : (
@@ -931,7 +932,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         </p>
       )}
       {keyOpen && (
-        <section id="map-key" className="map-key" aria-labelledby="map-key-title">
+        <section id="map-key" className="map-key" aria-labelledby="map-key-title" tabIndex={0}>
           <h2 id="map-key-title" className="map-key-title">{t('map.key.title')}</h2>
           <ul>
             <li><PinIcon level={3} /> <span>{t('map.level3')}</span></li>

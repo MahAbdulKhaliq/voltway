@@ -293,7 +293,13 @@ export function drawMark(m: MarkSpec, ratio = 2): { image: ImageData; size: numb
     g.scale(16 / 24, 16 / 24);
     if (m.tesla) {
       g.fillStyle = level3 && !m.trip && !m.unavailable ? PIN.teslaGlyph : m.trip || m.unavailable ? PIN.glyph : PIN.tesla;
-      g.fill(new Path2D(TESLA_T));
+      const tee = new Path2D(TESLA_T);
+      g.fill(tee);
+      // 4.17: the thin arc was faint at pin size (red on white); an outline in the same colour thickens it.
+      g.strokeStyle = g.fillStyle;
+      g.lineWidth = 1.1;
+      g.lineJoin = 'round';
+      g.stroke(tee);
     } else if (level3) {
       g.fillStyle = PIN.glyph;
       g.fill(new Path2D(BOLT));

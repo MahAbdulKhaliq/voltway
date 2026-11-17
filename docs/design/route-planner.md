@@ -147,7 +147,7 @@ To stay inside the 1,000 searches per day:
 ## 7. Results screen
 
 ### Map
-- **The charger map itself (B50).** The route line, plus numbered **stop pins**. Pins use the Phase 2 style. The other chargers stay visible but faded (filters still apply), so an alternative stop is easy to spot.
+- **The charger map itself (B50).** The route line, plus numbered **stop pins**. Since B53 (Road Paint, 2026-11-17): the route is a yellow line on a dark road band, a charging gap is the same line dashed with an orange edge, and stops are white numbered pins. The other chargers stay visible but faded (filters still apply), so an alternative stop is easy to spot.
 - Each stop pin opens the same **popup** as the charger map.
 
 ### Itinerary (side panel in place of the filters; bottom sheet on phones)

@@ -33,7 +33,7 @@ import {
   type ChargerLevel,
   type PowerRange,
 } from '../lib/power-bands.ts';
-import { BOLT, drawPin, PIN, PLUG, pinId } from '../lib/map-icons.ts';
+import { BOLT, drawPin, MAP_MARK, PIN, PLUG, pinId } from '../lib/map-icons.ts';
 import { fastNear, NEAR_PLACE_KM, stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
 import PlaceField, { loadPlaces } from './PlaceField.tsx';
 import type { PlaceSearch, TripEnd } from '../lib/place-search.ts';
@@ -84,9 +84,9 @@ function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: numb
     source: 'stations',
     filter: ['has', 'point_count'],
     paint: {
-      'circle-color': '#1E293B',
+      'circle-color': MAP_MARK.cluster,
       'circle-opacity': 0.88,
-      'circle-stroke-color': '#FFFFFF',
+      'circle-stroke-color': MAP_MARK.clusterRing,
       'circle-stroke-width': 2,
       'circle-radius': ['step', ['get', 'point_count'], 14, 25, 18, 100, 22, 500, 27],
     },
@@ -102,7 +102,7 @@ function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: numb
       'text-size': 12,
       'text-allow-overlap': true,
     },
-    paint: { 'text-color': '#FFFFFF' },
+    paint: { 'text-color': MAP_MARK.clusterText },
   });
   map.addLayer({
     id: 'selected',
@@ -110,10 +110,10 @@ function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: numb
     source: 'stations',
     filter: selectedFilter(selected),
     paint: {
-      // White disc with a dark ring: stands out on the light and the dark base map.
+      // Pale disc with a dark ring: stands out on the light and the dark base map.
       'circle-radius': 18,
-      'circle-color': '#FFFFFF',
-      'circle-stroke-color': '#111827',
+      'circle-color': MAP_MARK.selectedFill,
+      'circle-stroke-color': MAP_MARK.selectedRing,
       'circle-stroke-width': 3,
     },
   });
@@ -151,9 +151,9 @@ function PinIcon({ level, unavailable = false }: { level: ChargerLevel; unavaila
       </g>
       {unavailable && (
         <g>
-          <circle cx="22" cy="6" r="5.5" fill="#111827" stroke={PIN.ring} strokeWidth="1.5" />
-          <rect x="21.25" y="3" width="1.5" height="4" fill="#fff" />
-          <rect x="21.25" y="8" width="1.5" height="1.5" fill="#fff" />
+          <circle cx="22" cy="6" r="5.5" fill={PIN.badge} stroke={PIN.ring} strokeWidth="1.5" />
+          <rect x="21.25" y="3" width="1.5" height="4" fill={PIN.badgeMark} />
+          <rect x="21.25" y="8" width="1.5" height="1.5" fill={PIN.badgeMark} />
         </g>
       )}
     </svg>

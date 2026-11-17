@@ -60,20 +60,23 @@ export function addTripLayers(map: maplibregl.Map, o: TripOverlay | null) {
   map.addSource('trip-line', { type: 'geojson', data: lineFC(o?.line ?? []) });
   map.addSource('trip-gaps', { type: 'geojson', data: gapFC(o?.gaps ?? []) });
   map.addSource('trip-points', { type: 'geojson', data: pointFC(o) });
-  map.addLayer({ id: 'trip-casing', type: 'line', source: 'trip-line', layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-color': TRIP_MAP.casing, 'line-width': 8 } });
+  map.addLayer({ id: 'trip-casing', type: 'line', source: 'trip-line', layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-color': TRIP_MAP.band, 'line-width': 12 } });
   map.addLayer({ id: 'trip-route', type: 'line', source: 'trip-line', layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-color': TRIP_MAP.route, 'line-width': 4.5 } });
-  map.addLayer({ id: 'trip-gap', type: 'line', source: 'trip-gaps', layout: { 'line-cap': 'butt' }, paint: { 'line-color': TRIP_MAP.gap, 'line-width': 5, 'line-dasharray': [1.5, 1] } });
+  // A charging gap: an orange-edged band covers the solid line, then the yellow is repainted as dashes.
+  map.addLayer({ id: 'trip-gap-edge', type: 'line', source: 'trip-gaps', layout: { 'line-cap': 'butt' }, paint: { 'line-color': TRIP_MAP.gapEdge, 'line-width': 14 } });
+  map.addLayer({ id: 'trip-gap-band', type: 'line', source: 'trip-gaps', layout: { 'line-cap': 'butt' }, paint: { 'line-color': TRIP_MAP.band, 'line-width': 9 } });
+  map.addLayer({ id: 'trip-gap', type: 'line', source: 'trip-gaps', layout: { 'line-cap': 'butt' }, paint: { 'line-color': TRIP_MAP.route, 'line-width': 4.5, 'line-dasharray': [2, 1.6] } });
   map.addLayer({
     id: 'trip-selected', type: 'circle', source: 'trip-points', filter: selFilter(o?.selected ?? null),
-    paint: { 'circle-radius': 19, 'circle-color': TRIP_MAP.ring, 'circle-stroke-color': TRIP_MAP.selected, 'circle-stroke-width': 3 },
+    paint: { 'circle-radius': 19, 'circle-color': TRIP_MAP.selectedFill, 'circle-stroke-color': TRIP_MAP.selectedRing, 'circle-stroke-width': 3 },
   });
   map.addLayer({
     id: 'trip-ends', type: 'circle', source: 'trip-points', filter: ['!=', ['get', 'kind'], 'stop'],
-    paint: { 'circle-radius': 8, 'circle-color': ['match', ['get', 'kind'], 'from', TRIP_MAP.start, TRIP_MAP.end], 'circle-stroke-color': TRIP_MAP.ring, 'circle-stroke-width': 3 },
+    paint: { 'circle-radius': 8, 'circle-color': ['match', ['get', 'kind'], 'from', TRIP_MAP.start, TRIP_MAP.end], 'circle-stroke-color': ['match', ['get', 'kind'], 'from', TRIP_MAP.startRing, TRIP_MAP.endRing], 'circle-stroke-width': 3 },
   });
   map.addLayer({
     id: 'trip-stops', type: 'circle', source: 'trip-points', filter: ['==', ['get', 'kind'], 'stop'],
-    paint: { 'circle-radius': 13, 'circle-color': TRIP_MAP.stop, 'circle-stroke-color': TRIP_MAP.ring, 'circle-stroke-width': 2 },
+    paint: { 'circle-radius': 13, 'circle-color': TRIP_MAP.stop, 'circle-stroke-color': TRIP_MAP.stopRing, 'circle-stroke-width': 2 },
   });
   map.addLayer({
     id: 'trip-stop-labels', type: 'symbol', source: 'trip-points', filter: ['==', ['get', 'kind'], 'stop'],

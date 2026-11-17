@@ -179,11 +179,11 @@ export default function CurveViewer({
       chart.current = echarts.init(chartEl.current, undefined, { renderer: 'canvas' });
       wireGuideDrag(chart.current);
     }
-    const accent = cssVar('--accent', '#0b7a53');
-    const est = cssVar('--estimated', '#6b4fa0');
-    const muted = cssVar('--muted', '#5b665f');
-    const border = cssVar('--border', '#d9dfd8');
-    const warn = cssVar('--warn', '#9a5b00');
+    const accent = cssVar('--accent', '#6F5300');
+    const est = cssVar('--estimated', '#5B34C4');
+    const muted = cssVar('--muted', '#55544E');
+    const border = cssVar('--border', '#D5D3CB');
+    const warn = cssVar('--warn', '#9A3F00');
     const lineColor = curve.kind === 'estimated' ? est : accent;
     const axisCommon = { axisLine: { lineStyle: { color: border } }, axisLabel: { color: muted }, splitLine: { lineStyle: { color: border } }, nameTextStyle: { color: muted } };
 

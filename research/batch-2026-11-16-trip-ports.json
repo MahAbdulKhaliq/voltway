@@ -1,0 +1,118 @@
+{
+  "sources": [
+    {
+      "id": "src-bmw-canada-nacs-superchargers-2026-04",
+      "type": "oem",
+      "title": "BMW Canada further improves EV convenience in Canada with Shell Recharge integration and access to NACS-format Superchargers (2026-04-08)",
+      "url": "https://newsroom.bmwgroup.com/americas/en-ca/bmw-canada-further-improves-ev-convenience-in-canada-with-shell-recharge-integration-and-access-to-nacs-format-superchargers",
+      "accessed_on": "2026-11-16",
+      "notes": "Supercharger access from 2026-04-08 per vehicle via remote software upgrade; CCS-port cars need the approved Lectron Vortex Plus NACS-to-CCS adapter; only all-new models sold in Canada from 2026 (iX3, i3) get a built-in NACS port. Page does not name the i4 in the text read; the model list was seen in a search excerpt."
+    },
+    {
+      "id": "src-motorillustrated-ex30-2026",
+      "type": "community",
+      "title": "Motor Illustrated: Should you buy a 2026 Volvo EX30?",
+      "url": "https://motorillustrated.com/should-you-buy-a-2026-volvo-ex30/192583/",
+      "accessed_on": "2026-11-16",
+      "notes": "Canadian review of the 2026 EX30 (Core, Plus, Ultra, Cross Country AWD): CCS1 charge port, 153 kW peak DC, 11 kW onboard charger. No mention of NACS."
+    }
+  ],
+  "variants": {
+    "bmw/i4/2026/edrive40-gran-coupe": {
+      "fields": {
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-bmw-canada-nacs-superchargers-2026-04",
+            "low_confidence": true,
+            "notes": "BMW Canada (2026-04-08): CCS-port BMW BEVs get Supercharger access via RSU and the approved Lectron Vortex Plus NACS-to-CCS adapter; the i4 keeps its CCS1 port (native NACS only on all-new 2026+ models such as iX3, i3). US access began 2025-12-10 (BMWBlog lists i4)."
+          }
+        ]
+      }
+    },
+    "bmw/i4/2026/xdrive40-gran-coupe": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thinkev-bmw-i4-2026",
+            "low_confidence": true,
+            "notes": "Estimated: thinkEV's 2026 i4 page states CCS1 in the eDrive40 spec table (it gives only range figures for the other trims); same model, generation and year, and BMW's 2026 native-NACS list (BMWBlog, BMW Canada) does not include the i4."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-bmw-canada-nacs-superchargers-2026-04",
+            "low_confidence": true,
+            "notes": "BMW Canada (2026-04-08): CCS-port BMW BEVs get Supercharger access via RSU and the approved Lectron adapter. i4 listed by BMWBlog for the US (2025-12-10)."
+          }
+        ]
+      }
+    },
+    "bmw/i4/2026/m60-xdrive-gran-coupe": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thinkev-bmw-i4-2026",
+            "low_confidence": true,
+            "notes": "Estimated: thinkEV's 2026 i4 page states CCS1 in the eDrive40 spec table (it gives only range figures for the other trims); same model, generation and year, and the first native NACS BMW is the 2026 i5 M60 (BMWBlog), not the i4 M60."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-bmw-canada-nacs-superchargers-2026-04",
+            "low_confidence": true,
+            "notes": "BMW Canada (2026-04-08): CCS-port BMW BEVs get Supercharger access via RSU and the approved Lectron adapter."
+          }
+        ]
+      }
+    },
+    "volvo/ex30/2026/cross-country": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-motorillustrated-ex30-2026",
+            "low_confidence": true,
+            "notes": "Canadian review of the 2026 EX30 line-up including the Cross Country says the EX30 has a CCS1 charge port."
+          }
+        ]
+      }
+    },
+    "volvo/ex30/2026/single-motor-extended-range": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-motorillustrated-ex30-2026",
+            "low_confidence": true,
+            "notes": "Canadian review of the 2026 EX30 says CCS1 charge port."
+          }
+        ]
+      }
+    },
+    "volvo/ex30/2026/twin-performance": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-motorillustrated-ex30-2026",
+            "low_confidence": true,
+            "notes": "Canadian review of the 2026 EX30 says CCS1 charge port."
+          }
+        ]
+      }
+    }
+  }
+}

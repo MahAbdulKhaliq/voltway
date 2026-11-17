@@ -4,6 +4,24 @@
   "year": 2026,
   "name": "xDrive40",
   "drivetrain": "awd",
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-thinkev-bmw-i4-2026",
+      "low_confidence": true,
+      "notes": "Estimated: thinkEV's 2026 i4 page states CCS1 in the eDrive40 spec table (it gives only range figures for the other trims); same model, generation and year, and BMW's 2026 native-NACS list (BMWBlog, BMW Canada) does not include the i4."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-bmw-canada-nacs-superchargers-2026-04",
+      "low_confidence": true,
+      "notes": "BMW Canada (2026-04-08): CCS-port BMW BEVs get Supercharger access via RSU and the approved Lectron adapter. i4 listed by BMWBlog for the US (2025-12-10)."
+    }
+  ],
   "trims": [
     {
       "id": "18-in-wheels",

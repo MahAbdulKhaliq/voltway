@@ -13,6 +13,15 @@
       "notes": "Quick web lookup."
     }
   ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-bmw-canada-nacs-superchargers-2026-04",
+      "low_confidence": true,
+      "notes": "BMW Canada (2026-04-08): CCS-port BMW BEVs get Supercharger access via RSU and the approved Lectron Vortex Plus NACS-to-CCS adapter; the i4 keeps its CCS1 port (native NACS only on all-new 2026+ models such as iX3, i3). US access began 2025-12-10 (BMWBlog lists i4)."
+    }
+  ],
   "trims": [
     {
       "id": "18-in-wheels",

@@ -24,6 +24,15 @@
       "notes": "Test: 75 mph (120 km/h) steady, 14 C (57 F), 20-inch wheels, battery-side (Nyland's registered consumption; page does not say explicitly) | Bjorn Nyland, 2024 EX30 Twin Motor Performance, 69 kWh gross (page says 64 kWh usable; our data says 66 kWh usable, same 69 kWh gross NMC pack). Page states 245 Wh/km (394 Wh/mile, 2.5 mi/kWh), range 267 km. Cool weather, so a mild-weather figure would be lower. Video ID L2aS-a81nIc not confirmed."
     }
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-motorillustrated-ex30-2026",
+      "low_confidence": true,
+      "notes": "Canadian review of the 2026 EX30 says CCS1 charge port."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -24,6 +24,24 @@
       "notes": "Test: 120 km/h steady, 11 °C, dry, 17-inch wheels (215/55-17 Continental EC6, summer tyres), battery-side (car display; sheet does not say explicitly) | Nyland, 'Kia Niro EV' (second-generation SG2, 64.3 kWh measured; 64.8 kWh gross pack). Guide Auto (Canada) lists the 2026 Niro EV Wind at 64.8 kWh with 17-inch wheels, which matches; note our variant shows usable 68.4 kWh from the Chargeprice archive, which looks inconsistent with 64.8 kWh gross. Test car model year not stated. 90 km/h, 12 °C: 154 Wh/km. Other test seen, not recorded: Automobile-Propre (France) 18.8 kWh/100 km at constant 110 km/h, ~12 °C, winter tyres, 23.6 kWh/100 km at a 120 km/h motorway average with traffic.."
     }
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "low_confidence": true,
+      "source_id": "src-kia-ca-nacs-guide-2026",
+      "notes": "Kia Canada guide (search excerpt): factory NACS only on 2025+ EV6, 2026 EV9, 2027 EV5; CCS1 Kia EVs including Niro EV need an adapter. Kia US 2026 Niro EV page also says Supercharger access needs a NACS adapter. Niro EV not on any factory-NACS list; no page states 'CCS1' for the 2026 Canadian Niro EV outright. Port inferred: the Kia Canada release (2025-04-28, search excerpt) lists only the 2025+ EV6 and 2026 EV9 as factory-NACS and offers Niro EV owners an adapter."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "low_confidence": true,
+      "source_id": "src-kia-us-niro-ev-2026",
+      "notes": "US page: Supercharger access 'w/ a NACS adapter (sold separately)'. Kia Canada (2025-04-28 release, excerpt) says a Kia accessory adapter is sold at all Canadian Kia dealers for Niro EV owners; Tesla app required in Canada."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

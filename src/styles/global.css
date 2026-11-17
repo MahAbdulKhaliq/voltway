@@ -33,7 +33,7 @@
   --car-1: #1D4ED8;
   --car-2: #B03A06;
   --car-3: #04704F;
-  --car-4: #B3175A;
+  --car-4: #4B4D58;
   --radius: 12px;
   --shadow: 0 1px 2px rgb(26 27 30 / 8%), 0 4px 16px rgb(26 27 30 / 6%);
   --font: "Archivo Variable", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -442,6 +442,9 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .cc-figs dt { font-size: 0.75rem; color: var(--muted); }
 .cc-figs dd { margin: 0; font-weight: 650; }
 .cc-foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+/* A wide table scrolls inside its own box, never the page. */
+.table-scroll { overflow-x: auto; max-width: 100%; }
+.table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .browse-table td { white-space: nowrap; }
 .browse-table td:first-child { white-space: normal; }
 .th-sort { font: inherit; font-weight: 600; background: none; border: 0; padding: 0; color: inherit; cursor: pointer; text-align: left; }

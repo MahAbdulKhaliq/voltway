@@ -190,3 +190,24 @@ describe('planTrip: estimates, elevation, settings', () => {
     expect(fetchSpy).not.toHaveBeenCalled();
   });
 });
+
+describe('QA fixes (3.15, 2026-11-16)', () => {
+  it('a trip with no charger anywhere is still reachable when the car arrives above 0 % (a gap, not "may not make it")', () => {
+    const p = plan(320, []); // arrives at 10 %, below the threshold, with nothing to stop at
+    expect(p.stops).toHaveLength(0);
+    expect(p.gaps).toHaveLength(1);
+    expect(p.arriveSoc).toBeCloseTo(10, 0);
+    expect(p.reachable).toBe(true);
+  });
+  it('a trip with no charger that runs out before the destination is unreachable', () => {
+    const p = plan(420, []);
+    expect(p.arriveSoc).toBeLessThan(0);
+    expect(p.reachable).toBe(false);
+  });
+  it('charging time uses the station kW capped at the car peak', () => {
+    const p = planTrip({ route: routeOf(500), durationMin: 300, car: car({ dcMaxKw: 100 }), stations: [station(280, [ccs(350)])] });
+    // 60 % of 80 kWh at 100 kW ≈ 28.8 min, not the 200 kW curve's 14.4 min
+    expect(p.stops[0].usableKw).toBe(100);
+    expect(p.stops[0].chargeMin).toBeCloseTo(28.8, 0);
+  });
+});

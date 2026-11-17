@@ -148,7 +148,7 @@ Most of these are planned as **later** features. See the "Later" lists in each d
 | Item | ID |
 |------|----|
 | Calibrate the curve templates (target ±15% on 10–80% times) | C8, C12 |
-| Calibrate the 1.15 highway factor | R10 |
+| ~~Calibrate the 1.15 highway factor~~ ✅ 1.08 (B49) | R10 |
 | Add curb weight to vehicles (for elevation) | D17 |
 | Function visitor limits and the "busy" message | S7 |
 | Confirm ORS returns elevation in the route request | §5 |

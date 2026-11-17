@@ -7,6 +7,10 @@ import { searchText } from './browse.ts';
 
 export interface CarSearch { (query: string): string[] }
 
+/** Cars the trip planner can use first, the rest after; the search order is kept inside each group. */
+export const tripReadyFirst = <T extends { trip_ready: boolean }>(list: T[]): T[] =>
+  [...list.filter((c) => c.trip_ready), ...list.filter((c) => !c.trip_ready)];
+
 export function makeCarSearch(index: IndexEntry[]): CarSearch {
   const ms = new MiniSearch({
     fields: ['make', 'model', 'name', 'trims', 'year'],

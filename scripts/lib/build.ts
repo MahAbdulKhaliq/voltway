@@ -11,6 +11,7 @@ import { deriveWheelEffect, type RatingRow, type WheelEffect } from '../../src/l
 import { calculateCharge } from '../../src/lib/charging.ts';
 import { t as msg } from '../../src/i18n/t.ts';
 import { estimateCurve } from '../../src/lib/estimated-curve.ts';
+import { planCarFrom } from '../../src/lib/trip-car.ts';
 import { MVP_FIELDS, type CarDetail, type CurveOut, type Field, type IndexEntry, type Source, type SourcedValue, type TrimOut } from '../../src/lib/types.ts';
 
 // ---------- reading ----------
@@ -453,6 +454,7 @@ export function buildCars(root: string): BuildResult {
     supercharger_access: str(c.fields.supercharger_access),
     trims: [...new Set(c.trims.flatMap((t) => [t.name, ...(t.aliases ?? [])]))],
     curve_kind: c.curves.find((x) => x.is_display_default)?.kind ?? null,
+    trip_ready: planCarFrom(c).ok,
     derived: c.derived,
   }));
 

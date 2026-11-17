@@ -108,6 +108,8 @@ export interface IndexEntry {
   /** Trim names and aliases, for search. */
   trims: string[];
   curve_kind: CurveOut['kind'] | null;
+  /** The trip planner has what it needs for this car (trip-car.ts); the map's car picker lists the rest last. */
+  trip_ready: boolean;
   derived: Derived;
 }
 

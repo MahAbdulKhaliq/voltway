@@ -5,7 +5,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
-import CarPicker from './CarPicker.tsx';
+import CarSearchField, { carLabel as entryLabel } from './CarSearchField.tsx';
 import Itinerary from './Itinerary.tsx';
 import PlaceField from './PlaceField.tsx';
 import type { TripState } from './useTrip.ts';
@@ -44,9 +44,9 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
   useEffect(() => { headRef.current?.focus({ preventScroll: true }); }, [folded]);
 
   const carLabel = myCar ? (myCar.label ?? cars.find((c) => c.id === myCar.carId)?.name ?? myCar.carId) : '';
-  const pickCar = (carId: string, trimId: string | null) => {
+  const pickCar = (carId: string) => {
     const e = cars.find((c) => c.id === carId);
-    onPickCar({ carId, trimId, label: e ? `${e.model} ${e.name}` : undefined });
+    onPickCar({ carId, trimId: null, label: e ? entryLabel(e) : undefined });
     setChangingCar(false);
   };
   // Each new plan (Plan route, or a link that plans at once) folds the form so the itinerary has room.
@@ -83,12 +83,10 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
             <button type="button" className="btn small" onClick={T.share}>{t('trip.share')}</button>
           </div>
         </div>
-      ) : changingCar ? (
-        <div className="route-car-pick">
-          <CarPicker cars={cars} level={2} onPick={pickCar} onCancel={myCar ? () => setChangingCar(false) : undefined} />
-        </div>
       ) : (
         <form className="route-form" onSubmit={(e) => { e.preventDefault(); submit(); }} aria-label={t('trip.formLabel')}>
+          <div className="route-ends-grid">
+          <div className="route-ends-fields">
           <PlaceField
             key={`from-${swaps}`}
             label={t('trip.from')}
@@ -102,20 +100,23 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
             }
           />
           {T.locating === 'denied' && <p className="small muted" role="status">{t('trip.locationDenied')}</p>}
-          <div className="route-swap-row">
-            <button type="button" className="btn small route-swap" onClick={() => { T.swap(); setSwaps((n) => n + 1); }} disabled={!trip.from && !trip.to}>
-              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M7 4v14M7 18l-3-3M7 18l3-3M17 20V6M17 6l-3 3M17 6l3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-              </svg>
-              <span>{t('route.swap')}</span>
-            </button>
-          </div>
           <PlaceField key={`to-${swaps}`} label={t('trip.to')} value={trip.to} search={search} onChange={(to) => T.setTrip((x) => ({ ...x, to }))} />
+          </div>
+          <button type="button" className="btn route-swap" aria-label={t('route.swap')} title={t('route.swap')} onClick={() => { T.swap(); setSwaps((n) => n + 1); }} disabled={!trip.from && !trip.to}>
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 4v14M7 18l-3-3M7 18l3-3M17 20V6M17 6l-3 3M17 6l3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+            </svg>
+          </button>
+          </div>
 
-          {!myCar ? (
-            <div className="route-car-pick">
-              <CarPicker cars={cars} level={2} onPick={pickCar} />
-            </div>
+          {!myCar || changingCar ? (
+            <CarSearchField
+              cars={cars}
+              label={t('car.search.label')}
+              onPick={pickCar}
+              onCancel={myCar ? () => setChangingCar(false) : undefined}
+              autoFocus={changingCar}
+            />
           ) : (
           <div className="route-car">
             <p className="small">{t('route.carLine', { car: carLabel, start: trip.startSoc, min: trip.thresholdSoc })}</p>
@@ -124,7 +125,7 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
             </button>
           </div>
           )}
-          {myCar && settingsOpen && (
+          {myCar && !changingCar && settingsOpen && (
             <div id="route-settings" className="route-settings">
               <button type="button" className="btn small" onClick={() => setChangingCar(true)}>{t('trip.changeCar')}</button>
               <div className="tp-pcts">
@@ -142,10 +143,11 @@ export default function RoutePanel({ trip: T, cars, myCar, onPickCar, search, se
             </div>
           )}
           {!T.pctValid && <p className="small tp-error" role="alert">{t('trip.pctInvalid', { ...SOC_LIMITS })}</p>}
-          {planCar && !planCar.ok && (
-            <p className="banner small" role="status">
-              {t('trip.carMissing', { fields: planCar.missing.map((m) => t(`trip.missing.${m}` as MessageKey)).join(', ') })}
-            </p>
+          {planCar && !planCar.ok && !changingCar && (
+            <div className="banner small route-carmissing">
+              <p role="status">{t('trip.carMissing', { fields: planCar.missing.map((m) => t(`trip.missing.${m}` as MessageKey)).join(', ') })}</p>
+              <button type="button" className="btn small" onClick={() => setChangingCar(true)}>{t('trip.changeCar')}</button>
+            </div>
           )}
 
           <div className="tp-actions">

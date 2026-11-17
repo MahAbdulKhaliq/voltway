@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { activeCount, defaultFilters, defaultState, matches, optionsFor, readState, sortCars, type BrowseFilters } from '../src/lib/browse.ts';
-import { makeCarSearch } from '../src/lib/car-search.ts';
+import { makeCarSearch, tripReadyFirst } from '../src/lib/car-search.ts';
 import { addTo, COMPARE_MAX, readCompare, readMyCar } from '../src/lib/my-car.ts';
 import type { IndexEntry } from '../src/lib/types.ts';
 
@@ -8,7 +8,7 @@ function car(o: Partial<IndexEntry> & { id: string }): IndexEntry {
   return {
     make: 'Hyundai', model: 'IONIQ 5', year: 2026, name: 'Long Range AWD', body_type: 'suv', drivetrain: 'awd', sold_in_canada: true,
     range_km: 400, dc_max_kw: 200, usable_kwh: 80, charge_port: 'nacs', voltage_class: '800v', heat_pump: ['standard'], chemistry: 'nmc',
-    consumption_wh_per_km: 190, supercharger_access: 'yes', trims: [], curve_kind: 'estimated',
+    consumption_wh_per_km: 190, supercharger_access: 'yes', trims: [], curve_kind: 'estimated', trip_ready: true,
     derived: { minutes_10_80: 20, km_per_10_min: 150, estimated: true, extrapolated: false, battery_basis: 'usable' },
     ...o,
   } as IndexEntry;
@@ -126,5 +126,13 @@ describe('My car and the comparison list', () => {
     expect(addTo([A.id], B.id)).toEqual({ list: [A.id, B.id], result: 'added' });
     expect(addTo([A.id], A.id).result).toBe('already');
     expect(addTo([A.id, B.id, C.id, D.id], 'a/b/2026/c').result).toBe('full');
+  });
+});
+
+describe("tripReadyFirst (DESIGN-4 4.7: the map car picker)", () => {
+  it('lists cars the trip planner can use first and keeps the search order inside each group', () => {
+    const list = [{ id: 'a', trip_ready: false }, { id: 'b', trip_ready: true }, { id: 'c', trip_ready: false }, { id: 'd', trip_ready: true }];
+    expect(tripReadyFirst(list).map((x) => x.id)).toEqual(['b', 'd', 'a', 'c']);
+    expect(list.map((x) => x.id)).toEqual(['a', 'b', 'c', 'd']);
   });
 });

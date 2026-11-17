@@ -96,3 +96,18 @@ describe('pointIndexAt', () => {
     expect(pointIndexAt(r, r.totalKm + 5)).toBe(10);
   });
 });
+
+describe('sliceRoute', () => {
+  it('cuts the line between two distances, interpolating the ends', async () => {
+    const { buildRoute, sliceRoute, haversineKm } = await import('../src/lib/route-geo.ts');
+    const r = buildRoute([[-80, 45], [-79, 45], [-78, 45], [-77, 45]]);
+    const leg = r.cumKm[1];
+    const s = sliceRoute(r, leg * 0.5, leg * 2.5);
+    expect(s[0][0]).toBeCloseTo(-79.5, 3);
+    expect(s.at(-1)![0]).toBeCloseTo(-77.5, 3);
+    expect(s.map((p) => p[0])).toEqual([s[0][0], -79, -78, s.at(-1)![0]]);
+    expect(haversineKm(s[0], s.at(-1)!)).toBeCloseTo(leg * 2, 0);
+    expect(sliceRoute(r, 5, 5)).toEqual([]);
+    expect(sliceRoute(r, -10, 1e6)).toHaveLength(4);
+  });
+});

@@ -95,3 +95,23 @@ describe('planCarFrom (every built car)', () => {
     }
   });
 });
+
+describe('charging window link (3.12)', () => {
+  it('reads from/to, rejects odd values', async () => {
+    const { linkWindowFrom } = await import('../src/lib/trip-link.ts');
+    const w = (q: string) => linkWindowFrom(new URLSearchParams(q));
+    expect(w('from=17.4&to=80')).toEqual({ start: 17, end: 80 });
+    expect(w('from=0&to=100')).toEqual({ start: 0, end: 100 });
+    expect(w('to=80')).toBeNull();
+    expect(w('from=80&to=20')).toBeNull();
+    expect(w('from=-5&to=80')).toBeNull();
+    expect(w('from=a&to=80')).toBeNull();
+  });
+  it('the stop link carries car, trim, kW and the window', async () => {
+    const { stopCurveHref } = await import('../src/components/TripResults.tsx');
+    const href = stopCurveHref({ carId: 'kia/ev6/2026/land-awd', trimId: 't1' }, { usableKw: 239.6, arriveSoc: 17.6, departSoc: 80 });
+    const q = new URLSearchParams(href.split('?')[1]);
+    expect(href.startsWith('/charging?')).toBe(true);
+    expect(Object.fromEntries(q)).toEqual({ car: 'kia/ev6/2026/land-awd', trim: 't1', kw: '240', from: '18', to: '80' });
+  });
+});

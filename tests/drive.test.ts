@@ -13,14 +13,14 @@ describe('map-app links', () => {
     expect(u.apple).toBe('https://maps.apple.com/directions?destination=43.65325,-79.38321&mode=driving');
   });
   it('Apple carries the avoid choices; Google has no such option', () => {
-    const u = directionsUrls([-75.7, 45.42], { avoidTolls: true, avoidHighways: true });
+    const u = directionsUrls([-75.7, 45.42], { avoidTolls: true, avoidHighways: true, crossBorder: false });
     expect(u.apple).toBe('https://maps.apple.com/directions?destination=45.42,-75.7&mode=driving&avoid=tolls,highways');
     expect(u.google).not.toContain('avoid');
-    expect(directionsUrls([-75.7, 45.42], { avoidTolls: false, avoidHighways: true }).apple).toMatch(/&avoid=highways$/);
+    expect(directionsUrls([-75.7, 45.42], { avoidTolls: false, avoidHighways: true, crossBorder: false }).apple).toMatch(/&avoid=highways$/);
   });
   it('whole trip: waypoints in plan order, end as destination, no origin, no dir_action on Google', () => {
     const stops: [number, number][] = [[-77, 44], [-76, 44.5], [-75, 45]];
-    const u = wholeTripUrls(stops, [-73.5, 45.5], { avoidTolls: true, avoidHighways: false });
+    const u = wholeTripUrls(stops, [-73.5, 45.5], { avoidTolls: true, avoidHighways: false, crossBorder: false });
     expect(u.google).toBe('https://www.google.com/maps/dir/?api=1&destination=45.5,-73.5&waypoints=44,-77%7C44.5,-76%7C45,-75&travelmode=driving');
     expect(u.apple).toBe('https://maps.apple.com/directions?destination=45.5,-73.5&waypoint=44,-77&waypoint=44.5,-76&waypoint=45,-75&mode=driving&avoid=tolls');
     expect(u.google).not.toContain('origin');

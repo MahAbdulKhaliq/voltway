@@ -3,13 +3,14 @@
 // while a route is open; Close route goes back to the plain map. After a plan the form folds into
 // a one-line summary with Edit, so the itinerary gets the room.
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { openCarPicker } from '../lib/car-label.ts';
 import Itinerary from './Itinerary.tsx';
 import DriveView from './DriveView.tsx';
 import { clearDrive, saveDrive } from '../lib/drive.ts';
-import PlaceField from './PlaceField.tsx';
+import PlaceField, { loadUsPlaces } from './PlaceField.tsx';
+import { borderRows } from '../lib/border-rows.ts';
 import type { TripState } from './useTrip.ts';
 import { setMyCar, type MyCar } from '../lib/my-car.ts';
 import type { PlaceSearch } from '../lib/place-search.ts';
@@ -90,6 +91,18 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
   const leaveDrive = () => morph(() => { setDriving(false); clearDrive(); }, 'back', 'left');
   const onReached = (next: boolean[]) => { setReached(next); saveDrive({ trip, reached: next }); };
   const showDrive = Boolean(driving && folded && plan && T.routeData && trip.from && trip.to);
+  // B79: a trip that crosses the border names each crossing after a town on the far side, so it
+  // loads both place lists (shared with the search fields); until they're in, the rows say just the country.
+  const crossings = T.routeData?.crossings;
+  const [bothPlaces, setBothPlaces] = useState<PlaceSearch | null>(null);
+  useEffect(() => {
+    if (!crossings?.length || bothPlaces) return;
+    let alive = true;
+    // A PlaceSearch is itself a function: wrap it, or React would call it as a state updater.
+    loadUsPlaces().then((s) => alive && setBothPlaces(() => s), () => {});
+    return () => { alive = false; };
+  }, [crossings, bothPlaces]);
+  const borderList = useMemo(() => (T.routeData ? borderRows(crossings, T.routeData.route, bothPlaces) : []), [T.routeData, crossings, bothPlaces]);
   const firstDrive = useRef(true);
   useEffect(() => { if (firstDrive.current) { firstDrive.current = false; return; } headRef.current?.focus({ preventScroll: true }); }, [showDrive]);
   const submit = async () => {
@@ -234,7 +247,18 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
 
       <div aria-live="polite">
         {status !== 'idle' && status !== 'done' && status !== 'planning' && (
-          <p className="banner small" role="alert">{t(`trip.status.${status}` as MessageKey)}</p>
+          <p className="banner small" role="alert">
+            {t(`trip.status.${status}` as MessageKey)}
+            {/* B79: a cross-border trip with Stay within the border on says where to allow it. */}
+            {(status === 'crossBorderCa' || status === 'crossBorderUs' || status === 'crossBorderAlaska') && (
+              <>
+                {' '}
+                <button type="button" className="link-btn small" onClick={() => window.dispatchEvent(new CustomEvent('voltway:settings', { detail: 'border' }))}>
+                  {t('trip.status.openSettings')}
+                </button>
+              </>
+            )}
+          </p>
         )}
         {plan && current && (
           <p className="sr-only" role="status">{plan.reachable ? t('trip.planned', { stops: stopsText(plan.totals.stops) }) : t('trip.plannedUnreachable')}</p>
@@ -262,6 +286,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           onShare={T.share}
           onDrive={openDrive}
           onNacs={T.nacsHelps && myCar && dcUsed ? () => setMyCar({ ...myCar, plugs: [...dcUsed, 'nacs'] }) : undefined}
+          crossings={borderList}
           shareNote={T.shareUrl ? (
             <p className="small tp-share" role="status">
               {t('trip.shareNote')} <input className="field-input" readOnly value={T.shareUrl} onFocus={(e) => e.target.select()} aria-label={t('trip.shareLink')} />

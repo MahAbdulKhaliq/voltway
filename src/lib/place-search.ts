@@ -23,7 +23,12 @@ export interface PlaceSearch {
   (query: string, limit?: number, prefer?: PlaceCountry): TripEnd[];
   /** The country of the listed place nearest a point: a good guess for an end without a `cc` (a share link, my location). */
   countryNear: (lat: number, lon: number) => PlaceCountry | null;
+  /** B79: the label of the listed place in `cc` nearest a point, within NEAR_PLACE_KM, or null (names a border crossing). */
+  placeNear: (lat: number, lon: number, cc: PlaceCountry) => string | null;
 }
+
+/** A border crossing is named after a town on the far side only when one is this close (km). */
+export const NEAR_PLACE_KM = 40;
 
 /** Whether the results hold a place with exactly this name ("Spring" → "Spring, TX" yes, "Spring Garden, NS" no). */
 export const hasExactName = (results: readonly TripEnd[], query: string): boolean => {
@@ -74,5 +79,16 @@ function makeSearch(all: readonly { r: PlaceRow; cc: PlaceCountry }[]): PlaceSea
     }
     return best;
   };
-  return Object.assign(search, { countryNear });
+  const placeNear = (lat: number, lon: number, cc: PlaceCountry): string | null => {
+    const k = Math.cos((lat * Math.PI) / 180) ** 2;
+    let best: PlaceRow | null = null;
+    let bestD = Infinity;
+    for (const { r, cc: c } of all) {
+      if (c !== cc) continue;
+      const d = (r.lat - lat) ** 2 + k * (r.lon - lon) ** 2;
+      if (d < bestD) { bestD = d; best = r; }
+    }
+    return best && Math.sqrt(bestD) * 111 <= NEAR_PLACE_KM ? placeLabel(best) : null;
+  };
+  return Object.assign(search, { countryNear, placeNear });
 }

@@ -31,6 +31,15 @@ export function parseAvoid(raw: string | null): AvoidOption[] | null {
   return AVOID_OPTIONS.filter((o) => parts.includes(o));
 }
 
+/**
+ * Parses `border=cross` (B79, DESIGN-8 B1): missing or empty → false (Stay within the border, the
+ * default); `cross` → true; anything else → null (400).
+ */
+export function parseBorder(raw: string | null): boolean | null {
+  if (raw === null || raw.trim() === '') return false;
+  return raw.trim() === 'cross' ? true : null;
+}
+
 /** Every country a point may be in (src/lib/country.ts makeCountriesOf): none, one, or both on the border. */
 export type CountriesOf = (lon: number, lat: number) => CountryCode[];
 
@@ -39,14 +48,17 @@ export type CountriesOf = (lon: number, lat: number) => CountryCode[];
  * the start is in neither country (`outsideArea`); the destination isn't in the start's country
  * (`crossBorder`, with that country when there is just one); or the trip joins Alaska and the Lower 48,
  * whose only roads pass through Canada (`crossBorder`, reason `alaska`).
+ * With `cross` (B79: Stay within the border off), only an end in neither country stops the trip.
  */
-export function borderProblem(from: readonly [number, number], to: readonly [number, number], countriesOf: CountriesOf):
+export function borderProblem(from: readonly [number, number], to: readonly [number, number], countriesOf: CountriesOf, cross = false):
   | { error: 'outsideArea' }
   | { error: 'crossBorder'; country: CountryCode | null; reason?: 'alaska' }
   | null {
   const start = countriesOf(from[0], from[1]);
   if (start.length === 0) return { error: 'outsideArea' };
   const end = countriesOf(to[0], to[1]);
+  // A destination in neither country: crossBorder with no country reads "Pick a destination in one of them" (QA 2026-11-18).
+  if (cross) return end.length === 0 ? { error: 'crossBorder', country: null } : null;
   const shared = start.filter((c) => end.includes(c));
   if (shared.length === 0) return { error: 'crossBorder', country: start.length === 1 ? start[0] : null };
   if (shared.length === 1 && shared[0] === 'us') {
@@ -76,8 +88,59 @@ export interface RouteBody {
   durationMin: number;
   ascentM: number;
   descentM: number;
-  /** B78: the countries both ends are in (usually one); the planner keeps its stops to them. */
+  /**
+   * B78: the countries both ends are in (usually one); the planner keeps its stops to them.
+   * B79: with `border=cross`, the countries the route passes through.
+   */
   countries?: CountryCode[];
+  /** B79: where the route enters another country (index into `coords`); only with `border=cross`. */
+  crossings?: Crossing[];
+}
+
+/** A border crossing: the route enters country `to` at `coords[i]` (B79, DESIGN-8 B1). */
+export interface Crossing { i: number; to: CountryCode }
+
+/** Route points checked for their country: every SAMPLE-th (~2 km apart), then each point between two samples that differ. A visit to the other country shorter than that can be missed; that is rare on a trip route. */
+const SAMPLE = 10;
+
+/**
+ * The border crossings along a route line, and the countries it passes through (B79, DESIGN-8 B1).
+ * Only points in exactly one country count: points within the border slack (in both) and points in
+ * neither are skipped, so a road along the border doesn't flap. With no such points at all, `countries`
+ * is empty and the caller falls back to the ends.
+ */
+export function findCrossings(coords: readonly (readonly number[])[], countriesOf: CountriesOf): { crossings: Crossing[]; countries: CountryCode[] } {
+  const one = (i: number): CountryCode | null => {
+    const c = countriesOf(coords[i][0], coords[i][1]);
+    return c.length === 1 ? c[0] : null;
+  };
+  const crossings: Crossing[] = [];
+  const seen = new Set<CountryCode>();
+  if (coords.length === 0) return { crossings, countries: [] };
+  let last: CountryCode | null = null;
+  let lastAt = -1;
+  const visit = (i: number, c: CountryCode) => {
+    seen.add(c);
+    if (last && c !== last) {
+      // Find the first point of the new country after the last point of the old one.
+      let at = i;
+      for (let j = lastAt + 1; j < i; j++) {
+        const cj = one(j);
+        if (cj === c) { at = j; break; }
+        if (cj === last) lastAt = j;
+      }
+      crossings.push({ i: at, to: c });
+    }
+    last = c;
+    lastAt = i;
+  };
+  for (let i = 0; i < coords.length; i += SAMPLE) {
+    const c = one(i);
+    if (c) visit(i, c);
+  }
+  const end = coords.length - 1;
+  if (end % SAMPLE !== 0) { const c = one(end); if (c) visit(end, c); }
+  return { crossings, countries: (['ca', 'us'] as const).filter((c) => seen.has(c)) };
 }
 
 /** An address result; `cc` is its country when the service says (B78: lets the next search lean to it). */
@@ -139,32 +202,35 @@ const orsFailure = (): Response => errorResponse('busy', 503);
 
 type Fetch = typeof fetch;
 
-/** The ORS request body: always no border crossings (B74), plus the avoid options (B73). */
-export function routeBody(from: [number, number], to: [number, number], avoid: readonly AvoidOption[]) {
+/** The ORS request body: no border crossings (B74) unless `cross` (B79), plus the avoid options (B73). */
+export function routeBody(from: [number, number], to: [number, number], avoid: readonly AvoidOption[], cross = false) {
   return {
     coordinates: [from, to],
     elevation: true,
     instructions: false,
-    options: { avoid_borders: 'all', ...(avoid.length ? { avoid_features: avoid.map((a) => ORS_FEATURE[a]) } : {}) },
+    options: { ...(cross ? {} : { avoid_borders: 'all' }), ...(avoid.length ? { avoid_features: avoid.map((a) => ORS_FEATURE[a]) } : {}) },
   };
 }
 
 /**
- * GET /api/route?from=lon,lat&to=lon,lat[&avoid=tolls,highways]
+ * GET /api/route?from=lon,lat&to=lon,lat[&avoid=tolls,highways][&border=cross]
  * @param countriesOf the country check (src/lib/country.ts); a trip that breaks the border rule
- *   answers 422 outsideArea or crossBorder before any ORS call (B74, B78; borderProblem).
+ *   answers 422 outsideArea or crossBorder before any ORS call (B74, B78; borderProblem). With
+ *   `border=cross` (B79) the answer also lists the crossings and the countries the route passes.
  */
 export async function handleRoute(url: URL, key: string | undefined, fetchFn: Fetch = fetch, countriesOf?: CountriesOf): Promise<Response> {
   const from = parseLonLat(url.searchParams.get('from'));
   const to = parseLonLat(url.searchParams.get('to'));
   const avoid = parseAvoid(url.searchParams.get('avoid'));
-  if (!from || !to || !avoid) return errorResponse('badRequest', 400);
+  const cross = parseBorder(url.searchParams.get('border'));
+  if (!from || !to || !avoid || cross === null) return errorResponse('badRequest', 400);
   let countries: CountryCode[] | undefined;
   if (countriesOf) {
-    const problem = borderProblem(from, to, countriesOf);
+    const problem = borderProblem(from, to, countriesOf, cross);
     if (problem) return json(problem, 422, NO_STORE);
+    const start = countriesOf(from[0], from[1]);
     const end = countriesOf(to[0], to[1]);
-    countries = countriesOf(from[0], from[1]).filter((c) => end.includes(c));
+    countries = cross ? [...new Set([...start, ...end])] : start.filter((c) => end.includes(c));
   }
   if (!key) return errorResponse('notConfigured', 503);
   let res: Response;
@@ -172,7 +238,7 @@ export async function handleRoute(url: URL, key: string | undefined, fetchFn: Fe
     res = await fetchFn(DIRECTIONS, {
       method: 'POST',
       headers: { Authorization: key, 'Content-Type': 'application/json', Accept: 'application/geo+json, application/json' },
-      body: JSON.stringify(routeBody(from, to, avoid)),
+      body: JSON.stringify(routeBody(from, to, avoid, cross)),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
   } catch {
@@ -187,7 +253,13 @@ export async function handleRoute(url: URL, key: string | undefined, fetchFn: Fe
   }
   if (!res.ok) return orsFailure();
   const route = trimRoute(await res.json().catch(() => null));
-  return route ? json(countries ? { ...route, countries } : route, 200, CACHE_OK) : errorResponse('noRoute', 422);
+  if (!route) return errorResponse('noRoute', 422);
+  if (cross && countriesOf) {
+    // B79: where the route crosses, and the countries it passes (stops may be in any of them).
+    const found = findCrossings(route.coords, countriesOf);
+    return json({ ...route, countries: found.countries.length ? found.countries : countries, crossings: found.crossings }, 200, CACHE_OK);
+  }
+  return json(countries ? { ...route, countries } : route, 200, CACHE_OK);
 }
 
 /** GET /api/geocode?q=… (only when the visitor presses Search, §6) */
@@ -197,8 +269,9 @@ export async function handleGeocode(url: URL, key: string | undefined, fetchFn: 
   if (!key) return errorResponse('notConfigured', 503);
   const target = new URL(GEOCODE);
   target.searchParams.set('text', q);
-  // Canada and the US (B78, DESIGN-7 D5); with a trip start, only its country (`country=ca|us`): a
-  // trip can't cross the border, and a focus point outweighed the typed city in tests.
+  // Canada and the US (B78, DESIGN-7 D5); with a trip start and Stay within the border on, only its
+  // country (`country=ca|us`; B79: with it off the page sends no country). A focus point outweighed
+  // the typed city in tests, so there is none.
   const country = url.searchParams.get('country');
   target.searchParams.set('boundary.country', country === 'ca' ? 'CA' : country === 'us' ? 'US' : 'CA,US');
   target.searchParams.set('size', '5');

@@ -16,24 +16,24 @@ import { planCarFrom, type PlanCarResult } from '../lib/trip-car.ts';
 import { nacsRescue, planTrip, type TripPlan } from '../lib/trip-plan.ts';
 import { buildRoute, type Route } from '../lib/route-geo.ts';
 import type { MapFeature } from '../lib/map-data.ts';
-import type { RouteBody } from '../lib/ors.ts';
+import type { RouteBody, Crossing } from '../lib/ors.ts';
 import type { CarDetail } from '../lib/types.ts';
 import type { DistanceUnit } from '../lib/units.ts';
 import { TRIP } from '../config.ts';
-import { avoidList, avoidQuery, NO_AVOID, readRouteOptions, routeOptions, ROUTE_OPTIONS_EVENT, type RouteOptions } from '../lib/route-options.ts';
+import { avoidList, avoidQuery, NO_AVOID, readRouteOptions, routeOptions, ROUTE_OPTIONS_EVENT, sameRouteOptions, type RouteOptions } from '../lib/route-options.ts';
 
 export type TripStatus =
   | 'idle' | 'planning' | 'done' | 'badRequest' | 'noRoute' | 'busy' | 'offline' | 'error'
   // B78: the border rule (DESIGN-7 D4); one message each.
   | 'outsideArea' | 'crossBorderCa' | 'crossBorderUs' | 'crossBorderAny' | 'crossBorderAlaska';
-export interface RouteData { route: Route; durationMin: number; key: string; countries?: CountryCode[] }
+export interface RouteData { route: Route; durationMin: number; key: string; countries?: CountryCode[]; crossings?: Crossing[] }
 export type Locating = 'idle' | 'busy' | 'denied';
 
 const BLANK: TripQuery = { from: null, to: null, startSoc: TRIP.defaultStartSoc, thresholdSoc: TRIP.defaultThresholdSoc };
 
-/** The route's key: the API form of both points, plus the route options (B73), which change the route. */
+/** The route's key: the API form of both points, plus the route options (B73, B79), which change the route. */
 export const endsKey = (q: Pick<TripQuery, 'from' | 'to'>, o: RouteOptions = NO_AVOID) =>
-  (q.from && q.to ? `${apiPoint(q.from)}|${apiPoint(q.to)}|${avoidList(o).join(',')}` : '');
+  (q.from && q.to ? `${apiPoint(q.from)}|${apiPoint(q.to)}|${avoidList(o).join(',')}${o.crossBorder ? '|cross' : ''}` : '');
 /** The status for a 422 border answer from /api/route (src/lib/ors.ts borderProblem), or null. */
 export function borderStatus(body: unknown): TripStatus | null {
   const b = body as { error?: string; country?: string | null; reason?: string } | null;
@@ -87,7 +87,7 @@ export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promis
     setOpts(optsRef.current);
     const on = (e: Event) => {
       const next = readRouteOptions((e as CustomEvent).detail);
-      const changed = next.avoidTolls !== optsRef.current.avoidTolls || next.avoidHighways !== optsRef.current.avoidHighways;
+      const changed = !sameRouteOptions(next, optsRef.current);
       optsRef.current = next;
       if (!changed) return;
       if (shown.current) replan.current = true;
@@ -174,7 +174,7 @@ export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promis
       }
       const body = (await r.json()) as RouteBody;
       if (gen !== generation.current) return;
-      setRouteData({ route: buildRoute(body.coords), durationMin: body.durationMin, key, countries: body.countries });
+      setRouteData({ route: buildRoute(body.coords), durationMin: body.durationMin, key, countries: body.countries, crossings: body.crossings });
     } catch {
       if (gen !== generation.current) return;
       setRouteData(null);

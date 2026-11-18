@@ -478,9 +478,17 @@ Read `docs/plan/DESIGN-5.md` and B72–B74 in `docs/design/gaps-and-questions.md
 | QD13 | Wake lock | Stub `navigator.wakeLock`: requested on open, again on visible, released on exit | API missing: no error |
 | QD14 | Coming back | Reload with Drive open: Drive and progress return; Exit clears it; nothing in localStorage holds the start | — |
 | QD15 | Words, accessibility, looks | No hard-coded strings; axe clean; dark and light at 375 px and desktop; 44 px targets | Long station names wrap |
+| QD16 | Charge past 80 % (B75) | `npx vitest run tests/trip-plan.test.ts` (B75 block); plan Hamilton ON → Vancouver BC with a 2025 Polestar 2 and read each stop's "charge to" | No stop charges only a few % right after another; a stop before a long stretch shows more than 80 %, never over 100 %; ordinary stops still 80 % |
 
 ## Phase 5 results
 
 | ID | Pass / Fail | Notes |
 |----|-------------|-------|
-| QD1–QD15 | | |
+| QD1–QD15 | Pass with issues | qa-reviewer 2026-11-18 + site-ui-checker (docs/plan/reports/ui-check-5.md, re-checks 1–3). No blockers. |
+| Should-fix 1 | Fixed | Escape / Close route now clears `voltway.drive` (`closeRoute` in ChargerMap.tsx). |
+| Should-fix 2 | Known limit | The outline check lets a few US spots right at the border through (downtown Detroit, Port Huron, Niagara Falls NY, Sumas WA, Lubec ME) and Greenland north of 60.5°. ORS still avoids every border, and the map has only Canadian chargers, so such a trip fails or shows a gap rather than routing through the US. A US polygon check is a follow-up. |
+| Should-fix 3 | Fixed | `drive.noteLocation` now says "Location is used only while this page is open."; `drive.locationOn` shortened so it doesn't repeat. |
+| Minor 4, 6, 9, 11 | Fixed | Resumed ticks trimmed to the stop count; whole-trip limits come from `WHOLE_TRIP_MAX` ({max}); Drive follows price changes (PRICE_EVENT); curly apostrophe. |
+| Minor 5, 7, 8, 10, 12 | Open (logged) | Option change mid-Drive resets ticks; Drive shown on unreachable plans; map dot stays after Drive; points outside AREA give 400 not 422; map key overlap at 375 (pre-existing). |
+| Light theme driven line | Fixed | Driven segment is now #A4A29A on the #2B2C30 band in both themes (6.4:1; was 1.8:1 in light). |
+| QD16 | Pass (unit) | B75 block in tests/trip-plan.test.ts: one stop charges to 91 % instead of a short hop; last stop charges for the final stretch (86 / 100); 80 % kept when the next window is reachable. Owner to confirm Hamilton → BC on the deployed site. |

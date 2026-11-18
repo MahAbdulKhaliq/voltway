@@ -712,18 +712,34 @@ html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .sett
 .drive-go, .drive-whole { display: grid; gap: 8px; }
 .drive-go-title { font-weight: 700; }
 .drive-apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
-.drive-app { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; font-size: 1.05rem; text-decoration: none; text-align: center; }
-.drive-whole .drive-app { min-height: 44px; font-size: 0.95rem; }
-.drive-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
-.drive-item { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 44px; padding: 2px 6px; border-radius: 8px; }
+/* Two-class selector: `a.btn` (inline-block) would otherwise win and leave the label at the top. */
+.drive-apps .drive-app { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 12px; font-size: 1.05rem; line-height: 1.2; text-decoration: none; text-align: center; }
+.drive-whole .drive-apps .drive-app { min-height: 44px; font-size: 0.95rem; }
+.drive-app svg { flex: none; }
+.drive-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.drive-item { position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 48px; padding: 4px 6px; border-radius: 8px; }
+/* The painted line joins the stops like a transit map (the trip list's road band and centre line):
+   each row carries its piece, from the row above's mark to the next one. Driven parts turn grey. */
+.drive-item::before { content: ""; position: absolute; left: 15px; top: 0; bottom: 0; width: 10px; border-radius: 2px;
+  background: linear-gradient(to right, var(--band) 0 3px, var(--paint) 3px 7px, var(--band) 7px 10px); }
+.drive-item:first-child::before { top: 50%; }
+.drive-item:last-child::before { bottom: 50%; }
+/* A row's top half leads into its mark, the bottom half out of it: grey once the stop at the far end is reached. */
+/* The band is dark in both themes, so the driven line is one light grey (#A4A29A on #2B2C30 is 6.4:1). */
+.drive-item { --line-driven: #A4A29A; --driven: linear-gradient(to right, var(--band) 0 3px, var(--line-driven) 3px 7px, var(--band) 7px 10px); --ahead: linear-gradient(to right, var(--band) 0 3px, var(--paint) 3px 7px, var(--band) 7px 10px); }
+.drive-item.done::before { background: var(--driven) top / 100% 50% no-repeat, var(--ahead) bottom / 100% 50% no-repeat; }
+.drive-item.done:has(+ .drive-item.done)::before, .drive-item:first-child:has(+ .drive-item.done)::before { background: var(--driven); }
+.drive-item:first-child:not(:has(+ .drive-item.done))::before { background: var(--ahead); }
+.drive-item > * { position: relative; z-index: 1; }
 .drive-item.next { background: var(--surface-2); }
 .drive-item.done .drive-item-name { color: var(--muted); }
 .drive-item-name { overflow-wrap: anywhere; }
 .drive-state { display: block; color: var(--muted); font-weight: 600; }
 .drive-item.next .drive-state { color: var(--text); }
-.drive-mark { justify-self: center; width: 14px; height: 14px; border-radius: 50%; background: var(--mark); }
+.drive-mark { justify-self: center; width: 14px; height: 14px; border-radius: 50%; background: var(--mark); border: 3px solid var(--surface); box-sizing: content-box; }
+.drive-item.next .drive-mark { border-color: var(--surface-2); }
 .drive-item.end .drive-mark { background: var(--surface); box-shadow: inset 0 0 0 4px var(--mark); }
-.drive-num { display: grid; place-items: center; width: 24px; height: 20px; border-radius: 5px; color: var(--surface); font-weight: 700; font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+.drive-num { display: grid; place-items: center; width: 24px; height: 20px; border-radius: 5px; border-width: 2px; color: var(--surface); font-weight: 700; font-size: 0.8rem; font-variant-numeric: tabular-nums; }
 .drive-item.done .drive-num { background: var(--muted); }
 .drive-toggle { min-height: 44px; white-space: nowrap; }
 .drive-notes { display: grid; gap: 6px; }

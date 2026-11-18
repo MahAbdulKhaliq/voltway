@@ -83,7 +83,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
     setEditing(false);
     setSheetOpen(false);
     // A new plan starts Drive over, unless this tab is coming back to it.
-    if (resume.current) { setReached(resume.current); setDriving(true); resume.current = null; }
+    if (resume.current) { setReached(resume.current.slice(0, plan?.stops.length ?? 0)); setDriving(true); resume.current = null; }
     else { setDriving(false); setReached([]); clearDrive(); }
   }, [planKey]);
   const openDrive = () => morph(() => { setDriving(true); saveDrive({ trip, reached }); }, 'forward', 'left');

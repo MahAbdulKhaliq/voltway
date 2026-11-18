@@ -52,7 +52,7 @@ import { fastNear, NEAR_PLACE_KM, stationsInView, type Bounds, type ListItem } f
 import PlaceField, { loadPlaces } from './PlaceField.tsx';
 import type { PlaceSearch, TripEnd } from '../lib/place-search.ts';
 import { readTripLink, stationEnd, writeTripLink } from '../lib/trip-link.ts';
-import { loadDrive } from '../lib/drive.ts';
+import { clearDrive, loadDrive } from '../lib/drive.ts';
 import { readRecent } from '../lib/recent-destinations.ts';
 import StationPanel from './StationPanel.tsx';
 import RoutePanel from './RoutePanel.tsx';
@@ -655,6 +655,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   }, [T.start]); // eslint-disable-line react-hooks/exhaustive-deps
   const closeRoute = () => {
     clearTripParams();
+    clearDrive(); // closing the trip (button or Escape) ends Drive for this tab
     // B69: the camera goes back to where it was before the trip, while the line draws back.
     const back = preTripView.current;
     preTripView.current = null;

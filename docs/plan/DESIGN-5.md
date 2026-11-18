@@ -105,3 +105,6 @@ Turn-by-turn, re-planning during the drive, live battery, background tracking, a
 2. Whole-trip limits: Google ≤ 3 remaining stops, Apple ≤ 9. ✅
 3. `sessionStorage` (tab only) for Drive, an exception to B62. ✅
 4. Natural Earth Canada outline as a new data source for the "outside Canada" check. ✅
+
+## 6. Charging past 80 % before a long stretch (B75, owner 2026-11-18)
+`src/lib/trip-plan.ts`: the stop choice is now a pure `choose(pos, soc)`. Before charging at a stop, `departFrom` looks one step ahead from 80 %: if the destination is reachable, or the next stop would be in the usual window (near or wide), it keeps 80 %. If the next stop would only be an "earlier" short hop, or there is none, it charges to reach the first charger past the car's reach (or the destination) with the threshold left, plus both detours, rounded up and capped at 100 %. A stop never departs below its arrival level. Each stop shows its own `departSoc`; the assumptions line says "more before a long stretch with few chargers".

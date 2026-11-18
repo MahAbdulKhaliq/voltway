@@ -3,17 +3,17 @@
 // page is open. No turn-by-turn in Voltway (R7). Location is watched only while this view is open
 // and the page is visible, and is never stored; the screen is kept awake with a Wake Lock.
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { t } from '../i18n/t.ts';
 import type { TripEnd } from '../lib/place-search.ts';
 import type { Route } from '../lib/route-geo.ts';
 import type { TripPlan } from '../lib/trip-plan.ts';
 import type { RouteOptions } from '../lib/route-options.ts';
 import { nextTarget, tickReached, toTarget, type Fix } from '../lib/drive.ts';
-import { directionsUrls, wholeTripUrls } from '../lib/nav-links.ts';
+import { directionsUrls, WHOLE_TRIP_MAX, wholeTripUrls } from '../lib/nav-links.ts';
 import { pct } from '../lib/trip-format.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
-import { chargeCost, chargePrice } from '../lib/price.ts';
+import { chargeCost, chargePrice, PRICE_EVENT } from '../lib/price.ts';
 import { COVERAGE } from '../config.ts';
 
 const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', currency: COVERAGE.currency });
@@ -95,7 +95,12 @@ export default function DriveView({ plan, route, from, to, unit, opts, reached, 
   const left = toTarget(plan, route, target, fix, now);
   const stop = target.kind === 'stop' ? plan.stops[target.index] : null;
   const dist = (km: number) => t(unit === 'mi' ? 'fmt.mi' : 'fmt.km', { value: formatNumber(Math.round(kmTo(km, unit))) });
-  const price = useMemo(chargePrice, []);
+  const [price, setPrice] = useState(chargePrice);
+  useEffect(() => {
+    const on = () => setPrice(chargePrice());
+    window.addEventListener(PRICE_EVENT, on);
+    return () => window.removeEventListener(PRICE_EVENT, on);
+  }, []);
   const nav = directionsUrls(target.lonLat, opts);
   const remaining = plan.stops.filter((_, i) => !reached[i]).map((s) => s.lonLat);
   const whole = remaining.length > 0 ? wholeTripUrls(remaining, end, opts) : null;
@@ -143,7 +148,7 @@ export default function DriveView({ plan, route, from, to, unit, opts, reached, 
             </div>
           ) : null}
           {(!whole.google || !whole.apple) && (
-            <p className="small muted">{!whole.google && !whole.apple ? t('drive.tooManyBoth') : !whole.google ? t('drive.tooManyGoogle') : t('drive.tooManyApple')}</p>
+            <p className="small muted">{!whole.google && !whole.apple ? t('drive.tooManyBoth') : !whole.google ? t('drive.tooManyGoogle', { max: WHOLE_TRIP_MAX.google }) : t('drive.tooManyApple', { max: WHOLE_TRIP_MAX.apple })}</p>
           )}
         </div>
       )}

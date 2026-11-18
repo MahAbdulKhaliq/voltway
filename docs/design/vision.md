@@ -106,7 +106,7 @@ Each band **includes its upper edge**, so a charger exactly on an edge goes in t
 Similar to ABRP, but deliberately simpler.
 
 - **Stop selection (Q-V3) ✅:** drive until the battery reaches the **user-set threshold (default ~15%)**, then stop at a suitable **Level 3** charger near that point. Smarter stop choice (to save total trip time) could come later as an optional toggle.
-- **Charging at each stop (Q-V2) ✅:** charge to **80%** and continue. Letting users set this target comes later.
+- **Charging at each stop (Q-V2) ✅:** charge to **80%** and continue (more before a long stretch with few chargers, B75). Letting users set this target comes later.
 - **Charger type:** v1 only uses **Level 3** chargers for stops.
 - Range estimates should eventually use trim features (heat pump, wheels) from Part 1.
 

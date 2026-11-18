@@ -101,7 +101,10 @@ When the battery would drop below the threshold (default 15%):
      Still none? Use the last compatible Level 3 charger earlier on the route,
        even though the car arrives with more battery.
      Still none? Mark a "charging gap" warning on that stretch.
-  4. Charge to 80% (Q-V2). Add the detour distance to the trip.
+  4. Charge to 80% (Q-V2). Exception (B75): if 80% would only reach a short hop to a
+     nearby charger, or a stretch with no reachable charger, charge just enough to reach
+     the first charger past it (or the destination) with the arrival minimum left, up to 100%.
+     Add the detour distance to the trip.
   5. Continue from the charger.
 
 At the destination: arrive with at least the threshold %. If not, add a stop as above.

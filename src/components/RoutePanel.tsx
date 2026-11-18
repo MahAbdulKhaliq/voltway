@@ -98,7 +98,8 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
   useEffect(() => {
     if (!crossings?.length || bothPlaces) return;
     let alive = true;
-    loadUsPlaces().then((s) => alive && setBothPlaces(s), () => {});
+    // A PlaceSearch is itself a function: wrap it, or React would call it as a state updater.
+    loadUsPlaces().then((s) => alive && setBothPlaces(() => s), () => {});
     return () => { alive = false; };
   }, [crossings, bothPlaces]);
   const borderList = useMemo(() => (T.routeData ? borderRows(crossings, T.routeData.route, bothPlaces) : []), [T.routeData, crossings, bothPlaces]);

@@ -13,6 +13,7 @@ import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } fr
 import { dirname, join } from 'node:path';
 import { serializeStationsFile, type StationsFile } from './lib/afdc.ts';
 import { checkAfdc, summaryMarkdown } from './lib/afdc-checks.ts';
+import { dropOffLand, makeOnLand } from './lib/land-check.ts';
 import { normalizeOcm, type OcmStationsFile, type RawPoi } from './lib/ocm.ts';
 import { mergeOcm, type SkipEntry } from './lib/ocm-merge.ts';
 import { OCM_SOURCE_ID } from '../src/lib/map-data.ts';
@@ -37,7 +38,10 @@ const meta = JSON.parse(readFileSync(join(rawDir, 'FETCHED.json'), 'utf8')) as {
 const raw = JSON.parse(readFileSync(join(rawDir, meta.file), 'utf8')) as RawPoi[];
 const ref = JSON.parse(readFileSync(join(rawDir, meta.reference_file), 'utf8')) as { Operators: { ID: number; Title: string }[] };
 const operators = new Map(ref.Operators.map((o) => [o.ID, o.Title]));
-const { stations, dropped, ignored_ports } = normalizeOcm(raw, operators, country);
+const normalized = normalizeOcm(raw, operators, country);
+const { dropped, ignored_ports } = normalized;
+// Off land in its own country → no_location (audit 2026-11-18, F2): also Canadian records in the US pull.
+const stations = dropOffLand(normalized.stations, country, makeOnLand(root), dropped);
 
 const next: OcmStationsFile = {
   source: `ocm-${country}`,

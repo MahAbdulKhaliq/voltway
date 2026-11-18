@@ -66,6 +66,8 @@ Today the map downloads `l3.json` (1 MB) and `l2.json` (3.8 MB) for all of Canad
   - cross-border: "Trips that cross the border aren't supported yet. Pick a destination in {country}."
 - **Settings** (`settings.inCanada*`): renamed as in "What changes" above, still locked on.
 
+**US data audit (7.12, 2026-11-18):** `map-data-auditor` re-derived all four imports with 0 differences; owner decisions on its findings: Tesla Destination pairs need 25 m or a shared name/street, generic words ignored in name matching, a land check (2 km slack), 15 skip entries (DESIGN-6 P3). Fixed without a decision: OCM ratings above 1,000 kW are unknown; US AFDC stations show the US pull date. Left as WATCH: 155 OCM US records with no state; ~93 eVgo/Applegreen plazas shown twice where OCM adds NACS; network spelling variants; the largest Level 2 tile at 297 KB of 300 KB. Report: `docs/plan/reports/map-audit-us-2026-11-18.md`.
+
 ## D5. Place search
 - **GeoNames US towns:** add the US dump (`US.txt`, CC BY 4.0, same licence as Canada) to `fetch-geonames.ts`. Keep populated places only.
   - **(approved 2026-11-18)** Use a higher population floor for the US than for Canada, so the US list stays under about 1 MB raw. Write `places-ca.json` and `places-us.json`. *(7.10: the floor is **2,000**: 12,492 US places, 0.85 MB as site rows; 1,000 would be 1.15 MB, 5,000 would lose towns like Moab UT. The build fails if a place file passes 1 MB.)* Load the US file the first time a search doesn't find enough Canadian matches, or right away when the map view is over the US.

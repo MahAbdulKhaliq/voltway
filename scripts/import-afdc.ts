@@ -13,6 +13,7 @@ import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } fr
 import { dirname, join } from 'node:path';
 import { normalizeStations, serializeStationsFile, type RawStation, type StationsFile } from './lib/afdc.ts';
 import { checkAfdc, summaryMarkdown } from './lib/afdc-checks.ts';
+import { dropOffLand, makeOnLand } from './lib/land-check.ts';
 import { COUNTRY_NAME, countryArg, importedFile, rawDir as rawDirOf } from './lib/countries.ts';
 
 const country = countryArg();
@@ -29,7 +30,10 @@ const meta = JSON.parse(readFileSync(join(rawDir, 'FETCHED.json'), 'utf8')) as {
   sha256: string;
 };
 const raw = JSON.parse(readFileSync(join(rawDir, meta.file), 'utf8')) as { fuel_stations: RawStation[] };
-const { stations, dropped, ignored_ports } = normalizeStations(raw.fuel_stations);
+const normalized = normalizeStations(raw.fuel_stations);
+const { dropped, ignored_ports } = normalized;
+// Off land in its own country → no_location (audit 2026-11-18, F2).
+const stations = dropOffLand(normalized.stations, country, makeOnLand(root), dropped);
 
 const next: StationsFile = {
   source: `afdc-${country}`,

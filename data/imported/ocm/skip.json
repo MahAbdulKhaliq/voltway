@@ -68,6 +68,66 @@
     {
       "ocm_id": 68407,
       "reason": "Duplicate of OCM 79981 Okotoks Municipal Centre (47 m apart, same NACS). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 123437,
+      "reason": "Duplicate of AFDC 104308 Town of Elkin - Recreation Center (same name, shared J1772, 300 m apart; street typed 'NC Highway 268 W' vs 'Highway 68 W' so the address layer missed it). Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 40780,
+      "reason": "Duplicate of AFDC 257667 Paramus, NJ - NJ-17 - Tesla Supercharger (same Tesla site, 243 m apart, NACS 250 kW; OCM name carries AFDC's street number 501). Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 3485,
+      "reason": "Likely duplicate of AFDC 39957 Nissan of Visalia (same dealer name and street, 323 m apart; OCM has no street number so the address layer cannot match). Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 189139,
+      "reason": "OCM duplicate of OCM 189138 Preston Visitor Center (same coordinates, same Shell Recharge ports, same date). Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 189140,
+      "reason": "OCM duplicate of OCM 189138 Preston Visitor Center. Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 189144,
+      "reason": "OCM duplicate of OCM 189138 Preston Visitor Center. Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 172949,
+      "reason": "OCM duplicate of OCM 130999 Silver Oak Alexander Valley (same coordinates, same Tesla Destination 6 kW x2). Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 291091,
+      "reason": "Bad coordinates: listed as Battle Creek MI but placed in Catskill NY. Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 304491,
+      "reason": "Bad coordinates: listed as Menands NY but placed in Mountain View CA. Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 116781,
+      "reason": "Bad coordinates: listed as St Helena CA but placed in Helen GA. Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 488576,
+      "reason": "Bad coordinates: Duncan SC hotel placed in Durham NC (same coordinates as 488578 and 488579). Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 488578,
+      "reason": "Bad coordinates: Lynchburg VA hotel placed in Durham NC. Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 488579,
+      "reason": "Bad coordinates: Lynchburg VA hotel placed in Durham NC. Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 311824,
+      "reason": "Bad coordinates: Van Nuys CA mobile charger placed in the Pacific. Owner-approved 2026-11-18 (US map-data audit)."
+    },
+    {
+      "ocm_id": 460063,
+      "reason": "Bad coordinates: Albuquerque NM mobile charger placed in the Pacific. Owner-approved 2026-11-18 (US map-data audit)."
     }
   ]
 }

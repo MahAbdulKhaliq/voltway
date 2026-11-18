@@ -321,3 +321,26 @@ describe('implausible ratings (audit 2026-11-18)', () => {
     expect(ports[0]?.kw ?? null).toBeNull();
   });
 });
+
+// Owner decision 2026-11-18 (US data audit F1): neighbouring Tesla Destination hotels aren't duplicates.
+describe('Tesla Destination pairs and generic words', () => {
+  const dest = { network: 'Tesla Destination', ports: [{ level: 2 as const, plug: 'nacs' as const, kw: 16, count: 1 }] };
+  it('two Tesla Destination sites 100 m apart with different names and streets are both kept', () => {
+    const r = mergeOcm(
+      [ocmStation(1, 45 + 0.1 * M, { ...dest, name: 'Fairfield Inn', street: '2134 La Porte Rd' })],
+      [afdcStation(10, 45, { ...dest, name: 'Hampton Inn Waterloo', street: '2034 Laporte Rd' })],
+    );
+    expect(r.kept).toHaveLength(1);
+  });
+  it('…but within 25 m, or with a shared name, they are one site', () => {
+    expect(mergeOcm([ocmStation(1, 45 + 0.02 * M, { ...dest, name: 'X' })], [afdcStation(10, 45, { ...dest, name: 'Y' })]).dropped.place).toBe(1);
+    expect(
+      mergeOcm([ocmStation(1, 45 + 0.1 * M, { ...dest, name: 'Colony Palms Hotel' })], [afdcStation(10, 45, { ...dest, name: 'Colony Palms Hotel - Tesla Destination' })]).dropped.place,
+    ).toBe(1);
+  });
+  it('names sharing only generic words are not similar', () => {
+    expect(similarNames('Best Western Plus Richmond Inn & Suites - Tesla', 'Home2 Suites Baton Rouge - Tesla Destination')).toBe(false);
+    expect(similarNames('Hilton LAX Airport - Tesla', 'LA Airport Marriott - Tesla Destination')).toBe(false);
+    expect(similarNames('Town of Elkin Recreation Center', 'Elkin Recreation Center')).toBe(true);
+  });
+});

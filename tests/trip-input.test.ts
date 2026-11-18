@@ -3,13 +3,13 @@ import { readFileSync } from 'node:fs';
 import { buildCars } from '../scripts/lib/build.ts';
 import { toPlaceRows } from '../scripts/lib/geonames.ts';
 import { TRIP } from '../src/config.ts';
-import { fold, makePlaceSearch, type PlaceRow } from '../src/lib/place-search.ts';
+import { fold, hasExactName, makePlaceSearch, type PlaceRow } from '../src/lib/place-search.ts';
 import { planCarFrom } from '../src/lib/trip-car.ts';
 import { apiPoint, readEnd, readSavedTrip, readTripLink, writeTripLink } from '../src/lib/trip-link.ts';
 import type { CarDetail } from '../src/lib/types.ts';
 
 // From the committed sources in data/ (public/data/ is build output and absent in CI before the build).
-const places = toPlaceRows(JSON.parse(readFileSync('data/imported/geonames/places.json', 'utf8')).places) as PlaceRow[];
+const places = toPlaceRows(JSON.parse(readFileSync('data/imported/geonames/places-ca.json', 'utf8')).places) as PlaceRow[];
 const search = makePlaceSearch(places);
 const first = (q: string) => search(q)[0]?.label;
 
@@ -58,6 +58,8 @@ describe('trip link', () => {
     expect(readTripLink('?q=1')).toBeNull();
     expect(readEnd('abc')).toBeNull();
     expect(readEnd('48.85,2.35,Paris')).toBeNull();
+    // B78: US ends (Denver, Anchorage, Honolulu) survive a share link.
+    for (const us of ['39.74,-104.99,Denver', '61.22,-149.9,Anchorage', '21.31,-157.86,Honolulu']) expect(readEnd(us)).not.toBeNull();
     expect(readEnd('45.5,-73.6')!.label).toBe('45.5, -73.6');
     const bad = readTripLink('?to=45.5,-73.6&start=10&min=90')!;
     expect([bad.startSoc, bad.thresholdSoc]).toEqual([TRIP.defaultStartSoc, TRIP.defaultThresholdSoc]);
@@ -125,5 +127,43 @@ describe('Route here from a station (3.13, B50)', () => {
     expect(t.from).toBeNull();
     expect(t.to).toEqual(to);
     expect(stationEnd({ geometry: { coordinates: [-75.3, 44.8] }, properties: { n: 'Iroquois Plaza', c: 'Cornwall' } }).label).toBe('Iroquois Plaza, Cornwall');
+  });
+});
+
+// B78 (DESIGN-7 D5): Canada and US places in one search, leaning to the start's country.
+describe('place search over both countries (B78)', () => {
+  const us = toPlaceRows(JSON.parse(readFileSync('data/imported/geonames/places-us.json', 'utf8')).places) as PlaceRow[];
+  const both = makePlaceSearch(places, [{ cc: 'us', rows: us }]);
+  it('finds US towns, tagged with their country', () => {
+    expect(both('Spring')[0]).toMatchObject({ label: 'Spring, TX', cc: 'us' });
+    const portland = both('Portland');
+    expect(portland.filter((p) => p.cc === 'us').length).toBeGreaterThan(2);
+    expect(both('Moab')[0].label).toBe('Moab, UT');
+  });
+  it('Canadian places keep their country tag and come first for a Canadian start', () => {
+    expect(both('Toronto')[0]).toMatchObject({ label: 'Toronto, ON', cc: 'ca' });
+    expect(both('London', 8, 'ca')[0].cc).toBe('ca');
+    expect(both('Richmond', 8, 'us')[0].cc).toBe('us');
+    expect(both('Richmond', 8, 'ca')[0].cc).toBe('ca');
+  });
+  it('a Canada-only search still works as before', () => {
+    expect(search('Spring').every((p) => p.cc === 'ca')).toBe(true);
+  });
+});
+
+describe('US list triggers and country guess (B78)', () => {
+  const us = toPlaceRows(JSON.parse(readFileSync('data/imported/geonames/places-us.json', 'utf8')).places) as PlaceRow[];
+  const both = makePlaceSearch(places, [{ cc: 'us', rows: us }]);
+  it('"Spring" has no exact Canadian name, "Toronto" does', () => {
+    expect(hasExactName(search('Spring'), 'Spring')).toBe(false);
+    expect(hasExactName(search('Toronto'), 'toronto')).toBe(true);
+    expect(hasExactName(search('Montreal'), 'Montreal')).toBe(true);
+  });
+  it('guesses an untagged end\'s country from the nearest place, even on the border', () => {
+    expect(both.countryNear(43.65, -79.38)).toBe('ca'); // Toronto
+    expect(both.countryNear(42.33, -83.05)).toBe('us'); // Detroit
+    expect(both.countryNear(42.3, -83.0)).toBe('ca'); // Windsor
+    expect(both.countryNear(61.22, -149.9)).toBe('us'); // Anchorage
+    expect(both.countryNear(60.72, -135.05)).toBe('ca'); // Whitehorse
   });
 });

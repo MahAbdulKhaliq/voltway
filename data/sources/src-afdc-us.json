@@ -1,0 +1,11 @@
+{
+  "id": "src-afdc-us",
+  "type": "dataset",
+  "title": "Alternative Fuel Stations API – US electric stations (AFDC, U.S. DOE / NLR)",
+  "url": "https://developer.nlr.gov/docs/transportation/alt-fuel-stations-v1/all/",
+  "license": "NLR data terms (https://www.nlr.gov/disclaimer): free to use and copy, with credit to DOE/NLR; no endorsement. US federal government data. Used under the same terms as the Canadian records (B30, B78).",
+  "attribution": "Charger data: U.S. Department of Energy (DOE) / National Laboratory of the Rockies (NLR) Alternative Fuels Data Center. Provided \"as is\"; no endorsement implied.",
+  "accessed_on": "2026-11-18",
+  "via": "AFDC Alternative Fuel Stations API (developer.nlr.gov), one request a month",
+  "notes": "Owner decision B78 (2026-11-18), docs/plan/DESIGN-7.md D1. Pulled monthly by .github/workflows/charger-refresh.yml (npm run fetch:afdc -- --country=us, then import:afdc -- --country=us). Raw pull is git-ignored and streamed to disk; sources/afdc-us/FETCHED.json records each pull."
+}

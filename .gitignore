@@ -27,9 +27,12 @@ Thumbs.db
 !.vscode/extensions.json
 .idea/
 
-# AFDC raw pull (~50 MB, re-downloaded daily) and the import summary; only FETCHED.json is committed
-sources/afdc-ca/stations-raw.json
-sources/afdc-ca/summary.md
-sources/ocm-ca/poi-raw.json
-sources/ocm-ca/summary.md
-sources/ocm-ca/referencedata.json
+# Charger raw pulls (AFDC ~50 MB for Canada, more for the US; OCM) and the import summaries, per
+# country (DESIGN-7 D1); only each FETCHED.json is committed
+sources/afdc-*/stations-raw.json
+sources/afdc-*/stations-raw.json.part
+sources/afdc-*/summary.md
+sources/ocm-*/poi-raw.json
+sources/ocm-*/summary.md
+sources/ocm-*/near-misses.md
+sources/ocm-*/referencedata.json

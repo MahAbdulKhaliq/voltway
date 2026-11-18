@@ -33,7 +33,7 @@ export interface PlanInput {
   /** Driving time for the whole route from the routing service (minutes). */
   durationMin: number;
   car: PlanCar;
-  /** Level 3 stations (public/data/map/l3.json features). */
+  /** Level 3 stations: full records from the detail tiles along the route (B78, map-tiles.ts). */
   stations: readonly MapFeature[];
   startSoc?: number;
   thresholdSoc?: number;

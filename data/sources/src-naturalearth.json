@@ -1,10 +1,10 @@
 {
   "id": "src-naturalearth",
   "type": "dataset",
-  "title": "Natural Earth 1:10m Cultural Vectors – Admin 0 countries (v5.1.2): Canada",
+  "title": "Natural Earth 1:10m Cultural Vectors – Admin 0 countries (v5.1.2): Canada and the US",
   "url": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/",
   "license": "Public domain (Natural Earth terms of use)",
-  "attribution": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com. Canada's outline, simplified, is used only to check that a trip starts and ends in Canada.",
-  "accessed_on": "2026-11-17",
-  "notes": "Owner decision B74 (2026-11-17): the trip function refuses a start or destination outside Canada before calling openrouteservice. Downloaded by hand with npm run fetch:canada, which writes data/imported/naturalearth/canada.json (with the download's checksum); only the function reads it, browsers never download it."
+  "attribution": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com. The outlines of Canada and the US, simplified, are used only to check that a trip stays in the country it starts in.",
+  "accessed_on": "2026-11-18",
+  "notes": "Owner decisions B74 (2026-11-17) and B78 (2026-11-18): the trip function refuses a start outside Canada and the US, or a destination outside the start's country, before calling openrouteservice. Downloaded by hand with npm run fetch:outlines, which writes data/imported/naturalearth/{ca,us}.json (with the download's checksum; the US outline includes Puerto Rico, the Virgin Islands, Guam, the Northern Marianas and American Samoa); only the function reads them, browsers never download them."
 }

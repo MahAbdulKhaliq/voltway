@@ -24,6 +24,11 @@
 - **Since:** 2026-11-16, Phase 2 plan (DESIGN-map.md M9).
 - **Impact:** each refresh (monthly since B36, so about 12 a year) commits `data/imported/afdc/stations.json` (~6.6 MB, one station per line) and `public/data/map/*.json`. Git stores changed files whole (compressed), so each refresh adds a few MB. Monthly, that is slow growth.
 - **Fix:** check repo size every few months (`git count-objects -vH`). If it grows fast: commit only on real station changes (already the rule for merging), stop committing the built `public/data/map` files and build them on Vercel instead, or move the data to a separate repo or Git LFS.
+- **Phase 7 (B78, 2026-11-18):** the US adds `data/imported/afdc/us.json` (38.7 MB, 85,947 stations), so each refresh that changes US stations adds roughly 5 MB compressed. Check `git count-objects -vH` after the first US refreshes.
+
+### TD-O7 The raw AFDC US pull is read as one string (watch item)
+- **Since:** 2026-11-18, Phase 7 (7.3). The US pull is **313 MB** (91,729 stations). `fetch-afdc.ts` streams it to disk, but it and `import-afdc.ts` read it back with `readFileSync` + `JSON.parse`. Node caps a string at about 512 MB, so the pull fails cleanly (no data changes) once the US raw file grows past that.
+- **Fix:** when it passes ~400 MB, ask AFDC for fewer fields (`fields=` with only what `normalizeStations` reads) or parse the stream (a streaming JSON parser).
 
 ### TD-O6 A blocked charger PR stays open through later quiet days
 - **Since:** 2026-11-16, Phase 2 QA (M10, report `qa-phase2-2026-11-16.md` in the session notes). When a refresh is blocked, the PR stays open; if the next days have no changes, nothing updates or closes it, and only the first day's failed run emails the owner.

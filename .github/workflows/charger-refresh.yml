@@ -1,9 +1,10 @@
-# Monthly charger-map data refresh (CHECKLIST M5, DESIGN-map.md, owner decisions B27, B36, B77).
-# Downloads the AFDC Canada stations, then the Open Charge Map ones (B77, DESIGN-6: about 4
-# requests, see scripts/fetch-ocm.ts for OCM's fair-use rules), normalizes both and runs the
-# sanity checks (scripts/lib/afdc-checks.ts). If any station changed, it opens (or updates) a pull
-# request, runs the full CI steps here, and merges the PR itself when all of them pass.
-# If the OCM download fails, last month's OCM data stays and AFDC still updates.
+# Monthly charger-map data refresh (CHECKLIST M5, DESIGN-map.md, owner decisions B27, B36, B77, B78).
+# Downloads the AFDC stations for Canada and the US, then the Open Charge Map ones (B77, B78: at
+# most 9 requests a month, see scripts/fetch-ocm.ts for OCM's fair-use rules), normalizes each
+# country on its own and runs its sanity checks (scripts/lib/afdc-checks.ts). If any station
+# changed, it opens (or updates) a pull request, runs the full CI steps here, and merges the PR
+# itself only when every check and CI step passes. If an OCM download fails, last month's OCM data
+# for that country stays and the rest still updates.
 #
 # Why CI runs here: pull requests opened with the workflow's GITHUB_TOKEN don't start
 # other workflows (GitHub's guard against loops), so ci.yml would never run on them.
@@ -48,17 +49,27 @@ jobs:
           cache: npm
       - run: npm ci
 
+      # B78: both countries, Canada first. AFDC is the main source: a failed download fails the run.
+      # The US raw file is ~300 MB, so the imports get a bigger heap (docs/tech-debt/ci-ops.md TD-O7).
       - name: Download AFDC Canada stations
         run: npm run fetch:afdc
         env:
           NLR_API_KEY: ${{ secrets.NLR_API_KEY }}
 
+      - name: Download AFDC US stations
+        run: npm run fetch:afdc -- --country=us
+        env:
+          NLR_API_KEY: ${{ secrets.NLR_API_KEY }}
+          NODE_OPTIONS: --max-old-space-size=4096
+
       - name: Simulate a drop (test run only)
         if: inputs.simulate_drop
-        run: npx tsx scripts/simulate-afdc-drop.ts 0.15
+        run: |
+          npx tsx scripts/simulate-afdc-drop.ts 0.15
+          npx tsx scripts/simulate-afdc-drop.ts 0.15 --country=us
 
-      - name: Normalize and run the sanity checks
-        id: import
+      - name: Normalize AFDC Canada and run the sanity checks
+        id: afdc_ca
         run: |
           if npm run import:afdc; then
             echo "checks=pass" >> "$GITHUB_OUTPUT"
@@ -68,18 +79,38 @@ jobs:
             npm run import:afdc -- --skip-checks
           fi
 
-      # Open Charge Map (B77): one attempt, no retries (OCM's fair-use rules). A failure keeps
-      # last month's OCM data and doesn't stop the AFDC update.
-      - name: Download Open Charge Map stations
-        id: fetch_ocm
+      - name: Normalize AFDC US and run the sanity checks
+        id: afdc_us
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          if npm run import:afdc -- --country=us; then
+            echo "checks=pass" >> "$GITHUB_OUTPUT"
+          else
+            echo "checks=fail" >> "$GITHUB_OUTPUT"
+            npm run import:afdc -- --country=us --skip-checks
+          fi
+
+      # Open Charge Map (B77, B78): one attempt per country, no retries (OCM's fair-use rules). A
+      # failure keeps last month's OCM data for that country and doesn't stop the AFDC update.
+      # Imports run after both AFDC imports: OCM duplicates are matched against every AFDC file.
+      - name: Download Open Charge Map Canada stations
+        id: fetch_ocm_ca
         continue-on-error: true
         run: npm run fetch:ocm
         env:
           OCM_API_KEY: ${{ secrets.OCM_API_KEY }}
 
-      - name: Normalize Open Charge Map and run its checks
-        id: import_ocm
-        if: steps.fetch_ocm.outcome == 'success'
+      - name: Download Open Charge Map US stations
+        id: fetch_ocm_us
+        continue-on-error: true
+        run: npm run fetch:ocm -- --country=us
+        env:
+          OCM_API_KEY: ${{ secrets.OCM_API_KEY }}
+
+      - name: Normalize Open Charge Map Canada and run its checks
+        id: ocm_ca
+        if: steps.fetch_ocm_ca.outcome == 'success'
         continue-on-error: true
         run: |
           if npm run import:ocm; then
@@ -89,37 +120,82 @@ jobs:
             npm run import:ocm -- --skip-checks
           fi
 
-      # One result for both sources: changed if either changed, checks pass only if both pass,
-      # and one summary file for the PR body.
+      - name: Normalize Open Charge Map US and run its checks
+        id: ocm_us
+        if: steps.fetch_ocm_us.outcome == 'success'
+        continue-on-error: true
+        run: |
+          if npm run import:ocm -- --country=us; then
+            echo "checks=pass" >> "$GITHUB_OUTPUT"
+          else
+            echo "checks=fail" >> "$GITHUB_OUTPUT"
+            npm run import:ocm -- --country=us --skip-checks
+          fi
+
+      # One result for all four: changed if any changed, checks pass only if every one that ran
+      # passed, and one summary file for the PR body.
       - name: Combine the results
         id: all
         env:
-          AFDC_CHANGED: ${{ steps.import.outputs.changed }}
-          AFDC_CHECKS: ${{ steps.import.outputs.checks }}
-          AFDC_SUMMARY: ${{ steps.import.outputs.summary }}
+          AFDC_CA_CHANGED: ${{ steps.afdc_ca.outputs.changed }}
+          AFDC_CA_CHECKS: ${{ steps.afdc_ca.outputs.checks }}
+          AFDC_CA_SUMMARY: ${{ steps.afdc_ca.outputs.summary }}
+          AFDC_US_CHANGED: ${{ steps.afdc_us.outputs.changed }}
+          AFDC_US_CHECKS: ${{ steps.afdc_us.outputs.checks }}
+          AFDC_US_SUMMARY: ${{ steps.afdc_us.outputs.summary }}
           # success only if both the download and the import ran; otherwise last month's OCM data stays.
-          OCM_FETCH: ${{ (steps.fetch_ocm.outcome == 'success' && steps.import_ocm.outcome == 'success') && 'success' || 'failure' }}
-          OCM_CHANGED: ${{ steps.import_ocm.outputs.changed }}
-          OCM_CHECKS: ${{ steps.import_ocm.outputs.checks }}
-          OCM_SUMMARY: ${{ steps.import_ocm.outputs.summary }}
+          OCM_CA_FETCH: ${{ (steps.fetch_ocm_ca.outcome == 'success' && steps.ocm_ca.outcome == 'success') && 'success' || 'failure' }}
+          OCM_CA_CHANGED: ${{ steps.ocm_ca.outputs.changed }}
+          OCM_CA_CHECKS: ${{ steps.ocm_ca.outputs.checks }}
+          OCM_CA_SUMMARY: ${{ steps.ocm_ca.outputs.summary }}
+          OCM_US_FETCH: ${{ (steps.fetch_ocm_us.outcome == 'success' && steps.ocm_us.outcome == 'success') && 'success' || 'failure' }}
+          OCM_US_CHANGED: ${{ steps.ocm_us.outputs.changed }}
+          OCM_US_CHECKS: ${{ steps.ocm_us.outputs.checks }}
+          OCM_US_SUMMARY: ${{ steps.ocm_us.outputs.summary }}
         run: |
           summary="$RUNNER_TEMP/charger-summary.md"
-          cat "$AFDC_SUMMARY" > "$summary"
-          echo >> "$summary"
-          if [ "$OCM_FETCH" = "success" ]; then
-            cat "$OCM_SUMMARY" >> "$summary"
-          else
-            echo "## Open Charge Map" >> "$summary"
-            echo "" >> "$summary"
-            echo "**The Open Charge Map download or import failed; last month's OCM data is kept.** See the run log." >> "$summary"
-            echo "::warning::Open Charge Map download or import failed; last month's OCM data is kept."
-          fi
+          : > "$summary"
           changed=false
-          if [ "$AFDC_CHANGED" = "true" ] || [ "$OCM_CHANGED" = "true" ]; then changed=true; fi
           checks=pass
-          if [ "$AFDC_CHECKS" != "pass" ]; then checks=fail; fi
-          if [ "$OCM_FETCH" = "success" ] && [ "$OCM_CHECKS" != "pass" ]; then checks=fail; fi
+          for cc in CA US; do
+            c="AFDC_${cc}_CHANGED"; k="AFDC_${cc}_CHECKS"; m="AFDC_${cc}_SUMMARY"
+            cat "${!m}" >> "$summary"; echo >> "$summary"
+            if [ "${!c}" = "true" ]; then changed=true; fi
+            if [ "${!k}" != "pass" ]; then checks=fail; fi
+          done
+          for cc in CA US; do
+            f="OCM_${cc}_FETCH"; c="OCM_${cc}_CHANGED"; k="OCM_${cc}_CHECKS"; m="OCM_${cc}_SUMMARY"
+            if [ "${!f}" = "success" ]; then
+              cat "${!m}" >> "$summary"
+              if [ "${!c}" = "true" ]; then changed=true; fi
+              if [ "${!k}" != "pass" ]; then checks=fail; fi
+            else
+              echo "## Open Charge Map $cc" >> "$summary"
+              echo "" >> "$summary"
+              echo "**The Open Charge Map $cc download or import failed; last month's OCM $cc data is kept.** See the run log." >> "$summary"
+              echo "::warning::Open Charge Map $cc download or import failed; last month's OCM $cc data is kept."
+            fi
+            echo >> "$summary"
+          done
+          # GitHub caps a PR body at 65,536 characters (QA 2026-11-18, B1): cut it short with a note if needed.
+          if [ "$(wc -c < "$summary")" -gt 60000 ]; then
+            # iconv -c drops a multi-byte character that the byte cut split in two.
+            head -c 58000 "$summary" | { iconv -f UTF-8 -t UTF-8 -c || true; } > "$summary.cut"
+            printf '\n\n**Summary cut short (too long for a pull request).** The full text is in the run page summary and the near-misses artifact.\n' >> "$summary.cut"
+            cp "$summary" "$summary.full"
+            mv "$summary.cut" "$summary"
+          fi
           { echo "changed=$changed"; echo "checks=$checks"; echo "summary=$summary"; } >> "$GITHUB_OUTPUT"
+
+      # The full near-miss lists (the PR body shows the closest 40 per country).
+      - name: Keep the near-miss lists
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: near-misses
+          path: sources/ocm-*/near-misses.md
+          if-no-files-found: ignore
 
       - name: Nothing changed
         if: steps.all.outputs.changed != 'true'
@@ -138,8 +214,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$BRANCH"
-          git add data/imported/afdc/stations.json sources/afdc-ca/FETCHED.json
-          git add data/imported/ocm/ sources/ocm-ca/FETCHED.json 2>/dev/null || true
+          git add data/imported/afdc/ sources/afdc-ca/FETCHED.json sources/afdc-us/FETCHED.json
+          git add data/imported/ocm/ sources/ocm-ca/FETCHED.json sources/ocm-us/FETCHED.json 2>/dev/null || true
           git commit -m "Charger data refresh ($(date -u +%F))"
 
       # The same steps as ci.yml. Each records its result; one failing doesn't skip the others.
@@ -153,7 +229,10 @@ jobs:
             if $step; then results+="- \`$step\`: passed"$'\n'; else results+="- \`$step\`: **failed**"$'\n'; status=fail; fi
           done
           echo "status=$status" >> "$GITHUB_OUTPUT"
-          { echo; echo "### CI steps (run in this workflow)"; echo; printf '%s' "$results"; } >> "$SUMMARY_FILE"
+          ci_block="$(printf '%s\n\n%s' '### CI steps (run in this workflow)' "$results")"
+          printf '\n%s\n' "$ci_block" >> "$SUMMARY_FILE"
+          # A cut-short PR body keeps the full text (.full) for the run page.
+          if [ -f "$SUMMARY_FILE.full" ]; then printf '\n%s\n' "$ci_block" >> "$SUMMARY_FILE.full"; fi
         env:
           SUMMARY_FILE: ${{ steps.all.outputs.summary }}
 
@@ -170,7 +249,7 @@ jobs:
           else
             gh pr create --head "$BRANCH" --base main --title "$title" --body-file "$SUMMARY_FILE"
           fi
-          cat "$SUMMARY_FILE" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f "$SUMMARY_FILE.full" ]; then cat "$SUMMARY_FILE.full"; else cat "$SUMMARY_FILE"; fi >> "$GITHUB_STEP_SUMMARY"
 
       - name: Merge (checks and CI passed, B27)
         if: steps.all.outputs.changed == 'true' && steps.all.outputs.checks == 'pass' && steps.ci.outputs.status == 'pass'

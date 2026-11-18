@@ -145,7 +145,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
             }
           />
           {T.locating === 'denied' && <p className="small muted" role="status">{t('trip.locationDenied')}</p>}
-          <PlaceField key={`to-${swaps}`} label={t('trip.to')} hideLabel placeholder={t('trip.toPlaceholder')} value={trip.to} search={search} onChange={(to) => T.setTrip((x) => ({ ...x, to }))} onText={(v) => setLoose((l) => ({ ...l, to: v.trim() !== '' }))} />
+          <PlaceField key={`to-${swaps}`} label={t('trip.to')} hideLabel placeholder={t('trip.toPlaceholder')} value={trip.to} search={search} near={trip.from} onChange={(to) => T.setTrip((x) => ({ ...x, to }))} onText={(v) => setLoose((l) => ({ ...l, to: v.trim() !== '' }))} />
           </div>
           <button type="button" className="btn route-swap" aria-label={t('route.swap')} title={t('route.swap')} onClick={() => { T.swap(); setSwaps((n) => n + 1); }} disabled={!trip.from && !trip.to}>
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">

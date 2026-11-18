@@ -157,3 +157,24 @@ describe('summaryMarkdown', () => {
     expect(md).toMatch(/- Station count fell 50\.0 %/);
   });
 });
+
+describe('checkAfdc per country (B78, DESIGN-7 D1)', () => {
+  const us = (id: number, lat: number, lon: number) => st(id, { lat, lon, province: 'TX' });
+  it('a US file passes with US, Alaska, Hawaii, Puerto Rico and Guam stations', () => {
+    const stations = [us(1, 30.27, -97.74), us(2, 61.22, -149.9), us(3, 21.31, -157.86), us(4, 18.47, -66.11), us(5, 13.47, 144.75)];
+    const r = checkAfdc(null, file(stations), { country: 'us' });
+    expect(r.ok).toBe(true);
+    expect(r.missing).toBe(0);
+  });
+  it('the same US stations count as bad coordinates in a Canadian file', () => {
+    const stations = Array.from({ length: 10 }, (_, i) => us(i + 1, 30.27, -97.74));
+    const r = checkAfdc(null, file(stations));
+    expect(r.ok).toBe(false);
+    expect(r.missing).toBe(10);
+  });
+  it('labels the summary table by state for the US and province for Canada', () => {
+    const md = (country: 'ca' | 'us') => summaryMarkdown(checkAfdc(null, file([us(1, 45.4, -75.7)]), { country }), 'today');
+    expect(md('us')).toContain('| State |');
+    expect(md('ca')).toContain('| Province |');
+  });
+});

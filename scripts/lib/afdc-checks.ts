@@ -4,11 +4,16 @@
 // a failed check stops the import and leaves the committed file as it was.
 
 import type { Station } from './afdc.ts';
+import { inCountryBox, REGION_NAME, type Country } from './countries.ts';
 
 /** What the checks read from an import file: AFDC (afdc.ts) and OCM (ocm.ts) both fit. */
 export interface CheckedFile {
   stations: Station[];
-  dropped: { no_location: number; no_l2_l3_ports: number };
+  /**
+   * Drops for missing data. AFDC: no location, or no Level 2/3 port. OCM (B78, 7.4): no location, or no port
+   * data (`no_port_data`); its `no_l2_l3_ports` are real Level 1-only or other-plug stations, not missing data.
+   */
+  dropped: { no_location: number; no_l2_l3_ports: number; no_port_data?: number };
 }
 
 export interface CheckOptions {
@@ -16,12 +21,11 @@ export interface CheckOptions {
   maxDropShare: number;
   /** Fail when more than this share of usable stations lack coordinates, level or plugs. */
   maxMissingShare: number;
+  /** The country the file covers: a station outside its box has bad coordinates. */
+  country: Country;
 }
 
-export const DEFAULT_CHECKS: CheckOptions = { maxDropShare: 0.1, maxMissingShare: 0.02 };
-
-/** A loose box around Canada; a station outside it has bad coordinates. */
-const CANADA = { latMin: 41, latMax: 84, lonMin: -142, lonMax: -52 };
+export const DEFAULT_CHECKS: CheckOptions = { maxDropShare: 0.1, maxMissingShare: 0.02, country: 'ca' };
 
 export type StationLevel = 'L3' | 'L2';
 const LEVELS: StationLevel[] = ['L3', 'L2'];
@@ -31,15 +35,8 @@ export function stationLevel(s: Pick<Station, 'ports'>): StationLevel {
   return s.ports.some((p) => p.level === 3) ? 'L3' : 'L2';
 }
 
-function hasCoordinates(s: Station): boolean {
-  return (
-    Number.isFinite(s.lat) &&
-    Number.isFinite(s.lon) &&
-    s.lat >= CANADA.latMin &&
-    s.lat <= CANADA.latMax &&
-    s.lon >= CANADA.lonMin &&
-    s.lon <= CANADA.lonMax
-  );
+function hasCoordinates(s: Station, country: Country): boolean {
+  return inCountryBox(country, s.lat, s.lon);
 }
 
 function hasLevelAndPlugs(s: Station): boolean {
@@ -68,6 +65,7 @@ export interface CheckResult {
   usable: number;
   byProvince: Map<string, Counts>;
   totals: Counts;
+  country: Country;
 }
 
 /**
@@ -76,7 +74,8 @@ export interface CheckResult {
  * normaliser drops a station with no location or no L2/L3 port, so those drops are
  * the "missing" cases, plus any kept station that somehow fails the same test.
  */
-export function checkAfdc(prev: CheckedFile | null, next: CheckedFile, opts: CheckOptions = DEFAULT_CHECKS): CheckResult {
+export function checkAfdc(prev: CheckedFile | null, next: CheckedFile, options: Partial<CheckOptions> = {}): CheckResult {
+  const opts: CheckOptions = { ...DEFAULT_CHECKS, ...options };
   const failures: string[] = [];
   const nextCount = next.stations.length;
   const prevCount = prev ? prev.stations.length : null;
@@ -90,9 +89,10 @@ export function checkAfdc(prev: CheckedFile | null, next: CheckedFile, opts: Che
     }
   }
 
-  const badKept = next.stations.filter((s) => !hasCoordinates(s) || !hasLevelAndPlugs(s)).length;
-  const missing = next.dropped.no_location + next.dropped.no_l2_l3_ports + badKept;
-  const usable = nextCount + next.dropped.no_location + next.dropped.no_l2_l3_ports;
+  const badKept = next.stations.filter((s) => !hasCoordinates(s, opts.country) || !hasLevelAndPlugs(s)).length;
+  const noPorts = next.dropped.no_port_data ?? next.dropped.no_l2_l3_ports;
+  const missing = next.dropped.no_location + noPorts + badKept;
+  const usable = nextCount + next.dropped.no_location + noPorts;
   if (usable === 0) {
     failures.push('The new import has no usable stations.');
   } else if (missing / usable > opts.maxMissingShare) {
@@ -119,7 +119,7 @@ export function checkAfdc(prev: CheckedFile | null, next: CheckedFile, opts: Che
   }
   for (const [id, s] of before) if (!after.has(id)) bump('removed', s);
 
-  return { ok: failures.length === 0, failures, prevCount, nextCount, missing, usable, byProvince, totals };
+  return { ok: failures.length === 0, failures, prevCount, nextCount, missing, usable, byProvince, totals, country: opts.country };
 }
 
 function pct(x: number): string {
@@ -147,7 +147,7 @@ export function summaryMarkdown(r: CheckResult, fetchedAt: string, source = 'AFD
   lines.push(
     `Added ${sum('added')}, removed ${sum('removed')}, changed ${sum('changed')}.`,
     '',
-    '| Province | Added L3 | Added L2 | Removed L3 | Removed L2 | Changed L3 | Changed L2 |',
+    `| ${REGION_NAME[r.country]} | Added L3 | Added L2 | Removed L3 | Removed L2 | Changed L3 | Changed L2 |`,
     '|---|---:|---:|---:|---:|---:|---:|',
   );
   const row = (name: string, c: Counts) =>

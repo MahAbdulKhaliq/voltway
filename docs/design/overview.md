@@ -11,7 +11,7 @@ A one-page summary of the whole design (as of 2026-11-15). Each section links to
 | | |
 |-|-|
 | **Pitch** | **A simple, free trip planner and charger map (the lead since B52, 2026-11-16), built on accurate vehicle data.** Every figure shows its source. The map and routing stay deliberately simple. |
-| **Market** | Canada first (North America later). **Branding is market-neutral (B12, 2026-11-16):** the product aims to go worldwide; the current data covers Canada and the site says so openly. |
+| **Market** | Canada first (North America later). **Branding is market-neutral (B12, 2026-11-16):** the product aims to go worldwide; the current data covers Canada and the site says so openly. Since Phase 7 (B78) **chargers, place search and trips also cover the US**; car data stays the Canadian list. |
 | **Users** | Shoppers, owners and enthusiasts, served by **one interface in three layers**: headline → full specs → sources |
 | **Platform** | Website. **No accounts.** Choices are saved in the browser. |
 | **Budget** | **Free.** Every part fits in free tiers. |
@@ -60,7 +60,7 @@ Each phase ships on its own. The header gains **Map** as it's built; the trip pl
 ## 4. Phase 2: Charger map
 
 - **Data:** NLR (formerly NREL) AFDC (covers Canada), **pulled monthly** (B36) and published as static files, about 15,000 locations. Automatic checks stop a bad update (for example a >10% drop in stations).
-- **Map:** MapLibre + **OpenFreeMap** tiles (free, no key), with self-hosted Protomaps as a fallback. **Covers all of Canada.**
+- **Map:** MapLibre + **OpenFreeMap** tiles (free, no key), with self-hosted Protomaps as a fallback. **Covers all of Canada, and the US since Phase 7 (B78),** with charger data loaded as tiles by area ([DESIGN-7.md](../plan/DESIGN-7.md)).
 - **Filters:** Level 3 (shown by default) / Level 2 → **a kW range slider per level** (B35; unknown power shows at the full range) → plugs (CCS1, NACS, CHAdeMO, J1772) → "**Chargers my car can use**".
 
   | Level 2 | ≤3.6 · 3.7–7.2 · 7.3–11.5 · 11.6–19.2 kW |

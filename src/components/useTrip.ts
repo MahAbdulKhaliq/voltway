@@ -3,6 +3,8 @@
 // stops planned in the browser (trip-plan.ts), so a new car or new percentages re-plan with no
 // new request. The last trip is saved in the browser; a share link is written only on request.
 
+import { inTripCountries } from '../lib/station-country.ts';
+import type { CountryCode } from '../lib/country.ts';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { t } from '../i18n/t.ts';
 import type { MyCar } from '../lib/my-car.ts';
@@ -20,8 +22,11 @@ import type { DistanceUnit } from '../lib/units.ts';
 import { TRIP } from '../config.ts';
 import { avoidList, avoidQuery, NO_AVOID, readRouteOptions, routeOptions, ROUTE_OPTIONS_EVENT, type RouteOptions } from '../lib/route-options.ts';
 
-export type TripStatus = 'idle' | 'planning' | 'done' | 'badRequest' | 'noRoute' | 'busy' | 'offline' | 'error' | 'outsideFrom' | 'outsideTo' | 'outsideBoth';
-export interface RouteData { route: Route; durationMin: number; key: string }
+export type TripStatus =
+  | 'idle' | 'planning' | 'done' | 'badRequest' | 'noRoute' | 'busy' | 'offline' | 'error'
+  // B78: the border rule (DESIGN-7 D4); one message each.
+  | 'outsideArea' | 'crossBorderCa' | 'crossBorderUs' | 'crossBorderAny' | 'crossBorderAlaska';
+export interface RouteData { route: Route; durationMin: number; key: string; countries?: CountryCode[] }
 export type Locating = 'idle' | 'busy' | 'denied';
 
 const BLANK: TripQuery = { from: null, to: null, startSoc: TRIP.defaultStartSoc, thresholdSoc: TRIP.defaultThresholdSoc };
@@ -29,14 +34,22 @@ const BLANK: TripQuery = { from: null, to: null, startSoc: TRIP.defaultStartSoc,
 /** The route's key: the API form of both points, plus the route options (B73), which change the route. */
 export const endsKey = (q: Pick<TripQuery, 'from' | 'to'>, o: RouteOptions = NO_AVOID) =>
   (q.from && q.to ? `${apiPoint(q.from)}|${apiPoint(q.to)}|${avoidList(o).join(',')}` : '');
-const OUTSIDE = { from: 'outsideFrom', to: 'outsideTo', both: 'outsideBoth' } as const;
+/** The status for a 422 border answer from /api/route (src/lib/ors.ts borderProblem), or null. */
+export function borderStatus(body: unknown): TripStatus | null {
+  const b = body as { error?: string; country?: string | null; reason?: string } | null;
+  if (b?.error === 'outsideArea') return 'outsideArea';
+  if (b?.error !== 'crossBorder') return null;
+  if (b.reason === 'alaska') return 'crossBorderAlaska';
+  return b.country === 'ca' ? 'crossBorderCa' : b.country === 'us' ? 'crossBorderUs' : 'crossBorderAny';
+}
 
 /**
  * @param myCar the map's My car
- * @param l3 the Level 3 stations once loaded (the planner's candidates), else null
- * @param l3Failed the station data failed to load (planning can't finish)
+ * @param corridor loads the full Level 3 stations along a route (the planner's candidates, B78: from
+ *   the detail tiles the route passes); null until the tile index is in
+ * @param dataFailed the station data failed to load (planning can't finish)
  */
-export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed = false) {
+export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promise<MapFeature[]>) | null, dataFailed = false) {
   const [trip, setTrip] = useState<TripQuery>(BLANK);
   const [detail, setDetail] = useState<CarDetail | null>(null);
   const [routeData, setRouteData] = useState<RouteData | null>(null);
@@ -104,16 +117,27 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
 
   // Plan the stops whenever the route, the car, the percentages or the station data change (no request).
   // Percentages out of range keep the last good plan on screen; the form says what to fix.
+  // B78: the stations come from the detail tiles along the route; the card shows "planning" while they load.
   useEffect(() => {
     if (!routeData || !planCar?.ok) { setPlan(null); setNacsHelps(false); return; }
     if (!pctValid) return;
-    if (!l3) { if (l3Failed) setStatus('error'); return; } // still loading: planning follows
-    const input = { route: routeData.route, durationMin: routeData.durationMin, car: planCar.car, stations: l3, startSoc: trip.startSoc, thresholdSoc: trip.thresholdSoc };
-    const next = planTrip(input);
-    setPlan(next);
-    setNacsHelps(nacsRescue(input, next));
-    setStatus('done');
-  }, [routeData, planCar, l3, l3Failed, pctValid, trip.startSoc, trip.thresholdSoc]);
+    if (!corridor) { if (dataFailed) setStatus('error'); return; } // still loading: planning follows
+    let alive = true;
+    setStatus('planning');
+    corridor(routeData.route).then(
+      (stations) => {
+        if (!alive) return;
+        // B78: stops stay in the trip's country (a border route passes chargers on the other side).
+        const input = { route: routeData.route, durationMin: routeData.durationMin, car: planCar.car, stations: inTripCountries(stations, routeData.countries), startSoc: trip.startSoc, thresholdSoc: trip.thresholdSoc };
+        const next = planTrip(input);
+        setPlan(next);
+        setNacsHelps(nacsRescue(input, next));
+        setStatus('done');
+      },
+      () => alive && setStatus('error'),
+    );
+    return () => { alive = false; };
+  }, [routeData, planCar, corridor, dataFailed, pctValid, trip.startSoc, trip.thresholdSoc]);
 
   // A message about the last request (busy, no route, …) goes once the ends change.
   const key = endsKey(trip, opts);
@@ -141,16 +165,16 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
       if (gen !== generation.current) return; // Close route came first
       if (!r.ok) {
         setRouteData(null);
-        // B74: an end outside Canada says which one.
-        const err = r.status === 422 ? ((await r.json().catch(() => null)) as { error?: string; end?: keyof typeof OUTSIDE } | null) : null;
+        // B78: a trip outside the area or across the border says so.
+        const border = r.status === 422 ? borderStatus(await r.json().catch(() => null)) : null;
         if (gen !== generation.current) return;
-        if (err?.error === 'outsideCanada' && err.end && err.end in OUTSIDE) { setStatus(OUTSIDE[err.end]); return; }
+        if (border) { setStatus(border); return; }
         setStatus(r.status === 400 ? 'badRequest' : r.status === 422 ? 'noRoute' : 'busy'); // 429 (firewall), 503 (ORS) → busy
         return;
       }
       const body = (await r.json()) as RouteBody;
       if (gen !== generation.current) return;
-      setRouteData({ route: buildRoute(body.coords), durationMin: body.durationMin, key });
+      setRouteData({ route: buildRoute(body.coords), durationMin: body.durationMin, key, countries: body.countries });
     } catch {
       if (gen !== generation.current) return;
       setRouteData(null);

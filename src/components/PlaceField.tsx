@@ -1,14 +1,35 @@
 // A place field (From, To, "Where to?"): instant suggestions from the GeoNames place list (B45),
 // and the address service (/api/geocode) only when "Search full address" is pressed.
 
-import { useEffect, useId, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useState, useSyncExternalStore } from 'react';
 import { t } from '../i18n/t.ts';
-import { makePlaceSearch, type PlaceRow, type PlaceSearch, type TripEnd } from '../lib/place-search.ts';
+import { hasExactName, makePlaceSearch, type PlaceRow, type PlaceSearch, type TripEnd } from '../lib/place-search.ts';
 
-// The place list: one fetch per visit, shared by every field.
+// The place lists: one fetch each per visit, shared by every field. Canada loads first; the US list
+// (B78, DESIGN-7 D5) loads when a search finds few matches or the map is over the US (loadUsPlaces).
+const getRows = (cc: string) => fetch(`/data/places-${cc}.json`).then((r) => (r.ok ? r.json() : Promise.reject(r.status))) as Promise<PlaceRow[]>;
+let caRows: Promise<PlaceRow[]> | null = null;
 let placesPromise: Promise<PlaceSearch> | null = null;
-export const loadPlaces = () =>
-  (placesPromise ??= fetch('/data/places.json').then((r) => (r.ok ? r.json() : Promise.reject(r.status))).then((rows: PlaceRow[]) => makePlaceSearch(rows)));
+export const loadPlaces = () => (placesPromise ??= (caRows ??= getRows('ca')).then((rows) => makePlaceSearch(rows)));
+
+/** The search over both countries once the US list is in; every field switches to it. */
+let wide: PlaceSearch | null = null;
+let widePromise: Promise<PlaceSearch> | null = null;
+const listeners = new Set<() => void>();
+export const loadUsPlaces = () =>
+  (widePromise ??= Promise.all([(caRows ??= getRows('ca')), getRows('us')])
+    .then(([ca, us]) => {
+      wide = makePlaceSearch(ca, [{ cc: 'us', rows: us }]);
+      listeners.forEach((l) => l());
+      return wide;
+    })
+    .catch((e) => {
+      widePromise = null; // a failed load can be tried again
+      throw e;
+    }));
+const useWide = () => useSyncExternalStore((l) => { listeners.add(l); return () => listeners.delete(l); }, () => wide, () => null);
+/** A search with fewer matches than this, or none with exactly the typed name, asks for the US list. */
+const FEW = 3;
 
 interface FieldProps {
   label: string;
@@ -23,9 +44,13 @@ interface FieldProps {
   autoFocus?: boolean;
   /** The typed text, on every keystroke (B62: the trip hint shows only for text not picked). */
   onText?: (text: string) => void;
+  /** The trip start: place results lean to its country, and address search keeps to it (B78). */
+  near?: TripEnd | null;
 }
 
-export default function PlaceField({ label, value, onChange, search, extra, placeholder, hideLabel, autoFocus, onText }: FieldProps) {
+export default function PlaceField({ label, value, onChange, search: own, extra, placeholder, hideLabel, autoFocus, onText, near }: FieldProps) {
+  const wideSearch = useWide();
+  const search = own ? (wideSearch ?? own) : null;
   const id = useId();
   const [text, setText] = useState(value?.label ?? '');
   const [open, setOpen] = useState(false);
@@ -35,7 +60,17 @@ export default function PlaceField({ label, value, onChange, search, extra, plac
 
   // Show a picked end's label; clearing the pick (while typing) leaves the typed text alone.
   useEffect(() => { if (value) setText(value.label); }, [value]);
-  const local = useMemo(() => (search && open ? search(text) : []), [search, text, open]);
+  // The start's country: its tag, or (a share link, my location, a station) the nearest listed place's,
+  // once both lists are in. A start without a tag loads the US list so the guess can be right.
+  const nearCc = near ? (near.cc ?? wideSearch?.countryNear(near.lat, near.lon) ?? undefined) : undefined;
+  useEffect(() => { if (own && near && !near.cc && !wideSearch) loadUsPlaces().catch(() => {}); }, [own, near, wideSearch]);
+  const local = useMemo(() => (search && open ? search(text, 8, nearCc) : []), [search, text, open, nearCc]);
+  // Few Canadian matches, or none named exactly as typed ("Spring"): bring in the US towns (once per
+  // visit; failures are quiet, Canada still works).
+  const exact = hasExactName(local, text);
+  useEffect(() => {
+    if (search && !wideSearch && open && text.trim().length >= 3 && (local.length < FEW || !exact)) loadUsPlaces().catch(() => {});
+  }, [search, wideSearch, open, text, local.length, exact]);
   const options = remote ?? local;
   useEffect(() => setActive(-1), [text, remote]);
 
@@ -52,9 +87,11 @@ export default function PlaceField({ label, value, onChange, search, extra, plac
     setOpen(true);
     setRemoteState('loading');
     try {
-      const r = await fetch(`/api/geocode?q=${encodeURIComponent(q)}`);
+      // With a start, addresses come from its country only: a trip can't cross the border anyway (B78).
+      const at = nearCc ? `&country=${nearCc}` : '';
+      const r = await fetch(`/api/geocode?q=${encodeURIComponent(q)}${at}`);
       if (!r.ok) throw new Error(String(r.status));
-      const { places } = (await r.json()) as { places: { label: string; lat: number; lon: number }[] };
+      const { places } = (await r.json()) as { places: TripEnd[] };
       setRemote(places);
       setRemoteState(places.length ? 'idle' : 'none');
     } catch {

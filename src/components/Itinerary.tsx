@@ -227,7 +227,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             {plan.uncalibratedFactor && <p>{t('trip.warn.uncalibrated')}</p>}
             <p>{t('trip.assumptions', { payload: TRIP.payloadKg, target: TRIP.chargeToSoc, overhead: TRIP.stopOverheadMin })}</p>
             <p>{t('trip.winter')}</p>
-            {updated && <p>{t('map.station.footer', { date: showDate(updated) })}</p>}
+            {updated && <p>{t('trip.chargerData', { date: showDate(updated) })}</p>}
             {carUpdated && <p>{t('trip.carDataDate', { date: showDate(carUpdated) })}</p>}
           </div>
         </details>

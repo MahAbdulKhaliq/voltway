@@ -1,6 +1,6 @@
 // Route options from Settings (B73): avoid tolls, avoid highways. Kept in the browser like the
-// other settings and sent to /api/route as `avoid=tolls,highways` (checked again there). "Stay in
-// Canada" (B74) is always on and not stored. A change is announced with a "voltway:routeOptions" event.
+// other settings and sent to /api/route as `avoid=tolls,highways` (checked again there). "Stay within
+// the border" (B74, B78) is always on and not stored. A change is announced with a "voltway:routeOptions" event.
 
 import type { AvoidOption } from './ors.ts';
 import { getJSON, setJSON, KEYS } from './storage.ts';

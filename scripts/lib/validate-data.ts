@@ -6,6 +6,10 @@ import { join, relative, sep } from 'node:path';
 import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 import { parseCsv } from './csv.ts';
+import { COUNTRIES } from './countries.ts';
+import { MIN_POPULATION_FOR, PROVINCE_CODES, US_STATES, type GeoCountry } from './geonames.ts';
+
+const CA_PROVINCES = new Set(Object.values(PROVINCE_CODES));
 
 export interface ValidationResult {
   errors: string[];
@@ -344,12 +348,14 @@ export function validateRepo(root: string): ValidationResult {
     });
   }
 
-  // --- Imported AFDC charging stations (charger map) ---
+  // --- Imported AFDC charging stations (charger map), one file per country (DESIGN-7 D1) ---
   let afdcStations = 0;
-  if (existsSync(join(dataDir, 'imported', 'afdc', 'stations.json'))) {
-    const file = 'data/imported/afdc/stations.json';
-    const data = read('imported/afdc', 'stations.json') as { source_id: string; stations: { id: number }[] } | undefined;
+  for (const country of COUNTRIES) {
+    if (!existsSync(join(dataDir, 'imported', 'afdc', `${country}.json`))) continue;
+    const file = `data/imported/afdc/${country}.json`;
+    const data = read('imported/afdc', `${country}.json`) as { source: string; source_id: string; stations: { id: number }[] } | undefined;
     if (data !== undefined && check(v.importedAfdc, data, file)) {
+      if (data.source !== `afdc-${country}`) errors.push(`${file}: source is "${data.source}", expected "afdc-${country}"`);
       if (!sources.has(data.source_id)) errors.push(`${file}: cites unknown source "${data.source_id}"`);
       for (let i = 1; i < data.stations.length; i++) {
         if (data.stations[i].id <= data.stations[i - 1].id) {
@@ -357,23 +363,33 @@ export function validateRepo(root: string): ValidationResult {
           break;
         }
       }
-      afdcStations = data.stations.length;
+      afdcStations += data.stations.length;
     }
   }
 
-  // --- Imported GeoNames places (trip planner From/To suggestions, B45) ---
+  // --- Imported GeoNames places (trip planner From/To suggestions, B45; US added by B78) ---
   let geonamesPlaces = 0;
-  if (existsSync(join(dataDir, 'imported', 'geonames', 'places.json'))) {
-    const file = 'data/imported/geonames/places.json';
-    const data = read('imported/geonames', 'places.json') as { source_id: string; places: { id: number }[] } | undefined;
+  for (const cc of COUNTRIES) {
+    const name = `places-${cc}.json`;
+    if (!existsSync(join(dataDir, 'imported', 'geonames', name))) continue;
+    const file = `data/imported/geonames/${name}`;
+    const data = read('imported/geonames', name) as
+      | { source: string; source_id: string; min_population: number; places: { id: number; province: string; population: number }[] }
+      | undefined;
     if (data !== undefined && check(v.importedGeonames, data, file)) {
       if (!sources.has(data.source_id)) errors.push(`${file}: cites unknown source "${data.source_id}"`);
+      if (data.source !== `geonames-${cc}`) errors.push(`${file}: source is "${data.source}", expected "geonames-${cc}"`);
+      const geo = cc.toUpperCase() as GeoCountry;
+      if (data.min_population !== MIN_POPULATION_FOR[geo]) errors.push(`${file}: min_population ${data.min_population}, expected ${MIN_POPULATION_FOR[geo]}`);
       const ids = new Set<number>();
       for (const p of data.places) {
         if (ids.has(p.id)) errors.push(`${file}: GeoNames id ${p.id} appears twice`);
         ids.add(p.id);
+        if (!(geo === 'US' ? US_STATES.has(p.province) : CA_PROVINCES.has(p.province)))
+          errors.push(`${file}: GeoNames id ${p.id} has unknown ${geo === 'US' ? 'state' : 'province'} "${p.province}"`);
+        if (p.population < MIN_POPULATION_FOR[geo]) errors.push(`${file}: GeoNames id ${p.id} is below the population floor`);
       }
-      geonamesPlaces = data.places.length;
+      geonamesPlaces += data.places.length;
     }
   }
 

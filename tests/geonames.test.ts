@@ -6,6 +6,7 @@ import { deflateRawSync } from 'node:zlib';
 import { describe, expect, it } from 'vitest';
 import {
   MIN_POPULATION,
+  MIN_POPULATION_US,
   PROVINCE_CODES,
   parseGeonames,
   parseLine,
@@ -155,7 +156,7 @@ describe('formatPlacesFile', () => {
 });
 
 describe('committed GeoNames import', () => {
-  const file = JSON.parse(readFileSync(join(process.cwd(), 'data', 'imported', 'geonames', 'places.json'), 'utf8')) as {
+  const file = JSON.parse(readFileSync(join(process.cwd(), 'data', 'imported', 'geonames', 'places-ca.json'), 'utf8')) as {
     source_id: string;
     places: Place[];
   };
@@ -178,5 +179,56 @@ describe('committed GeoNames import', () => {
 
   it('turns places into short-key rows for the site', () => {
     expect(Object.keys(rows[0]).sort()).toEqual(['lat', 'lon', 'n', 'p', 'pop']);
+  });
+});
+
+// B78 (DESIGN-7 D5): US towns from US.zip, with a higher population floor.
+describe('US places (B78)', () => {
+  const us = (o: Parameters<typeof line>[0]) => line({ cc: 'US', admin1: 'TX', lat: 30.08, lon: -95.42, ...o });
+  it('keeps US populated places at or above the US floor, with their state', () => {
+    expect(MIN_POPULATION_US).toBe(2000);
+    expect(parseLine(us({ name: 'Spring', pop: 54298 }), 'US')).toMatchObject({ name: 'Spring', province: 'TX', population: 54298 });
+    expect(parseLine(us({ name: 'Edge', pop: 2000 }), 'US')?.population).toBe(2000);
+    expect(parseLine(us({ name: 'Small', pop: 1999 }), 'US')).toBeNull();
+  });
+  it('takes only the asked-for country and real states (DC yes, territories and bad codes no)', () => {
+    expect(parseLine(us({ name: 'Spring' }), 'CA')).toBeNull();
+    expect(parseLine(line({ name: 'Toronto' }), 'US')).toBeNull();
+    expect(parseLine(us({ name: 'Washington', admin1: 'DC' }), 'US')?.province).toBe('DC');
+    expect(parseLine(us({ name: 'Nowhere', admin1: '00' }), 'US')).toBeNull();
+    expect(provinceFor('PR', 'US')).toBeNull();
+  });
+  it('parses a dump given as bytes, with CRLF lines', () => {
+    const buf = Buffer.from([us({ id: 2, name: 'Portland', admin1: 'OR', pop: 652503 }), us({ id: 3, name: 'Tiny', pop: 10 })].join('\r\n') + '\r\n', 'utf8');
+    const r = parseGeonames(buf, 'US');
+    expect(r.places.map((p) => p.name)).toEqual(['Portland']);
+    expect(r.lines).toBe(2);
+    expect(r.below_min_population).toBe(1);
+  });
+});
+
+describe('committed GeoNames US import (B78)', () => {
+  const file = JSON.parse(readFileSync(join(process.cwd(), 'data', 'imported', 'geonames', 'places-us.json'), 'utf8')) as {
+    source: string;
+    source_id: string;
+    min_population: number;
+    places: Place[];
+  };
+  const rows = toPlaceRows(file.places);
+  it('has about 12,500 places at or above 2,000 people, under 1 MB as site rows', () => {
+    expect(file.source).toBe('geonames-us');
+    expect(file.source_id).toBe('src-geonames');
+    expect(file.min_population).toBe(2000);
+    expect(rows.length).toBeGreaterThan(10000);
+    expect(rows.length).toBeLessThan(15000);
+    expect(rows.every((r) => r.pop >= 2000 && /^[A-Z]{2}$/.test(r.p))).toBe(true);
+    expect(JSON.stringify(rows).length).toBeLessThan(1_000_000);
+  });
+  it('has Spring TX, several Portlands (OR largest), Moab UT, Lewistown MT, Anchorage AK and Honolulu HI', () => {
+    expect(rows.find((r) => r.n === 'Spring')?.p).toBe('TX');
+    const portlands = rows.filter((r) => r.n === 'Portland');
+    expect(portlands.length).toBeGreaterThan(3);
+    expect(portlands[0].p).toBe('OR');
+    for (const [n, p] of [['Moab', 'UT'], ['Lewistown', 'MT'], ['Anchorage', 'AK'], ['Honolulu', 'HI']]) expect(rows.some((r) => r.n === n && r.p === p)).toBe(true);
   });
 });

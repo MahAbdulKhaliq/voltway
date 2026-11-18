@@ -62,6 +62,8 @@ export interface MapMeta {
   counts: { l3: number; l2: number; total: number };
   /** Open Charge Map, the second source (B77): when it was pulled and how many stations it adds. */
   ocm?: { source_id: string; fetched_at: string; updated: string; count: number };
+  /** Stations on the map per source and country (B78): AFDC per file, OCM after duplicates. */
+  sources?: { source_id: string; country: string; fetched_at: string; count: number }[];
 }
 
 /** The Open Charge Map data providers we use (B77, DESIGN-6 P2): names and licences as the providers give them. */

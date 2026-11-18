@@ -5,6 +5,9 @@
 //   address    an AFDC station within 1 km with the same street number and street name, sharing a plug at the same level
 //   name       an AFDC station within 300 m whose name shares two words, sharing a plug at the same level
 // A match never removes an OCM station with a Level 3 port or a NACS plug its AFDC match lacks (audit 2026-11-18).
+// Two Tesla Destination sites (one 16 kW wall connector each, usually a different hotel each) match at
+// the place layer only when also within 25 m, or sharing a name or street address; the name layer
+// ignores generic words ("tesla", "suites", "hotel"…). Owner decision 2026-11-18 (US data audit F1).
 // (OCM's copies of AFDC records are never fetched.) What's kept but still within 500 m of an AFDC
 // station is listed as a near miss, for the refresh summary and the audit agent.
 // Pure: the caller reads the files.
@@ -16,6 +19,9 @@ export const PLACE_KM = 0.15;
 export const ADDRESS_KM = 1;
 export const NAME_KM = 0.3;
 export const NEAR_MISS_KM = 0.5;
+/** Two Tesla Destination sites closer than this are taken as the same place without other evidence. */
+export const DESTINATION_PLACE_KM = 0.025;
+const DESTINATION = 'Tesla Destination';
 
 export type DuplicateLayer = 'skip' | 'place' | 'address' | 'name';
 
@@ -60,7 +66,9 @@ export function normText(x: string | null | undefined): string {
     .replace(/\s+/g, ' ')
     .trim();
 }
-const longWords = (x: string | null | undefined) => new Set(normText(x).split(' ').filter((w) => w.length > 3 && !/^\d+$/.test(w)));
+/** Words in many unrelated station names, so sharing them says nothing (audit 2026-11-18, F1). */
+const GENERIC = new Set(['tesla', 'destination', 'hotel', 'hotels', 'suites', 'resort', 'parking', 'garage', 'airport', 'charging', 'charger', 'station']);
+const longWords = (x: string | null | undefined) => new Set(normText(x).split(' ').filter((w) => w.length > 3 && !/^\d+$/.test(w) && !GENERIC.has(w)));
 const streetNumber = (x: string | null | undefined) => normText(x).match(/^\d+/)?.[0] ?? null;
 
 const DIRECTIONS = new Set(['n', 's', 'e', 'w', 'ne', 'nw', 'se', 'sw', 'north', 'south', 'east', 'west', 'nord', 'sud', 'est', 'ouest', 'o',
@@ -146,8 +154,9 @@ export function mergeOcm(ocm: readonly OcmStation[], afdc: readonly Station[], s
       continue;
     }
     const around = near(o, ADDRESS_KM);
+    const bothDestination = (s: Station) => o.network === DESTINATION && s.network === DESTINATION;
     const layers: [DuplicateLayer, (d: number, s: Station) => boolean][] = [
-      ['place', (d, s) => d <= PLACE_KM && sharePlug(o, s)],
+      ['place', (d, s) => d <= PLACE_KM && sharePlug(o, s) && (!bothDestination(s) || d <= DESTINATION_PLACE_KM || similarNames(o.name, s.name) || sameAddress(o.street, s.street))],
       ['address', (_, s) => sameAddress(o.street, s.street) && sharePlug(o, s)],
       ['name', (d, s) => d <= NAME_KM && similarNames(o.name, s.name) && sharePlug(o, s)],
     ];

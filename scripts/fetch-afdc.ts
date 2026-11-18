@@ -1,9 +1,10 @@
-// `npm run fetch:afdc`: downloads every Canadian electric station from the AFDC
-// Alternative Fuel Stations API (NLR, formerly NREL; Canadian records come from NRCan)
-// into sources/afdc-ca/stations-raw.json, with a FETCHED.json recording where, when,
-// its checksum and counts.
+// `npm run fetch:afdc [-- --country=us]`: downloads every electric station in one country (Canada
+// when none is given) from the AFDC Alternative Fuel Stations API (NLR, formerly NREL; Canadian
+// records come from NRCan) into sources/afdc-<cc>/stations-raw.json, with a FETCHED.json recording
+// where, when, its checksum and counts.
 //
-// The raw file is ~50 MB, so it is git-ignored; only FETCHED.json is committed.
+// The raw file is ~50 MB for Canada and much more for the US (DESIGN-7 D1), so it is streamed to
+// disk, then read back to check it. It is git-ignored; only FETCHED.json is committed.
 // The normalized, much smaller map data (M2) is what goes into the repo.
 //
 // Needs the API key in NLR_API_KEY: a GitHub Actions secret in CI, or a local
@@ -11,14 +12,19 @@
 // so it can't end up in logs or in FETCHED.json.
 
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { createWriteStream, existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { Readable, Transform } from 'node:stream';
+import { pipeline } from 'node:stream/promises';
+import type { ReadableStream as WebReadableStream } from 'node:stream/web';
+import { countryArg, rawDir, type Country } from './lib/countries.ts';
 
 export const AFDC_API = 'https://developer.nlr.gov/api/alt-fuel-stations/v1.json';
 // All statuses and access types: the normalizer (M2) decides what to drop, so the
 // sanity checks (M3) can compare like with like between pulls.
-export const AFDC_QUERY = 'country=CA&fuel_type=ELEC&status=all&access=all&limit=all';
-const OUT_DIR = join(process.cwd(), 'sources', 'afdc-ca');
+export function afdcQuery(country: Country): string {
+  return `country=${country.toUpperCase()}&fuel_type=ELEC&status=all&access=all&limit=all`;
+}
 export const RAW_FILE = 'stations-raw.json';
 
 export interface AfdcResponse {
@@ -26,7 +32,7 @@ export interface AfdcResponse {
   fuel_stations: unknown[];
 }
 
-/** Checks the response looks like a full Canadian pull; returns a reason if not. */
+/** Checks the response looks like a full pull; returns a reason if not. */
 export function responseProblem(body: unknown): string | null {
   if (typeof body !== 'object' || body === null) return 'response is not a JSON object';
   const r = body as Partial<AfdcResponse>;
@@ -47,29 +53,43 @@ function apiKey(): string {
 }
 
 async function main() {
-  const url = `${AFDC_API}?${AFDC_QUERY}`;
-  const res = await fetch(url, { headers: { 'X-Api-Key': apiKey(), Accept: 'application/json' } });
-  if (!res.ok) throw new Error(`AFDC request failed: HTTP ${res.status}`);
-  const text = await res.text();
-  const body = JSON.parse(text) as AfdcResponse;
+  const country = countryArg();
+  const outDir = rawDir(process.cwd(), 'afdc', country);
+  const query = afdcQuery(country);
+  const res = await fetch(`${AFDC_API}?${query}`, { headers: { 'X-Api-Key': apiKey(), Accept: 'application/json' } });
+  if (!res.ok || !res.body) throw new Error(`AFDC request failed: HTTP ${res.status}`);
+
+  // Stream to a temporary file, hashing on the way; it replaces the last pull only once it checks out.
+  mkdirSync(outDir, { recursive: true });
+  const part = join(outDir, `${RAW_FILE}.part`);
+  const hash = createHash('sha256');
+  let bytes = 0;
+  const tap = new Transform({
+    transform(chunk: Buffer, _enc, done) {
+      hash.update(chunk);
+      bytes += chunk.length;
+      done(null, chunk);
+    },
+  });
+  await pipeline(Readable.fromWeb(res.body as WebReadableStream<Uint8Array>), tap, createWriteStream(part));
+  const body = JSON.parse(readFileSync(part, 'utf8')) as AfdcResponse;
   const problem = responseProblem(body);
   if (problem) throw new Error(problem);
+  renameSync(part, join(outDir, RAW_FILE));
 
-  mkdirSync(OUT_DIR, { recursive: true });
-  writeFileSync(join(OUT_DIR, RAW_FILE), text);
   const meta = {
     api: AFDC_API,
-    query: AFDC_QUERY,
+    query,
     docs: 'https://developer.nlr.gov/docs/transportation/alt-fuel-stations-v1/all/',
     file: RAW_FILE,
     fetched_at: new Date().toISOString(),
-    sha256: createHash('sha256').update(text).digest('hex'),
-    bytes: Buffer.byteLength(text),
+    sha256: hash.digest('hex'),
+    bytes,
     station_count: body.fuel_stations.length,
     rate_limit_remaining: res.headers.get('x-ratelimit-remaining'),
   };
-  writeFileSync(join(OUT_DIR, 'FETCHED.json'), JSON.stringify(meta, null, 2) + '\n');
-  console.log(`fetch:afdc: saved ${meta.station_count} stations (${(meta.bytes / 1e6).toFixed(1)} MB)`);
+  writeFileSync(join(outDir, 'FETCHED.json'), JSON.stringify(meta, null, 2) + '\n');
+  console.log(`fetch:afdc ${country}: saved ${meta.station_count} stations (${(meta.bytes / 1e6).toFixed(1)} MB)`);
 }
 
 // Run only when called as a script, so tests can import the helpers.

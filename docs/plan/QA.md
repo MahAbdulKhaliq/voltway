@@ -296,7 +296,7 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 
 | # | Check | Edge cases |
 |---|-------|-----------|
-| QD1 | `public/data/places.json` exists: Canadian places with population ≥ 1,000 and their province; Toronto, Montréal, Whitehorse and Iqaluit present; About credits GeoNames (CC BY 4.0) | Accented names keep their accents |
+| QD1 | `public/data/places.json` (since B78: `places-ca.json`) exists: Canadian places with population ≥ 1,000 and their province; Toronto, Montréal, Whitehorse and Iqaluit present; About credits GeoNames (CC BY 4.0) | Accented names keep their accents |
 | QD2 | Every built car has a curb weight; the filled-in ones show Estimated with "median of N sourced …" | A body type with fewer than 3 sourced cars uses the overall median |
 | QD3 | Tested highway figures (once 3.3 is merged) are `kind: tested` with a source each; the owner merged the data PR | |
 
@@ -463,7 +463,7 @@ Read `docs/plan/DESIGN-5.md` and B72–B74 in `docs/design/gaps-and-questions.md
 
 | # | Requirement | How to check | Edge cases |
 |---|---|---|---|
-| QD1 | Settings shows Avoid tolls, Avoid highways (off by default) and Stay in Canada (on, disabled, with its note) | Open the gear on the map and on /cars; toggle; reload | Storage blocked (private window): switches still work for the visit; keyboard only; 375 px |
+| QD1 | Settings shows Avoid tolls, Avoid highways (off by default) and Stay in Canada (since B78: "Stay within the border"; on, disabled, with its note) | Open the gear on the map and on /cars; toggle; reload | Storage blocked (private window): switches still work for the visit; keyboard only; 375 px |
 | QD2 | Options reach the router and are validated | Network tab: `/api/route` has `avoid=…`; `avoid=ferries` → 400; `avoid=tolls,tolls` → 400; `avoid=highways,tolls` is sent as `tolls,highways` | Unit tests in `tests/ors.test.ts` |
 | QD3 | Avoid highways changes the route and stops still plan | Toronto → Ottawa with and without: different line, longer time, stops present | A long trip (Toronto → Thunder Bay) still returns |
 | QD4 | Changing an option re-plans a shown trip once | Trip on screen, toggle Avoid tolls: exactly one new `/api/route` call | On the form the button reads Plan trip, not Return to plan |
@@ -531,3 +531,25 @@ Read `DESIGN-6.md` first. Never print or read the OCM key or `.env`. Don't call 
 | QO10 | Pending | 6.8: workflow read and reviewed (import crash now keeps last month's data); manual run on GitHub after merge |
 | QO11 | Pass | Hamilton → Vancouver CCS only: 5 OCM stops; one gap left (Ivy White River temporarily unavailable); with NACS reachable |
 | QO12 | Pass | all new text in en.json; provider names are constants; contrast 5.83–11.38 |
+
+
+# Phase 7 QA: US chargers and "Stay within the border" (B78)
+
+Read `DESIGN-7.md` first. Never print or read `.env` or any key. Don't call AFDC or OCM during QA; use the files under `sources/` from the last pull.
+
+| ID | Area | How to check | Pass when / edge cases |
+|----|------|--------------|------------------------|
+| QU1 | Canada unchanged | Compare Canadian counts in `meta.json` with Phase 6 (15,125 sites, 578 OCM; after the 2026-11-18 audit decisions 14,546 AFDC + 579 OCM, still 15,125); re-plan Hamilton → Vancouver CCS only | Same counts (or explained by a newer pull); same stops as Phase 6 |
+| QU2 | AFDC US import | `data/imported/afdc/us*.json`, summary, 30 random records against `sources/` | Fields mapped as for Canada; no Canadian or out-of-area points; per-country > 10 % drop check stops only that country |
+| QU3 | OCM US fair use | `scripts/fetch-ocm.ts`, its tests, `FETCHED.json` | Providers 1/24/45, countrycode=US, 3 s pauses, request cap held, key only in the header |
+| QU4 | OCM US duplicates | `map-data-auditor` report; spot-check 20 removed and 20 kept | B77 layers and amendments hold; AFDC wins; credit on every OCM station |
+| QU5 | Tiles | `public/data/map/tiles/index.json`, sizes, unit tests | Every station in exactly one detail tile and in the overview; no tile > 300 KB; first load < 1 MB; build fails when a budget is broken (try it) |
+| QU6 | Map loading | Browser at 375 and 1280, dark and light; network log | Zoomed out shows filtered clusters; Level 2 hint below zoom 7; pins at zoom ≥ 9; only tiles in view fetched, each once; no console errors; Toronto, Detroit, Los Angeles, rural Montana |
+| QU7 | Planner | Chicago → Denver, Anchorage → Fairbanks, Hamilton → Vancouver | Plans as expected; corridor tiles only; loading shown on the card |
+| QU8 | Border rule | `/api/route` unit tests and on screen | Toronto → Buffalo: crossBorder; Seattle → Anchorage: crossBorder with the Alaska message; Mexico City start: outsideArea; no ORS call for these |
+| QU9 | Settings | Settings menu | "Stay within the border" locked on, new help text, readable in both themes |
+| QU10 | Place search | "Where to?" | US towns and addresses found; results lean to the start's country; US town file within its size |
+| QU11 | Words and credits | `grep -n "Canada" src/i18n/en.json`; About page | No stale Canada-only claims about the map or trips; credits and licences for every new source; car list described as Canadian |
+| QU12 | Refresh | Workflow file; a manual run after merge | Both countries fetched; per-country checks; self-merge only when all pass; a failed OCM country keeps last month's file |
+| QU13 | Stops stay in the country (QA 2026-11-18) | `tests/station-country.test.ts`, `/api/route` response `countries`; a border trip (Fort Erie → Niagara Falls ON, low start charge) | No stop in the other country; a trip whose ends are both on the border line (in both countries) may use either |
+| QU14 | Refresh PR size (QA 2026-11-18) | `wc -c sources/*/summary.md` after the imports | All four together well under 60,000 characters (closest 40 near misses per country); `near-misses.md` git-ignored and uploaded as an artifact |

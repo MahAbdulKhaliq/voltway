@@ -1,10 +1,11 @@
 // Turns the raw AFDC pull (sources/afdc-ca/stations-raw.json) into the compact,
-// source-faithful station list in data/imported/afdc/stations.json.
+// source-faithful station list in data/imported/afdc/<country>.json.
 // Keeps facts only (ports with level, plug, rated kW and count); power ranges and other
 // derived values are worked out on the client with src/lib/power-bands.ts.
 // Rules: charger-map.md §3, §6, §7 and vision.md "Power bands".
 
 import type { ChargerLevel, Plug } from '../../src/lib/power-bands.ts';
+import type { Country } from './countries.ts';
 
 /** The raw fields we read from one AFDC station (the API returns many more). */
 export interface RawStation {
@@ -170,7 +171,7 @@ export function normalizeStations(raw: readonly RawStation[]): NormalizeResult {
 }
 
 export interface StationsFile {
-  source: 'afdc-ca';
+  source: `afdc-${Country}`;
   source_id: string;
   fetched_at: string;
   raw_sha256: string;

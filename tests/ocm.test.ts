@@ -35,12 +35,12 @@ describe('fetch:ocm query and paging', () => {
   };
 
   it('pages by the last id, pausing 3 s between requests, and stops on a short page', async () => {
-    const { fn, urls } = fake([page(1, PAGE_SIZE), page(5000, PAGE_SIZE), page(9000, 12)]);
+    const { fn, urls } = fake([page(1, PAGE_SIZE), page(PAGE_SIZE + 10, PAGE_SIZE), page(3 * PAGE_SIZE, 12)]);
     const pauses: number[] = [];
-    const r = await pullPois('k', fn, async (ms) => { pauses.push(ms); });
+    const r = await pullPois('k', fn, async (ms) => { pauses.push(ms); }, 'us');
     expect(r.requests).toBe(3);
     expect(r.pois).toHaveLength(2 * PAGE_SIZE + 12);
-    expect(urls.map((u) => new URL(u).searchParams.get('greaterthanid'))).toEqual(['0', String(PAGE_SIZE), String(5000 + PAGE_SIZE - 1)]);
+    expect(urls.map((u) => new URL(u).searchParams.get('greaterthanid'))).toEqual(['0', String(PAGE_SIZE), String(2 * PAGE_SIZE + 9)]);
     expect(pauses).toEqual([PAUSE_MS, PAUSE_MS]);
   });
 
@@ -50,11 +50,20 @@ describe('fetch:ocm query and paging', () => {
     expect(urls).toHaveLength(1);
   });
 
-  it('stops after the page cap instead of calling on and on', async () => {
-    const pages = Array.from({ length: MAX_PAGES + 2 }, (_, i) => page(1 + i * PAGE_SIZE, PAGE_SIZE));
-    const { fn, urls } = fake(pages);
-    await expect(pullPois('k', fn, async () => {})).rejects.toThrow(/stopping/);
-    expect(urls).toHaveLength(MAX_PAGES);
+  it('stops after the page cap instead of calling on and on (Canada 2 pages, US 5)', async () => {
+    for (const c of ['ca', 'us'] as const) {
+      const pages = Array.from({ length: MAX_PAGES[c] + 2 }, (_, i) => page(1 + i * PAGE_SIZE, PAGE_SIZE));
+      const { fn, urls } = fake(pages);
+      await expect(pullPois('k', fn, async () => {}, c)).rejects.toThrow(/stopping/);
+      expect(urls).toHaveLength(MAX_PAGES[c]);
+      expect(urls.every((u) => new URL(u).searchParams.get('countrycode') === c.toUpperCase())).toBe(true);
+    }
+  });
+
+  it('stays inside the monthly cap of 10 requests for both countries (B78)', () => {
+    // Each country: its pages plus one reference-data request.
+    expect(MAX_PAGES.ca + 1 + MAX_PAGES.us + 1).toBeLessThanOrEqual(10);
+    expect(PAGE_SIZE).toBe(5000);
   });
 
   it('rejects a response that is not an id-ordered list', async () => {
@@ -99,11 +108,24 @@ describe('normalizeOcm', () => {
       // Audit 2026-11-18 (OCM 160778): a longitude with the wrong sign plots in Asia.
       poi({ ID: 15, AddressInfo: { Title: 'x', Latitude: 52.1, Longitude: 122.46 } }),
       poi({ ID: 13 }, [{ ConnectionTypeID: 25, LevelID: 1, Quantity: 1 }]),
+      // B78 (7.4): no connections, or only the unknown type, is missing data; Level 1 or other plugs is not.
+      poi({ ID: 16 }, []), poi({ ID: 17 }, [{ ConnectionTypeID: 0, LevelID: 2, Quantity: 1 }]),
+      poi({ ID: 18 }, [{ ConnectionTypeID: 22, LevelID: 1, Quantity: 2 }]),
       poi({ ID: 14 }),
     ];
     const r = normalizeOcm(raw, ops);
     expect(r.stations.map((s) => s.id - OCM_ID_OFFSET)).toEqual([14]);
-    expect(r.dropped).toEqual({ provider: 2, unpublished: 2, not_operational: 4, private: 3, no_location: 2, no_l2_l3_ports: 1 });
+    expect(r.dropped).toEqual({ provider: 2, unpublished: 2, not_operational: 4, private: 3, no_location: 2, no_port_data: 2, no_l2_l3_ports: 2 });
+  });
+
+  it('keeps US records inside the US boxes and maps their states (B78)', () => {
+    const at = (ID: number, Latitude: number, Longitude: number, StateOrProvince: string) => poi({ ID, AddressInfo: { Title: 'x', Latitude, Longitude, StateOrProvince } });
+    const raw = [at(1, 30.27, -97.74, 'Texas'), at(2, 61.22, -149.9, 'AK'), at(3, 43.65, 79.38, 'NY')];
+    const us = normalizeOcm(raw, ops, 'us');
+    expect(us.stations.map((s) => [s.id - OCM_ID_OFFSET, s.province])).toEqual([[1, 'TX'], [2, 'AK']]);
+    expect(us.dropped.no_location).toBe(1); // the wrong-sign longitude
+    // A Canadian pull keeps Canada's tight box: none of these US points.
+    expect(normalizeOcm(raw, ops).stations).toEqual([]);
   });
 
   it('keeps temporarily unavailable as T and flags only notice required as restricted (not membership, not pay at location)', () => {
@@ -161,6 +183,13 @@ describe('normalizeOcm', () => {
     expect(provinceOf('Québec', null)).toBe('QC');
     expect(provinceOf('Greater Vancouver Regional District', 'V6B 1A1')).toBe('BC');
     expect(provinceOf(null, null)).toBeNull();
+    // US (B78): code or name, any case; ZIP codes aren't mapped; Canadian text doesn't leak in.
+    expect(provinceOf('Texas', '78701', 'us')).toBe('TX');
+    expect(provinceOf(' tx ', null, 'us')).toBe('TX');
+    expect(provinceOf('New  York', null, 'us')).toBe('NY');
+    expect(provinceOf('D.C.', null, 'us')).toBe('DC');
+    expect(provinceOf(null, '78701', 'us')).toBeNull();
+    expect(provinceOf('Ontario', null, 'us')).toBeNull();
   });
 });
 
@@ -281,5 +310,58 @@ describe('OCM import checks', () => {
   it('stops when many records lack a place or plugs', () => {
     const next = { ...file(100), dropped: { no_location: 5, no_l2_l3_ports: 0 } };
     expect(checkAfdc(null, next).ok).toBe(false);
+  });
+});
+
+describe('implausible ratings (audit 2026-11-18)', () => {
+  it('a port rated above MAX_KW is unknown, not 30,000 kW', async () => {
+    const { MAX_KW, portsOf } = await import('../scripts/lib/ocm.ts');
+    expect(MAX_KW).toBe(1000);
+    const ports = portsOf({ Connections: [{ ConnectionTypeID: 1, PowerKW: 30000, LevelID: 2, Quantity: 1 }] } as never, {});
+    expect(ports[0]?.kw ?? null).toBeNull();
+  });
+});
+
+// Owner decision 2026-11-18 (US data audit F1): neighbouring Tesla Destination hotels aren't duplicates.
+describe('Tesla Destination pairs and generic words', () => {
+  const dest = { network: 'Tesla Destination', ports: [{ level: 2 as const, plug: 'nacs' as const, kw: 16, count: 1 }] };
+  it('two Tesla Destination sites 100 m apart with different names and streets are both kept', () => {
+    const r = mergeOcm(
+      [ocmStation(1, 45 + 0.1 * M, { ...dest, name: 'Fairfield Inn', street: '2134 La Porte Rd' })],
+      [afdcStation(10, 45, { ...dest, name: 'Hampton Inn Waterloo', street: '2034 Laporte Rd' })],
+    );
+    expect(r.kept).toHaveLength(1);
+  });
+  it('…but within 25 m, or with a shared name, they are one site', () => {
+    expect(mergeOcm([ocmStation(1, 45 + 0.02 * M, { ...dest, name: 'X' })], [afdcStation(10, 45, { ...dest, name: 'Y' })]).dropped.place).toBe(1);
+    expect(
+      mergeOcm([ocmStation(1, 45 + 0.1 * M, { ...dest, name: 'Colony Palms Hotel' })], [afdcStation(10, 45, { ...dest, name: 'Colony Palms Hotel - Tesla Destination' })]).dropped.place,
+    ).toBe(1);
+  });
+  it('names sharing only generic words are not similar', () => {
+    expect(similarNames('Best Western Plus Richmond Inn & Suites - Tesla', 'Home2 Suites Baton Rouge - Tesla Destination')).toBe(false);
+    expect(similarNames('Hilton LAX Airport - Tesla', 'LA Airport Marriott - Tesla Destination')).toBe(false);
+    expect(similarNames('Town of Elkin Recreation Center', 'Elkin Recreation Center')).toBe(true);
+  });
+});
+
+// QA 2026-11-18 (S2): one reference-data download a run, shared by both countries.
+describe('recentRefFile', () => {
+  it('reuses the other country\'s reference data only when it is recent', async () => {
+    const { mkdtempSync, mkdirSync, writeFileSync, utimesSync } = await import('node:fs');
+    const { tmpdir } = await import('node:os');
+    const { join } = await import('node:path');
+    const { recentRefFile, REF_REUSE_MS } = await import('../scripts/fetch-ocm.ts');
+    const root = mkdtempSync(join(tmpdir(), 'ocm-ref-'));
+    expect(recentRefFile(root, 'us')).toBeNull();
+    const dir = join(root, 'sources', 'ocm-ca');
+    mkdirSync(dir, { recursive: true });
+    const file = join(dir, 'referencedata.json');
+    writeFileSync(file, '{"Operators":[]}');
+    expect(recentRefFile(root, 'us')?.split('\\').join('/')).toMatch(/sources\/ocm-ca\/referencedata\.json$/);
+    expect(recentRefFile(root, 'ca')).toBeNull(); // never its own
+    const old = (Date.now() - REF_REUSE_MS - 60_000) / 1000;
+    utimesSync(file, old, old);
+    expect(recentRefFile(root, 'us')).toBeNull();
   });
 });

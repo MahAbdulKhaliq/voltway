@@ -2,6 +2,7 @@
 // phones (CSS, ≤ 640 px). Opened by clicking a pin; Escape or the close button shuts it.
 
 import { useEffect, useRef } from 'react';
+import Marquee from './Marquee.tsx';
 import { t, type MessageKey } from '../i18n/t.ts';
 import type { MapFeature } from '../lib/map-data.ts';
 import { needsAdapter, topDcKw, type CarMapInfo } from '../lib/map-filter.ts';
@@ -80,16 +81,9 @@ export default function StationPanel({ station, updated, onClose, myCar = null, 
   return (
     <aside className="station-panel" aria-labelledby="station-name">
       <header className="station-head">
-        {onBack && (
-          <button type="button" className="station-close station-back" aria-label={t('map.station.back')} title={t('map.station.back')} onClick={onBack}>
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
-          </button>
-        )}
         <div>
           <h2 id="station-name" ref={heading} tabIndex={-1}>
-            {s.n}
+            <Marquee>{s.n}</Marquee>
           </h2>
           <p className="station-sub small">
             <span className="level-badge" style={{ background: PIN.fill[level], color: PIN.glyph }}>
@@ -97,13 +91,22 @@ export default function StationPanel({ station, updated, onClose, myCar = null, 
             </span>
             {s.nw && <span>{s.nw}</span>}
           </p>
-          {address && <p className="small muted station-address">{address}</p>}
+          {address && <p className="small muted station-address"><Marquee>{address}</Marquee></p>}
         </div>
-        <button type="button" className="station-close" aria-label={t('map.station.close')} onClick={onClose}>
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        </button>
+        {/* One button (B71): back to the list when opened from it, close when opened from the map. */}
+        {onBack ? (
+          <button type="button" className="station-close station-back" aria-label={t('map.station.back')} title={t('map.station.back')} onClick={onBack}>
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+          </button>
+        ) : (
+          <button type="button" className="station-close" aria-label={t('map.station.close')} onClick={onClose}>
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </button>
+        )}
       </header>
 
       <div className="station-body">

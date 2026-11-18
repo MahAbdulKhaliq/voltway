@@ -22,3 +22,14 @@ export function setTheme(theme: Theme): void {
   setItem(KEYS.theme, theme);
   window.dispatchEvent(new CustomEvent('voltway:theme', { detail: theme }));
 }
+
+/** The visitor's pick in Settings (B65): a fixed theme, or follow the device ('system'). */
+export type ThemeChoice = Theme | 'system';
+export const themeChoice = (): ThemeChoice => savedTheme() ?? 'system';
+
+export function chooseTheme(choice: ThemeChoice): void {
+  if (choice !== 'system') return setTheme(choice);
+  delete document.documentElement.dataset.theme;
+  setItem(KEYS.theme, 'system');
+  window.dispatchEvent(new CustomEvent('voltway:theme', { detail: currentTheme() }));
+}

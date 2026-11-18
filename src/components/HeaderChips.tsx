@@ -7,21 +7,26 @@
 // "voltway:mycar-menu" event. The car dialog opens on "voltway:pick-car" (B58) and shows the
 // same switches for the car being chosen.
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { t } from '../i18n/t.ts';
 import { getCompare, getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import CarPicker from './CarPicker.tsx';
-import { carLabel } from '../lib/car-label.ts';
+import { carChipParts, carLabel } from '../lib/car-label.ts';
 import type { IndexEntry } from '../lib/types.ts';
 import { DC_PLUGS, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
 import type { MessageKey } from '../i18n/t.ts';
 
-interface Props { /** Compare chip only once the Compare page exists (CLAUDE.md: hide links to parts not built). */ showCompare?: boolean }
+interface Props {
+  /** Compare chip only once the Compare page exists (CLAUDE.md: hide links to parts not built); not on the map (B68). */
+  showCompare?: boolean;
+  /** My car chip: the map only (owner, B68). The car dialog stays, for the pages' own buttons. */
+  showMyCar?: boolean;
+}
 
 const carHref = (id: string, trim: string | null) =>
   `/charging?car=${id.split('/').map(encodeURIComponent).join('/')}${trim ? `&trim=${encodeURIComponent(trim)}` : ''}`;
 
-export default function HeaderChips({ showCompare = false }: Props) {
+export default function HeaderChips({ showCompare = false, showMyCar = true }: Props) {
   const [mine, setMine] = useState<MyCar | null>(null);
   const [count, setCount] = useState(0);
   const [open, setOpen] = useState(false);
@@ -36,6 +41,37 @@ export default function HeaderChips({ showCompare = false }: Props) {
   // The car's own port (for the default plug switches), read from its car file when the menu opens.
   const [port, setPort] = useState<{ carId: string; port: string | null } | null>(null);
   const focusPlugs = useRef(false);
+  // The car chip shows the longest of its three names that fits (B71): model, + year, + trim.
+  const carText = useRef<HTMLSpanElement>(null);
+  const [fit, setFit] = useState(2);
+  // Start again from the longest name whenever the room may have changed; the count forces a
+  // fresh measure even when fit is already 2.
+  const [, setMeasure] = useState(0);
+  const remeasure = () => { setFit(2); setMeasure((n) => n + 1); };
+  useEffect(() => {
+    window.addEventListener('resize', remeasure);
+    const frame = requestAnimationFrame(remeasure);
+    document.fonts?.ready.then(remeasure);
+    return () => { window.removeEventListener('resize', remeasure); cancelAnimationFrame(frame); };
+  }, []);
+  useEffect(remeasure, [mine]);
+  useLayoutEffect(() => {
+    const el = carText.current;
+    if (el && fit > 0 && el.scrollWidth > el.clientWidth + 1) setFit(fit - 1);
+  });
+  // A car saved before B71 has no model on record: look it up once from the car list.
+  useEffect(() => {
+    if (!mine || mine.model) return;
+    let live = true;
+    fetch('/data/index.json')
+      .then((r) => (r.ok ? (r.json() as Promise<IndexEntry[]>) : Promise.reject(r.status)))
+      .then((list) => {
+        const e = list.find((c) => c.id === mine.carId);
+        if (live && e && getMyCar()?.carId === mine.carId) setMyCar({ ...mine, label: mine.label ?? carLabel(e), model: e.model });
+      })
+      .catch(() => {});
+    return () => { live = false; };
+  }, [mine]);
 
   useEffect(() => {
     setMine(getMyCar());
@@ -68,7 +104,7 @@ export default function HeaderChips({ showCompare = false }: Props) {
   // The menu closes on Escape (focus back to the chip) and on a click outside it.
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { setOpen(false); button.current?.focus(); } };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { e.preventDefault(); setOpen(false); button.current?.focus(); } };
     const onClick = (e: MouseEvent) => { if (!root.current?.contains(e.target as Node)) setOpen(false); };
     document.addEventListener('keydown', onKey);
     document.addEventListener('click', onClick);
@@ -133,7 +169,7 @@ export default function HeaderChips({ showCompare = false }: Props) {
     const e = cars?.find((c) => c.id === carId);
     // B58: the plug switches shown in the dialog are saved with the car (none changed and a new
     // car: its own plug, worked out from its file when needed).
-    setMyCar({ carId, trimId, label: e ? carLabel(e) : undefined, ...(plugs ? { plugs } : {}) });
+    setMyCar({ carId, trimId, label: e ? carLabel(e) : undefined, model: e?.model, ...(plugs ? { plugs } : {}) });
     closePicker();
   };
 
@@ -151,10 +187,11 @@ export default function HeaderChips({ showCompare = false }: Props) {
       {showCompare && count > 0 && (
         <a className="chip" href="/compare"><span className="chip-text">{t('compare.chip', { count })}</span></a>
       )}
-      {mine ? (
+      {!showMyCar ? null : mine ? (
         <div className="chip-menu" ref={root}>
-          <button type="button" ref={button} className="chip" aria-haspopup="menu" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
-            <span className="chip-text">{t('mycar.chip', { car: mine.label ?? mine.carId.split('/')[1] })}</span> <span aria-hidden="true">▾</span>
+          <button type="button" ref={button} className="chip" aria-haspopup="menu" aria-expanded={open} aria-label={t('mycar.chip', { car: carChipParts(mine)[2] })} title={carChipParts(mine)[2]} onClick={() => setOpen((o) => !o)}>
+            {/* B71: no "My car:" once a car is picked; as much of the name as fits. */}
+            <span className="chip-text" ref={carText}>{carChipParts(mine)[fit]}</span> <span aria-hidden="true">▾</span>
           </button>
           {open && (
             <div className="chip-pop" role="menu" aria-label={t('mycar.menu')} onKeyDown={onMenuKey}>

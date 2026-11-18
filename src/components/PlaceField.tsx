@@ -113,7 +113,7 @@ export default function PlaceField({ label, value, onChange, search, extra, plac
           ))}
         </ul>
         <div role="status">
-          {remoteState === 'loading' && <p className="muted cp-none">{t('trip.addressSearching')}</p>}
+          {remoteState === 'loading' && <p className="muted cp-none"><span className="road-loader" aria-hidden="true"><span /></span>{t('trip.addressSearching')}</p>}
           {remoteState === 'none' && <p className="muted cp-none">{t('trip.addressNone')}</p>}
           {remoteState === 'busy' && <p className="muted cp-none">{t('trip.busy')}</p>}
           {remoteState === 'offline' && <p className="muted cp-none">{t('trip.addressOffline')}</p>}

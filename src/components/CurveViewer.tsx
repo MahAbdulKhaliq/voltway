@@ -10,6 +10,7 @@ import { CanvasRenderer } from 'echarts/renderers';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { calculateCharge, displayMinutes, measuredSpan, powerAt } from '../lib/charging.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
+import { chargePrice, PRICE_EVENT, setChargePrice } from '../lib/price.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CurveOut } from '../lib/types.ts';
 import { SourceRef } from './react/Badge.tsx';
@@ -91,7 +92,11 @@ export default function CurveViewer({
       kept.current.end = saved.end;
       Object.assign(shown, initialWindow);
     }
+    // The price is the site-wide setting (B66), shared with Settings and the trip planner.
+    shown.price = chargePrice();
     setSettings(shown);
+    const onPrice = (e: Event) => setSettings((s) => ({ ...s, price: (e as CustomEvent<number>).detail }));
+    window.addEventListener(PRICE_EVENT, onPrice);
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
     const onUnits = (e: Event) => setUnit((e as CustomEvent<DistanceUnit>).detail);
     window.addEventListener('voltway:units', onUnits);
@@ -103,6 +108,7 @@ export default function CurveViewer({
     return () => {
       window.removeEventListener('voltway:units', onUnits);
       window.removeEventListener('voltway:theme', onTheme);
+      window.removeEventListener(PRICE_EVENT, onPrice);
       media.removeEventListener('change', onTheme);
     };
   }, []);
@@ -364,7 +370,7 @@ export default function CurveViewer({
             type="number" inputMode="decimal" min={0} max={5} step={0.01}
             value={settings.price}
             aria-describedby="price-help"
-            onChange={(e) => update({ price: Math.max(0, Number(e.target.value) || 0) })}
+            onChange={(e) => { const price = Math.max(0, Number(e.target.value) || 0); update({ price }); setChargePrice(price); }}
           />
         </label>
       </div>

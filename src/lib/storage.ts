@@ -55,6 +55,8 @@ export const KEYS = {
   units: 'voltway.units',
   curveSettings: 'voltway.curveSettings',
   theme: 'voltway.theme',
+  motion: 'voltway.motion',
+  price: 'voltway.price',
   mapView: 'voltway.mapView',
   mapFilters: 'voltway.mapFilters',
   myCar: 'voltway.myCar',

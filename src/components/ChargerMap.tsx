@@ -7,7 +7,7 @@
 // source with setData, so clusters always count only what the filters let through.
 // A theme change swaps the base style, which drops our layers; 'style.load' adds them back.
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import maplibregl, { type GeoJSONSource } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { MAP } from '../config.ts';
@@ -20,7 +20,6 @@ import {
   carMapInfo,
   myCarRule,
   filterStations,
-  narrowedCount,
   LEVELS,
   readFilters,
   type CarMapInfo,
@@ -57,10 +56,13 @@ import { readRecent } from '../lib/recent-destinations.ts';
 import StationPanel from './StationPanel.tsx';
 import RoutePanel from './RoutePanel.tsx';
 import { useTrip } from './useTrip.ts';
-import { addTripLayers, boundsOf, setTripOverlay, STOP_LAYERS, type TripOverlay } from '../lib/trip-overlay.ts';
+import { addTripLayers, boundsOf, cancelPaint, holdTrip, paintTrip, retractTrip, setTripOverlay, STOP_LAYERS, type TripOverlay } from '../lib/trip-overlay.ts';
+import { camMotion, morph, reducedMotion } from '../lib/motion.ts';
 import type { IndexEntry } from '../lib/types.ts';
 import { createBaseMap } from '../lib/map-base.ts';
-import { sliceRoute } from '../lib/route-geo.ts';
+import { haversineKm, sliceRoute } from '../lib/route-geo.ts';
+import Marquee from './Marquee.tsx';
+import { formatNumber, kmTo } from '../lib/units.ts';
 import { useMapSheet } from './useMapSheet.ts';
 import { SHEET_MEDIA } from '../lib/sheet.ts';
 
@@ -350,10 +352,16 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const [meta, setMeta] = useState<MapMeta | null>(null);
   const [locate, setLocate] = useState<'idle' | 'busy' | 'denied' | 'failed' | 'unsupported'>('idle');
   const youRef = useRef<maplibregl.Marker | null>(null);
+  // Where the visitor is, once Locate me found them (kept in memory only): the list says how far.
+  const [you, setYou] = useState<[number, number] | null>(null);
+  // The view before the trip planner moved the map (B69: leaving the trip goes back to it).
+  const preTripView = useRef<{ center: maplibregl.LngLat; zoom: number } | null>(null);
   // "Stations in view" (B34): the current view, refreshed when the map stops moving.
   const [view, setView] = useState<{ bounds: Bounds; center: [number, number] } | null>(null);
   const [listOpen, setListOpen] = useState(false);
   const listItemRef = useRef<HTMLButtonElement | null>(null);
+  // Opened from Stations in view (back arrow) or from the map (close), B71.
+  const [viaList, setViaList] = useState(false);
   // "Where to?" (B50, 3.17): a picked place flies the map there and opens its place card.
   const [placeSearch, setPlaceSearch] = useState<PlaceSearch | null>(null);
   const [place, setPlace] = useState<TripEnd | null>(null);
@@ -443,25 +451,26 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       if (!f) return;
       const src = map.getSource('stations') as GeoJSONSource;
       const zoom = await src.getClusterExpansionZoom(f.properties.cluster_id as number);
-      map.easeTo({ center: (f.geometry as Point).coordinates as [number, number], zoom });
+      map.easeTo({ center: (f.geometry as Point).coordinates as [number, number], zoom, ...camMotion() });
     });
     // A pin opens its station panel; a click on empty map closes it.
     map.on('click', (e) => {
       const stopHit = map.getLayer('trip-stops') ? map.queryRenderedFeatures(e.point, { layers: STOP_LAYERS })[0] : undefined;
       if (stopHit) {
         const id = stopIdsRef.current[stopHit.properties.i as number];
-        if (id !== undefined) setSelected(id);
+        if (id !== undefined) { setViaList(false); setSelected(id); }
         return;
       }
       const hit = map.queryRenderedFeatures(e.point, { layers: ['pins', 'clusters'] })[0];
       if (!hit) setSelected(null);
       else if (hit.layer.id === 'pins') {
+        setViaList(false);
         setSelected(hit.properties.i as number);
         if (matchMedia(SHEET_MEDIA).matches) {
           setPanelOpen(false);
-          // Keep the pin visible above the bottom sheet.
+          // Keep the pin in view between the details (top, B70) and the folded sheet.
           const at = (hit.geometry as Point).coordinates as [number, number];
-          map.easeTo({ center: at, offset: [0, -map.getContainer().clientHeight * 0.3] });
+          map.easeTo({ center: at, offset: [0, map.getContainer().clientHeight * 0.14], ...camMotion() });
         }
       }
     });
@@ -537,13 +546,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const backToList = useCallback(() => {
     backTo.current = selectedRef.current;
     listItemRef.current = null;
-    setSelected(null);
+    morph(() => setSelected(null), 'back');
   }, []);
-  // The details' close button closes the list too.
-  const closeAll = useCallback(() => {
-    setListOpen(false);
-    closeStation();
-  }, [closeStation]);
   useEffect(() => {
     if (selected !== null || backTo.current === null) return;
     const row = document.querySelector<HTMLButtonElement>(`#map-list button[data-i="${backTo.current}"]`);
@@ -551,10 +555,14 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     if (row) row.focus();
     else document.querySelector<HTMLButtonElement>('.map-inview-toggle')?.focus();
   }, [selected]);
+  const away = (km: number) => {
+    const v = kmTo(km, T.unit);
+    return t('map.list.away', { distance: t(T.unit === 'mi' ? 'fmt.mi' : 'fmt.km', { value: formatNumber(v, v < 10 ? 1 : 0) }) });
+  };
   const openFromList = (item: ListItem, el: HTMLButtonElement) => {
     listItemRef.current = el;
-    setSelected(item.i);
-    mapRef.current?.easeTo({ center: item.at });
+    morph(() => { setViaList(true); setSelected(item.i); });
+    mapRef.current?.easeTo({ center: item.at, ...camMotion() });
   };
 
   // Data date for the panel footer.
@@ -578,7 +586,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     dot.setAttribute('role', 'img');
     dot.setAttribute('aria-label', end.label);
     placeRef.current = new maplibregl.Marker({ element: dot, anchor: 'bottom' }).setLngLat([end.lon, end.lat]).addTo(map);
-    map.flyTo({ center: [end.lon, end.lat], zoom: Math.max(Math.min(map.getZoom(), 12), 10) });
+    map.flyTo({ center: [end.lon, end.lat], zoom: Math.max(Math.min(map.getZoom(), 12), 10), curve: 1.2, duration: 750, ...camMotion() });
   };
   // A picked place moves focus to Plan trip (owner 2026-11-17: no separate place card): the phone
   // keyboard closes so the map shows, and the charger count beside it is announced.
@@ -602,6 +610,15 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   // Owner (B59 follow-up): on the plain map, dragging the sheet up opens the Chargers filters and
   // dragging it back down to peek closes them.
   const sheet = useMapSheet((s) => { if (!routeMode) setPanelOpen(s !== 'peek'); });
+  // Phones (B71): the list box is three rows tall and scrolls through the rest, so it never
+  // covers much of the map.
+  const listBox = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const el = listBox.current;
+    if (!el) return;
+    const third = sheet.phone ? el.querySelectorAll('li')[2] : undefined;
+    el.style.maxHeight = third ? `${Math.ceil(third.getBoundingClientRect().bottom - el.getBoundingClientRect().top + el.scrollTop) + 6}px` : '';
+  }, [list, listOpen, sheet.phone, you, T.unit]);
   const { setSnap } = sheet;
   // The sheet follows what the visitor is doing: browsing peeks, filters and trips open half way
   // (a sheet the visitor already pulled up to full stays there).
@@ -614,10 +631,10 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     // scrolls it up under the handle so it is in view too.
     setSnap('half');
     const timer = setTimeout(() => {
-      const panel = sheet.panelRef.current, warn = panel?.querySelector<HTMLElement>('.ti-gap-warn');
+      // The trip's body is what scrolls (B69); its header stays.
+      const panel = sheet.panelRef.current?.querySelector<HTMLElement>('.route-body'), warn = panel?.querySelector<HTMLElement>('.ti-gap-warn');
       if (!panel || !warn || !sheet.phone) return;
-      const handle = panel.querySelector<HTMLElement>('.sheet-handle')?.offsetHeight ?? 0;
-      const below = warn.getBoundingClientRect().top - panel.getBoundingClientRect().top - handle;
+      const below = warn.getBoundingClientRect().top - panel.getBoundingClientRect().top;
       if (below > 0 && warn.getBoundingClientRect().bottom > panel.getBoundingClientRect().bottom) panel.scrollTop += below - 8;
     }, 300);
     return () => clearTimeout(timer);
@@ -627,18 +644,27 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     placeRef.current = null;
     setPlace(null);
     setSelected(null);
-    setRouteMode(true);
-    setPanelOpen(true);
-    T.start(opts);
+    morph(() => {
+      setRouteMode(true);
+      setPanelOpen(true);
+      T.start(opts);
+    }, 'forward', 'left');
   }, [T.start]); // eslint-disable-line react-hooks/exhaustive-deps
   const closeRoute = () => {
-    T.stop();
-    // Phones: back to the plain map with the sheet small (route mode had opened the panel).
-    if (sheet.phone) setPanelOpen(false);
-    setRouteMode(false);
-    setSelected(null);
     clearTripParams();
-    setWhereKey((k) => k + 1); // focus back to the "Where to?" box
+    // B69: the camera goes back to where it was before the trip, while the line draws back.
+    const back = preTripView.current;
+    preTripView.current = null;
+    if (back) mapRef.current?.easeTo({ center: back.center, zoom: back.zoom, duration: 900, ...camMotion() });
+    // B67: the trip panel slides back to "Where to?" and the filters.
+    morph(() => {
+      T.stop();
+      // Phones: back to the plain map with the sheet small (route mode had opened the panel).
+      if (sheet.phone) setPanelOpen(false);
+      setRouteMode(false);
+      setSelected(null);
+      setWhereKey((k) => k + 1); // focus back to the "Where to?" box
+    }, 'back', 'left');
   };
   const closeRouteRef = useRef(closeRoute);
   closeRouteRef.current = closeRoute;
@@ -676,9 +702,16 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             selected: selectedStop,
           }
         : null;
+    const was = tripOverlayRef.current;
     tripOverlayRef.current = o;
     const map = mapRef.current;
-    if (map?.isStyleLoaded() || map?.getSource('stations')) setTripOverlay(map, o);
+    if (!(map?.isStyleLoaded() || map?.getSource('stations'))) return;
+    // B69: a trip going away draws itself back along the road before it is cleared.
+    if (!o && was && !reducedMotion() && map.getSource('trip-line')) {
+      retractTrip(map, was, () => { if (!tripOverlayRef.current) setTripOverlay(map, null); });
+      return;
+    }
+    setTripOverlay(map, o);
   }, [routeMode, plan, routeData, T.current, T.trip.from, T.trip.to, selectedStop, stopIds]);
   // A new route: fit it in the view beside the panel (or above the sheet on phones).
   const fittedKey = useRef('');
@@ -689,9 +722,26 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     // Phones (B59): the map runs under the pill (top), the round buttons (right) and the sheet,
     // which opens half way for a plan (bottom).
     const phone = sheet.phone;
+    // B64: the line is held back while the map flies to it, then paints itself along the road.
+    const animate = !reducedMotion() && Boolean(map.getSource('trip-line'));
+    if (animate) holdTrip(map);
+    if (!preTripView.current) preTripView.current = { center: map.getCenter(), zoom: map.getZoom() };
+    let painted = false;
+    const paint = () => {
+      if (painted) return;
+      painted = true;
+      const o = tripOverlayRef.current;
+      if (o) paintTrip(map, o);
+      else cancelPaint(map);
+    };
+    if (animate) {
+      map.once('moveend', paint);
+      window.setTimeout(paint, 900); // a fit that doesn't move the map fires no moveend
+    }
     map.fitBounds(boundsOf(routeData.route.coords.map((p) => [p[0], p[1]] as [number, number])), {
       padding: phone ? { top: 84, bottom: sheet.heightFor('half') + 24, left: 28, right: 64 } : { top: 40, bottom: 60, left: 420, right: 60 },
       duration: 600,
+      ...camMotion(),
     });
   }, [routeMode, routeData, T.current]);
   useEffect(() => { if (!routeMode) fittedKey.current = ''; }, [routeMode]);
@@ -699,8 +749,9 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     const st = plan?.stops[i];
     if (!st) return;
     listItemRef.current = button;
+    setViaList(false);
     setSelected(st.station.i);
-    mapRef.current?.easeTo({ center: st.lonLat });
+    mapRef.current?.easeTo({ center: st.lonLat, ...camMotion() });
   };
 
   // Locate me: on load (B56) and on click; the position is used to centre the map and kept nowhere.
@@ -720,7 +771,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         dot.setAttribute('role', 'img');
         dot.setAttribute('aria-label', t('map.you'));
         youRef.current = new maplibregl.Marker({ element: dot }).setLngLat(at).addTo(map);
-        if (!(auto && interactedRef.current)) map.flyTo({ center: at, zoom: Math.max(map.getZoom(), 12) }, { locate: true });
+        setYou(at);
+        if (!(auto && interactedRef.current)) map.flyTo({ center: at, zoom: Math.max(map.getZoom(), 12), ...camMotion() }, { locate: true });
         if (!auto) setLocate('idle');
       },
       // 1 = PERMISSION_DENIED (compared by value: the constant isn't on every error object).
@@ -772,7 +824,6 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const busy = LEVELS.some((lv) => wanted(lv) && load[lv] === 'loading');
   const failed = LEVELS.some((lv) => wanted(lv) && load[lv] === 'error');
   /** The car filter in force (ticked, and the car's port is known). */
-  const narrowed = narrowedCount(filters, carRule);
   const levelLabel: Record<ChargerLevel, MessageKey> = { 3: 'map.level3', 2: 'map.level2' };
   /** Plugs the map is showing now (ticked, and not ruled out by the car filter). */
   const plugsOn = PLUGS.filter((p) => filters.plugs[p]).length;
@@ -811,7 +862,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             search={placeSearch}
             onChange={pickPlace}
             extra={
-              <button type="button" ref={routeBtnRef} className="btn small map-route-btn" onClick={() => enterRoute(place ? { to: place } : {})}>
+              <button type="button" ref={routeBtnRef} className="btn small primary map-route-btn" onClick={() => enterRoute(place ? { to: place } : {})}>
                 {t('route.open')}
               </button>
             }
@@ -839,12 +890,10 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
           </svg>
           <span>{t('map.filters')}</span>
-          {narrowed > 0 && (
-            <span className="map-filters-on small">{narrowed === 1 ? t('map.filters.on.one') : t('map.filters.on', { count: narrowed })}</span>
-          )}
         </button>
 
-        <div id="map-filters" className="map-filters" hidden={!panelOpen}>
+        <div id="map-filters" className={`map-filters fold${panelOpen ? '' : ' shut'}`}>
+          <div className="map-filters-body">
           <fieldset>
             <legend>{t('map.levelPower')}</legend>
             {LEVELS.map((lv) => (
@@ -880,7 +929,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
               </span>
               <svg className="chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
-          <fieldset id="map-plugs" hidden={!plugsOpen}>
+          <div className={`fold${plugsOpen ? '' : ' shut'}`}><div>
+          <fieldset id="map-plugs">
             <legend className="sr-only">{t('map.plugs')}</legend>
             <ul className="plugs">
               {PLUGS.map((p) => {
@@ -896,6 +946,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
               })}
             </ul>
           </fieldset>
+          </div></div>
+          </div>
           </div>
         </div>
 
@@ -903,7 +955,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
           {failed
             ? t('map.dataError')
             : busy
-              ? filters.levels[2] && load[2] === 'loading' ? t('map.loadingL2') : t('map.loadingStations')
+              ? <><span className="road-loader" aria-hidden="true"><span /></span>{filters.levels[2] && load[2] === 'loading' ? t('map.loadingL2') : t('map.loadingStations')}</>
               : null}
         </p>
         </>)}
@@ -991,14 +1043,15 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             aria-checked={listOpen}
             aria-controls="map-list"
             className="map-inview-toggle"
-            onClick={() => setListOpen((o) => !o)}
+            onClick={() => { if (sheet.phone && !listOpen) setPanelOpen(false); setListOpen((o) => !o); }}
           >
             <span className="map-inview-name">{t('map.list.toggle')}</span>
-            <span className="map-inview-count">{busy || !list ? '…' : list.total.toLocaleString('en-CA')}</span>
+            <span className="map-inview-count">{busy || !list ? <span className="road-loader" aria-hidden="true"><span /></span> : list.total.toLocaleString('en-CA')}</span>
             <span className="map-switch" aria-hidden="true"><span /></span>
           </button>
-          {listOpen && list && (
-            <div id="map-list" className="map-list">
+          {list && (
+            <div className={`fold map-list-fold${listOpen ? '' : ' shut'}`}>
+            <div id="map-list" className="map-list" ref={listBox}>
               {list.total === 0 ? (
                 <p className="small muted">{t('map.list.none')}</p>
               ) : (
@@ -1007,16 +1060,27 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
                     {list.items.map((it) => (
                       <li key={it.i}>
                         <button type="button" data-i={it.i} onClick={(e) => openFromList(it, e.currentTarget)}>
-                          <span className="map-list-name">{it.name}</span>
-                          <span className="small muted">
+                          <Marquee className="map-list-name">{it.name}</Marquee>
+                          {/* B69: power · place · how far (once Locate me knows where you are). B70 phones:
+                              three short lines, name / kW · place / distance, without "up to". */}
+                          {sheet.phone ? (
+                            <>
+                              <Marquee className="small muted map-list-meta">
+                                {[it.maxKw == null ? t('map.station.unknownPower') : t('fmt.kw', { value: kwText(it.maxKw) }), it.city].filter(Boolean).join(' · ')}
+                              </Marquee>
+                              {you && <span className="small muted map-list-away">{away(haversineKm(you, it.at))}</span>}
+                            </>
+                          ) : (
+                          <span className="small muted map-list-meta">
                             {[
-                              t(levelLabel[it.level]),
                               it.maxKw == null ? t('map.station.unknownPower') : t('map.list.upTo', { kw: kwText(it.maxKw) }),
                               it.city,
+                              you ? away(haversineKm(you, it.at)) : null,
                             ]
                               .filter(Boolean)
                               .join(' · ')}
                           </span>
+                          )}
                         </button>
                       </li>
                     ))}
@@ -1024,6 +1088,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
                   {list.total > list.items.length && <p className="small muted map-list-note">{t('map.list.nearest', { shown: list.items.length })}</p>}
                 </>
               )}
+            </div>
             </div>
           )}
         </section>
@@ -1033,8 +1098,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         <StationPanel
           station={station}
           updated={meta?.updated ?? null}
-          onClose={listOpen ? closeAll : closeStation}
-          onBack={listOpen ? backToList : undefined}
+          onClose={closeStation}
+          onBack={listOpen && viaList ? backToList : undefined}
           myCar={myCar}
           carInfo={myCar && carInfo ? { ...carInfo, rule: carRule } : null}
           onRouteHere={selectedStop === null ? () => enterRoute({ to: stationEnd(station) }) : undefined}
@@ -1042,7 +1107,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       )}
 
       {mapStatus === 'loading' && (
-        <p className="map-status" role="status">
+        <p className="map-status map-status-loading" role="status">
+          <span className="road-loader" aria-hidden="true"><span /></span>
           {t('map.loading')}
         </p>
       )}

@@ -207,3 +207,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 |----|----------|
 | N9 | Is there an open source for **which Superchargers are open to non-Teslas** in Canada? |
 | S6 | **Address search (geocoding)** for Phase 3: which free service? The public Nominatim service has a strict usage policy. |
+
+**B69 (2026-11-17):** Stations in view rows read power · place, plus distance from you once Locate me has found you; on phones the list drops under its switch (not a sheet), with long names cut off with "…".
+
+**B70–B71 (2026-11-17):** on phones each Stations in view row reads name / power · place (no "up to") / distance; long lines slide, wait, fade and restart. The list box is three rows tall and scrolls through the rest. A station's details open in the same box; their one button is back (opened from the list) or close (opened from the map).

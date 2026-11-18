@@ -309,7 +309,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
             <p className="muted eyebrow">{car.year} · {car.make.name} · {t(`body.${car.model.body_type}` as MessageKey)} · {t(`value.${car.drivetrain}` as MessageKey)}</p>
             <h1>{car.model.name} <span className="variant"><VariantName name={car.name} /></span></h1>
             <div className="car-actions">
-              <button type="button" className={`btn small${isMine ? ' primary' : ''}`} aria-pressed={isMine} onClick={() => !isMine && setMyCar({ carId: car.id, trimId: car.trims.length > 1 ? trimId : null, label: labelFor(car.id) })}>
+              <button type="button" className={`btn small${isMine ? ' primary' : ''}`} aria-pressed={isMine} onClick={() => !isMine && setMyCar({ carId: car.id, trimId: car.trims.length > 1 ? trimId : null, label: labelFor(car.id), model: cars.find((c) => c.id === car.id)?.model })}>
                 {isMine ? t('mycar.isMine') : t('mycar.set')}
               </button>
               <button type="button" className="btn small" disabled={inCompare} onClick={() => setCompareNote(addToCompare(car.id))}>

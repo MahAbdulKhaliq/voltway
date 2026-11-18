@@ -31,7 +31,7 @@ The planner is deliberately simpler than A Better Routeplanner: a threshold rule
 - Used before a trip, not while driving. No turn-by-turn navigation.
 - No accounts. The chosen car, units, theme and last trip are saved only in the visitor's browser.
 - Screens: the home page is the charger map with the trip planner on it (B26, B50); Cars (browse and car pages); Charging (curve viewer); Compare; About.
-- Data covers Canada today (NRCan ratings, AFDC chargers). Branding is market-neutral (B12) and the site states its coverage openly.
+- Car data covers Canada today (NRCan ratings). Chargers (AFDC and Open Charge Map), place search and trips cover Canada and the US (B78); a trip stays in the country it starts in. Branding is market-neutral (B12) and the site states its coverage openly.
 
 ## Capabilities and Constraints
 

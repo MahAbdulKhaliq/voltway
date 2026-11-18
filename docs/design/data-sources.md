@@ -156,6 +156,7 @@ In order of preference:
 
 ### NLR (formerly NREL) AFDC Alternative Fuel Stations API ⭐ primary
 - **Covers Canada:** `country=CA`. NRCan's own station locator is built on it.
+- **Covers the US (B78, 2026-11-18):** `country=US`, the same normaliser, source record `src-afdc-us` (US DOE, public domain). The single `limit=all` response is large, so it is streamed to disk and imported per country (`data/imported/afdc/ca.json`, `us.json`).
 - **Fields that fit the vision:**
   - Connector types: `J1772`, `J1772COMBO` (CCS1), `TESLA` (NACS), `CHADEMO` ✅ all four plugs in the vision
   - Port counts per level: `ev_level2_evse_num`, `ev_dc_fast_num` → Level 2 vs. Level 3
@@ -171,7 +172,7 @@ In order of preference:
 ### Open Charge Map: secondary, fills gaps
 - **License:** user-contributed data is CC BY 4.0. **Imported data keeps its original provider's license**, and **visible attribution for each provider is required**.
 - OCM calls itself a "non-commercial, non-profit service". Its terms don't spell out commercial use.
-- **Role:** fills gaps where AFDC is missing stations. **In use since Phase 6 (B77, 2026-11-18):** only open-licensed providers (1 OCM contributors CC BY 4.0, 24 AddÉnergie CC BY 3.0, 45 Greems CC0), about 3 API calls a month; duplicate rules in [DESIGN-6.md](../plan/DESIGN-6.md) P3.
+- **Role:** fills gaps where AFDC is missing stations. **In use since Phase 6 (B77, 2026-11-18):** only open-licensed providers (1 OCM contributors CC BY 4.0, 24 AddÉnergie CC BY 3.0, 45 Greems CC0), about 3 API calls a month; duplicate rules in [DESIGN-6.md](../plan/DESIGN-6.md) P3. **US added in Phase 7 (B78):** same rules, AFDC wins duplicates, at most **10 requests a month for both countries**, after a one-request survey of the US count ([DESIGN-7.md](../plan/DESIGN-7.md) D1).
 - **Fair use (API spec):** no repeated duplicate queries; throttle; custom user agent; key as `X-API-Key` header; OCM may ban excessive callers; for full-dataset refreshes clone their GitHub export instead.
 - **Link:** [terms](https://openchargemap.org/about/terms)
 
@@ -186,13 +187,15 @@ In order of preference:
 - **What:** Canadian populated places (cities, towns, villages) with name, province and coordinates. Phase 3 keeps places with **population ≥ 1,000** (about 3,000 rows) as a static file, so typing in From/To suggests places with no service call (route-planner.md §6).
 - **License:** **CC BY 4.0**. Credit GeoNames on the About page.
 - **Access:** a free download (`CA.zip` or `cities1000.zip` from download.geonames.org), refreshed by hand when needed; no key.
-- **Full addresses** still go to ORS geocoding, only when the visitor presses Search.
+- **US towns (B78, 2026-11-18):** the US dump (`US.txt`, same licence) is added with a **higher population floor** so `places-us.json` stays under about 1 MB; it loads only when Canadian matches run short or the map is over the US ([DESIGN-7.md](../plan/DESIGN-7.md) D5).
+- **Full addresses** still go to ORS geocoding, only when the visitor presses Search (Canada and the US since B78, biased to the start's country).
 - **Link:** [GeoNames export](https://download.geonames.org/export/dump/)
 
 ### Natural Earth ⭐ Canada outline for the "trips in Canada only" check (B74, added 2026-11-17)
 - **What:** the 1:10m Admin 0 countries layer (v5.1.2), Canada only, simplified (land border kept to about 20 m, coast to about 300 m; Arctic islands left out, where a simple rule applies). Only the trip function reads it, to refuse a start or destination outside Canada before asking openrouteservice; browsers never download it.
 - **License:** **public domain**. Credited on the About page anyway.
 - **Access:** `npm run fetch:canada` (download from the natural-earth-vector GitHub release), by hand when needed; no key. Writes `data/imported/naturalearth/canada.json` with the download's checksum.
+- **US outline (B78, 2026-11-18):** the same layer's US outline is added (`fetch-outlines.ts` writes `ca.json` and `us.json`) for the "trip stays in its start's country" rule ([DESIGN-7.md](../plan/DESIGN-7.md) D4).
 - **Link:** [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/)
 
 ---

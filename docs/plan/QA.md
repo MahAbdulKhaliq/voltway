@@ -531,3 +531,23 @@ Read `DESIGN-6.md` first. Never print or read the OCM key or `.env`. Don't call 
 | QO10 | Pending | 6.8: workflow read and reviewed (import crash now keeps last month's data); manual run on GitHub after merge |
 | QO11 | Pass | Hamilton → Vancouver CCS only: 5 OCM stops; one gap left (Ivy White River temporarily unavailable); with NACS reachable |
 | QO12 | Pass | all new text in en.json; provider names are constants; contrast 5.83–11.38 |
+
+
+# Phase 7 QA: US chargers and "Stay within the border" (B78)
+
+Read `DESIGN-7.md` first. Never print or read `.env` or any key. Don't call AFDC or OCM during QA; use the files under `sources/` from the last pull.
+
+| ID | Area | How to check | Pass when / edge cases |
+|----|------|--------------|------------------------|
+| QU1 | Canada unchanged | Compare Canadian counts in `meta.json` with Phase 6 (15,125 sites, 578 OCM); re-plan Hamilton → Vancouver CCS only | Same counts (or explained by a newer pull); same stops as Phase 6 |
+| QU2 | AFDC US import | `data/imported/afdc/us*.json`, summary, 30 random records against `sources/` | Fields mapped as for Canada; no Canadian or out-of-area points; per-country > 10 % drop check stops only that country |
+| QU3 | OCM US fair use | `scripts/fetch-ocm.ts`, its tests, `FETCHED.json` | Providers 1/24/45, countrycode=US, 3 s pauses, request cap held, key only in the header |
+| QU4 | OCM US duplicates | `map-data-auditor` report; spot-check 20 removed and 20 kept | B77 layers and amendments hold; AFDC wins; credit on every OCM station |
+| QU5 | Tiles | `public/data/map/tiles/index.json`, sizes, unit tests | Every station in exactly one detail tile and in the overview; no tile > 300 KB; first load < 1 MB; build fails when a budget is broken (try it) |
+| QU6 | Map loading | Browser at 375 and 1280, dark and light; network log | Zoomed out shows filtered clusters; Level 2 hint below zoom 7; pins at zoom ≥ 9; only tiles in view fetched, each once; no console errors; Toronto, Detroit, Los Angeles, rural Montana |
+| QU7 | Planner | Chicago → Denver, Anchorage → Fairbanks, Hamilton → Vancouver | Plans as expected; corridor tiles only; loading shown on the card |
+| QU8 | Border rule | `/api/route` unit tests and on screen | Toronto → Buffalo: crossBorder; Seattle → Anchorage: crossBorder with the Alaska message; Mexico City start: outsideArea; no ORS call for these |
+| QU9 | Settings | Settings menu | "Stay within the border" locked on, new help text, readable in both themes |
+| QU10 | Place search | "Where to?" | US towns and addresses found; results lean to the start's country; US town file within its size |
+| QU11 | Words and credits | `grep -n "Canada" src/i18n/en.json`; About page | No stale Canada-only claims about the map or trips; credits and licences for every new source; car list described as Canadian |
+| QU12 | Refresh | Workflow file; a manual run after merge | Both countries fetched; per-country checks; self-merge only when all pass; a failed OCM country keeps last month's file |

@@ -1231,6 +1231,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         <StationPanel
           station={station}
           updated={meta?.updated ?? null}
+          updatedUs={meta?.sources?.find((x) => x.source_id === 'src-afdc-us')?.fetched_at.slice(0, 10) ?? null}
           ocmUpdated={meta?.ocm?.updated ?? null}
           onClose={closeStation}
           onBack={listOpen && viaList ? backToList : undefined}

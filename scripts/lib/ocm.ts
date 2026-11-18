@@ -90,6 +90,9 @@ const NETWORK_OF: Record<string, string | null> = {
  * CCS1 and CHAdeMO are always DC, so Level 3; J1772 is never DC, so Level 2 (Level 1 dropped).
  * Only NACS carries both: Level 3 when OCM says level 3 or the port is 40 kW and up, else Level 2.
  */
+/** No car charger in either country is rated above this; a bigger figure is treated as unknown. */
+export const MAX_KW = 1000;
+
 export function levelOf(levelId: number | null | undefined, plug: Plug, kw: number | null): ChargerLevel | null {
   if (plug === 'ccs1' || plug === 'chademo') return 3;
   if (levelId === 1) return null;
@@ -145,7 +148,7 @@ const text = (v: string | null | undefined): string | null => {
 };
 const day = (v: string | null | undefined): string | null => (v ? v.slice(0, 10) : null);
 
-function portsOf(raw: RawPoi, ignored: Record<string, number>): Port[] {
+export function portsOf(raw: RawPoi, ignored: Record<string, number>): Port[] {
   const merged = new Map<string, Port>();
   for (const c of raw.Connections ?? []) {
     if (c.StatusTypeID != null && GONE.has(c.StatusTypeID)) continue;
@@ -155,7 +158,8 @@ function portsOf(raw: RawPoi, ignored: Record<string, number>): Port[] {
       if (c.LevelID !== 1) ignored[`ocm-${c.ConnectionTypeID ?? 'none'}`] = (ignored[`ocm-${c.ConnectionTypeID ?? 'none'}`] ?? 0) + count;
       continue;
     }
-    const kw = c.PowerKW != null && c.PowerKW > 0 ? c.PowerKW : null;
+    // A rating above MAX_KW is a typo in the source (audit 2026-11-18: J1772 at 30,000 kW): unknown.
+    const kw = c.PowerKW != null && c.PowerKW > 0 && c.PowerKW <= MAX_KW ? c.PowerKW : null;
     const level = levelOf(c.LevelID, plug, kw);
     if (level === null) continue;
     const key = `${level}|${plug}|${kw ?? ''}`;

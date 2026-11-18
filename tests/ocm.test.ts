@@ -312,3 +312,12 @@ describe('OCM import checks', () => {
     expect(checkAfdc(null, next).ok).toBe(false);
   });
 });
+
+describe('implausible ratings (audit 2026-11-18)', () => {
+  it('a port rated above MAX_KW is unknown, not 30,000 kW', async () => {
+    const { MAX_KW, portsOf } = await import('../scripts/lib/ocm.ts');
+    expect(MAX_KW).toBe(1000);
+    const ports = portsOf({ Connections: [{ ConnectionTypeID: 1, PowerKW: 30000, LevelID: 2, Quantity: 1 }] } as never, {});
+    expect(ports[0]?.kw ?? null).toBeNull();
+  });
+});

@@ -31,6 +31,8 @@ interface Props {
   station: MapFeature;
   /** Date of the last data pull (meta.json), for the footer. */
   updated: string | null;
+  /** The US AFDC pull date (B78): US AFDC stations show it instead of the Canadian one. */
+  updatedUs?: string | null;
   /** Open Charge Map pull date (YYYY-MM-DD), for an OCM station's footer (B77). */
   ocmUpdated?: string | null;
   onClose: () => void;
@@ -43,7 +45,7 @@ interface Props {
   onBack?: () => void;
 }
 
-export default function StationPanel({ station, updated, ocmUpdated = null, onClose, myCar = null, carInfo = null, onRouteHere, onBack }: Props) {
+export default function StationPanel({ station, updated, updatedUs = null, ocmUpdated = null, onClose, myCar = null, carInfo = null, onRouteHere, onBack }: Props) {
   const s = station.properties;
   const heading = useRef<HTMLHeadingElement>(null);
   const level = stationLevel(s.p);
@@ -212,7 +214,9 @@ export default function StationPanel({ station, updated, ocmUpdated = null, onCl
             <p><a href={ocmUrl(s.i)} rel="noopener" target="_blank">{t('map.station.ocmLink')}</a></p>
           </>
         ) : (
-          updated && <p>{t(s.src === 'src-afdc-us' ? 'map.station.footerUs' : 'map.station.footer', { date: showDate(updated) })}</p>
+          s.src === 'src-afdc-us'
+            ? updatedUs && <p>{t('map.station.footerUs', { date: showDate(updatedUs) })}</p>
+            : updated && <p>{t('map.station.footer', { date: showDate(updated) })}</p>
         )}
         {s.u && <p>{t('map.station.recordChanged', { date: showDate(s.u) })}</p>}
       </footer>

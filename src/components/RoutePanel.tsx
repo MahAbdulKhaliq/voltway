@@ -93,6 +93,9 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
         </button>
       </div>
 
+      {/* B69: only this part scrolls; the header (back, title, close) stays above it. */}
+      <div className="route-body">
+
       {folded ? null : (
         <form className="route-form" onSubmit={(e) => { e.preventDefault(); submit(); }} aria-label={t('trip.formLabel')}>
           <div className="route-ends-grid">
@@ -123,7 +126,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           </div>
           <button type="button" className="btn route-swap" aria-label={t('route.swap')} title={t('route.swap')} onClick={() => { T.swap(); setSwaps((n) => n + 1); }} disabled={!trip.from && !trip.to}>
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7 4v14M7 18l-3-3M7 18l3-3M17 20V6M17 6l-3 3M17 6l3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+              <path d="M8 5v14M5 16l3 3 3-3M16 19V5M13 8l3-3 3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             </svg>
           </button>
           </div>
@@ -231,6 +234,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           ) : null}
         />
       )}
+      </div>
     </section>
   );
 }

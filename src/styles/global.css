@@ -338,10 +338,11 @@ a.btn { display: inline-block; text-decoration: none; }
 /* Route mode (B50, 3.18): the panel holds the route form and the itinerary. Desktop: a wider
    left column that scrolls; phones: a bottom sheet with the totals showing and the stops folded. */
 .map-route-btn { flex: none; }
-.map-panel.route { width: 380px; max-height: calc(100% - 24px); overflow-y: auto; }
-.route-panel { display: grid; gap: 10px; padding: 0 14px 14px; }
-/* B68: the header (back, title, close) stays at the top while the trip scrolls under it. */
-.route-head { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 6px; min-height: 40px; margin: 0 -14px; padding: 4px 10px 4px 14px; background: var(--surface); border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
+.map-panel.route { width: 380px; max-height: calc(100% - 24px); overflow: hidden; }
+/* B68–B69: the header (back, title, close) stays; only the body under it scrolls, scroll bar included. */
+.route-panel { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+.route-head { flex: none; display: flex; align-items: center; gap: 6px; min-height: 40px; padding: 4px 10px 4px 14px; border-bottom: 1px solid var(--border); }
+.route-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: grid; align-content: start; gap: 10px; padding: 10px 14px 14px; }
 .route-head:has(.route-back) { padding-left: 8px; }
 .route-head .map-place-close { width: 30px; height: 30px; }
 .route-title { flex: 1; margin: 0; font-size: 0.95rem; }
@@ -368,7 +369,7 @@ a.btn { display: inline-block; text-decoration: none; }
 .route-car-row[aria-expanded=true] .route-car-chevron { transform: rotate(180deg); }
 .route-settings .tp-pcts { width: 100%; }
 .route-go .btn.primary { flex: 1; min-height: 44px; font-size: 1rem; }
-.route-swap { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border-radius: 50%; }
+.route-ends-grid .route-swap { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border-radius: 50%; } /* B69: no button padding, so the arrows sit centred */
 .route-carmissing { display: grid; gap: 8px; justify-items: start; }
 .route-carmissing p { margin: 0; }
 .route-car { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
@@ -454,8 +455,8 @@ html[data-motion="off"] .map-btn-label { transition: none; }
   .sheet-handle span { width: 40px; height: 4px; border-radius: 2px; background: var(--field-border); }
   .sheet-handle:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
   /* B68: the trip header sticks under the handle; a full sheet sits above the round map buttons, so its close button is never covered. */
-  .route-head { top: 28px; border-radius: 0; }
   .map-panel { z-index: 5; }
+  .map-panel.route { overflow: hidden; } /* B69: the trip body scrolls, not the sheet */
   .charger-map .maplibregl-ctrl-bottom-right, .charger-map .maplibregl-ctrl-bottom-left { bottom: var(--sheet-px, 0px); transition: bottom 0.22s cubic-bezier(0.22, 1, 0.36, 1); }
   /* Map key and Locate me: 44 px round icon buttons; their names stay for screen readers. */
   .map-key-btn, .map-locate { width: 44px; height: 44px; min-height: 44px; padding: 0; justify-content: center; border-radius: 50%; }
@@ -471,9 +472,12 @@ html[data-motion="off"] .map-btn-label { transition: none; }
   .station-panel { top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 62%; border-radius: 14px 14px 0 0; border-bottom: 0; }
   .map-inview, .map-inview:not(.open) { top: 64px; left: 8px; right: auto; width: auto; max-width: calc(100% - 72px); max-height: none; }
   /* Phones: the switch keeps its shape; the list is the sheet below. */
-  .map-inview, .map-inview.open, .map-inview .map-inview-toggle, .map-inview.open .map-inview-toggle { border-radius: 23px; }
-  .map-inview.open .map-inview-toggle { border-bottom: 0; }
-  .map-inview .map-list { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; max-height: 62%; background: var(--surface); border-top: 1px solid var(--border); border-radius: 14px 14px 0 0; box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.18); }
+  .map-inview .map-inview-toggle { border-radius: 23px; }
+  /* B69: on phones too the list drops under the switch, stopping above the folded sheet; names
+     cut off with "…" and each row is one short line of power · place · distance. */
+  .map-inview.open { width: calc(100% - 72px); border-radius: var(--radius); max-height: calc(100% - 64px - 200px - 16px); }
+  .map-inview.open .map-inview-toggle { border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
+  .map-list-name, .map-list-meta { display: block; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
 
 /* MapLibre's controls in Road Paint (polish B63): the zoom pair and the credits ⓘ take the panel
@@ -818,12 +822,7 @@ html[data-motion="off"] .settings-pop { transition: none; }
 .fold > * { min-height: 0; overflow: hidden; }
 .fold > .map-list { overflow-y: auto; }
 .map-list-fold { min-height: 0; contain: inline-size; } /* a shut list doesn't widen the pill */
-@media (max-width: 640px), (max-height: 480px) and (pointer: coarse) {
-  /* Phones: the list is a sheet from the bottom edge, so it slides up and down. */
-  .map-list-fold > .map-list { transition: translate 0.3s var(--ease-out); }
-  .map-list-fold.shut > .map-list { translate: 0 100%; }
-}
-html[data-motion="off"] .fold, html[data-motion="off"] .fold.shut, html[data-motion="off"] .map-list-fold > .map-list { transition: none; }
+html[data-motion="off"] .fold, html[data-motion="off"] .fold.shut { transition: none; }
 html[data-motion="off"] .map-inview { transition: none; }
 
 /* Shut folds take no room: their padding goes with them (B67: the Stations in view switch sat

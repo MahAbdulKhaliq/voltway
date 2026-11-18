@@ -260,3 +260,28 @@ export function paintTrip(map: maplibregl.Map, o: TripOverlay) {
   };
   running.set(map, requestAnimationFrame(frame));
 }
+
+/** B69: leaving the trip undoes the paint: the line draws back to the start, stops shrink away. */
+export const RETRACT_MS = 650;
+export function retractTrip(map: maplibregl.Map, o: TripOverlay, done: () => void) {
+  if (!map.getSource('trip-line') || o.line.length < 2) return done();
+  stop(map);
+  const cum = measure(o.line);
+  const gapEnds = o.gaps.filter((g) => g.length > 1).map((g) => fractionAt(o.line, cum, g[g.length - 1]));
+  const all = pointFC(o);
+  const head = map.getSource('trip-head') as maplibregl.GeoJSONSource;
+  const pts = map.getSource('trip-points') as maplibregl.GeoJSONSource;
+  const t0 = performance.now();
+  const frame = (now: number) => {
+    const el = now - t0;
+    const p = 1 - easeInOut(Math.min(1, el / RETRACT_MS));
+    setProgress(map, Math.max(p, 0));
+    showGaps(map, gapEnds.filter((f) => f <= p).length);
+    head.setData(p > 0 ? { type: 'FeatureCollection', features: [{ type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: pointAt(o.line, cum, p) } }] } : EMPTY);
+    const s = Math.max(0, 1 - el / (RETRACT_MS * 0.6));
+    pts.setData({ type: 'FeatureCollection', features: all.features.map((f) => ({ ...f, properties: { ...(f.properties as object), s } })) });
+    if (el < RETRACT_MS) running.set(map, requestAnimationFrame(frame));
+    else { running.delete(map); done(); }
+  };
+  running.set(map, requestAnimationFrame(frame));
+}

@@ -82,10 +82,17 @@ export function makePlacement(country: CountryCode, outline: Outline, border: re
       if (inRing(lon, lat, p[0]) && !p.slice(1).some((h) => inRing(lon, lat, h))) return 2;
     }
     let toBorder = Infinity, toCoast = Infinity;
+    // Only distances up to BORDER_ZONE_KM decide anything below, so a segment whose box is further
+    // than that (plus a margin) is skipped without measuring (B79: crossings check every route point).
+    const dLat = (BORDER_ZONE_KM + 1) / 111;
+    const dLon = dLat / Math.max(0.05, Math.cos((lat * Math.PI) / 180));
     for (const { p, f } of near) {
       p.forEach((ring, r) => {
         for (let i = 1; i < ring.length; i++) {
-          const d = segmentKm(lon, lat, ring[i - 1], ring[i]);
+          const a = ring[i - 1], b = ring[i];
+          if ((a[1] - lat > dLat && b[1] - lat > dLat) || (lat - a[1] > dLat && lat - b[1] > dLat)) continue;
+          if ((a[0] - lon > dLon && b[0] - lon > dLon) || (lon - a[0] > dLon && lon - b[0] > dLon)) continue;
+          const d = segmentKm(lon, lat, a, b);
           if (f[r]?.[i - 1] === '1') toBorder = Math.min(toBorder, d);
           else toCoast = Math.min(toCoast, d);
         }

@@ -1,20 +1,30 @@
-// Route options from Settings (B73): avoid tolls, avoid highways. Kept in the browser like the
-// other settings and sent to /api/route as `avoid=tolls,highways` (checked again there). "Stay within
-// the border" (B74, B78) is always on and not stored. A change is announced with a "voltway:routeOptions" event.
+// Route options from Settings (B73): avoid tolls, avoid highways, and (B79) Stay within the border.
+// Kept in the browser like the other settings and sent to /api/route as `avoid=tolls,highways` and
+// `border=cross` (checked again there). Stay within the border is on by default: `crossBorder` is
+// stored as true only once a visitor turns it off. A change is announced with a "voltway:routeOptions" event.
 
 import type { AvoidOption } from './ors.ts';
 import { getJSON, setJSON, KEYS } from './storage.ts';
 
 export const ROUTE_OPTIONS_EVENT = 'voltway:routeOptions';
 
-export interface RouteOptions { avoidTolls: boolean; avoidHighways: boolean }
-export const NO_AVOID: RouteOptions = { avoidTolls: false, avoidHighways: false };
+export interface RouteOptions {
+  avoidTolls: boolean;
+  avoidHighways: boolean;
+  /** B79: Stay within the border is off, so trips may cross between Canada and the US. */
+  crossBorder: boolean;
+}
+export const NO_AVOID: RouteOptions = { avoidTolls: false, avoidHighways: false, crossBorder: false };
 
-/** Anything but `true` reads as off, so a damaged entry never avoids roads by surprise. */
+/** Anything but `true` reads as off, so a damaged entry never avoids roads or crosses the border by surprise. */
 export function readRouteOptions(saved: unknown): RouteOptions {
   const o = (saved && typeof saved === 'object' ? saved : {}) as Record<string, unknown>;
-  return { avoidTolls: o.avoidTolls === true, avoidHighways: o.avoidHighways === true };
+  return { avoidTolls: o.avoidTolls === true, avoidHighways: o.avoidHighways === true, crossBorder: o.crossBorder === true };
 }
+
+/** True when two option sets ask for different routes. */
+export const sameRouteOptions = (a: RouteOptions, b: RouteOptions): boolean =>
+  a.avoidTolls === b.avoidTolls && a.avoidHighways === b.avoidHighways && a.crossBorder === b.crossBorder;
 
 export const routeOptions = (): RouteOptions => readRouteOptions(getJSON<unknown>(KEYS.routeOptions, null));
 
@@ -32,8 +42,8 @@ export function avoidList(o: RouteOptions): AvoidOption[] {
   return out;
 }
 
-/** `&avoid=tolls,highways`, or '' when nothing is avoided. */
+/** `&avoid=tolls,highways` and `&border=cross` (B79), or '' for the defaults. */
 export const avoidQuery = (o: RouteOptions): string => {
   const l = avoidList(o);
-  return l.length ? `&avoid=${l.join(',')}` : '';
+  return (l.length ? `&avoid=${l.join(',')}` : '') + (o.crossBorder ? '&border=cross' : '');
 };

@@ -1,25 +1,37 @@
 // Route options from Settings (B73, 5.3): reading damaged storage, saving, the event, the API form.
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { avoidList, avoidQuery, readRouteOptions, routeOptions, ROUTE_OPTIONS_EVENT, setRouteOptions } from '../src/lib/route-options.ts';
+import { avoidList, avoidQuery, readRouteOptions, routeOptions, ROUTE_OPTIONS_EVENT, sameRouteOptions, setRouteOptions } from '../src/lib/route-options.ts';
 import { KEYS } from '../src/lib/storage.ts';
 
 describe('readRouteOptions', () => {
   it('reads saved switches', () => {
-    expect(readRouteOptions({ avoidTolls: true, avoidHighways: false })).toEqual({ avoidTolls: true, avoidHighways: false });
+    expect(readRouteOptions({ avoidTolls: true, avoidHighways: false, crossBorder: false })).toEqual({ avoidTolls: true, avoidHighways: false, crossBorder: false });
   });
   it('treats anything but true as off', () => {
     for (const bad of [null, undefined, 'x', 3, [], { avoidTolls: 'true', avoidHighways: 1 }]) {
-      expect(readRouteOptions(bad)).toEqual({ avoidTolls: false, avoidHighways: false });
+      expect(readRouteOptions(bad)).toEqual({ avoidTolls: false, avoidHighways: false, crossBorder: false });
     }
   });
 });
 
 describe('avoid list and query', () => {
   it('uses the one order the API expects', () => {
-    expect(avoidList({ avoidTolls: true, avoidHighways: true })).toEqual(['tolls', 'highways']);
-    expect(avoidList({ avoidTolls: false, avoidHighways: true })).toEqual(['highways']);
-    expect(avoidQuery({ avoidTolls: true, avoidHighways: true })).toBe('&avoid=tolls,highways');
-    expect(avoidQuery({ avoidTolls: false, avoidHighways: false })).toBe('');
+    expect(avoidList({ avoidTolls: true, avoidHighways: true, crossBorder: false })).toEqual(['tolls', 'highways']);
+    expect(avoidList({ avoidTolls: false, avoidHighways: true, crossBorder: false })).toEqual(['highways']);
+    expect(avoidQuery({ avoidTolls: true, avoidHighways: true, crossBorder: false })).toBe('&avoid=tolls,highways');
+    expect(avoidQuery({ avoidTolls: false, avoidHighways: false, crossBorder: false })).toBe('');
+  });
+  it('B79: Stay within the border is on unless crossBorder is exactly true; off adds border=cross', () => {
+    expect(readRouteOptions({ crossBorder: 'true' }).crossBorder).toBe(false);
+    expect(readRouteOptions({ crossBorder: true }).crossBorder).toBe(true);
+    expect(avoidQuery({ avoidTolls: false, avoidHighways: false, crossBorder: true })).toBe('&border=cross');
+    expect(avoidQuery({ avoidTolls: true, avoidHighways: false, crossBorder: true })).toBe('&avoid=tolls&border=cross');
+    expect(avoidList({ avoidTolls: false, avoidHighways: false, crossBorder: true })).toEqual([]);
+  });
+  it('B79: sameRouteOptions sees a border change', () => {
+    const a = { avoidTolls: false, avoidHighways: false, crossBorder: false };
+    expect(sameRouteOptions(a, { ...a })).toBe(true);
+    expect(sameRouteOptions(a, { ...a, crossBorder: true })).toBe(false);
   });
 });
 
@@ -38,14 +50,14 @@ describe('saving', () => {
   it('saves to voltway.routeOptions and announces the change', () => {
     const seen: unknown[] = [];
     (window as unknown as EventTarget).addEventListener(ROUTE_OPTIONS_EVENT, (e) => seen.push((e as CustomEvent).detail));
-    setRouteOptions({ avoidTolls: true, avoidHighways: false });
-    expect(JSON.parse(store.get(KEYS.routeOptions)!)).toEqual({ avoidTolls: true, avoidHighways: false });
-    expect(routeOptions()).toEqual({ avoidTolls: true, avoidHighways: false });
-    expect(seen).toEqual([{ avoidTolls: true, avoidHighways: false }]);
+    setRouteOptions({ avoidTolls: true, avoidHighways: false, crossBorder: false });
+    expect(JSON.parse(store.get(KEYS.routeOptions)!)).toEqual({ avoidTolls: true, avoidHighways: false, crossBorder: false });
+    expect(routeOptions()).toEqual({ avoidTolls: true, avoidHighways: false, crossBorder: false });
+    expect(seen).toEqual([{ avoidTolls: true, avoidHighways: false, crossBorder: false }]);
   });
   it('defaults to nothing avoided', () => {
-    expect(routeOptions()).toEqual({ avoidTolls: false, avoidHighways: false });
+    expect(routeOptions()).toEqual({ avoidTolls: false, avoidHighways: false, crossBorder: false });
     store.set(KEYS.routeOptions, '{broken');
-    expect(routeOptions()).toEqual({ avoidTolls: false, avoidHighways: false });
+    expect(routeOptions()).toEqual({ avoidTolls: false, avoidHighways: false, crossBorder: false });
   });
 });

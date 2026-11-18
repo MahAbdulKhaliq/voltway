@@ -40,7 +40,8 @@ Today the map downloads `l3.json` (1 MB) and `l2.json` (3.8 MB) for all of Canad
    - Filters (plugs, power, level, access) work on these fields, so cluster counts stay true to the filters.
    - Level 2 overview is only drawn from **zoom 7** up, with a "Zoom in to see Level 2 chargers" hint. That keeps the first load to Level 3 only (estimate about 0.6 MB raw, under 200 KB gzipped).
 2. **Detail tiles (on demand):** full station records (name, address, ports, network, hours, source).
-   - Tiles are a quadtree over lat/lon. Start at 2° cells and split any cell with more than 1,500 stations into quarters, down to 0.25°.
+   - Tiles are a quadtree over lat/lon. Start at 2° cells and split any cell **over the 300 KB budget** into quarters, down to 2°/64 (~3.5 km). *(Changed at 7.6, 2026-11-18: the draft said "more than 1,500 stations, down to 0.25°", but a full record is ~320 bytes, so 1,500 stations is ~480 KB, over the approved budget; splitting by size keeps the budget as approved. Real build: L3 381 tiles, largest 215 KB; L2 535 tiles, largest 297 KB.)*
+   - Overview format (7.6): columns of numbers sorted by id (id, lon, lat as differences from the previous station; flags; ports as one number each: level, plug and kW). Real build: **o3 564 KB, o2 1.5 MB**; first load (o3 + index + meta) **575 KB**.
    - Files: `public/data/map/tiles/{level}/{key}.json` plus `public/data/map/tiles/index.json`, which lists each tile's box and counts.
    - Tiles load when a pin is opened, when the map is at **zoom ≥ 9** (pins replace clusters), and for **Stations in view**. Each tile is fetched once per visit and kept in memory.
 - **Budgets (approved 2026-11-18):** no tile over 300 KB raw; the first map load is under 1 MB raw; the build fails if a budget is broken.

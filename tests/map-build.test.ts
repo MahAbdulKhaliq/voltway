@@ -97,6 +97,7 @@ describe('buildMap', () => {
       fetched_at: '2026-11-16T09:36:25.408Z',
       updated: '2026-11-16',
       counts: { l3: 2, l2: 1, total: 3 },
+      sources: [{ source_id: 'src-afdc-ca', country: 'ca', fetched_at: '2026-11-16T09:36:25.408Z', count: 3 }],
     });
   });
 });

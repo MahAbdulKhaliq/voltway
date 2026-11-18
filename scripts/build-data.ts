@@ -13,7 +13,7 @@ import type { OcmStationsFile } from './lib/ocm.ts';
 import type { SkipEntry } from './lib/ocm-merge.ts';
 import { buildCars } from './lib/build.ts';
 import { toPlaceRows, type Place } from './lib/geonames.ts';
-import { buildMap } from './lib/map-build.ts';
+import { buildMap, mapFiles } from './lib/map-build.ts';
 import { mapOutputProblems, outputProblems } from './lib/output-check.ts';
 import { importedFile, importedFiles } from './lib/countries.ts';
 
@@ -41,6 +41,15 @@ const map = buildMap(
 {
   const sourceIds = new Set(readdirSync(join(root, 'data', 'sources')).map((f) => f.replace(/\.json$/, '')));
   problems.push(...mapOutputProblems('map/l3.json', map.l3, sourceIds), ...mapOutputProblems('map/l2.json', map.l2, sourceIds));
+}
+
+// B78 (DESIGN-7 D2): the map loads an overview per level and detail tiles by area. Budgets: no tile
+// over 300 KB, and the first load (Level 3 overview + tile index + meta) under 1 MB, all raw.
+const { problems: budgetProblems, tileJson, overviewJson, indexJson, firstLoad } = mapFiles(map);
+if (budgetProblems.length) {
+  console.error(`data:build: ${budgetProblems.length} map size budget(s) broken:`);
+  for (const p of budgetProblems.slice(0, 20)) console.error(`  ${p}`);
+  process.exit(1);
 }
 
 // Places for the trip planner (B45): also committed; a missing file fails the build.
@@ -80,6 +89,18 @@ if (map) {
     sizes.push(`${name} ${(json.length / 1e6).toFixed(2)} MB (${(gzipSync(json).length / 1e6).toFixed(2)} MB gz)`);
   }
   console.log(`data:build: map ${map.meta.counts.l3} L3 + ${map.meta.counts.l2} L2-only stations → public/data/map/ · ${sizes.join(', ')}`);
+  // B78 overview, tiles and index.
+  const kb = (n: number) => `${(n / 1e3).toFixed(0)} KB`;
+  for (const lv of [3, 2] as const) writeFileSync(join(out, 'map', `o${lv}.json`), overviewJson[lv]);
+  mkdirSync(join(out, 'map', 'tiles', '3'), { recursive: true });
+  mkdirSync(join(out, 'map', 'tiles', '2'), { recursive: true });
+  writeFileSync(join(out, 'map', 'tiles', 'index.json'), indexJson);
+  for (const [path, json] of tileJson) writeFileSync(join(out, 'map', path), json);
+  const tileSizes = (lv: 3 | 2) => [...tileJson].filter(([p]) => p.startsWith(`tiles/${lv}/`)).map(([, j]) => j.length);
+  const largest = (lv: 3 | 2) => Math.max(...tileSizes(lv));
+  console.log(
+    `data:build: overview o3 ${kb(overviewJson[3].length)}, o2 ${kb(overviewJson[2].length)} · tiles: L3 ${map.tiles[3].size} (largest ${kb(largest(3))}), L2 ${map.tiles[2].size} (largest ${kb(largest(2))}) · index ${kb(indexJson.length)} · first load ${kb(firstLoad)}`,
+  );
   if (map.ocm) console.log(`data:build: Open Charge Map adds ${map.ocm.kept.length} stations (duplicates of AFDC removed: ${JSON.stringify(map.ocm.dropped)})`);
 }
 

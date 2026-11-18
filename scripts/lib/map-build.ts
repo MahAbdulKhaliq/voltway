@@ -14,6 +14,13 @@ import type { Station, StationsFile } from './afdc.ts';
 import type { OcmStation, OcmStationsFile } from './ocm.ts';
 import { mergeOcm, type MergeResult, type SkipEntry } from './ocm-merge.ts';
 import type { MapFeature, MapFeatureCollection, MapMeta, MapPort } from '../../src/lib/map-data.ts';
+import type { ChargerLevel } from '../../src/lib/power-bands.ts';
+import { encodeOverview, keyAt, MAX_DEPTH, rootKey, tilePath, type OverviewFile, type TileIndex } from '../../src/lib/map-tiles.ts';
+
+/** Budgets (owner, 2026-11-18, DESIGN-7 D2): no detail tile over 300 KB, and the first map load (the
+ * Level 3 overview, the tile index and the meta) under 1 MB, both raw. The data build fails otherwise. */
+export const MAX_TILE_BYTES = 300_000;
+export const MAX_FIRST_LOAD_BYTES = 1_000_000;
 
 /** ~1 m precision; keeps the files small without moving any pin visibly. */
 const round5 = (x: number) => Math.round(x * 1e5) / 1e5;
@@ -52,6 +59,58 @@ export interface MapBuild {
   meta: MapMeta;
   /** The duplicate check against AFDC, when OCM data was given. */
   ocm: MergeResult | null;
+  /** B78 (DESIGN-7 D2): the overview per level, and the detail tiles per level with their index. */
+  overview: Record<ChargerLevel, OverviewFile>;
+  tiles: Record<ChargerLevel, Map<string, MapFeature[]>>;
+  index: TileIndex;
+}
+
+/**
+ * The B78 map files as text (tile path → JSON, the overviews, the index) and the budgets they break,
+ * for the data build to write or refuse (DESIGN-7 D2).
+ */
+export function mapFiles(map: Pick<MapBuild, 'tiles' | 'overview' | 'index' | 'meta'>, budgets = { tile: MAX_TILE_BYTES, firstLoad: MAX_FIRST_LOAD_BYTES }) {
+  const problems: string[] = [];
+  const tileJson = new Map<string, string>();
+  for (const lv of [3, 2] as const) {
+    for (const [key, features] of map.tiles[lv]) {
+      const json = JSON.stringify({ type: 'FeatureCollection', features });
+      if (json.length > budgets.tile) problems.push(`map/${tilePath(lv, key)} is ${(json.length / 1e3).toFixed(0)} KB (budget ${budgets.tile / 1e3} KB)`);
+      tileJson.set(tilePath(lv, key), json);
+    }
+  }
+  const overviewJson = { 3: JSON.stringify(map.overview[3]), 2: JSON.stringify(map.overview[2]) };
+  const indexJson = JSON.stringify(map.index);
+  const firstLoad = overviewJson[3].length + indexJson.length + JSON.stringify(map.meta).length;
+  if (firstLoad > budgets.firstLoad) problems.push(`first map load is ${(firstLoad / 1e6).toFixed(2)} MB (budget ${budgets.firstLoad / 1e6} MB)`);
+  return { problems, tileJson, overviewJson, indexJson, firstLoad };
+}
+
+const tileBytes = (features: readonly MapFeature[]) => JSON.stringify({ type: 'FeatureCollection', features }).length;
+
+/**
+ * Cuts stations into quadtree tiles: each 2° cell that is over `maxBytes` splits into quarters,
+ * and so on down to MAX_DEPTH. A cell still over the budget at the smallest size stays as it is;
+ * the data build reports it as a broken budget.
+ */
+export function buildTiles(features: readonly MapFeature[], maxBytes = MAX_TILE_BYTES): Map<string, MapFeature[]> {
+  const out = new Map<string, MapFeature[]>();
+  const split = (list: MapFeature[], depth: number) => {
+    const groups = new Map<string, MapFeature[]>();
+    for (const f of list) {
+      const [lon, lat] = f.geometry.coordinates;
+      const key = depth === 0 ? rootKey(lon, lat) : keyAt(lon, lat, depth);
+      const g = groups.get(key);
+      if (g) g.push(f);
+      else groups.set(key, [f]);
+    }
+    for (const [key, g] of groups) {
+      if (depth < MAX_DEPTH && tileBytes(g) > maxBytes) split(g, depth + 1);
+      else out.set(key, g.sort((a, b) => a.properties.i - b.properties.i));
+    }
+  };
+  split([...features], 0);
+  return new Map([...out].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)));
 }
 
 /**
@@ -74,6 +133,14 @@ export function buildMap(files: readonly StationsFile[], ocmFiles: readonly OcmS
     ids.add(f.properties.i);
   }
   const fc = (features: MapFeature[]): MapFeatureCollection => ({ type: 'FeatureCollection', features });
+  const tiles = { 3: buildTiles(l3), 2: buildTiles(l2) };
+  const counts = (m: Map<string, MapFeature[]>) => Object.fromEntries([...m].map(([k, v]) => [k, v.length]));
+  // Stations per source and country (B78): AFDC by file, OCM by the country file each kept station came from.
+  const ocmKept = new Set(ocm?.kept.map((s) => s.id) ?? []);
+  const sources = [
+    ...files.map((f) => ({ source_id: f.source_id, country: f.source.slice(-2), fetched_at: f.fetched_at, count: f.stations.length })),
+    ...ocmFiles.map((f) => ({ source_id: f.source_id, country: f.source.slice(-2), fetched_at: f.fetched_at, count: f.stations.filter((s) => ocmKept.has(s.id)).length })),
+  ];
   return {
     l3: fc(l3),
     l2: fc(l2),
@@ -85,7 +152,11 @@ export function buildMap(files: readonly StationsFile[], ocmFiles: readonly OcmS
       ...(ocmFile && ocm
         ? { ocm: { source_id: ocmFile.source_id, fetched_at: ocmFile.fetched_at, updated: ocmFile.fetched_at.slice(0, 10), count: ocm.kept.length } }
         : {}),
+      sources,
     },
     ocm,
+    overview: { 3: encodeOverview(3, l3), 2: encodeOverview(2, l2) },
+    tiles,
+    index: { v: 1, maxTileBytes: MAX_TILE_BYTES, tiles: { 3: counts(tiles[3]), 2: counts(tiles[2]) } },
   };
 }

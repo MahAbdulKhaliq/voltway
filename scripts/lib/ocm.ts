@@ -7,6 +7,7 @@
 import type { ChargerLevel, Plug } from '../../src/lib/power-bands.ts';
 import type { Port, Station } from './afdc.ts';
 import { OCM_ID_OFFSET, OCM_PROVIDERS } from '../../src/lib/map-data.ts';
+import type { Country } from './countries.ts';
 
 /** OCM map ids start here, so they never collide with AFDC ids (max ~473,000 in 2026). */
 export { OCM_ID_OFFSET, OCM_PROVIDERS };
@@ -200,7 +201,7 @@ export function normalizeOcm(raw: readonly RawPoi[], operators: ReadonlyMap<numb
 }
 
 export interface OcmStationsFile {
-  source: 'ocm-ca';
+  source: `ocm-${Country}`;
   source_id: string;
   fetched_at: string;
   raw_sha256: string;

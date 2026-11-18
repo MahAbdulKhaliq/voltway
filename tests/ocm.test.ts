@@ -35,12 +35,12 @@ describe('fetch:ocm query and paging', () => {
   };
 
   it('pages by the last id, pausing 3 s between requests, and stops on a short page', async () => {
-    const { fn, urls } = fake([page(1, PAGE_SIZE), page(5000, PAGE_SIZE), page(9000, 12)]);
+    const { fn, urls } = fake([page(1, PAGE_SIZE), page(PAGE_SIZE + 10, PAGE_SIZE), page(3 * PAGE_SIZE, 12)]);
     const pauses: number[] = [];
-    const r = await pullPois('k', fn, async (ms) => { pauses.push(ms); });
+    const r = await pullPois('k', fn, async (ms) => { pauses.push(ms); }, 'us');
     expect(r.requests).toBe(3);
     expect(r.pois).toHaveLength(2 * PAGE_SIZE + 12);
-    expect(urls.map((u) => new URL(u).searchParams.get('greaterthanid'))).toEqual(['0', String(PAGE_SIZE), String(5000 + PAGE_SIZE - 1)]);
+    expect(urls.map((u) => new URL(u).searchParams.get('greaterthanid'))).toEqual(['0', String(PAGE_SIZE), String(2 * PAGE_SIZE + 9)]);
     expect(pauses).toEqual([PAUSE_MS, PAUSE_MS]);
   });
 
@@ -50,11 +50,20 @@ describe('fetch:ocm query and paging', () => {
     expect(urls).toHaveLength(1);
   });
 
-  it('stops after the page cap instead of calling on and on', async () => {
-    const pages = Array.from({ length: MAX_PAGES + 2 }, (_, i) => page(1 + i * PAGE_SIZE, PAGE_SIZE));
-    const { fn, urls } = fake(pages);
-    await expect(pullPois('k', fn, async () => {})).rejects.toThrow(/stopping/);
-    expect(urls).toHaveLength(MAX_PAGES);
+  it('stops after the page cap instead of calling on and on (Canada 2 pages, US 5)', async () => {
+    for (const c of ['ca', 'us'] as const) {
+      const pages = Array.from({ length: MAX_PAGES[c] + 2 }, (_, i) => page(1 + i * PAGE_SIZE, PAGE_SIZE));
+      const { fn, urls } = fake(pages);
+      await expect(pullPois('k', fn, async () => {}, c)).rejects.toThrow(/stopping/);
+      expect(urls).toHaveLength(MAX_PAGES[c]);
+      expect(urls.every((u) => new URL(u).searchParams.get('countrycode') === c.toUpperCase())).toBe(true);
+    }
+  });
+
+  it('stays inside the monthly cap of 10 requests for both countries (B78)', () => {
+    // Each country: its pages plus one reference-data request.
+    expect(MAX_PAGES.ca + 1 + MAX_PAGES.us + 1).toBeLessThanOrEqual(10);
+    expect(PAGE_SIZE).toBe(5000);
   });
 
   it('rejects a response that is not an id-ordered list', async () => {

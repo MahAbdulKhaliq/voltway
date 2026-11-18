@@ -6,6 +6,7 @@ import { join, relative, sep } from 'node:path';
 import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 import { parseCsv } from './csv.ts';
+import { COUNTRIES } from './countries.ts';
 
 export interface ValidationResult {
   errors: string[];
@@ -344,12 +345,14 @@ export function validateRepo(root: string): ValidationResult {
     });
   }
 
-  // --- Imported AFDC charging stations (charger map) ---
+  // --- Imported AFDC charging stations (charger map), one file per country (DESIGN-7 D1) ---
   let afdcStations = 0;
-  if (existsSync(join(dataDir, 'imported', 'afdc', 'stations.json'))) {
-    const file = 'data/imported/afdc/stations.json';
-    const data = read('imported/afdc', 'stations.json') as { source_id: string; stations: { id: number }[] } | undefined;
+  for (const country of COUNTRIES) {
+    if (!existsSync(join(dataDir, 'imported', 'afdc', `${country}.json`))) continue;
+    const file = `data/imported/afdc/${country}.json`;
+    const data = read('imported/afdc', `${country}.json`) as { source: string; source_id: string; stations: { id: number }[] } | undefined;
     if (data !== undefined && check(v.importedAfdc, data, file)) {
+      if (data.source !== `afdc-${country}`) errors.push(`${file}: source is "${data.source}", expected "afdc-${country}"`);
       if (!sources.has(data.source_id)) errors.push(`${file}: cites unknown source "${data.source_id}"`);
       for (let i = 1; i < data.stations.length; i++) {
         if (data.stations[i].id <= data.stations[i - 1].id) {
@@ -357,7 +360,7 @@ export function validateRepo(root: string): ValidationResult {
           break;
         }
       }
-      afdcStations = data.stations.length;
+      afdcStations += data.stations.length;
     }
   }
 

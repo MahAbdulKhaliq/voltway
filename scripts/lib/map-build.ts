@@ -1,4 +1,5 @@
-// Map data build (DESIGN-map.md M4): turns data/imported/afdc/stations.json, plus the Open Charge
+// Map data build (DESIGN-map.md M4): turns the AFDC files of every country (data/imported/afdc/<cc>.json,
+// DESIGN-7 D1), plus the Open Charge
 // Map stations that aren't duplicates of AFDC ones (B77, DESIGN-6 P3), into the compact files the
 // charger map loads:
 //   public/data/map/l3.json   stations with any Level 3 port (all their ports, so a
@@ -53,12 +54,19 @@ export interface MapBuild {
   ocm: MergeResult | null;
 }
 
-export function buildMap(file: StationsFile, ocmFile: OcmStationsFile | null = null, skip: readonly SkipEntry[] = []): MapBuild {
+/**
+ * `files`: the AFDC file of each country (Canada first; its date heads the meta). `ocmFiles`: the Open
+ * Charge Map file of each country, checked for duplicates against the AFDC stations of all countries.
+ */
+export function buildMap(files: readonly StationsFile[], ocmFiles: readonly OcmStationsFile[] = [], skip: readonly SkipEntry[] = []): MapBuild {
+  if (files.length === 0) throw new Error('map build: no AFDC file');
+  const file = files[0];
   const l3: MapFeature[] = [];
   const l2: MapFeature[] = [];
   const add = (s: Station, src: string) => (s.ports.some((x) => x.level === 3) ? l3 : l2).push(toFeature(s, src));
-  for (const s of file.stations) add(s, file.source_id);
-  const ocm = ocmFile ? mergeOcm(ocmFile.stations, file.stations, skip) : null;
+  for (const f of files) for (const s of f.stations) add(s, f.source_id);
+  const ocmFile = ocmFiles[0] ?? null;
+  const ocm = ocmFile ? mergeOcm(ocmFiles.flatMap((f) => f.stations), files.flatMap((f) => f.stations), skip) : null;
   if (ocmFile && ocm) for (const s of ocm.kept) add(s, ocmFile.source_id);
   const ids = new Set<number>();
   for (const f of [...l3, ...l2]) {

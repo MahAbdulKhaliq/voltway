@@ -83,7 +83,7 @@ describe('toFeature', () => {
 describe('buildMap', () => {
   const l3 = { level: 3 as const, plug: 'ccs1' as const, kw: 150, count: 2 };
   const l2 = { level: 2 as const, plug: 'j1772' as const, kw: 7.2, count: 4 };
-  const m = buildMap(file([st(1, { ports: [l3] }), st(2, { ports: [l3, l2] }), st(3, { ports: [l2] })]));
+  const m = buildMap([file([st(1, { ports: [l3] }), st(2, { ports: [l3, l2] }), st(3, { ports: [l2] })])]);
 
   it('puts any station with a Level 3 port in l3 (mixed sites keep their Level 2 ports) and the rest in l2', () => {
     expect(m.l3.features.map((f) => f.properties.i)).toEqual([1, 2]);
@@ -104,7 +104,7 @@ describe('buildMap', () => {
 describe('mapOutputProblems', () => {
   const ids = new Set(['src-afdc-ca']);
   it('passes a sourced station and flags missing or unlisted sources, ports and coordinates', () => {
-    const ok = buildMap(file([st(1)])).l2;
+    const ok = buildMap([file([st(1)])]).l2;
     expect(mapOutputProblems('l2', ok, ids)).toEqual([]);
     const bad = structuredClone(ok);
     bad.features.push(structuredClone(bad.features[0]), structuredClone(bad.features[0]));
@@ -121,10 +121,10 @@ describe('mapOutputProblems', () => {
 });
 
 describe('map build on the real data', () => {
-  const path = join(REPO, 'data', 'imported', 'afdc', 'stations.json');
+  const path = join(REPO, 'data', 'imported', 'afdc', 'ca.json');
   it.skipIf(!existsSync(path))('every station is sourced and the files are under ~2 MB gzipped', () => {
     const src = JSON.parse(readFileSync(path, 'utf8')) as StationsFile;
-    const m = buildMap(src);
+    const m = buildMap([src]);
     const ids = new Set(readdirSync(join(REPO, 'data', 'sources')).map((f) => f.replace(/\.json$/, '')));
     expect([...mapOutputProblems('l3', m.l3, ids), ...mapOutputProblems('l2', m.l2, ids)]).toEqual([]);
     expect(m.meta.counts.total).toBe(src.stations.length);
@@ -143,7 +143,7 @@ describe('map build with Open Charge Map (B77)', () => {
 
   it('adds OCM stations that are not duplicates, with provider and verified date, and counts them in meta', () => {
     const afdc = file([st(1, { lat: 45, ports: [{ level: 3, plug: 'ccs1', kw: 50, count: 2 }] })]);
-    const m = buildMap(afdc, ocmFile([ocm(5, 45.0005), ocm(6, 48)]));
+    const m = buildMap([afdc], [ocmFile([ocm(5, 45.0005), ocm(6, 48)])]);
     const ids = m.l3.features.map((f) => f.properties.i);
     expect(ids).toEqual([1, OCM_ID_OFFSET + 6]);
     expect(m.l3.features[1].properties).toMatchObject({ src: 'src-ocm', op: 1, v: '2024-11-23' });
@@ -153,13 +153,13 @@ describe('map build with Open Charge Map (B77)', () => {
 
   it('honours the skip list and stays AFDC-only without OCM data', () => {
     const afdc = file([st(1)]);
-    expect(buildMap(afdc, ocmFile([ocm(6, 48)]), [{ ocm_id: 6, reason: 'test' }]).meta.counts.total).toBe(1);
-    const plain = buildMap(afdc);
+    expect(buildMap([afdc], [ocmFile([ocm(6, 48)])], [{ ocm_id: 6, reason: 'test' }]).meta.counts.total).toBe(1);
+    const plain = buildMap([afdc]);
     expect(plain.meta.ocm).toBeUndefined();
     expect(plain.ocm).toBeNull();
   });
 
   it('refuses a station id used twice', () => {
-    expect(() => buildMap(file([st(1), st(1)]))).toThrow(/used twice/);
+    expect(() => buildMap([file([st(1), st(1)])])).toThrow(/used twice/);
   });
 });

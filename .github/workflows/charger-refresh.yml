@@ -138,7 +138,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$BRANCH"
-          git add data/imported/afdc/stations.json sources/afdc-ca/FETCHED.json
+          git add data/imported/afdc/ca.json sources/afdc-ca/FETCHED.json
           git add data/imported/ocm/ sources/ocm-ca/FETCHED.json 2>/dev/null || true
           git commit -m "Charger data refresh ($(date -u +%F))"
 

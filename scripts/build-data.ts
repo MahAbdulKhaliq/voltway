@@ -15,6 +15,7 @@ import { buildCars } from './lib/build.ts';
 import { toPlaceRows, type Place } from './lib/geonames.ts';
 import { buildMap } from './lib/map-build.ts';
 import { mapOutputProblems, outputProblems } from './lib/output-check.ts';
+import { importedFile, importedFiles } from './lib/countries.ts';
 
 const root = process.cwd();
 const out = join(root, 'public', 'data');
@@ -23,20 +24,19 @@ const { cars, index, estimates, report } = buildCars(root);
 // Fail the build on any unsourced figure in the output, not only in the input (rule: no bare numbers).
 const problems = cars.flatMap(outputProblems);
 
-// Charger map: built from the imported AFDC file, which is committed; a missing file fails the build
-// instead of quietly shipping a site without map data.
-const stationsFile = join(root, 'data', 'imported', 'afdc', 'stations.json');
-if (!existsSync(stationsFile)) {
-  console.error('data:build: data/imported/afdc/stations.json is missing; run npm run import:afdc.');
+// Charger map: built from the imported AFDC files, which are committed, one per country (DESIGN-7 D1).
+// A missing Canadian file fails the build instead of quietly shipping a site without map data.
+if (!existsSync(importedFile(root, 'afdc', 'ca'))) {
+  console.error('data:build: data/imported/afdc/ca.json is missing; run npm run import:afdc.');
   process.exit(1);
 }
+const readJson = <T>(path: string) => JSON.parse(readFileSync(path, 'utf8')) as T;
 // Open Charge Map (B77) is optional: until its first import the map is AFDC only.
-const ocmFile = join(root, 'data', 'imported', 'ocm', 'stations.json');
 const ocmSkip = join(root, 'data', 'imported', 'ocm', 'skip.json');
 const map = buildMap(
-  JSON.parse(readFileSync(stationsFile, 'utf8')) as StationsFile,
-  existsSync(ocmFile) ? (JSON.parse(readFileSync(ocmFile, 'utf8')) as OcmStationsFile) : null,
-  existsSync(ocmSkip) ? (JSON.parse(readFileSync(ocmSkip, 'utf8')) as { skip: SkipEntry[] }).skip : [],
+  importedFiles(root, 'afdc').map((f) => readJson<StationsFile>(f.path)),
+  importedFiles(root, 'ocm').map((f) => readJson<OcmStationsFile>(f.path)),
+  existsSync(ocmSkip) ? readJson<{ skip: SkipEntry[] }>(ocmSkip).skip : [],
 );
 {
   const sourceIds = new Set(readdirSync(join(root, 'data', 'sources')).map((f) => f.replace(/\.json$/, '')));

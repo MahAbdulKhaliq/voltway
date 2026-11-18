@@ -49,6 +49,9 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
   const autoPlan = useRef(false);
   /** Set when the route options change while a trip is shown: it re-plans once (B73). */
   const replan = useRef(false);
+  /** The trip (not the form) is on screen; set by the trip panel. */
+  const shown = useRef(false);
+  const setShown = useCallback((on: boolean) => { shown.current = on; }, []);
   const inflight = useRef('');
   /** Bumped by Close route, so a route reply that lands after it is ignored. */
   const generation = useRef(0);
@@ -61,9 +64,20 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
   }, []);
 
   // Route options from Settings (B73).
+  // Decided when the change arrives, before the panel re-renders: a trip on screen (not the form)
+  // plans again once with the new options; on the form the button turns into Plan trip.
+  const optsRef = useRef<RouteOptions>(NO_AVOID);
   useEffect(() => {
-    setOpts(routeOptions());
-    const on = (e: Event) => setOpts(readRouteOptions((e as CustomEvent).detail));
+    optsRef.current = routeOptions();
+    setOpts(optsRef.current);
+    const on = (e: Event) => {
+      const next = readRouteOptions((e as CustomEvent).detail);
+      const changed = next.avoidTolls !== optsRef.current.avoidTolls || next.avoidHighways !== optsRef.current.avoidHighways;
+      optsRef.current = next;
+      if (!changed) return;
+      if (shown.current) replan.current = true;
+      setOpts(next);
+    };
     window.addEventListener(ROUTE_OPTIONS_EVENT, on);
     return () => window.removeEventListener(ROUTE_OPTIONS_EVENT, on);
   }, []);
@@ -141,11 +155,7 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
     }
   }, [trip, routeData, opts]);
 
-  // Route options changed while this trip's route is here: plan it again once, with the new options.
-  useEffect(() => {
-    const ends = endsKey(trip); // "from|to|" (no options)
-    if (routeData && ends && routeData.key.startsWith(ends) && routeData.key !== key) replan.current = true;
-  }, [opts]); // eslint-disable-line react-hooks/exhaustive-deps
+  // The re-plan asked for above runs once submit carries the new options.
   useEffect(() => {
     if (replan.current) { replan.current = false; submit(); }
   }, [submit]);
@@ -212,7 +222,7 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
   const current = Boolean(plan && routeData && routeData.key === key);
 
   return {
-    trip, setTrip, swap, setPct, pctValid, canPlan, current, opts,
+    trip, setTrip, swap, setPct, pctValid, canPlan, current, opts, setShown,
     planCar, carUpdated, routeData, plan, status, unit,
     submit, start, stop, share, shareUrl, locate, locating,
   };

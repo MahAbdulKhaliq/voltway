@@ -50,6 +50,9 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
   const [loose, setLoose] = useState({ from: false, to: false });
   useEffect(() => setLoose({ from: false, to: false }), [swaps]);
   const folded = current && !editing;
+  // B73: an option change re-plans by itself only while the trip is on screen (not on the form).
+  const { setShown } = T;
+  useEffect(() => { setShown(Boolean(folded)); }, [folded, setShown]);
   // Opening route mode, folding the form and Edit each replace the control that had focus:
   // focus moves to the panel's heading so keyboard and screen-reader users keep their place (3.20).
   const headRef = useRef<HTMLHeadingElement>(null);

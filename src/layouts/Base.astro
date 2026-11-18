@@ -346,7 +346,8 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
     min-height: 36px; padding: 4px 0; border: 0; background: none; color: inherit; font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer;
   }
   .settings-switch[aria-disabled='true'] { cursor: default; }
-  .settings-switch[aria-disabled='true'] .switch { opacity: 0.6; }
+  .settings-switch[aria-disabled='true'] .switch { background: var(--surface-2); border-color: var(--field-border); }
+  .settings-switch[aria-disabled='true'] .switch::after { background: var(--muted); }
   @media (max-width: 640px) { .settings-switch { min-height: 44px; } }
   .site-footer { border-top: 1px solid var(--border); color: var(--muted); padding: 20px 0 32px; font-size: 0.9rem; }
 </style>

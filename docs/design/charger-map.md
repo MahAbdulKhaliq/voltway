@@ -76,7 +76,10 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 
 **How it goes live (B27, 2026-11-16):** the scheduled Action (monthly since B36) opens a pull request with the change summary, runs the full CI steps itself, and **merges it automatically** when the sanity checks and CI pass. If anything fails, the PR stays open and the run fails so the owner is notified. This exception to "a person approves" covers charger data only; vehicle data keeps human review.
 
-### Open Charge Map: later, not v1 (N7) ✅
+### Open Charge Map: second source (B77, 2026-11-18) ✅
+- **Built in Phase 6** per [DESIGN-6.md](../plan/DESIGN-6.md): OCM fills AFDC's gaps (about 580 Canadian sites in the first pull), duplicates matched in layers, AFDC wins, but an OCM station with fast charging or NACS its AFDC match lacks is kept (2026-11-18 audit), every station shows its source. The notes below are the v1 history.
+
+### Open Charge Map: later, not v1 (N7, history)
 - **v1 uses AFDC only.** One source keeps the data simple and avoids duplicate stations.
 - **Later**, if AFDC turns out to be missing networks: add Open Charge Map to fill gaps. **Duplicate rule (proposal):** same network, within ~50 m, and overlapping plug types means one station. Prefer AFDC's record and add any OCM-only ports.
 

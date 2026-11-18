@@ -1,0 +1,11 @@
+{
+  "id": "src-ocm",
+  "type": "dataset",
+  "title": "Open Charge Map – Canadian charging locations (open-licensed providers only)",
+  "url": "https://openchargemap.org/",
+  "license": "CC BY 4.0 for Open Charge Map contributors’ data; AddÉnergie CC BY 3.0; Greems CC0 (each station names its provider and licence). Open Charge Map terms: https://openchargemap.org/site/about/terms",
+  "attribution": "Charging locations from Open Charge Map (openchargemap.org) and its contributors, licensed CC BY 4.0, plus open data from AddÉnergie (CC BY 3.0) and Greems (CC0) via Open Charge Map. Changed: filtered to public stations and merged with the AFDC data (duplicates removed).",
+  "accessed_on": "2026-11-18",
+  "via": "Open Charge Map API v3 (api.openchargemap.io), about 4 requests a month",
+  "notes": "Owner decision B77 (2026-11-18), docs/plan/DESIGN-6.md. Pulled monthly by .github/workflows/charger-refresh.yml (npm run fetch:ocm, then import:ocm). Raw pull is git-ignored; sources/ocm-ca/FETCHED.json records each pull. OCM’s copies of AFDC records (data provider 2) are not fetched."
+}

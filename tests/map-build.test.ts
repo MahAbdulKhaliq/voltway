@@ -4,6 +4,7 @@ import { gzipSync } from 'node:zlib';
 import { describe, expect, it } from 'vitest';
 import type { Station, StationsFile } from '../scripts/lib/afdc.ts';
 import { buildMap, toFeature } from '../scripts/lib/map-build.ts';
+import { OCM_ID_OFFSET, type OcmStation, type OcmStationsFile } from '../scripts/lib/ocm.ts';
 import { mapOutputProblems } from '../scripts/lib/output-check.ts';
 
 const REPO = join(import.meta.dirname, '..');
@@ -130,5 +131,35 @@ describe('map build on the real data', () => {
     const gz = (x: unknown) => gzipSync(JSON.stringify(x)).length;
     expect(gz(m.l3) + gz(m.l2)).toBeLessThan(2e6);
     expect(gz(m.l3)).toBeLessThan(0.5e6);
+  });
+});
+
+describe('map build with Open Charge Map (B77)', () => {
+  const ocm = (ocmId: number, lat: number, over: Partial<OcmStation> = {}): OcmStation => ({ ...st(OCM_ID_OFFSET + ocmId, { lat, ports: [{ level: 3, plug: 'ccs1', kw: 50, count: 1 }] }), provider: 1, verified: '2024-11-23', ...over });
+  const ocmFile = (stations: OcmStation[]): OcmStationsFile => ({
+    source: 'ocm-ca', source_id: 'src-ocm', fetched_at: '2026-11-18T10:00:00.000Z', raw_sha256: 'y', raw_count: stations.length,
+    dropped: { provider: 0, unpublished: 0, not_operational: 0, private: 0, no_location: 0, no_l2_l3_ports: 0 }, ignored_ports: {}, stations,
+  });
+
+  it('adds OCM stations that are not duplicates, with provider and verified date, and counts them in meta', () => {
+    const afdc = file([st(1, { lat: 45, ports: [{ level: 3, plug: 'ccs1', kw: 50, count: 2 }] })]);
+    const m = buildMap(afdc, ocmFile([ocm(5, 45.0005), ocm(6, 48)]));
+    const ids = m.l3.features.map((f) => f.properties.i);
+    expect(ids).toEqual([1, OCM_ID_OFFSET + 6]);
+    expect(m.l3.features[1].properties).toMatchObject({ src: 'src-ocm', op: 1, v: '2024-11-23' });
+    expect(m.meta.ocm).toEqual({ source_id: 'src-ocm', fetched_at: '2026-11-18T10:00:00.000Z', updated: '2026-11-18', count: 1 });
+    expect(m.ocm?.dropped.place).toBe(1);
+  });
+
+  it('honours the skip list and stays AFDC-only without OCM data', () => {
+    const afdc = file([st(1)]);
+    expect(buildMap(afdc, ocmFile([ocm(6, 48)]), [{ ocm_id: 6, reason: 'test' }]).meta.counts.total).toBe(1);
+    const plain = buildMap(afdc);
+    expect(plain.meta.ocm).toBeUndefined();
+    expect(plain.ocm).toBeNull();
+  });
+
+  it('refuses a station id used twice', () => {
+    expect(() => buildMap(file([st(1), st(1)]))).toThrow(/used twice/);
   });
 });

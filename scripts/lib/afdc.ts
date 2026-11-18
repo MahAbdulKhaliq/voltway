@@ -181,7 +181,7 @@ export interface StationsFile {
 }
 
 /** Pretty header, then one station per line, so refresh diffs show only changed stations. */
-export function serializeStationsFile(f: StationsFile): string {
+export function serializeStationsFile<F extends { stations: readonly object[] }>(f: F): string {
   const { stations, ...head } = f;
   const headJson = JSON.stringify(head, null, 2).replace(/\n}$/, '');
   const body = stations.map((s) => '    ' + JSON.stringify(s)).join(',\n');

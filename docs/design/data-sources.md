@@ -171,7 +171,8 @@ In order of preference:
 ### Open Charge Map: secondary, fills gaps
 - **License:** user-contributed data is CC BY 4.0. **Imported data keeps its original provider's license**, and **visible attribution for each provider is required**.
 - OCM calls itself a "non-commercial, non-profit service". Its terms don't spell out commercial use.
-- **Role:** fills gaps where AFDC is missing stations. That raises a design question: how to remove duplicate stations that appear in both sources (new gap N7).
+- **Role:** fills gaps where AFDC is missing stations. **In use since Phase 6 (B77, 2026-11-18):** only open-licensed providers (1 OCM contributors CC BY 4.0, 24 AddÉnergie CC BY 3.0, 45 Greems CC0), about 3 API calls a month; duplicate rules in [DESIGN-6.md](../plan/DESIGN-6.md) P3.
+- **Fair use (API spec):** no repeated duplicate queries; throttle; custom user agent; key as `X-API-Key` header; OCM may ban excessive callers; for full-dataset refreshes clone their GitHub export instead.
 - **Link:** [terms](https://openchargemap.org/about/terms)
 
 ### Not usable

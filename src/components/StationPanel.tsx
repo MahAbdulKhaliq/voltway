@@ -4,7 +4,7 @@
 import { useEffect, useRef } from 'react';
 import Marquee from './Marquee.tsx';
 import { t, type MessageKey } from '../i18n/t.ts';
-import type { MapFeature } from '../lib/map-data.ts';
+import { OCM_PROVIDERS, OCM_SOURCE_ID, ocmUrl, type MapFeature } from '../lib/map-data.ts';
 import { needsAdapter, topDcKw, type CarMapInfo } from '../lib/map-filter.ts';
 import type { MyCar } from '../lib/my-car.ts';
 import { PIN } from '../lib/map-icons.ts';
@@ -31,6 +31,8 @@ interface Props {
   station: MapFeature;
   /** Date of the last data pull (meta.json), for the footer. */
   updated: string | null;
+  /** Open Charge Map pull date (YYYY-MM-DD), for an OCM station's footer (B77). */
+  ocmUpdated?: string | null;
   onClose: () => void;
   /** My car and what the map knows about it (B28, B31); null when none is set or it is still loading. */
   myCar?: MyCar | null;
@@ -41,12 +43,13 @@ interface Props {
   onBack?: () => void;
 }
 
-export default function StationPanel({ station, updated, onClose, myCar = null, carInfo = null, onRouteHere, onBack }: Props) {
+export default function StationPanel({ station, updated, ocmUpdated = null, onClose, myCar = null, carInfo = null, onRouteHere, onBack }: Props) {
   const s = station.properties;
   const heading = useRef<HTMLHeadingElement>(null);
   const level = stationLevel(s.p);
   const status = stationStatus(s, localDate());
   const tesla = teslaNote(s.nw);
+  const ocm = s.src === OCM_SOURCE_ID ? OCM_PROVIDERS[s.op ?? 1] ?? OCM_PROVIDERS[1] : null;
   const rule = carInfo?.rule ?? null;
   // My-car Tesla note (charger-map §7): hidden for a Tesla; adapter wording for a via-adapter car.
   const superNote: MessageKey | null =
@@ -198,7 +201,19 @@ export default function StationPanel({ station, updated, onClose, myCar = null, 
       </div>
 
       <footer className="station-foot small muted">
-        {updated && <p>{t('map.station.footer', { date: showDate(updated) })}</p>}
+        {ocm ? (
+          <>
+            {/* B77 / OCM licence: the data provider and its licence are shown with every OCM station. */}
+            <p>
+              {t('map.station.sourceOcm', { provider: ocm.name, date: ocmUpdated ? showDate(ocmUpdated) : '—' })}{' · '}
+              <a href={ocm.licenceUrl} rel="noopener license" target="_blank">{ocm.licence}</a>
+            </p>
+            {s.v && <p>{t('map.station.verified', { date: showDate(s.v) })}</p>}
+            <p><a href={ocmUrl(s.i)} rel="noopener" target="_blank">{t('map.station.ocmLink')}</a></p>
+          </>
+        ) : (
+          updated && <p>{t('map.station.footer', { date: showDate(updated) })}</p>
+        )}
         {s.u && <p>{t('map.station.recordChanged', { date: showDate(s.u) })}</p>}
       </footer>
     </aside>

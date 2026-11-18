@@ -33,11 +33,10 @@
 - **Impact:** AFDC doesn't record per-site non-Tesla access, so every Supercharger shows the same generic note ("access varies by site, check the Tesla app"). Drivers of other cars can't filter to sites they can use.
 - **Fix:** look for an open source of per-site access (charger-map.md §7). Tesla's own site list is not openly licensed.
 
-### TD-P8 Open Charge Map as a second charger source (N7)
-- **Since:** 2026-11-16, Phase 2 plan (DESIGN-map.md M9).
-- **Impact:** v1 uses AFDC only. Networks or sites AFDC lacks are missing from the map.
-- **Fix:** later, if gaps show up: add OCM with the duplicate rule in charger-map.md §3 (same network, within ~50 m, overlapping plugs = one station; prefer AFDC). OCM's licence and attribution terms need checking first.
-- **Gap found (2026-11-18, owner):** Hamilton → Vancouver in a 2025 Polestar 2 with CCS only can't be finished. AFDC (pulled with `status=all`) has no CCS fast charger between Sault Ste. Marie and Marathon (401 km) or Thunder Bay and Dryden (337 km); only Tesla Superchargers. OCM and others list possible CCS sites (Petro-Canada Wawa and Ignace, Ivy White River), but the listings conflict and some say out of service. B76 (PR #131) now suggests NACS for such trips; a second source is still the real fix where AFDC is missing working sites. Needs owner sign-off (new data source, data review).
+### TD-P13 Open Charge Map duplicate edge cases
+- **Since:** 2026-11-18, Phase 6 real-data audit (research/map-audit-2026-11-18-ocm-real.md, W1–W5).
+- **Impact:** the place layer can still remove a different network's fast charger next to an AFDC station that shares one plug type (about 10 cases, e.g. OCM 148153, 289433, 299714); a kept OCM station repeats ports its AFDC neighbour already lists (W3); 27 removed sites had CHAdeMO their AFDC match lacks (W5); a few CCS ports at 22–24 kW sit in Level 3 (W4).
+- **Fix:** for Level 3 stations in the place layer, also require the same network, same address, a similar name or ≤ 40 m (audit suggestion); needs owner sign-off (duplicate rule change).
 
 ### TD-P11 "Stations in view" on phones
 - **Since:** 2026-11-16, M12 (B34). The list is offered only over 640 px wide: on phones the filter panel and the station bottom sheet already compete for the screen.
@@ -50,6 +49,7 @@
 - **Fix:** an informational note in the station panel (or the filter panel) for J1772 ports when My car has a NACS port, as the owner suggested.
 
 ## Closed
+- 2026-11-18, Phase 6 (B77): TD-P8 (Open Charge Map as a second charger source) closed. About 580 open-licensed OCM stations fill AFDC gaps, deduplicated in layers, credited per station, refreshed monthly. Hamilton → Vancouver with CCS only now gets past Thunder Bay → Dryden via Ivy Upsala; the Sault Ste. Marie → Marathon gap remains (Ivy White River is marked temporarily unavailable in OCM). Edge cases: TD-P13.
 - 2026-11-16, M12: TD-P9 (stations unreachable by keyboard) closed by the "Stations in view" list (B34); phones are TD-P11.
 - 2026-11-16: TD-P10 (top Level 2 band label) no longer applies: the owner replaced the power-band boxes with kW range sliders whose top stop is "Max" (B35, M11).
 - 2026-11-16, PR #41: "Added to battery" result shown (QA #7); notice for unmatched `?car=` links (QA #15); "Estimated" tag on estimated lines (QA #11).

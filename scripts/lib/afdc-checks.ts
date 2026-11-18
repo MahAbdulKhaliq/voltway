@@ -3,7 +3,13 @@
 // The refresh PR merges itself on green (B27), so these checks are the gate:
 // a failed check stops the import and leaves the committed file as it was.
 
-import type { Station, StationsFile } from './afdc.ts';
+import type { Station } from './afdc.ts';
+
+/** What the checks read from an import file: AFDC (afdc.ts) and OCM (ocm.ts) both fit. */
+export interface CheckedFile {
+  stations: Station[];
+  dropped: { no_location: number; no_l2_l3_ports: number };
+}
 
 export interface CheckOptions {
   /** Fail when the kept count falls by more than this share of the last committed count. */
@@ -70,7 +76,7 @@ export interface CheckResult {
  * normaliser drops a station with no location or no L2/L3 port, so those drops are
  * the "missing" cases, plus any kept station that somehow fails the same test.
  */
-export function checkAfdc(prev: StationsFile | null, next: StationsFile, opts: CheckOptions = DEFAULT_CHECKS): CheckResult {
+export function checkAfdc(prev: CheckedFile | null, next: CheckedFile, opts: CheckOptions = DEFAULT_CHECKS): CheckResult {
   const failures: string[] = [];
   const nextCount = next.stations.length;
   const prevCount = prev ? prev.stations.length : null;
@@ -121,9 +127,9 @@ function pct(x: number): string {
 }
 
 /** Markdown for the refresh PR body: check results, then changes by province and level. */
-export function summaryMarkdown(r: CheckResult, fetchedAt: string): string {
+export function summaryMarkdown(r: CheckResult, fetchedAt: string, source = 'AFDC Canada'): string {
   const lines: string[] = [];
-  lines.push(`## Charger data refresh (AFDC Canada, fetched ${fetchedAt})`, '');
+  lines.push(`## Charger data refresh (${source}, fetched ${fetchedAt})`, '');
   lines.push(r.ok ? '**Sanity checks: passed.**' : '**Sanity checks: FAILED.** Nothing goes live until the owner reviews this.', '');
   for (const f of r.failures) lines.push(`- ${f}`);
   if (r.failures.length) lines.push('');

@@ -1,0 +1,73 @@
+{
+  "about": "OCM POI ids the owner marked as duplicates (of AFDC stations, or of another OCM record), or as bad data (DESIGN-6 P3). Each: { ocm_id, reason }.",
+  "skip": [
+    {
+      "ocm_id": 171491,
+      "reason": "Duplicate of AFDC 434009 BC Hydro - Savory Rest Area (same name and plugs, 313 m apart). Owner-approved 2026-11-18 (map-data audit)."
+    },
+    {
+      "ocm_id": 234576,
+      "reason": "Duplicate of AFDC 236163 HYDRO PORT CHOIX DCFC + 236502 HYDRO PORT CHOIX L2 (same site, split in two there). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 145036,
+      "reason": "Likely duplicate of AFDC 398074 Parlee Beach Provincial Park Campground (same park, eCharge, J1772). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 15481,
+      "reason": "Likely duplicate of AFDC 445745 BC Hydro - Woss, Englewood Dr (same village and street, shares the J1772). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 77595,
+      "reason": "Likely duplicate of AFDC 129961 Tsawwassen Mills, Canoe Pass Way (FLO J1772, same site). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 73944,
+      "reason": "Duplicate of OCM 23448 Ville de Labelle - Bibliotheque (same address and coordinates, J1772). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 250603,
+      "reason": "Duplicate of OCM 190086 Canadian Tire South - FLO, 2110 101 St NW Edmonton (2 m apart, same CCS+CHAdeMO). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 79397,
+      "reason": "Duplicate of OCM 64540 Vignoble Val Caudalies, 4921 Rue Principale (5 m apart; 64540 already lists the NACS port). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 77600,
+      "reason": "Duplicate of OCM 77599 Fisherman Way (13 m apart, identical J1772 x2). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 21207,
+      "reason": "Duplicate of AFDC 122364 Park'N Fly Vancouver Valet Airport Parking - Tesla Destination (same address, 8 m; OCM lists the 4 Tesla chargers as J1772). Owner-approved 2026-11-18 (real-data audit)."
+    },
+    {
+      "ocm_id": 79903,
+      "reason": "Likely duplicate of AFDC 150507 Hotel Must - Tesla Destination (same address, 17 m). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 79283,
+      "reason": "Duplicate of AFDC 129850 Station Roulez Electrique (same address, same FLO DC ports; its NACS is AFDC 150514, 22 m). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 504145,
+      "reason": "Likely duplicate of AFDC 463326 M'Chigeeng Business Development Center (FLO Ultra CCS 250 kW x2, Hwy 551, 460 m apart). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 499673,
+      "reason": "Likely duplicate of AFDC 459047-459048 and 460031-460032 RECHARGECO DORVAL 01-04 (same ChargePoint site, 67-130 m). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 157423,
+      "reason": "Duplicate of OCM 250081 Kidd Creek Rest Area, 6725 BC-3 (31 m apart, same FLO DC site). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 15336,
+      "reason": "Duplicate of OCM 146072 Clarion Lakeside Inn Kenora (8 m apart, same NACS chargers). Owner-approved 2026-11-18."
+    },
+    {
+      "ocm_id": 68407,
+      "reason": "Duplicate of OCM 79981 Okotoks Municipal Centre (47 m apart, same NACS). Owner-approved 2026-11-18."
+    }
+  ]
+}

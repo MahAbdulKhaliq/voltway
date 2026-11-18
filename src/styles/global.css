@@ -239,6 +239,8 @@ body.fill-page { height: 100dvh; display: flex; flex-direction: column; overflow
 main.fill { flex: 1; min-height: 0; position: relative; }
 .charger-map, .charger-map .map-canvas { position: absolute; inset: 0; }
 .charger-map .map-status { position: absolute; bottom: 84px; /* clear of the pill (top) and the car prompt (bottom) */ left: 50%; transform: translateX(-50%); margin: 0; padding: 8px 14px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); z-index: 2; max-width: calc(100% - 32px); }
+/* Alerts (tiles failed, map error) take their full width and sit above the panels, so the message and Try again stay readable at 375 px (QA 2026-11-18). */
+.charger-map .map-status.banner { width: max-content; z-index: 7; }
 
 /* Map filter panel: top left on desktop; full width under the header on phones. */
 .map-panel { position: absolute; top: 12px; left: 12px; z-index: 3; width: 280px; max-height: calc(100% - 24px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }

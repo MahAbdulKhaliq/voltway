@@ -59,6 +59,7 @@ Today the map downloads `l3.json` (1 MB) and `l2.json` (3.8 MB) for all of Canad
   2. If the start is in neither, answer 422 `outsideArea`.
   3. If the destination is not in the start's country, answer 422 `crossBorder`.
   4. Otherwise ask ORS with `avoid_borders: "all"` as today.
+  5. *(QA 2026-11-18, S1:)* the answer carries `countries` (the countries both ends share), and the planner keeps its charging stops to those countries: a border route (Fort Erie → Niagara Falls ON) passes chargers on the other side, which a driver who may not cross can't use. Stations with no known country are kept (`src/lib/station-country.ts`).
 - **Alaska:** the Lower 48 to Alaska (or back) can only be driven through Canada, so ORS finds no route with `avoid_borders`. The function sees the start and end are in different US pieces and answers `crossBorder` with an Alaska-specific message **(approved 2026-11-18)**: "This trip would pass through Canada. Cross-border trips aren't supported yet." Trips inside Alaska work.
 - **Hawaii and islands:** ORS has no road route, so the existing "no route" message stands.
 - **Messages** (`en.json`, replacing `trip.status.outside*`):

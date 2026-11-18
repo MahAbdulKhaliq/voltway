@@ -179,9 +179,10 @@ jobs:
           done
           # GitHub caps a PR body at 65,536 characters (QA 2026-11-18, B1): cut it short with a note if needed.
           if [ "$(wc -c < "$summary")" -gt 60000 ]; then
-            head -c 58000 "$summary" > "$summary.cut"
-            printf '\n\n**Summary cut short (too long for a pull request).** The full text is in the run summary and the near-misses artifact.\n' >> "$summary.cut"
-            cat "$summary" >> "$GITHUB_STEP_SUMMARY"
+            # iconv -c drops a multi-byte character that the byte cut split in two.
+            head -c 58000 "$summary" | { iconv -f UTF-8 -t UTF-8 -c || true; } > "$summary.cut"
+            printf '\n\n**Summary cut short (too long for a pull request).** The full text is in the run page summary and the near-misses artifact.\n' >> "$summary.cut"
+            cp "$summary" "$summary.full"
             mv "$summary.cut" "$summary"
           fi
           { echo "changed=$changed"; echo "checks=$checks"; echo "summary=$summary"; } >> "$GITHUB_OUTPUT"
@@ -228,7 +229,10 @@ jobs:
             if $step; then results+="- \`$step\`: passed"$'\n'; else results+="- \`$step\`: **failed**"$'\n'; status=fail; fi
           done
           echo "status=$status" >> "$GITHUB_OUTPUT"
-          { echo; echo "### CI steps (run in this workflow)"; echo; printf '%s' "$results"; } >> "$SUMMARY_FILE"
+          ci_block="$(printf '%s\n\n%s' '### CI steps (run in this workflow)' "$results")"
+          printf '\n%s\n' "$ci_block" >> "$SUMMARY_FILE"
+          # A cut-short PR body keeps the full text (.full) for the run page.
+          if [ -f "$SUMMARY_FILE.full" ]; then printf '\n%s\n' "$ci_block" >> "$SUMMARY_FILE.full"; fi
         env:
           SUMMARY_FILE: ${{ steps.all.outputs.summary }}
 
@@ -245,7 +249,7 @@ jobs:
           else
             gh pr create --head "$BRANCH" --base main --title "$title" --body-file "$SUMMARY_FILE"
           fi
-          cat "$SUMMARY_FILE" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f "$SUMMARY_FILE.full" ]; then cat "$SUMMARY_FILE.full"; else cat "$SUMMARY_FILE"; fi >> "$GITHUB_STEP_SUMMARY"
 
       - name: Merge (checks and CI passed, B27)
         if: steps.all.outputs.changed == 'true' && steps.all.outputs.checks == 'pass' && steps.ci.outputs.status == 'pass'

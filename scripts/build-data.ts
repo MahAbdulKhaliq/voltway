@@ -111,9 +111,9 @@ rmSync(join(out, 'places.json'), { force: true }); // the one-country file befor
 for (const { cc, file } of placesFiles) {
   const json = JSON.stringify(toPlaceRows(file.places));
   if (Buffer.byteLength(json) > MAX_PLACES_BYTES) {
-    console.error(`data:build: places-${cc}.json is ${(json.length / 1e6).toFixed(2)} MB, over the 1 MB budget; raise the population floor in scripts/lib/geonames.ts.`);
+    console.error(`data:build: places-${cc}.json is ${(Buffer.byteLength(json) / 1e6).toFixed(2)} MB, over the 1 MB budget; raise the population floor in scripts/lib/geonames.ts.`);
     process.exit(1);
   }
   writeFileSync(join(out, `places-${cc}.json`), json);
-  console.log(`data:build: ${file.places.length} places → public/data/places-${cc}.json · ${(json.length / 1e6).toFixed(2)} MB (${(gzipSync(json).length / 1e6).toFixed(2)} MB gz)`);
+  console.log(`data:build: ${file.places.length} places → public/data/places-${cc}.json · ${(Buffer.byteLength(json) / 1e6).toFixed(2)} MB (${(gzipSync(json).length / 1e6).toFixed(2)} MB gz)`);
 }

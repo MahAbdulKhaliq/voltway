@@ -34,3 +34,15 @@ No blocking problems. Notes for the owner:
 
 ## Storage
 Cleared `localStorage` at the end (it had My car, last trip, recent destinations, map view, filters added during this run). Viewport reset to desktop and colour scheme dark.
+
+## QA fixes re-check (2026-11-18, desktop dark, plus 375 dark for check 1)
+
+| Check | Result | Evidence |
+|---|---|---|
+| 1. Tile failure banner (S3), desktop | PASS | With `fetch` stubbed to reject `/data/map/tiles/*`, opening "Stations in view" at zoom 8+ showed `role=alert` text "Some station details didn't load. Check your connection." with a "Try again" button. Colours rgb(245,243,236) on rgb(38,39,44), about 12:1. Removing the stub and pressing Try again: banner gone, list loaded ("Nevada, MO - Tesla Supercharger ..."). |
+| 1. Banner at 375 dark | ISSUE (minor) | No horizontal overflow (scrollWidth 375). Banner is only 187.5 px wide, 119 px tall, 4 lines, at x 94 to 281, y 112 to 231. The "Stations in view" list panel opens on top of it, so the first lines ("Some station details") are hidden and only "didn't load. Check your connection. Try again" shows. Same contrast. |
+| 2. US trip date (M2) | PASS | Chicago to Denver (Model Y LR AWD): "Charger data: NRCan / NLR AFDC and Open Charge Map · updated Nov 18, 2026". |
+| 2. CA trip date | PASS | Toronto to Ottawa: "... updated Nov 16, 2026". |
+| 3. Console | Mostly clean | Console buffer showed repeated 422 (Unprocessable Entity), one 404 and one ViewTransition AbortError. Both `/api/route` calls in this run returned 200, and no 4xx entries remain in the resource timing, so the 422s look like leftovers from the earlier cross-border checks. The 404 could not be traced. No errors from the tile stub or retry. |
+
+Notes: the browser pane here is about 800x306, so at desktop the banner sits partly under the list panel and the Map key panel too. Not judged. Storage cleared, viewport reset to desktop dark.

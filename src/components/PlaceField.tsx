@@ -4,6 +4,7 @@
 import { useEffect, useId, useMemo, useState, useSyncExternalStore } from 'react';
 import { t } from '../i18n/t.ts';
 import { hasExactName, makePlaceSearch, type PlaceRow, type PlaceSearch, type TripEnd } from '../lib/place-search.ts';
+import { routeOptions } from '../lib/route-options.ts';
 
 // The place lists: one fetch each per visit, shared by every field. Canada loads first; the US list
 // (B78, DESIGN-7 D5) loads when a search finds few matches or the map is over the US (loadUsPlaces).
@@ -87,8 +88,9 @@ export default function PlaceField({ label, value, onChange, search: own, extra,
     setOpen(true);
     setRemoteState('loading');
     try {
-      // With a start, addresses come from its country only: a trip can't cross the border anyway (B78).
-      const at = nearCc ? `&country=${nearCc}` : '';
+      // With a start, addresses come from its country only while Stay within the border is on (B78);
+      // with it off a destination may be in either country (B79, QA 2026-11-18).
+      const at = nearCc && !routeOptions().crossBorder ? `&country=${nearCc}` : '';
       const r = await fetch(`/api/geocode?q=${encodeURIComponent(q)}${at}`);
       if (!r.ok) throw new Error(String(r.status));
       const { places } = (await r.json()) as { places: TripEnd[] };

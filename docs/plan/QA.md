@@ -560,7 +560,7 @@ Read `DESIGN-8.md` first. Never print or read `.env` or any key. Real `/api/rout
 
 | ID | Area | How to check | Pass when / edge cases |
 |----|------|--------------|------------------------|
-| QB1 | API option | `tests/ors.test.ts` | `border=cross` accepted, any other `border` value 400; absent = stay within (B78 behaviour unchanged) |
+| QB1 | API option | `tests/cross-border.test.ts` | `border=cross` accepted, any other `border` value 400; absent = stay within (B78 behaviour unchanged) |
 | QB2 | Border rule with crossing | unit tests | With cross: Toronto → Buffalo and Seattle → Anchorage pass; Mexico City or an ocean point at either end → outsideArea. Without: as QU8 |
 | QB3 | Crossings | unit tests (synthetic lines) | Windsor → Detroit: one crossing into `us` at the right index; Lower 48 → Alaska line: two; a line along the border inside the slack: none; `countries` lists the countries passed through |
 | QB4 | Settings | Settings menu, 375 and 1280, dark and light | Switch on by default, toggles, kept after reload; help text; focus and contrast as the other switches |
@@ -573,11 +573,11 @@ Read `DESIGN-8.md` first. Never print or read `.env` or any key. Real `/api/rout
 
 | ID | Pass / Fail | Notes |
 |----|-------------|-------|
-| QB1 | | |
-| QB2 | | |
-| QB3 | | |
-| QB4 | | |
-| QB5 | | |
-| QB6 | | |
-| QB7 | | |
-| QB8 | | |
+| QB1 | PASS | `tests/cross-border.test.ts`, `tests/route-options.test.ts` (842 tests pass); qa-reviewer 2026-11-18 |
+| QB2 | PASS | findCrossings on real outlines (London ON → Dearborn, Seattle → Anchorage); real ORS Toronto → Dearborn with `border=cross`: 393 km, ca+us, one crossing; without it 422 |
+| QB3 | PASS | `tests/border-rows.test.ts`; qa-reviewer read Itinerary/border-rows |
+| QB4 | PASS | `docs/plan/reports/ui-check-8.md`: desktop and 375 px, dark and light |
+| QB5 | PASS | ui-check-8: Buffalo and Anchorage messages, Open Settings focuses the switch |
+| QB6 | PASS (after fix 4e6735d) | ui-check-8: note, rows "into the US near River Rouge, MI" in route order |
+| QB7 | PASS | ui-check-8: Toronto → Ottawa no note, no rows, stops in Canada |
+| QB8 | PASS | ui-check-8: `border=cross` only when the switch is off; share link opened with switch on shows the message |

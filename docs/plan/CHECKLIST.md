@@ -422,4 +422,4 @@ Design: `docs/plan/DESIGN-8.md` (approved by the owner 2026-11-18). QA: `docs/pl
 
 ## 8c: Finish
 - [x] **[8] 8.5 Checks and browser look** — Done when: tsc, astro check, vitest, build and contrast pairs pass; `site-ui-checker` on QB4–QB7 at 375 and 1280, dark and light; dark-first screenshots sent to the owner. *(Done 2026-11-18: tsc, astro check 0 errors, vitest 841, contrast pairs pass (build runs in ship); site-ui-checker QB4-QB8 at 375/1280, dark and light: docs/plan/reports/ui-check-8.md, screenshots docs/plan/reports/phase8/, sent to the owner dark first.)*
-- [ ] **[8] 8.6 Independent QA** — `qa-reviewer` against `QA.md` Phase 8. Done when: no blockers remain; shipped as one PR.
+- [x] **[8] 8.6 Independent QA** — `qa-reviewer` against `QA.md` Phase 8. Done when: no blockers remain; shipped as one PR. *(Done 2026-11-18: qa-reviewer PASS WITH ISSUES, no blockers; should-fix S1-S3 and minors 1, 4 fixed, minor 2 recorded as a known limit, minor 3 as TD-P14; 842 tests, tsc clean; QA.md Phase 8 results filled.)*

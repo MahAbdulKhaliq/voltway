@@ -48,9 +48,9 @@ describe('borderProblem with cross (B79)', () => {
     ['Toronto → Buffalo', 'toronto', 'buffalo', null],
     ['Seattle → Anchorage (through Canada)', 'seattle', 'anchorage', null],
     ['Toronto → Ottawa', 'toronto', 'ottawa', null],
-    ['Toronto → Mexico City', 'toronto', 'mexicoCity', { error: 'outsideArea' }],
+    ['Toronto → Mexico City (the destination is the problem)', 'toronto', 'mexicoCity', { error: 'crossBorder', country: null }],
     ['Mexico City → Toronto', 'mexicoCity', 'toronto', { error: 'outsideArea' }],
-    ['Seattle → the Pacific', 'seattle', 'pacific', { error: 'outsideArea' }],
+    ['Seattle → the Pacific', 'seattle', 'pacific', { error: 'crossBorder', country: null }],
   ] as const)('%s', (_, a, b, want) => {
     expect(borderProblem(P[a], P[b], countriesOf, true)).toEqual(want);
   });
@@ -80,6 +80,10 @@ describe('findCrossings on the real outlines (B79)', () => {
   it('Toronto → Ottawa: no crossing, Canada only', () => {
     const r = findCrossings(line(P.toronto, P.ottawa), countriesOf);
     expect(r).toEqual({ crossings: [], countries: ['ca'] });
+  });
+  it('empty and one-point lines are safe', () => {
+    expect(findCrossings([], countriesOf)).toEqual({ crossings: [], countries: [] });
+    expect(findCrossings([[P.toronto[0], P.toronto[1], 0]], countriesOf)).toEqual({ crossings: [], countries: ['ca'] });
   });
   it('a road along the 49th parallel (inside the border slack): no crossing', () => {
     const r = findCrossings(line([-110, 49.0005], [-100, 49.0005]), countriesOf);

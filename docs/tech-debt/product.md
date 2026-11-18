@@ -48,6 +48,11 @@
 - **Impact:** a driver without that adapter isn't told they need one.
 - **Fix:** an informational note in the station panel (or the filter panel) for J1772 ports when My car has a NACS port, as the owner suggested.
 
+### TD-P14 Data date on cross-border trips
+- **Since:** 2026-11-18, Phase 8 QA (B79, DESIGN-8 Known limits).
+- **Impact:** a trip that crosses the border shows only the Canadian charger-data date in the trip panel (`ChargerMap.tsx:984` picks the US date only for US-only trips), though its stops can be in both countries.
+- **Fix:** show both dates when the route passes through both countries (for example "Charger data: Canada 2026-11-01, US 2026-11-01"); new wording needs a translated string.
+
 ## Closed
 - 2026-11-18, Phase 6 (B77): TD-P8 (Open Charge Map as a second charger source) closed. About 580 open-licensed OCM stations fill AFDC gaps, deduplicated in layers, credited per station, refreshed monthly. Hamilton → Vancouver with CCS only now gets past Thunder Bay → Dryden via Ivy Upsala; the Sault Ste. Marie → Marathon gap remains (Ivy White River is marked temporarily unavailable in OCM). Edge cases: TD-P13.
 - 2026-11-16, M12: TD-P9 (stations unreachable by keyboard) closed by the "Stations in view" list (B34); phones are TD-P11.

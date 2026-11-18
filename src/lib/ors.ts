@@ -57,7 +57,8 @@ export function borderProblem(from: readonly [number, number], to: readonly [num
   const start = countriesOf(from[0], from[1]);
   if (start.length === 0) return { error: 'outsideArea' };
   const end = countriesOf(to[0], to[1]);
-  if (cross) return end.length === 0 ? { error: 'outsideArea' } : null;
+  // A destination in neither country: crossBorder with no country reads "Pick a destination in one of them" (QA 2026-11-18).
+  if (cross) return end.length === 0 ? { error: 'crossBorder', country: null } : null;
   const shared = start.filter((c) => end.includes(c));
   if (shared.length === 0) return { error: 'crossBorder', country: start.length === 1 ? start[0] : null };
   if (shared.length === 1 && shared[0] === 'us') {
@@ -115,6 +116,7 @@ export function findCrossings(coords: readonly (readonly number[])[], countriesO
   };
   const crossings: Crossing[] = [];
   const seen = new Set<CountryCode>();
+  if (coords.length === 0) return { crossings, countries: [] };
   let last: CountryCode | null = null;
   let lastAt = -1;
   const visit = (i: number, c: CountryCode) => {
@@ -267,8 +269,9 @@ export async function handleGeocode(url: URL, key: string | undefined, fetchFn: 
   if (!key) return errorResponse('notConfigured', 503);
   const target = new URL(GEOCODE);
   target.searchParams.set('text', q);
-  // Canada and the US (B78, DESIGN-7 D5); with a trip start, only its country (`country=ca|us`): a
-  // trip can't cross the border, and a focus point outweighed the typed city in tests.
+  // Canada and the US (B78, DESIGN-7 D5); with a trip start and Stay within the border on, only its
+  // country (`country=ca|us`; B79: with it off the page sends no country). A focus point outweighed
+  // the typed city in tests, so there is none.
   const country = url.searchParams.get('country');
   target.searchParams.set('boundary.country', country === 'ca' ? 'CA' : country === 'us' ? 'US' : 'CA,US');
   target.searchParams.set('size', '5');

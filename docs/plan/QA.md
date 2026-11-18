@@ -563,7 +563,7 @@ Read `DESIGN-8.md` first. Never print or read `.env` or any key. Real `/api/rout
 | QB1 | API option | `tests/cross-border.test.ts` | `border=cross` accepted, any other `border` value 400; absent = stay within (B78 behaviour unchanged) |
 | QB2 | Border rule with crossing | unit tests | With cross: Toronto → Buffalo and Seattle → Anchorage pass; Mexico City or an ocean point at either end → outsideArea. Without: as QU8 |
 | QB3 | Crossings | unit tests (synthetic lines) | Windsor → Detroit: one crossing into `us` at the right index; Lower 48 → Alaska line: two; a line along the border inside the slack: none; `countries` lists the countries passed through |
-| QB4 | Settings | Settings menu, 375 and 1280, dark and light | Switch on by default, toggles, kept after reload; help text; focus and contrast as the other switches |
+| QB4 | Settings | Settings menu, 375 and 1280, dark and light | Switch off by default (B80; on in B79), toggles, kept after reload; help text; focus and contrast as the other switches |
 | QB5 | Messages | Switch on: Toronto → Buffalo, Seattle → Anchorage | Messages say how to allow the trip; the Settings button opens Settings at the route options |
 | QB6 | Crossing trip | Switch off: Toronto → Detroit, Vancouver → Seattle, Anchorage → Seattle | Plans; note under the summary; crossing rows in route order with a town on the far side; stops may be in either country; Drive mode still opens |
 | QB7 | Same-country trip with crossing allowed | Switch off: Toronto → Ottawa; Detroit → Buffalo | Toronto → Ottawa: no note, stops in Canada only. Detroit → Buffalo: if ORS goes through Ontario, the note and two rows show |

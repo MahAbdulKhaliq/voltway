@@ -251,7 +251,7 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       window.addEventListener(PRICE_EVENT, () => { if (document.activeElement !== priceIn) showPrice(chargePrice()); });
       // Route options (B73): switches saved in the browser; the trip planner listens for the event.
       const avoidBtns = pop.querySelectorAll<HTMLButtonElement>('[data-avoid]');
-      // Stay within the border (B79) is the opposite of the stored crossBorder: on until turned off.
+      // Stay within the border (B79) is the opposite of the stored crossBorder: off until turned on (B80).
       const borderBtn = pop.querySelector<HTMLButtonElement>('[data-border]');
       const syncAvoid = () => {
         const o = routeOptions();

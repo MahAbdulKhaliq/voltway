@@ -2,13 +2,15 @@
 
 Status: **approved, 2026-11-18.** The owner asked for cross-border trips in chat and chose each option below (AskUserQuestion, 2026-11-18): the switch becomes a real toggle, **on by default**; a trip that crosses may stop in **both countries**; a crossing trip gets a **note and a "Border crossing" row** in the itinerary.
 
+**Changed 2026-11-18 (B80):** after seeing the shipped rows, the owner made the switch **off by default**, so cross-border trips work without a visit to Settings. Turning it on gives the B78 rule.
+
 ## Why
 Phase 7 (B78) kept every trip inside the country it starts in and listed cross-border trips as "later, needs its own decision" (DESIGN-7, Out of scope). Drivers do go Toronto → Detroit, Vancouver → Seattle, and the Lower 48 → Alaska through Canada. The data (chargers and places in both countries) is already there.
 
 ## What changes for the visitor
-- **Settings:** **Stay within the border** stops being locked. It stays **on by default**, so nothing changes until a visitor turns it off. The choice is kept in the browser with the other route options (B73).
-  - On (default): today's rule (B78). Same-country trips only; routes never leave the country (`avoid_borders: "all"`).
-  - Off: a trip may start in Canada or the US and end in either. The route may cross the border wherever the road goes, including the Lower 48 ↔ Alaska through Canada and a same-country trip that is shorter through the other country (Detroit → Buffalo through Ontario).
+- **Settings:** **Stay within the border** stops being locked. It is **off by default** (B80; first shipped on by default in B79), so trips may cross unless a visitor turns it on. The choice is kept in the browser with the other route options (B73); only an explicit "on" is stored as `crossBorder: false`, and anything else reads as the default.
+  - On: the B78 rule. Same-country trips only; routes never leave the country (`avoid_borders: "all"`).
+  - Off (default): a trip may start in Canada or the US and end in either. The route may cross the border wherever the road goes, including the Lower 48 ↔ Alaska through Canada and a same-country trip that is shorter through the other country (Detroit → Buffalo through Ontario).
   - Help text: "On: trips stay in the country they start in. Off: trips may cross between Canada and the US."
 - **With the switch on,** a cross-border trip's message now says how to allow it:
   - "This trip crosses the border. Pick a destination in Canada, or turn off Stay within the border in Settings." (and "…in the US…")
@@ -22,7 +24,7 @@ Phase 7 (B78) kept every trip inside the country it starts in and listed cross-b
 - **Address search** ("Search full address", B78 D5) stops limiting results to the start's country when the switch is off, since the destination may be in either (QA 2026-11-18).
 
 ## B1. The route request
-- `src/lib/route-options.ts`: `RouteOptions` gains `crossBorder: boolean` (false = Stay within the border on). Anything but `true` reads as false, so a damaged entry never allows crossing by surprise.
+- `src/lib/route-options.ts`: `RouteOptions` gains `crossBorder: boolean` (false = Stay within the border on). Since B80 anything but `false` reads as true (the default), so an older or damaged entry gets cross-border trips.
 - `/api/route` takes `border=cross` (absent = stay within, the default; any other value → 400). It is part of the URL, so the CDN caches the two kinds of route apart. The trip key (`endsKey`) includes it, so changing the switch re-plans a shown trip (as tolls/highways do).
 - `src/lib/ors.ts`:
   - `borderProblem(from, to, countriesOf, cross)`: with `cross`, only `outsideArea` (either end in neither country); without it, as today.

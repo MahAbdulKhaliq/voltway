@@ -7,9 +7,9 @@ describe('readRouteOptions', () => {
   it('reads saved switches', () => {
     expect(readRouteOptions({ avoidTolls: true, avoidHighways: false, crossBorder: false })).toEqual({ avoidTolls: true, avoidHighways: false, crossBorder: false });
   });
-  it('treats anything but true as off', () => {
+  it('treats anything but true as off for the avoid switches; crossing stays allowed (B80)', () => {
     for (const bad of [null, undefined, 'x', 3, [], { avoidTolls: 'true', avoidHighways: 1 }]) {
-      expect(readRouteOptions(bad)).toEqual({ avoidTolls: false, avoidHighways: false, crossBorder: false });
+      expect(readRouteOptions(bad)).toEqual({ avoidTolls: false, avoidHighways: false, crossBorder: true });
     }
   });
 });
@@ -21,9 +21,11 @@ describe('avoid list and query', () => {
     expect(avoidQuery({ avoidTolls: true, avoidHighways: true, crossBorder: false })).toBe('&avoid=tolls,highways');
     expect(avoidQuery({ avoidTolls: false, avoidHighways: false, crossBorder: false })).toBe('');
   });
-  it('B79: Stay within the border is on unless crossBorder is exactly true; off adds border=cross', () => {
-    expect(readRouteOptions({ crossBorder: 'true' }).crossBorder).toBe(false);
+  it('B80: Stay within the border is off unless crossBorder is exactly false; off adds border=cross', () => {
+    expect(readRouteOptions({ crossBorder: 'false' }).crossBorder).toBe(true);
+    expect(readRouteOptions({ avoidTolls: true, avoidHighways: false }).crossBorder).toBe(true); // a B73 entry
     expect(readRouteOptions({ crossBorder: true }).crossBorder).toBe(true);
+    expect(readRouteOptions({ crossBorder: false }).crossBorder).toBe(false);
     expect(avoidQuery({ avoidTolls: false, avoidHighways: false, crossBorder: true })).toBe('&border=cross');
     expect(avoidQuery({ avoidTolls: true, avoidHighways: false, crossBorder: true })).toBe('&avoid=tolls&border=cross');
     expect(avoidList({ avoidTolls: false, avoidHighways: false, crossBorder: true })).toEqual([]);
@@ -55,9 +57,9 @@ describe('saving', () => {
     expect(routeOptions()).toEqual({ avoidTolls: true, avoidHighways: false, crossBorder: false });
     expect(seen).toEqual([{ avoidTolls: true, avoidHighways: false, crossBorder: false }]);
   });
-  it('defaults to nothing avoided', () => {
-    expect(routeOptions()).toEqual({ avoidTolls: false, avoidHighways: false, crossBorder: false });
+  it('defaults to nothing avoided and crossing allowed (B80)', () => {
+    expect(routeOptions()).toEqual({ avoidTolls: false, avoidHighways: false, crossBorder: true });
     store.set(KEYS.routeOptions, '{broken');
-    expect(routeOptions()).toEqual({ avoidTolls: false, avoidHighways: false, crossBorder: false });
+    expect(routeOptions()).toEqual({ avoidTolls: false, avoidHighways: false, crossBorder: true });
   });
 });

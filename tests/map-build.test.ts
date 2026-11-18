@@ -138,7 +138,7 @@ describe('map build with Open Charge Map (B77)', () => {
   const ocm = (ocmId: number, lat: number, over: Partial<OcmStation> = {}): OcmStation => ({ ...st(OCM_ID_OFFSET + ocmId, { lat, ports: [{ level: 3, plug: 'ccs1', kw: 50, count: 1 }] }), provider: 1, verified: '2024-11-23', ...over });
   const ocmFile = (stations: OcmStation[]): OcmStationsFile => ({
     source: 'ocm-ca', source_id: 'src-ocm', fetched_at: '2026-11-18T10:00:00.000Z', raw_sha256: 'y', raw_count: stations.length,
-    dropped: { provider: 0, unpublished: 0, not_operational: 0, private: 0, no_location: 0, no_l2_l3_ports: 0 }, ignored_ports: {}, stations,
+    dropped: { provider: 0, unpublished: 0, not_operational: 0, private: 0, no_location: 0, no_port_data: 0, no_l2_l3_ports: 0 }, ignored_ports: {}, stations,
   });
 
   it('adds OCM stations that are not duplicates, with provider and verified date, and counts them in meta', () => {

@@ -7,7 +7,7 @@
 import type { ChargerLevel, Plug } from '../../src/lib/power-bands.ts';
 import type { Port, Station } from './afdc.ts';
 import { OCM_ID_OFFSET, OCM_PROVIDERS } from '../../src/lib/map-data.ts';
-import type { Country } from './countries.ts';
+import { inCountryBox, type Country } from './countries.ts';
 
 /** OCM map ids start here, so they never collide with AFDC ids (max ~473,000 in 2026). */
 export { OCM_ID_OFFSET, OCM_PROVIDERS };
@@ -53,7 +53,12 @@ export interface OcmStation extends Station {
   verified: string | null;
 }
 
-export type OcmDropReason = 'provider' | 'unpublished' | 'not_operational' | 'private' | 'no_location' | 'no_l2_l3_ports';
+/**
+ * `no_port_data`: no connection listed, or only OCM's "unknown" type: missing data, which the checks count.
+ * `no_l2_l3_ports`: connections are listed but none is Level 2/3 on our four plugs (Level 1 or household
+ * outlets only, Type 2…): a real station we leave out, not missing data (B78, 7.4).
+ */
+export type OcmDropReason = 'provider' | 'unpublished' | 'not_operational' | 'private' | 'no_location' | 'no_port_data' | 'no_l2_l3_ports';
 
 const PLUG_OF: Record<number, Plug> = { 1: 'j1772', 32: 'ccs1', 2: 'chademo', 27: 'nacs', 30: 'nacs' };
 /** Published: imported and published (100) or submission published (200). */
@@ -99,12 +104,36 @@ const PROVINCES: Record<string, string> = {
   ON: 'ON', ONTARIO: 'ON', PE: 'PE', PEI: 'PE', 'PRINCE EDWARD ISLAND': 'PE', QC: 'QC', QUEBEC: 'QC', QUÉBEC: 'QC', SK: 'SK', SASKATCHEWAN: 'SK',
   YT: 'YT', YUKON: 'YT',
 };
+/** US states, DC and territories (B78): OCM's free text ("Texas", "tx", "D.C.") → two-letter code. */
+const STATES: Record<string, string> = {
+  AL: 'AL', 'ALABAMA': 'AL', AK: 'AK', 'ALASKA': 'AK', AZ: 'AZ', 'ARIZONA': 'AZ', AR: 'AR', 'ARKANSAS': 'AR',
+  CA: 'CA', 'CALIFORNIA': 'CA', CO: 'CO', 'COLORADO': 'CO', CT: 'CT', 'CONNECTICUT': 'CT', DE: 'DE', 'DELAWARE': 'DE',
+  DC: 'DC', 'DISTRICT OF COLUMBIA': 'DC', FL: 'FL', 'FLORIDA': 'FL', GA: 'GA', 'GEORGIA': 'GA',
+  HI: 'HI', 'HAWAII': 'HI', ID: 'ID', 'IDAHO': 'ID', IL: 'IL', 'ILLINOIS': 'IL', IN: 'IN', 'INDIANA': 'IN',
+  IA: 'IA', 'IOWA': 'IA', KS: 'KS', 'KANSAS': 'KS', KY: 'KY', 'KENTUCKY': 'KY', LA: 'LA', 'LOUISIANA': 'LA',
+  ME: 'ME', 'MAINE': 'ME', MD: 'MD', 'MARYLAND': 'MD', MA: 'MA', 'MASSACHUSETTS': 'MA', MI: 'MI', 'MICHIGAN': 'MI',
+  MN: 'MN', 'MINNESOTA': 'MN', MS: 'MS', 'MISSISSIPPI': 'MS', MO: 'MO', 'MISSOURI': 'MO', MT: 'MT', 'MONTANA': 'MT',
+  NE: 'NE', 'NEBRASKA': 'NE', NV: 'NV', 'NEVADA': 'NV', NH: 'NH', 'NEW HAMPSHIRE': 'NH', NJ: 'NJ', 'NEW JERSEY': 'NJ',
+  NM: 'NM', 'NEW MEXICO': 'NM', NY: 'NY', 'NEW YORK': 'NY', NC: 'NC', 'NORTH CAROLINA': 'NC',
+  ND: 'ND', 'NORTH DAKOTA': 'ND', OH: 'OH', 'OHIO': 'OH', OK: 'OK', 'OKLAHOMA': 'OK', OR: 'OR', 'OREGON': 'OR',
+  PA: 'PA', 'PENNSYLVANIA': 'PA', RI: 'RI', 'RHODE ISLAND': 'RI', SC: 'SC', 'SOUTH CAROLINA': 'SC',
+  SD: 'SD', 'SOUTH DAKOTA': 'SD', TN: 'TN', 'TENNESSEE': 'TN', TX: 'TX', 'TEXAS': 'TX', UT: 'UT', 'UTAH': 'UT',
+  VT: 'VT', 'VERMONT': 'VT', VA: 'VA', 'VIRGINIA': 'VA', WA: 'WA', 'WASHINGTON': 'WA', WV: 'WV', 'WEST VIRGINIA': 'WV',
+  WI: 'WI', 'WISCONSIN': 'WI', WY: 'WY', 'WYOMING': 'WY', PR: 'PR', 'PUERTO RICO': 'PR',
+  VI: 'VI', 'VIRGIN ISLANDS': 'VI', GU: 'GU', 'GUAM': 'GU', MP: 'MP', 'NORTHERN MARIANA ISLANDS': 'MP',
+  AS: 'AS', 'AMERICAN SAMOA': 'AS',
+  'D.C.': 'DC', 'WASHINGTON DC': 'DC', 'WASHINGTON, DC': 'DC', 'WASHINGTON D.C.': 'DC',
+};
 const POSTAL_FIRST: Record<string, string> = {
   A: 'NL', B: 'NS', C: 'PE', E: 'NB', G: 'QC', H: 'QC', J: 'QC', K: 'ON', L: 'ON', M: 'ON', N: 'ON', P: 'ON', R: 'MB', S: 'SK', T: 'AB', V: 'BC', Y: 'YT',
 };
-/** Two-letter province from OCM's free text ("Ontario ", "Qc", "B.C."), else from the postal code. */
-export function provinceOf(state: string | null | undefined, postcode: string | null | undefined): string | null {
-  const s = state?.trim().toUpperCase();
+/**
+ * Two-letter province from OCM's free text ("Ontario ", "Qc", "B.C."), else from the postal code.
+ * For the US (B78): the two-letter state from its code or name; ZIP codes aren't mapped.
+ */
+export function provinceOf(state: string | null | undefined, postcode: string | null | undefined, country: Country = 'ca'): string | null {
+  const s = state?.trim().toUpperCase().replace(/\s+/g, ' ');
+  if (country === 'us') return s ? (STATES[s] ?? null) : null;
   if (s && PROVINCES[s]) return PROVINCES[s];
   const p = postcode?.trim().toUpperCase()[0];
   return p && POSTAL_FIRST[p] ? POSTAL_FIRST[p] : null;
@@ -156,9 +185,14 @@ export function inCanada(lat: number, lon: number): boolean {
   return lat >= 41.6 && lat <= 83.2 && lon >= -141.1 && lon <= -52.5;
 }
 
+/** Whether a point is inside the country the pull is for: Canada's tight box, or the US boxes (B78). */
+export function inCountry(country: Country, lat: number, lon: number): boolean {
+  return country === 'ca' ? inCanada(lat, lon) : inCountryBox(country, lat, lon);
+}
+
 /** `operators`: OCM operator id → name, from the reference data pulled with the POIs. */
-export function normalizeOcm(raw: readonly RawPoi[], operators: ReadonlyMap<number, string>): OcmNormalizeResult {
-  const dropped: Record<OcmDropReason, number> = { provider: 0, unpublished: 0, not_operational: 0, private: 0, no_location: 0, no_l2_l3_ports: 0 };
+export function normalizeOcm(raw: readonly RawPoi[], operators: ReadonlyMap<number, string>, country: Country = 'ca'): OcmNormalizeResult {
+  const dropped: Record<OcmDropReason, number> = { provider: 0, unpublished: 0, not_operational: 0, private: 0, no_location: 0, no_port_data: 0, no_l2_l3_ports: 0 };
   const ignored_ports: Record<string, number> = {};
   const stations: OcmStation[] = [];
   for (const r of raw) {
@@ -167,9 +201,13 @@ export function normalizeOcm(raw: readonly RawPoi[], operators: ReadonlyMap<numb
     if (r.StatusTypeID != null && GONE.has(r.StatusTypeID)) { dropped.not_operational++; continue; }
     if (r.UsageTypeID != null && PRIVATE.has(r.UsageTypeID)) { dropped.private++; continue; }
     const a = r.AddressInfo ?? {};
-    if (typeof a.Latitude !== 'number' || typeof a.Longitude !== 'number' || !inCanada(a.Latitude, a.Longitude)) { dropped.no_location++; continue; }
+    if (typeof a.Latitude !== 'number' || typeof a.Longitude !== 'number' || !inCountry(country, a.Latitude, a.Longitude)) { dropped.no_location++; continue; }
     const ports = portsOf(r, ignored_ports);
-    if (ports.length === 0) { dropped.no_l2_l3_ports++; continue; }
+    if (ports.length === 0) {
+      const listed = (r.Connections ?? []).some((c) => !(c.StatusTypeID != null && GONE.has(c.StatusTypeID)) && c.ConnectionTypeID != null && c.ConnectionTypeID !== 0);
+      dropped[listed ? 'no_l2_l3_ports' : 'no_port_data']++;
+      continue;
+    }
     const id = OCM_ID_OFFSET + r.ID;
     const unavailable = r.StatusTypeID === TEMPORARILY_UNAVAILABLE;
     stations.push({
@@ -177,7 +215,7 @@ export function normalizeOcm(raw: readonly RawPoi[], operators: ReadonlyMap<numb
       name: text(a.Title) ?? `OCM #${r.ID}`,
       street: text(a.AddressLine1),
       city: text(a.Town),
-      province: provinceOf(a.StateOrProvince, a.Postcode),
+      province: provinceOf(a.StateOrProvince, a.Postcode, country),
       postal: text(a.Postcode),
       lat: a.Latitude,
       lon: a.Longitude,

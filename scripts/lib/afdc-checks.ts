@@ -9,7 +9,11 @@ import { inCountryBox, REGION_NAME, type Country } from './countries.ts';
 /** What the checks read from an import file: AFDC (afdc.ts) and OCM (ocm.ts) both fit. */
 export interface CheckedFile {
   stations: Station[];
-  dropped: { no_location: number; no_l2_l3_ports: number };
+  /**
+   * Drops for missing data. AFDC: no location, or no Level 2/3 port. OCM (B78, 7.4): no location, or no port
+   * data (`no_port_data`); its `no_l2_l3_ports` are real Level 1-only or other-plug stations, not missing data.
+   */
+  dropped: { no_location: number; no_l2_l3_ports: number; no_port_data?: number };
 }
 
 export interface CheckOptions {
@@ -86,8 +90,9 @@ export function checkAfdc(prev: CheckedFile | null, next: CheckedFile, options: 
   }
 
   const badKept = next.stations.filter((s) => !hasCoordinates(s, opts.country) || !hasLevelAndPlugs(s)).length;
-  const missing = next.dropped.no_location + next.dropped.no_l2_l3_ports + badKept;
-  const usable = nextCount + next.dropped.no_location + next.dropped.no_l2_l3_ports;
+  const noPorts = next.dropped.no_port_data ?? next.dropped.no_l2_l3_ports;
+  const missing = next.dropped.no_location + noPorts + badKept;
+  const usable = nextCount + next.dropped.no_location + noPorts;
   if (usable === 0) {
     failures.push('The new import has no usable stations.');
   } else if (missing / usable > opts.maxMissingShare) {

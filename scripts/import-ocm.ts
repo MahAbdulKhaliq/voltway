@@ -37,7 +37,7 @@ const meta = JSON.parse(readFileSync(join(rawDir, 'FETCHED.json'), 'utf8')) as {
 const raw = JSON.parse(readFileSync(join(rawDir, meta.file), 'utf8')) as RawPoi[];
 const ref = JSON.parse(readFileSync(join(rawDir, meta.reference_file), 'utf8')) as { Operators: { ID: number; Title: string }[] };
 const operators = new Map(ref.Operators.map((o) => [o.ID, o.Title]));
-const { stations, dropped, ignored_ports } = normalizeOcm(raw, operators);
+const { stations, dropped, ignored_ports } = normalizeOcm(raw, operators, country);
 
 const next: OcmStationsFile = {
   source: `ocm-${country}`,

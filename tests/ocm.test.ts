@@ -108,11 +108,24 @@ describe('normalizeOcm', () => {
       // Audit 2026-11-18 (OCM 160778): a longitude with the wrong sign plots in Asia.
       poi({ ID: 15, AddressInfo: { Title: 'x', Latitude: 52.1, Longitude: 122.46 } }),
       poi({ ID: 13 }, [{ ConnectionTypeID: 25, LevelID: 1, Quantity: 1 }]),
+      // B78 (7.4): no connections, or only the unknown type, is missing data; Level 1 or other plugs is not.
+      poi({ ID: 16 }, []), poi({ ID: 17 }, [{ ConnectionTypeID: 0, LevelID: 2, Quantity: 1 }]),
+      poi({ ID: 18 }, [{ ConnectionTypeID: 22, LevelID: 1, Quantity: 2 }]),
       poi({ ID: 14 }),
     ];
     const r = normalizeOcm(raw, ops);
     expect(r.stations.map((s) => s.id - OCM_ID_OFFSET)).toEqual([14]);
-    expect(r.dropped).toEqual({ provider: 2, unpublished: 2, not_operational: 4, private: 3, no_location: 2, no_l2_l3_ports: 1 });
+    expect(r.dropped).toEqual({ provider: 2, unpublished: 2, not_operational: 4, private: 3, no_location: 2, no_port_data: 2, no_l2_l3_ports: 2 });
+  });
+
+  it('keeps US records inside the US boxes and maps their states (B78)', () => {
+    const at = (ID: number, Latitude: number, Longitude: number, StateOrProvince: string) => poi({ ID, AddressInfo: { Title: 'x', Latitude, Longitude, StateOrProvince } });
+    const raw = [at(1, 30.27, -97.74, 'Texas'), at(2, 61.22, -149.9, 'AK'), at(3, 43.65, 79.38, 'NY')];
+    const us = normalizeOcm(raw, ops, 'us');
+    expect(us.stations.map((s) => [s.id - OCM_ID_OFFSET, s.province])).toEqual([[1, 'TX'], [2, 'AK']]);
+    expect(us.dropped.no_location).toBe(1); // the wrong-sign longitude
+    // A Canadian pull keeps Canada's tight box: none of these US points.
+    expect(normalizeOcm(raw, ops).stations).toEqual([]);
   });
 
   it('keeps temporarily unavailable as T and flags only notice required as restricted (not membership, not pay at location)', () => {
@@ -170,6 +183,13 @@ describe('normalizeOcm', () => {
     expect(provinceOf('Québec', null)).toBe('QC');
     expect(provinceOf('Greater Vancouver Regional District', 'V6B 1A1')).toBe('BC');
     expect(provinceOf(null, null)).toBeNull();
+    // US (B78): code or name, any case; ZIP codes aren't mapped; Canadian text doesn't leak in.
+    expect(provinceOf('Texas', '78701', 'us')).toBe('TX');
+    expect(provinceOf(' tx ', null, 'us')).toBe('TX');
+    expect(provinceOf('New  York', null, 'us')).toBe('NY');
+    expect(provinceOf('D.C.', null, 'us')).toBe('DC');
+    expect(provinceOf(null, '78701', 'us')).toBeNull();
+    expect(provinceOf('Ontario', null, 'us')).toBeNull();
   });
 });
 

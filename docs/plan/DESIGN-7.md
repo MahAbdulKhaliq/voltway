@@ -29,6 +29,7 @@ Voltway's charger data, place search and trip planner stop at the Canadian borde
   - `data/imported/ocm/ca.json` and `us.json`, with one `skip.json` for both.
   - If `afdc/us.json` is over 50 MB, split it by region. The checks and the summary work per file.
 - **Sanity checks:** the > 10 % drop and missing-field stops run **per country**. A failed US check doesn't block Canada, and the other way round.
+  - *Found at 7.4 (2026-11-18):* OCM's missing-field count used to include stations whose connections are all Level 1, household outlets or other plugs. Those are real stations we leave out, not missing data, and in the US they alone are 1.1 %. OCM now counts as missing only a record with no location or no port data (no connection, or only the "unknown" type): US 171 of 11,882 (1.4 %), Canada 17 of 2,525. AFDC is unchanged.
 
 ## D2. Map loading: tiles by area (owner's choice)
 Today the map downloads `l3.json` (1 MB) and `l2.json` (3.8 MB) for all of Canada. With the US that would be about 6× bigger.

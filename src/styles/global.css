@@ -153,6 +153,9 @@ main.wrap { padding-top: 24px; padding-bottom: 48px; }
   color: var(--text);
   border: 1px solid color-mix(in srgb, var(--warn) 40%, transparent);
 }
+.ti-nacs { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
+.ti-nacs p { margin: 0; flex: 1 1 14em; }
+.ti-nacs .btn { min-height: 44px; }
 .banner.estimated { background: var(--estimated-soft); border-color: color-mix(in srgb, var(--estimated) 40%, transparent); }
 
 table { border-collapse: collapse; width: 100%; }

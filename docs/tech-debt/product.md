@@ -37,6 +37,7 @@
 - **Since:** 2026-11-16, Phase 2 plan (DESIGN-map.md M9).
 - **Impact:** v1 uses AFDC only. Networks or sites AFDC lacks are missing from the map.
 - **Fix:** later, if gaps show up: add OCM with the duplicate rule in charger-map.md §3 (same network, within ~50 m, overlapping plugs = one station; prefer AFDC). OCM's licence and attribution terms need checking first.
+- **Gap found (2026-11-18, owner):** Hamilton → Vancouver in a 2025 Polestar 2 with CCS only can't be finished. AFDC (pulled with `status=all`) has no CCS fast charger between Sault Ste. Marie and Marathon (401 km) or Thunder Bay and Dryden (337 km); only Tesla Superchargers. OCM and others list possible CCS sites (Petro-Canada Wawa and Ignace, Ivy White River), but the listings conflict and some say out of service. B76 (PR #131) now suggests NACS for such trips; a second source is still the real fix where AFDC is missing working sites. Needs owner sign-off (new data source, data review).
 
 ### TD-P11 "Stations in view" on phones
 - **Since:** 2026-11-16, M12 (B34). The list is offered only over 640 px wide: on phones the filter panel and the station bottom sheet already compete for the screen.

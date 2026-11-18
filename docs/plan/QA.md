@@ -479,6 +479,7 @@ Read `docs/plan/DESIGN-5.md` and B72–B74 in `docs/design/gaps-and-questions.md
 | QD14 | Coming back | Reload with Drive open: Drive and progress return; Exit clears it; nothing in localStorage holds the start | — |
 | QD15 | Words, accessibility, looks | No hard-coded strings; axe clean; dark and light at 375 px and desktop; 44 px targets | Long station names wrap |
 | QD16 | Charge past 80 % (B75) | `npx vitest run tests/trip-plan.test.ts` (B75 block); plan Hamilton ON → Vancouver BC with a 2025 Polestar 2 and read each stop's "charge to" | No stop charges only a few % right after another; a stop before a long stretch shows more than 80 %, never over 100 %; ordinary stops still 80 % |
+| QD17 | NACS suggestion (B76) | `npx vitest run tests/trip-plan.test.ts` (B76 block); plan Hamilton ON → Vancouver BC in a 2025 Polestar 2 with NACS off, then press Turn on NACS | Note shows only when NACS would fix the trip; the button turns NACS on in My car and the trip re-plans reachable, with no new /api/route call; no note when NACS is already on or the trip already works |
 
 ## Phase 5 results
 

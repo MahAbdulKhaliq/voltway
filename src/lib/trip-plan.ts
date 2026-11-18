@@ -291,3 +291,15 @@ export function planTrip(input: PlanInput): TripPlan {
     uncalibratedFactor: car.energy.whPerKmBasis === 'rated' && !TRIP.highwayCalibrated,
   };
 }
+
+/**
+ * B76 (owner 2026-11-18): the trip can't be finished with the car's plugs, NACS is off and the car
+ * can use Superchargers: would the same trip work with NACS on (an adapter at Tesla Superchargers)?
+ * Plans once more with the same route and stations; no request.
+ */
+export function nacsRescue(input: PlanInput, plan: TripPlan): boolean {
+  const rule = input.car.rule;
+  if (plan.reachable || rule.noSupercharger || rule.plugs.includes('nacs')) return false;
+  const withNacs: CarPlugRule = { ...rule, plugs: [...rule.plugs, 'nacs'] };
+  return planTrip({ ...input, car: { ...input.car, rule: withNacs } }).reachable;
+}

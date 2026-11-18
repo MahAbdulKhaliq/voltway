@@ -262,7 +262,7 @@ Map marks are circles with a dark ring: Level 3 pins yellow with a bolt, Level 2
 
 ### Chips
 - **Style:** full pill, surface fill, Field Border outline, 36px minimum height, 0.875rem text. Used for "Pick your car" / My car and Compare in the header.
-- **State:** the My car chip opens a menu with NACS / CCS1 / CHAdeMO switches (B55). Chips belong to their pages (B68): My car on the map only, Compare on the other pages only.
+- **State:** the My car chip opens a menu with NACS / CCS1 / CHAdeMO switches (B55). Chips belong to their pages (B68): My car on the map only, Compare on the other pages only. Once a car is picked the chip shows just its name, as much as fits (B71): model, year + model, or year + model + trim.
 
 ### Cards / Containers
 - **Corner Style:** 12px.

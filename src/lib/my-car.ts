@@ -10,6 +10,8 @@ export interface MyCar {
   carId: string;
   trimId: string | null;
   label?: string;
+  /** The model alone ("Model Y"), so the header chip can drop the trim on narrow screens (B71). */
+  model?: string;
   /** B55: the DC plugs the driver switched on in the My car menu. Absent = the car's own plug.
    *  A newly picked car has none, so the toggles reset when the car changes. */
   plugs?: DcPlug[];
@@ -28,6 +30,7 @@ export function readMyCar(saved: unknown): MyCar | null {
   if (typeof s.carId !== 'string' || !ID.test(s.carId)) return null;
   const out: MyCar = { carId: s.carId, trimId: typeof s.trimId === 'string' && s.trimId ? s.trimId : null };
   if (typeof s.label === 'string' && s.label) out.label = s.label.slice(0, 80);
+  if (typeof s.model === 'string' && s.model) out.model = s.model.slice(0, 60);
   if (Array.isArray(s.plugs)) out.plugs = [...new Set(s.plugs.filter(isDcPlug))];
   return out;
 }

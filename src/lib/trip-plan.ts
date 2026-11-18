@@ -178,24 +178,47 @@ export function planTrip(input: PlanInput): TripPlan {
   const arrival = (c: Candidate, fromKm: number, soc: number) => socAt(fromKm, soc, c.alongKm) - flatDrop(c.offKm);
   const best = (list: Candidate[]) => list.sort((a, b) => b.usableKw - a.usableKw || b.alongKm - a.alongKm)[0];
 
+  /** The next stop from `pos` with `soc`: in the window near the route, then wider, then the last earlier charger. */
+  const choose = (pos: number, soc: number): { chosen: Candidate | undefined; pick: StopPick; hitKm: number } => {
+    const hitKm = kmWhere(pos, soc, threshold);
+    const ahead = candidates.filter((c) => c.alongKm > pos + MIN_PROGRESS_KM && c.alongKm <= hitKm);
+    const inWindow = (c: Candidate) => { const a = arrival(c, pos, soc); return a >= threshold && a <= threshold + WINDOW_SOC; };
+    const usable = (c: Candidate) => arrival(c, pos, soc) >= threshold && arrival(c, pos, soc) < target;
+    let chosen = best(ahead.filter((c) => c.offKm <= NEAR_KM && inWindow(c)));
+    if (chosen) return { chosen, pick: 'window', hitKm };
+    chosen = best(ahead.filter((c) => inWindow(c)));
+    if (chosen) return { chosen, pick: 'wide', hitKm };
+    return { chosen: ahead.filter(usable).sort((a, b) => b.alongKm - a.alongKm)[0], pick: 'earlier', hitKm };
+  };
+
+  /**
+   * How full to leave a stop (B75, owner 2026-11-18). Normally 80 % (Q-V2). But when 80 % wouldn't
+   * reach the next charger in the usual window (only a short hop to a nearby charger, or a stretch
+   * with no charger the car can reach), charge just enough to reach the first charger past that
+   * stretch, or the destination, with the threshold left, up to 100 %.
+   */
+  const departFrom = (c: Candidate): number => {
+    const back = flatDrop(c.offKm);
+    const after = target - back;
+    if (socAt(c.alongKm, after, route.totalKm) >= threshold) return target;
+    const next = choose(c.alongKm, after);
+    if (next.chosen && next.pick !== 'earlier') return target;
+    const beyond = candidates.filter((x) => x.alongKm > next.hitKm).sort((a, b) => a.alongKm - b.alongKm)[0];
+    const toKm = beyond ? beyond.alongKm : route.totalKm;
+    const need = threshold + socDrop(car.energy, kwhAt(toKm) - kwhAt(c.alongKm)) + back + (beyond ? flatDrop(beyond.offKm) : 0);
+    return Math.min(100, Math.max(target, Math.ceil(need)));
+  };
+
   const stops: TripStop[] = [];
   const gaps: ChargingGap[] = [];
   let pos = 0, soc = start, reachable = true;
 
   for (let guard = 0; guard < 200; guard++) {
     if (socAt(pos, soc, route.totalKm) >= threshold) break;
-    const hitKm = kmWhere(pos, soc, threshold);
-    const ahead = candidates.filter((c) => c.alongKm > pos + MIN_PROGRESS_KM && c.alongKm <= hitKm);
-    const inWindow = (c: Candidate) => { const a = arrival(c, pos, soc); return a >= threshold && a <= threshold + WINDOW_SOC; };
-    const usable = (c: Candidate) => arrival(c, pos, soc) >= threshold && arrival(c, pos, soc) < target;
-
-    let pick: StopPick = 'window';
-    let chosen = best(ahead.filter((c) => c.offKm <= NEAR_KM && inWindow(c)));
-    if (!chosen) { pick = 'wide'; chosen = best(ahead.filter((c) => inWindow(c))); }
-    if (!chosen) {
-      pick = 'earlier';
-      chosen = ahead.filter(usable).sort((a, b) => b.alongKm - a.alongKm)[0];
-    }
+    const next = choose(pos, soc);
+    const hitKm = next.hitKm;
+    let pick: StopPick = next.pick;
+    let chosen = next.chosen;
     if (!chosen) {
       // Charging gap: nothing reachable before the threshold. Mark it, then carry on to the next charger past it.
       pick = 'afterGap';
@@ -209,7 +232,8 @@ export function planTrip(input: PlanInput): TripPlan {
     const arriveSoc = arrival(chosen, pos, soc);
     if (arriveSoc <= 0) reachable = false;
     const fromSoc = Math.max(0, arriveSoc);
-    const r = calculateCharge({ points: car.curve.points, usableKwh: car.energy.batteryKwh, startSoc: fromSoc, endSoc: target, chargerKw: chosen.usableKw });
+    const departSoc = Math.max(departFrom(chosen), Math.min(100, Math.ceil(fromSoc)));
+    const r = calculateCharge({ points: car.curve.points, usableKwh: car.energy.batteryKwh, startSoc: fromSoc, endSoc: departSoc, chargerKw: chosen.usableKw });
     const detourKm = 2 * chosen.offKm;
     const p = chosen.station.properties;
     stops.push({
@@ -225,7 +249,7 @@ export function planTrip(input: PlanInput): TripPlan {
       adapter: chosen.adapter,
       teslaNetwork: !car.isTesla && p.nw === SUPERCHARGER_NETWORK,
       arriveSoc,
-      departSoc: target,
+      departSoc,
       chargeMin: r.minutes,
       energyKwh: r.energyKwh,
       overheadMin: TRIP.stopOverheadMin,
@@ -234,7 +258,7 @@ export function planTrip(input: PlanInput): TripPlan {
     });
     // Back to the route with the way back taken off.
     pos = chosen.alongKm;
-    soc = target - flatDrop(chosen.offKm);
+    soc = departSoc - flatDrop(chosen.offKm);
   }
 
   const arriveSoc = socAt(pos, soc, route.totalKm);

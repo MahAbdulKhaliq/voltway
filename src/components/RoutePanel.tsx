@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { openCarPicker } from '../lib/car-label.ts';
 import Itinerary from './Itinerary.tsx';
+import DriveView from './DriveView.tsx';
+import { clearDrive, saveDrive } from '../lib/drive.ts';
 import PlaceField from './PlaceField.tsx';
 import type { TripState } from './useTrip.ts';
 import type { MyCar } from '../lib/my-car.ts';
@@ -27,19 +29,30 @@ interface Props {
   onClose: () => void;
   /** Charger data date, YYYY-MM-DD. */
   updated: string | null;
+  /** Drive progress from this tab (B72): reopen Drive once the trip is planned again. */
+  resumeDrive: boolean[] | null;
+  /** The car's position while Drive watches it, for the map dot. */
+  onDriveFix: (at: [number, number] | null) => void;
 }
 
-export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop, onOpenStop, onClose, updated }: Props) {
+export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop, onOpenStop, onClose, updated, resumeDrive, onDriveFix }: Props) {
   const { trip, plan, status, current, planCar } = T;
   const [editing, setEditing] = useState(true);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
+  // Drive mode (B72): open, and which stops are reached. Kept for this tab only (sessionStorage).
+  const [driving, setDriving] = useState(false);
+  const [reached, setReached] = useState<boolean[]>([]);
+  const resume = useRef(resumeDrive);
   // Swapping remounts both fields so each shows its new end (a field keeps typed text otherwise).
   const [swaps, setSwaps] = useState(0);
   // Ends typed but not picked from the suggestions (B62): only then does the "pick from the list" hint show.
   const [loose, setLoose] = useState({ from: false, to: false });
   useEffect(() => setLoose({ from: false, to: false }), [swaps]);
   const folded = current && !editing;
+  // B73: an option change re-plans by itself only while the trip is on screen (not on the form).
+  const { setShown } = T;
+  useEffect(() => { setShown(Boolean(folded)); }, [folded, setShown]);
   // Opening route mode, folding the form and Edit each replace the control that had focus:
   // focus moves to the panel's heading so keyboard and screen-reader users keep their place (3.20).
   const headRef = useRef<HTMLHeadingElement>(null);
@@ -69,7 +82,16 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
     foldedFor.current = planKey;
     setEditing(false);
     setSheetOpen(false);
+    // A new plan starts Drive over, unless this tab is coming back to it.
+    if (resume.current) { setReached(resume.current.slice(0, plan?.stops.length ?? 0)); setDriving(true); resume.current = null; }
+    else { setDriving(false); setReached([]); clearDrive(); }
   }, [planKey]);
+  const openDrive = () => morph(() => { setDriving(true); saveDrive({ trip, reached }); }, 'forward', 'left');
+  const leaveDrive = () => morph(() => { setDriving(false); clearDrive(); }, 'back', 'left');
+  const onReached = (next: boolean[]) => { setReached(next); saveDrive({ trip, reached: next }); };
+  const showDrive = Boolean(driving && folded && plan && T.routeData && trip.from && trip.to);
+  const firstDrive = useRef(true);
+  useEffect(() => { if (firstDrive.current) { firstDrive.current = false; return; } headRef.current?.focus({ preventScroll: true }); }, [showDrive]);
   const submit = async () => {
     await T.submit();
     if (T.current) setEditing(false); // same ends: the plan on screen is already current
@@ -79,14 +101,15 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
     <section className={`route-panel${folded ? ' folded' : ''}`} aria-label={t('route.label')}>
       <div className="route-head">
         {folded && (
-          <button type="button" className="map-place-close route-back" aria-label={t('route.back')} title={t('route.back')} onClick={() => morph(() => setEditing(true), 'back', 'left')}>
+          <button type="button" className="map-place-close route-back" aria-label={showDrive ? t('drive.back') : t('route.back')} title={showDrive ? t('drive.back') : t('route.back')}
+            onClick={() => (showDrive ? leaveDrive() : morph(() => setEditing(true), 'back', 'left'))}>
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             </svg>
           </button>
         )}
-        <h2 className="route-title" ref={headRef} tabIndex={-1}>{t('route.title')}</h2>
-        <button type="button" className="map-place-close" aria-label={t('route.close')} onClick={onClose}>
+        <h2 className="route-title" ref={headRef} tabIndex={-1}>{showDrive ? t('drive.title') : t('route.title')}</h2>
+        <button type="button" className="map-place-close" aria-label={t('route.close')} onClick={() => { clearDrive(); onClose(); }}>
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
@@ -174,6 +197,12 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
               <button type="button" className="link-btn small" onClick={openCarPicker}>{t('trip.changeCar')}</button>
             </div>
           )}
+          {(T.opts.avoidTolls || T.opts.avoidHighways) && (
+            <p className="small muted route-avoid">
+              {t(T.opts.avoidTolls && T.opts.avoidHighways ? 'route.avoid.both' : T.opts.avoidTolls ? 'route.avoid.tolls' : 'route.avoid.highways')}{' · '}
+              <button type="button" className="link-btn" onClick={() => window.dispatchEvent(new CustomEvent('voltway:settings', { detail: 'route' }))}>{t('route.avoid.change')}</button>
+            </p>
+          )}
           {!T.pctValid && <p className="small tp-error" role="alert">{t('trip.pctInvalid', { ...SOC_LIMITS })}</p>}
           {planCar && !planCar.ok && (
             <div className="banner small route-carmissing">
@@ -212,7 +241,11 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
         )}
       </div>
 
-      {folded && plan && myCar && trip.from && trip.to && (
+      {showDrive && plan && T.routeData && trip.from && trip.to && (
+        <DriveView plan={plan} route={T.routeData.route} from={trip.from} to={trip.to} unit={T.unit} opts={T.opts}
+          reached={reached} onReached={onReached} onFix={onDriveFix} />
+      )}
+      {!showDrive && folded && plan && myCar && trip.from && trip.to && (
         <Itinerary
           plan={plan}
           from={trip.from}
@@ -227,6 +260,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           carLine={t('route.carLine', { car: carLabel, start: trip.startSoc, min: trip.thresholdSoc })}
           plugs={plugsInline}
           onShare={T.share}
+          onDrive={openDrive}
           shareNote={T.shareUrl ? (
             <p className="small tp-share" role="status">
               {t('trip.shareNote')} <input className="field-input" readOnly value={T.shareUrl} onFocus={(e) => e.target.select()} aria-label={t('trip.shareLink')} />

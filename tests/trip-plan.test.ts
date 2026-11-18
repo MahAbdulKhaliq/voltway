@@ -133,8 +133,9 @@ describe('gapDetails: a gap named by the places on either side', () => {
   });
 
   it('a gap after a stop starts at that stop', () => {
+    // S280 charges past 80 % to reach S560 (B75), so the gap is the 340 km after S560.
     const [g] = gapDetails(plan(900, [station(280, [ccs(150)]), station(560, [ccs(150)])]), 'Home', 'Away');
-    expect(g).toMatchObject({ leg: 1, fromName: 'S280', toName: 'S560', makesIt: true });
+    expect(g).toMatchObject({ leg: 2, fromName: 'S560', toName: 'Away', makesIt: true });
   });
 
   it('says when the car is not expected to make it', () => {
@@ -236,5 +237,29 @@ describe('QA fixes (3.15, 2026-11-16)', () => {
     // 60 % of 80 kWh at 100 kW ≈ 28.8 min, not the 200 kW curve's 14.4 min
     expect(p.stops[0].usableKw).toBe(100);
     expect(p.stops[0].chargeMin).toBeCloseTo(28.8, 0);
+  });
+});
+
+describe('planTrip: charging past 80 % before a long stretch (B75)', () => {
+  it('charges just enough to reach the next charger instead of a short hop', () => {
+    // At 80 % the car would only hop between S250 and S260; one stop there charges for S560 instead.
+    const p = plan(700, [station(250, [ccs(150)]), station(260, [ccs(150)]), station(560, [ccs(150)])]);
+    expect(p.stops).toHaveLength(2);
+    expect(p.stops[1].station.n).toBe('S560');
+    expect(p.stops[0].departSoc).toBeGreaterThan(TRIP.chargeToSoc);
+    expect(p.stops[0].departSoc).toBeLessThanOrEqual(92);
+    expect(p.stops[1].arriveSoc).toBeGreaterThanOrEqual(TRIP.defaultThresholdSoc);
+    expect(p.stops[1].departSoc).toBe(TRIP.chargeToSoc);
+  });
+
+  it('charges to what the last stretch needs, up to 100 %', () => {
+    const p = plan(900, [station(280, [ccs(150)]), station(560, [ccs(150)])]);
+    expect(p.stops.map((s) => s.departSoc)).toEqual([86, 100]);
+  });
+
+  it('keeps 80 % when the next window is reachable', () => {
+    const p = plan(800, [station(280, [ccs(150)]), station(500, [ccs(150)])]);
+    // S280 at 80 % reaches S500 in the window; S500 then charges for the last 300 km.
+    expect(p.stops.map((s) => s.departSoc)).toEqual([TRIP.chargeToSoc, 91]); // 75 % for 300 km + 15 %, the detour, rounded up;
   });
 });

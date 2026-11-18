@@ -454,3 +454,41 @@ Run `npx vitest run`, `npx astro check` and `npm run build` first. Check every i
 | QR26 | Pass | ui-check-4.26-4.30; re-pick keeps switches (ui-check-4.20). |
 | QR27 | Pass | Stubbed: flies when untouched, stays put after drag/place/trip, quiet when denied, not on trip links (ui-check-4.26-4.30, 4.20). Real first-time prompt: owner phone test (4.18). |
 | QR28 | Pass | Downtown Toronto at zoom 14.5 shows groups (main session check, ui-check-4.20). |
+
+---
+
+# Phase 5 QA: Drive mode handoff and route options (B72–B74)
+
+Read `docs/plan/DESIGN-5.md` and B72–B74 in `docs/design/gaps-and-questions.md` first. `/api/route` allows 30 calls per 10 minutes; each test trip uses one.
+
+| # | Requirement | How to check | Edge cases |
+|---|---|---|---|
+| QD1 | Settings shows Avoid tolls, Avoid highways (off by default) and Stay in Canada (on, disabled, with its note) | Open the gear on the map and on /cars; toggle; reload | Storage blocked (private window): switches still work for the visit; keyboard only; 375 px |
+| QD2 | Options reach the router and are validated | Network tab: `/api/route` has `avoid=…`; `avoid=ferries` → 400; `avoid=tolls,tolls` → 400; `avoid=highways,tolls` is sent as `tolls,highways` | Unit tests in `tests/ors.test.ts` |
+| QD3 | Avoid highways changes the route and stops still plan | Toronto → Ottawa with and without: different line, longer time, stops present | A long trip (Toronto → Thunder Bay) still returns |
+| QD4 | Changing an option re-plans a shown trip once | Trip on screen, toggle Avoid tolls: exactly one new `/api/route` call | On the form the button reads Plan trip, not Return to plan |
+| QD5 | Ends outside Canada are refused with the right message and no ORS call | A trip link from Detroit, one to Seattle, one with both | Windsor and a point just inside the border plan normally |
+| QD6 | Routes never leave Canada | Toronto → Winnipeg and Toronto → Vancouver: the line stays north of the border | — |
+| QD7 | Drive appears only with a planned trip | Form, errors and no-car states have no Drive button | 0-stop trip: the next target is the destination |
+| QD8 | Next stop panel | Name, distance, arrive ~time, planned charge and cost; km/mi switch | Estimated curve shows ~ |
+| QD9 | Navigate links | Read each link: Google `…/maps/dir/?api=1&destination=lat,lng&travelmode=driving&dir_action=navigate`; Apple `maps.apple.com/directions?destination=lat,lng&mode=driving` (+ avoid) | Only coordinates in the URLs |
+| QD10 | Whole-trip limits | 2-stop trip: both whole-trip buttons; 5 stops: Apple only; 10 stops (Toronto → Halifax): neither until stops are reached | Waypoint order matches the plan |
+| QD11 | Progress from location | Stub positions near stop 1, then 2 km past it along the route: ticked, next moves on | Position > 5 km off the route ticks nothing; Mark as reached / Not reached yet |
+| QD12 | Foreground only | With Drive open, hide the page: the watch stops; show it: it resumes | Leaving Drive stops it |
+| QD13 | Wake lock | Stub `navigator.wakeLock`: requested on open, again on visible, released on exit | API missing: no error |
+| QD14 | Coming back | Reload with Drive open: Drive and progress return; Exit clears it; nothing in localStorage holds the start | — |
+| QD15 | Words, accessibility, looks | No hard-coded strings; axe clean; dark and light at 375 px and desktop; 44 px targets | Long station names wrap |
+| QD16 | Charge past 80 % (B75) | `npx vitest run tests/trip-plan.test.ts` (B75 block); plan Hamilton ON → Vancouver BC with a 2025 Polestar 2 and read each stop's "charge to" | No stop charges only a few % right after another; a stop before a long stretch shows more than 80 %, never over 100 %; ordinary stops still 80 % |
+
+## Phase 5 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QD1–QD15 | Pass with issues | qa-reviewer 2026-11-18 + site-ui-checker (docs/plan/reports/ui-check-5.md, re-checks 1–3). No blockers. |
+| Should-fix 1 | Fixed | Escape / Close route now clears `voltway.drive` (`closeRoute` in ChargerMap.tsx). |
+| Should-fix 2 | Known limit | The outline check lets a few US spots right at the border through (downtown Detroit, Port Huron, Niagara Falls NY, Sumas WA, Lubec ME) and Greenland north of 60.5°. ORS still avoids every border, and the map has only Canadian chargers, so such a trip fails or shows a gap rather than routing through the US. A US polygon check is a follow-up. |
+| Should-fix 3 | Fixed | `drive.noteLocation` now says "Location is used only while this page is open."; `drive.locationOn` shortened so it doesn't repeat. |
+| Minor 4, 6, 9, 11 | Fixed | Resumed ticks trimmed to the stop count; whole-trip limits come from `WHOLE_TRIP_MAX` ({max}); Drive follows price changes (PRICE_EVENT); curly apostrophe. |
+| Minor 5, 7, 8, 10, 12 | Open (logged) | Option change mid-Drive resets ticks; Drive shown on unreachable plans; map dot stays after Drive; points outside AREA give 400 not 422; map key overlap at 375 (pre-existing). |
+| Light theme driven line | Fixed | Driven segment is now #A4A29A on the #2B2C30 band in both themes (6.4:1; was 1.8:1 in light). |
+| QD16 | Pass (unit) | B75 block in tests/trip-plan.test.ts: one stop charges to 91 % instead of a short hop; last stop charges for the final stretch (86 / 100); 80 % kept when the next window is reachable. Owner to confirm Hamilton → BC on the deployed site. |

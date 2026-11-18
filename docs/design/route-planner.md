@@ -101,7 +101,10 @@ When the battery would drop below the threshold (default 15%):
      Still none? Use the last compatible Level 3 charger earlier on the route,
        even though the car arrives with more battery.
      Still none? Mark a "charging gap" warning on that stretch.
-  4. Charge to 80% (Q-V2). Add the detour distance to the trip.
+  4. Charge to 80% (Q-V2). Exception (B75): if 80% would only reach a short hop to a
+     nearby charger, or a stretch with no reachable charger, charge just enough to reach
+     the first charger past it (or the destination) with the arrival minimum left, up to 100%.
+     Add the detour distance to the trip.
   5. Continue from the charger.
 
 At the destination: arrive with at least the threshold %. If not, add a stop as above.
@@ -186,6 +189,8 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 ## 8. Scope decisions
 
 - **R7 ✅: before-the-trip planner only.** No live navigation or re-planning during the drive. The itinerary links out to Google or Apple Maps for driving directions to each stop.
+- **Drive mode (B72, 2026-11-17):** a planned trip opens a **Drive** view that hands the next stop (or, within each app's waypoint limit, the whole remaining trip) to Google Maps or Apple Maps, ticks off reached stops from the browser's location while the page is open, and keeps the screen awake. Still no turn-by-turn in Voltway. Details: [DESIGN-5.md](../plan/DESIGN-5.md) §1.
+- **Route options (B73, B74, 2026-11-17):** Settings has **Avoid tolls** and **Avoid highways** (ORS `avoid_features`) and an always-on **Stay in Canada** (ORS `avoid_borders: "all"`; an end outside Canada gets "not supported yet" instead of a trip). Details: [DESIGN-5.md](../plan/DESIGN-5.md) §2.
 - **R8 (cost):** stays *later*.
 - **Waypoints** (stops along the way, like "via Ottawa"): *later*. ORS supports them, so they're easy to add.
 - **Live traffic, weather, live charger status:** out of scope.

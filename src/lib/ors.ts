@@ -14,7 +14,25 @@ export const AREA = { minLon: -142, maxLon: -50, minLat: 40, maxLat: 84 } as con
 export const CACHE_OK = 'public, max-age=0, s-maxage=604800, stale-while-revalidate=86400';
 const NO_STORE = 'no-store';
 
-export type ApiError = 'badRequest' | 'busy' | 'noRoute' | 'notConfigured';
+export type ApiError = 'badRequest' | 'busy' | 'noRoute' | 'notConfigured' | 'outsideCanada';
+
+/** Route options from Settings (B73), in the one order the URL uses (stable CDN cache keys). */
+export const AVOID_OPTIONS = ['tolls', 'highways'] as const;
+export type AvoidOption = (typeof AVOID_OPTIONS)[number];
+const ORS_FEATURE: Record<AvoidOption, string> = { tolls: 'tollways', highways: 'highways' };
+
+/** Parses `avoid=tolls,highways`: missing or empty → []; an unknown or repeated value → null (400). */
+export function parseAvoid(raw: string | null): AvoidOption[] | null {
+  if (raw === null || raw.trim() === '') return [];
+  const parts = raw.split(',').map((p) => p.trim());
+  if (parts.some((p) => !(AVOID_OPTIONS as readonly string[]).includes(p))) return null;
+  if (new Set(parts).size !== parts.length) return null;
+  return AVOID_OPTIONS.filter((o) => parts.includes(o));
+}
+
+/** Which end of a trip is outside Canada (B74). */
+export type OutsideEnd = 'from' | 'to' | 'both';
+export type InCanada = (lon: number, lat: number) => boolean;
 
 /** Parses "lon,lat", checks it is a number pair inside the area, and rounds to 3 decimals (~100 m) so near-identical requests share a cache entry. */
 export function parseLonLat(raw: string | null): [number, number] | null {
@@ -91,18 +109,41 @@ const orsFailure = (): Response => errorResponse('busy', 503);
 
 type Fetch = typeof fetch;
 
-/** GET /api/route?from=lon,lat&to=lon,lat */
-export async function handleRoute(url: URL, key: string | undefined, fetchFn: Fetch = fetch): Promise<Response> {
+/** The ORS request body: always no border crossings (B74), plus the avoid options (B73). */
+export function routeBody(from: [number, number], to: [number, number], avoid: readonly AvoidOption[]) {
+  return {
+    coordinates: [from, to],
+    elevation: true,
+    instructions: false,
+    options: { avoid_borders: 'all', ...(avoid.length ? { avoid_features: avoid.map((a) => ORS_FEATURE[a]) } : {}) },
+  };
+}
+
+/**
+ * GET /api/route?from=lon,lat&to=lon,lat[&avoid=tolls,highways]
+ * @param inCanada the Canada check (src/lib/canada.ts); an end outside it answers 422 outsideCanada
+ *   before any ORS call (B74).
+ */
+export async function handleRoute(url: URL, key: string | undefined, fetchFn: Fetch = fetch, inCanada?: InCanada): Promise<Response> {
   const from = parseLonLat(url.searchParams.get('from'));
   const to = parseLonLat(url.searchParams.get('to'));
-  if (!from || !to) return errorResponse('badRequest', 400);
+  const avoid = parseAvoid(url.searchParams.get('avoid'));
+  if (!from || !to || !avoid) return errorResponse('badRequest', 400);
+  if (inCanada) {
+    const fromIn = inCanada(from[0], from[1]);
+    const toIn = inCanada(to[0], to[1]);
+    if (!fromIn || !toIn) {
+      const end: OutsideEnd = !fromIn && !toIn ? 'both' : !fromIn ? 'from' : 'to';
+      return json({ error: 'outsideCanada', end }, 422, NO_STORE);
+    }
+  }
   if (!key) return errorResponse('notConfigured', 503);
   let res: Response;
   try {
     res = await fetchFn(DIRECTIONS, {
       method: 'POST',
       headers: { Authorization: key, 'Content-Type': 'application/json', Accept: 'application/geo+json, application/json' },
-      body: JSON.stringify({ coordinates: [from, to], elevation: true, instructions: false }),
+      body: JSON.stringify(routeBody(from, to, avoid)),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
   } catch {

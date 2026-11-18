@@ -40,9 +40,11 @@ interface Props {
   onShare: () => void;
   /** The link once made, shown under the time. */
   shareNote: ReactNode;
+  /** Opens Drive mode (B72). */
+  onDrive: () => void;
 }
 
-export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote }: Props) {
+export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive }: Props) {
   const bodyId = useId();
   // Stop costs use the charging price from Settings (B66); it can change while the plan is shown.
   const [price, setPrice] = useState(chargePrice);
@@ -124,6 +126,11 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
           </p>
         )}
         <p className="small muted ti-car">{carLine}</p>
+        {/* B72: hand the trip to Google Maps or Apple Maps, stop by stop. */}
+        <button type="button" className="btn primary ti-drive" onClick={onDrive}>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 20.3l.7.7L12 18l6.8 3 .7-.7L12 2Z" fill="currentColor" /></svg>
+          {t('drive.open')}
+        </button>
         {noChargers && <p className="banner small" role="alert">{t('trip.warn.noChargers')}</p>}
         {!plan.reachable && !noChargers && !gapSaysUnreachable && <p className="banner small" role="alert">{t('trip.warn.unreachable')}</p>}
         {/* Charging gaps stay above the fold on phones: they are never behind "Show the stops". */}

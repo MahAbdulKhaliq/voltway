@@ -90,8 +90,8 @@ describe('address and directions', () => {
   });
   it('Google and Apple links use lat,lon', () => {
     expect(directionsUrls([-75.7, 45.42])).toEqual({
-      google: 'https://www.google.com/maps/dir/?api=1&destination=45.42,-75.7',
-      apple: 'https://maps.apple.com/?daddr=45.42,-75.7',
+      google: 'https://www.google.com/maps/dir/?api=1&destination=45.42,-75.7&travelmode=driving&dir_action=navigate',
+      apple: 'https://maps.apple.com/directions?destination=45.42,-75.7&mode=driving',
     });
   });
 });

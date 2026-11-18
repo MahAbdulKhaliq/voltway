@@ -139,6 +139,14 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
                 <button type="button" data-unit="mi" aria-pressed="false">{t('units.mi')}</button>
               </div>
             </div>
+            <!-- Route options (B73) and Canada only (B74, always on for now). -->
+            <div class="settings-group" role="group" aria-labelledby="settings-route">
+              <p id="settings-route" class="settings-sub">{t('settings.route')}</p>
+              <button type="button" role="switch" aria-checked="false" class="settings-switch" data-avoid="avoidTolls"><span>{t('settings.avoidTolls')}</span><span class="switch" aria-hidden="true"></span></button>
+              <button type="button" role="switch" aria-checked="false" class="settings-switch" data-avoid="avoidHighways"><span>{t('settings.avoidHighways')}</span><span class="switch" aria-hidden="true"></span></button>
+              <button type="button" role="switch" aria-checked="true" aria-disabled="true" class="settings-switch" aria-describedby="settings-canada-help"><span>{t('settings.inCanada')}</span><span class="switch" aria-hidden="true"></span></button>
+              <p id="settings-canada-help" class="settings-help">{t('settings.inCanadaHelp')}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -181,6 +189,7 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       import { chooseTheme, themeChoice } from '../scripts/theme-client.ts';
       import { motionOn, setMotion } from '../scripts/motion-client.ts';
       import { chargePrice, PRICE_EVENT, setChargePrice } from '../lib/price.ts';
+      import { routeOptions, ROUTE_OPTIONS_EVENT, setRouteOptions, type RouteOptions } from '../lib/route-options.ts';
       initBadges();
       applyUnits(currentUnit());
       document.querySelectorAll<HTMLButtonElement>('.units button').forEach((b) =>
@@ -225,7 +234,9 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       // "Change cost estimate" in a trip opens Settings at the price (after the click that sent it).
       window.addEventListener('voltway:settings', (e) => setTimeout(() => {
         showPop(true);
-        if ((e as CustomEvent<string>).detail === 'price') document.getElementById('settings-price')?.focus();
+        const at = (e as CustomEvent<string>).detail;
+        if (at === 'price') document.getElementById('settings-price')?.focus();
+        if (at === 'route') pop.querySelector<HTMLButtonElement>('[data-avoid]')?.focus();
       }));
       // Charging price (B66): kept when it's a number of zero or more; anything else snaps back.
       const priceIn = document.getElementById('settings-price') as HTMLInputElement;
@@ -237,6 +248,19 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       });
       priceIn.addEventListener('change', () => showPrice(chargePrice()));
       window.addEventListener(PRICE_EVENT, () => { if (document.activeElement !== priceIn) showPrice(chargePrice()); });
+      // Route options (B73): switches saved in the browser; the trip planner listens for the event.
+      const avoidBtns = pop.querySelectorAll<HTMLButtonElement>('[data-avoid]');
+      const syncAvoid = () => {
+        const o = routeOptions();
+        avoidBtns.forEach((b) => b.setAttribute('aria-checked', String(o[b.dataset.avoid as keyof RouteOptions])));
+      };
+      avoidBtns.forEach((b) => b.addEventListener('click', () => {
+        const o = routeOptions();
+        const k = b.dataset.avoid as keyof RouteOptions;
+        setRouteOptions({ ...o, [k]: !o[k] });
+      }));
+      window.addEventListener(ROUTE_OPTIONS_EVENT, syncAvoid);
+      syncAvoid();
     </script>
   </body>
 </html>
@@ -314,5 +338,15 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
     border: 1px solid var(--field-border); border-radius: 8px; padding: 5px 8px; text-align: right;
   }
   .settings-help { margin: -6px 0 0; max-width: 30ch; font-size: 0.8rem; color: var(--muted); }
+  .settings-group { display: grid; gap: 6px; padding-top: 10px; border-top: 1px solid var(--border); }
+  .settings-group .settings-help { margin: 0; }
+  .settings-sub { margin: 0; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+  .settings-switch {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%;
+    min-height: 36px; padding: 4px 0; border: 0; background: none; color: inherit; font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer;
+  }
+  .settings-switch[aria-disabled='true'] { cursor: default; }
+  .settings-switch[aria-disabled='true'] .switch { opacity: 0.6; }
+  @media (max-width: 640px) { .settings-switch { min-height: 44px; } }
   .site-footer { border-top: 1px solid var(--border); color: var(--muted); padding: 20px 0 32px; font-size: 0.9rem; }
 </style>

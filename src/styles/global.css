@@ -631,11 +631,11 @@ html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplib
 .chip-plug { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border: 0; border-radius: 6px; background: none; color: var(--text); font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer; }
 .chip-plug:hover, .chip-plug:focus-visible { background: var(--accent-soft); }
 .chip-plug:disabled { cursor: progress; opacity: 0.6; }
-.chip-plug .switch { flex: none; position: relative; width: 30px; height: 18px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--field-border); }
-.chip-plug .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted); transition: transform 0.15s; }
-.chip-plug[aria-checked=true] .switch { background: var(--paint); border-color: var(--paint-edge); }
-.chip-plug[aria-checked=true] .switch::after { transform: translateX(12px); background: var(--paint-ink); }
-html[data-motion="off"] .chip-plug .switch::after { transition: none; }
+.chip-plug .switch, .settings-switch .switch { flex: none; position: relative; width: 30px; height: 18px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--field-border); }
+.chip-plug .switch::after, .settings-switch .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted); transition: transform 0.15s; }
+.chip-plug[aria-checked=true] .switch, .settings-switch[aria-checked=true] .switch { background: var(--paint); border-color: var(--paint-edge); }
+.chip-plug[aria-checked=true] .switch::after, .settings-switch[aria-checked=true] .switch::after { transform: translateX(12px); background: var(--paint-ink); }
+html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .settings-switch .switch::after { transition: none; }
 @media (max-width: 640px) { .chip-plug { min-height: 44px; } }
 .chip-plugs-note { margin: 4px 8px 2px; max-width: 230px; font-size: 0.78rem; color: var(--muted); }
 .cp-plugs { display: grid; gap: 6px; margin-top: 4px; }
@@ -698,6 +698,34 @@ html[data-motion="off"] .chip-plug .switch::after { transition: none; }
 .ti-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 0 0 !important; }
 .ti-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; line-height: 1.5; padding: 0 6px; border: 1px solid var(--field-border); border-radius: 4px; white-space: nowrap; }
 .ti-leg { color: var(--muted); font-size: 0.875rem; margin-top: 6px !important; font-variant-numeric: tabular-nums; }
+.route-avoid { margin: 0; }
+.ti-drive { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 44px; margin: 4px 0 8px; font-size: 1rem; }
+/* Drive mode (B72): the next stop large, the map-app buttons big, then the stops with progress. */
+.drive { display: grid; gap: 14px; padding-top: 2px; }
+.drive p { margin: 0; }
+.drive-next { display: grid; gap: 2px; }
+.drive-kicker { color: var(--muted); font-weight: 600; letter-spacing: 0.02em; }
+.drive-name { font-family: var(--display); font-size: 1.5rem; font-weight: 800; line-height: 1.15; overflow-wrap: anywhere; }
+.drive-eta { font-size: 1.1rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.drive-charge { font-weight: 600; font-variant-numeric: tabular-nums; }
+.drive-go, .drive-whole { display: grid; gap: 8px; }
+.drive-go-title { font-weight: 700; }
+.drive-apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
+.drive-app { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; font-size: 1.05rem; text-decoration: none; text-align: center; }
+.drive-whole .drive-app { min-height: 44px; font-size: 0.95rem; }
+.drive-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.drive-item { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 44px; padding: 2px 6px; border-radius: 8px; }
+.drive-item.next { background: var(--surface-2); }
+.drive-item.done .drive-item-name { color: var(--muted); }
+.drive-item-name { overflow-wrap: anywhere; }
+.drive-state { display: block; color: var(--muted); font-weight: 600; }
+.drive-item.next .drive-state { color: var(--text); }
+.drive-mark { justify-self: center; width: 14px; height: 14px; border-radius: 50%; background: var(--mark); }
+.drive-item.end .drive-mark { background: var(--surface); box-shadow: inset 0 0 0 4px var(--mark); }
+.drive-num { display: grid; place-items: center; width: 24px; height: 20px; border-radius: 5px; color: var(--surface); font-weight: 700; font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+.drive-item.done .drive-num { background: var(--muted); }
+.drive-toggle { min-height: 44px; white-space: nowrap; }
+.drive-notes { display: grid; gap: 6px; }
 /* A leg with no charger the car can use: said in words beside the dashed line. */
 .ti-leg-gap { color: var(--warn); font-weight: 600; }
 .ti-notes { list-style: none; margin: 4px 0 0; padding: 10px 0 0; border-top: 1px solid var(--border); display: grid; gap: 6px; }

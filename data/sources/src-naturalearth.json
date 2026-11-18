@@ -1,0 +1,10 @@
+{
+  "id": "src-naturalearth",
+  "type": "dataset",
+  "title": "Natural Earth 1:10m Cultural Vectors – Admin 0 countries (v5.1.2): Canada",
+  "url": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/",
+  "license": "Public domain (Natural Earth terms of use)",
+  "attribution": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com. Canada's outline, simplified, is used only to check that a trip starts and ends in Canada.",
+  "accessed_on": "2026-11-17",
+  "notes": "Owner decision B74 (2026-11-17): the trip function refuses a start or destination outside Canada before calling openrouteservice. Downloaded by hand with npm run fetch:canada, which writes data/imported/naturalearth/canada.json (with the download's checksum); only the function reads it, browsers never download it."
+}

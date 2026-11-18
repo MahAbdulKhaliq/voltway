@@ -188,6 +188,12 @@ In order of preference:
 - **Full addresses** still go to ORS geocoding, only when the visitor presses Search.
 - **Link:** [GeoNames export](https://download.geonames.org/export/dump/)
 
+### Natural Earth ⭐ Canada outline for the "trips in Canada only" check (B74, added 2026-11-17)
+- **What:** the 1:10m Admin 0 countries layer (v5.1.2), Canada only, simplified (land border kept to about 20 m, coast to about 300 m; Arctic islands left out, where a simple rule applies). Only the trip function reads it, to refuse a start or destination outside Canada before asking openrouteservice; browsers never download it.
+- **License:** **public domain**. Credited on the About page anyway.
+- **Access:** `npm run fetch:canada` (download from the natural-earth-vector GitHub release), by hand when needed; no key. Writes `data/imported/naturalearth/canada.json` with the download's checksum.
+- **Link:** [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/)
+
 ---
 
 ## 6. New gaps this research found

@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { CACHE_OK, handleGeocode, handleRoute, parseLonLat, thinLine, trimPlaces, trimRoute } from '../src/lib/ors.ts';
+import { CACHE_OK, handleGeocode, handleRoute, parseAvoid, parseLonLat, thinLine, trimPlaces, trimRoute } from '../src/lib/ors.ts';
 
 const KEY = 'test-key-123';
 const routeUrl = (from: string, to: string) => new URL(`https://x.test/api/route?from=${from}&to=${to}`);
@@ -69,7 +69,7 @@ describe('handleRoute', () => {
     expect(r.headers.get('Cache-Control')).toBe(CACHE_OK);
     const [url, init] = f.mock.calls[0] as unknown as [string, RequestInit];
     expect(url).toContain('/v2/directions/driving-car/geojson');
-    expect(JSON.parse(init.body as string)).toEqual({ coordinates: [[-79.383, 43.653], [-73.567, 45.502]], elevation: true, instructions: false });
+    expect(JSON.parse(init.body as string)).toEqual({ coordinates: [[-79.383, 43.653], [-73.567, 45.502]], elevation: true, instructions: false, options: { avoid_borders: 'all' } });
     const text = await r.text();
     expect(text).not.toContain(KEY);
     expect(JSON.parse(text).distanceKm).toBe(550);
@@ -116,5 +116,56 @@ describe('handleGeocode', () => {
 
   it('ORS over its allowance → 503 busy', async () => {
     expect((await handleGeocode(geoUrl('Toronto'), KEY, reply(403, {}))).status).toBe(503);
+  });
+});
+
+describe('route options (B73) and Canada only (B74)', () => {
+  const url = (q: string) => new URL(`https://x.test/api/route?from=-79.38,43.65&to=-73.57,45.5${q}`);
+  const body = (f: ReturnType<typeof reply>) => JSON.parse((f.mock.calls[0] as unknown as [string, RequestInit])[1].body as string);
+
+  it('parses avoid: empty, one, both in a fixed order', () => {
+    expect(parseAvoid(null)).toEqual([]);
+    expect(parseAvoid('')).toEqual([]);
+    expect(parseAvoid('tolls')).toEqual(['tolls']);
+    expect(parseAvoid('highways')).toEqual(['highways']);
+    expect(parseAvoid('highways,tolls')).toEqual(['tolls', 'highways']);
+  });
+  it('rejects unknown and repeated avoid values', () => {
+    for (const bad of ['ferries', 'tolls,tolls', 'tolls,', 'Tolls', 'tollways']) expect(parseAvoid(bad)).toBeNull();
+  });
+  it.each(['&avoid=ferries', '&avoid=tolls,tolls'])('%s → 400 without calling ORS', async (q) => {
+    const f = reply(200, orsRoute);
+    const r = await handleRoute(url(q), KEY, f);
+    expect(r.status).toBe(400);
+    expect(f).not.toHaveBeenCalled();
+  });
+  it('always avoids borders, and sends avoid_features per option', async () => {
+    let f = reply(200, orsRoute);
+    await handleRoute(url(''), KEY, f);
+    expect(body(f).options).toEqual({ avoid_borders: 'all' });
+    f = reply(200, orsRoute);
+    await handleRoute(url('&avoid=highways,tolls'), KEY, f);
+    expect(body(f).options).toEqual({ avoid_borders: 'all', avoid_features: ['tollways', 'highways'] });
+    f = reply(200, orsRoute);
+    await handleRoute(url('&avoid=highways'), KEY, f);
+    expect(body(f).options.avoid_features).toEqual(['highways']);
+  });
+  it.each([
+    ['from', (lon: number) => lon > -75],
+    ['to', (lon: number) => lon < -75],
+    ['both', () => false],
+  ] as const)('an end outside Canada (%s) → 422 outsideCanada, no ORS call, not cached', async (end, inCanada) => {
+    const f = reply(200, orsRoute);
+    const r = await handleRoute(url(''), KEY, f, inCanada);
+    expect(r.status).toBe(422);
+    expect(await r.json()).toEqual({ error: 'outsideCanada', end });
+    expect(r.headers.get('Cache-Control')).toBe('no-store');
+    expect(f).not.toHaveBeenCalled();
+  });
+  it('both ends in Canada → asks ORS', async () => {
+    const f = reply(200, orsRoute);
+    const r = await handleRoute(url(''), KEY, f, () => true);
+    expect(r.status).toBe(200);
+    expect(f).toHaveBeenCalledOnce();
   });
 });

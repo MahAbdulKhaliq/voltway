@@ -186,6 +186,8 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 ## 8. Scope decisions
 
 - **R7 ✅: before-the-trip planner only.** No live navigation or re-planning during the drive. The itinerary links out to Google or Apple Maps for driving directions to each stop.
+- **Drive mode (B72, 2026-11-17):** a planned trip opens a **Drive** view that hands the next stop (or, within each app's waypoint limit, the whole remaining trip) to Google Maps or Apple Maps, ticks off reached stops from the browser's location while the page is open, and keeps the screen awake. Still no turn-by-turn in Voltway. Details: [DESIGN-5.md](../plan/DESIGN-5.md) §1.
+- **Route options (B73, B74, 2026-11-17):** Settings has **Avoid tolls** and **Avoid highways** (ORS `avoid_features`) and an always-on **Stay in Canada** (ORS `avoid_borders: "all"`; an end outside Canada gets "not supported yet" instead of a trip). Details: [DESIGN-5.md](../plan/DESIGN-5.md) §2.
 - **R8 (cost):** stays *later*.
 - **Waypoints** (stops along the way, like "via Ottawa"): *later*. ORS supports them, so they're easy to add.
 - **Live traffic, weather, live charger status:** out of scope.

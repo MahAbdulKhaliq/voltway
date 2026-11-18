@@ -18,15 +18,18 @@ import type { RouteBody } from '../lib/ors.ts';
 import type { CarDetail } from '../lib/types.ts';
 import type { DistanceUnit } from '../lib/units.ts';
 import { TRIP } from '../config.ts';
+import { avoidList, avoidQuery, NO_AVOID, readRouteOptions, routeOptions, ROUTE_OPTIONS_EVENT, type RouteOptions } from '../lib/route-options.ts';
 
-export type TripStatus = 'idle' | 'planning' | 'done' | 'badRequest' | 'noRoute' | 'busy' | 'offline' | 'error';
+export type TripStatus = 'idle' | 'planning' | 'done' | 'badRequest' | 'noRoute' | 'busy' | 'offline' | 'error' | 'outsideFrom' | 'outsideTo' | 'outsideBoth';
 export interface RouteData { route: Route; durationMin: number; key: string }
 export type Locating = 'idle' | 'busy' | 'denied';
 
 const BLANK: TripQuery = { from: null, to: null, startSoc: TRIP.defaultStartSoc, thresholdSoc: TRIP.defaultThresholdSoc };
 
-/** The ends' cache key: the API form of both points. */
-export const endsKey = (q: Pick<TripQuery, 'from' | 'to'>) => (q.from && q.to ? `${apiPoint(q.from)}|${apiPoint(q.to)}` : '');
+/** The route's key: the API form of both points, plus the route options (B73), which change the route. */
+export const endsKey = (q: Pick<TripQuery, 'from' | 'to'>, o: RouteOptions = NO_AVOID) =>
+  (q.from && q.to ? `${apiPoint(q.from)}|${apiPoint(q.to)}|${avoidList(o).join(',')}` : '');
+const OUTSIDE = { from: 'outsideFrom', to: 'outsideTo', both: 'outsideBoth' } as const;
 
 /**
  * @param myCar the map's My car
@@ -42,7 +45,10 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
   const [locating, setLocating] = useState<Locating>('idle');
   const [unit, setUnit] = useState<DistanceUnit>('km');
   const [shareUrl, setShareUrl] = useState('');
+  const [opts, setOpts] = useState<RouteOptions>(NO_AVOID);
   const autoPlan = useRef(false);
+  /** Set when the route options change while a trip is shown: it re-plans once (B73). */
+  const replan = useRef(false);
   const inflight = useRef('');
   /** Bumped by Close route, so a route reply that lands after it is ignored. */
   const generation = useRef(0);
@@ -52,6 +58,14 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
     const onUnits = (e: Event) => setUnit((e as CustomEvent).detail === 'mi' ? 'mi' : 'km');
     window.addEventListener('voltway:units', onUnits);
     return () => window.removeEventListener('voltway:units', onUnits);
+  }, []);
+
+  // Route options from Settings (B73).
+  useEffect(() => {
+    setOpts(routeOptions());
+    const on = (e: Event) => setOpts(readRouteOptions((e as CustomEvent).detail));
+    window.addEventListener(ROUTE_OPTIONS_EVENT, on);
+    return () => window.removeEventListener(ROUTE_OPTIONS_EVENT, on);
   }, []);
 
   // The car file for My car.
@@ -83,7 +97,7 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
   }, [routeData, planCar, l3, l3Failed, pctValid, trip.startSoc, trip.thresholdSoc]);
 
   // A message about the last request (busy, no route, …) goes once the ends change.
-  const key = endsKey(trip);
+  const key = endsKey(trip, opts);
   useEffect(() => {
     setStatus((s) => (s === 'planning' || s === 'done' || s === 'error' ? s : 'idle'));
   }, [key]);
@@ -96,7 +110,7 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
     // never where the trip started.
     setJSON(KEYS.lastTrip, { startSoc: trip.startSoc, thresholdSoc: trip.thresholdSoc });
     setJSON(KEYS.recentDestinations, addRecent(readRecent(getJSON<unknown>(KEYS.recentDestinations, null)), to));
-    const key = endsKey(trip);
+    const key = endsKey(trip, opts);
     if (routeData?.key === key) return; // Same ends: the stops re-plan from the route already here.
     if (inflight.current === key) return; // Already asking for this route.
     inflight.current = key;
@@ -104,10 +118,14 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
     setStatus('planning');
     setPlan(null);
     try {
-      const r = await fetch(`/api/route?from=${apiPoint(from)}&to=${apiPoint(to)}`);
+      const r = await fetch(`/api/route?from=${apiPoint(from)}&to=${apiPoint(to)}${avoidQuery(opts)}`);
       if (gen !== generation.current) return; // Close route came first
       if (!r.ok) {
         setRouteData(null);
+        // B74: an end outside Canada says which one.
+        const err = r.status === 422 ? ((await r.json().catch(() => null)) as { error?: string; end?: keyof typeof OUTSIDE } | null) : null;
+        if (gen !== generation.current) return;
+        if (err?.error === 'outsideCanada' && err.end && err.end in OUTSIDE) { setStatus(OUTSIDE[err.end]); return; }
         setStatus(r.status === 400 ? 'badRequest' : r.status === 422 ? 'noRoute' : 'busy'); // 429 (firewall), 503 (ORS) → busy
         return;
       }
@@ -121,7 +139,16 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
     } finally {
       inflight.current = '';
     }
-  }, [trip, routeData]);
+  }, [trip, routeData, opts]);
+
+  // Route options changed while this trip's route is here: plan it again once, with the new options.
+  useEffect(() => {
+    const ends = endsKey(trip); // "from|to|" (no options)
+    if (routeData && ends && routeData.key.startsWith(ends) && routeData.key !== key) replan.current = true;
+  }, [opts]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (replan.current) { replan.current = false; submit(); }
+  }, [submit]);
 
   // A link with both ends plans as soon as the car is known.
   useEffect(() => {
@@ -185,7 +212,7 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
   const current = Boolean(plan && routeData && routeData.key === key);
 
   return {
-    trip, setTrip, swap, setPct, pctValid, canPlan, current,
+    trip, setTrip, swap, setPct, pctValid, canPlan, current, opts,
     planCar, carUpdated, routeData, plan, status, unit,
     submit, start, stop, share, shareUrl, locate, locating,
   };

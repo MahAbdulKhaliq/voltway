@@ -52,6 +52,7 @@ import { fastNear, NEAR_PLACE_KM, stationsInView, type Bounds, type ListItem } f
 import PlaceField, { loadPlaces } from './PlaceField.tsx';
 import type { PlaceSearch, TripEnd } from '../lib/place-search.ts';
 import { readTripLink, stationEnd } from '../lib/trip-link.ts';
+import { loadDrive } from '../lib/drive.ts';
 import { readRecent } from '../lib/recent-destinations.ts';
 import StationPanel from './StationPanel.tsx';
 import RoutePanel from './RoutePanel.tsx';
@@ -370,6 +371,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const routeBtnRef = useRef<HTMLButtonElement | null>(null);
   // Route mode (B50, 3.18): the planner on this map.
   const [routeMode, setRouteMode] = useState(false);
+  /** Drive progress this tab kept across a reload (B72), handed to the trip panel once. */
+  const [resumeDrive, setResumeDrive] = useState<boolean[] | null>(null);
   // Previous destinations (B62): places trips were planned to, from this browser, offered from a
   // button beside Map key. Read after load and whenever route mode opens or closes.
   const [recent, setRecent] = useState<TripEnd[]>([]);
@@ -683,8 +686,25 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   // A trip link (/?from=…&to=…, the share link) opens route mode; both ends plan at once.
   useEffect(() => {
     const link = readTripLink(window.location.search);
-    if (link) enterRoute({ link });
+    if (link) { enterRoute({ link }); return; }
+    // B72: this tab was in Drive mode before the page reloaded (a phone coming back from the maps app).
+    const drive = loadDrive();
+    if (drive) { setResumeDrive(drive.reached); enterRoute({ link: drive.trip }); }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // Drive mode's position: the same "you" dot as Locate me, moved as the car moves (memory only).
+  const onDriveFix = useCallback((at: [number, number] | null) => {
+    const map = mapRef.current;
+    if (!map || !at) return;
+    if (youRef.current) youRef.current.setLngLat(at);
+    else {
+      const dot = document.createElement('div');
+      dot.className = 'map-you';
+      dot.setAttribute('role', 'img');
+      dot.setAttribute('aria-label', t('map.you'));
+      youRef.current = new maplibregl.Marker({ element: dot }).setLngLat(at).addTo(map);
+    }
+    setYou(at);
+  }, []);
 
   // The route on the map: drawn when the plan is for the ends in the form, cleared otherwise.
   const stopIds = useMemo(() => (plan && T.current ? plan.stops.map((st) => st.station.i) : []), [plan, T.current]);
@@ -797,7 +817,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   useEffect(() => {
     if (mapStatus !== 'ready' || autoLocated.current) return;
     autoLocated.current = true;
-    if (readTripLink(window.location.search) || !('geolocation' in navigator)) return;
+    if (readTripLink(window.location.search) || loadDrive() || !('geolocation' in navigator)) return;
     const perms = (navigator as Navigator & { permissions?: Permissions }).permissions;
     if (!perms?.query) return locateMe(true);
     perms
@@ -849,6 +869,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             onOpenStop={openStop}
             onClose={closeRoute}
             updated={meta?.updated ?? null}
+            resumeDrive={resumeDrive}
+            onDriveFix={onDriveFix}
           />
         ) : (<>
         <div className="map-where">

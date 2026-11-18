@@ -71,11 +71,5 @@ export function addressLine(s: Pick<MapStationProps, 'a' | 'c' | 'r' | 'z'>): st
   return [s.a, s.c, region].filter(Boolean).join(', ');
 }
 
-/** Directions links (no in-app navigation in v1). Coordinates only, so nothing else leaves the page. */
-export function directionsUrls([lon, lat]: [number, number]): { google: string; apple: string } {
-  const at = `${lat},${lon}`;
-  return {
-    google: `https://www.google.com/maps/dir/?api=1&destination=${at}`,
-    apple: `https://maps.apple.com/?daddr=${at}`,
-  };
-}
+/** Directions links (B72): the same module as Drive mode. */
+export { directionsUrls } from './nav-links.ts';

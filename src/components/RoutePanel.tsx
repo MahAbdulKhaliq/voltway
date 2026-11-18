@@ -13,6 +13,7 @@ import type { MyCar } from '../lib/my-car.ts';
 import type { PlaceSearch } from '../lib/place-search.ts';
 import { SOC_LIMITS } from '../lib/trip-link.ts';
 import { stopsText } from '../lib/trip-format.ts';
+import { morph } from '../lib/motion.ts';
 import type { IndexEntry } from '../lib/types.ts';
 
 interface Props {
@@ -52,6 +53,13 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
       <button type="button" className="link-btn" onClick={() => window.dispatchEvent(new CustomEvent('voltway:mycar-menu'))}>{t('route.plugsChange')}</button>
     </p>
   );
+  // The trip card's line (B67): charging time, then the plugs used and a way to change them.
+  const plugsInline = dcUsed && (
+    <>
+      {' · '}{dcUsed.length ? dcUsed.map((p) => t(`value.${p}` as MessageKey)).join(', ') : t('route.plugsNoneShort')}{' '}
+      <button type="button" className="link-btn" onClick={() => window.dispatchEvent(new CustomEvent('voltway:mycar-menu'))}>{t('route.plugsChange')}</button>
+    </>
+  );
   const carLabel = myCar ? (myCar.label ?? cars.find((c) => c.id === myCar.carId)?.name ?? myCar.carId) : '';
   // Each new plan (Plan route, or a link that plans at once) folds the form so the itinerary has room.
   const planKey = current ? T.routeData?.key ?? '' : '';
@@ -70,6 +78,13 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
   return (
     <section className={`route-panel${folded ? ' folded' : ''}`} aria-label={t('route.label')}>
       <div className="route-head">
+        {folded && (
+          <button type="button" className="map-place-close route-back" aria-label={t('route.back')} title={t('route.back')} onClick={() => morph(() => setEditing(true), 'back', 'left')}>
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+          </button>
+        )}
         <h2 className="route-title" ref={headRef} tabIndex={-1}>{t('route.title')}</h2>
         <button type="button" className="map-place-close" aria-label={t('route.close')} onClick={onClose}>
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -78,17 +93,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
         </button>
       </div>
 
-      {folded ? (
-        <div className="route-summary">
-          <p className="route-ends"><strong>{trip.from?.label}</strong> → <strong>{trip.to?.label}</strong></p>
-          <p className="small muted">{t('route.carLine', { car: carLabel, start: trip.startSoc, min: trip.thresholdSoc })}</p>
-          {plugsLine}
-          <div className="tp-actions">
-            <button type="button" className="btn small" onClick={() => setEditing(true)}>{t('route.edit')}</button>
-            <button type="button" className="btn small" onClick={T.share}>{t('trip.share')}</button>
-          </div>
-        </div>
-      ) : (
+      {folded ? null : (
         <form className="route-form" onSubmit={(e) => { e.preventDefault(); submit(); }} aria-label={t('trip.formLabel')}>
           <div className="route-ends-grid">
           <div className="route-ends-fields">
@@ -175,16 +180,21 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           )}
 
           <div className="tp-actions route-go">
-            <button type="submit" className="btn primary" disabled={!T.canPlan}>
-              {status === 'planning' ? t('trip.planning') : t('route.plan')}
-            </button>
-            {current && <button type="button" className="btn" onClick={() => setEditing(false)}>{t('route.showPlan')}</button>}
+            {/* B68: with the same ends the plan is already current (battery changes re-plan by
+                themselves), so the one button goes back to it. */}
+            {current ? (
+              <button type="button" className="btn primary" onClick={() => morph(() => setEditing(false), 'forward', 'left')}>{t('route.showPlan')}</button>
+            ) : (
+              <button type="submit" className="btn primary" disabled={!T.canPlan} aria-busy={status === 'planning'}>
+                {status === 'planning' ? <><span className="road-loader" aria-hidden="true"><span /></span>{t('trip.planning')}</> : t('route.plan')}
+              </button>
+            )}
           </div>
           {((loose.from && !trip.from) || (loose.to && !trip.to)) && <p className="small muted tp-hint">{t('trip.needEnds')}</p>}
         </form>
       )}
 
-      {T.shareUrl && (
+      {T.shareUrl && !folded && (
         <p className="small tp-share" role="status">
           {t('trip.shareNote')} <input className="field-input" readOnly value={T.shareUrl} onFocus={(e) => e.target.select()} aria-label={t('trip.shareLink')} />
         </p>
@@ -199,7 +209,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
         )}
       </div>
 
-      {plan && current && myCar && trip.from && trip.to && (
+      {folded && plan && myCar && trip.from && trip.to && (
         <Itinerary
           plan={plan}
           from={trip.from}
@@ -211,6 +221,14 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           onToggle={() => setSheetOpen((o) => !o)}
           updated={updated}
           carUpdated={T.carUpdated}
+          carLine={t('route.carLine', { car: carLabel, start: trip.startSoc, min: trip.thresholdSoc })}
+          plugs={plugsInline}
+          onShare={T.share}
+          shareNote={T.shareUrl ? (
+            <p className="small tp-share" role="status">
+              {t('trip.shareNote')} <input className="field-input" readOnly value={T.shareUrl} onFocus={(e) => e.target.select()} aria-label={t('trip.shareLink')} />
+            </p>
+          ) : null}
         />
       )}
     </section>

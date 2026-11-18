@@ -61,6 +61,8 @@ export interface TripStop {
   arriveSoc: number;
   departSoc: number;
   chargeMin: number;
+  /** Energy added to the battery at this stop (kWh); its cost is worked out on screen (B66). */
+  energyKwh: number;
   overheadMin: number;
   /** Charging time comes from an estimated curve, a gross battery or SoC outside the measured points ("~"). */
   estimated: boolean;
@@ -225,6 +227,7 @@ export function planTrip(input: PlanInput): TripPlan {
       arriveSoc,
       departSoc: target,
       chargeMin: r.minutes,
+      energyKwh: r.energyKwh,
       overheadMin: TRIP.stopOverheadMin,
       estimated: car.curve.estimated || r.extrapolated || car.energy.batteryBasis === 'gross',
       pick,

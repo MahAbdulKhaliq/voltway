@@ -16,12 +16,17 @@ import type { IndexEntry } from '../lib/types.ts';
 import { DC_PLUGS, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
 import type { MessageKey } from '../i18n/t.ts';
 
-interface Props { /** Compare chip only once the Compare page exists (CLAUDE.md: hide links to parts not built). */ showCompare?: boolean }
+interface Props {
+  /** Compare chip only once the Compare page exists (CLAUDE.md: hide links to parts not built); not on the map (B68). */
+  showCompare?: boolean;
+  /** My car chip: the map only (owner, B68). The car dialog stays, for the pages' own buttons. */
+  showMyCar?: boolean;
+}
 
 const carHref = (id: string, trim: string | null) =>
   `/charging?car=${id.split('/').map(encodeURIComponent).join('/')}${trim ? `&trim=${encodeURIComponent(trim)}` : ''}`;
 
-export default function HeaderChips({ showCompare = false }: Props) {
+export default function HeaderChips({ showCompare = false, showMyCar = true }: Props) {
   const [mine, setMine] = useState<MyCar | null>(null);
   const [count, setCount] = useState(0);
   const [open, setOpen] = useState(false);
@@ -68,7 +73,7 @@ export default function HeaderChips({ showCompare = false }: Props) {
   // The menu closes on Escape (focus back to the chip) and on a click outside it.
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { setOpen(false); button.current?.focus(); } };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { e.preventDefault(); setOpen(false); button.current?.focus(); } };
     const onClick = (e: MouseEvent) => { if (!root.current?.contains(e.target as Node)) setOpen(false); };
     document.addEventListener('keydown', onKey);
     document.addEventListener('click', onClick);
@@ -151,7 +156,7 @@ export default function HeaderChips({ showCompare = false }: Props) {
       {showCompare && count > 0 && (
         <a className="chip" href="/compare"><span className="chip-text">{t('compare.chip', { count })}</span></a>
       )}
-      {mine ? (
+      {!showMyCar ? null : mine ? (
         <div className="chip-menu" ref={root}>
           <button type="button" ref={button} className="chip" aria-haspopup="menu" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
             <span className="chip-text">{t('mycar.chip', { car: mine.label ?? mine.carId.split('/')[1] })}</span> <span aria-hidden="true">▾</span>

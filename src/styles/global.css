@@ -38,6 +38,10 @@
   --shadow: 0 1px 2px rgb(26 27 30 / 8%), 0 4px 16px rgb(26 27 30 / 6%);
   --font: "Archivo Variable", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  /* B64: Overpass, an open face drawn from North American highway-sign lettering, for display text. */
+  --display: "Overpass Variable", var(--font);
+  /* B64: one easing for everything that arrives: fast out of the gate, a long soft landing. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light;
 }
 
@@ -113,7 +117,7 @@ body {
 }
 a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
-h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; text-wrap: balance; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; text-wrap: balance; font-family: var(--display); }
 h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; letter-spacing: -0.02em; }
 h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
 h3 { font-size: 1.05rem; font-weight: 600; }
@@ -237,8 +241,10 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .map-panel { position: absolute; top: 12px; left: 12px; z-index: 3; width: 280px; max-height: calc(100% - 24px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
 .map-panel-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 12px; background: none; border: 0; color: inherit; font: inherit; font-weight: 600; cursor: pointer; text-align: left; border-radius: var(--radius); }
 .map-panel-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.map-filters { overflow-y: auto; padding: 0 12px 4px; border-top: 1px solid var(--border); }
-.map-filters[hidden] { display: none; }
+.map-filters { min-height: 0; }
+.map-filters > .map-filters-body { overflow-y: auto; padding: 0 12px 4px; border-top: 1px solid var(--border); }
+.map-filters > .map-filters-body { transition: padding 0.24s var(--ease-out), border-color 0.24s; }
+.map-filters.shut > .map-filters-body { padding-bottom: 0; border-top-color: transparent; }
 .map-filters fieldset { border: 0; margin: 10px 0 0; padding: 0; }
 .map-filters legend { font-weight: 600; font-size: 0.85rem; color: var(--muted); padding: 0; margin-bottom: 4px; }
 .map-filters ul { list-style: none; margin: 0; padding: 0; }
@@ -246,7 +252,6 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .map-filters ul.plugs { display: grid; grid-template-columns: 1fr; } /* one per row: each has a drawing (B54) */
 .map-filters .check.off { color: var(--muted); cursor: default; }
 .map-filters .plugs-note { margin: 2px 0 0; }
-.map-filters-on { margin-left: auto; font-weight: 600; color: var(--paint-ink); background: var(--paint); border: 1px solid var(--paint-edge); border-radius: 999px; padding: 0 8px; line-height: 1.6; }
 /* kW range slider (B35): two native range inputs over one rail; only the thumbs take the pointer. */
 .map-filters .power { padding: 0 2px 6px 8px; }
 .map-filters .power-words { margin: 0 0 2px; font-size: 0.9rem; }
@@ -276,10 +281,9 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .plugs-toggle .plugs-summary { margin-left: auto; font-weight: 400; }
 .plugs-toggle .chev { flex: none; transition: transform 0.15s; }
 .plugs-toggle[aria-expanded=true] .chev { transform: rotate(180deg); }
-@media (prefers-reduced-motion: reduce) { .plugs-toggle .chev { transition: none; } }
+html[data-motion="off"] .plugs-toggle .chev { transition: none; }
 .plugs-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
 .map-filters #map-plugs { margin-top: 2px; }
-.map-filters #map-plugs[hidden] { display: none; }
 .plug-icon { flex: none; }
 .map-filters .map-mycar p { margin: 0 0 4px 26px; }
 .map-count { margin: 0; padding: 8px 12px; border-top: 1px solid var(--border); }
@@ -288,7 +292,7 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 /* Stations in view (B62): a switch on the right with the count of stations on screen; switched on,
    the list opens under it, in the place a station's details use (they get a Back button to it). */
 .map-inview { position: absolute; top: 72px; right: 12px; z-index: 4; width: 340px; max-height: calc(100% - 72px - 196px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
-.map-inview:not(.open), .map-inview:not(.open) .map-inview-toggle { width: auto; border-radius: 999px; }
+.map-inview:not(.open), .map-inview:not(.open) .map-inview-toggle { width: auto; border-radius: 23px; }
 .map-inview-toggle { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 8px 12px; background: none; border: 0; border-radius: var(--radius); color: inherit; font: inherit; font-weight: 600; text-align: left; cursor: pointer; }
 .map-inview.open .map-inview-toggle { border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
 .map-inview-name { flex: 1; }
@@ -299,7 +303,7 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 .map-inview-toggle[aria-checked=true] .map-switch { background: var(--paint); border-color: var(--paint-edge); }
 .map-inview-toggle[aria-checked=true] .map-switch span { transform: translateX(14px); background: var(--paint-ink); }
 .map-inview-toggle:hover .map-switch { border-color: var(--text); }
-@media (prefers-reduced-motion: reduce) { .map-switch, .map-switch span { transition: none; } }
+html[data-motion="off"] .map-switch, html[data-motion="off"] .map-switch span { transition: none; }
 .map-inview-toggle:focus-visible, .map-list button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .map-list { overflow-y: auto; min-height: 0; padding: 6px; }
 .map-list-note { margin: 6px 6px 2px; }
@@ -335,10 +339,13 @@ a.btn { display: inline-block; text-decoration: none; }
    left column that scrolls; phones: a bottom sheet with the totals showing and the stops folded. */
 .map-route-btn { flex: none; }
 .map-panel.route { width: 380px; max-height: calc(100% - 24px); overflow-y: auto; }
-.route-panel { display: grid; gap: 10px; padding: 10px 14px 14px; }
-.route-head { display: flex; align-items: center; gap: 8px; }
-.route-title { flex: 1; margin: 0; font-size: 1rem; }
-.route-head .map-place-close { margin: 0 -6px 0 0; }
+.route-panel { display: grid; gap: 10px; padding: 0 14px 14px; }
+/* B68: the header (back, title, close) stays at the top while the trip scrolls under it. */
+.route-head { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 6px; min-height: 40px; margin: 0 -14px; padding: 4px 10px 4px 14px; background: var(--surface); border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
+.route-head:has(.route-back) { padding-left: 8px; }
+.route-head .map-place-close { width: 30px; height: 30px; }
+.route-title { flex: 1; margin: 0; font-size: 0.95rem; }
+.route-head .map-place-close { margin: 0; }
 .route-form { display: grid; gap: 8px; }
 .route-ends-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: center; }
 /* From / To (distilled): the map's own trip marks (yellow start dot, ringed end) joined by a dotted
@@ -372,7 +379,7 @@ a.btn { display: inline-block; text-decoration: none; }
 .charger-map p, .station-panel p { text-wrap: pretty; }
 .route-ends { overflow-wrap: anywhere; }
 .route-panel .banner { margin: 0; }
-.route-itinerary { border-top: 1px solid var(--border); padding-top: 10px; }
+.route-itinerary { padding-top: 2px; }
 @media (max-width: 640px) {
   .route-itinerary:not(.open) .ti-body { display: none; }
   .route-itinerary .ti-toggle { display: inline-block; margin-top: 4px; }
@@ -406,7 +413,7 @@ a.btn { display: inline-block; text-decoration: none; }
 .map-btn-label { display: inline-block; max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0; transition: max-width 0.22s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.15s, margin 0.22s cubic-bezier(0.22, 1, 0.36, 1); }
 .map-key-btn:hover .map-btn-label, .map-key-btn:focus-visible .map-btn-label, .map-key-btn[aria-expanded=true] .map-btn-label,
 .map-locate:hover .map-btn-label, .map-locate:focus-visible .map-btn-label { max-width: 16em; opacity: 1; margin-left: 8px; }
-@media (prefers-reduced-motion: reduce) { .map-btn-label { transition: none; } }
+html[data-motion="off"] .map-btn-label { transition: none; }
 .map-locate-msg { margin: 0; max-width: min(360px, calc(100% - 24px)); padding: 8px 12px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
 .map-you { pointer-events: none; width: 18px; height: 18px; border-radius: 50%; background: #1D4ED8; border: 3px solid #FFFFFF; box-shadow: 0 0 0 2px #1D4ED8, 0 1px 4px rgba(0,0,0,0.4); }
 
@@ -446,6 +453,9 @@ a.btn { display: inline-block; text-decoration: none; }
   .sheet-handle:active { cursor: grabbing; }
   .sheet-handle span { width: 40px; height: 4px; border-radius: 2px; background: var(--field-border); }
   .sheet-handle:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+  /* B68: the trip header sticks under the handle; a full sheet sits above the round map buttons, so its close button is never covered. */
+  .route-head { top: 28px; border-radius: 0; }
+  .map-panel { z-index: 5; }
   .charger-map .maplibregl-ctrl-bottom-right, .charger-map .maplibregl-ctrl-bottom-left { bottom: var(--sheet-px, 0px); transition: bottom 0.22s cubic-bezier(0.22, 1, 0.36, 1); }
   /* Map key and Locate me: 44 px round icon buttons; their names stay for screen readers. */
   .map-key-btn, .map-locate { width: 44px; height: 44px; min-height: 44px; padding: 0; justify-content: center; border-radius: 50%; }
@@ -460,7 +470,9 @@ a.btn { display: inline-block; text-decoration: none; }
   .map-panel .tp-field .cp-suggest { position: static; margin: 0; }
   .station-panel { top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 62%; border-radius: 14px 14px 0 0; border-bottom: 0; }
   .map-inview, .map-inview:not(.open) { top: 64px; left: 8px; right: auto; width: auto; max-width: calc(100% - 72px); max-height: none; }
-  .map-inview.open .map-inview-toggle { border-bottom: 0; border-radius: var(--radius); }
+  /* Phones: the switch keeps its shape; the list is the sheet below. */
+  .map-inview, .map-inview.open, .map-inview .map-inview-toggle, .map-inview.open .map-inview-toggle { border-radius: 23px; }
+  .map-inview.open .map-inview-toggle { border-bottom: 0; }
   .map-inview .map-list { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; max-height: 62%; background: var(--surface); border-top: 1px solid var(--border); border-radius: 14px 14px 0 0; box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.18); }
 }
 
@@ -485,9 +497,7 @@ a.btn { display: inline-block; text-decoration: none; }
 @media (pointer: coarse) {
   .charger-map .maplibregl-ctrl-group:has(.maplibregl-ctrl-zoom-in) { display: none; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .map-panel, .charger-map .maplibregl-ctrl-bottom-right, .charger-map .maplibregl-ctrl-bottom-left { transition: none !important; }
-}
+html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplibregl-ctrl-bottom-right, html[data-motion="off"] .charger-map .maplibregl-ctrl-bottom-left { transition: none !important; }
 
 /* Shared buttons (Phase 1b) */
 .btn { font: inherit; font-size: 0.9rem; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
@@ -503,6 +513,7 @@ a.btn { display: inline-block; text-decoration: none; }
 .seg button { font: inherit; font-size: 0.875rem; border: 1px solid var(--field-border); background: var(--surface); color: var(--text); padding: 6px 12px; cursor: pointer; }
 .seg button:first-child { border-radius: 8px 0 0 8px; }
 .seg button:last-child { border-radius: 0 8px 8px 0; border-left: 0; }
+.seg button + button { border-left: 0; }
 .seg button[aria-pressed=true] { background: var(--paint); color: var(--paint-ink); border-color: var(--paint-edge); font-weight: 600; }
 .seg button:hover:not([aria-pressed=true]) { background: var(--surface-2); }
 .kind-tag { display: inline-block; font-size: 0.75rem; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border); }
@@ -611,7 +622,7 @@ a.btn { display: inline-block; text-decoration: none; }
 .chip-plug .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted); transition: transform 0.15s; }
 .chip-plug[aria-checked=true] .switch { background: var(--paint); border-color: var(--paint-edge); }
 .chip-plug[aria-checked=true] .switch::after { transform: translateX(12px); background: var(--paint-ink); }
-@media (prefers-reduced-motion: reduce) { .chip-plug .switch::after { transition: none; } }
+html[data-motion="off"] .chip-plug .switch::after { transition: none; }
 @media (max-width: 640px) { .chip-plug { min-height: 44px; } }
 .chip-plugs-note { margin: 4px 8px 2px; max-width: 230px; font-size: 0.78rem; color: var(--muted); }
 .cp-plugs { display: grid; gap: 6px; margin-top: 4px; }
@@ -638,9 +649,19 @@ a.btn { display: inline-block; text-decoration: none; }
 .linklike { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
 .ti-toggle { display: none; }
 /* Trip result (DESIGN-4 4.8): total time first, then the stops along the painted line. */
+.ti-time-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ti-share { display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; margin-right: -6px; padding: 0; border: 1px solid var(--field-border); border-radius: 50%; background: var(--surface); color: var(--text); cursor: pointer; }
+.ti-share:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ti-share:hover { background: var(--surface-2); }
+.ti-ends { margin: 4px 0 0; overflow-wrap: anywhere; }
+.ti-charge { margin: 0; }
+.ti-cost { margin: 8px 0 2px; }
+.ti-cost-value { font-family: var(--display); font-size: 1.5rem; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.ti-car { margin: 2px 0 8px; }
+.route-back { margin: 0; }
 .ti-time { margin: 0; font-size: 2rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.ti-total { font-weight: 600; margin: 4px 0 10px; font-variant-numeric: tabular-nums; }
-.ti-disclaimer { margin: 8px 0 0; }
+.ti-total { font-weight: 600; margin: 2px 0 0; font-variant-numeric: tabular-nums; word-spacing: 0.08em; }
+.ti-disclaimer { margin: 12px 0 0; }
 .route-itinerary .banner { margin: 8px 0; overflow-wrap: anywhere; }
 .ti-list { list-style: none; margin: 14px 0 0; padding: 0; }
 .ti-list > li { position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; }
@@ -676,3 +697,141 @@ a.btn { display: inline-block; text-decoration: none; }
 .link-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 .route-plugs { margin: 2px 0 0; }
 .route-car .route-plugs { flex-basis: 100%; }
+
+/* ════════════════════════════════════════════════════════════════════════════════════════════
+   Night Drive (owner, overdrive B64): flow and feel on the map page. Colours stay Road Paint.
+   One signature moment, the trip line painting itself along the road (trip-overlay.ts), with
+   quiet motion around it: arrivals ease in, loaders are running lane dashes, the right-hand
+   panel morphs between the list and a station. Everything is off with reduced motion.
+   ════════════════════════════════════════════════════════════════════════════════════════════ */
+
+/* Display text in Overpass: the wordmark, page links, panel titles, the trip's numbers. */
+.logo, .pill-nav a, .map-panel-toggle, .map-inview-toggle, .ti-time, .ti-total, .station-head h2 { font-family: var(--display); }
+.logo-word { font-weight: 800; letter-spacing: -0.01em; }
+.ti-time { font-size: 2.25rem; letter-spacing: -0.015em; }
+.ti-time, .ti-total, .map-inview-count { font-variant-numeric: tabular-nums; }
+
+/* Dark map page: the floating surfaces sit a step above the asphalt with a firmer edge, so panels
+   read clearly against the roads (owner: menu vs. road contrast). Pairs in tests/contrast.test.ts. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body.fill-page { --surface: #26272C; --surface-2: #313238; --border: #45464D; --field-border: #86847B; --shadow: 0 1px 2px rgb(0 0 0 / 55%), 0 10px 28px rgb(0 0 0 / 45%); }
+}
+:root[data-theme="dark"] body.fill-page { --surface: #26272C; --surface-2: #313238; --border: #45464D; --field-border: #86847B; --shadow: 0 1px 2px rgb(0 0 0 / 55%), 0 10px 28px rgb(0 0 0 / 45%); }
+
+/* The mark: on a visit's first page the lane dashes run toward the driver, then the bolt strikes
+   with a flash of paint and the name slides in (html.intro, set once per visit in Base.astro). */
+.logo-mark { overflow: visible; }
+.logo-lane { opacity: 0; }
+.logo-bolt { transform-box: fill-box; transform-origin: 50% 50%; }
+html.intro .logo-lane { opacity: 1; animation: lane-run 0.38s linear 3, lane-out 0.22s ease-out 1.05s forwards; }
+html.intro .logo-bolt { animation: bolt-strike 0.55s cubic-bezier(0.2, 1.5, 0.4, 1) 1.1s both; }
+html.intro .logo-mark { animation: mark-flash 0.9s ease-out 1.15s both; }
+html.intro .logo-word { animation: word-in 0.6s var(--ease-out) 0.15s both; }
+.logo:hover .logo-bolt, .logo:focus-visible .logo-bolt { animation: bolt-jolt 0.4s cubic-bezier(0.2, 1.6, 0.4, 1); }
+@keyframes lane-run { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -5; } }
+@keyframes lane-out { to { opacity: 0; } }
+@keyframes bolt-strike { 0% { opacity: 0; transform: translateY(-5px) scale(0.5); } 55% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+@keyframes mark-flash { 0% { filter: drop-shadow(0 0 0 rgb(255 212 0 / 0%)); } 20% { filter: drop-shadow(0 0 7px rgb(255 212 0 / 85%)) brightness(1.12); } 100% { filter: drop-shadow(0 0 0 rgb(255 212 0 / 0%)); } }
+@keyframes word-in { from { opacity: 0; translate: -6px 0; } }
+@keyframes bolt-jolt { 40% { transform: scale(1.18) rotate(-4deg); } }
+
+/* Loading: a stretch of road whose centre-line dashes run, beside the words that say what loads. */
+.road-loader { position: relative; display: inline-block; flex: none; vertical-align: -1px; width: 30px; height: 10px; margin-right: 8px; border-radius: 3px; background: var(--band); overflow: hidden; }
+.road-loader > span { position: absolute; top: 4px; left: -12px; right: 0; height: 2px; background: repeating-linear-gradient(90deg, var(--paint) 0 6px, transparent 6px 12px); animation: road-run 0.45s linear infinite; }
+@keyframes road-run { to { transform: translateX(12px); } }
+.map-status-loading { display: flex; align-items: center; gap: 2px; font-family: var(--display); font-weight: 700; }
+.map-status-loading .road-loader { width: 64px; height: 14px; border-radius: 4px; }
+.map-status-loading .road-loader > span { top: 6px; }
+.map-inview-count .road-loader { margin: 0; width: 34px; }
+.map-count .road-loader { margin-right: 6px; }
+.cp-none .road-loader { margin-right: 6px; }
+/* Planning keeps its paint and shows the road running inside the button. */
+.btn.primary[aria-busy=true]:disabled { background: var(--paint); color: var(--paint-ink); border-color: var(--paint-edge); cursor: progress; }
+.btn.primary[aria-busy=true] { display: inline-flex; align-items: center; justify-content: center; }
+
+/* Arrivals: popups, the station card, the list, suggestions and notes ease in where they open. */
+.map-key, .map-inview .map-list, .map-locate-msg, .cp-suggest, .map-place-near, .route-panel .banner { transition: opacity 0.22s var(--ease-out), translate 0.32s var(--ease-out); }
+@starting-style { .map-key, .map-inview .map-list, .map-locate-msg, .cp-suggest, .map-place-near, .route-panel .banner { opacity: 0; translate: 0 8px; } }
+.station-panel { transition: opacity 0.22s var(--ease-out), translate 0.34s var(--ease-out); }
+@starting-style { .station-panel { opacity: 0; translate: 14px 0; } }
+.map-inview { transition: opacity 0.22s var(--ease-out), translate 0.32s var(--ease-out), width 0.3s var(--ease-out), border-radius 0.3s var(--ease-out); }
+@starting-style { .map-inview { opacity: 0; translate: 0 -6px; } }
+.map-key-btn, .map-locate { transition: background 0.15s, border-color 0.15s, translate 0.2s var(--ease-out); }
+.map-key-btn:hover, .map-locate:hover:not(:disabled) { translate: 0 -1px; }
+
+/* The first page of a visit: the floating chrome settles onto the map in a short cascade. */
+html.intro .site-header .bar, html.intro .map-panel, html.intro .map-inview, html.intro .map-corner > * { animation: float-in 0.6s var(--ease-out) both; }
+html.intro .map-panel { animation-delay: 0.08s; }
+html.intro .map-inview { animation-delay: 0.16s; }
+html.intro .map-corner > * { animation-delay: 0.22s; }
+@keyframes float-in { from { opacity: 0; translate: 0 10px; } }
+
+/* The right-hand panel morphs between Stations in view and a station (View Transitions; the
+   rest of the page, the map included, stays live). Desktop only: on phones they are sheets. */
+@media (min-width: 641px) and (not ((max-height: 480px) and (pointer: coarse))) {
+  /* Only the panel that is changing is named, so the other one stays still (motion.ts scope). */
+  html[data-vt-scope="side"] .station-panel, html[data-vt-scope="side"] .map-inview.open { view-transition-name: side-panel; }
+  html[data-vt-scope="left"] .map-panel { view-transition-name: left-panel; }
+}
+:root { view-transition-name: none; }
+/* A sideways slide, like turning a page: a station comes in from the right, Back brings the list in
+   from the left (html[data-vt], motion.ts morph). The panel's height eases between the two. */
+::view-transition-group(side-panel) { animation-duration: 0.32s; animation-timing-function: var(--ease-out); }
+::view-transition-old(side-panel), ::view-transition-new(side-panel) { height: auto; mix-blend-mode: normal; animation-timing-function: var(--ease-out); }
+::view-transition-group(left-panel) { animation-duration: 0.32s; animation-timing-function: var(--ease-out); }
+::view-transition-old(left-panel), ::view-transition-new(left-panel) { height: auto; mix-blend-mode: normal; }
+::view-transition-old(side-panel), ::view-transition-old(left-panel) { animation: vt-out-left 0.2s var(--ease-out) both; }
+::view-transition-new(side-panel), ::view-transition-new(left-panel) { animation: vt-in-right 0.32s var(--ease-out) both; }
+html[data-vt="back"]::view-transition-old(side-panel), html[data-vt="back"]::view-transition-old(left-panel) { animation-name: vt-out-right; }
+html[data-vt="back"]::view-transition-new(side-panel), html[data-vt="back"]::view-transition-new(left-panel) { animation-name: vt-in-left; }
+@keyframes vt-out-left { to { opacity: 0; translate: -40px 0; } }
+@keyframes vt-in-right { from { opacity: 0; translate: 40px 0; } }
+@keyframes vt-out-right { to { opacity: 0; translate: 40px 0; } }
+@keyframes vt-in-left { from { opacity: 0; translate: -40px 0; } }
+/* The slide replaces the panels' own arrival transitions. */
+html[data-vt] .station-panel, html[data-vt] .map-inview, html[data-vt] .map-inview .map-list, html[data-vt] .map-panel, html[data-vt] .map-panel * { transition: none; }
+
+/* The itinerary arrives with the paint: each row lands, and its painted segment draws down to the
+   next stop, in step with the line on the map (trip-overlay.ts PAINT_MS, after the 0.6 s fly-to). */
+@media (min-width: 641px) and (not ((max-height: 480px) and (pointer: coarse))) {
+  .ti-list > li { animation: ti-row 0.45s var(--ease-out) both; animation-delay: calc(0.6s + var(--i, 0) * 1.7s / var(--n, 1)); }
+  .ti-list > li:not(:last-child)::before { transform-origin: top; animation: ti-draw calc(1.7s / var(--n, 1)) linear both; animation-delay: calc(0.6s + var(--i, 0) * 1.7s / var(--n, 1)); }
+}
+@keyframes ti-row { from { opacity: 0; translate: 0 6px; } }
+@keyframes ti-draw { from { transform: scaleY(0); } }
+
+/* Animations off (Settings, B65): everything above stands still. */
+html[data-motion="off"].intro .logo-lane { animation: none; opacity: 0; }
+html[data-motion="off"] .logo-bolt, html[data-motion="off"] .logo-mark, html[data-motion="off"] .logo-word { animation: none !important; }
+html[data-motion="off"] .road-loader > span { animation: none; }
+html[data-motion="off"] .site-header .bar, html[data-motion="off"] .map-panel, html[data-motion="off"] .map-inview, html[data-motion="off"] .map-corner > *, html[data-motion="off"] .ti-list > li, html[data-motion="off"] .ti-list > li::before { animation: none !important; }
+html[data-motion="off"] .map-key, html[data-motion="off"] .map-inview, html[data-motion="off"] .map-inview .map-list, html[data-motion="off"] .map-locate-msg, html[data-motion="off"] .cp-suggest, html[data-motion="off"] .map-place-near, html[data-motion="off"] .route-panel .banner, html[data-motion="off"] .station-panel, html[data-motion="off"] .map-key-btn, html[data-motion="off"] .map-locate { transition: none; }
+html[data-motion="off"] .map-key-btn:hover, html[data-motion="off"] .map-locate:hover:not(:disabled) { translate: none; }
+html[data-motion="off"] .settings-pop { transition: none; }
+
+/* Folds (owner, B66): Chargers, Plugs and the Stations in view list grow open and shrink shut
+   instead of appearing. The content stays in the page; shut, it is invisible and out of the tab
+   order (visibility), so nothing hidden can take focus. */
+:root { interpolate-size: allow-keywords; }
+.fold { display: grid; grid-template-rows: 1fr; transition: grid-template-rows 0.3s var(--ease-out), opacity 0.24s var(--ease-out), visibility 0s; }
+.fold.shut { grid-template-rows: 0fr; opacity: 0; visibility: hidden; transition: grid-template-rows 0.24s var(--ease-out), opacity 0.16s ease-out, visibility 0s linear 0.24s; }
+.fold > * { min-height: 0; overflow: hidden; }
+.fold > .map-list { overflow-y: auto; }
+.map-list-fold { min-height: 0; contain: inline-size; } /* a shut list doesn't widen the pill */
+@media (max-width: 640px), (max-height: 480px) and (pointer: coarse) {
+  /* Phones: the list is a sheet from the bottom edge, so it slides up and down. */
+  .map-list-fold > .map-list { transition: translate 0.3s var(--ease-out); }
+  .map-list-fold.shut > .map-list { translate: 0 100%; }
+}
+html[data-motion="off"] .fold, html[data-motion="off"] .fold.shut, html[data-motion="off"] .map-list-fold > .map-list { transition: none; }
+html[data-motion="off"] .map-inview { transition: none; }
+
+/* Shut folds take no room: their padding goes with them (B67: the Stations in view switch sat
+   off-centre over a shut list's padding). */
+.fold > * { transition: padding 0.24s var(--ease-out); }
+.map-list-fold.shut > .map-list { padding-block: 0; }
+
+/* My car menu (B67): drops in like Settings. */
+.chip-pop { transition: opacity 0.18s var(--ease-out), translate 0.24s var(--ease-out); }
+@starting-style { .chip-pop { opacity: 0; translate: 0 -6px; } }
+html[data-motion="off"] .chip-pop, html[data-motion="off"] .fold > * { transition: none; }

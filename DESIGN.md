@@ -52,13 +52,13 @@ colors:
   faded-marking: "#8A8980"
 typography:
   display:
-    fontFamily: "Archivo Variable, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
+    fontFamily: "Overpass Variable, Archivo Variable, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
     fontSize: "clamp(1.6rem, 4vw, 2.2rem)"
     fontWeight: 800
     lineHeight: 1.2
     letterSpacing: "-0.02em"
   headline:
-    fontFamily: "Archivo Variable, system-ui, sans-serif"
+    fontFamily: "Overpass Variable, Archivo Variable, system-ui, sans-serif"
     fontSize: "1.3rem"
     fontWeight: 700
     lineHeight: 1.2
@@ -202,11 +202,11 @@ The OpenFreeMap style is recoloured at load (`src/lib/map-style.ts`, `MAP_PALETT
 
 ## Typography
 
-**Display Font:** Archivo Variable (with system-ui fallback)
+**Display Font:** Overpass Variable (B64: open highway-sign lettering; headings, the logo, page links, panel titles, the trip's numbers), falling back to Archivo
 **Body Font:** Archivo Variable
 **Label/Mono Font:** Archivo Variable; `ui-monospace` only for code-like values
 
-**Character:** One sturdy grotesque, like highway signage: heavy and tightly tracked in headings, plain and open in body text, with tabular figures so times and kilowatts line up.
+**Character:** Highway signage: Overpass for what you read at a glance, Archivo for the rest; heavy and tightly tracked in headings, plain and open in body text, with tabular figures so times and kilowatts line up.
 
 ### Hierarchy
 - **Display** (800, clamp(1.6rem, 4vw, 2.2rem), 1.2, -0.02em): page titles and the trip's total time, the largest text on the planner.
@@ -218,6 +218,8 @@ The OpenFreeMap style is recoloured at load (`src/lib/map-style.ts`, `MAP_PALETT
 ### Named Rules
 **The Tabular Rule.** Every number a visitor compares (times, kWh, kW, km) uses tabular figures.
 
+**The Motion Rule (B64–B67).** Motion follows the road: the trip line paints itself, loaders are running lane dashes, panels grow and shrink, and moving between a list and its details is a sideways slide (forward to the right, Back to the left). One easing (`--ease-out`), 0.2–0.35 s. Everything stops when **Animations** is off in Settings (B65), which replaces the device's reduce-motion signal.
+
 **The Muted-Suffix Rule.** A variant name's code suffix ("-B (pre-6/11/25)") is shown as a separate, muted span after the plain name (4.16), never in the same weight.
 
 ## Layout
@@ -227,7 +229,7 @@ The home page is a full-screen map with three floating layers: the planner card 
 Breakpoints, from the built CSS:
 - **≤ 640px (phone):** the planner card becomes a bottom sheet with the summary and any gap warning above the fold; the nav pill spans the width with 8px margins; the Map key opens as a fixed popup.
 - **≤ 767px:** the map panel starts closed.
-- **≥ 900px:** the nav pill also lists the pages (Map, Charging, Cars, Compare).
+- **≥ 900px:** the nav pill also lists the pages (Map, Charging, Cars, Compare, About) and the menu button goes (B65).
 - **≤ 420px:** chips tighten their gaps and padding.
 
 Touch targets: the My car plug switches are 44px tall on phones; chips and the Plugs toggle are 36px, Locate me 44px, and the zoom buttons 32px (MapLibre's, restyled in the panel surface; hidden on touch screens, B59). All meet WCAG 2.2's 24px minimum.
@@ -260,7 +262,7 @@ Map marks are circles with a dark ring: Level 3 pins yellow with a bolt, Level 2
 
 ### Chips
 - **Style:** full pill, surface fill, Field Border outline, 36px minimum height, 0.875rem text. Used for "Pick your car" / My car and Compare in the header.
-- **State:** the My car chip opens a menu with NACS / CCS1 / CHAdeMO switches (B55); a filter chip shows a count ("1 filter on") in amber.
+- **State:** the My car chip opens a menu with NACS / CCS1 / CHAdeMO switches (B55). Chips belong to their pages (B68): My car on the map only, Compare on the other pages only.
 
 ### Cards / Containers
 - **Corner Style:** 12px.
@@ -275,7 +277,8 @@ Map marks are circles with a dark ring: Level 3 pins yellow with a bolt, Level 2
 - **Checkboxes, radios, ranges:** browser controls tinted with the accent colour; the power range has yellow-ringed thumbs.
 
 ### Navigation
-- **Style:** a small floating pill at top right on every page (B54): menu button, logo, then the page links on wide screens, then the My car and Compare chips. Links are 0.9rem, weight 600, pill-shaped; the current page is filled yellow with ink text. On phones the pill spans the width. The menu button opens a side dialog with the theme switch, the km/mi switch and the page list.
+- **Style:** a small floating pill at top right on every page (B54): on narrow screens a menu button, then the logo, the page links on wide screens, the page's chip (My car or Compare) and the **Settings** gear (B65: Theme, Animations, Charging price per kWh, Distances). Links are 0.9rem, weight 600, pill-shaped; the current page is filled yellow with ink text. On phones the pill spans the width; the menu button opens a side dialog with the page list.
+- **Labels:** as few words as do the job (B68): "Plan", "Show stops", "Return to plan".
 
 ### Source Badge (signature)
 Every vehicle figure carries a small pill badge naming its source. Official figures use the yellow soft fill and accent text; estimated figures use the violet soft fill, a dashed border and italic text; low-confidence ones a dotted border. Opening a badge shows the source.

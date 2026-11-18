@@ -201,3 +201,5 @@ For variants with no measured curve. Each template is a list of **SoC → fracti
 |----|----------|
 | C10 | Which **testing sources** have curves we're allowed to record? Needed to calibrate the templates (§9) and to replace estimated curves. |
 | C11 | Should a curve's **AC charging** (Level 2 time, for example 20% → 100% overnight) also be shown, using `ac_max_kw`? It's easy to calculate and useful for owners. |
+
+**B66 (2026-11-17):** the price per kWh is one site-wide setting, shared with Settings in the header and with the trip planner's stop costs; changing it here changes it there.

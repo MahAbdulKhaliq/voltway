@@ -5,13 +5,16 @@
 // said once, with a short tag on the stops they apply to. On phones the stops open with
 // "Show the stops"; the totals, warnings and the "estimate only" line are always visible.
 
-import { useEffect, useId, useRef } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { t } from '../i18n/t.ts';
 import type { TripEnd } from '../lib/place-search.ts';
 import { gapDetails, hoursMinutes, pct, showDate, stopsText } from '../lib/trip-format.ts';
 import { NEAR_KM, type TripPlan } from '../lib/trip-plan.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
-import { TRIP } from '../config.ts';
+import { COVERAGE, TRIP } from '../config.ts';
+import { chargeCost, chargePrice, PRICE_EVENT } from '../lib/price.ts';
+
+const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', currency: COVERAGE.currency });
 
 interface Props {
   plan: TripPlan;
@@ -29,10 +32,27 @@ interface Props {
   updated: string | null;
   /** The car's data date: the latest source check, YYYY-MM-DD. */
   carUpdated: string | null;
+  /** Car, start % and threshold, one line. */
+  carLine: string;
+  /** The plugs the plan used, with Change plugs (after the charging time). */
+  plugs: ReactNode;
+  /** Makes the share link. */
+  onShare: () => void;
+  /** The link once made, shown under the time. */
+  shareNote: ReactNode;
 }
 
-export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, open, onToggle, updated, carUpdated }: Props) {
+export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote }: Props) {
   const bodyId = useId();
+  // Stop costs use the charging price from Settings (B66); it can change while the plan is shown.
+  const [price, setPrice] = useState(chargePrice);
+  useEffect(() => {
+    const on = (e: Event) => setPrice((e as CustomEvent<number>).detail);
+    window.addEventListener(PRICE_EVENT, on);
+    return () => window.removeEventListener(PRICE_EVENT, on);
+  }, []);
+  const stopCost = (kwh: number) => money.format(chargeCost(kwh, price));
+  const totalKwh = plan.stops.reduce((sum, s) => sum + (s.energyKwh ?? 0), 0);
   // A stop picked on the map is brought into view in the list (DESIGN-4 4.11). A folded list on a
   // phone stays folded: the station panel is what the visitor asked for.
   const listRef = useRef<HTMLOListElement>(null);
@@ -71,18 +91,39 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
     <div className={`route-itinerary${open ? ' open' : ''}`}>
       <div className="ti-top">
         <h2 className="sr-only">{t('trip.itinerary')}</h2>
-        <p className="ti-time">
-          <span className="sr-only">{t('trip.totalTimeLabel')} </span>
-          {tilde(anyEstimated && plan.totals.chargeMin > 0)}{hoursMinutes(plan.totals.totalMin)}
-        </p>
+        <div className="ti-time-row">
+          <p className="ti-time">
+            <span className="sr-only">{t('trip.totalTimeLabel')} </span>
+            {tilde(anyEstimated && plan.totals.chargeMin > 0)}{hoursMinutes(plan.totals.totalMin)}
+          </p>
+          <button type="button" className="icon-btn ti-share" aria-label={t('trip.share')} title={t('trip.share')} onClick={onShare}>
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+          </button>
+        </div>
+        {shareNote}
+        <p className="ti-ends"><strong>{from.label}</strong> → <strong>{to.label}</strong></p>
         <p className="ti-total">
           {t('trip.totalLine', {
             distance: dist(plan.totals.distanceKm),
             drive: hoursMinutes(plan.totals.driveMin),
             stops: stopsText(plan.totals.stops),
-            charge: `${tilde(anyEstimated && plan.totals.chargeMin > 0)}${hoursMinutes(plan.totals.chargeMin)}`,
           })}
         </p>
+        <p className="ti-charge small">
+          {t('trip.chargeLine', { charge: `${tilde(anyEstimated && plan.totals.chargeMin > 0)}${hoursMinutes(plan.totals.chargeMin)}` })}
+          {plugs}
+        </p>
+        {plan.stops.length > 0 && (
+          <p className="ti-cost">
+            <span className="sr-only">{t('trip.costLabel')} </span>
+            <strong className="ti-cost-value">~{stopCost(totalKwh)}</strong>{' '}
+            <span className="small muted">{t('trip.costAt', { price: money.format(price) })}</span>{' '}
+            <button type="button" className="link-btn small" onClick={() => window.dispatchEvent(new CustomEvent('voltway:settings', { detail: 'price' }))}>{t('trip.costChange')}</button>
+          </p>
+        )}
+        <p className="small muted ti-car">{carLine}</p>
         {noChargers && <p className="banner small" role="alert">{t('trip.warn.noChargers')}</p>}
         {!plan.reachable && !noChargers && !gapSaysUnreachable && <p className="banner small" role="alert">{t('trip.warn.unreachable')}</p>}
         {/* Charging gaps stay above the fold on phones: they are never behind "Show the stops". */}
@@ -97,7 +138,6 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             })}
           </p>
         ))}
-        <p className="small muted ti-disclaimer">{t('trip.disclaimer')}</p>
         <button type="button" className="btn small ti-toggle" aria-expanded={open} aria-controls={bodyId} onClick={onToggle}>
           {open ? t('trip.sheetHide') : t('trip.sheetShow')}
         </button>
@@ -105,7 +145,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
 
       <div id={bodyId} className="ti-body">
         <ol className="ti-list" ref={listRef}>
-          <li className={`ti-end ti-start${gapClass(0)}`}>
+          <li className={`ti-end ti-start${gapClass(0)}`} style={{ '--i': 0, '--n': plan.stops.length + 1 } as React.CSSProperties}>
             <span className="ti-mark" aria-hidden="true" />
             <div>
               <p className="ti-head"><strong>{from.label}</strong></p>
@@ -114,7 +154,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             </div>
           </li>
           {plan.stops.map((s, i) => (
-            <li key={`${s.station.i}-${i}`} data-stop-item={i} aria-current={selected === i ? 'true' : undefined} className={`ti-stop${selected === i ? ' on' : ''}${gapClass(i + 1)}`}>
+            <li key={`${s.station.i}-${i}`} style={{ '--i': i + 1, '--n': plan.stops.length + 1 } as React.CSSProperties} data-stop-item={i} aria-current={selected === i ? 'true' : undefined} className={`ti-stop${selected === i ? ' on' : ''}${gapClass(i + 1)}`}>
               <span className="ti-mark ti-num" aria-hidden="true">{i + 1}</span>
               <div>
                 <p className="ti-head">
@@ -127,6 +167,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
                     depart: pct(s.departSoc),
                     minutes: `${tilde(s.estimated)}${formatNumber(Math.round(s.chargeMin))}`,
                   })}
+                  {s.energyKwh != null && t('trip.stopCost', { cost: stopCost(s.energyKwh) })}
                 </p>
                 <p className="ti-row">
                   <button type="button" className="btn small" data-stop={i} aria-label={t('trip.detailsFor', { name: s.station.n })} onClick={(e) => onOpenStop(i, e.currentTarget)}>
@@ -142,7 +183,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
               </div>
             </li>
           ))}
-          <li className="ti-end ti-finish">
+          <li className="ti-end ti-finish" style={{ '--i': plan.stops.length + 1, '--n': plan.stops.length + 1 } as React.CSSProperties}>
             <span className="ti-mark" aria-hidden="true" />
             <div>
               <p className="ti-head"><strong>{to.label}</strong></p>
@@ -176,6 +217,8 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
           </div>
         </details>
       </div>
+      {/* Last (owner, B67): the reminder that all of this is an estimate. Always visible, phones included. */}
+      <p className="small muted ti-disclaimer">{t('trip.disclaimer')}</p>
     </div>
   );
 }

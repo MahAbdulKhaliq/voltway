@@ -31,11 +31,22 @@ const PAIRS: [string, string, number][] = [
   ...[1, 2, 3, 4].flatMap((n): [string, string, number][] => [[`car-${n}`, 'surface', 4.5], [`car-${n}`, 'bg', 4.5]]),
 ];
 
+// B64: on the dark map page the floating surfaces sit a step above the asphalt (body.fill-page).
+const mapStart = css.indexOf(':root[data-theme="dark"] body.fill-page {');
+const mapDark = { ...dark, ...tokens(css.slice(mapStart, css.indexOf('}', mapStart))) };
+const mapMediaStart = css.indexOf(':root:not([data-theme="light"]) body.fill-page {');
+const mapDarkMedia = { ...dark, ...tokens(css.slice(mapMediaStart, css.indexOf('}', mapMediaStart))) };
+
 describe('theme contrast (WCAG AA, B20)', () => {
   it('dark tokens are the same in the media query and the manual override', () => {
     expect(darkMedia).toEqual(dark);
+    expect(mapDarkMedia).toEqual(mapDark);
   });
-  for (const [name, theme] of [['light', light], ['dark', dark]] as const) {
+  it('the dark map page raises its floating surfaces above the asphalt', () => {
+    expect(mapDark.surface).not.toBe(dark.surface);
+    expect(contrast(mapDark.border, dark.bg)).toBeGreaterThanOrEqual(1.8);
+  });
+  for (const [name, theme] of [['light', light], ['dark', dark], ['dark map page', mapDark]] as const) {
     it.each(PAIRS)(`${name}: %s on %s ≥ %s`, (fg, bg, min) => {
       expect(theme[fg], `missing --${fg}`).toBeDefined();
       expect(theme[bg], `missing --${bg}`).toBeDefined();

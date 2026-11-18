@@ -1,10 +1,13 @@
 ---
-// Page shell (B20): menu button (left) → side panel with a theme toggle, page search and the
-// list of pages; then the logo; main content; footer. Trip joins
+// Page shell (B20, B65): on narrow screens a menu button (left) opens a side panel with the list of
+// pages; wide screens list the pages in the header instead. Then the logo, My car and the Settings
+// menu (theme, animations, km/mi); main content; footer. Trip joins
 // PAGES as they're built. The map is the home page (B26). Distances render in km and are converted in place when the
 // visitor picks miles (database-ui.md §9; the switch lives in the curve controls, B19).
-// Archivo is bundled with the build and served from this site (no third-party font request, DESIGN-4).
+// Archivo (text) and Overpass (display, B64: the road-sign face) are bundled with the build and
+// served from this site (no third-party font request, DESIGN-4).
 import '@fontsource-variable/archivo/wght.css';
+import '@fontsource-variable/overpass/wght.css';
 import '../styles/global.css';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { COVERAGE } from '../config.ts';
@@ -22,7 +25,7 @@ const isNotFound = path === '/404';
 const pageUrl = new URL(path, Astro.site).href;
 const ogImage = new URL('/og.png', Astro.site).href;
 
-// Pages in the menu. Search matches the name, the description and the keywords.
+// Pages in the header (wide screens) and the side menu (narrow screens).
 const PAGES: { id: Page; href: string }[] = [
   { id: 'map', href: '/' },
   { id: 'charging', href: '/charging' },
@@ -30,8 +33,9 @@ const PAGES: { id: Page; href: string }[] = [
   { id: 'compare', href: '/compare' },
   { id: 'about', href: '/about' },
 ];
-const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
+const page = (id: Page, part: 'name' | 'desc') =>
   t((part === 'name' ? `nav.${id}` : `nav.${id}.${part}`) as MessageKey);
+const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short`) : page(id, 'name'));
 ---
 
 <!doctype html>
@@ -59,6 +63,17 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
         var saved = localStorage.getItem('voltway.theme');
         if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
       } catch (e) {}
+      // B65: Animations is a site setting (on by default), not the device's reduce-motion signal.
+      try {
+        if (localStorage.getItem('voltway.motion') === 'off') document.documentElement.dataset.motion = 'off';
+      } catch (e) {}
+      // B64: the mark's intro (lanes run, the bolt strikes) plays once per visit, not on every page.
+      try {
+        if (document.documentElement.dataset.motion !== 'off' && !sessionStorage.getItem('voltway.intro')) {
+          document.documentElement.classList.add('intro');
+          sessionStorage.setItem('voltway.intro', '1');
+        }
+      } catch (e) {}
     </script>
     <slot name="head" />
   </head>
@@ -70,42 +85,75 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
           <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" /></svg>
         </button>
         <a class="logo" href="/">
-          <!-- The mark (B55): a yellow tile with a dark road in perspective; its centre line is a yellow bolt. -->
-          <svg class="logo-mark" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="0.4" y="0.4" width="23.2" height="23.2" rx="6" fill="var(--paint)" stroke="var(--paint-ink)" stroke-width="0.8" /><path d="M9.4 3h5.2L20 21.5H4Z" fill="var(--paint-ink)" /><path d="M12.9 4.6 9.7 12.3h2.6l-1.3 6.5 3.8-8.1h-2.7l.8-6.1Z" fill="var(--paint)" /></svg>
-          <span>{t('site.name')}</span>
+          <!-- The mark (B55, B64): a yellow tile with a dark road in perspective; its centre line is a
+               yellow bolt. On a visit's first page the lane dashes run toward the horizon, then the
+               bolt strikes (html.intro, global.css). -->
+          <svg class="logo-mark" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+            <defs><clipPath id="logo-road"><path d="M9.4 3h5.2L20 21.5H4Z" /></clipPath></defs>
+            <rect class="logo-tile" x="0.4" y="0.4" width="23.2" height="23.2" rx="6" fill="var(--paint)" stroke="var(--paint-ink)" stroke-width="0.8" />
+            <path d="M9.4 3h5.2L20 21.5H4Z" fill="var(--paint-ink)" />
+            <g clip-path="url(#logo-road)"><path class="logo-lane" d="M12 22V2" stroke="var(--paint)" stroke-width="1.6" stroke-dasharray="2.6 2.4" fill="none" /></g>
+            <path class="logo-bolt" d="M12.9 4.6 9.7 12.3h2.6l-1.3 6.5 3.8-8.1h-2.7l.8-6.1Z" fill="var(--paint)" />
+          </svg>
+          <span class="logo-word">{t('site.name')}</span>
         </a>
         <!-- The header is a small floating pill on every page (B54); on wide screens it also lists the pages. -->
         <nav class="pill-nav" aria-label={t('nav.quick')}>
-          {PAGES.filter((p) => p.id !== 'about').map((p) => (
-            <a href={p.href} aria-current={active === p.id ? 'page' : undefined}>{p.id === 'map' ? t('nav.map.short') : page(p.id, 'name')}</a>
+          {PAGES.map((p) => (
+            <a href={p.href} aria-current={active === p.id ? 'page' : undefined}>{short(p.id)}</a>
           ))}
         </nav>
-        <HeaderChips client:idle showCompare />
+        <!-- Chips that belong to the page (B68): My car on the map, Compare elsewhere. -->
+        <HeaderChips client:idle showCompare={active !== 'map'} showMyCar={active === 'map'} />
+        <!-- Settings (B65): theme, animations and distance units for the whole site. -->
+        <div class="settings">
+          <button type="button" class="icon-btn settings-btn" aria-expanded="false" aria-controls="settings-pop" aria-label={t('settings.open')}>
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.08 4.85L10.35 2.14L13.65 2.14L13.92 4.85A7.4 7.4 0 0 1 15.70 5.59L17.81 3.86L20.14 6.19L18.41 8.30A7.4 7.4 0 0 1 19.15 10.08L21.86 10.35L21.86 13.65L19.15 13.92A7.4 7.4 0 0 1 18.41 15.70L20.14 17.81L17.81 20.14L15.70 18.41A7.4 7.4 0 0 1 13.92 19.15L13.65 21.86L10.35 21.86L10.08 19.15A7.4 7.4 0 0 1 8.30 18.41L6.19 20.14L3.86 17.81L5.59 15.70A7.4 7.4 0 0 1 4.85 13.92L2.14 13.65L2.14 10.35L4.85 10.08A7.4 7.4 0 0 1 5.59 8.30L3.86 6.19L6.19 3.86L8.30 5.59A7.4 7.4 0 0 1 10.08 4.85Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" /><circle cx="12" cy="12" r="3.1" fill="none" stroke="currentColor" stroke-width="1.7" /></svg>
+          </button>
+          <div id="settings-pop" class="settings-pop" role="group" aria-labelledby="settings-title" hidden>
+            <p id="settings-title" class="settings-title">{t('settings.title')}</p>
+            <div class="settings-row">
+              <span id="settings-theme">{t('settings.theme')}</span>
+              <div class="seg theme-seg" role="group" aria-labelledby="settings-theme">
+                <button type="button" data-theme-choice="light" aria-pressed="false">{t('settings.themeLight')}</button>
+                <button type="button" data-theme-choice="dark" aria-pressed="false">{t('settings.themeDark')}</button>
+                <button type="button" data-theme-choice="system" aria-pressed="false">{t('settings.themeSystem')}</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <span id="settings-motion">{t('settings.motion')}</span>
+              <div class="seg motion-seg" role="group" aria-labelledby="settings-motion">
+                <button type="button" data-motion-choice="on" aria-pressed="true">{t('settings.motionOn')}</button>
+                <button type="button" data-motion-choice="off" aria-pressed="false">{t('settings.motionOff')}</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <label for="settings-price">{t('settings.price')}</label>
+              <span class="settings-money"><span aria-hidden="true">$</span><input id="settings-price" type="number" inputmode="decimal" min="0" step="0.01" aria-describedby="settings-price-help" /></span>
+            </div>
+            <p id="settings-price-help" class="settings-help">{t('settings.priceHelp')}</p>
+            <div class="settings-row">
+              <span id="settings-units">{t('settings.units')}</span>
+              <div class="units seg" role="group" aria-labelledby="settings-units">
+                <button type="button" data-unit="km" aria-pressed="true">{t('units.km')}</button>
+                <button type="button" data-unit="mi" aria-pressed="false">{t('units.mi')}</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
     <dialog id="side-nav" class="side-nav" aria-label={t('nav.main')}>
       <div class="side-top">
-        <button type="button" class="icon-btn theme-btn" data-light-label={t('theme.toLight')} data-dark-label={t('theme.toDark')} aria-label={t('theme.toDark')}>
-          <svg class="i-moon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></svg>
-          <svg class="i-sun" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
-        </button>
-        <div class="units seg" role="group" aria-label={t('units.label')}>
-          <button type="button" data-unit="km" aria-pressed="true">{t('units.km')}</button>
-          <button type="button" data-unit="mi" aria-pressed="false">{t('units.mi')}</button>
-        </div>
         <button type="button" class="icon-btn close-btn" aria-label={t('nav.close')}>
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
         </button>
       </div>
-      <label class="search">
-        <span class="sr-only">{t('nav.search')}</span>
-        <input type="search" placeholder={t('nav.search')} autocomplete="off" aria-controls="page-list" />
-      </label>
       <nav aria-label={t('nav.main')}>
         <ul id="page-list" class="page-list">
           {PAGES.map((p) => (
-            <li data-search={`${page(p.id, 'name')} ${page(p.id, 'desc')} ${page(p.id, 'keywords')}`.toLowerCase()}>
+            <li>
               <a href={p.href} aria-current={active === p.id ? 'page' : undefined}>
                 <span class="pl-name">{page(p.id, 'name')}</span>
                 <span class="pl-desc">{page(p.id, 'desc')}</span>
@@ -113,7 +161,6 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
             </li>
           ))}
         </ul>
-        <p class="no-match" role="status" hidden>{t('nav.noMatch')}</p>
       </nav>
     </dialog>
 
@@ -131,48 +178,65 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
     <script>
       import { applyUnits, currentUnit, setUnit } from '../scripts/units-client.ts';
       import { initBadges } from '../scripts/badges-client.ts';
-      import { currentTheme, setTheme } from '../scripts/theme-client.ts';
+      import { chooseTheme, themeChoice } from '../scripts/theme-client.ts';
+      import { motionOn, setMotion } from '../scripts/motion-client.ts';
+      import { chargePrice, PRICE_EVENT, setChargePrice } from '../lib/price.ts';
       initBadges();
       applyUnits(currentUnit());
       document.querySelectorAll<HTMLButtonElement>('.units button').forEach((b) =>
         b.addEventListener('click', () => setUnit(b.dataset.unit === 'mi' ? 'mi' : 'km')),
       );
 
-      // Side nav (B20): a modal <dialog>, so focus stays inside and Escape closes it.
+      // Side nav (B20; narrow screens only, B65): a modal <dialog>, so focus stays inside and Escape closes it.
       const nav = document.getElementById('side-nav') as HTMLDialogElement;
       const menuBtn = document.querySelector<HTMLButtonElement>('.menu-btn')!;
-      const search = nav.querySelector<HTMLInputElement>('input[type=search]')!;
-      const items = [...nav.querySelectorAll<HTMLLIElement>('.page-list li')];
-      const noMatch = nav.querySelector<HTMLElement>('.no-match')!;
-      const filter = () => {
-        const words = search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
-        let shown = 0;
-        for (const li of items) {
-          const hit = words.every((w) => (li.dataset.search ?? '').includes(w));
-          li.hidden = !hit;
-          if (hit) shown++;
-        }
-        noMatch.hidden = shown > 0;
-      };
-      menuBtn.addEventListener('click', () => { nav.showModal(); search.focus(); });
+      menuBtn.addEventListener('click', () => nav.showModal());
       nav.querySelector('.close-btn')!.addEventListener('click', () => nav.close());
       nav.addEventListener('click', (e) => { if (e.target === nav) nav.close(); }); // backdrop
-      nav.addEventListener('close', () => { search.value = ''; filter(); menuBtn.focus(); });
-      search.addEventListener('input', filter);
-      search.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') nav.querySelector<HTMLAnchorElement>('.page-list li:not([hidden]) a')?.click();
-      });
+      nav.addEventListener('close', () => menuBtn.focus());
 
-      // Theme toggle (B20): follows the device until the visitor picks, then remembers.
-      const themeBtn = nav.querySelector<HTMLButtonElement>('.theme-btn')!;
-      const syncThemeBtn = () => {
-        const dark = currentTheme() === 'dark';
-        themeBtn.setAttribute('aria-label', (dark ? themeBtn.dataset.lightLabel : themeBtn.dataset.darkLabel) ?? '');
-        themeBtn.dataset.current = dark ? 'dark' : 'light';
+      // Settings (B65): a small panel under the gear. Escape or a click elsewhere closes it.
+      const setBtn = document.querySelector<HTMLButtonElement>('.settings-btn')!;
+      const pop = document.getElementById('settings-pop') as HTMLDivElement;
+      const showPop = (open: boolean, refocus = false) => {
+        pop.hidden = !open;
+        setBtn.setAttribute('aria-expanded', String(open));
+        if (open) pop.querySelector<HTMLButtonElement>('[aria-pressed=true]')?.focus();
+        else if (refocus) setBtn.focus();
       };
-      themeBtn.addEventListener('click', () => { setTheme(currentTheme() === 'dark' ? 'light' : 'dark'); syncThemeBtn(); });
-      matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncThemeBtn);
-      syncThemeBtn();
+      setBtn.addEventListener('click', () => showPop(setBtn.getAttribute('aria-expanded') !== 'true'));
+      document.addEventListener('click', (e) => { if (!pop.hidden && !(e.target as Element).closest('.settings')) showPop(false); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !pop.hidden) { e.preventDefault(); showPop(false, true); } }); // preventDefault: the trip planner leaves on an unclaimed Escape
+      pop.addEventListener('focusout', (e) => {
+        if (!pop.hidden && e.relatedTarget && !(e.relatedTarget as Element).closest('.settings')) showPop(false);
+      });
+      const press = (sel: string, attr: string, value: string) =>
+        pop.querySelectorAll<HTMLButtonElement>(sel).forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute(attr) === value)));
+      const syncTheme = () => press('[data-theme-choice]', 'data-theme-choice', themeChoice());
+      const syncMotion = () => press('[data-motion-choice]', 'data-motion-choice', motionOn() ? 'on' : 'off');
+      pop.querySelectorAll<HTMLButtonElement>('[data-theme-choice]').forEach((b) =>
+        b.addEventListener('click', () => { chooseTheme(b.dataset.themeChoice as 'light' | 'dark' | 'system'); syncTheme(); }),
+      );
+      pop.querySelectorAll<HTMLButtonElement>('[data-motion-choice]').forEach((b) =>
+        b.addEventListener('click', () => { setMotion(b.dataset.motionChoice === 'on'); syncMotion(); }),
+      );
+      syncTheme();
+      syncMotion();
+      // "Change cost estimate" in a trip opens Settings at the price (after the click that sent it).
+      window.addEventListener('voltway:settings', (e) => setTimeout(() => {
+        showPop(true);
+        if ((e as CustomEvent<string>).detail === 'price') document.getElementById('settings-price')?.focus();
+      }));
+      // Charging price (B66): kept when it's a number of zero or more; anything else snaps back.
+      const priceIn = document.getElementById('settings-price') as HTMLInputElement;
+      const showPrice = (v: number) => { priceIn.value = v.toFixed(2); };
+      showPrice(chargePrice());
+      priceIn.addEventListener('input', () => {
+        const v = Number(priceIn.value);
+        if (priceIn.value.trim() !== '' && Number.isFinite(v) && v >= 0) setChargePrice(v);
+      });
+      priceIn.addEventListener('change', () => showPrice(chargePrice()));
+      window.addEventListener(PRICE_EVENT, () => { if (document.activeElement !== priceIn) showPrice(chargePrice()); });
     </script>
   </body>
 </html>
@@ -187,9 +251,12 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
   :global(body.fill-page) .site-header { position: absolute; top: 12px; right: 12px; left: auto; margin: 0; }
   .bar { display: flex; align-items: center; max-width: none; margin: 0; min-height: 48px; padding: 0 6px 0 2px; gap: 6px; }
   .logo { margin-right: 6px; }
-  .menu-btn { border-radius: 50%; }
+  .menu-btn, .settings-btn { border-radius: 50%; }
   .pill-nav { display: none; }
+  /* Wide screens list the pages in the pill, so the menu button goes (B65). */
   @media (min-width: 900px) {
+    .bar .menu-btn { display: none; }
+    .bar { padding-left: 14px; }
     .pill-nav { display: flex; align-items: center; gap: 2px; margin-right: 6px; }
     .pill-nav a { padding: 6px 10px; border-radius: 999px; color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
     .pill-nav a:hover { background: var(--surface-2); }
@@ -217,24 +284,35 @@ const page = (id: Page, part: 'name' | 'desc' | 'keywords') =>
   .side-nav[open] { display: flex; flex-direction: column; gap: 14px; animation: slide-in 0.18s ease-out; }
   .side-nav::backdrop { background: rgb(0 0 0 / 55%); }
   @keyframes slide-in { from { transform: translateX(-100%); } to { transform: none; } }
-  @media (prefers-reduced-motion: reduce) { .side-nav[open] { animation: none; } }
-  .side-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-  .side-top .units { margin-left: auto; } /* km/mi for the whole site (B51) */
-  .theme-btn .i-sun { display: none; }
-  .theme-btn[data-current='dark'] .i-sun { display: block; }
-  .theme-btn[data-current='dark'] .i-moon { display: none; }
-  .search input {
-    width: 100%; font: inherit; color: var(--text); background: var(--surface);
-    border: 1px solid var(--field-border); border-radius: 10px; padding: 10px 12px;
-  }
+  :global(html[data-motion="off"]) .side-nav[open] { animation: none; }
+  .side-top { display: flex; justify-content: flex-end; align-items: center; }
   .page-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
-  .page-list li[hidden] { display: none; }
   .page-list a { display: grid; gap: 2px; padding: 10px 12px; border-radius: 10px; color: var(--text); text-decoration: none; }
   .page-list a:hover { background: var(--surface-2); }
   .page-list a[aria-current='page'] { background: var(--paint); color: var(--paint-ink); }
   .page-list a[aria-current='page'] .pl-desc { color: var(--paint-ink); }
   .pl-name { font-weight: 700; }
   .pl-desc { font-size: 0.85rem; color: var(--muted); }
-  .no-match { color: var(--muted); margin: 0 12px; }
+
+  /* Settings (B65): drops from the gear, right-aligned under the pill. */
+  .settings { position: relative; flex: none; }
+  .settings-btn { width: 40px; height: 40px; }
+  .settings-btn[aria-expanded='true'] { background: var(--surface-2); }
+  .settings-pop {
+    position: absolute; right: -6px; top: calc(100% + 10px); z-index: 30; width: max-content; min-width: 240px;
+    display: grid; gap: 12px; padding: 14px 16px 16px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; box-shadow: var(--shadow);
+    transition: opacity 0.18s var(--ease-out), translate 0.24s var(--ease-out);
+  }
+  .settings-pop[hidden] { display: none; }
+  @starting-style { .settings-pop { opacity: 0; translate: 0 -6px; } }
+  .settings-title { margin: 0; font-family: var(--display); font-weight: 800; font-size: 1rem; }
+  .settings-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 0.9rem; }
+  .settings-money { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
+  .settings-money input {
+    width: 76px; font: inherit; font-variant-numeric: tabular-nums; color: var(--text); background: var(--surface);
+    border: 1px solid var(--field-border); border-radius: 8px; padding: 5px 8px; text-align: right;
+  }
+  .settings-help { margin: -6px 0 0; max-width: 30ch; font-size: 0.8rem; color: var(--muted); }
   .site-footer { border-top: 1px solid var(--border); color: var(--muted); padding: 20px 0 32px; font-size: 0.9rem; }
 </style>

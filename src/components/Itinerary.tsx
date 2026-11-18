@@ -42,9 +42,11 @@ interface Props {
   shareNote: ReactNode;
   /** Opens Drive mode (B72). */
   onDrive: () => void;
+  /** B76: the trip works with NACS on; turns it on in My car (the plan follows). */
+  onNacs?: () => void;
 }
 
-export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive }: Props) {
+export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive, onNacs }: Props) {
   const bodyId = useId();
   // Stop costs use the charging price from Settings (B66); it can change while the plan is shown.
   const [price, setPrice] = useState(chargePrice);
@@ -145,6 +147,12 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             })}
           </p>
         ))}
+        {onNacs && (
+          <div className="banner small ti-nacs" role="status">
+            <p>{t('trip.nacsHelps')}</p>
+            <button type="button" className="btn small" onClick={onNacs}>{t('trip.nacsTurnOn')}</button>
+          </div>
+        )}
         <button type="button" className="btn small ti-toggle" aria-expanded={open} aria-controls={bodyId} onClick={onToggle}>
           {open ? t('trip.sheetHide') : t('trip.sheetShow')}
         </button>

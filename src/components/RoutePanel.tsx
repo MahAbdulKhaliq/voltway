@@ -11,7 +11,7 @@ import DriveView from './DriveView.tsx';
 import { clearDrive, saveDrive } from '../lib/drive.ts';
 import PlaceField from './PlaceField.tsx';
 import type { TripState } from './useTrip.ts';
-import type { MyCar } from '../lib/my-car.ts';
+import { setMyCar, type MyCar } from '../lib/my-car.ts';
 import type { PlaceSearch } from '../lib/place-search.ts';
 import { SOC_LIMITS } from '../lib/trip-link.ts';
 import { stopsText } from '../lib/trip-format.ts';
@@ -261,6 +261,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           plugs={plugsInline}
           onShare={T.share}
           onDrive={openDrive}
+          onNacs={T.nacsHelps && myCar && dcUsed ? () => setMyCar({ ...myCar, plugs: [...dcUsed, 'nacs'] }) : undefined}
           shareNote={T.shareUrl ? (
             <p className="small tp-share" role="status">
               {t('trip.shareNote')} <input className="field-input" readOnly value={T.shareUrl} onFocus={(e) => e.target.select()} aria-label={t('trip.shareLink')} />

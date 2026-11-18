@@ -106,6 +106,8 @@ When the battery would drop below the threshold (default 15%):
      the first charger past it (or the destination) with the arrival minimum left, up to 100%.
      Add the detour distance to the trip.
   5. Continue from the charger.
+  If the trip can't be finished and NACS is off for the car, plan it again with NACS on; when that
+  works, say so and offer to turn NACS on (B76).
 
 At the destination: arrive with at least the threshold %. If not, add a stop as above.
 ```

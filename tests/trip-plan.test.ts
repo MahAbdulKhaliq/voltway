@@ -4,7 +4,7 @@ import type { MapFeature, MapPort, MapStationProps } from '../src/lib/map-data.t
 import { carPlugs } from '../src/lib/map-filter.ts';
 import { buildRoute, type LonLat } from '../src/lib/route-geo.ts';
 import { gapDetails } from '../src/lib/trip-format.ts';
-import { planTrip, type PlanCar, type PlanInput } from '../src/lib/trip-plan.ts';
+import { nacsRescue, planTrip, type PlanCar, type PlanInput } from '../src/lib/trip-plan.ts';
 
 // A straight route east along 45° N from 80° W. 1° of longitude there ≈ 78.7 km; the route's own
 // distances are used to place stations exactly.
@@ -261,5 +261,36 @@ describe('planTrip: charging past 80 % before a long stretch (B75)', () => {
     const p = plan(800, [station(280, [ccs(150)]), station(500, [ccs(150)])]);
     // S280 at 80 % reaches S500 in the window; S500 then charges for the last 300 km.
     expect(p.stops.map((s) => s.departSoc)).toEqual([TRIP.chargeToSoc, 91]); // 75 % for 300 km + 15 %, the detour, rounded up;
+  });
+});
+
+describe('nacsRescue: suggest NACS when only NACS makes the trip work (B76)', () => {
+  const sc = (km: number) => station(km, [[3, 'nacs', 250, 8]], { nw: 'Tesla' });
+  // CCS at 280 only; the 280 → 900 stretch has only a Supercharger at 560.
+  const stations = () => [station(280, [ccs(150)]), sc(560)];
+  const input = (rule = carPlugs('ccs1', 'no')!): PlanInput => ({ route: routeOf(900), durationMin: 540, car: car({ rule }), stations: stations() });
+
+  it('says yes when the trip fails with CCS only and works with NACS', () => {
+    const i = input();
+    const p = planTrip(i);
+    expect(p.reachable).toBe(false);
+    expect(nacsRescue(i, p)).toBe(true);
+  });
+
+  it('says no when NACS is already on', () => {
+    const i = input({ plugs: ['ccs1', 'nacs', 'j1772'], superchargerAdapter: false });
+    expect(nacsRescue(i, planTrip(i))).toBe(false);
+  });
+
+  it('says no for a car without Supercharger access', () => {
+    const i = input({ plugs: ['ccs1', 'j1772'], superchargerAdapter: false, noSupercharger: true });
+    expect(nacsRescue(i, planTrip(i))).toBe(false);
+  });
+
+  it('says no when the trip already works, or NACS would not save it', () => {
+    let i: PlanInput = { route: routeOf(500), durationMin: 300, car: car({ rule: carPlugs('ccs1', 'no')! }), stations: [station(280, [ccs(150)])] };
+    expect(nacsRescue(i, planTrip(i))).toBe(false);
+    i = { route: routeOf(1400), durationMin: 840, car: car({ rule: carPlugs('ccs1', 'no')! }), stations: [station(280, [ccs(150)])] };
+    expect(nacsRescue(i, planTrip(i))).toBe(false);
   });
 });

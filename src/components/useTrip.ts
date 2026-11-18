@@ -11,7 +11,7 @@ import type { TripEnd } from '../lib/place-search.ts';
 import { apiPoint, readSavedSettings, SOC_LIMITS, writeTripLink, type TripQuery } from '../lib/trip-link.ts';
 import { addRecent, readRecent } from '../lib/recent-destinations.ts';
 import { planCarFrom, type PlanCarResult } from '../lib/trip-car.ts';
-import { planTrip, type TripPlan } from '../lib/trip-plan.ts';
+import { nacsRescue, planTrip, type TripPlan } from '../lib/trip-plan.ts';
 import { buildRoute, type Route } from '../lib/route-geo.ts';
 import type { MapFeature } from '../lib/map-data.ts';
 import type { RouteBody } from '../lib/ors.ts';
@@ -41,6 +41,8 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
   const [detail, setDetail] = useState<CarDetail | null>(null);
   const [routeData, setRouteData] = useState<RouteData | null>(null);
   const [plan, setPlan] = useState<TripPlan | null>(null);
+  /** B76: the trip fails as planned but works with NACS on. */
+  const [nacsHelps, setNacsHelps] = useState(false);
   const [status, setStatus] = useState<TripStatus>('idle');
   const [locating, setLocating] = useState<Locating>('idle');
   const [unit, setUnit] = useState<DistanceUnit>('km');
@@ -103,10 +105,13 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
   // Plan the stops whenever the route, the car, the percentages or the station data change (no request).
   // Percentages out of range keep the last good plan on screen; the form says what to fix.
   useEffect(() => {
-    if (!routeData || !planCar?.ok) { setPlan(null); return; }
+    if (!routeData || !planCar?.ok) { setPlan(null); setNacsHelps(false); return; }
     if (!pctValid) return;
     if (!l3) { if (l3Failed) setStatus('error'); return; } // still loading: planning follows
-    setPlan(planTrip({ route: routeData.route, durationMin: routeData.durationMin, car: planCar.car, stations: l3, startSoc: trip.startSoc, thresholdSoc: trip.thresholdSoc }));
+    const input = { route: routeData.route, durationMin: routeData.durationMin, car: planCar.car, stations: l3, startSoc: trip.startSoc, thresholdSoc: trip.thresholdSoc };
+    const next = planTrip(input);
+    setPlan(next);
+    setNacsHelps(nacsRescue(input, next));
     setStatus('done');
   }, [routeData, planCar, l3, l3Failed, pctValid, trip.startSoc, trip.thresholdSoc]);
 
@@ -223,7 +228,7 @@ export function useTrip(myCar: MyCar | null, l3: MapFeature[] | null, l3Failed =
 
   return {
     trip, setTrip, swap, setPct, pctValid, canPlan, current, opts, setShown,
-    planCar, carUpdated, routeData, plan, status, unit,
+    planCar, carUpdated, routeData, plan, nacsHelps, status, unit,
     submit, start, stop, share, shareUrl, locate, locating,
   };
 }

@@ -539,7 +539,7 @@ Read `DESIGN-7.md` first. Never print or read `.env` or any key. Don't call AFDC
 
 | ID | Area | How to check | Pass when / edge cases |
 |----|------|--------------|------------------------|
-| QU1 | Canada unchanged | Compare Canadian counts in `meta.json` with Phase 6 (15,125 sites, 578 OCM); re-plan Hamilton → Vancouver CCS only | Same counts (or explained by a newer pull); same stops as Phase 6 |
+| QU1 | Canada unchanged | Compare Canadian counts in `meta.json` with Phase 6 (15,125 sites, 578 OCM; after the 2026-11-18 audit decisions 14,546 AFDC + 579 OCM, still 15,125); re-plan Hamilton → Vancouver CCS only | Same counts (or explained by a newer pull); same stops as Phase 6 |
 | QU2 | AFDC US import | `data/imported/afdc/us*.json`, summary, 30 random records against `sources/` | Fields mapped as for Canada; no Canadian or out-of-area points; per-country > 10 % drop check stops only that country |
 | QU3 | OCM US fair use | `scripts/fetch-ocm.ts`, its tests, `FETCHED.json` | Providers 1/24/45, countrycode=US, 3 s pauses, request cap held, key only in the header |
 | QU4 | OCM US duplicates | `map-data-auditor` report; spot-check 20 removed and 20 kept | B77 layers and amendments hold; AFDC wins; credit on every OCM station |
@@ -551,3 +551,5 @@ Read `DESIGN-7.md` first. Never print or read `.env` or any key. Don't call AFDC
 | QU10 | Place search | "Where to?" | US towns and addresses found; results lean to the start's country; US town file within its size |
 | QU11 | Words and credits | `grep -n "Canada" src/i18n/en.json`; About page | No stale Canada-only claims about the map or trips; credits and licences for every new source; car list described as Canadian |
 | QU12 | Refresh | Workflow file; a manual run after merge | Both countries fetched; per-country checks; self-merge only when all pass; a failed OCM country keeps last month's file |
+| QU13 | Stops stay in the country (QA 2026-11-18) | `tests/station-country.test.ts`, `/api/route` response `countries`; a border trip (Fort Erie → Niagara Falls ON, low start charge) | No stop in the other country; a trip whose ends are both on the border line (in both countries) may use either |
+| QU14 | Refresh PR size (QA 2026-11-18) | `wc -c sources/*/summary.md` after the imports | All four together well under 60,000 characters (closest 40 near misses per country); `near-misses.md` git-ignored and uploaded as an artifact |

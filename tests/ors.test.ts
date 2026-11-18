@@ -183,6 +183,8 @@ describe('route options (B73) and Canada only (B74)', () => {
     const r = await handleRoute(url(''), KEY, f, (lon) => (lon < -75 ? ['ca', 'us'] : ['ca']));
     expect(r.status).toBe(200);
     expect(f).toHaveBeenCalledOnce();
+    // The countries both ends share go back with the route; the planner keeps its stops to them (QA S1).
+    expect((await r.json()).countries).toEqual(['ca']);
   });
 });
 

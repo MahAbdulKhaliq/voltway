@@ -177,7 +177,24 @@ jobs:
             fi
             echo >> "$summary"
           done
+          # GitHub caps a PR body at 65,536 characters (QA 2026-11-18, B1): cut it short with a note if needed.
+          if [ "$(wc -c < "$summary")" -gt 60000 ]; then
+            head -c 58000 "$summary" > "$summary.cut"
+            printf '\n\n**Summary cut short (too long for a pull request).** The full text is in the run summary and the near-misses artifact.\n' >> "$summary.cut"
+            cat "$summary" >> "$GITHUB_STEP_SUMMARY"
+            mv "$summary.cut" "$summary"
+          fi
           { echo "changed=$changed"; echo "checks=$checks"; echo "summary=$summary"; } >> "$GITHUB_OUTPUT"
+
+      # The full near-miss lists (the PR body shows the closest 40 per country).
+      - name: Keep the near-miss lists
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: near-misses
+          path: sources/ocm-*/near-misses.md
+          if-no-files-found: ignore
 
       - name: Nothing changed
         if: steps.all.outputs.changed != 'true'

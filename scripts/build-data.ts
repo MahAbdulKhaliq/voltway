@@ -110,7 +110,7 @@ const MAX_PLACES_BYTES = 1_000_000;
 rmSync(join(out, 'places.json'), { force: true }); // the one-country file before B78
 for (const { cc, file } of placesFiles) {
   const json = JSON.stringify(toPlaceRows(file.places));
-  if (json.length > MAX_PLACES_BYTES) {
+  if (Buffer.byteLength(json) > MAX_PLACES_BYTES) {
     console.error(`data:build: places-${cc}.json is ${(json.length / 1e6).toFixed(2)} MB, over the 1 MB budget; raise the population floor in scripts/lib/geonames.ts.`);
     process.exit(1);
   }

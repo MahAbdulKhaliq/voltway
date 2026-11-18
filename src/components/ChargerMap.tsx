@@ -563,6 +563,9 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     if (fresh) setStations((s) => ({ ...s, [lv]: mergeDetails(s[lv], detailsRef.current) }));
     return features;
   }, []);
+  // QA 2026-11-18 (S3): a tile that fails to load says so, with a retry, instead of leaving the panel
+  // closed or the list on "Loading stations…". A failed tile is dropped from the loader's cache, so a retry asks again.
+  const [tilesFailed, setTilesFailed] = useState(false);
   /** Loads the tiles holding these station ids (those not loaded yet), up to `cap` tiles. */
   const ensureStations = useCallback((ids: Iterable<{ i: number; at: readonly [number, number] }>, cap = 24) => {
     if (!index) return;
@@ -574,7 +577,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       const key = tileFor(index, lv, at[0], at[1]);
       if (key && !loaderRef.current.has(lv, key)) want[lv].add(key);
     }
-    for (const lv of LEVELS) if (want[lv].size) ensureTiles(lv, [...want[lv]].slice(0, cap)).catch(() => {});
+    for (const lv of LEVELS) if (want[lv].size) ensureTiles(lv, [...want[lv]].slice(0, cap)).then(() => setTilesFailed(false), () => setTilesFailed(true));
   }, [index, ensureTiles]);
 
   // Filters → pins → map source; choices are saved.
@@ -710,6 +713,9 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   );
   const T = useTrip(myCar, index ? corridor : null, indexFailed);
   const { plan, routeData } = T;
+  // B78: the US AFDC pull date, for US stations and US trips (the top-level date is Canada's).
+  const updatedUs = meta?.sources?.find((x) => x.source_id === 'src-afdc-us')?.fetched_at.slice(0, 10) ?? null;
+  const usTrip = routeData?.countries?.length === 1 && routeData.countries[0] === 'us';
   // B59: on phones the panel is a draggable bottom sheet over a full-height map.
   // Owner (B59 follow-up): on the plain map, dragging the sheet up opens the Chargers filters and
   // dragging it back down to peek closes them.
@@ -975,7 +981,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             selectedStop={selectedStop}
             onOpenStop={openStop}
             onClose={closeRoute}
-            updated={meta?.updated ?? null}
+            updated={usTrip ? updatedUs : meta?.updated ?? null}
             resumeDrive={resumeDrive}
             onDriveFix={onDriveFix}
           />
@@ -1231,7 +1237,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         <StationPanel
           station={station}
           updated={meta?.updated ?? null}
-          updatedUs={meta?.sources?.find((x) => x.source_id === 'src-afdc-us')?.fetched_at.slice(0, 10) ?? null}
+          updatedUs={updatedUs}
           ocmUpdated={meta?.ocm?.updated ?? null}
           onClose={closeStation}
           onBack={listOpen && viaList ? backToList : undefined}
@@ -1245,6 +1251,14 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         <p className="map-status map-status-loading" role="status">
           <span className="road-loader" aria-hidden="true"><span /></span>
           {t('map.loading')}
+        </p>
+      )}
+      {tilesFailed && mapStatus !== 'error' && (
+        <p className="map-status banner" role="alert">
+          {t('map.tilesFailed')}{' '}
+          <button type="button" className="btn small" onClick={() => { setTilesFailed(false); setView((v) => (v ? { ...v } : v)); if (selectedFeature) ensureStations([{ i: selectedFeature.properties.i, at: selectedFeature.geometry.coordinates }]); }}>
+            {t('map.tilesRetry')}
+          </button>
         </p>
       )}
       {mapStatus === 'error' && (

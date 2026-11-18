@@ -76,18 +76,20 @@ export function mapFiles(map: Pick<MapBuild, 'tiles' | 'overview' | 'index' | 'm
   for (const lv of [3, 2] as const) {
     for (const [key, features] of map.tiles[lv]) {
       const json = JSON.stringify({ type: 'FeatureCollection', features });
-      if (json.length > budgets.tile) problems.push(`map/${tilePath(lv, key)} is ${(json.length / 1e3).toFixed(0)} KB (budget ${budgets.tile / 1e3} KB)`);
+      if (bytes(json) > budgets.tile) problems.push(`map/${tilePath(lv, key)} is ${(bytes(json) / 1e3).toFixed(0)} KB (budget ${budgets.tile / 1e3} KB)`);
       tileJson.set(tilePath(lv, key), json);
     }
   }
   const overviewJson = { 3: JSON.stringify(map.overview[3]), 2: JSON.stringify(map.overview[2]) };
   const indexJson = JSON.stringify(map.index);
-  const firstLoad = overviewJson[3].length + indexJson.length + JSON.stringify(map.meta).length;
+  const firstLoad = bytes(overviewJson[3]) + bytes(indexJson) + bytes(JSON.stringify(map.meta));
   if (firstLoad > budgets.firstLoad) problems.push(`first map load is ${(firstLoad / 1e6).toFixed(2)} MB (budget ${budgets.firstLoad / 1e6} MB)`);
   return { problems, tileJson, overviewJson, indexJson, firstLoad };
 }
 
-const tileBytes = (features: readonly MapFeature[]) => JSON.stringify({ type: 'FeatureCollection', features }).length;
+/** Size on the wire: UTF-8 bytes, not characters (accented names take two; QA 2026-11-18, M1). */
+const bytes = (s: string) => Buffer.byteLength(s, 'utf8');
+const tileBytes = (features: readonly MapFeature[]) => bytes(JSON.stringify({ type: 'FeatureCollection', features }));
 
 /**
  * Cuts stations into quadtree tiles: each 2° cell that is over `maxBytes` splits into quarters,

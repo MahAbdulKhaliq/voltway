@@ -15,7 +15,7 @@
 // Needs OCM_API_KEY: a GitHub Actions secret in CI, or the local git-ignored .env file.
 
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { OCM_PROVIDER_IDS } from './lib/ocm.ts';
 import { countryArg, rawDir, type Country } from './lib/countries.ts';
@@ -24,14 +24,27 @@ export const OCM_API = 'https://api.openchargemap.io/v3';
 export const PAGE_SIZE = 5000;
 /**
  * Pages before a country's pull stops: Canada had ~2,900 records and the US 13,232 in the 2026-11-18
- * survey, so 1 and 3 pages today (6 requests a month with the reference data), and never more than
- * 2 + 5 pages + 2 = 9, inside the cap of 10 (DESIGN-7 D1).
+ * survey, so 1 and 3 pages today (5 requests a month with one reference-data download, shared by
+ * both countries: QA 2026-11-18, S2), and never more than 2 + 5 pages + 2 = 9, inside the cap of 10
+ * (DESIGN-7 D1).
  */
 export const MAX_PAGES: Record<Country, number> = { ca: 2, us: 5 };
 export const PAUSE_MS = 3000;
 export const USER_AGENT = 'Voltway-charger-refresh/1.0 (+https://github.com/MahAbdulKhaliq/voltway)';
 export const RAW_FILE = 'poi-raw.json';
 export const REF_FILE = 'referencedata.json';
+/** Another country's reference data younger than this is reused, not asked for again (same query). */
+export const REF_REUSE_MS = 12 * 3600 * 1000;
+
+/** A recent reference-data file from the other country's pull this run, or null. */
+export function recentRefFile(root: string, country: Country, now = Date.now()): string | null {
+  for (const other of ['ca', 'us'] as const) {
+    if (other === country) continue;
+    const path = join(rawDir(root, 'ocm', other), REF_FILE);
+    if (existsSync(path) && now - statSync(path).mtimeMs < REF_REUSE_MS) return path;
+  }
+  return null;
+}
 
 /** The POI query for one page: everything after `greaterThanId`, oldest id first. */
 export function poiQuery(greaterThanId: number, country: Country = 'ca'): string {
@@ -97,12 +110,21 @@ async function main() {
   const OUT_DIR = rawDir(process.cwd(), 'ocm', country);
   const key = apiKey();
   const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+  // The pause also holds between two countries' runs, which the workflow starts back to back.
+  await sleep(PAUSE_MS);
   const { pois, requests } = await pullPois(key, fetch, sleep, country);
   if (pois.length === 0) throw new Error('no records returned');
-  await sleep(PAUSE_MS);
-  const refRes = await fetch(`${OCM_API}/referencedata?countryid=44`, { headers: headers(key) });
-  if (!refRes.ok) throw new Error(`OCM reference data request failed: HTTP ${refRes.status}`);
-  const refText = await refRes.text();
+  // Reference data (operators etc.) is the same query for both countries: ask once a run.
+  const reuse = recentRefFile(process.cwd(), country);
+  let refText: string;
+  if (reuse) {
+    refText = readFileSync(reuse, 'utf8');
+  } else {
+    await sleep(PAUSE_MS);
+    const refRes = await fetch(`${OCM_API}/referencedata?countryid=44`, { headers: headers(key) });
+    if (!refRes.ok) throw new Error(`OCM reference data request failed: HTTP ${refRes.status}`);
+    refText = await refRes.text();
+  }
   const ref = JSON.parse(refText) as { Operators?: unknown[] };
   if (!Array.isArray(ref.Operators)) throw new Error('OCM reference data has no Operators list');
 
@@ -120,7 +142,8 @@ async function main() {
     sha256: createHash('sha256').update(text).digest('hex'),
     bytes: Buffer.byteLength(text),
     poi_count: pois.length,
-    requests: requests + 1,
+    requests: requests + (reuse ? 0 : 1),
+    ...(reuse ? { reference_reused_from: reuse.replace(/\\/g, '/').split('/').slice(-2).join('/') } : {}),
   };
   writeFileSync(join(OUT_DIR, 'FETCHED.json'), JSON.stringify(meta, null, 2) + '\n');
   console.log(`fetch:ocm ${country}: saved ${meta.poi_count} records in ${meta.requests} requests (${(meta.bytes / 1e6).toFixed(1)} MB)`);

@@ -344,3 +344,24 @@ describe('Tesla Destination pairs and generic words', () => {
     expect(similarNames('Town of Elkin Recreation Center', 'Elkin Recreation Center')).toBe(true);
   });
 });
+
+// QA 2026-11-18 (S2): one reference-data download a run, shared by both countries.
+describe('recentRefFile', () => {
+  it('reuses the other country\'s reference data only when it is recent', async () => {
+    const { mkdtempSync, mkdirSync, writeFileSync, utimesSync } = await import('node:fs');
+    const { tmpdir } = await import('node:os');
+    const { join } = await import('node:path');
+    const { recentRefFile, REF_REUSE_MS } = await import('../scripts/fetch-ocm.ts');
+    const root = mkdtempSync(join(tmpdir(), 'ocm-ref-'));
+    expect(recentRefFile(root, 'us')).toBeNull();
+    const dir = join(root, 'sources', 'ocm-ca');
+    mkdirSync(dir, { recursive: true });
+    const file = join(dir, 'referencedata.json');
+    writeFileSync(file, '{"Operators":[]}');
+    expect(recentRefFile(root, 'us')?.split('\\').join('/')).toMatch(/sources\/ocm-ca\/referencedata\.json$/);
+    expect(recentRefFile(root, 'ca')).toBeNull(); // never its own
+    const old = (Date.now() - REF_REUSE_MS - 60_000) / 1000;
+    utimesSync(file, old, old);
+    expect(recentRefFile(root, 'us')).toBeNull();
+  });
+});

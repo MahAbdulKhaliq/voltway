@@ -76,6 +76,8 @@ export interface RouteBody {
   durationMin: number;
   ascentM: number;
   descentM: number;
+  /** B78: the countries both ends are in (usually one); the planner keeps its stops to them. */
+  countries?: CountryCode[];
 }
 
 /** An address result; `cc` is its country when the service says (B78: lets the next search lean to it). */
@@ -157,9 +159,12 @@ export async function handleRoute(url: URL, key: string | undefined, fetchFn: Fe
   const to = parseLonLat(url.searchParams.get('to'));
   const avoid = parseAvoid(url.searchParams.get('avoid'));
   if (!from || !to || !avoid) return errorResponse('badRequest', 400);
+  let countries: CountryCode[] | undefined;
   if (countriesOf) {
     const problem = borderProblem(from, to, countriesOf);
     if (problem) return json(problem, 422, NO_STORE);
+    const end = countriesOf(to[0], to[1]);
+    countries = countriesOf(from[0], from[1]).filter((c) => end.includes(c));
   }
   if (!key) return errorResponse('notConfigured', 503);
   let res: Response;
@@ -182,7 +187,7 @@ export async function handleRoute(url: URL, key: string | undefined, fetchFn: Fe
   }
   if (!res.ok) return orsFailure();
   const route = trimRoute(await res.json().catch(() => null));
-  return route ? json(route, 200, CACHE_OK) : errorResponse('noRoute', 422);
+  return route ? json(countries ? { ...route, countries } : route, 200, CACHE_OK) : errorResponse('noRoute', 422);
 }
 
 /** GET /api/geocode?q=… (only when the visitor presses Search, §6) */

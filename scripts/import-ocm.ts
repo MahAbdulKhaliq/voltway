@@ -61,17 +61,25 @@ const afdcStations = importedFiles(root, 'afdc').flatMap((f) => (JSON.parse(read
 const skip = existsSync(skipFile) ? (JSON.parse(readFileSync(skipFile, 'utf8')) as { skip: SkipEntry[] }).skip : [];
 const merge = mergeOcm(stations, afdcStations, skip);
 const d = merge.dropped;
+// QA 2026-11-18 (B1): the PR body is capped at 65,536 characters by GitHub, and the US has over a
+// thousand near misses. The summary lists the closest NEAR_MISS_ROWS; the full list goes to
+// near-misses.md next to it (uploaded by the refresh workflow as a run artifact).
+const NEAR_MISS_ROWS = 40;
+const nearRow = (n: (typeof merge.nearMisses)[number]) =>
+  `| [${n.ocm.id}](https://openchargemap.org/site/poi/details/${n.ocm.id}) | ${n.ocm.name.replace(/\|/g, '/')} | ${n.afdc.name.replace(/\|/g, '/')} | ${Math.round(n.km * 1000)} m |`;
+const nearHead = '| OCM id | OCM name | AFDC name | Distance |\n|---|---|---|---:|\n';
+const nearSorted = [...merge.nearMisses].sort((a, b) => a.km - b.km);
+writeFileSync(join(rawDir, 'near-misses.md'), `# Open Charge Map ${COUNTRY_NAME[country]}: kept within 500 m of an AFDC station (${nearSorted.length})\n\n` + nearHead + nearSorted.map(nearRow).join('\n') + '\n');
 const extra = [
   '',
   `OCM requests this month: ${meta.requests}. Records: ${raw.length} raw → ${stations.length} usable → **${merge.kept.length} on the map** after duplicates.`,
   `Duplicates of AFDC stations removed: ${d.place} same place, ${d.address} same address, ${d.name} same name, ${d.skip} skip list.`,
   '',
-  merge.nearMisses.length
-    ? `### Kept but within 500 m of an AFDC station (check for duplicates; add any to data/imported/ocm/skip.json)\n\n| OCM id | OCM name | AFDC name | Distance |\n|---|---|---|---:|\n` +
-      merge.nearMisses
-        .sort((a, b) => a.km - b.km)
-        .map((n) => `| [${n.ocm.id}](https://openchargemap.org/site/poi/details/${n.ocm.id}) | ${n.ocm.name.replace(/\|/g, '/')} | ${n.afdc.name.replace(/\|/g, '/')} | ${Math.round(n.km * 1000)} m |`)
-        .join('\n')
+  nearSorted.length
+    ? `### Kept but within 500 m of an AFDC station (check for duplicates; add any to data/imported/ocm/skip.json)\n\n` +
+      `${nearSorted.length} in all${nearSorted.length > NEAR_MISS_ROWS ? `; the closest ${NEAR_MISS_ROWS} below, the full list in the run's "near-misses" artifact` : ''}.\n\n` +
+      nearHead +
+      nearSorted.slice(0, NEAR_MISS_ROWS).map(nearRow).join('\n')
     : 'No OCM station kept within 500 m of an AFDC station.',
   '',
 ].join('\n');

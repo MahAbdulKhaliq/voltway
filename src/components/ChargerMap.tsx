@@ -1126,6 +1126,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         <StationPanel
           station={station}
           updated={meta?.updated ?? null}
+          ocmUpdated={meta?.ocm?.updated ?? null}
           onClose={closeStation}
           onBack={listOpen && viaList ? backToList : undefined}
           myCar={myCar}

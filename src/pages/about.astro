@@ -19,12 +19,14 @@ const allSources: Source[] = readdirSync(sourceDir)
   .map((f) => JSON.parse(readFileSync(join(sourceDir, f), 'utf8')));
 
 // Licence texts (links, not translated) per open dataset, keyed by source id.
-const DATASETS: { id: string; key: 'nrcan' | 'openev' | 'chargeprice' | 'afdc' | 'geonames' | 'naturalearth'; licenceUrl: string; notice?: string }[] = [
+const DATASETS: { id: string; key: 'nrcan' | 'openev' | 'chargeprice' | 'afdc' | 'ocm' | 'geonames' | 'naturalearth'; licenceUrl: string; notice?: string }[] = [
   { id: 'src-nrcan-bev-2026-09', key: 'nrcan', licenceUrl: 'https://open.canada.ca/en/open-government-licence-canada' },
   { id: 'src-openev-v1-24-0', key: 'openev', licenceUrl: 'https://cdla.dev/permissive-2-0/' },
   { id: 'src-chargeprice-archive-2025-04', key: 'chargeprice', licenceUrl: 'https://github.com/KilowattApp/open-ev-data/blob/32d7dc59e7b8b7391572ca1e132a1517be9a3b5e/LICENSE', notice: openEvMit },
   // Charger map (B30: used under NLR's data terms).
   { id: 'src-afdc-ca', key: 'afdc', licenceUrl: 'https://www.nlr.gov/disclaimer' },
+  // Charger map, second source (B77): OCM contributors' data is CC BY 4.0; each station also names its provider.
+  { id: 'src-ocm', key: 'ocm', licenceUrl: 'https://openchargemap.org/site/about/terms' },
   // Trip planner place names (B45).
   { id: 'src-geonames', key: 'geonames', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/' },
   // Trip planner: starts and ends in Canada only (B74).

@@ -1,0 +1,12 @@
+{
+  "api": "https://api.openchargemap.io/v3",
+  "query": "https://api.openchargemap.io/v3/poi?output=json&countrycode=CA&dataproviderid=1%2C24%2C45&compact=true&verbose=false&includecomments=false&sortby=id_asc&greaterthanid=<last id>&maxresults=1000",
+  "docs": "https://github.com/openchargemap/ocm-docs/blob/master/Model/schema/ocm-openapi-spec.yaml",
+  "file": "poi-raw.json",
+  "reference_file": "referencedata.json",
+  "fetched_at": "2026-11-18T10:07:52.720Z",
+  "sha256": "57f7972692c42b4c35ee7aefe7c3ad23bf2cdfcd3b9a8c934695208076db9ab2",
+  "bytes": 2698128,
+  "poi_count": 2901,
+  "requests": 4
+}

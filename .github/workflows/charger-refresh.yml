@@ -1,7 +1,9 @@
-# Monthly charger-map data refresh (CHECKLIST M5, DESIGN-map.md, owner decisions B27, B36).
-# Downloads the AFDC Canada stations, normalizes them and runs the sanity checks
-# (scripts/lib/afdc-checks.ts). If any station changed, it opens (or updates) a pull
+# Monthly charger-map data refresh (CHECKLIST M5, DESIGN-map.md, owner decisions B27, B36, B77).
+# Downloads the AFDC Canada stations, then the Open Charge Map ones (B77, DESIGN-6: about 4
+# requests, see scripts/fetch-ocm.ts for OCM's fair-use rules), normalizes both and runs the
+# sanity checks (scripts/lib/afdc-checks.ts). If any station changed, it opens (or updates) a pull
 # request, runs the full CI steps here, and merges the PR itself when all of them pass.
+# If the OCM download fails, last month's OCM data stays and AFDC still updates.
 #
 # Why CI runs here: pull requests opened with the workflow's GITHUB_TOKEN don't start
 # other workflows (GitHub's guard against loops), so ci.yml would never run on them.
@@ -10,7 +12,7 @@
 # fails the run, so the owner is emailed. The owner can review and merge it by hand.
 # A manual run with "simulate_drop" ticked removes 15 % of stations to test this path.
 #
-# Needs: the NLR_API_KEY Actions secret, and Settings → Actions → General →
+# Needs: the NLR_API_KEY and OCM_API_KEY Actions secrets, and Settings → Actions → General →
 # "Allow GitHub Actions to create and approve pull requests" (already on for data-refresh.yml).
 name: Charger refresh
 
@@ -66,30 +68,84 @@ jobs:
             npm run import:afdc -- --skip-checks
           fi
 
+      # Open Charge Map (B77): one attempt, no retries (OCM's fair-use rules). A failure keeps
+      # last month's OCM data and doesn't stop the AFDC update.
+      - name: Download Open Charge Map stations
+        id: fetch_ocm
+        continue-on-error: true
+        run: npm run fetch:ocm
+        env:
+          OCM_API_KEY: ${{ secrets.OCM_API_KEY }}
+
+      - name: Normalize Open Charge Map and run its checks
+        id: import_ocm
+        if: steps.fetch_ocm.outcome == 'success'
+        continue-on-error: true
+        run: |
+          if npm run import:ocm; then
+            echo "checks=pass" >> "$GITHUB_OUTPUT"
+          else
+            echo "checks=fail" >> "$GITHUB_OUTPUT"
+            npm run import:ocm -- --skip-checks
+          fi
+
+      # One result for both sources: changed if either changed, checks pass only if both pass,
+      # and one summary file for the PR body.
+      - name: Combine the results
+        id: all
+        env:
+          AFDC_CHANGED: ${{ steps.import.outputs.changed }}
+          AFDC_CHECKS: ${{ steps.import.outputs.checks }}
+          AFDC_SUMMARY: ${{ steps.import.outputs.summary }}
+          # success only if both the download and the import ran; otherwise last month's OCM data stays.
+          OCM_FETCH: ${{ (steps.fetch_ocm.outcome == 'success' && steps.import_ocm.outcome == 'success') && 'success' || 'failure' }}
+          OCM_CHANGED: ${{ steps.import_ocm.outputs.changed }}
+          OCM_CHECKS: ${{ steps.import_ocm.outputs.checks }}
+          OCM_SUMMARY: ${{ steps.import_ocm.outputs.summary }}
+        run: |
+          summary="$RUNNER_TEMP/charger-summary.md"
+          cat "$AFDC_SUMMARY" > "$summary"
+          echo >> "$summary"
+          if [ "$OCM_FETCH" = "success" ]; then
+            cat "$OCM_SUMMARY" >> "$summary"
+          else
+            echo "## Open Charge Map" >> "$summary"
+            echo "" >> "$summary"
+            echo "**The Open Charge Map download or import failed; last month's OCM data is kept.** See the run log." >> "$summary"
+            echo "::warning::Open Charge Map download or import failed; last month's OCM data is kept."
+          fi
+          changed=false
+          if [ "$AFDC_CHANGED" = "true" ] || [ "$OCM_CHANGED" = "true" ]; then changed=true; fi
+          checks=pass
+          if [ "$AFDC_CHECKS" != "pass" ]; then checks=fail; fi
+          if [ "$OCM_FETCH" = "success" ] && [ "$OCM_CHECKS" != "pass" ]; then checks=fail; fi
+          { echo "changed=$changed"; echo "checks=$checks"; echo "summary=$summary"; } >> "$GITHUB_OUTPUT"
+
       - name: Nothing changed
-        if: steps.import.outputs.changed != 'true'
+        if: steps.all.outputs.changed != 'true'
         run: echo "No station was added, removed or changed. No pull request." >> "$GITHUB_STEP_SUMMARY"
 
       # A failed check with nothing to commit would otherwise end green and nobody would hear.
       - name: Checks failed with no change
-        if: steps.import.outputs.changed != 'true' && steps.import.outputs.checks != 'pass'
+        if: steps.all.outputs.changed != 'true' && steps.all.outputs.checks != 'pass'
         run: |
           echo "::error::Charger refresh: the sanity checks failed although no station changed. See the import step's output."
           exit 1
 
       - name: Commit the new data
-        if: steps.import.outputs.changed == 'true'
+        if: steps.all.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$BRANCH"
           git add data/imported/afdc/stations.json sources/afdc-ca/FETCHED.json
+          git add data/imported/ocm/ sources/ocm-ca/FETCHED.json 2>/dev/null || true
           git commit -m "Charger data refresh ($(date -u +%F))"
 
       # The same steps as ci.yml. Each records its result; one failing doesn't skip the others.
       - name: CI steps
         id: ci
-        if: steps.import.outputs.changed == 'true'
+        if: steps.all.outputs.changed == 'true'
         run: |
           status=pass
           results=""
@@ -99,13 +155,13 @@ jobs:
           echo "status=$status" >> "$GITHUB_OUTPUT"
           { echo; echo "### CI steps (run in this workflow)"; echo; printf '%s' "$results"; } >> "$SUMMARY_FILE"
         env:
-          SUMMARY_FILE: ${{ steps.import.outputs.summary }}
+          SUMMARY_FILE: ${{ steps.all.outputs.summary }}
 
       - name: Open or update the pull request
-        if: steps.import.outputs.changed == 'true'
+        if: steps.all.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-          SUMMARY_FILE: ${{ steps.import.outputs.summary }}
+          SUMMARY_FILE: ${{ steps.all.outputs.summary }}
         run: |
           git push --force origin "$BRANCH"
           title="Charger data refresh ($(date -u +%F))"
@@ -117,7 +173,7 @@ jobs:
           cat "$SUMMARY_FILE" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Merge (checks and CI passed, B27)
-        if: steps.import.outputs.changed == 'true' && steps.import.outputs.checks == 'pass' && steps.ci.outputs.status == 'pass'
+        if: steps.all.outputs.changed == 'true' && steps.all.outputs.checks == 'pass' && steps.ci.outputs.status == 'pass'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -125,7 +181,7 @@ jobs:
           echo "Merged. Vercel deploys from main." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Blocked (left open for the owner)
-        if: steps.import.outputs.changed == 'true' && (steps.import.outputs.checks != 'pass' || steps.ci.outputs.status != 'pass')
+        if: steps.all.outputs.changed == 'true' && (steps.all.outputs.checks != 'pass' || steps.ci.outputs.status != 'pass')
         run: |
-          echo "::error::Charger refresh blocked: sanity checks ${{ steps.import.outputs.checks }}, CI ${{ steps.ci.outputs.status }}. The pull request stays open and unmerged."
+          echo "::error::Charger refresh blocked: sanity checks ${{ steps.all.outputs.checks }}, CI ${{ steps.ci.outputs.status }}. The pull request stays open and unmerged."
           exit 1

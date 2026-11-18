@@ -493,3 +493,41 @@ Read `docs/plan/DESIGN-5.md` and B72–B74 in `docs/design/gaps-and-questions.md
 | Minor 5, 7, 8, 10, 12 | Open (logged) | Option change mid-Drive resets ticks; Drive shown on unreachable plans; map dot stays after Drive; points outside AREA give 400 not 422; map key overlap at 375 (pre-existing). |
 | Light theme driven line | Fixed | Driven segment is now #A4A29A on the #2B2C30 band in both themes (6.4:1; was 1.8:1 in light). |
 | QD16 | Pass (unit) | B75 block in tests/trip-plan.test.ts: one stop charges to 91 % instead of a short hop; last stop charges for the final stretch (86 / 100); 80 % kept when the next window is reachable. Owner to confirm Hamilton → BC on the deployed site. |
+
+---
+
+# Phase 6 QA: Open Charge Map as a second charger source (B77)
+
+Read `DESIGN-6.md` first. Never print or read the OCM key or `.env`. Don't call the OCM API more than once during QA (use `sources/ocm-ca/` from the last pull).
+
+| ID | Area | How to check | Pass when / edge cases |
+|----|------|--------------|------------------------|
+| QO1 | Fair use | Read `scripts/fetch-ocm.ts` and its tests; `sources/ocm-ca/FETCHED.json` | Providers 1,24,45 only; countrycode=CA; compact, verbose=false, no comments; id-paged; 3 s between pages; ≤ 4 pages; no retry loop; key in `X-API-Key` header only; custom user agent; request count in FETCHED.json ≤ 5 |
+| QO2 | No browser calls | `grep -rn "openchargemap" src/` | Only links to OCM pages (station panel, About), no API host |
+| QO3 | Key safety | `git grep -nIE "OCM_API_KEY\s*=\s*\S|X-API-Key: [A-Za-z0-9]|key=[A-Za-z0-9-]{16,}"` (tracked files only, so never .env) | No key in repo, FETCHED.json, logs or URLs |
+| QO4 | Filters | `tests/ocm.test.ts`; spot-check 20 records of `data/imported/ocm/stations.json` against `sources/ocm-ca/` | Private, planned, removed, not-operational, unpublished and AFDC-copy records absent; temporarily unavailable kept with flag |
+| QO5 | Plugs and levels | Same sample | J1772/CCS1/CHAdeMO/NACS mapped; others ignored; CCS1/CHAdeMO always Level 3, J1772 always Level 2, NACS Level 3 when OCM level 3 or ≥ 40 kW; Level 1-only dropped |
+| QO6 | Duplicates | `tests/ocm.test.ts` (mergeOcm block); summary near-miss list; map at a known pair (6435 Metral Drive, Nanaimo) | One pin per real station; AFDC record kept; a different-plug neighbour kept; same address needs a shared plug; an OCM station with Level 3 or NACS its AFDC match lacks is kept; skip list works; a point outside Canada is dropped |
+| QO7 | Ids | `public/data/map/*.json` | No id used twice; OCM ids ≥ 100,000,000 |
+| QO8 | Credit | Browser: an OCM station and an AFDC station panel; About page | Source line on both; OCM shows provider, licence, link to its OCM page and last verified date; About credits OCM with licence and terms links |
+| QO9 | Checks | `tests/ocm.test.ts` ("OCM import checks"; shared `scripts/lib/afdc-checks.ts`) | > 10 % drop or missing fields stops the import and writes nothing |
+| QO10 | Refresh | Workflow file; a manual run on GitHub | OCM after AFDC; OCM failure keeps old OCM data and AFDC still updates; PR body has the OCM summary |
+| QO11 | Planner | Hamilton → Vancouver, 2025 Polestar 2, CCS only | OCM fast chargers can be stops; result reported (gap may remain if OCM has none) |
+| QO12 | Words, looks | Browser at 375 and 1280, dark and light | No hard-coded strings; source line wraps; contrast OK |
+
+## Phase 6 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QO1 | Pass | fetch-ocm.ts: providers 1,24,45, CA, compact, no comments, id-paged, 3 s, 4-page cap, no retry, X-API-Key header, UA; FETCHED.json 4 requests (2,901 records) |
+| QO2 | Pass | src/ links only to OCM's POI pages and terms; no API host |
+| QO3 | Pass | git grep finds no key; OCM_API_KEY only as a name; raw pull, reference data, summary and .env git-ignored |
+| QO4 | Pass | all 2,508 usable records checked against raw: 0 failures; T kept (5); only notice required (7) restricted after the owner's second amendment |
+| QO5 | Pass | plug mapping and plug-decides-level rule hold on all records; J1772 at 50 kW stays Level 2; Level 1-only dropped |
+| QO6 | Pass | every removal within its layer's distance with a shared plug; 0 hit the never-remove rule; 6435 Metral Drive one pin; Golden Petro-Canada kept; 17 skip entries apply |
+| QO7 | Pass | 15,125 ids unique; all OCM ids ≥ 100,000,000 |
+| QO8 | Pass | docs/plan/reports/ui-check-6.md (375/1280, dark/light); on dry-run data; AddÉnergie/Greems wording not seen on screen |
+| QO9 | Pass | > 10 % drop test on a scratch copy: exit 1, data left unchanged |
+| QO10 | Pending | 6.8: workflow read and reviewed (import crash now keeps last month's data); manual run on GitHub after merge |
+| QO11 | Pass | Hamilton → Vancouver CCS only: 5 OCM stops; one gap left (Ivy White River temporarily unavailable); with NACS reachable |
+| QO12 | Pass | all new text in en.json; provider names are constants; contrast 5.83–11.38 |

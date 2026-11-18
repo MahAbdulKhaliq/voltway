@@ -12,7 +12,7 @@ Voltway's charger data, place search and trip planner stop at the Canadian borde
 - Settings: **Stay in Canada** becomes **Stay within the border** **(approved 2026-11-18)**, still always on and locked. Help text: "Trips stay in the country they start in. Cross-border trips aren't supported yet."
 
 ## Out of scope (later, each needs its own decision)
-- Cross-border trips (Detroit ↔ Windsor, Seattle ↔ Vancouver).
+- Cross-border trips (Detroit ↔ Windsor, Seattle ↔ Vancouver). *(Decided 2026-11-18, B79: [DESIGN-8.md](DESIGN-8.md).)*
 - US car data (EPA ratings). Cars stay the Canadian NRCan list; the About page says so.
 - Defaults by country (miles, USD price). Settings keep km/mi and the price per kWh as they are; a US visitor sets them once.
 - Mexico and other countries.

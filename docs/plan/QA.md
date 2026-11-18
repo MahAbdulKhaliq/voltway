@@ -553,3 +553,31 @@ Read `DESIGN-7.md` first. Never print or read `.env` or any key. Don't call AFDC
 | QU12 | Refresh | Workflow file; a manual run after merge | Both countries fetched; per-country checks; self-merge only when all pass; a failed OCM country keeps last month's file |
 | QU13 | Stops stay in the country (QA 2026-11-18) | `tests/station-country.test.ts`, `/api/route` response `countries`; a border trip (Fort Erie → Niagara Falls ON, low start charge) | No stop in the other country; a trip whose ends are both on the border line (in both countries) may use either |
 | QU14 | Refresh PR size (QA 2026-11-18) | `wc -c sources/*/summary.md` after the imports | All four together well under 60,000 characters (closest 40 near misses per country); `near-misses.md` git-ignored and uploaded as an artifact |
+
+# Phase 8 QA: Cross-border trips (B79)
+
+Read `DESIGN-8.md` first. Never print or read `.env` or any key. Real `/api/route` calls use the owner's ORS allowance: keep them to the trips listed.
+
+| ID | Area | How to check | Pass when / edge cases |
+|----|------|--------------|------------------------|
+| QB1 | API option | `tests/ors.test.ts` | `border=cross` accepted, any other `border` value 400; absent = stay within (B78 behaviour unchanged) |
+| QB2 | Border rule with crossing | unit tests | With cross: Toronto → Buffalo and Seattle → Anchorage pass; Mexico City or an ocean point at either end → outsideArea. Without: as QU8 |
+| QB3 | Crossings | unit tests (synthetic lines) | Windsor → Detroit: one crossing into `us` at the right index; Lower 48 → Alaska line: two; a line along the border inside the slack: none; `countries` lists the countries passed through |
+| QB4 | Settings | Settings menu, 375 and 1280, dark and light | Switch on by default, toggles, kept after reload; help text; focus and contrast as the other switches |
+| QB5 | Messages | Switch on: Toronto → Buffalo, Seattle → Anchorage | Messages say how to allow the trip; the Settings button opens Settings at the route options |
+| QB6 | Crossing trip | Switch off: Toronto → Detroit, Vancouver → Seattle, Anchorage → Seattle | Plans; note under the summary; crossing rows in route order with a town on the far side; stops may be in either country; Drive mode still opens |
+| QB7 | Same-country trip with crossing allowed | Switch off: Toronto → Ottawa; Detroit → Buffalo | Toronto → Ottawa: no note, stops in Canada only. Detroit → Buffalo: if ORS goes through Ontario, the note and two rows show |
+| QB8 | Cache and share | Network log; a share link | `border=cross` in the URL only when the switch is off; a shared crossing trip opened with the switch on shows the message with the Settings button |
+
+## Phase 8 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QB1 | | |
+| QB2 | | |
+| QB3 | | |
+| QB4 | | |
+| QB5 | | |
+| QB6 | | |
+| QB7 | | |
+| QB8 | | |

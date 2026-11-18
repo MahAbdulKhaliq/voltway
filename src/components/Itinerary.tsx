@@ -13,6 +13,7 @@ import { NEAR_KM, type TripPlan } from '../lib/trip-plan.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import { COVERAGE, TRIP } from '../config.ts';
 import { chargeCost, chargePrice, PRICE_EVENT } from '../lib/price.ts';
+import { rowsOnLeg, type BorderRow } from '../lib/border-rows.ts';
 
 const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', currency: COVERAGE.currency });
 
@@ -44,9 +45,11 @@ interface Props {
   onDrive: () => void;
   /** B76: the trip works with NACS on; turns it on in My car (the plan follows). */
   onNacs?: () => void;
+  /** B79: where the route crosses the border, in route order. */
+  crossings?: readonly BorderRow[];
 }
 
-export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive, onNacs }: Props) {
+export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive, onNacs, crossings = [] }: Props) {
   const bodyId = useId();
   // Stop costs use the charging price from Settings (B66); it can change while the plan is shown.
   const [price, setPrice] = useState(chargePrice);
@@ -90,6 +93,22 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
   };
   /** The list item whose line runs along a gap leg: the start (leg 0) or stop i (leg i + 1). */
   const gapClass = (legIndex: number) => (gapLegs.has(legIndex) ? ' ti-gap' : '');
+  // B79: a "Border crossing" row after the item whose leg the crossing is on.
+  const stopKms = plan.stops.map((s) => s.alongKm);
+  const countryName = (cc: string) => t(cc === 'us' ? 'trip.border.us' : 'trip.border.ca');
+  const borderItems = (legIndex: number, i: number) =>
+    rowsOnLeg(crossings, stopKms, legIndex).map((r, k) => (
+      <li key={`border-${legIndex}-${k}`} className={`ti-border${gapClass(legIndex)}`} style={{ '--i': i, '--n': plan.stops.length + 1 } as React.CSSProperties}>
+        <span className="ti-mark ti-border-mark" aria-hidden="true" />
+        <div>
+          <p className="ti-head">
+            <strong>{t('trip.border.row')}</strong>
+            {' · '}
+            {r.place ? t('trip.border.near', { country: countryName(r.to), place: r.place }) : t('trip.border.into', { country: countryName(r.to) })}
+          </p>
+        </div>
+      </li>
+    ));
 
   return (
     <div className={`route-itinerary${open ? ' open' : ''}`}>
@@ -133,6 +152,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 20.3l.7.7L12 18l6.8 3 .7-.7L12 2Z" fill="currentColor" /></svg>
           {t('drive.open')}
         </button>
+        {crossings.length > 0 && <p className="banner small ti-border-note">{t('trip.border.note')}</p>}
         {noChargers && <p className="banner small" role="alert">{t('trip.warn.noChargers')}</p>}
         {!plan.reachable && !noChargers && !gapSaysUnreachable && <p className="banner small" role="alert">{t('trip.warn.unreachable')}</p>}
         {/* Charging gaps stay above the fold on phones: they are never behind "Show the stops". */}
@@ -168,7 +188,8 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
               {leg(0)}
             </div>
           </li>
-          {plan.stops.map((s, i) => (
+          {borderItems(0, 0)}
+          {plan.stops.map((s, i) => [
             <li key={`${s.station.i}-${i}`} style={{ '--i': i + 1, '--n': plan.stops.length + 1 } as React.CSSProperties} data-stop-item={i} aria-current={selected === i ? 'true' : undefined} className={`ti-stop${selected === i ? ' on' : ''}${gapClass(i + 1)}`}>
               <span className="ti-mark ti-num" aria-hidden="true">{i + 1}</span>
               <div>
@@ -196,8 +217,9 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
                 </p>
                 {leg(i + 1)}
               </div>
-            </li>
-          ))}
+            </li>,
+            ...borderItems(i + 1, i + 1),
+          ])}
           <li className="ti-end ti-finish" style={{ '--i': plan.stops.length + 1, '--n': plan.stops.length + 1 } as React.CSSProperties}>
             <span className="ti-mark" aria-hidden="true" />
             <div>

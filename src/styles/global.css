@@ -693,6 +693,9 @@ html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .sett
 .ti-list > li.ti-gap:not(:last-child)::before { background: repeating-linear-gradient(to bottom, var(--paint) 0 9px, transparent 9px 17px) center / 4px 100% no-repeat, var(--band); box-shadow: -2px 0 0 var(--warn), 2px 0 0 var(--warn); }
 .ti-head { overflow-wrap: anywhere; }
 .ti-mark { position: relative; z-index: 1; justify-self: center; width: 20px; height: 20px; margin-top: 2px; border-radius: 50%; border: 3px solid var(--surface); box-sizing: content-box; }
+/* B79: a border crossing sits on the line as a small square turned on its corner, smaller than a stop. */
+.ti-border .ti-mark.ti-border-mark { width: 10px; height: 10px; margin-top: 6px; border-radius: 2px; transform: rotate(45deg); background: var(--surface); border: 2px solid var(--text); }
+.ti-border .ti-head { font-weight: 400; }
 /* Start is a solid mark, the destination a hollow one; a stop is a numbered plate, like its pin on the map. */
 .ti-start .ti-mark { background: var(--mark); }
 .ti-finish .ti-mark { background: var(--surface); box-shadow: inset 0 0 0 4px var(--mark); }

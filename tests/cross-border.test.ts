@@ -85,11 +85,15 @@ describe('findCrossings on the real outlines (B79)', () => {
     const r = findCrossings(line([-110, 49.0005], [-100, 49.0005]), countriesOf);
     expect(r.crossings).toEqual([]);
   });
-  it('a 4,000 km route is checked quickly', () => {
+  it('a ~6,000 km route checks about one point in ten (about 0.4 s on a laptop)', () => {
     const coords = line(P.anchorage, P.whitehorse, P.watsonLake, P.princeGeorge, P.vancouver, P.seattle, [-104.99, 39.74], [-87.63, 41.88]);
-    const t = performance.now();
-    findCrossings(coords, countriesOf);
-    expect(performance.now() - t).toBeLessThan(1000); // ~6,000 km; about 0.4 s locally
+    let calls = 0;
+    const counted: CountriesOf = (lon, lat) => { calls++; return countriesOf(lon, lat); };
+    const { crossings } = findCrossings(coords, counted);
+    expect(crossings.map((c) => c.to)).toEqual(['ca', 'us']);
+    // Samples, plus the points between the last sample in one country and the first in the next
+    // (longer where the line runs over water, in neither): well under a full check.
+    expect(calls).toBeLessThan(coords.length / 5);
   });
 });
 

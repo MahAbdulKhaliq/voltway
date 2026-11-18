@@ -15,7 +15,13 @@ The full design lives in **`docs/design/`** (moved into the repo 2026-11-15 so d
 
 - **Don't change design decisions on your own.** If something in the docs doesn't work in practice, tell the owner and propose a change. The owner decides.
 - **When the owner approves a change,** update the matching planning doc **and** `gaps-and-questions.md` (with the date), then `docs/plan/DESIGN.md` / `CHECKLIST.md` if affected.
-- **Current scope (2026-11-18): Phase 8, cross-border trips** (`docs/plan/DESIGN-8.md`, checklist items tagged [8]; owner decision B79). Phases 1a, 1b, 2, 3, 4 (Road Paint, B52–B71), 5 (Drive mode and route options, B72–B76), 6 (Open Charge Map, B77), 7 (US chargers and Stay within the border, B78) and the polish pass are done (M5 and 6.8 wait on the 2026-12-01 refresh).
+- **Quick-change lane (owner, 2026-11-18).** For an owner-approved change that touches one or two source files and adds no new on-screen text or screen (a default, a threshold, a wording fix, a small style tweak):
+  - docs: one dated line in `gaps-and-questions.md` and a dated note in the matching design doc; no new checklist item, no QA.md edit;
+  - checks: only the tests that cover the change, locally; CI runs the full suite, `astro check` and the build;
+  - no browser check unless the change is visible and unit tests can't show it (then one quick look);
+  - ship with `ship-item` in quick mode: report the merge right away, deploy check in the background.
+  Anything bigger uses the full plan → checklist → QA flow.
+- **Current scope (2026-11-18): no phase in progress.** Phases 1a, 1b, 2, 3, 4 (Road Paint, B52–B71), 5 (Drive mode and route options, B72–B76), 6 (Open Charge Map, B77), 7 (US chargers and Stay within the border, B78), 8 (cross-border trips, B79–B80, `docs/plan/DESIGN-8.md`) and the polish pass are done (M5 and 6.8 wait on the 2026-12-01 refresh).
 - **Build in phases, in `roadmap.md` order.** Owner decision B21: Phase 1a came first, then the charger map (Phase 2); Phase 1b (Cars filters, first-load picker + My car, Compare, template calibration, and the map ↔ curve cross-links, B31) follows the map. Do not build the route planner before then, and hide links to parts that don't exist.
 - **Data layer before UI:** schema, importers (NRCan, OpenEV Data, Chargeprice) and the crosswalk table come before any screens.
 - **No bare numbers.** Every vehicle figure is a sourced value with `value`, `unit`, `kind` and `source_id` (`vehicle-data-model.md` §3). "unknown" is an allowed value. The build must fail on an unsourced figure.

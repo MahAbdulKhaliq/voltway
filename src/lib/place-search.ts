@@ -1,23 +1,48 @@
 // From/To suggestions on the trip planner (route-planner.md §6, B45): an in-browser search over
-// the GeoNames Canadian places in public/data/places.json. No network request while typing; the
-// address service (/api/geocode) is called only when the visitor presses "Search full address".
+// the GeoNames places in public/data/places-ca.json and, once loaded, places-us.json (B78, DESIGN-7
+// D5). No network request while typing; the address service (/api/geocode) is called only when the
+// visitor presses "Search full address".
 
 import MiniSearch from 'minisearch';
 
-/** A row of public/data/places.json (short keys). */
+/** A row of public/data/places-<cc>.json (short keys). */
 export interface PlaceRow { n: string; p: string; lat: number; lon: number; pop: number }
 
-/** A trip end: a label to show and a position. */
-export interface TripEnd { label: string; lat: number; lon: number }
+export type PlaceCountry = 'ca' | 'us';
+
+/** A trip end: a label to show and a position; `cc` is its country when known (from a place or address pick). */
+export interface TripEnd { label: string; lat: number; lon: number; cc?: PlaceCountry }
 
 /** "Montréal" → "montreal": accents and case don't matter when matching. */
 export const fold = (s: string): string => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
 export const placeLabel = (p: PlaceRow): string => `${p.n}, ${p.p}`;
 
-export interface PlaceSearch { (query: string, limit?: number): TripEnd[] }
+/** Search the places; `prefer` leans results to one country (the trip start's, B78). */
+export interface PlaceSearch {
+  (query: string, limit?: number, prefer?: PlaceCountry): TripEnd[];
+  /** The country of the listed place nearest a point: a good guess for an end without a `cc` (a share link, my location). */
+  countryNear: (lat: number, lon: number) => PlaceCountry | null;
+}
 
-export function makePlaceSearch(rows: readonly PlaceRow[]): PlaceSearch {
+/** Whether the results hold a place with exactly this name ("Spring" → "Spring, TX" yes, "Spring Garden, NS" no). */
+export const hasExactName = (results: readonly TripEnd[], query: string): boolean => {
+  const q = fold(query.trim().split(',')[0].trim());
+  return results.some((r) => fold(r.label.slice(0, r.label.lastIndexOf(','))) === q);
+};
+
+/** How much a place in the preferred country counts over one elsewhere. */
+const PREFER_BOOST = 1.6;
+
+/** One search over one or more countries' place lists (Canada first). */
+export function makePlaceSearch(rows: readonly PlaceRow[], more: readonly { cc: PlaceCountry; rows: readonly PlaceRow[] }[] = []): PlaceSearch {
+  const sets = [{ cc: 'ca' as PlaceCountry, rows }, ...more];
+  const all = sets.flatMap((s) => s.rows.map((r) => ({ r, cc: s.cc })));
+  return makeSearch(all);
+}
+
+function makeSearch(all: readonly { r: PlaceRow; cc: PlaceCountry }[]): PlaceSearch {
+  const rows = all.map((x) => x.r);
   const ms = new MiniSearch<{ id: number; name: string; prov: string }>({
     fields: ['name', 'prov'],
     storeFields: [],
@@ -28,15 +53,26 @@ export function makePlaceSearch(rows: readonly PlaceRow[]): PlaceSearch {
   ms.addAll(rows.map((r, id) => ({ id, name: r.n, prov: r.p })));
   // Bigger places first among similar matches ("Richmond" → Richmond, BC before Richmond, QC).
   const weight = rows.map((r) => 1 + Math.log10(Math.max(r.pop, 1000)) / 3);
-  return (query, limit = 8) => {
+  const search = (query: string, limit = 8, prefer?: PlaceCountry): TripEnd[] => {
     const q = query.trim();
     if (!q) return [];
     return ms
-      .search(q, { boostDocument: (id) => weight[id as number] })
+      .search(q, { boostDocument: (id) => weight[id as number] * (prefer && all[id as number].cc === prefer ? PREFER_BOOST : 1) })
       .slice(0, limit)
       .map((hit) => {
-        const r = rows[hit.id as number];
-        return { label: placeLabel(r), lat: r.lat, lon: r.lon };
+        const { r, cc } = all[hit.id as number];
+        return { label: placeLabel(r), lat: r.lat, lon: r.lon, cc };
       });
   };
+  const countryNear = (lat: number, lon: number): PlaceCountry | null => {
+    const k = Math.cos((lat * Math.PI) / 180) ** 2;
+    let best: PlaceCountry | null = null;
+    let bestD = Infinity;
+    for (const { r, cc } of all) {
+      const d = (r.lat - lat) ** 2 + k * (r.lon - lon) ** 2;
+      if (d < bestD) { bestD = d; best = cc; }
+    }
+    return best;
+  };
+  return Object.assign(search, { countryNear });
 }

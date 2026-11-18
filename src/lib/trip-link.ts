@@ -3,6 +3,7 @@
 // Link format (on the charger map, B50): /?from=<lat>,<lon>,<label>&to=<lat>,<lon>,<label>&start=<%>&min=<%>
 // (positions first, so a label may hold commas, e.g. a station's "name, city").
 
+import { inServiceArea } from './country.ts';
 import { TRIP } from '../config.ts';
 import type { TripEnd } from './place-search.ts';
 
@@ -17,13 +18,13 @@ export const SOC_LIMITS = { startMin: 20, startMax: 100, thresholdMin: 5, thresh
 
 const round = (x: number, d: number) => Math.round(x * 10 ** d) / 10 ** d;
 
-/** "43.65,-79.38,Toronto, ON" → an end; null when it is malformed or far outside Canada. */
+/** "43.65,-79.38,Toronto, ON" → an end; null when it is malformed or outside Canada and the US (B78). */
 export function readEnd(raw: string | null | undefined): TripEnd | null {
   if (!raw) return null;
   const m = /^\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*(?:,(.*))?$/s.exec(raw);
   if (!m) return null;
   const lat = Number(m[1]), lon = Number(m[2]);
-  if (!(lat >= 40 && lat <= 84 && lon >= -142 && lon <= -50)) return null;
+  if (!inServiceArea(lon, lat)) return null; // Canada and the US (B78)
   const label = (m[3] ?? '').trim().slice(0, 120) || `${round(lat, 4)}, ${round(lon, 4)}`;
   return { label, lat, lon };
 }

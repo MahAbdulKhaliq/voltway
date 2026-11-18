@@ -1,8 +1,11 @@
 // The charger map (charger-map.md, DESIGN-map.md M6–M8). Mounted with client:only="react":
 // MapLibre draws with WebGL in the browser, so there is nothing to render at build time.
 //
-// Data: public/data/map/l3.json (every site with a Level 3 port, mixed sites included) loads
-// whenever either level is ticked; l2.json (Level 2-only sites) only once Level 2 is first ticked.
+// Data (B78, DESIGN-7 D2, src/lib/map-tiles.ts): the Level 3 overview (o3.json: every site with a
+// Level 3 port, mixed sites included, as numbers only) loads whenever either level is ticked; the
+// Level 2 overview (o2.json) once Level 2 is ticked and the map is at zoom 7 or more. Full records
+// come from detail tiles, loaded for an opened station, the single pins on screen from zoom 9, the
+// Stations in view list and a planned trip's corridor; each swaps in for its overview record.
 // Filtering runs here (src/lib/map-filter.ts) and the result goes to one clustered GeoJSON
 // source with setData, so clusters always count only what the filters let through.
 // A theme change swaps the base style, which drops our layers; 'style.load' adds them back.
@@ -14,7 +17,20 @@ import { MAP } from '../config.ts';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import type { FeatureCollection, Point } from 'geojson';
-import type { MapFeature, MapFeatureCollection, MapMeta } from '../lib/map-data.ts';
+import type { MapFeature, MapMeta } from '../lib/map-data.ts';
+import {
+  corridorTiles,
+  createTileLoader,
+  decodeOverview,
+  DETAIL_ZOOM,
+  isFull,
+  L2_MIN_ZOOM,
+  mergeDetails,
+  tileFor,
+  type OverviewFile,
+  type TileIndex,
+} from '../lib/map-tiles.ts';
+import type { Route } from '../lib/route-geo.ts';
 import {
   applyMapLink,
   carMapInfo,
@@ -49,7 +65,7 @@ import {
   TESLA_T,
 } from '../lib/map-icons.ts';
 import { fastNear, NEAR_PLACE_KM, stationsInView, type Bounds, type ListItem } from '../lib/map-list.ts';
-import PlaceField, { loadPlaces } from './PlaceField.tsx';
+import PlaceField, { loadPlaces, loadUsPlaces } from './PlaceField.tsx';
 import type { PlaceSearch, TripEnd } from '../lib/place-search.ts';
 import { readTripLink, stationEnd, writeTripLink } from '../lib/trip-link.ts';
 import { clearDrive, loadDrive } from '../lib/drive.ts';
@@ -312,10 +328,15 @@ function PowerSlider({
 
 type Load = 'idle' | 'loading' | 'ready' | 'error';
 
-async function loadLevel(level: ChargerLevel): Promise<MapFeature[]> {
-  const res = await fetch(`${MAP.dataUrl}/l${level}.json`);
+async function getJson(url: string): Promise<unknown> {
+  const res = await fetch(url);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return ((await res.json()) as MapFeatureCollection).features;
+  return res.json();
+}
+
+/** A level's overview: every station, numbers only (B78). */
+async function loadLevel(level: ChargerLevel): Promise<MapFeature[]> {
+  return decodeOverview((await getJson(`${MAP.dataUrl}/o${level}.json`)) as OverviewFile);
 }
 
 /** Drops the trip parameters (?from, ?to, ?start, ?min) from the address bar. */
@@ -344,6 +365,13 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const [carInfo, setCarInfo] = useState<CarMapInfo | null>(null);
   const [stations, setStations] = useState<Record<ChargerLevel, MapFeature[]>>({ 3: [], 2: [] });
   const [load, setLoad] = useState<Record<ChargerLevel, Load>>({ 3: 'idle', 2: 'idle' });
+  // B78: the tile index, the tile loader, every full record loaded so far, and which overview file
+  // (level) each station id is in.
+  const [index, setIndex] = useState<TileIndex | null>(null);
+  const [indexFailed, setIndexFailed] = useState(false);
+  const loaderRef = useRef(createTileLoader(MAP.dataUrl, getJson));
+  const detailsRef = useRef(new Map<number, MapFeature>());
+  const fileLevel = useRef(new Map<number, ChargerLevel>());
   const [plugsOpen, setPlugsOpen] = useState(false);
   const [keyOpen, setKeyOpen] = useState(false);
   // Filters start open on wide screens; phones (upright or sideways, B59) start with the sheet small.
@@ -358,7 +386,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   // The view before the trip planner moved the map (B69: leaving the trip goes back to it).
   const preTripView = useRef<{ center: maplibregl.LngLat; zoom: number } | null>(null);
   // "Stations in view" (B34): the current view, refreshed when the map stops moving.
-  const [view, setView] = useState<{ bounds: Bounds; center: [number, number] } | null>(null);
+  const [view, setView] = useState<{ bounds: Bounds; center: [number, number]; zoom: number } | null>(null);
   const [listOpen, setListOpen] = useState(false);
   const listItemRef = useRef<HTMLButtonElement | null>(null);
   // Opened from Stations in view (back arrow) or from the map (close), B71.
@@ -393,6 +421,10 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   useEffect(() => {
     loadPlaces().then((s) => setPlaceSearch(() => s)).catch(() => setPlaceSearch(null)); // a function: wrap it, or React calls it as an updater
   }, []);
+  // B78 (DESIGN-7 D5): US towns load right away when the map is over the US: south of Canada's
+  // southernmost point (41.7° N) or west of 141° W (Alaska). Elsewhere, few matches load them (PlaceField).
+  const overUs = !!view && (view.center[1] < 41.6 || view.center[0] < -141);
+  useEffect(() => { if (overUs) loadUsPlaces().catch(() => {}); }, [overUs]);
   useEffect(() => {
     const on = (e: Event) => setMyCarState((e as CustomEvent<MyCar | null>).detail ?? null);
     window.addEventListener('voltway:mycar', on);
@@ -430,7 +462,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     const reportView = () => {
       const b = map.getBounds();
       const c = map.getCenter();
-      setView({ bounds: [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()], center: [c.lng, c.lat] });
+      setView({ bounds: [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()], center: [c.lng, c.lat], zoom: map.getZoom() });
     };
     // The bounds are known at once; 'load' waits for every tile, which can take a while.
     reportView();
@@ -488,28 +520,68 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     };
   }, []);
 
-  // Station data: each file loads the first time it is needed (l3.json for either level).
+  // B78: Level 2 is drawn from zoom 7; below it the Level 2 boxes count as unticked and a hint shows.
+  const l2On = (view?.zoom ?? 0) >= L2_MIN_ZOOM;
+  const shownFilters = useMemo<MapFilters>(
+    () => (l2On ? filters : { ...filters, levels: { ...filters.levels, 2: false } }),
+    [filters, l2On],
+  );
+
+  // Station data: each overview loads the first time it is needed (o3.json for either level).
   useEffect(() => {
     for (const lv of LEVELS) {
-      // l3.json also holds every mixed site (Level 3 and Level 2 ports), so the Level 2 view needs it too.
-      const needed = lv === 3 ? filters.levels[3] || filters.levels[2] || place !== null || routeMode : filters.levels[2];
+      // o3.json also holds every mixed site (Level 3 and Level 2 ports), so the Level 2 view needs it too.
+      const needed = lv === 3 ? filters.levels[3] || filters.levels[2] || place !== null || routeMode : filters.levels[2] && l2On;
       if (!needed || load[lv] !== 'idle') continue;
       setLoad((s) => ({ ...s, [lv]: 'loading' }));
       loadLevel(lv).then(
         (features) => {
-          setStations((s) => ({ ...s, [lv]: features }));
+          for (const f of features) fileLevel.current.set(f.properties.i, lv);
+          setStations((s) => ({ ...s, [lv]: mergeDetails(features, detailsRef.current) }));
           setLoad((s) => ({ ...s, [lv]: 'ready' }));
         },
         () => setLoad((s) => ({ ...s, [lv]: 'error' })),
       );
     }
-  }, [filters.levels, load, place, routeMode]);
+  }, [filters.levels, load, place, routeMode, l2On]);
+
+  // The tile index (small): needed before any detail tile.
+  useEffect(() => {
+    getJson(`${MAP.dataUrl}/tiles/index.json`).then((x) => setIndex(x as TileIndex), () => setIndexFailed(true));
+  }, []);
+
+  /** Loads detail tiles once each and swaps their full records into the station lists. */
+  const ensureTiles = useCallback(async (lv: ChargerLevel, keys: readonly string[]): Promise<MapFeature[]> => {
+    if (!keys.length) return [];
+    const features = await loaderRef.current.load(lv, keys);
+    let fresh = false;
+    for (const f of features) {
+      if (detailsRef.current.get(f.properties.i) === f) continue;
+      detailsRef.current.set(f.properties.i, f);
+      fresh = true;
+    }
+    if (fresh) setStations((s) => ({ ...s, [lv]: mergeDetails(s[lv], detailsRef.current) }));
+    return features;
+  }, []);
+  /** Loads the tiles holding these station ids (those not loaded yet), up to `cap` tiles. */
+  const ensureStations = useCallback((ids: Iterable<{ i: number; at: readonly [number, number] }>, cap = 24) => {
+    if (!index) return;
+    const want: Record<ChargerLevel, Set<string>> = { 3: new Set(), 2: new Set() };
+    for (const { i, at } of ids) {
+      if (detailsRef.current.has(i)) continue;
+      const lv = fileLevel.current.get(i);
+      if (!lv) continue;
+      const key = tileFor(index, lv, at[0], at[1]);
+      if (key && !loaderRef.current.has(lv, key)) want[lv].add(key);
+    }
+    for (const lv of LEVELS) if (want[lv].size) ensureTiles(lv, [...want[lv]].slice(0, cap)).catch(() => {});
+  }, [index, ensureTiles]);
 
   // Filters → pins → map source; choices are saved.
-  // The files never overlap (l3 = any Level 3 port, l2 = Level 2-only), so merging is safe.
+  // The overviews never overlap (o3 = any Level 3 port, o2 = Level 2-only), so merging is safe.
   const pins = useMemo(
-    () => filterStations([...stations[3], ...stations[2]], filters, carRule),
-    [stations, filters, carRule],
+    () => filterStations([...stations[3], ...(l2On ? stations[2] : [])], shownFilters, carRule),
+    [stations, shownFilters, carRule, l2On],
   );
   useEffect(() => {
     pinsRef.current = pins;
@@ -518,10 +590,15 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   useEffect(() => setJSON(KEYS.mapFilters, filters), [filters]);
 
   // The selected station: looked up from the loaded data, ringed on the map.
-  const station = useMemo(() => {
+  // B78: only a full record (from its detail tile) opens the panel; the tile loads on selection.
+  const selectedFeature = useMemo(() => {
     if (selected === null) return null;
     return stations[3].find((f) => f.properties.i === selected) ?? stations[2].find((f) => f.properties.i === selected) ?? null;
   }, [selected, stations]);
+  const station = selectedFeature && isFull(selectedFeature) ? selectedFeature : null;
+  useEffect(() => {
+    if (selectedFeature && !isFull(selectedFeature)) ensureStations([{ i: selectedFeature.properties.i, at: selectedFeature.geometry.coordinates }]);
+  }, [selectedFeature, ensureStations]);
   useEffect(() => {
     selectedRef.current = selected;
     const map = mapRef.current;
@@ -541,9 +618,28 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   // Stations in view (B62): the count of stations on screen now is the switch's number, so it is
   // worked out on every move; the list itself shows only while the switch is on.
   const list = useMemo(
-    () => (view ? stationsInView([...stations[3], ...stations[2]], filters, view.bounds, view.center, undefined, carRule) : null),
-    [view, stations, filters, carRule],
+    () => (view ? stationsInView([...stations[3], ...(l2On ? stations[2] : [])], shownFilters, view.bounds, view.center, undefined, carRule) : null),
+    [view, stations, shownFilters, carRule, l2On],
   );
+  // The list's names come from detail tiles: load the ones its rows need while it is open.
+  useEffect(() => {
+    if (listOpen && list) ensureStations(list.items);
+  }, [listOpen, list, ensureStations]);
+  const listNamed = !list || list.items.every((it) => it.name !== '');
+  // From zoom 9 the single pins on screen (not clusters) get their detail tiles, so opening one is instant.
+  // Also once the map has drawn: on a first load at zoom 9+ the pins aren't rendered yet when this runs.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !view || view.zoom < DETAIL_ZOOM) return;
+    const run = () => {
+      if (!map.getLayer('pins')) return;
+      const seen = map.queryRenderedFeatures({ layers: ['pins'] });
+      ensureStations(seen.map((f) => ({ i: Number(f.properties?.i), at: (f.geometry as Point).coordinates as [number, number] })));
+    };
+    run();
+    map.once('idle', run);
+    return () => { map.off('idle', run); };
+  }, [view, pins, ensureStations]);
   // Back from a station's details to the list, focusing the row it was opened from.
   const backTo = useRef<number | null>(null);
   const backToList = useCallback(() => {
@@ -607,7 +703,12 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     [place, load, stations, filters, carRule],
   );
 
-  const T = useTrip(myCar, load[3] === 'ready' ? stations[3] : null, load[3] === 'error');
+  // B78 (7.8): the planner gets the full Level 3 records of the tiles along the route.
+  const corridor = useCallback(
+    (route: Route) => (index ? ensureTiles(3, corridorTiles(index, 3, route.coords)) : Promise.reject(new Error('no tile index'))),
+    [index, ensureTiles],
+  );
+  const T = useTrip(myCar, index ? corridor : null, indexFailed);
   const { plan, routeData } = T;
   // B59: on phones the panel is a draggable bottom sheet over a full-height map.
   // Owner (B59 follow-up): on the plain map, dragging the sheet up opens the Chargers filters and
@@ -846,7 +947,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const toggle = <K extends 'levels' | 'plugs'>(group: K, key: keyof MapFilters[K]) =>
     setFilters((f) => ({ ...f, [group]: { ...f[group], [key]: !f[group][key] } }));
 
-  const wanted = (lv: ChargerLevel) => (lv === 3 ? filters.levels[3] || filters.levels[2] : filters.levels[2]);
+  const wanted = (lv: ChargerLevel) => (lv === 3 ? filters.levels[3] || filters.levels[2] : filters.levels[2] && l2On);
   const busy = LEVELS.some((lv) => wanted(lv) && load[lv] === 'loading');
   const failed = LEVELS.some((lv) => wanted(lv) && load[lv] === 'error');
   /** The car filter in force (ticked, and the car's port is known). */
@@ -984,7 +1085,9 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             ? t('map.dataError')
             : busy
               ? <><span className="road-loader" aria-hidden="true"><span /></span>{filters.levels[2] && load[2] === 'loading' ? t('map.loadingL2') : t('map.loadingStations')}</>
-              : null}
+              : filters.levels[2] && !l2On
+                ? t('map.zoomForL2')
+                : null}
         </p>
         </>)}
       </div>
@@ -1082,6 +1185,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             <div id="map-list" className="map-list" ref={listBox}>
               {list.total === 0 ? (
                 <p className="small muted">{t('map.list.none')}</p>
+              ) : !listNamed ? (
+                <p className="small muted"><span className="road-loader" aria-hidden="true"><span /></span>{t('map.list.loading')}</p>
               ) : (
                 <>
                   <ul aria-label={t('map.list.label')}>

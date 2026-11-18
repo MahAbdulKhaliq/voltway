@@ -1,12 +1,13 @@
 // Map data build (DESIGN-map.md M4): turns the AFDC files of every country (data/imported/afdc/<cc>.json,
 // DESIGN-7 D1), plus the Open Charge
 // Map stations that aren't duplicates of AFDC ones (B77, DESIGN-6 P3), into the compact files the
-// charger map loads:
-//   public/data/map/l3.json   stations with any Level 3 port (all their ports, so a
-//                             mixed site carries its Level 2 ports too)
-//   public/data/map/l2.json   Level 2-only stations, loaded when Level 2 is first ticked
-//   public/data/map/meta.json updated date, counts, source
-// No station is in both files, so the client can merge them without duplicates.
+// charger map loads (B78, DESIGN-7 D2; formats in src/lib/map-tiles.ts):
+//   Level 3 = stations with any Level 3 port (all their ports, so a mixed site carries its Level 2
+//   ports too); Level 2 = Level 2-only stations. No station is in both, so the client can merge them.
+//   public/data/map/o3.json, o2.json          overview per level (numbers only, for clusters and filters)
+//   public/data/map/tiles/<level>/<key>.json  full records, cut by area (quadtree)
+//   public/data/map/tiles/index.json          the tiles and their counts
+//   public/data/map/meta.json                 updated dates, counts per source and country
 // Power ranges are not stored: the map filters each port's kW with src/lib/power-bands.ts.
 // Pure: the caller reads and writes files.
 

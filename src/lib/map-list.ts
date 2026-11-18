@@ -23,7 +23,7 @@ export interface ListItem {
 }
 
 export function inBounds([lon, lat]: readonly [number, number], [w, s, e, n]: Bounds): boolean {
-  // A view crossing the antimeridian has west > east; Canada never needs it, but it costs nothing.
+  // A view crossing the antimeridian has west > east; the Aleutians and Guam can (B78).
   const inLon = w <= e ? lon >= w && lon <= e : lon >= w || lon <= e;
   return inLon && lat >= s && lat <= n;
 }

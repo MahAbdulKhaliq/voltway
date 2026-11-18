@@ -187,7 +187,7 @@ In order of preference:
 - **What:** Canadian populated places (cities, towns, villages) with name, province and coordinates. Phase 3 keeps places with **population ≥ 1,000** (about 3,000 rows) as a static file, so typing in From/To suggests places with no service call (route-planner.md §6).
 - **License:** **CC BY 4.0**. Credit GeoNames on the About page.
 - **Access:** a free download (`CA.zip` or `cities1000.zip` from download.geonames.org), refreshed by hand when needed; no key.
-- **US towns (B78, 2026-11-18):** the US dump (`US.txt`, same licence) is added with a **higher population floor** so `places-us.json` stays under about 1 MB; it loads only when Canadian matches run short or the map is over the US ([DESIGN-7.md](../plan/DESIGN-7.md) D5).
+- **US towns (B78, 2026-11-18):** the US dump (`US.txt`, same licence) is added with a **higher population floor** (2,000, about 12,500 places) so `places-us.json` stays under about 1 MB; it loads only when Canadian matches run short or the map is over the US ([DESIGN-7.md](../plan/DESIGN-7.md) D5).
 - **Full addresses** still go to ORS geocoding, only when the visitor presses Search (Canada and the US since B78, biased to the start's country).
 - **Link:** [GeoNames export](https://download.geonames.org/export/dump/)
 

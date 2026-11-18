@@ -296,7 +296,7 @@ Run against [DESIGN-3.md](DESIGN-3.md) and [route-planner.md](../design/route-pl
 
 | # | Check | Edge cases |
 |---|-------|-----------|
-| QD1 | `public/data/places.json` exists: Canadian places with population ≥ 1,000 and their province; Toronto, Montréal, Whitehorse and Iqaluit present; About credits GeoNames (CC BY 4.0) | Accented names keep their accents |
+| QD1 | `public/data/places.json` (since B78: `places-ca.json`) exists: Canadian places with population ≥ 1,000 and their province; Toronto, Montréal, Whitehorse and Iqaluit present; About credits GeoNames (CC BY 4.0) | Accented names keep their accents |
 | QD2 | Every built car has a curb weight; the filled-in ones show Estimated with "median of N sourced …" | A body type with fewer than 3 sourced cars uses the overall median |
 | QD3 | Tested highway figures (once 3.3 is merged) are `kind: tested` with a source each; the owner merged the data PR | |
 
@@ -463,7 +463,7 @@ Read `docs/plan/DESIGN-5.md` and B72–B74 in `docs/design/gaps-and-questions.md
 
 | # | Requirement | How to check | Edge cases |
 |---|---|---|---|
-| QD1 | Settings shows Avoid tolls, Avoid highways (off by default) and Stay in Canada (on, disabled, with its note) | Open the gear on the map and on /cars; toggle; reload | Storage blocked (private window): switches still work for the visit; keyboard only; 375 px |
+| QD1 | Settings shows Avoid tolls, Avoid highways (off by default) and Stay in Canada (since B78: "Stay within the border"; on, disabled, with its note) | Open the gear on the map and on /cars; toggle; reload | Storage blocked (private window): switches still work for the visit; keyboard only; 375 px |
 | QD2 | Options reach the router and are validated | Network tab: `/api/route` has `avoid=…`; `avoid=ferries` → 400; `avoid=tolls,tolls` → 400; `avoid=highways,tolls` is sent as `tolls,highways` | Unit tests in `tests/ors.test.ts` |
 | QD3 | Avoid highways changes the route and stops still plan | Toronto → Ottawa with and without: different line, longer time, stops present | A long trip (Toronto → Thunder Bay) still returns |
 | QD4 | Changing an option re-plans a shown trip once | Trip on screen, toggle Avoid tolls: exactly one new `/api/route` call | On the form the button reads Plan trip, not Return to plan |

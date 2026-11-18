@@ -148,3 +148,16 @@ export function usPart(lon: number, lat: number): UsPart {
   if (lat < 25 && (lon < -154 || lon > -68)) return 'islands'; // Hawaii; Puerto Rico and the Virgin Islands; Guam
   return 'lower48';
 }
+
+/**
+ * Where a trip end may be at all (lon, lat): North America from Hawaii and Alaska to Newfoundland,
+ * and Guam and the Northern Marianas (B78). A loose first check for /api/route and share links;
+ * the outlines then decide the country (src/lib/ors.ts borderProblem).
+ */
+export const SERVICE_AREAS = [
+  { minLon: -180, maxLon: -50, minLat: 10, maxLat: 84 },
+  { minLon: 144, maxLon: 146, minLat: 13, maxLat: 21 },
+] as const;
+
+export const inServiceArea = (lon: number, lat: number): boolean =>
+  SERVICE_AREAS.some((a) => lon >= a.minLon && lon <= a.maxLon && lat >= a.minLat && lat <= a.maxLat);

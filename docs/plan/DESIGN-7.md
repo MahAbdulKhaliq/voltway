@@ -48,7 +48,7 @@ Today the map downloads `l3.json` (1 MB) and `l2.json` (3.8 MB) for all of Canad
 - **Per-site counts** in the header and meta stay per country and per source.
 
 ## D3. Trip planner
-- The planner needs full Level 3 records near the route. After `/api/route` returns the line, the planner loads **every Level 3 detail tile the route corridor touches** (the route's buffer, about 50 km), then plans as today.
+- The planner needs full Level 3 records near the route. After `/api/route` returns the line, the planner loads **every Level 3 detail tile the route corridor touches** (the route's buffer, about 50 km), then plans as today. *(7.8: the buffer is **25 km** each side (`CORRIDOR_KM`): the planner only looks 10 km from the route, and Hamilton → Vancouver plans the same 22 stops as with every station loaded.)*
 - A loading step shows on the trip card while tiles load. They are cached for the visit.
 - No change to the planning rules (B75, B76).
 
@@ -68,8 +68,8 @@ Today the map downloads `l3.json` (1 MB) and `l2.json` (3.8 MB) for all of Canad
 
 ## D5. Place search
 - **GeoNames US towns:** add the US dump (`US.txt`, CC BY 4.0, same licence as Canada) to `fetch-geonames.ts`. Keep populated places only.
-  - **(approved 2026-11-18)** Use a higher population floor for the US than for Canada, so the US list stays under about 1 MB raw. Write `places-ca.json` and `places-us.json`. Load the US file the first time a search doesn't find enough Canadian matches, or right away when the map view is over the US.
-- **Address search:** `boundary.country=CA,US` in `/api/geocode`. Results are biased towards the start's country once a start is set **(approved 2026-11-18)**.
+  - **(approved 2026-11-18)** Use a higher population floor for the US than for Canada, so the US list stays under about 1 MB raw. Write `places-ca.json` and `places-us.json`. *(7.10: the floor is **2,000**: 12,492 US places, 0.85 MB as site rows; 1,000 would be 1.15 MB, 5,000 would lose towns like Moab UT. The build fails if a place file passes 1 MB.)* Load the US file the first time a search doesn't find enough Canadian matches, or right away when the map view is over the US.
+- **Address search:** `boundary.country=CA,US` in `/api/geocode`. Results are biased towards the start's country once a start is set **(approved 2026-11-18)**. *(7.10: "biased" is done as **only the start's country** (`country=ca|us` → `boundary.country`): a trip can't cross the border, and a focus point at the start pulled "1600 Pennsylvania Ave Washington" to streets near Chicago. Place suggestions lean to the start's country by weight; a start without a country tag (share link, my location) takes the nearest listed place's. The US town list also loads when no Canadian place has exactly the typed name, so "Spring" finds Spring, TX.)*
 
 ## D6. Words and credits
 - All new text goes in `en.json`. Replace "Canada" in the map and trip strings where they now mean "the area we cover". The About page credits AFDC US, OCM US and GeoNames US, and says that car data is the Canadian list.

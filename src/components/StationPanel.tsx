@@ -212,7 +212,7 @@ export default function StationPanel({ station, updated, ocmUpdated = null, onCl
             <p><a href={ocmUrl(s.i)} rel="noopener" target="_blank">{t('map.station.ocmLink')}</a></p>
           </>
         ) : (
-          updated && <p>{t('map.station.footer', { date: showDate(updated) })}</p>
+          updated && <p>{t(s.src === 'src-afdc-us' ? 'map.station.footerUs' : 'map.station.footer', { date: showDate(updated) })}</p>
         )}
         {s.u && <p>{t('map.station.recordChanged', { date: showDate(s.u) })}</p>}
       </footer>

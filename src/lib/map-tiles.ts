@@ -180,3 +180,77 @@ export function tilesIn(index: TileIndex, level: ChargerLevel, [w, s, e, n]: rea
 
 /** Where a tile's file is, under the map data folder. */
 export const tilePath = (level: ChargerLevel, key: string) => `tiles/${level}/${key}.json`;
+
+// ---- Loading on the map (7.7, 7.8)
+
+/** Level 2 is drawn from this zoom up (the "Zoom in to see Level 2 chargers" hint shows below it). */
+export const L2_MIN_ZOOM = 7;
+/** From this zoom, the tiles behind the single pins on screen load, so opening one is instant. */
+export const DETAIL_ZOOM = 9;
+/** The trip planner looks at stations within 10 km of the route (trip-plan WIDE_KM); its tiles load within this distance. */
+export const CORRIDOR_KM = 25;
+
+/** Detail tiles fetched once each per visit; a failed tile can be asked for again. */
+export function createTileLoader(baseUrl: string, fetchJson: (url: string) => Promise<unknown>) {
+  const cache = new Map<string, Promise<MapFeature[]>>();
+  const one = (level: ChargerLevel, key: string): Promise<MapFeature[]> => {
+    const path = tilePath(level, key);
+    let p = cache.get(path);
+    if (!p) {
+      p = fetchJson(`${baseUrl}/${path}`).then((body) => {
+        const features = (body as { features?: unknown }).features;
+        if (!Array.isArray(features)) throw new Error(`${path}: not a tile`);
+        return features as MapFeature[];
+      });
+      p.catch(() => cache.delete(path));
+      cache.set(path, p);
+    }
+    return p;
+  };
+  return {
+    /** The full records of these tiles (each fetched at most once). */
+    load: async (level: ChargerLevel, keys: readonly string[]) => (await Promise.all([...new Set(keys)].map((k) => one(level, k)))).flat(),
+    /** Whether a tile was asked for already (loading or loaded). */
+    has: (level: ChargerLevel, key: string) => cache.has(tilePath(level, key)),
+  };
+}
+export type TileLoader = ReturnType<typeof createTileLoader>;
+
+/** Overview stations with any loaded full records swapped in (same id). Returns the same list when nothing changes. */
+export function mergeDetails(list: MapFeature[], details: ReadonlyMap<number, MapFeature>): MapFeature[] {
+  let changed = false;
+  const out = list.map((f) => {
+    const d = details.get(f.properties.i);
+    if (d && d !== f) { changed = true; return d; }
+    return f;
+  });
+  return changed ? out : list;
+}
+
+/** A full record (from a detail tile), not an overview one (which has no source or name). */
+export const isFull = (f: MapFeature): boolean => f.properties.src !== '';
+
+/**
+ * The tiles of a level within `km` of a route (7.8): the route is sampled every few km and each
+ * sample's box is looked up, so a long trip only asks for the cells it passes.
+ */
+export function corridorTiles(index: TileIndex, level: ChargerLevel, coords: readonly (readonly number[])[], km = CORRIDOR_KM): string[] {
+  const boxes = Object.keys(index.tiles[level]).map((key) => ({ key, b: tileBox(key) }));
+  const keys = new Set<string>();
+  const dLat = km / 111.32;
+  const near = (lon: number, lat: number) => {
+    const dLon = km / (111.32 * Math.max(0.1, Math.cos((lat * Math.PI) / 180)));
+    for (const { key, b } of boxes) if (b[0] < lon + dLon && b[2] > lon - dLon && b[1] < lat + dLat && b[3] > lat - dLat) keys.add(key);
+  };
+  // Samples no further apart than km/2, so the boxes overlap along the line.
+  const step = km / 2 / 111.32;
+  for (let i = 0; i < coords.length; i++) {
+    const [lon, lat] = coords[i];
+    near(lon, lat);
+    const next = coords[i + 1];
+    if (!next) break;
+    const span = Math.hypot(next[0] - lon, next[1] - lat);
+    for (let t = step; t < span; t += step) near(lon + ((next[0] - lon) * t) / span, lat + ((next[1] - lat) * t) / span);
+  }
+  return [...keys].sort();
+}

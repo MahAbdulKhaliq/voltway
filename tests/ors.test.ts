@@ -1,5 +1,9 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
-import { CACHE_OK, handleGeocode, handleRoute, parseAvoid, parseLonLat, thinLine, trimPlaces, trimRoute } from '../src/lib/ors.ts';
+import { makeCountriesOf, type Outline } from '../src/lib/country.ts';
+import { borderStatus } from '../src/components/useTrip.ts';
+import { borderProblem, CACHE_OK, handleGeocode, handleRoute, parseAvoid, parseLonLat, thinLine, trimPlaces, trimRoute, type CountriesOf } from '../src/lib/ors.ts';
 
 const KEY = 'test-key-123';
 const routeUrl = (from: string, to: string) => new URL(`https://x.test/api/route?from=${from}&to=${to}`);
@@ -14,6 +18,9 @@ const reply = (status: number, body: unknown) => vi.fn(async () => new Response(
 describe('parseLonLat', () => {
   it('accepts lon,lat inside the area and rounds to 3 decimals', () => {
     expect(parseLonLat('-79.38321,43.65321')).toEqual([-79.383, 43.653]);
+  });
+  it('accepts US points, Alaska to Hawaii and Guam (B78)', () => {
+    for (const ok of ['-118.24,34.05', '-149.9,61.22', '-157.86,21.31', '-66.1,18.47', '144.75,13.47']) expect(parseLonLat(ok)).not.toBeNull();
   });
   it('rejects missing, malformed and out-of-area input', () => {
     for (const bad of [null, '', '-79.3', '-79.3,abc', '1,2,3', ',43', '2.35,48.85', '-79.3,95']) expect(parseLonLat(bad)).toBeNull();
@@ -102,16 +109,23 @@ describe('handleGeocode', () => {
     expect(f).not.toHaveBeenCalled();
   });
 
-  it('searches Canada only, 5 results, cacheable', async () => {
-    const f = reply(200, { features: [{ geometry: { coordinates: [-79.38, 43.65] }, properties: { label: '100 Queen St W, Toronto, ON, Canada' } }] });
+  it('searches Canada and the US (B78), 5 results, cacheable, with each result\'s country', async () => {
+    const f = reply(200, { features: [{ geometry: { coordinates: [-79.38, 43.65] }, properties: { label: '100 Queen St W, Toronto, ON, Canada', country_a: 'CAN' } }] });
     const r = await handleGeocode(geoUrl('100 Queen St W Toronto'), KEY, f);
     expect(r.status).toBe(200);
     expect(r.headers.get('Cache-Control')).toBe(CACHE_OK);
     const called = new URL(String((f.mock.calls[0] as unknown[])[0]));
     expect(called.pathname).toBe('/pelias/v1/search');
-    expect(called.searchParams.get('boundary.country')).toBe('CA');
+    expect(called.searchParams.get('boundary.country')).toBe('CA,US');
     expect(called.searchParams.get('size')).toBe('5');
-    expect(await r.json()).toEqual({ places: [{ label: '100 Queen St W, Toronto, ON, Canada', lon: -79.38, lat: 43.65 }] });
+    expect(called.searchParams.has('focus.point.lat')).toBe(false);
+    expect(await r.json()).toEqual({ places: [{ label: '100 Queen St W, Toronto, ON, Canada', lon: -79.38, lat: 43.65, cc: 'ca' }] });
+  });
+
+  it.each([['us', 'US'], ['ca', 'CA'], ['fr', 'CA,US']])('country=%s (the trip start\'s) → boundary.country %s', async (cc, want) => {
+    const f = reply(200, { features: [] });
+    await handleGeocode(new URL(`https://x.test/api/geocode?q=Main%20St&country=${cc}`), KEY, f);
+    expect(new URL(String((f.mock.calls[0] as unknown[])[0])).searchParams.get('boundary.country')).toBe(want);
   });
 
   it('ORS over its allowance → 503 busy', async () => {
@@ -150,22 +164,70 @@ describe('route options (B73) and Canada only (B74)', () => {
     await handleRoute(url('&avoid=highways'), KEY, f);
     expect(body(f).options.avoid_features).toEqual(['highways']);
   });
+  // B78: the url() trip runs from lon -79.4 to lon -73.6; these fake checks place each end.
   it.each([
-    ['from', (lon: number) => lon > -75],
-    ['to', (lon: number) => lon < -75],
-    ['both', () => false],
-  ] as const)('an end outside Canada (%s) → 422 outsideCanada, no ORS call, not cached', async (end, inCanada) => {
+    ['a start in neither country', (lon: number) => (lon < -75 ? [] : ['ca']), { error: 'outsideArea' }],
+    ['a Canadian start, a US end', (lon: number) => (lon < -75 ? ['ca'] : ['us']), { error: 'crossBorder', country: 'ca' }],
+    ['a US start, an end in neither', (lon: number) => (lon < -75 ? ['us'] : []), { error: 'crossBorder', country: 'us' }],
+    ['a start on the border, an end in neither', (lon: number) => (lon < -75 ? ['ca', 'us'] : []), { error: 'crossBorder', country: null }],
+  ] as const)('%s → 422, no ORS call, not cached', async (_, countriesOf, want) => {
     const f = reply(200, orsRoute);
-    const r = await handleRoute(url(''), KEY, f, inCanada);
+    const r = await handleRoute(url(''), KEY, f, countriesOf as CountriesOf);
     expect(r.status).toBe(422);
-    expect(await r.json()).toEqual({ error: 'outsideCanada', end });
+    expect(await r.json()).toEqual(want);
     expect(r.headers.get('Cache-Control')).toBe('no-store');
     expect(f).not.toHaveBeenCalled();
   });
-  it('both ends in Canada → asks ORS', async () => {
+  it('both ends in one country (or a border start whose end shares a country) → asks ORS', async () => {
     const f = reply(200, orsRoute);
-    const r = await handleRoute(url(''), KEY, f, () => true);
+    const r = await handleRoute(url(''), KEY, f, (lon) => (lon < -75 ? ['ca', 'us'] : ['ca']));
     expect(r.status).toBe(200);
     expect(f).toHaveBeenCalledOnce();
+  });
+});
+
+// B78 (DESIGN-7 D4): the border rule on the real Canada and US outlines.
+describe('borderProblem with the real outlines (B78)', () => {
+  const read = (cc: string) => JSON.parse(readFileSync(join(process.cwd(), 'data', 'imported', 'naturalearth', `${cc}.json`), 'utf8')) as { polygons: Outline; border: string[][] };
+  const countriesOf = makeCountriesOf({ ca: read('ca'), us: read('us') });
+  const P = {
+    toronto: [-79.38, 43.65], vancouver: [-123.12, 49.28], whitehorse: [-135.05, 60.72],
+    dearborn: [-83.18, 42.32], chicago: [-87.63, 41.88], seattle: [-122.33, 47.61],
+    anchorage: [-149.9, 61.22], fairbanks: [-147.72, 64.84], honolulu: [-157.86, 21.31],
+    stanstead: [-72.097, 45.009], paris: [2.35, 48.85], mexicoCity: [-99.13, 19.43],
+  } as const;
+  it.each([
+    ['Toronto → Vancouver', 'toronto', 'vancouver', null],
+    ['Chicago → Seattle', 'chicago', 'seattle', null],
+    ['Anchorage → Fairbanks', 'anchorage', 'fairbanks', null],
+    ['Stanstead (on the line) → Toronto', 'stanstead', 'toronto', null],
+    ['Stanstead (on the line) → Chicago', 'stanstead', 'chicago', null],
+    ['Toronto → Dearborn', 'toronto', 'dearborn', { error: 'crossBorder', country: 'ca' }],
+    ['Dearborn → Toronto', 'dearborn', 'toronto', { error: 'crossBorder', country: 'us' }],
+    ['Toronto → Mexico City', 'toronto', 'mexicoCity', { error: 'crossBorder', country: 'ca' }],
+    ['Seattle → Anchorage (Lower 48 ↔ Alaska)', 'seattle', 'anchorage', { error: 'crossBorder', country: 'us', reason: 'alaska' }],
+    ['Fairbanks → Chicago (Alaska ↔ Lower 48)', 'fairbanks', 'chicago', { error: 'crossBorder', country: 'us', reason: 'alaska' }],
+    ['Whitehorse → Anchorage', 'whitehorse', 'anchorage', { error: 'crossBorder', country: 'ca' }],
+    ['Mexico City → Chicago', 'mexicoCity', 'chicago', { error: 'outsideArea' }],
+    ['Paris → Toronto', 'paris', 'toronto', { error: 'outsideArea' }],
+  ] as const)('%s', (_, a, b, want) => {
+    expect(borderProblem(P[a], P[b], countriesOf)).toEqual(want);
+  });
+  it('Honolulu → Honolulu-area trip stays in the US (islands are not Alaska)', () => {
+    expect(borderProblem(P.honolulu, [-158.0, 21.4], countriesOf)).toBeNull();
+  });
+});
+
+describe('borderStatus (useTrip, B78)', () => {
+  it.each([
+    [{ error: 'outsideArea' }, 'outsideArea'],
+    [{ error: 'crossBorder', country: 'ca' }, 'crossBorderCa'],
+    [{ error: 'crossBorder', country: 'us' }, 'crossBorderUs'],
+    [{ error: 'crossBorder', country: null }, 'crossBorderAny'],
+    [{ error: 'crossBorder', country: 'us', reason: 'alaska' }, 'crossBorderAlaska'],
+    [{ error: 'noRoute' }, null],
+    [null, null],
+  ] as const)('%j → %s', (body, want) => {
+    expect(borderStatus(body)).toBe(want);
   });
 });

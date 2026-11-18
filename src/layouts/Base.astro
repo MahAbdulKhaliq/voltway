@@ -139,13 +139,13 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
                 <button type="button" data-unit="mi" aria-pressed="false">{t('units.mi')}</button>
               </div>
             </div>
-            <!-- Route options (B73) and Canada only (B74, always on for now). -->
+            <!-- Route options (B73) and Stay within the border (B74, B78; always on for now). -->
             <div class="settings-group" role="group" aria-labelledby="settings-route">
               <p id="settings-route" class="settings-sub">{t('settings.route')}</p>
               <button type="button" role="switch" aria-checked="false" class="settings-switch" data-avoid="avoidTolls"><span>{t('settings.avoidTolls')}</span><span class="switch" aria-hidden="true"></span></button>
               <button type="button" role="switch" aria-checked="false" class="settings-switch" data-avoid="avoidHighways"><span>{t('settings.avoidHighways')}</span><span class="switch" aria-hidden="true"></span></button>
-              <button type="button" role="switch" aria-checked="true" aria-disabled="true" class="settings-switch" aria-describedby="settings-canada-help"><span>{t('settings.inCanada')}</span><span class="switch" aria-hidden="true"></span></button>
-              <p id="settings-canada-help" class="settings-help">{t('settings.inCanadaHelp')}</p>
+              <button type="button" role="switch" aria-checked="true" aria-disabled="true" class="settings-switch" aria-describedby="settings-border-help"><span>{t('settings.inBorder')}</span><span class="switch" aria-hidden="true"></span></button>
+              <p id="settings-border-help" class="settings-help">{t('settings.inBorderHelp')}</p>
             </div>
           </div>
         </div>

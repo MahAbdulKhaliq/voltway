@@ -1,6 +1,6 @@
-// GeoNames Canadian places (B45, data-sources.md §5a): parses the GeoNames `CA.txt` dump
-// into the places used for From/To suggestions on the trip planner. Used by
-// scripts/fetch-geonames.ts (writes data/imported/geonames/places.json) and by tests.
+// GeoNames places (B45, data-sources.md §5a; US added by B78, DESIGN-7 D5): parses the GeoNames
+// `CA.txt` and `US.txt` dumps into the places used for From/To suggestions on the trip planner.
+// Used by scripts/fetch-geonames.ts (writes data/imported/geonames/places-<cc>.json) and by tests.
 //
 // GeoNames dump format (tab-separated, no header; https://download.geonames.org/export/dump/readme.txt):
 //   0 geonameid · 1 name · 2 asciiname · 3 alternatenames · 4 latitude · 5 longitude
@@ -9,8 +9,19 @@
 
 import { inflateRawSync } from 'node:zlib';
 
+export type GeoCountry = 'CA' | 'US';
+
 /** Places smaller than this are left out (B45). */
 export const MIN_POPULATION = 1000;
+
+/**
+ * The US floor is higher, so the US list stays under about 1 MB raw (B78, DESIGN-7 D5; 2,000 gives ~12,500 places,
+ * 0.85 MB, and keeps towns like Moab UT and Lewistown MT): the US has
+ * ten times Canada's people and far more small places.
+ */
+export const MIN_POPULATION_US = 2000;
+
+export const MIN_POPULATION_FOR: Readonly<Record<GeoCountry, number>> = { CA: MIN_POPULATION, US: MIN_POPULATION_US };
 
 /** GeoNames admin1 codes for Canada → province / territory abbreviation (admin1CodesASCII.txt). */
 export const PROVINCE_CODES: Readonly<Record<string, string>> = {
@@ -29,6 +40,11 @@ export const PROVINCE_CODES: Readonly<Record<string, string>> = {
   '14': 'NU',
 };
 
+/** US states and DC: GeoNames uses the postal abbreviation as the admin1 code. */
+export const US_STATES: ReadonlySet<string> = new Set(
+  'AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY'.split(' '),
+);
+
 /** Populated-place codes that are not real, current places: historical, abandoned, destroyed. */
 const EXCLUDED_CODES = new Set(['PPLH', 'PPLQ', 'PPLW', 'PPLCH']);
 
@@ -37,31 +53,34 @@ export interface Place {
   id: number;
   name: string;
   ascii_name: string;
+  /** Province or territory (Canada) or state (US) abbreviation. */
   province: string;
   lat: number;
   lon: number;
   population: number;
 }
 
-/** Province / territory abbreviation for a GeoNames admin1 code, or null if it isn't one. */
-export function provinceFor(admin1: string): string | null {
-  return PROVINCE_CODES[admin1.trim()] ?? null;
+/** Province / territory (or US state) abbreviation for a GeoNames admin1 code, or null if it isn't one. */
+export function provinceFor(admin1: string, country: GeoCountry = 'CA'): string | null {
+  const code = admin1.trim();
+  if (country === 'US') return US_STATES.has(code) ? code : null;
+  return PROVINCE_CODES[code] ?? null;
 }
 
 const round = (x: number, digits: number) => Number(x.toFixed(digits));
 
 /**
- * Parses one GeoNames dump line. Returns the place if it is a current populated place in
- * Canada with population ≥ MIN_POPULATION and a known province; null otherwise.
+ * Parses one GeoNames dump line. Returns the place if it is a current populated place in the
+ * country with at least that country's population floor and a known province or state; null otherwise.
  */
-export function parseLine(line: string): Place | null {
+export function parseLine(line: string, country: GeoCountry = 'CA'): Place | null {
   const f = line.split('\t');
   if (f.length < 15) return null;
-  const [id, name, ascii, , lat, lon, fclass, fcode, country, , admin1] = f;
-  if (country !== 'CA' || fclass !== 'P' || EXCLUDED_CODES.has(fcode)) return null;
+  const [id, name, ascii, , lat, lon, fclass, fcode, cc, , admin1] = f;
+  if (cc !== country || fclass !== 'P' || EXCLUDED_CODES.has(fcode)) return null;
   const population = Number(f[14]);
-  if (!Number.isFinite(population) || population < MIN_POPULATION) return null;
-  const province = provinceFor(admin1);
+  if (!Number.isFinite(population) || population < MIN_POPULATION_FOR[country]) return null;
+  const province = provinceFor(admin1, country);
   const la = Number(lat);
   const lo = Number(lon);
   if (!province || !name.trim() || !Number.isFinite(la) || !Number.isFinite(lo)) return null;
@@ -79,28 +98,47 @@ export function parseLine(line: string): Place | null {
 
 export interface ParseResult {
   places: Place[];
-  /** Lines read, and lines that were Canadian populated places but dropped as too small. */
+  /** Lines read, and lines that were the country's populated places but dropped as too small. */
   lines: number;
   below_min_population: number;
 }
 
-/** Parses a whole dump file; places come out sorted by population (largest first), then id. */
-export function parseGeonames(text: string): ParseResult {
+/**
+ * Parses a whole dump; places come out sorted by population (largest first), then id. Takes the
+ * text or the raw bytes: the US dump is ~300 MB, so a Buffer is read one line at a time instead of
+ * being turned into one huge string.
+ */
+export function parseGeonames(dump: string | Buffer, country: GeoCountry = 'CA'): ParseResult {
   const places: Place[] = [];
   let lines = 0;
   let small = 0;
-  for (const line of text.split(/\r?\n/)) {
+  for (const raw of dumpLines(dump)) {
+    const line = raw.endsWith('\r') ? raw.slice(0, -1) : raw;
     if (!line) continue;
     lines++;
-    const p = parseLine(line);
+    const p = parseLine(line, country);
     if (p) places.push(p);
     else {
       const f = line.split('\t');
-      if (f[6] === 'P' && f[8] === 'CA' && Number(f[14]) < MIN_POPULATION) small++;
+      if (f[6] === 'P' && f[8] === country && Number(f[14]) < MIN_POPULATION_FOR[country]) small++;
     }
   }
   places.sort((a, b) => b.population - a.population || a.id - b.id);
   return { places, lines, below_min_population: small };
+}
+
+function* dumpLines(dump: string | Buffer): Generator<string> {
+  if (typeof dump === 'string') {
+    yield* dump.split('\n');
+    return;
+  }
+  let start = 0;
+  while (start < dump.length) {
+    let end = dump.indexOf(0x0a, start);
+    if (end < 0) end = dump.length;
+    yield dump.toString('utf8', start, end);
+    start = end + 1;
+  }
 }
 
 /**

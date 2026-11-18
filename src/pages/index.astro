@@ -9,9 +9,11 @@ import { MAP } from '../config.ts';
 const index = loadIndex();
 ---
 <Base title={t('map.title')} description={t('nav.map.desc')} active="map" fill>
-  <!-- The map always needs l3.json (it also holds the mixed sites shown at Level 2): start the
-       download with the page instead of after the map's script has run (P.5). Same mode as fetch(). -->
-  <link slot="head" rel="preload" href={`${MAP.dataUrl}/l3.json`} as="fetch" crossorigin="anonymous" />
+  <!-- The map always needs the Level 3 overview (it also holds the mixed sites shown at Level 2) and
+       the tile index (B78): start the downloads with the page instead of after the map's script has
+       run (P.5). Same mode as fetch(). -->
+  <link slot="head" rel="preload" href={`${MAP.dataUrl}/o3.json`} as="fetch" crossorigin="anonymous" />
+  <link slot="head" rel="preload" href={`${MAP.dataUrl}/tiles/index.json`} as="fetch" crossorigin="anonymous" />
   <h1 class="sr-only">{t('map.title')}</h1>
   <ChargerMap client:only="react" cars={index} />
   <noscript><p class="banner">{t('map.error')}</p></noscript>

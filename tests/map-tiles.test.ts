@@ -7,12 +7,16 @@ import type { OcmStationsFile } from '../scripts/lib/ocm.ts';
 import { buildMap, buildTiles, mapFiles } from '../scripts/lib/map-build.ts';
 import type { MapFeature, MapPort } from '../src/lib/map-data.ts';
 import {
+  corridorTiles,
+  createTileLoader,
   decodeOverview,
   decodePort,
   encodeOverview,
   encodePort,
+  isFull,
   keyAt,
   MAX_DEPTH,
+  mergeDetails,
   rootKey,
   tileBox,
   tileFor,
@@ -178,4 +182,60 @@ describe('map build with tiles (the real data)', () => {
       expect([...m.tiles[lv].values()].reduce((a, t) => a + t.length, 0)).toBe(n);
     }
   }, 60_000);
+});
+
+// ---- 7.7 / 7.8: loading on the map
+
+describe('tile loader', () => {
+  it('fetches each tile once, even when asked twice at the same time', async () => {
+    const urls: string[] = [];
+    const loader = createTileLoader('/data/map', async (url) => { urls.push(url); return { type: 'FeatureCollection', features: [feat(urls.length, 0, 0)] }; });
+    const [a, b] = await Promise.all([loader.load(3, ['50-66', '50-66']), loader.load(3, ['50-66'])]);
+    await loader.load(3, ['50-66', '51-66']);
+    expect(urls).toEqual(['/data/map/tiles/3/50-66.json', '/data/map/tiles/3/51-66.json']);
+    expect(a).toHaveLength(1);
+    expect(b[0]).toBe(a[0]);
+    expect(loader.has(3, '50-66') && loader.has(3, '51-66') && !loader.has(2, '50-66')).toBe(true);
+  });
+  it('a failed tile can be asked for again', async () => {
+    let n = 0;
+    const loader = createTileLoader('', async () => { n++; if (n === 1) throw new Error('offline'); return { features: [] }; });
+    await expect(loader.load(2, ['1-1'])).rejects.toThrow('offline');
+    expect(loader.has(2, '1-1')).toBe(false);
+    await expect(loader.load(2, ['1-1'])).resolves.toEqual([]);
+    expect(n).toBe(2);
+  });
+});
+
+describe('mergeDetails', () => {
+  it('swaps in full records by id and keeps the list when nothing changes', () => {
+    const light = decodeOverview(encodeOverview(3, [feat(1, -79, 43, [[3, 'ccs1', 50, 2]]), feat(2, -80, 44, [[3, 'ccs1', 50, 2]])]));
+    expect(light.every((f) => !isFull(f))).toBe(true);
+    const full = feat(2, -80, 44, [[3, 'ccs1', 50, 2]]);
+    const merged = mergeDetails(light, new Map([[2, full]]));
+    expect(merged[1]).toBe(full);
+    expect(merged[0]).toBe(light[0]);
+    expect(isFull(merged[1])).toBe(true);
+    expect(mergeDetails(merged, new Map([[2, full]]))).toBe(merged);
+    expect(mergeDetails(light, new Map())).toBe(light);
+  });
+});
+
+describe('corridorTiles', () => {
+  const index: TileIndex = { v: 1, maxTileBytes: 1, tiles: { 3: {}, 2: {} } };
+  // Level 3 tiles: Hamilton, Toronto, a Prairie cell, one far from the route (Montréal), and a small downtown LA tile.
+  for (const [lon, lat, d] of [[-79.87, 43.26, 0], [-79.38, 43.65, 1], [-104.6, 50.45, 0], [-73.57, 45.5, 0], [-118.24, 34.05, 4]] as const) index.tiles[3][keyAt(lon, lat, d)] = 1;
+  it('picks the tiles the route passes within the distance, and no others', () => {
+    // Hamilton → Toronto along the lake.
+    const route: [number, number][] = [[-79.87, 43.26], [-79.7, 43.4], [-79.5, 43.6], [-79.38, 43.65]];
+    expect(corridorTiles(index, 3, route).sort()).toEqual([keyAt(-79.87, 43.26, 0), keyAt(-79.38, 43.65, 1)].sort());
+  });
+  it('samples long straight legs, so a tile in the middle of one is found', () => {
+    // Winnipeg → Calgary in one segment passes Regina's cell.
+    expect(corridorTiles(index, 3, [[-97.14, 49.9], [-114.07, 51.05]])).toContain(keyAt(-104.6, 50.45, 0));
+  });
+  it('a tile just outside the distance stays out', () => {
+    expect(corridorTiles(index, 3, [[-118.6, 34.05], [-118.6, 34.2]], 5)).toEqual([]); // ~25 km west of the LA tile
+    expect(corridorTiles(index, 3, [[-118.6, 34.05], [-118.6, 34.2]], 40)).toEqual([keyAt(-118.24, 34.05, 4)]);
+  });
 });

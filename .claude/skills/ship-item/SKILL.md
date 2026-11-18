@@ -16,14 +16,22 @@ Owner rule (CLAUDE.md, memory "autonomous-phase-build"): checklist PRs self-merg
 - Each item's *Done when* is actually verified (tests, browser report, command output). Never tick a skipped or stubbed step; note gaps in the tick text instead.
 - No browser agent is still checking pages (CLAUDE.md): wait for its report.
 
+## Quick mode (owner, 2026-11-18)
+For a quick-lane change (CLAUDE.md "Quick-change lane": one or two files, no new on-screen text):
+- skip step 1 unless CSS colours changed;
+- step 2: run only the tests that cover the change (`npx vitest run <files>`), plus `npx tsc --noEmit -p .` when TypeScript changed; CI runs the full suite, `astro check` and the build;
+- step 3: no tick (no checklist item);
+- step 9: start the deploy check in the background and report the merge at once; mention the deploy only if it fails or is rate-limited.
+The full steps below still apply to checklist items. Since CI's `check` job runs `validate`, the full tests, `astro check` and the build, a local build in step 2 is only needed when a change could break the build in a way CI would find late (new pages, Astro config, data scripts).
+
 ## Steps
 1. **Contrast pairs:** `node scripts/contrast-pairs.mjs`. If it lists colour pairs used in CSS that `tests/contrast.test.ts` doesn't cover, add the ones that are real text/background or control pairs to the test (or say why not in the PR body).
-2. **Checks** (all must pass; fix and re-run otherwise):
+2. **Checks** (all must pass; fix and re-run otherwise). CI repeats them all, so locally run the fast ones:
    ```bash
    npx vitest run
-   npx astro check
-   npm run build
+   npx tsc --noEmit -p .
    ```
+   Add `npx astro check` and `npm run build` only for new pages, `.astro` changes, Astro config or data/build scripts (see Quick mode above).
    Tests must not read `public/data/` (git-ignored build output, absent in CI before the build): read `data/` via `buildCars('.')` / the script helpers.
 3. **Tick** each item with the helper (no inline `node -e`; it breaks on quotes):
    ```bash
@@ -51,5 +59,5 @@ Owner rule (CLAUDE.md, memory "autonomous-phase-build"): checklist PRs self-merg
    ```bash
    gh api repos/MahAbdulKhaliq/voltway/commits/$(git rev-parse HEAD)/status --jq '.statuses[] | .context + " " + .state + " " + .description'
    ```
-   It can take a minute to appear. "Deployment rate limited" means the daily limit is hit: production lags `main` until it resets. Tell the owner, batch the next items, and don't change Vercel settings.
+   It can take a minute to appear: run it in the background (a short wait-and-retry loop) instead of a fixed sleep, and don't hold the report for it. "Deployment rate limited" means the daily limit is hit: production lags `main` until it resets. Tell the owner, batch the next items, and don't change Vercel settings.
 10. **Report** in one or two lines: the PR link, what's now live (or that the deploy is rate-limited), and the next checklist item you're starting (or "**Your move:** …" if the next step needs the owner).

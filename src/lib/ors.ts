@@ -121,7 +121,7 @@ export function routeBody(from: [number, number], to: [number, number], avoid: r
 
 /**
  * GET /api/route?from=lon,lat&to=lon,lat[&avoid=tolls,highways]
- * @param inCanada the Canada check (src/lib/canada.ts); an end outside it answers 422 outsideCanada
+ * @param inCanada the Canada check (src/lib/country.ts); an end outside it answers 422 outsideCanada
  *   before any ORS call (B74).
  */
 export async function handleRoute(url: URL, key: string | undefined, fetchFn: Fetch = fetch, inCanada?: InCanada): Promise<Response> {

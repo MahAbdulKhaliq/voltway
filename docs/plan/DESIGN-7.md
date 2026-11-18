@@ -54,7 +54,7 @@ Today the map downloads `l3.json` (1 MB) and `l2.json` (3.8 MB) for all of Canad
 ## D4. Stay within the border
 - **Outlines:** add the US to the Natural Earth Admin 0 outline (public domain, already approved for Canada). `data/imported/naturalearth/` holds `ca.json` and `us.json`. `scripts/fetch-canada-outline.ts` becomes `fetch-outlines.ts`.
 - **The function** (`src/lib/ors.ts`, `src/pages/api/route.ts`):
-  1. Find the start's country (CA or US) from the outlines.
+  1. Find the start's country (CA or US) from the outlines. *(7.5 finding:)* a border town can be in both, because Natural Earth's line is ~100 m off in places (Stanstead QC lands in the US). So the function takes **every country a point may be in** (inside the outline or within the 0.5 km border slack) and a trip is cross-border only when the start and destination share none. The US outline includes Puerto Rico, the Virgin Islands, Guam, the Northern Marianas and American Samoa.
   2. If the start is in neither, answer 422 `outsideArea`.
   3. If the destination is not in the start's country, answer 422 `crossBorder`.
   4. Otherwise ask ORS with `avoid_borders: "all"` as today.

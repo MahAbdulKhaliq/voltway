@@ -20,7 +20,7 @@
     "import:ocm": "tsx scripts/import-ocm.ts",
     "import:chargeprice": "tsx scripts/import-chargeprice.ts",
     "fetch:geonames": "tsx scripts/fetch-geonames.ts",
-    "fetch:canada": "tsx scripts/fetch-canada-outline.ts",
+    "fetch:outlines": "tsx scripts/fetch-outlines.ts",
     "data:import": "npm run import:nrcan && npm run import:openev && npm run import:chargeprice",
     "suggest:matches": "tsx scripts/suggest-matches.ts",
     "gaps": "tsx scripts/gap-report.ts",

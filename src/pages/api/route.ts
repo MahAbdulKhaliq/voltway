@@ -4,8 +4,8 @@
 import type { APIRoute } from 'astro';
 import { getSecret } from 'astro:env/server';
 import { handleRoute } from '../../lib/ors.ts';
-import { makeInCanada, type Outline } from '../../lib/canada.ts';
-import outline from '../../../data/imported/naturalearth/canada.json';
+import { makeInCanada, type Outline } from '../../lib/country.ts';
+import outline from '../../../data/imported/naturalearth/ca.json';
 
 export const prerender = false;
 

@@ -1,12 +1,12 @@
 // Simplifies Natural Earth's Canada outline for the "outside Canada" check (B74, DESIGN-5 §2.3).
-// Used by scripts/fetch-canada-outline.ts and by tests.
+// Used by scripts/fetch-outlines.ts and by tests.
 //
 // What matters is the land border with the United States: those points are shared with the US
 // outline in Natural Earth, so they are kept almost as they are. The coast only separates land
 // from sea, so it is simplified much more. North of NORTH_LAT the check uses a simple rule
-// instead (src/lib/canada.ts), so the Arctic islands are dropped.
+// instead (src/lib/country.ts), so the Arctic islands are dropped.
 
-import { NORTH_LAT, type Outline, type Ring } from '../../src/lib/canada.ts';
+import { NORTH_LAT, type Outline, type Ring } from '../../src/lib/country.ts';
 
 /** Douglas–Peucker tolerance in degrees along the US border (~20 m). */
 export const BORDER_TOLERANCE_DEG = 0.0002;

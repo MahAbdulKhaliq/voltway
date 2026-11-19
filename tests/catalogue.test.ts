@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { assignModel, epaMotorKw, groupRegulatorRows, trimPart, type ModelMap, type RegRow } from '../scripts/lib/catalogue.ts';
+import { assignModel, epaMotorKw, groupRegulatorRows, trimNameKey, trimPart, type ModelMap, type RegRow } from '../scripts/lib/catalogue.ts';
 
 const map: ModelMap = {
   models: [
@@ -91,6 +91,17 @@ describe('groupRegulatorRows', () => {
     expect(groupRegulatorRows(r, existing, [], map, gen)[0].powertrain).toBe('pt-2026');
     const old = r.map((x) => ({ ...x, year: 2022 }));
     expect(groupRegulatorRows(old, existing, [], map, gen)[0].powertrain).toBe('new');
+  });
+  it('uses researched trim names, which can pair Canada and the US when the regulators word them differently', () => {
+    const r = [
+      row({ label: 'Model 3 Premium AWD-I', model_id: 'tesla/model-3', source_key: 'c' }),
+      row({ source: 'epa', market: 'US', label: 'Model 3 Long Range AWD', base_model: 'Model 3', drive: 'All-Wheel Drive', model_id: 'tesla/model-3', source_key: 'u' }),
+    ];
+    expect(groupRegulatorRows(r, new Map(), [], map)[0].flags.some((f) => f.startsWith('pair: only one'))).toBe(true);
+    const names = new Map([[trimNameKey('nrcan', 2026, 'Model 3 Premium AWD-I'), 'Premium AWD'], [trimNameKey('epa', 2026, 'Model 3  Long Range AWD'), 'Premium AWD']]);
+    const p = groupRegulatorRows(r, new Map(), [], map, undefined, names);
+    expect(p).toHaveLength(1);
+    expect(p[0]).toMatchObject({ markets: ['CA', 'US'], names: { CA: 'Premium AWD', US: 'Premium AWD' }, named: true, variant_id: 'tesla/model-3/2026/premium-awd' });
   });
   it('adds a market to an existing variant with the same name and drivetrain', () => {
     const existing = new Map([['tesla/model-3/2026/premium-awd', { id: 'tesla/model-3/2026/premium-awd', model_id: 'tesla/model-3', year: 2026, drivetrain: 'awd', powertrain_id: 'tesla/model-3/2026-premium-awd', trims: [{ names: { CA: 'Premium AWD' } }] }]]);

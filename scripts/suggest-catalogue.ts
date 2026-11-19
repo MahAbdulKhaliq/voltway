@@ -9,7 +9,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { parseCsv, toCsv } from './lib/csv.ts';
-import { groupRegulatorRows, assignModel, epaMotorKw, type ModelMap, type RegRow, type Proposal } from './lib/catalogue.ts';
+import { groupRegulatorRows, assignModel, epaMotorKw, trimNameKey, type ModelMap, type RegRow, type Proposal } from './lib/catalogue.ts';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -39,7 +39,23 @@ const rows: RegRow[] = [
 ].filter((r) => !linked.has(`${r.source}|${r.source_key}`));
 
 const csvFile = join(root, 'crosswalk/catalogue-review.csv');
-const HEADER = ['approved', 'check', 'proposal', 'model_id', 'year', 'variant_id', 'markets', 'drivetrain', 'powertrain', 'trim_ca', 'trim_us', 'wheels', 'flags', 'source', 'source_key'];
+// Researched buyer-facing names (B91, DESIGN-9 §2): one row per regulator label, with a cited source.
+// Approving a proposal confirms the names of its rows (--apply sets confirmed=true).
+const tnFile = join(root, 'crosswalk/trim-names.csv');
+const TRIM_NAMES_HEADER = ['model_id', 'source', 'year', 'label', 'market', 'trim_name', 'dealer_trims', 'source_url', 'notes', 'confirmed'];
+const tnRows = existsSync(tnFile) ? parseCsv(readFileSync(tnFile, 'utf8')) : [];
+const trimNames = new Map<string, string>(
+  tnRows
+    .filter((r) => r.trim_name)
+    .map((r) => [trimNameKey(r.source, r.year, r.label), r.trim_name]),
+);
+// A re-run keeps the owner's approvals for proposals that didn't change.
+const kept = new Map<string, string>(
+  (existsSync(csvFile) ? parseCsv(readFileSync(csvFile, 'utf8')) : [])
+    .filter((r) => r.approved)
+    .map((r) => [`${r.proposal}|${r.source}|${r.source_key}`, r.approved]),
+);
+const HEADER = ['approved', 'check', 'named', 'proposal', 'model_id', 'year', 'variant_id', 'markets', 'drivetrain', 'powertrain', 'trim_ca', 'trim_us', 'wheels', 'flags', 'source', 'source_key'];
 
 if (apply) {
   const review = parseCsv(readFileSync(csvFile, 'utf8')).filter((r) => r.approved.trim().toLowerCase() === 'yes');
@@ -80,6 +96,11 @@ if (apply) {
     written++;
   }
   writeFileSync(cwFile, toCsv(cwHeader, crosswalk));
+  const approvedLabels = new Set(review.map((r) => r.source_key));
+  const labelOf = new Map(rows.map((r) => [r.source_key, trimNameKey(r.source, r.year, r.label)]));
+  const keys = new Set([...approvedLabels].map((k) => labelOf.get(k)));
+  for (const t of tnRows) if (keys.has(trimNameKey(t.source, t.year, t.label))) t.confirmed = 'true';
+  if (tnRows.length) writeFileSync(tnFile, toCsv(TRIM_NAMES_HEADER, tnRows));
   console.log(`suggest-catalogue --apply: ${written} variants written`);
   process.exit(0);
 }
@@ -106,13 +127,29 @@ const proposals: Proposal[] = groupRegulatorRows(inWave.map((x) => ({ ...x.r, mo
   const f = join(root, 'data/models', `${modelId}.json`);
   if (!existsSync(f)) return undefined;
   return (load(f).generations ?? []).find((g: any) => year >= g.first_year && (g.last_year === undefined || year <= g.last_year))?.id;
-});
+}, trimNames);
 
 const csvRows = proposals.flatMap((p) => p.rows.map((r) => ({
-  approved: '', check: p.flags.length ? 'yes' : '', proposal: p.id, model_id: p.model_id, year: p.year, variant_id: p.variant_id, markets: p.markets.join(' '), drivetrain: p.drivetrain ?? '',
+  approved: kept.get(`${p.id}|${r.source}|${r.source_key}`) ?? '', check: p.flags.length ? 'yes' : '', named: p.named ? 'yes' : '', proposal: p.id, model_id: p.model_id, year: p.year, variant_id: p.variant_id, markets: p.markets.join(' '), drivetrain: p.drivetrain ?? '',
   powertrain: p.powertrain, trim_ca: p.names.CA ?? '', trim_us: p.names.US ?? '', wheels: p.wheels.join(' '), flags: p.flags.join('; '), source: r.source, source_key: r.source_key,
 })));
 writeFileSync(csvFile, toCsv(HEADER, csvRows));
+
+// --seed-names: add this wave's regulator labels to crosswalk/trim-names.csv (names blank) for research.
+if (args.includes('--seed-names')) {
+  const have = new Set(tnRows.map((t) => trimNameKey(t.source, t.year, t.label)));
+  let added = 0;
+  for (const p of proposals) for (const r of p.rows) {
+    const k = trimNameKey(r.source, r.year, r.label);
+    if (have.has(k)) continue;
+    have.add(k);
+    tnRows.push({ model_id: p.model_id, source: r.source, year: String(r.year), label: r.label.replace(/\s+/g, ' ').trim(), market: r.market, trim_name: '', dealer_trims: '', source_url: '', notes: '', confirmed: 'false' });
+    added++;
+  }
+  tnRows.sort((a, b) => a.model_id.localeCompare(b.model_id) || Number(a.year) - Number(b.year) || a.market.localeCompare(b.market) || a.label.localeCompare(b.label));
+  writeFileSync(tnFile, toCsv(TRIM_NAMES_HEADER, tnRows));
+  console.log(`trim-names.csv: ${added} labels added (${tnRows.length} in all)`);
+}
 
 const md: string[] = [
   `# Catalogue review: wave ${wave}`,
@@ -128,7 +165,7 @@ let lastModel = '';
 for (const p of proposals) {
   if (p.model_id !== lastModel) { md.push(`## ${p.model_id}`, ''); lastModel = p.model_id; }
   const names = Object.entries(p.names).map(([k, v]) => `${k}: ${v}`).join(' · ');
-  md.push(`- **${p.year} ${names}** → \`${p.variant_id}\` [${p.markets.join(', ')}] ${p.drivetrain ?? 'drivetrain ?'}${p.wheels.length ? ` · wheels ${p.wheels.join('/')}″` : ''} · powertrain ${p.powertrain}${p.flags.length ? ` · ⚠ ${p.flags.join('; ')}` : ''}`);
+  md.push(`- **${p.year} ${names}** → \`${p.variant_id}\` [${p.markets.join(', ')}] ${p.drivetrain ?? 'drivetrain ?'}${p.wheels.length ? ` · wheels ${p.wheels.join('/')}″` : ''} · powertrain ${p.powertrain}${p.named ? '' : ' · names: regulator wording'}${p.flags.length ? ` · ⚠ ${p.flags.join('; ')}` : ''}`);
   for (const r of p.rows) md.push(`  - ${r.source === 'nrcan' ? 'NRCan' : 'EPA'}: ${r.label}`);
 }
 writeFileSync(join(root, 'crosswalk/catalogue-review.md'), md.join('\n') + '\n');

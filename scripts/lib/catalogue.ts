@@ -2,7 +2,7 @@
 // belongs to, how a model year's rows group into variants, and how Canadian (NRCan) and US (EPA)
 // groups pair up. Suggestions only; the owner approves every row.
 
-import { normalizeMake, parseName, similarity, slugify, tokenize, type Drivetrain } from './match.ts';
+import { drivetrainFrom, normalizeMake, parseName, similarity, slugify, tokenize, type Drivetrain } from './match.ts';
 
 export interface ModelMap { models: { id: string; nrcan: string[]; epa: string[] }[] }
 
@@ -30,6 +30,7 @@ export interface Proposal {
   powertrain: string;     // an existing powertrain id, or "new"
   names: Partial<Record<'CA' | 'US', string>>;
   wheels: number[];
+  named: boolean;         // every row's name comes from crosswalk/trim-names.csv
   flags: string[];
   rows: RegRow[];
 }
@@ -85,6 +86,9 @@ export function trimPart(r: RegRow, map: ModelMap) {
   return { ...p, wheels: [...new Set(wheels)].sort((a, b) => a - b), wheel_in: wheels[0], charger_kw, date_note, drivetrain, name: words, tokens: tokenize(words), notes };
 }
 
+/** Key of a regulator label in crosswalk/trim-names.csv. */
+export const trimNameKey = (source: string, year: number | string, label: string) => `${source}|${year}|${label.replace(/\s+/g, ' ').trim()}`;
+
 /** EPA's motor text ("74 and 165 kW PMSM") as total kW, comparable with NRCan's motor_kw; null if unknown. */
 export function epaMotorKw(motor: string | undefined): number | null {
   const kw = motor?.match(/^(.*?)\bkw\b/i)?.[1];
@@ -114,21 +118,26 @@ export function groupRegulatorRows(
   _crosswalk: Record<string, string>[],
   map: ModelMap = { models: [] },
   generationOf: (modelId: string, year: number) => string | undefined = () => undefined,
+  trimNames: Map<string, string> = new Map(),
 ): Proposal[] {
-  type G = { model_id: string; year: number; market: 'CA' | 'US'; key: string; name: string; tokens: string[]; drivetrain?: Drivetrain; motor_kw: number | null; wheels: Set<number>; flags: Set<string>; rows: RegRow[] };
+  type G = { model_id: string; year: number; market: 'CA' | 'US'; key: string; name: string; tokens: string[]; drivetrain?: Drivetrain; motor_kw: number | null; named: boolean; wheels: Set<number>; flags: Set<string>; rows: RegRow[] };
   const groups = new Map<string, G>();
   for (const r of rows) {
     if (!r.model_id) continue;
-    const t = trimPart(r, map.models.length ? map : { models: [{ id: r.model_id, nrcan: [], epa: [] }] });
+    const parsed = trimPart(r, map.models.length ? map : { models: [{ id: r.model_id, nrcan: [], epa: [] }] });
+    // A researched buyer-facing name (crosswalk/trim-names.csv) replaces the regulator's wording.
+    const mapped = trimNames.get(trimNameKey(r.source, r.year, r.label));
+    const t = mapped ? { ...parsed, name: mapped, tokens: tokenize(mapped), drivetrain: drivetrainFrom(mapped) ?? parsed.drivetrain, pack_kwh: undefined } : parsed;
     const key = [r.model_id, r.year, r.market, t.tokens.join(' '), t.drivetrain ?? '-', t.pack_kwh ?? '-', r.source === 'nrcan' ? r.motor_kw ?? '-' : '-'].join('|');
-    const g = groups.get(key) ?? { model_id: r.model_id, year: r.year, market: r.market, key, name: t.name, tokens: t.tokens, drivetrain: t.drivetrain, motor_kw: r.motor_kw, wheels: new Set<number>(), flags: new Set<string>(), rows: [] };
+    const g = groups.get(key) ?? { model_id: r.model_id, year: r.year, market: r.market, key, name: t.name, tokens: t.tokens, drivetrain: t.drivetrain, motor_kw: r.motor_kw, named: true, wheels: new Set<number>(), flags: new Set<string>(), rows: [] };
     for (const w of t.wheels) g.wheels.add(w);
     g.motor_kw ??= r.motor_kw;
     if (t.code) g.flags.add(`code: NRCan "-${t.code}"`);
     if (t.date_note) g.flags.add(`date: "${t.date_note}"`);
     if (t.charger_kw) g.flags.add(`charger ${t.charger_kw} kW on one row (trim onboard charger)`);
     for (const n of t.notes) g.flags.add(`note: "(${n})"`);
-    if (!t.tokens.length) g.flags.add('name: no trim words in the regulator label');
+    if (!mapped && !t.tokens.length) g.flags.add('name: no trim words in the regulator label');
+    if (!mapped) g.named = false;
     g.rows.push(r);
     groups.set(key, g);
   }
@@ -206,6 +215,7 @@ export function groupRegulatorRows(
         powertrain: ex?.powertrain_id ?? sibling?.powertrain_id ?? 'new',
         names,
         wheels: [...new Set([...(c?.wheels ?? []), ...(u?.wheels ?? [])])].sort((a, b) => a - b),
+        named: Boolean((!c || c.named) && (!u || u.named)),
         flags: [...flags],
         rows: [...(c?.rows ?? []), ...(u?.rows ?? [])],
       });

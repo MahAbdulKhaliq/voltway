@@ -12,7 +12,7 @@ Phase 3 of [roadmap.md](roadmap.md). The simple, threshold-based trip planner fr
 
 **On the charger map, not a separate page (B50 ✅, 2026-11-16).**
 
-1. Type a place in the map's **"Where to?"** box (**search mode**). The map flies there and a place card shows the fast chargers nearby, with **Route here**. (The station panel has **Route here** too.)
+1. Type a place in the map's **"Where to?"** box (**search mode**). The map flies there and a place card shows the fast chargers nearby, with **Route here**. (The station panel has **Route here** too.) *(Owner, 2026-11-19: closing a trip returns focus to Where to only with a mouse and keyboard; on phones and touch screens nothing is focused, so the on-screen keyboard stays closed.)*
 2. **Route here** switches to **route mode**: **From** (the last start, or "Use my location"; the browser location is used without a press only if the browser already allows it, B33), **To**, a swap button, and one editable line for the car (from **My car**), **starting battery %** (default **90%**, R9 ✅) and **stop threshold** (default 15%).
 3. Press **Plan route**.
 4. The route and its charging stops show on the same map (other chargers stay visible, faded), with the step-by-step itinerary and totals in the side panel (a bottom sheet on phones). **Close route** goes back to the plain map.

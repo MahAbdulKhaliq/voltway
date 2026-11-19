@@ -103,13 +103,26 @@ describe('groupRegulatorRows', () => {
     expect(p).toHaveLength(1);
     expect(p[0]).toMatchObject({ markets: ['CA', 'US'], names: { CA: 'Premium AWD', US: 'Premium AWD' }, named: true, variant_id: 'tesla/model-3/2026/premium-awd' });
   });
-  it('never pairs two researched names with no shared trim word, even at the same motor power', () => {
+  it('pairs by motor power only a US car whose name is not another Canadian car of that year', () => {
+    // The Import row is processed first; the US "Performance" belongs to the Canadian "Performance".
     const r = [
       row({ label: 'Model 3 Long Range AWD (Import)', model_id: 'tesla/model-3', source_key: 'c', motor_kw: 280 }),
+      row({ label: 'Model 3 Performance', model_id: 'tesla/model-3', source_key: 'p', motor_kw: 300 }),
       row({ source: 'epa', market: 'US', label: 'Model 3 Performance AWD', base_model: 'Model 3', drive: 'All-Wheel Drive', model_id: 'tesla/model-3', source_key: 'u', motor_kw: 280 }),
     ];
     const names = new Map([[trimNameKey('nrcan', 2026, 'Model 3 Long Range AWD (Import)'), 'Long Range AWD'], [trimNameKey('epa', 2026, 'Model 3 Performance AWD'), 'Performance']]);
-    expect(groupRegulatorRows(r, new Map(), [], map, undefined, names)).toHaveLength(2);
+    const p = groupRegulatorRows(r, new Map(), [], map, undefined, names);
+    expect(p.find((x) => x.names.CA === 'Long Range AWD')?.markets).toEqual(['CA']);
+    expect(p.find((x) => x.names.CA === 'Performance')?.markets).toEqual(['CA', 'US']);
+    // Kia: one car, a different name in each country, same motor power → paired, flagged.
+    const kia = [
+      row({ label: 'Model 3 Land AWD', model_id: 'tesla/model-3', source_key: 'k1', motor_kw: 239 }),
+      row({ source: 'epa', market: 'US', label: 'Model 3 Light LR AWD', base_model: 'Model 3', drive: 'All-Wheel Drive', model_id: 'tesla/model-3', source_key: 'k2', motor_kw: 239 }),
+      row({ source: 'epa', market: 'US', label: 'Model 3 GT', base_model: 'Model 3', drive: 'All-Wheel Drive', model_id: 'tesla/model-3', source_key: 'k3', motor_kw: 430 }),
+    ];
+    const kp = groupRegulatorRows(kia, new Map(), [], map, undefined, new Map([[trimNameKey('nrcan', 2026, 'Model 3 Land AWD'), 'Land AWD'], [trimNameKey('epa', 2026, 'Model 3 Light LR AWD'), 'Light LR AWD']]));
+    expect(kp.find((x) => x.names.CA === 'Land AWD')).toMatchObject({ markets: ['CA', 'US'], names: { US: 'Light LR AWD' } });
+    expect(kp.find((x) => x.names.CA === 'Land AWD')?.flags.some((f) => f.includes('same motor power'))).toBe(true);
   });
   it('adds a market to an existing variant with the same name and drivetrain', () => {
     const existing = new Map([['tesla/model-3/2026/premium-awd', { id: 'tesla/model-3/2026/premium-awd', model_id: 'tesla/model-3', year: 2026, drivetrain: 'awd', powertrain_id: 'tesla/model-3/2026-premium-awd', trims: [{ names: { CA: 'Premium AWD' } }] }]]);

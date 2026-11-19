@@ -159,13 +159,14 @@ export function groupRegulatorRows(
       const scored = cands.map((u) => ({ u, s: similarity(trimWords(c.tokens), trimWords(u.tokens)) })).sort((a, b) => b.s + lean(b.u) - (a.s + lean(a.u)));
       const best = scored[0];
       // Motor power is a fallback only (EPA's motor text is sometimes one motor of two, or "TBD").
-      // Two researched names that share no trim word are different cars, whatever the motor says.
-      const byMotor = cands.filter((u) => motorClose(u.motor_kw, c.motor_kw) && (c.drivetrain ? c.drivetrain === u.drivetrain : u.drivetrain !== 'awd') &&
-        (!(c.named && u.named) || similarity(trimWords(c.tokens), trimWords(u.tokens)) > 0));
+      // Countries may name one car differently (Kia "Land AWD" = "Light LR AWD"), so motor power can
+      // pair them, flagged; but never a US car whose name is exactly another Canadian car's that year.
+      const namesAnotherCa = (u: G) => ca.some((x) => x !== c && similarity(trimWords(x.tokens), trimWords(u.tokens)) === 1);
+      const byMotor = cands.filter((u) => motorClose(u.motor_kw, c.motor_kw) && (c.drivetrain ? c.drivetrain === u.drivetrain : u.drivetrain !== 'awd') && !namesAnotherCa(u));
       if (best && best.s >= 0.6) { used.add(best.u); pairs.push([c, best.u, false]); }
       else if (byMotor.length === 1) { used.add(byMotor[0]); pairs.push([c, byMotor[0], 'motor']); }
       else if (cands.length === 1 && ca.filter((x) => dtOk(x.drivetrain, c.drivetrain)).length === 1 &&
-        (!(c.named && cands[0].named) || similarity(trimWords(c.tokens), trimWords(cands[0].tokens)) > 0)) { used.add(cands[0]); pairs.push([c, cands[0], true]); }
+        !namesAnotherCa(cands[0])) { used.add(cands[0]); pairs.push([c, cands[0], true]); }
       else pairs.push([c, null, false]);
     }
     for (const u of us) if (!used.has(u)) pairs.push([null, u, false]);

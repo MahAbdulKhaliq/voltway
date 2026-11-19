@@ -249,31 +249,31 @@ approved,check,named,proposal,model_id,year,variant_id,markets,drivetrain,powert
 ,,yes,ford/mustang-mach-e/2026/rally,ford/mustang-mach-e,2026,ford/mustang-mach-e/2026/rally,US,awd,ford/mustang-mach-e/2026-rally,,Rally,,,epa,2026 · Ford · Mustang Mach-E Rally · #50203
 ,yes,,ford/mustang-mach-e/2026/standard-range,ford/mustang-mach-e,2026,ford/mustang-mach-e/2026/standard-range,US,rwd,ford/mustang-mach-e/2026-standard-range,,RWD,,existing: joins ford/mustang-mach-e/2026/standard-range by motor power (197 kW); names differ,epa,2026 · Ford · Mustang Mach-E RWD · #50204
 ,,,ford/mustang-mach-e/2026/rwd-extended,ford/mustang-mach-e,2026,ford/mustang-mach-e/2026/rwd-extended,US,rwd,new,,RWD Extended,,,epa,2026 · Ford · Mustang Mach-E RWD Extended · #50205
-,,yes,hyundai/ioniq-5/2022/preferred-long-range,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/preferred-long-range,CA,,new,Preferred Long Range,,,,nrcan,2022 · Hyundai · IONIQ 5 Long Range
-,,yes,hyundai/ioniq-5/2022/preferred-long-range-awd,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/preferred-long-range-awd,CA,awd,new,Preferred Long Range AWD,,,,nrcan,2022 · Hyundai · IONIQ 5 Long Range AWD
-,,yes,hyundai/ioniq-5/2022/preferred,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/preferred,CA,,new,Preferred,,,,nrcan,2022 · Hyundai · IONIQ 5 Standard Range
-,,yes,hyundai/ioniq-5/2022/awd,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/awd,US,awd,new,,AWD,,,epa,2022 · Hyundai · Ioniq 5 AWD (Long Range) · #44922
-,,yes,hyundai/ioniq-5/2022/rwd,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/rwd,US,rwd,new,,RWD,,,epa,2022 · Hyundai · Ioniq 5 RWD (Long Range) · #44923
-,,yes,hyundai/ioniq-5/2022/se-sr-rwd,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/se-sr-rwd,US,rwd,new,,SE SR RWD,,,epa,2022 · Hyundai · Ioniq 5 RWD (Standard Range) · #44924
+,yes,yes,hyundai/ioniq-5/2022/preferred-long-range,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/preferred-long-range,CA US,rwd,new,Preferred Long Range,RWD,,"pair: names differ, same motor power (168 kW)",nrcan,2022 · Hyundai · IONIQ 5 Long Range
+,yes,yes,hyundai/ioniq-5/2022/preferred-long-range,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/preferred-long-range,CA US,rwd,new,Preferred Long Range,RWD,,"pair: names differ, same motor power (168 kW)",epa,2022 · Hyundai · Ioniq 5 RWD (Long Range) · #44923
+,yes,yes,hyundai/ioniq-5/2022/preferred-long-range-awd,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/preferred-long-range-awd,CA US,awd,new,Preferred Long Range AWD,AWD,,"pair: names differ, same motor power (239 kW)",nrcan,2022 · Hyundai · IONIQ 5 Long Range AWD
+,yes,yes,hyundai/ioniq-5/2022/preferred-long-range-awd,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/preferred-long-range-awd,CA US,awd,new,Preferred Long Range AWD,AWD,,"pair: names differ, same motor power (239 kW)",epa,2022 · Hyundai · Ioniq 5 AWD (Long Range) · #44922
+,yes,yes,hyundai/ioniq-5/2022/preferred,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/preferred,CA US,rwd,new,Preferred,SE SR RWD,,"pair: names differ, same motor power (125 kW)",nrcan,2022 · Hyundai · IONIQ 5 Standard Range
+,yes,yes,hyundai/ioniq-5/2022/preferred,hyundai/ioniq-5,2022,hyundai/ioniq-5/2022/preferred,CA US,rwd,new,Preferred,SE SR RWD,,"pair: names differ, same motor power (125 kW)",epa,2022 · Hyundai · Ioniq 5 RWD (Standard Range) · #44924
 ,,yes,hyundai/ioniq-5/2023/preferred-long-range,hyundai/ioniq-5,2023,hyundai/ioniq-5/2023/preferred-long-range,CA,,new,Preferred Long Range,,,,nrcan,2023 · Hyundai · IONIQ 5 Long Range
 ,,yes,hyundai/ioniq-5/2023/preferred-long-range-awd,hyundai/ioniq-5,2023,hyundai/ioniq-5/2023/preferred-long-range-awd,CA,awd,new,Preferred Long Range AWD,,,,nrcan,2023 · Hyundai · IONIQ 5 Long Range AWD
 ,,yes,hyundai/ioniq-5/2023/preferred,hyundai/ioniq-5,2023,hyundai/ioniq-5/2023/preferred,CA,,new,Preferred,,,,nrcan,2023 · Hyundai · IONIQ 5 Standard Range
-,,yes,hyundai/ioniq-5/2024/preferred-long-range,hyundai/ioniq-5,2024,hyundai/ioniq-5/2024/preferred-long-range,CA,,new,Preferred Long Range,,,,nrcan,2024 · Hyundai · IONIQ 5 Long Range
+,yes,yes,hyundai/ioniq-5/2024/preferred-long-range,hyundai/ioniq-5,2024,hyundai/ioniq-5/2024/preferred-long-range,CA US,rwd,new,Preferred Long Range,RWD,,"pair: names differ, same motor power (168 kW)",nrcan,2024 · Hyundai · IONIQ 5 Long Range
+,yes,yes,hyundai/ioniq-5/2024/preferred-long-range,hyundai/ioniq-5,2024,hyundai/ioniq-5/2024/preferred-long-range,CA US,rwd,new,Preferred Long Range,RWD,,"pair: names differ, same motor power (168 kW)",epa,2024 · Hyundai · Ioniq 5 Long range RWD · #46960
 ,,yes,hyundai/ioniq-5/2024/preferred-awd-long-range,hyundai/ioniq-5,2024,hyundai/ioniq-5/2024/preferred-awd-long-range,CA,awd,new,Preferred AWD Long Range,,,,nrcan,2024 · Hyundai · IONIQ 5 Long Range AWD
 ,,yes,hyundai/ioniq-5/2024/awd,hyundai/ioniq-5,2024,hyundai/ioniq-5/2024/awd,US,awd,new,,AWD,,,epa,2024 · Hyundai · Ioniq 5 Long range AWD · #46962
-,,yes,hyundai/ioniq-5/2024/rwd,hyundai/ioniq-5,2024,hyundai/ioniq-5/2024/rwd,US,rwd,new,,RWD,,,epa,2024 · Hyundai · Ioniq 5 Long range RWD · #46960
 ,,yes,hyundai/ioniq-5/2024/se-sr-rwd,hyundai/ioniq-5,2024,hyundai/ioniq-5/2024/se-sr-rwd,US,rwd,new,,SE SR RWD,,,epa,2024 · Hyundai · Ioniq 5 Standard range RWD · #46961
 ,yes,,hyundai/ioniq-5/2025/long-range,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/long-range,CA,,hyundai/ioniq-5/2026-long-range,Long Range,,,powertrain: same name as hyundai/ioniq-5/2026/long-range; check the pack didn't change,nrcan,2025 · Hyundai · IONIQ 5 Long Range
 ,,yes,hyundai/ioniq-5/2025/preferred-long-range-awd,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/preferred-long-range-awd,CA,awd,new,Preferred Long Range AWD,,19 20,,nrcan,"2025 · Hyundai · IONIQ 5 Long Range AWD (19"" Wheels)"
 ,,yes,hyundai/ioniq-5/2025/preferred-long-range-awd,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/preferred-long-range-awd,CA,awd,new,Preferred Long Range AWD,,19 20,,nrcan,"2025 · Hyundai · IONIQ 5 Long Range AWD (20"" Wheels)"
-,yes,yes,hyundai/ioniq-5/2025/xrt,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/xrt,CA US,awd,new,XRT,XRT Dual Motor AWD,,"pair: names differ, same motor power (239 kW)",nrcan,2025 · Hyundai · IONIQ 5 Long Range AWD XRT
-,yes,yes,hyundai/ioniq-5/2025/xrt,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/xrt,CA US,awd,new,XRT,XRT Dual Motor AWD,,"pair: names differ, same motor power (239 kW)",epa,2025 · Hyundai · Ioniq 5 AWD XRT · #48712
+,,yes,hyundai/ioniq-5/2025/xrt,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/xrt,CA,awd,new,XRT,,,,nrcan,2025 · Hyundai · IONIQ 5 Long Range AWD XRT
 ,yes,,hyundai/ioniq-5/2025/n,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/n,CA US,awd,hyundai/ioniq-5/2026-n,N,N,,powertrain: same name as hyundai/ioniq-5/2026/n; check the pack didn't change,nrcan,2025 · Hyundai · IONIQ 5 N
 ,yes,,hyundai/ioniq-5/2025/n,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/n,CA US,awd,hyundai/ioniq-5/2026-n,N,N,,powertrain: same name as hyundai/ioniq-5/2026/n; check the pack didn't change,epa,2025 · Hyundai · Ioniq 5 N · #48360
 ,,yes,hyundai/ioniq-5/2025/preferred-standard-range,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/preferred-standard-range,CA US,rwd,new,Preferred Standard Range,SE RWD Standard Range,,,nrcan,2025 · Hyundai · IONIQ 5 Standard Range
 ,,yes,hyundai/ioniq-5/2025/preferred-standard-range,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/preferred-standard-range,CA US,rwd,new,Preferred Standard Range,SE RWD Standard Range,,,epa,2025 · Hyundai · Ioniq 5 Standard range · #48714
 ,,yes,hyundai/ioniq-5/2025/dual-motor-awd,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/dual-motor-awd,US,awd,new,,Dual Motor AWD,19,,epa,2025 · Hyundai · Ioniq 5 AWD (19 inch Wheels) · #48710
 ,,yes,hyundai/ioniq-5/2025/limited-dual-motor-awd,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/limited-dual-motor-awd,US,awd,new,,Limited Dual Motor AWD,20,,epa,2025 · Hyundai · Ioniq 5 AWD (20 inch Wheels) · #48711
+,,yes,hyundai/ioniq-5/2025/xrt-dual-motor-awd,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/xrt-dual-motor-awd,US,awd,new,,XRT Dual Motor AWD,,,epa,2025 · Hyundai · Ioniq 5 AWD XRT · #48712
 ,,,hyundai/ioniq-5/2025/robo-taxi,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/robo-taxi,US,rwd,new,,Robo taxi,,,epa,2025 · Hyundai · Ioniq 5 Robo taxi · #49092
 ,,yes,hyundai/ioniq-5/2025/rwd,hyundai/ioniq-5,2025,hyundai/ioniq-5/2025/rwd,US,rwd,new,,RWD,,,epa,2025 · Hyundai · Ioniq 5 RWD · #48713
 ,yes,yes,hyundai/ioniq-5/2026/dual-motor-awd,hyundai/ioniq-5,2026,hyundai/ioniq-5/2026/dual-motor-awd,US,awd,new,,Dual Motor AWD,19,"existing?: same motor power as hyundai/ioniq-5/2026/long-range-awd-xrt, hyundai/ioniq-5/2026/long-range-awd, but another 2026 row has it too",epa,2026 · Hyundai · Ioniq 5 AWD (19inch Wheels) · #49962
@@ -329,20 +329,20 @@ approved,check,named,proposal,model_id,year,variant_id,markets,drivetrain,powert
 ,yes,,hyundai/kona-electric/2022/standard,hyundai/kona-electric,2022,hyundai/kona-electric/2022/standard,CA US,fwd,new,Standard,FWD,,name: no trim words in the regulator label,epa,2022 · Hyundai · Kona Electric · #44444
 ,yes,,hyundai/kona-electric/2023/standard,hyundai/kona-electric,2023,hyundai/kona-electric/2023/standard,CA US,fwd,new,Standard,FWD,,name: no trim words in the regulator label,nrcan,2023 · Hyundai · Kona Electric
 ,yes,,hyundai/kona-electric/2023/standard,hyundai/kona-electric,2023,hyundai/kona-electric/2023/standard,CA US,fwd,new,Standard,FWD,,name: no trim words in the regulator label,epa,2023 · Hyundai · Kona Electric · #46000
-,,yes,hyundai/kona-electric/2024/kona-electric,hyundai/kona-electric,2024,hyundai/kona-electric/2024/kona-electric,CA,,new,Kona Electric,,,,nrcan,2024 · Hyundai · Kona Electric Long Range
-,,yes,hyundai/kona-electric/2024/long-range,hyundai/kona-electric,2024,hyundai/kona-electric/2024/long-range,US,fwd,new,,Long Range,,,epa,2024 · Hyundai · Kona Electric Long Range · #47449
+,yes,yes,hyundai/kona-electric/2024/kona-electric,hyundai/kona-electric,2024,hyundai/kona-electric/2024/kona-electric,CA US,fwd,new,Kona Electric,Long Range,,"pair: names differ, same motor power (150 kW)",nrcan,2024 · Hyundai · Kona Electric Long Range
+,yes,yes,hyundai/kona-electric/2024/kona-electric,hyundai/kona-electric,2024,hyundai/kona-electric/2024/kona-electric,CA US,fwd,new,Kona Electric,Long Range,,"pair: names differ, same motor power (150 kW)",epa,2024 · Hyundai · Kona Electric Long Range · #47449
 ,,yes,hyundai/kona-electric/2024/se,hyundai/kona-electric,2024,hyundai/kona-electric/2024/se,US,fwd,new,,SE,,,epa,2024 · Hyundai · Kona Electric Standard Range · #47831
 ,yes,,hyundai/kona-electric/2025/standard,hyundai/kona-electric,2025,hyundai/kona-electric/2025/standard,CA,,hyundai/kona-electric/2026-standard,Standard,,17 19,name: no trim words in the regulator label; powertrain: same name as hyundai/kona-electric/2026/standard; check the pack didn't change,nrcan,"2025 · Hyundai · Kona Electric (17"" Wheels)"
 ,yes,,hyundai/kona-electric/2025/standard,hyundai/kona-electric,2025,hyundai/kona-electric/2025/standard,CA,,hyundai/kona-electric/2026-standard,Standard,,17 19,name: no trim words in the regulator label; powertrain: same name as hyundai/kona-electric/2026/standard; check the pack didn't change,nrcan,"2025 · Hyundai · Kona Electric (19"" Wheels)"
 ,,yes,hyundai/kona-electric/2025/long-range,hyundai/kona-electric,2025,hyundai/kona-electric/2025/long-range,US,fwd,new,,Long Range,17,,epa,2025 · Hyundai · Kona Electric (17 inch Wheels) · #48357
 ,,yes,hyundai/kona-electric/2025/n-line,hyundai/kona-electric,2025,hyundai/kona-electric/2025/n-line,US,fwd,new,,N Line,19,,epa,2025 · Hyundai · Kona Electric (19 inch Wheels) · #48358
 ,,yes,hyundai/kona-electric/2025/se,hyundai/kona-electric,2025,hyundai/kona-electric/2025/se,US,fwd,new,,SE,,,epa,2025 · Hyundai · Kona Electric Standard Range · #48359
-,,yes,kia/ev6/2022/long-range-rwd,kia/ev6,2022,kia/ev6/2022/long-range-rwd,CA,rwd,new,Long Range RWD,,,,nrcan,2022 · Kia · EV6 Long Range
-,,yes,kia/ev6/2022/long-range-awd,kia/ev6,2022,kia/ev6/2022/long-range-awd,CA,awd,new,Long Range AWD,,,,nrcan,2022 · Kia · EV6 Long Range AWD
-,,yes,kia/ev6/2022/standard-range-rwd,kia/ev6,2022,kia/ev6/2022/standard-range-rwd,CA,rwd,new,Standard Range RWD,,,,nrcan,2022 · Kia · EV6 Standard Range
-,,yes,kia/ev6/2022/awd-lr,kia/ev6,2022,kia/ev6/2022/awd-lr,US,awd,new,,AWD LR,,,epa,2022 · Kia · EV6 AWD (Long Range) · #44925
-,,yes,kia/ev6/2022/rwd-lr,kia/ev6,2022,kia/ev6/2022/rwd-lr,US,rwd,new,,RWD LR,,,epa,2022 · Kia · EV6 RWD (Long Range) · #44926
-,,yes,kia/ev6/2022/light-rwd-sr,kia/ev6,2022,kia/ev6/2022/light-rwd-sr,US,rwd,new,,Light RWD SR,,,epa,2022 · Kia · EV6 RWD (Standard Range) · #44927
+,yes,yes,kia/ev6/2022/long-range-rwd,kia/ev6,2022,kia/ev6/2022/long-range-rwd,CA US,rwd,new,Long Range RWD,RWD LR,,"pair: names differ, same motor power (168 kW)",nrcan,2022 · Kia · EV6 Long Range
+,yes,yes,kia/ev6/2022/long-range-rwd,kia/ev6,2022,kia/ev6/2022/long-range-rwd,CA US,rwd,new,Long Range RWD,RWD LR,,"pair: names differ, same motor power (168 kW)",epa,2022 · Kia · EV6 RWD (Long Range) · #44926
+,yes,yes,kia/ev6/2022/long-range-awd,kia/ev6,2022,kia/ev6/2022/long-range-awd,CA US,awd,new,Long Range AWD,AWD LR,,"pair: names differ, same motor power (239 kW)",nrcan,2022 · Kia · EV6 Long Range AWD
+,yes,yes,kia/ev6/2022/long-range-awd,kia/ev6,2022,kia/ev6/2022/long-range-awd,CA US,awd,new,Long Range AWD,AWD LR,,"pair: names differ, same motor power (239 kW)",epa,2022 · Kia · EV6 AWD (Long Range) · #44925
+,yes,yes,kia/ev6/2022/standard-range-rwd,kia/ev6,2022,kia/ev6/2022/standard-range-rwd,CA US,rwd,new,Standard Range RWD,Light RWD SR,,"pair: names differ, same motor power (125 kW)",nrcan,2022 · Kia · EV6 Standard Range
+,yes,yes,kia/ev6/2022/standard-range-rwd,kia/ev6,2022,kia/ev6/2022/standard-range-rwd,CA US,rwd,new,Standard Range RWD,Light RWD SR,,"pair: names differ, same motor power (125 kW)",epa,2022 · Kia · EV6 RWD (Standard Range) · #44927
 ,,yes,kia/ev6/2023/gt-awd,kia/ev6,2023,kia/ev6/2023/gt-awd,CA US,awd,new,GT AWD,GT AWD LR,,,nrcan,2023 · Kia · EV6 GT AWD
 ,,yes,kia/ev6/2023/gt-awd,kia/ev6,2023,kia/ev6/2023/gt-awd,CA US,awd,new,GT AWD,GT AWD LR,,,epa,2023 · Kia · EV6 AWD GT · #46003
 ,,yes,kia/ev6/2023/long-range-rwd,kia/ev6,2023,kia/ev6/2023/long-range-rwd,CA,rwd,new,Long Range RWD,,,,nrcan,2023 · Kia · EV6 Long Range
@@ -644,14 +644,15 @@ approved,check,named,proposal,model_id,year,variant_id,markets,drivetrain,powert
 ,,yes,tesla/model-y/2021/performance,tesla/model-y,2021,tesla/model-y/2021/performance,CA US,awd,new,Performance,Performance,,,epa,2021 · Tesla · Model Y Performance AWD · #43407
 ,,yes,tesla/model-y/2021/standard-range,tesla/model-y,2021,tesla/model-y/2021/standard-range,CA US,rwd,new,Standard Range,Standard Range,,,nrcan,2021 · Tesla · Model Y Standard Range
 ,,yes,tesla/model-y/2021/standard-range,tesla/model-y,2021,tesla/model-y/2021/standard-range,CA US,rwd,new,Standard Range,Standard Range,,,epa,2021 · Tesla · Model Y Standard Range RWD · #43880
-,,,tesla/model-y/2022/awd,tesla/model-y,2022,tesla/model-y/2022/awd,CA,awd,new,AWD,,,,nrcan,2022 · Tesla · Model Y AWD
+,yes,,tesla/model-y/2022/awd,tesla/model-y,2022,tesla/model-y/2022/awd,CA US,awd,new,AWD,Standard Range AWD,,"pair: names differ, same motor power (291 kW)",nrcan,2022 · Tesla · Model Y AWD
+,yes,,tesla/model-y/2022/awd,tesla/model-y,2022,tesla/model-y/2022/awd,CA US,awd,new,AWD,Standard Range AWD,,"pair: names differ, same motor power (291 kW)",epa,2022 · Tesla · Model Y AWD · #45196
 ,,yes,tesla/model-y/2022/long-range-awd,tesla/model-y,2022,tesla/model-y/2022/long-range-awd,CA US,awd,new,Long Range AWD,Long Range AWD,,,nrcan,2022 · Tesla · Model Y Long Range AWD
 ,,yes,tesla/model-y/2022/long-range-awd,tesla/model-y,2022,tesla/model-y/2022/long-range-awd,CA US,awd,new,Long Range AWD,Long Range AWD,,,epa,2022 · Tesla · Model Y Long Range AWD · #45018
 ,,yes,tesla/model-y/2022/performance,tesla/model-y,2022,tesla/model-y/2022/performance,CA US,awd,new,Performance,Performance,,,nrcan,2022 · Tesla · Model Y Performance
 ,,yes,tesla/model-y/2022/performance,tesla/model-y,2022,tesla/model-y/2022/performance,CA US,awd,new,Performance,Performance,,,epa,2022 · Tesla · Model Y Performance AWD · #45019
-,,yes,tesla/model-y/2022/standard-range-awd,tesla/model-y,2022,tesla/model-y/2022/standard-range-awd,US,awd,new,,Standard Range AWD,,,epa,2022 · Tesla · Model Y AWD · #45196
 ,,,tesla/model-y/2022/rwd,tesla/model-y,2022,tesla/model-y/2022/rwd,US,rwd,new,,RWD,,,epa,2022 · Tesla · Model Y RWD · #45017
-,,,tesla/model-y/2023/awd,tesla/model-y,2023,tesla/model-y/2023/awd,CA,awd,new,AWD,,,,nrcan,2023 · Tesla · Model Y AWD
+,yes,,tesla/model-y/2023/awd,tesla/model-y,2023,tesla/model-y/2023/awd,CA US,awd,new,AWD,Standard Range AWD,,"pair: names differ, same motor power (291 kW)",nrcan,2023 · Tesla · Model Y AWD
+,yes,,tesla/model-y/2023/awd,tesla/model-y,2023,tesla/model-y/2023/awd,CA US,awd,new,AWD,Standard Range AWD,,"pair: names differ, same motor power (291 kW)",epa,2023 · Tesla · Model Y AWD · #46211
 ,yes,yes,tesla/model-y/2023/long-range-awd,tesla/model-y,2023,tesla/model-y/2023/long-range-awd,CA US,awd,new,Long Range AWD,Long Range AWD,,"note: ""(Import)""",nrcan,2023 · Tesla · Model Y Long Range AWD
 ,yes,yes,tesla/model-y/2023/long-range-awd,tesla/model-y,2023,tesla/model-y/2023/long-range-awd,CA US,awd,new,Long Range AWD,Long Range AWD,,"note: ""(Import)""",nrcan,2023 · Tesla · Model Y Long Range AWD (Import)
 ,yes,yes,tesla/model-y/2023/long-range-awd,tesla/model-y,2023,tesla/model-y/2023/long-range-awd,CA US,awd,new,Long Range AWD,Long Range AWD,,"note: ""(Import)""",epa,2023 · Tesla · Model Y Long Range AWD · #46212
@@ -659,7 +660,6 @@ approved,check,named,proposal,model_id,year,variant_id,markets,drivetrain,powert
 ,,yes,tesla/model-y/2023/performance,tesla/model-y,2023,tesla/model-y/2023/performance,CA US,awd,new,Performance,Performance,,,epa,2023 · Tesla · Model Y Performance AWD · #46213
 ,yes,yes,tesla/model-y/2023/performance-ca,tesla/model-y,2023,tesla/model-y/2023/performance-ca,CA,,new,Performance,,,"note: ""(Import)""",nrcan,2023 · Tesla · Model Y Performance (Import)
 ,,,tesla/model-y/2023/rwd,tesla/model-y,2023,tesla/model-y/2023/rwd,CA,rwd,new,RWD,,,,nrcan,2023 · Tesla · Model Y RWD
-,,yes,tesla/model-y/2023/standard-range-awd,tesla/model-y,2023,tesla/model-y/2023/standard-range-awd,US,awd,new,,Standard Range AWD,,,epa,2023 · Tesla · Model Y AWD · #46211
 ,yes,yes,tesla/model-y/2024/long-range-awd,tesla/model-y,2024,tesla/model-y/2024/long-range-awd,CA US,awd,new,Long Range AWD,Long Range AWD,,"code: NRCan ""-I""",nrcan,2024 · Tesla · Model Y Long Range AWD
 ,yes,yes,tesla/model-y/2024/long-range-awd,tesla/model-y,2024,tesla/model-y/2024/long-range-awd,CA US,awd,new,Long Range AWD,Long Range AWD,,"code: NRCan ""-I""",epa,2024 · Tesla · Model Y Long Range AWD · #47913
 ,yes,yes,tesla/model-y/2024/long-range-awd,tesla/model-y,2024,tesla/model-y/2024/long-range-awd,CA US,awd,new,Long Range AWD,Long Range AWD,,"code: NRCan ""-I""",epa,2024 · Tesla · Model Y Long Range AWD-I · #48474
@@ -689,22 +689,22 @@ approved,check,named,proposal,model_id,year,variant_id,markets,drivetrain,powert
 ,,yes,tesla/model-y/2027/premium-awd,tesla/model-y,2027,tesla/model-y/2027/premium-awd,US,awd,new,,Premium AWD,,,epa,2027 · Tesla · Model Y Premium AWD · #51070
 ,,yes,tesla/model-y/2027/premium-rwd,tesla/model-y,2027,tesla/model-y/2027/premium-rwd,US,rwd,new,,Premium RWD,,,epa,2027 · Tesla · Model Y Premium RWD · #51071
 ,,,tesla/model-y/2027/rwd,tesla/model-y,2027,tesla/model-y/2027/rwd,US,rwd,new,,RWD,,,epa,2027 · Tesla · Model Y RWD · #51072
-,yes,,toyota/bz/2023/standard,toyota/bz,2023,toyota/bz/2023/standard,CA,,new,Standard,,,name: no trim words in the regulator label,nrcan,2023 · Toyota · bZ4X
+,yes,,toyota/bz/2023/standard,toyota/bz,2023,toyota/bz/2023/standard,CA US,fwd,new,Standard,Limited FWD,,"name: no trim words in the regulator label; pair: names differ, same motor power (150 kW)",nrcan,2023 · Toyota · bZ4X
+,yes,,toyota/bz/2023/standard,toyota/bz,2023,toyota/bz/2023/standard,CA US,fwd,new,Standard,Limited FWD,,"name: no trim words in the regulator label; pair: names differ, same motor power (150 kW)",epa,2023 · Toyota · bZ4X LIMITED · #45757
 ,,yes,toyota/bz/2023/xle,toyota/bz,2023,toyota/bz/2023/xle,CA US,awd,new,XLE,XLE AWD,,,nrcan,2023 · Toyota · bZ4X AWD
 ,,yes,toyota/bz/2023/xle,toyota/bz,2023,toyota/bz/2023/xle,CA US,awd,new,XLE,XLE AWD,,,epa,2023 · Toyota · bZ4X AWD · #45758
 ,,yes,toyota/bz/2023/xle-fwd,toyota/bz,2023,toyota/bz/2023/xle-fwd,US,fwd,new,,XLE FWD,,,epa,2023 · Toyota · bZ4X · #45756
-,,yes,toyota/bz/2023/limited-fwd,toyota/bz,2023,toyota/bz/2023/limited-fwd,US,fwd,new,,Limited FWD,,,epa,2023 · Toyota · bZ4X LIMITED · #45757
 ,,yes,toyota/bz/2023/limited-awd,toyota/bz,2023,toyota/bz/2023/limited-awd,US,awd,new,,Limited AWD,,,epa,2023 · Toyota · bZ4X LIMITED AWD · #45759
-,,yes,toyota/bz/2024/le-fwd,toyota/bz,2024,toyota/bz/2024/le-fwd,CA,fwd,new,LE FWD,,,,nrcan,2024 · Toyota · bZ4X
+,yes,yes,toyota/bz/2024/le-fwd,toyota/bz,2024,toyota/bz/2024/le-fwd,CA US,fwd,new,LE FWD,Limited FWD,,"pair: names differ, same motor power (150 kW)",nrcan,2024 · Toyota · bZ4X
+,yes,yes,toyota/bz/2024/le-fwd,toyota/bz,2024,toyota/bz/2024/le-fwd,CA US,fwd,new,LE FWD,Limited FWD,,"pair: names differ, same motor power (150 kW)",epa,2024 · Toyota · bZ4X Limited · #47919
 ,,yes,toyota/bz/2024/xle-awd,toyota/bz,2024,toyota/bz/2024/xle-awd,CA US,awd,new,XLE AWD,XLE AWD,,,nrcan,2024 · Toyota · bZ4X AWD
 ,,yes,toyota/bz/2024/xle-awd,toyota/bz,2024,toyota/bz/2024/xle-awd,CA US,awd,new,XLE AWD,XLE AWD,,,epa,2024 · Toyota · bZ4X AWD · #47920
 ,,yes,toyota/bz/2024/xle-fwd,toyota/bz,2024,toyota/bz/2024/xle-fwd,US,fwd,new,,XLE FWD,,,epa,2024 · Toyota · bZ4X · #47918
-,,yes,toyota/bz/2024/limited-fwd,toyota/bz,2024,toyota/bz/2024/limited-fwd,US,fwd,new,,Limited FWD,,,epa,2024 · Toyota · bZ4X Limited · #47919
 ,,yes,toyota/bz/2024/limited-awd,toyota/bz,2024,toyota/bz/2024/limited-awd,US,awd,new,,Limited AWD,,,epa,2024 · Toyota · bZ4X Limited AWD · #47921
-,,yes,toyota/bz/2025/le,toyota/bz,2025,toyota/bz/2025/le,CA,,new,LE,,,,nrcan,2025 · Toyota · bZ4X
+,yes,yes,toyota/bz/2025/le,toyota/bz,2025,toyota/bz/2025/le,CA US,fwd,new,LE,XLE FWD,,"pair: names differ, same motor power (150 kW)",nrcan,2025 · Toyota · bZ4X
+,yes,yes,toyota/bz/2025/le,toyota/bz,2025,toyota/bz/2025/le,CA US,fwd,new,LE,XLE FWD,,"pair: names differ, same motor power (150 kW)",epa,2025 · Toyota · bZ4X · #49126
 ,,yes,toyota/bz/2025/le-awd,toyota/bz,2025,toyota/bz/2025/le-awd,CA,awd,new,LE AWD,,18,,nrcan,"2025 · Toyota · bZ4X AWD (18"" Wheels)"
 ,,yes,toyota/bz/2025/xle-awd-technology-package,toyota/bz,2025,toyota/bz/2025/xle-awd-technology-package,CA,awd,new,XLE AWD Technology Package,,20,,nrcan,"2025 · Toyota · bZ4X AWD (20"" Wheels)"
-,,yes,toyota/bz/2025/xle-fwd,toyota/bz,2025,toyota/bz/2025/xle-fwd,US,fwd,new,,XLE FWD,,,epa,2025 · Toyota · bZ4X · #49126
 ,,yes,toyota/bz/2025/xle-awd,toyota/bz,2025,toyota/bz/2025/xle-awd,US,awd,new,,XLE AWD,18,,epa,2025 · Toyota · bZ4X AWD (18inch Wheels) · #49127
 ,,yes,toyota/bz/2025/nightshade-awd,toyota/bz,2025,toyota/bz/2025/nightshade-awd,US,awd,new,,Nightshade AWD,20,,epa,2025 · Toyota · bZ4X AWD (20inch Wheels) · #49128
 ,,yes,toyota/bz/2025/limited-fwd,toyota/bz,2025,toyota/bz/2025/limited-fwd,US,fwd,new,,Limited FWD,,,epa,2025 · Toyota · bZ4X LIMITED · #48997

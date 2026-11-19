@@ -6,13 +6,15 @@
   "drivetrain": "awd",
   "powertrain_id": "ford/mustang-mach-e/2026-rally",
   "markets": [
-    "CA"
+    "CA",
+    "US"
   ],
   "trims": [
     {
       "id": "standard",
       "names": {
-        "CA": "Rally"
+        "CA": "Rally",
+        "US": "Rally"
       },
       "heat_pump": [
         {

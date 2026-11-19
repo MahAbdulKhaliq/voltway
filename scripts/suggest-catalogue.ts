@@ -9,7 +9,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { parseCsv, toCsv } from './lib/csv.ts';
-import { groupRegulatorRows, assignModel, epaMotorKw, trimNameKey, type ModelMap, type RegRow, type Proposal } from './lib/catalogue.ts';
+import { groupRegulatorRows, assignModel, epaMotorKw, recommend, trimNameKey, type ModelMap, type RegRow, type Proposal } from './lib/catalogue.ts';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -55,19 +55,38 @@ const kept = new Map<string, string>(
     .filter((r) => r.approved)
     .map((r) => [`${r.proposal}|${r.source}|${r.source_key}`, r.approved]),
 );
-const HEADER = ['approved', 'check', 'named', 'proposal', 'model_id', 'year', 'variant_id', 'markets', 'drivetrain', 'powertrain', 'trim_ca', 'trim_us', 'wheels', 'flags', 'source', 'source_key'];
+const HEADER = ['approved', 'check', 'named', 'proposal', 'model_id', 'year', 'variant_id', 'markets', 'drivetrain', 'powertrain', 'trim_ca', 'trim_us', 'wheels', 'flags', 'recommend', 'source', 'source_key'];
 
 if (apply) {
   const review = parseCsv(readFileSync(csvFile, 'utf8')).filter((r) => r.approved.trim().toLowerCase() === 'yes');
   const byProposal = new Map<string, Record<string, string>[]>();
   for (const r of review) byProposal.set(r.proposal, [...(byProposal.get(r.proposal) ?? []), r]);
   let written = 0;
+  let joined = 0;
   for (const [, group] of byProposal) {
     const p = group[0];
     const [make, model, year, slug] = p.variant_id.split('/');
     const vFile = join(root, 'data/variants', `${p.variant_id}.json`);
-    if (existsSync(vFile)) { console.log(`skip ${p.variant_id}: exists`); continue; }
     const markets = p.markets.split(' ').filter(Boolean);
+    if (existsSync(vFile)) {
+      // A join: this market's edition of a car we already have. Add the market, its trim name and the rows.
+      const v = load(vFile);
+      v.markets = [...new Set([...(v.markets ?? []), ...markets])].sort();
+      const t = v.trims?.[0];
+      if (t) {
+        t.names = t.names ?? {};
+        if (p.trim_ca && !t.names.CA) t.names.CA = p.trim_ca;
+        if (p.trim_us && !t.names.US) t.names.US = p.trim_us;
+      }
+      writeFileSync(vFile, JSON.stringify(v, null, 2) + '\n');
+      const mFileJ = join(root, 'data/models', `${p.model_id}.json`);
+      const mj = load(mFileJ);
+      const yj = mj.years.find((x: any) => x.year === Number(year));
+      if (yj) { yj.markets = [...new Set([...yj.markets, ...markets])].sort(); writeFileSync(mFileJ, JSON.stringify(mj, null, 2) + '\n'); }
+      for (const r of group) crosswalk.push({ our_variant_id: p.variant_id, source: r.source, source_key: r.source_key, match_method: 'manual', confirmed: 'true', our_trim_id: t?.id ?? 'standard', notes: `Approved by the owner ${today} (B90 wave ${wave}, joins an existing car).` });
+      joined++;
+      continue;
+    }
     const mFile = join(root, 'data/models', `${p.model_id}.json`);
     const m = load(mFile);
     const gen = (m.generations ?? []).find((g: any) => Number(year) >= g.first_year && (g.last_year === undefined || Number(year) <= g.last_year))?.id;
@@ -101,7 +120,7 @@ if (apply) {
   const keys = new Set([...approvedLabels].map((k) => labelOf.get(k)));
   for (const t of tnRows) if (keys.has(trimNameKey(t.source, t.year, t.label))) t.confirmed = 'true';
   if (tnRows.length) writeFileSync(tnFile, toCsv(TRIM_NAMES_HEADER, tnRows));
-  console.log(`suggest-catalogue --apply: ${written} variants written`);
+  console.log(`suggest-catalogue --apply: ${written} variants written, ${joined} joined to existing cars`);
   process.exit(0);
 }
 
@@ -129,9 +148,11 @@ const proposals: Proposal[] = groupRegulatorRows(inWave.map((x) => ({ ...x.r, mo
   return (load(f).generations ?? []).find((g: any) => year >= g.first_year && (g.last_year === undefined || year <= g.last_year))?.id;
 }, trimNames);
 
+const rec = new Map(proposals.map((p) => [p, recommend(p, existingVariants)]));
+const recText = (p: Proposal) => { const x = rec.get(p)!; return p.flags.length ? `${x.action}${x.target ? ` ${x.target}` : ''}: ${x.reason}` : ''; };
 const csvRows = proposals.flatMap((p) => p.rows.map((r) => ({
   approved: kept.get(`${p.id}|${r.source}|${r.source_key}`) ?? '', check: p.flags.length ? 'yes' : '', named: p.named ? 'yes' : '', proposal: p.id, model_id: p.model_id, year: p.year, variant_id: p.variant_id, markets: p.markets.join(' '), drivetrain: p.drivetrain ?? '',
-  powertrain: p.powertrain, trim_ca: p.names.CA ?? '', trim_us: p.names.US ?? '', wheels: p.wheels.join(' '), flags: p.flags.join('; '), source: r.source, source_key: r.source_key,
+  powertrain: p.powertrain, trim_ca: p.names.CA ?? '', trim_us: p.names.US ?? '', wheels: p.wheels.join(' '), flags: p.flags.join('; '), recommend: recText(p), source: r.source, source_key: r.source_key,
 })));
 writeFileSync(csvFile, toCsv(HEADER, csvRows));
 
@@ -166,6 +187,7 @@ for (const p of proposals) {
   if (p.model_id !== lastModel) { md.push(`## ${p.model_id}`, ''); lastModel = p.model_id; }
   const names = Object.entries(p.names).map(([k, v]) => `${k}: ${v}`).join(' · ');
   md.push(`- **${p.year} ${names}** → \`${p.variant_id}\` [${p.markets.join(', ')}] ${p.drivetrain ?? 'drivetrain ?'}${p.wheels.length ? ` · wheels ${p.wheels.join('/')}″` : ''} · powertrain ${p.powertrain}${p.named ? '' : ' · names: regulator wording'}${p.flags.length ? ` · ⚠ ${p.flags.join('; ')}` : ''}`);
+  if (p.flags.length) md.push(`  - **Recommend:** ${recText(p)}`);
   for (const r of p.rows) md.push(`  - ${r.source === 'nrcan' ? 'NRCan' : 'EPA'}: ${r.label}`);
 }
 writeFileSync(join(root, 'crosswalk/catalogue-review.md'), md.join('\n') + '\n');

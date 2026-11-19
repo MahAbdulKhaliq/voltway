@@ -245,3 +245,43 @@ export function groupRegulatorRows(
   }
   return out;
 }
+
+/**
+ * A suggested answer for a flagged proposal (owner, 2026-11-19: Claude recommends, the owner decides).
+ * "yes" = approve as proposed; "join" = point it at an existing variant instead; "check" = needs a person.
+ */
+export function recommend(
+  p: Proposal,
+  existing: Map<string, { id: string; model_id: string; year: number; drivetrain: string; trims?: { names?: Record<string, string> }[] }>,
+): { action: 'yes' | 'join' | 'check' | 'no'; target?: string; reason: string } {
+  if (!p.flags.length) return { action: 'yes', reason: 'clean' };
+  if (/robo.?taxi/i.test(Object.values(p.names).join(' '))) return { action: 'no', reason: 'fleet robotaxi, not sold to the public' };
+  if (!p.named) return { action: 'check', reason: 'no researched trim name yet (round-2 research)' };
+  if (p.flags.some((f) => f.startsWith('existing?'))) {
+    const slug = p.variant_id.split('/')[3];
+    const same = [...existing.values()].find((v) => v.model_id === p.model_id && v.year === p.year && v.id.split('/')[3] === slug);
+    if (same) return { action: 'join', target: same.id, reason: `same name and motor power; becomes the US edition of ${same.id}` };
+    if (p.markets.length === 1) return { action: 'yes', reason: 'the US sells this hardware under its own trim lineup; keep it as a US-only car (B91) rather than guess which Canadian car it is' };
+    const mine = trimWords(tokenize(p.names.US ?? p.names.CA ?? ''));
+    const scored = [...existing.values()]
+      .filter((v) => v.model_id === p.model_id && v.year === p.year && (v.drivetrain === 'unknown' || !p.drivetrain || v.drivetrain === p.drivetrain))
+      .map((v) => ({ v, s: similarity(mine, trimWords(tokenize(v.trims?.[0]?.names?.CA ?? v.id.split('/')[3].replace(/-/g, ' ')))) }))
+      .sort((a, b) => b.s - a.s);
+    if (scored[0] && scored[0].s > 0 && (!scored[1] || scored[1].s < scored[0].s)) {
+      return { action: 'join', target: scored[0].v.id, reason: `same motor power and closest name; becomes the US edition of ${scored[0].v.id}` };
+    }
+    return { action: 'check', reason: 'several existing cars share its motor power and none is clearly the same name' };
+  }
+  if (p.flags.some((f) => f.startsWith('pair: only one'))) return { action: 'check', reason: 'Canada/US pairing is a guess (one candidate each side, words differ)' };
+  const why: string[] = [];
+  if (p.flags.some((f) => f.startsWith('charger'))) why.push('the onboard charger differs by option, same car');
+  if (p.flags.some((f) => f.startsWith('powertrain:'))) why.push('shares hardware with the same-named car of the same generation (pack not re-checked)');
+  if (p.flags.some((f) => f.startsWith('pair: names differ'))) why.push('same car, each country keeps its own name (B91)');
+  if (p.flags.some((f) => f.startsWith('existing:'))) why.push('becomes the US edition of a car we already have');
+  if (p.flags.some((f) => f.startsWith('code:'))) why.push("NRCan's letter code is not a trim; the researched name is used");
+  if (p.flags.some((f) => f.startsWith('date:'))) why.push('a mid-year change of the same car');
+  if (p.flags.some((f) => f.includes('(Import)'))) why.push('the imported build is rated separately, so it stays its own Canadian car');
+  if (p.flags.some((f) => f.startsWith('note:') && !f.includes('(Import)'))) why.push('bracket note kept for reference');
+  if (p.flags.some((f) => f.startsWith('name:'))) return { action: 'check', reason: 'no trim name' };
+  return { action: 'yes', reason: why.join('; ') || p.flags.join('; ') };
+}

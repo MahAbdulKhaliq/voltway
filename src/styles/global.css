@@ -975,7 +975,7 @@ html[data-motion="off"] details.acc > .acc-lane { animation: none; }
 /* Select menus (B83 overdrive): the field look with a drawn chevron, the chosen value in Overpass.
    Where the browser supports a customizable select (Chrome/Edge), the open list takes the site's
    surface and drops in; elsewhere the native list opens under the new field. */
-:is(.explorer, .compare) select {
+:is(.explorer, .compare, .browse) select {
   appearance: none; -webkit-appearance: none;
   font: inherit; font-family: var(--display); font-weight: 600; color: var(--text);
   background-color: var(--surface); border: 1px solid var(--field-border); border-radius: 8px;
@@ -985,23 +985,72 @@ html[data-motion="off"] details.acc > .acc-lane { animation: none; }
   background-size: 5px 5px; background-repeat: no-repeat;
   transition: border-color 0.18s var(--ease-out), background-color 0.18s var(--ease-out);
 }
-:is(.explorer, .compare) select:hover:not(:disabled) { border-color: var(--text); }
-:is(.explorer, .compare) select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-:is(.explorer, .compare) select:disabled { cursor: default; opacity: 0.6; }
+:is(.explorer, .compare, .browse) select:hover:not(:disabled) { border-color: var(--text); }
+:is(.explorer, .compare, .browse) select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+:is(.explorer, .compare, .browse) select:disabled { cursor: default; opacity: 0.6; }
 @supports (appearance: base-select) {
-  :is(.explorer, .compare) select { appearance: base-select; }
-  :is(.explorer, .compare) select::picker-icon { display: none; }
-  :is(.explorer, .compare) select::picker(select) {
+  :is(.explorer, .compare, .browse) select { appearance: base-select; }
+  :is(.explorer, .compare, .browse) select::picker-icon { display: none; }
+  :is(.explorer, .compare, .browse) select::picker(select) {
     appearance: base-select; margin-top: 6px; padding: 4px; border: 1px solid var(--border); border-radius: 10px;
     background: var(--surface); color: var(--text); box-shadow: var(--shadow); max-height: min(360px, 60vh);
     transition: opacity 0.18s var(--ease-out), translate 0.24s var(--ease-out), display 0.24s allow-discrete, overlay 0.24s allow-discrete;
   }
-  :is(.explorer, .compare) select:not(:open)::picker(select) { opacity: 0; translate: 0 -6px; }
-  @starting-style { :is(.explorer, .compare) select:open::picker(select) { opacity: 0; translate: 0 -6px; } }
-  :is(.explorer, .compare) select option { padding: 7px 10px; border-radius: 6px; font-family: var(--font); font-weight: 400; gap: 8px; }
-  :is(.explorer, .compare) select option:hover, :is(.explorer, .compare) select option:focus-visible { background: var(--surface-2); outline: none; }
-  :is(.explorer, .compare) select option:checked { background: var(--accent-soft); color: var(--text); font-weight: 600; }
-  :is(.explorer, .compare) select option::checkmark { color: var(--accent); }
-  html[data-motion="off"] :is(.explorer, .compare) select::picker(select) { transition: none; }
+  :is(.explorer, .compare, .browse) select:not(:open)::picker(select) { opacity: 0; translate: 0 -6px; }
+  @starting-style { :is(.explorer, .compare, .browse) select:open::picker(select) { opacity: 0; translate: 0 -6px; } }
+  :is(.explorer, .compare, .browse) select option { padding: 7px 10px; border-radius: 6px; font-family: var(--font); font-weight: 400; gap: 8px; }
+  :is(.explorer, .compare, .browse) select option:hover, :is(.explorer, .compare, .browse) select option:focus-visible { background: var(--surface-2); outline: none; }
+  :is(.explorer, .compare, .browse) select option:checked { background: var(--accent-soft); color: var(--text); font-weight: 600; }
+  :is(.explorer, .compare, .browse) select option::checkmark { color: var(--accent); }
+  html[data-motion="off"] :is(.explorer, .compare, .browse) select::picker(select) { transition: none; }
 }
-html[data-motion="off"] :is(.explorer, .compare) select { transition: none; }
+html[data-motion="off"] :is(.explorer, .compare, .browse) select { transition: none; }
+
+/* Cars page (B86, design-language.md §10): filter sections that unroll inside the panel, choices as
+   pills, switches, the map's slider, readout cards and the "Live reflow" layers. */
+.browse .browse-sort select { width: auto; min-width: 9.5rem; }
+.browse-filters .bf-body { gap: 0; }
+.bf-switches { display: grid; gap: 2px; padding-bottom: 8px; }
+.bf-switch { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; width: 100%; padding: 8px 2px; border: 0; border-radius: 6px; background: none; color: var(--text); font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer; }
+.bf-switch:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bf-switch-text { min-width: 0; }
+.bf-switch .switch { flex: none; position: relative; width: 30px; height: 18px; margin-top: 2px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--field-border); transition: background-color 0.15s, border-color 0.15s; }
+.bf-switch .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted); transition: transform 0.15s var(--ease-out); }
+.bf-switch:hover .switch { border-color: var(--text); }
+.bf-switch[aria-checked=true] .switch { background: var(--paint); border-color: var(--paint-edge); }
+.bf-switch[aria-checked=true] .switch::after { transform: translateX(12px); background: var(--paint-ink); }
+.browse-filters details.bf-sec { border-top: 1px solid color-mix(in srgb, var(--field-border) 55%, transparent); border-radius: 0; }
+.browse-filters details.bf-sec > summary { padding: 10px 2px; min-height: 44px; gap: 6px 8px; flex-wrap: wrap; }
+.browse-filters details.bf-sec > summary .acc-title { flex: 1 1 0; min-width: 0; font-family: var(--display); font-size: 0.92rem; }
+.browse-filters details.bf-sec > summary .acc-chev { order: 2; width: 26px; height: 26px; }
+.browse-filters details.bf-sec > summary .acc-preview { order: 3; flex-basis: 100%; flex-wrap: wrap; -webkit-mask-image: none; mask-image: none; }
+.browse-filters details.bf-sec[open]:not(.acc-shutting) > summary .acc-chips { display: none; }
+.browse-filters details.bf-sec > .acc-lane { margin: 0 2px 10px; }
+.browse-filters details.bf-sec > .acc-body { padding: 0 2px 14px; }
+.bf-sec-wrap { position: relative; }
+.bf-sec-wrap.has-clear details.bf-sec > summary .acc-title { padding-right: 52px; }
+.bf-sec-clear { position: absolute; z-index: 1; top: 10px; right: 34px; min-height: 26px; padding: 2px 8px; border: 0; border-radius: 6px; background: none; color: var(--accent); font: inherit; font-size: 0.8125rem; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.bf-sec-clear:hover { background: var(--surface-2); }
+.bf-sec-clear:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+.bf-list { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: 0; }
+.bf-check { display: flex; align-items: center; gap: 10px; min-height: 34px; padding: 4px 6px; margin: 0 -6px; border-radius: 6px; font-size: 0.9rem; cursor: pointer; }
+.bf-check:hover { background: var(--surface-2); }
+.bf-check input { flex: none; width: 18px; height: 18px; margin: 0; accent-color: var(--paint); cursor: pointer; }
+.bf-check input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bf-check input:checked + span { font-weight: 600; }
+@media (max-width: 640px) { .bf-check { min-height: 44px; } .bf-sec-clear { top: 1px; min-height: 44px; } }
+.bf-slider { display: grid; gap: 2px; }
+.bf-slider .power-rail { background: var(--field-border); }
+.bf-label { font-size: 0.875rem; color: var(--muted); }
+.bf-label strong { color: var(--text); font-weight: 650; font-variant-numeric: tabular-nums; }
+.browse-count { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin: 0 0 12px; }
+.count-num { font-family: var(--display); font-weight: 800; font-size: 1.5rem; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.car-card .cc-name { font-family: var(--display); font-weight: 700; letter-spacing: -0.01em; }
+.car-card .cc-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 10px 0; }
+.car-card .readout { padding: 7px 10px; }
+.car-card .readout-value { font-size: 1rem; }
+mark.hit { background: var(--accent-soft); color: inherit; border-radius: 3px; padding: 0 1px; box-shadow: inset 0 -2px 0 var(--accent); }
+.cards-stage { position: relative; }
+.flip-ghosts { position: absolute; inset: 0; pointer-events: none; }
+.flip-ghosts > * { list-style: none; }
+html[data-motion="off"] html[data-motion="off"] .bf-switch .switch, html[data-motion="off"] .bf-switch .switch::after { transition: none; }

@@ -1,5 +1,11 @@
 // Cars tab (database-ui.md §4, B39): search, filters (side panel; bottom sheet on phones),
 // cards or a sortable table. Each car opens in the Charging tab. Choices are remembered.
+//
+// B86 (owner, 2026-11-19): the content-page design language (design-language.md) and "Live
+// reflow". Every filter category is a collapsible section showing its choices as pills; sections
+// start closed unless a filter in them is set, and the visitor's open/closed choices are remembered.
+// Filtering, searching and sorting animate the results (useFlip), the count ticks, and search
+// highlights the matched words. With Animations off every change is instant.
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
@@ -11,10 +17,13 @@ import {
 import { makeCarSearch } from '../lib/car-search.ts';
 import { displayMinutes } from '../lib/charging.ts';
 import { valueLabel } from '../lib/format.ts';
+import { reducedMotion } from '../lib/motion.ts';
 import { addToCompare, getCompare, type AddResult } from '../lib/my-car.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, whPerKmToDisplay, type DistanceUnit } from '../lib/units.ts';
 import VariantName from './VariantName.tsx';
+import { Accordion } from './react/Accordion.tsx';
+import { useFlip } from './react/useFlip.ts';
 import type { IndexEntry } from '../lib/types.ts';
 
 interface Props { index: IndexEntry[] }
@@ -25,6 +34,47 @@ const TIME_MAX = 60;    // min; the slider's top means "off"
 
 const carHref = (id: string) => `/charging?car=${id.split('/').map(encodeURIComponent).join('/')}`;
 const carName = (e: IndexEntry) => `${e.year} ${e.make} ${e.model} ${e.name}`;
+const same = (a: readonly unknown[], b: readonly unknown[]) => a.length === b.length && [...a].sort().join('|') === [...b].sort().join('|');
+
+/** The search words, marked where they start a word in `text` (B86). */
+function Mark({ text, terms }: { text: string; terms: string[] }) {
+  if (!terms.length) return <>{text}</>;
+  const esc = terms.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).sort((a, b) => b.length - a.length);
+  const re = new RegExp(`(^|[\\s\\-/(])(${esc.join('|')})`, 'gi');
+  const out: ReactNode[] = [];
+  let last = 0;
+  for (const m of text.matchAll(re)) {
+    const at = (m.index ?? 0) + m[1].length;
+    if (at > last) out.push(text.slice(last, at));
+    out.push(<mark key={at} className="hit">{m[2]}</mark>);
+    last = at + m[2].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return <>{out}</>;
+}
+
+/** The result count, counting to its new value; screen readers get the final text from the status line. */
+function Ticker({ value, render }: { value: number; render: (n: number) => string }) {
+  const [shown, setShown] = useState(value);
+  const drawn = useRef(value); // the number on screen, so an interrupted tick carries on from it
+  useEffect(() => {
+    const start = drawn.current;
+    const show = (n: number) => { drawn.current = n; setShown(n); };
+    if (start === value || reducedMotion()) { show(value); return; }
+    const t0 = performance.now();
+    let frame = 0;
+    const step = (now: number) => {
+      // A frame's timestamp can be a little earlier than t0; clamp so the count never overshoots.
+      const p = Math.min(1, Math.max(0, (now - t0) / 360));
+      const eased = 1 - Math.pow(1 - p, 3);
+      show(Math.round(start + (value - start) * eased));
+      if (p < 1) frame = requestAnimationFrame(step);
+    };
+    frame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frame);
+  }, [value]);
+  return <>{render(shown)}</>;
+}
 
 export default function Browse({ index }: Props) {
   const [state, setState] = useState<BrowseState>(() => readState(null, index));
@@ -34,13 +84,22 @@ export default function Browse({ index }: Props) {
   const [compare, setCompareList] = useState<string[]>([]);
   const [notice, setNotice] = useState<string | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
+  // Filter sections the visitor opened or closed (B86); the others follow "open when in use".
+  const [opened, setOpened] = useState<Record<string, boolean>>({});
   const sheetBtn = useRef<HTMLButtonElement>(null);
   const sheetRef = useRef<HTMLElement>(null);
+  const cardsEl = useRef<HTMLUListElement>(null);
+  const ghostEl = useRef<HTMLDivElement>(null);
+  const rowsEl = useRef<HTMLTableSectionElement>(null);
   const search = useMemo(() => makeCarSearch(index), [index]);
 
   // Remembered choices, units and the comparison list (browser only, after hydration).
   useEffect(() => {
     setState(readState(getJSON<unknown>(KEYS.browse, null), index));
+    const savedOpen = getJSON<unknown>(KEYS.browseOpen, {});
+    if (savedOpen && typeof savedOpen === 'object' && !Array.isArray(savedOpen)) {
+      setOpened(Object.fromEntries(Object.entries(savedOpen as Record<string, unknown>).filter(([, v]) => typeof v === 'boolean')) as Record<string, boolean>);
+    }
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
     setCompareList(getCompare());
     setReady(true);
@@ -54,6 +113,12 @@ export default function Browse({ index }: Props) {
     };
   }, [index]);
   useEffect(() => { if (ready) setJSON(KEYS.browse, state); }, [state, ready]);
+  const setOpen = (id: string, open: boolean) => setOpened((o) => {
+    if (o[id] === open) return o;
+    const next = { ...o, [id]: open };
+    setJSON(KEYS.browseOpen, next);
+    return next;
+  });
 
   // Escape closes the phone sheet and returns focus to its button.
   useEffect(() => {
@@ -63,7 +128,8 @@ export default function Browse({ index }: Props) {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') { setSheetOpen(false); sheetBtn.current?.focus(); return; }
       if (e.key !== 'Tab' || !sheetRef.current) return;
-      const els = [...sheetRef.current.querySelectorAll<HTMLElement>('button:not([disabled]), input:not([disabled]), select:not([disabled]), a[href]')];
+      const els = [...sheetRef.current.querySelectorAll<HTMLElement>('button:not([disabled]), input:not([disabled]), select:not([disabled]), a[href], summary')]
+        .filter((el) => el.offsetParent !== null);
       if (!els.length) return;
       const first = els[0], last = els[els.length - 1];
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
@@ -82,6 +148,11 @@ export default function Browse({ index }: Props) {
     const pool = index.filter((e) => matches(e, f) && (!hits || hits.has(e.id)));
     return sortCars(pool, state.sort, state.dir);
   }, [index, f, query, search, state.sort, state.dir]);
+  const terms = query.trim().split(/\s+/).filter((w) => w.length > 0);
+
+  // Live reflow: the cards (or table rows) animate whenever the shown list or its order changes.
+  const order = `${state.view}:${results.map((e) => e.id).join('|')}`;
+  useFlip(state.view === 'cards' ? cardsEl : rowsEl, state.view === 'cards' ? ghostEl : null, order);
 
   const active = activeCount(f, index);
   const onCompare = (e: IndexEntry) => {
@@ -90,7 +161,8 @@ export default function Browse({ index }: Props) {
   };
 
   // Figures as shown, with "~" for estimates.
-  const rangeText = (e: IndexEntry) => (e.range_km === null ? null : t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(e.range_km, unit)) }));
+  const distanceText = (km: number) => t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(km, unit)) });
+  const rangeText = (e: IndexEntry) => (e.range_km === null ? null : distanceText(e.range_km));
   const effText = (e: IndexEntry) => (e.consumption_wh_per_km === null ? null : t(unit === 'km' ? 'fmt.kwh100km' : 'fmt.kwh100mi', { value: formatNumber(whPerKmToDisplay(e.consumption_wh_per_km, unit), 1) }));
   const dcText = (e: IndexEntry) => (e.dc_max_kw === null ? null : t('fmt.kw', { value: formatNumber(e.dc_max_kw) }));
   const timeText = (e: IndexEntry) => {
@@ -101,8 +173,7 @@ export default function Browse({ index }: Props) {
   const km10Text = (e: IndexEntry) => {
     const k = e.derived.km_per_10_min;
     if (k === null) return null;
-    const v = formatNumber(kmTo(k, unit));
-    const text = t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: v });
+    const text = distanceText(k);
     return e.derived.estimated ? `~${text}` : text;
   };
   const curveBadge = (e: IndexEntry) => {
@@ -123,70 +194,88 @@ export default function Browse({ index }: Props) {
   };
 
   // ---- Filter panel ----
-  const checks = (label: string, all: string[], chosen: string[], key: 'makes' | 'bodies' | 'drivetrains' | 'ports' | 'voltages' | 'chemistries', text: (v: string) => string = valueLabel) => (
-    <fieldset className="bf-group">
-      <legend>{label}</legend>
+  const d = defaultFilters(index);
+  const isOpen = (id: string, inUse: boolean) => (id in opened ? opened[id] : inUse);
+  // Each category: a section that unrolls, plus its own Clear button beside the header while the filter is set
+  // (a button can't sit inside <summary>, so it is placed over the header row, before it in tab order).
+  const section = (id: string, title: string, inUse: boolean, chips: string[], body: ReactNode, reset: Partial<BrowseFilters>) => (
+    <div key={id} className={`bf-sec-wrap${inUse ? ' has-clear' : ''}`}>
+      {inUse && (
+        <button type="button" className="bf-sec-clear" aria-label={t('browse.clearFor', { filter: title })}
+          onClick={(ev) => { const wrap = ev.currentTarget.parentElement; setF(reset); requestAnimationFrame(() => wrap?.querySelector<HTMLElement>('summary')?.focus()); }}>
+          {t('browse.clearOne')}
+        </button>
+      )}
+      <Accordion bare level={3} className="bf-sec" title={title} chips={chips} open={isOpen(id, inUse)} onToggle={(o) => setOpen(id, o)}>
+        {body}
+      </Accordion>
+    </div>
+  );
+  // Choices as a checkbox (or radio) list.
+  const checks = (legend: string, all: string[], chosen: string[], toggle: (v: string, on: boolean) => void, text: (v: string) => string, kind: 'checkbox' | 'radio' = 'checkbox', name?: string) => (
+    <fieldset className="bf-list">
+      <legend className="sr-only">{legend}</legend>
       {all.map((v) => (
-        <label key={v} className="check">
-          <input type="checkbox" checked={chosen.includes(v)} onChange={(ev) => setF({ [key]: ev.target.checked ? [...chosen, v] : chosen.filter((x) => x !== v) })} />
-          {text(v)}
+        <label key={v} className="bf-check">
+          <input type={kind} name={name} checked={chosen.includes(v)} onChange={(ev) => toggle(v, ev.target.checked)} />
+          <span>{text(v)}</span>
         </label>
       ))}
     </fieldset>
   );
-  const slider = (id: string, label: string, value: number, max: number, step: number, onChange: (n: number) => void, words: string): ReactNode => (
-    <div className="bf-group">
+  const listSection = (id: string, label: string, all: string[], chosen: string[], key: 'makes' | 'bodies' | 'drivetrains' | 'ports' | 'voltages' | 'chemistries', text: (v: string) => string = valueLabel) =>
+    section(id, label, chosen.length > 0, all.filter((v) => chosen.includes(v)).map(text),
+      checks(label, all, chosen, (v, on) => setF({ [key]: on ? [...chosen, v] : chosen.filter((x) => x !== v) }), text), { [key]: [] });
+  // One-handle sliders in the map's kW-slider look (design-language.md §4).
+  const slider = (id: string, label: string, value: number, max: number, step: number, onChange: (n: number) => void, words: string) => (
+    <div className="bf-slider">
       <label htmlFor={id} className="bf-label">{label}: <strong>{words}</strong></label>
-      <input id={id} type="range" min={0} max={max} step={step} value={value} aria-valuetext={words} onChange={(ev) => onChange(Number(ev.target.value))} />
+      <div className="power-track">
+        <div className="power-rail" aria-hidden="true" />
+        <div className="power-fill" aria-hidden="true" style={{ left: 0, width: `${(value / max) * 100}%` }} />
+        <input id={id} type="range" min={0} max={max} step={step} value={value} aria-valuetext={words} onChange={(ev) => onChange(Number(ev.target.value))} />
+      </div>
     </div>
   );
+  const sw = (on: boolean, label: ReactNode, toggle: () => void, help?: string) => (
+    <button type="button" role="switch" aria-checked={on} className="bf-switch" onClick={toggle}>
+      <span className="bf-switch-text">{label}{help && <span className="muted small bf-help">{help}</span>}</span>
+      <span className="switch" aria-hidden="true" />
+    </button>
+  );
   const years = [...new Set(index.map((e) => e.year))].sort((a, b) => b - a);
-  const rangeWords = f.minRangeKm > 0 ? t('browse.atLeast', { value: t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(f.minRangeKm, unit)) }) }) : t('browse.off');
+  const rangeWords = f.minRangeKm > 0 ? t('browse.atLeast', { value: distanceText(f.minRangeKm) }) : t('browse.off');
   const dcWords = f.minDcKw > 0 ? t('browse.atLeast', { value: t('fmt.kw', { value: f.minDcKw }) }) : t('browse.off');
   const timeWords = f.max1080Min > 0 ? t('browse.atMost', { value: t('fmt.min', { value: f.max1080Min }) }) : t('browse.off');
+  const bodyText = (v: string) => t(`body.${v}` as MessageKey);
 
   const panel = (
     <div className="bf-body">
-      <label className="check">
-        <input type="checkbox" checked={f.canadaOnly} onChange={(ev) => setF({ canadaOnly: ev.target.checked })} />
-        {t('browse.f.market', { market: COVERAGE.market })}
-      </label>
-      <fieldset className="bf-group">
-        <legend>{t('browse.f.years')}</legend>
-        {years.map((y) => (
-          <label key={y} className="check">
-            <input type="checkbox" checked={f.years.includes(y)} onChange={(ev) => setF({ years: ev.target.checked ? [...f.years, y] : f.years.filter((x) => x !== y) })} />
-            {y}
-          </label>
-        ))}
-      </fieldset>
-      {slider('bf-range', t('browse.f.minRange'), f.minRangeKm, RANGE_MAX, 50, (n) => setF({ minRangeKm: n }), rangeWords)}
-      {slider('bf-dc', t('browse.f.minDc'), f.minDcKw, DC_MAX, 25, (n) => setF({ minDcKw: n }), dcWords)}
-      {slider('bf-time', t('browse.f.max1080'), f.max1080Min === 0 ? TIME_MAX : f.max1080Min, TIME_MAX, 5, (n) => setF({ max1080Min: n >= TIME_MAX ? 0 : Math.max(5, n) }), timeWords)}
-      <label className="check">
-        <input type="checkbox" checked={f.measuredOnly} onChange={(ev) => setF({ measuredOnly: ev.target.checked })} />
-        <span>{t('browse.f.measured')}<span className="muted small bf-help">{t('browse.f.measuredHelp')}</span></span>
-      </label>
-      {checks(t('browse.f.make'), optionsFor(index, (e) => e.make), f.makes, 'makes', (v) => v)}
-      {checks(t('browse.f.body'), optionsFor(index, (e) => e.body_type), f.bodies, 'bodies', (v) => t(`body.${v}` as MessageKey))}
-      {checks(t('browse.f.drivetrain'), optionsFor(index, (e) => e.drivetrain === 'unknown' ? null : e.drivetrain), f.drivetrains, 'drivetrains')}
-      {checks(t('browse.f.port'), optionsFor(index, (e) => e.charge_port), f.ports, 'ports')}
-      {checks(t('browse.f.voltage'), optionsFor(index, (e) => e.voltage_class), f.voltages, 'voltages')}
-      <fieldset className="bf-group">
-        <legend>{t('browse.f.heatPump')}</legend>
-        {(['any', 'standard', 'available'] as const).map((v) => (
-          <label key={v} className="check">
-            <input type="radio" name="bf-hp" checked={f.heatPump === v} onChange={() => setF({ heatPump: v })} />
-            {t(`browse.hp.${v}`)}
-          </label>
-        ))}
-      </fieldset>
-      {checks(t('browse.f.chemistry'), optionsFor(index, (e) => e.chemistry), f.chemistries, 'chemistries')}
+      <div className="bf-switches">
+        {sw(f.canadaOnly, t('browse.f.market', { market: COVERAGE.market }), () => setF({ canadaOnly: !f.canadaOnly }))}
+        {sw(f.measuredOnly, t('browse.f.measured'), () => setF({ measuredOnly: !f.measuredOnly }), t('browse.f.measuredHelp'))}
+      </div>
+      {section('years', t('browse.f.years'), !same(f.years, d.years), years.filter((y) => f.years.includes(y)).map(String),
+        checks(t('browse.f.years'), years.map(String), f.years.map(String), (v, on) => setF({ years: on ? [...f.years, Number(v)] : f.years.filter((x) => x !== Number(v)) }), (v) => v), { years: d.years })}
+      {section('range', t('browse.f.minRange'), f.minRangeKm > 0, f.minRangeKm > 0 ? [rangeWords] : [],
+        slider('bf-range', t('browse.f.minRange'), f.minRangeKm, RANGE_MAX, 50, (n) => setF({ minRangeKm: n }), rangeWords), { minRangeKm: 0 })}
+      {section('dc', t('browse.f.minDc'), f.minDcKw > 0, f.minDcKw > 0 ? [dcWords] : [],
+        slider('bf-dc', t('browse.f.minDc'), f.minDcKw, DC_MAX, 25, (n) => setF({ minDcKw: n }), dcWords), { minDcKw: 0 })}
+      {section('time', t('browse.f.max1080'), f.max1080Min > 0, f.max1080Min > 0 ? [timeWords] : [],
+        slider('bf-time', t('browse.f.max1080'), f.max1080Min === 0 ? TIME_MAX : f.max1080Min, TIME_MAX, 5, (n) => setF({ max1080Min: n >= TIME_MAX ? 0 : Math.max(5, n) }), timeWords), { max1080Min: 0 })}
+      {listSection('make', t('browse.f.make'), optionsFor(index, (e) => e.make), f.makes, 'makes', (v) => v)}
+      {listSection('body', t('browse.f.body'), optionsFor(index, (e) => e.body_type), f.bodies, 'bodies', bodyText)}
+      {listSection('drivetrain', t('browse.f.drivetrain'), optionsFor(index, (e) => e.drivetrain === 'unknown' ? null : e.drivetrain), f.drivetrains, 'drivetrains')}
+      {listSection('port', t('browse.f.port'), optionsFor(index, (e) => e.charge_port), f.ports, 'ports')}
+      {listSection('voltage', t('browse.f.voltage'), optionsFor(index, (e) => e.voltage_class), f.voltages, 'voltages')}
+      {section('heatPump', t('browse.f.heatPump'), f.heatPump !== 'any', f.heatPump !== 'any' ? [t(`browse.hp.${f.heatPump}`)] : [],
+        checks(t('browse.f.heatPump'), ['any', 'standard', 'available'], [f.heatPump], (v) => setF({ heatPump: v as BrowseFilters['heatPump'] }), (v) => t(`browse.hp.${v}` as MessageKey), 'radio', 'bf-hp'), { heatPump: 'any' })}
+      {listSection('chemistry', t('browse.f.chemistry'), optionsFor(index, (e) => e.chemistry), f.chemistries, 'chemistries')}
     </div>
   );
 
   const count = results.length === 1 ? t('browse.results1') : t('browse.results', { count: formatNumber(results.length) });
-  const dirLabel = (d: 'asc' | 'desc') => (state.sort === 'name' ? t(d === 'asc' ? 'browse.dir.nameAsc' : 'browse.dir.nameDesc') : t(`browse.dir.${d}`));
+  const dirLabel = (dir: 'asc' | 'desc') => (state.sort === 'name' ? t(dir === 'asc' ? 'browse.dir.nameAsc' : 'browse.dir.nameDesc') : t(`browse.dir.${dir}`));
 
   const th = (key: SortKey | null, label: string) => {
     if (!key) return <th scope="col">{label}</th>;
@@ -199,6 +288,9 @@ export default function Browse({ index }: Props) {
       </th>
     );
   };
+  const figure = (label: string, value: ReactNode) => (
+    <div className="readout"><dt className="readout-label">{label}</dt><dd className="readout-value">{value}</dd></div>
+  );
 
   return (
     <div className="browse">
@@ -246,28 +338,37 @@ export default function Browse({ index }: Props) {
         {sheetOpen && <div className="bf-backdrop" onClick={() => { setSheetOpen(false); sheetBtn.current?.focus(); }} aria-hidden="true" />}
 
         <section className="browse-results" aria-busy={!ready}>
-          {/* Only the count is live, so a filter change reads one line, not every card. */}
-          <p className="small muted browse-count" role="status"><strong>{count}</strong> · {t('browse.estimatedHelp')}</p>
+          {/* Only the status line is live (the final count, once); the big number beside it ticks. */}
+          <p className="browse-count">
+            <span className="count-num" aria-hidden="true">
+              <Ticker value={results.length} render={(n) => (n === 1 ? t('browse.results1') : t('browse.results', { count: formatNumber(n) }))} />
+            </span>
+            <span className="sr-only" role="status">{count}</span>
+            <span className="small muted">{t('browse.estimatedHelp')}</span>
+          </p>
           {notice && <p className="banner small" role="status">{notice}</p>}
           {results.length === 0 && <p className="muted">{t('browse.noResults')}</p>}
 
-          {state.view === 'cards' && results.length > 0 && (
-            <ul className="car-cards">
-              {results.map((e) => (
-                <li key={e.id} className="car-card card">
-                  <p className="small muted cc-body">{t(`body.${e.body_type}` as MessageKey)} · {e.year}</p>
-                  <h3 className="cc-name"><a href={carHref(e.id)} aria-label={t('browse.open', { car: carName(e) })}>{e.make} {e.model}</a></h3>
-                  <p className="cc-variant"><VariantName name={e.name} /></p>
-                  <dl className="cc-figs">
-                    <div><dt>{t('tile.range')}</dt><dd>{show(rangeText(e))}</dd></div>
-                    <div><dt>{t('tile.time1080')}</dt><dd>{show(timeText(e))}</dd></div>
-                    <div><dt>{t('tile.kmPer10')}</dt><dd>{show(km10Text(e))}</dd></div>
-                    <div><dt>{t('browse.col.port')}</dt><dd>{e.charge_port ? valueLabel(e.charge_port) : unknown}</dd></div>
-                  </dl>
-                  <div className="cc-foot">{curveBadge(e)}{compareBtn(e)}</div>
-                </li>
-              ))}
-            </ul>
+          {state.view === 'cards' && (
+            <div className="cards-stage">
+              <ul ref={cardsEl} className="car-cards">
+                {results.map((e) => (
+                  <li key={e.id} data-flip={e.id} className="car-card card">
+                    <p className="small muted cc-body">{t(`body.${e.body_type}` as MessageKey)} · {e.year}</p>
+                    <h3 className="cc-name"><a href={carHref(e.id)} aria-label={t('browse.open', { car: carName(e) })}><Mark text={`${e.make} ${e.model}`} terms={terms} /></a></h3>
+                    <p className="cc-variant">{terms.length ? <Mark text={e.name} terms={terms} /> : <VariantName name={e.name} />}</p>
+                    <dl className="readouts cc-figs">
+                      {figure(t('tile.range'), show(rangeText(e)))}
+                      {figure(t('tile.time1080'), show(timeText(e)))}
+                      {figure(t('tile.kmPer10'), show(km10Text(e)))}
+                      {figure(t('browse.col.port'), e.charge_port ? valueLabel(e.charge_port) : unknown)}
+                    </dl>
+                    <div className="cc-foot">{curveBadge(e)}{compareBtn(e)}</div>
+                  </li>
+                ))}
+              </ul>
+              <div ref={ghostEl} className="flip-ghosts" aria-hidden="true" />
+            </div>
           )}
 
           {state.view === 'table' && results.length > 0 && (
@@ -286,10 +387,10 @@ export default function Browse({ index }: Props) {
                   <th scope="col"><span className="sr-only">{t('browse.compare')}</span></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody ref={rowsEl}>
                 {results.map((e) => (
-                  <tr key={e.id}>
-                    <td data-label={t('browse.col.car')}><a href={carHref(e.id)}>{e.make} {e.model} <VariantName name={e.name} /></a> <span className="muted small">{e.year}</span></td>
+                  <tr key={e.id} data-flip={e.id}>
+                    <td data-label={t('browse.col.car')}><a href={carHref(e.id)}><Mark text={`${e.make} ${e.model}`} terms={terms} /> {terms.length ? <Mark text={e.name} terms={terms} /> : <VariantName name={e.name} />}</a> <span className="muted small">{e.year}</span></td>
                     <td data-label={t('browse.sort.range')}>{show(rangeText(e))}</td>
                     <td data-label={t('browse.sort.efficiency')}>{show(effText(e))}</td>
                     <td data-label={t('browse.sort.dc')}>{show(dcText(e))}</td>

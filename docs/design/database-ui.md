@@ -85,6 +85,8 @@ Curve settings (SoC window, charger power) can be included in the link too (*lat
 - **Results** as **cards** by default, with a **table** toggle for dense comparison. The table view is effectively the "rankings" from D6: sort by any column.
 
 ### Filters (all MVP unless marked)
+
+*(B86, owner 2026-11-19: each filter category is a collapsible section showing its choices as pills when closed; sections start closed unless in use, and open/closed is remembered. Owner review 2026-11-19: choices are a checkbox list, and each section has its own Clear while its filter is set. The page uses the content-page design language with animated "Live reflow" results; see `design-language.md`.)*
 | Filter | Type | Default |
 |--------|------|---------|
 | **Sold in Canada** | toggle | **On** |

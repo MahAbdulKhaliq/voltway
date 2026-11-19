@@ -1,3 +1,8 @@
+| QV5 | PASS | Settings → Animations off: 0 s transitions, 0 animations, 0 ghosts, instant count; back on without reload restores motion (docs/plan/reports/ui-check-b86.md); re-checked after the review changes: 0 animations across a tick and a Clear |
+| QV4 | PASS (after fix) | Count ticks 84→52→31→19→12→9; status line changes once to the final count; mark.hit on matches; "zzzz" shows the empty message. Fixed after QA: mid-tick plural ("1 car"), and a negative frame when a frame timestamp preceded the start (clamped; interrupted ticks resume from the shown number); re-checked 1–84 only (docs/plan/reports/ui-check-b86.md) |
+| QV3 | PASS | Staying cards transform, new ones transform+opacity, 6 ghosts on a Make tick, 0 ghosts and 0 animations after ~600 ms; ≤ 12 cards animate, offscreen 0; table view filters (84 → 9) (docs/plan/reports/ui-check-b86.md) |
+| QV2 | PASS | Native checkbox lists (radios exclusive for heat pump), whole row clickable, focus ring 3 px, labels 14.67 dark / 16.35 light, rows 44 px at 375 and 34 px at 1280; no horizontal scroll; chips hidden while open. Note: light-theme checkbox edge ~1.3:1, state carried by the tick and bold label (docs/plan/reports/ui-check-b86.md) |
+| QV1 | PASS (after fix) | Clear only on sections in use (years only off-default, heat pump only off "any"); 3 makes cleared in one click, button gone, focus on the Make summary, other sections untouched; works on a closed section; years/sliders/heat pump reset right; keyboard reachable, 3 px focus ring, contrast 11.38 dark / 6.84 light; phone sheet scrolls, 60 Tabs inside, Escape returns focus. Fixed: Clear overlapped "Maximum 10–80% time" at 1280 (titles now wrap); Clear 44 px on phones; re-measured no overlap (docs/plan/reports/ui-check-b86.md) |
 # Phase 1 QA guide
 
 A standalone guide for verifying Phase 1 with no memory of how it was built. Read these first:
@@ -642,3 +647,25 @@ Read B85 in `docs/design/gaps-and-questions.md` and `docs/design/design-language
 | QR3 | PASS (after fix) | Order right for all four figures, IONIQ 5 last with "No curve yet"; bars 81.2 % / 73.2 % / 77.2 % proportional; flag + sr "Best:"; every figure as text. Fixed: time raced on the shown minutes, so bars and ties match labels (150 kW: both ~25 min, equal bars, no single best); chart alt singular for one curve (docs/plan/reports/ui-check-b85.md) |
 | QR4 | PASS | Grow-in once ~0.6 s; fill transition 0.62 s; FLIP translateY ±84 px over 460 ms, nothing left after 900 ms; real Settings control Off: 0 s, no animations, instant; restored On (docs/plan/reports/ui-check-b85.md) |
 | QR5 | PASS | Switch aria-checked false/true/false, rows 21/18/21; Specs unrolls; 9 best marks (star + sr text, bold); variant change and Remove update race/table/chart alt/URL/storage; empty list yellow Browse cars; 4 cars at 375 table 608 in 313 box with snap (docs/plan/reports/ui-check-b85.md) |
+
+# B86 QA: Cars page overdrive
+
+Read B86 in `docs/design/gaps-and-questions.md` and `docs/design/design-language.md`. Page: `/cars` (84 cars). Clear `voltway.browse` and `voltway.browseOpen` in localStorage for the first-visit checks (save and restore them).
+
+| ID | Area | How to check | Pass when / edge cases |
+|----|------|--------------|------------------------|
+| QV1 | Filter sections | first visit; set a Make and a minimum range; reload; close/open sections; Clear filters; phone sheet | Every category is a collapsible section; first visit opens only sections in use (default years count as in use only if not the default); closed headers show choices as pills; open/closed survives reload; each set section shows "Clear" (named "Clear <section>"), which resets only that category, disappears and moves focus to the header; Clear filters empties pills; on a phone the sheet scrolls, Tab stays inside, Escape closes |
+| QV2 | Design language | 1280 and 375, both themes | Overpass names, figures on raised readouts, map-style sliders, checkbox lists (radios for heat pump) with visible focus and checked state, 44 px rows at 375, switches for market and tested curves, restyled selects; text ≥ 4.5:1; no horizontal page scroll at 375 |
+| QV3 | Live reflow | Animations on: tick a Make, change sort, type a search, clear it | Staying cards glide (FLIP), new cards rise in, removed ones fade out; nothing left mid-animation or as a ghost after ~1 s; only on-screen cards animate; table view still works |
+| QV4 | Count and search | type "ioniq", then "model 3", then clear | Count ticks to the new value; the status region announces the final count once; matched words highlighted in names; no results shows the empty message |
+| QV5 | Animations off | Settings → Animations off; repeat QV3 | Every change instant: no animations, no transitions, no ghosts; turning Animations back on restores motion without a reload |
+
+## B86 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QV1 | | |
+| QV2 | | |
+| QV3 | | |
+| QV4 | | |
+| QV5 | | |

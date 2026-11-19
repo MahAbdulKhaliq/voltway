@@ -4,7 +4,7 @@ Generated 2026-11-19 by `npm run suggest:catalogue -- --wave 1` (B90, DESIGN-9 �
 
 How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on the rows to keep (all rows of a proposal), edit `trim_ca` / `trim_us` / `variant_id` / `powertrain` where they are wrong, then run `npm run suggest:catalogue -- --wave 1 --apply`. Flags: ⚠ code = NRCan letter code (plant or certification, not a trim name), ⚠ date = mid-year change, ⚠ pair = Canada/US pairing is a guess, ⚠ name = trim name needs a check.
 
-504 proposals from 803 regulator rows (25 mapped models): 363 clean (no ⚠, `check` empty in the CSV), 141 to check.
+531 proposals from 803 regulator rows (25 mapped models): 397 clean (no ⚠, `check` empty in the CSV), 134 to check.
 
 ## bmw/i4
 
@@ -421,14 +421,17 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Mustang Mach-E RWD Extended
 ## hyundai/ioniq-5
 
-- **2022 CA: Long Range · US: RWD Long Range** → `hyundai/ioniq-5/2022/long-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2022 CA: Preferred Long Range** → `hyundai/ioniq-5/2022/preferred-long-range` [CA] drivetrain ? · powertrain new
   - NRCan: IONIQ 5 Long Range
-  - EPA: Ioniq 5 RWD (Long Range)
-- **2022 CA: Long Range AWD · US: AWD Long Range** → `hyundai/ioniq-5/2022/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2022 CA: Preferred Long Range AWD** → `hyundai/ioniq-5/2022/preferred-long-range-awd` [CA] awd · powertrain new
   - NRCan: IONIQ 5 Long Range AWD
-  - EPA: Ioniq 5 AWD (Long Range)
-- **2022 CA: Standard Range · US: RWD Standard Range** → `hyundai/ioniq-5/2022/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2022 CA: Preferred** → `hyundai/ioniq-5/2022/preferred` [CA] drivetrain ? · powertrain new
   - NRCan: IONIQ 5 Standard Range
+- **2022 US: AWD** → `hyundai/ioniq-5/2022/awd` [US] awd · powertrain new
+  - EPA: Ioniq 5 AWD (Long Range)
+- **2022 US: RWD** → `hyundai/ioniq-5/2022/rwd` [US] rwd · powertrain new
+  - EPA: Ioniq 5 RWD (Long Range)
+- **2022 US: SE SR RWD** → `hyundai/ioniq-5/2022/se-sr-rwd` [US] rwd · powertrain new
   - EPA: Ioniq 5 RWD (Standard Range)
 - **2023 CA: Preferred Long Range** → `hyundai/ioniq-5/2023/preferred-long-range` [CA] drivetrain ? · powertrain new
   - NRCan: IONIQ 5 Long Range
@@ -436,21 +439,24 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - NRCan: IONIQ 5 Long Range AWD
 - **2023 CA: Preferred** → `hyundai/ioniq-5/2023/preferred` [CA] drivetrain ? · powertrain new
   - NRCan: IONIQ 5 Standard Range
-- **2024 CA: Long Range · US: Long range RWD** → `hyundai/ioniq-5/2024/long-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2024 CA: Preferred Long Range** → `hyundai/ioniq-5/2024/preferred-long-range` [CA] drivetrain ? · powertrain new
   - NRCan: IONIQ 5 Long Range
-  - EPA: Ioniq 5 Long range RWD
-- **2024 CA: Long Range AWD · US: Long range AWD** → `hyundai/ioniq-5/2024/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2024 CA: Preferred AWD Long Range** → `hyundai/ioniq-5/2024/preferred-awd-long-range` [CA] awd · powertrain new
   - NRCan: IONIQ 5 Long Range AWD
+- **2024 US: AWD** → `hyundai/ioniq-5/2024/awd` [US] awd · powertrain new
   - EPA: Ioniq 5 Long range AWD
-- **2024 US: Standard range RWD** → `hyundai/ioniq-5/2024/standard-range-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2024 US: RWD** → `hyundai/ioniq-5/2024/rwd` [US] rwd · powertrain new
+  - EPA: Ioniq 5 Long range RWD
+- **2024 US: SE SR RWD** → `hyundai/ioniq-5/2024/se-sr-rwd` [US] rwd · powertrain new
   - EPA: Ioniq 5 Standard range RWD
 - **2025 CA: Long Range** → `hyundai/ioniq-5/2025/long-range` [CA] drivetrain ? · powertrain hyundai/ioniq-5/2026-long-range · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-5/2026/long-range; check the pack didn't change
   - NRCan: IONIQ 5 Long Range
-- **2025 CA: Long Range AWD** → `hyundai/ioniq-5/2025/long-range-awd` [CA] awd · wheels 19/20″ · powertrain hyundai/ioniq-5/2026-long-range-awd · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-5/2026/long-range-awd; check the pack didn't change
+- **2025 CA: Preferred Long Range AWD** → `hyundai/ioniq-5/2025/preferred-long-range-awd` [CA] awd · wheels 19/20″ · powertrain new
   - NRCan: IONIQ 5 Long Range AWD (19" Wheels)
   - NRCan: IONIQ 5 Long Range AWD (20" Wheels)
-- **2025 CA: XRT** → `hyundai/ioniq-5/2025/xrt` [CA] awd · powertrain new
+- **2025 CA: XRT · US: XRT Dual Motor AWD** → `hyundai/ioniq-5/2025/xrt` [CA, US] awd · powertrain new · ⚠ pair: names differ, same motor power (239 kW)
   - NRCan: IONIQ 5 Long Range AWD XRT
+  - EPA: Ioniq 5 AWD XRT
 - **2025 CA: N · US: N** → `hyundai/ioniq-5/2025/n` [CA, US] awd · powertrain hyundai/ioniq-5/2026-n · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-5/2026/n; check the pack didn't change
   - NRCan: IONIQ 5 N
   - EPA: Ioniq 5 N
@@ -459,72 +465,81 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Ioniq 5 Standard range
 - **2025 US: Dual Motor AWD** → `hyundai/ioniq-5/2025/dual-motor-awd` [US] awd · wheels 19″ · powertrain new
   - EPA: Ioniq 5 AWD (19 inch Wheels)
-- **2025 US: AWD** → `hyundai/ioniq-5/2025/awd` [US] awd · wheels 20″ · powertrain new · names: regulator wording
+- **2025 US: Limited Dual Motor AWD** → `hyundai/ioniq-5/2025/limited-dual-motor-awd` [US] awd · wheels 20″ · powertrain new
   - EPA: Ioniq 5 AWD (20 inch Wheels)
-- **2025 US: XRT Dual Motor AWD** → `hyundai/ioniq-5/2025/xrt-dual-motor-awd` [US] awd · powertrain new
-  - EPA: Ioniq 5 AWD XRT
 - **2025 US: Robo taxi** → `hyundai/ioniq-5/2025/robo-taxi` [US] rwd · powertrain new · names: regulator wording
   - EPA: Ioniq 5 Robo taxi
 - **2025 US: RWD** → `hyundai/ioniq-5/2025/rwd` [US] rwd · powertrain new
   - EPA: Ioniq 5 RWD
-- **2026 US: AWD** → `hyundai/ioniq-5/2026/awd` [US] awd · wheels 19/20″ · powertrain new · names: regulator wording · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range-awd-xrt, hyundai/ioniq-5/2026/long-range-awd, but another 2026 row has it too
+- **2026 US: Dual Motor AWD** → `hyundai/ioniq-5/2026/dual-motor-awd` [US] awd · wheels 19″ · powertrain new · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range-awd-xrt, hyundai/ioniq-5/2026/long-range-awd, but another 2026 row has it too
   - EPA: Ioniq 5 AWD (19inch Wheels)
+- **2026 US: Limited Dual Motor AWD** → `hyundai/ioniq-5/2026/limited-dual-motor-awd` [US] awd · wheels 20″ · powertrain new · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range-awd-xrt, hyundai/ioniq-5/2026/long-range-awd, but another 2026 row has it too
   - EPA: Ioniq 5 AWD (20inch Wheels)
-- **2026 US: AWD XRT** → `hyundai/ioniq-5/2026/awd-xrt` [US] awd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range-awd-xrt, hyundai/ioniq-5/2026/long-range-awd, but another 2026 row has it too
+- **2026 US: XRT Dual Motor AWD** → `hyundai/ioniq-5/2026/xrt-dual-motor-awd` [US] awd · powertrain new · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range-awd-xrt, hyundai/ioniq-5/2026/long-range-awd, but another 2026 row has it too
   - EPA: Ioniq 5 AWD XRT
 - **2026 US: N** → `hyundai/ioniq-5/2026/n` [US] awd · powertrain hyundai/ioniq-5/2026-n · names: regulator wording
   - EPA: Ioniq 5 N
 - **2026 US: Robo taxi** → `hyundai/ioniq-5/2026/robo-taxi` [US] rwd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range, but another 2026 row has it too
   - EPA: Ioniq 5 Robo taxi
-- **2026 US: RWD** → `hyundai/ioniq-5/2026/rwd` [US] rwd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range, but another 2026 row has it too
+- **2026 US: RWD** → `hyundai/ioniq-5/2026/rwd` [US] rwd · powertrain new · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range, but another 2026 row has it too
   - EPA: Ioniq 5 RWD
-- **2026 US: Standard range** → `hyundai/ioniq-5/2026/standard-range` [US] rwd · powertrain new · names: regulator wording
+- **2026 US: SE RWD Standard Range** → `hyundai/ioniq-5/2026/se-rwd-standard-range` [US] rwd · powertrain new
   - EPA: Ioniq 5 Standard range
-- **2027 US: AWD** → `hyundai/ioniq-5/2027/awd` [US] awd · wheels 19/20″ · powertrain new · names: regulator wording
+- **2027 US: Dual Motor AWD** → `hyundai/ioniq-5/2027/dual-motor-awd` [US] awd · wheels 19″ · powertrain new
   - EPA: Ioniq 5 AWD (19inch Wheels)
+- **2027 US: Limited Dual Motor AWD** → `hyundai/ioniq-5/2027/limited-dual-motor-awd` [US] awd · wheels 20″ · powertrain new
   - EPA: Ioniq 5 AWD (20inch Wheels)
-- **2027 US: AWD XRT** → `hyundai/ioniq-5/2027/awd-xrt` [US] awd · powertrain new · names: regulator wording
+- **2027 US: XRT Dual Motor AWD** → `hyundai/ioniq-5/2027/xrt-dual-motor-awd` [US] awd · powertrain new
   - EPA: Ioniq 5 AWD XRT
 - **2027 US: Robo taxi** → `hyundai/ioniq-5/2027/robo-taxi` [US] rwd · powertrain new · names: regulator wording
   - EPA: Ioniq 5 Robo taxi
-- **2027 US: RWD** → `hyundai/ioniq-5/2027/rwd` [US] rwd · powertrain new · names: regulator wording
+- **2027 US: RWD** → `hyundai/ioniq-5/2027/rwd` [US] rwd · powertrain new
   - EPA: Ioniq 5 RWD
-- **2027 US: Standard range** → `hyundai/ioniq-5/2027/standard-range` [US] rwd · powertrain new · names: regulator wording
+- **2027 US: SE RWD Standard Range** → `hyundai/ioniq-5/2027/se-rwd-standard-range` [US] rwd · powertrain new
   - EPA: Ioniq 5 Standard range
 ## hyundai/ioniq-6
 
-- **2023 CA: Preferred RWD · US: Long range RWD** → `hyundai/ioniq-6/2023/preferred-rwd` [CA, US] rwd · wheels 18/20″ · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (168 kW)
+- **2023 CA: Preferred RWD** → `hyundai/ioniq-6/2023/preferred-rwd` [CA] rwd · wheels 18″ · powertrain new
   - NRCan: IONIQ 6 Long Range (18" Wheels)
-  - EPA: Ioniq 6 Long range RWD (18 inch Wheels)
-  - EPA: Ioniq 6 Long range RWD (20 inch Wheels)
-- **2023 CA: Preferred AWD · US: Long range AWD** → `hyundai/ioniq-6/2023/preferred-awd` [CA, US] awd · wheels 18/20″ · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (239 kW)
+- **2023 CA: Preferred AWD** → `hyundai/ioniq-6/2023/preferred-awd` [CA] awd · wheels 18/20″ · powertrain new
   - NRCan: IONIQ 6 Long Range AWD (18" Wheels)
-  - EPA: Ioniq 6 Long range AWD (18 inch Wheels)
-  - EPA: Ioniq 6 Long range AWD (20 inch Wheels)
-- **2023 CA: Preferred AWD with Ultimate Package** → `hyundai/ioniq-6/2023/preferred-awd-with-ultimate-package` [CA] awd · wheels 20″ · powertrain new
   - NRCan: IONIQ 6 Long Range AWD (20" Wheels)
-- **2023 CA: Standard Range · US: Standard Range RWD** → `hyundai/ioniq-6/2023/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2023 CA: Standard Range · US: SE RWD Standard Range** → `hyundai/ioniq-6/2023/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: IONIQ 6 Standard Range
   - EPA: Ioniq 6 Standard Range RWD
-- **2024 CA: Long Range · US: Long range RWD** → `hyundai/ioniq-6/2024/long-range` [CA, US] rwd · wheels 18/20″ · powertrain hyundai/ioniq-6/2025-long-range · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-6/2025/long-range; check the pack didn't change
+- **2023 US: SE AWD Long Range** → `hyundai/ioniq-6/2023/se-awd-long-range` [US] awd · wheels 18″ · powertrain new
+  - EPA: Ioniq 6 Long range AWD (18 inch Wheels)
+- **2023 US: AWD** → `hyundai/ioniq-6/2023/awd` [US] awd · wheels 20″ · powertrain new
+  - EPA: Ioniq 6 Long range AWD (20 inch Wheels)
+- **2023 US: SE RWD Long Range** → `hyundai/ioniq-6/2023/se-rwd-long-range` [US] rwd · wheels 18″ · powertrain new
+  - EPA: Ioniq 6 Long range RWD (18 inch Wheels)
+- **2023 US: RWD** → `hyundai/ioniq-6/2023/rwd` [US] rwd · wheels 20″ · powertrain new
+  - EPA: Ioniq 6 Long range RWD (20 inch Wheels)
+- **2024 CA: Preferred Long Range** → `hyundai/ioniq-6/2024/preferred-long-range` [CA] drivetrain ? · wheels 18/20″ · powertrain new
   - NRCan: IONIQ 6 Long Range (18" Wheels)
   - NRCan: IONIQ 6 Long Range (20" Wheels)
-  - EPA: Ioniq 6 Long range RWD (18 inch Wheels)
-  - EPA: Ioniq 6 Long range RWD (20 inch Wheels)
-- **2024 CA: Long Range AWD · US: Long range AWD** → `hyundai/ioniq-6/2024/long-range-awd` [CA, US] awd · wheels 18/20″ · powertrain hyundai/ioniq-6/2025-long-range-awd · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-6/2025/long-range-awd; check the pack didn't change
+- **2024 CA: Preferred AWD Long Range** → `hyundai/ioniq-6/2024/preferred-awd-long-range` [CA] awd · wheels 18/20″ · powertrain new
   - NRCan: IONIQ 6 Long Range AWD (18" Wheels)
   - NRCan: IONIQ 6 Long Range AWD (20" Wheels)
+- **2024 US: SE AWD LR** → `hyundai/ioniq-6/2024/se-awd-lr` [US] awd · wheels 18″ · powertrain new
   - EPA: Ioniq 6 Long range AWD (18 inch Wheels)
+- **2024 US: AWD** → `hyundai/ioniq-6/2024/awd` [US] awd · wheels 20″ · powertrain new
   - EPA: Ioniq 6 Long range AWD (20 inch Wheels)
-- **2024 US: Standard Range RWD** → `hyundai/ioniq-6/2024/standard-range-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2024 US: SE RWD LR** → `hyundai/ioniq-6/2024/se-rwd-lr` [US] rwd · wheels 18″ · powertrain new
+  - EPA: Ioniq 6 Long range RWD (18 inch Wheels)
+- **2024 US: RWD** → `hyundai/ioniq-6/2024/rwd` [US] rwd · wheels 20″ · powertrain new
+  - EPA: Ioniq 6 Long range RWD (20 inch Wheels)
+- **2024 US: SE RWD SR** → `hyundai/ioniq-6/2024/se-rwd-sr` [US] rwd · powertrain new
   - EPA: Ioniq 6 Standard Range RWD
-- **2025 US: AWD** → `hyundai/ioniq-6/2025/long-range-awd` [US] awd · wheels 18/20″ · powertrain hyundai/ioniq-6/2025-long-range-awd · names: regulator wording · ⚠ existing: joins hyundai/ioniq-6/2025/long-range-awd by motor power (239 kW); names differ
+- **2025 US: SE AWD LR** → `hyundai/ioniq-6/2025/se-awd-lr` [US] awd · wheels 18″ · powertrain new · ⚠ existing?: same motor power as hyundai/ioniq-6/2025/long-range-awd, but another 2025 row has it too
   - EPA: Ioniq 6 AWD (18 inch Wheels)
+- **2025 US: AWD** → `hyundai/ioniq-6/2025/awd` [US] awd · wheels 20″ · powertrain new · ⚠ existing?: same motor power as hyundai/ioniq-6/2025/long-range-awd, but another 2025 row has it too
   - EPA: Ioniq 6 AWD (20 inch Wheels)
-- **2025 US: RWD** → `hyundai/ioniq-6/2025/long-range` [US] rwd · wheels 18/20″ · powertrain hyundai/ioniq-6/2025-long-range · names: regulator wording · ⚠ existing: joins hyundai/ioniq-6/2025/long-range by motor power (168 kW); names differ
+- **2025 US: SE RWD LR** → `hyundai/ioniq-6/2025/se-rwd-lr` [US] rwd · wheels 18″ · powertrain new · ⚠ existing?: same motor power as hyundai/ioniq-6/2025/long-range, but another 2025 row has it too
   - EPA: Ioniq 6 RWD (18 inch Wheels)
+- **2025 US: RWD** → `hyundai/ioniq-6/2025/rwd` [US] rwd · wheels 20″ · powertrain new · ⚠ existing?: same motor power as hyundai/ioniq-6/2025/long-range, but another 2025 row has it too
   - EPA: Ioniq 6 RWD (20 inch Wheels)
-- **2025 US: Standard Range** → `hyundai/ioniq-6/2025/standard-range` [US] rwd · powertrain new · names: regulator wording
+- **2025 US: SE RWD Standard Range** → `hyundai/ioniq-6/2025/se-rwd-standard-range` [US] rwd · powertrain new
   - EPA: Ioniq 6 Standard Range
 - **2027 US: N** → `hyundai/ioniq-6/2027/n` [US] awd · powertrain new · names: regulator wording
   - EPA: Ioniq 6 N
@@ -544,10 +559,10 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Ioniq 9 RWD
 ## hyundai/kona-electric
 
-- **2019 CA: Kona Electric · US: FWD** → `hyundai/kona-electric/2019/kona-electric` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: names differ, same motor power (150 kW)
+- **2019 CA: Kona Electric · US: Kona Electric** → `hyundai/kona-electric/2019/kona-electric` [CA, US] fwd · powertrain new
   - NRCan: Kona Electric
   - EPA: Kona Electric
-- **2020 CA: Standard · US: FWD** → `hyundai/kona-electric/2020/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2020 CA: Standard · US: Kona Electric** → `hyundai/kona-electric/2020/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: names differ, same motor power (150 kW)
   - NRCan: Kona Electric
   - EPA: Kona Electric
 - **2021 CA: Standard · US: FWD** → `hyundai/kona-electric/2021/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
@@ -559,47 +574,57 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2023 CA: Standard · US: FWD** → `hyundai/kona-electric/2023/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
   - NRCan: Kona Electric
   - EPA: Kona Electric
-- **2024 CA: Kona Electric · US: Long Range** → `hyundai/kona-electric/2024/kona-electric` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (150 kW)
+- **2024 CA: Kona Electric** → `hyundai/kona-electric/2024/kona-electric` [CA] drivetrain ? · powertrain new
   - NRCan: Kona Electric Long Range
+- **2024 US: Long Range** → `hyundai/kona-electric/2024/long-range` [US] fwd · powertrain new
   - EPA: Kona Electric Long Range
-- **2024 US: Standard Range** → `hyundai/kona-electric/2024/standard-range` [US] fwd · powertrain new · names: regulator wording
+- **2024 US: SE** → `hyundai/kona-electric/2024/se` [US] fwd · powertrain new
   - EPA: Kona Electric Standard Range
-- **2025 CA: Standard · US: FWD** → `hyundai/kona-electric/2025/standard` [CA, US] fwd · wheels 17/19″ · powertrain hyundai/kona-electric/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as hyundai/kona-electric/2026/standard; check the pack didn't change
+- **2025 CA: Standard** → `hyundai/kona-electric/2025/standard` [CA] drivetrain ? · wheels 17/19″ · powertrain hyundai/kona-electric/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as hyundai/kona-electric/2026/standard; check the pack didn't change
   - NRCan: Kona Electric (17" Wheels)
   - NRCan: Kona Electric (19" Wheels)
+- **2025 US: Long Range** → `hyundai/kona-electric/2025/long-range` [US] fwd · wheels 17″ · powertrain new
   - EPA: Kona Electric (17 inch Wheels)
+- **2025 US: N Line** → `hyundai/kona-electric/2025/n-line` [US] fwd · wheels 19″ · powertrain new
   - EPA: Kona Electric (19 inch Wheels)
-- **2025 US: Standard Range** → `hyundai/kona-electric/2025/standard-range` [US] fwd · powertrain new · names: regulator wording
+- **2025 US: SE** → `hyundai/kona-electric/2025/se` [US] fwd · powertrain new
   - EPA: Kona Electric Standard Range
 ## kia/ev6
 
-- **2022 CA: Long Range RWD · US: RWD Long Range** → `kia/ev6/2022/long-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording
+- **2022 CA: Long Range RWD** → `kia/ev6/2022/long-range-rwd` [CA] rwd · powertrain new
   - NRCan: EV6 Long Range
-  - EPA: EV6 RWD (Long Range)
-- **2022 CA: Long Range AWD · US: AWD Long Range** → `kia/ev6/2022/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2022 CA: Long Range AWD** → `kia/ev6/2022/long-range-awd` [CA] awd · powertrain new
   - NRCan: EV6 Long Range AWD
-  - EPA: EV6 AWD (Long Range)
-- **2022 CA: Standard Range RWD · US: RWD Standard Range** → `kia/ev6/2022/standard-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording
+- **2022 CA: Standard Range RWD** → `kia/ev6/2022/standard-range-rwd` [CA] rwd · powertrain new
   - NRCan: EV6 Standard Range
+- **2022 US: AWD LR** → `kia/ev6/2022/awd-lr` [US] awd · powertrain new
+  - EPA: EV6 AWD (Long Range)
+- **2022 US: RWD LR** → `kia/ev6/2022/rwd-lr` [US] rwd · powertrain new
+  - EPA: EV6 RWD (Long Range)
+- **2022 US: Light RWD SR** → `kia/ev6/2022/light-rwd-sr` [US] rwd · powertrain new
   - EPA: EV6 RWD (Standard Range)
-- **2023 CA: GT AWD · US: AWD GT** → `kia/ev6/2023/gt-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2023 CA: GT AWD · US: GT AWD LR** → `kia/ev6/2023/gt-awd` [CA, US] awd · powertrain new
   - NRCan: EV6 GT AWD
   - EPA: EV6 AWD GT
-- **2023 CA: Long Range · US: Long Range RWD** → `kia/ev6/2023/long-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2023 CA: Long Range RWD** → `kia/ev6/2023/long-range-rwd` [CA] rwd · powertrain new
   - NRCan: EV6 Long Range
-  - EPA: EV6 Long Range RWD
-- **2023 CA: Long Range AWD · US: Long Range AWD** → `kia/ev6/2023/long-range-awd` [CA, US] awd · wheels 19/20″ · powertrain new · names: regulator wording
+- **2023 CA: Long Range AWD** → `kia/ev6/2023/long-range-awd` [CA] awd · wheels 19″ · powertrain new
   - NRCan: EV6 Long Range AWD (19" Wheels)
+- **2023 CA: GT-Line Package 1 Long Range AWD** → `kia/ev6/2023/gt-line-package-1-long-range-awd` [CA] awd · wheels 20″ · powertrain new
   - NRCan: EV6 Long Range AWD (20" Wheels)
-  - EPA: EV6 Long Range AWD (19 inch tires)
-  - EPA: EV6 Long Range AWD (20 inch tires)
-- **2023 CA: Standard Range · US: Standard Range RWD** → `kia/ev6/2023/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2023 CA: Standard Range RWD · US: Standard Range RWD** → `kia/ev6/2023/standard-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: EV6 Standard Range
   - EPA: EV6 Standard Range RWD
+- **2023 US: AWD LR** → `kia/ev6/2023/awd-lr` [US] awd · wheels 19″ · powertrain new
+  - EPA: EV6 Long Range AWD (19 inch tires)
+- **2023 US: GT-Line AWD LR** → `kia/ev6/2023/gt-line-awd-lr` [US] awd · wheels 20″ · powertrain new
+  - EPA: EV6 Long Range AWD (20 inch tires)
+- **2023 US: RWD LR** → `kia/ev6/2023/rwd-lr` [US] rwd · powertrain new
+  - EPA: EV6 Long Range RWD
 - **2024 CA: GT · US: GT AWD LR** → `kia/ev6/2024/gt` [CA, US] awd · powertrain new
   - NRCan: EV6 GT AWD
   - EPA: EV6 AWD GT
-- **2024 CA: Land AWD** → `kia/ev6/2024/land-awd` [CA] awd · wheels 19/20″ · powertrain new · names: regulator wording
+- **2024 CA: Land AWD** → `kia/ev6/2024/land-awd` [CA] awd · wheels 19/20″ · powertrain new
   - NRCan: EV6 Land AWD (19" Wheels)
   - NRCan: EV6 Land AWD (20" Wheels)
 - **2024 CA: Wind RWD** → `kia/ev6/2024/wind-rwd` [CA] rwd · powertrain new
@@ -612,23 +637,25 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: EV6 Long Range RWD
 - **2024 US: Light RWD SR** → `kia/ev6/2024/light-rwd-sr` [US] rwd · powertrain new
   - EPA: EV6 Standard Range RWD
-- **2025 US: AWD GT** → `kia/ev6/2025/awd-gt` [US] awd · powertrain new · names: regulator wording
+- **2025 US: GT** → `kia/ev6/2025/gt` [US] awd · powertrain new
   - EPA: EV6 AWD GT
-- **2025 US: Long Range AWD** → `kia/ev6/2025/land-awd` [US] awd · wheels 19/20″ · powertrain kia/ev6/2025-land-awd · names: regulator wording · ⚠ existing: joins kia/ev6/2025/land-awd by motor power (239 kW); names differ
+- **2025 US: Light Long Range AWD** → `kia/ev6/2025/light-long-range-awd` [US] awd · wheels 19″ · powertrain new · ⚠ existing?: same motor power as kia/ev6/2025/land-awd, but another 2025 row has it too
   - EPA: EV6 Long Range AWD (19 inch Wheels)
+- **2025 US: GT-Line AWD** → `kia/ev6/2025/gt-line-awd` [US] awd · wheels 20″ · powertrain new · ⚠ existing?: same motor power as kia/ev6/2025/land-awd, but another 2025 row has it too
   - EPA: EV6 Long Range AWD (20 inch Wheels)
-- **2025 US: Long Range RWD** → `kia/ev6/2025/wind` [US] rwd · powertrain kia/ev6/2025-wind · names: regulator wording · ⚠ existing: joins kia/ev6/2025/wind by motor power (168 kW); names differ
+- **2025 US: Light Long Range RWD** → `kia/ev6/2025/wind` [US] rwd · powertrain kia/ev6/2025-wind · ⚠ existing: joins kia/ev6/2025/wind by motor power (168 kW); names differ
   - EPA: EV6 Long Range RWD
-- **2025 US: Standard Range RWD** → `kia/ev6/2025/light` [US] rwd · powertrain kia/ev6/2025-light · names: regulator wording · ⚠ existing: joins kia/ev6/2025/light by motor power (125 kW); names differ
+- **2025 US: Light** → `kia/ev6/2025/light` [US] rwd · powertrain kia/ev6/2025-light
   - EPA: EV6 Standard Range RWD
 - **2026 US: AWD GT** → `kia/ev6/2026/awd-gt` [US] awd · powertrain new · names: regulator wording
   - EPA: EV6 AWD GT
-- **2026 US: Long Range AWD** → `kia/ev6/2026/long-range-awd` [US] awd · wheels 19/20″ · powertrain new · names: regulator wording
+- **2026 US: Light LR AWD** → `kia/ev6/2026/light-lr-awd` [US] awd · wheels 19″ · powertrain new
   - EPA: EV6 Long Range AWD (19 inch Wheels)
+- **2026 US: GT-Line AWD** → `kia/ev6/2026/gt-line-awd` [US] awd · wheels 20″ · powertrain new
   - EPA: EV6 Long Range AWD (20 inch Wheels)
-- **2026 US: Long Range RWD** → `kia/ev6/2026/long-range-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2026 US: Light LR RWD** → `kia/ev6/2026/light-lr-rwd` [US] rwd · powertrain new
   - EPA: EV6 Long Range RWD
-- **2026 US: Standard Range RWD** → `kia/ev6/2026/standard-range-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2026 US: Light SR RWD** → `kia/ev6/2026/light-sr-rwd` [US] rwd · powertrain new
   - EPA: EV6 Standard Range RWD
 - **2027 US: Long Range AWD** → `kia/ev6/2027/long-range-awd` [US] awd · wheels 19/20″ · powertrain new · names: regulator wording
   - EPA: EV6 Long Range AWD (19 inch Wheels)
@@ -671,13 +698,13 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: EV9 Standard Range RWD
 - **2026 US: GT** → `kia/ev9/2026/gt` [US] awd · powertrain kia/ev9/2026-gt · names: regulator wording
   - EPA: EV9 GT
-- **2026 US: Long Range AWD** → `kia/ev9/2026/long-range-awd` [US] awd · powertrain new · names: regulator wording
+- **2026 US: Land AWD** → `kia/ev9/2026/land-awd` [US] awd · powertrain kia/ev9/2026-land-awd
   - EPA: EV9 Long Range AWD
-- **2026 US: Long Range AWD GT-Line** → `kia/ev9/2026/long-range-awd-gt-line` [US] awd · powertrain new · names: regulator wording
+- **2026 US: GT-Line** → `kia/ev9/2026/land-awd-gt-line` [US] awd · powertrain kia/ev9/2026-land-awd-gt-line
   - EPA: EV9 Long Range AWD GT-Line
-- **2026 US: Long Range RWD** → `kia/ev9/2026/long-range-rwd` [US] rwd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as kia/ev9/2026/light, but another 2026 row has it too
+- **2026 US: Light LR** → `kia/ev9/2026/light` [US] rwd · powertrain kia/ev9/2026-light
   - EPA: EV9 Long Range RWD
-- **2026 US: Standard Range RWD** → `kia/ev9/2026/standard-range-rwd` [US] rwd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as kia/ev9/2026/light, but another 2026 row has it too
+- **2026 US: Light SR** → `kia/ev9/2026/light` [US] rwd · powertrain kia/ev9/2026-light
   - EPA: EV9 Standard Range RWD
 - **2027 US: Long Range AWD** → `kia/ev9/2027/long-range-awd` [US] awd · powertrain new · names: regulator wording
   - EPA: EV9 Long Range AWD
@@ -689,10 +716,10 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: EV9 Standard Range RWD
 ## kia/niro-ev
 
-- **2019 CA: Niro EV · US: FWD** → `kia/niro-ev/2019/niro-ev` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: names differ, same motor power (150 kW)
+- **2019 CA: Niro EV · US: Niro EV** → `kia/niro-ev/2019/niro-ev` [CA, US] fwd · powertrain new
   - NRCan: Niro EV
   - EPA: Niro Electric
-- **2020 CA: Standard · US: FWD** → `kia/niro-ev/2020/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2020 CA: Standard · US: Niro EV** → `kia/niro-ev/2020/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: names differ, same motor power (150 kW)
   - NRCan: Niro EV
   - EPA: Niro Electric
 - **2021 CA: Standard · US: FWD** → `kia/niro-ev/2021/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
@@ -701,13 +728,13 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2022 CA: Standard · US: FWD** → `kia/niro-ev/2022/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
   - NRCan: Niro EV
   - EPA: Niro Electric
-- **2023 CA: Standard · US: Niro EV** → `kia/niro-ev/2023/standard` [CA, US] fwd · powertrain kia/niro-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: only one candidate each side, words differ; powertrain: same name as kia/niro-ev/2026/standard; check the pack didn't change
+- **2023 CA: Niro EV · US: Niro EV** → `kia/niro-ev/2023/niro-ev` [CA, US] fwd · powertrain new
   - NRCan: Niro EV
   - EPA: Niro Electric
-- **2024 CA: Standard · US: FWD** → `kia/niro-ev/2024/standard` [CA, US] fwd · powertrain kia/niro-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as kia/niro-ev/2026/standard; check the pack didn't change
+- **2024 CA: Standard · US: Niro EV** → `kia/niro-ev/2024/standard` [CA, US] fwd · powertrain kia/niro-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: names differ, same motor power (150 kW); powertrain: same name as kia/niro-ev/2026/standard; check the pack didn't change
   - NRCan: Niro EV
   - EPA: Niro Electric
-- **2025 CA: Standard · US: FWD** → `kia/niro-ev/2025/standard` [CA, US] fwd · powertrain kia/niro-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as kia/niro-ev/2026/standard; check the pack didn't change
+- **2025 CA: Standard · US: Niro EV** → `kia/niro-ev/2025/standard` [CA, US] fwd · powertrain kia/niro-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: names differ, same motor power (150 kW); powertrain: same name as kia/niro-ev/2026/standard; check the pack didn't change
   - NRCan: Niro EV
   - EPA: Niro Electric
 - **2026 US: FWD** → `kia/niro-ev/2026/standard` [US] fwd · powertrain kia/niro-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; existing: joins kia/niro-ev/2026/standard by motor power (150 kW); names differ

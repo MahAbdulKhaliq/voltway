@@ -103,6 +103,14 @@ describe('groupRegulatorRows', () => {
     expect(p).toHaveLength(1);
     expect(p[0]).toMatchObject({ markets: ['CA', 'US'], names: { CA: 'Premium AWD', US: 'Premium AWD' }, named: true, variant_id: 'tesla/model-3/2026/premium-awd' });
   });
+  it('never pairs two researched names with no shared trim word, even at the same motor power', () => {
+    const r = [
+      row({ label: 'Model 3 Long Range AWD (Import)', model_id: 'tesla/model-3', source_key: 'c', motor_kw: 280 }),
+      row({ source: 'epa', market: 'US', label: 'Model 3 Performance AWD', base_model: 'Model 3', drive: 'All-Wheel Drive', model_id: 'tesla/model-3', source_key: 'u', motor_kw: 280 }),
+    ];
+    const names = new Map([[trimNameKey('nrcan', 2026, 'Model 3 Long Range AWD (Import)'), 'Long Range AWD'], [trimNameKey('epa', 2026, 'Model 3 Performance AWD'), 'Performance']]);
+    expect(groupRegulatorRows(r, new Map(), [], map, undefined, names)).toHaveLength(2);
+  });
   it('adds a market to an existing variant with the same name and drivetrain', () => {
     const existing = new Map([['tesla/model-3/2026/premium-awd', { id: 'tesla/model-3/2026/premium-awd', model_id: 'tesla/model-3', year: 2026, drivetrain: 'awd', powertrain_id: 'tesla/model-3/2026-premium-awd', trims: [{ names: { CA: 'Premium AWD' } }] }]]);
     const p = groupRegulatorRows(rows.slice(2, 3), existing, [], map)[0];

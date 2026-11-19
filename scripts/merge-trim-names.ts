@@ -14,6 +14,8 @@ const text = readFileSync(file, 'utf8');
 const header = text.slice(0, text.indexOf('\n')).replace(/\r$/, '').split(',');
 const rows = parseCsv(text);
 const byKey = new Map(rows.map((r) => [trimNameKey(r.source, r.year, r.label), r]));
+const loose = (source: string, year: string, label: string) => trimNameKey(source, year, label.replace(/["″]/g, ''));
+const byLoose = new Map(rows.map((r) => [loose(r.source, r.year, r.label), r]));
 
 const dir = join(root, 'research');
 const only = process.argv.slice(2); // optional groups, e.g. `npm run merge:trim-names -- japan hyundai-kia`
@@ -24,7 +26,8 @@ const unknown: string[] = [];
 const unsourced: string[] = [];
 for (const f of files) {
   for (const r of parseCsv(readFileSync(join(dir, f), 'utf8'))) {
-    const ours = byKey.get(trimNameKey(r.source, r.year, r.label));
+    // Hand-written CSVs sometimes lose the inch mark in `(18" Wheels)`; match without quote marks too.
+    const ours = byKey.get(trimNameKey(r.source, r.year, r.label)) ?? byLoose.get(loose(r.source, r.year, r.label));
     if (!ours) { unknown.push(`${f}: ${r.year} ${r.label}`); continue; }
     if (!r.trim_name && !r.notes) continue;
     if (r.trim_name && !r.source_url) { unsourced.push(`${f}: ${r.year} ${r.label}`); continue; }

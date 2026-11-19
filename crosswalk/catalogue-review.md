@@ -4,7 +4,7 @@ Generated 2026-11-19 by `npm run suggest:catalogue -- --wave 1` (B90, DESIGN-9 �
 
 How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on the rows to keep (all rows of a proposal), edit `trim_ca` / `trim_us` / `variant_id` / `powertrain` where they are wrong, then run `npm run suggest:catalogue -- --wave 1 --apply`. Flags: ⚠ code = NRCan letter code (plant or certification, not a trim name), ⚠ date = mid-year change, ⚠ pair = Canada/US pairing is a guess, ⚠ name = trim name needs a check.
 
-505 proposals from 803 regulator rows (25 mapped models): 326 clean (no ⚠, `check` empty in the CSV), 179 to check.
+502 proposals from 803 regulator rows (25 mapped models): 341 clean (no ⚠, `check` empty in the CSV), 161 to check.
 
 ## bmw/i4
 
@@ -428,11 +428,11 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2022 CA: Standard Range · US: RWD Standard Range** → `hyundai/ioniq-5/2022/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: IONIQ 5 Standard Range
   - EPA: Ioniq 5 RWD (Standard Range)
-- **2023 CA: Long Range** → `hyundai/ioniq-5/2023/long-range` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2023 CA: Preferred Long Range** → `hyundai/ioniq-5/2023/preferred-long-range` [CA] drivetrain ? · powertrain new
   - NRCan: IONIQ 5 Long Range
-- **2023 CA: Long Range AWD** → `hyundai/ioniq-5/2023/long-range-awd` [CA] awd · powertrain new · names: regulator wording
+- **2023 CA: Preferred Long Range AWD** → `hyundai/ioniq-5/2023/preferred-long-range-awd` [CA] awd · powertrain new
   - NRCan: IONIQ 5 Long Range AWD
-- **2023 CA: Standard Range** → `hyundai/ioniq-5/2023/standard-range` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2023 CA: Preferred** → `hyundai/ioniq-5/2023/preferred` [CA] drivetrain ? · powertrain new
   - NRCan: IONIQ 5 Standard Range
 - **2024 CA: Long Range · US: Long range RWD** → `hyundai/ioniq-5/2024/long-range` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: IONIQ 5 Long Range
@@ -447,22 +447,23 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2025 CA: Long Range AWD** → `hyundai/ioniq-5/2025/long-range-awd` [CA] awd · wheels 19/20″ · powertrain hyundai/ioniq-5/2026-long-range-awd · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-5/2026/long-range-awd; check the pack didn't change
   - NRCan: IONIQ 5 Long Range AWD (19" Wheels)
   - NRCan: IONIQ 5 Long Range AWD (20" Wheels)
-- **2025 CA: Long Range AWD XRT** → `hyundai/ioniq-5/2025/long-range-awd-xrt` [CA] awd · powertrain hyundai/ioniq-5/2026-long-range-awd-xrt · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-5/2026/long-range-awd-xrt; check the pack didn't change
+- **2025 CA: XRT** → `hyundai/ioniq-5/2025/xrt` [CA] awd · powertrain new
   - NRCan: IONIQ 5 Long Range AWD XRT
 - **2025 CA: N · US: N** → `hyundai/ioniq-5/2025/n` [CA, US] awd · powertrain hyundai/ioniq-5/2026-n · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-5/2026/n; check the pack didn't change
   - NRCan: IONIQ 5 N
   - EPA: Ioniq 5 N
-- **2025 CA: Standard Range · US: Standard range** → `hyundai/ioniq-5/2025/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2025 CA: Preferred Standard Range · US: SE RWD Standard Range** → `hyundai/ioniq-5/2025/preferred-standard-range` [CA, US] rwd · powertrain new
   - NRCan: IONIQ 5 Standard Range
   - EPA: Ioniq 5 Standard range
-- **2025 US: AWD** → `hyundai/ioniq-5/2025/awd` [US] awd · wheels 19/20″ · powertrain new · names: regulator wording
+- **2025 US: Dual Motor AWD** → `hyundai/ioniq-5/2025/dual-motor-awd` [US] awd · wheels 19″ · powertrain new
   - EPA: Ioniq 5 AWD (19 inch Wheels)
+- **2025 US: AWD** → `hyundai/ioniq-5/2025/awd` [US] awd · wheels 20″ · powertrain new · names: regulator wording
   - EPA: Ioniq 5 AWD (20 inch Wheels)
-- **2025 US: AWD XRT** → `hyundai/ioniq-5/2025/awd-xrt` [US] awd · powertrain new · names: regulator wording
+- **2025 US: XRT Dual Motor AWD** → `hyundai/ioniq-5/2025/xrt-dual-motor-awd` [US] awd · powertrain new
   - EPA: Ioniq 5 AWD XRT
 - **2025 US: Robo taxi** → `hyundai/ioniq-5/2025/robo-taxi` [US] rwd · powertrain new · names: regulator wording
   - EPA: Ioniq 5 Robo taxi
-- **2025 US: RWD** → `hyundai/ioniq-5/2025/rwd` [US] rwd · powertrain new · names: regulator wording
+- **2025 US: RWD** → `hyundai/ioniq-5/2025/rwd` [US] rwd · powertrain new
   - EPA: Ioniq 5 RWD
 - **2026 US: AWD** → `hyundai/ioniq-5/2026/awd` [US] awd · wheels 19/20″ · powertrain new · names: regulator wording · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range-awd-xrt, hyundai/ioniq-5/2026/long-range-awd, but another 2026 row has it too
   - EPA: Ioniq 5 AWD (19inch Wheels)
@@ -490,15 +491,16 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Ioniq 5 Standard range
 ## hyundai/ioniq-6
 
-- **2023 CA: Long Range · US: Long range RWD** → `hyundai/ioniq-6/2023/long-range` [CA, US] rwd · wheels 18/20″ · powertrain hyundai/ioniq-6/2025-long-range · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-6/2025/long-range; check the pack didn't change
+- **2023 CA: Preferred RWD · US: Long range RWD** → `hyundai/ioniq-6/2023/preferred-rwd` [CA, US] rwd · wheels 18/20″ · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (168 kW)
   - NRCan: IONIQ 6 Long Range (18" Wheels)
   - EPA: Ioniq 6 Long range RWD (18 inch Wheels)
   - EPA: Ioniq 6 Long range RWD (20 inch Wheels)
-- **2023 CA: Long Range AWD · US: Long range AWD** → `hyundai/ioniq-6/2023/long-range-awd` [CA, US] awd · wheels 18/20″ · powertrain hyundai/ioniq-6/2025-long-range-awd · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-6/2025/long-range-awd; check the pack didn't change
+- **2023 CA: Preferred AWD · US: Long range AWD** → `hyundai/ioniq-6/2023/preferred-awd` [CA, US] awd · wheels 18/20″ · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (239 kW)
   - NRCan: IONIQ 6 Long Range AWD (18" Wheels)
-  - NRCan: IONIQ 6 Long Range AWD (20" Wheels)
   - EPA: Ioniq 6 Long range AWD (18 inch Wheels)
   - EPA: Ioniq 6 Long range AWD (20 inch Wheels)
+- **2023 CA: Preferred AWD with Ultimate Package** → `hyundai/ioniq-6/2023/preferred-awd-with-ultimate-package` [CA] awd · wheels 20″ · powertrain new
+  - NRCan: IONIQ 6 Long Range AWD (20" Wheels)
 - **2023 CA: Standard Range · US: Standard Range RWD** → `hyundai/ioniq-6/2023/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: IONIQ 6 Standard Range
   - EPA: Ioniq 6 Standard Range RWD
@@ -526,11 +528,11 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Ioniq 6 N
 ## hyundai/ioniq-9
 
-- **2026 US: AWD** → `hyundai/ioniq-9/2026/awd` [US] awd · powertrain hyundai/ioniq-9/2026-awd · names: regulator wording
+- **2026 US: AWD** → `hyundai/ioniq-9/2026/awd` [US] awd · powertrain hyundai/ioniq-9/2026-awd
   - EPA: Ioniq 9 AWD
-- **2026 US: AWD Performance** → `hyundai/ioniq-9/2026/awd-performance` [US] awd · powertrain hyundai/ioniq-9/2026-awd-performance · names: regulator wording
+- **2026 US: AWD Performance** → `hyundai/ioniq-9/2026/awd-performance` [US] awd · powertrain hyundai/ioniq-9/2026-awd-performance
   - EPA: Ioniq 9 AWD Performance
-- **2026 US: RWD** → `hyundai/ioniq-9/2026/standard` [US] rwd · powertrain hyundai/ioniq-9/2026-standard · names: regulator wording · ⚠ existing: joins hyundai/ioniq-9/2026/standard by motor power (160 kW); names differ
+- **2026 US: RWD** → `hyundai/ioniq-9/2026/standard` [US] rwd · powertrain hyundai/ioniq-9/2026-standard · ⚠ existing: joins hyundai/ioniq-9/2026/standard by motor power (160 kW); names differ
   - EPA: Ioniq 9 RWD
 - **2027 US: AWD** → `hyundai/ioniq-9/2027/awd` [US] awd · powertrain hyundai/ioniq-9/2026-awd · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-9/2026/awd; check the pack didn't change
   - EPA: Ioniq 9 AWD
@@ -540,7 +542,7 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Ioniq 9 RWD
 ## hyundai/kona-electric
 
-- **2019 CA: Standard · US: FWD** → `hyundai/kona-electric/2019/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2019 CA: Kona Electric · US: FWD** → `hyundai/kona-electric/2019/kona-electric` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: names differ, same motor power (150 kW)
   - NRCan: Kona Electric
   - EPA: Kona Electric
 - **2020 CA: Standard · US: FWD** → `hyundai/kona-electric/2020/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
@@ -555,7 +557,7 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2023 CA: Standard · US: FWD** → `hyundai/kona-electric/2023/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
   - NRCan: Kona Electric
   - EPA: Kona Electric
-- **2024 CA: Long Range · US: Long Range** → `hyundai/kona-electric/2024/long-range` [CA, US] fwd · powertrain new · names: regulator wording
+- **2024 CA: Kona Electric · US: Long Range** → `hyundai/kona-electric/2024/kona-electric` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (150 kW)
   - NRCan: Kona Electric Long Range
   - EPA: Kona Electric Long Range
 - **2024 US: Standard Range** → `hyundai/kona-electric/2024/standard-range` [US] fwd · powertrain new · names: regulator wording
@@ -569,13 +571,13 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Kona Electric Standard Range
 ## kia/ev6
 
-- **2022 CA: Long Range · US: RWD Long Range** → `kia/ev6/2022/long-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2022 CA: Long Range RWD · US: RWD Long Range** → `kia/ev6/2022/long-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: EV6 Long Range
   - EPA: EV6 RWD (Long Range)
 - **2022 CA: Long Range AWD · US: AWD Long Range** → `kia/ev6/2022/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: EV6 Long Range AWD
   - EPA: EV6 AWD (Long Range)
-- **2022 CA: Standard Range · US: RWD Standard Range** → `kia/ev6/2022/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2022 CA: Standard Range RWD · US: RWD Standard Range** → `kia/ev6/2022/standard-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: EV6 Standard Range
   - EPA: EV6 RWD (Standard Range)
 - **2023 CA: GT AWD · US: AWD GT** → `kia/ev6/2023/gt-awd` [CA, US] awd · powertrain new · names: regulator wording
@@ -592,20 +594,21 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2023 CA: Standard Range · US: Standard Range RWD** → `kia/ev6/2023/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: EV6 Standard Range
   - EPA: EV6 Standard Range RWD
-- **2024 CA: GT AWD · US: AWD GT** → `kia/ev6/2024/gt-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2024 CA: GT · US: GT AWD LR** → `kia/ev6/2024/gt` [CA, US] awd · powertrain new
   - NRCan: EV6 GT AWD
   - EPA: EV6 AWD GT
 - **2024 CA: Land AWD** → `kia/ev6/2024/land-awd` [CA] awd · wheels 19/20″ · powertrain new · names: regulator wording
   - NRCan: EV6 Land AWD (19" Wheels)
   - NRCan: EV6 Land AWD (20" Wheels)
-- **2024 CA: Wind** → `kia/ev6/2024/wind` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2024 CA: Wind RWD** → `kia/ev6/2024/wind-rwd` [CA] rwd · powertrain new
   - NRCan: EV6 Wind
-- **2024 US: Long Range AWD** → `kia/ev6/2024/long-range-awd` [US] awd · wheels 19/20″ · powertrain new · names: regulator wording
+- **2024 US: AWD LR** → `kia/ev6/2024/awd-lr` [US] awd · wheels 19″ · powertrain new
   - EPA: EV6 Long Range AWD (19 inch Wheels)
+- **2024 US: GT-Line AWD LR** → `kia/ev6/2024/gt-line-awd-lr` [US] awd · wheels 20″ · powertrain new
   - EPA: EV6 Long Range AWD (20 inch Wheels)
-- **2024 US: Long Range RWD** → `kia/ev6/2024/long-range-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2024 US: RWD LR** → `kia/ev6/2024/rwd-lr` [US] rwd · powertrain new
   - EPA: EV6 Long Range RWD
-- **2024 US: Standard Range RWD** → `kia/ev6/2024/standard-range-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2024 US: Light RWD SR** → `kia/ev6/2024/light-rwd-sr` [US] rwd · powertrain new
   - EPA: EV6 Standard Range RWD
 - **2025 US: AWD GT** → `kia/ev6/2025/awd-gt` [US] awd · powertrain new · names: regulator wording
   - EPA: EV6 AWD GT
@@ -634,13 +637,13 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: EV6 Standard Range RWD
 ## kia/ev9
 
-- **2024 CA: Land AWD** → `kia/ev9/2024/land-awd` [CA] awd · powertrain kia/ev9/2026-land-awd · names: regulator wording · ⚠ powertrain: same name as kia/ev9/2026/land-awd; check the pack didn't change
+- **2024 CA: Land AWD** → `kia/ev9/2024/land-awd` [CA] awd · powertrain kia/ev9/2026-land-awd · ⚠ powertrain: same name as kia/ev9/2026/land-awd; check the pack didn't change
   - NRCan: EV9 Land AWD
-- **2024 CA: Land AWD GT-Line** → `kia/ev9/2024/land-awd-gt-line` [CA] awd · powertrain kia/ev9/2026-land-awd-gt-line · names: regulator wording · ⚠ powertrain: same name as kia/ev9/2026/land-awd-gt-line; check the pack didn't change
+- **2024 CA: Land GT-Line** → `kia/ev9/2024/land-gt-line` [CA] awd · powertrain new
   - NRCan: EV9 Land AWD GT-Line
-- **2024 CA: Light** → `kia/ev9/2024/light` [CA] drivetrain ? · powertrain kia/ev9/2026-light · names: regulator wording · ⚠ powertrain: same name as kia/ev9/2026/light; check the pack didn't change
+- **2024 CA: Light RWD** → `kia/ev9/2024/light-rwd` [CA] rwd · powertrain new
   - NRCan: EV9 Light
-- **2024 CA: Wind** → `kia/ev9/2024/wind` [CA] drivetrain ? · powertrain kia/ev9/2026-wind · names: regulator wording · ⚠ powertrain: same name as kia/ev9/2026/wind; check the pack didn't change
+- **2024 CA: Wind RWD** → `kia/ev9/2024/wind-rwd` [CA] rwd · powertrain new
   - NRCan: EV9 Wind
 - **2024 US: Long Range AWD** → `kia/ev9/2024/long-range-awd` [US] awd · powertrain new · names: regulator wording
   - EPA: EV9 Long Range AWD
@@ -650,21 +653,19 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: EV9 Long Range RWD
 - **2024 US: Standard Range RWD** → `kia/ev9/2024/standard-range-rwd` [US] rwd · powertrain new · names: regulator wording
   - EPA: EV9 Standard Range RWD
-- **2025 CA: Land AWD** → `kia/ev9/2025/land-awd` [CA] awd · powertrain kia/ev9/2026-land-awd · names: regulator wording · ⚠ powertrain: same name as kia/ev9/2026/land-awd; check the pack didn't change
+- **2025 CA: Land AWD · US: Land** → `kia/ev9/2025/land-awd` [CA, US] awd · powertrain kia/ev9/2026-land-awd · names: regulator wording · ⚠ powertrain: same name as kia/ev9/2026/land-awd; check the pack didn't change
   - NRCan: EV9 Land AWD
-- **2025 CA: Land AWD GT-Line** → `kia/ev9/2025/land-awd-gt-line` [CA] awd · powertrain kia/ev9/2026-land-awd-gt-line · names: regulator wording · ⚠ powertrain: same name as kia/ev9/2026/land-awd-gt-line; check the pack didn't change
+  - EPA: EV9 Long Range AWD
+- **2025 CA: Land AWD GT-Line · US: GT-Line** → `kia/ev9/2025/land-awd-gt-line` [CA, US] awd · powertrain kia/ev9/2026-land-awd-gt-line · names: regulator wording · ⚠ powertrain: same name as kia/ev9/2026/land-awd-gt-line; check the pack didn't change
   - NRCan: EV9 Land AWD GT-Line
+  - EPA: EV9 Long Range AWD GT-Line
 - **2025 CA: Light** → `kia/ev9/2025/light` [CA] drivetrain ? · powertrain kia/ev9/2026-light · names: regulator wording · ⚠ powertrain: same name as kia/ev9/2026/light; check the pack didn't change
   - NRCan: EV9 Light
 - **2025 CA: Wind** → `kia/ev9/2025/wind` [CA] drivetrain ? · powertrain kia/ev9/2026-wind · names: regulator wording · ⚠ powertrain: same name as kia/ev9/2026/wind; check the pack didn't change
   - NRCan: EV9 Wind
-- **2025 US: Long Range AWD** → `kia/ev9/2025/long-range-awd` [US] awd · powertrain new · names: regulator wording
-  - EPA: EV9 Long Range AWD
-- **2025 US: Long Range AWD GT-Line** → `kia/ev9/2025/long-range-awd-gt-line` [US] awd · powertrain new · names: regulator wording
-  - EPA: EV9 Long Range AWD GT-Line
-- **2025 US: Long Range RWD** → `kia/ev9/2025/long-range-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2025 US: Light Long Range** → `kia/ev9/2025/light-long-range` [US] rwd · powertrain new
   - EPA: EV9 Long Range RWD
-- **2025 US: Standard Range RWD** → `kia/ev9/2025/standard-range-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2025 US: Light Standard Range** → `kia/ev9/2025/light-standard-range` [US] rwd · powertrain new
   - EPA: EV9 Standard Range RWD
 - **2026 US: GT** → `kia/ev9/2026/gt` [US] awd · powertrain kia/ev9/2026-gt · names: regulator wording
   - EPA: EV9 GT
@@ -686,7 +687,7 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: EV9 Standard Range RWD
 ## kia/niro-ev
 
-- **2019 CA: Standard · US: FWD** → `kia/niro-ev/2019/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2019 CA: Niro EV · US: FWD** → `kia/niro-ev/2019/niro-ev` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: names differ, same motor power (150 kW)
   - NRCan: Niro EV
   - EPA: Niro Electric
 - **2020 CA: Standard · US: FWD** → `kia/niro-ev/2020/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
@@ -698,7 +699,7 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2022 CA: Standard · US: FWD** → `kia/niro-ev/2022/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
   - NRCan: Niro EV
   - EPA: Niro Electric
-- **2023 CA: Standard · US: FWD** → `kia/niro-ev/2023/standard` [CA, US] fwd · powertrain kia/niro-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as kia/niro-ev/2026/standard; check the pack didn't change
+- **2023 CA: Standard · US: Niro EV** → `kia/niro-ev/2023/standard` [CA, US] fwd · powertrain kia/niro-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: only one candidate each side, words differ; powertrain: same name as kia/niro-ev/2026/standard; check the pack didn't change
   - NRCan: Niro EV
   - EPA: Niro Electric
 - **2024 CA: Standard · US: FWD** → `kia/niro-ev/2024/standard` [CA, US] fwd · powertrain kia/niro-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as kia/niro-ev/2026/standard; check the pack didn't change
@@ -711,61 +712,55 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Niro Electric
 ## nissan/ariya
 
-- **2023 US: ENG Plus/EVO Plus e-4ORCE 87kWh** → `nissan/ariya/2023/eng-plus-evo-plus-e-4orce-87kwh` [US] awd · powertrain new · names: regulator wording
+- **2023 US: Engage+ e-4ORCE** → `nissan/ariya/2023/engage-plus-e-4orce` [US] awd · powertrain new
   - EPA: ARIYA ENG Plus/EVO Plus e-4ORCE 87kWh
-- **2023 US: ENGAGE e-4ORCE 63kWh** → `nissan/ariya/2023/engage-e-4orce-63kwh` [US] awd · powertrain new · names: regulator wording
+- **2023 US: Engage e-4ORCE** → `nissan/ariya/2023/engage-e-4orce` [US] awd · powertrain new
   - EPA: ARIYA ENGAGE e-4ORCE 63kWh
-- **2023 US: ENGAGE FWD 63kWh** → `nissan/ariya/2023/engage-fwd-63kwh` [US] fwd · powertrain new · names: regulator wording
+- **2023 US: Engage FWD** → `nissan/ariya/2023/engage-fwd` [US] fwd · powertrain new
   - EPA: ARIYA ENGAGE FWD 63kWh
-- **2023 US: EVO Plus/EMP Plus/PRM FWD 87kWh** → `nissan/ariya/2023/evo-plus-emp-plus-prm-fwd-87kwh` [US] fwd · powertrain new · names: regulator wording
+- **2023 US: Evolve+ FWD** → `nissan/ariya/2023/evolve-plus-fwd` [US] fwd · powertrain new
   - EPA: ARIYA EVO Plus/EMP Plus/PRM FWD 87kWh
-- **2023 US: PLAT Plus e-4ORCE 87kWh 19** → `nissan/ariya/2023/plat-plus-e-4orce-87kwh-19` [US] awd · powertrain new · names: regulator wording
+- **2023 US: Platinum+ e-4ORCE** → `nissan/ariya/2023/platinum-plus-e-4orce` [US] awd · powertrain nissan/ariya/2026-platinum-plus-e-4orce · ⚠ powertrain: same name as nissan/ariya/2026/platinum-plus-e-4orce; check the pack didn't change
   - EPA: ARIYA PLAT Plus e-4ORCE 87kWh 19
-- **2023 US: PLAT Plus e-4ORCE 87kWh 20** → `nissan/ariya/2023/plat-plus-e-4orce-87kwh-20` [US] awd · powertrain new · names: regulator wording
   - EPA: ARIYA PLAT Plus e-4ORCE 87kWh 20
-- **2023 US: VENTURE Plus FWD 87kWh** → `nissan/ariya/2023/venture-plus-fwd-87kwh` [US] fwd · powertrain new · names: regulator wording
+- **2023 US: Venture+ FWD** → `nissan/ariya/2023/venture-plus-fwd` [US] fwd · powertrain new
   - EPA: ARIYA VENTURE Plus FWD 87kWh
-- **2024 CA: Engage · US: ENGAGE FWD 63kWh** → `nissan/ariya/2024/engage` [CA, US] fwd · powertrain new · names: regulator wording
+- **2024 CA: Engage FWD · US: Engage FWD** → `nissan/ariya/2024/engage-fwd` [CA, US] fwd · powertrain new
   - NRCan: ARIYA Engage
   - EPA: ARIYA ENGAGE FWD 63kWh
-- **2024 CA: Evolve e-4ORCE** → `nissan/ariya/2024/evolve-e-4orce` [CA] awd · powertrain new · names: regulator wording
+- **2024 CA: Evolve e-4ORCE · US: Engage e-4ORCE** → `nissan/ariya/2024/evolve-e-4orce` [CA, US] awd · powertrain new
   - NRCan: ARIYA Evolve e-4ORCE
-- **2024 CA: Evolve+** → `nissan/ariya/2024/evolve-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
+  - EPA: ARIYA ENGAGE e-4ORCE 63kWh
+- **2024 CA: Evolve+ FWD · US: Evolve+ FWD** → `nissan/ariya/2024/evolve-plus-fwd` [CA, US] fwd · powertrain new
   - NRCan: ARIYA Evolve+
-- **2024 CA: Evolve+ e-4ORCE · US: ENGAGE+/EVOLVE+ e-4ORCE 87kWh** → `nissan/ariya/2024/evolve-plus-e-4orce` [CA, US] awd · powertrain new · names: regulator wording
+  - EPA: ARIYA EVOLVE+/EMPOWER+ FWD 87kWh
+- **2024 CA: Evolve+ e-4ORCE · US: Engage+ e-4ORCE** → `nissan/ariya/2024/evolve-plus-e-4orce` [CA, US] awd · powertrain new
   - NRCan: ARIYA Evolve+ e-4ORCE
   - EPA: ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh
-- **2024 CA: Platinum+ e-4ORCE · US: PLATINUM+ e-4ORCE 87kWh 19in. Wheels** → `nissan/ariya/2024/platinum-plus-e-4orce` [CA, US] awd · powertrain nissan/ariya/2026-platinum-plus-e-4orce · names: regulator wording · ⚠ powertrain: same name as nissan/ariya/2026/platinum-plus-e-4orce; check the pack didn't change
+- **2024 CA: Evolve+ e-4ORCE with Platinum+ Package · US: Platinum+ e-4ORCE** → `nissan/ariya/2024/evolve-plus-e-4orce-with-platinum-plus-package` [CA, US] awd · powertrain new
   - NRCan: ARIYA Platinum+ e-4ORCE
   - EPA: ARIYA PLATINUM+ e-4ORCE 87kWh 19in. Wheels
-- **2024 US: ENGAGE e-4ORCE 63kWh** → `nissan/ariya/2024/engage-e-4orce-63kwh` [US] awd · powertrain new · names: regulator wording
-  - EPA: ARIYA ENGAGE e-4ORCE 63kWh
-- **2024 US: EVOLVE+/EMPOWER+ FWD 87kWh** → `nissan/ariya/2024/evolve-plus-empower-plus-fwd-87kwh` [US] fwd · powertrain new · names: regulator wording
-  - EPA: ARIYA EVOLVE+/EMPOWER+ FWD 87kWh
-- **2024 US: PLATINUM+ e-4ORCE 87kWh 20in. Wheels** → `nissan/ariya/2024/platinum-plus-e-4orce-87kwh-20in-wheels` [US] awd · powertrain new · names: regulator wording
   - EPA: ARIYA PLATINUM+ e-4ORCE 87kWh 20in. Wheels
-- **2024 US: VENTURE Plus FWD 87kWh** → `nissan/ariya/2024/venture-plus-fwd-87kwh` [US] fwd · powertrain new · names: regulator wording
+- **2024 US: Venture+ FWD** → `nissan/ariya/2024/venture-plus-fwd` [US] fwd · powertrain new
   - EPA: ARIYA VENTURE Plus FWD 87kWh
-- **2025 CA: Engage · US: FWD 63kWh** → `nissan/ariya/2025/engage` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (160 kW)
+- **2025 CA: Engage FWD · US: Engage FWD** → `nissan/ariya/2025/engage-fwd` [CA, US] fwd · powertrain new
   - NRCan: ARIYA Engage
   - EPA: ARIYA FWD 63kWh
-- **2025 CA: Evolve e-4ORCE · US: e-4ORCE 63kWh** → `nissan/ariya/2025/evolve-e-4orce` [CA, US] awd · powertrain new · names: regulator wording
+- **2025 CA: Evolve e-4ORCE · US: Engage e-4orce** → `nissan/ariya/2025/evolve-e-4orce` [CA, US] awd · powertrain new
   - NRCan: ARIYA Evolve e-4ORCE
   - EPA: ARIYA e-4ORCE 63kWh
-- **2025 CA: Evolve+ · US: EVOLVE+ FWD 87kWh** → `nissan/ariya/2025/evolve-plus` [CA, US] fwd · powertrain new · names: regulator wording
+- **2025 CA: Evolve+ FWD · US: Evolve+ FWD** → `nissan/ariya/2025/evolve-plus-fwd` [CA, US] fwd · powertrain new
   - NRCan: ARIYA Evolve+
   - EPA: ARIYA EVOLVE+ FWD 87kWh
-- **2025 CA: Evolve+ e-4ORCE · US: ENGAGE+/EVOLVE+ e-4ORCE 87kWh** → `nissan/ariya/2025/evolve-plus-e-4orce` [CA, US] awd · powertrain new · names: regulator wording
+- **2025 CA: Evolve+ e-4ORCE · US: Engage+ e-4ORCE** → `nissan/ariya/2025/evolve-plus-e-4orce` [CA, US] awd · powertrain new
   - NRCan: ARIYA Evolve+ e-4ORCE
   - EPA: ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh
-- **2025 CA: Evolve+ Platinum e-4ORCE** → `nissan/ariya/2025/evolve-plus-platinum-e-4orce` [CA] awd · powertrain new · names: regulator wording
+- **2025 CA: Evolve+ e-4ORCE w/ Platinum+ Package · US: Platinum+ e-4ORCE** → `nissan/ariya/2025/evolve-plus-e-4orce-w-platinum-plus-package` [CA, US] awd · powertrain new
   - NRCan: ARIYA Evolve+ Platinum e-4ORCE
-- **2025 CA: Evolve+ Premiere e-4ORCE** → `nissan/ariya/2025/evolve-plus-premiere-e-4orce` [CA] awd · powertrain new · names: regulator wording
-  - NRCan: ARIYA Evolve+ Premiere e-4ORCE
-- **2025 US: PLATINUM+ e-4ORCE 87kWh 19in. Wheels** → `nissan/ariya/2025/platinum-plus-e-4orce-87kwh-19in-wheels` [US] awd · powertrain new · names: regulator wording
   - EPA: ARIYA PLATINUM+ e-4ORCE 87kWh 19in. Wheels
-- **2025 US: PLATINUM+ e-4ORCE 87kWh 20in. Wheels** → `nissan/ariya/2025/platinum-plus-e-4orce-87kwh-20in-wheels` [US] awd · powertrain new · names: regulator wording
   - EPA: ARIYA PLATINUM+ e-4ORCE 87kWh 20in. Wheels
+- **2025 CA: Evolve+ e-4ORCE w/ Premiere Package** → `nissan/ariya/2025/evolve-plus-e-4orce-w-premiere-package` [CA] awd · powertrain new
+  - NRCan: ARIYA Evolve+ Premiere e-4ORCE
 - **2026 US: e-4ORCE 63kWh** → `nissan/ariya/2026/platinum-plus-e-4orce` [US] awd · powertrain nissan/ariya/2026-platinum-plus-e-4orce · names: regulator wording
   - EPA: ARIYA e-4ORCE 63kWh
 - **2026 US: e-4ORCE 87kWh** → `nissan/ariya/2026/platinum-plus-e-4orce` [US] awd · powertrain nissan/ariya/2026-platinum-plus-e-4orce · names: regulator wording
@@ -780,130 +775,124 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 
 - **2011 US: FWD** → `nissan/leaf/2011/fwd` [US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
   - EPA: Leaf
-- **2012 CA: Standard · US: FWD** → `nissan/leaf/2012/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2012 CA: Standard · US: SV** → `nissan/leaf/2012/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: names differ, same motor power (80 kW)
   - NRCan: LEAF
   - EPA: Leaf
-- **2013 CA: Standard · US: FWD** → `nissan/leaf/2013/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2013 CA: S · US: S** → `nissan/leaf/2013/s` [CA, US] fwd · powertrain new
   - NRCan: LEAF
   - EPA: Leaf
-- **2014 CA: Standard · US: FWD** → `nissan/leaf/2014/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2014 CA: S · US: S** → `nissan/leaf/2014/s` [CA, US] fwd · powertrain new
   - NRCan: LEAF
   - EPA: Leaf
-- **2015 CA: Standard · US: FWD** → `nissan/leaf/2015/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2015 CA: Standard · US: S** → `nissan/leaf/2015/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: names differ, same motor power (80 kW)
   - NRCan: LEAF
   - EPA: Leaf
-- **2016 CA: 24 kWh** → `nissan/leaf/2016/24-kwh` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2016 CA: 24 kWh · US: S (24 kWh)** → `nissan/leaf/2016/24-kwh` [CA, US] fwd · powertrain new · names: regulator wording
   - NRCan: LEAF (24 kWh)
-- **2016 CA: 30 kWh** → `nissan/leaf/2016/30-kwh` [CA] drivetrain ? · powertrain new · names: regulator wording
-  - NRCan: LEAF (30 kWh)
-- **2016 US: 24 kW-hr battery pack** → `nissan/leaf/2016/24-kw-hr-battery-pack` [US] fwd · powertrain new · names: regulator wording
   - EPA: Leaf (24 kW-hr battery pack)
-- **2016 US: 30 kW-hr battery pack** → `nissan/leaf/2016/30-kw-hr-battery-pack` [US] fwd · powertrain new · names: regulator wording
+- **2016 CA: 30 kWh · US: SV (30 kWh)** → `nissan/leaf/2016/30-kwh` [CA, US] fwd · powertrain new · names: regulator wording
+  - NRCan: LEAF (30 kWh)
   - EPA: Leaf (30 kW-hr battery pack)
-- **2017 CA: Standard · US: FWD** → `nissan/leaf/2017/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2017 CA: S · US: S** → `nissan/leaf/2017/s` [CA, US] fwd · powertrain new
   - NRCan: LEAF
   - EPA: Leaf
-- **2018 CA: Standard · US: FWD** → `nissan/leaf/2018/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2018 CA: S · US: S** → `nissan/leaf/2018/s` [CA, US] fwd · powertrain new
   - NRCan: LEAF
   - EPA: Leaf
-- **2019 CA: 40 kWh · US: 40 kW-hr battery pack** → `nissan/leaf/2019/40-kwh` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (110 kW)
+- **2019 CA: SV · US: SV PLUS** → `nissan/leaf/2019/sv` [CA, US] fwd · powertrain new
+  - NRCan: LEAF (40 kWh)
+  - EPA: Leaf SV/SL (62 kW-hr battery pack)
+- **2019 CA: S PLUS · US: S PLUS** → `nissan/leaf/2019/s-plus` [CA, US] fwd · powertrain new
+  - NRCan: LEAF S PLUS
+  - EPA: Leaf (62 kW-hr battery pack)
+- **2019 CA: SV PLUS** → `nissan/leaf/2019/sv-plus` [CA] drivetrain ? · powertrain new
+  - NRCan: LEAF SV/SL PLUS
+- **2019 US: S** → `nissan/leaf/2019/s` [US] fwd · powertrain new
+  - EPA: Leaf (40 kW-hr battery pack)
+- **2020 CA: 40 kWh · US: S** → `nissan/leaf/2020/40-kwh` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (110 kW)
   - NRCan: LEAF (40 kWh)
   - EPA: Leaf (40 kW-hr battery pack)
-- **2019 CA: S PLUS** → `nissan/leaf/2019/s-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2020 CA: S PLUS · US: S PLUS** → `nissan/leaf/2020/s-plus` [CA, US] fwd · powertrain new · names: regulator wording
   - NRCan: LEAF S PLUS
-- **2019 CA: SV/SL PLUS** → `nissan/leaf/2019/sv-sl-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
-  - NRCan: LEAF SV/SL PLUS
-- **2019 US: 62 kW-hr battery pack** → `nissan/leaf/2019/62-kw-hr-battery-pack` [US] fwd · powertrain new · names: regulator wording
   - EPA: Leaf (62 kW-hr battery pack)
-- **2019 US: SV/SL 62 kW-hr battery pack** → `nissan/leaf/2019/sv-sl-62-kw-hr-battery-pack` [US] fwd · powertrain new · names: regulator wording
+- **2020 CA: SV/SL PLUS · US: SV PLUS** → `nissan/leaf/2020/sv-sl-plus` [CA, US] fwd · powertrain new · names: regulator wording
+  - NRCan: LEAF SV/SL PLUS
   - EPA: Leaf SV/SL (62 kW-hr battery pack)
-- **2020 CA: 40 kWh · US: 40 kW-hr battery pack** → `nissan/leaf/2020/40-kwh` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (110 kW)
+- **2021 CA: 40 kWh · US: S** → `nissan/leaf/2021/40-kwh` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (110 kW)
   - NRCan: LEAF (40 kWh)
   - EPA: Leaf (40 kW-hr battery pack)
-- **2020 CA: S PLUS** → `nissan/leaf/2020/s-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2021 CA: S PLUS · US: S PLUS** → `nissan/leaf/2021/s-plus` [CA, US] fwd · powertrain new · names: regulator wording
   - NRCan: LEAF S PLUS
-- **2020 CA: SV/SL PLUS** → `nissan/leaf/2020/sv-sl-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
-  - NRCan: LEAF SV/SL PLUS
-- **2020 US: 62 kW-hr battery pack** → `nissan/leaf/2020/62-kw-hr-battery-pack` [US] fwd · powertrain new · names: regulator wording
   - EPA: Leaf (62 kW-hr battery pack)
-- **2020 US: SV/SL 62 kW-hr battery pack** → `nissan/leaf/2020/sv-sl-62-kw-hr-battery-pack` [US] fwd · powertrain new · names: regulator wording
+- **2021 CA: SV/SL PLUS · US: SV PLUS** → `nissan/leaf/2021/sv-sl-plus` [CA, US] fwd · powertrain new · names: regulator wording
+  - NRCan: LEAF SV/SL PLUS
   - EPA: Leaf SV/SL (62 kW-hr battery pack)
-- **2021 CA: 40 kWh · US: 40 kW-hr battery pack** → `nissan/leaf/2021/40-kwh` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (110 kW)
+- **2022 CA: SV · US: SV PLUS** → `nissan/leaf/2022/sv` [CA, US] fwd · powertrain new
   - NRCan: LEAF (40 kWh)
-  - EPA: Leaf (40 kW-hr battery pack)
-- **2021 CA: S PLUS** → `nissan/leaf/2021/s-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
-  - NRCan: LEAF S PLUS
-- **2021 CA: SV/SL PLUS** → `nissan/leaf/2021/sv-sl-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
-  - NRCan: LEAF SV/SL PLUS
-- **2021 US: 62 kW-hr battery pack** → `nissan/leaf/2021/62-kw-hr-battery-pack` [US] fwd · powertrain new · names: regulator wording
-  - EPA: Leaf (62 kW-hr battery pack)
-- **2021 US: SV/SL 62 kW-hr battery pack** → `nissan/leaf/2021/sv-sl-62-kw-hr-battery-pack` [US] fwd · powertrain new · names: regulator wording
   - EPA: Leaf SV/SL (62 kW-hr battery pack)
-- **2022 CA: 40 kWh · US: 40 kW-hr battery pack** → `nissan/leaf/2022/40-kwh` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (110 kW)
-  - NRCan: LEAF (40 kWh)
-  - EPA: Leaf (40 kW-hr battery pack)
-- **2022 CA: S PLUS** → `nissan/leaf/2022/s-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2022 CA: S PLUS · US: S PLUS** → `nissan/leaf/2022/s-plus` [CA, US] fwd · powertrain new
   - NRCan: LEAF S PLUS
-- **2022 CA: SV/SL PLUS** → `nissan/leaf/2022/sv-sl-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
-  - NRCan: LEAF SV/SL PLUS
-- **2022 US: 62 kW-hr battery pack** → `nissan/leaf/2022/62-kw-hr-battery-pack` [US] fwd · powertrain new · names: regulator wording
   - EPA: Leaf (62 kW-hr battery pack)
-- **2022 US: SV/SL 62 kW-hr battery pack** → `nissan/leaf/2022/sv-sl-62-kw-hr-battery-pack` [US] fwd · powertrain new · names: regulator wording
-  - EPA: Leaf SV/SL (62 kW-hr battery pack)
-- **2023 US: FWD** → `nissan/leaf/2023/fwd` [US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2022 CA: SV PLUS** → `nissan/leaf/2022/sv-plus` [CA] drivetrain ? · powertrain new
+  - NRCan: LEAF SV/SL PLUS
+- **2022 US: S** → `nissan/leaf/2022/s` [US] fwd · powertrain new
+  - EPA: Leaf (40 kW-hr battery pack)
+- **2023 US: S** → `nissan/leaf/2023/s` [US] fwd · powertrain new
   - EPA: LEAF
-- **2023 US: SV** → `nissan/leaf/2023/sv` [US] fwd · powertrain new · names: regulator wording
+- **2023 US: SV PLUS** → `nissan/leaf/2023/sv-plus` [US] fwd · powertrain new
   - EPA: LEAF SV
-- **2024 CA: SV · US: SV** → `nissan/leaf/2024/sv` [CA, US] fwd · powertrain new · names: regulator wording
+- **2024 CA: SV · US: SV PLUS** → `nissan/leaf/2024/sv` [CA, US] fwd · powertrain new
   - NRCan: LEAF SV
   - EPA: LEAF SV
-- **2024 CA: SV PLUS** → `nissan/leaf/2024/sv-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2024 CA: SV PLUS** → `nissan/leaf/2024/sv-plus` [CA] drivetrain ? · powertrain new
   - NRCan: LEAF SV PLUS
-- **2024 US: FWD** → `nissan/leaf/2024/fwd` [US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2024 US: S** → `nissan/leaf/2024/s` [US] fwd · powertrain new
   - EPA: LEAF
-- **2025 CA: SV · US: SV** → `nissan/leaf/2025/sv` [CA, US] fwd · powertrain new · names: regulator wording
+- **2025 CA: SV · US: SV PLUS** → `nissan/leaf/2025/sv` [CA, US] fwd · powertrain new
   - NRCan: LEAF SV
   - EPA: LEAF SV
-- **2025 CA: SV PLUS** → `nissan/leaf/2025/sv-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2025 CA: SV PLUS** → `nissan/leaf/2025/sv-plus` [CA] drivetrain ? · powertrain new
   - NRCan: LEAF SV PLUS
-- **2025 US: FWD** → `nissan/leaf/2025/fwd` [US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2025 US: S** → `nissan/leaf/2025/s` [US] fwd · powertrain new
   - EPA: LEAF
-- **2026 US: 75kWh** → `nissan/leaf/2026/75kwh` [US] fwd · wheels 18/19″ · powertrain new · names: regulator wording
+- **2026 US: SV+** → `nissan/leaf/2026/sv-plus` [US] fwd · wheels 18″ · powertrain new · ⚠ existing?: same motor power as nissan/leaf/2026/platinum-plus, nissan/leaf/2026/s-plus, nissan/leaf/2026/sv-plus, but another 2026 row has it too
   - EPA: LEAF 75kWh (18 inch alloy Wheels)
+- **2026 US: S+** → `nissan/leaf/2026/s-plus` [US] fwd · wheels 18″ · powertrain new · ⚠ existing?: same motor power as nissan/leaf/2026/platinum-plus, nissan/leaf/2026/s-plus, nissan/leaf/2026/sv-plus, but another 2026 row has it too
   - EPA: LEAF 75kWh (18 inch steel Wheels)
+- **2026 US: Platinum+** → `nissan/leaf/2026/platinum-plus` [US] fwd · wheels 19″ · powertrain new · ⚠ existing?: same motor power as nissan/leaf/2026/platinum-plus, nissan/leaf/2026/s-plus, nissan/leaf/2026/sv-plus, but another 2026 row has it too
   - EPA: LEAF 75kWh (19 inch Wheels)
 ## polestar/polestar-2
 
-- **2021 CA: Standard · US: AWD** → `polestar/polestar-2/2021/standard` [CA, US] awd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2021 CA: Launch Edition · US: Launch Edition** → `polestar/polestar-2/2021/launch-edition` [CA, US] awd · powertrain new
   - NRCan: 2
   - EPA: 2
-- **2022 CA: Dual Motor · US: Dual Motor** → `polestar/polestar-2/2022/dual-motor` [CA, US] awd · powertrain new · names: regulator wording
+- **2022 CA: Long Range Dual Motor · US: Dual Motor** → `polestar/polestar-2/2022/long-range-dual-motor` [CA, US] awd · powertrain new
   - NRCan: 2 Dual Motor
   - EPA: 2 Dual Motor
-- **2022 CA: Single Motor · US: Single Motor** → `polestar/polestar-2/2022/single-motor` [CA, US] rwd · powertrain new · names: regulator wording
+- **2022 CA: Long Range Single Motor · US: Single Motor** → `polestar/polestar-2/2022/long-range-single-motor` [CA, US] rwd · powertrain new
   - NRCan: 2 Single Motor
   - EPA: 2 Single Motor
 - **2023 CA: BST Edition · US: BST edition** → `polestar/polestar-2/2023/bst-edition` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: 2 BST Edition
   - EPA: 2 BST edition
-- **2023 CA: Dual Motor · US: Dual Motor** → `polestar/polestar-2/2023/dual-motor` [CA, US] awd · powertrain new · names: regulator wording
+- **2023 CA: Dual Motor · US: Dual Motor** → `polestar/polestar-2/2023/dual-motor` [CA, US] awd · powertrain new
   - NRCan: 2 Dual Motor
   - EPA: 2 Dual Motor
-- **2023 CA: Dual Motor Performance Pack · US: Dual Motor Perf Pack** → `polestar/polestar-2/2023/dual-motor-performance-pack` [CA, US] awd · powertrain new · names: regulator wording
+- **2023 CA: Dual Motor Performance Pack · US: Dual Motor Performance Pack** → `polestar/polestar-2/2023/dual-motor-performance-pack` [CA, US] awd · powertrain new
   - NRCan: 2 Dual Motor Performance Pack
   - EPA: 2 Dual Motor Perf Pack
-- **2023 CA: Single Motor · US: Single Motor** → `polestar/polestar-2/2023/single-motor` [CA, US] rwd · powertrain new · names: regulator wording
+- **2023 CA: Single Motor · US: Single Motor** → `polestar/polestar-2/2023/single-motor` [CA, US] rwd · powertrain new
   - NRCan: 2 Single Motor
   - EPA: 2 Single Motor
-- **2024 CA: Dual Motor · US: Dual Motor** → `polestar/polestar-2/2024/dual-motor` [CA, US] awd · wheels 19/20″ · powertrain polestar/polestar-2/2025-dual-motor · names: regulator wording · ⚠ powertrain: same name as polestar/polestar-2/2025/dual-motor; check the pack didn't change
+- **2024 CA: Long Range Dual Motor · US: Long Range Dual Motor** → `polestar/polestar-2/2024/long-range-dual-motor` [CA, US] awd · wheels 19/20″ · powertrain new
   - NRCan: 2 Dual Motor (19" Wheels)
   - NRCan: 2 Dual Motor (20" Wheels)
   - EPA: 2 Dual Motor (19 Inch Wheels)
   - EPA: 2 Dual Motor (20 Inch Wheels)
-- **2024 CA: Dual Motor Performance Pack · US: Dual Motor Performance Pack** → `polestar/polestar-2/2024/dual-motor-performance-pack` [CA, US] awd · powertrain polestar/polestar-2/2025-dual-motor-performance-pack · names: regulator wording · ⚠ powertrain: same name as polestar/polestar-2/2025/dual-motor-performance-pack; check the pack didn't change
+- **2024 CA: Long Range Dual Motor Performance Pack · US: Dual Motor Performance Pack** → `polestar/polestar-2/2024/long-range-dual-motor-performance-pack` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: 2 Dual Motor Performance Pack
   - EPA: 2 Dual Motor Performance Pack
-- **2024 CA: Single Motor · US: Single Motor** → `polestar/polestar-2/2024/single-motor` [CA, US] rwd · wheels 19/20″ · powertrain polestar/polestar-2/2025-single-motor · names: regulator wording · ⚠ powertrain: same name as polestar/polestar-2/2025/single-motor; check the pack didn't change
+- **2024 CA: Long Range Single Motor · US: Long Range Single Motor** → `polestar/polestar-2/2024/long-range-single-motor` [CA, US] rwd · wheels 19/20″ · powertrain new
   - NRCan: 2 Single Motor (19" Wheels)
   - NRCan: 2 Single Motor (20" Wheels)
   - EPA: 2 Single Motor (19 Inch Wheels)
@@ -911,76 +900,78 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2025 US: Dual Motor** → `polestar/polestar-2/2025/dual-motor` [US] awd · wheels 19/20″ · powertrain polestar/polestar-2/2025-dual-motor · names: regulator wording
   - EPA: 2 Dual Motor (19 Inch Wheels)
   - EPA: 2 Dual Motor (20 Inch Wheels)
-- **2025 US: Dual Motor Performance Pack** → `polestar/polestar-2/2025/dual-motor-performance-pack` [US] awd · powertrain polestar/polestar-2/2025-dual-motor-performance-pack · names: regulator wording
+- **2025 US: Long Range Dual Motor Performance Pack** → `polestar/polestar-2/2025/dual-motor-performance-pack` [US] awd · powertrain polestar/polestar-2/2025-dual-motor-performance-pack
   - EPA: 2 Dual Motor Performance Pack
 - **2025 US: Single Motor** → `polestar/polestar-2/2025/single-motor` [US] rwd · wheels 19/20″ · powertrain polestar/polestar-2/2025-single-motor · names: regulator wording
   - EPA: 2 Single Motor (19 Inch Wheels)
   - EPA: 2 Single Motor (20 Inch Wheels)
 ## subaru/solterra
 
-- **2023 CA: AWD · US: AWD** → `subaru/solterra/2023/awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2023 CA: Solterra AWD** → `subaru/solterra/2023/solterra-awd` [CA] awd · powertrain new
   - NRCan: Solterra AWD
+- **2023 US: Premium** → `subaru/solterra/2023/premium` [US] awd · powertrain new
   - EPA: Solterra AWD
-- **2023 US: Limited/Touring AWD** → `subaru/solterra/2023/limited-touring-awd` [US] awd · powertrain new · names: regulator wording
+- **2023 US: Limited** → `subaru/solterra/2023/limited` [US] awd · powertrain new
   - EPA: Solterra Limited/Touring AWD
-- **2024 CA: AWD · US: AWD** → `subaru/solterra/2024/awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2024 CA: AWD** → `subaru/solterra/2024/awd` [CA] awd · powertrain new · names: regulator wording
   - NRCan: Solterra AWD
+- **2024 US: Premium** → `subaru/solterra/2024/premium` [US] awd · powertrain new
   - EPA: Solterra AWD
-- **2024 US: Limited/Touring AWD** → `subaru/solterra/2024/limited-touring-awd` [US] awd · powertrain new · names: regulator wording
+- **2024 US: Limited** → `subaru/solterra/2024/limited` [US] awd · powertrain new
   - EPA: Solterra Limited/Touring AWD
-- **2025 US: AWD** → `subaru/solterra/2025/awd` [US] awd · powertrain new · names: regulator wording
+- **2025 US: Premium** → `subaru/solterra/2025/premium` [US] awd · powertrain new
   - EPA: Solterra AWD
-- **2025 US: Limited/Touring AWD** → `subaru/solterra/2025/limited-touring-awd` [US] awd · powertrain new · names: regulator wording
+- **2025 US: Limited** → `subaru/solterra/2025/limited` [US] awd · powertrain new
   - EPA: Solterra Limited/Touring AWD
-- **2026 US: 20 AWD** → `subaru/solterra/2026/20-awd` [US] awd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as subaru/solterra/2026/awd, but another 2026 row has it too
+- **2026 US: Limited** → `subaru/solterra/2026/limited` [US] awd · powertrain new · ⚠ existing?: same motor power as subaru/solterra/2026/awd, but another 2026 row has it too
   - EPA: Solterra 20 AWD
-- **2026 US: AWD** → `subaru/solterra/2026/awd` [US] awd · powertrain subaru/solterra/2026-awd · names: regulator wording
+- **2026 US: Premium** → `subaru/solterra/2026/premium` [US] awd · powertrain new · ⚠ existing?: same motor power as subaru/solterra/2026/awd, but another 2026 row has it too
   - EPA: Solterra AWD
-- **2027 US: 20 AWD** → `subaru/solterra/2027/20-awd` [US] awd · powertrain new · names: regulator wording
+- **2027 US: Limited** → `subaru/solterra/2027/limited` [US] awd · powertrain new
   - EPA: Solterra 20 AWD
-- **2027 US: AWD** → `subaru/solterra/2027/awd` [US] awd · powertrain subaru/solterra/2026-awd · names: regulator wording · ⚠ powertrain: same name as subaru/solterra/2026/awd; check the pack didn't change
+- **2027 US: Premium** → `subaru/solterra/2027/premium` [US] awd · powertrain new
   - EPA: Solterra AWD
 ## tesla/model-3
 
-- **2017 US: Long Range** → `tesla/model-3/2017/long-range` [US] rwd · powertrain new · names: regulator wording
+- **2017 US: Long Range** → `tesla/model-3/2017/long-range` [US] rwd · powertrain new
   - EPA: Model 3 Long Range
-- **2018 CA: Long Range · US: Long Range** → `tesla/model-3/2018/long-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2018 CA: Long Range · US: Long Range** → `tesla/model-3/2018/long-range` [CA, US] rwd · powertrain new
   - NRCan: Model 3 Long Range
   - EPA: Model 3 Long Range
 - **2018 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2018/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: Model 3 Long Range AWD
   - EPA: Model 3 Long Range  AWD
-- **2018 CA: Long Range AWD Performance · US: Long Range AWD Performance** → `tesla/model-3/2018/long-range-awd-performance` [CA, US] awd · powertrain new · names: regulator wording
+- **2018 CA: Performance · US: Performance** → `tesla/model-3/2018/performance` [CA, US] awd · powertrain new
   - NRCan: Model 3 Long Range AWD Performance
   - EPA: Model 3 Long Range  AWD Performance
-- **2018 CA: Mid Range · US: Mid Range** → `tesla/model-3/2018/mid-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2018 CA: Mid Range · US: Mid Range** → `tesla/model-3/2018/mid-range` [CA, US] rwd · powertrain new
   - NRCan: Model 3 Mid Range
   - EPA: Model 3 Mid Range
-- **2019 CA: Long Range · US: Long Range** → `tesla/model-3/2019/long-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2019 CA: Long Range · US: Long Range** → `tesla/model-3/2019/long-range` [CA, US] rwd · powertrain new
   - NRCan: Model 3 Long Range
   - EPA: Model 3 Long Range
-- **2019 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2019/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2019 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2019/long-range-awd` [CA, US] awd · powertrain new
   - NRCan: Model 3 Long Range AWD
   - EPA: Model 3 Long Range AWD
-- **2019 CA: Long Range AWD Performance · US: Long Range AWD Performance** → `tesla/model-3/2019/long-range-awd-performance` [CA, US] awd · powertrain new · names: regulator wording
+- **2019 CA: Performance · US: Performance** → `tesla/model-3/2019/performance` [CA, US] awd · powertrain new
   - NRCan: Model 3 Long Range AWD Performance
   - EPA: Model 3 Long Range AWD Performance
-- **2019 CA: Mid Range · US: Mid Range** → `tesla/model-3/2019/mid-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2019 CA: Mid Range · US: Mid Range** → `tesla/model-3/2019/mid-range` [CA, US] rwd · powertrain new
   - NRCan: Model 3 Mid Range
   - EPA: Model 3 Mid Range
-- **2019 CA: Standard Range · US: Standard Range** → `tesla/model-3/2019/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2019 CA: Standard Range · US: Standard Range** → `tesla/model-3/2019/standard-range` [CA, US] rwd · powertrain new
   - NRCan: Model 3 Standard Range
   - EPA: Model 3 Standard Range
-- **2019 CA: Standard Range Plus · US: Standard Range Plus** → `tesla/model-3/2019/standard-range-plus` [CA, US] rwd · powertrain new · names: regulator wording
+- **2019 CA: Standard Range Plus · US: Standard Range Plus** → `tesla/model-3/2019/standard-range-plus` [CA, US] rwd · powertrain new
   - NRCan: Model 3 Standard Range Plus
   - EPA: Model 3 Standard Range Plus
 - **2020 CA: Long Range · US: Long Range** → `tesla/model-3/2020/long-range` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: Model 3 Long Range
   - EPA: Model 3 Long Range
-- **2020 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2020/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2020 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2020/long-range-awd` [CA, US] awd · powertrain new
   - NRCan: Model 3 Long Range AWD
   - EPA: Model 3 Long Range AWD
-- **2020 CA: Long Range AWD Performance · US: Long Range Performance AWD** → `tesla/model-3/2020/long-range-awd-performance` [CA, US] awd · wheels 18/19/20″ · powertrain new · names: regulator wording
+- **2020 CA: Performance · US: Performance** → `tesla/model-3/2020/performance` [CA, US] awd · wheels 18/19/20″ · powertrain new
   - NRCan: Model 3 Long Range AWD Performance (18" Wheels)
   - NRCan: Model 3 Long Range AWD Performance (19" Wheels)
   - NRCan: Model 3 Long Range AWD Performance (20" Wheels)
@@ -990,374 +981,380 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2020 CA: Mid Range · US: Mid Range** → `tesla/model-3/2020/mid-range` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: Model 3 Mid Range
   - EPA: Model 3 Mid Range
-- **2020 CA: Standard Range · US: Standard Range** → `tesla/model-3/2020/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2020 CA: Standard Range · US: Standard Range** → `tesla/model-3/2020/standard-range` [CA, US] rwd · powertrain new
   - NRCan: Model 3 Standard Range
   - EPA: Model 3 Standard Range
-- **2020 CA: Standard Range Plus · US: Standard Range Plus** → `tesla/model-3/2020/standard-range-plus` [CA, US] rwd · powertrain new · names: regulator wording
+- **2020 CA: Standard Range Plus · US: Standard Range Plus** → `tesla/model-3/2020/standard-range-plus` [CA, US] rwd · powertrain new
   - NRCan: Model 3 Standard Range Plus
   - EPA: Model 3 Standard Range Plus
-- **2021 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2021/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2021 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2021/long-range-awd` [CA, US] awd · powertrain new
   - NRCan: Model 3 Long Range AWD
   - EPA: Model 3 Long Range AWD
-- **2021 CA: Performance · US: Performance AWD** → `tesla/model-3/2021/performance` [CA, US] awd · powertrain new · names: regulator wording
+- **2021 CA: Performance · US: Performance** → `tesla/model-3/2021/performance` [CA, US] awd · powertrain new
   - NRCan: Model 3 Performance
   - EPA: Model 3 Performance AWD
-- **2021 CA: Standard Range · US: Standard Range Plus RWD** → `tesla/model-3/2021/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2021 CA: Standard Range · US: Standard Range Plus** → `tesla/model-3/2021/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: Model 3 Standard Range
   - EPA: Model 3 Standard Range Plus RWD
-- **2021 CA: Standard Range Plus** → `tesla/model-3/2021/standard-range-plus` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2021 CA: Standard Range Plus** → `tesla/model-3/2021/standard-range-plus` [CA] drivetrain ? · powertrain new
   - NRCan: Model 3 Standard Range Plus
-- **2022 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2022/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2022 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2022/long-range-awd` [CA, US] awd · powertrain new
   - NRCan: Model 3 Long Range AWD
   - EPA: Model 3 Long Range AWD
-- **2022 CA: Performance · US: Performance AWD** → `tesla/model-3/2022/performance` [CA, US] awd · powertrain new · names: regulator wording
+- **2022 CA: Performance · US: Performance** → `tesla/model-3/2022/performance` [CA, US] awd · powertrain new
   - NRCan: Model 3 Performance
   - EPA: Model 3 Performance AWD
-- **2022 CA: RWD · US: RWD** → `tesla/model-3/2022/rwd` [CA, US] rwd · powertrain new · names: regulator wording
+- **2022 CA: RWD · US: RWD** → `tesla/model-3/2022/rwd` [CA, US] rwd · powertrain new
   - NRCan: Model 3 RWD
   - EPA: Model 3 RWD
 - **2022 CA: Standard Range** → `tesla/model-3/2022/standard-range` [CA] drivetrain ? · powertrain new · names: regulator wording
   - NRCan: Model 3 Standard Range
-- **2023 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2023/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording · ⚠ date: "pre-1/10/23"
+- **2023 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2023/long-range-awd` [CA, US] awd · powertrain new · ⚠ date: "pre-1/10/23"
   - NRCan: Model 3 Long Range AWD
   - NRCan: Model 3 Long Range AWD (pre-1/10/23)
   - EPA: Model 3 Long Range AWD
-- **2023 CA: Long Range AWD** → `tesla/model-3/2023/long-range-awd-ca` [CA] awd · powertrain new · names: regulator wording · ⚠ note: "(Import)"
+- **2023 CA: Long Range AWD** → `tesla/model-3/2023/long-range-awd-ca` [CA] awd · powertrain new · ⚠ note: "(Import)"
   - NRCan: Model 3 Long Range AWD (Import)
-- **2023 CA: Performance · US: Performance AWD** → `tesla/model-3/2023/performance` [CA, US] awd · powertrain new · names: regulator wording
+- **2023 CA: Performance · US: Performance** → `tesla/model-3/2023/performance` [CA, US] awd · powertrain new
   - NRCan: Model 3 Performance
   - EPA: Model 3 Performance AWD
-- **2023 CA: RWD · US: RWD** → `tesla/model-3/2023/rwd` [CA, US] rwd · powertrain new · names: regulator wording
+- **2023 CA: RWD · US: RWD** → `tesla/model-3/2023/rwd` [CA, US] rwd · powertrain new
   - NRCan: Model 3 RWD
   - EPA: Model 3 RWD
-- **2024 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2024/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording · ⚠ code: NRCan "-E"
+- **2024 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2024/long-range-awd` [CA, US] awd · powertrain new · ⚠ code: NRCan "-E"
   - NRCan: Model 3 Long Range AWD
   - EPA: Model 3 Long Range AWD
   - EPA: Model 3 Long Range AWD-E
-- **2024 CA: Long Range AWD · US: Performance AWD** → `tesla/model-3/2024/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording · ⚠ note: "(Import)"; pair: names differ, same motor power (280 kW)
+- **2024 CA: Long Range AWD** → `tesla/model-3/2024/long-range-awd-ca` [CA] awd · powertrain new · ⚠ note: "(Import)"
   - NRCan: Model 3 Long Range AWD (Import)
-  - EPA: Model 3 Performance AWD
-- **2024 CA: Performance** → `tesla/model-3/2024/performance` [CA] drivetrain ? · powertrain tesla/model-3/2026-performance · names: regulator wording · ⚠ powertrain: same name as tesla/model-3/2026/performance; check the pack didn't change
+- **2024 CA: Performance · US: Performance** → `tesla/model-3/2024/performance` [CA, US] awd · powertrain tesla/model-3/2026-performance · ⚠ powertrain: same name as tesla/model-3/2026/performance; check the pack didn't change
   - NRCan: Model 3 Performance
-- **2024 CA: RWD · US: RWD** → `tesla/model-3/2024/rwd` [CA, US] rwd · powertrain new · names: regulator wording
+  - EPA: Model 3 Performance AWD
+- **2024 CA: RWD · US: RWD** → `tesla/model-3/2024/rwd` [CA, US] rwd · powertrain new
   - NRCan: Model 3 RWD
   - EPA: Model 3 RWD
-- **2024 CA: RWD** → `tesla/model-3/2024/rwd-ca` [CA] rwd · powertrain new · names: regulator wording · ⚠ note: "(Import)"
+- **2024 CA: RWD** → `tesla/model-3/2024/rwd-ca` [CA] rwd · powertrain new · ⚠ note: "(Import)"
   - NRCan: Model 3 RWD (Import)
-- **2024 US: Long Range RWD** → `tesla/model-3/2024/long-range-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2024 US: Long Range RWD** → `tesla/model-3/2024/long-range-rwd` [US] rwd · powertrain new
   - EPA: Model 3 Long Range RWD
-- **2025 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2025/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording · ⚠ code: NRCan "-I"
+- **2025 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2025/long-range-awd` [CA, US] awd · powertrain new · ⚠ code: NRCan "-I"
   - NRCan: Model 3 Long Range AWD-I
   - EPA: Model 3 Long Range AWD
 - **2025 CA: Long Range · US: Long Range RWD** → `tesla/model-3/2025/long-range` [CA, US] rwd · wheels 19″ · powertrain new · names: regulator wording · ⚠ code: NRCan "-I"
   - NRCan: Model 3 Long Range-I
   - EPA: Model 3 Long Range RWD
   - EPA: Model 3 Long Range RWD-I (19in wheels)
-- **2025 CA: Performance · US: Performance AWD** → `tesla/model-3/2025/performance` [CA, US] awd · powertrain tesla/model-3/2026-performance · names: regulator wording · ⚠ code: NRCan "-I"; powertrain: same name as tesla/model-3/2026/performance; check the pack didn't change
+- **2025 CA: Performance · US: Performance** → `tesla/model-3/2025/performance` [CA, US] awd · powertrain tesla/model-3/2026-performance · ⚠ code: NRCan "-I"; powertrain: same name as tesla/model-3/2026/performance; check the pack didn't change
   - NRCan: Model 3 Performance-I
   - EPA: Model 3 Performance AWD
-- **2026 US: Performance** → `tesla/model-3/2026/performance-awd` [US] awd · powertrain tesla/model-3/2026-performance-awd · names: regulator wording
+- **2026 US: Performance** → `tesla/model-3/2026/performance-awd` [US] awd · powertrain tesla/model-3/2026-performance-awd
   - EPA: Model 3 Performance
-- **2026 US: Performance AWD** → `tesla/model-3/2026/performance-awd` [US] awd · powertrain tesla/model-3/2026-performance-awd · names: regulator wording
   - EPA: Model 3 Performance AWD
-- **2026 US: Premium AWD** → `tesla/model-3/2026/premium-awd-i` [US] awd · powertrain tesla/model-3/2026-premium-awd-i · names: regulator wording
+- **2026 US: Premium AWD** → `tesla/model-3/2026/premium-awd-i` [US] awd · powertrain tesla/model-3/2026-premium-awd-i
   - EPA: Model 3 Premium AWD
-- **2026 US: Premium RWD** → `tesla/model-3/2026/premium-i` [US] rwd · powertrain tesla/model-3/2026-premium-i · names: regulator wording
+- **2026 US: Premium RWD** → `tesla/model-3/2026/premium-i` [US] rwd · powertrain tesla/model-3/2026-premium-i
   - EPA: Model 3 Premium RWD
-- **2026 US: Standard RWD** → `tesla/model-3/2026/standard-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2026 US: Standard** → `tesla/model-3/2026/standard` [US] rwd · powertrain new
   - EPA: Model 3 Standard RWD
-- **2027 US: Performance AWD** → `tesla/model-3/2027/performance-awd` [US] awd · powertrain tesla/model-3/2026-performance-awd · names: regulator wording · ⚠ powertrain: same name as tesla/model-3/2026/performance-awd; check the pack didn't change
+- **2027 US: Performance** → `tesla/model-3/2027/performance` [US] awd · powertrain tesla/model-3/2026-performance · ⚠ powertrain: same name as tesla/model-3/2026/performance; check the pack didn't change
   - EPA: Model 3 Performance AWD
-- **2027 US: Premium AWD** → `tesla/model-3/2027/premium-awd` [US] awd · powertrain new · names: regulator wording
+- **2027 US: Premium AWD** → `tesla/model-3/2027/premium-awd` [US] awd · powertrain new
   - EPA: Model 3 Premium AWD
-- **2027 US: Premium RWD** → `tesla/model-3/2027/premium-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2027 US: Premium RWD** → `tesla/model-3/2027/premium-rwd` [US] rwd · powertrain new
   - EPA: Model 3 Premium RWD
-- **2027 US: RWD** → `tesla/model-3/2027/rwd` [US] rwd · powertrain new · names: regulator wording
+- **2027 US: RWD** → `tesla/model-3/2027/rwd` [US] rwd · powertrain new
   - EPA: Model 3 RWD
 ## tesla/model-y
 
 - **2020 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2020/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: Model Y Long Range AWD
   - EPA: Model Y Long Range AWD
-- **2020 CA: Performance · US: Performance AWD** → `tesla/model-y/2020/performance` [CA, US] awd · wheels 21″ · powertrain new · names: regulator wording
+- **2020 CA: Performance · US: Performance** → `tesla/model-y/2020/performance` [CA, US] awd · wheels 21″ · powertrain new · names: regulator wording
   - NRCan: Model Y Performance
   - NRCan: Model Y Performance (21" Wheels)
   - EPA: Model Y Performance AWD
   - EPA: Model Y Performance AWD (21in Wheels)
-- **2021 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2021/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2021 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2021/long-range-awd` [CA, US] awd · powertrain new
   - NRCan: Model Y Long Range AWD
   - EPA: Model Y Long Range AWD
-- **2021 CA: Performance · US: Performance AWD** → `tesla/model-y/2021/performance` [CA, US] awd · powertrain new · names: regulator wording
+- **2021 CA: Performance · US: Performance** → `tesla/model-y/2021/performance` [CA, US] awd · powertrain new
   - NRCan: Model Y Performance
   - EPA: Model Y Performance AWD
-- **2021 CA: Standard Range · US: Standard Range RWD** → `tesla/model-y/2021/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
+- **2021 CA: Standard Range · US: Standard Range** → `tesla/model-y/2021/standard-range` [CA, US] rwd · powertrain new
   - NRCan: Model Y Standard Range
   - EPA: Model Y Standard Range RWD
-- **2022 CA: AWD · US: AWD** → `tesla/model-y/2022/awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2022 CA: AWD** → `tesla/model-y/2022/awd` [CA] awd · powertrain new · names: regulator wording
   - NRCan: Model Y AWD
-  - EPA: Model Y AWD
-- **2022 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2022/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2022 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2022/long-range-awd` [CA, US] awd · powertrain new
   - NRCan: Model Y Long Range AWD
   - EPA: Model Y Long Range AWD
-- **2022 CA: Performance · US: Performance AWD** → `tesla/model-y/2022/performance` [CA, US] awd · powertrain new · names: regulator wording
+- **2022 CA: Performance · US: Performance** → `tesla/model-y/2022/performance` [CA, US] awd · powertrain new
   - NRCan: Model Y Performance
   - EPA: Model Y Performance AWD
+- **2022 US: Standard Range AWD** → `tesla/model-y/2022/standard-range-awd` [US] awd · powertrain new
+  - EPA: Model Y AWD
 - **2022 US: RWD** → `tesla/model-y/2022/rwd` [US] rwd · powertrain new · names: regulator wording
   - EPA: Model Y RWD
-- **2023 CA: AWD · US: AWD** → `tesla/model-y/2023/awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2023 CA: AWD** → `tesla/model-y/2023/awd` [CA] awd · powertrain new · names: regulator wording
   - NRCan: Model Y AWD
-  - EPA: Model Y AWD
-- **2023 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2023/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording · ⚠ note: "(Import)"
+- **2023 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2023/long-range-awd` [CA, US] awd · powertrain new · ⚠ note: "(Import)"
   - NRCan: Model Y Long Range AWD
   - NRCan: Model Y Long Range AWD (Import)
   - EPA: Model Y Long Range AWD
-- **2023 CA: Performance · US: Performance AWD** → `tesla/model-y/2023/performance` [CA, US] awd · powertrain new · names: regulator wording
+- **2023 CA: Performance · US: Performance** → `tesla/model-y/2023/performance` [CA, US] awd · powertrain new
   - NRCan: Model Y Performance
   - EPA: Model Y Performance AWD
-- **2023 CA: Performance** → `tesla/model-y/2023/performance-ca` [CA] drivetrain ? · powertrain new · names: regulator wording · ⚠ note: "(Import)"
+- **2023 CA: Performance** → `tesla/model-y/2023/performance-ca` [CA] drivetrain ? · powertrain new · ⚠ note: "(Import)"
   - NRCan: Model Y Performance (Import)
 - **2023 CA: RWD** → `tesla/model-y/2023/rwd` [CA] rwd · powertrain new · names: regulator wording
   - NRCan: Model Y RWD
-- **2024 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2024/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording · ⚠ code: NRCan "-I"
+- **2023 US: Standard Range AWD** → `tesla/model-y/2023/standard-range-awd` [US] awd · powertrain new
+  - EPA: Model Y AWD
+- **2024 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2024/long-range-awd` [CA, US] awd · powertrain new · ⚠ code: NRCan "-I"
   - NRCan: Model Y Long Range AWD
   - EPA: Model Y Long Range AWD
   - EPA: Model Y Long Range AWD-I
-- **2024 CA: Long Range AWD** → `tesla/model-y/2024/long-range-awd-ca` [CA] awd · powertrain new · names: regulator wording · ⚠ note: "(Import)"
+- **2024 CA: Long Range AWD** → `tesla/model-y/2024/long-range-awd-ca` [CA] awd · powertrain new · ⚠ note: "(Import)"
   - NRCan: Model Y Long Range AWD (Import)
-- **2024 CA: Performance · US: Performance AWD** → `tesla/model-y/2024/performance` [CA, US] awd · powertrain new · names: regulator wording · ⚠ note: "(Import)"
+- **2024 CA: Performance · US: Performance** → `tesla/model-y/2024/performance` [CA, US] awd · powertrain new · ⚠ note: "(Import)"
   - NRCan: Model Y Performance
   - NRCan: Model Y Performance (Import)
   - EPA: Model Y Performance AWD
 - **2024 CA: RWD · US: RWD** → `tesla/model-y/2024/rwd` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: Model Y RWD
   - EPA: Model Y RWD
-- **2024 CA: RWD** → `tesla/model-y/2024/rwd-ca` [CA] rwd · powertrain new · names: regulator wording · ⚠ note: "(Import)"
+- **2024 CA: RWD** → `tesla/model-y/2024/rwd-ca` [CA] rwd · powertrain new · ⚠ note: "(Import)"
   - NRCan: Model Y RWD (Import)
-- **2024 US: Long Range RWD** → `tesla/model-y/2024/long-range-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2024 US: Long Range RWD** → `tesla/model-y/2024/long-range-rwd` [US] rwd · powertrain new
   - EPA: Model Y Long Range RWD
-- **2025 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2025/long-range-awd` [CA, US] awd · powertrain new · names: regulator wording · ⚠ code: NRCan "-I"
+- **2025 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2025/long-range-awd` [CA, US] awd · powertrain new · ⚠ code: NRCan "-I"
   - NRCan: Model Y Long Range AWD-I
   - EPA: Model Y Long Range AWD
 - **2025 CA: Long Range · US: Long Range RWD** → `tesla/model-y/2025/long-range` [CA, US] rwd · powertrain new · names: regulator wording · ⚠ code: NRCan "-I"
   - NRCan: Model Y Long Range-I
   - EPA: Model Y Long Range RWD
-- **2025 CA: Performance · US: Performance AWD** → `tesla/model-y/2025/performance` [CA, US] awd · powertrain new · names: regulator wording · ⚠ code: NRCan "-I"
+- **2025 CA: Performance · US: Performance** → `tesla/model-y/2025/performance` [CA, US] awd · powertrain new · ⚠ code: NRCan "-I"
   - NRCan: Model Y Performance-I
   - EPA: Model Y Performance AWD
-- **2026 US: Long Range AWD** → `tesla/model-y/2026/long-range-awd-b` [US] awd · powertrain tesla/model-y/2026-long-range-awd-b · names: regulator wording
+- **2026 US: Premium AWD** → `tesla/model-y/2026/premium-awd-b` [US] awd · powertrain tesla/model-y/2026-premium-awd-b
   - EPA: Model Y Long Range AWD
-- **2026 US: Long Range RWD** → `tesla/model-y/2026/long-range-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2026 US: Premium RWD** → `tesla/model-y/2026/premium-rwd` [US] rwd · powertrain new
   - EPA: Model Y Long Range RWD
-- **2026 US: Performance AWD** → `tesla/model-y/2026/performance-b` [US] awd · powertrain tesla/model-y/2026-performance-b · names: regulator wording
+- **2026 US: Performance** → `tesla/model-y/2026/performance-b` [US] awd · powertrain tesla/model-y/2026-performance-b
   - EPA: Model Y Performance AWD
-- **2026 US: Standard AWD** → `tesla/model-y/2026/standard-awd` [US] awd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as tesla/model-y/2026/long-range-awd-b-pre-6-11-25, tesla/model-y/2026/long-range-awd-b, tesla/model-y/2026/long-range-awd-i, tesla/model-y/2026/premium-awd-b, but another 2026 row has it too
+- **2026 US: Standard AWD** → `tesla/model-y/2026/standard-awd` [US] awd · powertrain new · ⚠ existing?: same motor power as tesla/model-y/2026/long-range-awd-b-pre-6-11-25, tesla/model-y/2026/long-range-awd-b, tesla/model-y/2026/long-range-awd-i, tesla/model-y/2026/premium-awd-b, but another 2026 row has it too
   - EPA: Model Y Standard AWD
-- **2026 US: Standard RWD** → `tesla/model-y/2026/standard-b` [US] rwd · wheels 18/19″ · powertrain tesla/model-y/2026-standard-b · names: regulator wording
+- **2026 US: Standard RWD** → `tesla/model-y/2026/standard-b` [US] rwd · wheels 18/19″ · powertrain tesla/model-y/2026-standard-b
   - EPA: Model Y Standard RWD (18in Wheels)
   - EPA: Model Y Standard RWD (19in Wheels)
 - **2027 US: AWD** → `tesla/model-y/2027/awd` [US] awd · powertrain new · names: regulator wording
   - EPA: Model Y AWD
-- **2027 US: L** → `tesla/model-y/2027/l` [US] awd · wheels 20″ · powertrain new · names: regulator wording
+- **2027 US: L** → `tesla/model-y/2027/l` [US] awd · wheels 20″ · powertrain new
   - EPA: Model Y L (20in Wheels)
-- **2027 US: Performance AWD** → `tesla/model-y/2027/performance-awd` [US] awd · powertrain new · names: regulator wording
+- **2027 US: Performance** → `tesla/model-y/2027/performance` [US] awd · powertrain new
   - EPA: Model Y Performance AWD
-- **2027 US: Premium AWD** → `tesla/model-y/2027/premium-awd` [US] awd · powertrain new · names: regulator wording
+- **2027 US: Premium AWD** → `tesla/model-y/2027/premium-awd` [US] awd · powertrain new
   - EPA: Model Y Premium AWD
-- **2027 US: Premium RWD** → `tesla/model-y/2027/premium-rwd` [US] rwd · powertrain new · names: regulator wording
+- **2027 US: Premium RWD** → `tesla/model-y/2027/premium-rwd` [US] rwd · powertrain new
   - EPA: Model Y Premium RWD
 - **2027 US: RWD** → `tesla/model-y/2027/rwd` [US] rwd · powertrain new · names: regulator wording
   - EPA: Model Y RWD
 ## toyota/bz
 
-- **2023 CA: Standard · US: FWD** → `toyota/bz/2023/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2023 CA: Standard** → `toyota/bz/2023/standard` [CA] drivetrain ? · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
   - NRCan: bZ4X
-  - EPA: bZ4X
-- **2023 CA: AWD · US: AWD** → `toyota/bz/2023/awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2023 CA: XLE · US: XLE AWD** → `toyota/bz/2023/xle` [CA, US] awd · powertrain new
   - NRCan: bZ4X AWD
   - EPA: bZ4X AWD
-- **2023 US: LIMITED** → `toyota/bz/2023/limited` [US] fwd · powertrain new · names: regulator wording
+- **2023 US: XLE FWD** → `toyota/bz/2023/xle-fwd` [US] fwd · powertrain new
+  - EPA: bZ4X
+- **2023 US: Limited FWD** → `toyota/bz/2023/limited-fwd` [US] fwd · powertrain new
   - EPA: bZ4X LIMITED
-- **2023 US: LIMITED AWD** → `toyota/bz/2023/limited-awd` [US] awd · powertrain new · names: regulator wording
+- **2023 US: Limited AWD** → `toyota/bz/2023/limited-awd` [US] awd · powertrain new
   - EPA: bZ4X LIMITED AWD
-- **2024 CA: Standard · US: FWD** → `toyota/bz/2024/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2024 CA: LE FWD** → `toyota/bz/2024/le-fwd` [CA] fwd · powertrain new
   - NRCan: bZ4X
-  - EPA: bZ4X
-- **2024 CA: AWD · US: AWD** → `toyota/bz/2024/awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2024 CA: XLE AWD · US: XLE AWD** → `toyota/bz/2024/xle-awd` [CA, US] awd · powertrain new
   - NRCan: bZ4X AWD
   - EPA: bZ4X AWD
-- **2024 US: Limited** → `toyota/bz/2024/limited` [US] fwd · powertrain new · names: regulator wording
+- **2024 US: XLE FWD** → `toyota/bz/2024/xle-fwd` [US] fwd · powertrain new
+  - EPA: bZ4X
+- **2024 US: Limited FWD** → `toyota/bz/2024/limited-fwd` [US] fwd · powertrain new
   - EPA: bZ4X Limited
-- **2024 US: Limited AWD** → `toyota/bz/2024/limited-awd` [US] awd · powertrain new · names: regulator wording
+- **2024 US: Limited AWD** → `toyota/bz/2024/limited-awd` [US] awd · powertrain new
   - EPA: bZ4X Limited AWD
-- **2025 CA: Standard · US: FWD** → `toyota/bz/2025/standard` [CA, US] fwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2025 CA: LE** → `toyota/bz/2025/le` [CA] drivetrain ? · powertrain new
   - NRCan: bZ4X
-  - EPA: bZ4X
-- **2025 CA: AWD · US: AWD** → `toyota/bz/2025/awd` [CA, US] awd · wheels 18/20″ · powertrain new · names: regulator wording
+- **2025 CA: LE AWD** → `toyota/bz/2025/le-awd` [CA] awd · wheels 18″ · powertrain new
   - NRCan: bZ4X AWD (18" Wheels)
+- **2025 CA: XLE AWD Technology Package** → `toyota/bz/2025/xle-awd-technology-package` [CA] awd · wheels 20″ · powertrain new
   - NRCan: bZ4X AWD (20" Wheels)
+- **2025 US: XLE FWD** → `toyota/bz/2025/xle-fwd` [US] fwd · powertrain new
+  - EPA: bZ4X
+- **2025 US: XLE AWD** → `toyota/bz/2025/xle-awd` [US] awd · wheels 18″ · powertrain new
   - EPA: bZ4X AWD (18inch Wheels)
+- **2025 US: Nightshade AWD** → `toyota/bz/2025/nightshade-awd` [US] awd · wheels 20″ · powertrain new
   - EPA: bZ4X AWD (20inch Wheels)
-- **2025 US: LIMITED** → `toyota/bz/2025/limited` [US] fwd · powertrain new · names: regulator wording
+- **2025 US: Limited FWD** → `toyota/bz/2025/limited-fwd` [US] fwd · powertrain new
   - EPA: bZ4X LIMITED
-- **2025 US: LIMITED AWD** → `toyota/bz/2025/limited-awd` [US] awd · powertrain new · names: regulator wording
+- **2025 US: Limited AWD** → `toyota/bz/2025/limited-awd` [US] awd · powertrain new
   - EPA: bZ4X LIMITED AWD
-- **2026 US: energy capacity 191 Ah** → `toyota/bz/2026/energy-capacity-191-ah` [US] fwd · powertrain new · names: regulator wording
+- **2026 US: XLE FWD** → `toyota/bz/2026/xle-fwd` [US] fwd · powertrain new
   - EPA: bZ (energy capacity 191 Ah)
-- **2026 US: energy capacity 200 Ah** → `toyota/bz/2026/energy-capacity-200-ah` [US] fwd · powertrain new · names: regulator wording
+- **2026 US: XLE FWD Plus** → `toyota/bz/2026/xle-fwd-plus` [US] fwd · powertrain new
   - EPA: bZ (energy capacity 200 Ah)
-- **2026 US: AWD** → `toyota/bz/2026/awd` [US] awd · powertrain toyota/bz/2026-awd · names: regulator wording
+- **2026 US: XLE AWD** → `toyota/bz/2026/xle-awd` [US] awd · powertrain new · ⚠ existing?: same motor power as toyota/bz/2026/awd, toyota/bz/2026/limited-awd, but another 2026 row has it too
   - EPA: bZ AWD
-- **2026 US: AWD LIMITED** → `toyota/bz/2026/limited-awd` [US] awd · powertrain toyota/bz/2026-limited-awd · names: regulator wording
+- **2026 US: Limited AWD** → `toyota/bz/2026/limited-awd` [US] awd · powertrain toyota/bz/2026-limited-awd
   - EPA: bZ AWD LIMITED
 - **2026 US: LIMITED energy capacity 191 Ah** → `toyota/bz/2026/limited-energy-capacity-191-ah` [US] fwd · powertrain new · names: regulator wording
   - EPA: bZ LIMITED (energy capacity 191 Ah)
-- **2026 US: LIMITED energy capacity 200 Ah** → `toyota/bz/2026/limited-energy-capacity-200-ah` [US] fwd · powertrain new · names: regulator wording
+- **2026 US: Limited FWD** → `toyota/bz/2026/limited-fwd` [US] fwd · powertrain new
   - EPA: bZ LIMITED (energy capacity 200 Ah)
-- **2026 US: Woodland AWD 235/60R18** → `toyota/bz/2026/woodland-awd-235-60r18` [US] awd · powertrain new · names: regulator wording
+- **2026 US: Woodland AWD** → `toyota/bz/2026/woodland-awd` [US] awd · powertrain toyota/bz/2026-woodland-awd
   - EPA: bZ Woodland AWD 235/60R18
-- **2026 US: Woodland AWD 235/65R18** → `toyota/bz/2026/woodland-awd-235-65r18` [US] awd · powertrain new · names: regulator wording
   - EPA: bZ Woodland AWD 235/65R18
-- **2027 US: energy capacity 191 Ah** → `toyota/bz/2027/energy-capacity-191-ah` [US] fwd · powertrain new · names: regulator wording
+- **2027 US: XLE FWD** → `toyota/bz/2027/xle-fwd` [US] fwd · powertrain new
   - EPA: bZ (energy capacity 191 Ah)
-- **2027 US: energy capacity 200 Ah** → `toyota/bz/2027/energy-capacity-200-ah` [US] fwd · powertrain new · names: regulator wording
+- **2027 US: XLE FWD Plus** → `toyota/bz/2027/xle-fwd-plus` [US] fwd · powertrain new
   - EPA: bZ (energy capacity 200 Ah)
-- **2027 US: AWD** → `toyota/bz/2027/awd` [US] awd · powertrain toyota/bz/2026-awd · names: regulator wording · ⚠ powertrain: same name as toyota/bz/2026/awd; check the pack didn't change
+- **2027 US: XLE AWD** → `toyota/bz/2027/xle-awd` [US] awd · powertrain new
   - EPA: bZ AWD
-- **2027 US: AWD LIMITED** → `toyota/bz/2027/awd-limited` [US] awd · powertrain new · names: regulator wording
+- **2027 US: Limited AWD** → `toyota/bz/2027/limited-awd` [US] awd · powertrain toyota/bz/2026-limited-awd · ⚠ powertrain: same name as toyota/bz/2026/limited-awd; check the pack didn't change
   - EPA: bZ AWD LIMITED
-- **2027 US: LIMITED** → `toyota/bz/2027/limited` [US] fwd · powertrain new · names: regulator wording
+- **2027 US: Limited FWD** → `toyota/bz/2027/limited-fwd` [US] fwd · powertrain new
   - EPA: bZ LIMITED
-- **2027 US: Woodland AWD 235/60R18** → `toyota/bz/2027/woodland-awd-235-60r18` [US] awd · powertrain new · names: regulator wording
+- **2027 US: Woodland AWD** → `toyota/bz/2027/woodland-awd` [US] awd · powertrain toyota/bz/2026-woodland-awd · ⚠ powertrain: same name as toyota/bz/2026/woodland-awd; check the pack didn't change
   - EPA: bZ Woodland AWD 235/60R18
-- **2027 US: Woodland AWD 235/65R18** → `toyota/bz/2027/woodland-awd-235-65r18` [US] awd · powertrain new · names: regulator wording
   - EPA: bZ Woodland AWD 235/65R18
 ## toyota/c-hr
 
-- **2026 US: AWD 18inch** → `toyota/c-hr/2026/awd-18inch` [US] awd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as toyota/c-hr/2026/awd, but another 2026 row has it too
+- **2026 US: SE** → `toyota/c-hr/2026/se` [US] awd · powertrain new · ⚠ existing?: same motor power as toyota/c-hr/2026/awd, but another 2026 row has it too
   - EPA: C-HR AWD 18inch
-- **2026 US: AWD 20inch** → `toyota/c-hr/2026/awd-20inch` [US] awd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as toyota/c-hr/2026/awd, but another 2026 row has it too
+- **2026 US: XSE** → `toyota/c-hr/2026/xse` [US] awd · powertrain new · ⚠ existing?: same motor power as toyota/c-hr/2026/awd, but another 2026 row has it too
   - EPA: C-HR AWD 20inch
-- **2027 US: AWD 18inch** → `toyota/c-hr/2027/awd-18inch` [US] awd · powertrain new · names: regulator wording
+- **2027 US: SE** → `toyota/c-hr/2027/se` [US] awd · powertrain new
   - EPA: C-HR AWD 18inch
 ## volkswagen/id-4
 
-- **2021 CA: AWD Pro · US: AWD Pro** → `volkswagen/id-4/2021/awd-pro` [CA, US] awd · powertrain new · names: regulator wording
+- **2021 CA: Pro AWD · US: AWD Pro** → `volkswagen/id-4/2021/pro-awd` [CA, US] awd · powertrain new
   - NRCan: ID.4 AWD Pro
   - EPA: ID.4 AWD Pro
-- **2021 CA: Pro · US: Pro** → `volkswagen/id-4/2021/pro` [CA, US] rwd · powertrain new · names: regulator wording
+- **2021 CA: Pro · US: Pro** → `volkswagen/id-4/2021/pro` [CA, US] rwd · powertrain new
   - NRCan: ID.4 Pro
   - EPA: ID.4 Pro
 - **2021 US: 1st** → `volkswagen/id-4/2021/1st` [US] rwd · powertrain new · names: regulator wording
   - EPA: ID.4 1st
-- **2021 US: AWD Pro S** → `volkswagen/id-4/2021/awd-pro-s` [US] awd · powertrain new · names: regulator wording
+- **2021 US: AWD Pro S** → `volkswagen/id-4/2021/awd-pro-s` [US] awd · powertrain new
   - EPA: ID.4 AWD Pro S
-- **2021 US: Pro S** → `volkswagen/id-4/2021/pro-s` [US] rwd · powertrain new · names: regulator wording
+- **2021 US: Pro S** → `volkswagen/id-4/2021/pro-s` [US] rwd · powertrain new
   - EPA: ID.4 Pro S
-- **2022 CA: AWD Pro · US: AWD Pro** → `volkswagen/id-4/2022/awd-pro` [CA, US] awd · powertrain new · names: regulator wording
+- **2022 CA: Pro AWD · US: AWD Pro** → `volkswagen/id-4/2022/pro-awd` [CA, US] awd · powertrain new
   - NRCan: ID.4 AWD Pro
   - EPA: ID.4 AWD Pro
-- **2022 CA: Pro · US: Pro** → `volkswagen/id-4/2022/pro` [CA, US] rwd · powertrain new · names: regulator wording
+- **2022 CA: Pro · US: Pro** → `volkswagen/id-4/2022/pro` [CA, US] rwd · powertrain new
   - NRCan: ID.4 Pro
   - EPA: ID.4 Pro
-- **2022 US: AWD Pro S** → `volkswagen/id-4/2022/awd-pro-s` [US] awd · powertrain new · names: regulator wording
+- **2022 US: AWD Pro S** → `volkswagen/id-4/2022/awd-pro-s` [US] awd · powertrain new
   - EPA: ID.4 AWD Pro S
-- **2022 US: Pro S** → `volkswagen/id-4/2022/pro-s` [US] rwd · powertrain new · names: regulator wording
+- **2022 US: Pro S** → `volkswagen/id-4/2022/pro-s` [US] rwd · powertrain new
   - EPA: ID.4 Pro S
-- **2023 CA: Standard · US: RWD** → `volkswagen/id-4/2023/standard` [CA, US] rwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2023 CA: Standard · US: Standard** → `volkswagen/id-4/2023/standard` [CA, US] rwd · powertrain new
   - NRCan: ID.4
   - EPA: ID.4
-- **2023 CA: AWD Pro · US: AWD Pro** → `volkswagen/id-4/2023/awd-pro` [CA, US] awd · powertrain new · names: regulator wording
+- **2023 CA: Pro AWD · US: AWD Pro** → `volkswagen/id-4/2023/pro-awd` [CA, US] awd · powertrain new
   - NRCan: ID.4 AWD Pro
   - EPA: ID.4 AWD Pro
-- **2023 CA: Pro · US: Pro** → `volkswagen/id-4/2023/pro` [CA, US] rwd · powertrain new · names: regulator wording
+- **2023 CA: Pro · US: Pro** → `volkswagen/id-4/2023/pro` [CA, US] rwd · powertrain new
   - NRCan: ID.4 Pro
   - EPA: ID.4 Pro
-- **2023 US: AWD Pro S** → `volkswagen/id-4/2023/awd-pro-s` [US] awd · powertrain new · names: regulator wording
+- **2023 US: AWD Pro S** → `volkswagen/id-4/2023/awd-pro-s` [US] awd · powertrain new
   - EPA: ID.4 AWD Pro S
-- **2023 US: Pro S** → `volkswagen/id-4/2023/pro-s` [US] rwd · powertrain new · names: regulator wording
+- **2023 US: Pro S** → `volkswagen/id-4/2023/pro-s` [US] rwd · powertrain new
   - EPA: ID.4 Pro S
-- **2023 US: S** → `volkswagen/id-4/2023/s` [US] rwd · powertrain new · names: regulator wording
+- **2023 US: S** → `volkswagen/id-4/2023/s` [US] rwd · powertrain new
   - EPA: ID.4 S
-- **2024 CA: Standard · US: RWD** → `volkswagen/id-4/2024/standard` [CA, US] rwd · powertrain volkswagen/id-4/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as volkswagen/id-4/2026/standard; check the pack didn't change
+- **2024 CA: Standard Range · US: Standard** → `volkswagen/id-4/2024/standard-range` [CA, US] rwd · powertrain new
   - NRCan: ID.4
   - EPA: ID.4
-- **2024 CA: AWD Pro · US: AWD Pro** → `volkswagen/id-4/2024/awd-pro` [CA, US] awd · powertrain new · names: regulator wording
+- **2024 CA: Pro AWD · US: AWD Pro** → `volkswagen/id-4/2024/pro-awd` [CA, US] awd · powertrain new
   - NRCan: ID.4 AWD Pro
   - EPA: ID.4 AWD Pro
 - **2024 CA: AWD Pro S · US: AWD Pro S** → `volkswagen/id-4/2024/awd-pro-s` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: ID.4 AWD Pro S
   - EPA: ID.4 AWD Pro S
-- **2024 CA: Pro · US: Pro** → `volkswagen/id-4/2024/pro` [CA, US] rwd · powertrain new · names: regulator wording
+- **2024 CA: Pro · US: Pro** → `volkswagen/id-4/2024/pro` [CA, US] rwd · powertrain new
   - NRCan: ID.4 Pro
   - EPA: ID.4 Pro
-- **2024 CA: Pro S · US: Pro S** → `volkswagen/id-4/2024/pro-s` [CA, US] rwd · powertrain new · names: regulator wording
+- **2024 CA: Pro S · US: Pro S** → `volkswagen/id-4/2024/pro-s` [CA, US] rwd · powertrain new
   - NRCan: ID.4 Pro S
   - EPA: ID.4 Pro S
 - **2024 CA: S · US: S** → `volkswagen/id-4/2024/s` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: ID.4 S
   - EPA: ID.4 S
-- **2025 CA: Standard · US: RWD** → `volkswagen/id-4/2025/standard` [CA, US] rwd · powertrain volkswagen/id-4/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as volkswagen/id-4/2026/standard; check the pack didn't change
+- **2025 CA: Base** → `volkswagen/id-4/2025/base` [CA] drivetrain ? · powertrain new
   - NRCan: ID.4
-  - EPA: ID.4
-- **2025 CA: AWD Pro · US: AWD Pro** → `volkswagen/id-4/2025/awd-pro` [CA, US] awd · powertrain new · names: regulator wording
+- **2025 CA: Pro AWD · US: AWD Pro** → `volkswagen/id-4/2025/pro-awd` [CA, US] awd · powertrain new
   - NRCan: ID.4 AWD Pro
   - EPA: ID.4 AWD Pro
-- **2025 CA: AWD Pro S · US: AWD Pro S** → `volkswagen/id-4/2025/awd-pro-s` [CA, US] awd · powertrain new · names: regulator wording
+- **2025 CA: Pro S AWD · US: AWD Pro S** → `volkswagen/id-4/2025/pro-s-awd` [CA, US] awd · powertrain new
   - NRCan: ID.4 AWD Pro S
   - EPA: ID.4 AWD Pro S
-- **2025 CA: Pro · US: Pro** → `volkswagen/id-4/2025/pro` [CA, US] rwd · powertrain new · names: regulator wording
+- **2025 CA: Pro · US: Pro** → `volkswagen/id-4/2025/pro` [CA, US] rwd · powertrain new
   - NRCan: ID.4 Pro
   - EPA: ID.4 Pro
-- **2025 CA: Pro S · US: Pro S** → `volkswagen/id-4/2025/pro-s` [CA, US] rwd · powertrain new · names: regulator wording
+- **2025 CA: Pro S · US: Pro S** → `volkswagen/id-4/2025/pro-s` [CA, US] rwd · powertrain new
   - NRCan: ID.4 Pro S
   - EPA: ID.4 Pro S
 - **2025 CA: S · US: S** → `volkswagen/id-4/2025/s` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: ID.4 S
   - EPA: ID.4 S
+- **2025 US: RWD** → `volkswagen/id-4/2025/rwd` [US] rwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+  - EPA: ID.4
 - **2026 US: RWD** → `volkswagen/id-4/2026/rwd` [US] rwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
   - EPA: ID.4
 - **2026 US: AWD** → `volkswagen/id-4/2026/awd` [US] awd · powertrain volkswagen/id-4/2026-awd · names: regulator wording
   - EPA: ID.4 AWD
 ## volvo/ex30
 
-- **2025 CA: Single Motor Ext Range · US: Single Motor extended range** → `volvo/ex30/2025/single-motor-ext-range` [CA, US] rwd · wheels 18/19/20″ · powertrain new · names: regulator wording
+- **2025 CA: Single Motor Extended Range · US: Single Motor extended range** → `volvo/ex30/2025/single-motor-extended-range` [CA, US] rwd · wheels 18/19/20″ · powertrain volvo/ex30/2026-single-motor-extended-range · names: regulator wording · ⚠ powertrain: same name as volvo/ex30/2026/single-motor-extended-range; check the pack didn't change
   - NRCan: EX30 Single Motor Ext Range (19" and 20" Wheels)
+  - NRCan: EX30 Single Motor Extended Range (18" Wheels)
   - EPA: EX30 Single Motor extended range (18 Inch Wheels)
   - EPA: EX30 Single Motor extended range (19/20 Inch Wheels)
-- **2025 CA: Single Motor Extended Range** → `volvo/ex30/2025/single-motor-extended-range` [CA] rwd · wheels 18″ · powertrain volvo/ex30/2026-single-motor-extended-range · names: regulator wording · ⚠ powertrain: same name as volvo/ex30/2026/single-motor-extended-range; check the pack didn't change
-  - NRCan: EX30 Single Motor Extended Range (18" Wheels)
-- **2025 CA: Twin Performance · US: Twin Performance** → `volvo/ex30/2025/twin-performance` [CA, US] awd · wheels 19/20″ · powertrain volvo/ex30/2026-twin-performance · names: regulator wording · ⚠ powertrain: same name as volvo/ex30/2026/twin-performance; check the pack didn't change
+- **2025 CA: Twin Motor Performance · US: Twin Motor Performance** → `volvo/ex30/2025/twin-motor-performance` [CA, US] awd · wheels 19/20″ · powertrain new
   - NRCan: EX30 Twin Performance
   - EPA: EX30 Twin Performance (19 Inch Wheels)
   - EPA: EX30 Twin Performance (20 Inch Wheels)
-- **2026 US: Cross Country** → `volvo/ex30/2026/cross-country` [US] awd · wheels 18/19″ · powertrain volvo/ex30/2026-cross-country · names: regulator wording
+- **2026 US: Cross Country** → `volvo/ex30/2026/cross-country` [US] awd · wheels 18/19″ · powertrain volvo/ex30/2026-cross-country
   - EPA: EX30 Cross Country (18 Inch Wheels)
   - EPA: EX30 Cross Country (19 Inch Wheels)
-- **2026 US: Single motor extended range** → `volvo/ex30/2026/single-motor-extended-range` [US] rwd · powertrain volvo/ex30/2026-single-motor-extended-range · names: regulator wording
+- **2026 US: Single Motor** → `volvo/ex30/2026/single-motor-extended-range` [US] rwd · powertrain volvo/ex30/2026-single-motor-extended-range
   - EPA: EX30 Single motor extended range
-- **2026 US: Twin Performance** → `volvo/ex30/2026/twin-performance` [US] awd · powertrain volvo/ex30/2026-twin-performance · names: regulator wording
+- **2026 US: Twin Motor Performance** → `volvo/ex30/2026/twin-performance` [US] awd · powertrain volvo/ex30/2026-twin-performance
   - EPA: EX30 Twin Performance
 ## volvo/ex40
 
 - **2021 CA: Standard · US: AWD BEV** → `volvo/ex40/2021/standard` [CA, US] awd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: only one candidate each side, words differ
   - NRCan: XC40 Recharge
   - EPA: XC40 AWD BEV
-- **2022 CA: Twin · US: twin** → `volvo/ex40/2022/twin` [CA, US] awd · powertrain new · names: regulator wording
+- **2022 CA: P8 · US: P8 eAWD Twin** → `volvo/ex40/2022/p8` [CA, US] awd · powertrain new · ⚠ pair: names differ, same motor power (300 kW)
   - NRCan: XC40 Recharge Twin
   - EPA: XC40 Recharge twin
-- **2023 CA: Twin · US: twin** → `volvo/ex40/2023/twin` [CA, US] awd · powertrain new · names: regulator wording
+- **2023 CA: Twin · US: Twin eAWD** → `volvo/ex40/2023/twin` [CA, US] awd · powertrain new
   - NRCan: XC40 Recharge Twin
   - EPA: XC40 Recharge twin
-- **2024 CA: Standard · US: RWD** → `volvo/ex40/2024/standard` [CA, US] rwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+- **2024 CA: Standard** → `volvo/ex40/2024/standard` [CA] drivetrain ? · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
   - NRCan: XC40 Recharge
-  - EPA: XC40 Recharge
-- **2024 CA: Twin · US: twin** → `volvo/ex40/2024/twin` [CA, US] awd · powertrain new · names: regulator wording
+- **2024 CA: Twin · US: Twin Motor AWD** → `volvo/ex40/2024/twin` [CA, US] awd · powertrain new
   - NRCan: XC40 Recharge Twin
   - EPA: XC40 Recharge twin
-- **2025 CA: Standard · US: RWD** → `volvo/ex40/2025/standard` [CA, US] rwd · powertrain volvo/ex40/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as volvo/ex40/2026/standard; check the pack didn't change
+- **2024 US: Single Motor Extended Range RWD** → `volvo/ex40/2024/single-motor-extended-range-rwd` [US] rwd · powertrain new
+  - EPA: XC40 Recharge
+- **2025 CA: Single Motor · US: Single Motor Extended Range RWD** → `volvo/ex40/2025/single-motor` [CA, US] rwd · powertrain new
   - NRCan: EX40
   - EPA: EX40
-- **2025 CA: Twin · US: Twin** → `volvo/ex40/2025/twin` [CA, US] awd · powertrain volvo/ex40/2026-twin · names: regulator wording · ⚠ powertrain: same name as volvo/ex40/2026/twin; check the pack didn't change
+- **2025 CA: Twin Motor · US: Twin Motor AWD** → `volvo/ex40/2025/twin-motor` [CA, US] awd · powertrain new
   - NRCan: EX40 Twin
   - EPA: EX40 Twin
 - **2026 US: RWD** → `volvo/ex40/2026/rwd` [US] rwd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label

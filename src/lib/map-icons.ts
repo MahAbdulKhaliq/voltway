@@ -7,8 +7,8 @@
 //   (from 12 o'clock, clockwise) and a white Level 2 arc, in proportion to the counts (B55).
 // - Speed bolts, top right, from the fastest known Level 3 port: 1 (≤ 75 kW), 2 (≤ 150), 3 (more).
 // - Plug marks: tiny line drawings of the plugs present, stacked left of the mark.
-//   Tags show only from TAG_MIN_ZOOM in, on pins and on groups under TAG_MAX_GROUP stations (B82;
-//   B58 had zoom 9 and any group size).
+//   Tags (B82) show on pins and on groups under TAG_MAX_GROUP stations: from TAG_MIN_ZOOM when the
+//   screen isn't crowded (tagsFit), and always from TAG_ALWAYS_ZOOM. B58 had zoom 9 and any group size.
 // - Tesla network pins (B55): a Tesla-style T instead of the bolt or plug; Superchargers are red.
 // - While a trip shows, every mark is drawn in greys so yellow on the map means the trip.
 //
@@ -113,9 +113,22 @@ export function ringArcs(share: number): { l3: [number, number] | null; l2: [num
   return { l3: [top + RING_GAP / 2, split - RING_GAP / 2], l2: [split + RING_GAP / 2, top + full - RING_GAP / 2] };
 }
 
-/** Speed and plug tags show from this zoom in (B82, owner 2026-11-18; was 9 in B58): a city view
- *  stays calm, and a big station with many stalls still gets its tags once you're close. */
-export const TAG_MIN_ZOOM = 13;
+/** Speed and plug tags (B82, owner 2026-11-18): from TAG_MIN_ZOOM when the screen isn't crowded, so a
+ *  quiet city (Hamilton) gets them at city zoom, and always from TAG_ALWAYS_ZOOM, so a dense downtown
+ *  (Montreal) gets them once you're close. B58 had zoom 9 for every city. */
+export const TAG_MIN_ZOOM = 9;
+export const TAG_ALWAYS_ZOOM = 14;
+/** "Crowded": more than this many marks on a 1280×800 map, scaled by the map's area (≈12 on a phone). */
+export const TAG_CROWD = 40;
+const CROWD_AREA = 1280 * 800;
+/** Once shown, tags stay until the count passes the limit by this much, so they don't flicker at the edge. */
+export const TAG_CROWD_SLACK = 1.2;
+
+/** Whether tags fit with this many marks on a map this size (CSS px); `shown` is the current state. */
+export function tagsFit(marks: number, width: number, height: number, shown: boolean): boolean {
+  const limit = (TAG_CROWD * width * height) / CROWD_AREA;
+  return marks <= (shown ? limit * TAG_CROWD_SLACK : limit);
+}
 /** Groups this big never get tags (B82): with so many chargers they nearly always show every plug. */
 export const TAG_MAX_GROUP = 50;
 
@@ -183,11 +196,12 @@ const pinName = (trip: boolean, tags: boolean): Expr => [
   '-', ['case', ['==', ['get', 'te'], 1], 1, 0],
 ];
 // A zoom step must be the outermost expression in a layout property (MapLibre rule).
-export const clusterImage = (trip: boolean): Expr => [
+// `tagsFrom` is TAG_MIN_ZOOM while tags fit on screen, else TAG_ALWAYS_ZOOM (set by the map on each stop).
+export const clusterImage = (trip: boolean, tagsFrom: number = TAG_ALWAYS_ZOOM): Expr => [
   'step', ['zoom'], clusterName(trip, false),
-  TAG_MIN_ZOOM, ['case', ['>=', ['get', 'point_count'], TAG_MAX_GROUP], clusterName(trip, false), clusterName(trip, true)],
+  tagsFrom, ['case', ['>=', ['get', 'point_count'], TAG_MAX_GROUP], clusterName(trip, false), clusterName(trip, true)],
 ];
-export const pinImage = (trip: boolean): Expr => ['step', ['zoom'], pinName(trip, false), TAG_MIN_ZOOM, pinName(trip, true)];
+export const pinImage = (trip: boolean, tagsFrom: number = TAG_ALWAYS_ZOOM): Expr => ['step', ['zoom'], pinName(trip, false), tagsFrom, pinName(trip, true)];
 
 /** What clusters add up from their pins (MapLibre clusterProperties). */
 export const CLUSTER_PROPERTIES = {

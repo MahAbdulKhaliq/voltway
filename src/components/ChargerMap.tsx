@@ -62,6 +62,9 @@ import {
   MAP_MARK,
   parseMarkName,
   pinImage,
+  TAG_ALWAYS_ZOOM,
+  TAG_MIN_ZOOM,
+  tagsFit,
   PIN,
   PLUG,
   PLUG_SHAPES,
@@ -76,7 +79,7 @@ import { readRecent } from '../lib/recent-destinations.ts';
 import StationPanel from './StationPanel.tsx';
 import RoutePanel from './RoutePanel.tsx';
 import { useTrip } from './useTrip.ts';
-import { addTripLayers, boundsOf, cancelPaint, holdTrip, paintTrip, retractTrip, setTripOverlay, STOP_LAYERS, type TripOverlay } from '../lib/trip-overlay.ts';
+import { addTripLayers, boundsOf, cancelPaint, holdTrip, paintTrip, retractTrip, setTagsFrom, setTripOverlay, STOP_LAYERS, tagsFrom, type TripOverlay } from '../lib/trip-overlay.ts';
 import { camMotion, morph, reducedMotion } from '../lib/motion.ts';
 import type { IndexEntry } from '../lib/types.ts';
 import { createBaseMap } from '../lib/map-base.ts';
@@ -142,7 +145,7 @@ function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: numb
     source: 'stations',
     filter: ['has', 'point_count'],
     layout: {
-      'icon-image': clusterImage(trip) as maplibregl.ExpressionSpecification,
+      'icon-image': clusterImage(trip, tagsFrom(map)) as maplibregl.ExpressionSpecification,
       'icon-allow-overlap': true,
       'icon-ignore-placement': true,
     },
@@ -179,7 +182,7 @@ function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: numb
     source: 'stations',
     filter: ['!', ['has', 'point_count']],
     layout: {
-      'icon-image': pinImage(trip) as maplibregl.ExpressionSpecification,
+      'icon-image': pinImage(trip, tagsFrom(map)) as maplibregl.ExpressionSpecification,
       'icon-allow-overlap': true,
       'icon-ignore-placement': true,
       // Level 3 on top of Level 2 where they overlap.
@@ -484,6 +487,15 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     reportView();
     map.once('load', () => setMapStatus('ready'));
     map.on('moveend', reportView);
+    // B82: speed and plug tags show from city zoom only while the screen isn't crowded. Counted each
+    // time the map settles; switching tags doesn't change the count, so this settles too.
+    map.on('idle', () => {
+      if (!map.getLayer('pins')) return;
+      const marks = map.queryRenderedFeatures({ layers: ['pins', 'clusters'] }).length;
+      const c = map.getCanvas();
+      const fit = tagsFit(marks, c.clientWidth, c.clientHeight, tagsFrom(map) === TAG_MIN_ZOOM);
+      setTagsFrom(map, fit ? TAG_MIN_ZOOM : TAG_ALWAYS_ZOOM);
+    });
     map.on('error', (e) => {
       // Only a failed style or tile source means the map itself is broken.
       if (!map.isStyleLoaded() && (e.error as { status?: number } | undefined)?.status !== 404) setMapStatus('error');

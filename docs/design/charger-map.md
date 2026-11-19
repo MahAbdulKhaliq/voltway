@@ -136,7 +136,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 - **B60 (2026-11-17):** no place card after a "Where to?" pick: the search's Plan trip plans to that place, and its fast-charger count shows under the search.
 - **B59 (2026-11-17), phones:** Map key and Locate me are 44 px round icon buttons; the map credits fold into a compact ⓘ; the panel is a draggable bottom sheet (peek, half, full) over a full-height map; zoom buttons hide on touch screens.
 - **B58 (2026-11-17):** speed bolts and plug drawings show only from zoom 9 in, on groups and pins alike, no longer tied to the group size (replaces the "fewer than 20" rule of B55). The map's "Choose your car" prompt is removed; the header's "Pick your car" dialog is the one car picker.
-- **B82 (2026-11-18):** speed bolts and plug drawings show from **zoom 13** (was 9), and never on groups of 50 or more chargers; chargers are grouped within **64 px** (was 48). Replaces the B58 zoom rule.
+- **B82 (2026-11-18):** speed bolts and plug drawings show from **zoom 9 while the screen isn't crowded** (about 40 marks on a 1280×800 map, scaled by area) and always from **zoom 14**, never on groups of 50 or more chargers; chargers are grouped within **64 px** (was 48). Replaces the B58 zoom rule.
 - **At-a-glance marks (B54):** speed bolts top right of a cluster or Level 3 pin from the fastest known Level 3 port (1 bolt ≤ 75 kW, 2 ≤ 150 kW, 3 above; none when unknown) and tiny plug drawings stacked on the left (CCS1, NACS, CHAdeMO, J1772, stacked). A **Map key** toggle above Locate me explains every mark.
 - **Status shown on the pin:** a greyed pin with a small mark for "temporarily unavailable" (§6).
 

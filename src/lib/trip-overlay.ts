@@ -6,7 +6,7 @@
 import type maplibregl from 'maplibre-gl';
 import type { Feature, FeatureCollection, LineString, Point } from 'geojson';
 import { TRIP_MAP } from './trip-map-style.ts';
-import { clusterImage, pinImage } from './map-icons.ts';
+import { clusterImage, pinImage, TAG_ALWAYS_ZOOM } from './map-icons.ts';
 
 export interface TripOverlay {
   line: [number, number][];
@@ -121,17 +121,34 @@ export function setTripOverlay(map: maplibregl.Map, o: TripOverlay | null) {
   fadePins(map, o !== null);
 }
 
+// Per map: whether the marks are greyed for a trip, and the zoom tags start at (B82, see tagsFit).
+const markState = new WeakMap<maplibregl.Map, { faded: boolean; tagsFrom: number }>();
+const stateOf = (map: maplibregl.Map) => markState.get(map) ?? { faded: false, tagsFrom: TAG_ALWAYS_ZOOM };
+
+/** The zoom the speed and plug tags start at on this map now. */
+export const tagsFrom = (map: maplibregl.Map) => stateOf(map).tagsFrom;
+
+function applyMarkImages(map: maplibregl.Map) {
+  const { faded, tagsFrom: z } = stateOf(map);
+  if (map.getLayer('pins')) map.setLayoutProperty('pins', 'icon-image', pinImage(faded, z) as maplibregl.ExpressionSpecification);
+  if (map.getLayer('clusters')) map.setLayoutProperty('clusters', 'icon-image', clusterImage(faded, z) as maplibregl.ExpressionSpecification);
+}
+
+/** Moves where the tags start (TAG_MIN_ZOOM when they fit on screen, else TAG_ALWAYS_ZOOM). */
+export function setTagsFrom(map: maplibregl.Map, z: number) {
+  const s = stateOf(map);
+  if (s.tagsFrom === z) return;
+  markState.set(map, { ...s, tagsFrom: z });
+  applyMarkImages(map);
+}
+
 /** Greys and fades the charger pins and clusters while a route shows; restores them after. */
 export function fadePins(map: maplibregl.Map, faded: boolean) {
   const k = faded ? FADED_OPACITY : 1;
-  if (map.getLayer('pins')) {
-    map.setPaintProperty('pins', 'icon-opacity', k);
-    map.setLayoutProperty('pins', 'icon-image', pinImage(faded) as maplibregl.ExpressionSpecification);
-  }
-  if (map.getLayer('clusters')) {
-    map.setPaintProperty('clusters', 'icon-opacity', k);
-    map.setLayoutProperty('clusters', 'icon-image', clusterImage(faded) as maplibregl.ExpressionSpecification);
-  }
+  markState.set(map, { ...stateOf(map), faded });
+  applyMarkImages(map);
+  if (map.getLayer('pins')) map.setPaintProperty('pins', 'icon-opacity', k);
+  if (map.getLayer('clusters')) map.setPaintProperty('clusters', 'icon-opacity', k);
   if (map.getLayer('cluster-count')) map.setPaintProperty('cluster-count', 'text-opacity', k);
   // The ring under a selected charger stays at full strength, so the open station is easy to find.
 }

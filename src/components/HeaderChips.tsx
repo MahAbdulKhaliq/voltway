@@ -1,6 +1,6 @@
-// Header chips (B40): My car (menu: open it, change it, forget it) and Compare (n), which is
-// hidden while the list is empty. Both follow the "voltway:mycar" / "voltway:compare" events,
-// so they update live when a page changes them. "Pick your car" and "Change car" open the car
+// Header chip (B40): My car (menu: open it, change it, forget it), on every page (owner,
+// 2026-11-18). It follows the "voltway:mycar" event, so it updates live when a page changes it.
+// The compare count is on the Compare nav link instead ("Compare (n)", Base.astro). "Pick your car" and "Change car" open the car
 // picker in a dialog on the page the visitor is on (B54); the car list loads when it first opens.
 // The menu also holds My car's plug switches (B55): NACS, CCS1, CHAdeMO, used by the trip
 // planner. The car's own plug is on by default; the trip panel opens this menu with the
@@ -9,26 +9,18 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { t } from '../i18n/t.ts';
-import { getCompare, getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
+import { getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import CarPicker from './CarPicker.tsx';
 import { carChipParts, carLabel } from '../lib/car-label.ts';
 import type { IndexEntry } from '../lib/types.ts';
 import { DC_PLUGS, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
 import type { MessageKey } from '../i18n/t.ts';
 
-interface Props {
-  /** Compare chip only once the Compare page exists (CLAUDE.md: hide links to parts not built); not on the map (B68). */
-  showCompare?: boolean;
-  /** My car chip: the map only (owner, B68). The car dialog stays, for the pages' own buttons. */
-  showMyCar?: boolean;
-}
-
 const carHref = (id: string, trim: string | null) =>
   `/charging?car=${id.split('/').map(encodeURIComponent).join('/')}${trim ? `&trim=${encodeURIComponent(trim)}` : ''}`;
 
-export default function HeaderChips({ showCompare = false, showMyCar = true }: Props) {
+export default function HeaderChips() {
   const [mine, setMine] = useState<MyCar | null>(null);
-  const [count, setCount] = useState(0);
   const [open, setOpen] = useState(false);
   const [ready, setReady] = useState(false);
   const root = useRef<HTMLDivElement>(null);
@@ -75,14 +67,11 @@ export default function HeaderChips({ showCompare = false, showMyCar = true }: P
 
   useEffect(() => {
     setMine(getMyCar());
-    setCount(getCompare().length);
     setReady(true);
     const onMine = (e: Event) => setMine((e as CustomEvent<MyCar | null>).detail);
-    const onCompare = (e: Event) => setCount((e as CustomEvent<string[]>).detail.length);
     // Another tab changed storage.
-    const onStorage = () => { setMine(getMyCar()); setCount(getCompare().length); };
+    const onStorage = () => setMine(getMyCar());
     window.addEventListener('voltway:mycar', onMine);
-    window.addEventListener('voltway:compare', onCompare);
     window.addEventListener('storage', onStorage);
     // The trip panel's "Change" next to the plugs it used opens this menu at the plug switches.
     // Opened after the asking click has finished bubbling, or the click-outside listener below
@@ -96,7 +85,6 @@ export default function HeaderChips({ showCompare = false, showMyCar = true }: P
       window.removeEventListener('voltway:pick-car', onPickCar);
       window.removeEventListener('voltway:mycar-menu', onMenu);
       window.removeEventListener('voltway:mycar', onMine);
-      window.removeEventListener('voltway:compare', onCompare);
       window.removeEventListener('storage', onStorage);
     };
   }, []);
@@ -184,10 +172,7 @@ export default function HeaderChips({ showCompare = false, showMyCar = true }: P
 
   return (
     <div className="chips">
-      {showCompare && count > 0 && (
-        <a className="chip" href="/compare"><span className="chip-text">{t('compare.chip', { count })}</span></a>
-      )}
-      {!showMyCar ? null : mine ? (
+      {mine ? (
         <div className="chip-menu" ref={root}>
           <button type="button" ref={button} className="chip" aria-haspopup="menu" aria-expanded={open} aria-label={t('mycar.chip', { car: carChipParts(mine)[2] })} title={carChipParts(mine)[2]} onClick={() => setOpen((o) => !o)}>
             {/* B71: no "My car:" once a car is picked; as much of the name as fits. */}

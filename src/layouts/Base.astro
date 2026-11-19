@@ -100,11 +100,14 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
         <!-- The header is a small floating pill on every page (B54); on wide screens it also lists the pages. -->
         <nav class="pill-nav" aria-label={t('nav.quick')}>
           {PAGES.map((p) => (
-            <a href={p.href} aria-current={active === p.id ? 'page' : undefined}>{short(p.id)}</a>
+            <a href={p.href} aria-current={active === p.id ? 'page' : undefined}>
+              {p.id === 'compare' ? <span data-compare-name>{short(p.id)}</span> : short(p.id)}
+            </a>
           ))}
         </nav>
-        <!-- Chips that belong to the page (B68): My car on the map, Compare elsewhere. -->
-        <HeaderChips client:idle showCompare={active !== 'map'} showMyCar={active === 'map'} />
+        <!-- My car on every page (owner, 2026-11-18; replaces B68's map-only chip). The Compare count
+             sits on the Compare link itself, "Compare (n)", instead of a separate chip. -->
+        <HeaderChips client:idle />
         <!-- Settings (B65): theme, animations and distance units for the whole site. -->
         <div class="settings">
           <button type="button" class="icon-btn settings-btn" aria-expanded="false" aria-controls="settings-pop" aria-label={t('settings.open')}>
@@ -163,7 +166,7 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
           {PAGES.map((p) => (
             <li>
               <a href={p.href} aria-current={active === p.id ? 'page' : undefined}>
-                <span class="pl-name">{page(p.id, 'name')}</span>
+                <span class="pl-name" data-compare-name={p.id === 'compare' ? '' : undefined}>{page(p.id, 'name')}</span>
                 <span class="pl-desc">{page(p.id, 'desc')}</span>
               </a>
             </li>
@@ -186,12 +189,22 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
     <script>
       import { applyUnits, currentUnit, setUnit } from '../scripts/units-client.ts';
       import { initBadges } from '../scripts/badges-client.ts';
+      import { getCompare } from '../lib/my-car.ts';
+      import { t } from '../i18n/t.ts';
       import { chooseTheme, themeChoice } from '../scripts/theme-client.ts';
       import { motionOn, setMotion } from '../scripts/motion-client.ts';
       import { chargePrice, PRICE_EVENT, setChargePrice } from '../lib/price.ts';
       import { routeOptions, ROUTE_OPTIONS_EVENT, setRouteOptions, type RouteOptions } from '../lib/route-options.ts';
       initBadges();
       applyUnits(currentUnit());
+
+      // "Compare (n)" on the Compare links while cars are waiting to be compared; plain "Compare" otherwise.
+      const compareNames = [...document.querySelectorAll<HTMLElement>('[data-compare-name]')];
+      const compareLabel = (n: number) => (n > 0 ? t('nav.compareCount', { count: n }) : t('nav.compare'));
+      const showCompareCount = (n: number) => compareNames.forEach((el) => { el.textContent = compareLabel(n); });
+      showCompareCount(getCompare().length);
+      window.addEventListener('voltway:compare', (e) => showCompareCount((e as CustomEvent<string[]>).detail.length));
+      window.addEventListener('storage', () => showCompareCount(getCompare().length));
       document.querySelectorAll<HTMLButtonElement>('.units button').forEach((b) =>
         b.addEventListener('click', () => setUnit(b.dataset.unit === 'mi' ? 'mi' : 'km')),
       );

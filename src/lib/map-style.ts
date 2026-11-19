@@ -89,13 +89,61 @@ function paintFor(layer: Layer, p: MapPalette): Record<string, unknown> | null {
   return null;
 }
 
+/** B89: road names keep their own capitals (the dark style set them in uppercase) and read in the
+ *  bold face, a touch larger where the style drew them at 10 px. Shields (icons) are left alone. */
+export const ROAD_NAME_FONT = ['Noto Sans Bold'];
+function roadNameLayout(layer: Layer): Record<string, unknown> | null {
+  const layout = layer.layout as Record<string, unknown> | undefined;
+  if (layer.type !== 'symbol' || layer['source-layer'] !== 'transportation_name' || !layout?.['text-field'] || layout['icon-image']) return null;
+  const size = layout['text-size'];
+  return { ...layout, 'text-transform': 'none', 'text-font': ROAD_NAME_FONT, ...(typeof size === 'number' && size < 12 ? { 'text-size': 12 } : {}) };
+}
+
+/** B89 round 4 (owner): on dark, the highway number shields keep their rectangular badge but not
+ *  the light sprite's white one: they use a dark badge drawn here (raised road grey, a lighter edge)
+ *  that stretches to fit the number, with light text. Light keeps the sprite's shields. */
+export const DARK_SHIELD = 'vw-shield-dark';
+const isShield = (l: Layer) => l.type === 'symbol' && l['source-layer'] === 'transportation_name' && !!(l.layout as Record<string, unknown> | undefined)?.['icon-image'];
+function darkShield(layer: Layer, p: MapPalette): Layer {
+  return {
+    ...layer,
+    layout: { ...(layer.layout as Record<string, unknown>), 'icon-image': DARK_SHIELD, 'icon-text-fit': 'both', 'icon-text-fit-padding': [2, 4, 1, 4] },
+    paint: { ...layer.paint, 'text-color': p.label },
+  };
+}
+/** The dark badge, 2x pixels: a rounded rectangle whose middle stretches (MapLibre stretchX/Y). */
+export function shieldImage(p: MapPalette = MAP_PALETTE.dark): { image: { width: number; height: number; data: Uint8Array }; options: { pixelRatio: number; stretchX: [number, number][]; stretchY: [number, number][]; content: [number, number, number, number] } } {
+  const size = 24, r = 6, edge = 2;
+  const hex = (h: string) => [1, 3, 5].map((k) => parseInt(h.slice(k, k + 2), 16));
+  const fill = hex(p.major), ring = hex(p.motorwayFar);
+  const data = new Uint8Array(size * size * 4);
+  // Distance outside a rounded rectangle (negative inside), for an anti-aliased edge.
+  const sd = (x: number, y: number, inset: number) => {
+    const h = size / 2 - inset, rr = r - inset;
+    const qx = Math.abs(x - size / 2) - (h - rr), qy = Math.abs(y - size / 2) - (h - rr);
+    return Math.hypot(Math.max(qx, 0), Math.max(qy, 0)) + Math.min(Math.max(qx, qy), 0) - rr;
+  };
+  for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
+    const d = sd(x + 0.5, y + 0.5, 0.5);
+    const a = Math.min(1, Math.max(0, 0.5 - d));
+    if (a <= 0) continue;
+    const inner = Math.min(1, Math.max(0, 0.5 - sd(x + 0.5, y + 0.5, 0.5 + edge)));
+    const rgb = fill.map((c, k) => Math.round(c * inner + ring[k] * (1 - inner)));
+    data.set([...rgb, Math.round(a * 255)], (y * size + x) * 4);
+  }
+  return { image: { width: size, height: size, data }, options: { pixelRatio: 2, stretchX: [[r, size - r]], stretchY: [[r, size - r]], content: [r - 2, r - 2, size - r + 2, size - r + 2] } };
+}
+
 /** Returns a copy of an OpenFreeMap style with every layer recoloured for the theme. */
 export function roadPaintStyle<T extends object>(style: T, theme: Theme): T {
   const p = MAP_PALETTE[theme];
   const s = style as unknown as Style;
   const layers = s.layers.map((layer) => {
+    if (theme === 'dark' && isShield(layer)) return darkShield(layer, p);
     const paint = paintFor(layer, p);
-    return paint ? { ...layer, paint: { ...layer.paint, ...paint } } : layer;
+    const layout = roadNameLayout(layer);
+    const out = paint ? { ...layer, paint: { ...layer.paint, ...paint } } : layer;
+    return layout ? { ...out, layout } : out;
   });
   return { ...s, layers } as unknown as T;
 }

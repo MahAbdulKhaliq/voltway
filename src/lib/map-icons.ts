@@ -5,7 +5,8 @@
 // B54/B55 (2026-11-17) add what a driver wants at a glance:
 // - Clusters: a dark disc with a pale count; the ring around it is split into a yellow Level 3 arc
 //   (from 12 o'clock, clockwise) and a white Level 2 arc, in proportion to the counts (B55).
-// - Speed bolts, top right, from the fastest known Level 3 port: 1 (≤ 75 kW), 2 (≤ 150), 3 (more).
+// - Speed bolts, top right, from the fastest known Level 3 port: 1 (under 150 kW), 2 (150 to under
+//   250), 3 (250 or more). B89 round 4 (owner): rescaled from 75 / 150 to fit today's fast chargers.
 // - Plug marks: tiny line drawings of the plugs present, stacked left of the mark.
 //   Tags (B82) show on pins and on groups under TAG_MAX_GROUP stations: from TAG_MIN_ZOOM when the
 //   screen isn't crowded (tagsFit), and always from TAG_ALWAYS_ZOOM. B58 had zoom 9 and any group size.
@@ -85,11 +86,12 @@ export const PLUG_ORDER: readonly Plug[] = ['ccs1', 'nacs', 'chademo', 'j1772'];
 export const plugBit = (p: Plug) => 1 << PLUG_ORDER.indexOf(p);
 export const plugsInMask = (mask: number) => PLUG_ORDER.filter((p) => mask & plugBit(p));
 
-/** Speed bolts from the fastest known Level 3 kW: 0 (none / unknown), 1 (≤ 75), 2 (≤ 150), 3 (more). */
-export const SPEED_LIMITS = [75, 150] as const;
+/** Speed bolts from the fastest known Level 3 kW: 0 (none / unknown), 1 (under 150), 2 (150 to
+ *  under 250), 3 (250 or more). Each limit is where the next tier starts. */
+export const SPEED_LIMITS = [150, 250] as const;
 export function speedTier(kw: number | null | undefined): 0 | 1 | 2 | 3 {
   if (kw == null || !Number.isFinite(kw) || kw <= 0) return 0;
-  return kw <= SPEED_LIMITS[0] ? 1 : kw <= SPEED_LIMITS[1] ? 2 : 3;
+  return kw < SPEED_LIMITS[0] ? 1 : kw < SPEED_LIMITS[1] ? 2 : 3;
 }
 
 /** The Level 3 share of a cluster in tenths (0 = all Level 2, 10 = all Level 3). A mix never
@@ -173,7 +175,7 @@ export function parseMarkName(id: string): MarkSpec | null {
 // lv, t, k (top known Level 3 kW, 0 if none) and pc/pn/pd/pj (plug flags, 0 or 1); clusters carry
 // n2, n3 (station counts per level) and the max of k and of each plug flag (clusterProperties).
 type Expr = unknown[];
-const tierExpr: Expr = ['step', ['get', 'k'], 0, 0.001, 1, SPEED_LIMITS[0] + 0.001, 2, SPEED_LIMITS[1] + 0.001, 3];
+const tierExpr: Expr = ['step', ['get', 'k'], 0, 0.001, 1, SPEED_LIMITS[0], 2, SPEED_LIMITS[1], 3];
 const maskExpr: Expr = ['+', ['get', 'pc'], ['*', 2, ['get', 'pn']], ['*', 4, ['get', 'pd']], ['*', 8, ['get', 'pj']]];
 const shareExpr: Expr = [
   'case',

@@ -240,6 +240,12 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 /* Map filter panel: top left on desktop; full width under the header on phones. */
 .map-panel { position: absolute; top: 12px; left: 12px; z-index: 3; width: 280px; max-height: calc(100% - 24px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
 .map-panel-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 12px; background: none; border: 0; color: inherit; font: inherit; font-weight: 600; cursor: pointer; text-align: left; border-radius: var(--radius); }
+/* B89 phones: at the small height the sheet shows only the handle and "Where to?" (no glimpse of
+   the filters, nothing to scroll); they appear as soon as it is dragged or stepped up. */
+.map-panel.peeked { overflow: hidden; }
+.map-panel.peeked > :not(.sheet-handle):not(.map-where) { display: none; }
+/* B89 phones: the filters are always open, so the toggle is a plain heading. */
+.map-panel-head { margin: 0; cursor: default; font-size: inherit; }
 .map-panel-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .map-filters { min-height: 0; }
 .map-filters > .map-filters-body { overflow-y: auto; padding: 0 12px 4px; border-top: 1px solid var(--border); }
@@ -377,6 +383,38 @@ a.btn { display: inline-block; text-decoration: none; }
 .route-car { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
 .route-car p { flex: 1 1 180px; min-width: 0; margin: 0; }
 .route-settings { display: grid; gap: 10px; justify-items: start; }
+/* B89: the car tile is a "Road unrolls" accordion (design-language §8) on a raised block (§1: no
+   border, 10 px radius): the summary row is its button with the round chevron, a lane line paints
+   under it when open, and the battery fields, the plugs list and Change car open inside.
+   RoutePanel grows the summary's values into the fields and shrinks the body on close. */
+.route-car-acc { display: grid; padding: 0; gap: 0; border: 0; cursor: default; }
+.route-car-acc:hover { border-color: transparent; }
+.route-car-row { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 48px; padding: 10px 12px; background: none; border: 0; border-radius: 10px; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.route-car-row strong { font-family: var(--display); font-weight: 700; }
+.route-car-row:hover { background: color-mix(in srgb, var(--field-border) 14%, transparent); }
+.route-car-row:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.route-car-acc .acc-chev { background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+.route-car-row:hover .acc-chev { background: color-mix(in srgb, var(--field-border) 45%, var(--surface-2)); }
+.route-car-acc.open .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+.route-car-acc.open .acc-chev::before { border-color: var(--accent); }
+.route-car-acc > .acc-lane { margin: 0 12px 12px; animation: acc-paint 0.42s var(--ease-out) both; }
+.route-car-acc.shutting > .acc-lane { animation: acc-paint 0.2s var(--ease-out) reverse both; }
+.route-car-acc .route-settings { display: grid; gap: 12px; justify-items: stretch; padding: 0 12px 12px; overflow: hidden; }
+.route-car-acc .tp-pcts .field-input { width: 6.5rem; }
+.route-soc { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+/* Plugs used: the map filter's plug drawings, one per row, faint dividers (§3 rows). */
+.route-car-plugs-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.route-car-plugs-title { margin: 0; font-family: var(--display); font-weight: 700; font-size: 0.9rem; }
+.route-plug-list { list-style: none; margin: 4px 0 0; padding: 0; }
+.route-plug-list li { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 0.9rem; border-bottom: 1px solid color-mix(in srgb, var(--field-border) 35%, transparent); }
+.route-plug-list li:last-child { border-bottom: 0; }
+/* Change car: a full-width row action (car, label, go chevron) above a faint divider. */
+.route-car-change { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 8px 2px 0; background: none; border: 0; border-top: 1px solid color-mix(in srgb, var(--field-border) 35%, transparent); color: var(--text); font: inherit; font-weight: 600; font-size: 0.9rem; text-align: left; cursor: pointer; }
+.route-car-change-go { margin-left: auto; color: var(--muted); transition: translate 0.15s var(--ease-out); }
+.route-car-change:hover .route-car-change-go { translate: 3px 0; }
+.route-car-change:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+html[data-motion="off"] .route-car-acc > .acc-lane { animation: none; }
+html[data-motion="off"] .route-car-change-go { transition: none; }
 .route-summary { display: grid; gap: 4px; }
 .route-summary p { margin: 0; }
 .charger-map p, .station-panel p { text-wrap: pretty; }
@@ -400,6 +438,7 @@ a.btn { display: inline-block; text-decoration: none; }
 .map-key ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .map-key li { display: flex; align-items: center; gap: 8px; }
 .map-key li svg { flex: none; }
+.map-key-speed { flex: none; display: inline-flex; align-items: center; width: 30px; }
 .map-key-plugs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .map-key-note { margin: 10px 0 0; }
 .map-recent ul { gap: 0; }
@@ -678,17 +717,22 @@ html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .sett
 .route-itinerary .banner { margin: 8px 0; overflow-wrap: anywhere; }
 .ti-list { list-style: none; margin: 14px 0 0; padding: 0; }
 .ti-list > li { position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; }
-.ti-list > li > div { padding: 0 0 10px; }
+/* B89: each row sits on a card (design language panels); the painted line runs beside them. */
+.ti-list > li > div { min-width: 0; margin: 0 0 8px; padding: 10px 14px; background: var(--surface-2); border-radius: 10px; }
+.ti-list .ti-head strong { font-family: var(--display); font-weight: 700; }
+.ti-list .ti-leg { margin-top: 4px; }
+.ti-list > li:last-child > div { margin-bottom: 0; }
 .ti-list p { margin: 0 0 2px; }
 /* The painted line: centre-line yellow on a dark road band, from each mark down to the next.
    Along a charging gap the yellow is dashed and the band is edged in the warning colour. */
-.ti-list > li:not(:last-child)::before { content: ""; position: absolute; left: 9px; top: 6px; bottom: -6px; width: 10px; border-radius: 2px;
+/* B89: from the centre of this row's mark (10 px down + 13 px) to the centre of the next one. */
+.ti-list > li:not(:last-child)::before { content: ""; position: absolute; left: 9px; top: 23px; bottom: -23px; width: 10px; border-radius: 2px;
   background: linear-gradient(to right, var(--band) 0 3px, var(--paint) 3px 7px, var(--band) 7px 10px); }
 .ti-list > li.ti-gap:not(:last-child)::before { background: repeating-linear-gradient(to bottom, var(--paint) 0 9px, transparent 9px 17px) center / 4px 100% no-repeat, var(--band); box-shadow: -2px 0 0 var(--warn), 2px 0 0 var(--warn); }
 .ti-head { overflow-wrap: anywhere; }
-.ti-mark { position: relative; z-index: 1; justify-self: center; width: 20px; height: 20px; margin-top: 2px; border-radius: 50%; border: 3px solid var(--surface); box-sizing: content-box; }
+.ti-mark { position: relative; z-index: 1; justify-self: center; width: 20px; height: 20px; margin-top: 10px; border-radius: 50%; border: 3px solid var(--surface); box-sizing: content-box; }
 /* B79: a border crossing sits on the line as a small square turned on its corner, smaller than a stop. */
-.ti-border .ti-mark.ti-border-mark { width: 10px; height: 10px; margin-top: 6px; border-radius: 2px; transform: rotate(45deg); background: var(--surface); border: 2px solid var(--text); }
+.ti-border .ti-mark.ti-border-mark { width: 10px; height: 10px; margin-top: 15px; border-radius: 2px; transform: rotate(45deg); background: var(--surface); border: 2px solid var(--text); }
 .ti-border .ti-head { font-weight: 400; }
 /* Start is a solid mark, the destination a hollow one; a stop is a numbered plate, like its pin on the map. */
 .ti-start .ti-mark { background: var(--mark); }
@@ -696,7 +740,17 @@ html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .sett
 .ti-num { display: grid; place-items: center; background: var(--mark); color: var(--surface); font-weight: 700; font-size: 0.8rem; font-variant-numeric: tabular-nums; width: 24px; height: 20px; border-radius: 5px; }
 .ti-stop.on .ti-num { outline: 3px solid var(--accent); outline-offset: 1px; }
 /* The selected stop: the same stop is ringed on the map. */
-.ti-stop.on > div { background: var(--surface-2); border-radius: 8px; margin: -4px -6px 0; padding: 4px 6px 10px; }
+.ti-stop.on > div, .ti-border.on > div, .ti-end.on > div { box-shadow: inset 0 0 0 2px var(--accent); }
+.ti-end.on .ti-mark { outline: 3px solid var(--accent); outline-offset: 1px; }
+/* B89: the stop number and the border diamond are the buttons (close in on the map; again: the whole route). */
+button.ti-mark { padding: 0; font: inherit; cursor: pointer; transition: scale 0.15s var(--ease-out); }
+button.ti-num { color: var(--surface); font-weight: 700; font-size: 0.8rem; }
+button.ti-mark::after { content: ""; position: absolute; inset: -10px; }
+button.ti-mark:hover { scale: 1.12; }
+button.ti-mark:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.ti-border.on .ti-border-mark { background: var(--paint); border-color: var(--paint-edge); }
+html[data-motion="off"] button.ti-mark { transition: none; }
+@media (max-width: 640px) { button.ti-mark::after { inset: -13px; } }
 .ti-soc { font-weight: 600; font-variant-numeric: tabular-nums; }
 .ti-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 0 0 !important; }
 .ti-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; line-height: 1.5; padding: 0 6px; border: 1px solid var(--field-border); border-radius: 4px; white-space: nowrap; }
@@ -748,9 +802,17 @@ html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .sett
 /* A leg with no charger the car can use: said in words beside the dashed line. */
 .ti-leg-gap { color: var(--warn); font-weight: 600; }
 .ti-notes { list-style: none; margin: 4px 0 0; padding: 10px 0 0; border-top: 1px solid var(--border); display: grid; gap: 6px; }
-.ti-how { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
-.ti-how summary { cursor: pointer; font-weight: 600; min-height: 24px; }
-.ti-how p { margin: 6px 0 0; }
+/* B89: "How this was estimated" unrolls like every other section (design-language §8), on the
+   rows' raised card. */
+details.acc.ti-how { margin-top: 12px; background: var(--surface-2); border-radius: 10px; }
+details.acc.ti-how > summary { padding: 8px 10px 8px 14px; gap: 10px; border-radius: 10px; }
+details.acc.ti-how > summary:hover { background: color-mix(in srgb, var(--field-border) 18%, var(--surface-2)); }
+details.acc.ti-how .acc-title { flex: 1 1 auto; font-family: var(--display); font-size: 0.95rem; }
+details.acc.ti-how .acc-chev { width: 28px; height: 28px; background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+details.acc.ti-how > .acc-lane { margin: 0 14px 10px; }
+details.acc.ti-how > .acc-body { padding: 0 14px 12px; }
+.ti-how .acc-body p { margin: 6px 0 0; }
+.ti-how .acc-body p:first-child { margin-top: 0; }
 
 /* A button that reads as a text link (B55: "Change plugs" in the trip panel). */
 .link-btn { padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-weight: 600; text-decoration: underline; cursor: pointer; }
@@ -975,7 +1037,7 @@ html[data-motion="off"] details.acc > .acc-lane { animation: none; }
 /* Select menus (B83 overdrive): the field look with a drawn chevron, the chosen value in Overpass.
    Where the browser supports a customizable select (Chrome/Edge), the open list takes the site's
    surface and drops in; elsewhere the native list opens under the new field. */
-:is(.explorer, .compare, .browse) select {
+:is(.explorer, .compare, .browse, .car-picker) select {
   appearance: none; -webkit-appearance: none;
   font: inherit; font-family: var(--display); font-weight: 600; color: var(--text);
   background-color: var(--surface); border: 1px solid var(--field-border); border-radius: 8px;
@@ -985,26 +1047,26 @@ html[data-motion="off"] details.acc > .acc-lane { animation: none; }
   background-size: 5px 5px; background-repeat: no-repeat;
   transition: border-color 0.18s var(--ease-out), background-color 0.18s var(--ease-out);
 }
-:is(.explorer, .compare, .browse) select:hover:not(:disabled) { border-color: var(--text); }
-:is(.explorer, .compare, .browse) select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-:is(.explorer, .compare, .browse) select:disabled { cursor: default; opacity: 0.6; }
+:is(.explorer, .compare, .browse, .car-picker) select:hover:not(:disabled) { border-color: var(--text); }
+:is(.explorer, .compare, .browse, .car-picker) select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+:is(.explorer, .compare, .browse, .car-picker) select:disabled { cursor: default; opacity: 0.6; }
 @supports (appearance: base-select) {
-  :is(.explorer, .compare, .browse) select { appearance: base-select; }
-  :is(.explorer, .compare, .browse) select::picker-icon { display: none; }
-  :is(.explorer, .compare, .browse) select::picker(select) {
+  :is(.explorer, .compare, .browse, .car-picker) select { appearance: base-select; }
+  :is(.explorer, .compare, .browse, .car-picker) select::picker-icon { display: none; }
+  :is(.explorer, .compare, .browse, .car-picker) select::picker(select) {
     appearance: base-select; margin-top: 6px; padding: 4px; border: 1px solid var(--border); border-radius: 10px;
     background: var(--surface); color: var(--text); box-shadow: var(--shadow); max-height: min(360px, 60vh);
     transition: opacity 0.18s var(--ease-out), translate 0.24s var(--ease-out), display 0.24s allow-discrete, overlay 0.24s allow-discrete;
   }
-  :is(.explorer, .compare, .browse) select:not(:open)::picker(select) { opacity: 0; translate: 0 -6px; }
-  @starting-style { :is(.explorer, .compare, .browse) select:open::picker(select) { opacity: 0; translate: 0 -6px; } }
-  :is(.explorer, .compare, .browse) select option { padding: 7px 10px; border-radius: 6px; font-family: var(--font); font-weight: 400; gap: 8px; }
-  :is(.explorer, .compare, .browse) select option:hover, :is(.explorer, .compare, .browse) select option:focus-visible { background: var(--surface-2); outline: none; }
-  :is(.explorer, .compare, .browse) select option:checked { background: var(--accent-soft); color: var(--text); font-weight: 600; }
-  :is(.explorer, .compare, .browse) select option::checkmark { color: var(--accent); }
-  html[data-motion="off"] :is(.explorer, .compare, .browse) select::picker(select) { transition: none; }
+  :is(.explorer, .compare, .browse, .car-picker) select:not(:open)::picker(select) { opacity: 0; translate: 0 -6px; }
+  @starting-style { :is(.explorer, .compare, .browse, .car-picker) select:open::picker(select) { opacity: 0; translate: 0 -6px; } }
+  :is(.explorer, .compare, .browse, .car-picker) select option { padding: 7px 10px; border-radius: 6px; font-family: var(--font); font-weight: 400; gap: 8px; }
+  :is(.explorer, .compare, .browse, .car-picker) select option:hover, :is(.explorer, .compare, .browse, .car-picker) select option:focus-visible { background: var(--surface-2); outline: none; }
+  :is(.explorer, .compare, .browse, .car-picker) select option:checked { background: var(--accent-soft); color: var(--text); font-weight: 600; }
+  :is(.explorer, .compare, .browse, .car-picker) select option::checkmark { color: var(--accent); }
+  html[data-motion="off"] :is(.explorer, .compare, .browse, .car-picker) select::picker(select) { transition: none; }
 }
-html[data-motion="off"] :is(.explorer, .compare, .browse) select { transition: none; }
+html[data-motion="off"] :is(.explorer, .compare, .browse, .car-picker) select { transition: none; }
 
 /* Cars page (B86, design-language.md §10): filter sections that unroll inside the panel, choices as
    pills, switches, the map's slider, readout cards and the "Live reflow" layers. */
@@ -1109,3 +1171,86 @@ html[data-motion="off"] html[data-motion="off"] .bf-switch .switch, html[data-mo
   .car-search-opt { flex-wrap: wrap; }
   .car-search-opt .car-search-tag { flex-basis: 100%; }
 }
+
+/* Car picker (B89 round 3, design-language §1, §3, §4): the header's "Change car" dialog and
+   Compare's "Add a car". Title in Overpass; a search field with an icon and the site's menu for
+   suggestions; the steps numbered on one raised panel; the plug switches as rows with the plug
+   drawings; the actions pinned to the dialog's foot. */
+.car-picker { gap: 14px; }
+.car-picker .cp-title { font-family: var(--display); font-weight: 800; font-size: 1.45rem; letter-spacing: -0.02em; line-height: 1.15; }
+.car-picker .cp-intro { font-size: 0.95rem; max-width: 56ch; }
+.cp-search-box { position: relative; }
+.cp-search-box .cp-search-icon { position: absolute; left: 12px; top: 50%; translate: 0 -50%; color: var(--muted); pointer-events: none; }
+.car-picker .cp-search-box input { padding: 11px 12px 11px 40px; border-radius: 10px; font-size: 1rem; }
+.car-picker .cp-suggest { margin-top: 6px; border: 1px solid var(--border); border-radius: 10px; }
+.car-picker .cp-suggest li { padding: 9px 10px; }
+.car-picker .cp-suggest li[role=option]:hover { background: var(--surface-2); }
+.car-picker .cp-suggest li.on { background: var(--accent-soft); }
+.cp-steps-panel { display: grid; gap: 10px; }
+.cp-steps-panel .cp-or { margin: 0; }
+.car-picker .cp-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.car-picker .cp-steps label { gap: 6px; color: var(--text); font-weight: 600; }
+.car-picker .cp-steps label > span { display: flex; align-items: center; gap: 8px; }
+.cp-step-n { display: inline-grid; place-items: center; flex: none; width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--field-border); color: var(--muted); font-family: var(--display); font-size: 0.75rem; font-weight: 700; transition: background-color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), color 0.2s var(--ease-out); }
+.car-picker .cp-steps label.done .cp-step-n { background: var(--paint); border-color: var(--paint-edge); color: var(--paint-ink); }
+.car-picker .cp-steps .cp-trim { grid-column: 1 / -1; }
+.car-picker .cp-steps .cp-trim > span { padding-left: 28px; color: var(--muted); }
+.car-picker .cp-trim-note { padding-left: 28px; }
+.car-picker .cp-plugs { gap: 2px; margin: 0; }
+.car-picker .cp-plugs .panel-title { margin-bottom: 4px; }
+.car-picker .cp-plug-row { display: grid; gap: 0; }
+.car-picker .cp-plug { border: 0; border-bottom: 1px solid color-mix(in srgb, var(--field-border) 35%, transparent); border-radius: 0; padding: 10px 2px; gap: 12px; }
+.car-picker .cp-plug:last-child { border-bottom: 0; }
+.car-picker .cp-plug:hover, .car-picker .cp-plug:focus-visible { background: none; }
+.car-picker .cp-plug:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.car-picker .cp-plug .plug-icon { flex: none; color: var(--muted); }
+.car-picker .cp-plug[aria-checked=true] .plug-icon { color: var(--text); }
+.car-picker .cp-plug-name { flex: 1; }
+.car-picker .cp-plug .switch { width: 36px; height: 22px; }
+.car-picker .cp-plug .switch::after { width: 16px; height: 16px; }
+.car-picker .cp-plug[aria-checked=true] .switch::after { transform: translateX(14px); }
+.car-picker .cp-plugs-note { margin-top: 4px; }
+.picker-dialog .cp-actions { position: sticky; bottom: 0; z-index: 2; margin: 4px -56px -20px -22px; padding: 12px 22px; background: var(--surface); border-top: 1px solid var(--border); }
+.car-picker .cp-actions .btn.primary { min-width: 10rem; }
+html[data-motion="off"] .cp-step-n { transition: none; }
+@media (max-width: 640px) {
+  .car-picker .cp-title { font-size: 1.3rem; }
+  .car-picker .cp-steps { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .picker-dialog .cp-actions { margin: 4px -56px -20px -14px; padding: 10px 14px; }
+  .picker-dialog .cp-actions .btn.primary { flex: 1; }
+}
+.picker-dialog .car-picker { padding-right: 22px; }
+.picker-dialog .car-picker .cp-title { padding-right: 44px; }
+.picker-dialog .cp-actions { margin-right: -22px; }
+@media (max-width: 640px) {
+  .picker-dialog .car-picker { padding-right: 14px; }
+  .picker-dialog .cp-actions { margin-right: -14px; }
+}
+@supports (appearance: base-select) {
+  .car-picker .cp-steps select { display: flex; align-items: center; }
+}
+
+/* B89 round 4 (owner): the trip sheet at peek shows its vital lines and doesn't scroll; a swipe up
+   raises it (useMapSheet). The car card is inert there. */
+@media (max-width: 640px) {
+  .map-panel.route-peek .route-body { overflow: hidden; touch-action: none; }
+}
+
+/* B89 round 4: the speed tag (SpeedIcon) beside a stop's kW and in Stations in view's rows. */
+.speed-icon { flex: none; vertical-align: -0.28em; }
+.speed-mark { flex: none; color: var(--accent); vertical-align: -0.15em; }
+.speed-mark.l2 { color: var(--muted); }
+.ti-speed { display: inline-flex; align-items: center; gap: 4px; font-family: var(--display); font-weight: 700; font-size: 0.85rem; font-variant-numeric: tabular-nums; color: var(--text); }
+.map-list-meta .speed-mark { margin-right: 5px; }
+
+/* B89 round 4 (owner): open credits keep the ⓘ in the text colour (MapLibre fades the button's
+   colour, which is what draws our masked icon); map-base.ts animates the pill's size. */
+.charger-map .maplibregl-ctrl-attrib.maplibregl-compact-show .maplibregl-ctrl-attrib-button { background-color: var(--text); }
+/* B89 round 4: on phones "Finding your location…" sits above the sheet and its ⓘ row, clear of
+   Stations in view and a station's details at the top. */
+@media (max-width: 640px) {
+  .charger-map .map-status.map-status-locate { top: auto; bottom: calc(var(--sheet-px, 80px) + 64px); }
+}
+/* The ⓘ sits bottom right in both states (MapLibre puts it top right when open), so the credits
+   unroll from it and roll back into it. */
+.charger-map .maplibregl-ctrl-bottom-right .maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-button { top: auto; bottom: 0; }

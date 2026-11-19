@@ -169,6 +169,8 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 ```
 *(Illustrative layout. These aren't real calculations.)*
 
+*(B89, owner 2026-11-19: each row of the itinerary sits on a card. The stop number is the button: it flies to the stop and opens its details (replacing Details); a border row's diamond flies to the crossing, which also shows on the route as a diamond. Back from a stop always returns to the whole route, as does tapping the same stop or border again. Closing the trip leaves the camera on the whole route so the line can be seen drawing back (replaces the B69 fly-back). Before planning, the battery fields and Change car live inside the car tile, which opens like an accordion. Round 2 (2026-11-19): the start and arrival marks fly to those places as well; "How this was estimated" is a section that unrolls (design-language §8); the car accordion lists Plugs used with the map filter's plug drawings and ends in a Change car row. Round 3 (2026-11-19): on phones a stop, border or end tap keeps the sheet at its height (it no longer drops to peek) and aims the spot into the map above the sheet, under the stop's details; Back fits the route above the sheet as it is. Round 4 (2026-11-19): each stop shows the speed bolts and the charger's top kW, then Car-limited; on phones the sheet at its lowest position doesn't scroll, its car card is inert, a swipe up raises it, and lowering it returns the trip to its top.)*
+
 ### Warnings (shown inline)
 | Warning | When |
 |---------|------|

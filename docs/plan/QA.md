@@ -711,3 +711,33 @@ Read B88 in `docs/design/gaps-and-questions.md`. Page: `/about`; also follow the
 | QY2 | Pass | All four links target=_blank, rel=noopener, sr-only "(opens in a new tab)"; no Report a problem section |
 | QY3 | Pass | Closed with chips; opens to 618/1673 px with no overshoot; mid-close reverses; Enter/Space toggle; #data opens only that section, heading at 80 px under the 62 px header; 8 datasets + 2 map credits, MIT notice opens |
 | QY4 | Pass | Motion off: static hero, final counts at once, instant sections; Charging (5), Compare (1), Cars (11) sections still unroll, instant with motion off |
+
+# B89 QA: map fixes
+
+Read B89 in `docs/design/gaps-and-questions.md`. Page: `/` (the charger map and trip planner). Plan a trip that crosses the border (e.g. Toronto → Detroit, with Stay within the border off) and one with several stops (e.g. Toronto → Montréal).
+
+| ID | Area | How to check | Pass when / edge cases |
+|----|------|--------------|------------------------|
+| QZ1 | Road names | dark and light, zoom ≥ 13 on a city | Street names in their own capitals and bold; place names unchanged; shields unchanged; dark place names match the light map (proper case, bold cities, italic water) and nothing light shows through; dark highway shields are dark rectangles with light numbers, light keeps its white ones |
+| QZ2 | Stations in view | open a row, Back; again but drag before Back; Animations off | Flies close in (zoom ≥ 15, charger clear of the panel); Back returns to the earlier view only when the map wasn't moved; instant with Animations off; a flight takes about 1 s at most and a far one still flies (never a jump cut) |
+| QZ3 | Trip stops | tap a stop number, Back; tap it twice; tap a border diamond; keyboard | Flies to the stop and opens details; no Details button; Back and a second tap fit the whole route; border flies to the crossing; diamonds on the route; buttons have names; the start and arrival marks fly to those places and mark their cards; at 375 the sheet keeps its height on any tap (peek, half or full) and the spot shows in the map above it; each stop shows bare bolts and its top kW before Car-limited |
+| QZ4 | Trip cards | 1280 and 375, dark and light | Each row on a card, route line still joins the marks, selected card marked, text ≥ 4.5:1; each mark centred on the line; How this was estimated unrolls (lane line, chevron), instant with Animations off |
+| QZ5 | Closing the trip | close at the overview; close after zooming into a stop | Camera stays on (or returns to) the whole route; the line draws back in view |
+| QZ6 | Phone sheet | 375: drag the sheet up and down repeatedly; tap a pin; pick a place | Filters always open, no Chargers toggle, drags only change height; pin/place lower the sheet to peek; at peek only Where to shows (no count, filters or list) and the sheet does not scroll; tapping Where to leaves the sheet as it is, typing raises it; trip (form and plan) at peek: no scrolling, car card inert, swipe up raises to half, lowering scrolls back to the top |
+| QZ7 | Car accordion | before planning: open/close the car tile, change the % fields, Change car; Animations off | Fields and Change car inside it; the % values grow into the fields and back; values keep and re-plan as before; aria-expanded; instant with Animations off; Plugs used is a list with plug drawings; Change car is a row; closing has no flicker (height only shrinks) |
+| QZ8 | Car picker | header Change car and Compare Add a car; 1280 and 375, dark and light; search, pick by steps, plug switches, Cancel, Escape | Overpass title, search icon, menu-style suggestions; numbered steps on one raised panel, number filled once chosen; select menus; plug rows with drawings; action bar pinned at the foot; picking, plugs and the already-compared marks work as before; text ≥ 4.5:1 |
+| QZ9 | List speed, credits, locating | Stations in view with Level 2 on; open/close the ⓘ credits; Locate me (and reload with location allowed); Animations off | Bare bolts by speed and the plug for Level 2 before the kW; ⓘ stays visible and the pill animates both ways; "Finding your location…" with the road loader, not hidden by open panels; credits unroll from the ⓘ without the text reflowing and roll back into it, the ⓘ stays put, "About Voltway" first and goes to /about; bolts follow 1 < 150 kW, 2 150–<250, 3 ≥ 250 on pins, groups, the key (bare bolts), the list and stops; the opening unroll is even, not a pop (check a 150 and a 250 kW station) |
+
+## B89 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QZ1 | Pass | road names no text-transform, bold; dark shield text 7.09:1 on its badge; light keeps sprite shields (docs/plan/reports/b89/qa-report.md) |
+| QZ2 | Pass | row flies to z15 in ~604 ms clear of the panel; Back only if not moved; far flights ≤ 1100 ms, no jump cut; Animations off instant |
+| QZ3 | Pass | stop, border, start, finish buttons fly and open; again/Back fits route; bolts + kW then Car-limited; 375 keeps sheet height. Fix after QA: Back from a stop now reads "Back to the whole route" (was "Back to stations in view") |
+| QZ4 | Pass | marks centred, no contrast fails; How this was estimated unrolls ~300 ms, instant with Animations off |
+| QZ5 | Pass (partial) | camera stays on the whole route on close; the line drawing back not observable in stills |
+| QZ6 | Pass | peek no scroll, car card inert (real clicks), wheel/drag raises to half, lowering resets scroll; Where to tap keeps height, typing raises (mouse, not real touch) |
+| QZ7 | Pass | aria-expanded, plugs list, Change car row, values kept, close only shrinks; FLIP grow not visible in stills; Animations off not checked |
+| QZ8 | Pass after fix | restyle OK in header dialog and Compare Add a car, no contrast fails. Found: at 1280 the dialog reopened scrolled 32 px, clipping the title; fixed (scroll reset on open, 4/4 opens at 0) |
+| QZ9 | Pass | 150/250 tiers in list and key (bare bolts), L2 plug; credits open 460 ms even / close 320 ms, ⓘ fixed, About Voltway first → /about; Animations off instant; locate loader above the sheet at 375. Not testable: auto-locate with access granted; no exact 150/250 kW station in view |

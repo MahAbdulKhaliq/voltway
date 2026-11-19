@@ -3,11 +3,11 @@ import { describe, expect, it } from 'vitest';
 import { levelShare, markName, parseMarkName, plugBit, plugsInMask, ringArcs, speedTier, PLUG_ORDER, RING_GAP, TAG_ALWAYS_ZOOM, TAG_MAX_GROUP, TAG_MIN_ZOOM, clusterImage, tagsFit, pinImage, type MarkSpec } from '../src/lib/map-icons.ts';
 
 describe('speedTier', () => {
-  it('1 bolt up to 75 kW, 2 up to 150 kW, 3 above; none when unknown', () => {
+  it('B89 round 4: 1 bolt under 150 kW, 2 from 150 to under 250 kW, 3 from 250 kW; none when unknown', () => {
     expect([null, undefined, 0, NaN].map(speedTier)).toEqual([0, 0, 0, 0]);
-    expect([24, 50, 75].map(speedTier)).toEqual([1, 1, 1]);
-    expect([75.1, 100, 150].map(speedTier)).toEqual([2, 2, 2]);
-    expect([150.1, 250, 350].map(speedTier)).toEqual([3, 3, 3]);
+    expect([24, 50, 75, 100, 149.9].map(speedTier)).toEqual([1, 1, 1, 1, 1]);
+    expect([150, 180, 249.9].map(speedTier)).toEqual([2, 2, 2]);
+    expect([250, 325, 350].map(speedTier)).toEqual([3, 3, 3]);
   });
 });
 

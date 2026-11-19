@@ -3,7 +3,7 @@
 // while a route is open; Close route goes back to the plain map. After a plan the form folds into
 // a one-line summary with Edit, so the itinerary gets the room.
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { openCarPicker } from '../lib/car-label.ts';
 import Itinerary from './Itinerary.tsx';
@@ -16,8 +16,17 @@ import { setMyCar, type MyCar } from '../lib/my-car.ts';
 import type { PlaceSearch } from '../lib/place-search.ts';
 import { SOC_LIMITS } from '../lib/trip-link.ts';
 import { stopsText } from '../lib/trip-format.ts';
-import { morph } from '../lib/motion.ts';
+import PlugIcon from './PlugIcon.tsx';
+import { morph, reducedMotion } from '../lib/motion.ts';
 import type { IndexEntry } from '../lib/types.ts';
+
+// B89: the summary line's values become spans, so they can grow into the fields.
+const VAL_START = '\u0001', VAL_MIN = '\u0002';
+const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)'; // --ease-out
+const OPEN_MS = 320, SHUT_MS = 220; // as the sections that unroll (road-unroll.ts)
+function withValues(text: string, nodes: Record<string, ReactNode>): ReactNode[] {
+  return text.split(/([\u0001\u0002])/).map((part, i) => (part in nodes ? <span key={i}>{nodes[part]}</span> : part));
+}
 
 interface Props {
   trip: TripState;
@@ -27,7 +36,12 @@ interface Props {
   /** The stop whose station panel is open, if any. */
   selectedStop: number | null;
   onOpenStop: (index: number, button: HTMLButtonElement) => void;
+  /** B89: the trip spot the map is closed in on ("border-<k>", "from", "to"), and what does it. */
+  selectedSpot: string | null;
+  onOpenSpot: (key: string, at: [number, number]) => void;
   onClose: () => void;
+  /** B89 round 4: the phone sheet is at peek; the car card can't be used until it is raised. */
+  peek?: boolean;
   /** Charger data date, YYYY-MM-DD. */
   updated: string | null;
   /** Drive progress from this tab (B72): reopen Drive once the trip is planned again. */
@@ -36,10 +50,73 @@ interface Props {
   onDriveFix: (at: [number, number] | null) => void;
 }
 
-export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop, onOpenStop, onClose, updated, resumeDrive, onDriveFix }: Props) {
+export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop, onOpenStop, selectedSpot, onOpenSpot, onClose, updated, resumeDrive, onDriveFix, peek = false }: Props) {
   const { trip, plan, status, current, planCar } = T;
   const [editing, setEditing] = useState(true);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  // B89: the car tile is an accordion. Opening grows the start and charge-at values in its summary
+  // line into the fields (they keep their place on screen and become the boxes); closing shrinks
+  // the settings back into the line. Instant with Animations off.
+  const startVal = useRef<HTMLSpanElement>(null), minVal = useRef<HTMLSpanElement>(null);
+  const startIn = useRef<HTMLInputElement>(null), minIn = useRef<HTMLInputElement>(null);
+  const settingsBox = useRef<HTMLDivElement>(null);
+  const flipFrom = useRef<{ start: DOMRect; min: DOMRect; font: string } | null>(null);
+  const accRef = useRef<HTMLDivElement>(null);
+  const [shutting, setShutting] = useState(false);
+  // Set when the close finishes: the card's height then, so the last step (the box goes, the
+  // summary line takes back its values) eases instead of snapping.
+  const fadeLine = useRef<number | null>(null);
+  const toggleSettings = () => {
+    const a = startVal.current, b = minVal.current;
+    if (shutting) return;
+    if (settingsOpen) {
+      const box = settingsBox.current;
+      if (box && !reducedMotion() && typeof box.animate === 'function') {
+        // Held at 0 when it ends (fill), so nothing flashes back before the box is removed.
+        const shrink = box.animate([{ height: `${box.offsetHeight}px`, opacity: 1 }, { height: '0px', opacity: 0 }], { duration: SHUT_MS, easing: EASE, fill: 'forwards' });
+        setShutting(true);
+        shrink.finished.then(() => { fadeLine.current = accRef.current?.offsetHeight ?? 0; setShutting(false); setSettingsOpen(false); }, () => setShutting(false));
+        return;
+      }
+      setSettingsOpen(false);
+      return;
+    }
+    flipFrom.current = a && b ? { start: a.getBoundingClientRect(), min: b.getBoundingClientRect(), font: getComputedStyle(a).fontSize } : null;
+    setSettingsOpen(true);
+  };
+  useLayoutEffect(() => {
+    const from = flipFrom.current;
+    flipFrom.current = null;
+    // Closed again: the values come back into the summary line softly.
+    if (!settingsOpen && fadeLine.current !== null) {
+      const acc = accRef.current, was = fadeLine.current;
+      fadeLine.current = null;
+      if (acc && was && Math.abs(acc.offsetHeight - was) > 1) {
+        acc.style.overflow = 'clip';
+        acc.animate?.([{ height: `${was}px` }, { height: `${acc.offsetHeight}px` }], { duration: 160, easing: EASE })
+          .finished.finally(() => { acc.style.overflow = ''; }).catch(() => {});
+      }
+      acc?.querySelectorAll<HTMLElement>('.route-soc').forEach((el) =>
+        el.animate?.([{ opacity: 0 }, { opacity: 1 }], { duration: 180, easing: EASE }));
+      return;
+    }
+    if (!settingsOpen || !from || reducedMotion()) return;
+    const box = settingsBox.current;
+    if (!box || typeof box.animate !== 'function') return;
+    box.animate([{ height: '0px' }, { height: `${box.offsetHeight}px` }], { duration: OPEN_MS, easing: EASE });
+    // Each value grows into its field from where it sat in the line.
+    for (const [el, r] of [[startIn.current, from.start], [minIn.current, from.min]] as const) {
+      if (!el) continue;
+      const to = el.getBoundingClientRect();
+      el.animate([
+        { translate: `${r.left - to.left}px ${r.top - to.top}px`, width: `${r.width + 8}px`, height: `${r.height}px`, fontSize: from.font, borderColor: 'transparent', backgroundColor: 'transparent', paddingLeft: '0px' },
+        { translate: '0px 0px', width: `${to.width}px`, height: `${to.height}px` },
+      ], { duration: OPEN_MS, easing: EASE });
+    }
+    // The labels, the plugs line and Change car rise in after them.
+    [...box.querySelectorAll<HTMLElement>('.tp-label, .route-car-plugs, .route-car-change')].forEach((el, i) =>
+      el.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 240, delay: 120 + i * 30, easing: EASE, fill: 'backwards' }));
+  }, [settingsOpen]);
   const [sheetOpen, setSheetOpen] = useState(false);
   // Drive mode (B72): open, and which stops are reached. Kept for this tab only (sessionStorage).
   const [driving, setDriving] = useState(false);
@@ -61,11 +138,19 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
 
   // B55: the DC plugs the plan used (My car's switches), with a way to change them.
   const dcUsed = planCar?.ok ? planCar.car.rule.plugs.filter((p) => p !== 'j1772') : null;
+  // B89: the plugs as a list with the map filter's plug drawings, on a raised panel.
   const plugsLine = dcUsed && (
-    <p className="small route-plugs">
-      {dcUsed.length ? t('route.plugs', { plugs: dcUsed.map((p) => t(`value.${p}` as MessageKey)).join(', ') }) : t('route.plugsNone')}{' '}
-      <button type="button" className="link-btn" onClick={() => window.dispatchEvent(new CustomEvent('voltway:mycar-menu'))}>{t('route.plugsChange')}</button>
-    </p>
+    <div className="route-car-plugs">
+      <div className="route-car-plugs-head">
+        <h3 className="route-car-plugs-title">{t('route.plugsTitle')}</h3>
+        <button type="button" className="link-btn small" onClick={() => window.dispatchEvent(new CustomEvent('voltway:mycar-menu'))}>{t('route.plugsChange')}</button>
+      </div>
+      {dcUsed.length ? (
+        <ul className="route-plug-list">
+          {dcUsed.map((p) => <li key={p}><PlugIcon plug={p} /><span>{t(`value.${p}` as MessageKey)}</span></li>)}
+        </ul>
+      ) : <p className="small muted">{t('route.plugsNone')}</p>}
+    </div>
   );
   // The trip card's line (B67): charging time, then the plugs used and a way to change them.
   const plugsInline = dcUsed && (
@@ -175,40 +260,57 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
               <span className="car-tile-text"><strong>{t('car.tile.none')}</strong> <span className="muted">{t('route.carWhy')}</span></span>
             </button>
           ) : (
-          <button type="button" className="car-tile route-car-row" aria-expanded={settingsOpen} aria-controls="route-settings" onClick={() => setSettingsOpen((o) => !o)}>
+          <div ref={accRef} inert={peek} className={`car-tile route-car-acc${settingsOpen ? ' open' : ''}${shutting ? ' shutting' : ''}`}>
+          <button type="button" className="route-car-row" aria-expanded={settingsOpen} aria-controls="route-settings" onClick={toggleSettings}>
             <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 13l1.6-4.4A2 2 0 0 1 7.5 7.3h9a2 2 0 0 1 1.9 1.3L20 13M4 13h16v5H4v-5ZM7 18v1.5M17 18v1.5M7.5 15.5h.01M16.5 15.5h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             </svg>
             <span className="car-tile-text">
               <strong>{carLabel}</strong>
               <span className="route-car-sub small muted">
-                {t('route.carSub', { start: trip.startSoc, min: trip.thresholdSoc })}
-                {dcUsed && <> · {dcUsed.length ? dcUsed.map((p) => t(`value.${p}` as MessageKey)).join(', ') : t('route.plugsNoneShort')}</>}
+                {/* Open: the values and plugs live in the card below, so the line names what's there. */}
+                {settingsOpen ? t('route.settings') : (
+                  <>
+                    {withValues(t('route.carSub', { start: VAL_START, min: VAL_MIN }), {
+                      [VAL_START]: <span ref={startVal} className="route-soc">{trip.startSoc}</span>,
+                      [VAL_MIN]: <span ref={minVal} className="route-soc">{trip.thresholdSoc}</span>,
+                    })}
+                    {dcUsed && <> · {dcUsed.length ? dcUsed.map((p) => t(`value.${p}` as MessageKey)).join(', ') : t('route.plugsNoneShort')}</>}
+                  </>
+                )}
               </span>
             </span>
-            <span className="sr-only">{t('route.settings')}</span>
-            <svg className="route-car-chevron" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
+            {!settingsOpen && <span className="sr-only">{t('route.settings')}</span>}
+            <span className="acc-chev" aria-hidden="true" />
           </button>
-          )}
-          {myCar && settingsOpen && (
-            <div id="route-settings" className="route-settings">
+          {settingsOpen && <span className="acc-lane" aria-hidden="true" />}
+          {settingsOpen && (
+            <div id="route-settings" className="route-settings" ref={settingsBox}>
               <div className="tp-pcts">
                 <label>
                   <span className="tp-label">{t('trip.startSoc')}</span>
-                  <input type="number" className="field-input" min={SOC_LIMITS.startMin} max={SOC_LIMITS.startMax} step={5}
+                  <input ref={startIn} type="number" className="field-input" min={SOC_LIMITS.startMin} max={SOC_LIMITS.startMax} step={5}
                     value={trip.startSoc} onChange={(e) => T.setPct('startSoc', e.target.value)} />
                 </label>
                 <label>
                   <span className="tp-label">{t('trip.thresholdSoc')}</span>
-                  <input type="number" className="field-input" min={SOC_LIMITS.thresholdMin} max={SOC_LIMITS.thresholdMax} step={5}
+                  <input ref={minIn} type="number" className="field-input" min={SOC_LIMITS.thresholdMin} max={SOC_LIMITS.thresholdMax} step={5}
                     value={trip.thresholdSoc} onChange={(e) => T.setPct('thresholdSoc', e.target.value)} />
                 </label>
               </div>
               {plugsLine}
-              <button type="button" className="link-btn small" onClick={openCarPicker}>{t('trip.changeCar')}</button>
+              <button type="button" className="route-car-change" onClick={openCarPicker}>
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 13l1.6-4.4A2 2 0 0 1 7.5 7.3h9a2 2 0 0 1 1.9 1.3L20 13M4 13h16v5H4v-5ZM7 18v1.5M17 18v1.5M7.5 15.5h.01M16.5 15.5h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+                <span>{t('trip.changeCar')}</span>
+                <svg className="route-car-change-go" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+              </button>
             </div>
+          )}
+          </div>
           )}
           {(T.opts.avoidTolls || T.opts.avoidHighways) && (
             <p className="small muted route-avoid">
@@ -277,6 +379,8 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           unit={T.unit}
           selected={selectedStop}
           onOpenStop={onOpenStop}
+          selectedSpot={selectedSpot}
+          onOpenSpot={onOpenSpot}
           open={sheetOpen}
           onToggle={() => setSheetOpen((o) => !o)}
           updated={updated}

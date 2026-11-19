@@ -1,7 +1,7 @@
 // The base map's Road Paint look (DESIGN-4, 4.4): every OpenFreeMap layer takes a palette colour,
 // unknown layers are left alone, and the things a driver reads at regional zoom keep their contrast.
 import { describe, expect, it } from 'vitest';
-import { MAP_PALETTE, roadPaintStyle } from '../src/lib/map-style.ts';
+import { DARK_SHIELD, MAP_PALETTE, roadPaintStyle, shieldImage } from '../src/lib/map-style.ts';
 import { contrast } from './contrast-util.ts';
 
 // The layer ids and source layers of OpenFreeMap's "positron" and "dark" styles (read 2026-11-17).
@@ -23,6 +23,8 @@ const style = {
     { id: 'place_village', type: 'symbol', 'source-layer': 'place', paint: { 'text-color': 'rgb(101,101,101)' } },
     { id: 'water_name', type: 'symbol', 'source-layer': 'water_name', paint: { 'text-color': '#000' } },
     { id: 'highway-shield-non-us', type: 'symbol', 'source-layer': 'transportation_name', layout: { 'icon-image': 'road_{ref_length}' } },
+    { id: 'highway_name_other', type: 'symbol', 'source-layer': 'transportation_name', layout: { 'text-field': '{name}', 'text-font': ['Noto Sans Regular'], 'text-size': 10, 'text-transform': 'uppercase', 'symbol-placement': 'line' }, paint: { 'text-color': '#504e4e' } },
+    { id: 'highway-name-major', type: 'symbol', 'source-layer': 'transportation_name', layout: { 'text-field': '{name}', 'text-font': ['Noto Sans Regular'], 'text-size': ['interpolate', ['linear'], ['zoom'], 13, 12, 14, 13] }, paint: { 'text-color': '#666' } },
     { id: 'something_new', type: 'heatmap', paint: { 'heatmap-color': 'red' } },
   ],
 };
@@ -47,8 +49,7 @@ describe('roadPaintStyle', () => {
       expect(paintOf(out, 'place_village')!['text-color']).toBe(p.labelMinor);
       expect(paintOf(out, 'water_name')).toEqual({ 'text-color': p.waterLabel, 'text-halo-color': p.water });
     });
-    it(`${theme}: shields and layers no rule knows are left as they were`, () => {
-      expect(out.layers.find((l) => l.id === 'highway-shield-non-us')).toBe(style.layers.find((l) => l.id === 'highway-shield-non-us'));
+    it(`${theme}: layers no rule knows are left as they were`, () => {
       expect(paintOf(out, 'something_new')).toEqual({ 'heatmap-color': 'red' });
     });
     it(`${theme}: sources and the rest of the style are untouched, and the input is not changed`, () => {
@@ -66,5 +67,28 @@ describe('roadPaintStyle', () => {
   it('the land is the page ground of each theme', () => {
     expect(MAP_PALETTE.dark.land).toBe('#1A1B1E');
     expect(MAP_PALETTE.light.land).toBe('#EEEDE8');
+  });
+
+  it('B89: road names keep their capitals, bold, at least 12 px; shields and places are untouched', () => {
+    const out = roadPaintStyle(style, 'dark');
+    const layoutOf = (id: string) => out.layers.find((l) => l.id === id)!.layout as Record<string, unknown>;
+    expect(layoutOf('highway_name_other')).toMatchObject({ 'text-transform': 'none', 'text-font': ['Noto Sans Bold'], 'text-size': 12, 'symbol-placement': 'line' });
+    expect(layoutOf('highway-name-major')['text-size']).toEqual(['interpolate', ['linear'], ['zoom'], 13, 12, 14, 13]);
+    expect(layoutOf('highway-name-major')['text-font']).toEqual(['Noto Sans Bold']);
+    expect(layoutOf('place_city')).toEqual({ 'text-field': '{name}' });
+  });
+
+  it('B89 round 4: light keeps the sprite shields; dark draws its own dark badge with light text', () => {
+    const light = roadPaintStyle(style, 'light');
+    expect(light.layers.find((l) => l.id === 'highway-shield-non-us')).toBe(style.layers.find((l) => l.id === 'highway-shield-non-us'));
+    const dark = roadPaintStyle(style, 'dark').layers.find((l) => l.id === 'highway-shield-non-us')!;
+    expect(dark.layout).toMatchObject({ 'icon-image': DARK_SHIELD, 'icon-text-fit': 'both' });
+    expect(dark.paint).toMatchObject({ 'text-color': MAP_PALETTE.dark.label });
+    expect(contrast(MAP_PALETTE.dark.label, MAP_PALETTE.dark.major)).toBeGreaterThanOrEqual(4.5);
+    const { image, options } = shieldImage();
+    const px = (x: number, y: number) => [...image.data.slice((y * image.width + x) * 4, (y * image.width + x) * 4 + 4)];
+    expect(px(0, 0)[3]).toBe(0); // rounded corner
+    expect(px(12, 12)).toEqual([0x3F, 0x40, 0x46, 255]); // the badge fill
+    expect(options.stretchX[0][1]).toBeGreaterThan(options.stretchX[0][0]);
   });
 });

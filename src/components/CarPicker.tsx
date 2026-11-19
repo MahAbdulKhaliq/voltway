@@ -9,6 +9,7 @@ import { t, type MessageKey } from '../i18n/t.ts';
 import { DC_PLUGS, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
 import { makeCarSearch, tripReadyFirst } from '../lib/car-search.ts';
 import VariantName from './VariantName.tsx';
+import PlugIcon from './PlugIcon.tsx';
 import type { CarDetail, IndexEntry } from '../lib/types.ts';
 
 interface Props {
@@ -47,6 +48,7 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
   const forCompare = purpose === 'compare';
   const taken = (carId: string) => exclude.includes(carId);
   const Heading = level === 1 ? "h1" : "h2";
+  const Sub = level === 1 ? 'h2' : 'h3';
   const id = useId();
   const search = useMemo(() => makeCarSearch(cars), [cars]);
   const byId = useMemo(() => new Map(cars.map((c) => [c.id, c])), [cars]);
@@ -146,6 +148,11 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
 
       <div className="cp-search">
         <label htmlFor={`${id}-q`} className="cp-label">{t('picker.search')}</label>
+        <div className="cp-search-box">
+        <svg className="cp-search-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5" stroke="currentColor" strokeWidth="2" fill="none" />
+          <path d="M16 16l4.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
         <input
           id={`${id}-q`}
           type="search"
@@ -161,6 +168,7 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={onKey}
         />
+        </div>
         {open && (
           <ul id={listId} role="listbox" className="cp-suggest" aria-label={t('picker.suggestions')}>
             {suggestions.map((s, i) => (
@@ -177,34 +185,36 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
         )}
       </div>
 
-      <p className="cp-or muted small">{t('picker.or')}</p>
-
+      {/* B89 round 3: the steps are one raised panel (design-language §3), numbered; a step's number
+          fills in once it is chosen. The selects take the site's select menus (§4). */}
+      <div className="panel cp-steps-panel">
+      <Sub className="panel-title cp-or">{t('picker.or')}</Sub>
       <div className="cp-steps">
-        <label><span>{t('charging.make')}</span>
+        <label className={make ? 'done' : undefined}><span><span className="cp-step-n" aria-hidden="true">1</span>{t('charging.make')}</span>
           <select className="field-input" value={make} onChange={(e) => setMake(e.target.value)}>
             <option value="">{t('picker.choose')}</option>
             {makes.map((m) => <option key={m} value={m}>{m}</option>)}
           </select>
         </label>
-        <label><span>{t('charging.model')}</span>
+        <label className={model ? 'done' : undefined}><span><span className="cp-step-n" aria-hidden="true">2</span>{t('charging.model')}</span>
           <select className="field-input" value={model} disabled={!make} onChange={(e) => setModel(e.target.value)}>
             <option value="">{t('picker.choose')}</option>
             {models.map((m) => <option key={m} value={m}>{m}</option>)}
           </select>
         </label>
-        <label><span>{t('charging.year')}</span>
+        <label className={year ? 'done' : undefined}><span><span className="cp-step-n" aria-hidden="true">3</span>{t('charging.year')}</span>
           <select className="field-input" value={year} disabled={!model} onChange={(e) => setYear(e.target.value)}>
             <option value="">{t('picker.choose')}</option>
             {years.map((y) => <option key={y} value={y}>{y}</option>)}
           </select>
         </label>
-        <label><span>{t('charging.variant')}</span>
+        <label className={variant ? 'done' : undefined}><span><span className="cp-step-n" aria-hidden="true">4</span>{t('charging.variant')}</span>
           <select className="field-input" value={variant} disabled={!year} onChange={(e) => setVariant(e.target.value)}>
             <option value="">{t('picker.choose')}</option>
             {variants.map((v) => <option key={v.id} value={v.id} disabled={taken(v.id)}>{taken(v.id) ? t('compare.alreadyOption', { name: v.name }) : v.name}</option>)}
           </select>
         </label>
-        {!forCompare && <label><span>{t('picker.trimOptional')}</span>
+        {!forCompare && <label className="cp-trim"><span>{t('picker.trimOptional')}</span>
           <select className="field-input" value={trim} disabled={!variant || trims.length < 2} onChange={(e) => setTrim(e.target.value)}>
             <option value="">{t('picker.trimNotSure')}</option>
             {trims.map((x) => <option key={x.id} value={x.id}>{trimText(x.name, variantName)}</option>)}
@@ -212,10 +222,11 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
         </label>}
       </div>
       {!forCompare && <p className="muted small cp-trim-note">{t('picker.trimNote')}</p>}
+      </div>
 
       {tripTags && variant && (
-        <div className="cp-plugs" role="group" aria-labelledby={`${id}-plugs`}>
-          <p id={`${id}-plugs`} className="cp-label">{t('mycar.plugs')}</p>
+        <div className="panel cp-plugs" role="group" aria-labelledby={`${id}-plugs`}>
+          <Sub id={`${id}-plugs`} className="panel-title">{t('mycar.plugs')}</Sub>
           <div className="cp-plug-row">
             {DC_PLUGS.map((p) => (
               <button
@@ -227,8 +238,9 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
                 className="chip-plug cp-plug"
                 onClick={() => togglePlug(p)}
               >
+                <PlugIcon plug={p} />
+                <span className="cp-plug-name">{t(`value.${p}` as MessageKey)}</span>
                 <span className="switch" aria-hidden="true" />
-                <span>{t(`value.${p}` as MessageKey)}</span>
               </button>
             ))}
           </div>

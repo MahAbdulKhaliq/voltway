@@ -4,95 +4,96 @@ Generated 2026-11-19 by `npm run suggest:catalogue -- --wave 1` (B90, DESIGN-9 �
 
 How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on the rows to keep (all rows of a proposal), edit `trim_ca` / `trim_us` / `variant_id` / `powertrain` where they are wrong, then run `npm run suggest:catalogue -- --wave 1 --apply`. Flags: ⚠ code = NRCan letter code (plant or certification, not a trim name), ⚠ date = mid-year change, ⚠ pair = Canada/US pairing is a guess, ⚠ name = trim name needs a check.
 
-502 proposals from 803 regulator rows (25 mapped models): 341 clean (no ⚠, `check` empty in the CSV), 161 to check.
+504 proposals from 803 regulator rows (25 mapped models): 363 clean (no ⚠, `check` empty in the CSV), 141 to check.
 
 ## bmw/i4
 
-- **2022 CA: eDrive40 · US: eDrive40 Gran Coupe** → `bmw/i4/2022/edrive40` [CA, US] rwd · wheels 18/19″ · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (250 kW)
+- **2022 CA: eDrive40 · US: eDrive40** → `bmw/i4/2022/edrive40` [CA, US] rwd · wheels 18/19″ · powertrain new
   - NRCan: i4 eDrive40 (18" Wheels)
   - NRCan: i4 eDrive40 (19" Wheels)
   - EPA: i4 eDrive40 Gran Coupe (18 inch wheels)
   - EPA: i4 eDrive40 Gran Coupe (19 inch wheels)
-- **2022 CA: M50 xDrive · US: M50 Gran Coupe** → `bmw/i4/2022/m50-xdrive` [CA, US] awd · wheels 19/20″ · powertrain new · names: regulator wording · ⚠ pair: only one candidate each side, words differ
+- **2022 CA: M50 · US: M50** → `bmw/i4/2022/m50` [CA, US] awd · wheels 19/20″ · powertrain new
   - NRCan: i4 M50 xDrive (19" Wheels)
   - NRCan: i4 M50 xDrive (20" Wheels)
   - EPA: i4 M50 Gran Coupe (19 inch wheels)
   - EPA: i4 M50 Gran Coupe (20 inch wheels)
-- **2023 CA: eDrive35 Gran Coupe · US: eDrive35 Gran Coupe** → `bmw/i4/2023/edrive35-gran-coupe` [CA, US] rwd · wheels 18/19″ · powertrain new · names: regulator wording
+- **2023 CA: eDrive35 · US: eDrive35** → `bmw/i4/2023/edrive35` [CA, US] rwd · wheels 18/19″ · powertrain new
   - NRCan: i4 eDrive35 Gran Coupe (18" Wheels)
   - NRCan: i4 eDrive35 Gran Coupe (19" Wheels)
   - EPA: i4 eDrive35 Gran Coupe (18 inch Wheels)
   - EPA: i4 eDrive35 Gran Coupe (19 inch Wheels)
-- **2023 CA: eDrive40 Gran Coupe · US: eDrive40 Gran Coupe** → `bmw/i4/2023/edrive40-gran-coupe` [CA, US] rwd · wheels 18/19″ · powertrain bmw/i4/2026-edrive40-gran-coupe · names: regulator wording · ⚠ powertrain: same name as bmw/i4/2026/edrive40-gran-coupe; check the pack didn't change
+- **2023 CA: eDrive40 · US: eDrive40** → `bmw/i4/2023/edrive40` [CA, US] rwd · wheels 18/19″ · powertrain new
   - NRCan: i4 eDrive40 Gran Coupe (18" Wheels)
   - NRCan: i4 eDrive40 Gran Coupe (19" Wheels)
   - EPA: i4 eDrive40 Gran Coupe (18 inch wheels)
   - EPA: i4 eDrive40 Gran Coupe (19 inch Wheels)
-- **2023 CA: M50 Gran Coupe · US: M50 Gran Coupe** → `bmw/i4/2023/m50-gran-coupe` [CA, US] awd · wheels 19/20″ · powertrain new · names: regulator wording
+- **2023 CA: M50 · US: M50** → `bmw/i4/2023/m50` [CA, US] awd · wheels 19/20″ · powertrain new
   - NRCan: i4 M50 Gran Coupe (19" Wheels)
   - NRCan: i4 M50 Gran Coupe (20" Wheels)
   - EPA: i4 M50 Gran Coupe (19 inch wheels)
   - EPA: i4 M50 Gran Coupe (20 inch wheels)
-- **2024 CA: eDrive35 Gran Coupe · US: eDrive35 Gran Coupe** → `bmw/i4/2024/edrive35-gran-coupe` [CA, US] rwd · wheels 18/19″ · powertrain new · names: regulator wording
+- **2024 CA: eDrive35 · US: eDrive35** → `bmw/i4/2024/edrive35` [CA, US] rwd · wheels 18/19″ · powertrain new
   - NRCan: i4 eDrive35 Gran Coupe (18" Wheels)
   - NRCan: i4 eDrive35 Gran Coupe (19" Wheels)
   - EPA: i4 eDrive35 Gran Coupe (18 inch Wheels)
   - EPA: i4 eDrive35 Gran Coupe (19 inch Wheels)
-- **2024 CA: eDrive40 Gran Coupe · US: eDrive40 Gran Coupe** → `bmw/i4/2024/edrive40-gran-coupe` [CA, US] rwd · wheels 18/19″ · powertrain bmw/i4/2026-edrive40-gran-coupe · names: regulator wording · ⚠ powertrain: same name as bmw/i4/2026/edrive40-gran-coupe; check the pack didn't change
+- **2024 CA: eDrive40 · US: eDrive40** → `bmw/i4/2024/edrive40` [CA, US] rwd · wheels 18/19″ · powertrain new
   - NRCan: i4 eDrive40 Gran Coupe (18" Wheels)
   - NRCan: i4 eDrive40 Gran Coupe (19" Wheels)
   - EPA: i4 eDrive40 Gran Coupe (18 inch Wheels)
   - EPA: i4 eDrive40 Gran Coupe (19 inch Wheels)
-- **2024 CA: M50 Gran Coupe · US: M50 Gran Coupe** → `bmw/i4/2024/m50-gran-coupe` [CA, US] awd · wheels 19/20″ · powertrain new · names: regulator wording
+- **2024 CA: M50 · US: M50 xDrive** → `bmw/i4/2024/m50` [CA, US] awd · wheels 19/20″ · powertrain new
   - NRCan: i4 M50 Gran Coupe (19" Wheels)
   - NRCan: i4 M50 Gran Coupe (20" Wheels)
   - EPA: i4 M50 Gran Coupe (19 inch wheels)
   - EPA: i4 M50 Gran Coupe (20 inch wheels)
-- **2024 CA: xDrive40 Gran Coupe · US: xDrive40 Gran Coupe** → `bmw/i4/2024/xdrive40-gran-coupe` [CA, US] awd · wheels 18/19″ · powertrain bmw/i4/2026-xdrive40-gran-coupe · names: regulator wording · ⚠ powertrain: same name as bmw/i4/2026/xdrive40-gran-coupe; check the pack didn't change
+- **2024 CA: xDrive40 · US: xDrive40** → `bmw/i4/2024/xdrive40` [CA, US] awd · wheels 18/19″ · powertrain new
   - NRCan: i4 xDrive40 Gran Coupe (18" Wheels)
   - NRCan: i4 xDrive40 Gran Coupe (19" Wheels)
   - EPA: i4 xDrive40 Gran Coupe (18 inch Wheels)
   - EPA: i4 xDrive40 Gran Coupe (19 inch Wheels)
-- **2025 CA: eDrive35 Gran Coupe · US: eDrive35 Gran Coupe** → `bmw/i4/2025/edrive35-gran-coupe` [CA, US] rwd · wheels 18/19″ · powertrain new · names: regulator wording
+- **2025 CA: eDrive35** → `bmw/i4/2025/edrive35` [CA] rwd · wheels 18/19″ · powertrain new
   - NRCan: i4 eDrive35 Gran Coupe (18" Wheels)
   - NRCan: i4 eDrive35 Gran Coupe (19" Wheels)
-  - EPA: i4 eDrive35 Gran Coupe (18 inch Wheels)
-  - EPA: i4 eDrive35 Gran Coupe (19 inch Wheels)
-- **2025 CA: eDrive40 Gran Coupe · US: eDrive40 Gran Coupe** → `bmw/i4/2025/edrive40-gran-coupe` [CA, US] rwd · wheels 18/19″ · powertrain bmw/i4/2026-edrive40-gran-coupe · names: regulator wording · ⚠ powertrain: same name as bmw/i4/2026/edrive40-gran-coupe; check the pack didn't change
+- **2025 CA: eDrive40 · US: eDrive40** → `bmw/i4/2025/edrive40` [CA, US] rwd · wheels 18/19″ · powertrain new
   - NRCan: i4 eDrive40 Gran Coupe (18" Wheels)
   - NRCan: i4 eDrive40 Gran Coupe (19" Wheels)
   - EPA: i4 eDrive40 Gran Coupe (18 inch wheels)
   - EPA: i4 eDrive40 Gran Coupe (19 inch Wheels)
-- **2025 CA: M50 xDrive Gran Coupe · US: M50 Gran Coupe** → `bmw/i4/2025/m50-xdrive-gran-coupe` [CA, US] awd · wheels 19/20″ · powertrain new · names: regulator wording
+- **2025 CA: M50 xDrive · US: M50 xDrive** → `bmw/i4/2025/m50-xdrive` [CA, US] awd · wheels 19/20″ · powertrain new
   - NRCan: i4 M50 xDrive Gran Coupe (19" Wheels)
   - NRCan: i4 M50 xDrive Gran Coupe (20" Wheels)
   - EPA: i4 M50 Gran Coupe (19 inch wheels)
   - EPA: i4 M50 Gran Coupe (20 inch wheels)
-- **2025 CA: xDrive40 Gran Coupe · US: xDrive40 Gran Coupe** → `bmw/i4/2025/xdrive40-gran-coupe` [CA, US] awd · wheels 18/19″ · powertrain bmw/i4/2026-xdrive40-gran-coupe · names: regulator wording · ⚠ powertrain: same name as bmw/i4/2026/xdrive40-gran-coupe; check the pack didn't change
+- **2025 CA: xDrive40 · US: xDrive40** → `bmw/i4/2025/xdrive40` [CA, US] awd · wheels 18/19″ · powertrain new
   - NRCan: i4 xDrive40 Gran Coupe (18" Wheels)
   - NRCan: i4 xDrive40 Gran Coupe (19" Wheels)
   - EPA: i4 xDrive40 Gran Coupe (18 inch Wheels)
   - EPA: i4 xDrive40 Gran Coupe (19 inch Wheels)
+- **2025 US: eDrive35 Gran Coupe** → `bmw/i4/2025/edrive35-gran-coupe` [US] rwd · wheels 18/19″ · powertrain new · names: regulator wording
+  - EPA: i4 eDrive35 Gran Coupe (18 inch Wheels)
+  - EPA: i4 eDrive35 Gran Coupe (19 inch Wheels)
 - **2026 US: eDrive35 Gran Coupe** → `bmw/i4/2026/edrive35-gran-coupe` [US] rwd · wheels 19″ · powertrain new · names: regulator wording
   - EPA: i4 eDrive35 Gran Coupe (19 inch Wheels)
-- **2026 US: eDrive40 Gran Coupe** → `bmw/i4/2026/edrive40-gran-coupe` [US] rwd · wheels 18/19″ · powertrain bmw/i4/2026-edrive40-gran-coupe · names: regulator wording · ⚠ existing: joins bmw/i4/2026/edrive40-gran-coupe by motor power (250 kW); names differ
+- **2026 US: eDrive40** → `bmw/i4/2026/edrive40-gran-coupe` [US] rwd · wheels 18/19″ · powertrain bmw/i4/2026-edrive40-gran-coupe
   - EPA: i4 eDrive40 Gran Coupe (18 inch wheels)
   - EPA: i4 eDrive40 Gran Coupe (19 inch Wheels)
-- **2026 US: M60 xDrive Gran Coupe** → `bmw/i4/2026/m60-xdrive-gran-coupe` [US] awd · wheels 19/20″ · powertrain bmw/i4/2026-m60-xdrive-gran-coupe · names: regulator wording
+- **2026 US: M60** → `bmw/i4/2026/m60-xdrive-gran-coupe` [US] awd · wheels 19/20″ · powertrain bmw/i4/2026-m60-xdrive-gran-coupe
   - EPA: i4 M60 xDrive Gran Coupe (19 inch Wheels)
   - EPA: i4 M60 xDrive Gran Coupe (20 inch Wheels)
-- **2026 US: xDrive40 Gran Coupe** → `bmw/i4/2026/xdrive40-gran-coupe` [US] awd · wheels 18/19″ · powertrain new · names: regulator wording
+- **2026 US: xDrive40** → `bmw/i4/2026/xdrive40-gran-coupe` [US] awd · wheels 18/19″ · powertrain bmw/i4/2026-xdrive40-gran-coupe
   - EPA: i4 xDrive40 Gran Coupe (18 inch Wheels)
   - EPA: i4 xDrive40 Gran Coupe (19 inch Wheels)
 ## cadillac/lyriq
 
-- **2023 CA: Standard · US: RWD** → `cadillac/lyriq/2023/standard` [CA, US] rwd · powertrain cadillac/lyriq/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as cadillac/lyriq/2026/standard; check the pack didn't change
+- **2023 CA: RWD · US: RWD** → `cadillac/lyriq/2023/rwd` [CA, US] rwd · powertrain new
   - NRCan: LYRIQ
   - EPA: LYRIQ
-- **2023 CA: AWD · US: AWD** → `cadillac/lyriq/2023/awd` [CA, US] awd · powertrain cadillac/lyriq/2026-awd · names: regulator wording · ⚠ powertrain: same name as cadillac/lyriq/2026/awd; check the pack didn't change
+- **2023 CA: AWD · US: AWD** → `cadillac/lyriq/2023/awd` [CA, US] awd · powertrain cadillac/lyriq/2026-awd · ⚠ powertrain: same name as cadillac/lyriq/2026/awd; check the pack didn't change
   - NRCan: LYRIQ AWD
   - EPA: LYRIQ AWD
-- **2024 CA: Standard · US: RWD** → `cadillac/lyriq/2024/standard` [CA, US] rwd · powertrain cadillac/lyriq/2026-standard · names: regulator wording · ⚠ charger 11.5 kW on one row (trim onboard charger); name: no trim words in the regulator label; charger 19.2 kW on one row (trim onboard charger); powertrain: same name as cadillac/lyriq/2026/standard; check the pack didn't change
+- **2024 CA: RWD · US: RWD** → `cadillac/lyriq/2024/rwd` [CA, US] rwd · powertrain new · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger)
   - NRCan: LYRIQ (11.5 kW Charger)
   - NRCan: LYRIQ (19.2 kW Charger)
   - EPA: LYRIQ
@@ -100,7 +101,7 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - NRCan: LYRIQ AWD (11.5 kW Charger)
   - NRCan: LYRIQ AWD (19.2 kW Charger)
   - EPA: LYRIQ AWD
-- **2025 CA: Standard · US: RWD** → `cadillac/lyriq/2025/standard` [CA, US] rwd · powertrain cadillac/lyriq/2026-standard · names: regulator wording · ⚠ charger 11.5 kW on one row (trim onboard charger); name: no trim words in the regulator label; charger 19.2 kW on one row (trim onboard charger); powertrain: same name as cadillac/lyriq/2026/standard; check the pack didn't change
+- **2025 CA: RWD · US: RWD** → `cadillac/lyriq/2025/rwd` [CA, US] rwd · powertrain new · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger)
   - NRCan: LYRIQ (11.5 kW Charger)
   - NRCan: LYRIQ (19.2 kW Charger)
   - EPA: LYRIQ
@@ -109,77 +110,73 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - NRCan: LYRIQ AWD (19.2 kW Charger)
   - EPA: LYRIQ AWD (11 kW Charger)
   - EPA: LYRIQ AWD (19 kW Charger)
-- **2026 US: RWD** → `cadillac/lyriq/2026/standard` [US] rwd · powertrain cadillac/lyriq/2026-standard · names: regulator wording · ⚠ charger 11 kW on one row (trim onboard charger); name: no trim words in the regulator label; charger 19 kW on one row (trim onboard charger); existing: joins cadillac/lyriq/2026/standard by motor power (255 kW); names differ
+- **2026 US: RWD** → `cadillac/lyriq/2026/standard` [US] rwd · powertrain cadillac/lyriq/2026-standard · ⚠ charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger); existing: joins cadillac/lyriq/2026/standard by motor power (255 kW); names differ
   - EPA: LYRIQ (11 kW Charger)
   - EPA: LYRIQ (19 kW Charger)
 - **2026 US: AWD** → `cadillac/lyriq/2026/awd` [US] awd · powertrain new · names: regulator wording
   - EPA: LYRIQ AWD
 - **2026 US: PAWD** → `cadillac/lyriq/2026/pawd` [US] awd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as cadillac/lyriq/2026/awd, cadillac/lyriq/2026/v, but another 2026 row has it too
   - EPA: LYRIQ PAWD
-- **2026 US: PAWD V SERIES** → `cadillac/lyriq/2026/pawd-v-series` [US] awd · powertrain new · names: regulator wording · ⚠ charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger); existing?: same motor power as cadillac/lyriq/2026/awd, cadillac/lyriq/2026/v, but another 2026 row has it too
+- **2026 US: LYRIQ-V** → `cadillac/lyriq/2026/lyriq-v` [US] awd · powertrain new · ⚠ charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger); existing?: same motor power as cadillac/lyriq/2026/awd, cadillac/lyriq/2026/v, but another 2026 row has it too
   - EPA: LYRIQ PAWD V SERIES (11 kW Charger)
   - EPA: LYRIQ PAWD V SERIES (19 kW Charger)
-- **2027 US: 11kW Charger** → `cadillac/lyriq/2027/11kw-charger` [US] rwd · powertrain new · names: regulator wording
+- **2027 US: RWD** → `cadillac/lyriq/2027/rwd` [US] rwd · powertrain new
   - EPA: LYRIQ 11kW Charger
-- **2027 US: 19kW Charger** → `cadillac/lyriq/2027/19kw-charger` [US] rwd · powertrain new · names: regulator wording
   - EPA: LYRIQ 19kW Charger
 - **2027 US: AWD 11kW Charger** → `cadillac/lyriq/2027/awd-11kw-charger` [US] awd · powertrain new · names: regulator wording
   - EPA: LYRIQ AWD 11kW Charger
 - **2027 US: AWD 19kW Charger** → `cadillac/lyriq/2027/awd-19kw-charger` [US] awd · powertrain new · names: regulator wording
   - EPA: LYRIQ AWD 19kW Charger
-- **2027 US: AWD V SERIES 11kW Charger** → `cadillac/lyriq/2027/awd-v-series-11kw-charger` [US] awd · powertrain new · names: regulator wording
+- **2027 US: LYRIQ-V** → `cadillac/lyriq/2027/lyriq-v` [US] awd · powertrain new
   - EPA: LYRIQ AWD V SERIES 11kW Charger
-- **2027 US: AWD V SERIES 19kW Charger** → `cadillac/lyriq/2027/awd-v-series-19kw-charger` [US] awd · powertrain new · names: regulator wording
   - EPA: LYRIQ AWD V SERIES 19kW Charger
 ## chevrolet/blazer-ev
 
-- **2024 CA: 2LT/RS AWD** → `chevrolet/blazer-ev/2024/2lt-rs-awd` [CA] awd · powertrain new · names: regulator wording
+- **2024 CA: AWD · US: AWD** → `chevrolet/blazer-ev/2024/awd` [CA, US] awd · powertrain new
   - NRCan: Blazer EV 2LT/RS AWD
-- **2024 CA: RS · US: RWD** → `chevrolet/blazer-ev/2024/rs` [CA, US] rwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (255 kW)
-  - NRCan: Blazer EV RS
-  - EPA: Blazer EV RWD
-- **2024 US: AWD** → `chevrolet/blazer-ev/2024/awd` [US] awd · powertrain new · names: regulator wording
   - EPA: Blazer EV AWD
+- **2024 CA: RS RWD** → `chevrolet/blazer-ev/2024/rs-rwd` [CA] rwd · powertrain new
+  - NRCan: Blazer EV RS
+- **2024 US: RWD** → `chevrolet/blazer-ev/2024/rwd` [US] rwd · powertrain new
+  - EPA: Blazer EV RWD
 - **2025 CA: Standard · US: FWD** → `chevrolet/blazer-ev/2025/standard` [CA, US] fwd · wheels 22″ · powertrain chevrolet/blazer-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as chevrolet/blazer-ev/2026/standard; check the pack didn't change
   - NRCan: Blazer EV
   - NRCan: Blazer EV (22" Wheels)
   - EPA: Blazer EV FWD
-- **2025 CA: LT/RS AWD · US: AWD** → `chevrolet/blazer-ev/2025/lt-rs-awd` [CA, US] awd · powertrain chevrolet/blazer-ev/2026-lt-rs-awd · names: regulator wording · ⚠ pair: names differ, same motor power (247 kW); powertrain: same name as chevrolet/blazer-ev/2026/lt-rs-awd; check the pack didn't change
+  - EPA: Blazer EV FWD 22 inch tire
+- **2025 CA: AWD · US: AWD** → `chevrolet/blazer-ev/2025/awd` [CA, US] awd · powertrain new
   - NRCan: Blazer EV LT/RS AWD
   - EPA: Blazer EV AWD
-- **2025 CA: RWD · US: RWD** → `chevrolet/blazer-ev/2025/rwd` [CA, US] rwd · powertrain new · names: regulator wording
+- **2025 CA: RS RWD** → `chevrolet/blazer-ev/2025/rs-rwd` [CA] rwd · powertrain new
   - NRCan: Blazer EV RWD
-  - EPA: Blazer EV RWD
-- **2025 CA: SS AWD · US: AWD SS** → `chevrolet/blazer-ev/2025/ss-awd` [CA, US] awd · powertrain chevrolet/blazer-ev/2026-ss-awd · names: regulator wording · ⚠ powertrain: same name as chevrolet/blazer-ev/2026/ss-awd; check the pack didn't change
+- **2025 CA: SS AWD · US: SS** → `chevrolet/blazer-ev/2025/ss-awd` [CA, US] awd · powertrain chevrolet/blazer-ev/2026-ss-awd · ⚠ powertrain: same name as chevrolet/blazer-ev/2026/ss-awd; check the pack didn't change
   - NRCan: Blazer EV SS AWD
   - EPA: Blazer EV AWD SS
-- **2025 US: FWD 22 inch tire** → `chevrolet/blazer-ev/2025/fwd-22-inch-tire` [US] fwd · powertrain new · names: regulator wording
-  - EPA: Blazer EV FWD 22 inch tire
-- **2026 US: AWD** → `chevrolet/blazer-ev/2026/awd` [US] awd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as chevrolet/blazer-ev/2026/lt-rs-awd, but another 2026 row has it too
+- **2025 US: RWD** → `chevrolet/blazer-ev/2025/rwd` [US] rwd · powertrain new
+  - EPA: Blazer EV RWD
+- **2026 US: AWD** → `chevrolet/blazer-ev/2026/awd` [US] awd · powertrain new · ⚠ existing?: same motor power as chevrolet/blazer-ev/2026/lt-rs-awd, but another 2026 row has it too
   - EPA: Blazer EV AWD
-- **2026 US: AWD SS** → `chevrolet/blazer-ev/2026/ss-awd` [US] awd · powertrain chevrolet/blazer-ev/2026-ss-awd · names: regulator wording
+- **2026 US: SS** → `chevrolet/blazer-ev/2026/ss-awd` [US] awd · powertrain chevrolet/blazer-ev/2026-ss-awd
   - EPA: Blazer EV AWD SS
-- **2026 US: FWD** → `chevrolet/blazer-ev/2026/fwd` [US] fwd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as chevrolet/blazer-ev/2026/standard, but another 2026 row has it too
+- **2026 US: FWD** → `chevrolet/blazer-ev/2026/standard` [US] fwd · powertrain chevrolet/blazer-ev/2026-standard · ⚠ existing: joins chevrolet/blazer-ev/2026/standard by motor power (180 kW); names differ
   - EPA: Blazer EV FWD
-- **2026 US: FWD 22 inch tire** → `chevrolet/blazer-ev/2026/fwd-22-inch-tire` [US] fwd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as chevrolet/blazer-ev/2026/standard, but another 2026 row has it too
   - EPA: Blazer EV FWD 22 inch tire
-- **2027 US: AWD** → `chevrolet/blazer-ev/2027/awd` [US] awd · powertrain new · names: regulator wording
+- **2027 US: AWD** → `chevrolet/blazer-ev/2027/awd` [US] awd · powertrain new
   - EPA: Blazer EV AWD
-- **2027 US: AWD SS** → `chevrolet/blazer-ev/2027/awd-ss` [US] awd · powertrain new · names: regulator wording
+- **2027 US: SS** → `chevrolet/blazer-ev/2027/ss` [US] awd · powertrain new
   - EPA: Blazer EV AWD SS
-- **2027 US: FWD** → `chevrolet/blazer-ev/2027/fwd` [US] fwd · powertrain new · names: regulator wording
+- **2027 US: FWD** → `chevrolet/blazer-ev/2027/fwd` [US] fwd · powertrain new
   - EPA: Blazer EV FWD
-- **2027 US: FWD 22 inch tire** → `chevrolet/blazer-ev/2027/fwd-22-inch-tire` [US] fwd · powertrain new · names: regulator wording
   - EPA: Blazer EV FWD 22 inch tire
 ## chevrolet/equinox-ev
 
-- **2024 CA: Standard · US: FWD** → `chevrolet/equinox-ev/2024/standard` [CA, US] fwd · powertrain chevrolet/equinox-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as chevrolet/equinox-ev/2026/standard; check the pack didn't change
+- **2024 CA: FWD · US: FWD** → `chevrolet/equinox-ev/2024/fwd` [CA, US] fwd · powertrain new
   - NRCan: Equinox EV
   - EPA: Equinox EV FWD
 - **2024 CA: AWD · US: AWD** → `chevrolet/equinox-ev/2024/awd` [CA, US] awd · powertrain chevrolet/equinox-ev/2026-awd · names: regulator wording · ⚠ powertrain: same name as chevrolet/equinox-ev/2026/awd; check the pack didn't change
   - NRCan: Equinox EV AWD
   - EPA: Equinox EV AWD
-- **2025 CA: Standard · US: FWD** → `chevrolet/equinox-ev/2025/standard` [CA, US] fwd · powertrain chevrolet/equinox-ev/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as chevrolet/equinox-ev/2026/standard; check the pack didn't change
+- **2025 CA: FWD · US: FWD** → `chevrolet/equinox-ev/2025/fwd` [CA, US] fwd · powertrain new
   - NRCan: Equinox EV
   - EPA: Equinox EV FWD
 - **2025 CA: AWD · US: AWD** → `chevrolet/equinox-ev/2025/awd` [CA, US] awd · powertrain chevrolet/equinox-ev/2026-awd · names: regulator wording · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger); charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger); powertrain: same name as chevrolet/equinox-ev/2026/awd; check the pack didn't change
@@ -190,31 +187,31 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2026 US: AWD** → `chevrolet/equinox-ev/2026/awd` [US] awd · powertrain chevrolet/equinox-ev/2026-awd · names: regulator wording · ⚠ charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger); existing: joins chevrolet/equinox-ev/2026/awd by motor power (247 kW); names differ
   - EPA: Equinox EV AWD (11 kW Charger)
   - EPA: Equinox EV AWD (19 kW Charger)
-- **2026 US: FWD** → `chevrolet/equinox-ev/2026/standard` [US] fwd · powertrain chevrolet/equinox-ev/2026-standard · names: regulator wording · ⚠ existing: joins chevrolet/equinox-ev/2026/standard by motor power (180 kW); names differ
+- **2026 US: FWD** → `chevrolet/equinox-ev/2026/standard` [US] fwd · powertrain chevrolet/equinox-ev/2026-standard · ⚠ existing: joins chevrolet/equinox-ev/2026/standard by motor power (180 kW); names differ
   - EPA: Equinox EV FWD
 - **2027 US: AWD** → `chevrolet/equinox-ev/2027/awd` [US] awd · powertrain chevrolet/equinox-ev/2026-awd · names: regulator wording · ⚠ powertrain: same name as chevrolet/equinox-ev/2026/awd; check the pack didn't change
   - EPA: Equinox EV AWD
-- **2027 US: FWD** → `chevrolet/equinox-ev/2027/fwd` [US] fwd · powertrain new · names: regulator wording
+- **2027 US: FWD** → `chevrolet/equinox-ev/2027/fwd` [US] fwd · powertrain new
   - EPA: Equinox EV FWD
 ## chevrolet/silverado-ev
 
-- **2024 CA: 3WT** → `chevrolet/silverado-ev/2024/3wt` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2024 CA: 3WT** → `chevrolet/silverado-ev/2024/3wt` [CA] drivetrain ? · powertrain new
   - NRCan: Silverado EV 3WT
-- **2024 CA: 4WT** → `chevrolet/silverado-ev/2024/4wt` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2024 CA: 4WT** → `chevrolet/silverado-ev/2024/4wt` [CA] drivetrain ? · powertrain new
   - NRCan: Silverado EV 4WT
 - **2024 US: AWD** → `chevrolet/silverado-ev/2024/awd` [US] awd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
   - EPA: Silverado EV
   - EPA: Silverado EV
-- **2025 CA: LT Ext Range** → `chevrolet/silverado-ev/2025/lt-ext-range` [CA] drivetrain ? · powertrain chevrolet/silverado-ev/2026-lt-ext-range · names: regulator wording · ⚠ charger 11.5 kW on one row (trim onboard charger); powertrain: same name as chevrolet/silverado-ev/2026/lt-ext-range; check the pack didn't change
+- **2025 CA: LT Extended Range** → `chevrolet/silverado-ev/2025/lt-extended-range` [CA] drivetrain ? · powertrain new · ⚠ charger 11.5 kW on one row (trim onboard charger)
   - NRCan: Silverado EV LT Ext Range (11.5 kW Charger)
-- **2025 CA: LT/RST Ext Range** → `chevrolet/silverado-ev/2025/lt-rst-ext-range` [CA] drivetrain ? · powertrain new · names: regulator wording · ⚠ charger 19.2 kW on one row (trim onboard charger)
+- **2025 CA: LT/RST Extended Range** → `chevrolet/silverado-ev/2025/lt-rst-extended-range` [CA] drivetrain ? · powertrain new · ⚠ charger 19.2 kW on one row (trim onboard charger)
   - NRCan: Silverado EV LT/RST Ext Range (19.2 kW Charger)
-- **2025 CA: WT Ext Range** → `chevrolet/silverado-ev/2025/wt-ext-range` [CA] drivetrain ? · powertrain chevrolet/silverado-ev/2026-wt-ext-range · names: regulator wording · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger); powertrain: same name as chevrolet/silverado-ev/2026/wt-ext-range; check the pack didn't change
+- **2025 CA: WT Extended Range** → `chevrolet/silverado-ev/2025/wt-extended-range` [CA] drivetrain ? · powertrain new · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger)
   - NRCan: Silverado EV WT Ext Range (11.5 kW Charger)
   - NRCan: Silverado EV WT Ext Range (19.2 kW Charger)
-- **2025 CA: WT Max Range** → `chevrolet/silverado-ev/2025/wt-max-range` [CA] drivetrain ? · powertrain chevrolet/silverado-ev/2026-wt-max-range · names: regulator wording · ⚠ charger 19.2 kW on one row (trim onboard charger); powertrain: same name as chevrolet/silverado-ev/2026/wt-max-range; check the pack didn't change
+- **2025 CA: WT Max Range** → `chevrolet/silverado-ev/2025/wt-max-range` [CA] drivetrain ? · powertrain chevrolet/silverado-ev/2026-wt-max-range · ⚠ charger 19.2 kW on one row (trim onboard charger); powertrain: same name as chevrolet/silverado-ev/2026/wt-max-range; check the pack didn't change
   - NRCan: Silverado EV WT Max Range (19.2 kW Charger)
-- **2025 CA: WT Std Range** → `chevrolet/silverado-ev/2025/wt-std-range` [CA] drivetrain ? · powertrain chevrolet/silverado-ev/2026-wt-std-range · names: regulator wording · ⚠ powertrain: same name as chevrolet/silverado-ev/2026/wt-std-range; check the pack didn't change
+- **2025 CA: WT Standard Range** → `chevrolet/silverado-ev/2025/wt-standard-range` [CA] drivetrain ? · powertrain new
   - NRCan: Silverado EV WT Std Range
 - **2025 US: AWD** → `chevrolet/silverado-ev/2025/awd` [US] awd · powertrain new · names: regulator wording · ⚠ charger 11 kW on one row (trim onboard charger); name: no trim words in the regulator label; charger 19 kW on one row (trim onboard charger)
   - EPA: Silverado EV (11 kW Charger)
@@ -226,16 +223,16 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Silverado EV 5WT (19 kW Charger)
 - **2025 US: 8WT** → `chevrolet/silverado-ev/2025/8wt` [US] awd · powertrain new · names: regulator wording
   - EPA: Silverado EV 8WT
-- **2026 US: Ext Range** → `chevrolet/silverado-ev/2026/wt-ext-range` [US] awd · powertrain chevrolet/silverado-ev/2026-wt-ext-range · names: regulator wording · ⚠ charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger)
+- **2026 US: Extended Range** → `chevrolet/silverado-ev/2026/extended-range` [US] awd · powertrain new · ⚠ charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger)
   - EPA: Silverado EV Ext Range (11kW Charger)
   - EPA: Silverado EV Ext Range (19kW Charger)
-- **2026 US: Ext Range WT** → `chevrolet/silverado-ev/2026/wt-ext-range` [US] awd · powertrain chevrolet/silverado-ev/2026-wt-ext-range · names: regulator wording
+- **2026 US: Extended Range Work Truck** → `chevrolet/silverado-ev/2026/extended-range-work-truck` [US] awd · powertrain new
   - EPA: Silverado EV Ext Range WT
-- **2026 US: Max Range WT** → `chevrolet/silverado-ev/2026/wt-max-range` [US] awd · powertrain chevrolet/silverado-ev/2026-wt-max-range · names: regulator wording · ⚠ charger 19 kW on one row (trim onboard charger)
+- **2026 US: Max Range Work Truck** → `chevrolet/silverado-ev/2026/max-range-work-truck` [US] awd · powertrain new · ⚠ charger 19 kW on one row (trim onboard charger)
   - EPA: Silverado EV Max Range WT (19kW Charger)
-- **2026 US: Std Range** → `chevrolet/silverado-ev/2026/lt-std-range` [US] awd · powertrain chevrolet/silverado-ev/2026-lt-std-range · names: regulator wording · ⚠ charger 11 kW on one row (trim onboard charger)
+- **2026 US: Standard Range LT** → `chevrolet/silverado-ev/2026/lt-std-range` [US] awd · powertrain chevrolet/silverado-ev/2026-lt-std-range · ⚠ charger 11 kW on one row (trim onboard charger)
   - EPA: Silverado EV Std Range (11kW Charger)
-- **2026 US: Std Range WT** → `chevrolet/silverado-ev/2026/wt-std-range` [US] awd · powertrain chevrolet/silverado-ev/2026-wt-std-range · names: regulator wording · ⚠ charger 11 kW on one row (trim onboard charger)
+- **2026 US: Standard Range Work Truck** → `chevrolet/silverado-ev/2026/standard-range-work-truck` [US] awd · powertrain new · ⚠ charger 11 kW on one row (trim onboard charger)
   - EPA: Silverado EV Std Range WT (11kW Charger)
 - **2027 US: Ext Range** → `chevrolet/silverado-ev/2027/ext-range` [US] awd · powertrain new · names: regulator wording · ⚠ charger 11 kW on one row (trim onboard charger)
   - EPA: Silverado EV Ext Range (11kW Chgr)
@@ -250,30 +247,32 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2022 CA: Extended Range · US: 4WD Extended Range** → `ford/f-150-lightning/2022/extended-range` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: F-150 Lightning Extended Range
   - EPA: F-150 Lightning 4WD Extended Range
-- **2022 CA: Platinum · US: Platinum 4WD** → `ford/f-150-lightning/2022/platinum` [CA, US] awd · powertrain ford/f-150-lightning/2025-platinum · names: regulator wording · ⚠ powertrain: same name as ford/f-150-lightning/2025/platinum; check the pack didn't change
+- **2022 CA: Platinum Extended Range** → `ford/f-150-lightning/2022/platinum-extended-range` [CA] drivetrain ? · powertrain new
   - NRCan: F-150 Lightning Platinum
-  - EPA: F-150 Lightning Platinum 4WD
-- **2022 CA: Standard Range** → `ford/f-150-lightning/2022/standard-range` [CA] drivetrain ? · powertrain ford/f-150-lightning/2025-standard-range · names: regulator wording · ⚠ powertrain: same name as ford/f-150-lightning/2025/standard-range; check the pack didn't change
+- **2022 CA: Standard Range** → `ford/f-150-lightning/2022/standard-range` [CA] drivetrain ? · powertrain ford/f-150-lightning/2025-standard-range · ⚠ powertrain: same name as ford/f-150-lightning/2025/standard-range; check the pack didn't change
   - NRCan: F-150 Lightning Standard Range
 - **2022 US: 4WD** → `ford/f-150-lightning/2022/4wd` [US] awd · powertrain new · names: regulator wording
   - EPA: F-150 Lightning 4WD
+- **2022 US: Platinum** → `ford/f-150-lightning/2022/platinum` [US] awd · powertrain ford/f-150-lightning/2025-platinum · ⚠ powertrain: same name as ford/f-150-lightning/2025/platinum; check the pack didn't change
+  - EPA: F-150 Lightning Platinum 4WD
 - **2023 CA: Extended Range · US: 4WD Extended Range** → `ford/f-150-lightning/2023/extended-range` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: F-150 Lightning Extended Range
   - EPA: F-150 Lightning 4WD Extended Range
-- **2023 CA: Platinum · US: Platinum 4WD** → `ford/f-150-lightning/2023/platinum` [CA, US] awd · powertrain ford/f-150-lightning/2025-platinum · names: regulator wording · ⚠ powertrain: same name as ford/f-150-lightning/2025/platinum; check the pack didn't change
+- **2023 CA: Platinum Extended Range** → `ford/f-150-lightning/2023/platinum-extended-range` [CA] drivetrain ? · powertrain new
   - NRCan: F-150 Lightning Platinum
-  - EPA: F-150 Lightning Platinum 4WD
-- **2023 CA: Standard Range** → `ford/f-150-lightning/2023/standard-range` [CA] drivetrain ? · powertrain ford/f-150-lightning/2025-standard-range · names: regulator wording · ⚠ powertrain: same name as ford/f-150-lightning/2025/standard-range; check the pack didn't change
+- **2023 CA: Standard Range** → `ford/f-150-lightning/2023/standard-range` [CA] drivetrain ? · powertrain ford/f-150-lightning/2025-standard-range · ⚠ powertrain: same name as ford/f-150-lightning/2025/standard-range; check the pack didn't change
   - NRCan: F-150 Lightning Standard Range
 - **2023 US: 4WD** → `ford/f-150-lightning/2023/4wd` [US] awd · powertrain new · names: regulator wording
   - EPA: F-150 Lightning 4WD
+- **2023 US: Platinum** → `ford/f-150-lightning/2023/platinum` [US] awd · powertrain ford/f-150-lightning/2025-platinum · ⚠ powertrain: same name as ford/f-150-lightning/2025/platinum; check the pack didn't change
+  - EPA: F-150 Lightning Platinum 4WD
 - **2024 CA: Extended Range · US: 4WD Extended Range** → `ford/f-150-lightning/2024/extended-range` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: F-150 Lightning Extended Range
   - EPA: F-150 Lightning 4WD Extended Range
-- **2024 CA: Platinum · US: Platinum 4WD** → `ford/f-150-lightning/2024/platinum` [CA, US] awd · powertrain ford/f-150-lightning/2025-platinum · names: regulator wording · ⚠ powertrain: same name as ford/f-150-lightning/2025/platinum; check the pack didn't change
+- **2024 CA: Platinum · US: Platinum** → `ford/f-150-lightning/2024/platinum` [CA, US] awd · powertrain ford/f-150-lightning/2025-platinum · ⚠ powertrain: same name as ford/f-150-lightning/2025/platinum; check the pack didn't change
   - NRCan: F-150 Lightning Platinum
   - EPA: F-150 Lightning Platinum 4WD
-- **2024 CA: Pro** → `ford/f-150-lightning/2024/pro` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2024 CA: Pro** → `ford/f-150-lightning/2024/pro` [CA] drivetrain ? · powertrain new
   - NRCan: F-150 Lightning Pro
 - **2024 CA: Standard Range** → `ford/f-150-lightning/2024/standard-range` [CA] drivetrain ? · powertrain ford/f-150-lightning/2025-standard-range · names: regulator wording · ⚠ powertrain: same name as ford/f-150-lightning/2025/standard-range; check the pack didn't change
   - NRCan: F-150 Lightning Standard Range
@@ -289,129 +288,132 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: F-150 Lightning 4WD PRO ER1
 - **2025 US: 4WD SR** → `ford/f-150-lightning/2025/4wd-sr` [US] awd · powertrain new · names: regulator wording
   - EPA: F-150 Lightning 4WD SR
-- **2025 US: Platinum 4WD** → `ford/f-150-lightning/2025/platinum` [US] awd · powertrain ford/f-150-lightning/2025-platinum · names: regulator wording
+- **2025 US: Platinum** → `ford/f-150-lightning/2025/platinum` [US] awd · powertrain ford/f-150-lightning/2025-platinum
   - EPA: F-150 Lightning Platinum 4WD
 ## ford/mustang-mach-e
 
-- **2021 CA: California Route 1 · US: RWD California Route 1** → `ford/mustang-mach-e/2021/california-route-1` [CA, US] rwd · powertrain new · names: regulator wording
+- **2021 CA: California Route 1 · US: California Route 1 RWD** → `ford/mustang-mach-e/2021/california-route-1` [CA, US] rwd · powertrain new
   - NRCan: Mustang Mach-E California Route 1
   - EPA: Mustang Mach-E RWD California Route 1
-- **2021 CA: Extended Range · US: RWD Extended** → `ford/mustang-mach-e/2021/extended-range` [CA, US] rwd · wheels 19″ · powertrain new · names: regulator wording
+- **2021 CA: Extended Range RWD · US: RWD Extended** → `ford/mustang-mach-e/2021/extended-range-rwd` [CA, US] rwd · wheels 19″ · powertrain new · names: regulator wording
   - NRCan: Mustang Mach-E Extended Range (19" Wheels)
   - EPA: Mustang Mach-E RWD Extended
-- **2021 CA: Extended Range AWD · US: AWD Extended** → `ford/mustang-mach-e/2021/extended-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2021 CA: Extended Range eAWD** → `ford/mustang-mach-e/2021/extended-range-eawd` [CA] awd · powertrain new
   - NRCan: Mustang Mach-E Extended Range AWD
-  - EPA: Mustang Mach-E AWD Extended
-- **2021 CA: GT Performance Edition · US: GT Performance** → `ford/mustang-mach-e/2021/gt-performance-edition` [CA, US] awd · powertrain new · names: regulator wording
+- **2021 CA: GT Performance · US: GT Performance** → `ford/mustang-mach-e/2021/gt-performance` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: Mustang Mach-E GT Performance Edition
   - EPA: Mustang Mach-E GT Performance
-- **2021 CA: Standard Range · US: RWD** → `ford/mustang-mach-e/2021/standard-range` [CA, US] rwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (198 kW)
+- **2021 CA: Standard Range RWD · US: RWD** → `ford/mustang-mach-e/2021/standard-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (198 kW)
   - NRCan: Mustang Mach-E Standard Range
   - EPA: Mustang Mach-E RWD
-- **2021 CA: Standard Range AWD** → `ford/mustang-mach-e/2021/standard-range-awd` [CA] awd · powertrain new · names: regulator wording
+- **2021 CA: Standard Range eAWD** → `ford/mustang-mach-e/2021/standard-range-eawd` [CA] awd · powertrain new
   - NRCan: Mustang Mach-E Standard Range AWD
 - **2021 US: AWD** → `ford/mustang-mach-e/2021/awd` [US] awd · powertrain new · names: regulator wording
   - EPA: Mustang Mach-E AWD
-- **2021 US: GT** → `ford/mustang-mach-e/2021/gt` [US] awd · powertrain new · names: regulator wording
+- **2021 US: AWD Extended** → `ford/mustang-mach-e/2021/awd-extended` [US] awd · powertrain new · names: regulator wording
+  - EPA: Mustang Mach-E AWD Extended
+- **2021 US: GT** → `ford/mustang-mach-e/2021/gt` [US] awd · powertrain new
   - EPA: Mustang Mach-E GT
-- **2022 CA: California Route 1** → `ford/mustang-mach-e/2022/california-route-1` [CA] drivetrain ? · powertrain new · names: regulator wording
+- **2022 CA: California Route 1 RWD · US: California Route 1 RWD** → `ford/mustang-mach-e/2022/california-route-1-rwd` [CA, US] rwd · powertrain new
   - NRCan: Mustang Mach-E California Route 1
-- **2022 CA: California Route 1 AWD** → `ford/mustang-mach-e/2022/california-route-1-awd` [CA] awd · powertrain new · names: regulator wording
+  - EPA: Mustang Mach-E CAL RT 1 ER RWD
+- **2022 CA: California Route 1 eAWD · US: California Route 1 AWD** → `ford/mustang-mach-e/2022/california-route-1-eawd` [CA, US] awd · powertrain new
   - NRCan: Mustang Mach-E California Route 1 AWD
-- **2022 CA: Extended Range · US: RWD Extended** → `ford/mustang-mach-e/2022/extended-range` [CA, US] rwd · powertrain new · names: regulator wording
+  - EPA: Mustang Mach-E CAL RT 1 ER AWD
+- **2022 CA: Extended Range RWD · US: RWD Extended** → `ford/mustang-mach-e/2022/extended-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: Mustang Mach-E Extended Range
   - EPA: Mustang Mach-E RWD Extended
-- **2022 CA: Extended Range AWD · US: AWD Extended** → `ford/mustang-mach-e/2022/extended-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2022 CA: Extended Range eAWD** → `ford/mustang-mach-e/2022/extended-range-eawd` [CA] awd · powertrain new
   - NRCan: Mustang Mach-E Extended Range AWD
-  - EPA: Mustang Mach-E AWD Extended
 - **2022 CA: GT Performance Edition · US: GT Performance** → `ford/mustang-mach-e/2022/gt-performance-edition` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: Mustang Mach-E GT Performance Edition
   - EPA: Mustang Mach-E GT Performance
-- **2022 CA: Standard Range · US: RWD** → `ford/mustang-mach-e/2022/standard-range` [CA, US] rwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (198 kW)
+- **2022 CA: Standard Range RWD · US: RWD** → `ford/mustang-mach-e/2022/standard-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (198 kW)
   - NRCan: Mustang Mach-E Standard Range
   - EPA: Mustang Mach-E RWD
-- **2022 CA: Standard Range AWD** → `ford/mustang-mach-e/2022/standard-range-awd` [CA] awd · powertrain new · names: regulator wording
+- **2022 CA: Standard Range eAWD** → `ford/mustang-mach-e/2022/standard-range-eawd` [CA] awd · powertrain new
   - NRCan: Mustang Mach-E Standard Range AWD
 - **2022 US: AWD** → `ford/mustang-mach-e/2022/awd` [US] awd · powertrain new · names: regulator wording
   - EPA: Mustang Mach-E AWD
-- **2022 US: CAL RT 1 ER AWD** → `ford/mustang-mach-e/2022/cal-rt-1-er-awd` [US] awd · powertrain new · names: regulator wording
-  - EPA: Mustang Mach-E CAL RT 1 ER AWD
-- **2022 US: CAL RT 1 ER RWD** → `ford/mustang-mach-e/2022/cal-rt-1-er-rwd` [US] rwd · powertrain new · names: regulator wording
-  - EPA: Mustang Mach-E CAL RT 1 ER RWD
-- **2022 US: GT** → `ford/mustang-mach-e/2022/gt` [US] awd · powertrain new · names: regulator wording
+- **2022 US: AWD Extended** → `ford/mustang-mach-e/2022/awd-extended` [US] awd · powertrain new · names: regulator wording
+  - EPA: Mustang Mach-E AWD Extended
+- **2022 US: GT** → `ford/mustang-mach-e/2022/gt` [US] awd · powertrain new
   - EPA: Mustang Mach-E GT
-- **2023 CA: California Route 1 AWD** → `ford/mustang-mach-e/2023/california-route-1-awd` [CA] awd · powertrain new · names: regulator wording
+- **2023 CA: California Route 1 eAWD · US: California Route 1 AWD** → `ford/mustang-mach-e/2023/california-route-1-eawd` [CA, US] awd · powertrain new
   - NRCan: Mustang Mach-E California Route 1 AWD
-- **2023 CA: Extended Range · US: RWD Extended** → `ford/mustang-mach-e/2023/extended-range` [CA, US] rwd · powertrain new · names: regulator wording
+  - EPA: MUSTANG MACH-E CAL RT 1 ER AWD
+- **2023 CA: Extended Range RWD · US: RWD Extended** → `ford/mustang-mach-e/2023/extended-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: Mustang Mach-E Extended Range
   - EPA: Mustang Mach-E RWD Extended
-- **2023 CA: Extended Range AWD · US: AWD Extended** → `ford/mustang-mach-e/2023/extended-range-awd` [CA, US] awd · powertrain new · names: regulator wording
+- **2023 CA: Extended Range eAWD** → `ford/mustang-mach-e/2023/extended-range-eawd` [CA] awd · powertrain new
   - NRCan: Mustang Mach-E Extended Range AWD
-  - EPA: Mustang Mach-E AWD Extended
 - **2023 CA: GT Performance Edition · US: GT Performance** → `ford/mustang-mach-e/2023/gt-performance-edition` [CA, US] awd · powertrain new · names: regulator wording
   - NRCan: Mustang Mach-E GT Performance Edition
   - EPA: Mustang Mach-E GT Performance
-- **2023 CA: Standard Range** → `ford/mustang-mach-e/2023/standard-range` [CA] drivetrain ? · powertrain new · names: regulator wording · ⚠ note: "(LFP)"
+- **2023 CA: Standard Range RWD** → `ford/mustang-mach-e/2023/standard-range-rwd` [CA] rwd · powertrain new
   - NRCan: Mustang Mach-E Standard Range
+- **2023 CA: Standard Range** → `ford/mustang-mach-e/2023/standard-range` [CA] drivetrain ? · powertrain new · names: regulator wording · ⚠ note: "(LFP)"
   - NRCan: Mustang Mach-E Standard Range (LFP)
-- **2023 CA: Standard Range AWD** → `ford/mustang-mach-e/2023/standard-range-awd` [CA] awd · powertrain new · names: regulator wording
+- **2023 CA: Standard Range eAWD** → `ford/mustang-mach-e/2023/standard-range-eawd` [CA] awd · powertrain new
   - NRCan: Mustang Mach-E Standard Range AWD
-- **2023 CA: Standard Range AWD** → `ford/mustang-mach-e/2023/standard-range-awd-ca` [CA] awd · powertrain new · names: regulator wording · ⚠ note: "(LFP)"
+- **2023 CA: Standard Range AWD** → `ford/mustang-mach-e/2023/standard-range-awd` [CA] awd · powertrain new · names: regulator wording · ⚠ note: "(LFP)"
   - NRCan: Mustang Mach-E Standard Range AWD (LFP)
 - **2023 US: AWD** → `ford/mustang-mach-e/2023/awd` [US] awd · powertrain new · names: regulator wording
   - EPA: Mustang Mach-E AWD
-- **2023 US: CAL RT 1 ER AWD** → `ford/mustang-mach-e/2023/cal-rt-1-er-awd` [US] awd · powertrain new · names: regulator wording
-  - EPA: MUSTANG MACH-E CAL RT 1 ER AWD
-- **2023 US: GT** → `ford/mustang-mach-e/2023/gt` [US] awd · powertrain new · names: regulator wording
+- **2023 US: AWD Extended** → `ford/mustang-mach-e/2023/awd-extended` [US] awd · powertrain new · names: regulator wording
+  - EPA: Mustang Mach-E AWD Extended
+- **2023 US: GT** → `ford/mustang-mach-e/2023/gt` [US] awd · powertrain new
   - EPA: Mustang Mach-E GT
 - **2023 US: RWD** → `ford/mustang-mach-e/2023/rwd` [US] rwd · powertrain new · names: regulator wording
   - EPA: Mustang Mach-E RWD
 - **2023 US: RWD LFP** → `ford/mustang-mach-e/2023/rwd-lfp` [US] rwd · powertrain new · names: regulator wording
   - EPA: Mustang Mach-E RWD LFP
-- **2024 CA: Extended Range · US: RWD Extended** → `ford/mustang-mach-e/2024/extended-range` [CA, US] rwd · powertrain ford/mustang-mach-e/2026-extended-range · names: regulator wording · ⚠ powertrain: same name as ford/mustang-mach-e/2026/extended-range; check the pack didn't change
+- **2024 CA: Extended Range RWD · US: RWD Extended** → `ford/mustang-mach-e/2024/extended-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: Mustang Mach-E Extended Range
   - EPA: Mustang Mach-E RWD Extended
-- **2024 CA: Extended Range AWD · US: AWD Extended** → `ford/mustang-mach-e/2024/extended-range-awd` [CA, US] awd · powertrain ford/mustang-mach-e/2026-extended-range-awd · names: regulator wording · ⚠ powertrain: same name as ford/mustang-mach-e/2026/extended-range-awd; check the pack didn't change
+- **2024 CA: Extended Range eAWD** → `ford/mustang-mach-e/2024/extended-range-eawd` [CA] awd · powertrain new
   - NRCan: Mustang Mach-E Extended Range AWD
-  - EPA: Mustang Mach-E AWD Extended
-- **2024 CA: GT · US: GT** → `ford/mustang-mach-e/2024/gt` [CA, US] awd · powertrain ford/mustang-mach-e/2026-gt · names: regulator wording · ⚠ powertrain: same name as ford/mustang-mach-e/2026/gt; check the pack didn't change
+- **2024 CA: GT · US: GT** → `ford/mustang-mach-e/2024/gt` [CA, US] awd · powertrain ford/mustang-mach-e/2026-gt · ⚠ powertrain: same name as ford/mustang-mach-e/2026/gt; check the pack didn't change
   - NRCan: Mustang Mach-E GT
   - EPA: Mustang Mach-E GT
 - **2024 CA: Rally · US: Rally** → `ford/mustang-mach-e/2024/rally` [CA, US] awd · powertrain ford/mustang-mach-e/2026-rally · names: regulator wording · ⚠ powertrain: same name as ford/mustang-mach-e/2026/rally; check the pack didn't change
   - NRCan: Mustang Mach-E Rally
   - EPA: Mustang Mach-E Rally
-- **2024 CA: Standard Range · US: RWD** → `ford/mustang-mach-e/2024/standard-range` [CA, US] rwd · powertrain ford/mustang-mach-e/2026-standard-range · names: regulator wording · ⚠ pair: names differ, same motor power (197 kW); powertrain: same name as ford/mustang-mach-e/2026/standard-range; check the pack didn't change
+- **2024 CA: Standard Range RWD · US: RWD** → `ford/mustang-mach-e/2024/standard-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (197 kW)
   - NRCan: Mustang Mach-E Standard Range
   - EPA: Mustang Mach-E RWD
-- **2024 CA: Standard Range AWD** → `ford/mustang-mach-e/2024/standard-range-awd` [CA] awd · powertrain ford/mustang-mach-e/2026-standard-range-awd · names: regulator wording · ⚠ powertrain: same name as ford/mustang-mach-e/2026/standard-range-awd; check the pack didn't change
+- **2024 CA: Standard Range eAWD** → `ford/mustang-mach-e/2024/standard-range-eawd` [CA] awd · powertrain new
   - NRCan: Mustang Mach-E Standard Range AWD
 - **2024 US: AWD** → `ford/mustang-mach-e/2024/awd` [US] awd · powertrain new · names: regulator wording
   - EPA: Mustang Mach-E AWD
-- **2025 CA: Extended Range · US: RWD Extended** → `ford/mustang-mach-e/2025/extended-range` [CA, US] rwd · powertrain ford/mustang-mach-e/2026-extended-range · names: regulator wording · ⚠ powertrain: same name as ford/mustang-mach-e/2026/extended-range; check the pack didn't change
+- **2024 US: AWD Extended** → `ford/mustang-mach-e/2024/awd-extended` [US] awd · powertrain new · names: regulator wording
+  - EPA: Mustang Mach-E AWD Extended
+- **2025 CA: Extended Range RWD · US: RWD Extended** → `ford/mustang-mach-e/2025/extended-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: Mustang Mach-E Extended Range
   - EPA: Mustang Mach-E RWD Extended
-- **2025 CA: Extended Range AWD · US: AWD Extended** → `ford/mustang-mach-e/2025/extended-range-awd` [CA, US] awd · powertrain ford/mustang-mach-e/2026-extended-range-awd · names: regulator wording · ⚠ powertrain: same name as ford/mustang-mach-e/2026/extended-range-awd; check the pack didn't change
+- **2025 CA: Extended Range eAWD** → `ford/mustang-mach-e/2025/extended-range-eawd` [CA] awd · powertrain new
   - NRCan: Mustang Mach-E Extended Range AWD
-  - EPA: Mustang Mach-E AWD Extended
-- **2025 CA: GT · US: GT** → `ford/mustang-mach-e/2025/gt` [CA, US] awd · powertrain ford/mustang-mach-e/2026-gt · names: regulator wording · ⚠ powertrain: same name as ford/mustang-mach-e/2026/gt; check the pack didn't change
+- **2025 CA: GT · US: GT** → `ford/mustang-mach-e/2025/gt` [CA, US] awd · powertrain ford/mustang-mach-e/2026-gt · ⚠ powertrain: same name as ford/mustang-mach-e/2026/gt; check the pack didn't change
   - NRCan: Mustang Mach-E GT
   - EPA: Mustang Mach-E GT
 - **2025 CA: Rally · US: Rally** → `ford/mustang-mach-e/2025/rally` [CA, US] awd · powertrain ford/mustang-mach-e/2026-rally · names: regulator wording · ⚠ powertrain: same name as ford/mustang-mach-e/2026/rally; check the pack didn't change
   - NRCan: Mustang Mach-E Rally
   - EPA: Mustang Mach-E Rally
-- **2025 CA: Standard Range · US: RWD** → `ford/mustang-mach-e/2025/standard-range` [CA, US] rwd · powertrain ford/mustang-mach-e/2026-standard-range · names: regulator wording · ⚠ pair: names differ, same motor power (197 kW); powertrain: same name as ford/mustang-mach-e/2026/standard-range; check the pack didn't change
+- **2025 CA: Standard Range RWD · US: RWD** → `ford/mustang-mach-e/2025/standard-range-rwd` [CA, US] rwd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (197 kW)
   - NRCan: Mustang Mach-E Standard Range
   - EPA: Mustang Mach-E RWD
-- **2025 CA: Standard Range AWD · US: AWD** → `ford/mustang-mach-e/2025/standard-range-awd` [CA, US] awd · powertrain ford/mustang-mach-e/2026-standard-range-awd · names: regulator wording · ⚠ pair: names differ, same motor power (242 kW); powertrain: same name as ford/mustang-mach-e/2026/standard-range-awd; check the pack didn't change
+- **2025 CA: Standard Range eAWD · US: AWD** → `ford/mustang-mach-e/2025/standard-range-eawd` [CA, US] awd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (242 kW)
   - NRCan: Mustang Mach-E Standard Range AWD
   - EPA: Mustang Mach-E AWD
+- **2025 US: AWD Extended** → `ford/mustang-mach-e/2025/awd-extended` [US] awd · powertrain new · names: regulator wording
+  - EPA: Mustang Mach-E AWD Extended
 - **2026 US: AWD** → `ford/mustang-mach-e/2026/standard-range-awd` [US] awd · powertrain ford/mustang-mach-e/2026-standard-range-awd · names: regulator wording · ⚠ existing: joins ford/mustang-mach-e/2026/standard-range-awd by motor power (242 kW); names differ
   - EPA: Mustang Mach-E AWD
 - **2026 US: AWD Extended** → `ford/mustang-mach-e/2026/extended-range-awd` [US] awd · powertrain ford/mustang-mach-e/2026-extended-range-awd · names: regulator wording
   - EPA: Mustang Mach-E AWD Extended
-- **2026 US: GT** → `ford/mustang-mach-e/2026/gt` [US] awd · powertrain ford/mustang-mach-e/2026-gt · names: regulator wording
+- **2026 US: GT** → `ford/mustang-mach-e/2026/gt` [US] awd · powertrain ford/mustang-mach-e/2026-gt
   - EPA: Mustang Mach-E GT
-- **2026 US: Rally** → `ford/mustang-mach-e/2026/rally` [US] awd · powertrain ford/mustang-mach-e/2026-rally · names: regulator wording
+- **2026 US: Rally** → `ford/mustang-mach-e/2026/rally` [US] awd · powertrain ford/mustang-mach-e/2026-rally
   - EPA: Mustang Mach-E Rally
 - **2026 US: RWD** → `ford/mustang-mach-e/2026/standard-range` [US] rwd · powertrain ford/mustang-mach-e/2026-standard-range · names: regulator wording · ⚠ existing: joins ford/mustang-mach-e/2026/standard-range by motor power (197 kW); names differ
   - EPA: Mustang Mach-E RWD

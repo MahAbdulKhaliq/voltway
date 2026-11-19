@@ -7,7 +7,7 @@
 // Filtering, searching and sorting animate the results (useFlip), the count ticks, and search
 // highlights the matched words. With Animations off every change is instant.
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode, Fragment } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { COVERAGE } from '../config.ts';
 import {
@@ -18,7 +18,7 @@ import { makeCarSearch } from '../lib/car-search.ts';
 import { displayMinutes } from '../lib/charging.ts';
 import { valueLabel } from '../lib/format.ts';
 import { reducedMotion } from '../lib/motion.ts';
-import { addToCompare, getCompare, type AddResult } from '../lib/my-car.ts';
+import { addToCompare, getCompare, removeFromCompare, type AddResult } from '../lib/my-car.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, whPerKmToDisplay, type DistanceUnit } from '../lib/units.ts';
 import VariantName from './VariantName.tsx';
@@ -83,6 +83,11 @@ export default function Browse({ index }: Props) {
   const [unit, setUnit] = useState<DistanceUnit>('km');
   const [compare, setCompareList] = useState<string[]>([]);
   const [notice, setNotice] = useState<string | null>(null);
+  useEffect(() => {
+    if (!notice) return;
+    const id = window.setTimeout(() => setNotice(null), 6000);
+    return () => window.clearTimeout(id);
+  }, [notice]);
   const [sheetOpen, setSheetOpen] = useState(false);
   // Filter sections the visitor opened or closed (B86); the others follow "open when in use".
   const [opened, setOpened] = useState<Record<string, boolean>>({});
@@ -184,11 +189,14 @@ export default function Browse({ index }: Props) {
   const unknown = <span className="muted">{t('badge.unknown')}</span>;
   const show = (s: string | null) => s ?? unknown;
 
-  const compareBtn = (e: IndexEntry) => {
+  // "+ Compare" is a toggle (B87): in the list it reads "− Compare" and removes the car.
+  const compareBtn = (e: IndexEntry, compact = false) => {
     const inList = compare.includes(e.id);
+    const name = t(inList ? 'browse.compareRemoveFor' : 'browse.compareFor', { car: carName(e) });
     return (
-      <button type="button" className="btn small" onClick={() => onCompare(e)} disabled={inList} aria-label={inList ? undefined : t('browse.compareFor', { car: carName(e) })}>
-        {inList ? t('browse.compareAdded') : t('browse.compare')}
+      <button type="button" className={`btn small cmp-toggle${inList ? ' on' : ''}${compact ? ' icon' : ''}`} aria-label={name} title={compact ? name : undefined}
+        onClick={() => { if (inList) { removeFromCompare(e.id); setNotice(null); } else onCompare(e); }}>
+        {compact ? <span aria-hidden="true">{inList ? '−' : '+'}</span> : t(inList ? 'browse.compareRemove' : 'browse.compare')}
       </button>
     );
   };
@@ -277,17 +285,30 @@ export default function Browse({ index }: Props) {
   const count = results.length === 1 ? t('browse.results1') : t('browse.results', { count: formatNumber(results.length) });
   const dirLabel = (dir: 'asc' | 'desc') => (state.sort === 'name' ? t(dir === 'asc' ? 'browse.dir.nameAsc' : 'browse.dir.nameDesc') : t(`browse.dir.${dir}`));
 
-  const th = (key: SortKey | null, label: string) => {
-    if (!key) return <th scope="col">{label}</th>;
-    const on = state.sort === key;
+  // Table (B87): units live in the headers so each cell is just the figure, and the table fits its column.
+  const th = (key: SortKey | null, label: string, unitText?: string) => {
+    const on = key !== null && state.sort === key;
+    const cls = [unitText ? 'num' : null, on ? 'on' : null].filter(Boolean).join(' ') || undefined;
+    const inner = <>{label}{unitText && <span className="th-unit">{unitText}</span>}</>;
+    if (!key) return <th scope="col" className={cls}>{inner}</th>;
     return (
-      <th scope="col" aria-sort={on ? (state.dir === 'asc' ? 'ascending' : 'descending') : 'none'}>
+      <th scope="col" className={cls} aria-sort={on ? (state.dir === 'asc' ? 'ascending' : 'descending') : 'none'}>
         <button type="button" className="th-sort" onClick={() => (on ? setState((s) => ({ ...s, dir: s.dir === 'asc' ? 'desc' : 'asc' })) : setSort(key))} aria-label={t('browse.sortBy', { label })}>
-          {label} <span aria-hidden="true">{on ? (state.dir === 'asc' ? '▲' : '▼') : '↕'}</span>
+          <span className="th-text">{inner}</span><span className="th-arrow" aria-hidden="true">{on ? (state.dir === 'asc' ? '▲' : '▼') : '↕'}</span>
         </button>
       </th>
     );
   };
+  const distUnit = t(unit === 'km' ? 'browse.unit.km' : 'browse.unit.mi');
+  const effUnit = t(unit === 'km' ? 'browse.unit.kwh100km' : 'browse.unit.kwh100mi');
+  const approx = (estimated: boolean, text: string) => (estimated ? `~${text}` : text);
+  const cols: { key: SortKey; label: string; unit: string; value: (e: IndexEntry) => string | null }[] = [
+    { key: 'range', label: t('browse.sort.range'), unit: distUnit, value: (e) => (e.range_km === null ? null : formatNumber(kmTo(e.range_km, unit))) },
+    { key: 'efficiency', label: t('browse.sort.efficiency'), unit: effUnit, value: (e) => (e.consumption_wh_per_km === null ? null : formatNumber(whPerKmToDisplay(e.consumption_wh_per_km, unit), 1)) },
+    { key: 'dc', label: t('browse.sort.dc'), unit: t('browse.unit.kw'), value: (e) => (e.dc_max_kw === null ? null : formatNumber(e.dc_max_kw)) },
+    { key: 'time1080', label: t('browse.sort.time1080'), unit: t('browse.unit.min'), value: (e) => (e.derived.minutes_10_80 === null ? null : approx(e.derived.estimated, String(displayMinutes(e.derived.minutes_10_80, e.derived.estimated)))) },
+    { key: 'km10', label: t('browse.sort.km10'), unit: distUnit, value: (e) => (e.derived.km_per_10_min === null ? null : approx(e.derived.estimated, formatNumber(kmTo(e.derived.km_per_10_min, unit)))) },
+  ];
   const figure = (label: string, value: ReactNode) => (
     <div className="readout"><dt className="readout-label">{label}</dt><dd className="readout-value">{value}</dd></div>
   );
@@ -346,7 +367,8 @@ export default function Browse({ index }: Props) {
             <span className="sr-only" role="status">{count}</span>
             <span className="small muted">{t('browse.estimatedHelp')}</span>
           </p>
-          {notice && <p className="banner small" role="status">{notice}</p>}
+          {/* B87 QA: shown at the bottom of the screen, so it's seen next to the button that was clicked. */}
+          <p className={`banner small browse-toast${notice ? ' on' : ''}`} role="status">{notice}</p>
           {results.length === 0 && <p className="muted">{t('browse.noResults')}</p>}
 
           {state.view === 'cards' && (
@@ -372,33 +394,35 @@ export default function Browse({ index }: Props) {
           )}
 
           {state.view === 'table' && results.length > 0 && (
-            <div className="table-scroll" role="region" aria-label={t('browse.tableRegion')} tabIndex={0}>
+            <div className="table-scroll card browse-table-box" role="region" aria-label={t('browse.tableRegion')} tabIndex={0}>
             <table className="stack-table browse-table">
               <thead>
                 <tr>
                   {th('name', t('browse.col.car'))}
-                  {th('range', t('browse.sort.range'))}
-                  {th('efficiency', t('browse.sort.efficiency'))}
-                  {th('dc', t('browse.sort.dc'))}
-                  {th('time1080', t('browse.sort.time1080'))}
-                  {th('km10', t('browse.sort.km10'))}
-                  {th(null, t('browse.col.port'))}
-                  {th(null, t('browse.col.curve'))}
-                  <th scope="col"><span className="sr-only">{t('browse.compare')}</span></th>
+                  {cols.map((c) => <Fragment key={c.key}>{th(c.key, c.label, c.unit)}</Fragment>)}
+                  <th scope="col" className="bt-act"><span className="sr-only">{t('browse.col.compare')}</span></th>
                 </tr>
               </thead>
               <tbody ref={rowsEl}>
                 {results.map((e) => (
                   <tr key={e.id} data-flip={e.id}>
-                    <td data-label={t('browse.col.car')}><a href={carHref(e.id)}><Mark text={`${e.make} ${e.model}`} terms={terms} /> {terms.length ? <Mark text={e.name} terms={terms} /> : <VariantName name={e.name} />}</a> <span className="muted small">{e.year}</span></td>
-                    <td data-label={t('browse.sort.range')}>{show(rangeText(e))}</td>
-                    <td data-label={t('browse.sort.efficiency')}>{show(effText(e))}</td>
-                    <td data-label={t('browse.sort.dc')}>{show(dcText(e))}</td>
-                    <td data-label={t('browse.sort.time1080')}>{show(timeText(e))}</td>
-                    <td data-label={t('browse.sort.km10')}>{show(km10Text(e))}</td>
-                    <td data-label={t('browse.col.port')}>{e.charge_port ? valueLabel(e.charge_port) : unknown}</td>
-                    <td data-label={t('browse.col.curve')}>{curveBadge(e)}</td>
-                    <td>{compareBtn(e)}</td>
+                    <td className="bt-car" data-label={t('browse.col.car')}>
+                      <a className="bt-name" href={carHref(e.id)}><Mark text={`${e.make} ${e.model}`} terms={terms} /></a>
+                      <span className="bt-variant">{terms.length ? <Mark text={e.name} terms={terms} /> : <VariantName name={e.name} />} <span className="muted">· {e.year}</span></span>
+                      <span className="bt-meta">
+                        <span className="muted">{e.charge_port ? valueLabel(e.charge_port) : t('badge.unknown')}</span>
+                        {curveBadge(e)}
+                      </span>
+                    </td>
+                    {cols.map((c) => {
+                      const v = c.value(e);
+                      return (
+                        <td key={c.key} className={`num${state.sort === c.key ? ' on' : ''}`} data-label={t('browse.labelUnit', { label: c.label, unit: c.unit })}>
+                          {v === null ? unknown : v}
+                        </td>
+                      );
+                    })}
+                    <td className="bt-act">{compareBtn(e, true)}</td>
                   </tr>
                 ))}
               </tbody>

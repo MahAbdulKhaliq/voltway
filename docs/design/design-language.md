@@ -144,7 +144,7 @@ The contrast pairs are checked in `tests/contrast.test.ts`: field-border and est
 
 **The rest of the page on the shared language**
 - The chart is on a panel:
-  - each curve is solid in the car's colour inside the window and lane-dashed outside it (estimated: dashed inside);
+  - each curve is solid in the car's colour inside the window and lane-dashed outside it (owner, 2026-11-19: estimated curves are solid inside the window too; the colours tell the cars apart and the race's Estimated badge marks estimates);
   - the stop bars are in the text colour;
   - the tooltip lists every car's kW at the hovered charge level.
 - The window slider sits under the chart, lined up with its axis. The charger slider uses 50 kW steps, and the old "Custom" kW field is gone.
@@ -172,6 +172,18 @@ Decided by the owner 2026-11-19 (B86, under review). The Cars page uses everythi
 - **The count ticks** to its new value in large Overpass figures; screen readers hear the final count once, from a separate status line.
 - **Search highlights the matched words** (word starts) in names and trims, with the accent tint and underline.
 - **Animations off** (the site's setting, B65): every change is instant, with no copies, no ticking and no transitions on switches.
+
+### Cars table and the compare toggle (B87, owner 2026-11-19)
+
+- **The table fits its column** on desktop: no sideways scroll at 1280 in km or mi. Units sit under each column name ("Range / km"), so a cell is only the figure ("~" kept for estimates). The car cell carries the name (Overpass, →), the variant and year, and a small line with the port and the curve type.
+- **Figures are right-aligned Overpass with tabular numbers.** The sorted column is marked in road paint: a yellow underline on its header and a faint yellow wash down the column. Rows lift to `surface-2` on hover. The table sits on a card, like the result cards.
+- **On phones** each row stacks into labelled figures ("Range (km) … 570"), with the compare button pinned to the row's top-right at 44 px.
+- **"+ Compare" is a toggle** everywhere it appears (cards, table rows, the Charging page's car section): in the list it reads "− Compare", painted like a selected `.seg`, and clicking it removes the car. The table uses a 32 px +/− square with the full name ("Add … to Compare" / "Remove … from Compare") as its label and tooltip.
+
+### Adding cars on Compare (B87, owner 2026-11-19)
+
+- **"Add a car" is the header's car picker** in a modal dialog (search with suggestions, then Make → Model → Year → Variant), titled "Add a car to compare", without the trim and plug steps. Cars already compared are greyed with "Already in Compare" and can't be picked. Its suggestion list sits in the flow (the dialog is shorter than the My car picker). The dialog is rendered outside the Compare page's wrapper, so its dropdowns look exactly like the My car picker's: one line each, long variant names cut off rather than wrapping.
+- **A ghost card** follows the car cards while fewer than 4 are compared: a single dashed outline in the next car's colour (owner review: no stripe on top), a + and "Add a car", and "Car n of 4". It opens the dialog; afterwards focus returns to it, so adding several cars is quick. The empty page shows the same card, and the specs' "Add another car" opens the dialog too.
 
 ## 11. Still to decide (polish pass)
 

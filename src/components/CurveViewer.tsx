@@ -2,7 +2,7 @@
 // Inputs → calculateCharge() → results panel + ECharts chart. Settings are remembered
 // in the browser; km/mi follows the header switch ("voltway:units" event).
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent, MarkAreaComponent, MarkLineComponent, MarkPointComponent, TooltipComponent } from 'echarts/components';
@@ -43,7 +43,13 @@ type Basis = 'highway' | 'combined' | 'city';
 type Preset = 'none' | '50' | '100' | '150' | '250' | '350' | 'custom';
 interface Settings { start: number; end: number; preset: Preset; customKw: number; price: number }
 
-const PRESETS: Preset[] = ['none', '50', '100', '150', '250', '350', 'custom'];
+// Charger power slider (B83, owner): every 50 kW from 50 to 350 kW, then no
+// limit, in the map's slider look. A kW from a map link or an older remembered setting that isn't a
+// stop is shown as it is, with the handle at the nearest stop, until the visitor moves it.
+const CHARGER_STOPS = [50, 100, 150, 200, 250, 300, 350, Number.POSITIVE_INFINITY];
+// Lane-line dashes for the curve outside the charging window (B83): long paint, longer gap.
+const ROAD_DASH = [16, 12];
+const stopPct = (i: number) => `${(i / (CHARGER_STOPS.length - 1)) * 100}%`;
 const GRAB_PX = 12; // how close (px) a pointer must be to grab a window guide
 const DEFAULTS: Settings = { start: 10, end: 80, preset: 'none', customKw: 120, price: COST.defaultPricePerKwh };
 
@@ -68,6 +74,7 @@ export default function CurveViewer({
   const [xAxis, setXAxis] = useState<'soc' | 'time'>('soc');
   const [unit, setUnit] = useState<DistanceUnit>('km');
   const [themeTick, setThemeTick] = useState(0);
+  const uid = useId();
   const chartEl = useRef<HTMLDivElement>(null);
   const chart = useRef<echarts.ECharts | null>(null);
   // Draggable window guides (§5): pointer handlers are wired once and read the latest state here.
@@ -128,6 +135,10 @@ export default function CurveViewer({
   const span = measuredSpan(curve.points);
   const partial = curve.kind !== 'estimated' && (span.from > 0 || span.to < 100);
   const chargerKw = settings.preset === 'none' ? null : settings.preset === 'custom' ? Math.max(1, settings.customKw || 1) : Number(settings.preset);
+  const chargerIndex = chargerKw == null
+    ? CHARGER_STOPS.length - 1
+    : CHARGER_STOPS.reduce((best, kw, i) => (Number.isFinite(kw) && Math.abs(kw - chargerKw) < Math.abs(CHARGER_STOPS[best] - chargerKw) ? i : best), 0);
+  const chargerLabel = chargerKw == null ? t('viewer.noLimit') : t('fmt.kw', { value: formatNumber(chargerKw, Number.isInteger(chargerKw) ? 0 : 1) }); // a map link may carry 62.5 kW
   const whPerKm = consumption[basis] ?? consumption.highway ?? consumption.combined ?? undefined;
   const source = sources.find((s) => s.id === curve.source_id);
 
@@ -185,12 +196,24 @@ export default function CurveViewer({
       chart.current = echarts.init(chartEl.current, undefined, { renderer: 'canvas' });
       wireGuideDrag(chart.current);
     }
-    const accent = cssVar('--accent', '#6F5300');
+    // B83: a non-estimated curve is road paint (yellow on the dark road band, like the trip line, in
+    // both themes); estimated curves and unmeasured stretches stay violet and dashed.
+    const paint = cssVar('--paint', '#FFD400');
+    const band = cssVar('--band', '#2B2C30');
+    const text = cssVar('--text', '#1A1B1E');
     const est = cssVar('--estimated', '#5B34C4');
     const muted = cssVar('--muted', '#55544E');
     const border = cssVar('--border', '#D5D3CB');
     const warn = cssVar('--warn', '#9A3F00');
-    const lineColor = curve.kind === 'estimated' ? est : accent;
+    const dark = cssVar('--bg', '#EEEDE8').toUpperCase() === '#1A1B1E';
+    const measured = curve.kind !== 'estimated';
+    const lineColor = measured ? paint : est;
+    const fill = { color: lineColor, opacity: measured ? (dark ? 0.16 : 0.32) : 0.18 };
+    // The dark band under a solid painted line, drawn as its own series just beneath it.
+    const roadBand = (data: unknown[], extra: Record<string, unknown> = {}) => ({
+      type: 'line', data, showSymbol: false, silent: true, z: 2, tooltip: { show: false },
+      lineStyle: { color: band, width: 10, cap: 'round' as const, join: 'round' as const }, ...extra,
+    });
     const axisCommon = { axisLine: { lineStyle: { color: border } }, axisLabel: { color: muted }, splitLine: { lineStyle: { color: border } }, nameTextStyle: { color: muted } };
 
     const steps = result?.steps ?? [];
@@ -198,30 +221,35 @@ export default function CurveViewer({
       const s = steps.find((x) => x.soc >= soc - 1e-9);
       return s ? s.elapsedMin : soc <= settings.start ? 0 : steps.at(-1)?.elapsedMin ?? 0;
     };
-    // B24: the measured part is drawn solid; the flat extension beyond the first/last point is dashed.
-    const carData: [number, number | null][] = [];
-    const extData: [number, number | null][] = [];
-    for (let s = 0; s <= 100; s += 1) {
-      const kw = powerAt(curve.points, s);
-      if (!partial || (s >= span.from && s <= span.to)) carData.push([s, kw]);
-      else extData.push([s, kw]);
-    }
-    if (partial) {
-      // Exact end points, so both lines meet the measured ends at fractional SoC.
-      const first = curve.points[0].power_kw;
-      const last = curve.points.at(-1)!.power_kw;
-      carData.push([span.from, first], [span.to, last]);
-      if (span.from > 0) extData.push([span.from, first]);
-      if (span.to < 100) extData.push([span.to, last]);
-      carData.sort((a, b) => a[0] - b[0]);
-      extData.sort((a, b) => a[0] - b[0]);
-      // Break the dashed line between the two ends so it doesn't cross the measured part.
-      const gapAt = extData.findIndex((p) => p[0] >= span.to);
-      if (span.from > 0 && span.to < 100 && gapAt > 0) extData.splice(gapAt, 0, [(span.from + span.to) / 2, null]);
+    // The curve in pieces, cut at the charging window and (B24) the measured span:
+    // measured and charging → solid road paint; outside the window → long road-line dashes (B83, owner);
+    // estimated or not measured → violet, short dashes inside the window, road-line dashes outside it.
+    const cuts = [...new Set([0, 100, settings.start, settings.end, ...(partial ? [span.from, span.to] : [])])]
+      .filter((x) => x >= 0 && x <= 100)
+      .sort((a, b) => a - b);
+    const pieceSeries: Record<string, unknown>[] = [];
+    for (let i = 0; i < cuts.length - 1; i++) {
+      const [a, b] = [cuts[i], cuts[i + 1]];
+      if (b - a < 1e-9) continue;
+      const mid = (a + b) / 2;
+      const charging = mid >= settings.start && mid <= settings.end;
+      const known = measured && (!partial || (mid >= span.from && mid <= span.to));
+      const data: [number, number][] = [[a, powerAt(curve.points, a)]];
+      for (let s = Math.floor(a) + 1; s < b; s += 1) data.push([s, powerAt(curve.points, s)]);
+      data.push([b, powerAt(curve.points, b)]);
+      const base = { type: 'line', data, showSymbol: false, z: 3 };
+      if (known && charging) {
+        pieceSeries.push(roadBand(data), { ...base, lineStyle: { color: paint, width: 4, type: 'solid', cap: 'round' } });
+      } else if (known) {
+        // Road-line dashes (long paint, long gap) like a lane line; yellow on asphalt, road-band colour on concrete.
+        pieceSeries.push({ ...base, lineStyle: { color: dark ? paint : band, width: 3, type: ROAD_DASH, cap: 'butt' } });
+      } else {
+        pieceSeries.push({ ...base, lineStyle: { color: est, width: charging ? 2.5 : 3, type: charging ? 'dashed' : ROAD_DASH, cap: 'butt' } });
+      }
     }
     const tagAt = Math.min(Math.max(50, span.from), span.to);
     const estTag = curve.kind === 'estimated'
-      ? { markPoint: { silent: true, symbol: 'circle', symbolSize: 0, label: { show: true, position: 'top' as const, formatter: t('viewer.estimatedTag'), color: est, fontStyle: 'italic' as const }, data: [{ coord: [tagAt, powerAt(curve.points, tagAt)] }] } }
+      ? { markPoint: { silent: true, symbol: 'circle', symbolSize: 0, label: { show: true, position: 'top' as const, distance: 10, formatter: t('viewer.estimatedTag'), color: est, fontStyle: 'italic' as const }, data: [{ coord: [tagAt, powerAt(curve.points, tagAt)] }] } }
       : {};
     const delivered: [number, number][] = [];
     for (let s = settings.start; s <= settings.end; s += 0.5) delivered.push([s, Math.min(powerAt(curve.points, s), chargerKw ?? Infinity)]);
@@ -237,8 +265,9 @@ export default function CurveViewer({
             grid: { left: 48, right: 16, top: 24, bottom: 44 },
             tooltip: {
               trigger: 'axis',
-              formatter: (p: { value: [number, number] }[]) => {
-                const [soc, kw] = p[0].value;
+              formatter: (p: { axisValue: number }[]) => {
+                const soc = Math.round(Number(p[0]?.axisValue ?? 0));
+                const kw = Math.min(powerAt(curve.points, soc), chargerKw ?? Infinity);
                 return t('viewer.tooltip', { soc: formatNumber(soc), kw: formatNumber(kw), min: formatNumber(elapsedAt(soc)) });
               },
             },
@@ -247,18 +276,18 @@ export default function CurveViewer({
             series: [
               {
                 name: t('viewer.delivered'), type: 'line', data: delivered, showSymbol: false, lineStyle: { width: 0 },
-                areaStyle: { color: lineColor, opacity: 0.18 }, z: 1,
-                markLine: { silent: true, symbol: 'none', lineStyle: { color: muted, type: 'solid' }, label: { formatter: '{c}%', color: muted }, data: [{ xAxis: settings.start }, { xAxis: settings.end }] },
+                areaStyle: fill, z: 1,
+                // The window guides are stop bars in the text colour; their values show on the slider below.
+                markLine: { silent: true, symbol: 'none', lineStyle: { color: text, type: 'solid', width: 2 }, label: { show: false }, data: [{ xAxis: settings.start }, { xAxis: settings.end }] },
               },
+              ...pieceSeries,
+              // Carries the charger limit line and the "Estimated" tag; draws nothing itself.
               {
-                name: t('viewer.carCurve'), type: 'line', data: carData, showSymbol: false, z: 2,
-                lineStyle: { color: lineColor, width: 2.5, type: curve.kind === 'estimated' ? 'dashed' : 'solid' },
+                name: t('viewer.carCurve'), type: 'line', data: [[0, null]], showSymbol: false, silent: true, z: 4, tooltip: { show: false },
+                lineStyle: { width: 0 },
                 ...(limitLine ? { markLine: limitLine } : {}),
                 ...estTag,
               },
-              ...(partial
-                ? [{ name: t('viewer.extendedTag'), type: 'line', data: extData, showSymbol: false, z: 2, connectNulls: false, lineStyle: { color: est, width: 2, type: 'dashed' as const } }]
-                : []),
             ],
           }
         : {
@@ -274,11 +303,14 @@ export default function CurveViewer({
             xAxis: { type: 'value', min: 0, name: t('viewer.timeLabel'), nameLocation: 'middle', nameGap: 28, ...axisCommon },
             yAxis: { type: 'value', min: 0, name: t('viewer.powerLabel'), ...axisCommon },
             series: [
+              ...(measured && !result?.extrapolated ? [roadBand(steps.map((s) => [s.elapsedMin, s.deliveredKw]), { step: 'end' })] : []),
               {
-                name: t('viewer.delivered'), type: 'line', step: 'end', showSymbol: false,
+                name: t('viewer.delivered'), type: 'line', step: 'end', showSymbol: false, z: 3,
                 data: steps.map((s) => [s.elapsedMin, s.deliveredKw]),
-                lineStyle: { color: lineColor, width: 2.5, type: curve.kind === 'estimated' || result?.extrapolated ? 'dashed' : 'solid' },
-                areaStyle: { color: lineColor, opacity: 0.18 },
+                lineStyle: measured && !result?.extrapolated
+                  ? { color: lineColor, width: 4, type: 'solid', cap: 'round' }
+                  : { color: lineColor, width: 2.5, type: 'dashed' },
+                areaStyle: fill,
                 ...(limitLine ? { markLine: limitLine } : {}),
               },
             ],
@@ -293,8 +325,40 @@ export default function CurveViewer({
 
   const kindLabel = (k: CurveOut['kind']) => t(`viewer.option.${k}` as MessageKey);
 
+  // Two overlapping range inputs make one start/end slider (B83). When the handles meet, the one that
+  // can still move away from the other sits on top.
+  const startOnTop = settings.start >= settings.end - 1 && settings.start > 50;
+  const figure = (label: ReactNode, value: ReactNode, title?: string) => (
+    <div className="readout" title={title}><dt className="readout-label">{label}</dt><dd className="readout-value">{value}</dd></div>
+  );
+
   return (
     <div className="viewer card">
+      <div className="answer" aria-live="polite">
+        {result ? (
+          <>
+            <p className="answer-line">
+              <span className="answer-label">{t('viewer.result.time', { start: settings.start, end: settings.end })}</span>{' '}
+              <span className="answer-time">{minutes(result.minutes)}</span>
+            </p>
+            <dl className="readouts figures">
+              {figure(t('viewer.result.km', { basis: t(`viewer.basis.${basis}` as MessageKey) }),
+                result.kmAdded !== null ? `${estimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>)}
+              {figure(t('viewer.result.per10'),
+                result.kmPer10Min !== null ? `${estimated ? '~' : ''}${distance(result.kmPer10Min)}` : <span className="unknown small">{t('badge.unknown')}</span>)}
+              {figure(t('viewer.result.added'), `${batteryIsGross ? '~' : ''}${t('fmt.kwh', { value: formatNumber(result.energyKwh, 1) })}`)}
+              {figure(t('viewer.result.avg'), t('fmt.kw', { value: formatNumber(result.averageKw) }))}
+              {figure(t('viewer.result.cost', { start: settings.start, end: settings.end }), `~${money.format(drawnKwh * settings.price)}`,
+                t('viewer.result.costNote', { kwh: formatNumber(drawnKwh, 1), loss: Math.round((1 - COST.dcEfficiency) * 100) }))}
+              {chargerKw !== null && result.lostToChargerMinutes > 0.05 &&
+                figure(t('viewer.result.lost'), t('viewer.result.lostValue', { value: formatNumber(result.lostToChargerMinutes), kw: chargerKw }))}
+            </dl>
+          </>
+        ) : (
+          <p className="unknown">{t('badge.unknown')}</p>
+        )}
+      </div>
+
       {curve.kind === 'estimated' && (
         <div className="banner estimated">
           <p style={{ margin: 0 }}>{t('viewer.estimatedBanner')}</p>
@@ -307,6 +371,45 @@ export default function CurveViewer({
       {batteryIsGross && <p className="banner small">{t('viewer.grossNote')}</p>}
       {partial && <p className="banner small estimated">{t('viewer.extendedNote', { from: formatNumber(span.from), to: formatNumber(span.to) })}</p>}
 
+      <div className="plot panel">
+        <div className="chart-head">
+          <span id={`${uid}-axis`} className="seg-label">{t('viewer.xAxis')}</span>
+          <div className="seg" role="group" aria-labelledby={`${uid}-axis`}>
+            {(['soc', 'time'] as const).map((x) => (
+              <button key={x} type="button" aria-pressed={xAxis === x} onClick={() => setXAxis(x)}>{t(`viewer.axis.${x}` as MessageKey)}</button>
+            ))}
+          </div>
+        </div>
+        <div ref={chartEl} className="chart" role="img" aria-label={t('viewer.chartAlt', { kw: formatNumber(Math.max(...curve.points.map((p) => p.power_kw))) })} />
+        <div className="window">
+          <div className="window-labels" aria-hidden="true">
+            <span>{t('viewer.start')}: {settings.start}%</span>
+            <span>{t('viewer.end')}: {settings.end}%</span>
+          </div>
+          <div className="power-track">
+            <div className="power-rail" aria-hidden="true" />
+            <div className="power-fill" aria-hidden="true" style={{ left: `${settings.start}%`, width: `${settings.end - settings.start}%` }} />
+            <input
+              type="range" min={0} max={100} step={1} value={settings.start} aria-label={t('viewer.start')} aria-valuetext={`${settings.start}%`}
+              style={{ zIndex: startOnTop ? 3 : 2 }}
+              onChange={(e) => update({ start: Math.min(Number(e.target.value), settings.end) })}
+            />
+            <input
+              type="range" min={0} max={100} step={1} value={settings.end} aria-label={t('viewer.end')} aria-valuetext={`${settings.end}%`}
+              onChange={(e) => update({ end: Math.max(Number(e.target.value), settings.start) })}
+            />
+          </div>
+        </div>
+      </div>
+
+      <p className="small muted curve-note">
+        {t('viewer.curveFrom', { kind: curve.based_on ? t('viewer.option.borrowed') : kindLabel(curve.kind) })}
+        {source && <> <a href={source.url} target="_blank" rel="noopener">{source.title}</a> <SourceRef n={source.n} /></>}
+        {' · '}{t('viewer.warm')}
+        {result && <> {t('viewer.result.costNote', { kwh: formatNumber(drawnKwh, 1), loss: Math.round((1 - COST.dcEfficiency) * 100) })}. </>}
+        <span id="price-help">{t('viewer.priceHelp')}</span>
+      </p>
+
       <div className="controls">
         {curves.length > 1 && (
           <label className="curve-pick">
@@ -318,33 +421,33 @@ export default function CurveViewer({
             </select>
           </label>
         )}
-        <label>
-          <span>{t('viewer.start')}: {settings.start}%</span>
-          <input type="range" min={0} max={100} step={1} value={settings.start} onChange={(e) => update({ start: Number(e.target.value) })} />
-        </label>
-        <label>
-          <span>{t('viewer.end')}: {settings.end}%</span>
-          <input type="range" min={0} max={100} step={1} value={settings.end} onChange={(e) => update({ end: Math.max(Number(e.target.value), settings.start) })} />
-        </label>
-        <label>
-          <span>{t('viewer.charger')}</span>
-          <select value={settings.preset} onChange={(e) => update({ preset: e.target.value as Preset })}>
-            {PRESETS.map((p) => (
-              <option key={p} value={p}>{p === 'none' ? t('viewer.noLimit') : p === 'custom' ? t('viewer.custom') : t('fmt.kw', { value: p })}</option>
-            ))}
-          </select>
-        </label>
-        {settings.preset === 'custom' && (
-          <label>
-            <span>{t('viewer.customKw')}</span>
-            <input type="number" min={1} max={1000} value={settings.customKw} onChange={(e) => update({ customKw: Number(e.target.value) })} />
+        <div className="charger-pick">
+          <label htmlFor={`${uid}-charger`} className="charger-words">
+            {t('viewer.charger')}: <strong>{chargerLabel}</strong>
           </label>
-        )}
-        {chargerKw != null && (
-          <p className="find-chargers small">
-            <a href={mapLink(chargerKw, mapPlugs)}>{t('viewer.findChargers')}</a>
-          </p>
-        )}
+          <div className="power-track">
+            <div className="power-rail" aria-hidden="true" />
+            <div className="power-fill" aria-hidden="true" style={{ left: 0, width: stopPct(chargerIndex) }} />
+            <input
+              id={`${uid}-charger`} type="range" min={0} max={CHARGER_STOPS.length - 1} step={1}
+              value={chargerIndex} aria-valuetext={chargerLabel}
+              onChange={(e) => {
+                const kw = CHARGER_STOPS[Number(e.target.value)];
+                update(Number.isFinite(kw) ? { preset: 'custom', customKw: kw } : { preset: 'none' });
+              }}
+            />
+          </div>
+          <ol className="power-ticks" aria-hidden="true">
+            {CHARGER_STOPS.map((kw, i) => (
+              <li key={i} style={{ left: stopPct(i) }}>{Number.isFinite(kw) ? formatNumber(kw) : t('map.power.maxStop')}</li>
+            ))}
+          </ol>
+          {chargerKw != null && (
+            <p className="find-chargers small">
+              <a href={mapLink(chargerKw, mapPlugs)}>{t('viewer.findChargers')}</a>
+            </p>
+          )}
+        </div>
         <label>
           <span>{t('viewer.rangeBasis')}</span>
           <select value={basis} onChange={(e) => setBasis(e.target.value as Basis)}>
@@ -352,18 +455,14 @@ export default function CurveViewer({
           </select>
         </label>
         {extraControls}
-        <fieldset className="toggle axis-toggle">
-          <legend>{t('viewer.xAxis')}</legend>
-          {(['soc', 'time'] as const).map((x) => (
-            <button key={x} type="button" aria-pressed={xAxis === x} onClick={() => setXAxis(x)}>{t(`viewer.axis.${x}` as MessageKey)}</button>
-          ))}
-        </fieldset>
-        <fieldset className="toggle">
-          <legend>{t('viewer.units')}</legend>
-          {(['km', 'mi'] as const).map((u) => (
-            <button key={u} type="button" aria-pressed={unit === u} onClick={() => switchUnit(u)}>{t(`units.${u}` as MessageKey)}</button>
-          ))}
-        </fieldset>
+        <div className="seg-field">
+          <span id={`${uid}-units`} className="seg-label">{t('viewer.units')}</span>
+          <div className="seg" role="group" aria-labelledby={`${uid}-units`}>
+            {(['km', 'mi'] as const).map((u) => (
+              <button key={u} type="button" aria-pressed={unit === u} onClick={() => switchUnit(u)}>{t(`units.${u}` as MessageKey)}</button>
+            ))}
+          </div>
+        </div>
         <label title={t('viewer.priceHelp')}>
           <span>{t('viewer.price', { currency: COVERAGE.currency })}</span>
           <input
@@ -374,36 +473,6 @@ export default function CurveViewer({
           />
         </label>
       </div>
-
-      <div className="results" aria-live="polite">
-        {result ? (
-          <>
-            <div className="r"><p className="rl">{t('viewer.result.time', { start: settings.start, end: settings.end })}</p><p className="rv">{minutes(result.minutes)}</p></div>
-            <div className="r"><p className="rl">{t('viewer.result.km', { basis: t(`viewer.basis.${basis}` as MessageKey) })}</p><p className="rv">{result.kmAdded !== null ? `${estimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>}</p></div>
-            <div className="r"><p className="rl">{t('viewer.result.per10')}</p><p className="rv">{result.kmPer10Min !== null ? `${estimated ? '~' : ''}${distance(result.kmPer10Min)}` : <span className="unknown small">{t('badge.unknown')}</span>}</p></div>
-            <div className="r"><p className="rl">{t('viewer.result.added')}</p><p className="rv">{batteryIsGross ? '~' : ''}{t('fmt.kwh', { value: formatNumber(result.energyKwh, 1) })}</p></div>
-            <div className="r"><p className="rl">{t('viewer.result.avg')}</p><p className="rv">{t('fmt.kw', { value: formatNumber(result.averageKw) })}</p></div>
-            <div className="r" title={t('viewer.result.costNote', { kwh: formatNumber(drawnKwh, 1), loss: Math.round((1 - COST.dcEfficiency) * 100) })}>
-              <p className="rl">{t('viewer.result.cost', { start: settings.start, end: settings.end })}</p>
-              <p className="rv">~{money.format(drawnKwh * settings.price)}</p>
-            </div>
-            {chargerKw !== null && result.lostToChargerMinutes > 0.05 && (
-              <div className="r"><p className="rl">{t('viewer.result.lost')}</p><p className="rv">{t('viewer.result.lostValue', { value: formatNumber(result.lostToChargerMinutes), kw: chargerKw })}</p></div>
-            )}
-          </>
-        ) : (
-          <p className="unknown">{t('badge.unknown')}</p>
-        )}
-      </div>
-
-      <div ref={chartEl} className="chart" role="img" aria-label={t('viewer.chartAlt', { kw: formatNumber(Math.max(...curve.points.map((p) => p.power_kw))) })} />
-      <p className="small muted curve-note">
-        {t('viewer.curveFrom', { kind: curve.based_on ? t('viewer.option.borrowed') : kindLabel(curve.kind) })}
-        {source && <> <a href={source.url} target="_blank" rel="noopener">{source.title}</a> <SourceRef n={source.n} /></>}
-        {' · '}{t('viewer.warm')}
-        {result && <> {t('viewer.result.costNote', { kwh: formatNumber(drawnKwh, 1), loss: Math.round((1 - COST.dcEfficiency) * 100) })}. </>}
-        <span id="price-help">{t('viewer.priceHelp')}</span>
-      </p>
 
       <details className="more">
         <summary>{t('viewer.moreDetail')}</summary>
@@ -424,31 +493,52 @@ export default function CurveViewer({
 
       <style>{`
         .viewer { display: grid; gap: 16px; }
-        .viewer .controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px 16px; align-items: end; }
+
+        /* B83: the answer leads, in the display face; the other results are one quiet row. */
+        .viewer .answer-line { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 10px; row-gap: 2px; }
+        .viewer .answer-label { font-family: var(--display); font-weight: 700; font-size: 1.1rem; color: var(--muted); letter-spacing: -0.01em; }
+        .viewer .answer-time { font-family: var(--display); font-weight: 800; font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.05; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+        /* The chart sits on its own raised panel with its axis switch on top and the window slider under it. */
+        .viewer .figures { margin-top: 12px; }
+        .viewer .plot { display: grid; gap: 4px; padding: 12px 12px 10px; }
+        .viewer .chart-head { display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
+        .viewer .seg-label { font-size: 0.875rem; color: var(--muted); }
+        .viewer .seg-field { display: grid; gap: 4px; min-width: 0; }
+        .viewer .seg-field .seg button { flex: 1 1 0; }
+        .viewer .power-rail { background: var(--field-border); }
+        .viewer .chart { width: 100%; height: 320px; }
+        .viewer .window { padding: 0 16px 0 48px; } /* = the chart grid's left/right, so 0-100 % lines up */
+        .viewer .window .power-track { margin: 0; }
+        .viewer .window-labels { display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 600; font-variant-numeric: tabular-nums; margin-bottom: 2px; }
+
+        .viewer .charger-pick { grid-column: span 2; display: grid; gap: 2px; min-width: 0; padding-right: 8px; }
+        .viewer .charger-words { display: block; font-size: 0.875rem; color: var(--muted); }
+        /* Every tick sits centred on its handle (the map pins the end ticks to the rail ends); the track's 9 px margin and the padding make room. */
+        .viewer .charger-pick .power-ticks li { transform: translateX(-50%); }
+        .viewer .charger-pick strong { color: var(--text); font-weight: 650; font-variant-numeric: tabular-nums; }
+        .viewer .charger-pick .find-chargers { margin: 4px 0 0; }
+
+        .viewer .curve-note { margin: 0; }
+
+        .viewer .controls { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 16px; align-items: start; padding-top: 16px; border-top: 1px solid var(--border); }
         .viewer .controls > * { min-width: 0; }
         .viewer .curve-pick { grid-column: span 2; }
         .viewer .control-note { display: block; font-size: 0.8rem; color: var(--muted); }
         .viewer .control-note.linkish { padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: 0.8rem; font-weight: 600; text-align: left; cursor: pointer; text-decoration: underline; }
-        .viewer .axis-toggle { grid-column: span 2; }
         .viewer label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
         .viewer select, .viewer input[type=number] { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 6px 8px; width: 100%; min-width: 0; text-overflow: ellipsis; }
-        .viewer input[type=range] { accent-color: var(--accent); width: 100%; margin: 6px 0; }
-        .viewer .toggle { border: 0; padding: 0; margin: 0; min-width: 0; min-inline-size: 0; display: flex; gap: 0; flex-wrap: nowrap; }
-        .viewer .toggle legend { font-size: 0.875rem; color: var(--muted); margin-bottom: 4px; padding: 0; }
-        .viewer .toggle button { flex: 1 1 0; white-space: nowrap; font: inherit; font-size: 0.875rem; border: 1px solid var(--field-border); background: var(--surface); color: var(--text); padding: 6px 10px; cursor: pointer; }
-        .viewer .toggle button:first-of-type { border-radius: 8px 0 0 8px; }
-        .viewer .toggle button:last-of-type { border-radius: 0 8px 8px 0; border-left: 0; }
-        .viewer .toggle button[aria-pressed=true] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
-        .viewer .results { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
-        .viewer .r { background: var(--surface-2); border-radius: 10px; padding: 8px 12px; min-width: 0; }
-        .viewer .rl { margin: 0; color: var(--muted); font-size: 0.8rem; }
-        .viewer .rv { margin: 2px 0 0; font-weight: 650; font-size: 1.15rem; overflow-wrap: anywhere; }
-        .viewer .chart { width: 100%; height: 320px; }
-        .viewer .curve-note { margin: -8px 0 0; }
+
         @media (max-width: 640px) {
           .viewer { gap: 12px; padding: 14px; }
-          .viewer .rv { font-size: 1.05rem; }
-          .viewer .chart { height: 260px; }
+          .viewer .chart { height: 240px; }
+          .viewer .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+          .viewer .figures { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+          .viewer .figures .readout { padding: 8px 10px; }
+          .viewer .figures .readout-value { font-size: 1rem; }
+          .viewer .plot { padding: 8px 6px 8px; }
+        }
+        @media (max-width: 400px) {
+          .viewer .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
         .viewer .more summary { cursor: pointer; font-weight: 600; }
         .viewer .points { max-width: 320px; margin-top: 8px; }

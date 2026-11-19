@@ -179,12 +179,13 @@ th { font-weight: 600; color: var(--muted); font-size: 0.875rem; }
 .badge { display: inline-block; position: relative; font-size: 0.75rem; vertical-align: middle; }
 .badge summary {
   list-style: none; cursor: pointer; display: inline-flex; gap: 4px; align-items: center;
-  padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border);
-  background: var(--surface-2); color: var(--muted); white-space: nowrap;
+  padding: 1px 8px; border-radius: 999px; border: 1px solid var(--field-border);
+  background: transparent; color: var(--text); white-space: nowrap;
 }
 .badge summary::-webkit-details-marker { display: none; }
-.badge.kind-rated_nrcan summary, .badge.kind-rated_epa summary { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, transparent); background: var(--accent-soft); }
-.badge.kind-estimated summary { color: var(--estimated); border-style: dashed; background: var(--estimated-soft); font-style: italic; }
+.badge.kind-rated_nrcan summary, .badge.kind-rated_epa summary { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.badge.kind-estimated summary { color: var(--estimated); border-color: var(--estimated); border-style: dashed; background: var(--estimated-soft); font-style: italic; }
+.badge summary:hover { background: var(--surface); }
 .badge.low summary { border-style: dotted; }
 .differ { color: var(--warn); }
 .pop {
@@ -916,3 +917,27 @@ html[data-motion="off"] .chip-pop, html[data-motion="off"] .fold > * { transitio
 .fold.shut .marquee.moving, .fold.shut .marquee.moving .marquee-text { animation: none; }
 html[data-motion="off"] .marquee.moving { -webkit-mask-image: none; mask-image: none; animation: none; text-overflow: ellipsis; }
 html[data-motion="off"] .marquee.moving .marquee-text { display: inline; animation: none; }
+
+/* ---- Content-page design language (docs/design/design-language.md, B83) ----
+   Surfaces step up: page (--bg) -> card (--surface) -> raised readout or panel (--surface-2). */
+
+/* Readouts: one figure per raised card, label above, value in the display face. */
+.readouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin: 0; }
+.readout { min-width: 0; margin: 0; background: var(--surface-2); border-radius: 10px; padding: 10px 12px; }
+.readout-label { display: block; margin: 0; font-size: 0.8rem; color: var(--muted); }
+.readout-value { display: block; margin: 2px 0 0; font-family: var(--display); font-weight: 700; font-size: 1.15rem; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.readout-value .badge, .readout-value .rated, .readout-value .linkish, .readout-value .unknown { font-family: var(--font); }
+.readout-value .badge { font-weight: 400; }
+
+/* Panels: a raised block that groups related rows (a spec group, the trims, the sources, the chart). */
+.panel { background: var(--surface-2); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.panel > h3, .panel-title { margin: 0 0 6px; font-family: var(--display); font-weight: 700; font-size: 1rem; letter-spacing: -0.01em; }
+.panel table th, .panel table td { border-bottom-color: color-mix(in srgb, var(--field-border) 35%, transparent); }
+.panel table tr:last-child > * { border-bottom: 0; }
+.panel table td .v { font-family: var(--display); font-weight: 650; font-variant-numeric: tabular-nums; }
+
+/* Segmented switches use .seg (the Settings look: the selected one painted yellow, ink label). */
+.seg button { min-height: 32px; white-space: nowrap; }
+
+/* Sliders use the map's kW slider (.power-track, .power-rail, .power-fill, .power-ticks):
+   round thumbs and a fill in the accent colour, tick labels under the rail. */

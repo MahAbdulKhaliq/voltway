@@ -344,17 +344,17 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
 
           <Accordion headingId="key" title={t('car.details')} preview={detailsPreview}>
             <p className="muted small acc-help">{t('car.detailsHelp')}</p>
-            <div className="tiles">
-              <div className="tile card"><p className="tl">{t('tile.range')}</p><div className="tv"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={adjusting} />{ratedLine('range_km')}</div></div>
-              <div className="tile card"><p className="tl">{t('tile.efficiency')}</p><div className="tv"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={adjusting} />{ratedLine('consumption_combined_wh_per_km')}</div></div>
-              <div className="tile card"><p className="tl">{usable ? t('tile.battery') : t('tile.batteryGross')}</p><div className="tv"><Value field={battery} sources={sources} label={t('tile.battery')} unit={unit} /></div></div>
-              <div className="tile card"><p className="tl">{t('tile.dcPeak')}</p><div className="tv"><Value field={f.dc_max_kw ?? null} sources={sources} label={t('tile.dcPeak')} unit={unit} /></div></div>
-              <div className="tile card"><p className="tl">{t('tile.time1080')}</p><div className="tv">
+            <div className="readouts tiles">
+              <div className="readout"><p className="readout-label">{t('tile.range')}</p><div className="readout-value"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={adjusting} />{ratedLine('range_km')}</div></div>
+              <div className="readout"><p className="readout-label">{t('tile.efficiency')}</p><div className="readout-value"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={adjusting} />{ratedLine('consumption_combined_wh_per_km')}</div></div>
+              <div className="readout"><p className="readout-label">{usable ? t('tile.battery') : t('tile.batteryGross')}</p><div className="readout-value"><Value field={battery} sources={sources} label={t('tile.battery')} unit={unit} /></div></div>
+              <div className="readout"><p className="readout-label">{t('tile.dcPeak')}</p><div className="readout-value"><Value field={f.dc_max_kw ?? null} sources={sources} label={t('tile.dcPeak')} unit={unit} /></div></div>
+              <div className="readout"><p className="readout-label">{t('tile.time1080')}</p><div className="readout-value">
                 {d && d.minutes_10_80 !== null ? (
                   <span className="fv">{d.estimated ? t('fmt.approxMin', { value: displayMinutes(d.minutes_10_80, true) }) : t('fmt.min', { value: displayMinutes(d.minutes_10_80, false) })} <Badge field={curveField} sources={sources} label={t('tile.time1080')} unit={unit} /></span>
                 ) : <span className="unknown">{t('badge.unknown')}</span>}
               </div></div>
-              <div className="tile card"><p className="tl">{t('tile.kmPer10')}</p><div className="tv">
+              <div className="readout"><p className="readout-label">{t('tile.kmPer10')}</p><div className="readout-value">
                 {per10 !== null ? (
                   <span className="fv">{d!.estimated || adjusting ? '~' : ''}{distance(per10)} <Badge field={curveField} sources={sources} label={t('tile.kmPer10')} unit={unit} /></span>
                 ) : <span className="unknown">{t('badge.unknown')}</span>}
@@ -365,7 +365,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
           <Accordion headingId="specs" title={t('car.specs')}>
             <div className="spec-grid">
               {GROUPS.map((g) => (
-                <div className="card" key={g.title}>
+                <div className="panel" key={g.title}>
                   <h3>{t(g.title)}</h3>
                   <table className="stack-table">
                     <tbody>
@@ -388,7 +388,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
           </Accordion>
 
           <Accordion headingId="trims" title={t('car.trims')} preview={t(car.trims.length === 1 ? 'car.trimCount.one' : 'car.trimCount.other', { count: car.trims.length })}>
-            <div>
+            <div className="panel trims">
               <table className="stack-table">
                 <thead><tr><th>{t('car.trimName')}</th><th>{t('field.heat_pump')}</th><th>{t('car.wheels')}</th><th>{t('car.trimRange')}</th></tr></thead>
                 <tbody>
@@ -407,11 +407,11 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
 
           <Accordion id="sources-acc" headingId="sources" title={t('car.sources')} preview={t(sources.length === 1 ? 'car.sourceCount.one' : 'car.sourceCount.other', { count: sources.length })}>
             <p className="muted small">{t('car.sourcesIntro')}</p>
-            <ol className="sources">
+            <ol className="sources panel">
               {sources.map((s, i) => (
                 <li key={s.id} id={`source-${i + 1}`}>
                   <a href={s.url} rel="noopener" target="_blank">{s.title}</a>
-                  <span className="muted small"> · {t('badge.accessed', { date: s.accessed_on })}{s.license && <> · {t('car.licence', { licence: s.license })}</>}</span>
+                  <span className="source-meta muted small">{t('badge.accessed', { date: s.accessed_on })}{s.license && <> · {t('car.licence', { licence: s.license })}</>}</span>
                 </li>
               ))}
             </ol>
@@ -429,26 +429,27 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
         .explorer .selects select:disabled { opacity: 0.6; }
         .explorer .eyebrow { margin: 0 0 4px; font-size: 0.9rem; }
         .explorer .variant { color: var(--muted); font-weight: 500; }
-        .explorer .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
-        .explorer .tile { padding: 12px 14px; }
-        .explorer .acc .card { box-shadow: none; background: var(--surface-2); border-color: transparent; }
-        .explorer .acc .spec-grid .card { padding: 14px 16px; }
+        .explorer .tiles { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+        .explorer .tiles .readout { padding: 12px 14px; }
+        .explorer .tiles .readout-label { margin-bottom: 4px; }
+        .explorer .trims { padding: 6px 16px; }
+        .explorer .trims tr.current td { background: color-mix(in srgb, var(--accent-soft) 70%, transparent); }
         .explorer .acc-help { margin: 0 0 12px; }
         .explorer .report { margin: -12px 0 0; }
-        .explorer .tl { margin: 0 0 6px; color: var(--muted); font-size: 0.85rem; }
-        .explorer .tv { margin: 0; font-size: 1.25rem; font-weight: 650; }
-        .explorer .tv .badge { font-weight: 400; }
         .explorer .linkish { display: block; margin-top: 6px; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: 0.8rem; font-weight: 600; text-align: left; cursor: pointer; text-decoration: underline; }
         .explorer .rated { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-top: 4px; }
         .explorer .wheels select { font: inherit; font-size: 1rem; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 4px 8px; width: 100%; }
         .explorer .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 12px; }
         .explorer .spec-grid th { width: 46%; }
         .explorer tr.current td:first-child { font-weight: 650; }
-        .explorer .sources { padding-left: 28px; margin: 0; }
-        .explorer .sources li { margin-bottom: 6px; padding: 2px 6px; border-radius: 6px; scroll-margin: 96px; }
+        .explorer .sources { list-style: none; counter-reset: src; margin: 0; padding: 4px 16px; }
+        .explorer .sources li { counter-increment: src; display: grid; grid-template-columns: 2.2em 1fr; column-gap: 8px; padding: 10px 6px; border-bottom: 1px solid color-mix(in srgb, var(--field-border) 35%, transparent); border-radius: 6px; scroll-margin: 96px; }
+        .explorer .sources li:last-child { border-bottom: 0; }
+        .explorer .sources li::before { content: counter(src); grid-row: span 2; font-family: var(--display); font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+        .explorer .sources .source-meta { display: block; margin-top: 2px; }
         .explorer .sources li.flash { animation: src-flash 2s ease-out; }
         @keyframes src-flash { from { background: var(--accent-soft); } to { background: transparent; } }
-        @media (max-width: 640px) { .explorer { gap: 16px; } .explorer .tv { font-size: 1.1rem; } .explorer .wheels select { font-size: 0.85rem; padding: 4px 6px; } }
+        @media (max-width: 640px) { .explorer { gap: 16px; } .explorer .tiles .readout-value { font-size: 1.05rem; } .explorer .wheels select { font-size: 0.85rem; padding: 4px 6px; } }
         .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
       `}</style>
     </div>

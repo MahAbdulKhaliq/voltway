@@ -582,3 +582,33 @@ Read `DESIGN-8.md` first. Never print or read `.env` or any key. Real `/api/rout
 | QB6 | PASS (after fix 4e6735d) | ui-check-8: note, rows "into the US near River Rouge, MI" in route order |
 | QB7 | PASS | ui-check-8: Toronto → Ottawa no note, no rows, stops in Canada |
 | QB8 | PASS | ui-check-8: `border=cross` only when the switch is off; share link opened with switch on shows the message |
+
+# B83 QA: Charging page hierarchy
+
+Read B83 in `docs/design/gaps-and-questions.md`. Page: `/charging`. Cars: Kia EV9 Land AWD GT-Line (tested curve, measured 18–80 %), BMW i4 eDrive40 (estimated), any car with Charger set to 150 kW.
+
+| ID | Area | How to check | Pass when / edge cases |
+|----|------|--------------|------------------------|
+| QC1 | Answer first | 1280×800 and 375×812, both themes | The charging time is the first line in the viewer card, Overpass, clearly the largest number; at 1280×800 the top of the chart is above the fold; at 375 the answer is above the fold. Values match the old tiles (same `~` on estimates, cost, "lost to charger limit" only with a charger limit) |
+| QC2 | Window slider | drag each handle, keyboard arrows, Tab | Handles line up with the chart's 10 % / 80 % guides (≤ 4 px); start can't pass end; arrow keys move one handle by 1 %; each handle announces its own label; dragging a guide on the chart moves the handle; settings remembered after reload; a trip-stop link window (`?from=…&to=…` from a trip) still shows |
+| QC3 | Axis switch | click Time, then State of charge | Switch sits at the chart's top right; chart redraws; no overlap with the y-axis name at 375 |
+| QC4 | Curve paint | EV9 and i4, dark and light | EV9: yellow line on a dark band, violet dashed stretches below 18 % and above 80 %; i4: violet dashed, no band; delivered fill visible in both themes; guides in the text colour |
+| QC5 | One yellow (superseded) | — | Replaced by the owner in round 3: selected switches are yellow like Settings (QC8). Kept for history |
+| QC6 | Readouts and panels | 1280 and 375, both themes; open every accordion | Viewer results and Car figures on raised readout cards (Overpass values); chart, Specifications groups, Trims and Sources on raised panels; text on them ≥ 4.5:1; no overflow or horizontal scroll at 375 |
+| QC7 | Curve outside the window | EV9 at 10–80 % and 30–60 %; i4 | Solid yellow on the band only where measured and inside the window; outside the window long lane-line dashes (yellow in dark, band colour in light); unmeasured/estimated violet, short dashes inside the window, lane-line dashes outside |
+| QC8 | Switches and sliders | km/mi, SoC/Time, both sliders; arrows, `?kw=150`, `?kw=62.5`, reload | Switches use the Settings look (selected yellow, ink label); sliders use the map's kW slider look; Charger steps 50, 100 … 350, Max (no limit line, no "Find chargers" link at Max); results update; value remembered; `?kw=62.5` shows "63 kW" (link values round to whole kW, B31) with the handle at 50; ticks are centred on their handle positions (≤ 4 px) and don't overlap at 375; each control has its own name and value text |
+| QC9 | Source badges | Car figures, Specifications, both themes | Manufacturer, Tested, Official and Estimated badges clearly outlined on the raised cards (outline ≥ 3:1 against `surface-2`; `tests/contrast.test.ts`); the badge popup still opens |
+
+## B83 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QC1 | PASS | Re-run: answer Overpass 800 41.6 px / 30.4 px; chart top y=675 (EV9) / 674 (i4) at 1280×800; answer above the fold at 375; values and `~` unchanged (docs/plan/reports/ui-check-b83-final.md) |
+| QC2 | PASS | Re-run with the map-style slider: track = chart grid at 1280 and 375; guides within 0.6 px of the handles; arrows 1 %, no crossing, own names; chart guide drag; reload; `?from=30&to=60` (docs/plan/reports/ui-check-b83-final.md) |
+| QC3 | PASS | Re-run: switch top right, no overlap at either width; Time redraws (docs/plan/reports/ui-check-b83-final.md) |
+| QC4 | PASS | Re-run: EV9 #FFD400 on the 10 px band, violet outside 18–80 %; i4 violet, no band; fill both themes; guides text colour (docs/plan/reports/ui-check-b83-final.md) |
+| QC5 | PASS | no yellow fill; selected border 14.67:1 dark / 16.35:1 light; focus rings visible (docs/plan/reports/ui-check-b83.md) | Superseded by QC8 (owner, round 3)
+| QC6 | PASS | Readouts, chart, spec groups, Trims, Sources on raised panels (10 px, no border/shadow); lowest text contrast 5.42 dark / 5.06 light; Overpass values and titles; no horizontal scroll at 375 (docs/plan/reports/ui-check-b83-final.md) |
+| QC7 | PASS | 16/12 lane dashes outside the window (yellow dark, #2B2C30 light), short 9/6 violet dashes inside where unmeasured; i4 violet (docs/plan/reports/ui-check-b83-final.md) |
+| QC8 | PASS (after fix) | Settings-look switches; charger steps 50…350, Max (no limit line or map link at Max); remembered; `?kw=150`. First run: end ticks off their handles by 6.4 / 10.7 px and the `?kw=62.5` wording; fixed (end ticks centred, measured 0.0 px at 375) and the QA wording corrected (link rounds to 63 kW, B31) (docs/plan/reports/ui-check-b83-final.md) |
+| QC9 | PASS | Badge outline vs surface-2: default 3.29 dark / 4.04 light, Official 9.88 / 5.61, Estimated 7.93 / 5.98; popup opens on a raised card; [n] opens Sources (docs/plan/reports/ui-check-b83-final.md; tests/contrast.test.ts) |

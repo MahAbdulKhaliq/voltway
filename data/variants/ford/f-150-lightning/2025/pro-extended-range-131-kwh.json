@@ -4,10 +4,16 @@
   "year": 2025,
   "name": "PRO Extended Range (131 kWh)",
   "drivetrain": "awd",
+  "powertrain_id": "ford/f-150-lightning/2025-pro-extended-range-131-kwh",
+  "markets": [
+    "CA"
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "PRO Extended Range (131 kWh)"
+      "names": {
+        "CA": "PRO Extended Range (131 kWh)"
+      }
     }
   ]
 }

@@ -4,10 +4,16 @@
   "year": 2025,
   "name": "Standard Range",
   "drivetrain": "awd",
+  "powertrain_id": "ford/f-150-lightning/2025-standard-range",
+  "markets": [
+    "CA"
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Standard Range"
+      "names": {
+        "CA": "Standard Range"
+      }
     }
   ]
 }

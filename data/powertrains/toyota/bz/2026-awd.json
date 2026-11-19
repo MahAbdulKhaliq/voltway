@@ -1,0 +1,82 @@
+{
+  "id": "toyota/bz/2026-awd",
+  "model_id": "toyota/bz",
+  "name": "AWD",
+  "generation": "bz-2026-refresh",
+  "years": [
+    2026
+  ],
+  "battery": {
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-toyota-ca-media-bz-2026",
+        "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-bz-charging-limit-2026",
+        "low_confidence": true,
+        "notes": "Toyota chief engineer (via InsideEVs): bZ \"still runs on a 400-volt electrical architecture\". Autopian: pack 391 V."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 77,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-toyota-ca-media-bz-2026",
+        "notes": "Toyota Canada release lists 77 kWh for XLE AWD and Limited AWD (total, usable not stated). US release says 74.7 kWh for the same trims; NRCan ranges match US EPA ranges, so probably the same pack stated differently."
+      },
+      {
+        "value": 74.7,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-pressroom-toyota-bz-2026",
+        "low_confidence": true,
+        "notes": "Toyota USA release: 74.7 kWh total capacity for XLE AWD and Limited AWD. Conflicts with Toyota Canada 77 kWh."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-autopian-bz-2026",
+        "low_confidence": true,
+        "notes": "Autopian (chief engineer interview): \"The larger pack retains the same chemistry and cells as the previous version\" (NMC). GreenCars: \"still has nickel-manganese-cobalt cathodes\". Relayed by press."
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-toyota-ca-media-bz-2026",
+      "notes": "11 kW on-board AC charger. Page says \"across all trims\"."
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-bz-charging-limit-2026",
+      "low_confidence": true,
+      "notes": "InsideEVs relays Toyota: bZ charging \"capped at 150 kilowatts\". Model-level, not stated per pack."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 30,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-toyota-ca-media-bz-2026",
+      "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
+    }
+  ]
+}

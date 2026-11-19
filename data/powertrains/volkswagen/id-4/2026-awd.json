@@ -1,0 +1,20 @@
+{
+  "id": "volkswagen/id-4/2026-awd",
+  "model_id": "volkswagen/id-4",
+  "name": "AWD",
+  "generation": "2024-update",
+  "years": [
+    2026
+  ],
+  "battery": {
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-thinkev-vw-id4-2026",
+        "low_confidence": true,
+        "notes": "Quick web lookup. Page says NMC, 82 kWh."
+      }
+    ]
+  }
+}

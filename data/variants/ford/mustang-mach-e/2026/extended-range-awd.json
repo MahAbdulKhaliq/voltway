@@ -4,6 +4,10 @@
   "year": 2026,
   "name": "Extended Range AWD",
   "drivetrain": "awd",
+  "powertrain_id": "ford/mustang-mach-e/2026-extended-range-awd",
+  "markets": [
+    "CA"
+  ],
   "consumption_highway_wh_per_km": [
     {
       "value": 200,
@@ -17,7 +21,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Extended Range AWD"
+      "names": {
+        "CA": "Extended Range AWD"
+      }
     }
   ]
 }

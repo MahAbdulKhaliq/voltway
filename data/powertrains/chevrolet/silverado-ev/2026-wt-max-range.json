@@ -1,0 +1,59 @@
+{
+  "id": "chevrolet/silverado-ev/2026-wt-max-range",
+  "model_id": "chevrolet/silverado-ev",
+  "name": "WT Max Range",
+  "generation": "first-generation",
+  "years": [
+    2026
+  ],
+  "battery": {
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-gm-silverado-ev-2026-spec",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked). Charges at about 800 V."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-thinkev-silverado-2026",
+        "low_confidence": true,
+        "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 204,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-silverado-battery",
+        "low_confidence": true,
+        "notes": "InsideEVs: usable capacity (reported) 204 kWh for the 24-module RST pack (2024), which is the Max Range pack carried over."
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "value": 19.2,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-silverado",
+      "low_confidence": true,
+      "notes": "The Charge Port lists the fleet-only WT Max Range at 19.2 kW; the listing carries no model year. US page."
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 350,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-gm-silverado-ev-2026-spec",
+      "low_confidence": true,
+      "notes": "Quick web lookup (rough, not cross-checked). “Up to 350 kW” public DC fast charging."
+    }
+  ]
+}

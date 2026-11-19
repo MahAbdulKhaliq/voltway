@@ -4,10 +4,16 @@
   "year": 2026,
   "name": "Rally",
   "drivetrain": "awd",
+  "powertrain_id": "ford/mustang-mach-e/2026-rally",
+  "markets": [
+    "CA"
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Rally",
+      "names": {
+        "CA": "Rally"
+      },
       "heat_pump": [
         {
           "value": "standard",

@@ -1,0 +1,30 @@
+{
+  "id": "cadillac/lyriq/2026-awd",
+  "model_id": "cadillac/lyriq",
+  "name": "AWD",
+  "generation": "first-generation",
+  "years": [
+    2026
+  ],
+  "battery": {
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-lyriq-v",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database lists the LYRIQ-V (MY26) cells as GM Ultium 140Ah NMC pouch. GM describes Ultium cells as NCMA (NMC family with aluminium), closest enum value nmc. Same Ultium cells assumed across LYRIQ trims; the page also shows non-US-spec pack figures that were not used."
+      }
+    ]
+  },
+  "published_10_80_min": [
+    {
+      "value": 40,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-cargurus-lyriq-2026",
+      "low_confidence": true,
+      "notes": "Cadillac says 10-80% in about 40 min at a public DC fast charger (CarGurus; The Charge Port repeats it for LYRIQ and LYRIQ-V). Model-level claim."
+    }
+  ]
+}

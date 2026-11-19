@@ -4,10 +4,16 @@
   "year": 2026,
   "name": "Extended Range",
   "drivetrain": "awd",
+  "powertrain_id": "ford/mustang-mach-e/2026-extended-range",
+  "markets": [
+    "CA"
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Extended Range"
+      "names": {
+        "CA": "Extended Range"
+      }
     }
   ]
 }

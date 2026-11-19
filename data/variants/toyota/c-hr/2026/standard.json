@@ -4,66 +4,15 @@
   "year": 2026,
   "name": "Standard",
   "drivetrain": "fwd",
+  "powertrain_id": "toyota/c-hr/2026-standard",
+  "markets": [
+    "CA"
+  ],
   "charge_port": [
     {
       "value": "nacs",
       "kind": "manufacturer",
       "source_id": "src-toyota-ca-media-c-hr-2026"
-    }
-  ],
-  "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-c-hr-2026",
-      "notes": "11 kW on-board AC charger."
-    }
-  ],
-  "published_10_80_min": [
-    {
-      "value": 30,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-c-hr-2026",
-      "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
-    }
-  ],
-  "battery": {
-    "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-toyota-ca-media-c-hr-2026",
-        "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
-      }
-    ],
-    "capacity_gross_kwh": [
-      {
-        "value": 77,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-toyota-ca-media-c-hr-2026",
-        "notes": "Toyota Canada release: \"a total capacity of 77-kWh\" (usable not stated)."
-      },
-      {
-        "value": 74.7,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-pressroom-toyota-chr-2026",
-        "low_confidence": true,
-        "notes": "Toyota USA release: 74.7 kWh total capacity. Conflicts with Toyota Canada 77 kWh (probably the same pack stated differently)."
-      }
-    ]
-  },
-  "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-chr-review-2026",
-      "low_confidence": true,
-      "notes": "InsideEVs states the C-HR charges at a 150 kW maximum (Toyota figure)."
     }
   ],
   "curb_weight_kg": [
@@ -79,7 +28,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "C-HR",
+      "names": {
+        "CA": "C-HR"
+      },
       "wheels": [
         {
           "diameter_in": 18,

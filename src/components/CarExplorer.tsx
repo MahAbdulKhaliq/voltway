@@ -8,7 +8,7 @@ import { COVERAGE } from '../config.ts';
 import { displayMinutes } from '../lib/charging.ts';
 import { getItem, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
-import type { CarDetail, Field, IndexEntry } from '../lib/types.ts';
+import type { CarDetail, Field, IndexEntry, SourcedValue } from '../lib/types.ts';
 import { applyWheelEffect, wheelSizeOptions, ratedOnItsOwn, ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
 import { display } from '../lib/format.ts';
 import CurveViewer from './CurveViewer.tsx';
@@ -165,7 +165,16 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const basis = wheelEffect
     ? t('wheel.basis', { size: chosenIn ?? '', base: baseIn ?? '', pct: pct(wheelEffect.pct_per_inch), low: pct(wheelEffect.low), high: pct(wheelEffect.high), pairs: wheelEffect.pairs })
     : '';
+  // B91: when a trim is rated at the picked wheel size too (NRCan wheel-split rows merged into one
+  // trim), that official figure is shown instead of an estimate.
+  const wheelRated = adjusting ? trim?.wheels.find((w) => w.diameter_in === chosenIn && w.rated_range_km) : undefined;
+  const official: Record<string, SourcedValue | undefined> = {
+    range_km: wheelRated?.rated_range_km,
+    consumption_combined_wh_per_km: wheelRated?.rated_consumption_wh_per_km,
+  };
   const estimate = (k: string): Field => {
+    const o = official[k];
+    if (o) return { value: o, others: [], conflict: false };
     const r = rated[k];
     if (!adjusting || !r || typeof r.value.value !== 'number') return r;
     const v = k === 'range_km' ? r.value.value / factor : r.value.value * factor;
@@ -178,7 +187,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const shown: Record<string, Field> = Object.fromEntries(Object.keys(rated).map((k) => [k, estimate(k)]));
   const range = shown.range_km;
   const ratedLine = (k: string) =>
-    adjusting && rated[k] ? <span className="rated">{t('tile.rated', { value: display(rated[k]!.value, unit).text })}</span> : null;
+    adjusting && rated[k] && !official[k] ? <span className="rated">{t('tile.rated', { value: display(rated[k]!.value, unit).text })}</span> : null;
   const factorySizes = new Set((car?.trims ?? []).flatMap((x) => x.wheels.map((w) => w.diameter_in)));
   const officialTrim = adjusting ? car?.trims.find((x) => x.id !== trim?.id && x.wheels.some((w) => w.diameter_in === chosenIn) && (x.range_km || x.consumption_combined_wh_per_km)) : undefined;
   const sizes = baseIn !== null ? wheelSizeOptions([...factorySizes], baseIn) : []; // B93

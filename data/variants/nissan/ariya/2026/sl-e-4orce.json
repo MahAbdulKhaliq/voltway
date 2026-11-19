@@ -4,10 +4,16 @@
   "year": 2026,
   "name": "SL e-4ORCE",
   "drivetrain": "awd",
+  "powertrain_id": "nissan/ariya/2026-sl-e-4orce",
+  "markets": [
+    "CA"
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "SL e-4ORCE"
+      "names": {
+        "CA": "SL e-4ORCE"
+      }
     }
   ]
 }

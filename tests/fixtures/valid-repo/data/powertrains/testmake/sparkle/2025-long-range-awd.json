@@ -1,0 +1,34 @@
+{
+  "id": "testmake/sparkle/2025-long-range-awd",
+  "model_id": "testmake/sparkle",
+  "name": "Long Range AWD",
+  "years": [
+    2025
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 70,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-test-oem-spec"
+      }
+    ],
+    "chemistry": "unknown",
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-test-oem-spec"
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 200,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-test-oem-spec"
+    }
+  ]
+}

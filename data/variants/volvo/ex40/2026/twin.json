@@ -4,6 +4,10 @@
   "year": 2026,
   "name": "Twin",
   "drivetrain": "awd",
+  "powertrain_id": "volvo/ex40/2026-twin",
+  "markets": [
+    "CA"
+  ],
   "charge_port": [
     {
       "value": "ccs1",
@@ -22,20 +26,12 @@
       "notes": "Quick web lookup. Volvo's NACS adapter gives access to over 18,000 Tesla Supercharger stations in Canada and the US."
     }
   ],
-  "published_10_80_min": [
-    {
-      "value": 28,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-volvo-hamilton-ex40-2026-charging",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Dealer article: about 28 min 10-80% at up to 200 kW; model-wide, not split by trim."
-    }
-  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Twin"
+      "names": {
+        "CA": "Twin"
+      }
     }
   ]
 }

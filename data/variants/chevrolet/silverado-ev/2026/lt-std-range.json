@@ -4,46 +4,10 @@
   "year": 2026,
   "name": "LT Std Range",
   "drivetrain": "awd",
-  "dc_max_kw": [
-    {
-      "value": 220,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-gm-silverado-ev-2026-spec",
-      "low_confidence": true,
-      "notes": "Estimated: GM WT spec guide gives 'up to 220 kW' for the Standard Range pack; LT Standard Range inferred to share that pack (not stated by any cited page). Corrects the earlier 350 kW value (Max pack)."
-    }
+  "powertrain_id": "chevrolet/silverado-ev/2026-lt-std-range",
+  "markets": [
+    "CA"
   ],
-  "battery": {
-    "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-gm-silverado-ev-2026-spec",
-        "low_confidence": true,
-        "notes": "Estimated: GM WT spec guide lists the Standard Range pack as '475 volt' (max charge voltage, mapped to 400v class); LT Standard Range inferred to share the pack. Corrects the earlier 800v value (Max pack)."
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-thinkev-silverado-2026",
-        "low_confidence": true,
-        "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
-      }
-    ],
-    "capacity_usable_kwh": [
-      {
-        "value": 119,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-gm-silverado-ev-2026-spec",
-        "low_confidence": true,
-        "notes": "Estimated (owner to confirm the scaling basis): LT Standard Range inferred to share the 14-module WT Standard Range pack (no cited page says so; EPA 283 mi vs WT 286 mi). GM spec guide gives no kWh; 204 kWh usable (24-module pack, InsideEVs) x 14/24 = 119."
-      }
-    ]
-  },
   "supercharger_access": [
     {
       "value": "via_adapter",
@@ -65,7 +29,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "LT Std Range",
+      "names": {
+        "CA": "LT Std Range"
+      },
       "wheels": [
         {
           "diameter_in": 18,

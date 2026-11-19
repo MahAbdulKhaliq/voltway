@@ -4,10 +4,16 @@
   "year": 2025,
   "name": "Platinum",
   "drivetrain": "awd",
+  "powertrain_id": "ford/f-150-lightning/2025-platinum",
+  "markets": [
+    "CA"
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Platinum"
+      "names": {
+        "CA": "Platinum"
+      }
     }
   ]
 }

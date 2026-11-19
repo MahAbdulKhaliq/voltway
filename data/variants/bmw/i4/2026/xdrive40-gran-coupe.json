@@ -4,6 +4,10 @@
   "year": 2026,
   "name": "xDrive40",
   "drivetrain": "awd",
+  "powertrain_id": "bmw/i4/2026-xdrive40-gran-coupe",
+  "markets": [
+    "CA"
+  ],
   "charge_port": [
     {
       "value": "ccs1",
@@ -25,11 +29,9 @@
   "trims": [
     {
       "id": "18-in-wheels",
-      "name": "xDrive40 (18\" Wheels)"
-    },
-    {
-      "id": "19-in-wheels",
-      "name": "xDrive40 (19\" Wheels)"
+      "names": {
+        "CA": "xDrive40"
+      }
     }
   ]
 }

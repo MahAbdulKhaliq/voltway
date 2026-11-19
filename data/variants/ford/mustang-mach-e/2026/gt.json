@@ -4,10 +4,16 @@
   "year": 2026,
   "name": "GT",
   "drivetrain": "awd",
+  "powertrain_id": "ford/mustang-mach-e/2026-gt",
+  "markets": [
+    "CA"
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "GT",
+      "names": {
+        "CA": "GT"
+      },
       "heat_pump": [
         {
           "value": "standard",

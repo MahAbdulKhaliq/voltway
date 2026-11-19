@@ -4,54 +4,9 @@
   "year": 2025,
   "name": "Long Range",
   "drivetrain": "rwd",
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 77.4,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-auto123-ioniq-6-2025",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-auto123-ioniq-6-2025",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
-    ],
-    "chemistry": [
-      {
-        "low_confidence": true,
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-evdb-ioniq6-lr-awd",
-        "notes": "Estimated: EV Database lists NMC cathode, 77.4 kWh, 697 V for the IONIQ 6 Long Range (MY23-25, European), same model and generation and pack."
-      }
-    ],
-    "preconditioning": [
-      {
-        "low_confidence": true,
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-greencarreports-ioniq6-battery-conditioning",
-        "notes": "Estimated: navigation trigger (DC charger as destination/waypoint) stated for the 2023 IONIQ 6 (no manual control then); manual start via Bluelink app or in-car button stated on Hyundai Ireland's IONIQ 6 page (src-hyundai-ie-ioniq6-features). Combined across years/markets."
-      }
-    ]
-  },
-  "ac_max_kw": [
-    {
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-auto123-ioniq-6-2025",
-      "low_confidence": true,
-      "notes": "Quick web lookup (rough, not cross-checked)."
-    }
+  "powertrain_id": "hyundai/ioniq-6/2025-long-range",
+  "markets": [
+    "CA"
   ],
   "charge_port": [
     {
@@ -91,20 +46,9 @@
   "trims": [
     {
       "id": "18-in-wheels",
-      "name": "Long Range (18\" Wheels)",
-      "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-auto123-ioniq-6-2025",
-          "low_confidence": true,
-          "notes": "Quick web lookup (rough, not cross-checked). Dealer spec sheet lists a heat pump on RWD and AWD."
-        }
-      ]
-    },
-    {
-      "id": "20-in-wheels",
-      "name": "Long Range (20\" Wheels)",
+      "names": {
+        "CA": "Long Range"
+      },
       "heat_pump": [
         {
           "value": "standard",

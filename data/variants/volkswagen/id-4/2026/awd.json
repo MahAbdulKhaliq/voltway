@@ -4,17 +4,10 @@
   "year": 2026,
   "name": "AWD",
   "drivetrain": "awd",
-  "battery": {
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-thinkev-vw-id4-2026",
-        "low_confidence": true,
-        "notes": "Quick web lookup. Page says NMC, 82 kWh."
-      }
-    ]
-  },
+  "powertrain_id": "volkswagen/id-4/2026-awd",
+  "markets": [
+    "CA"
+  ],
   "charge_port": [
     {
       "value": "ccs1",
@@ -27,7 +20,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "AWD"
+      "names": {
+        "CA": "AWD"
+      }
     }
   ]
 }

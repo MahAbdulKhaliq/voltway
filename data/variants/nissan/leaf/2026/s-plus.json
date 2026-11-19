@@ -4,15 +4,9 @@
   "year": 2026,
   "name": "S PLUS",
   "drivetrain": "unknown",
-  "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Article says the LEAF 'can charge at up to 150 kW'; not stated per trim."
-    }
+  "powertrain_id": "nissan/leaf/2026-s-plus",
+  "markets": [
+    "CA"
   ],
   "charge_port": [
     {
@@ -32,16 +26,6 @@
       "notes": "Quick web lookup. Native NACS port; article says it unlocks Tesla Superchargers across Canada."
     }
   ],
-  "published_10_80_min": [
-    {
-      "value": 35,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Model-wide figure; pack/trim not stated on the page."
-    }
-  ],
   "curb_weight_kg": [
     {
       "value": 1899,
@@ -52,22 +36,12 @@
       "notes": "Converted from 4,187 lb (US S+ FWD; same 75 kWh pack and 214 hp as Canadian S+): 4,187 x 0.45359 = 1,899. EV Specifications lists 1,908 kg for S+ (column mapping unverified)."
     }
   ],
-  "battery": {
-    "capacity_usable_kwh": [
-      {
-        "value": 75.1,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-nissan-global-leaf-press-kit-2026",
-        "low_confidence": true,
-        "notes": "Nissan global press kit spec table: 75.1 kWh usable for the larger (160 kW motor) LEAF pack. US press kit says the S+ has a 75 kWh pack with a 214 hp (160 kW) motor, so the Canadian S+ is taken to be the same pack; the global page is not Canada-specific."
-      }
-    ]
-  },
   "trims": [
     {
       "id": "standard",
-      "name": "S PLUS",
+      "names": {
+        "CA": "S PLUS"
+      },
       "heat_pump": [
         {
           "value": "standard",

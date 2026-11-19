@@ -4,45 +4,114 @@
   "title": "Model",
   "description": "A product line across years, with one entry per model year (vehicle-data-model.md §2, §4). sold_in_canada is not stored: the build derives it from confirmed NRCan crosswalk rows. File: data/models/<make>/<model>.json",
   "type": "object",
-  "required": ["id", "make_id", "name", "body_type", "years"],
+  "required": [
+    "id",
+    "make_id",
+    "name",
+    "body_type",
+    "years",
+    "generations"
+  ],
   "additionalProperties": false,
   "properties": {
-    "id": { "description": "<make>/<model>", "type": "string", "pattern": "^[a-z0-9-]+/[a-z0-9-]+$" },
-    "make_id": { "$ref": "common.schema.json#/$defs/slug" },
-    "name": { "type": "string", "minLength": 1 },
-    "body_type": { "enum": ["sedan", "hatchback", "suv", "crossover", "truck", "van", "wagon", "coupe"] },
+    "id": {
+      "description": "<make>/<model>",
+      "type": "string",
+      "pattern": "^[a-z0-9-]+/[a-z0-9-]+$"
+    },
+    "make_id": {
+      "$ref": "common.schema.json#/$defs/slug"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "body_type": {
+      "enum": [
+        "sedan",
+        "hatchback",
+        "suv",
+        "crossover",
+        "truck",
+        "van",
+        "wagon",
+        "coupe"
+      ]
+    },
     "generations": {
-      "description": "Generations of the model line (B17). A generation with no last_year is still current. The model counts as discontinued only when every generation has ended and nothing later is listed; that is derived, never stored.",
+      "description": "Generations of the model line (B17). A generation with no last_year is still current. The model counts as discontinued only when every generation has ended and nothing later is listed; that is derived, never stored. Required with at least one entry from Phase 9 (B95): generations bound which years' records and curves apply.",
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "name", "first_year"],
+        "required": [
+          "id",
+          "name",
+          "first_year"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": { "$ref": "common.schema.json#/$defs/slug" },
-          "name": { "description": "e.g. \"First generation\" or \"2024 refresh\"", "type": "string", "minLength": 1 },
-          "first_year": { "type": "integer", "minimum": 2010, "maximum": 2100 },
-          "last_year": { "type": "integer", "minimum": 2010, "maximum": 2100 },
-          "notes": { "type": "string", "minLength": 1 }
+          "id": {
+            "$ref": "common.schema.json#/$defs/slug"
+          },
+          "name": {
+            "description": "e.g. \"First generation\" or \"2024 refresh\"",
+            "type": "string",
+            "minLength": 1
+          },
+          "first_year": {
+            "type": "integer",
+            "minimum": 2010,
+            "maximum": 2100
+          },
+          "last_year": {
+            "type": "integer",
+            "minimum": 2010,
+            "maximum": 2100
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1
+          }
         }
-      }
+      },
+      "minItems": 1
     },
     "years": {
       "type": "array",
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["year", "markets", "availability_status"],
+        "required": [
+          "year",
+          "markets",
+          "availability_status"
+        ],
         "additionalProperties": false,
         "properties": {
-          "year": { "type": "integer", "minimum": 2010, "maximum": 2100 },
+          "year": {
+            "type": "integer",
+            "minimum": 2010,
+            "maximum": 2100
+          },
           "markets": {
             "type": "array",
-            "items": { "type": "string", "pattern": "^[A-Z]{2}$" },
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            },
             "uniqueItems": true
           },
-          "availability_status": { "description": "What this model year is: built and sold (any past or current year), or announced and not yet on sale. An older year of a car still in production is not discontinued (B17).", "enum": ["production", "announced"] },
-          "generation": { "description": "Id of the generation this year belongs to (B17).", "$ref": "common.schema.json#/$defs/slug" }
+          "availability_status": {
+            "description": "What this model year is: built and sold (any past or current year), or announced and not yet on sale. An older year of a car still in production is not discontinued (B17).",
+            "enum": [
+              "production",
+              "announced"
+            ]
+          },
+          "generation": {
+            "description": "Id of the generation this year belongs to (B17).",
+            "$ref": "common.schema.json#/$defs/slug"
+          }
         }
       }
     }

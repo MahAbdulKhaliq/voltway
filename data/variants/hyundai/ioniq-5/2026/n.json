@@ -4,17 +4,10 @@
   "year": 2026,
   "name": "N",
   "drivetrain": "awd",
-  "battery": {
-    "chemistry": [
-      {
-        "low_confidence": true,
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-hyundai-egmp-84",
-        "notes": "Estimated: page lists the 2025 IONIQ 5 N under the same 84 kWh SK On NCM 811 pouch pack."
-      }
-    ]
-  },
+  "powertrain_id": "hyundai/ioniq-5/2026-n",
+  "markets": [
+    "CA"
+  ],
   "charge_port": [
     {
       "low_confidence": true,
@@ -43,7 +36,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "N",
+      "names": {
+        "CA": "N"
+      },
       "heat_pump": [
         {
           "low_confidence": true,

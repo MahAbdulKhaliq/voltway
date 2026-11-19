@@ -3,13 +3,22 @@
   "make_id": "nissan",
   "name": "ARIYA",
   "body_type": "crossover",
+  "generations": [
+    {
+      "id": "first-generation",
+      "name": "First generation",
+      "first_year": 2023,
+      "notes": "Launch: 63 kWh usable (Engage FWD) and 87 kWh usable packs; DC up to 130 kW (CCS1). US last model year 2025; Canada continues (2026 unchanged, 2027 facelift with NACS). The facelift keeps the same packs and 130 kW, so it is not split; add a 2027 facelift entry only if its curve turns out to differ. Model-level last_year left open because Canada continues. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Nissan_Ariya ; https://driveteslacanada.ca/news/nissan-cancels-2026-ariya-ev-in-the-u-s/ ; https://www.guideautoweb.com/en/articles/80303/2026-nissan-ariya-sticks-around-with-no-changes-but-slashed-prices/ ; https://driveteslacanada.ca/news/2027-nissan-ariya-canada-refresh-nacs-google-built-in/"
+    }
+  ],
   "years": [
     {
       "year": 2026,
       "markets": [
         "CA"
       ],
-      "availability_status": "production"
+      "availability_status": "production",
+      "generation": "first-generation"
     }
   ]
 }

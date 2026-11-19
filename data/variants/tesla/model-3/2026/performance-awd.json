@@ -4,6 +4,10 @@
   "year": 2026,
   "name": "Performance AWD",
   "drivetrain": "awd",
+  "powertrain_id": "tesla/model-3/2026-performance-awd",
+  "markets": [
+    "CA"
+  ],
   "supercharger_access": [
     {
       "value": "yes",
@@ -13,20 +17,12 @@
       "notes": "Quick web lookup. Source lists a NACS port for the 2026 Model 3; Supercharger access follows from that."
     }
   ],
-  "published_10_80_min": [
-    {
-      "value": 25,
-      "unit": "min",
-      "kind": "community",
-      "source_id": "src-thinkev-tesla-model-3-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. 25 min 10–80 % from one spec block that does not name the trim (assumed Performance)."
-    }
-  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Performance AWD",
+      "names": {
+        "CA": "Performance AWD"
+      },
       "heat_pump": [
         {
           "value": "standard",

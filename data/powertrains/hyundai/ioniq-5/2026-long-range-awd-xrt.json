@@ -1,0 +1,48 @@
+{
+  "id": "hyundai/ioniq-5/2026-long-range-awd-xrt",
+  "model_id": "hyundai/ioniq-5",
+  "name": "Long Range AWD XRT",
+  "generation": "2025-refresh",
+  "years": [
+    2026
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 84,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-hyundai-ca-ioniq-5-2026",
+        "notes": "Hyundai Canada states 84.0 kWh for the Preferred Long Range RWD only; assumed to be the same Long Range pack.",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-hyundai-au-ioniq-5-2026-spec",
+        "notes": "Battery voltage 697 V (Australian-market sheet; same pack)."
+      }
+    ],
+    "chemistry": [
+      {
+        "low_confidence": true,
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-hyundai-egmp-84",
+        "notes": "Estimated: page lists the 84 kWh E-GMP pack (2025 IONIQ 5 Long Range/XRT) as SK On NCM 811 pouch; EV Database also says NMC for the 84 kWh IONIQ 5. Hyundai Canada only says lithium-ion."
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "low_confidence": true,
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-ioniq5-2026",
+      "notes": "US page: home charging up to 10.9 kW. Hyundai Canada page does not state it. EV Database lists 11 kW for the European car."
+    }
+  ]
+}

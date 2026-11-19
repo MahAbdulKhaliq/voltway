@@ -1,0 +1,68 @@
+{
+  "id": "kia/ev6/2025-land-awd",
+  "model_id": "kia/ev6",
+  "name": "Land AWD",
+  "generation": "2025-refresh",
+  "years": [
+    2025
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 84,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-2025-ev6-specs",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked). 84 kWh long-range pack."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-2025-ev6-specs",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ],
+    "chemistry": [
+      {
+        "low_confidence": true,
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-ev6-gt",
+        "notes": "Estimated: EV Database lists NMC cathode for the 84 kWh EV6 GT (same 84 kWh / 697 V pack as Wind and Land); The Weekly Driver lists the 2025 EV6 Long Range under the SK On NCM 811 pouch pack."
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-ev6-2025-specs",
+      "low_confidence": true,
+      "notes": "Spec table value; not confirmed per trim."
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 240,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-2025-ev6-specs",
+      "low_confidence": true,
+      "notes": "Quick web lookup (rough, not cross-checked). US figure."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 20,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-ev6-2025",
+      "notes": "“As little as 20 minutes” on a 350 kW charger (best case)."
+    }
+  ]
+}

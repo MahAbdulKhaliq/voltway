@@ -4,6 +4,10 @@
   "year": 2025,
   "name": "Single Motor",
   "drivetrain": "rwd",
+  "powertrain_id": "polestar/polestar-2/2025-single-motor",
+  "markets": [
+    "CA"
+  ],
   "supercharger_access": [
     {
       "value": "via_adapter",
@@ -25,11 +29,9 @@
   "trims": [
     {
       "id": "19-in-wheels",
-      "name": "Single Motor (19\" Wheels)"
-    },
-    {
-      "id": "20-in-wheels",
-      "name": "Single Motor (20\" Wheels)"
+      "names": {
+        "CA": "Single Motor"
+      }
     }
   ]
 }

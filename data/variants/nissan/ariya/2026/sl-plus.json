@@ -4,10 +4,16 @@
   "year": 2026,
   "name": "SL+",
   "drivetrain": "fwd",
+  "powertrain_id": "nissan/ariya/2026-sl-plus",
+  "markets": [
+    "CA"
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "SL+"
+      "names": {
+        "CA": "SL+"
+      }
     }
   ]
 }

@@ -3,13 +3,22 @@
   "make_id": "chevrolet",
   "name": "Silverado EV",
   "body_type": "truck",
+  "generations": [
+    {
+      "id": "first-generation",
+      "name": "First generation",
+      "first_year": 2024,
+      "notes": "Launch on GM Ultium (800 V, DC up to 350 kW). Packs: Standard Range (~119 kWh), Extended Range (~170 kWh), Max Range (~205 kWh). 2026 drops the RST and adds the Trail Boss with the same pack tiers. No line-wide pack or DC change found, so one generation. The pack kWh figures come from Wikipedia and are not tied to model years or trims there; the 2026 Max Range range figures (478 vs 493 mi) differ between sources. GM says 2027 GM EVs get native NACS (port change only). Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Chevrolet_Silverado_EV ; https://www.cars.com/articles/2026-chevrolet-silverado-ev-adds-trail-boss-off-road-trim-subtracts-rst-510152"
+    }
+  ],
   "years": [
     {
       "year": 2026,
       "markets": [
         "CA"
       ],
-      "availability_status": "production"
+      "availability_status": "production",
+      "generation": "first-generation"
     }
   ]
 }

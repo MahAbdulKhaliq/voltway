@@ -4,10 +4,16 @@
   "year": 2026,
   "name": "Standard Range AWD",
   "drivetrain": "awd",
+  "powertrain_id": "ford/mustang-mach-e/2026-standard-range-awd",
+  "markets": [
+    "CA"
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Standard Range AWD"
+      "names": {
+        "CA": "Standard Range AWD"
+      }
     }
   ]
 }

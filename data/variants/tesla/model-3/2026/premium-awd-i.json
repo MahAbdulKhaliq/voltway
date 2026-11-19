@@ -4,6 +4,10 @@
   "year": 2026,
   "name": "Premium AWD-I",
   "drivetrain": "awd",
+  "powertrain_id": "tesla/model-3/2026-premium-awd-i",
+  "markets": [
+    "CA"
+  ],
   "supercharger_access": [
     {
       "value": "yes",
@@ -26,7 +30,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Premium AWD-I",
+      "names": {
+        "CA": "Premium AWD-I"
+      },
       "heat_pump": [
         {
           "value": "standard",

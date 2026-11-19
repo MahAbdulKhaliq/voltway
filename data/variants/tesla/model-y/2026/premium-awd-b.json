@@ -4,6 +4,10 @@
   "year": 2026,
   "name": "Premium AWD-B",
   "drivetrain": "awd",
+  "powertrain_id": "tesla/model-y/2026-premium-awd-b",
+  "markets": [
+    "CA"
+  ],
   "supercharger_access": [
     {
       "value": "yes",
@@ -16,7 +20,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Premium AWD-B",
+      "names": {
+        "CA": "Premium AWD-B"
+      },
       "heat_pump": [
         {
           "value": "standard",

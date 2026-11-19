@@ -1,0 +1,40 @@
+{
+  "id": "chevrolet/equinox-ev/2026-standard",
+  "model_id": "chevrolet/equinox-ev",
+  "name": "Standard",
+  "generation": "first-generation",
+  "years": [
+    2026
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 85,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-chevrolet-equinox-ev",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked). “85 kWh battery pack”; gross or usable not stated."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-gm-ultium-85",
+        "low_confidence": true,
+        "notes": "Estimated: The Weekly Driver (spec site, no GM citation) says the 85 kWh Ultium pack is NCMA; nmc is the nearest value. Page lists the 85 kWh Ultium pack used in the Equinox EV (FWD and AWD) as NCMA (nickel cobalt manganese aluminum); recorded as nmc (the schema has no separate NCMA value). Spec-site relay of the GM pack description."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-chevrolet-equinox-ev",
+      "low_confidence": true,
+      "notes": "Quick web lookup (rough, not cross-checked)."
+    }
+  ]
+}

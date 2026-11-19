@@ -1,0 +1,48 @@
+{
+  "id": "chevrolet/blazer-ev/2026-lt-rs-awd",
+  "model_id": "chevrolet/blazer-ev",
+  "name": "LT/RS AWD",
+  "generation": "first-generation",
+  "years": [
+    2026
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 85,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-thinkev-blazer-ev-2026",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-thinkev-blazer-ev-2026",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 190,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-thinkev-blazer-ev-2026",
+      "low_confidence": true,
+      "notes": "Quick web lookup (rough, not cross-checked). Canadian listing; not confirmed by Chevrolet."
+    },
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-coughlin-2026-blazer-ev-rs-awd",
+      "low_confidence": true,
+      "notes": "2026 RS AWD window-sticker text: 85 kWh battery, up to 150 kW DC fast-charging capable. Conflicts with 190 kW (thinkEV) and 195 kW (OpenEV, which also lists 102 kWh gross / 97 usable for this variant, apparently the 102 kWh pack)."
+    }
+  ]
+}

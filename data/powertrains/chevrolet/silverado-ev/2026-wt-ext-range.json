@@ -1,0 +1,49 @@
+{
+  "id": "chevrolet/silverado-ev/2026-wt-ext-range",
+  "model_id": "chevrolet/silverado-ev",
+  "name": "WT Ext Range",
+  "generation": "first-generation",
+  "years": [
+    2026
+  ],
+  "battery": {
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-gm-silverado-ev-2026-spec",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked). Charges at about 800 V."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-thinkev-silverado-2026",
+        "low_confidence": true,
+        "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 170,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-silverado-test",
+        "low_confidence": true,
+        "notes": "InsideEVs: 2025 LT Extended Range has a 170 kWh pack (bare capacity, treated as gross); Wikipedia agrees. WT Extended assumed to use the same Extended pack."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 350,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-gm-silverado-ev-2026-spec",
+      "low_confidence": true,
+      "notes": "Quick web lookup (rough, not cross-checked). “Up to 350 kW” public DC fast charging."
+    }
+  ]
+}

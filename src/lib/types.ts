@@ -50,7 +50,8 @@ export interface CurveOut {
 
 export interface TrimOut {
   id: string;
-  name: string;
+  name: string;                 // the name in the variant's first market
+  names: Partial<Record<'CA' | 'US', string>>; // B91: per-market names
   aliases?: string[];
   heat_pump: Field<string>;
   range_km: Field<number>;      // only set when it differs from the variant's
@@ -58,7 +59,7 @@ export interface TrimOut {
   consumption_city_wh_per_km: Field<number>;
   consumption_highway_wh_per_km: Field<number>;
   ac_max_kw: Field<number>;     // the trim's own onboard charger (B7), when known
-  wheels: { diameter_in: number; is_standard: boolean; tire_size?: string; source_id?: string; notes?: string; low_confidence?: boolean }[];
+  wheels: { diameter_in: number; is_standard: boolean; tire_size?: string; source_id?: string; notes?: string; low_confidence?: boolean; rated_range_km?: SourcedValue; rated_consumption_wh_per_km?: SourcedValue }[];
 }
 
 export interface Derived {
@@ -81,6 +82,8 @@ export interface CarDetail {
   name: string;                 // variant name
   drivetrain: string;
   sold_in_canada: boolean;
+  markets: string[];            // B91: CA / US
+  powertrain_id?: string;       // B95
   fields: Record<string, Field>;
   trims: TrimOut[];
   curves: CurveOut[];
@@ -97,6 +100,7 @@ export interface IndexEntry {
   body_type: string;
   drivetrain: string;
   sold_in_canada: boolean;
+  markets: string[];
   range_km: number | null;
   dc_max_kw: number | null;
   usable_kwh: number | null;

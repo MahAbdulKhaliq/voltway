@@ -4,15 +4,9 @@
   "year": 2026,
   "name": "Twin Performance",
   "drivetrain": "awd",
-  "published_10_80_min": [
-    {
-      "value": 26,
-      "unit": "min",
-      "kind": "community",
-      "source_id": "src-thinkev-volvo-ex30-review-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Review states about 26 min 10-80% at a compatible station (153 kW peak); not specific to this trim."
-    }
+  "powertrain_id": "volvo/ex30/2026-twin-performance",
+  "markets": [
+    "CA"
   ],
   "consumption_highway_wh_per_km": [
     {
@@ -36,7 +30,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Twin Performance"
+      "names": {
+        "CA": "Twin Performance"
+      }
     }
   ]
 }

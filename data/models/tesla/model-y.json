@@ -3,13 +3,29 @@
   "make_id": "tesla",
   "name": "Model Y",
   "body_type": "suv",
+  "generations": [
+    {
+      "id": "original",
+      "name": "Original",
+      "first_year": 2020,
+      "last_year": 2025,
+      "notes": "Launch (Fremont, Jan 2020). Long Range/Performance NCM ~75-78 kWh, DC up to 250 kW. Variants along the way: 4680 structural-pack Standard Range AWD (Texas, 2022-2023), RWD LFP/Standard Range (2023-2024). The 4680 and LFP versions are variant changes by build date, not line-wide model-year changes. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Tesla_Model_Y"
+    },
+    {
+      "id": "juniper",
+      "name": "Juniper refresh",
+      "first_year": 2026,
+      "notes": "Juniper refresh. Long Range keeps the same pack size (no capacity upgrade reported); the 2026 Performance gets a new LG pack (~82-84 kWh usable); a cheaper RWD Model Y Standard (LFP, DC ~225 kW) from Oct 2025. Included as a separate generation even though the Long Range pack did not change, because it is the major refresh (like Highland) and the Performance pack did change. Drop it if the owner wants pack-change-only splits. MY2026 rests on a leaked California label plus fueleconomy.gov listings reported by press; 2025-built Launch Series cars may carry MY2026 VINs. Canada uses the same model year as far as found. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://www.notebookcheck.net/2026-Tesla-Model-Y-is-the-official-name-for-the-Juniper-refresh-release.954185.0.html ; https://en.wikipedia.org/wiki/Tesla_Model_Y ; https://www.notebookcheck.net/Official-Model-Y-Juniper-refresh-EPA-range-test-estimate-is-out-and-it-runs-longer-on-a-charge-despite-using-the-same-battery.957524.0.html"
+    }
+  ],
   "years": [
     {
       "year": 2026,
       "markets": [
         "CA"
       ],
-      "availability_status": "production"
+      "availability_status": "production",
+      "generation": "juniper"
     }
   ]
 }

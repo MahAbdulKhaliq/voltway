@@ -4,6 +4,10 @@
   "year": 2026,
   "name": "Cross Country",
   "drivetrain": "awd",
+  "powertrain_id": "volvo/ex30/2026-cross-country",
+  "markets": [
+    "CA"
+  ],
   "charge_port": [
     {
       "value": "ccs1",
@@ -16,11 +20,9 @@
   "trims": [
     {
       "id": "18-in-wheels",
-      "name": "Cross Country (18\" Wheels)"
-    },
-    {
-      "id": "19-in-wheels",
-      "name": "Cross Country (19\" Wheels)"
+      "names": {
+        "CA": "Cross Country"
+      }
     }
   ]
 }

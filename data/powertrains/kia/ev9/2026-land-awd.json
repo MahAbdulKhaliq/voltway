@@ -1,0 +1,58 @@
+{
+  "id": "kia/ev9/2026-land-awd",
+  "model_id": "kia/ev9",
+  "name": "Land AWD",
+  "generation": "first-generation",
+  "years": [
+    2026
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 99.8,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-slashgear-2026-ev9",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked). Gross capacity."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-slashgear-2026-ev9",
+        "low_confidence": true,
+        "notes": "Quick web lookup (rough, not cross-checked)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-evseekers-ev9-battery",
+        "low_confidence": true,
+        "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database lists NMC for the 99.8 kWh pack."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-kia-manual-mv1-2026-battery-conditioning",
+        "low_confidence": true,
+        "notes": "Manual switch plus conditioning timed to a fast charger set as waypoint/destination (MV1 2026 manual; MV1 is the EV9 per the en_US specs page). Cited page is the UK copy; the en_US copy of this page was not found. Manual says the feature applies only to vehicles with a battery heater."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 210,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-evdb-ev9-998-awd",
+      "low_confidence": true,
+      "notes": "EV Database: Kia claimed maximum 210 kW for the 99.8 kWh pack; Edwards GT-Line US sheet also says 210 max DC. InsideEVs measured 216 kW. Replaces an unsourced 240 kW."
+    }
+  ]
+}

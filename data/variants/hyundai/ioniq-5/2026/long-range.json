@@ -4,34 +4,10 @@
   "year": 2026,
   "name": "Long Range",
   "drivetrain": "rwd",
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 84,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-hyundai-ca-ioniq-5-2026",
-        "notes": "Hyundai Canada states “a battery capacity of 84.0 kWh” for the Preferred Long Range RWD without saying gross or usable; recorded as gross."
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-hyundai-au-ioniq-5-2026-spec",
-        "notes": "Battery voltage 697 V (Australian-market sheet; same pack)."
-      }
-    ],
-    "chemistry": [
-      {
-        "low_confidence": true,
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-hyundai-egmp-84",
-        "notes": "Estimated: page lists the 84 kWh E-GMP pack (2025 IONIQ 5 Long Range/XRT) as SK On NCM 811 pouch; EV Database also says NMC for the 84 kWh IONIQ 5. Hyundai Canada only says lithium-ion."
-      }
-    ]
-  },
+  "powertrain_id": "hyundai/ioniq-5/2026-long-range",
+  "markets": [
+    "CA"
+  ],
   "charge_port": [
     {
       "value": "nacs",
@@ -48,25 +24,6 @@
       "notes": "Through its NACS port."
     }
   ],
-  "published_10_80_min": [
-    {
-      "value": 18,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-5-2026",
-      "notes": "“Approximately 18 minutes” from 10% to 80% on a 350 kW charger (manufacturer claim)."
-    }
-  ],
-  "ac_max_kw": [
-    {
-      "low_confidence": true,
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-ioniq5-2026",
-      "notes": "US page: home charging up to 10.9 kW. Hyundai Canada page does not state it. EV Database lists 11 kW for the European car."
-    }
-  ],
   "curb_weight_kg": [
     {
       "value": 1985,
@@ -80,7 +37,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Long Range",
+      "names": {
+        "CA": "Long Range"
+      },
       "heat_pump": [
         {
           "value": "standard",

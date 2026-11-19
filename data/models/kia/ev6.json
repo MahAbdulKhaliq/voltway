@@ -3,13 +3,29 @@
   "make_id": "kia",
   "name": "EV6",
   "body_type": "crossover",
+  "generations": [
+    {
+      "id": "first-generation-pre-facelift",
+      "name": "First generation",
+      "first_year": 2022,
+      "last_year": 2024,
+      "notes": "Launch on E-GMP (800 V). 58 kWh Standard Range (DC ~180 kW) and 77.4 kWh Long Range (DC ~240 kW); CCS1 port on the right rear. The EV6 GT was dropped in Canada after MY2024. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Kia_EV6"
+    },
+    {
+      "id": "2025-refresh",
+      "name": "2025 refresh",
+      "first_year": 2025,
+      "notes": "84 kWh pack replaces 77.4 kWh (and ~63 kWh replaces 58 kWh on the Standard Range); Georgia-built cars get a native NACS port, moved to the driver's side. Canada: last_year 2025 (EV5 takes its place; reported by press, no formal Kia Canada notice). US continues past 2025, so no last_year is set. The 63 kWh Standard Range figure for the refresh was not on a fetched page; check it. The Korea-built GT may keep CCS. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Kia_EV6 ; https://newswire.ca/news-releases/the-refreshed-2025-kia-ev6-is-now-available-in-canada-featuring-more-range-advanced-technology-and-enhanced-battery-capacity-816940511.html ; https://driveteslacanada.ca/news/kia-ev6-will-not-return-to-canada-for-2026/"
+    }
+  ],
   "years": [
     {
       "year": 2025,
       "markets": [
         "CA"
       ],
-      "availability_status": "production"
+      "availability_status": "production",
+      "generation": "2025-refresh"
     }
   ]
 }

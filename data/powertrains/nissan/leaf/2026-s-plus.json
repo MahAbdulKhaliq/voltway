@@ -1,0 +1,41 @@
+{
+  "id": "nissan/leaf/2026-s-plus",
+  "model_id": "nissan/leaf",
+  "name": "S PLUS",
+  "generation": "third-generation",
+  "years": [
+    2026
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 75.1,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-nissan-global-leaf-press-kit-2026",
+        "low_confidence": true,
+        "notes": "Nissan global press kit spec table: 75.1 kWh usable for the larger (160 kW motor) LEAF pack. US press kit says the S+ has a 75 kWh pack with a 214 hp (160 kW) motor, so the Canadian S+ is taken to be the same pack; the global page is not Canada-specific."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-spinelli-nissan-leaf-2026",
+      "low_confidence": true,
+      "notes": "Quick web lookup. Article says the LEAF 'can charge at up to 150 kW'; not stated per trim."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 35,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-spinelli-nissan-leaf-2026",
+      "low_confidence": true,
+      "notes": "Quick web lookup. Model-wide figure; pack/trim not stated on the page."
+    }
+  ]
+}

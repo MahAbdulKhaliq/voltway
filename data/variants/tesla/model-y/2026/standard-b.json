@@ -4,6 +4,10 @@
   "year": 2026,
   "name": "Standard-B",
   "drivetrain": "rwd",
+  "powertrain_id": "tesla/model-y/2026-standard-b",
+  "markets": [
+    "CA"
+  ],
   "supercharger_access": [
     {
       "value": "yes",
@@ -16,7 +20,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Standard-B",
+      "names": {
+        "CA": "Standard-B"
+      },
       "heat_pump": [
         {
           "value": "standard",

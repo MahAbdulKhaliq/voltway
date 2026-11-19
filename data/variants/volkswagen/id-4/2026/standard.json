@@ -4,6 +4,10 @@
   "year": 2026,
   "name": "Standard",
   "drivetrain": "awd",
+  "powertrain_id": "volkswagen/id-4/2026-standard",
+  "markets": [
+    "CA"
+  ],
   "charge_port": [
     {
       "value": "ccs1",
@@ -16,7 +20,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "ID.4"
+      "names": {
+        "CA": "ID.4"
+      }
     }
   ]
 }

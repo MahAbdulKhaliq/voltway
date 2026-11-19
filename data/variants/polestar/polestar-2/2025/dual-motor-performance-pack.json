@@ -4,6 +4,10 @@
   "year": 2025,
   "name": "Dual Motor Performance Pack",
   "drivetrain": "awd",
+  "powertrain_id": "polestar/polestar-2/2025-dual-motor-performance-pack",
+  "markets": [
+    "CA"
+  ],
   "supercharger_access": [
     {
       "value": "via_adapter",
@@ -25,7 +29,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Dual Motor Performance Pack"
+      "names": {
+        "CA": "Dual Motor Performance Pack"
+      }
     }
   ]
 }

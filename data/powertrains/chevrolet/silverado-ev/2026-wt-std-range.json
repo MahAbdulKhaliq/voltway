@@ -1,0 +1,49 @@
+{
+  "id": "chevrolet/silverado-ev/2026-wt-std-range",
+  "model_id": "chevrolet/silverado-ev",
+  "name": "WT Std Range",
+  "generation": "first-generation",
+  "years": [
+    2026
+  ],
+  "battery": {
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-gm-silverado-ev-2026-spec",
+        "low_confidence": true,
+        "notes": "GM spec guide: Standard Range pack '475 volt'. 475 V is the max charge voltage, not a nominal voltage; mapped to the 400v class (800 V x 14/24 = 467 V supports it). Corrects the earlier 800v value, which belongs to the Max pack."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-thinkev-silverado-2026",
+        "low_confidence": true,
+        "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 119,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-gm-silverado-ev-2026-spec",
+        "low_confidence": true,
+        "notes": "Estimated (owner to confirm the scaling basis): GM's 2026 spec guide gives no kWh figure, only pack module counts (4WT Standard Range 14, 5WT Extended 20, 8WT Maximum 24). InsideEVs (src-insideevs-silverado-battery) reports 204 kWh usable for the 24-module pack: 204 x 14/24 = 119."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 220,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-gm-silverado-ev-2026-spec",
+      "low_confidence": true,
+      "notes": "GM 2026 Silverado EV WT spec guide, Charging Specifications (pdftotext, columns 4WT/5WT/8WT): Standard Range '475 volt, up to 220 kW', Extended '670 volt, up to 300 kW', Maximum '800 volt, up to 350 kW'. Corrects the earlier 350 kW value, which belongs to the Max pack only."
+    }
+  ]
+}

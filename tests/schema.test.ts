@@ -8,7 +8,8 @@ import { parseCsv } from '../scripts/lib/csv.ts';
 const REPO = join(import.meta.dirname, '..');
 const FIXTURE = join(import.meta.dirname, 'fixtures', 'valid-repo');
 const VARIANT = 'data/variants/testmake/sparkle/2025/long-range-awd.json';
-const CURVE = 'data/curves/testmake/sparkle/2025/long-range-awd/test-2025.json';
+const CURVE = 'data/curves/testmake/sparkle/2025-long-range-awd/test-2025.json';
+const POWERTRAIN = 'data/powertrains/testmake/sparkle/2025-long-range-awd.json';
 
 let tempDirs: string[] = [];
 afterEach(() => {
@@ -61,27 +62,27 @@ describe('sourced values (vehicle-data-model.md §3)', () => {
   });
 
   it('rejects a bare number inside the list', () => {
-    const errors = errorsAfter(VARIANT, (v) => { v.dc_max_kw = [200]; });
+    const errors = errorsAfter(POWERTRAIN, (v) => { v.dc_max_kw = [200]; });
     expect(errors.some((e) => e.includes('/dc_max_kw'))).toBe(true);
   });
 
   it('rejects a value with no source_id', () => {
-    const errors = errorsAfter(VARIANT, (v) => { delete v.dc_max_kw[0].source_id; });
+    const errors = errorsAfter(POWERTRAIN, (v) => { delete v.dc_max_kw[0].source_id; });
     expect(errors.some((e) => e.includes('/dc_max_kw/0') && e.includes('source_id'))).toBe(true);
   });
 
   it('rejects a value with no kind', () => {
-    const errors = errorsAfter(VARIANT, (v) => { delete v.dc_max_kw[0].kind; });
+    const errors = errorsAfter(POWERTRAIN, (v) => { delete v.dc_max_kw[0].kind; });
     expect(errors.some((e) => e.includes('/dc_max_kw/0') && e.includes('kind'))).toBe(true);
   });
 
   it('rejects a kind outside the seven allowed', () => {
-    const errors = errorsAfter(VARIANT, (v) => { v.dc_max_kw[0].kind = 'guess'; });
+    const errors = errorsAfter(POWERTRAIN, (v) => { v.dc_max_kw[0].kind = 'guess'; });
     expect(errors.some((e) => e.includes('/dc_max_kw/0/kind'))).toBe(true);
   });
 
   it('rejects a source_id that is not in the sources table', () => {
-    const errors = errorsAfter(VARIANT, (v) => { v.dc_max_kw[0].source_id = 'src-made-up'; });
+    const errors = errorsAfter(POWERTRAIN, (v) => { v.dc_max_kw[0].source_id = 'src-made-up'; });
     expect(errors).toContainEqual(expect.stringContaining('cites unknown source "src-made-up"'));
   });
 
@@ -163,12 +164,12 @@ describe('records and ids', () => {
   });
 
   it('rejects duplicate trim ids', () => {
-    const errors = errorsAfter(VARIANT, (v) => { v.trims.push({ id: 'base', name: 'Base again' }); });
+    const errors = errorsAfter(VARIANT, (v) => { v.trims.push({ id: 'base', names: { CA: 'Base again' } }); });
     expect(errors).toContainEqual(expect.stringContaining('trim id "base" used twice'));
   });
 
   it('rejects unknown fields (catches typos)', () => {
-    const errors = errorsAfter(VARIANT, (v) => { v.dc_max_kwh = v.dc_max_kw; });
+    const errors = errorsAfter(VARIANT, (v) => { v.range_kmm = v.range_km; });
     expect(errors.some((e) => e.includes('additional properties'))).toBe(true);
   });
 });
@@ -216,7 +217,7 @@ describe('charging curves (vehicle-data-model.md §5)', () => {
   });
 
   it('rejects a curve for a variant that does not exist', () => {
-    const errors = errorsAfter(CURVE, (c) => { c.variant_id = 'testmake/sparkle/2025/nope'; });
+    const errors = errorsAfter(CURVE, (c) => { c.powertrain_id = 'testmake/sparkle/nope'; });
     expect(errors).toContainEqual(expect.stringContaining('must match its folder'));
   });
 });

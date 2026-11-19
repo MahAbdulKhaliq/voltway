@@ -4,10 +4,16 @@
   "year": 2026,
   "name": "SV",
   "drivetrain": "fwd",
+  "powertrain_id": "nissan/ariya/2026-sv",
+  "markets": [
+    "CA"
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "SV"
+      "names": {
+        "CA": "SV"
+      }
     }
   ]
 }

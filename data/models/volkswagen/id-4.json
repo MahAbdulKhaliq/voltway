@@ -3,13 +3,37 @@
   "make_id": "volkswagen",
   "name": "ID.4",
   "body_type": "suv",
+  "generations": [
+    {
+      "id": "launch-german-built",
+      "name": "Launch (German-built)",
+      "first_year": 2021,
+      "last_year": 2022,
+      "notes": "Launch on MEB: 82 kWh gross (77 kWh usable) pack, DC 125 kW (raised to 135 kW by software update); APP310 motor; built in Zwickau/Emden. The 125 to 135 kW OTA raise changes curves within this entry. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Volkswagen_ID.4"
+    },
+    {
+      "id": "2023-us-built",
+      "name": "2023 US-built",
+      "first_year": 2023,
+      "last_year": 2023,
+      "notes": "Chattanooga production. New 62 kWh Standard pack (SK On, 140 kW). 82 kWh RWD cars get an SK On (170 kW) or LG (135 kW) pack; all AWD get SK On. Two 82 kWh pack suppliers with different DC peaks in one model year; the data may need a per-supplier variant. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Volkswagen_ID.4"
+    },
+    {
+      "id": "2024-update",
+      "name": "2024 update",
+      "first_year": 2024,
+      "last_year": 2026,
+      "notes": "APP550 motor, new software, bigger screen; the 82 kWh pack peaks at 175 kW (10-80% in about 28 min). 62 kWh Standard sidelined in 2025 and dropped by 2026. last_year 2026 (US). No Canada-specific end date found, but Canadian ID.4s came from Chattanooga, so the same end is likely. NACS was not confirmed on any fetched page. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Volkswagen_ID.4 ; https://insideevs.com/news/792524/volkswagen-id4-dead/ ; https://www.carscoops.com/2026/04/vw-id4-chattanooga-production-end/"
+    }
+  ],
   "years": [
     {
       "year": 2026,
       "markets": [
         "CA"
       ],
-      "availability_status": "production"
+      "availability_status": "production",
+      "generation": "2024-update"
     }
   ]
 }

@@ -4,46 +4,10 @@
   "year": 2026,
   "name": "Trail Boss Ext Range",
   "drivetrain": "awd",
-  "dc_max_kw": [
-    {
-      "value": 350,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-gm-silverado-ev-2026-spec",
-      "low_confidence": true,
-      "notes": "Quick web lookup (rough, not cross-checked). “Up to 350 kW” public DC fast charging."
-    }
+  "powertrain_id": "chevrolet/silverado-ev/2026-trail-boss-ext-range",
+  "markets": [
+    "CA"
   ],
-  "battery": {
-    "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-gm-silverado-ev-2026-spec",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked). Charges at about 800 V."
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-thinkev-silverado-2026",
-        "low_confidence": true,
-        "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
-      }
-    ],
-    "capacity_gross_kwh": [
-      {
-        "value": 170,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-silverado-test",
-        "low_confidence": true,
-        "notes": "InsideEVs: 2025 LT Extended Range has a 170 kWh pack (bare capacity, treated as gross). Trail Boss Extended assumed to use the same Extended pack."
-      }
-    ]
-  },
   "supercharger_access": [
     {
       "value": "via_adapter",
@@ -65,7 +29,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Trail Boss Ext Range (11.5 kW)",
+      "names": {
+        "CA": "Trail Boss Ext Range (11.5 kW)"
+      },
       "wheels": [
         {
           "diameter_in": 18,

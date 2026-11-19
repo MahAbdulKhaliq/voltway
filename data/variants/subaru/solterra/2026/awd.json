@@ -4,74 +4,15 @@
   "year": 2026,
   "name": "AWD",
   "drivetrain": "awd",
+  "powertrain_id": "subaru/solterra/2026-awd",
+  "markets": [
+    "CA"
+  ],
   "charge_port": [
     {
       "value": "nacs",
       "kind": "manufacturer",
       "source_id": "src-subaru-ca-newswire-solterra-2026"
-    }
-  ],
-  "published_10_80_min": [
-    {
-      "value": 35,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-subaru-ca-newswire-solterra-2026",
-      "notes": "\"approximately 35 minutes\" at up to ~150 kW."
-    }
-  ],
-  "battery": {
-    "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-subaru-ca-newswire-solterra-2026",
-        "notes": "Page: \"when navigating to a charging station or activated by the driver\"."
-      }
-    ],
-    "capacity_gross_kwh": [
-      {
-        "value": 77,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-subaru-ca-newswire-solterra-2026",
-        "notes": "Subaru Canada release: \"powered by a 77.0-kWh lithium-ion battery\" (usable not stated)."
-      },
-      {
-        "value": 74.7,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-subaru-us-media-solterra-2026",
-        "low_confidence": true,
-        "notes": "Subaru USA release: 74.7 kWh. Conflicts with Subaru Canada 77.0 kWh (NRCan 446 km vs EPA 278-288 mi suggests the same pack)."
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-solterra-nacs-test-2026",
-        "low_confidence": true,
-        "notes": "InsideEVs: 2026 Solterra has a \"400-volt architecture\"."
-      }
-    ]
-  },
-  "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-subaru-ca-newswire-solterra-2026",
-      "notes": "Subaru Canada: \"an improved 11kW onboard charger\". Existing 6.6 kW (Chargeprice archive) is the older Solterra."
-    }
-  ],
-  "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-subaru-ca-newswire-solterra-2026",
-      "notes": "Subaru Canada: DCFC \"at speeds of approximately 150 kW\"; Subaru USA \"up to an estimated 150 kW\"."
     }
   ],
   "supercharger_access": [
@@ -96,7 +37,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "AWD",
+      "names": {
+        "CA": "AWD"
+      },
       "heat_pump": [
         {
           "value": "standard",

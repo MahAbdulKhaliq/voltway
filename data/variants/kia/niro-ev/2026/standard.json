@@ -4,6 +4,10 @@
   "year": 2026,
   "name": "Standard",
   "drivetrain": "unknown",
+  "powertrain_id": "kia/niro-ev/2026-standard",
+  "markets": [
+    "CA"
+  ],
   "curb_weight_kg": [
     {
       "value": 1688,
@@ -45,7 +49,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Niro EV",
+      "names": {
+        "CA": "Niro EV"
+      },
       "heat_pump": [
         {
           "value": "optional",

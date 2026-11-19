@@ -92,6 +92,7 @@ describe('buildCars on the fixture', () => {
   const setCrosswalk = (d: string, rows: string[]) =>
     writeFileSync(join(d, 'crosswalk/crosswalk.csv'), ['our_variant_id,source,source_key,match_method,confirmed,our_trim_id,notes', ...rows].join('\n') + '\n');
   const V = 'testmake/sparkle/2025/long-range-awd';
+  const PT = 'testmake/sparkle/2025-long-range-awd';
 
   it('gives every figure a default, others and a source; missing ones are null', () => {
     const [car] = buildCars(repo()).cars;
@@ -108,10 +109,10 @@ describe('buildCars on the fixture', () => {
 
   it('prefers a curve borrowed from a same-pack sibling over the template, and explains it (B16)', () => {
     const d = repo();
-    const file = join(d, 'data/curves', V, 'test-2025.json');
+    const file = join(d, 'data/curves', PT, 'test-2025.json');
     const c = JSON.parse(readFileSync(file, 'utf8'));
     rmSync(file);
-    writeFileSync(join(d, 'data/curves', V, 'borrowed.json'), JSON.stringify({
+    writeFileSync(join(d, 'data/curves', PT, 'borrowed.json'), JSON.stringify({
       ...c, id: 'borrowed', kind: 'estimated', low_confidence: true, is_display_default: false,
       based_on: { variant_id: 'testmake/sparkle/2025/twin', reason: 'Same 80 kWh 800 V pack.' },
       reviewed_note: 'Checked against the sibling test.',
@@ -124,7 +125,7 @@ describe('buildCars on the fixture', () => {
 
   it('keeps a warned curve off the default until a person clears it (B95)', () => {
     const d = repo();
-    const file = join(d, 'data/curves', V, 'test-2025.json');
+    const file = join(d, 'data/curves', PT, 'test-2025.json');
     writeFileSync(file, JSON.stringify({ ...JSON.parse(readFileSync(file, 'utf8')), is_display_default: false })); // no hand-set default
     const [before] = buildCars(d).cars;
     const measured = before.curves.find((x) => x.kind !== 'estimated')!;
@@ -144,11 +145,20 @@ describe('buildCars on the fixture', () => {
     expect(car.derived.estimated).toBe(true);
   });
 
-  it('derives sold_in_canada from a confirmed NRCan row', () => {
+  it('derives sold_in_canada from the variant markets or a confirmed NRCan row (B91)', () => {
     const d = repo();
-    expect(buildCars(d).cars[0].sold_in_canada).toBe(true);
+    expect(buildCars(d).cars[0]).toMatchObject({ sold_in_canada: true, markets: ['CA'] });
     setCrosswalk(d, [`${V},nrcan,"2025 · Testmake · Sparkle AWD, LR",automatic,false,,`]);
-    expect(buildCars(d).cars[0].sold_in_canada).toBe(false);
+    const file = join(d, 'data/variants', `${V}.json`);
+    writeFileSync(file, JSON.stringify({ ...JSON.parse(readFileSync(file, 'utf8')), markets: ['US'] }));
+    expect(buildCars(d).cars[0]).toMatchObject({ sold_in_canada: false, markets: ['US'] });
+  });
+
+  it('inherits pack and charging figures and curves from the powertrain (B95)', () => {
+    const [car] = buildCars(repo()).cars;
+    expect(car.powertrain_id).toBe(PT);
+    expect(car.fields.dc_max_kw?.value.value).toBeGreaterThan(0);
+    expect(car.curves.some((c) => c.id === 'test-2025')).toBe(true);
   });
 
   it('ignores unconfirmed crosswalk rows', () => {
@@ -200,7 +210,13 @@ describe('the real build', () => {
       for (const c of car.curves.filter((x) => x.id.startsWith('chargeprice-'))) expect(c.kind).toBe('community');
     }
     const m3 = buildCars(REPO).cars.filter((c) => c.id.startsWith('tesla/model-3/2026/'));
-    for (const car of m3) expect(car.curves.map((c) => c.id)).not.toContain('chargeprice-2023');
+    // 2021 is the pre-Highland generation; a 2023 European record may be Highland (its NA year is 2024),
+    // so it attaches, but its flat 250 kW plateau keeps it off the default until reviewed.
+    for (const car of m3) {
+      expect(car.curves.map((c) => c.id)).not.toContain('chargeprice-2021');
+      const cp = car.curves.find((c) => c.id === 'chargeprice-2023');
+      if (cp) expect(cp).toMatchObject({ is_display_default: false, issues: expect.arrayContaining([expect.objectContaining({ code: 'flat_peak' })]) });
+    }
   });
 
   it('passes the output check (every figure anywhere in a car file is sourced)', async () => {

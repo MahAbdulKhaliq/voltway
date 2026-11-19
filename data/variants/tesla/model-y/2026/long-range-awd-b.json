@@ -4,6 +4,10 @@
   "year": 2026,
   "name": "Long Range AWD-B",
   "drivetrain": "awd",
+  "powertrain_id": "tesla/model-y/2026-long-range-awd-b",
+  "markets": [
+    "CA"
+  ],
   "supercharger_access": [
     {
       "value": "yes",
@@ -26,7 +30,9 @@
   "trims": [
     {
       "id": "standard",
-      "name": "Long Range AWD-B",
+      "names": {
+        "CA": "Long Range AWD-B"
+      },
       "heat_pump": [
         {
           "value": "standard",

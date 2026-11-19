@@ -55,10 +55,12 @@ describe('the real build: per-trim ratings and wheels', () => {
     expect(base.ac_max_kw?.value.value).toBe(11.5);
   });
 
-  it('takes wheel sizes from NRCan model names (IONIQ 5 AWD 19″ / 20″)', () => {
+  it('makes NRCan wheel-split rows wheel options of one trim, each with its rating (IONIQ 5 AWD 19″ / 20″, B91)', () => {
     const trims = car('hyundai/ioniq-5/2026/long-range-awd').trims;
-    expect(trims.map((t) => t.wheels[0]?.diameter_in)).toEqual([19, 20]);
-    expect(trims[1].consumption_combined_wh_per_km?.value.value).toBe(215);
+    expect(trims).toHaveLength(1);
+    expect(trims[0].wheels.map((w) => [w.diameter_in, w.is_standard])).toEqual([[19, true], [20, false]]);
+    expect(trims[0].wheels[1].rated_consumption_wh_per_km?.value).toBe(215);
+    expect(trims[0].wheels[1].rated_range_km?.kind).toBe('rated_nrcan');
   });
 
   it('builds rating rows from NRCan names with a source on each', () => {

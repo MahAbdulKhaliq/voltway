@@ -3,13 +3,23 @@
   "make_id": "ford",
   "name": "F-150 Lightning",
   "body_type": "truck",
+  "generations": [
+    {
+      "id": "first-generation",
+      "name": "First generation",
+      "first_year": 2022,
+      "last_year": 2025,
+      "notes": "Launch: 98 kWh (Standard Range) and 131 kWh (Extended Range) usable packs; DC rated 155 kW officially. Last year 2025, ended December 2025. No model-year pack or DC change found. The planned successor is a range-extended truck (gas generator), outside a BEV catalogue. Canada sold the same truck; no CA-specific end date was found. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Ford_F-150_Lightning ; https://insideevs.com/news/781883/ford-f-150-lightning-dead/"
+    }
+  ],
   "years": [
     {
       "year": 2025,
       "markets": [
         "CA"
       ],
-      "availability_status": "production"
+      "availability_status": "production",
+      "generation": "first-generation"
     }
   ]
 }

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MahAbdulKhaliq/voltway/schema/imported-epa.schema.json",
+  "title": "Imported EPA / fueleconomy.gov ratings (one model year)",
+  "description": "Written by scripts/import-epa.ts (B90). Each record is one fueleconomy.gov battery-electric row; source_key is what crosswalk rows point to. Distances in km, consumption in Wh/km. File: data/imported/epa/<year>.json",
+  "type": "object",
+  "required": [
+    "source",
+    "source_id",
+    "year",
+    "records"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "source": {
+      "const": "epa"
+    },
+    "source_id": {
+      "$ref": "common.schema.json#/$defs/sourceId"
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 2010,
+      "maximum": 2100
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_key",
+          "epa_id",
+          "year",
+          "make",
+          "model",
+          "base_model",
+          "drive",
+          "vehicle_class",
+          "motor"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "source_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "epa_id": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          },
+          "year": {
+            "type": "integer"
+          },
+          "make": {
+            "type": "string",
+            "minLength": 1
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1
+          },
+          "base_model": {
+            "type": "string"
+          },
+          "drive": {
+            "type": "string"
+          },
+          "vehicle_class": {
+            "type": "string"
+          },
+          "motor": {
+            "type": "string"
+          },
+          "range_km": {
+            "$ref": "common.schema.json#/$defs/field_km"
+          },
+          "consumption_city_wh_per_km": {
+            "$ref": "common.schema.json#/$defs/field_wh_per_km"
+          },
+          "consumption_highway_wh_per_km": {
+            "$ref": "common.schema.json#/$defs/field_wh_per_km"
+          },
+          "consumption_combined_wh_per_km": {
+            "$ref": "common.schema.json#/$defs/field_wh_per_km"
+          },
+          "recharge_time_240v_h": {
+            "$ref": "common.schema.json#/$defs/field_hours"
+          }
+        }
+      }
+    }
+  }
+}

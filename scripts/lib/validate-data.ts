@@ -25,6 +25,7 @@ const SCHEMA_FILES = [
   'curve.schema.json',
   'crosswalk-row.schema.json',
   'imported-nrcan.schema.json',
+  'imported-epa.schema.json',
   'imported-openev.schema.json',
   'imported-chargeprice.schema.json',
   'imported-afdc.schema.json',
@@ -52,6 +53,7 @@ function loadValidators(schemaDir: string) {
     curve: get('curve.schema.json'),
     crosswalkRow: get('crosswalk-row.schema.json'),
     importedNrcan: get('imported-nrcan.schema.json'),
+    importedEpa: get('imported-epa.schema.json'),
     importedOpenev: get('imported-openev.schema.json'),
     importedChargeprice: get('imported-chargeprice.schema.json'),
     importedAfdc: get('imported-afdc.schema.json'),
@@ -272,6 +274,23 @@ export function validateRepo(root: string): ValidationResult {
     checkSourced(data, file);
   }
 
+  // --- Imported EPA / fueleconomy.gov ratings (B90) ---
+  const epaKeys = new Set<string>();
+  let epaFiles = 0;
+  for (const rel of listJson(join(dataDir, 'imported', 'epa'))) {
+    const file = `data/imported/epa/${rel}`;
+    const data = read('imported/epa', rel) as { year: number; records: { source_key: string; year: number }[] } | undefined;
+    if (data === undefined || !check(v.importedEpa, data, file)) continue;
+    epaFiles++;
+    if (rel !== `${data.year}.json`) errors.push(`${file}: file name must be ${data.year}.json`);
+    data.records.forEach((r, i) => {
+      if (r.year !== data.year) errors.push(`${file}: records[${i}] has year ${r.year}, expected ${data.year}`);
+      if (epaKeys.has(r.source_key)) errors.push(`${file}: duplicate source_key "${r.source_key}"`);
+      epaKeys.add(r.source_key);
+    });
+    checkSourced(data, file);
+  }
+
   // --- Imported OpenEV Data records ---
   const openevKeys = new Set<string>();
   let openevFiles = 0;
@@ -335,6 +354,9 @@ export function validateRepo(root: string): ValidationResult {
       }
       if (row.source === 'nrcan' && nrcanFiles > 0 && !nrcanKeys.has(row.source_key as string)) {
         errors.push(`${where}: NRCan key "${row.source_key}" is not in data/imported/nrcan`);
+      }
+      if (row.source === 'epa' && epaFiles > 0 && !epaKeys.has(row.source_key as string)) {
+        errors.push(`${where}: EPA key "${row.source_key}" is not in data/imported/epa`);
       }
       if (row.source === 'openev' && openevFiles > 0 && !openevKeys.has(row.source_key as string)) {
         errors.push(`${where}: OpenEV key "${row.source_key}" is not in data/imported/openev`);
@@ -403,6 +425,7 @@ export function validateRepo(root: string): ValidationResult {
       curves: curveCount,
       crosswalk_rows: crosswalkCount,
       nrcan_records: nrcanKeys.size,
+      epa_records: epaKeys.size,
       openev_records: openevKeys.size,
       chargeprice_records: chargepriceKeys.size,
       afdc_stations: afdcStations,

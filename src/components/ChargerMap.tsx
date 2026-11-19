@@ -127,7 +127,8 @@ function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: numb
     type: 'geojson',
     data,
     cluster: true,
-    clusterRadius: 48,
+    // B82 (owner, 2026-11-18): 64 px (was 48), so a city view shows fewer, larger groups.
+    clusterRadius: 64,
     // B57 (owner, 2026-11-17): grouped up to zoom 15, so pins and their tags pile up less downtown.
     clusterMaxZoom: 15,
     // Station ids as feature ids, so a filter change can send just the pins that changed (updateData).

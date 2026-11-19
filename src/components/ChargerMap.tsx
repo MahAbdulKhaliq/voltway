@@ -857,7 +857,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       if (sheet.phone) sheet.setSnap('peek');
       setRouteMode(false);
       setSelected(null);
-      setWhereKey((k) => k + 1); // focus back to the "Where to?" box
+      setWhereKey((k) => k + 1); // focus back to the "Where to?" box (not on touch screens)
     }, 'back', 'left');
   };
   const closeRouteRef = useRef(closeRoute);
@@ -1126,7 +1126,9 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             label={t('map.where.label')}
             placeholder={t('map.where.placeholder')}
             hideLabel
-            autoFocus={whereKey > 0}
+            // Closing the trip hands focus back here for keyboards; never on a phone or touch screen,
+            // where focusing a text box opens the on-screen keyboard (owner 2026-11-19).
+            autoFocus={whereKey > 0 && !sheet.phone && !matchMedia('(pointer: coarse)').matches}
             value={place}
             search={placeSearch}
             onChange={pickPlace}

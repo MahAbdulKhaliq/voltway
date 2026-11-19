@@ -285,3 +285,15 @@ export function recommend(
   if (p.flags.some((f) => f.startsWith('name:'))) return { action: 'check', reason: 'no trim name' };
   return { action: 'yes', reason: why.join('; ') || p.flags.join('; ') };
 }
+
+/** The option a regulator row describes beyond the trim (wheel size, tire, charger), so one trim may carry several rows of one source. */
+export function regulatorOption(sourceKey: string): string {
+  return [
+    parseName(sourceKey).wheel_in
+      ?? sourceKey.match(/(?<!\d)(\d{2})\s*(?:in\.?|inch|-inch|")\s*(?:wheels?|tires?)?/i)?.[1]
+      ?? sourceKey.match(/kWh\s+(1[4-9]|2[0-4])(?!\d)/i)?.[1], // EPA "87kWh 19"
+    sourceKey.match(/\((?:pre|post)-[^)]*\)/i)?.[0], // a mid-year change of the same car
+    sourceKey.match(/\d{3}\/\d{2}\s*Z?R\s*\d{2}/i)?.[0],
+    sourceKey.match(/(\d+(?:\.\d+)?)\s*kW\s*(?:charger|chgr)/i)?.[1],
+  ].filter(Boolean).join('/');
+}

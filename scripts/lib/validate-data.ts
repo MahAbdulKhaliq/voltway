@@ -6,7 +6,7 @@ import { join, relative, sep } from 'node:path';
 import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 import { parseCsv } from './csv.ts';
-import { parseName } from './match.ts';
+import { regulatorOption } from './catalogue.ts';
 import { COUNTRIES } from './countries.ts';
 import { MIN_POPULATION_FOR, PROVINCE_CODES, US_STATES, type GeoCountry } from './geonames.ts';
 
@@ -411,12 +411,7 @@ export function validateRepo(root: string): ValidationResult {
       }
       // A trim may carry several regulator rows that differ only by wheel size (B91: wheel options, not trims).
       // EPA writes the same options without brackets: "19in. Wheels", "22 inch tire", "235/60R18", "11kW Charger".
-      const sk = String(row.source_key);
-      const option = [
-        parseName(sk).wheel_in ?? sk.match(/(?<!\d)(\d{2})\s*(?:in\.?|inch|-inch|")\s*(?:wheels?|tires?)?/i)?.[1],
-        sk.match(/\d{3}\/\d{2}\s*Z?R\s*\d{2}/i)?.[0],
-        sk.match(/(\d+(?:\.\d+)?)\s*kW\s*(?:charger|chgr)/i)?.[1],
-      ].filter(Boolean).join('/');
+      const option = regulatorOption(String(row.source_key));
       const key = `${variantId}|${row.source}|${row.our_trim_id ?? ''}|${row.our_trim_id ? option : ''}`;
       if (seen.has(key)) errors.push(`${where}: ${variantId}${row.our_trim_id ? ` trim ${row.our_trim_id}` : ""} already has a ${row.source} row`);
       seen.add(key);

@@ -144,3 +144,18 @@ describe('groupRegulatorRows', () => {
     expect(p.powertrain).toBe('tesla/model-3/2026-premium-awd');
   });
 });
+
+describe('regulatorOption (one trim, several ratings of one source)', () => {
+  it('reads wheel, tire, charger and mid-year options in NRCan and EPA wording', async () => {
+    const { regulatorOption } = await import('../scripts/lib/catalogue.ts');
+    expect(regulatorOption('2024 · Nissan · ARIYA PLATINUM+ e-4ORCE 87kWh 19in. Wheels · #47857')).toBe('19');
+    expect(regulatorOption('2023 · Nissan · ARIYA PLAT Plus e-4ORCE 87kWh 20 · #46992')).toBe('20');
+    expect(regulatorOption('2027 · Chevrolet · Blazer EV FWD 22 inch tire · #50629')).toBe('22');
+    expect(regulatorOption('2026 · Toyota · bZ Woodland AWD 235/60R18 · #50305')).toBe('235/60R18');
+    expect(regulatorOption('2027 · Cadillac · LYRIQ 19kW Charger · #50613')).toBe('19');
+    expect(regulatorOption('2023 · Tesla · Model 3 Long Range AWD (pre-1/10/23)')).toBe('(pre-1/10/23)');
+    // A separately rated build is not an option of the same car.
+    expect(regulatorOption('2023 · Tesla · Model Y Long Range AWD (Import)')).toBe('');
+    expect(regulatorOption('2023 · Tesla · Model Y Long Range AWD')).toBe('');
+  });
+});

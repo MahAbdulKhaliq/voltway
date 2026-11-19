@@ -9,7 +9,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { parseCsv, toCsv } from './lib/csv.ts';
-import { groupRegulatorRows, assignModel, epaMotorKw, recommend, trimNameKey, type ModelMap, type RegRow, type Proposal } from './lib/catalogue.ts';
+import { groupRegulatorRows, assignModel, epaMotorKw, recommend, regulatorOption, trimNameKey, type ModelMap, type RegRow, type Proposal } from './lib/catalogue.ts';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -58,12 +58,42 @@ const kept = new Map<string, string>(
 const HEADER = ['approved', 'check', 'named', 'proposal', 'model_id', 'year', 'variant_id', 'markets', 'drivetrain', 'powertrain', 'trim_ca', 'trim_us', 'wheels', 'flags', 'recommend', 'source', 'source_key'];
 
 if (apply) {
-  const review = parseCsv(readFileSync(csvFile, 'utf8')).filter((r) => r.approved.trim().toLowerCase() === 'yes');
+  // Rows applied by an earlier run are already in the crosswalk; never add them twice.
+  const linked = new Set(crosswalk.map((c) => `${c.source}|${c.source_key}`));
+  const review = parseCsv(readFileSync(csvFile, 'utf8')).filter((r) => r.approved.trim().toLowerCase() === 'yes' && !linked.has(`${r.source}|${r.source_key}`));
   const byProposal = new Map<string, Record<string, string>[]>();
   for (const r of review) byProposal.set(r.proposal, [...(byProposal.get(r.proposal) ?? []), r]);
+  // Two ratings of one source for the same option in one proposal (a plain and an "(Import)" build, or an
+  // "-I" certification) are separate cars: the later one moves to its own proposal, sold in that source's market.
+  for (const [id, group] of [...byProposal]) {
+    const seen = new Set<string>();
+    const keep: Record<string, string>[] = [];
+    for (const r of group) {
+      const k = `${r.source}|${regulatorOption(r.source_key)}`;
+      if (!seen.has(k)) { seen.add(k); keep.push(r); continue; }
+      const tag = /\(Import\)/i.test(r.source_key) ? 'import' : r.source_key.match(/-([A-Z])\b/)?.[1]?.toLowerCase() ?? '2';
+      const market = r.source === 'nrcan' ? 'CA' : 'US';
+      const sub = `${id}#${tag}-${market}`;
+      byProposal.set(sub, [...(byProposal.get(sub) ?? []), { ...r, proposal: sub, variant_id: `${r.variant_id}-${tag}`, markets: market, powertrain: r.powertrain, trim_ca: market === 'CA' ? r.trim_ca : '', trim_us: market === 'US' ? r.trim_us : '' }]);
+    }
+    byProposal.set(id, keep);
+  }
   let written = 0;
   let joined = 0;
+  const taken = new Set(crosswalk.map((c) => `${c.our_variant_id}|${c.source}|${regulatorOption(c.source_key)}`));
   for (const [, group] of byProposal) {
+    // Join an existing car only when none of its rows clashes with a row that car already has
+    // (an "(Import)" build or an "-I" certification is rated separately, so it stays its own car).
+    const clash = (id: string) => group.some((r) => taken.has(`${id}|${r.source}|${regulatorOption(r.source_key)}`));
+    if (clash(group[0].variant_id)) {
+      const labels = group.map((r) => r.source_key).join(' ');
+      const tag = /\(Import\)/i.test(labels) ? 'import' : labels.match(/-([A-Z])\b/)?.[1]?.toLowerCase() ?? '2';
+      let id = `${group[0].variant_id}-${tag}`;
+      for (let n = 2; clash(id) || (existsSync(join(root, 'data/variants', `${id}.json`)) && n < 3); n++) id = `${group[0].variant_id}-${tag}${n}`;
+      console.log(`  ${group[0].variant_id} already has these ratings → new car ${id}`);
+      for (const r of group) r.variant_id = id;
+    }
+    for (const r of group) taken.add(`${group[0].variant_id}|${r.source}|${regulatorOption(r.source_key)}`);
     const p = group[0];
     const [make, model, year, slug] = p.variant_id.split('/');
     const vFile = join(root, 'data/variants', `${p.variant_id}.json`);

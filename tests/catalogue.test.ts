@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { assignModel, epaMotorKw, groupRegulatorRows, trimNameKey, trimPart, type ModelMap, type RegRow } from '../scripts/lib/catalogue.ts';
+import { assignModel, epaMotorKw, groupRegulatorRows, tidyTrimName, trimNameKey, trimPart, type ModelMap, type RegRow } from '../scripts/lib/catalogue.ts';
 
 const map: ModelMap = {
   models: [
@@ -48,6 +48,19 @@ describe('trimPart', () => {
     expect(trimPart(row({ label: 'Model 3 Long Range AWD (19 inch tires)', model_id: 'tesla/model-3' }), map).wheels).toEqual([19]);
     expect(trimPart(row({ label: 'Model 3 AWD (19/20 inch wheels)', model_id: 'tesla/model-3' }), map).wheels).toEqual([19, 20]);
     expect(trimPart(row({ label: 'Model 3 AWD (20in AT)', model_id: 'tesla/model-3' }), map).wheels).toEqual([20]);
+  });
+  it('tidies researched trim names to one wording style', () => {
+    expect(tidyTrimName('GT AWD LR')).toBe('GT Long Range AWD');
+    expect(tidyTrimName('Light RWD SR')).toBe('Light Standard Range RWD');
+    expect(tidyTrimName('SE RWD Standard Range')).toBe('SE Standard Range RWD');
+    expect(tidyTrimName('Preferred AWD Long Range')).toBe('Preferred Long Range AWD');
+    expect(tidyTrimName('AWD Pro S')).toBe('Pro S AWD');
+    expect(tidyTrimName('P8 eAWD Twin')).toBe('P8 Twin eAWD');
+    expect(tidyTrimName('Engage e-4orce')).toBe('Engage e-4ORCE');
+    expect(tidyTrimName('Evolve+ e-4ORCE w/ Platinum+ Package')).toBe('Evolve+ e-4ORCE with Platinum+ Package');
+    expect(tidyTrimName('XLE AWD Technology Package')).toBe('XLE AWD Technology Package');
+    expect(tidyTrimName('Standard Range Plus')).toBe('Standard Range Plus');
+    expect(tidyTrimName('XRT Dual Motor AWD')).toBe('XRT Dual Motor AWD');
   });
   it('reads EPA motor text as total kW', () => {
     expect(epaMotorKw('74 and 165 kW PMSM')).toBe(239);

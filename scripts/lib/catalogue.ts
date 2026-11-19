@@ -86,6 +86,24 @@ export function trimPart(r: RegRow, map: ModelMap) {
   return { ...p, wheels: [...new Set(wheels)].sort((a, b) => a - b), wheel_in: wheels[0], charger_kw, date_note, drivetrain, name: words, tokens: tokenize(words), notes };
 }
 
+/**
+ * One wording style for researched trim names (owner, 2026-11-19): abbreviations spelled out and the
+ * drivetrain last ("GT AWD LR" → "GT Long Range AWD", "AWD Pro S" → "Pro S AWD"). Only wording changes;
+ * names with a package are left as written.
+ */
+export function tidyTrimName(name: string): string {
+  let n = name.replace(/\s+/g, ' ').trim()
+    .replace(/\bLR\b/g, 'Long Range')
+    .replace(/\bSR\b/g, 'Standard Range')
+    .replace(/\bw\/\s*/gi, 'with ')
+    .replace(/\be-4orce\b/gi, 'e-4ORCE');
+  if (/package/i.test(n)) return n;
+  const words = n.split(' ');
+  const i = words.findIndex((w) => /^(AWD|RWD|FWD|eAWD)$/.test(w));
+  if (i >= 0 && i < words.length - 1) n = [...words.slice(0, i), ...words.slice(i + 1), words[i]].join(' ');
+  return n;
+}
+
 /** Key of a regulator label in crosswalk/trim-names.csv. */
 export const trimNameKey = (source: string, year: number | string, label: string) => `${source}|${year}|${label.replace(/\s+/g, ' ').trim()}`;
 

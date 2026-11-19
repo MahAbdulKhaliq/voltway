@@ -3,10 +3,11 @@
 // copied; confirmed stays as it is (approving a catalogue proposal confirms its names). A researched
 // row must carry a source_url; rows without one are reported and skipped.
 
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseCsv, toCsv } from './lib/csv.ts';
-import { trimNameKey } from './lib/catalogue.ts';
+import { tidyTrimName, trimNameKey } from './lib/catalogue.ts';
+
 
 const root = process.cwd();
 const file = join(root, 'crosswalk/trim-names.csv');
@@ -22,6 +23,7 @@ const only = process.argv.slice(2); // optional groups, e.g. `npm run merge:trim
 const files = (existsSync(dir) ? readdirSync(dir).filter((f) => /^trim-names-(?!input-).+\.csv$/.test(f)) : [])
   .filter((f) => !only.length || only.some((g) => f === `trim-names-${g}.csv`));
 let filled = 0;
+const tidied = new Map<string, string>();
 const unknown: string[] = [];
 const unsourced: string[] = [];
 for (const f of files) {
@@ -32,10 +34,30 @@ for (const f of files) {
     if (!r.trim_name && !r.notes) continue;
     if (r.trim_name && !r.source_url) { unsourced.push(`${f}: ${r.year} ${r.label}`); continue; }
     for (const k of ['trim_name', 'dealer_trims', 'source_url', 'notes']) if (r[k] !== undefined) ours[k] = r[k];
+    // One wording style (owner, 2026-11-19); the source's own wording stays in the notes.
+    const tidy = r.trim_name ? tidyTrimName(r.trim_name) : '';
+    if (tidy && tidy !== r.trim_name) {
+      ours.trim_name = tidy;
+      ours.notes = [ours.notes, 'Source wording: "' + r.trim_name + '".'].filter(Boolean).join(' ');
+      tidied.set(ours.model_id + ': ' + r.trim_name, tidy);
+    }
     filled++;
   }
 }
 writeFileSync(file, toCsv(header, rows));
+const report = join(root, 'docs/plan/reports/phase9/trim-name-tidy.md');
+mkdirSync(join(root, 'docs/plan/reports/phase9'), { recursive: true });
+const lines = [
+  '# Trim-name tidy (before → after)',
+  '',
+  'Wording only (owner, 2026-11-19): abbreviations spelled out, drivetrain last. The source wording stays in the notes of each row.',
+  '',
+  '| Model: source wording | Tidied |',
+  '|---|---|',
+  ...[...tidied].sort().map(([a, b]) => `| ${a} | ${b} |`),
+];
+writeFileSync(report, lines.join('\n') + '\n');
+console.log(`  tidied ${tidied.size} distinct names → docs/plan/reports/phase9/trim-name-tidy.md`);
 console.log(`merge-trim-names: ${filled} rows from ${files.length} files; ${rows.filter((r) => r.trim_name).length}/${rows.length} labels named`);
 if (unknown.length) console.log(`  not in trim-names.csv (label changed?):\n    ${unknown.join('\n    ')}`);
 if (unsourced.length) console.log(`  skipped, no source_url:\n    ${unsourced.join('\n    ')}`);

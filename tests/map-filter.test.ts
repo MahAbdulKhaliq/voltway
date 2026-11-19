@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { defaultFilters, filterStations, matchLevel, portMatches, readFilters } from '../src/lib/map-filter.ts';
+import { defaultFilters, filterStations, matchLevel, pinDiff, pinIndex, portMatches, readFilters } from '../src/lib/map-filter.ts';
 import type { MapFeature, MapPort } from '../src/lib/map-data.ts';
 import { inPowerRange, isFullRange, POWER_STOPS, rangeWords, type PowerRange } from '../src/lib/power-bands.ts';
 
@@ -78,6 +78,43 @@ describe('filterStations', () => {
   it('an unknown kW leaves k at 0', () => {
     const fc = filterStations([feat(5, [[3, 'ccs1', null, 1]])], defaultFilters());
     expect(fc.features[0].properties.k).toBe(0);
+  });
+});
+
+describe('pinDiff (only changed pins go to the map)', () => {
+  const both = { ...defaultFilters(), levels: { 3: true, 2: true } as const };
+  const stations = [
+    feat(1, [[3, 'ccs1', 150, 2]]),
+    feat(2, [[3, 'chademo', 50, 1]]),
+    feat(3, [[3, 'chademo', 50, 1], [3, 'ccs1', 100, 1]]),
+    feat(4, [[2, 'j1772', 7.2, 2]]),
+  ];
+  const all = filterStations(stations, both);
+  it('same filters: nothing to send', () => {
+    const d = pinDiff(pinIndex(all), filterStations(stations, both));
+    expect(d.remove).toEqual([]);
+    expect(d.add).toEqual([]);
+  });
+  it('a plug turned off removes the pins it alone kept, and re-sends pins whose marks changed', () => {
+    const next = filterStations(stations, { ...both, plugs: { ...both.plugs, chademo: false } });
+    const d = pinDiff(pinIndex(all), next);
+    expect(d.remove.sort()).toEqual([2, 3]);
+    expect(d.add.map((f) => f.properties)).toEqual([{ i: 3, lv: 3, k: 100, pc: 1, pn: 0, pd: 0, pj: 0, te: 0 }]);
+    expect([...d.index.keys()].sort()).toEqual([1, 3, 4]);
+  });
+  it('turning it back on adds them again; applying both diffs gives the full set', () => {
+    const fewer = filterStations(stations, { ...both, plugs: { ...both.plugs, chademo: false } });
+    const d = pinDiff(pinIndex(fewer), all);
+    const held = pinIndex(fewer);
+    for (const id of d.remove) held.delete(id);
+    for (const f of d.add) held.set(f.properties.i, f);
+    expect([...held.values()].map((f) => f.properties).sort((a, b) => a.i - b.i)).toEqual(all.features.map((f) => f.properties));
+  });
+  it('a moved station counts as changed', () => {
+    const moved = { ...stations[0], geometry: { type: 'Point' as const, coordinates: [-75.001, 45] as [number, number] } };
+    const d = pinDiff(pinIndex(all), filterStations([moved, ...stations.slice(1)], both));
+    expect(d.remove).toEqual([1]);
+    expect(d.add.map((f) => f.properties.i)).toEqual([1]);
   });
 });
 

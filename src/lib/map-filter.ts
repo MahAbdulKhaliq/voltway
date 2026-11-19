@@ -214,6 +214,44 @@ export function filterStations(
   return { type: 'FeatureCollection', features: out };
 }
 
+// ---- Sending only what changed. With Level 2 on there are ~100k pins (~16 MB); sending them all
+// to the map's worker on every filter click froze the page for ~0.8 s. A click usually changes a
+// few hundred pins, so the map gets just those (GeoJSONSource.updateData, keyed by station id).
+
+export type Pin = Feature<Point, PinProps>;
+export type PinIndex = Map<number, Pin>;
+
+export function pinIndex(fc: FeatureCollection<Point, PinProps>): PinIndex {
+  const m: PinIndex = new Map();
+  for (const f of fc.features) m.set(f.properties.i, f);
+  return m;
+}
+
+function samePin(a: Pin, b: Pin): boolean {
+  const p = a.properties;
+  const q = b.properties;
+  if (p.lv !== q.lv || p.k !== q.k || p.pc !== q.pc || p.pn !== q.pn || p.pd !== q.pd || p.pj !== q.pj || p.te !== q.te || p.t !== q.t) return false;
+  if (a.geometry === b.geometry) return true;
+  const [x, y] = a.geometry.coordinates;
+  const [u, v] = b.geometry.coordinates;
+  return x === u && y === v;
+}
+
+/** The pins to remove and add to turn what the map holds (`prev`) into `next`. A changed pin is
+ *  removed and added again (the map applies removals first). `index` is `next`, keyed by id. */
+export function pinDiff(prev: PinIndex, next: FeatureCollection<Point, PinProps>): { remove: number[]; add: Pin[]; index: PinIndex } {
+  const index = pinIndex(next);
+  const remove: number[] = [];
+  const add: Pin[] = [];
+  for (const [id, old] of prev) {
+    const now = index.get(id);
+    if (!now) remove.push(id);
+    else if (!samePin(old, now)) { remove.push(id); add.push(now); }
+  }
+  for (const [id, f] of index) if (!prev.has(id)) add.push(f);
+  return { remove, add, index };
+}
+
 /** The station's top DC (Level 3) rated kW among the ports the car can use (all, with no car),
  *  for "How fast would my car charge here?" (B31). null when no such port has a known kW. */
 export function topDcKw(ports: readonly MapPort[], car?: CarPlugRule | null, network?: string): number | null {

@@ -38,7 +38,7 @@ Phase 2 of [roadmap.md](roadmap.md). A simple map of public Level 2 and Level 3 
 
 ### Source: AFDC, Canada only ✅
 
-*Phase 7 (B78, 2026-11-18):* AFDC and Open Charge Map now also cover the **US**, under the same rules. With the US the map data is too big for one file per level, so it loads as **tiles by area**: one compact overview file per level (no names or addresses) for clusters and filters, Level 2 drawn from zoom 7 with a "Zoom in" hint, and quadtree detail tiles with full records loaded at zoom ≥ 9, for an opened pin and for Stations in view. Budgets: no tile over 300 KB, first load under 1 MB, enforced by the build. Details: [DESIGN-7.md](../plan/DESIGN-7.md) D1–D2.
+*Phase 7 (B78, 2026-11-18):* AFDC and Open Charge Map now also cover the **US**, under the same rules. With the US the map data is too big for one file per level, so it loads as **tiles by area**: one compact overview file per level (no names or addresses) for clusters and filters, Level 2 drawn from zoom 7 with a "Zoom in" hint (*since B81, 2026-11-18: at every zoom while ticked, no hint*), and quadtree detail tiles with full records loaded at zoom ≥ 9, for an opened pin and for Stations in view. Budgets: no tile over 300 KB, first load under 1 MB, enforced by the build. Details: [DESIGN-7.md](../plan/DESIGN-7.md) D1–D2.
 
 *Renamed 2026-11-16:* NREL is now the **National Laboratory of the Rockies (NLR)**, and the API host moved from `developer.nrel.gov` (retired 2026-05-29) to **`developer.nlr.gov`**. Same paths and fields. Rate limit confirmed at 1,000 requests per hour per key.
 From [data-sources.md](data-sources.md) §5. The fields this design uses:

@@ -24,7 +24,6 @@ import {
   decodeOverview,
   DETAIL_ZOOM,
   isFull,
-  L2_MIN_ZOOM,
   mergeDetails,
   tileFor,
   type OverviewFile,
@@ -37,7 +36,11 @@ import {
   myCarRule,
   filterStations,
   LEVELS,
+  pinDiff,
+  pinIndex,
   readFilters,
+  type PinIndex,
+  type PinProps,
   type CarMapInfo,
   type MapFilters,
 } from '../lib/map-filter.ts';
@@ -100,7 +103,7 @@ function savedView(): SavedView {
   return ok ? (v as SavedView) : MAP.defaultView;
 }
 
-const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
+const EMPTY: FeatureCollection<Point, PinProps> = { type: 'FeatureCollection', features: [] };
 
 /** Filter for the ring under the selected pin (-1 matches nothing). */
 const selectedFilter = (id: number | null) => ['==', ['get', 'i'], id ?? -1] as maplibregl.FilterSpecification;
@@ -127,6 +130,8 @@ function addOverlay(map: maplibregl.Map, data: FeatureCollection, selected: numb
     clusterRadius: 48,
     // B57 (owner, 2026-11-17): grouped up to zoom 15, so pins and their tags pile up less downtown.
     clusterMaxZoom: 15,
+    // Station ids as feature ids, so a filter change can send just the pins that changed (updateData).
+    promoteId: 'i',
     clusterProperties: CLUSTER_PROPERTIES as Record<string, unknown>,
   } as maplibregl.GeoJSONSourceSpecification);
   // Clusters (B54): a disc split into its Level 2 and Level 3 parts, with speed and plug tags.
@@ -351,7 +356,9 @@ function clearTripParams() {
 export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const box = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
-  const pinsRef = useRef<FeatureCollection>(EMPTY);
+  const pinsRef = useRef<FeatureCollection<Point, PinProps>>(EMPTY);
+  // The pins the map's source holds now, by station id: filter changes send only the difference.
+  const sentRef = useRef<PinIndex | null>(null);
   const [mapStatus, setMapStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   // Saved filters, then a "Find chargers this fast" link (B31) on top; the params are stripped below.
   const [filters, setFilters] = useState<MapFilters>(() => {
@@ -364,6 +371,9 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const [myCar, setMyCarState] = useState<MyCar | null>(() => getMyCar());
   const [carInfo, setCarInfo] = useState<CarMapInfo | null>(null);
   const [stations, setStations] = useState<Record<ChargerLevel, MapFeature[]>>({ 3: [], 2: [] });
+  // The overviews alone, for the pins: a detail record never changes a pin (same ports, network and
+  // Tesla flag; checked on every tile), so loading detail tiles must not re-send ~20k pins to the map.
+  const [overview, setOverview] = useState<Record<ChargerLevel, MapFeature[]>>({ 3: [], 2: [] });
   const [load, setLoad] = useState<Record<ChargerLevel, Load>>({ 3: 'idle', 2: 'idle' });
   // B78: the tile index, the tile loader, every full record loaded so far, and which overview file
   // (level) each station id is in.
@@ -442,7 +452,10 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     };
   }, [myCar]);
   /** My car's plug rule (B55): its toggles, or its own plug. Used by the station panel. */
-  const carRule = myCar ? myCarRule(carInfo, myCar.plugs) : null;
+  // Memoised: the pins depend on it, and a new rule each render re-sent every pin to the map on
+  // every render (~100 ms each with US data; it starved the trip's paint, optimize pass 2026-11-18).
+  const plugKey = myCar ? (myCar.plugs ?? []).join(',') + (myCar.plugs ? '' : '|default') : null;
+  const carRule = useMemo(() => (myCar ? myCarRule(carInfo, myCar.plugs) : null), [carInfo, plugKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // The map itself, once.
   useEffect(() => {
@@ -453,6 +466,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       center: view.center,
       zoom: view.zoom,
       onStyleLoad: (m) => {
+        // A new style starts a new source holding all current pins: later changes diff against those.
+        if (!m.getSource('stations')) sentRef.current = pinIndex(pinsRef.current);
         addOverlay(m, pinsRef.current, selectedRef.current, tripOverlayRef.current !== null);
         addTripLayers(m, tripOverlayRef.current);
       },
@@ -515,17 +530,16 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     }
 
     return () => {
+      cancelPaint(map); // a trip paint still running would draw on the removed map
       dispose();
       mapRef.current = null;
     };
   }, []);
 
-  // B78: Level 2 is drawn from zoom 7; below it the Level 2 boxes count as unticked and a hint shows.
-  const l2On = (view?.zoom ?? 0) >= L2_MIN_ZOOM;
-  const shownFilters = useMemo<MapFilters>(
-    () => (l2On ? filters : { ...filters, levels: { ...filters.levels, 2: false } }),
-    [filters, l2On],
-  );
+  // B81 (owner, 2026-11-18): Level 2 shows at every zoom while ticked (B78 drew it only from zoom 7,
+  // so zoomed-out clusters lost their Level 2 counts). o2.json still loads only once Level 2 is ticked.
+  const l2On = filters.levels[2];
+  const shownFilters = filters;
 
   // Station data: each overview loads the first time it is needed (o3.json for either level).
   useEffect(() => {
@@ -538,6 +552,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
         (features) => {
           for (const f of features) fileLevel.current.set(f.properties.i, lv);
           setStations((s) => ({ ...s, [lv]: mergeDetails(features, detailsRef.current) }));
+          setOverview((s) => ({ ...s, [lv]: features }));
           setLoad((s) => ({ ...s, [lv]: 'ready' }));
         },
         () => setLoad((s) => ({ ...s, [lv]: 'error' })),
@@ -583,12 +598,23 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   // Filters → pins → map source; choices are saved.
   // The overviews never overlap (o3 = any Level 3 port, o2 = Level 2-only), so merging is safe.
   const pins = useMemo(
-    () => filterStations([...stations[3], ...(l2On ? stations[2] : [])], shownFilters, carRule),
-    [stations, shownFilters, carRule, l2On],
+    () => filterStations([...overview[3], ...(l2On ? overview[2] : [])], shownFilters, carRule),
+    [overview, shownFilters, carRule, l2On],
   );
   useEffect(() => {
     pinsRef.current = pins;
-    (mapRef.current?.getSource('stations') as GeoJSONSource | undefined)?.setData(pins);
+    const src = mapRef.current?.getSource('stations') as GeoJSONSource | undefined;
+    if (!src) return;
+    // Only the pins that changed go to the map's worker; a change to most of them (Level 2 on or
+    // off) is sent whole, which costs the same and skips the bookkeeping.
+    const d = sentRef.current ? pinDiff(sentRef.current, pins) : null;
+    if (!d || d.remove.length + d.add.length > pins.features.length / 2) {
+      src.setData(pins);
+      sentRef.current = d ? d.index : pinIndex(pins);
+    } else if (d.remove.length || d.add.length) {
+      src.updateData({ remove: d.remove, add: d.add });
+      sentRef.current = d.index;
+    }
   }, [pins]);
   useEffect(() => setJSON(KEYS.mapFilters, filters), [filters]);
 
@@ -820,6 +846,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   }, []);
 
   // The route on the map: drawn when the plan is for the ends in the form, cleared otherwise.
+  /** The camera has arrived but the stops are still being planned: the overlay effect paints when they land. */
+  const paintPending = useRef(false);
   const stopIds = useMemo(() => (plan && T.current ? plan.stops.map((st) => st.station.i) : []), [plan, T.current]);
   const selectedStop = selected !== null && stopIds.includes(selected) ? stopIds.indexOf(selected) : null;
   useEffect(() => {
@@ -845,6 +873,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       return;
     }
     setTripOverlay(map, o);
+    // The stops came after the camera arrived (slow tiles or network): paint now instead of skipping it.
+    if (o && paintPending.current) { paintPending.current = false; paintTrip(map, o); }
   }, [routeMode, plan, routeData, T.current, T.trip.from, T.trip.to, selectedStop, stopIds]);
   // A new route: fit it in the view beside the panel (or above the sheet on phones).
   const fittedKey = useRef('');
@@ -864,8 +894,8 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
       if (painted) return;
       painted = true;
       const o = tripOverlayRef.current;
+      paintPending.current = !o;
       if (o) paintTrip(map, o);
-      else cancelPaint(map);
     };
     if (animate) {
       map.once('moveend', paint);
@@ -1091,9 +1121,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
             ? t('map.dataError')
             : busy
               ? <><span className="road-loader" aria-hidden="true"><span /></span>{filters.levels[2] && load[2] === 'loading' ? t('map.loadingL2') : t('map.loadingStations')}</>
-              : filters.levels[2] && !l2On
-                ? t('map.zoomForL2')
-                : null}
+              : null}
         </p>
         </>)}
       </div>

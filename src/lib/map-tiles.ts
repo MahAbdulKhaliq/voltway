@@ -183,8 +183,6 @@ export const tilePath = (level: ChargerLevel, key: string) => `tiles/${level}/${
 
 // ---- Loading on the map (7.7, 7.8)
 
-/** Level 2 is drawn from this zoom up (the "Zoom in to see Level 2 chargers" hint shows below it). */
-export const L2_MIN_ZOOM = 7;
 /** From this zoom, the tiles behind the single pins on screen load, so opening one is instant. */
 export const DETAIL_ZOOM = 9;
 /** The trip planner looks at stations within 10 km of the route (trip-plan WIDE_KM); its tiles load within this distance. */

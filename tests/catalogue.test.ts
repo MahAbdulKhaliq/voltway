@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { assignModel, groupRegulatorRows, trimPart, type ModelMap, type RegRow } from '../scripts/lib/catalogue.ts';
+import { assignModel, epaMotorKw, groupRegulatorRows, trimPart, type ModelMap, type RegRow } from '../scripts/lib/catalogue.ts';
 
 const map: ModelMap = {
   models: [
@@ -40,6 +40,19 @@ describe('trimPart', () => {
     const n = trimPart(row({ label: 'Model 3 RWD (Import)', model_id: 'tesla/model-3' }), map);
     expect(n.name).toBe('RWD');
     expect(n.notes).toEqual(['Import']);
+  });
+  it('keeps a bracketed range or battery in the name, and reads tire and multi-size wheel hints', () => {
+    const lr = trimPart(row({ source: 'epa', market: 'US', label: 'EV6 RWD (Long Range)', base_model: 'EV6', model_id: 'tesla/model-3' }), map);
+    const sr = trimPart(row({ source: 'epa', market: 'US', label: 'EV6 RWD (Standard Range)', base_model: 'EV6', model_id: 'tesla/model-3' }), map);
+    expect(lr.tokens).not.toEqual(sr.tokens);
+    expect(trimPart(row({ label: 'Model 3 Long Range AWD (19 inch tires)', model_id: 'tesla/model-3' }), map).wheels).toEqual([19]);
+    expect(trimPart(row({ label: 'Model 3 AWD (19/20 inch wheels)', model_id: 'tesla/model-3' }), map).wheels).toEqual([19, 20]);
+    expect(trimPart(row({ label: 'Model 3 AWD (20in AT)', model_id: 'tesla/model-3' }), map).wheels).toEqual([20]);
+  });
+  it('reads EPA motor text as total kW', () => {
+    expect(epaMotorKw('74 and 165 kW PMSM')).toBe(239);
+    expect(epaMotorKw('168 kW PMSM')).toBe(168);
+    expect(epaMotorKw('TBD')).toBeNull();
   });
   it('takes the EPA drive column when the name has none', () => {
     const t = trimPart(row({ source: 'epa', market: 'US', label: 'Model 3 Long Range', base_model: 'Model 3', drive: 'All-Wheel Drive', model_id: 'tesla/model-3' }), map);

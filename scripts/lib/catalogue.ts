@@ -63,13 +63,39 @@ export function trimPart(r: RegRow, map: ModelMap) {
   if (pre) rest = rest.slice(pre.length);
   else if (r.base_model && startsWithWord(rest, r.base_model)) rest = rest.slice(r.base_model.length);
   rest = rest.replace(/^[\s-]+/, '').replace(/^(EV|Electric|Recharge)\b\s*/i, '');
-  const notes = [...rest.matchAll(/\(([^)]*)\)/g)].map((m) => m[1]).filter((n) => !/wheel|kw|kwh|\d{2}\s*("|in)|pre-|post-/i.test(n));
-  for (const n of notes) rest = rest.replace(`(${n})`, ' ');
-  const p = parseName(rest);
+  // Bracketed hints, by kind: wheels/tires and chargers group together; a battery or range
+  // ("(Long Range)", "(77.4 kWh)") is part of the name, so it splits cars; anything else is a note.
+  const wheels: number[] = [];
+  const notes: string[] = [];
+  const kept: string[] = [];
+  let charger_kw: number | undefined;
+  let date_note: string | undefined;
+  for (const [all, inner] of [...rest.matchAll(/\(([^)]*)\)/g)]) {
+    rest = rest.replace(all, ' ');
+    const sizes = [...inner.matchAll(/(?<!\d)(1[4-9]|2[0-4])(?!\d)/g)].map((m) => Number(m[1]));
+    if (sizes.length && /wheel|tire|tyre|inch|\d{2}\s*in\b|\d{2}\s*("|''|″)|\bAT\b|UHP/i.test(inner)) wheels.push(...sizes);
+    else if (/kw\s*(charger|chgr)|^\s*\d+(\.\d+)?\s*kw\s*$/i.test(inner)) charger_kw = Number(inner.match(/\d+(\.\d+)?/)![0]);
+    else if (/^(pre|post)-/i.test(inner.trim())) date_note = inner.trim();
+    else if (/kwh|kw-hr|\bah\b|battery|range/i.test(inner)) kept.push(inner.trim());
+    else notes.push(inner.trim());
+  }
+  const p = parseName([rest, ...kept].join(' '));
   const drivetrain = p.drivetrain ?? (r.drive ? DRIVE[r.drive.toLowerCase()] : undefined);
   const words = p.base.replace(/^\s*-\s*/, '').trim();
-  return { ...p, drivetrain, name: words, tokens: tokenize(words), notes };
+  return { ...p, wheels: [...new Set(wheels)].sort((a, b) => a - b), wheel_in: wheels[0], charger_kw, date_note, drivetrain, name: words, tokens: tokenize(words), notes };
 }
+
+/** EPA's motor text ("74 and 165 kW PMSM") as total kW, comparable with NRCan's motor_kw; null if unknown. */
+export function epaMotorKw(motor: string | undefined): number | null {
+  const kw = motor?.match(/^(.*?)\bkw\b/i)?.[1];
+  const nums = kw ? [...kw.matchAll(/\d+(?:\.\d+)?/g)].map((m) => Number(m[0])) : [];
+  return nums.length ? nums.reduce((a, b) => a + b, 0) : null;
+}
+
+const DRIVE_WORDS = new Set(['awd', 'rwd', 'fwd', '4wd', '2wd', '4x4']);
+const trimWords = (tokens: string[]) => { const t = tokens.filter((x) => !DRIVE_WORDS.has(x)); return t.length ? t : ['(base)']; };
+
+const motorClose = (a: number | null | undefined, b: number | null | undefined) => Boolean(a && b && Math.abs(a - b) / Math.max(a, b) <= 0.03);
 
 function cleanName(name: string, drivetrain?: Drivetrain): string {
   if (name) return name;
@@ -84,19 +110,20 @@ function cleanName(name: string, drivetrain?: Drivetrain): string {
  */
 export function groupRegulatorRows(
   rows: RegRow[],
-  existing: Map<string, { id: string; model_id: string; year: number; drivetrain: string; powertrain_id?: string; markets?: string[]; trims?: { names?: Record<string, string> }[] }>,
+  existing: Map<string, { id: string; model_id: string; year: number; drivetrain: string; powertrain_id?: string; markets?: string[]; motor_kw?: number | null; trims?: { names?: Record<string, string> }[] }>,
   _crosswalk: Record<string, string>[],
   map: ModelMap = { models: [] },
   generationOf: (modelId: string, year: number) => string | undefined = () => undefined,
 ): Proposal[] {
-  type G = { model_id: string; year: number; market: 'CA' | 'US'; key: string; name: string; tokens: string[]; drivetrain?: Drivetrain; wheels: Set<number>; flags: Set<string>; rows: RegRow[] };
+  type G = { model_id: string; year: number; market: 'CA' | 'US'; key: string; name: string; tokens: string[]; drivetrain?: Drivetrain; motor_kw: number | null; wheels: Set<number>; flags: Set<string>; rows: RegRow[] };
   const groups = new Map<string, G>();
   for (const r of rows) {
     if (!r.model_id) continue;
     const t = trimPart(r, map.models.length ? map : { models: [{ id: r.model_id, nrcan: [], epa: [] }] });
-    const key = [r.model_id, r.year, r.market, t.tokens.join(' '), t.drivetrain ?? '-', t.pack_kwh ?? '-'].join('|');
-    const g = groups.get(key) ?? { model_id: r.model_id, year: r.year, market: r.market, key, name: t.name, tokens: t.tokens, drivetrain: t.drivetrain, wheels: new Set<number>(), flags: new Set<string>(), rows: [] };
-    if (t.wheel_in) g.wheels.add(t.wheel_in);
+    const key = [r.model_id, r.year, r.market, t.tokens.join(' '), t.drivetrain ?? '-', t.pack_kwh ?? '-', r.source === 'nrcan' ? r.motor_kw ?? '-' : '-'].join('|');
+    const g = groups.get(key) ?? { model_id: r.model_id, year: r.year, market: r.market, key, name: t.name, tokens: t.tokens, drivetrain: t.drivetrain, motor_kw: r.motor_kw, wheels: new Set<number>(), flags: new Set<string>(), rows: [] };
+    for (const w of t.wheels) g.wheels.add(w);
+    g.motor_kw ??= r.motor_kw;
     if (t.code) g.flags.add(`code: NRCan "-${t.code}"`);
     if (t.date_note) g.flags.add(`date: "${t.date_note}"`);
     if (t.charger_kw) g.flags.add(`charger ${t.charger_kw} kW on one row (trim onboard charger)`);
@@ -114,28 +141,46 @@ export function groupRegulatorRows(
     const ca = gs.filter((g) => g.market === 'CA');
     const us = gs.filter((g) => g.market === 'US');
     const used = new Set<G>();
-    const pairs: [G | null, G | null, boolean][] = [];
+    const pairs: [G | null, G | null, boolean | 'motor'][] = [];
     for (const c of ca) {
       const dtOk = (a?: Drivetrain, b?: Drivetrain) => !a || !b || a === b;
       const cands = us.filter((u) => !used.has(u) && dtOk(u.drivetrain, c.drivetrain));
-      const scored = cands.map((u) => ({ u, s: similarity(c.tokens, u.tokens) })).sort((a, b) => b.s - a.s);
+      // Words without drivetrain words; NRCan names AWD explicitly, so an unmarked Canadian row leans 2WD.
+      const lean = (u: G) => (c.drivetrain || !u.drivetrain ? 0 : u.drivetrain === 'awd' ? -0.1 : 0.1);
+      const scored = cands.map((u) => ({ u, s: similarity(trimWords(c.tokens), trimWords(u.tokens)) })).sort((a, b) => b.s + lean(b.u) - (a.s + lean(a.u)));
       const best = scored[0];
+      // Motor power is a fallback only (EPA's motor text is sometimes one motor of two, or "TBD").
+      const byMotor = cands.filter((u) => motorClose(u.motor_kw, c.motor_kw) && (c.drivetrain ? c.drivetrain === u.drivetrain : u.drivetrain !== 'awd'));
       if (best && best.s >= 0.6) { used.add(best.u); pairs.push([c, best.u, false]); }
+      else if (byMotor.length === 1) { used.add(byMotor[0]); pairs.push([c, byMotor[0], 'motor']); }
       else if (cands.length === 1 && ca.filter((x) => dtOk(x.drivetrain, c.drivetrain)).length === 1) { used.add(cands[0]); pairs.push([c, cands[0], true]); }
       else pairs.push([c, null, false]);
     }
     for (const u of us) if (!used.has(u)) pairs.push([null, u, false]);
 
     const slugs = new Set<string>();
+    // A motor-power join to an existing variant counts only when it is unambiguous: one variant has
+    // that power and drivetrain, and no other group of this year has the same power.
+    const powerOf = (p: (typeof pairs)[number]) => p[0]?.motor_kw ?? p[1]?.motor_kw;
     for (const [c, u, guessed] of pairs) {
+      const flagsExtra: string[] = [];
       const g = { ...(c ?? u)!, drivetrain: c?.drivetrain ?? u?.drivetrain };
       const markets = [c && 'CA', u && 'US'].filter(Boolean) as ('CA' | 'US')[];
       const names: Proposal['names'] = {};
       if (c) names.CA = cleanName(c.name, c.drivetrain);
       if (u) names.US = cleanName(u.name, u.drivetrain);
       // An existing variant of this model year with the same name and drivetrain takes the new market.
-      const ex = [...existing.values()].find((v) => v.model_id === g.model_id && v.year === g.year && (v.drivetrain === (g.drivetrain ?? 'unknown')) &&
-        similarity(tokenize(v.trims?.[0]?.names?.CA ?? v.id.split('/')[3].replace(/-/g, ' ')), g.tokens) >= 0.6);
+      // An existing variant of this model year takes the new market: same words, or (when the names
+      // differ by market, e.g. Kia "Wind" in Canada = "Long Range RWD" in the US) the same motor power.
+      const motor = c?.motor_kw ?? u?.motor_kw;
+      const sameYear = [...existing.values()].filter((v) => v.model_id === g.model_id && v.year === g.year && (v.drivetrain === 'unknown' || !g.drivetrain || v.drivetrain === g.drivetrain));
+      const exByName = sameYear
+        .map((v) => ({ v, s: similarity(trimWords(tokenize(v.trims?.[0]?.names?.CA ?? v.id.split('/')[3].replace(/-/g, ' '))), trimWords(g.tokens)) }))
+        .filter((x) => x.s >= 0.6).sort((a, b) => b.s - a.s)[0]?.v;
+      const exByMotor = exByName ? undefined : sameYear.filter((v) => motorClose(motor, v.motor_kw));
+      const motorUnique = pairs.filter((p) => motorClose(powerOf(p), motor) && (p[0] ?? p[1])!.drivetrain === g.drivetrain).length === 1;
+      const ex = exByName ?? (exByMotor?.length === 1 && motorUnique ? exByMotor[0] : undefined);
+      if (!ex && exByMotor?.length && !motorUnique) flagsExtra.push(`existing?: same motor power as ${exByMotor.map((v) => v.id).join(', ')}, but another ${g.year} row has it too`);
       let slug = ex ? ex.id.split('/')[3] : slugify(names.CA ?? names.US ?? 'standard') || 'standard';
       if (!ex && markets.length === 1 && slugs.has(slug)) slug = `${slug}-${markets[0].toLowerCase()}`;
       slugs.add(slug);
@@ -145,8 +190,10 @@ export function groupRegulatorRows(
       const sibling = [...existing.values()]
         .filter((v) => v.model_id === g.model_id && v.year !== g.year && v.id.split('/')[3] === slug && v.powertrain_id && gen !== undefined && generationOf(v.model_id, v.year) === gen)
         .sort((a, b) => Math.abs(a.year - g.year) - Math.abs(b.year - g.year))[0];
-      const flags = new Set<string>([...(c?.flags ?? []), ...(u?.flags ?? [])]);
-      if (guessed) flags.add('pair: only one candidate each side, words differ');
+      const flags = new Set<string>([...(c?.flags ?? []), ...(u?.flags ?? []), ...flagsExtra]);
+      if (guessed === 'motor') flags.add(`pair: names differ, same motor power (${c?.motor_kw} kW)`);
+      else if (guessed) flags.add('pair: only one candidate each side, words differ');
+      if (ex && !exByName) flags.add(`existing: joins ${ex.id} by motor power (${motor} kW); names differ`);
       if (sibling) flags.add(`powertrain: same name as ${sibling.id}; check the pack didn't change`);
       out.push({
         id: `${g.model_id}/${g.year}/${slug}`,

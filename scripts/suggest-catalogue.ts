@@ -9,7 +9,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { parseCsv, toCsv } from './lib/csv.ts';
-import { groupRegulatorRows, assignModel, type ModelMap, type RegRow, type Proposal } from './lib/catalogue.ts';
+import { groupRegulatorRows, assignModel, epaMotorKw, type ModelMap, type RegRow, type Proposal } from './lib/catalogue.ts';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -26,18 +26,20 @@ const cwHeader = cwText.slice(0, cwText.indexOf('\n')).replace(/\r$/, '').split(
 const crosswalk = parseCsv(cwText);
 const linked = new Set(crosswalk.filter((r) => r.source === 'nrcan' || r.source === 'epa').map((r) => `${r.source}|${r.source_key}`));
 
+const nrcanMotor = new Map<string, number>();
+for (const f of readDir('data/imported/nrcan')) for (const r of f.records) if (r.motor_kw?.[0]?.value) nrcanMotor.set(r.source_key, r.motor_kw[0].value);
 const rows: RegRow[] = [
   ...readDir('data/imported/nrcan').flatMap((f) => f.records.map((r: any): RegRow => ({
     source: 'nrcan', market: 'CA', source_key: r.source_key, year: r.year, make: r.make, label: r.model, motor_kw: r.motor_kw?.[0]?.value ?? null,
   }))),
   ...readDir('data/imported/epa').flatMap((f) => f.records.map((r: any): RegRow => ({
     source: 'epa', market: 'US', source_key: r.source_key, year: r.year, make: r.make, label: r.model, base_model: r.base_model,
-    drive: r.drive, motor_kw: null,
+    drive: r.drive, motor_kw: epaMotorKw(r.motor),
   }))),
 ].filter((r) => !linked.has(`${r.source}|${r.source_key}`));
 
 const csvFile = join(root, 'crosswalk/catalogue-review.csv');
-const HEADER = ['approved', 'proposal', 'model_id', 'year', 'variant_id', 'markets', 'drivetrain', 'powertrain', 'trim_ca', 'trim_us', 'wheels', 'flags', 'source', 'source_key'];
+const HEADER = ['approved', 'check', 'proposal', 'model_id', 'year', 'variant_id', 'markets', 'drivetrain', 'powertrain', 'trim_ca', 'trim_us', 'wheels', 'flags', 'source', 'source_key'];
 
 if (apply) {
   const review = parseCsv(readFileSync(csvFile, 'utf8')).filter((r) => r.approved.trim().toLowerCase() === 'yes');
@@ -94,7 +96,11 @@ const inWave = assigned.filter(({ r, model }) => {
 
 const existingVariants = new Map<string, any>();
 const walk = (d: string): string[] => (existsSync(d) ? readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(join(d, e.name)) : [join(d, e.name)])) : []);
-for (const f of walk(join(root, 'data/variants'))) { const v = load(f); existingVariants.set(v.id, v); }
+for (const f of walk(join(root, 'data/variants'))) {
+  const v = load(f);
+  const key = crosswalk.find((r) => r.our_variant_id === v.id && r.source === 'nrcan' && r.confirmed === 'true')?.source_key;
+  existingVariants.set(v.id, { ...v, motor_kw: key ? nrcanMotor.get(key) ?? null : null });
+}
 
 const proposals: Proposal[] = groupRegulatorRows(inWave.map((x) => ({ ...x.r, model_id: x.model ?? undefined })), existingVariants, crosswalk, map, (modelId, year) => {
   const f = join(root, 'data/models', `${modelId}.json`);
@@ -103,7 +109,7 @@ const proposals: Proposal[] = groupRegulatorRows(inWave.map((x) => ({ ...x.r, mo
 });
 
 const csvRows = proposals.flatMap((p) => p.rows.map((r) => ({
-  approved: '', proposal: p.id, model_id: p.model_id, year: p.year, variant_id: p.variant_id, markets: p.markets.join(' '), drivetrain: p.drivetrain ?? '',
+  approved: '', check: p.flags.length ? 'yes' : '', proposal: p.id, model_id: p.model_id, year: p.year, variant_id: p.variant_id, markets: p.markets.join(' '), drivetrain: p.drivetrain ?? '',
   powertrain: p.powertrain, trim_ca: p.names.CA ?? '', trim_us: p.names.US ?? '', wheels: p.wheels.join(' '), flags: p.flags.join('; '), source: r.source, source_key: r.source_key,
 })));
 writeFileSync(csvFile, toCsv(HEADER, csvRows));
@@ -115,7 +121,7 @@ const md: string[] = [
   '',
   'How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on the rows to keep (all rows of a proposal), edit `trim_ca` / `trim_us` / `variant_id` / `powertrain` where they are wrong, then run `npm run suggest:catalogue -- --wave ' + wave + ' --apply`. Flags: ⚠ code = NRCan letter code (plant or certification, not a trim name), ⚠ date = mid-year change, ⚠ pair = Canada/US pairing is a guess, ⚠ name = trim name needs a check.',
   '',
-  `${proposals.length} proposals from ${inWave.length} regulator rows (${ours.length} mapped models).`,
+  `${proposals.length} proposals from ${inWave.length} regulator rows (${ours.length} mapped models): ${proposals.filter((p) => !p.flags.length).length} clean (no ⚠, \`check\` empty in the CSV), ${proposals.filter((p) => p.flags.length).length} to check.`,
   '',
 ];
 let lastModel = '';

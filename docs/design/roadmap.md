@@ -48,6 +48,10 @@ Design docs to write, in order:
 
 **✅ All three phases are now designed.** Every part fits in free tiers. How the parts connect is in [user-flows.md](user-flows.md), and positioning against other tools is in [competitors.md](competitors.md).
 
+## Phase 9: Car data rebuild
+
+**Phase 9: car data rebuild (approved 2026-11-19, B90–B95).** Every BEV from 2011 on in both countries, a shared powertrain level, per-market variants, a curve-only research process with a plausibility linter, and a simpler curve and wheel picker. Plan: [DESIGN-9](../plan/DESIGN-9.md).
+
 ## Later (after v1)
 
 - Smart stop selection as a toggle

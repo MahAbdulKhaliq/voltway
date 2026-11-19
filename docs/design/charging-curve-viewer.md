@@ -177,6 +177,7 @@ For variants with no measured curve. Each template is a list of **SoC → fracti
 **Result (2026-11-16, B41):** a weighted Huber fit (tested curves count most) moved only the 30–80 % points. Still outside ±15 %: Silverado EV (−36 %), LYRIQ (−26 %) and Kona (−20 %), all estimated faster than their reference; GM Ultium may need its own template once tested GM curves exist. LFP rests on one car (EX30). No template split for now. Re-run with `npm run calibrate` as references are added.
 
 ### How estimated curves are shown
+- **Update (B92, 2026-11-19):** the viewer shows the best curve only. The Curve dropdown appears only when a car has two or more measured curves (labelled by source and year); a template estimate is shown only when it is the car's only curve.
 - Dashed line, an "Estimated" badge, and an expandable explanation: "Based on a typical 800V NMC curve and this car's 220 kW peak. No measured curve available yet."
 - Results calculated from estimated curves show times **rounded to the nearest 5 minutes** (for example "~25 min"), so they don't look more precise than they are.
 

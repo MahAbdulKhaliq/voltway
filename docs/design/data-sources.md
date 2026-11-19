@@ -59,6 +59,8 @@ Phase 1, step 1 of [roadmap.md](roadmap.md). Free public sources for a **minimum
 - **Links:** [docs](https://open-ev-data.github.io/1.4.x) · [schema](https://open-ev-data.github.io/1.4.x/dataset/SCHEMA) · [dataset repo](https://github.com/open-ev-data/open-ev-data-dataset)
 
 ### FuelEconomy.gov (US EPA / DOE)
+
+> **Update (B90, B94, 2026-11-19):** now a **second backbone**: BEV rows from 2011 on are imported (`data/imported/epa/`) to list US-sold cars and US trims, alongside NRCan for Canada. Sources are market-neutral (B94).
 - **What it is:** official US ratings, available as a CSV/XML download or a REST API.
 - **EV fields:** city / highway / combined **kWh per 100 mi**, EPA range, charge time at 120 V and 240 V, motor kW.
 - **Missing:** battery kWh and DC charge power.
@@ -73,6 +75,8 @@ Phase 1, step 1 of [roadmap.md](roadmap.md). Free public sources for a **minimum
 The hardest gap, as expected (C1).
 
 ### Open EV Data (Chargeprice), archived ⭐ the main curve source
+
+> **Update (B95, 2026-11-19):** Chargeprice curves are re-graded to `community` (simplified Fastned charts, not our own test), matched only within the same generation, and skipped with fewer than 8 points below 100 %. A 2023 pre-Highland curve was being shown as "Tested" on the 2026 Model 3 Performance.
 - **What it is:** the original open EV charging dataset from the price-comparison service Chargeprice. Charging curves are stored as **SoC % → kW** points.
 - **Status:** **archived and read-only** (the KilowattApp fork was archived 2025-05-04). It won't get updates, so **newer models are missing**.
 - **Important flag:** each curve has an "is default curve" marker. When no measured data existed, the project filled in a **generic shape**: 95% of max DC power at 0% SoC, peak at 75%, AC rate at 100%. **Those curves must not be shown as real data.** **Decision (2026-11-15): skip them on import** and log which were skipped. Our own tuned template (charging-curve-viewer.md §9) is the only estimated curve for those cars, so there are never two competing "Estimated" curves.
@@ -213,6 +217,8 @@ In order of preference:
 ---
 
 ## Recommended next steps
+
+> **Update (B90, 2026-11-19):** step 1 is superseded: the car list is rebuilt from NRCan **and** EPA, every BEV from 2011 on, through a catalogue suggester the owner approves in waves (DESIGN-9 §2).
 
 1. **Build the starter vehicle list from NRCan:** recent model years (for example 2024–2026), deduplicated to the models that matter.
 2. **Fill it in from OpenEV Data and the Chargeprice archive** where matches exist.

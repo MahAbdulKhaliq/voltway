@@ -19,6 +19,8 @@ This is a design document, not code. Field names are shown as `snake_case` for c
 
 ## 2. Hierarchy: how vehicles break down (D2) ✅
 
+> **Update (B90, B91, B95, 2026-11-19):** a shared **powertrain** level (pack + charging hardware + curves, per generation) sits under the model, and variants point to it with `powertrain_id`, so cars that share a pack share one record and one curve. Variants carry `markets` (CA, US); a model year can hold market-specific variants. Trims carry per-market names; wheel sizes are wheel options with their own rated range, not separate trims. Every model lists its `generations[]`. Detail in [DESIGN-9](../plan/DESIGN-9.md) §1.
+
 ```
 Make            Hyundai
  └─ Model       IONIQ 5
@@ -183,6 +185,8 @@ A list of **points: state of charge (SoC %) → power (kW)**, for one variant un
 - **Charger limits** (C4) are applied **when calculating, not stored**: the power actually delivered is the lower of the car's curve and the charger's limit. The curve stays a property of the car only.
 
 ### Estimated curves (C8)
+
+> **Update (B92, B95, 2026-11-19):** curves attach to the powertrain (`powertrain_id`), with `variant_id` only for a year-specific curve. Chargeprice curves are `community` (not `tested`) and match only within the same generation. A build-time plausibility linter warns on flat peaks, sparse points and year mismatches; a curve with an open warning can't be the display default until a person clears it.
 For variants with **no measured curve**, so every car still gets one:
 - Generated from **`dc_max_kw`, chemistry and voltage class**, using a small set of **template shapes** (for example "800V NMC: holds near peak to ~50%, then tapers" or "LFP: flatter, with a steep drop near the top").
 - Stored like any other curve with `kind: estimated`, plus a `basis` note saying which template and inputs were used.

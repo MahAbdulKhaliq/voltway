@@ -1,5 +1,6 @@
 // Turns records from the archived Chargeprice "Open EV Data" set into normalized records.
-// Measured curves become `tested` (Fastned → Chargeprice chain, data-sources.md §2).
+// Measured curves become `community` (B95): simplified Fastned charts relayed by Chargeprice, not our own
+// independent test (data-sources.md §2). The build attaches them only within the same generation.
 // Generic filler shapes are skipped (decision B3), including ones not flagged as default.
 
 export interface ChargepriceVehicle {
@@ -34,7 +35,7 @@ export interface ChargepriceRecord {
   ac_max_kw?: Num[];
   nominal_voltage_class?: Fact[];
   curve?: {
-    kind: 'tested';
+    kind: 'community';
     source_id: string;
     points: { soc_percent: number; power_kw: number }[];
     notes: string;
@@ -79,7 +80,7 @@ export function normalizeChargeprice(v: ChargepriceVehicle, sourceId: string): C
   else if (isGenericShape(curvePoints)) skipped = 'generic_shape';
   else {
     curve = {
-      kind: 'tested',
+      kind: 'community',
       source_id: sourceId,
       points: curvePoints.map((p) => ({ soc_percent: p.percentage, power_kw: p.power })),
       notes: CURVE_NOTE,

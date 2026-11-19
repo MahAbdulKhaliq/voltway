@@ -59,6 +59,7 @@ let complete = 0;
 let noCurve = 0; // variants whose only curve is the template estimate (or none, without a DC peak)
 let no1080 = 0; // not an MVP field (many makers don't publish one), so it doesn't block "complete"
 const byModel = new Map<string, string[]>();
+const waiting: string[] = []; // B95: curves with plausibility warnings
 for (const f of listJson(join(root, 'data/variants'))) {
   const v = load(f);
   variantCount++;
@@ -86,10 +87,18 @@ for (const f of listJson(join(root, 'data/variants'))) {
     return Boolean(rec && parseName(rec.model).wheel_in);
   };
   if (!(v.trims ?? []).every(trimHasWheels)) gaps.push('wheel sizes');
-  // Curves (B16): measured (imported or stored), borrowed from a same-pack sibling, or template only.
-  const stored = existsSync(join(root, 'data/curves', v.id)) ? readdirSync(join(root, 'data/curves', v.id)).filter((n) => n.endsWith('.json')).map((n) => load(join(root, 'data/curves', v.id, n))) : [];
-  const curveState = recs.some((x) => x.source === 'chargeprice' && x.rec.curve) || stored.some((c: any) => c.kind !== 'estimated')
-    ? 'measured' : stored.length ? 'borrowed' : 'template';
+  // Curves (B16, B95): read from the built car (run `npm run data:build` first), so the
+  // generation rule and the plausibility checks count the way the site applies them.
+  const builtFile = join(root, 'public/data/cars', `${v.id}.json`);
+  const built = existsSync(builtFile) ? load(builtFile) : { curves: [] };
+  const real = (built.curves as any[]).filter((c) => c.kind !== 'estimated' || c.based_on);
+  const curveState = real.some((c) => c.kind !== 'estimated') ? 'measured' : real.length ? 'borrowed' : 'template';
+  for (const c of real) {
+    if (!c.issues?.length) continue;
+    const state = c.reviewed_note ? `cleared: ${c.reviewed_note}` : 'waiting for review';
+    const list = c.issues.map((i: any) => `${i.level === 'error' ? '❌' : '⚠️'} ${i.message}`).join('; ');
+    waiting.push(`- \`${v.id}#${c.id}\` (${c.kind}, ${state}): ${list}`);
+  }
   const has1080 = filled(v.published_10_80_min) || recs.some((x) => x.source === 'openev' && filled(x.rec.published_10_80_min));
   for (const g of gaps) totals.set(g, (totals.get(g) ?? 0) + 1);
   if (!has1080) no1080++;
@@ -103,6 +112,11 @@ for (const f of listJson(join(root, 'data/variants'))) {
 lines.push(`**${complete} of ${variantCount} variants complete.** Missing, by field:`, '');
 for (const [g, n] of [...totals].sort((a, b) => b[1] - a[1])) lines.push(`- ${g}: ${n}`);
 lines.push('', `Also: ${noCurve} of ${variantCount} variants have no measured or borrowed charging curve (template only), and ${no1080} have no published 10–80 % time. Neither blocks "complete", but research should look for both (B15, B16).`, '');
+if (waiting.length) {
+  lines.push('## Curves with warnings (B95)', '');
+  lines.push('A warned curve is the default only once a person clears it: `reviewed_note` on a stored curve, or `"<variant id>#<curve id>": "why it stands"` in `crosswalk/curve-reviews.json` for an imported one.', '');
+  lines.push(...waiting, '');
+}
 for (const [model, items] of byModel) lines.push(`## ${model}`, '', ...items, '');
 writeFileSync(join(root, 'crosswalk/GAPS.md'), lines.join('\n'));
 console.log(`gaps: ${complete}/${variantCount} variants complete; ${[...totals].map(([g, n]) => `${g} ${n}`).join(' · ')}; template curve only ${noCurve}; no published 10–80% ${no1080}`);

@@ -77,3 +77,12 @@ export function applyWheelEffect(baseInches: number, newInches: number, effect: 
     rangeKm: base.rangeKm ? base.rangeKm / factor : null,
   };
 }
+
+/** B93 (2026-11-19): wheel sizes to offer: from 2″ below the smallest factory size to 2″ above the largest. */
+export const WHEEL_SPAN_IN = 2;
+export function wheelSizeOptions(factory: number[], baseIn: number | null): number[] {
+  const known = [...factory, ...(baseIn !== null ? [baseIn] : [])];
+  if (!known.length) return [];
+  const lo = Math.min(...known) - WHEEL_SPAN_IN, hi = Math.max(...known) + WHEEL_SPAN_IN;
+  return Array.from({ length: hi - lo + 1 }, (_, i) => lo + i);
+}

@@ -96,7 +96,7 @@ Make → Model → Generation → Powertrain (pack + charging hardware + curves)
 - **Chargeprice import** (`scripts/lib/chargeprice.ts`, `scripts/lib/build.ts` around lines 358–383):
   - curves become `kind: community`;
   - they are matched only within the same generation and powertrain, never from a newer or other-generation year;
-  - a curve with fewer than 8 points below 100 % is skipped;
+  - ~~a curve with fewer than 8 points below 100 % is skipped~~ **Changed (owner, 2026-11-19):** sparse curves are kept (100 of the 122 have 3–7 points, including reasonable ones like the 2017 Bolt's); the linter flags them, so they need the owner's review before they can be a default;
   - `isGenericShape` also rejects a "flat at peak, then even steps" shape.
 - **Curve linter:** `scripts/lib/curve-check.ts`, run by `npm run validate` and the build.
   - Errors: the peak exceeds `dc_max_kw` by more than 5 %; points out of order or outside 0–100.

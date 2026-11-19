@@ -44,6 +44,8 @@ export interface CurveOut {
   based_on?: { variant_id: string; reason: string }; // borrowed from a same-pack sibling (B16)
   conditions?: Record<string, unknown>;
   low_confidence?: boolean;
+  issues?: { level: 'error' | 'warning'; code: string; message: string }[]; // B95 plausibility checks
+  reviewed_note?: string;       // B95: a person cleared the warnings
 }
 
 export interface TrimOut {

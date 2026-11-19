@@ -18,6 +18,7 @@ import { COST, COVERAGE } from '../config.ts';
 import { setUnit as switchUnit } from '../scripts/units-client.ts';
 import { mapLink } from '../lib/map-filter.ts';
 import type { Plug } from '../lib/power-bands.ts';
+import { curveChoices, curveYear } from '../lib/curve-choice.ts';
 
 const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', currency: COVERAGE.currency });
 
@@ -324,6 +325,13 @@ export default function CurveViewer({
   useEffect(() => () => { chart.current?.dispose(); chart.current = null; }, []);
 
   const kindLabel = (k: CurveOut['kind']) => t(`viewer.option.${k}` as MessageKey);
+  // B92: only measured curves are offered, named by their source and year.
+  const choices = curveChoices(curves);
+  const curveOptionLabel = (c: CurveOut) => {
+    const src = sources.find((s) => s.id === c.source_id)?.title ?? kindLabel(c.kind);
+    const year = curveYear(c);
+    return year ? t('viewer.option.measuredYear', { source: src, year }) : src;
+  };
 
   // Two overlapping range inputs make one start/end slider (B83). When the handles meet, the one that
   // can still move away from the other sits on top.
@@ -411,12 +419,12 @@ export default function CurveViewer({
       </p>
 
       <div className="controls">
-        {curves.length > 1 && (
+        {choices.length > 1 && (
           <label className="curve-pick">
             <span>{t('viewer.curve')}</span>
             <select value={curve.id} onChange={(e) => setCurveId(e.target.value)}>
-              {curves.map((c) => (
-                <option key={c.id} value={c.id}>{c.based_on ? t('viewer.option.borrowed') : kindLabel(c.kind)}{c.id.startsWith('chargeprice') ? ` (${c.id.split('-')[1]})` : ''}</option>
+              {choices.map((c) => (
+                <option key={c.id} value={c.id}>{curveOptionLabel(c)}</option>
               ))}
             </select>
           </label>

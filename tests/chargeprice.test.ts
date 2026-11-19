@@ -53,9 +53,9 @@ describe('isGenericShape', () => {
 });
 
 describe('normalizeChargeprice', () => {
-  it('imports a measured curve as tested, with the Fastned chain noted', () => {
+  it('imports a measured curve as community (B95), with the Fastned chain noted', () => {
     const r = normalizeChargeprice(vehicle(), SRC);
-    expect(r.curve?.kind).toBe('tested');
+    expect(r.curve?.kind).toBe('community');
     expect(r.curve?.source_id).toBe(SRC);
     expect(r.curve?.points[1]).toEqual({ soc_percent: 46, power_kw: 233 });
     expect(r.curve?.notes).toMatch(/Fastned/);
@@ -126,7 +126,7 @@ describe('validator on imported Chargeprice files', () => {
     return validateRepo(dir).errors;
   };
 
-  it('rejects an imported curve that is not "tested"', () => {
+  it('rejects an imported curve that is not "community" (B95)', () => {
     expect(repoWith((f) => { f.records[0].curve.kind = 'estimated'; }).some((e) => e.includes('/curve/kind'))).toBe(true);
   });
 

@@ -9,7 +9,7 @@ import { displayMinutes } from '../lib/charging.ts';
 import { getItem, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CarDetail, Field, IndexEntry } from '../lib/types.ts';
-import { applyWheelEffect, ratedOnItsOwn, ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
+import { applyWheelEffect, wheelSizeOptions, ratedOnItsOwn, ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
 import { display } from '../lib/format.ts';
 import CurveViewer from './CurveViewer.tsx';
 import { carMapInfo, linkPlugs } from '../lib/map-filter.ts';
@@ -181,10 +181,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     adjusting && rated[k] ? <span className="rated">{t('tile.rated', { value: display(rated[k]!.value, unit).text })}</span> : null;
   const factorySizes = new Set((car?.trims ?? []).flatMap((x) => x.wheels.map((w) => w.diameter_in)));
   const officialTrim = adjusting ? car?.trims.find((x) => x.id !== trim?.id && x.wheels.some((w) => w.diameter_in === chosenIn) && (x.range_km || x.consumption_combined_wh_per_km)) : undefined;
-  const sizes =
-    baseIn !== null
-      ? [...new Set([...Array.from({ length: 11 }, (_, i) => 14 + i), baseIn, ...factorySizes])].sort((a, b) => a - b)
-      : [];
+  const sizes = baseIn !== null ? wheelSizeOptions([...factorySizes], baseIn) : []; // B93
   const defaultCurve = car?.curves.find((c) => c.is_display_default);
   // B24: when the 10–80 % window reaches past the measured points, the tiles' figures are estimated.
   const extended = Boolean(car?.derived.extrapolated) && defaultCurve?.kind !== 'estimated';

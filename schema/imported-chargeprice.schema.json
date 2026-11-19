@@ -31,7 +31,7 @@
             "required": ["kind", "source_id", "points", "notes"],
             "additionalProperties": false,
             "properties": {
-              "kind": { "const": "tested" },
+              "kind": { "const": "community" },
               "source_id": { "$ref": "common.schema.json#/$defs/sourceId" },
               "points": { "$ref": "curve.schema.json#/properties/points" },
               "notes": { "type": "string", "minLength": 1 }

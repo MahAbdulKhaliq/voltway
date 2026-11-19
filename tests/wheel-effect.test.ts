@@ -84,3 +84,12 @@ describe('ratedWheelFor (4.3: which wheels the shown rating belongs to)', () => 
     expect(standardWheel({ wheels: [] })).toBeNull();
   });
 });
+
+describe('wheelSizeOptions (B93)', () => {
+  it('runs from 2″ below the smallest to 2″ above the largest factory size', async () => {
+    const { wheelSizeOptions } = await import('../src/lib/wheel-effect.ts');
+    expect(wheelSizeOptions([18, 19, 20], 18)).toEqual([16, 17, 18, 19, 20, 21, 22]);
+    expect(wheelSizeOptions([19], 19)).toEqual([17, 18, 19, 20, 21]);
+    expect(wheelSizeOptions([], null)).toEqual([]);
+  });
+});

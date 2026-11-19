@@ -11,6 +11,7 @@ import { deriveWheelEffect, type RatingRow, type WheelEffect } from '../../src/l
 import { calculateCharge } from '../../src/lib/charging.ts';
 import { t as msg } from '../../src/i18n/t.ts';
 import { estimateCurve } from '../../src/lib/estimated-curve.ts';
+import { checkCurve } from './curve-check.ts';
 import { planCarFrom } from '../../src/lib/trip-car.ts';
 import { MVP_FIELDS, type CarDetail, type CurveOut, type Field, type IndexEntry, type Source, type SourcedValue, type TrimOut } from '../../src/lib/types.ts';
 
@@ -246,6 +247,9 @@ export function buildCars(root: string): BuildResult {
     for (const f of listJson(join(root, 'data/imported', src))) for (const r of load(f).records) imported[src].set(r.source_key, r);
   }
   const storedCurves = listJson(join(root, 'data/curves')).map(load);
+  // B95: a person clears a warned curve (imported ones here; stored ones carry reviewed_note).
+  const reviewsFile = join(root, 'crosswalk/curve-reviews.json');
+  const curveReviews: Record<string, string> = existsSync(reviewsFile) ? JSON.parse(readFileSync(reviewsFile, 'utf8')) : {};
   const cwFile = join(root, 'crosswalk/crosswalk.csv');
   const crosswalk = existsSync(cwFile) ? parseCsv(readFileSync(cwFile, 'utf8')).filter((r) => r.confirmed === 'true') : [];
 
@@ -285,6 +289,13 @@ export function buildCars(root: string): BuildResult {
     const primaryNrcan = imported.nrcan.get((nrcanFor(trimIds[0]) ?? nrcanRows[0])?.source_key ?? '');
     if (primaryNrcan) for (const k of NRCAN_FIELDS) add(k, primaryNrcan[k]);
 
+    // B95: a model's generations (with refreshes that changed the pack) bound which years' records
+    // apply. With no generations listed, only the same model year does.
+    const generationOf = (year: number): string | undefined =>
+      (model?.generations ?? []).find((g: any) => year >= g.first_year && (g.last_year === undefined || year <= g.last_year))?.id;
+    const sameGeneration = (year: number) =>
+      year === v.year || (generationOf(year) !== undefined && generationOf(year) === generationOf(v.year));
+
     let openevHeatPump: SourcedValue[] | undefined;
     let openevWheels: TrimOut['wheels'] = [];
     const importedCurves: CurveOut[] = [];
@@ -300,11 +311,12 @@ export function buildCars(root: string): BuildResult {
           openevWheels = rec.wheels.map((w: TrimOut['wheels'][number]) => ({ ...w, ...(src ? { source_id: src } : {}) }));
         }
       } else if (r.source === 'chargeprice') {
+        if (!sameGeneration(rec.year)) continue;
         for (const [ours, theirs] of Object.entries(CHARGEPRICE_FIELDS)) add(ours, rec[theirs]);
         if (rec.curve) {
           importedCurves.push({
             id: `chargeprice-${rec.year}`,
-            kind: 'tested',
+            kind: 'community',
             source_id: rec.curve.source_id,
             points: rec.curve.points,
             is_display_default: false,
@@ -362,6 +374,7 @@ export function buildCars(root: string): BuildResult {
         ...(c.notes ? { notes: c.notes } : {}), ...(c.conditions ? { conditions: c.conditions } : {}), ...(c.low_confidence ? { low_confidence: true } : {}),
         // B16: a curve borrowed from a same-pack sibling explains itself in the "Why estimated?" note.
         ...(c.based_on ? { based_on: c.based_on, basis: c.based_on.reason } : {}),
+        ...(c.reviewed_note ? { reviewed_note: c.reviewed_note } : {}),
       })),
       ...importedCurves,
     ];
@@ -374,11 +387,26 @@ export function buildCars(root: string): BuildResult {
         sourceId: dc.source_id,
       }));
     }
+    // B95: check every curve that isn't our own template; a warned curve is the default only once
+    // a person has cleared it (reviewed_note, or crosswalk/curve-reviews.json for imported curves).
+    for (const c of curves) {
+      if (c.kind === 'estimated' && !c.based_on) continue;
+      const issues = checkCurve(c.points, {
+        dcMaxKw: typeof dc?.value === 'number' ? dc.value : null,
+        chemistry: (fields.chemistry?.value.value as string) ?? null,
+        voltageClass: (fields.nominal_voltage_class?.value.value as string) ?? null,
+      });
+      if (issues.length) c.issues = issues;
+      const review = c.reviewed_note ?? curveReviews[`${v.id}#${c.id}`];
+      if (review) c.reviewed_note = review;
+    }
+    const eligible = (c: CurveOut) => !c.issues?.length || Boolean(c.reviewed_note);
     if (curves.length && !curves.some((c) => c.is_display_default)) {
       const order = { tested: 0, community: 1, manufacturer: 2, estimated: 3 };
       // Within "estimated", a borrowed sibling curve (B16) beats the template.
       const borrowed = (c: CurveOut) => (c.based_on ? 0 : 1);
-      const best = [...curves].sort((a, b) => order[a.kind] - order[b.kind] || borrowed(a) - borrowed(b) || Number(a.low_confidence ?? false) - Number(b.low_confidence ?? false))[0];
+      // Curves still waiting for review come last (behind the template), but beat having no curve.
+      const best = [...curves].sort((a, b) => Number(!eligible(a)) - Number(!eligible(b)) || order[a.kind] - order[b.kind] || borrowed(a) - borrowed(b) || Number(a.low_confidence ?? false) - Number(b.low_confidence ?? false))[0];
       best.is_display_default = true;
     }
     const defaultCurve = curves.find((c) => c.is_display_default);

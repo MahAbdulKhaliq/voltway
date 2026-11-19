@@ -114,11 +114,25 @@ describe('buildCars on the fixture', () => {
     writeFileSync(join(d, 'data/curves', V, 'borrowed.json'), JSON.stringify({
       ...c, id: 'borrowed', kind: 'estimated', low_confidence: true, is_display_default: false,
       based_on: { variant_id: 'testmake/sparkle/2025/twin', reason: 'Same 80 kWh 800 V pack.' },
+      reviewed_note: 'Checked against the sibling test.',
     }));
     const [car] = buildCars(d).cars;
     const def = car.curves.find((x) => x.is_display_default);
     expect(def).toMatchObject({ id: 'borrowed', kind: 'estimated', basis: 'Same 80 kWh 800 V pack.' });
     expect(car.curves.filter((x) => x.kind === 'estimated')).toHaveLength(2);
+  });
+
+  it('keeps a warned curve off the default until a person clears it (B95)', () => {
+    const d = repo();
+    const file = join(d, 'data/curves', V, 'test-2025.json');
+    writeFileSync(file, JSON.stringify({ ...JSON.parse(readFileSync(file, 'utf8')), is_display_default: false })); // no hand-set default
+    const [before] = buildCars(d).cars;
+    const measured = before.curves.find((x) => x.kind !== 'estimated')!;
+    expect(measured.issues?.length).toBeGreaterThan(0); // the fixture curve is sparse
+    expect(before.curves.find((x) => x.is_display_default)?.kind).toBe('estimated');
+    writeFileSync(join(d, 'crosswalk/curve-reviews.json'), JSON.stringify({ [`${before.id}#${measured.id}`]: 'Matches the published chart.' }));
+    const [after] = buildCars(d).cars;
+    expect(after.curves.find((x) => x.is_display_default)).toMatchObject({ id: measured.id, reviewed_note: 'Matches the published chart.' });
   });
 
   it('makes the estimate the default only when nothing measured exists', () => {
@@ -174,10 +188,19 @@ describe('the real build', () => {
     }
   });
 
-  it('never makes an estimated curve the default when a measured one exists', () => {
+  it('never makes an estimated curve the default when a checked or cleared measured one exists (B95)', () => {
     for (const car of buildCars(REPO).cars) {
-      if (car.curves.some((c) => c.kind !== 'estimated')) expect(car.curves.find((c) => c.is_display_default)?.kind).not.toBe('estimated');
+      const ok = car.curves.some((c) => c.kind !== 'estimated' && (!c.issues?.length || c.reviewed_note));
+      if (ok) expect(car.curves.find((c) => c.is_display_default)?.kind).not.toBe('estimated');
     }
+  });
+
+  it('attaches Chargeprice records only within the same generation, as community curves (B95)', () => {
+    for (const car of buildCars(REPO).cars) {
+      for (const c of car.curves.filter((x) => x.id.startsWith('chargeprice-'))) expect(c.kind).toBe('community');
+    }
+    const m3 = buildCars(REPO).cars.filter((c) => c.id.startsWith('tesla/model-3/2026/'));
+    for (const car of m3) expect(car.curves.map((c) => c.id)).not.toContain('chargeprice-2023');
   });
 
   it('passes the output check (every figure anywhere in a car file is sourced)', async () => {

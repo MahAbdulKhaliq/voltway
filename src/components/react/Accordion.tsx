@@ -19,6 +19,12 @@ interface Props {
   open?: boolean;
   onToggle?: (open: boolean) => void;
   className?: string;
+  /** Heading level of the title (a section inside a panel uses 3). */
+  level?: 2 | 3;
+  /** Shown as small pills in the header, e.g. a filter's choices (B86). */
+  chips?: string[];
+  /** No card around it: a section inside another card (the Cars filter panel, B86). */
+  bare?: boolean;
   children: ReactNode;
 }
 
@@ -40,7 +46,8 @@ function Preview({ preview }: { preview: ReactNode }) {
   );
 }
 
-export function Accordion({ id, headingId, title, preview, open, onToggle, className, children }: Props) {
+export function Accordion({ id, headingId, title, preview, open, onToggle, className, level = 2, chips, bare = false, children }: Props) {
+  const Heading = level === 3 ? 'h3' : 'h2';
   const box = useRef<HTMLDetailsElement>(null);
   const body = useRef<HTMLDivElement>(null);
   const running = useRef<Animation[]>([]);
@@ -93,13 +100,15 @@ export function Accordion({ id, headingId, title, preview, open, onToggle, class
     <details
       ref={box}
       id={id}
-      className={['card', 'acc', className].filter(Boolean).join(' ')}
+      className={[bare ? null : 'card', 'acc', className].filter(Boolean).join(' ')}
       open={open}
       onToggle={onToggle ? (e) => onToggle((e.currentTarget as HTMLDetailsElement).open) : undefined}
     >
       <summary onClick={onSummary}>
-        <h2 id={headingId} className="acc-title">{title}</h2>
-        {preview && <Preview preview={preview} />}
+        <Heading id={headingId} className="acc-title">{title}</Heading>
+        {chips && chips.length > 0
+          ? <span className="acc-preview acc-chips">{chips.map((c, i) => <span key={i} className="acc-chip">{c}</span>)}</span>
+          : preview && <Preview preview={preview} />}
         <span className="acc-chev" aria-hidden="true" />
       </summary>
       <span className="acc-lane" aria-hidden="true" />

@@ -156,6 +156,23 @@ The contrast pairs are checked in `tests/contrast.test.ts`: field-border and est
 - "Only show differences" is a switch (the Settings switch look).
 - The empty state's "Browse cars" is the primary yellow button.
 
-## 10. Still to decide (polish pass)
+## 10. Browsing cars: filter sections and "Live reflow" (B86)
+
+Decided by the owner 2026-11-19 (B86, under review). The Cars page uses everything above, plus:
+
+- **Every filter category is its own section** inside the filter panel: Road unrolls (§8) without the card around it (`bare`), a smaller Overpass title, a thin divider between sections, and an `h3` heading so the panel's outline stays right.
+- **A closed section shows its choices as pills** under its title (the makes ticked, "350 km or more", the model years). A section with nothing chosen shows nothing. While a section is open the pills hide (the choices are right below). The default model years show as pills too, so the header always says which years are listed.
+- **Sections start closed unless a filter in them is set.** Once the visitor opens or closes one, that choice is remembered (`voltway.browseOpen`) and wins over the default.
+- **Choices are a checkbox list** (owner, 2026-11-19 review, replacing pill toggles): native checkboxes (radios for heat pump) in road-paint yellow (`accent-color`), one per row, 34 px rows (44 px on phones), a ticked label in semibold, the accent focus ring. A list scans faster than wrapped pills when there are many makes.
+- **Each section has its own Clear** while its filter is set (owner, 2026-11-19): a small underlined accent-coloured button beside the chevron, visible open or closed, named "Clear <section>" for screen readers. It resets just that category (model years back to the default years) and moves focus to the section's header. It sits over the header row, not inside `<summary>`, because a button inside a summary is not reliably reachable.
+- **Yes/no filters are switches** (Sold in Canada, tested curves only), the same switch as Compare's "Only differences".
+- **Range, DC peak and 10–80 % time use the map's slider** (§4), on a field-coloured rail because they sit on the panel.
+- **Card figures are four raised readouts** (§2) in a 2 × 2 grid; car names in Overpass.
+- **Live reflow.** When a filter, the sort or the search changes, cards that stay glide from where they were to their new place (FLIP), new cards rise in with a short stagger, and removed cards fade out where they stood (as copies in a layer over the grid, so React never sees them). Only cards near the screen animate, and nothing animates past 400 cards. The table rows glide the same way.
+- **The count ticks** to its new value in large Overpass figures; screen readers hear the final count once, from a separate status line.
+- **Search highlights the matched words** (word starts) in names and trims, with the accent tint and underline.
+- **Animations off** (the site's setting, B65): every change is instant, with no copies, no ticking and no transitions on switches.
+
+## 11. Still to decide (polish pass)
 
 Open points for the owner: grouping the assumption controls, a shorter estimate notice, the phone order, and the first-load car picker (from the first B83 review). Compare (B85): whether a time race should draw the fastest car with the longest bar instead (owner to decide).

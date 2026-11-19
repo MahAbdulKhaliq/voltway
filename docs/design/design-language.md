@@ -75,6 +75,42 @@ The contrast pairs are checked in `tests/contrast.test.ts`: field-border and est
 - **Archivo**: running text, labels, badges, notes.
 - Every number the visitor compares uses tabular figures.
 
-## 8. Still to decide (polish pass)
+## 8. Sections and menus: "Road unrolls" (overdrive pass)
+
+*(Owner, B83 overdrive, 2026-11-18; under review, not committed yet.)* Code: `src/components/react/Accordion.tsx` and the "Road unrolls" and "Select menus" blocks at the end of `global.css`.
+
+**Accordion header**
+- The title is in Overpass 700. A preview written as "a · b · c" is shown as small pills (`.acc-chip`: surface-2, 0.8 rem, tabular figures). The pill row fades out at the right edge instead of being cut off. Other previews stay plain text.
+- The chevron is a 30 px round button (`.acc-chev`, 28 px on phones) on `surface-2`. Open, it turns 180° and takes the yellow-soft fill with an accent chevron.
+- The header gets a faint surface-2 tint on hover and the accent focus outline (3 px) from the keyboard.
+- Under an open header runs a **lane line** (`.acc-lane`): 2 px accent dashes, 16 px of paint and 12 px gap, the chart's lane dashes.
+
+**Accordion motion** (Web Animations API, so every browser gets it)
+- Opening: the body grows from 0 to its height in **320 ms**, ease-out (`--ease-out`). The lane line paints in from left to right. The blocks and cards inside rise 8 px and fade in, **30 ms apart**, at most 10 of them.
+- Closing: a quicker reverse, **220 ms**. The lane line unpaints, and the section closes when the animation ends.
+- A second click mid-animation cancels the running one and runs the other direction.
+- A section opened by code (a source `[n]` link opening Sources) opens at once, so its scroll lands in the right place.
+- The native `<details>` element keeps its keyboard and screen-reader behaviour.
+
+**Select menus** (all `.explorer` selects: Select vehicle, wheel size)
+- The closed field keeps the field style (surface fill, Field Border, 8 px radius) and adds:
+  - the chosen value in Overpass 600;
+  - a drawn chevron in the muted colour;
+  - a text-colour border on hover;
+  - the 3 px accent focus outline.
+- Where the browser supports a customizable select (`appearance: base-select`, Chrome/Edge today), the open list is styled to match the site:
+  - a raised card on `surface`, with a 10 px radius, a border and the shadow;
+  - it drops in 6 px and fades in;
+  - option rows have a 6 px radius, hover on `surface-2`, and the chosen row in yellow-soft with an accent checkmark.
+- Other browsers show their native list under the restyled field.
+
+**Animations setting**
+- With Animations off (the site's own Settings switch, B65 → `html[data-motion="off"]`; not the operating system's reduce-motion signal):
+  - sections open and shut at once;
+  - the lane line doesn't paint in;
+  - the hover and chevron transitions and the select drop-in are off.
+- Every new motion on content pages must check this the same way: `reducedMotion()` in script, and `html[data-motion="off"]` in CSS.
+
+## 9. Still to decide (polish pass)
 
 Open points for the owner: grouping the assumption controls, a shorter estimate notice, the phone order, and the first-load car picker (from the first B83 review). The Compare page still uses the old charger dropdown and the old toggles, and moves to §4 when Compare gets its pass.

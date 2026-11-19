@@ -425,8 +425,6 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
         .explorer .car-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
         .explorer .selects { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
         .explorer .selects label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
-        .explorer .selects select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 8px 10px; width: 100%; min-width: 0; text-overflow: ellipsis; }
-        .explorer .selects select:disabled { opacity: 0.6; }
         .explorer .eyebrow { margin: 0 0 4px; font-size: 0.9rem; }
         .explorer .variant { color: var(--muted); font-weight: 500; }
         .explorer .tiles { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
@@ -438,7 +436,6 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
         .explorer .report { margin: -12px 0 0; }
         .explorer .linkish { display: block; margin-top: 6px; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: 0.8rem; font-weight: 600; text-align: left; cursor: pointer; text-decoration: underline; }
         .explorer .rated { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-top: 4px; }
-        .explorer .wheels select { font: inherit; font-size: 1rem; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 4px 8px; width: 100%; }
         .explorer .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 12px; }
         .explorer .spec-grid th { width: 46%; }
         .explorer tr.current td:first-child { font-weight: 650; }
@@ -449,7 +446,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
         .explorer .sources .source-meta { display: block; margin-top: 2px; }
         .explorer .sources li.flash { animation: src-flash 2s ease-out; }
         @keyframes src-flash { from { background: var(--accent-soft); } to { background: transparent; } }
-        @media (max-width: 640px) { .explorer { gap: 16px; } .explorer .tiles .readout-value { font-size: 1.05rem; } .explorer .wheels select { font-size: 0.85rem; padding: 4px 6px; } }
+        @media (max-width: 640px) { .explorer { gap: 16px; } .explorer .tiles .readout-value { font-size: 1.05rem; } }
         .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
       `}</style>
     </div>

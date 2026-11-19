@@ -212,19 +212,13 @@ details.acc > summary {
   padding: 14px 20px; min-height: 48px;
 }
 details.acc > summary::-webkit-details-marker { display: none; }
-details.acc > summary::after {
-  content: ""; flex: none; margin-left: auto; align-self: center; width: 8px; height: 8px;
-  border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
-  transform: rotate(45deg) translate(-2px, -2px); transition: transform 0.15s;
-}
-details.acc[open] > summary::after { transform: rotate(-135deg) translate(-2px, -2px); }
 .acc-title { margin: 0; font-size: 1.05rem; flex: none; }
 details.acc { min-width: 0; } /* a long car name in the preview must not widen its grid column (4.16 check) */
 .acc-preview { flex: 1 1 auto; min-width: 0; max-width: 100%; color: var(--muted); font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .acc-body { padding: 0 20px 20px; }
 @media (max-width: 640px) {
   details.acc > summary { padding: 12px 14px; flex-wrap: wrap; row-gap: 2px; }
-  details.acc > summary::after { order: 2; }
+  details.acc > summary .acc-chev { order: 2; }
   .acc-title { flex: 1 1 auto; }
   .acc-preview { order: 3; flex-basis: 100%; }
   .acc-body { padding: 0 14px 14px; }
@@ -941,3 +935,74 @@ html[data-motion="off"] .marquee.moving .marquee-text { display: inline; animati
 
 /* Sliders use the map's kW slider (.power-track, .power-rail, .power-fill, .power-ticks):
    round thumbs and a fill in the accent colour, tick labels under the rail. */
+
+/* Accordions, "Road unrolls" (B83 overdrive; Accordion.tsx animates, design-language.md §8).
+   The header: an Overpass title, the preview as small pills, a round chevron that turns. Open, a
+   lane-dash line runs under the header; it paints itself in as the section opens. */
+details.acc > summary { position: relative; align-items: center; border-radius: var(--radius); transition: background-color 0.2s var(--ease-out); }
+details.acc > summary:hover { background: color-mix(in srgb, var(--surface-2) 55%, transparent); }
+details.acc > summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+details.acc[open] > summary { border-radius: var(--radius) var(--radius) 0 0; }
+.acc-title { font-weight: 700; letter-spacing: -0.01em; }
+.acc-chips { display: flex; gap: 6px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+.acc-chip { flex: none; padding: 2px 9px; border-radius: 999px; background: var(--surface-2); color: var(--text); font-size: 0.8rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.acc-chev {
+  flex: none; margin-left: auto; width: 30px; height: 30px; border-radius: 50%; position: relative;
+  background: var(--surface-2); transition: background-color 0.2s var(--ease-out), rotate 0.32s var(--ease-out);
+}
+.acc-chev::before {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; margin: -6px 0 0 -4px;
+  border-right: 2px solid var(--text); border-bottom: 2px solid var(--text); rotate: 45deg;
+}
+details.acc > summary:hover .acc-chev { background: color-mix(in srgb, var(--field-border) 45%, var(--surface-2)); }
+details.acc[open] > summary .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+details.acc[open] > summary .acc-chev::before { border-color: var(--accent); }
+.acc-lane {
+  display: block; height: 2px; margin: 0 20px 14px;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 16px, transparent 16px 28px); /* the chart's lane dashes */
+}
+details.acc.acc-opening > .acc-lane { animation: acc-paint 0.42s var(--ease-out) both; }
+details.acc.acc-shutting > .acc-lane { animation: acc-paint 0.2s var(--ease-out) reverse both; }
+@keyframes acc-paint { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+details.acc > .acc-body { box-sizing: border-box; }
+details.acc.acc-opening > .acc-body, details.acc.acc-shutting > .acc-body { overflow: hidden; }
+html[data-motion="off"] details.acc > summary, html[data-motion="off"] .acc-chev { transition: none; }
+html[data-motion="off"] details.acc > .acc-lane { animation: none; }
+@media (max-width: 640px) {
+  .acc-lane { margin: 0 14px 12px; }
+  .acc-chev { width: 28px; height: 28px; }
+}
+
+/* Select menus (B83 overdrive): the field look with a drawn chevron, the chosen value in Overpass.
+   Where the browser supports a customizable select (Chrome/Edge), the open list takes the site's
+   surface and drops in; elsewhere the native list opens under the new field. */
+.explorer select {
+  appearance: none; -webkit-appearance: none;
+  font: inherit; font-family: var(--display); font-weight: 600; color: var(--text);
+  background-color: var(--surface); border: 1px solid var(--field-border); border-radius: 8px;
+  padding: 7px 34px 7px 10px; width: 100%; min-width: 0; text-overflow: ellipsis; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 17px) 52%, calc(100% - 12px) 52%;
+  background-size: 5px 5px; background-repeat: no-repeat;
+  transition: border-color 0.18s var(--ease-out), background-color 0.18s var(--ease-out);
+}
+.explorer select:hover:not(:disabled) { border-color: var(--text); }
+.explorer select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.explorer select:disabled { cursor: default; opacity: 0.6; }
+@supports (appearance: base-select) {
+  .explorer select { appearance: base-select; }
+  .explorer select::picker-icon { display: none; }
+  .explorer select::picker(select) {
+    appearance: base-select; margin-top: 6px; padding: 4px; border: 1px solid var(--border); border-radius: 10px;
+    background: var(--surface); color: var(--text); box-shadow: var(--shadow); max-height: min(360px, 60vh);
+    transition: opacity 0.18s var(--ease-out), translate 0.24s var(--ease-out), display 0.24s allow-discrete, overlay 0.24s allow-discrete;
+  }
+  .explorer select:not(:open)::picker(select) { opacity: 0; translate: 0 -6px; }
+  @starting-style { .explorer select:open::picker(select) { opacity: 0; translate: 0 -6px; } }
+  .explorer select option { padding: 7px 10px; border-radius: 6px; font-family: var(--font); font-weight: 400; gap: 8px; }
+  .explorer select option:hover, .explorer select option:focus-visible { background: var(--surface-2); outline: none; }
+  .explorer select option:checked { background: var(--accent-soft); color: var(--text); font-weight: 600; }
+  .explorer select option::checkmark { color: var(--accent); }
+  html[data-motion="off"] .explorer select::picker(select) { transition: none; }
+}
+html[data-motion="off"] .explorer select { transition: none; }

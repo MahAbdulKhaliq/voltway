@@ -429,6 +429,8 @@ html[data-motion="off"] .route-car-change-go { transition: none; }
 /* Locate me: bottom right on desktop, beside the zoom buttons and above the attribution. */
 /* Bottom right (B54): the Map key toggle above Locate me; the key opens above them. */
 .map-corner { position: absolute; right: 52px; bottom: 34px; z-index: 3; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; max-width: calc(100% - 64px); }
+/* An open map key (or Previous destinations) is the latest popup: it sits above Stations in view, never under it. */
+.map-corner:has(.map-key) { z-index: 5; }
 .map-key-btn { display: inline-flex; align-items: center; gap: 0; padding: 0 12px; min-height: 44px; height: 44px; border-radius: 22px !important; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); font: inherit; font-weight: 600; cursor: pointer; }
 .map-key-btn[aria-expanded=true] { border-color: var(--field-border); }
 .map-key-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -505,7 +507,8 @@ html[data-motion="off"] .map-btn-label { transition: none; }
   .charger-map .map-status { top: 112px; bottom: auto; }
   .map-corner { top: 64px; /* under the pill */ right: 8px; bottom: auto; max-width: calc(100% - 16px); }
   /* The key opens under its buttons as a popup over the map and the sheet, never past the screen. */
-  .map-corner .map-key { order: 3; position: fixed; top: 220px; left: 8px; right: 8px; width: auto; max-width: none; max-height: calc(100dvh - 228px); z-index: 6; }
+  .map-corner .map-key { order: 3; position: fixed; top: 220px; left: 8px; right: 8px; width: auto; max-width: none; max-height: max(200px, calc(100dvh - 220px - var(--sheet-px, 0px) - 48px)); z-index: 6; }
+  /* ^ It ends above the credits ⓘ, which rides on the sheet's top edge. */
   .map-corner .map-locate-msg { order: 4; }
   /* Place suggestions grow the sheet instead of being clipped inside it. */
   .map-panel .tp-field .cp-suggest { position: static; margin: 0; }

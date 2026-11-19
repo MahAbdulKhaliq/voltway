@@ -6,13 +6,15 @@
   "drivetrain": "rwd",
   "powertrain_id": "volvo/ex40/2024-single-motor-extended-range-rwd",
   "markets": [
+    "CA",
     "US"
   ],
   "trims": [
     {
       "id": "standard",
       "names": {
-        "US": "Single Motor Extended Range RWD"
+        "US": "Single Motor Extended Range RWD",
+        "CA": "Single Motor"
       }
     }
   ]

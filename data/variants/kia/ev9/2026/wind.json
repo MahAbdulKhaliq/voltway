@@ -6,7 +6,8 @@
   "drivetrain": "rwd",
   "powertrain_id": "kia/ev9/2026-wind",
   "markets": [
-    "CA"
+    "CA",
+    "US"
   ],
   "charge_port": [
     {
@@ -36,7 +37,8 @@
     {
       "id": "standard",
       "names": {
-        "CA": "Wind"
+        "CA": "Wind",
+        "US": "Light Long Range"
       },
       "heat_pump": [
         {

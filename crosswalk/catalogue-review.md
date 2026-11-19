@@ -4,7 +4,7 @@ Generated 2026-11-19 by `npm run suggest:catalogue -- --wave 1` (B90, DESIGN-9 �
 
 How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on the rows to keep (all rows of a proposal), edit `trim_ca` / `trim_us` / `variant_id` / `powertrain` where they are wrong, then run `npm run suggest:catalogue -- --wave 1 --apply`. Flags: ⚠ code = NRCan letter code (plant or certification, not a trim name), ⚠ date = mid-year change, ⚠ pair = Canada/US pairing is a guess, ⚠ name = trim name needs a check.
 
-173 proposals from 264 regulator rows (25 mapped models): 63 clean (no ⚠, `check` empty in the CSV), 110 to check.
+56 proposals from 89 regulator rows (25 mapped models): 19 clean (no ⚠, `check` empty in the CSV), 37 to check.
 
 ## bmw/i4
 
@@ -21,55 +21,13 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - NRCan: LYRIQ AWD (11.5 kW Charger)
   - NRCan: LYRIQ AWD (19.2 kW Charger)
   - EPA: LYRIQ AWD
-- **2025 CA: AWD · US: AWD** → `cadillac/lyriq/2025/awd` [CA, US] awd · powertrain cadillac/lyriq/2026-awd · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger); charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger); powertrain: same name as cadillac/lyriq/2026/awd; check the pack didn't change
-  - **Recommend:** yes: the onboard charger differs by option, same car; shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: LYRIQ AWD (11.5 kW Charger)
-  - NRCan: LYRIQ AWD (19.2 kW Charger)
-  - EPA: LYRIQ AWD (11 kW Charger)
-  - EPA: LYRIQ AWD (19 kW Charger)
-- **2026 US: AWD** → `cadillac/lyriq/2026/awd` [US] awd · powertrain cadillac/lyriq/2026-awd · ⚠ powertrain: same name as cadillac/lyriq/2023/awd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: LYRIQ AWD
-- **2026 US: PAWD** → `cadillac/lyriq/2026/pawd` [US] awd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as cadillac/lyriq/2026/awd, cadillac/lyriq/2026/v, but another 2026 row has it too
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2026 US: PAWD** → `cadillac/lyriq/2026/pawd` [US] awd · powertrain new · names: regulator wording
   - EPA: LYRIQ PAWD
-- **2026 US: LYRIQ-V** → `cadillac/lyriq/2026/lyriq-v` [US] awd · powertrain cadillac/lyriq/2027-lyriq-v · ⚠ charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger); existing?: same motor power as cadillac/lyriq/2026/awd, cadillac/lyriq/2026/v, but another 2026 row has it too; powertrain: same name as cadillac/lyriq/2027/lyriq-v; check the pack didn't change
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: LYRIQ PAWD V SERIES (11 kW Charger)
-  - EPA: LYRIQ PAWD V SERIES (19 kW Charger)
-- **2027 US: AWD** → `cadillac/lyriq/2027/awd` [US] awd · powertrain cadillac/lyriq/2026-awd · ⚠ powertrain: same name as cadillac/lyriq/2026/awd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: LYRIQ AWD 11kW Charger
-  - EPA: LYRIQ AWD 19kW Charger
-## chevrolet/blazer-ev
-
-- **2025 CA: FWD · US: FWD** → `chevrolet/blazer-ev/2025/fwd` [CA, US] fwd · wheels 22″ · powertrain chevrolet/blazer-ev/2027-fwd · ⚠ powertrain: same name as chevrolet/blazer-ev/2027/fwd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Blazer EV
-  - NRCan: Blazer EV (22" Wheels)
-  - EPA: Blazer EV FWD
-  - EPA: Blazer EV FWD 22 inch tire
-- **2026 US: AWD** → `chevrolet/blazer-ev/2026/lt-rs-awd` [US] awd · powertrain chevrolet/blazer-ev/2026-lt-rs-awd · ⚠ existing: joins chevrolet/blazer-ev/2026/lt-rs-awd by motor power (247 kW); names differ
-  - **Recommend:** yes: becomes the US edition of a car we already have
-  - EPA: Blazer EV AWD
 ## chevrolet/equinox-ev
 
-- **2024 CA: AWD · US: AWD** → `chevrolet/equinox-ev/2024/awd` [CA, US] awd · powertrain chevrolet/equinox-ev/2026-awd · names: regulator wording · ⚠ powertrain: same name as chevrolet/equinox-ev/2026/awd; check the pack didn't change
+- **2024 CA: AWD · US: AWD** → `chevrolet/equinox-ev/2024/awd` [CA, US] awd · powertrain chevrolet/equinox-ev/2026-awd · names: regulator wording · ⚠ powertrain: same name as chevrolet/equinox-ev/2025/awd; check the pack didn't change
   - **Recommend:** check: no researched trim name yet (round-2 research)
   - NRCan: Equinox EV AWD
-  - EPA: Equinox EV AWD
-- **2025 CA: AWD · US: AWD** → `chevrolet/equinox-ev/2025/awd` [CA, US] awd · powertrain chevrolet/equinox-ev/2026-awd · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger); charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger); powertrain: same name as chevrolet/equinox-ev/2026/awd; check the pack didn't change
-  - **Recommend:** yes: the onboard charger differs by option, same car; shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Equinox EV AWD (11.5 kW Charger)
-  - NRCan: Equinox EV AWD (19.2 kW Charger)
-  - EPA: Equinox EV AWD (11 kW Charger)
-  - EPA: Equinox EV AWD (19 kW Charger)
-- **2026 US: AWD** → `chevrolet/equinox-ev/2026/awd` [US] awd · powertrain chevrolet/equinox-ev/2026-awd · ⚠ charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger); existing: joins chevrolet/equinox-ev/2026/awd by motor power (247 kW); names differ
-  - **Recommend:** yes: the onboard charger differs by option, same car; becomes the US edition of a car we already have
-  - EPA: Equinox EV AWD (11 kW Charger)
-  - EPA: Equinox EV AWD (19 kW Charger)
-- **2027 US: AWD** → `chevrolet/equinox-ev/2027/awd` [US] awd · powertrain chevrolet/equinox-ev/2026-awd · ⚠ powertrain: same name as chevrolet/equinox-ev/2026/awd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
   - EPA: Equinox EV AWD
 ## chevrolet/silverado-ev
 
@@ -77,183 +35,28 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - **Recommend:** check: no researched trim name yet (round-2 research)
   - EPA: Silverado EV
   - EPA: Silverado EV
-- **2025 US: Extended Range** → `chevrolet/silverado-ev/2025/lt-extended-range` [US] awd · powertrain chevrolet/silverado-ev/2025-lt-extended-range · ⚠ charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger)
-  - **Recommend:** yes: the onboard charger differs by option, same car
-  - EPA: Silverado EV (11 kW Charger)
-  - EPA: Silverado EV (19 kW Charger)
-- **2025 US: Work Truck Standard Range** → `chevrolet/silverado-ev/2025/work-truck-standard-range` [US] awd · powertrain new
-  - EPA: Silverado EV 2WT
-- **2025 US: Work Truck Extended Range** → `chevrolet/silverado-ev/2025/work-truck-extended-range` [US] awd · powertrain new · ⚠ charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger); existing?: same motor power as chevrolet/silverado-ev/2025/lt-extended-range, chevrolet/silverado-ev/2025/lt-rst-extended-range, chevrolet/silverado-ev/2025/wt-extended-range, chevrolet/silverado-ev/2025/wt-max-range, chevrolet/silverado-ev/2025/wt-standard-range, but another 2025 row has it too
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: Silverado EV 5WT (11 kW Charger)
-  - EPA: Silverado EV 5WT (19 kW Charger)
-- **2025 US: Work Truck Max Range** → `chevrolet/silverado-ev/2025/work-truck-max-range` [US] awd · powertrain new · ⚠ existing?: same motor power as chevrolet/silverado-ev/2025/lt-extended-range, chevrolet/silverado-ev/2025/lt-rst-extended-range, chevrolet/silverado-ev/2025/wt-extended-range, chevrolet/silverado-ev/2025/wt-max-range, chevrolet/silverado-ev/2025/wt-standard-range, but another 2025 row has it too
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: Silverado EV 8WT
-- **2027 US: Extended Range** → `chevrolet/silverado-ev/2027/extended-range` [US] awd · powertrain chevrolet/silverado-ev/2026-extended-range · ⚠ charger 11 kW on one row (trim onboard charger); powertrain: same name as chevrolet/silverado-ev/2026/extended-range; check the pack didn't change
-  - **Recommend:** yes: the onboard charger differs by option, same car; shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: Silverado EV Ext Range (11kW Chgr)
-- **2027 US: Work Truck Extended Range** → `chevrolet/silverado-ev/2027/work-truck-extended-range` [US] awd · powertrain new · ⚠ charger 19 kW on one row (trim onboard charger)
-  - **Recommend:** yes: the onboard charger differs by option, same car
-  - EPA: Silverado EV Ext Range WT (19kW Chgr)
-- **2027 US: Work Truck Max Range** → `chevrolet/silverado-ev/2027/work-truck-max-range` [US] awd · powertrain new · ⚠ charger 19 kW on one row (trim onboard charger)
-  - **Recommend:** yes: the onboard charger differs by option, same car
-  - EPA: Silverado EV Max Range WT (19kW Chgr)
-- **2027 US: Work Truck Standard Range** → `chevrolet/silverado-ev/2027/work-truck-standard-range` [US] awd · powertrain new · ⚠ charger 11 kW on one row (trim onboard charger)
-  - **Recommend:** yes: the onboard charger differs by option, same car
-  - EPA: Silverado EV Std Range WT (11kW Chgr)
-## ford/f-150-lightning
-
-- **2022 CA: Extended Range · US: Extended Range** → `ford/f-150-lightning/2022/platinum-extended-range` [CA, US] awd · powertrain ford/f-150-lightning/2022-platinum-extended-range · ⚠ powertrain: same name as ford/f-150-lightning/2023/platinum-extended-range; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: F-150 Lightning Extended Range
-  - EPA: F-150 Lightning 4WD Extended Range
-- **2022 US: Standard Range** → `ford/f-150-lightning/2022/standard-range` [US] awd · powertrain ford/f-150-lightning/2025-standard-range · ⚠ powertrain: same name as ford/f-150-lightning/2023/standard-range; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: F-150 Lightning 4WD
-- **2023 CA: Extended Range · US: Extended Range** → `ford/f-150-lightning/2023/platinum-extended-range` [CA, US] awd · powertrain ford/f-150-lightning/2023-platinum-extended-range · ⚠ powertrain: same name as ford/f-150-lightning/2022/platinum-extended-range; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: F-150 Lightning Extended Range
-  - EPA: F-150 Lightning 4WD Extended Range
-- **2023 US: Standard Range** → `ford/f-150-lightning/2023/standard-range` [US] awd · powertrain ford/f-150-lightning/2025-standard-range · ⚠ powertrain: same name as ford/f-150-lightning/2022/standard-range; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: F-150 Lightning 4WD
-- **2024 CA: Extended Range · US: Extended Range** → `ford/f-150-lightning/2024/extended-range` [CA, US] awd · powertrain new
-  - NRCan: F-150 Lightning Extended Range
-  - EPA: F-150 Lightning 4WD Extended Range
-- **2024 CA: Standard Range · US: Standard Range** → `ford/f-150-lightning/2024/standard-range` [CA, US] awd · powertrain ford/f-150-lightning/2025-standard-range · ⚠ powertrain: same name as ford/f-150-lightning/2023/standard-range; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: F-150 Lightning Standard Range
-  - EPA: F-150 Lightning 4WD
-- **2024 US: Pro Extended Range** → `ford/f-150-lightning/2024/pro-extended-range` [US] awd · powertrain new
-  - EPA: F-150 Lightning PRO 4WD Extended Range
-- **2025 US: Extended Range (131 kWh)** → `ford/f-150-lightning/2025/extended-range-131-kwh` [US] awd · powertrain ford/f-150-lightning/2025-extended-range-131-kwh
-  - EPA: F-150 Lightning 4WD ER1
-- **2025 US: Extended Range (123 kWh)** → `ford/f-150-lightning/2025/extended-range-123-kwh` [US] awd · powertrain ford/f-150-lightning/2025-extended-range-123-kwh
-  - EPA: F-150 Lightning 4WD ER2
-- **2025 US: Pro Extended Range (131 kWh)** → `ford/f-150-lightning/2025/pro-extended-range-131-kwh` [US] awd · powertrain ford/f-150-lightning/2025-pro-extended-range-131-kwh
-  - EPA: F-150 Lightning 4WD PRO ER1
-- **2025 US: Standard Range** → `ford/f-150-lightning/2025/standard-range` [US] awd · powertrain ford/f-150-lightning/2025-standard-range · ⚠ powertrain: same name as ford/f-150-lightning/2023/standard-range; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: F-150 Lightning 4WD SR
 ## ford/mustang-mach-e
 
-- **2021 CA: Extended Range RWD · US: Extended Range RWD** → `ford/mustang-mach-e/2021/california-route-1` [CA, US] rwd · wheels 19″ · powertrain ford/mustang-mach-e/2021-california-route-1 · ⚠ existing: joins ford/mustang-mach-e/2021/california-route-1 by motor power (216 kW); names differ
-  - **Recommend:** yes: becomes the US edition of a car we already have
-  - NRCan: Mustang Mach-E Extended Range (19" Wheels)
-  - EPA: Mustang Mach-E RWD Extended
-- **2021 CA: GT Performance · US: GT Performance Edition** → `ford/mustang-mach-e/2021/gt` [CA, US] awd · powertrain ford/mustang-mach-e/2021-gt
-  - NRCan: Mustang Mach-E GT Performance Edition
-  - EPA: Mustang Mach-E GT Performance
-- **2021 CA: Standard Range RWD · US: Standard Range RWD** → `ford/mustang-mach-e/2021/standard-range-rwd` [CA, US] rwd · powertrain new
-  - NRCan: Mustang Mach-E Standard Range
-  - EPA: Mustang Mach-E RWD
-- **2021 US: Standard Range AWD** → `ford/mustang-mach-e/2021/standard-range-eawd` [US] awd · powertrain ford/mustang-mach-e/2021-standard-range-eawd
-  - EPA: Mustang Mach-E AWD
-- **2021 US: Extended Range AWD** → `ford/mustang-mach-e/2021/extended-range-eawd` [US] awd · powertrain ford/mustang-mach-e/2021-extended-range-eawd
-  - EPA: Mustang Mach-E AWD Extended
-- **2022 CA: Extended Range RWD · US: Extended Range RWD** → `ford/mustang-mach-e/2022/california-route-1-rwd` [CA, US] rwd · powertrain ford/mustang-mach-e/2022-california-route-1-rwd · ⚠ existing: joins ford/mustang-mach-e/2022/california-route-1-rwd by motor power (216 kW); names differ
-  - **Recommend:** yes: becomes the US edition of a car we already have
-  - NRCan: Mustang Mach-E Extended Range
-  - EPA: Mustang Mach-E RWD Extended
-- **2022 CA: GT Performance Edition · US: GT Performance Edition** → `ford/mustang-mach-e/2022/gt-performance-edition` [CA, US] awd · powertrain new
-  - NRCan: Mustang Mach-E GT Performance Edition
-  - EPA: Mustang Mach-E GT Performance
-- **2022 CA: Standard Range RWD · US: Standard Range RWD** → `ford/mustang-mach-e/2022/standard-range-rwd` [CA, US] rwd · powertrain ford/mustang-mach-e/2023-standard-range-rwd · ⚠ powertrain: same name as ford/mustang-mach-e/2023/standard-range-rwd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Mustang Mach-E Standard Range
-  - EPA: Mustang Mach-E RWD
-- **2022 US: Standard Range eAWD** → `ford/mustang-mach-e/2022/standard-range-eawd` [US] awd · powertrain ford/mustang-mach-e/2022-standard-range-eawd · ⚠ powertrain: same name as ford/mustang-mach-e/2023/standard-range-eawd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: Mustang Mach-E AWD
-- **2022 US: Extended Range eAWD** → `ford/mustang-mach-e/2022/extended-range-eawd` [US] awd · powertrain ford/mustang-mach-e/2022-extended-range-eawd · ⚠ powertrain: same name as ford/mustang-mach-e/2023/extended-range-eawd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: Mustang Mach-E AWD Extended
-- **2023 CA: Extended Range RWD · US: Extended Range RWD** → `ford/mustang-mach-e/2023/extended-range-rwd` [CA, US] rwd · powertrain new
-  - NRCan: Mustang Mach-E Extended Range
-  - EPA: Mustang Mach-E RWD Extended
-- **2023 CA: GT Performance Edition · US: GT Performance Edition** → `ford/mustang-mach-e/2023/gt-performance-edition` [CA, US] awd · powertrain new
-  - NRCan: Mustang Mach-E GT Performance Edition
-  - EPA: Mustang Mach-E GT Performance
-- **2023 CA: Standard Range RWD · US: Standard Range RWD** → `ford/mustang-mach-e/2023/standard-range-rwd` [CA, US] rwd · powertrain ford/mustang-mach-e/2023-standard-range-rwd · ⚠ note: "(LFP)"
-  - **Recommend:** yes: bracket note kept for reference
-  - NRCan: Mustang Mach-E Standard Range (LFP)
-  - EPA: Mustang Mach-E RWD
-  - EPA: Mustang Mach-E RWD LFP
-- **2023 CA: Standard Range eAWD · US: Standard Range eAWD** → `ford/mustang-mach-e/2023/standard-range-eawd` [CA, US] awd · powertrain ford/mustang-mach-e/2023-standard-range-eawd · ⚠ note: "(LFP)"; powertrain: same name as ford/mustang-mach-e/2022/standard-range-eawd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked); bracket note kept for reference
-  - NRCan: Mustang Mach-E Standard Range AWD (LFP)
-  - EPA: Mustang Mach-E AWD
-- **2023 US: Extended Range eAWD** → `ford/mustang-mach-e/2023/extended-range-eawd` [US] awd · powertrain ford/mustang-mach-e/2023-extended-range-eawd · ⚠ powertrain: same name as ford/mustang-mach-e/2022/extended-range-eawd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: Mustang Mach-E AWD Extended
-- **2024 CA: Extended Range RWD · US: Extended Range RWD** → `ford/mustang-mach-e/2024/extended-range-rwd` [CA, US] rwd · powertrain new
-  - NRCan: Mustang Mach-E Extended Range
-  - EPA: Mustang Mach-E RWD Extended
 - **2024 CA: Rally · US: Rally** → `ford/mustang-mach-e/2024/rally` [CA, US] awd · powertrain ford/mustang-mach-e/2026-rally · ⚠ existing?: same motor power as ford/mustang-mach-e/2024/gt, but another 2024 row has it too; powertrain: same name as ford/mustang-mach-e/2026/rally; check the pack didn't change
   - **Recommend:** check: several existing cars share its motor power and none is clearly the same name
   - NRCan: Mustang Mach-E Rally
   - EPA: Mustang Mach-E Rally
-- **2024 CA: Standard Range RWD · US: Standard Range RWD** → `ford/mustang-mach-e/2024/standard-range-rwd` [CA, US] rwd · powertrain new
-  - NRCan: Mustang Mach-E Standard Range
-  - EPA: Mustang Mach-E RWD
-- **2024 US: Standard Range eAWD** → `ford/mustang-mach-e/2024/standard-range-eawd` [US] awd · powertrain ford/mustang-mach-e/2024-standard-range-eawd
-  - EPA: Mustang Mach-E AWD
-- **2024 US: Extended Range eAWD** → `ford/mustang-mach-e/2024/extended-range-eawd` [US] awd · powertrain ford/mustang-mach-e/2024-extended-range-eawd · ⚠ powertrain: same name as ford/mustang-mach-e/2025/extended-range-eawd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: Mustang Mach-E AWD Extended
-- **2025 CA: Extended Range RWD · US: Extended Range RWD** → `ford/mustang-mach-e/2025/extended-range-rwd` [CA, US] rwd · powertrain new
-  - NRCan: Mustang Mach-E Extended Range
-  - EPA: Mustang Mach-E RWD Extended
 - **2025 CA: Rally · US: Rally** → `ford/mustang-mach-e/2025/rally` [CA, US] awd · powertrain ford/mustang-mach-e/2026-rally · ⚠ existing?: same motor power as ford/mustang-mach-e/2025/gt, but another 2025 row has it too; powertrain: same name as ford/mustang-mach-e/2026/rally; check the pack didn't change
   - **Recommend:** check: several existing cars share its motor power and none is clearly the same name
   - NRCan: Mustang Mach-E Rally
   - EPA: Mustang Mach-E Rally
-- **2025 CA: Standard Range RWD · US: Standard Range RWD** → `ford/mustang-mach-e/2025/standard-range-rwd` [CA, US] rwd · powertrain new
-  - NRCan: Mustang Mach-E Standard Range
-  - EPA: Mustang Mach-E RWD
-- **2025 CA: Standard Range eAWD · US: Standard Range eAWD** → `ford/mustang-mach-e/2025/extended-range-eawd` [CA, US] awd · powertrain ford/mustang-mach-e/2025-extended-range-eawd · ⚠ powertrain: same name as ford/mustang-mach-e/2024/extended-range-eawd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Mustang Mach-E Standard Range AWD
-  - EPA: Mustang Mach-E AWD
-- **2025 US: Extended Range eAWD** → `ford/mustang-mach-e/2025/extended-range-eawd` [US] awd · powertrain ford/mustang-mach-e/2025-extended-range-eawd · ⚠ powertrain: same name as ford/mustang-mach-e/2024/extended-range-eawd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: Mustang Mach-E AWD Extended
-- **2026 US: Standard Range eAWD** → `ford/mustang-mach-e/2026/standard-range-awd` [US] awd · powertrain ford/mustang-mach-e/2026-standard-range-awd
-  - EPA: Mustang Mach-E AWD
-- **2026 US: Extended Range eAWD** → `ford/mustang-mach-e/2026/extended-range-awd` [US] awd · powertrain ford/mustang-mach-e/2026-extended-range-awd
-  - EPA: Mustang Mach-E AWD Extended
-- **2026 US: Standard Range RWD** → `ford/mustang-mach-e/2026/standard-range` [US] rwd · powertrain ford/mustang-mach-e/2026-standard-range
-  - EPA: Mustang Mach-E RWD
-- **2026 US: Extended Range RWD** → `ford/mustang-mach-e/2026/extended-range-rwd` [US] rwd · powertrain new
-  - EPA: Mustang Mach-E RWD Extended
 ## hyundai/ioniq-5
 
 - **2025 CA: Preferred Long Range RWD · US: Robo taxi** → `hyundai/ioniq-5/2025/preferred-standard-range` [CA, US] rwd · powertrain hyundai/ioniq-5/2025-preferred-standard-range · names: regulator wording · ⚠ pair: names differ, same motor power (168 kW)
   - **Recommend:** no: fleet robotaxi, not sold to the public
   - NRCan: IONIQ 5 Long Range
   - EPA: Ioniq 5 Robo taxi
-- **2025 CA: N · US: N** → `hyundai/ioniq-5/2025/n` [CA, US] awd · powertrain hyundai/ioniq-5/2026-n · ⚠ powertrain: same name as hyundai/ioniq-5/2026/n; check the pack didn't change
+- **2026 US: Limited Dual Motor AWD** → `hyundai/ioniq-5/2026/limited-dual-motor-awd` [US] awd · wheels 20″ · powertrain hyundai/ioniq-5/2025-limited-dual-motor-awd · ⚠ powertrain: same name as hyundai/ioniq-5/2025/limited-dual-motor-awd; check the pack didn't change
   - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: IONIQ 5 N
-  - EPA: Ioniq 5 N
-- **2026 US: Dual Motor AWD** → `hyundai/ioniq-5/2026/dual-motor-awd` [US] awd · wheels 19″ · powertrain hyundai/ioniq-5/2025-dual-motor-awd · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range-awd-xrt, hyundai/ioniq-5/2026/long-range-awd, but another 2026 row has it too; powertrain: same name as hyundai/ioniq-5/2025/dual-motor-awd; check the pack didn't change
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: Ioniq 5 AWD (19inch Wheels)
-- **2026 US: Limited Dual Motor AWD** → `hyundai/ioniq-5/2026/limited-dual-motor-awd` [US] awd · wheels 20″ · powertrain hyundai/ioniq-5/2025-limited-dual-motor-awd · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range-awd-xrt, hyundai/ioniq-5/2026/long-range-awd, but another 2026 row has it too; powertrain: same name as hyundai/ioniq-5/2025/limited-dual-motor-awd; check the pack didn't change
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
   - EPA: Ioniq 5 AWD (20inch Wheels)
-- **2026 US: XRT Dual Motor AWD** → `hyundai/ioniq-5/2026/xrt-dual-motor-awd` [US] awd · powertrain hyundai/ioniq-5/2025-xrt-dual-motor-awd · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range-awd-xrt, hyundai/ioniq-5/2026/long-range-awd, but another 2026 row has it too; powertrain: same name as hyundai/ioniq-5/2025/xrt-dual-motor-awd; check the pack didn't change
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: Ioniq 5 AWD XRT
-- **2026 US: N** → `hyundai/ioniq-5/2026/n` [US] awd · powertrain hyundai/ioniq-5/2026-n
-  - EPA: Ioniq 5 N
-- **2026 US: Robo taxi** → `hyundai/ioniq-5/2026/robo-taxi` [US] rwd · powertrain new · names: regulator wording · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range, but another 2026 row has it too
+- **2026 US: Robo taxi** → `hyundai/ioniq-5/2026/long-range` [US] rwd · powertrain hyundai/ioniq-5/2026-long-range · names: regulator wording · ⚠ existing: joins hyundai/ioniq-5/2026/long-range by motor power (168 kW); names differ
   - **Recommend:** no: fleet robotaxi, not sold to the public
   - EPA: Ioniq 5 Robo taxi
-- **2026 US: RWD** → `hyundai/ioniq-5/2026/rwd` [US] rwd · powertrain hyundai/ioniq-5/2025-rwd · ⚠ existing?: same motor power as hyundai/ioniq-5/2026/long-range, but another 2026 row has it too; powertrain: same name as hyundai/ioniq-5/2025/rwd; check the pack didn't change
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: Ioniq 5 RWD
 - **2027 US: Robo taxi** → `hyundai/ioniq-5/2027/robo-taxi` [US] rwd · powertrain new · names: regulator wording
   - EPA: Ioniq 5 Robo taxi
 ## hyundai/ioniq-6
@@ -261,14 +64,6 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2023 CA: Standard Range · US: SE Standard Range RWD** → `hyundai/ioniq-6/2023/standard-range` [CA, US] rwd · powertrain new · names: regulator wording
   - NRCan: IONIQ 6 Standard Range
   - EPA: Ioniq 6 Standard Range RWD
-- **2025 US: AWD** → `hyundai/ioniq-6/2025/long-range-awd` [US] awd · wheels 20″ · powertrain hyundai/ioniq-6/2025-long-range-awd · ⚠ existing: joins hyundai/ioniq-6/2025/long-range-awd by motor power (239 kW); names differ
-  - **Recommend:** yes: becomes the US edition of a car we already have
-  - EPA: Ioniq 6 AWD (20 inch Wheels)
-- **2025 US: RWD** → `hyundai/ioniq-6/2025/long-range` [US] rwd · wheels 20″ · powertrain hyundai/ioniq-6/2025-long-range · ⚠ existing: joins hyundai/ioniq-6/2025/long-range by motor power (168 kW); names differ
-  - **Recommend:** yes: becomes the US edition of a car we already have
-  - EPA: Ioniq 6 RWD (20 inch Wheels)
-- **2027 US: N** → `hyundai/ioniq-6/2027/n` [US] awd · powertrain new
-  - EPA: Ioniq 6 N
 ## hyundai/ioniq-9
 
 - **2027 US: AWD** → `hyundai/ioniq-9/2027/awd` [US] awd · powertrain hyundai/ioniq-9/2026-awd · names: regulator wording · ⚠ powertrain: same name as hyundai/ioniq-9/2026/awd; check the pack didn't change
@@ -281,22 +76,6 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Ioniq 9 RWD
 ## hyundai/kona-electric
 
-- **2020 CA: Kona Electric · US: Kona Electric** → `hyundai/kona-electric/2020/kona-electric` [CA, US] fwd · powertrain hyundai/kona-electric/2019-kona-electric · ⚠ powertrain: same name as hyundai/kona-electric/2019/kona-electric; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Kona Electric
-  - EPA: Kona Electric
-- **2021 CA: Kona Electric · US: Kona Electric** → `hyundai/kona-electric/2021/kona-electric` [CA, US] fwd · powertrain hyundai/kona-electric/2019-kona-electric · ⚠ powertrain: same name as hyundai/kona-electric/2019/kona-electric; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Kona Electric
-  - EPA: Kona Electric
-- **2022 CA: Kona Electric · US: Kona Electric** → `hyundai/kona-electric/2022/kona-electric` [CA, US] fwd · powertrain hyundai/kona-electric/2019-kona-electric · ⚠ powertrain: same name as hyundai/kona-electric/2019/kona-electric; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Kona Electric
-  - EPA: Kona Electric
-- **2023 CA: Kona Electric · US: Kona Electric** → `hyundai/kona-electric/2023/kona-electric` [CA, US] fwd · powertrain hyundai/kona-electric/2019-kona-electric · ⚠ powertrain: same name as hyundai/kona-electric/2019/kona-electric; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Kona Electric
-  - EPA: Kona Electric
 - **2025 CA: Preferred** → `hyundai/kona-electric/2025/preferred` [CA] drivetrain ? · wheels 17″ · powertrain new
   - NRCan: Kona Electric (17" Wheels)
 - **2025 CA: Standard** → `hyundai/kona-electric/2025/standard` [CA] drivetrain ? · wheels 19″ · powertrain hyundai/kona-electric/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as hyundai/kona-electric/2026/standard; check the pack didn't change
@@ -308,87 +87,19 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - **Recommend:** check: Canada/US pairing is a guess (one candidate each side, words differ)
   - NRCan: EV6 Standard Range
   - EPA: EV6 Standard Range RWD
-- **2025 US: Light Long Range AWD** → `kia/ev6/2025/light-long-range-awd` [US] awd · wheels 19″ · powertrain kia/ev6/2026-light-long-range-awd · ⚠ existing?: same motor power as kia/ev6/2025/land-awd, but another 2025 row has it too; powertrain: same name as kia/ev6/2026/light-long-range-awd; check the pack didn't change
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: EV6 Long Range AWD (19 inch Wheels)
-- **2025 US: GT-Line AWD** → `kia/ev6/2025/gt` [US] awd · wheels 20″ · powertrain kia/ev6/2025-gt
-  - EPA: EV6 Long Range AWD (20 inch Wheels)
 - **2026 US: AWD GT** → `kia/ev6/2026/gt-line-awd` [US] awd · powertrain kia/ev6/2026-gt-line-awd · names: regulator wording
   - EPA: EV6 AWD GT
 - **2027 US: Long Range AWD** → `kia/ev6/2027/long-range-awd` [US] awd · wheels 19/20″ · powertrain new · names: regulator wording
   - EPA: EV6 Long Range AWD (19 inch Wheels)
   - EPA: EV6 Long Range AWD (20 inch Wheels)
-- **2027 US: Light Long Range RWD** → `kia/ev6/2027/light-long-range-rwd` [US] rwd · powertrain kia/ev6/2026-light-long-range-rwd · ⚠ powertrain: same name as kia/ev6/2026/light-long-range-rwd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: EV6 Long Range RWD
-- **2027 US: Light RWD** → `kia/ev6/2027/light-rwd` [US] rwd · powertrain new
-  - EPA: EV6 Standard Range RWD
 ## kia/ev9
 
-- **2024 US: AWD** → `kia/ev9/2024/awd` [US] awd · powertrain new · ⚠ existing?: same motor power as kia/ev9/2024/land-awd, kia/ev9/2024/land-gt-line, but another 2024 row has it too
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: EV9 Long Range AWD
-- **2024 US: GT-Line AWD** → `kia/ev9/2024/land-gt-line` [US] awd · powertrain kia/ev9/2024-land-gt-line
-  - EPA: EV9 Long Range AWD GT-Line
-- **2024 US: Light Long Range RWD** → `kia/ev9/2024/light-long-range-rwd` [US] rwd · powertrain new · ⚠ existing?: same motor power as kia/ev9/2024/light-rwd, but another 2024 row has it too
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: EV9 Long Range RWD
-- **2024 US: Light Short Range RWD** → `kia/ev9/2024/light-short-range-rwd` [US] rwd · powertrain new · ⚠ existing?: same motor power as kia/ev9/2024/light-rwd, but another 2024 row has it too
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: EV9 Standard Range RWD
-- **2025 CA: Land · US: Land** → `kia/ev9/2025/land` [CA, US] awd · powertrain new
+- **2025 CA: Land · US: Land** → `kia/ev9/2025/land-gt-line` [CA, US] awd · powertrain kia/ev9/2024-land-gt-line · ⚠ existing: joins kia/ev9/2025/land-gt-line by motor power (282 kW); names differ; powertrain: same name as kia/ev9/2024/land-gt-line; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked); becomes the US edition of a car we already have
   - NRCan: EV9 Land AWD
   - EPA: EV9 Long Range AWD
-- **2025 CA: Land GT-Line · US: GT-Line** → `kia/ev9/2025/land-gt-line` [CA, US] awd · powertrain kia/ev9/2024-land-gt-line · ⚠ powertrain: same name as kia/ev9/2024/land-gt-line; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: EV9 Land AWD GT-Line
-  - EPA: EV9 Long Range AWD GT-Line
-- **2025 CA: Light** → `kia/ev9/2025/light` [CA] drivetrain ? · powertrain kia/ev9/2026-light · ⚠ powertrain: same name as kia/ev9/2026/light; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: EV9 Light
-- **2025 CA: Wind** → `kia/ev9/2025/wind` [CA] drivetrain ? · powertrain kia/ev9/2026-wind · ⚠ powertrain: same name as kia/ev9/2026/wind; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: EV9 Wind
 - **2026 US: GT** → `kia/ev9/2026/gt` [US] awd · powertrain kia/ev9/2026-gt · names: regulator wording
   - EPA: EV9 GT
-- **2026 US: Light Long Range** → `kia/ev9/2026/light-long-range` [US] rwd · powertrain kia/ev9/2025-light-long-range · ⚠ existing?: same motor power as kia/ev9/2026/light, but another 2026 row has it too; powertrain: same name as kia/ev9/2025/light-long-range; check the pack didn't change
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: EV9 Long Range RWD
-- **2026 US: Light Standard Range** → `kia/ev9/2026/light-standard-range` [US] rwd · powertrain kia/ev9/2025-light-standard-range · ⚠ existing?: same motor power as kia/ev9/2026/light, but another 2026 row has it too; powertrain: same name as kia/ev9/2025/light-standard-range; check the pack didn't change
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: EV9 Standard Range RWD
-- **2027 US: AWD** → `kia/ev9/2027/awd` [US] awd · powertrain new
-  - EPA: EV9 Long Range AWD
-- **2027 US: GT-Line AWD** → `kia/ev9/2027/gt-line-awd` [US] awd · powertrain new
-  - EPA: EV9 Long Range AWD GT-Line
-- **2027 US: Light Long Range RWD** → `kia/ev9/2027/light-long-range-rwd` [US] rwd · powertrain new
-  - EPA: EV9 Long Range RWD
-- **2027 US: Light Short Range RWD** → `kia/ev9/2027/light-short-range-rwd` [US] rwd · powertrain new
-  - EPA: EV9 Standard Range RWD
-## kia/niro-ev
-
-- **2020 CA: Niro EV · US: Niro EV** → `kia/niro-ev/2020/niro-ev` [CA, US] fwd · powertrain kia/niro-ev/2019-niro-ev · ⚠ powertrain: same name as kia/niro-ev/2019/niro-ev; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Niro EV
-  - EPA: Niro Electric
-- **2021 CA: Niro EV · US: Niro EV** → `kia/niro-ev/2021/niro-ev` [CA, US] fwd · powertrain kia/niro-ev/2019-niro-ev · ⚠ powertrain: same name as kia/niro-ev/2019/niro-ev; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Niro EV
-  - EPA: Niro Electric
-- **2022 CA: Niro EV · US: Niro EV** → `kia/niro-ev/2022/niro-ev` [CA, US] fwd · powertrain kia/niro-ev/2019-niro-ev · ⚠ powertrain: same name as kia/niro-ev/2019/niro-ev; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Niro EV
-  - EPA: Niro Electric
-- **2024 CA: Niro EV · US: Niro EV** → `kia/niro-ev/2024/niro-ev` [CA, US] fwd · powertrain kia/niro-ev/2023-niro-ev · ⚠ powertrain: same name as kia/niro-ev/2023/niro-ev; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Niro EV
-  - EPA: Niro Electric
-- **2025 CA: Niro EV · US: Niro EV** → `kia/niro-ev/2025/niro-ev` [CA, US] fwd · powertrain kia/niro-ev/2023-niro-ev · ⚠ powertrain: same name as kia/niro-ev/2023/niro-ev; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: Niro EV
-  - EPA: Niro Electric
-- **2026 US: Niro EV** → `kia/niro-ev/2026/standard` [US] fwd · powertrain kia/niro-ev/2026-standard
-  - EPA: Niro Electric
 ## nissan/ariya
 
 - **2026 US: e-4ORCE 63kWh** → `nissan/ariya/2026/platinum-plus-e-4orce` [US] awd · powertrain nissan/ariya/2026-platinum-plus-e-4orce · names: regulator wording · ⚠ powertrain: same name as nissan/ariya/2023/platinum-plus-e-4orce; check the pack didn't change
@@ -406,60 +117,12 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 - **2026 US: PLATINUM+ e-4ORCE 87kWh 19in. Wheels** → `nissan/ariya/2026/platinum-plus-e-4orce` [US] awd · powertrain nissan/ariya/2026-platinum-plus-e-4orce · names: regulator wording · ⚠ powertrain: same name as nissan/ariya/2023/platinum-plus-e-4orce; check the pack didn't change
   - **Recommend:** check: no researched trim name yet (round-2 research)
   - EPA: ARIYA PLATINUM+ e-4ORCE 87kWh 19in. Wheels
-## nissan/leaf
-
-- **2011 US: SV** → `nissan/leaf/2011/sv` [US] fwd · powertrain new
-  - EPA: Leaf
-- **2012 CA: SV · US: SV** → `nissan/leaf/2012/sv` [CA, US] fwd · powertrain new
-  - NRCan: LEAF
-  - EPA: Leaf
-- **2015 CA: S · US: S** → `nissan/leaf/2015/s` [CA, US] fwd · powertrain nissan/leaf/2014-s · ⚠ powertrain: same name as nissan/leaf/2014/s; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: LEAF
-  - EPA: Leaf
-- **2016 CA: S (24 kWh) · US: S (24 kWh)** → `nissan/leaf/2016/s-24-kwh` [CA, US] fwd · powertrain new
-  - NRCan: LEAF (24 kWh)
-  - EPA: Leaf (24 kW-hr battery pack)
-- **2016 CA: SV (30 kWh) · US: SV (30 kWh)** → `nissan/leaf/2016/sv-30-kwh` [CA, US] fwd · powertrain new
-  - NRCan: LEAF (30 kWh)
-  - EPA: Leaf (30 kW-hr battery pack)
-- **2020 CA: SV · US: SV PLUS** → `nissan/leaf/2020/sv` [CA, US] fwd · powertrain nissan/leaf/2019-sv · ⚠ powertrain: same name as nissan/leaf/2019/sv; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: LEAF (40 kWh)
-  - EPA: Leaf SV/SL (62 kW-hr battery pack)
-- **2020 CA: S PLUS · US: S PLUS** → `nissan/leaf/2020/s-plus` [CA, US] fwd · powertrain nissan/leaf/2019-s-plus · ⚠ powertrain: same name as nissan/leaf/2019/s-plus; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: LEAF S PLUS
-  - EPA: Leaf (62 kW-hr battery pack)
-- **2020 CA: SV PLUS** → `nissan/leaf/2020/sv-plus` [CA] drivetrain ? · powertrain nissan/leaf/2019-sv-plus · ⚠ powertrain: same name as nissan/leaf/2019/sv-plus; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: LEAF SV/SL PLUS
-- **2020 US: S** → `nissan/leaf/2020/s` [US] fwd · powertrain nissan/leaf/2019-s · ⚠ powertrain: same name as nissan/leaf/2019/s; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: Leaf (40 kW-hr battery pack)
-- **2021 CA: SV · US: SV PLUS** → `nissan/leaf/2021/sv` [CA, US] fwd · powertrain nissan/leaf/2022-sv · ⚠ powertrain: same name as nissan/leaf/2022/sv; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: LEAF (40 kWh)
-  - EPA: Leaf SV/SL (62 kW-hr battery pack)
-- **2021 CA: S PLUS · US: S PLUS** → `nissan/leaf/2021/s-plus` [CA, US] fwd · powertrain nissan/leaf/2022-s-plus · ⚠ powertrain: same name as nissan/leaf/2022/s-plus; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: LEAF S PLUS
-  - EPA: Leaf (62 kW-hr battery pack)
-- **2021 CA: SV PLUS** → `nissan/leaf/2021/sv-plus` [CA] drivetrain ? · powertrain nissan/leaf/2022-sv-plus · ⚠ powertrain: same name as nissan/leaf/2022/sv-plus; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: LEAF SV/SL PLUS
-- **2021 US: S** → `nissan/leaf/2021/s` [US] fwd · powertrain nissan/leaf/2022-s · ⚠ powertrain: same name as nissan/leaf/2022/s; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: Leaf (40 kW-hr battery pack)
 ## polestar/polestar-2
 
 - **2023 CA: BST edition 270 · US: BST edition 270** → `polestar/polestar-2/2023/bst-edition-270` [CA, US] awd · powertrain new · ⚠ existing?: same motor power as polestar/polestar-2/2023/dual-motor-performance-pack, but another 2023 row has it too
   - **Recommend:** check: several existing cars share its motor power and none is clearly the same name
   - NRCan: 2 BST Edition
   - EPA: 2 BST edition
-- **2024 CA: Long Range Dual Motor Performance Pack · US: Long Range Dual Motor Performance Pack** → `polestar/polestar-2/2024/long-range-dual-motor` [CA, US] awd · powertrain polestar/polestar-2/2024-long-range-dual-motor
-  - NRCan: 2 Dual Motor Performance Pack
-  - EPA: 2 Dual Motor Performance Pack
 - **2025 US: Dual Motor** → `polestar/polestar-2/2025/dual-motor` [US] awd · wheels 19/20″ · powertrain polestar/polestar-2/2025-dual-motor · names: regulator wording
   - EPA: 2 Dual Motor (19 Inch Wheels)
   - EPA: 2 Dual Motor (20 Inch Wheels)
@@ -468,8 +131,6 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: 2 Single Motor (20 Inch Wheels)
 ## subaru/solterra
 
-- **2024 CA: Solterra AWD** → `subaru/solterra/2024/solterra-awd` [CA] awd · powertrain new
-  - NRCan: Solterra AWD
 - **2026 US: Limited** → `subaru/solterra/2026/limited` [US] awd · powertrain subaru/solterra/2027-limited · ⚠ existing?: same motor power as subaru/solterra/2026/awd, but another 2026 row has it too; powertrain: same name as subaru/solterra/2027/limited; check the pack didn't change
   - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
   - EPA: Solterra 20 AWD
@@ -534,8 +195,6 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - **Recommend:** check: no researched trim name yet (round-2 research)
   - NRCan: Model Y Long Range-I
   - EPA: Model Y Long Range RWD
-- **2026 US: Standard AWD** → `tesla/model-y/2026/standard-awd` [US] awd · powertrain new
-  - EPA: Model Y Standard AWD
 - **2027 US: AWD** → `tesla/model-y/2027/awd` [US] awd · powertrain new · names: regulator wording
   - EPA: Model Y AWD
 - **2027 US: RWD** → `tesla/model-y/2027/rwd` [US] rwd · powertrain new · names: regulator wording
@@ -546,28 +205,15 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - **Recommend:** check: paired only by motor power and the names differ: keep apart as a Canada car and a US car (owner rule)
   - NRCan: bZ4X
   - EPA: bZ4X LIMITED
-- **2026 US: XLE AWD** → `toyota/bz/2026/xle-awd` [US] awd · powertrain toyota/bz/2027-xle-awd · ⚠ powertrain: same name as toyota/bz/2027/xle-awd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - EPA: bZ AWD
 - **2026 US: LIMITED energy capacity 191 Ah** → `toyota/bz/2026/limited-energy-capacity-191-ah` [US] fwd · powertrain new · names: regulator wording
   - EPA: bZ LIMITED (energy capacity 191 Ah)
 ## toyota/c-hr
 
-- **2026 US: SE** → `toyota/c-hr/2026/se` [US] awd · powertrain toyota/c-hr/2027-se · ⚠ existing?: same motor power as toyota/c-hr/2026/awd, but another 2026 row has it too; powertrain: same name as toyota/c-hr/2027/se; check the pack didn't change
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
-  - EPA: C-HR AWD 18inch
-- **2026 US: XSE** → `toyota/c-hr/2026/xse` [US] awd · powertrain new · ⚠ existing?: same motor power as toyota/c-hr/2026/awd, but another 2026 row has it too
-  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
+- **2026 US: XSE** → `toyota/c-hr/2026/awd` [US] awd · powertrain toyota/c-hr/2026-awd · ⚠ existing: joins toyota/c-hr/2026/awd by motor power (254 kW); names differ
+  - **Recommend:** yes: becomes the US edition of a car we already have
   - EPA: C-HR AWD 20inch
 ## volkswagen/id-4
 
-- **2021 US: 1st Edition** → `volkswagen/id-4/2021/pro` [US] rwd · powertrain volkswagen/id-4/2021-pro · ⚠ existing: joins volkswagen/id-4/2021/pro by motor power (150 kW); names differ; powertrain: same name as volkswagen/id-4/2022/pro; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked); becomes the US edition of a car we already have
-  - EPA: ID.4 1st
-- **2024 CA: Pro S AWD · US: Pro S AWD** → `volkswagen/id-4/2024/pro-awd` [CA, US] awd · powertrain volkswagen/id-4/2024-pro-awd · ⚠ powertrain: same name as volkswagen/id-4/2025/pro-awd; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: ID.4 AWD Pro S
-  - EPA: ID.4 AWD Pro S
 - **2024 CA: S · US: S** → `volkswagen/id-4/2024/pro-s` [CA, US] rwd · powertrain volkswagen/id-4/2024-pro-s · names: regulator wording · ⚠ powertrain: same name as volkswagen/id-4/2025/pro-s; check the pack didn't change
   - **Recommend:** check: no researched trim name yet (round-2 research)
   - NRCan: ID.4 S
@@ -576,30 +222,9 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - **Recommend:** check: no researched trim name yet (round-2 research)
   - NRCan: ID.4 S
   - EPA: ID.4 S
-- **2025 US: Limited** → `volkswagen/id-4/2025/limited` [US] rwd · powertrain new
-  - EPA: ID.4
-- **2026 US: Pro RWD** → `volkswagen/id-4/2026/pro-rwd` [US] rwd · powertrain new
-  - EPA: ID.4
-- **2026 US: Pro AWD** → `volkswagen/id-4/2026/standard` [US] awd · powertrain volkswagen/id-4/2026-standard · ⚠ existing: joins volkswagen/id-4/2026/standard by motor power (210 kW); names differ
-  - **Recommend:** yes: becomes the US edition of a car we already have
-  - EPA: ID.4 AWD
-## volvo/ex30
-
-- **2025 CA: Single Motor Extended Range · US: Single Motor Extended Range** → `volvo/ex30/2025/single-motor-extended-range` [CA, US] rwd · wheels 18/19/20″ · powertrain volvo/ex30/2026-single-motor-extended-range · ⚠ powertrain: same name as volvo/ex30/2026/single-motor-extended-range; check the pack didn't change
-  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
-  - NRCan: EX30 Single Motor Ext Range (19" and 20" Wheels)
-  - NRCan: EX30 Single Motor Extended Range (18" Wheels)
-  - EPA: EX30 Single Motor extended range (18 Inch Wheels)
-  - EPA: EX30 Single Motor extended range (19/20 Inch Wheels)
 ## volvo/ex40
 
 - **2021 CA: Standard · US: AWD BEV** → `volvo/ex40/2021/standard` [CA, US] awd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: only one candidate each side, words differ
   - **Recommend:** check: no researched trim name yet (round-2 research)
   - NRCan: XC40 Recharge
   - EPA: XC40 AWD BEV
-- **2024 CA: Single Motor** → `volvo/ex40/2024/single-motor-extended-range-rwd` [CA] rwd · powertrain volvo/ex40/2024-single-motor-extended-range-rwd
-  - NRCan: XC40 Recharge
-- **2026 US: Single Motor Extended Range RWD** → `volvo/ex40/2026/single-motor-extended-range-rwd` [US] rwd · powertrain new
-  - EPA: EX40
-- **2026 US: Twin Motor AWD** → `volvo/ex40/2026/twin` [US] awd · powertrain volvo/ex40/2026-twin
-  - EPA: EX40 Twin

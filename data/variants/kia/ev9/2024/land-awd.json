@@ -6,13 +6,15 @@
   "drivetrain": "awd",
   "powertrain_id": "kia/ev9/2026-land-awd",
   "markets": [
-    "CA"
+    "CA",
+    "US"
   ],
   "trims": [
     {
       "id": "standard",
       "names": {
-        "CA": "Land AWD"
+        "CA": "Land AWD",
+        "US": "AWD"
       }
     }
   ]

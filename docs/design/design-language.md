@@ -185,6 +185,13 @@ Decided by the owner 2026-11-19 (B86, under review). The Cars page uses everythi
 - **"Add a car" is the header's car picker** in a modal dialog (search with suggestions, then Make → Model → Year → Variant), titled "Add a car to compare", without the trim and plug steps. Cars already compared are greyed with "Already in Compare" and can't be picked. Its suggestion list sits in the flow (the dialog is shorter than the My car picker). The dialog is rendered outside the Compare page's wrapper, so its dropdowns look exactly like the My car picker's: one line each, long variant names cut off rather than wrapping.
 - **A ghost card** follows the car cards while fewer than 4 are compared: a single dashed outline in the next car's colour (owner review: no stripe on top), a + and "Add a car", and "Car n of 4". It opens the dialog; afterwards focus returns to it, so adding several cars is quick. The empty page shows the same card, and the specs' "Add another car" opens the dialog too.
 
+### About page (B88, owner 2026-11-19)
+
+- **Hero:** a large Overpass title and the intro, then a short stretch of road (`--band`) whose grey lane dashes paint in while a yellow charge marker drives from 10 % to 80 %. The stretch behind the marker turns paint yellow, and the marker glows once when it arrives. Below it sit four readouts that count up once: car variants, open datasets, cited pages, and accounts needed (0). The markup holds the final numbers.
+- **Who built this:** a card with a paint-yellow "MA" initials avatar, the name in the display face, the role, a short bio that calls the site a portfolio project, and three links: Portfolio website (filled), GitHub and Source code. Each opens in a new tab and tells screen readers so. One quiet line under them points to GitHub issues and replaces the old "Report a problem" section.
+- **Method and credits** are Road-unrolls sections (`Unroll.astro` + `lib/road-unroll.ts`, shared with the React Accordion). Both are closed at first and show chips: the kind names for the method; "8 datasets · Base map · Licences" for the credits. Figure kinds are drawn as the badges they become, in a grid of panels. Dataset and map credits are panels in a grid that rise in as the section opens. A link to `#data` opens the section without animating and scrolls to it.
+- **Animations off:** the lane, the marker and the counts rest at their final state, and the sections open and shut at once.
+
 ## 11. Still to decide (polish pass)
 
 Open points for the owner: grouping the assumption controls, a shorter estimate notice, the phone order, and the first-load car picker (from the first B83 review). Compare (B85): whether a time race should draw the fastest car with the longest bar instead (owner to decide).

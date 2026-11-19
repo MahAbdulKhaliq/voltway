@@ -1,0 +1,30 @@
+---
+// A static "Road unrolls" section (B88): the same markup and animation as the React Accordion
+// (lib/road-unroll.ts), for pages without an island. A link whose #hash points inside it opens it.
+interface Props {
+  title: string;
+  headingId: string;
+  /** Shown as small pills in the header while it is closed. */
+  chips?: string[];
+  open?: boolean;
+  class?: string;
+}
+const { title, headingId, chips = [], open = false, class: cls } = Astro.props;
+---
+
+<details class:list={['card', 'acc', cls]} data-unroll open={open}>
+  <summary>
+    <h2 id={headingId} class="acc-title">{title}</h2>
+    {chips.length > 0 && (
+      <span class="acc-preview acc-chips">{chips.map((c) => <span class="acc-chip">{c}</span>)}</span>
+    )}
+    <span class="acc-chev" aria-hidden="true"></span>
+  </summary>
+  <span class="acc-lane" aria-hidden="true"></span>
+  <div class="acc-body"><slot /></div>
+</details>
+
+<script>
+  import { wireUnrolls } from '../lib/road-unroll.ts';
+  wireUnrolls();
+</script>

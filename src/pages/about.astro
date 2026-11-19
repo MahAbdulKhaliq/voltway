@@ -1,10 +1,13 @@
 ---
-// About & sources (7.1, database-ui.md §2): method, data sources and every required licence
-// credit. The three open datasets come from data/sources/; their attribution text is stored
-// with the source record so the credit shown here matches what the data build cites.
+// About & sources (7.1, database-ui.md §2; B88 design language): who built it, the method, the data
+// sources and every required licence credit. The open datasets come from data/sources/; their
+// attribution text is stored with the source record so the credit shown here matches what the data
+// build cites. The method and the credits sit in "Road unrolls" sections (Unroll.astro); a link to
+// /about#data opens its section.
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import Base from '../layouts/Base.astro';
+import Unroll from '../components/Unroll.astro';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { COVERAGE, COST } from '../config.ts';
 import { loadEstimates, loadIndex } from '../lib/data.ts';
@@ -51,88 +54,252 @@ const wheel = loadEstimates().wheel;
 const pct = (x: number) => formatNumber(x * 100, 1);
 const KINDS = ['rated_nrcan', 'rated_epa', 'rated_wltp', 'manufacturer', 'tested', 'community', 'estimated'] as const;
 const REPO = 'https://github.com/MahAbdulKhaliq/voltway';
+const PORTFOLIO = 'https://mahabdulkhaliq.github.io/';
+const GITHUB = 'https://github.com/MahAbdulKhaliq';
+
+// The hero's counts: the markup holds the final value; a script ticks up to it when Animations are on.
+const STATS: { key: MessageKey; n: number }[] = [
+  { key: 'about.stat.variants', n: cars.length },
+  { key: 'about.stat.datasets', n: datasets.length },
+  { key: 'about.stat.pages', n: otherCount },
+  { key: 'about.stat.accounts', n: 0 },
+];
+const LINKS: { key: MessageKey; href: string; primary?: boolean }[] = [
+  { key: 'about.builder.portfolio', href: PORTFOLIO, primary: true },
+  { key: 'about.builder.github', href: GITHUB },
+  { key: 'about.builder.source', href: REPO },
+];
+const methodChips = [t('kind.rated_nrcan'), t('kind.tested'), t('kind.estimated'), t('badge.unknown')];
+const dataChips = [t('about.chip.datasets', { count: datasets.length }), t('about.chip.map'), t('about.chip.licences')];
 ---
 
 <Base title={t('about.title')} description={t('about.intro')} active="about">
-  <h1>{t('about.title')}</h1>
-  <p>{t('about.intro')}</p>
-  <p class="muted">{t('about.coverage', { market: COVERAGE.market, count: cars.length })}</p>
-
-  <section aria-labelledby="method">
-    <h2 id="method">{t('about.method')}</h2>
-    <p>{t('about.methodIntro')}</p>
-    <dl class="kinds card">
-      {KINDS.map((k) => (
-        <div><dt>{t(`kind.${k}` as MessageKey)}</dt><dd>{t(`about.kind.${k}` as MessageKey)}</dd></div>
+  <header class="about-hero">
+    <h1>{t('about.title')}</h1>
+    <p class="about-lede">{t('about.intro')}</p>
+    <div class="about-road" aria-hidden="true">
+      <span class="about-lane"></span>
+      <span class="about-lane about-lane-charged"></span>
+      <span class="about-mark about-mark-from"></span><span class="about-mark about-mark-to"></span>
+      <span class="about-charge"><span class="about-charge-dot"></span></span>
+    </div>
+    <dl class="readouts about-stats">
+      {STATS.map((s) => (
+        <div class="readout">
+          <dt class="readout-label">{t(s.key)}</dt>
+          <dd class="readout-value about-count" data-count={s.n}>{formatNumber(s.n)}</dd>
+        </div>
       ))}
-      <div><dt>{t('badge.unknown')}</dt><dd>{t('about.kind.unknown')}</dd></div>
+    </dl>
+    <p class="small muted about-coverage">{t('about.coverage', { market: COVERAGE.market, count: cars.length })}</p>
+  </header>
+
+  <section class="card about-builder" aria-labelledby="builder">
+    <span class="builder-avatar" aria-hidden="true">{t('about.builder.initials')}</span>
+    <div class="builder-text">
+      <h2 id="builder" class="builder-title">{t('about.builder.title')}</h2>
+      <p class="builder-name">{t('about.builder.name')}</p>
+      <p class="builder-role">{t('about.builder.role')}</p>
+      <p class="builder-bio">{t('about.builder.bio')}</p>
+      <ul class="builder-links">
+        {LINKS.map((l) => (
+          <li>
+            <a class:list={['btn', { primary: l.primary }]} href={l.href} target="_blank" rel="noopener">
+              {t(l.key)}<span class="sr-only"> {t('about.builder.newTab')}</span><span class="builder-arrow" aria-hidden="true"></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="small muted builder-issues">
+        {t('about.problemText')} <a href={`${REPO}/issues`} rel="noopener" target="_blank">{t('about.issues')}<span class="sr-only"> {t('about.builder.newTab')}</span></a>
+      </p>
+    </div>
+  </section>
+
+  <Unroll title={t('about.method')} headingId="method" chips={methodChips} class="about-sec">
+    <p class="about-first">{t('about.methodIntro')}</p>
+    <dl class="about-kinds rise-grid">
+      {KINDS.map((k) => (
+        <div class="panel about-kind">
+          <dt><span class={`kind-pill kind-${k}`}>{t(`kind.${k}` as MessageKey)}</span></dt>
+          <dd>{t(`about.kind.${k}` as MessageKey)}</dd>
+        </div>
+      ))}
+      <div class="panel about-kind">
+        <dt><span class="kind-pill kind-unknown">{t('badge.unknown')}</span></dt>
+        <dd>{t('about.kind.unknown')}</dd>
+      </div>
     </dl>
     <p>{t('about.precedence', { regulator: COVERAGE.regulator })}</p>
-    <ul>
+    <ul class="about-estimates">
       <li>{t('about.estimate.curves')}</li>
       <li>{wheel ? t('about.estimate.wheels', { pct: pct(wheel.pct_per_inch), pairs: wheel.pairs }) : t('about.estimate.wheelsNone')}</li>
       <li>{t('about.estimate.cost', { eff: formatNumber(COST.dcEfficiency * 100) })}</li>
       <li>{t('about.estimate.derived')}</li>
     </ul>
-    <p>{t('about.review')}</p>
-  </section>
+    <p class="about-last">{t('about.review')}</p>
+  </Unroll>
 
-  <section aria-labelledby="data">
-    <h2 id="data">{t('about.data')}</h2>
-    <p>{t('about.dataIntro')}</p>
-    {datasets.map((d) => (
-      <article class="card dataset" aria-labelledby={`ds-${d.key}`}>
-        <h3 id={`ds-${d.key}`}>{t(`about.ds.${d.key}.name` as MessageKey)}</h3>
-        <p>{t(`about.ds.${d.key}.use` as MessageKey)}</p>
-        <p class="credit">{d.source.attribution}</p>
-        <p class="small muted">
-          {t('about.licence')} <a href={d.licenceUrl} rel="noopener license" target="_blank">{d.source.license}</a>{' · '}
-          <a href={d.source.url} rel="noopener" target="_blank">{t('about.sourceLink')}</a>{' · '}
-          {t('badge.accessed', { date: d.source.accessed_on })}
-        </p>
-        {d.notice && (
-          <details>
-            <summary>{t('about.fullNotice')}</summary>
-            <pre class="notice">{d.notice}</pre>
-          </details>
-        )}
-      </article>
-    ))}
-    <h3 id="map-credits">{t('about.mapCredits')}</h3>
+  <Unroll title={t('about.data')} headingId="data" chips={dataChips} class="about-sec">
+    <p class="about-first">{t('about.dataIntro')}</p>
+    <div class="about-credits rise-grid">
+      {datasets.map((d) => (
+        <article class="panel dataset" aria-labelledby={`ds-${d.key}`}>
+          <h3 id={`ds-${d.key}`}>{t(`about.ds.${d.key}.name` as MessageKey)}</h3>
+          <p>{t(`about.ds.${d.key}.use` as MessageKey)}</p>
+          <p class="credit">{d.source.attribution}</p>
+          <p class="small muted dataset-links">
+            {t('about.licence')} <a href={d.licenceUrl} rel="noopener license" target="_blank">{d.source.license}</a>{' · '}
+            <a href={d.source.url} rel="noopener" target="_blank">{t('about.sourceLink')}</a>{' · '}
+            {t('badge.accessed', { date: d.source.accessed_on })}
+          </p>
+          {d.notice && (
+            <details class="notice-box">
+              <summary>{t('about.fullNotice')}</summary>
+              <pre class="notice">{d.notice}</pre>
+            </details>
+          )}
+        </article>
+      ))}
+    </div>
+    <h3 id="map-credits" class="about-subhead">{t('about.mapCredits')}</h3>
     <p>{t('about.mapIntro')}</p>
-    {MAP_CREDITS.map((m) => (
-      <article class="card dataset" aria-labelledby={`map-${m.key}`}>
-        <h4 id={`map-${m.key}`}>{t(`about.map.${m.key}.name` as MessageKey)}</h4>
-        <p class="credit">{t(`about.map.${m.key}.credit` as MessageKey)}</p>
-        <p class="small muted">
-          {t('about.licence')} <a href={m.licenceUrl} rel="noopener license" target="_blank">{t(`about.map.${m.key}.licence` as MessageKey)}</a>{' · '}
-          <a href={m.url} rel="noopener" target="_blank">{t('about.website')}</a>
-        </p>
-      </article>
-    ))}
+    <div class="about-credits rise-grid">
+      {MAP_CREDITS.map((m) => (
+        <article class="panel dataset" aria-labelledby={`map-${m.key}`}>
+          <h4 id={`map-${m.key}`}>{t(`about.map.${m.key}.name` as MessageKey)}</h4>
+          <p class="credit">{t(`about.map.${m.key}.credit` as MessageKey)}</p>
+          <p class="small muted dataset-links">
+            {t('about.licence')} <a href={m.licenceUrl} rel="noopener license" target="_blank">{t(`about.map.${m.key}.licence` as MessageKey)}</a>{' · '}
+            <a href={m.url} rel="noopener" target="_blank">{t('about.website')}</a>
+          </p>
+        </article>
+      ))}
+    </div>
     <p class="small muted">{t('about.map.maplibre')}</p>
     <p>{t('about.others', { count: otherCount })}</p>
-    <p class="small muted">{t('about.noAffiliation')}</p>
-  </section>
-
-  <section aria-labelledby="contact">
-    <h2 id="contact">{t('about.problem')}</h2>
-    <p>{t('about.problemText')} <a href={`${REPO}/issues`} rel="noopener" target="_blank">{t('about.issues')}</a></p>
-    <p class="small muted">{t('about.code')} <a href={REPO} rel="noopener" target="_blank">{t('about.repo')}</a></p>
-  </section>
+    <p class="small muted about-last">{t('about.noAffiliation')}</p>
+  </Unroll>
 </Base>
 
+<script>
+  // Counts tick up from 0 once (B88). The markup already shows the final values, so with
+  // Animations off, or without JavaScript, nothing moves.
+  import { reducedMotion } from '../lib/motion.ts';
+  import { formatNumber } from '../lib/units.ts';
+  const MS = 1100;
+  const ease = (p: number) => 1 - Math.pow(1 - p, 3);
+  if (!reducedMotion()) {
+    const els = [...document.querySelectorAll<HTMLElement>('.about-count[data-count]')];
+    const t0 = performance.now() + 250; // after the lane starts painting
+    const tick = (now: number) => {
+      const p = Math.min(1, Math.max(0, (now - t0) / MS));
+      for (const el of els) el.textContent = formatNumber(Math.round(Number(el.dataset.count) * ease(p)));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+</script>
+
 <style>
-  section { margin-top: 2rem; }
-  .kinds { display: grid; gap: 0.5rem; margin: 1rem 0; }
-  .kinds div { display: grid; grid-template-columns: minmax(9rem, max-content) 1fr; gap: 0.75rem; }
-  .kinds dt { font-weight: 600; }
-  .kinds dd { margin: 0; }
-  .dataset { margin: 1rem 0; }
-  .dataset h3, .dataset h4 { margin-top: 0; }
-  .credit { font-style: italic; }
+  /* Hero: the title, a stretch of road whose centre line paints itself while the charge marker
+     drives from 10 % to 80 %, and the counts. Everything rests at its final state with Animations off. */
+  .about-hero { margin-bottom: 20px; }
+  .about-hero h1 { font-size: clamp(2rem, 5.5vw, 3.1rem); letter-spacing: -0.03em; margin-bottom: 0.3em; }
+  .about-lede { max-width: 62ch; font-size: 1.05rem; margin: 0 0 18px; }
+  .about-road {
+    position: relative; height: 34px; margin: 0 0 14px; border-radius: 8px; background: var(--band);
+    box-shadow: inset 0 2px 0 rgb(255 255 255 / 10%), inset 0 -2px 0 rgb(255 255 255 / 10%);
+    overflow: hidden;
+  }
+  .about-lane {
+    position: absolute; left: 12px; right: 12px; top: 50%; height: 4px; margin-top: -2px;
+    background: repeating-linear-gradient(90deg, rgb(255 255 255 / 30%) 0 22px, transparent 22px 38px);
+    animation: about-paint 0.9s var(--ease-out) both;
+  }
+  /* The charged stretch: paint from the start of the road to the marker (10 % then up to 80 %). */
+  .about-lane-charged {
+    right: auto; width: calc((100% - 24px) * 0.8);
+    background: repeating-linear-gradient(90deg, var(--paint) 0 22px, transparent 22px 38px);
+    animation: about-charge 1.6s var(--ease-out) 0.15s both;
+  }
+  .about-mark { position: absolute; top: 6px; bottom: 6px; width: 2px; margin-left: -1px; background: rgb(255 255 255 / 35%); border-radius: 1px; }
+  .about-mark-from { left: calc(12px + (100% - 24px) * 0.1); }
+  .about-mark-to { left: calc(12px + (100% - 24px) * 0.8); }
+  .about-charge {
+    position: absolute; top: 0; bottom: 0; left: 12px; right: 12px; pointer-events: none;
+  }
+  .about-charge-dot {
+    position: absolute; top: 50%; left: 80%; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%;
+    background: var(--paint); border: 3px solid var(--band); box-shadow: 0 0 0 2px var(--paint), 0 0 18px 2px color-mix(in srgb, var(--paint) 55%, transparent);
+    animation: about-drive 1.6s var(--ease-out) 0.15s both, about-glow 0.9s ease-out 1.75s both;
+  }
+  @keyframes about-charge { from { width: calc((100% - 24px) * 0.1); } to { width: calc((100% - 24px) * 0.8); } }
+  @keyframes about-paint { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes about-glow { 40% { box-shadow: 0 0 0 2px var(--paint), 0 0 30px 8px color-mix(in srgb, var(--paint) 70%, transparent); } }
+  @keyframes about-drive { from { left: 10%; opacity: 0; } 12% { opacity: 1; } to { left: 80%; opacity: 1; } }
+  .about-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); animation: about-rise 0.6s var(--ease-out) 0.3s both; }
+  .about-stats .readout-value { font-size: clamp(1.4rem, 3.4vw, 2rem); font-weight: 800; letter-spacing: -0.02em; }
+  .about-coverage { margin: 10px 0 0; }
+  @keyframes about-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  /* Who built this: an initials avatar in paint, the name in the display face, then the links. */
+  .about-builder { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start; margin-bottom: 16px; animation: about-rise 0.6s var(--ease-out) 0.45s both; }
+  .builder-avatar {
+    display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%;
+    background: var(--paint); color: var(--paint-ink); border: 2px solid var(--paint-edge);
+    font-family: var(--display); font-weight: 800; font-size: 1.35rem; letter-spacing: -0.02em;
+  }
+  .builder-text { min-width: 0; }
+  .builder-title { margin: 0 0 2px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-family: var(--font); }
+  .builder-name { margin: 0; font-family: var(--display); font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; line-height: 1.2; }
+  .builder-role { margin: 2px 0 10px; color: var(--muted); }
+  .builder-bio { margin: 0 0 14px; max-width: 64ch; }
+  .builder-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; padding: 0; list-style: none; }
+  .builder-links .btn { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 8px 14px; font-weight: 600; }
+  .builder-arrow { width: 7px; height: 7px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: translateY(1px) rotate(0deg); transition: transform 0.18s var(--ease-out); }
+  .builder-links .btn:hover .builder-arrow { transform: translate(2px, -1px); }
+  .builder-issues { margin: 0; }
+
+  /* Sections that unroll. */
+  .about-sec { margin-bottom: 16px; }
+  /* No top margin on the first block: inside the unroll animation (overflow hidden) it would not collapse, so the open would overshoot. */
+  .about-first { margin-top: 0; }
+  .about-kinds { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; margin: 12px 0 16px; }
+  .about-kind { display: grid; gap: 6px; align-content: start; }
+  .about-kind dt, .about-kind dd { margin: 0; }
+  .about-kind dd { font-size: 0.92rem; }
+  /* The figure kinds drawn as the badges they become on the site (global .badge rules, B83). */
+  .kind-pill { display: inline-block; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--field-border); font-size: 0.75rem; white-space: nowrap; }
+  .kind-pill.kind-rated_nrcan, .kind-pill.kind-rated_epa { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+  .kind-pill.kind-estimated { color: var(--estimated); border-color: var(--estimated); border-style: dashed; background: var(--estimated-soft); font-style: italic; }
+  .kind-pill.kind-unknown { color: var(--muted); border-style: dotted; }
+  .about-estimates { padding-left: 1.2rem; }
+  .about-estimates li { margin-bottom: 4px; }
+  .about-last { margin-bottom: 0; }
+
+  .about-credits { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 8px; margin: 12px 0 16px; }
+  .dataset h3, .dataset h4 { margin: 0 0 6px; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; }
+  .dataset p { margin: 0 0 8px; }
+  .dataset p:last-child { margin-bottom: 0; }
+  .credit { font-style: italic; overflow-wrap: anywhere; }
+  .dataset-links { overflow-wrap: anywhere; }
+  .notice-box summary { cursor: pointer; font-size: 0.85rem; }
   .notice { white-space: pre-wrap; font-size: 0.8rem; overflow-wrap: anywhere; }
-  @media (max-width: 480px) {
-    .kinds div { grid-template-columns: 1fr; gap: 0.1rem; }
+  .about-subhead { margin-top: 18px; }
+
+  :global(html[data-motion="off"]) .about-lane,
+  :global(html[data-motion="off"]) .about-lane-charged,
+  :global(html[data-motion="off"]) .about-charge-dot,
+  :global(html[data-motion="off"]) .about-stats,
+  :global(html[data-motion="off"]) .about-builder { animation: none; }
+  :global(html[data-motion="off"]) .builder-arrow { transition: none; }
+
+  @media (max-width: 640px) {
+    .about-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .about-builder { grid-template-columns: 1fr; gap: 12px; }
+    .builder-avatar { width: 52px; height: 52px; font-size: 1.1rem; }
+    .builder-links .btn { min-height: 44px; }
+    .about-credits { grid-template-columns: 1fr; }
   }
 </style>

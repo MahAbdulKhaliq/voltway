@@ -37,6 +37,8 @@ Header:  [Logo]   Charging   Cars   Compare (n)   Map*   Trip*   [My car: IONIQ 
 | **Compare** | Up to 4 cars side by side | MVP |
 | **About & sources** | Method, data sources, **required license credits** | MVP (licenses require it) |
 
+*(B88, owner 2026-11-19: About is a portfolio project page: a "Who built this" card with the owner's portfolio and GitHub links, the method and the data credits in sections that unroll, and a single GitHub-issues line instead of a "Report a problem" section.)*
+
 ### Shareable links
 No accounts, but **every car and comparison has its own URL**, so people can bookmark or share. The Charging tab's URL updates as the car changes:
 - `/charging?car=hyundai/ioniq-5/2024/long-range-awd` (old `/cars/…` links redirect here)

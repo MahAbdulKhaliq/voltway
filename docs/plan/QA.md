@@ -691,3 +691,23 @@ Read B87 in `docs/design/gaps-and-questions.md`. Pages: `/cars` (Table view), `/
 | QX3 | PASS (after fix) | Focus starts in search; compared cars marked, not selectable by click/Enter, disabled in Variant; car added at the end; Escape/Cancel/✕/backdrop close and return focus; Tab trapped; long variant names keep all four dropdowns 163×31 on one line; My car picker keeps trim and plug steps. Fixed: "Already in Compare" wraps under the name on phones; dialog buttons and dropdowns 44 px on phones (docs/plan/reports/ui-check-b87.md) |
 | QX4 | PASS (after fix) | Ghost at 0 (with the Cars link), 1–3 cars ("Car n of 4", next car's colour, dashed outline only), none at 4 and no "Add another car"; Enter/Space open the dialog; text ≥ 6.48:1. Fixed: focus moves to the ghost card after Remove (docs/plan/reports/ui-check-b87.md) |
 | QX5 | PASS | Race/chart/specs update on add/remove; every curve solid inside the window (estimated too), dashed outside; shared link banner kept; Animations off: no animations; console only the known stale HMR errors (docs/plan/reports/ui-check-b87.md) |
+
+# B88 QA: About page
+
+Read B88 in `docs/design/gaps-and-questions.md`. Page: `/about`; also follow the footer's and the map's `/about#data` links.
+
+| ID | Area | How to check | Pass when / edge cases |
+|----|------|--------------|------------------------|
+| QY1 | Look | 1280 and 375, dark and light | Design language (Overpass, cards, badges); hero lane paints and the marker drives once, counts tick to their values; text ≥ 4.5:1; no horizontal scroll at 375 |
+| QY2 | Builder card | read and follow the links | Portfolio (https://mahabdulkhaliq.github.io/), GitHub (https://github.com/MahAbdulKhaliq) and source links open in a new tab with `rel=noopener` and say so to screen readers; the GitHub-issues line is there; no separate "Report a problem" section |
+| QY3 | Sections | open/close each, click mid-close, keyboard, `/about#data` | Road-unrolls animation (lane, rise-in), reverses mid-close; Enter/Space work; `#data` opens the data section and scrolls to it; every dataset and map credit, licence link and the MIT notice still present |
+| QY4 | Animations off | Settings → Animations off; reload | Hero static at its final state, counts show final values at once, sections open/close instantly; regressions: Charging/Compare/Cars sections still unroll as before |
+
+## B88 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QY1 | Pass | 2026-11-19 site-ui-checker: no horizontal scroll at 1280/375 in both themes; lowest text contrast 5.53 (dark) / 5.61 (light) over 123 nodes; marker ends at 80.0 %; counts 84/8/138/0 match data-count (reports/b88/qa-report.md) |
+| QY2 | Pass | All four links target=_blank, rel=noopener, sr-only "(opens in a new tab)"; no Report a problem section |
+| QY3 | Pass | Closed with chips; opens to 618/1673 px with no overshoot; mid-close reverses; Enter/Space toggle; #data opens only that section, heading at 80 px under the 62 px header; 8 datasets + 2 map credits, MIT notice opens |
+| QY4 | Pass | Motion off: static hero, final counts at once, instant sections; Charging (5), Compare (1), Cars (11) sections still unroll, instant with motion off |

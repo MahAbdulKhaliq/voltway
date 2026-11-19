@@ -544,7 +544,7 @@ Read `DESIGN-7.md` first. Never print or read `.env` or any key. Don't call AFDC
 | QU3 | OCM US fair use | `scripts/fetch-ocm.ts`, its tests, `FETCHED.json` | Providers 1/24/45, countrycode=US, 3 s pauses, request cap held, key only in the header |
 | QU4 | OCM US duplicates | `map-data-auditor` report; spot-check 20 removed and 20 kept | B77 layers and amendments hold; AFDC wins; credit on every OCM station |
 | QU5 | Tiles | `public/data/map/tiles/index.json`, sizes, unit tests | Every station in exactly one detail tile and in the overview; no tile > 300 KB; first load < 1 MB; build fails when a budget is broken (try it) |
-| QU6 | Map loading | Browser at 375 and 1280, dark and light; network log | Zoomed out shows filtered clusters; Level 2 hint below zoom 7; pins at zoom ≥ 9; only tiles in view fetched, each once; no console errors; Toronto, Detroit, Los Angeles, rural Montana |
+| QU6 | Map loading | Browser at 375 and 1280, dark and light; network log | Zoomed out shows filtered clusters, with Level 2 counted at every zoom when ticked (B81); pins at zoom ≥ 9; only tiles in view fetched, each once; no console errors; Toronto, Detroit, Los Angeles, rural Montana |
 | QU7 | Planner | Chicago → Denver, Anchorage → Fairbanks, Hamilton → Vancouver | Plans as expected; corridor tiles only; loading shown on the card |
 | QU8 | Border rule | `/api/route` unit tests and on screen | Toronto → Buffalo: crossBorder; Seattle → Anchorage: crossBorder with the Alaska message; Mexico City start: outsideArea; no ORS call for these |
 | QU9 | Settings | Settings menu | "Stay within the border" locked on, new help text, readable in both themes |

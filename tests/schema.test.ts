@@ -263,6 +263,14 @@ describe('crosswalk trim links (B7/B8)', () => {
     expect(validateRepo(dir).errors).toContainEqual(expect.stringContaining('trim "nope" is not a trim of'));
   });
 
+  it('rejects a confirmed regulator row for a market the variant does not list (B91)', () => {
+    const dir = makeRepo();
+    const file = join(dir, 'data/variants/testmake/sparkle/2025/long-range-awd.json');
+    writeFileSync(file, JSON.stringify({ ...JSON.parse(readFileSync(file, 'utf8')), markets: ['US'] }));
+    write(dir, 'testmake/sparkle/2025/long-range-awd,nrcan,"2025 · Testmake · Sparkle AWD, LR",automatic,true,base,');
+    expect(validateRepo(dir).errors).toContainEqual(expect.stringContaining("doesn't list market CA"));
+  });
+
   it('accepts drivetrain "unknown" but not a guess', () => {
     expect(errorsAfter(VARIANT, (v) => { v.drivetrain = 'unknown'; })).toEqual([]);
     expect(errorsAfter(VARIANT, (v) => { v.drivetrain = '2wd'; }).some((e) => e.includes('/drivetrain'))).toBe(true);

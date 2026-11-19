@@ -218,11 +218,12 @@ export function validateRepo(root: string): ValidationResult {
   const variants = new Set<string>();
   const trimsByVariant = new Map<string, Set<string>>();
   const variantPowertrain = new Map<string, string>();
+  const variantMarkets = new Map<string, string[]>();
   const carryOvers: { file: string; target: string }[] = [];
   for (const rel of listJson(join(dataDir, 'variants'))) {
     const file = `data/variants/${rel}`;
     const data = read('variants', rel) as
-      | { id: string; model_id: string; year: number; powertrain_id: string; carry_over_from?: string; trims?: { id: string }[] }
+      | { id: string; model_id: string; year: number; powertrain_id: string; markets: string[]; carry_over_from?: string; trims?: { id: string }[] }
       | undefined;
     if (data === undefined || !check(v.variant, data, file)) continue;
     const expectedId = rel.replace(/\.json$/, '');
@@ -233,6 +234,7 @@ export function validateRepo(root: string): ValidationResult {
     const years = modelYears.get(data.model_id);
     if (!years) errors.push(`${file}: model "${data.model_id}" has no file in data/models`);
     else if (!years.has(data.year)) errors.push(`${file}: model "${data.model_id}" has no entry for year ${data.year}`);
+    variantMarkets.set(data.id, data.markets);
     const pt = powertrains.get(data.powertrain_id);
     if (!pt) errors.push(`${file}: powertrain "${data.powertrain_id}" has no file in data/powertrains`);
     else {
@@ -389,6 +391,11 @@ export function validateRepo(root: string): ValidationResult {
       if (!variants.has(variantId)) errors.push(`${where}: variant "${variantId}" has no file in data/variants`);
       else if (row.our_trim_id && !trimsByVariant.get(variantId)?.has(row.our_trim_id as string)) {
         errors.push(`${where}: trim "${row.our_trim_id}" is not a trim of ${variantId}`);
+      }
+      // B91: a confirmed regulator row is that market's rating, so the variant must be sold there.
+      const market = row.source === 'nrcan' ? 'CA' : row.source === 'epa' ? 'US' : undefined;
+      if (market && row.confirmed === true && variants.has(variantId) && !variantMarkets.get(variantId)?.includes(market)) {
+        errors.push(`${where}: confirmed ${row.source} row, but ${variantId} doesn't list market ${market}`);
       }
       if (row.source === 'nrcan' && nrcanFiles > 0 && !nrcanKeys.has(row.source_key as string)) {
         errors.push(`${where}: NRCan key "${row.source_key}" is not in data/imported/nrcan`);

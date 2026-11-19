@@ -25,6 +25,7 @@
     "fetch:outlines": "tsx scripts/fetch-outlines.ts",
     "data:import": "npm run import:nrcan && npm run import:epa && npm run import:openev && npm run import:chargeprice",
     "suggest:matches": "tsx scripts/suggest-matches.ts",
+    "suggest:catalogue": "tsx scripts/suggest-catalogue.ts",
     "gaps": "tsx scripts/gap-report.ts",
     "calibrate": "tsx scripts/calibrate.ts",
     "calibrate:highway": "tsx scripts/calibrate-highway.ts",

@@ -242,7 +242,7 @@ export function buildCars(root: string): BuildResult {
   const sources = new Map<string, Source>(listJson(join(root, 'data/sources')).map((f) => { const s = load(f); return [s.id, s]; }));
   const makes = new Map<string, any>(listJson(join(root, 'data/makes')).map((f) => { const m = load(f); return [m.id, m]; }));
   const models = new Map<string, any>(listJson(join(root, 'data/models')).map((f) => { const m = load(f); return [m.id, m]; }));
-  const imported: Record<string, Map<string, any>> = { nrcan: new Map(), openev: new Map(), chargeprice: new Map() };
+  const imported: Record<string, Map<string, any>> = { nrcan: new Map(), epa: new Map(), openev: new Map(), chargeprice: new Map() };
   for (const src of Object.keys(imported)) {
     for (const f of listJson(join(root, 'data/imported', src))) for (const r of load(f).records) imported[src].set(r.source_key, r);
   }
@@ -287,11 +287,19 @@ export function buildCars(root: string): BuildResult {
     const pt = powertrains.get(v.powertrain_id);
     if (pt) for (const [k, vals] of Object.entries(ownFields(pt))) if (!cands[k]) add(k, vals);
 
-    // NRCan: the variant's figures come from its first trim's row (or the only row).
-    const nrcanRows = rows.filter((r) => r.source === 'nrcan');
+    // Regulator rows (B90): NRCan for a variant sold in Canada, else EPA (a US-only variant). The
+    // variant's figures come from its first trim's row (or the only row); a two-market variant also
+    // carries EPA's figures, ranked after NRCan's.
+    const regSource: 'nrcan' | 'epa' = rows.some((r) => r.source === 'nrcan') ? 'nrcan' : 'epa';
+    const nrcanRows = rows.filter((r) => r.source === regSource);
+    const epaRows = rows.filter((r) => r.source === 'epa');
     const nrcanFor = (trimId?: string) => nrcanRows.find((r) => (r.our_trim_id || undefined) === trimId) ?? (trimId ? undefined : nrcanRows[0]);
-    const primaryNrcan = imported.nrcan.get((nrcanFor(trimIds[0]) ?? nrcanRows[0])?.source_key ?? '');
+    const primaryNrcan = imported[regSource].get((nrcanFor(trimIds[0]) ?? nrcanRows[0])?.source_key ?? '');
     if (primaryNrcan) for (const k of NRCAN_FIELDS) add(k, primaryNrcan[k]);
+    if (regSource === 'nrcan' && epaRows.length) {
+      const primaryEpa = imported.epa.get((epaRows.find((r) => (r.our_trim_id || undefined) === trimIds[0]) ?? epaRows[0]).source_key);
+      if (primaryEpa) for (const k of NRCAN_FIELDS) add(k, primaryEpa[k]);
+    }
 
     // B95: a model's generations (with refreshes that changed the pack) bound which years' records
     // apply. With no generations listed, only the same model year does.
@@ -344,21 +352,21 @@ export function buildCars(root: string): BuildResult {
     // the wheel size / onboard charger NRCan writes in its model name become trim facts.
     const asCands = (xs: unknown) => (Array.isArray(xs) ? (xs as SourcedValue[]) : []).map((x) => ({ v: x, via: viaOf(x.source_id) }));
     const differs = (f: Field, variantField: Field) => (f && f.value.value !== variantField?.value.value ? f : null);
-    const markets: string[] = v.markets ?? (nrcanRows.length ? ['CA'] : []);
+    const markets: string[] = v.markets ?? [...new Set(rows.flatMap((r) => (r.source === 'nrcan' ? ['CA'] : r.source === 'epa' ? ['US'] : [])))].sort();
     const trims: TrimOut[] = (v.trims ?? []).map((t: any): TrimOut => {
       const hp = asCands([...(t.heat_pump ?? []), ...(openevHeatPump ?? [])]);
       // B91: a trim may carry several NRCan rows that differ only by wheel size; each becomes a
       // wheel option with its own rating, and the smallest wheel's row rates the trim.
       const wheelRows = nrcanRows
         .filter((r) => r.our_trim_id === t.id)
-        .map((r) => imported.nrcan.get(r.source_key))
+        .map((r) => imported[regSource].get(r.source_key))
         .filter((r): r is any => Boolean(r && parseName(r.model).wheel_in))
         .sort((a, b) => parseName(a.model).wheel_in! - parseName(b.model).wheel_in!);
-      const trimRow = wheelRows.length > 1 ? wheelRows[0] : imported.nrcan.get(nrcanFor(t.id)?.source_key ?? '');
+      const trimRow = wheelRows.length > 1 ? wheelRows[0] : imported[regSource].get(nrcanFor(t.id)?.source_key ?? '');
       const nrcanSource = trimRow?.range_km?.[0]?.source_id as string | undefined;
       const hints = trimRow ? parseName(trimRow.model) : null;
       const per = (k: string) => resolve(k, asCands([...(t[k] ?? []), ...(trimRow?.[k] ?? [])])) as Field<number>;
-      const acFromName: SourcedValue[] = hints?.charger_kw && nrcanSource
+      const acFromName: SourcedValue[] = regSource === 'nrcan' && hints?.charger_kw && nrcanSource
         ? [{ value: hints.charger_kw, unit: 'kW', kind: 'rated_nrcan', source_id: nrcanSource, notes: msg('note.nrcanModelName', { name: trimRow.model }) }]
         : [];
       const ac = resolve('ac_max_kw', asCands([...(t.ac_max_kw ?? []), ...acFromName])) as Field<number>;
@@ -468,7 +476,7 @@ export function buildCars(root: string): BuildResult {
     };
     collect(fields); collect(trims); collect(curves);
 
-    const soldInCanada = markets.includes('CA') || nrcanRows.length > 0;
+    const soldInCanada = markets.includes('CA') || rows.some((r) => r.source === 'nrcan');
     cars.push({
       id: v.id,
       make: { id: make?.id ?? v.model_id.split('/')[0], name: make?.name ?? v.model_id.split('/')[0] },

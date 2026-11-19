@@ -1,0 +1,30 @@
+{
+  "_about": "Which regulator model names belong to which of our models (B90, checklist 9.12). nrcan: prefixes of NRCan's Model column; epa: EPA baseModel values (with an optional prefix of EPA's model column). Longest prefix wins. Edited by hand; new models are proposed by scripts/suggest-catalogue.ts.",
+  "models": [
+    { "id": "bmw/i4", "nrcan": ["i4"], "epa": ["i4"] },
+    { "id": "cadillac/lyriq", "nrcan": ["LYRIQ"], "epa": ["LYRIQ"] },
+    { "id": "chevrolet/blazer-ev", "nrcan": ["Blazer EV"], "epa": ["Blazer"] },
+    { "id": "chevrolet/equinox-ev", "nrcan": ["Equinox EV"], "epa": ["Equinox"] },
+    { "id": "chevrolet/silverado-ev", "nrcan": ["Silverado EV"], "epa": ["Silverado"] },
+    { "id": "ford/f-150-lightning", "nrcan": ["F-150 Lightning"], "epa": ["F-150 Lightning"] },
+    { "id": "ford/mustang-mach-e", "nrcan": ["Mustang Mach-E"], "epa": ["Mustang Mach-E"] },
+    { "id": "hyundai/ioniq-5", "nrcan": ["IONIQ 5"], "epa": ["Ioniq 5"] },
+    { "id": "hyundai/ioniq-6", "nrcan": ["IONIQ 6"], "epa": ["Ioniq 6"] },
+    { "id": "hyundai/ioniq-9", "nrcan": ["IONIQ 9"], "epa": ["Ioniq 9"] },
+    { "id": "hyundai/kona-electric", "nrcan": ["Kona Electric"], "epa": ["Kona"] },
+    { "id": "kia/ev6", "nrcan": ["EV6"], "epa": ["EV6"] },
+    { "id": "kia/ev9", "nrcan": ["EV9"], "epa": ["EV9"] },
+    { "id": "kia/niro-ev", "nrcan": ["Niro EV"], "epa": ["Niro"] },
+    { "id": "nissan/ariya", "nrcan": ["ARIYA"], "epa": ["ARIYA"] },
+    { "id": "nissan/leaf", "nrcan": ["LEAF"], "epa": ["Leaf", "LEAF"] },
+    { "id": "polestar/polestar-2", "nrcan": ["2"], "epa": ["2"] },
+    { "id": "subaru/solterra", "nrcan": ["Solterra"], "epa": ["Solterra"] },
+    { "id": "tesla/model-3", "nrcan": ["Model 3"], "epa": ["Model 3"] },
+    { "id": "tesla/model-y", "nrcan": ["Model Y"], "epa": ["Model Y"] },
+    { "id": "toyota/bz", "nrcan": ["bZ4X", "bZ"], "epa": ["bZ4X", "bZ"] },
+    { "id": "toyota/c-hr", "nrcan": ["C-HR"], "epa": ["C-HR"] },
+    { "id": "volkswagen/id-4", "nrcan": ["ID.4"], "epa": ["ID.4"] },
+    { "id": "volvo/ex30", "nrcan": ["EX30"], "epa": ["EX30"] },
+    { "id": "volvo/ex40", "nrcan": ["XC40 Recharge", "EX40"], "epa": ["XC40", "EX40"] }
+  ]
+}

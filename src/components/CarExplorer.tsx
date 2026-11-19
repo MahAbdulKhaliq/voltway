@@ -353,8 +353,8 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
           <Accordion headingId="key" title={t('car.details')} preview={detailsPreview}>
             <p className="muted small acc-help">{t('car.detailsHelp')}</p>
             <div className="readouts tiles">
-              <div className="readout"><p className="readout-label">{t('tile.range')}</p><div className="readout-value"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={adjusting} />{ratedLine('range_km')}</div></div>
-              <div className="readout"><p className="readout-label">{t('tile.efficiency')}</p><div className="readout-value"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={adjusting} />{ratedLine('consumption_combined_wh_per_km')}</div></div>
+              <div className="readout"><p className="readout-label">{t('tile.range')}</p><div className="readout-value"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={adjusting && !official.range_km} />{ratedLine('range_km')}</div></div>
+              <div className="readout"><p className="readout-label">{t('tile.efficiency')}</p><div className="readout-value"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={adjusting && !official.consumption_combined_wh_per_km} />{ratedLine('consumption_combined_wh_per_km')}</div></div>
               <div className="readout"><p className="readout-label">{usable ? t('tile.battery') : t('tile.batteryGross')}</p><div className="readout-value"><Value field={battery} sources={sources} label={t('tile.battery')} unit={unit} /></div></div>
               <div className="readout"><p className="readout-label">{t('tile.dcPeak')}</p><div className="readout-value"><Value field={f.dc_max_kw ?? null} sources={sources} label={t('tile.dcPeak')} unit={unit} /></div></div>
               <div className="readout"><p className="readout-label">{t('tile.time1080')}</p><div className="readout-value">
@@ -379,7 +379,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
                     <tbody>
                       {g.fields.map((k) => {
                         const field: Field = k in shown ? shown[k] : k === 'ac_max_kw' ? ac : f[k] ?? null;
-                        return <tr key={k}><th scope="row">{label(k)}</th><td data-label={label(k)}><Value field={field} sources={sources} label={label(k)} unit={unit} approx={adjusting && k in shown} />{k in shown && ratedLine(k)}</td></tr>;
+                        return <tr key={k}><th scope="row">{label(k)}</th><td data-label={label(k)}><Value field={field} sources={sources} label={label(k)} unit={unit} approx={adjusting && k in shown && !official[k]} />{k in shown && ratedLine(k)}</td></tr>;
                       })}
                       {g.title === 'group.ports' && (
                         <tr><th scope="row">{t('field.heat_pump')}</th><td data-label={t('field.heat_pump')}><Value field={trim?.heat_pump ?? null} sources={sources} label={t('field.heat_pump')} unit={unit} /></td></tr>

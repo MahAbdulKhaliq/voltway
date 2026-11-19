@@ -261,7 +261,7 @@ export function recommend(
     const slug = p.variant_id.split('/')[3];
     const same = [...existing.values()].find((v) => v.model_id === p.model_id && v.year === p.year && v.id.split('/')[3] === slug);
     if (same) return { action: 'join', target: same.id, reason: `same name and motor power; becomes the US edition of ${same.id}` };
-    if (p.markets.length === 1) return { action: 'yes', reason: 'the US sells this hardware under its own trim lineup; keep it as a US-only car (B91) rather than guess which Canadian car it is' };
+    if (p.markets.length === 1) return { action: 'check', reason: 'US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)' };
     const mine = trimWords(tokenize(p.names.US ?? p.names.CA ?? ''));
     const scored = [...existing.values()]
       .filter((v) => v.model_id === p.model_id && v.year === p.year && (v.drivetrain === 'unknown' || !p.drivetrain || v.drivetrain === p.drivetrain))
@@ -273,6 +273,8 @@ export function recommend(
     return { action: 'check', reason: 'several existing cars share its motor power and none is clearly the same name' };
   }
   if (p.flags.some((f) => f.startsWith('pair: only one'))) return { action: 'check', reason: 'Canada/US pairing is a guess (one candidate each side, words differ)' };
+  // Owner 2026-11-19: a pair matched only by motor power, with different names, is kept apart.
+  if (p.flags.some((f) => f.startsWith('pair: names differ'))) return { action: 'check', reason: 'paired only by motor power and the names differ: keep apart as a Canada car and a US car (owner rule)' };
   const why: string[] = [];
   if (p.flags.some((f) => f.startsWith('charger'))) why.push('the onboard charger differs by option, same car');
   if (p.flags.some((f) => f.startsWith('powertrain:'))) why.push('shares hardware with the same-named car of the same generation (pack not re-checked)');

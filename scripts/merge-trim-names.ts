@@ -16,7 +16,9 @@ const rows = parseCsv(text);
 const byKey = new Map(rows.map((r) => [trimNameKey(r.source, r.year, r.label), r]));
 
 const dir = join(root, 'research');
-const files = existsSync(dir) ? readdirSync(dir).filter((f) => /^trim-names-(?!input-).+\.csv$/.test(f)) : [];
+const only = process.argv.slice(2); // optional groups, e.g. `npm run merge:trim-names -- japan hyundai-kia`
+const files = (existsSync(dir) ? readdirSync(dir).filter((f) => /^trim-names-(?!input-).+\.csv$/.test(f)) : [])
+  .filter((f) => !only.length || only.some((g) => f === `trim-names-${g}.csv`));
 let filled = 0;
 const unknown: string[] = [];
 const unsourced: string[] = [];

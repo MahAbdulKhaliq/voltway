@@ -1,6 +1,6 @@
 // At-a-glance map marks (B54): speed tiers, the split of a cluster, and mark names.
 import { describe, expect, it } from 'vitest';
-import { levelShare, markName, parseMarkName, plugBit, plugsInMask, ringArcs, speedTier, PLUG_ORDER, RING_GAP, TAG_MIN_ZOOM, clusterImage, pinImage, type MarkSpec } from '../src/lib/map-icons.ts';
+import { levelShare, markName, parseMarkName, plugBit, plugsInMask, ringArcs, speedTier, PLUG_ORDER, RING_GAP, TAG_ALWAYS_ZOOM, TAG_MAX_GROUP, TAG_MIN_ZOOM, clusterImage, tagsFit, pinImage, type MarkSpec } from '../src/lib/map-icons.ts';
 
 describe('speedTier', () => {
   it('1 bolt up to 75 kW, 2 up to 150 kW, 3 above; none when unknown', () => {
@@ -39,17 +39,35 @@ describe('ringArcs (B55)', () => {
     const a = ringArcs(8);
     expect((span(a.l3) + RING_GAP) / (span(a.l2) + RING_GAP)).toBeCloseTo(4);
   });
-  it('tags show from zoom 9 in, on any group size (B58)', () => {
+  it('tags show from zoom 14, or from zoom 9 when they fit on screen (B82)', () => {
     expect(TAG_MIN_ZOOM).toBe(9);
+    expect(TAG_ALWAYS_ZOOM).toBe(14);
+    expect(clusterImage(false, 9)[3]).toBe(9);
+    expect(pinImage(false, 9)[3]).toBe(9);
     for (const e of [clusterImage(false), pinImage(true)] as unknown[][]) {
       expect(e[0]).toBe('step');
       expect(e[1]).toEqual(['zoom']);
-      expect(e[3]).toBe(9);
+      expect(e[3]).toBe(14);
       // Zoomed out: the speed tier and plug mask are both 0. Zoomed in: they come from the data.
       expect(JSON.stringify(e[2])).not.toContain('"pc"');
       expect(JSON.stringify(e[4])).toContain('"pc"');
-      expect(JSON.stringify(e)).not.toContain('point_count",20');
     }
+  });
+  it('tags fit up to 40 marks on a 1280×800 map, scaled by area, with slack once shown (B82)', () => {
+    expect(tagsFit(40, 1280, 800, false)).toBe(true);
+    expect(tagsFit(41, 1280, 800, false)).toBe(false);
+    expect(tagsFit(48, 1280, 800, true)).toBe(true); // already shown: stays until 48
+    expect(tagsFit(49, 1280, 800, true)).toBe(false);
+    expect(tagsFit(11, 375, 812, false)).toBe(true); // a phone allows about 11.9
+    expect(tagsFit(12, 375, 812, false)).toBe(false);
+  });
+  it('groups of 50 or more never get tags (B82)', () => {
+    expect(TAG_MAX_GROUP).toBe(50);
+    const close = clusterImage(false)[4] as unknown[];
+    expect(close[0]).toBe('case');
+    expect(close[1]).toEqual(['>=', ['get', 'point_count'], 50]);
+    expect(JSON.stringify(close[2])).not.toContain('"pc"'); // 50+: plain
+    expect(JSON.stringify(close[3])).toContain('"pc"'); // smaller: tagged
   });
 });
 

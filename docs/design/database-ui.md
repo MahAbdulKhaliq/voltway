@@ -43,7 +43,7 @@ No accounts, but **every car and comparison has its own URL**, so people can boo
 - `/compare?cars=hyundai/ioniq-5/2024/long-range-awd,tesla/model-y/2025/long-range-awd`
   - **B43 (2026-11-16):** opening a shared comparison doesn't replace the visitor's saved list until they change something there; then it becomes theirs. While a shared list that differs from theirs is shown, a banner says so.
 
-**B40 (2026-11-16):** the header shows **My car** and **Compare (n)** as chips at the top right (Compare hidden while empty); Compare is also in the side menu.
+**B40 (2026-11-16):** the header shows **My car** and **Compare (n)** as chips at the top right (Compare hidden while empty); Compare is also in the side menu. *(B84, owner 2026-11-18: the Compare chip is gone; the count now sits on the Compare nav link, "Compare (n)", in the page nav and the side menu, and the My car chip shows on every page.)*
 
 Curve settings (SoC window, charger power) can be included in the link too (*later*).
 

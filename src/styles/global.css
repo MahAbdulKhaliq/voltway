@@ -612,9 +612,8 @@ html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplib
 .chip:hover { background: var(--surface-2); }
 .chip-text { overflow: hidden; text-overflow: ellipsis; max-width: 40vw; }
 .chip-menu { position: relative; min-width: 0; }
-/* Both chips (Compare + My car) must fit beside the logo at 375 px: they shrink, text ellipsised. */
+/* The My car chip must fit beside the logo at 375 px: it shrinks, text ellipsised. */
 .chips > .chip, .chips > .chip-menu, .chip-menu > .chip { min-width: 0; flex-shrink: 1; }
-.chips > a.chip[href="/compare"] { flex-shrink: 0; } /* the count stays readable; My car shortens */
 @media (max-width: 420px) { .chips { gap: 6px; } .chip { padding: 4px 9px; } }
 /* Car picker dialog (B54): opened from the header chips on any page. */
 .picker-dialog { width: min(760px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); box-shadow: var(--shadow); overflow: auto; }

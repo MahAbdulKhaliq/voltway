@@ -669,3 +669,25 @@ Read B86 in `docs/design/gaps-and-questions.md` and `docs/design/design-language
 | QV3 | | |
 | QV4 | | |
 | QV5 | | |
+
+# B87 QA: Cars table and compare flow
+
+Read B87 in `docs/design/gaps-and-questions.md`. Pages: `/cars` (Table view), `/compare`, `/charging`. Save and restore `voltway.compare` and `voltway.browse` in localStorage.
+
+| ID | Area | How to check | Pass when / edge cases |
+|----|------|--------------|------------------------|
+| QX1 | Cars table | Table view at 1280 and 375, km and mi, dark and light; sort by each header | Table width ≤ its box at 1280 (no sideways scroll); units in headers only; port and curve under the name; sorted column marked and aria-sort right; numbers aligned; 375 stacked rows readable with no page scroll; text ≥ 4.5:1; Live reflow still glides rows |
+| QX2 | Compare toggle | Cards, table and the Charging page car section: add, remove, fill to 4 | "+ Compare" adds, "− Compare" removes, names say "Add … to Compare" / "Remove … from Compare"; header count follows; a 5th add explains the limit; state matches across tabs after reload |
+| QX3 | Add-a-car dialog | On /compare open the dialog, search, use the steps, try an already-compared car, Escape, Cancel | Car added at the end; compared cars marked and not selectable (search and steps); focus trapped in the dialog and returned to the opener; header "My car" picker still has trim and plug steps |
+| QX4 | Ghost card | 0, 1, 3 and 4 cars | Ghost card after the cars for 1–3 (dashed, next car colour), none at 4; empty page shows it with the Cars link; specs "add another" opens the dialog; Enter/Space work |
+| QX5 | Regressions | Race, chart, specs, shared link (?cars=), Animations off | Adding/removing animates the race as before and is instant with Animations off; a shared link still shows its banner; no console errors beyond known stale HMR ones |
+
+## B87 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QX1 | PASS | Table box 806/806 at 1280 (km and mi), 695/695 at 1024; units in headers; aria-sort right on all 6 sortable headers; sorted column yellow underline + wash; text ≥ 6.15:1 both themes; 375 stacked rows, toggle 44×44 top-right without overlap; rows still glide (docs/plan/reports/ui-check-b87.md) |
+| QX2 | PASS (after fix) | Toggle on cards, table and /charging with "Add … / Remove … from Compare" names; header count follows; state consistent after reload; painted "− Compare" 12.03:1. Fixed: the 4-car limit message is now a bottom-of-screen notice (was out of view on /cars); card toggle 44 px on phones (docs/plan/reports/ui-check-b87.md) |
+| QX3 | PASS (after fix) | Focus starts in search; compared cars marked, not selectable by click/Enter, disabled in Variant; car added at the end; Escape/Cancel/✕/backdrop close and return focus; Tab trapped; long variant names keep all four dropdowns 163×31 on one line; My car picker keeps trim and plug steps. Fixed: "Already in Compare" wraps under the name on phones; dialog buttons and dropdowns 44 px on phones (docs/plan/reports/ui-check-b87.md) |
+| QX4 | PASS (after fix) | Ghost at 0 (with the Cars link), 1–3 cars ("Car n of 4", next car's colour, dashed outline only), none at 4 and no "Add another car"; Enter/Space open the dialog; text ≥ 6.48:1. Fixed: focus moves to the ghost card after Remove (docs/plan/reports/ui-check-b87.md) |
+| QX5 | PASS | Race/chart/specs update on add/remove; every curve solid inside the window (estimated too), dashed outside; shared link banner kept; Animations off: no animations; console only the known stale HMR errors (docs/plan/reports/ui-check-b87.md) |

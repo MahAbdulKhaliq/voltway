@@ -15,7 +15,7 @@ import CurveViewer from './CurveViewer.tsx';
 import { carMapInfo, linkPlugs } from '../lib/map-filter.ts';
 import { GROUPS } from '../lib/spec-groups.ts';
 import { carLabel } from '../lib/car-label.ts';
-import { addToCompare, getCompare, getMyCar, setMyCar, type AddResult, type MyCar } from '../lib/my-car.ts';
+import { addToCompare, getCompare, removeFromCompare, getMyCar, setMyCar, type AddResult, type MyCar } from '../lib/my-car.ts';
 import { Badge, Value, sourceNumber } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
 import VariantName from './VariantName.tsx';
@@ -312,8 +312,10 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
               <button type="button" className={`btn small${isMine ? ' primary' : ''}`} aria-pressed={isMine} onClick={() => !isMine && setMyCar({ carId: car.id, trimId: car.trims.length > 1 ? trimId : null, label: labelFor(car.id), model: cars.find((c) => c.id === car.id)?.model })}>
                 {isMine ? t('mycar.isMine') : t('mycar.set')}
               </button>
-              <button type="button" className="btn small" disabled={inCompare} onClick={() => setCompareNote(addToCompare(car.id))}>
-                {inCompare ? t('browse.compareAdded') : t('browse.compare')}
+              <button type="button" className={`btn small cmp-toggle${inCompare ? ' on' : ''}`}
+                aria-label={t(inCompare ? 'browse.compareRemoveFor' : 'browse.compareFor', { car: `${car.make.name} ${car.model.name} ${car.name}` })}
+                onClick={() => { if (inCompare) { removeFromCompare(car.id); setCompareNote(null); } else setCompareNote(addToCompare(car.id)); }}>
+                {inCompare ? t('browse.compareRemove') : t('browse.compare')}
               </button>
             </div>
             {compareNote === 'full' && <p className="banner small" role="status">{t('browse.compareFull')}</p>}

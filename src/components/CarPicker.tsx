@@ -25,6 +25,10 @@ interface Props {
   savedPlugs?: { carId: string; plugs: DcPlug[] } | null;
   /** The car to start on (My car), so "Change car" opens with it selected. */
   initialCar?: string | null;
+  /** B87: 'compare' is Compare's "Add a car" dialog: its own title and button, no trim or plug steps. */
+  purpose?: 'mycar' | 'compare';
+  /** Cars that can't be picked (already compared): marked in the suggestions and the variant step. */
+  exclude?: readonly string[];
 }
 
 const MAX_SUGGESTIONS = 8;
@@ -39,7 +43,9 @@ function trimText(trim: string, variant: string): string {
   return rest || trim;
 }
 
-export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags = false, savedPlugs = null, initialCar = null }: Props) {
+export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags = false, savedPlugs = null, initialCar = null, purpose = 'mycar', exclude = [] }: Props) {
+  const forCompare = purpose === 'compare';
+  const taken = (carId: string) => exclude.includes(carId);
   const Heading = level === 1 ? "h1" : "h2";
   const id = useId();
   const search = useMemo(() => makeCarSearch(cars), [cars]);
@@ -78,6 +84,7 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
 
   // B58: a suggestion selects the car; the dialog stays open on "Select car" and the plug switches.
   const select = (e: IndexEntry) => {
+    if (taken(e.id)) return;
     setMake(e.make);
     setModel(e.model);
     setYear(String(e.year));
@@ -115,7 +122,7 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
     if (!open || !suggestions.length) return;
     if (e.key === 'ArrowDown') { e.preventDefault(); setActive((a) => (a + 1) % suggestions.length); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); setActive((a) => (a <= 0 ? suggestions.length - 1 : a - 1)); }
-    else if (e.key === 'Enter') { e.preventDefault(); select(suggestions[Math.max(0, active)]); }
+    else if (e.key === 'Enter') { e.preventDefault(); const pick = active >= 0 ? suggestions[active] : suggestions.find((x) => !taken(x.id)); if (pick) select(pick); }
     else if (e.key === 'Escape') setQuery('');
   };
   const variantName = byId.get(variant)?.name ?? '';
@@ -133,9 +140,9 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
   const keptPlugs = changed?.id === variant ? changed.plugs : savedPlugs?.carId === variant ? savedPlugs.plugs : null;
 
   return (
-    <section className="car-picker card" aria-labelledby={`${id}-title`}>
-      <Heading id={`${id}-title`} className="cp-title">{t('picker.title')}</Heading>
-      <p className="muted cp-intro">{t('picker.intro')}</p>
+    <section className={`car-picker card${forCompare ? ' cp-compare' : ''}`} aria-labelledby={`${id}-title`}>
+      <Heading id={`${id}-title`} className="cp-title">{t(forCompare ? 'compare.addTitle' : 'picker.title')}</Heading>
+      <p className="muted cp-intro">{t(forCompare ? 'compare.addIntro' : 'picker.intro')}</p>
 
       <div className="cp-search">
         <label htmlFor={`${id}-q`} className="cp-label">{t('picker.search')}</label>
@@ -157,9 +164,11 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
         {open && (
           <ul id={listId} role="listbox" className="cp-suggest" aria-label={t('picker.suggestions')}>
             {suggestions.map((s, i) => (
-              <li key={s.id} id={optionId(i)} role="option" aria-selected={i === active} className={`car-search-opt${i === active ? ' on' : ''}`}
+              <li key={s.id} id={optionId(i)} role="option" aria-selected={i === active} aria-disabled={taken(s.id) || undefined}
+                className={`car-search-opt${i === active ? ' on' : ''}${taken(s.id) ? ' taken' : ''}`}
                 onMouseDown={(e) => e.preventDefault()} onClick={() => select(s)}>
                 <span><Label e={s} /></span>
+                {taken(s.id) && <span className="car-search-tag small muted">{t('compare.already')}</span>}
                 {tripTags && !s.trip_ready && <span className="car-search-tag small muted">{t('car.search.noTrip')}</span>}
               </li>
             ))}
@@ -192,17 +201,17 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
         <label><span>{t('charging.variant')}</span>
           <select className="field-input" value={variant} disabled={!year} onChange={(e) => setVariant(e.target.value)}>
             <option value="">{t('picker.choose')}</option>
-            {variants.map((v) => <option key={v.id} value={v.id}>{v.name}</option>)}
+            {variants.map((v) => <option key={v.id} value={v.id} disabled={taken(v.id)}>{taken(v.id) ? t('compare.alreadyOption', { name: v.name }) : v.name}</option>)}
           </select>
         </label>
-        <label><span>{t('picker.trimOptional')}</span>
+        {!forCompare && <label><span>{t('picker.trimOptional')}</span>
           <select className="field-input" value={trim} disabled={!variant || trims.length < 2} onChange={(e) => setTrim(e.target.value)}>
             <option value="">{t('picker.trimNotSure')}</option>
             {trims.map((x) => <option key={x.id} value={x.id}>{trimText(x.name, variantName)}</option>)}
           </select>
-        </label>
+        </label>}
       </div>
-      <p className="muted small cp-trim-note">{t('picker.trimNote')}</p>
+      {!forCompare && <p className="muted small cp-trim-note">{t('picker.trimNote')}</p>}
 
       {tripTags && variant && (
         <div className="cp-plugs" role="group" aria-labelledby={`${id}-plugs`}>
@@ -228,9 +237,9 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
       )}
 
       <div className="cp-actions">
-        <button ref={goRef} type="button" className="btn primary" disabled={!variant} onClick={() => onPick(variant, trim || null, keptPlugs)}>{t('picker.go')}</button>
+        <button ref={goRef} type="button" className="btn primary" disabled={!variant || taken(variant)} onClick={() => onPick(variant, forCompare ? null : trim || null, forCompare ? null : keptPlugs)}>{t(forCompare ? 'compare.addGo' : 'picker.go')}</button>
         {onCancel && <button type="button" className="btn" onClick={onCancel}>{t('picker.cancel')}</button>}
-        <a href="/cars" className="cp-browse">{t('picker.browse')}</a>
+        <a href="/cars" className="cp-browse">{t(forCompare ? 'compare.browse' : 'picker.browse')}</a>
       </div>
     </section>
   );

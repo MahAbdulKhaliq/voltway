@@ -24,6 +24,7 @@ import { getItem, getJSON, KEYS, setJSON } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CarDetail, CurveOut, Field, IndexEntry } from '../lib/types.ts';
 import VariantName from './VariantName.tsx';
+import CarPicker from './CarPicker.tsx';
 import { Value } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
 
@@ -97,6 +98,19 @@ export default function Compare({ index }: Props) {
   const chart = useRef<echarts.ECharts | null>(null);
   const raceEl = useRef<HTMLOListElement>(null);
   const lanePos = useRef(new Map<string, number>());
+  // "Add a car" (B87): the header's car picker in a modal dialog, opened from the ghost card.
+  const addDialog = useRef<HTMLDialogElement>(null);
+  const addOpener = useRef<HTMLElement | null>(null);
+  const [adding, setAdding] = useState(false);
+  const openAdd = (from: HTMLElement) => {
+    addOpener.current = from;
+    setAdding(true);
+    addDialog.current?.showModal();
+  };
+  const closeAdd = () => addDialog.current?.close();
+  useEffect(() => {
+    if (adding) addDialog.current?.querySelector<HTMLInputElement>('input[type=search]')?.focus();
+  }, [adding]);
 
   // The list: the link first, else the saved list. Shared settings start from the curve viewer's.
   useEffect(() => {
@@ -207,10 +221,9 @@ export default function Compare({ index }: Props) {
     const span = (r: Row, a: number, b: number) => Array.from({ length: b - a + 1 }, (_, i) => [a + i, kwAt(r, a + i)]);
     const series = drawn.flatMap((r, n) => {
       const color = cssVar(`--car-${r.slot + 1}`, '#1D4ED8');
-      const est = r.curve!.kind === 'estimated';
       const base = { type: 'line' as const, showSymbol: false, silent: true, itemStyle: { color }, z: 3 };
       const out: Record<string, unknown>[] = [
-        { ...base, name: r.id, data: span(r, start, end), lineStyle: { color, width: 3, type: est ? 'dashed' : 'solid' } },
+        { ...base, name: r.id, data: span(r, start, end), lineStyle: { color, width: 3, type: 'solid' } },
       ];
       if (start > 0) out.push({ ...base, data: span(r, 0, start), lineStyle: { color, width: 2, type: ROAD_DASH, cap: 'butt', opacity: 0.8 } });
       if (end < 100) out.push({ ...base, data: span(r, end, 100), lineStyle: { color, width: 2, type: ROAD_DASH, cap: 'butt', opacity: 0.8 } });
@@ -321,7 +334,19 @@ export default function Compare({ index }: Props) {
   const slotRows = ids.map((id) => rows.find((r) => r.id === id) ?? null);
   const failed = ids.filter((id) => cars[id] === 'error');
 
+  // The empty card after the cars (B87): the next car's colour, dashed, opens "Add a car".
+  const ghost = (slot: number) => (
+    <li className="cmp-ghost" style={{ ['--lane' as string]: carVar(slot) }}>
+      <button type="button" aria-haspopup="dialog" onClick={(e) => openAdd(e.currentTarget)}>
+        <span className="cmp-ghost-plus" aria-hidden="true">+</span>
+        <span className="cmp-ghost-text">{t('compare.addCar')}</span>
+        <span className="cmp-ghost-count small muted">{t('compare.slots', { count: slot + 1, max: 4 })}</span>
+      </button>
+    </li>
+  );
+
   return (
+    <>
     <div className="compare">
       {notice && (
         <p className="banner small" role="status">
@@ -334,9 +359,10 @@ export default function Compare({ index }: Props) {
       {failed.length > 0 && <p className="banner small" role="alert">{t('compare.loadError')}</p>}
 
       {ids.length === 0 ? (
-        <div className="card empty">
+        <div className="cmp-empty">
           <p>{t('compare.empty')}</p>
-          <p><a className="btn primary" href="/cars">{t('compare.browse')}</a></p>
+          <ul className="cmp-cars" aria-label={t('compare.cars')}>{ghost(0)}</ul>
+          <p className="small"><a href="/cars">{t('compare.browseAll')}</a></p>
         </div>
       ) : (
         <>
@@ -359,13 +385,14 @@ export default function Compare({ index }: Props) {
                   {cars[id] === 'error' && <span className="small unknown">{t('compare.notLoaded')}</span>}
                   <span className="car-actions">
                     <a className="small" href={`/charging?car=${id}`}>{t('compare.open')}</a>
-                    <button type="button" className="btn small" onClick={() => change(ids.filter((x) => x !== id))} aria-label={t('compare.removeFor', { car: `${label} ${byId.get(id)?.name ?? ''}` })}>
+                    <button type="button" className="btn small" onClick={() => { change(ids.filter((x) => x !== id)); requestAnimationFrame(() => document.querySelector<HTMLElement>('.cmp-ghost button')?.focus()); }} aria-label={t('compare.removeFor', { car: `${label} ${byId.get(id)?.name ?? ''}` })}>
                       {t('compare.remove')}
                     </button>
                   </span>
                 </li>
               );
             })}
+            {ids.length < 4 && ghost(ids.length)}
           </ul>
 
           <section aria-labelledby={`${uid}-race`} className="card cmp-race">
@@ -527,16 +554,28 @@ export default function Compare({ index }: Props) {
             {onlyDiff && ready && groups.every((g) => g.fields.every((k) => !rowDiffers(slotRows.map((r) => (r ? fieldOf(r, k)?.value.value ?? null : null))))) && (
               <p className="muted">{t('compare.noDiff')}</p>
             )}
-            {ids.length < 4 && <p className="small add-more"><a href="/cars">{t('compare.addMore')}</a></p>}
+            {ids.length < 4 && <p className="small add-more"><button type="button" className="link-btn" aria-haspopup="dialog" onClick={(e) => openAdd(e.currentTarget)}>{t('compare.addMore')}</button></p>}
           </Accordion>
         </>
       )}
+
 
       <style>{`
         .compare { display: grid; gap: 20px; }
         .compare > *, .cmp-race > *, .cmp-specs > * { min-width: 0; }
         .compare h2 { margin: 0; font-family: var(--display); font-size: 1.15rem; letter-spacing: -0.01em; }
-        .compare .empty { text-align: center; }
+        .cmp-empty { display: grid; gap: 12px; }
+        .cmp-empty > p { margin: 0; }
+
+        /* Ghost card (B87): an empty slot outlined in the next car's colour. */
+        .cmp-ghost { display: grid; min-height: 132px; }
+        .cmp-ghost button { position: relative; overflow: hidden; display: grid; place-content: center; justify-items: center; gap: 4px; width: 100%; padding: 16px 14px; border: 2px dashed color-mix(in srgb, var(--lane) 55%, var(--field-border)); border-radius: var(--radius); background: transparent; color: var(--text); font: inherit; cursor: pointer; transition: background-color 0.15s var(--ease-out), border-color 0.15s var(--ease-out); }
+        .cmp-ghost button:hover { background: var(--surface); border-color: var(--lane); }
+        .cmp-ghost button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+        .cmp-ghost-plus { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--surface-2); font-size: 1.4rem; line-height: 1; }
+        .cmp-ghost-text { font-family: var(--display); font-weight: 700; }
+        html[data-motion="off"] .cmp-ghost button { transition: none; }
+        .compare .link-btn { padding: 0; border: 0; background: none; color: var(--accent); font: inherit; text-decoration: underline; text-underline-offset: 0.18em; cursor: pointer; }
 
         /* Car cards: the car's colour runs along the top like its lane (design-language.md §9, B85). */
         .cmp-cars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
@@ -638,5 +677,28 @@ export default function Compare({ index }: Props) {
         }
       `}</style>
     </div>
+    {/* Outside .compare so the page's select styles don't reach the picker (B87). */}
+      <dialog
+        ref={addDialog}
+        className="picker-dialog"
+        aria-label={t('compare.addTitle')}
+        onClose={() => { setAdding(false); // Back to what opened it; after an add, to the ghost card (to add another) or the last car.
+          const back = addOpener.current?.isConnected ? addOpener.current : document.querySelector<HTMLElement>('.cmp-ghost button') ?? [...document.querySelectorAll<HTMLElement>('.cmp-car button')].pop(); back?.focus(); }}
+        onClick={(e) => { if (e.target === e.currentTarget) closeAdd(); }}
+      >
+        <button type="button" className="icon-btn picker-close" aria-label={t('picker.close')} onClick={closeAdd}>
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+        </button>
+        {adding && (
+          <CarPicker cars={index} level={2} purpose="compare" exclude={ids}
+            onCancel={closeAdd}
+            onPick={(carId) => {
+              if (!ids.includes(carId) && ids.length < 4) change([...ids, carId]);
+              addOpener.current = null;
+              closeAdd();
+            }} />
+        )}
+      </dialog>
+    </>
   );
 }

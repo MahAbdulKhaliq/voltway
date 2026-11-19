@@ -333,6 +333,7 @@ a.btn { display: inline-block; text-decoration: none; }
 .car-tile svg { flex: none; }
 .car-tile-text { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .car-search-opt { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.car-search-opt.taken { color: var(--muted); cursor: not-allowed; }
 .car-search-tag { flex: none; }
 
 /* Route mode (B50, 3.18): the panel holds the route form and the itinerary. Desktop: a wider
@@ -571,8 +572,6 @@ html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplib
 /* A wide table scrolls inside its own box, never the page. */
 .table-scroll { overflow-x: auto; max-width: 100%; }
 .table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.browse-table td { white-space: nowrap; }
-.browse-table td:first-child { white-space: normal; }
 .th-sort { font: inherit; font-weight: 600; background: none; border: 0; padding: 0; color: inherit; cursor: pointer; text-align: left; }
 @media (max-width: 767px) {
   .browse-main { grid-template-columns: minmax(0, 1fr); }
@@ -581,7 +580,6 @@ html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplib
   .browse-filters { display: none; position: fixed; left: 0; right: 0; bottom: 0; top: auto; max-height: 80vh; z-index: 40; border-radius: var(--radius) var(--radius) 0 0; box-shadow: var(--shadow); }
   .browse-filters.open { display: block; }
   .bf-backdrop { display: block; position: fixed; inset: 0; z-index: 39; background: rgb(0 0 0 / 55%); }
-  .browse-table td { white-space: normal; }
 }
 
 /* First-load picker (5.2a, B37) */
@@ -595,6 +593,8 @@ html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplib
 .cp-suggest li { padding: 8px 10px; border-radius: 6px; cursor: pointer; }
 .cp-suggest-list { list-style: none; margin: 0; padding: 0; }
 .cp-suggest p.cp-none { margin: 0; padding: 8px 10px; }
+/* Compare's "Add a car" (B87) is shorter than the My car picker, so its list sits in the flow instead of overhanging the dialog. */
+.cp-compare .cp-suggest { position: static; }
 .cp-suggest li.on, .cp-suggest li[role=option]:hover { background: var(--accent-soft); }
 .cp-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
 .cp-steps label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
@@ -1054,3 +1054,58 @@ mark.hit { background: var(--accent-soft); color: inherit; border-radius: 3px; p
 .flip-ghosts { position: absolute; inset: 0; pointer-events: none; }
 .flip-ghosts > * { list-style: none; }
 html[data-motion="off"] html[data-motion="off"] .bf-switch .switch, html[data-motion="off"] .bf-switch .switch::after { transition: none; }
+
+/* Cars table (B87, design-language.md §10): fits its column on desktop. Units live in the headers,
+   figures are right-aligned Overpass, port and curve sit under the car name, the sorted column is
+   marked in road paint, and compare is a compact +/− toggle. */
+.browse-table-box { padding: 2px 6px; }
+.browse-table th, .browse-table td { padding: 10px 8px; border-bottom: 1px solid color-mix(in srgb, var(--field-border) 45%, transparent); vertical-align: middle; }
+.browse-table tbody tr:last-child > td { border-bottom: 0; }
+.browse-table thead th { vertical-align: bottom; font-size: 0.78rem; line-height: 1.25; color: var(--muted); }
+.browse-table th.num { text-align: right; }
+.browse-table .th-sort { display: inline-flex; align-items: flex-end; gap: 4px; text-align: inherit; color: inherit; font-weight: 650; border-radius: 4px; }
+.browse-table th.num .th-sort { flex-direction: row-reverse; text-align: right; }
+.browse-table .th-sort:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.browse-table .th-text { display: block; }
+.th-unit { display: block; font-weight: 500; font-size: 0.72rem; opacity: 0.9; }
+.th-arrow { font-size: 0.65rem; line-height: 1.6; opacity: 0.7; }
+.browse-table th.on { color: var(--text); box-shadow: inset 0 -3px 0 var(--paint); }
+.browse-table th.on .th-arrow { opacity: 1; color: var(--text); }
+.browse-table td.num { text-align: right; white-space: nowrap; font-family: var(--display); font-weight: 650; font-variant-numeric: tabular-nums; }
+.browse-table td.num.on { background: color-mix(in srgb, var(--paint) 7%, transparent); }
+.browse-table tbody tr:hover > td { background: var(--surface-2); }
+.bt-car { min-width: 0; }
+.bt-name { display: block; font-family: var(--display); font-weight: 700; letter-spacing: -0.01em; color: var(--text); text-decoration: none; }
+.bt-name:hover { text-decoration: underline; }
+.bt-name::after { content: ' →'; color: var(--accent); }
+.bt-variant { display: block; font-size: 0.85rem; }
+.bt-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-top: 4px; font-size: 0.78rem; }
+.browse-table .bt-act { width: 1%; text-align: right; }
+.cmp-toggle.on { background: var(--paint); color: var(--paint-ink); border-color: var(--paint-edge); font-weight: 600; }
+.cmp-toggle.on:hover:not(:disabled) { background: var(--paint); filter: brightness(0.95); }
+.cmp-toggle.icon { display: inline-grid; place-items: center; width: 32px; height: 32px; padding: 0; font-size: 1.15rem; line-height: 1; }
+@media (max-width: 640px) {
+  .browse-table-box { padding: 4px 14px; }
+  .browse-table tr { padding: 10px 0; border-bottom: 1px solid color-mix(in srgb, var(--field-border) 45%, transparent); }
+  .browse-table tbody tr:last-child { border-bottom: 0; }
+  .browse-table td, .browse-table td.num { padding: 3px 0; text-align: left; }
+  .browse-table td.num { justify-content: space-between; }
+  .browse-table td.bt-car::before, .browse-table td.bt-act::before { content: none; }
+  .browse-table td.bt-car { display: block; padding-bottom: 6px; }
+  .browse-table tr { position: relative; }
+  .browse-table td.bt-car { padding-right: 52px; }
+  .browse-table td.bt-act { position: absolute; top: 8px; right: 0; width: auto; padding: 0; }
+  .browse-table .bt-act .cmp-toggle.icon { width: 44px; height: 44px; }
+  .browse-table td.num.on, .browse-table tbody tr:hover > td { background: none; }
+}
+
+/* B87 QA fixes: the 4-car limit message sits at the bottom of the screen; phone touch targets. */
+.browse-toast { display: none; position: fixed; background: linear-gradient(var(--warn-soft), var(--warn-soft)), var(--surface); left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 45; width: max-content; max-width: calc(100vw - 32px); margin: 0; box-shadow: var(--shadow); }
+.browse-toast.on { display: block; }
+@media (max-width: 640px) {
+  .cmp-toggle:not(.icon) { min-height: 44px; padding-inline: 14px; }
+  .picker-dialog .cp-actions .btn { min-height: 44px; }
+  .picker-dialog .cp-steps select { min-height: 44px; }
+  .car-search-opt { flex-wrap: wrap; }
+  .car-search-opt .car-search-tag { flex-basis: 100%; }
+}

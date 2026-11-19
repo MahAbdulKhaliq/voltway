@@ -109,6 +109,8 @@ Name · range · efficiency · DC peak · **10–80% time** · **km per 10 min**
 
 **For browse and sorting,** 10–80% and km per 10 min are calculated with **no charger limit**, using each car's default curve. Cars with **estimated** curves carry a badge in the list, so sorting doesn't hide how reliable each figure is.
 
+*(B87, owner 2026-11-19: the table view fits its column without sideways scroll on desktop: units in the headers, port and curve under the car name, a compact +/− compare button. "+ Compare" on cards, table rows and the car page is a toggle: "− Compare" removes the car.)*
+
 ### Card contents
 Image (or body-type silhouette) · make, model, year · variant · **range** · **10–80% time** · **km per 10 min** · port icon · curve badge (Tested / Estimated) · **"+ Compare"** button.
 
@@ -149,6 +151,7 @@ One page per **model year**, with a **variant selector** (and an optional trim s
 - Each car keeps **one colour** across the curve, the table header and its badges.
 - **Phones:** two cars side by side, swiping to see the rest.
 - *(B85, owner 2026-11-18: the page uses the content-page design language, and the results table is a **Charge race**: a road lane per car, bar sized to the chosen figure, best first, animated re-sorting; see `design-language.md`.)*
+- *(B87, owner 2026-11-19: Compare adds cars itself through an "Add a car" dialog (the header car picker's search and steps), opened from an empty ghost card shown after the cars while fewer than 4 are compared, and from the empty page. Cars already compared can't be picked again.)*
 
 ---
 

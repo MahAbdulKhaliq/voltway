@@ -86,6 +86,7 @@ Make → Model → Generation → Powertrain (pack + charging hardware + curves)
 - **Trim-name map:** `crosswalk/trim-names.csv`, with one row per regulator label.
   - Each row maps the label to a market, the buyer-facing trim name, the wheel size and the variant. Examples: NRCan "Model 3 Premium-I" → CA "Premium RWD", and "Model Y Long Range AWD-B" → CA "Long Range AWD".
   - A researcher fills it with a cited source and the owner confirms it. Duplicates such as "Performance" vs "Performance AWD" are resolved here: merged, or kept apart with the reason.
+  - *2026-11-19 (owner, wave 1 review):* names are researched **before** wave 1 is approved. Columns: `model_id, source, year, label, market, trim_name, dealer_trims, source_url, notes, confirmed`. `trim_name` is the edition as the maker sold it in that market (pack + drivetrain wording); `dealer_trims` lists the maker trim levels one rating covers (e.g. EPA "IONIQ 5 RWD" → "SE; SEL; Limited"). The suggester names and pairs cars from these names; approving a proposal confirms its names. Clean proposals (no ⚠) are spot-checked and then approved in bulk; for flagged ones Claude recommends and the owner decides. Model year 2027 is included.
 - **Rollout in waves** keeps owner review manageable:
   1. today's 25 models, all years;
   2. other current models;

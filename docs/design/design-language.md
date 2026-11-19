@@ -185,6 +185,21 @@ Decided by the owner 2026-11-19 (B86, under review). The Cars page uses everythi
 - **"Add a car" is the header's car picker** in a modal dialog (search with suggestions, then Make → Model → Year → Variant), titled "Add a car to compare", without the trim and plug steps. Cars already compared are greyed with "Already in Compare" and can't be picked. Its suggestion list sits in the flow (the dialog is shorter than the My car picker). The dialog is rendered outside the Compare page's wrapper, so its dropdowns look exactly like the My car picker's: one line each, long variant names cut off rather than wrapping.
 - **A ghost card** follows the car cards while fewer than 4 are compared: a single dashed outline in the next car's colour (owner review: no stripe on top), a + and "Add a car", and "Car n of 4". It opens the dialog; afterwards focus returns to it, so adding several cars is quick. The empty page shows the same card, and the specs' "Add another car" opens the dialog too.
 
+### Car picker (B89 round 3, owner 2026-11-19)
+
+The one dialog behind the header's "Change car" and Compare's "Add a car":
+- the title in Overpass 800; the search field has a search icon, a 10 px radius, and its suggestions open as the site's menu (surface, border, shadow, 6 px rows; hover on surface-2, the active row yellow-soft);
+- "Or pick it step by step" is one raised panel (§3). Make, Model, Year and Variant are numbered 1–4, two columns on wider screens and one on phones. A step's number is outlined until it is chosen, then filled with road paint. The selects use the select menus (§4). The optional trim and its note sit under them, indented to the labels;
+- "Plugs my car can use" is a second raised panel: one row per plug with the map filter's plug drawing, its name and a switch, divided by faint lines;
+- the actions sit in a bar pinned to the dialog's foot (surface, top border). On phones the main button takes the row.
+
+### Speed marks in menus (B89 round 4, owner 2026-11-19)
+
+- The map's speed tag (bolts on a dark, outlined tag) stays on the map. The map key's speed rows use the bare mark too (owner, 2026-11-19: clearer there).
+- In menus and lists (Stations in view, a trip's stops) the speed is a bare mark: one to three bolts in the accent colour, side by side and as tall as the text, with no tag or outline. A Level 2 station shows the plug drawing in the muted colour instead.
+- Bolts by the fastest Level 3 kW (B89 round 5): 1 under 150 kW, 2 from 150 to under 250 kW, 3 from 250 kW.
+- The mark is decorative; the kW beside it says the speed. On a trip stop the mark and kW come first, in Overpass 700, then Car-limited and the other tags.
+
 ### About page (B88, owner 2026-11-19)
 
 - **Hero:** a large Overpass title and the intro, then a short stretch of road (`--band`) whose grey lane dashes paint in while a yellow charge marker drives from 10 % to 80 %. The stretch behind the marker turns paint yellow, and the marker glows once when it arrives. Below it sit four readouts that count up once: car variants, open datasets, cited pages, and accounts needed (0). The markup holds the final numbers.

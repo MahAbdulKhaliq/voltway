@@ -15,6 +15,8 @@ export interface TripOverlay {
   to: [number, number];
   /** Stop positions, in order (the pins are numbered 1, 2, …). */
   stops: [number, number][];
+  /** Where the route crosses the border (B89): drawn as the itinerary's diamond. */
+  borders?: [number, number][];
   /** The selected stop's index, ringed. */
   selected: number | null;
 }
@@ -54,6 +56,7 @@ export function pointFC(o: TripOverlay | null): FeatureCollection<Point> {
       { type: 'Feature', properties: { kind: 'from', label: '' }, geometry: { type: 'Point', coordinates: o.from } },
       { type: 'Feature', properties: { kind: 'to', label: '' }, geometry: { type: 'Point', coordinates: o.to } },
       ...o.stops.map((at, i): Feature<Point> => ({ type: 'Feature', properties: { kind: 'stop', i, label: String(i + 1) }, geometry: { type: 'Point', coordinates: at } })),
+      ...(o.borders ?? []).map((at, i): Feature<Point> => ({ type: 'Feature', properties: { kind: 'border', i, label: '' }, geometry: { type: 'Point', coordinates: at } })),
     ],
   };
 }
@@ -67,6 +70,25 @@ export function boundsOf(coords: readonly [number, number][]): [number, number, 
   return [w, s, e, n];
 }
 
+/** B89: the border diamond, road-marking white on a dark edge (drawn at 2x for sharp edges). */
+export const DIAMOND = 'trip-diamond';
+export function diamondImage(size = 44): { width: number; height: number; data: Uint8Array } {
+  const data = new Uint8Array(size * size * 4);
+  const c = size / 2, r = c - 1, edge = 4;
+  const hex = (h: string) => [1, 3, 5].map((k) => parseInt(h.slice(k, k + 2), 16));
+  const fill = hex(TRIP_MAP.stop), ring = hex(TRIP_MAP.stopRing);
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const d = Math.abs(x + 0.5 - c) + Math.abs(y + 0.5 - c);
+      const a = Math.min(1, Math.max(0, r - d + 0.5));
+      if (a <= 0) continue;
+      const rgb = d <= r - edge ? fill : ring;
+      data.set([...rgb, Math.round(a * 255)], (y * size + x) * 4);
+    }
+  }
+  return { width: size, height: size, data };
+}
+
 /** The layers a click on a stop hits. */
 export const STOP_LAYERS = ['trip-stops', 'trip-stop-labels'];
 
@@ -77,6 +99,7 @@ export function addTripLayers(map: maplibregl.Map, o: TripOverlay | null) {
   map.addSource('trip-head', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
   map.addSource('trip-gaps', { type: 'geojson', data: gapFC(o?.gaps ?? []) });
   map.addSource('trip-points', { type: 'geojson', data: pointFC(o) });
+  if (!map.hasImage(DIAMOND)) map.addImage(DIAMOND, diamondImage(), { pixelRatio: 2 });
   map.addLayer({ id: 'trip-casing', type: 'line', source: 'trip-line', layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-gradient': paintTo(1, TRIP_MAP.band), 'line-width': 12 } });
   map.addLayer({ id: 'trip-route', type: 'line', source: 'trip-line', layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-gradient': paintTo(1, TRIP_MAP.route), 'line-width': 4.5 } });
   // A charging gap: an orange-edged band covers the solid line, then the yellow is repainted as dashes.
@@ -88,8 +111,13 @@ export function addTripLayers(map: maplibregl.Map, o: TripOverlay | null) {
     paint: { 'circle-radius': sized(19), 'circle-color': TRIP_MAP.selectedFill, 'circle-stroke-color': TRIP_MAP.selectedRing, 'circle-stroke-width': 3 },
   });
   map.addLayer({
-    id: 'trip-ends', type: 'circle', source: 'trip-points', filter: ['!=', ['get', 'kind'], 'stop'],
+    id: 'trip-ends', type: 'circle', source: 'trip-points', filter: ['match', ['get', 'kind'], ['from', 'to'], true, false],
     paint: { 'circle-radius': sized(8), 'circle-color': ['match', ['get', 'kind'], 'from', TRIP_MAP.start, TRIP_MAP.end], 'circle-stroke-color': ['match', ['get', 'kind'], 'from', TRIP_MAP.startRing, TRIP_MAP.endRing], 'circle-stroke-width': 3 },
+  });
+  map.addLayer({
+    id: 'trip-borders', type: 'symbol', source: 'trip-points', filter: ['==', ['get', 'kind'], 'border'],
+    layout: { 'icon-image': DIAMOND, 'icon-size': sized(1), 'icon-allow-overlap': true, 'icon-ignore-placement': true },
+    paint: { 'icon-opacity': shown },
   });
   map.addLayer({
     id: 'trip-stops', type: 'circle', source: 'trip-points', filter: ['==', ['get', 'kind'], 'stop'],
@@ -249,11 +277,13 @@ export function paintTrip(map: maplibregl.Map, o: TripOverlay) {
   stop(map);
   const cum = measure(o.line);
   const stopAt = o.stops.map((at) => PAINT_MS * invEase(fractionAt(o.line, cum, at)));
+  const borderAt = (o.borders ?? []).map((at) => PAINT_MS * invEase(fractionAt(o.line, cum, at)));
   const gapEnds = o.gaps.filter((g) => g.length > 1).map((g) => fractionAt(o.line, cum, g[g.length - 1]));
   const all = pointFC(o);
   const head = map.getSource('trip-head') as maplibregl.GeoJSONSource;
   const pts = map.getSource('trip-points') as maplibregl.GeoJSONSource;
-  const landsAt = (kind: string, i: number | undefined) => (kind === 'from' ? 0 : kind === 'to' ? PAINT_MS : stopAt[i ?? 0] ?? PAINT_MS);
+  const landsAt = (kind: string, i: number | undefined) =>
+    kind === 'from' ? 0 : kind === 'to' ? PAINT_MS : ((kind === 'border' ? borderAt : stopAt)[i ?? 0] ?? PAINT_MS);
   const t0 = performance.now();
   const frame = (now: number) => {
     const el = now - t0;

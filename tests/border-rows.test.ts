@@ -28,13 +28,14 @@ describe('borderRows and rowsOnLeg (B79)', () => {
     expect(rows.map((r) => r.to)).toEqual(['us', 'ca']);
     expect(rows[0].alongKm).toBeCloseTo(route.cumKm[1]);
     expect(rows[0].place).toBe('Port Huron, MI');
+    expect(rows[0].at).toEqual([-82.42, 42.97]); // B89: the row flies there
   });
   it('says just the country while the places load, and skips a bad index', () => {
-    expect(borderRows([{ i: 1, to: 'us' }, { i: 99, to: 'ca' }], route, null)).toEqual([{ alongKm: route.cumKm[1], to: 'us', place: null }]);
+    expect(borderRows([{ i: 1, to: 'us' }, { i: 99, to: 'ca' }], route, null)).toEqual([{ alongKm: route.cumKm[1], to: 'us', place: null, at: [-82.42, 42.97] }]);
     expect(borderRows(undefined, route, places)).toEqual([]);
   });
   it('puts each row on the leg it falls on', () => {
-    const rows = [{ alongKm: 10, to: 'us' as const, place: null }, { alongKm: 300, to: 'ca' as const, place: null }];
+    const rows = [{ alongKm: 10, to: 'us' as const, place: null, at: [0, 0] as [number, number] }, { alongKm: 300, to: 'ca' as const, place: null, at: [0, 0] as [number, number] }];
     const stopKms = [120, 250];
     expect(rowsOnLeg(rows, stopKms, 0).map((r) => r.alongKm)).toEqual([10]);
     expect(rowsOnLeg(rows, stopKms, 1)).toEqual([]);

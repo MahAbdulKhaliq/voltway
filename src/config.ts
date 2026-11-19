@@ -35,7 +35,10 @@ export const COST = {
  */
 export const MAP = {
   styleUrl: 'https://tiles.openfreemap.org/styles/positron',
-  darkStyleUrl: 'https://tiles.openfreemap.org/styles/dark',
+  /** B89 (owner): dark uses the light style's layers and lettering too (proper-case towns and
+   *  roads, bold capitals, italic water and provinces); map-style.ts paints it dark. Every colour
+   *  in it is recoloured, so nothing light shows through. */
+  darkStyleUrl: 'https://tiles.openfreemap.org/styles/positron',
   /** The tiles credit OpenFreeMap and OpenMapTiles; OSM's licence asks for this exact wording too. */
   attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>',
   /** First visit: southern Ontario and Québec, where most chargers are. [lon, lat], zoom. */

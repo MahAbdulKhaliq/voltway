@@ -106,6 +106,7 @@ export default function Compare({ index }: Props) {
     addOpener.current = from;
     setAdding(true);
     addDialog.current?.showModal();
+    requestAnimationFrame(() => addDialog.current && (addDialog.current.scrollTop = 0)); // start at the title
   };
   const closeAdd = () => addDialog.current?.close();
   useEffect(() => {

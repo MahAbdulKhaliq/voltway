@@ -43,9 +43,11 @@ interface Props {
   onRouteHere?: () => void;
   /** Back to the Stations in view list (B62): shown while that list is switched on. */
   onBack?: () => void;
+  /** B89: Back from a trip stop returns to the whole route, and says so. */
+  backToRoute?: boolean;
 }
 
-export default function StationPanel({ station, updated, updatedUs = null, ocmUpdated = null, onClose, myCar = null, carInfo = null, onRouteHere, onBack }: Props) {
+export default function StationPanel({ station, updated, updatedUs = null, ocmUpdated = null, onClose, myCar = null, carInfo = null, onRouteHere, onBack, backToRoute = false }: Props) {
   const s = station.properties;
   const heading = useRef<HTMLHeadingElement>(null);
   const level = stationLevel(s.p);
@@ -100,7 +102,7 @@ export default function StationPanel({ station, updated, updatedUs = null, ocmUp
         </div>
         {/* One button (B71): back to the list when opened from it, close when opened from the map. */}
         {onBack ? (
-          <button type="button" className="station-close station-back" aria-label={t('map.station.back')} title={t('map.station.back')} onClick={onBack}>
+          <button type="button" className="station-close station-back" aria-label={t(backToRoute ? 'map.station.backRoute' : 'map.station.back')} title={t(backToRoute ? 'map.station.backRoute' : 'map.station.back')} onClick={onBack}>
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             </svg>

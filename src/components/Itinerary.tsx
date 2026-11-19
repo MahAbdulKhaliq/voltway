@@ -1,7 +1,8 @@
 // The trip result (route-planner.md §7; DESIGN-4 4.8): total time first, whole-trip warnings, then
 // start → legs and stops → arrival along the painted line. It is an ordered list, so it is also
-// the accessible version of the route on the map. Each stop is two lines plus one Details control
-// (the station panel holds directions and the curve link). Notes that apply to several stops are
+// the accessible version of the route on the map. Each row sits on a card (B89). A stop's number
+// is its button: it closes in on the stop and opens its station panel (directions, the curve link);
+// a border row's diamond closes in on the crossing; the same one again goes back to the whole route. Notes that apply to several stops are
 // said once, with a short tag on the stops they apply to. On phones the stops open with
 // "Show the stops"; the totals, warnings and the "estimate only" line are always visible.
 
@@ -14,6 +15,9 @@ import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import { COVERAGE, TRIP } from '../config.ts';
 import { chargeCost, chargePrice, PRICE_EVENT } from '../lib/price.ts';
 import { rowsOnLeg, type BorderRow } from '../lib/border-rows.ts';
+import { Accordion } from './react/Accordion.tsx';
+import { SpeedMark } from './SpeedIcon.tsx';
+import { speedTier } from '../lib/map-icons.ts';
 
 const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', currency: COVERAGE.currency });
 
@@ -24,8 +28,12 @@ interface Props {
   unit: DistanceUnit;
   /** The stop whose station panel is open, if any. */
   selected: number | null;
-  /** "Details": opens that stop's station panel. */
+  /** The stop number: closes in on the stop and opens its station panel (again: the whole route). */
   onOpenStop: (index: number, button: HTMLButtonElement) => void;
+  /** The spot the map is closed in on: "border-<k>" (index in `crossings`), "from" or "to". */
+  selectedSpot?: string | null;
+  /** A border row's diamond, or the start or destination mark: closes in on it (again: the whole route). */
+  onOpenSpot?: (key: string, at: [number, number]) => void;
   /** Phones: the stops are folded away until opened. */
   open: boolean;
   onToggle: () => void;
@@ -49,7 +57,7 @@ interface Props {
   crossings?: readonly BorderRow[];
 }
 
-export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive, onNacs, crossings = [] }: Props) {
+export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, selectedSpot = null, onOpenSpot, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive, onNacs, crossings = [] }: Props) {
   const bodyId = useId();
   // Stop costs use the charging price from Settings (B66); it can change while the plan is shown.
   const [price, setPrice] = useState(chargePrice);
@@ -97,9 +105,13 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
   const stopKms = plan.stops.map((s) => s.alongKm);
   const countryName = (cc: string) => t(cc === 'us' ? 'trip.border.us' : 'trip.border.ca');
   const borderItems = (legIndex: number, i: number) =>
-    rowsOnLeg(crossings, stopKms, legIndex).map((r, k) => (
-      <li key={`border-${legIndex}-${k}`} className={`ti-border${gapClass(legIndex)}`} style={{ '--i': i, '--n': plan.stops.length + 1 } as React.CSSProperties}>
-        <span className="ti-mark ti-border-mark" aria-hidden="true" />
+    rowsOnLeg(crossings, stopKms, legIndex).map((r) => {
+      const k = crossings.indexOf(r);
+      const on = selectedSpot === `border-${k}`;
+      return (
+      <li key={`border-${k}`} className={`ti-border${on ? ' on' : ''}${gapClass(legIndex)}`} style={{ '--i': i, '--n': plan.stops.length + 1 } as React.CSSProperties} aria-current={on ? 'true' : undefined}>
+        <button type="button" className="ti-mark ti-border-mark" aria-pressed={on} aria-label={t('trip.border.show')} title={t('trip.border.show')}
+          onClick={() => onOpenSpot?.(`border-${k}`, r.at)} />
         <div>
           <p className="ti-head">
             <strong>{t('trip.border.row')}</strong>
@@ -108,7 +120,8 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
           </p>
         </div>
       </li>
-    ));
+      );
+    });
 
   return (
     <div className={`route-itinerary${open ? ' open' : ''}`}>
@@ -180,8 +193,9 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
 
       <div id={bodyId} className="ti-body">
         <ol className="ti-list" ref={listRef}>
-          <li className={`ti-end ti-start${gapClass(0)}`} style={{ '--i': 0, '--n': plan.stops.length + 1 } as React.CSSProperties}>
-            <span className="ti-mark" aria-hidden="true" />
+          <li className={`ti-end ti-start${selectedSpot === 'from' ? ' on' : ''}${gapClass(0)}`} style={{ '--i': 0, '--n': plan.stops.length + 1 } as React.CSSProperties} aria-current={selectedSpot === 'from' ? 'true' : undefined}>
+            <button type="button" className="ti-mark" aria-pressed={selectedSpot === 'from'} aria-label={t('trip.endShow', { name: from.label })} title={t('trip.endShow', { name: from.label })}
+              onClick={() => onOpenSpot?.('from', [from.lon, from.lat])} />
             <div>
               <p className="ti-head"><strong>{from.label}</strong></p>
               <p className="ti-soc">{t('trip.departWith', { soc: pct(plan.startSoc) })}</p>
@@ -191,7 +205,9 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
           {borderItems(0, 0)}
           {plan.stops.map((s, i) => [
             <li key={`${s.station.i}-${i}`} style={{ '--i': i + 1, '--n': plan.stops.length + 1 } as React.CSSProperties} data-stop-item={i} aria-current={selected === i ? 'true' : undefined} className={`ti-stop${selected === i ? ' on' : ''}${gapClass(i + 1)}`}>
-              <span className="ti-mark ti-num" aria-hidden="true">{i + 1}</span>
+              <button type="button" className="ti-mark ti-num" data-stop={i} aria-pressed={selected === i}
+                aria-label={t('trip.stopShow', { n: i + 1, name: s.station.n })} title={t('trip.stopShow', { n: i + 1, name: s.station.n })}
+                onClick={(e) => onOpenStop(i, e.currentTarget)}>{i + 1}</button>
               <div>
                 <p className="ti-head">
                   <span className="sr-only">{t('trip.stopN', { n: i + 1 })} </span>
@@ -205,12 +221,11 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
                   })}
                   {s.energyKwh != null && t('trip.stopCost', { cost: stopCost(s.energyKwh) })}
                 </p>
+                {/* B89 round 4: the charger's speed first (the map's bolts and its top kW), then Car-limited. */}
                 <p className="ti-row">
-                  <button type="button" className="btn small" data-stop={i} aria-label={t('trip.detailsFor', { name: s.station.n })} onClick={(e) => onOpenStop(i, e.currentTarget)}>
-                    {t('trip.details')}
-                  </button>
-                  {s.teslaNetwork && <span className="ti-tag">{t(s.adapter ? 'trip.tag.adapter' : 'trip.tag.tesla')}</span>}
+                  <span className="ti-speed"><SpeedMark tier={speedTier(s.stationKw)} size={15} />{t('fmt.kw', { value: formatNumber(Math.round(s.stationKw)) })}</span>
                   {s.usableKw < s.stationKw && <span className="ti-tag">{t('trip.tag.carCap')}</span>}
+                  {s.teslaNetwork && <span className="ti-tag">{t(s.adapter ? 'trip.tag.adapter' : 'trip.tag.tesla')}</span>}
                   {s.offKm > NEAR_KM && (
                     <span className="ti-tag">{t('trip.tag.detour', { off: dist(s.offKm), min: formatNumber(Math.round(s.detourMin)) })}</span>
                   )}
@@ -220,8 +235,9 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             </li>,
             ...borderItems(i + 1, i + 1),
           ])}
-          <li className="ti-end ti-finish" style={{ '--i': plan.stops.length + 1, '--n': plan.stops.length + 1 } as React.CSSProperties}>
-            <span className="ti-mark" aria-hidden="true" />
+          <li className={`ti-end ti-finish${selectedSpot === 'to' ? ' on' : ''}`} style={{ '--i': plan.stops.length + 1, '--n': plan.stops.length + 1 } as React.CSSProperties} aria-current={selectedSpot === 'to' ? 'true' : undefined}>
+            <button type="button" className="ti-mark" aria-pressed={selectedSpot === 'to'} aria-label={t('trip.endShow', { name: to.label })} title={t('trip.endShow', { name: to.label })}
+              onClick={() => onOpenSpot?.('to', [to.lon, to.lat])} />
             <div>
               <p className="ti-head"><strong>{to.label}</strong></p>
               <p className="ti-soc">{plan.arriveSoc >= 0 ? t('trip.arriveWith', { soc: pct(plan.arriveSoc) }) : t('trip.arriveEmpty')}</p>
@@ -242,9 +258,9 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
           </ul>
         )}
 
-        <details className="ti-how small">
-          <summary>{t('trip.how')}</summary>
-          <div className="muted">
+        {/* B89: a section that unrolls (design-language §8), on a raised card like the rows. */}
+        <Accordion bare level={3} className="ti-how" title={t('trip.how')}>
+          <div className="small muted">
             {anyEstimated && <p>{t('trip.warn.estimated')}</p>}
             {plan.uncalibratedFactor && <p>{t('trip.warn.uncalibrated')}</p>}
             <p>{t('trip.assumptions', { payload: TRIP.payloadKg, target: TRIP.chargeToSoc, overhead: TRIP.stopOverheadMin })}</p>
@@ -252,7 +268,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             {updated && <p>{t('trip.chargerData', { date: showDate(updated) })}</p>}
             {carUpdated && <p>{t('trip.carDataDate', { date: showDate(carUpdated) })}</p>}
           </div>
-        </details>
+        </Accordion>
       </div>
       {/* Last (owner, B67): the reminder that all of this is an estimate. Always visible, phones included. */}
       <p className="small muted ti-disclaimer">{t('trip.disclaimer')}</p>

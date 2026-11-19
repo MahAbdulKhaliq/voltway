@@ -137,7 +137,7 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 - **B59 (2026-11-17), phones:** Map key and Locate me are 44 px round icon buttons; the map credits fold into a compact ⓘ; the panel is a draggable bottom sheet (peek, half, full) over a full-height map; zoom buttons hide on touch screens.
 - **B58 (2026-11-17):** speed bolts and plug drawings show only from zoom 9 in, on groups and pins alike, no longer tied to the group size (replaces the "fewer than 20" rule of B55). The map's "Choose your car" prompt is removed; the header's "Pick your car" dialog is the one car picker.
 - **B82 (2026-11-18):** speed bolts and plug drawings show from **zoom 9 while the screen isn't crowded** (about 40 marks on a 1280×800 map, scaled by area) and always from **zoom 14**, never on groups of 50 or more chargers; chargers are grouped within **64 px** (was 48). Replaces the B58 zoom rule.
-- **At-a-glance marks (B54):** speed bolts top right of a cluster or Level 3 pin from the fastest known Level 3 port (1 bolt ≤ 75 kW, 2 ≤ 150 kW, 3 above; none when unknown) and tiny plug drawings stacked on the left (CCS1, NACS, CHAdeMO, J1772, stacked). A **Map key** toggle above Locate me explains every mark.
+- **At-a-glance marks (B54):** speed bolts top right of a cluster or Level 3 pin from the fastest known Level 3 port (1 bolt under 150 kW, 2 from 150 to under 250 kW, 3 from 250 kW; none when unknown. *Rescaled by the owner in B89, 2026-11-19; was ≤ 75 / ≤ 150 / above.*) and tiny plug drawings stacked on the left (CCS1, NACS, CHAdeMO, J1772, stacked). A **Map key** toggle above Locate me explains every mark.
 - **Status shown on the pin:** a greyed pin with a small mark for "temporarily unavailable" (§6).
 
 ### Popup (bottom sheet on phones)
@@ -164,6 +164,8 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 - **Default view:** the user's last map position (saved in the browser), or else a view of southern Ontario and Québec, where most chargers are.
 
 ---
+
+*(B89, owner 2026-11-19: road names keep their own capitals in the bold face, in both themes. A charger opened from Stations in view is flown to close in; Back returns the camera to where it was unless the visitor moved the map. Phones: the Chargers filters stay open in the sheet; the sheet only changes height. Round 2 (2026-11-19): the dark map uses the light style's layers and lettering, recoloured dark (config `MAP.darkStyleUrl`); flights to a charger are quicker and flatter (under 1 s); on phones the sheet's lowest position shows only Where to. Round 3 (2026-11-19): far flights fly too (a set duration by distance, never a jump cut); tapping Where to on a phone no longer raises the sheet, only typing does. Round 4 (2026-11-19): Stations in view rows show the speed bolts (Level 2: the plug); dark highway shields are drawn dark with light numbers; the credits pill grows and shrinks and the ⓘ keeps its colour; "Finding your location…" uses the loading look (Locate me, and the locate on load when access is already allowed). Round 5 (2026-11-19): bolts rescaled to 150 / 250 kW (see B54 above); the credits unroll from the ⓘ and start with "About Voltway". Round 6 (2026-11-19): the map key uses the bare bolts; the credits open with an even unroll.)*
 
 ## 6. Status (N5) ✅
 

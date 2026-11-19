@@ -138,6 +138,8 @@ export default function HeaderChips() {
     setOpen(false);
     setPicking(true);
     dialog.current?.showModal();
+    // The browser can keep or move the scroll on open (focus goes to the search box): start at the title.
+    requestAnimationFrame(() => dialog.current && (dialog.current.scrollTop = 0));
     if (!cars) {
       setCarsFailed(false);
       fetch('/data/index.json')

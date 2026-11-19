@@ -84,6 +84,8 @@ Add up across the window:
 
 **"km added per 10 minutes" over "per hour"**: real stops last 15–30 minutes, so a per-hour figure (like the reference app's) is harder to picture. The comparison view keeps "per 10 min" as its headline figure.
 
+*B83 (2026-11-18): the charging time is the headline of the viewer (Overpass, display size); the other results follow as one quieter row, not equal tiles.*
+
 ### More detail panel (folded by default, for enthusiasts)
 - Peak power and the SoC where it occurs
 - Time spent above 100 / 150 / 200 kW
@@ -100,6 +102,8 @@ Add up across the window:
 - **Delivered power:** shaded area under the lower of the two lines, **only inside the start → end window**.
 - **Charging window:** the start and end SoC marked with vertical guides. Dragging them changes the sliders.
 - **Hover:** shows SoC, kW and elapsed time at that point.
+
+*B83 (2026-11-18): the chart follows the headline. Start and end are one two-handle slider aligned under the chart's % axis; the guides are drawn in the text colour ("stop bars"). A non-estimated curve is drawn like the trip line: yellow on the dark road band. Owner change the same day: the line is solid only inside the charging window; outside it the curve is drawn as long lane-line dashes. The chart sits on a raised panel, and each result on its own card.*
 
 ### Toggle: **power vs. time (minutes)**
 - The same session plotted over elapsed minutes. It's the more intuitive view for "how long will I sit here?".
@@ -130,6 +134,8 @@ Add up across the window:
 ---
 
 ## 8. Charger limits (C4)
+
+*B83 (2026-11-18, owner): the charger limit is set with a slider in 50 kW steps (50–350 kW, Max = no limit), in the map's slider look, not a dropdown with a custom field. See [design-language.md](design-language.md).*
 
 **v1 (simple):** delivered power = the lower of car power and the charger's **kW rating**. That covers the common case: a 150 kW-max car on a 50 kW charger.
 

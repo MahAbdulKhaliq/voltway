@@ -27,6 +27,8 @@ const PAIRS: [string, string, number][] = [
   ['estimated', 'surface', 4.5], ['estimated', 'estimated-soft', 4.5], ['text', 'estimated-soft', 4.5],
   ['unknown', 'surface', 4.5], ['unknown', 'surface-2', 4.5],
   ['field-border', 'surface', 3], ['field-border', 'bg', 3],
+  // Content-page language (docs/design/design-language.md): badges and sliders on raised panels.
+  ['field-border', 'surface-2', 3], ['estimated', 'surface-2', 4.5], ['accent', 'surface-2', 3], ['text', 'accent-soft', 4.5],
   // Compare: one colour per car (header border, curve line, dot) — text-grade so labels can use it too.
   ...[1, 2, 3, 4].flatMap((n): [string, string, number][] => [[`car-${n}`, 'surface', 4.5], [`car-${n}`, 'bg', 4.5]]),
 ];

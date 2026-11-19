@@ -283,6 +283,9 @@ Map marks are circles with a dark ring: Level 3 pins yellow with a bolt, Level 2
 ### Source Badge (signature)
 Every vehicle figure carries a small pill badge naming its source. Official figures use the yellow soft fill and accent text; estimated figures use the violet soft fill, a dashed border and italic text; low-confidence ones a dotted border. Opening a badge shows the source.
 
+### Charging Curve (B83)
+A measured, tested or manufacturer curve is drawn like the trip line: Centre-Line Yellow on the Road Band, in both themes, with a soft yellow fill over the charging window. Outside the charging window the curve is drawn as long lane-line dashes (yellow in dark, road-band colour in light). Estimated curves and unmeasured stretches stay violet: short dashes inside the window, lane-line dashes outside. Each result figure sits on its own raised card (Raised Asphalt / Sunk Concrete) and the chart on a raised panel. The start and end guides are text-coloured stop bars, set by one two-handle slider (the map's kW slider look) under the chart. The charging time leads the viewer in the display face. Segmented switches use the Settings look (selected filled yellow, owner B83). The content pages share one language for readouts, panels, sliders, badges and charts: see [docs/design/design-language.md](docs/design/design-language.md).
+
 ### Trip Line (signature)
 The planned trip is centre-line yellow (4.5px) on a 12px Road Band, so it reads on both map themes. A stretch with no usable charger is the same line dashed, on a band edged in construction orange. Stops are white numbered pins with a dark ring; the selected stop gets a yellow ring. Start is a yellow dot, the destination a dark dot with a pale ring.
 

@@ -1,33 +1,48 @@
 // The Compare screen (database-ui.md §6, charging-curve-viewer.md §6, DESIGN-1b 6.1): up to four
-// cars, each with one colour across its header, curve line and results row. One SoC window and
-// charger power for every car; a sortable results table; the spec table with the best value per
-// row (icon + bold) and an "Only show differences" toggle. The list comes from ?cars= (shareable),
-// else from the saved Compare list; changes are saved and the URL follows.
+// cars, each with one colour across its card, curve line and race lane. One SoC window and charger
+// power for every car; the spec table with the best value per row (icon + bold) and an "Only show
+// differences" switch. The list comes from ?cars= (shareable), else from the saved Compare list;
+// changes are saved and the URL follows.
+//
+// B85 (owner, 2026-11-18): the content-page design language (design-language.md) and a "Charge
+// race": one road lane per car, a bar sized to the chosen figure, best first. Bars grow and the lanes
+// slide to their new order (FLIP, Web Animations) when the window, charger or figure changes; with
+// Animations off (html[data-motion="off"]) every change is instant.
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent, MarkLineComponent, TooltipComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { calculateCharge, displayMinutes, powerAt, type ChargeResult } from '../lib/charging.ts';
-import { BETTER, bestIndices, compareHref, firstDir, readCarsParam, replaceAt, rowDiffers, sortBy, type SortDir } from '../lib/compare.ts';
+import { BETTER, bestIndices, compareHref, firstDir, readCarsParam, replaceAt, rowDiffers, sortBy } from '../lib/compare.ts';
+import { reducedMotion } from '../lib/motion.ts';
 import { getCompare, setCompare } from '../lib/my-car.ts';
 import { GROUPS } from '../lib/spec-groups.ts';
-import { getItem, getJSON, KEYS } from '../lib/storage.ts';
+import { getItem, getJSON, KEYS, setJSON } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CarDetail, CurveOut, Field, IndexEntry } from '../lib/types.ts';
 import VariantName from './VariantName.tsx';
 import { Value } from './react/Badge.tsx';
+import { Accordion } from './react/Accordion.tsx';
 
 echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, CanvasRenderer]);
 
 interface Props { index: IndexEntry[] }
 
+/** Saved charger setting, shared with the curve viewer (KEYS.curveSettings). */
 type Preset = 'none' | '50' | '100' | '150' | '250' | '350' | 'custom';
 const PRESETS: Preset[] = ['none', '50', '100', '150', '250', '350', 'custom'];
-type Col = 'minutes' | 'km' | 'per10' | 'avgKw';
-const COLS: Col[] = ['minutes', 'km', 'per10', 'avgKw'];
+type Col = 'per10' | 'minutes' | 'km' | 'avgKw';
+const COLS: Col[] = ['per10', 'minutes', 'km', 'avgKw'];
+/** Charger power in 50 kW steps, then Max (design-language.md §4), as on the Charging page. */
+const CHARGER_STOPS = [50, 100, 150, 200, 250, 300, 350, Number.POSITIVE_INFINITY];
+const stopPct = (i: number) => `${(i / (CHARGER_STOPS.length - 1)) * 100}%`;
+/** Lane-line dashes for the curve outside the charging window (design-language.md §6). */
+const ROAD_DASH = [16, 12];
+const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)'; // --ease-out
+const SLIDE_MS = 460;
 /** Car colours (CSS tokens --car-1 … --car-4, contrast-checked in tests/contrast.test.ts). */
 const carVar = (i: number) => `var(--car-${i + 1})`;
 const cssVar = (name: string, fallback: string) =>
@@ -42,6 +57,24 @@ interface Row {
   estimated: boolean;
 }
 
+/** A drawn finish flag for the leading lane (no glyphs for icons). */
+function Flag() {
+  return (
+    <svg className="race-flag" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M3 1.5v13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M3.8 2.2h9.4l-2.1 3.3 2.1 3.3H3.8Z" fill="currentColor" />
+    </svg>
+  );
+}
+/** The best-value mark in the spec table. */
+function Star() {
+  return (
+    <svg className="best-star" width="13" height="13" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="m8 1.2 2 4.4 4.8.5-3.6 3.2 1 4.7L8 11.6 3.8 14l1-4.7L1.2 6.1 6 5.6Z" fill="currentColor" />
+    </svg>
+  );
+}
+
 export default function Compare({ index }: Props) {
   const byId = useMemo(() => new Map(index.map((e) => [e.id, e])), [index]);
   const [ids, setIds] = useState<string[] | null>(null);
@@ -53,12 +86,17 @@ export default function Compare({ index }: Props) {
   const [customKw, setCustomKw] = useState(120);
   const [unit, setUnit] = useState<DistanceUnit>('km');
   const [onlyDiff, setOnlyDiff] = useState(false);
-  const [sort, setSort] = useState<{ col: Col; dir: SortDir }>({ col: 'per10', dir: 'desc' });
+  const [figure, setFigure] = useState<Col>('per10');
   const [themeTick, setThemeTick] = useState(0);
+  // The race bars grow in once, on the first view with figures.
+  const [grown, setGrown] = useState(false);
   // Opened from a shared link whose list differs from the visitor's saved one: say so until they edit it.
   const [shared, setShared] = useState(false);
+  const uid = useId();
   const chartEl = useRef<HTMLDivElement>(null);
   const chart = useRef<echarts.ECharts | null>(null);
+  const raceEl = useRef<HTMLOListElement>(null);
+  const lanePos = useRef(new Map<string, number>());
 
   // The list: the link first, else the saved list. Shared settings start from the curve viewer's.
   useEffect(() => {
@@ -90,6 +128,11 @@ export default function Compare({ index }: Props) {
     };
   }, [byId]);
 
+  // The window and charger are the curve viewer's settings too (one set, database-ui.md §6).
+  const save = (patch: Partial<{ start: number; end: number; preset: Preset; customKw: number }>) =>
+    setJSON(KEYS.curveSettings, { ...getJSON<Record<string, unknown>>(KEYS.curveSettings, {}), start, end, preset, customKw, ...patch });
+  const setWindow = (s: number, e: number) => { setStart(s); setEnd(e); save({ start: s, end: e }); };
+
   // The URL follows the list, so the link reproduces the view.
   useEffect(() => {
     if (ids) history.replaceState(null, '', compareHref(ids));
@@ -111,6 +154,11 @@ export default function Compare({ index }: Props) {
   }, [ids, cars]);
 
   const chargerKw = preset === 'none' ? null : preset === 'custom' ? Math.max(1, customKw || 1) : Number(preset);
+  const chargerIndex = chargerKw == null
+    ? CHARGER_STOPS.length - 1
+    : CHARGER_STOPS.reduce((best, kw, i) => (Number.isFinite(kw) && Math.abs(kw - chargerKw) < Math.abs(CHARGER_STOPS[best] - chargerKw) ? i : best), 0);
+  const chargerLabel = chargerKw == null ? t('viewer.noLimit') : t('fmt.kw', { value: formatNumber(chargerKw, Number.isInteger(chargerKw) ? 0 : 1) });
+
   const rows: Row[] = useMemo(() => {
     const out: Row[] = [];
     (ids ?? []).forEach((id, slot) => {
@@ -144,46 +192,57 @@ export default function Compare({ index }: Props) {
     return e ? index.filter((x) => x.make === e.make && x.model === e.model && x.year === e.year) : [];
   };
 
-  // Curve overlay.
+  // Curve overlay: each car in its colour, solid inside the window, lane dashes outside it.
   useEffect(() => {
     if (!chartEl.current || !rows.length) return;
     if (!chart.current) chart.current = echarts.init(chartEl.current, undefined, { renderer: 'canvas' });
     const muted = cssVar('--muted', '#55544E');
+    const text = cssVar('--text', '#1A1B1E');
     const border = cssVar('--border', '#D5D3CB');
     const warn = cssVar('--warn', '#9A3F00');
     const axis = { axisLine: { lineStyle: { color: border } }, axisLabel: { color: muted }, splitLine: { lineStyle: { color: border } }, nameTextStyle: { color: muted } };
-    const series = rows
-      .filter((r) => r.curve)
-      .map((r, n) => ({
-        name: `${name(r.id)} ${r.car.name}`,
-        type: 'line' as const,
-        showSymbol: false,
-        data: Array.from({ length: 101 }, (_, s) => [s, powerAt(r.curve!.points, s)]),
-        lineStyle: { color: cssVar(`--car-${r.slot + 1}`, '#1D4ED8'), width: 2.5, type: r.curve!.kind === 'estimated' ? ('dashed' as const) : ('solid' as const) },
-        itemStyle: { color: cssVar(`--car-${r.slot + 1}`, '#1D4ED8') },
-        ...(n === 0
-          ? {
-              markLine: {
-                silent: true,
-                symbol: 'none',
-                data: [
-                  { xAxis: start, lineStyle: { color: muted, type: 'solid' as const }, label: { formatter: '{c}%', color: muted } },
-                  { xAxis: end, lineStyle: { color: muted, type: 'solid' as const }, label: { formatter: '{c}%', color: muted } },
-                  ...(chargerKw
-                    ? [{ yAxis: chargerKw, lineStyle: { color: warn, type: 'dashed' as const }, label: { position: 'insideEndTop' as const, formatter: t('viewer.chargerLimitValue', { kw: formatNumber(chargerKw) }), color: warn } }]
-                    : []),
-                ],
-              },
-            }
-          : {}),
-      }));
+    const drawn = rows.filter((r) => r.curve);
+    const cap = chargerKw ?? Number.POSITIVE_INFINITY;
+    const kwAt = (r: Row, soc: number) => Math.min(powerAt(r.curve!.points, soc), cap);
+    const span = (r: Row, a: number, b: number) => Array.from({ length: b - a + 1 }, (_, i) => [a + i, kwAt(r, a + i)]);
+    const series = drawn.flatMap((r, n) => {
+      const color = cssVar(`--car-${r.slot + 1}`, '#1D4ED8');
+      const est = r.curve!.kind === 'estimated';
+      const base = { type: 'line' as const, showSymbol: false, silent: true, itemStyle: { color }, z: 3 };
+      const out: Record<string, unknown>[] = [
+        { ...base, name: r.id, data: span(r, start, end), lineStyle: { color, width: 3, type: est ? 'dashed' : 'solid' } },
+      ];
+      if (start > 0) out.push({ ...base, data: span(r, 0, start), lineStyle: { color, width: 2, type: ROAD_DASH, cap: 'butt', opacity: 0.8 } });
+      if (end < 100) out.push({ ...base, data: span(r, end, 100), lineStyle: { color, width: 2, type: ROAD_DASH, cap: 'butt', opacity: 0.8 } });
+      if (n === 0) {
+        out[0].markLine = {
+          silent: true,
+          symbol: 'none',
+          data: [
+            { xAxis: start, lineStyle: { color: text, type: 'solid', width: 2 }, label: { show: false } },
+            { xAxis: end, lineStyle: { color: text, type: 'solid', width: 2 }, label: { show: false } },
+            ...(chargerKw
+              ? [{ yAxis: chargerKw, lineStyle: { color: warn, type: 'dashed' }, label: { position: 'insideEndTop', formatter: t('viewer.chargerLimitValue', { kw: formatNumber(chargerKw) }), color: warn } }]
+              : []),
+          ],
+        };
+      }
+      return out;
+    });
     chart.current.setOption(
       {
         animation: false,
         grid: { left: 48, right: 16, top: 24, bottom: 44 },
         tooltip: {
           trigger: 'axis',
-          valueFormatter: (v: unknown) => t('fmt.kw', { value: formatNumber(Number(v)) }),
+          // One line per car at the hovered charge level, whatever piece of its line is under the cursor.
+          formatter: (p: unknown) => {
+            const list = Array.isArray(p) ? (p as { axisValue: number }[]) : [p as { axisValue: number }];
+            const soc = Math.round(Number(list[0]?.axisValue ?? 0));
+            const lines = drawn.map((r) =>
+              `<span style="display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;background:${cssVar(`--car-${r.slot + 1}`, '#1D4ED8')}"></span>${name(r.id)} ${r.car.name}: <b>${t('fmt.kw', { value: formatNumber(kwAt(r, soc)) })}</b>`);
+            return [`${soc}%`, ...lines].join('<br>');
+          },
         },
         xAxis: { type: 'value', min: 0, max: 100, name: t('viewer.socLabel'), nameLocation: 'middle', nameGap: 28, ...axis },
         yAxis: { type: 'value', min: 0, name: t('viewer.powerLabel'), ...axis },
@@ -194,22 +253,64 @@ export default function Compare({ index }: Props) {
     const onResize = () => chart.current?.resize();
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
-  }, [rows, start, end, chargerKw, themeTick]);
+  }, [rows, start, end, chargerKw, themeTick]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => () => { chart.current?.dispose(); chart.current = null; }, []);
   useEffect(() => {
     if (!rows.length && chart.current) { chart.current.dispose(); chart.current = null; }
   }, [rows.length]);
 
+  // The race: figures per car, best first (lower is better for time; unknown last).
+  const colValue = (r: Row, c: Col): number | null =>
+    !r.result ? null : c === 'minutes' ? displayMinutes(r.result.minutes, r.estimated) : c === 'km' ? r.result.kmAdded : c === 'per10' ? r.result.kmPer10Min : r.result.averageKw;
+  const race = sortBy(rows, (r) => colValue(r, figure), firstDir(figure));
+  const raceValues = race.map((r) => colValue(r, figure));
+  const raceMax = Math.max(0, ...raceValues.map((v) => (typeof v === 'number' && Number.isFinite(v) ? v : 0)));
+  const leaders = bestIndices(raceValues, figure === 'minutes' ? 'lower' : 'higher');
+  const order = race.map((r) => r.id).join('|');
+
+  // The bars grow in once there are figures to show.
+  const hasFigures = raceMax > 0;
+  useEffect(() => {
+    if (!hasFigures || grown) return;
+    if (reducedMotion()) { setGrown(true); return; }
+    const f = requestAnimationFrame(() => requestAnimationFrame(() => setGrown(true)));
+    return () => cancelAnimationFrame(f);
+  }, [hasFigures, grown]);
+
+  // FLIP: lanes that changed place slide from where they were to where they are now.
+  useLayoutEffect(() => {
+    const list = raceEl.current;
+    if (!list) return;
+    const now = new Map<string, number>();
+    const lanes = [...list.querySelectorAll<HTMLElement>(':scope > li[data-id]')];
+    for (const li of lanes) now.set(li.dataset.id!, li.offsetTop);
+    if (!reducedMotion()) {
+      for (const li of lanes) {
+        const before = lanePos.current.get(li.dataset.id!);
+        const after = now.get(li.dataset.id!)!;
+        if (before === undefined || before === after || typeof li.animate !== 'function') continue;
+        li.getAnimations().forEach((a) => a.cancel());
+        li.animate([{ transform: `translateY(${before - after}px)` }, { transform: 'none' }], { duration: SLIDE_MS, easing: EASE });
+      }
+    }
+    lanePos.current = now;
+  }, [order]);
+
   if (ids === null) return <p className="muted">{t('compare.loading')}</p>;
 
-  const minutes = (r: Row) => (r.result ? t(r.estimated ? 'fmt.approxMin' : 'fmt.min', { value: displayMinutes(r.result.minutes, r.estimated) }) : null);
-  const distance = (km: number, approx: boolean) => `${approx ? '~' : ''}${t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(km, unit)) })}`;
-  const colValue = (r: Row, c: Col): number | null =>
-    !r.result ? null : c === 'minutes' ? r.result.minutes : c === 'km' ? r.result.kmAdded : c === 'per10' ? r.result.kmPer10Min : r.result.averageKw;
-  const sorted = sortBy(rows, (r) => colValue(r, sort.col), sort.dir);
-  const clickSort = (c: Col) => setSort((s) => (s.col === c ? { col: c, dir: s.dir === 'asc' ? 'desc' : 'asc' } : { col: c, dir: firstDir(c) }));
-  const mixed = rows.some((r) => r.estimated) && rows.some((r) => !r.estimated && r.curve);
+  const approx = (r: Row) => (r.estimated ? '~' : '');
+  const distance = (km: number, a: string) => `${a}${t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(km, unit)) })}`;
+  const figureText = (r: Row, c: Col): string | null => {
+    const v = colValue(r, c);
+    if (v == null) return null;
+    if (c === 'minutes') return t(r.estimated ? 'fmt.approxMin' : 'fmt.min', { value: displayMinutes(v, r.estimated) });
+    if (c === 'avgKw') return t('fmt.kw', { value: formatNumber(v) });
+    return distance(v, approx(r));
+  };
   const colLabel: Record<Col, MessageKey> = { minutes: 'compare.col.minutes', km: 'compare.col.km', per10: 'compare.col.per10', avgKw: 'compare.col.avgKw' };
+  const figureName = (c: Col) => t(colLabel[c], { start, end });
+  const mixed = rows.some((r) => r.estimated) && rows.some((r) => !r.estimated && r.curve);
+  const startOnTop = start >= end - 1 && start > 50;
 
   // Spec rows: each car's figure (variant level; heat pump from its first trim).
   const fieldOf = (r: Row, k: string): Field =>
@@ -235,7 +336,7 @@ export default function Compare({ index }: Props) {
       {ids.length === 0 ? (
         <div className="card empty">
           <p>{t('compare.empty')}</p>
-          <p><a className="btn" href="/cars">{t('compare.browse')}</a></p>
+          <p><a className="btn primary" href="/cars">{t('compare.browse')}</a></p>
         </div>
       ) : (
         <>
@@ -244,7 +345,7 @@ export default function Compare({ index }: Props) {
               const sibs = siblings(id);
               const label = name(id);
               return (
-                <li key={id} className="card cmp-car" style={{ borderTopColor: carVar(slot) }}>
+                <li key={id} className="card cmp-car" style={{ ['--lane' as string]: carVar(slot) }}>
                   <span className="car-name">{label}</span>
                   {sibs.length > 1 ? (
                     <select aria-label={t('compare.variantFor', { car: label })} value={id} onChange={(e) => change(replaceAt(ids, slot, e.target.value))}>
@@ -267,96 +368,121 @@ export default function Compare({ index }: Props) {
             })}
           </ul>
 
-          <section aria-labelledby="cmp-curves" className="card cmp-curves">
-            <h2 id="cmp-curves">{t('compare.curves')}</h2>
-            <div className="controls">
-              <label>
-                <span>{t('viewer.start')}: {start}%</span>
-                <input type="range" min={0} max={100} step={1} value={start} onChange={(e) => setStart(Math.min(Number(e.target.value), end))} />
-              </label>
-              <label>
-                <span>{t('viewer.end')}: {end}%</span>
-                <input type="range" min={0} max={100} step={1} value={end} onChange={(e) => setEnd(Math.max(Number(e.target.value), start))} />
-              </label>
-              <label>
-                <span>{t('viewer.charger')}</span>
-                <select value={preset} onChange={(e) => setPreset(e.target.value as Preset)}>
-                  {PRESETS.map((p) => (
-                    <option key={p} value={p}>{p === 'none' ? t('viewer.noLimit') : p === 'custom' ? t('viewer.custom') : t('fmt.kw', { value: p })}</option>
+          <section aria-labelledby={`${uid}-race`} className="card cmp-race">
+            <div className="race-head">
+              <h2 id={`${uid}-race`}>{t('compare.race')}</h2>
+              <div className="seg-field">
+                <span id={`${uid}-by`} className="seg-label">{t('compare.raceBy')}</span>
+                <div className="seg" role="group" aria-labelledby={`${uid}-by`}>
+                  {COLS.map((c) => (
+                    <button key={c} type="button" aria-pressed={figure === c} onClick={() => setFigure(c)}>{figureName(c)}</button>
                   ))}
-                </select>
-              </label>
-              {preset === 'custom' && (
-                <label>
-                  <span>{t('viewer.customKw')}</span>
-                  <input type="number" min={1} max={1000} value={customKw} onChange={(e) => setCustomKw(Number(e.target.value))} />
-                </label>
-              )}
+                </div>
+              </div>
             </div>
-            <p className="small muted">{t('compare.shared')}</p>
+            <p className="small muted race-note">{t(figure === 'minutes' ? 'compare.race.lower' : 'compare.race.higher')} {t('compare.shared')}</p>
             {mixed && <p className="banner small estimated" role="note">{t('compare.mixed')}</p>}
-            <div ref={chartEl} className="chart" role="img" aria-label={t('compare.chartAlt', { count: rows.filter((r) => r.curve).length })} />
-            <ul className="cmp-legend small" aria-hidden="true">
-              {rows.filter((r) => r.curve).map((r) => (
-                <li key={r.id}><span className={`swatch${r.curve!.kind === 'estimated' ? ' dashed' : ''}`} style={{ borderColor: carVar(r.slot) }} />{name(r.id)} {r.car.name}</li>
-              ))}
-            </ul>
 
-            <div className="table-scroll">
-              <table className="cmp-results">
-                <caption className="sr-only">{t('compare.resultsCaption', { start, end })}</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">{t('compare.col.car')}</th>
-                    {COLS.map((c) => (
-                      <th key={c} scope="col" aria-sort={sort.col === c ? (sort.dir === 'asc' ? 'ascending' : 'descending') : 'none'}>
-                        <button type="button" className="sort" onClick={() => clickSort(c)}>
-                          {t(colLabel[c], { start, end })}
-                          <span aria-hidden="true">{sort.col === c ? (sort.dir === 'asc' ? ' ▲' : ' ▼') : ''}</span>
-                        </button>
-                      </th>
-                    ))}
-                    <th scope="col">{t('compare.col.curve')}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {sorted.map((r) => (
-                    <tr key={r.id}>
-                      <th scope="row"><span className="dot" style={{ background: carVar(r.slot) }} aria-hidden="true" />{name(r.id)} <span className="muted"><VariantName name={r.car.name} /></span></th>
-                      <td>{minutes(r) ?? <span className="unknown">{t('badge.unknown')}</span>}</td>
-                      <td>{r.result?.kmAdded != null ? distance(r.result.kmAdded, r.estimated) : <span className="unknown">{t('badge.unknown')}</span>}</td>
-                      <td>{r.result?.kmPer10Min != null ? distance(r.result.kmPer10Min, r.estimated) : <span className="unknown">{t('badge.unknown')}</span>}</td>
-                      <td>{r.result ? t('fmt.kw', { value: formatNumber(r.result.averageKw) }) : <span className="unknown">{t('badge.unknown')}</span>}</td>
-                      <td>
-                        {r.curve ? (
-                          <span className={`kind-tag ${r.curve.kind === 'estimated' ? 'estimated' : 'measured'}`}>
+            <ol ref={raceEl} className={`race${grown ? ' grown' : ''}`} aria-label={t('compare.raceLabel', { figure: figureName(figure) })}>
+              {race.map((r, i) => {
+                const v = raceValues[i];
+                const lead = leaders.includes(i);
+                const pct = typeof v === 'number' && raceMax > 0 ? Math.max(2, (v / raceMax) * 100) : 0;
+                const main = figureText(r, figure);
+                return (
+                  <li key={r.id} data-id={r.id} className={`lane${lead ? ' lead' : ''}`} style={{ ['--lane' as string]: carVar(r.slot) }}>
+                    <span className="lane-car">
+                      <span className="lane-dot" aria-hidden="true" />
+                      <span className="lane-name">{name(r.id)} <span className="muted"><VariantName name={r.car.name} /></span></span>
+                    </span>
+                    <span className="lane-road" aria-hidden="true">
+                      {main && <span className="lane-fill" style={{ width: grown ? `${pct}%` : '0%' }} />}
+                    </span>
+                    <span className="lane-value">
+                      {lead && <><Flag /><span className="sr-only">{t('compare.best')} </span></>}
+                      {main ?? <span className="unknown">{r.curve ? t('badge.unknown') : t('compare.noCurve')}</span>}
+                    </span>
+                    <dl className="lane-meta small">
+                      {COLS.filter((c) => c !== figure).map((c) => (
+                        <div key={c}><dt>{figureName(c)}</dt><dd>{figureText(r, c) ?? t('badge.unknown')}</dd></div>
+                      ))}
+                      {r.curve && (
+                        <div>
+                          <dt className="sr-only">{t('viewer.curve')}</dt>
+                          <dd><span className={`kind-tag ${r.curve.kind === 'estimated' ? 'estimated' : 'measured'}`}>
                             {r.curve.based_on ? t('viewer.option.borrowed') : t(`viewer.option.${r.curve.kind}` as MessageKey)}
-                          </span>
-                        ) : <span className="unknown">{t('compare.noCurve')}</span>}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                          </span></dd>
+                        </div>
+                      )}
+                    </dl>
+                  </li>
+                );
+              })}
+            </ol>
+
+            <div className="plot panel">
+              <div ref={chartEl} className="chart" role="img" aria-label={(() => { const n = rows.filter((r) => r.curve).length; return n === 1 ? t('compare.chartAlt.one') : t('compare.chartAlt', { count: n }); })()} />
+              <div className="window">
+                <div className="window-labels" aria-hidden="true">
+                  <span>{t('viewer.start')}: {start}%</span>
+                  <span>{t('viewer.end')}: {end}%</span>
+                </div>
+                <div className="power-track">
+                  <div className="power-rail" aria-hidden="true" />
+                  <div className="power-fill" aria-hidden="true" style={{ left: `${start}%`, width: `${end - start}%` }} />
+                  <input
+                    type="range" min={0} max={100} step={1} value={start} aria-label={t('viewer.start')} aria-valuetext={`${start}%`}
+                    style={{ zIndex: startOnTop ? 3 : 2 }}
+                    onChange={(e) => setWindow(Math.min(Number(e.target.value), end), end)}
+                  />
+                  <input
+                    type="range" min={0} max={100} step={1} value={end} aria-label={t('viewer.end')} aria-valuetext={`${end}%`}
+                    onChange={(e) => setWindow(start, Math.max(Number(e.target.value), start))}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="charger-pick">
+              <label htmlFor={`${uid}-charger`} className="charger-words">
+                {t('viewer.charger')}: <strong>{chargerLabel}</strong>
+              </label>
+              <div className="power-track">
+                <div className="power-rail" aria-hidden="true" />
+                <div className="power-fill" aria-hidden="true" style={{ left: 0, width: stopPct(chargerIndex) }} />
+                <input
+                  id={`${uid}-charger`} type="range" min={0} max={CHARGER_STOPS.length - 1} step={1}
+                  value={chargerIndex} aria-valuetext={chargerLabel}
+                  onChange={(e) => {
+                    const kw = CHARGER_STOPS[Number(e.target.value)];
+                    if (Number.isFinite(kw)) { setPreset('custom'); setCustomKw(kw); save({ preset: 'custom', customKw: kw }); }
+                    else { setPreset('none'); save({ preset: 'none' }); }
+                  }}
+                />
+              </div>
+              <ol className="power-ticks" aria-hidden="true">
+                {CHARGER_STOPS.map((kw, i) => (
+                  <li key={i} style={{ left: stopPct(i) }}>{Number.isFinite(kw) ? formatNumber(kw) : t('map.power.maxStop')}</li>
+                ))}
+              </ol>
             </div>
           </section>
 
-          <section aria-labelledby="cmp-specs" className="cmp-specs">
-            <div className="cmp-specs-head">
-              <h2 id="cmp-specs">{t('compare.specs')}</h2>
-              <label className="check">
-                <input type="checkbox" checked={onlyDiff} onChange={(e) => setOnlyDiff(e.target.checked)} />
+          <Accordion headingId="cmp-specs" title={t('compare.specs')} open className="cmp-specs">
+            <div className="specs-tools">
+              <p className="small muted">{t('compare.bestHelp')}</p>
+              <button type="button" role="switch" aria-checked={onlyDiff} className="diff-switch" onClick={() => setOnlyDiff((v) => !v)}>
                 <span>{t('compare.onlyDiff')}</span>
-              </label>
+                <span className="switch" aria-hidden="true" />
+              </button>
             </div>
-            <p className="small muted">{t('compare.bestHelp')}</p>
             <div className="table-scroll snap" tabIndex={0} aria-label={t('compare.scrollLabel')}>
               <table className="cmp-table" style={{ ['--cols' as string]: ids.length }}>
                 <thead>
                   <tr>
                     <td className="corner" />
                     {ids.map((id, slot) => (
-                      <th key={id} scope="col" className="car-head" style={{ borderTopColor: carVar(slot) }}>
+                      <th key={id} scope="col" className="car-head" style={{ ['--lane' as string]: carVar(slot) }}>
                         <span className="car-name">{name(id)}</span>
                         <span className="variant"><VariantName name={byId.get(id)?.name ?? ''} /></span>
                       </th>
@@ -385,7 +511,7 @@ export default function Compare({ index }: Props) {
                               {slotRows.map((r, i) => (
                                 <td key={ids[i]} className={best.includes(i) ? 'best' : undefined}>
                                   {best.includes(i) && (
-                                    <span className="best-mark"><span aria-hidden="true">★ </span><span className="sr-only">{t('compare.best')} </span></span>
+                                    <span className="best-mark"><Star /><span className="sr-only">{t('compare.best')} </span></span>
                                   )}
                                   {r ? <Value field={fields[i]} sources={r.car.sources} label={label} unit={unit} /> : <span className="unknown">{t('badge.unknown')}</span>}
                                 </td>
@@ -401,63 +527,114 @@ export default function Compare({ index }: Props) {
             {onlyDiff && ready && groups.every((g) => g.fields.every((k) => !rowDiffers(slotRows.map((r) => (r ? fieldOf(r, k)?.value.value ?? null : null))))) && (
               <p className="muted">{t('compare.noDiff')}</p>
             )}
-            {ids.length < 4 && <p className="small"><a href="/cars">{t('compare.addMore')}</a></p>}
-          </section>
+            {ids.length < 4 && <p className="small add-more"><a href="/cars">{t('compare.addMore')}</a></p>}
+          </Accordion>
         </>
       )}
 
       <style>{`
         .compare { display: grid; gap: 20px; }
-        .compare > *, .cmp-curves > *, .cmp-specs > * { min-width: 0; }
-        .compare h2 { margin: 0 0 8px; font-size: 1.15rem; }
+        .compare > *, .cmp-race > *, .cmp-specs > * { min-width: 0; }
+        .compare h2 { margin: 0; font-family: var(--display); font-size: 1.15rem; letter-spacing: -0.01em; }
         .compare .empty { text-align: center; }
-        .cmp-curves { display: grid; gap: 12px; }
-        .cmp-curves .controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px 16px; align-items: end; }
-        .cmp-curves .controls label { display: grid; gap: 4px; }
-        .cmp-curves .chart { width: 100%; height: 320px; }
-        .cmp-curves > p { margin: 0; }
-        .cmp-legend { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 16px; }
-        .cmp-legend li { display: inline-flex; align-items: center; gap: 6px; }
-        .cmp-legend .swatch { display: inline-block; width: 22px; border-top: 3px solid; }
-        .cmp-legend .swatch.dashed { border-top-style: dashed; }
-        .table-scroll { overflow-x: auto; }
-        .table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-        .cmp-results { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-        .cmp-results th, .cmp-results td { padding: 8px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
-        .cmp-results thead th { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
-        .cmp-results .sort { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; text-align: left; }
-        .cmp-results .sort:hover { color: var(--text); text-decoration: underline; }
-        .cmp-results .sort:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-        .cmp-results .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
-        .cmp-specs-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
-        .cmp-specs-head .check { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
-        .cmp-specs-head .check input { width: 18px; height: 18px; accent-color: var(--accent); }
-        .cmp-specs > p { margin: 4px 0 8px; }
-        .cmp-table { border-collapse: separate; border-spacing: 0; width: 100%; table-layout: fixed; min-width: calc(160px + var(--cols) * 180px); }
-        .cmp-table th, .cmp-table td { padding: 8px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); background: var(--surface); overflow-wrap: break-word; }
-        .cmp-table tbody th[scope="row"], .cmp-table .corner { position: sticky; left: 0; z-index: 1; width: 160px; font-weight: 600; font-size: 0.9rem; color: var(--muted); }
-        .cmp-table .car-head { border-top: 5px solid; vertical-align: bottom; }
-        .cmp-table .car-name { display: block; font-weight: 700; }
-        .cmp-table .variant { display: block; margin: 4px 0; color: var(--muted); font-weight: 400; }
-        .cmp-cars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-        .cmp-car { border-top: 5px solid; padding: 12px 14px; display: grid; gap: 6px; align-content: start; }
-        .cmp-car .car-name { font-weight: 700; }
-        .cmp-car select { width: 100%; }
+
+        /* Car cards: the car's colour runs along the top like its lane (design-language.md §9, B85). */
+        .cmp-cars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
+        .cmp-car { position: relative; overflow: hidden; padding: 16px 14px 12px; display: grid; gap: 8px; align-content: start; }
+        .cmp-car::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: var(--lane); }
+        .cmp-car .car-name { font-family: var(--display); font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; }
         .cmp-car .variant { color: var(--muted); }
-        .cmp-car .car-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-        .cmp-table tbody th[scope="row"] { hyphens: auto; }
-        .cmp-table .group-row th { background: var(--surface-2); color: var(--text); font-size: 0.9rem; position: sticky; left: 0; }
-        .cmp-table td.best { font-weight: 700; }
-        .cmp-table td.best .v { font-weight: 700; }
-        .cmp-table .best-mark { color: var(--accent); position: relative; } /* keeps its sr-only text inside the scroller */
+        .cmp-car .car-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+
+        /* The race (B85): one road lane per car, best first. */
+        .cmp-race { display: grid; gap: 14px; }
+        .race-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; }
+        .compare .seg-field { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .compare .seg-label { font-size: 0.875rem; color: var(--muted); }
+        .race-note { margin: -6px 0 0; }
+        .race { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; position: relative; }
+        .lane {
+          display: grid; grid-template-columns: minmax(150px, 230px) minmax(0, 1fr) minmax(96px, auto);
+          grid-template-areas: "car road value" "car meta meta"; column-gap: 16px; row-gap: 4px; align-items: center;
+          padding: 10px 14px; border-radius: 10px; background: var(--surface-2);
+        }
+        .lane-car { grid-area: car; display: flex; align-items: center; gap: 10px; min-width: 0; align-self: start; padding-top: 3px; }
+        .lane-dot { flex: none; width: 12px; height: 12px; border-radius: 50%; background: var(--lane); }
+        .lane-name { font-family: var(--display); font-weight: 700; font-size: 0.95rem; line-height: 1.25; min-width: 0; }
+        .lane-name .muted { font-family: var(--font); font-weight: 400; }
+        /* The road: a lane with its centre dashes; the bar is the car's paint over it. */
+        .lane-road {
+          grid-area: road; position: relative; height: 14px; border-radius: 999px;
+          background: linear-gradient(90deg, var(--field-border) 0 16px, transparent 16px 28px) 0 50% / 28px 2px repeat-x, var(--surface);
+        }
+        .lane-fill { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: var(--lane); transition: width 0.62s var(--ease-out); }
+        .lane-fill::after { content: ""; position: absolute; right: -2px; top: 50%; width: 18px; height: 18px; margin-top: -9px; border-radius: 50%; background: var(--lane); box-shadow: 0 0 0 3px var(--surface-2); }
+        .lane-value { grid-area: value; display: inline-flex; align-items: center; justify-content: flex-end; gap: 6px; font-family: var(--display); font-weight: 700; font-size: 1.15rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+        .lane-value .unknown { font-family: var(--font); font-weight: 400; font-size: 0.9rem; }
+        .lane.lead .lane-value { color: var(--text); }
+        .race-flag { color: var(--accent); flex: none; }
+        .lane-meta { grid-area: meta; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 14px; margin: 0; color: var(--muted); }
+        .lane-meta > div { display: inline-flex; gap: 5px; align-items: baseline; }
+        .lane-meta dt { margin: 0; }
+        .lane-meta dd { margin: 0; color: var(--text); font-variant-numeric: tabular-nums; font-weight: 600; }
+
+        /* The chart on its panel, the window slider under it lined up with the 0-100 % axis. */
+        .cmp-race .plot { display: grid; gap: 4px; padding: 12px 12px 10px; }
+        .cmp-race .chart { width: 100%; height: 300px; }
+        .cmp-race .power-rail { background: var(--field-border); }
+        .cmp-race .window { padding: 0 16px 0 48px; }
+        .cmp-race .window .power-track { margin: 0; }
+        .cmp-race .window-labels { display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 600; font-variant-numeric: tabular-nums; margin-bottom: 2px; }
+        .cmp-race .charger-pick { display: grid; gap: 2px; max-width: 520px; padding-right: 8px; }
+        .cmp-race .charger-words { display: block; font-size: 0.875rem; color: var(--muted); }
+        .cmp-race .charger-words strong { color: var(--text); font-weight: 650; font-variant-numeric: tabular-nums; }
+        .cmp-race .charger-pick .power-ticks li { transform: translateX(-50%); }
+
+        /* Specs: in a section that unrolls; group rows raised. */
+        .specs-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 10px; }
+        .specs-tools p { margin: 0; }
+        .diff-switch { display: inline-flex; align-items: center; gap: 10px; padding: 6px 2px; border: 0; background: none; color: var(--text); font: inherit; font-size: 0.9rem; cursor: pointer; border-radius: 6px; }
+        .diff-switch:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+        .diff-switch .switch { flex: none; position: relative; width: 30px; height: 18px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--field-border); transition: background-color 0.15s, border-color 0.15s; }
+        .diff-switch .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted); transition: transform 0.15s var(--ease-out); }
+        .diff-switch:hover .switch { border-color: var(--text); }
+        .diff-switch[aria-checked=true] .switch { background: var(--paint); border-color: var(--paint-edge); }
+        .diff-switch[aria-checked=true] .switch::after { transform: translateX(12px); background: var(--paint-ink); }
+        .table-scroll { overflow-x: auto; }
+        .table-scroll:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+        .cmp-table { border-collapse: separate; border-spacing: 0; width: 100%; table-layout: fixed; min-width: calc(160px + var(--cols) * 180px); }
+        .cmp-table th, .cmp-table td { padding: 9px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid color-mix(in srgb, var(--field-border) 45%, transparent); background: var(--surface); overflow-wrap: break-word; }
+        .cmp-table tbody th[scope="row"], .cmp-table .corner { position: sticky; left: 0; z-index: 1; width: 160px; font-weight: 600; font-size: 0.9rem; color: var(--muted); hyphens: auto; }
+        .cmp-table .car-head { vertical-align: bottom; box-shadow: inset 0 4px 0 var(--lane); padding-top: 14px; }
+        .cmp-table .car-name { display: block; font-family: var(--display); font-weight: 700; }
+        .cmp-table .variant { display: block; margin: 4px 0; color: var(--muted); font-weight: 400; }
+        .cmp-table .group-row th { background: var(--surface-2); color: var(--text); font-family: var(--display); font-weight: 700; font-size: 0.95rem; position: sticky; left: 0; border-bottom: 0; border-radius: 8px; }
+        .cmp-table td .v { font-family: var(--display); font-weight: 600; font-variant-numeric: tabular-nums; }
+        .cmp-table td.best, .cmp-table td.best .v { font-weight: 800; }
+        .cmp-table .best-mark { color: var(--accent); position: relative; margin-right: 4px; } /* keeps its sr-only text inside the scroller */
+        .best-star { vertical-align: -1px; }
+        .add-more { margin: 12px 0 0; }
+
+        html[data-motion="off"] .lane-fill, html[data-motion="off"] .diff-switch .switch, html[data-motion="off"] .diff-switch .switch::after { transition: none; }
+
         @media (max-width: 640px) {
+          .lane { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "car value" "road road" "meta meta"; padding: 10px 12px; column-gap: 10px; }
+          .lane-car { align-self: center; padding-top: 0; }
+          .cmp-race .chart { height: 240px; }
+          .cmp-race .plot { padding: 8px 6px; }
+          .race-head .seg-field { width: 100%; }
+          .race-head .seg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+          .race-head .seg button { border-radius: 0; border-left: 1px solid var(--field-border); }
+          .race-head .seg button:nth-child(1) { border-radius: 8px 0 0 0; }
+          .race-head .seg button:nth-child(2) { border-radius: 0 8px 0 0; border-left: 0; }
+          .race-head .seg button:nth-child(3) { border-radius: 0 0 0 8px; border-top: 0; }
+          .race-head .seg button:nth-child(4) { border-radius: 0 0 8px 0; border-top: 0; border-left: 0; }
           .cmp-table { min-width: calc(110px + var(--cols) * ((100vw - 32px - 110px) / 2)); }
           .cmp-table tbody th[scope="row"], .cmp-table .corner { width: 110px; font-size: 0.8rem; }
           .table-scroll.snap { scroll-snap-type: x mandatory; scroll-padding-left: 110px; }
           .cmp-table .car-head { scroll-snap-align: start; }
           .cmp-cars { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-          .cmp-car { padding: 10px; }
-          .cmp-results tbody th, .cmp-results thead th:first-child { white-space: normal; min-width: 120px; max-width: 140px; position: sticky; left: 0; z-index: 1; background: var(--surface); }
+          .cmp-car { padding: 14px 10px 10px; }
         }
       `}</style>
     </div>

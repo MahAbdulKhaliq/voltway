@@ -111,6 +111,51 @@ The contrast pairs are checked in `tests/contrast.test.ts`: field-border and est
   - the hover and chevron transitions and the select drop-in are off.
 - Every new motion on content pages must check this the same way: `reducedMotion()` in script, and `html[data-motion="off"]` in CSS.
 
-## 9. Still to decide (polish pass)
+## 9. Comparing cars: car colours and the "Charge race"
 
-Open points for the owner: grouping the assumption controls, a shorter estimate notice, the phone order, and the first-load car picker (from the first B83 review). The Compare page still uses the old charger dropdown and the old toggles, and moves to §4 when Compare gets its pass.
+*(Owner, B85, 2026-11-18; under review, not committed yet.)* Code: `src/components/Compare.tsx`.
+
+**Car colours**
+- Each car keeps one colour (`--car-1` … `--car-4`) everywhere on the page:
+  - a 4 px stripe along the top of its card;
+  - a 4 px inset line on its spec-table column head;
+  - its race lane;
+  - its curve.
+- Car colours are text-grade on the page and the card (4.5:1) and at least 3:1 on raised blocks (`tests/contrast.test.ts`).
+- Car colours never replace the road paint's meaning. Yellow stays the action and selection colour; violet still means only "estimate".
+
+**The race** (a ranked figure, shown as roads)
+- A `.seg` above it picks the figure: **Per 10 min** (the default), the window time, Added, or Average power.
+- **One lane per car**, best first:
+  - for time, the shortest wins;
+  - unknown figures go last and show "Unknown" or "No curve yet" with an empty road.
+- The lane is a raised block. Inside it:
+  - the road: a 14 px pill on `surface` with field-border centre dashes (16 px of paint, 12 px gap);
+  - the car's bar, ending in a round marker with a raised ring;
+  - the value on the right in Overpass 700;
+  - the other figures and the curve-kind tag as a small line under the road.
+- Bar length is proportional to the figure: the largest value fills the road. For time, the fastest car therefore has the *shortest* bar.
+- The best lane gets a drawn flag (accent) and "Best:" for screen readers. Ties are all flagged.
+- **Motion:**
+  - bars grow in once on the first view;
+  - bars resize smoothly when the window, charger or figure changes (0.62 s, `--ease-out`);
+  - lanes that change place slide to their new spot (FLIP, Web Animations, 460 ms);
+  - with Animations off, all of it is instant.
+
+**The rest of the page on the shared language**
+- The chart is on a panel:
+  - each curve is solid in the car's colour inside the window and lane-dashed outside it (estimated: dashed inside);
+  - the stop bars are in the text colour;
+  - the tooltip lists every car's kW at the hovered charge level.
+- The window slider sits under the chart, lined up with its axis. The charger slider uses 50 kW steps, and the old "Custom" kW field is gone.
+- The window and the charger are the same saved settings as on the Charging page.
+- The spec table sits in a section that unrolls (§8):
+  - group rows are raised, in Overpass;
+  - values are in Overpass with tabular figures;
+  - the best value per row gets a drawn star and bold.
+- "Only show differences" is a switch (the Settings switch look).
+- The empty state's "Browse cars" is the primary yellow button.
+
+## 10. Still to decide (polish pass)
+
+Open points for the owner: grouping the assumption controls, a shorter estimate notice, the phone order, and the first-load car picker (from the first B83 review). Compare (B85): whether a time race should draw the fastest car with the longest bar instead (owner to decide).

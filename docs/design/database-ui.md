@@ -146,6 +146,7 @@ One page per **model year**, with a **variant selector** (and an optional trim s
 - **"Only show differences"** toggle hides rows where every car is the same.
 - Each car keeps **one colour** across the curve, the table header and its badges.
 - **Phones:** two cars side by side, swiping to see the rest.
+- *(B85, owner 2026-11-18: the page uses the content-page design language, and the results table is a **Charge race**: a road lane per car, bar sized to the chosen figure, best first, animated re-sorting; see `design-language.md`.)*
 
 ---
 

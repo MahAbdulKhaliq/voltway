@@ -620,3 +620,25 @@ Read B83 in `docs/design/gaps-and-questions.md`. Page: `/charging`. Cars: Kia EV
 | QC11 | PASS | Real Settings control sets data-motion="off", persists across reload; instant open/shut, no animations, transitions 0 s incl. ::picker(select); back on restores motion without reload (docs/plan/reports/ui-check-b83-overdrive.md) |
 | QC12 | PASS | Overpass titles, pills, 375/375 no horizontal scroll; chevron 30/28 px turns 180°, yellow-soft both themes; lane 2 px both themes; [6] with Sources closed opens at once, entry in view (y 406–474 of 800) (docs/plan/reports/ui-check-b83-overdrive.md) |
 | QC13 | PASS | 8 selects Overpass 600, base-select, ellipsis; text 14.67 / 16.35, border 3.79 / 4.93 (dark / light); open list raised card, chosen row yellow-soft + checkmark; ArrowDown+Enter changes car and URL; Escape cancels; focus outline; disabled Trim looks disabled. Not checked: type-ahead, non-Chromium fallback (docs/plan/reports/ui-check-b83-overdrive.md) |
+
+# B85 QA: Compare page overdrive
+
+Read B85 in `docs/design/gaps-and-questions.md` and `docs/design/design-language.md`. Page: `/compare?cars=kia/ev9/2026/land-awd-gt-line,hyundai/ioniq-5/2026/long-range-awd,bmw/i4/2026/edrive40-gran-coupe` (tested curve, no curve, estimated curve). Also an empty list and four cars.
+
+| ID | Area | How to check | Pass when / edge cases |
+|----|------|--------------|------------------------|
+| QR1 | Design language | 1280 and 375, both themes | Car cards, chart panel, spec section follow design-language.md (Overpass names and values, raised panels without border/shadow, restyled selects, Settings-style switch); text ≥ 4.5:1; no horizontal page scroll at 375 (the spec table scrolls inside its own box) |
+| QR2 | Sliders and chart | drag both window handles and the charger; arrows; reload | Window handles line up with the chart's 0–100 % axis (≤ 4 px); start can't pass end; charger steps 50…350, Max; the orange limit line follows; curves solid inside the window, lane dashes outside; estimated dashed; tooltip lists each car's kW |
+| QR3 | Charge race | each figure in the switch; EV9 + IONIQ 5 (no curve) + i4 | Lanes best first (time: shortest first); bars proportional (measure widths); best lane flagged, ties both flagged, unknown last with "Unknown" and no bar; each lane states all four figures and the curve kind as text; screen reader reads a list in order with values |
+| QR4 | Race motion | Animations on: drag the window so the order changes, switch figures, change the charger; then Animations off | Bars resize smoothly (no jump), re-sorted lanes slide to their new places, no lane overlaps after settling, no stuck transforms; first view grows the bars in once; with Animations off everything is instant (no transitions or animations) |
+| QR5 | Specs and list edits | Only show differences on/off; variant select; Remove; empty list; 4 cars at 375 | Switch filters rows and announces state (role switch, aria-checked); the spec section unrolls (Road unrolls); best marked with icon + bold; variant change and Remove update the race, chart, table and URL; empty list shows the browse prompt; 4 cars at 375 swipe in the spec table |
+
+## B85 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QR1 | PASS | Overpass names/values, borderless chart panel, role=switch; text ≥ 5.06:1 all four passes, car colours ≥ 4.73:1 on lanes; no page scroll at 1280/375, spec table scrolls in its box (docs/plan/reports/ui-check-b85.md) |
+| QR2 | PASS (after fix) | Track edges = axis edges (169.5/1127.5 at 1280, 85/322 at 375), thumb 0 px off; clamp at 80/80; 8 charger stops, limit line at 150; solid inside / dashed outside, i4 dashed; tooltip per car; reload keeps both. Fixed: curves now capped at the charger kW like the Charging page (re-checked at 150 kW) (docs/plan/reports/ui-check-b85.md) |
+| QR3 | PASS (after fix) | Order right for all four figures, IONIQ 5 last with "No curve yet"; bars 81.2 % / 73.2 % / 77.2 % proportional; flag + sr "Best:"; every figure as text. Fixed: time raced on the shown minutes, so bars and ties match labels (150 kW: both ~25 min, equal bars, no single best); chart alt singular for one curve (docs/plan/reports/ui-check-b85.md) |
+| QR4 | PASS | Grow-in once ~0.6 s; fill transition 0.62 s; FLIP translateY ±84 px over 460 ms, nothing left after 900 ms; real Settings control Off: 0 s, no animations, instant; restored On (docs/plan/reports/ui-check-b85.md) |
+| QR5 | PASS | Switch aria-checked false/true/false, rows 21/18/21; Specs unrolls; 9 best marks (star + sr text, bold); variant change and Remove update race/table/chart alt/URL/storage; empty list yellow Browse cars; 4 cars at 375 table 608 in 313 box with snap (docs/plan/reports/ui-check-b85.md) |

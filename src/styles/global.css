@@ -975,7 +975,7 @@ html[data-motion="off"] details.acc > .acc-lane { animation: none; }
 /* Select menus (B83 overdrive): the field look with a drawn chevron, the chosen value in Overpass.
    Where the browser supports a customizable select (Chrome/Edge), the open list takes the site's
    surface and drops in; elsewhere the native list opens under the new field. */
-.explorer select {
+:is(.explorer, .compare) select {
   appearance: none; -webkit-appearance: none;
   font: inherit; font-family: var(--display); font-weight: 600; color: var(--text);
   background-color: var(--surface); border: 1px solid var(--field-border); border-radius: 8px;
@@ -985,23 +985,23 @@ html[data-motion="off"] details.acc > .acc-lane { animation: none; }
   background-size: 5px 5px; background-repeat: no-repeat;
   transition: border-color 0.18s var(--ease-out), background-color 0.18s var(--ease-out);
 }
-.explorer select:hover:not(:disabled) { border-color: var(--text); }
-.explorer select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-.explorer select:disabled { cursor: default; opacity: 0.6; }
+:is(.explorer, .compare) select:hover:not(:disabled) { border-color: var(--text); }
+:is(.explorer, .compare) select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+:is(.explorer, .compare) select:disabled { cursor: default; opacity: 0.6; }
 @supports (appearance: base-select) {
-  .explorer select { appearance: base-select; }
-  .explorer select::picker-icon { display: none; }
-  .explorer select::picker(select) {
+  :is(.explorer, .compare) select { appearance: base-select; }
+  :is(.explorer, .compare) select::picker-icon { display: none; }
+  :is(.explorer, .compare) select::picker(select) {
     appearance: base-select; margin-top: 6px; padding: 4px; border: 1px solid var(--border); border-radius: 10px;
     background: var(--surface); color: var(--text); box-shadow: var(--shadow); max-height: min(360px, 60vh);
     transition: opacity 0.18s var(--ease-out), translate 0.24s var(--ease-out), display 0.24s allow-discrete, overlay 0.24s allow-discrete;
   }
-  .explorer select:not(:open)::picker(select) { opacity: 0; translate: 0 -6px; }
-  @starting-style { .explorer select:open::picker(select) { opacity: 0; translate: 0 -6px; } }
-  .explorer select option { padding: 7px 10px; border-radius: 6px; font-family: var(--font); font-weight: 400; gap: 8px; }
-  .explorer select option:hover, .explorer select option:focus-visible { background: var(--surface-2); outline: none; }
-  .explorer select option:checked { background: var(--accent-soft); color: var(--text); font-weight: 600; }
-  .explorer select option::checkmark { color: var(--accent); }
-  html[data-motion="off"] .explorer select::picker(select) { transition: none; }
+  :is(.explorer, .compare) select:not(:open)::picker(select) { opacity: 0; translate: 0 -6px; }
+  @starting-style { :is(.explorer, .compare) select:open::picker(select) { opacity: 0; translate: 0 -6px; } }
+  :is(.explorer, .compare) select option { padding: 7px 10px; border-radius: 6px; font-family: var(--font); font-weight: 400; gap: 8px; }
+  :is(.explorer, .compare) select option:hover, :is(.explorer, .compare) select option:focus-visible { background: var(--surface-2); outline: none; }
+  :is(.explorer, .compare) select option:checked { background: var(--accent-soft); color: var(--text); font-weight: 600; }
+  :is(.explorer, .compare) select option::checkmark { color: var(--accent); }
+  html[data-motion="off"] :is(.explorer, .compare) select::picker(select) { transition: none; }
 }
-html[data-motion="off"] .explorer select { transition: none; }
+html[data-motion="off"] :is(.explorer, .compare) select { transition: none; }

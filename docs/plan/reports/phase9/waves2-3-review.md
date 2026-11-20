@@ -84,7 +84,22 @@ Fastned graphs (read with curl, robots allows), InsideEVs and Out of Spec. All p
 - **Dropped:** Plaid and Air Dream merges (too few true measurements), Sapphire borrowing the 2021 Dream test, Polestar 3 2026 and RZ 300e (pack mismatch), e-tron 2019/20/23.
 - 11. **Fastned reuse terms** are unconfirmed. Needed before any push.
 
-## Still open
+## Gap-fill (applied, 62c39ca)
 
-- Gap-fill research for the empty required fields is running; its batch gets fact-checked before it's applied.
-- Full checks (validate, tests, build) run once that lands.
+A follow-up round filled 54 powertrains (ADAC catalogue, Electrek, INL, EVSpecifications), all low confidence, after fact-check fixes.
+
+12. **Still empty: 77 cars fail validate (B96).** No source the rules allow:
+    - preconditioning ×63: Audi e-tron/Q8, Charger Daytona, Wagoneer S, Recon, Fisker, Rimac, Spectre, Soul EV 39, Lordstown;
+    - chemistry ×9: Genesis G80, Focus Electric 2017–18, Lordstown, Kandi, Azure, TZ Touring;
+    - usable ×5: RZ 550e, TZ ×2, Kandi, Azure;
+    - voltage ×3;
+    - Eletre Supercharger ×4;
+    - Spectre 2027 DC ×2.
+
+    Mark them `unknown`, allow a class estimate, or hide these cars until sourced?
+13. **ADAC** catalogue data is recorded as manufacturer figures relayed by a testing org. OK?
+
+## Checks (2026-11-20)
+
+- vitest 920/920 (test timeout raised to 30 s for ~1,400 cars), tsc 0, astro check 0 errors, astro build OK.
+- `npm run validate` fails only on the 77 B96 gaps above, so `npm run build` and CI fail until item 12 is decided.

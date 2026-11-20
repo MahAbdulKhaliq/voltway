@@ -5,5 +5,68 @@
   "generation": "first-generation",
   "years": [
     2027
+  ],
+  "battery": {
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-ix5",
+        "notes": "BMW US: 800V architecture."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-ix5",
+        "notes": "BMW US page: battery preparation starts automatically when navigating to a DC station and can be started manually from the Central Display or My BMW app."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 144,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-ix5",
+        "notes": "BMW US: \"144 kWh of net usable energy\"."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-w2-evs-i3",
+        "low_confidence": true,
+        "notes": "Estimated: BMW US says the iX5 cells \"use the same cell chemistry as the 95-millimeter-high cells in the BMW iX3\", which evspecifications lists as NCM."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 460,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-ix5",
+      "notes": "BMW US: up to 460 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 15.4,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-ix5",
+      "notes": "BMW US: 15.4 kW AC standard."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 22,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-ix5",
+      "notes": "BMW US: 10-80 % in 22 minutes at an 800V DC station."
+    }
   ]
 }

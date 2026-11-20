@@ -5,5 +5,75 @@
   "generation": "series-i",
   "years": [
     2026
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 102,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-w2-ce-sp",
+        "low_confidence": true,
+        "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. CarExpert: 102 kWh usable; InsideEVs \"usable capacity of 102 kWh\"; ArenaEV 101.7. Spectre and Black Badge share the pack; 2024-2026 compared: no change."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 120,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-w2-ce-sp",
+        "low_confidence": true,
+        "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. CarExpert and InsideEVs about 120 kWh; ArenaEV 105.7 and Green Cars Compare 107: conflict."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-w2-evs-sp",
+        "low_confidence": true,
+        "notes": "Estimated: evspecs.org lists NMC for this car; no Rolls-Royce page read states it."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-w2-popsci",
+        "low_confidence": true,
+        "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. Popular Science: \"102 kilowatt-hour, 400-volt battery pack\" (derived from BMW Group); not read on a Rolls-Royce page."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 195,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-w2-ce-sp",
+      "low_confidence": true,
+      "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. CarExpert: up to 195 kW (Green Cars Compare 195). InsideEVs 205 kW, ArenaEV 200 kW, evspecs.org 220 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 22,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-w2-gcc",
+      "low_confidence": true,
+      "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. Green Cars Compare: 22 kW AC (CarExpert and ArenaEV 22 kW; Rolls-Royce UK charging page says up to 22 kW per a search excerpt, not opened). evspecs.org says 11 kW. Not confirmed for US cars."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 34,
+      "unit": "min",
+      "kind": "estimated",
+      "source_id": "src-w2-popsci",
+      "low_confidence": true,
+      "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. Popular Science: 10-80 % in about 34 min at a DC charger (CarExpert, InsideEVs 34 min)."
+    }
   ]
 }

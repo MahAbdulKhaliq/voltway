@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-w2-wiki-mini",
+      "low_confidence": true,
+      "notes": "Wikipedia: Type 1/CCS Combo 1 in North America."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "manufacturer",
+      "source_id": "src-w2-ca-nacs",
+      "low_confidence": true,
+      "notes": "BMW Canada (2026-04-08): Supercharger access for MINI BEVs except the MINI Cooper SE (F56). Conflict: the Oct 2023 BMW NA announcement (via GuideAuto) listed the MINI Cooper SE for access with an adapter; the later, car-specific Canadian exclusion is used. US not stated."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

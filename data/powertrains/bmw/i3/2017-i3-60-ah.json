@@ -5,5 +5,90 @@
   "generation": "94-ah",
   "years": [
     2017
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 22,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-i3-17",
+        "low_confidence": true,
+        "notes": "BMW US 2017 release, previous (60 Ah) pack: \"22 kWh (gross)/19 kWh (net)\"."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 19,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-i3-17",
+        "low_confidence": true,
+        "notes": "BMW US 2017 release: 60 Ah pack 19 kWh net."
+      },
+      {
+        "value": 18.8,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-a-i3",
+        "low_confidence": true,
+        "notes": "ArenaEV lists 18.8 kWh usable (21.8 gross); Wikipedia infobox 18.2."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-w2-wiki-i3",
+        "low_confidence": true,
+        "notes": "Estimated: Wikipedia states NMC cells from Samsung SDI; no BMW page read names the chemistry."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-w2-bmw-i3-19",
+        "low_confidence": true,
+        "notes": "Estimated: same pack architecture as the 120 Ah car (352 V, BMW US 2019); Wikipedia lists 355 V nominal for the i3 generally. 2014-2018 vs 2019 compared."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "manual_only",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-i3-17",
+        "low_confidence": true,
+        "notes": "BMW US 2017 release: BMW Home Charger Connect \"can precondition the vehicle battery when connected\" and the battery can be warmed before starting off (no navigation trigger or DC-charge trigger described). Read as manual/scheduled only; the 2019 page mentions cabin pre-conditioning and battery warming \"under certain conditions\". Owner may prefer none."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 50,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-i3-17",
+      "low_confidence": true,
+      "notes": "BMW US 2017 release \"50 kW DC fast charging\" for the i3 range; the 60 Ah car has the same CCS system. DC was an option on early cars (see port note)."
+    },
+    {
+      "value": 47,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-a-i3",
+      "low_confidence": true,
+      "notes": "ArenaEV lists 47 kW max on the 2013 60 Ah car."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 7.4,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-a-i3",
+      "low_confidence": true,
+      "notes": "ArenaEV: 7.4 kW onboard charger; same 7.4 kW on the 94 Ah (BMW US 2017) and 120 Ah (BMW US 2019)."
+    }
   ]
 }

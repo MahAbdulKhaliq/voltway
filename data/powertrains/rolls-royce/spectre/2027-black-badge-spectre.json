@@ -5,5 +5,27 @@
   "generation": "series-ii",
   "years": [
     2027
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 112,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-ce-sp2",
+        "low_confidence": true,
+        "notes": "CarExpert: pack \"grown from 102kWh to 112kWh (net)\" (112.4 appears elsewhere)."
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "value": 22,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-w2-ce-sp",
+      "low_confidence": true,
+      "notes": "Estimated: Series I 22 kW; the pack/cell change does not mention a charger change."
+    }
   ]
 }

@@ -9,6 +9,38 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-w2-ie-i5nacs",
+      "low_confidence": true,
+      "notes": "US: InsideEVs says the 2026 i5 M60 was the only 2026 i5 with a Tesla-style port before March 2026 builds."
+    },
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-w2-ca-nacs",
+      "low_confidence": true,
+      "notes": "Canada (estimated): BMW Canada says built-in NACS is only on all-new 2026+ models (iX3, i3); no Canadian i5 page found, CCS1 assumed. Unproven."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-w2-ie-i5nacs",
+      "low_confidence": true,
+      "notes": "US: native NACS port."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-w2-ca-nacs",
+      "low_confidence": true,
+      "notes": "Canada: Lectron Vortex Plus adapter plus software update (from 2026-04-08) for CCS cars."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

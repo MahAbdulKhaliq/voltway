@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-w2-ca-nacs",
+      "low_confidence": true,
+      "notes": "Estimated: BMW Canada says native NACS only on all-new 2026+ models; the Countryman SE is assumed to keep the Combo 1 port as the Cooper SE F56 (Wikipedia). No page read names the port."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-w2-ca-nacs",
+      "low_confidence": true,
+      "notes": "BMW Canada: MINI BEVs get Supercharger access with a software update and the Lectron adapter (Canada). US assumed the same."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

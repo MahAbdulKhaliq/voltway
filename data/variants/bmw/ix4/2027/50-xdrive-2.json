@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "estimated",
+      "source_id": "src-w2-blog-i3",
+      "low_confidence": true,
+      "notes": "Estimated: the iX4 page does not name the port; BMW states a standard NACS port on the iX3, i3, iX5 and i7 (BMWBLOG: \"NACS port is standard equipment across the EV lineup\")."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-w2-blog-i3",
+      "low_confidence": true,
+      "notes": "Estimated: NACS port as on the iX3 (BMW US)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-w2-a-sp",
+      "low_confidence": true,
+      "notes": "Estimated: ArenaEV and evspecs.org list CCS; US/Canada cars assumed CCS1 (Combo 1); no Rolls-Royce NA page read."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-w2-guide",
+      "low_confidence": true,
+      "notes": "GuideAuto relaying the Oct 2023 BMW NA announcement: CCS-equipped MINI Cooper SE and Rolls-Royce Spectre get Supercharger access (early 2025) with an adapter. Not re-confirmed on a Rolls-Royce page."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

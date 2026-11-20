@@ -5,5 +5,79 @@
   "generation": "neue-klasse",
   "years": [
     2027
+  ],
+  "battery": {
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-i3s",
+        "notes": "BMW US: 800V architecture."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-i3s",
+        "notes": "BMW US page: battery preparation starts automatically when navigating to a DC station and can be started manually from the Central Display or My BMW app."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 112.2,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-w2-bmw-ix3",
+        "low_confidence": true,
+        "notes": "Estimated: same Neue Klasse pack and charger as the iX3 50 xDrive (and iX4), for which BMW US states 112.2 kWh usable. Conflict: BMWBLOG says 108.7 kWh for the i3 50 xDrive (evspecifications 108.7 net, the European figure); no BMW US i3 page states capacity."
+      },
+      {
+        "value": 108.7,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-blog-i3",
+        "low_confidence": true,
+        "notes": "BMWBLOG: \"usable battery capacity is rated at 108.7 kWh for the i3 50 xDrive\"."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-w2-evs-i3",
+        "low_confidence": true,
+        "notes": "Estimated: evspecifications lists the i3 50 xDrive cell as NCM cylindrical (EVE Energy); BMW US says only \"new cylindrical cells\"."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 400,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-i3s",
+      "notes": "BMW US: up to 400 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 15.4,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-blog-i3",
+      "low_confidence": true,
+      "notes": "BMWBLOG: 15.4 kW AC standard."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 21,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-w2-blog-i3",
+      "low_confidence": true,
+      "notes": "BMWBLOG: 10-80 % in 21 minutes at an 800V DC station."
+    }
   ]
 }

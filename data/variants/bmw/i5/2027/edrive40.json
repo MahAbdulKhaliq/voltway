@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-w2-ie-i5-27",
+      "low_confidence": true,
+      "notes": "InsideEVs: all i5 EVs sold in the US now come with a NACS charge port (2027)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-w2-ie-i5-27",
+      "low_confidence": true,
+      "notes": "Native NACS port."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -5,5 +5,68 @@
   "generation": "neue-klasse",
   "years": [
     2027
+  ],
+  "battery": {
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-ix4",
+        "notes": "BMW US: 800V architecture."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-ix4",
+        "notes": "BMW US page: battery preparation starts automatically when navigating to a DC station and can be started manually from the Central Display or My BMW app."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 112.2,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-ix4",
+        "notes": "BMW US: usable energy content 112.2 kWh (iX4 50 xDrive)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-w2-evs-i3",
+        "low_confidence": true,
+        "notes": "Estimated: same Gen6 46x95 mm cylindrical cell as the iX3 (BMW US iX4 page), listed as NCM by evspecifications."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 400,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-ix4",
+      "notes": "BMW US: up to 400 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 15.4,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-ix4",
+      "notes": "BMW US: 15.4 kW AC standard."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 21,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-ix4",
+      "notes": "BMW US: 10-80 % in 21 minutes at an 800V DC station."
+    }
   ]
 }

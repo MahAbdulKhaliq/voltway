@@ -8,6 +8,23 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-i727",
+      "notes": "BMW US: every electrified i7 fitted with an NACS charge port as standard."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-w2-bmw-i727",
+      "low_confidence": true,
+      "notes": "Native NACS port."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

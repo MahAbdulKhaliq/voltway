@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-w2-blog-sp2",
+      "low_confidence": true,
+      "notes": "BMWBLOG: \"native NACS port, eliminating the need for an adapter\" on the Series II."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-w2-blog-sp2",
+      "low_confidence": true,
+      "notes": "Estimated: native NACS port; no Rolls-Royce page states Supercharger access."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

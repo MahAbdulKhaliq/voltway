@@ -5,5 +5,68 @@
   "generation": "neue-klasse",
   "years": [
     2027
+  ],
+  "battery": {
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-ix3",
+        "notes": "BMW US: 800V architecture (698.9 V nominal)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-ix3",
+        "notes": "BMW US page: battery preparation starts automatically when navigating to a DC station and can be started manually from the Central Display or My BMW app."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 112.2,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-bmw-ix3",
+        "notes": "BMW US: usable energy 112.2 kWh (iX3 50 xDrive); Europe quotes 108.7 net."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-w2-evs-i3",
+        "low_confidence": true,
+        "notes": "Estimated: BMW US says \"lithium-ion cylindrical cells\" and gives no cathode; evspecifications lists the same Gen6 cell as NCM (EVE Energy) and BMWBLOG says nickel up, cobalt down. LFP Gen6 is China-only."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 400,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-ix3",
+      "notes": "BMW US: up to 400 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 15.4,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-ix3p",
+      "notes": "BMW US: 15.4 kW AC standard."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 21,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-w2-bmw-ix3p",
+      "notes": "BMW US: 10-80 % in 21 minutes at an 800V DC station."
+    }
   ]
 }

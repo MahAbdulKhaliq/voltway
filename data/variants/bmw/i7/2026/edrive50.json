@@ -8,6 +8,31 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-w2-ie-sc",
+      "low_confidence": true,
+      "notes": "Estimated: BMW i7 uses CCS1 through 2026 (InsideEVs; BMW Canada: native NACS only on all-new 2026+ models). 2027 is the switch (BMW US). No page checked for a mid-2026 i7 NACS switch like the i5's."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-w2-ca-nacs",
+      "low_confidence": true,
+      "notes": "Canada: Lectron Vortex Plus NACS-to-CCS adapter plus software update (from 2026-04-08)."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-w2-ie-sc",
+      "low_confidence": true,
+      "notes": "US: Supercharging with a CCS-to-NACS adapter (Lectron) from the week of 2025-12-10 for i4/i5/i7/iX; 2026 cars need a software update."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

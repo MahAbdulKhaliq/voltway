@@ -5,5 +5,74 @@
   "generation": "u25",
   "years": [
     2027
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 66.5,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-w2-ie-cty",
+        "low_confidence": true,
+        "notes": "Estimated: same hardware as MY2025 (the page read); model years compared 2025 to 2027, nothing shows a change. InsideEVs: 66.5 kWh gross (BMW global: energy content 66.45 kWh)."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 64.7,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-w2-ie-cty",
+        "low_confidence": true,
+        "notes": "Estimated: same hardware as MY2025 (the page read); model years compared 2025 to 2027, nothing shows a change. InsideEVs quoting the MINI US spec sheet: 64.7 kWh usable (ArenaEV 64.6). 2025-2027 compared: no US pack change found."
+      },
+      {
+        "value": 65.2,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-a-cty26",
+        "low_confidence": true,
+        "notes": "ArenaEV: the 2026 European Countryman has a revamped 65.2 kWh pack (previous 64.6); MINI gave no North American date, so the 2026/2027 US/CA cars may carry it."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "manual_only",
+        "kind": "manufacturer",
+        "source_id": "src-w2-motoring",
+        "low_confidence": true,
+        "notes": "Motoring File: \"MINI's app-based pre-conditioning improves charging speed and extends battery life\" (app-triggered; no navigation trigger mentioned). Not read on a MINI page; the Cars.com piece mentions only cabin pre-conditioning."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 130,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-w2-mini-us",
+      "low_confidence": true,
+      "notes": "Estimated: same hardware as MY2025 (the page read); model years compared 2025 to 2027, nothing shows a change. MINI USA: fast charging with DC at up to 130 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-motoring",
+      "low_confidence": true,
+      "notes": "Motoring File: onboard AC charger up to 11 kW (ArenaEV lists 22 kW three-phase capability, which the car limits to 11 kW). InsideEVs 9.6 kW is the test charger, not the onboard charger. US/Canada onboard figure not read on a MINI page."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 29,
+      "unit": "min",
+      "kind": "estimated",
+      "source_id": "src-w2-ie-cty",
+      "low_confidence": true,
+      "notes": "Estimated: same hardware as MY2025 (the page read); model years compared 2025 to 2027, nothing shows a change. InsideEVs: 10-80 % in 29 min according to MINI (MINI US: \"just under 30 minutes\")."
+    }
   ]
 }

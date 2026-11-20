@@ -1,10 +1,10 @@
 # Catalogue review: wave 1
 
-Generated 2026-11-19 by `npm run suggest:catalogue -- --wave 1` (B90, DESIGN-9 §2). **Nothing here is live.** Each proposal is one variant: a model year × pack × drivetrain × market edition. Rows from NRCan (Canada) and EPA (US) are paired when their trim words and drivetrain agree; otherwise each country gets its own variant (B91).
+Generated 2026-11-20 by `npm run suggest:catalogue -- --wave 1` (B90, DESIGN-9 §2). **Nothing here is live.** Each proposal is one variant: a model year × pack × drivetrain × market edition. Rows from NRCan (Canada) and EPA (US) are paired when their trim words and drivetrain agree; otherwise each country gets its own variant (B91).
 
 How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on the rows to keep (all rows of a proposal), edit `trim_ca` / `trim_us` / `variant_id` / `powertrain` where they are wrong, then run `npm run suggest:catalogue -- --wave 1 --apply`. Flags: ⚠ code = NRCan letter code (plant or certification, not a trim name), ⚠ date = mid-year change, ⚠ pair = Canada/US pairing is a guess, ⚠ name = trim name needs a check.
 
-56 proposals from 89 regulator rows (25 mapped models): 19 clean (no ⚠, `check` empty in the CSV), 37 to check.
+57 proposals from 89 regulator rows (25 mapped models): 20 clean (no ⚠, `check` empty in the CSV), 37 to check.
 
 ## bmw/i4
 
@@ -16,17 +16,18 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: i4 eDrive35 Gran Coupe (19 inch Wheels)
 ## cadillac/lyriq
 
-- **2024 CA: AWD · US: AWD** → `cadillac/lyriq/2024/awd` [CA, US] awd · powertrain cadillac/lyriq/2026-awd · names: regulator wording · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger); powertrain: same name as cadillac/lyriq/2023/awd; check the pack didn't change
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2024 CA: AWD · US: AWD** → `cadillac/lyriq/2024/awd` [CA, US] awd · powertrain cadillac/lyriq/2026-awd · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger); powertrain: same name as cadillac/lyriq/2023/awd; check the pack didn't change
+  - **Recommend:** yes: the onboard charger differs by option, same car; shares hardware with the same-named car of the same generation (pack not re-checked)
   - NRCan: LYRIQ AWD (11.5 kW Charger)
   - NRCan: LYRIQ AWD (19.2 kW Charger)
   - EPA: LYRIQ AWD
-- **2026 US: PAWD** → `cadillac/lyriq/2026/pawd` [US] awd · powertrain new · names: regulator wording
+- **2026 US: AWD** → `cadillac/lyriq/2026/awd` [US] awd · powertrain cadillac/lyriq/2026-awd · ⚠ powertrain: same name as cadillac/lyriq/2025/awd; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
   - EPA: LYRIQ PAWD
 ## chevrolet/equinox-ev
 
-- **2024 CA: AWD · US: AWD** → `chevrolet/equinox-ev/2024/awd` [CA, US] awd · powertrain chevrolet/equinox-ev/2026-awd · names: regulator wording · ⚠ powertrain: same name as chevrolet/equinox-ev/2025/awd; check the pack didn't change
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2024 CA: AWD · US: eAWD** → `chevrolet/equinox-ev/2024/awd` [CA, US] awd · powertrain chevrolet/equinox-ev/2026-awd · ⚠ pair: names differ, same motor power (247 kW); powertrain: same name as chevrolet/equinox-ev/2025/awd; check the pack didn't change
+  - **Recommend:** check: paired only by motor power and the names differ: keep apart as a Canada car and a US car (owner rule)
   - NRCan: Equinox EV AWD
   - EPA: Equinox EV AWD
 ## chevrolet/silverado-ev
@@ -78,8 +79,7 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
 
 - **2025 CA: Preferred** → `hyundai/kona-electric/2025/preferred` [CA] drivetrain ? · wheels 17″ · powertrain new
   - NRCan: Kona Electric (17" Wheels)
-- **2025 CA: Standard** → `hyundai/kona-electric/2025/standard` [CA] drivetrain ? · wheels 19″ · powertrain hyundai/kona-electric/2026-standard · names: regulator wording · ⚠ name: no trim words in the regulator label; powertrain: same name as hyundai/kona-electric/2026/standard; check the pack didn't change
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2025 CA: N Line Ultimate** → `hyundai/kona-electric/2025/n-line` [CA] drivetrain ? · wheels 19″ · powertrain hyundai/kona-electric/2025-n-line
   - NRCan: Kona Electric (19" Wheels)
 ## kia/ev6
 
@@ -89,8 +89,10 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: EV6 Standard Range RWD
 - **2026 US: AWD GT** → `kia/ev6/2026/gt-line-awd` [US] awd · powertrain kia/ev6/2026-gt-line-awd · names: regulator wording
   - EPA: EV6 AWD GT
-- **2027 US: Long Range AWD** → `kia/ev6/2027/long-range-awd` [US] awd · wheels 19/20″ · powertrain new · names: regulator wording
+- **2027 US: Long Range AWD** → `kia/ev6/2027/long-range-awd` [US] awd · wheels 19″ · powertrain new
   - EPA: EV6 Long Range AWD (19 inch Wheels)
+- **2027 US: GT-Line AWD** → `kia/ev6/2027/gt-line-awd` [US] awd · wheels 20″ · powertrain kia/ev6/2026-gt-line-awd · ⚠ powertrain: same name as kia/ev6/2026/gt-line-awd; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
   - EPA: EV6 Long Range AWD (20 inch Wheels)
 ## kia/ev9
 
@@ -139,26 +141,25 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Solterra AWD
 ## tesla/model-3
 
-- **2018 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2018/long-range-awd` [CA, US] awd · powertrain tesla/model-3/2019-long-range-awd · names: regulator wording · ⚠ powertrain: same name as tesla/model-3/2019/long-range-awd; check the pack didn't change
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2018 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-3/2018/long-range-awd` [CA, US] awd · powertrain tesla/model-3/2019-long-range-awd · ⚠ powertrain: same name as tesla/model-3/2019/long-range-awd; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
   - NRCan: Model 3 Long Range AWD
   - EPA: Model 3 Long Range  AWD
-- **2020 CA: Long Range · US: Long Range** → `tesla/model-3/2020/long-range` [CA, US] rwd · powertrain tesla/model-3/2019-long-range · names: regulator wording · ⚠ existing?: same motor power as tesla/model-3/2020/standard-range-plus, tesla/model-3/2020/standard-range, but another 2020 row has it too; powertrain: same name as tesla/model-3/2019/long-range; check the pack didn't change
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2020 CA: Long Range RWD · US: Long Range RWD** → `tesla/model-3/2020/long-range-rwd` [CA, US] rwd · powertrain new
   - NRCan: Model 3 Long Range
   - EPA: Model 3 Long Range
-- **2020 CA: Mid Range · US: Mid Range** → `tesla/model-3/2020/mid-range` [CA, US] rwd · powertrain tesla/model-3/2019-mid-range · names: regulator wording · ⚠ existing?: same motor power as tesla/model-3/2020/standard-range-plus, tesla/model-3/2020/standard-range, but another 2020 row has it too; powertrain: same name as tesla/model-3/2019/mid-range; check the pack didn't change
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2020 CA: Mid Range · US: Mid Range** → `tesla/model-3/2020/mid-range` [CA, US] rwd · powertrain tesla/model-3/2019-mid-range · ⚠ powertrain: same name as tesla/model-3/2019/mid-range; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
   - NRCan: Model 3 Mid Range
   - EPA: Model 3 Mid Range
-- **2021 CA: Standard Range · US: Standard Range Plus** → `tesla/model-3/2021/standard-range-plus` [CA, US] rwd · powertrain tesla/model-3/2021-standard-range-plus · names: regulator wording
+- **2021 CA: Standard Range · US: Standard Range Plus** → `tesla/model-3/2021/standard-range-plus` [CA, US] rwd · powertrain tesla/model-3/2021-standard-range-plus
   - NRCan: Model 3 Standard Range
   - EPA: Model 3 Standard Range Plus RWD
-- **2022 CA: Standard Range** → `tesla/model-3/2022/rwd` [CA] drivetrain ? · powertrain tesla/model-3/2022-rwd · names: regulator wording · ⚠ existing: joins tesla/model-3/2022/rwd by motor power (191 kW); names differ; powertrain: same name as tesla/model-3/2023/rwd; check the pack didn't change
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2022 CA: Standard Range** → `tesla/model-3/2022/rwd` [CA] drivetrain ? · powertrain tesla/model-3/2022-rwd · ⚠ existing: joins tesla/model-3/2022/rwd by motor power (191 kW); names differ; powertrain: same name as tesla/model-3/2023/rwd; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked); becomes the US edition of a car we already have
   - NRCan: Model 3 Standard Range
-- **2025 CA: Long Range · US: Long Range RWD** → `tesla/model-3/2025/long-range` [CA, US] rwd · wheels 19″ · powertrain new · names: regulator wording · ⚠ code: NRCan "-I"
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2025 CA: Long Range RWD · US: Long Range RWD** → `tesla/model-3/2025/long-range-rwd` [CA, US] rwd · wheels 19″ · powertrain tesla/model-3/2024-long-range-rwd · ⚠ code: NRCan "-I"; powertrain: same name as tesla/model-3/2024/long-range-rwd; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked); NRCan's letter code is not a trim; the researched name is used
   - NRCan: Model 3 Long Range-I
   - EPA: Model 3 Long Range RWD
   - EPA: Model 3 Long Range RWD-I (19in wheels)
@@ -166,38 +167,37 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: Model 3 Performance
 ## tesla/model-y
 
-- **2020 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2020/long-range-awd` [CA, US] awd · powertrain tesla/model-y/2021-long-range-awd · names: regulator wording · ⚠ powertrain: same name as tesla/model-y/2021/long-range-awd; check the pack didn't change
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2020 CA: Long Range AWD · US: Long Range AWD** → `tesla/model-y/2020/long-range-awd` [CA, US] awd · powertrain tesla/model-y/2021-long-range-awd · ⚠ powertrain: same name as tesla/model-y/2021/long-range-awd; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
   - NRCan: Model Y Long Range AWD
   - EPA: Model Y Long Range AWD
-- **2020 CA: Performance · US: Performance** → `tesla/model-y/2020/performance` [CA, US] awd · wheels 21″ · powertrain tesla/model-y/2021-performance · names: regulator wording · ⚠ powertrain: same name as tesla/model-y/2021/performance; check the pack didn't change
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2020 CA: Performance AWD · US: Performance** → `tesla/model-y/2020/performance-awd` [CA, US] awd · wheels 21″ · powertrain new
   - NRCan: Model Y Performance
   - NRCan: Model Y Performance (21" Wheels)
   - EPA: Model Y Performance AWD
   - EPA: Model Y Performance AWD (21in Wheels)
-- **2022 CA: AWD · US: Standard Range AWD** → `tesla/model-y/2022/long-range-awd` [CA, US] awd · powertrain tesla/model-y/2022-long-range-awd · names: regulator wording · ⚠ pair: names differ, same motor power (291 kW); existing: joins tesla/model-y/2022/long-range-awd by motor power (291 kW); names differ; powertrain: same name as tesla/model-y/2021/long-range-awd; check the pack didn't change
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2022 CA: AWD · US: Standard Range AWD** → `tesla/model-y/2022/long-range-awd` [CA, US] awd · powertrain tesla/model-y/2022-long-range-awd · ⚠ pair: names differ, same motor power (291 kW); existing: joins tesla/model-y/2022/long-range-awd by motor power (291 kW); names differ; powertrain: same name as tesla/model-y/2021/long-range-awd; check the pack didn't change
+  - **Recommend:** check: paired only by motor power and the names differ: keep apart as a Canada car and a US car (owner rule)
   - NRCan: Model Y AWD
   - EPA: Model Y AWD
-- **2022 US: RWD** → `tesla/model-y/2022/rwd` [US] rwd · powertrain new · names: regulator wording
+- **2022 US: Standard Range RWD** → `tesla/model-y/2022/standard-range-rwd` [US] rwd · powertrain new
   - EPA: Model Y RWD
-- **2023 CA: AWD · US: Standard Range AWD** → `tesla/model-y/2023/awd` [CA, US] awd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (291 kW)
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2023 CA: AWD · US: Standard Range AWD** → `tesla/model-y/2023/awd` [CA, US] awd · powertrain new · ⚠ pair: names differ, same motor power (291 kW)
+  - **Recommend:** check: paired only by motor power and the names differ: keep apart as a Canada car and a US car (owner rule)
   - NRCan: Model Y AWD
   - EPA: Model Y AWD
-- **2023 CA: RWD** → `tesla/model-y/2023/rwd` [CA] rwd · powertrain new · names: regulator wording
+- **2023 CA: RWD** → `tesla/model-y/2023/rwd` [CA] rwd · powertrain new
   - NRCan: Model Y RWD
-- **2024 CA: RWD · US: RWD** → `tesla/model-y/2024/rwd-ca` [CA, US] rwd · powertrain tesla/model-y/2024-rwd-ca · names: regulator wording
+- **2024 CA: RWD · US: RWD** → `tesla/model-y/2024/rwd-ca` [CA, US] rwd · powertrain tesla/model-y/2024-rwd-ca
   - NRCan: Model Y RWD
   - EPA: Model Y RWD
-- **2025 CA: Long Range · US: Long Range RWD** → `tesla/model-y/2025/long-range` [CA, US] rwd · powertrain new · names: regulator wording · ⚠ code: NRCan "-I"
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2025 CA: Long Range RWD · US: Long Range RWD** → `tesla/model-y/2025/long-range-rwd` [CA, US] rwd · powertrain tesla/model-y/2024-long-range-rwd · ⚠ code: NRCan "-I"; powertrain: same name as tesla/model-y/2024/long-range-rwd; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked); NRCan's letter code is not a trim; the researched name is used
   - NRCan: Model Y Long Range-I
   - EPA: Model Y Long Range RWD
-- **2027 US: AWD** → `tesla/model-y/2027/awd` [US] awd · powertrain new · names: regulator wording
+- **2027 US: AWD** → `tesla/model-y/2027/awd` [US] awd · powertrain new
   - EPA: Model Y AWD
-- **2027 US: RWD** → `tesla/model-y/2027/rwd` [US] rwd · powertrain new · names: regulator wording
+- **2027 US: RWD** → `tesla/model-y/2027/rwd` [US] rwd · powertrain new
   - EPA: Model Y RWD
 ## toyota/bz
 
@@ -205,7 +205,8 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - **Recommend:** check: paired only by motor power and the names differ: keep apart as a Canada car and a US car (owner rule)
   - NRCan: bZ4X
   - EPA: bZ4X LIMITED
-- **2026 US: LIMITED energy capacity 191 Ah** → `toyota/bz/2026/limited-energy-capacity-191-ah` [US] fwd · powertrain new · names: regulator wording
+- **2026 US: Limited FWD** → `toyota/bz/2026/limited-fwd` [US] fwd · powertrain toyota/bz/2026-limited-fwd · ⚠ powertrain: same name as toyota/bz/2027/limited-fwd; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
   - EPA: bZ LIMITED (energy capacity 191 Ah)
 ## toyota/c-hr
 
@@ -214,8 +215,8 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: C-HR AWD 20inch
 ## volkswagen/id-4
 
-- **2024 CA: S · US: S** → `volkswagen/id-4/2024/pro-s` [CA, US] rwd · powertrain volkswagen/id-4/2024-pro-s · names: regulator wording · ⚠ powertrain: same name as volkswagen/id-4/2025/pro-s; check the pack didn't change
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2024 CA: S · US: S** → `volkswagen/id-4/2024/pro-s` [CA, US] rwd · powertrain volkswagen/id-4/2024-pro-s · ⚠ powertrain: same name as volkswagen/id-4/2025/pro-s; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
   - NRCan: ID.4 S
   - EPA: ID.4 S
 - **2025 CA: S · US: S Limited** → `volkswagen/id-4/2025/pro-s` [CA, US] rwd · powertrain volkswagen/id-4/2025-pro-s · names: regulator wording · ⚠ powertrain: same name as volkswagen/id-4/2024/pro-s; check the pack didn't change
@@ -224,7 +225,7 @@ How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on t
   - EPA: ID.4 S
 ## volvo/ex40
 
-- **2021 CA: Standard · US: AWD BEV** → `volvo/ex40/2021/standard` [CA, US] awd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label; pair: only one candidate each side, words differ
-  - **Recommend:** check: no researched trim name yet (round-2 research)
+- **2021 CA: P8 · US: P8 eAWD** → `volvo/ex40/2021/p8` [CA, US] awd · powertrain volvo/ex40/2022-p8 · ⚠ powertrain: same name as volvo/ex40/2022/p8; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
   - NRCan: XC40 Recharge
   - EPA: XC40 AWD BEV

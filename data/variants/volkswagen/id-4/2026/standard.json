@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-vw-ca-nacs-adapter", "low_confidence": true, "note_id": "n-6cc68ef979" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-electrek-vw-sc", "note_id": "n-4528e4ca21", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "ID.4", "US": "Pro AWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2023-430895", "notes": "Estimated: 2023 Standard RWD page shows 19x8; 2026 standard assumed the same. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b112-autoguide-id4-nohp", "notes": "Market US: US: no heat pump offered (Green Car Reports 2021; AutoGuide/InsideEVs Jan 2023: the US ID.4 does not come with one). Model year 2026 carried, no change found. US cars have no heat pump. Canadian cars of this model year: optional (src-b112-autotrader-id4-2024).", "low_confidence": true }
       ]
     }
   ]

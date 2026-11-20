@@ -12,12 +12,19 @@
   "supercharger_access": [
     { "value": "no", "kind": "manufacturer", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-52c7b05743" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-b112-electrive-audi-porsche", "note_id": "n-25dacd4d74" },
+    { "value": "none", "kind": "manufacturer", "source_id": "src-b112-insideevs-audi-porsche-sc", "note_id": "n-aa2d879f01" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Q4 Sportback 50 e-tron quattro", "US": "Q4 Sportback 50 e-tron quattro" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-q4etronsportback-2022-425583", "notes": "Q4 Sportback Premium Plus 50 quattro 2022: 20x8/20x9 read on this Cars.com page." }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b112-ehga-q4-climate", "note_id": "n-746e568a6e", "low_confidence": true }
       ]
     }
   ]

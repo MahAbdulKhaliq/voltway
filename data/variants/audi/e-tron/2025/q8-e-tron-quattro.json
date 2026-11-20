@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-e4cbdc323b" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-audiclubna-nacs", "note_id": "n-90f78d20b0", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -20,6 +23,10 @@
         { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-q8etron-2025", "notes": "Q8 e-tron quattro (CA/US): Q8 e-tron (US; page covers Premium/Prestige/Premium Plus, not split by trim): 20-inch standard.", "low_confidence": true },
         { "diameter_in": 21, "is_standard": false, "source_id": "src-cars-q8etron-2025", "notes": "Q8 e-tron quattro (CA/US): Q8 e-tron (US): 21-inch optional.", "low_confidence": true },
         { "diameter_in": 22, "is_standard": false, "source_id": "src-cars-q8etron-2025", "notes": "Q8 e-tron quattro (CA/US): Q8 e-tron (US): 22-inch optional.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-audi-q8-facts", "note_id": "n-294cbd101a", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-ehga-q8-climate", "note_id": "n-06e9d6b8a6", "low_confidence": true }
       ]
     }
   ]

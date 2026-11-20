@@ -15,6 +15,10 @@
   "consumption_highway_wh_per_km": [
     { "value": 287, "unit": "Wh/km", "kind": "estimated", "source_id": "src-r2gm-insideevs-escalade-range-test-2025", "low_confidence": true, "notes": "Estimated (B103): the 2025 Escalade IQ's measured 70 mph highway figure (InsideEVs). The IQL is the long-wheelbase IQ on the same 24-module pack and motors, and is heavier, so real use is likely a little higher. No IQL test or rating found." }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": true, "note_id": "n-6fafed3685" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-2db03c68e9" }
+  ],
   "trims": [
     {
       "id": "luxury",
@@ -27,6 +31,11 @@
       ],
       "wheels": [
         { "diameter_in": 22, "is_standard": true, "source_id": "src-r2gm-cars-escalade-iql-2026", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" },
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-escalade-iq", "low_confidence": true, "note_id": "n-e0509d5f2b" }
       ]
     },
     {
@@ -40,6 +49,11 @@
       ],
       "wheels": [
         { "diameter_in": 22, "is_standard": true, "source_id": "src-r2gm-cars-escalade-iql-2026", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" },
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-escalade-iq", "low_confidence": true, "note_id": "n-e0509d5f2b" }
       ]
     },
     {
@@ -53,6 +67,11 @@
       ],
       "wheels": [
         { "diameter_in": 24, "is_standard": true, "source_id": "src-r2gm-cars-escalade-iql-2026", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" },
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-escalade-iq", "low_confidence": true, "note_id": "n-e0509d5f2b" }
       ]
     },
     {
@@ -66,6 +85,11 @@
       ],
       "wheels": [
         { "diameter_in": 24, "is_standard": true, "source_id": "src-r2gm-cars-escalade-iql-2026", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" },
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-escalade-iq", "low_confidence": true, "note_id": "n-e0509d5f2b" }
       ]
     }
   ]

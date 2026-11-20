@@ -12,6 +12,10 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-lyriq-2027", "low_confidence": true, "note_id": "n-13d1cf7d43" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -22,6 +26,10 @@
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2024-specs-433251", "note_id": "n-7bd8b54cda" },
         { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2024-specs-433255", "note_id": "n-8b890e5d8c", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     },
     {
@@ -33,6 +41,10 @@
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2024-specs-433251", "note_id": "n-7bd8b54cda" },
         { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2024-specs-433255", "note_id": "n-8b890e5d8c", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

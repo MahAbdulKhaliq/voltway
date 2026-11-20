@@ -12,6 +12,10 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-lyriq-2027", "low_confidence": true, "note_id": "n-7e7a9fb01f" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -23,6 +27,10 @@
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r2gm-cars-lyriq-2025-specs", "low_confidence": true, "notes": "Cars.com details only the Luxury w/1SC trim (20 in, 265/50R20); other 2025 trims and options not confirmed." },
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2025-specs-461016", "note_id": "n-34266e24cd" },
         { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2025-specs-461022", "note_id": "n-490b812c29", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     },
     {
@@ -34,6 +42,10 @@
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2025-specs-461016", "note_id": "n-34266e24cd" },
         { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2025-specs-461022", "note_id": "n-490b812c29", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-0149985cd2" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-2172906ba3" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "AWD", "US": "AWD" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carscom-model-x-2022", "note_id": "n-4f523eff7a", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-teslanorth-sx-heat-pump", "note_id": "n-8ed89c787a", "low_confidence": true }
       ]
     }
   ]

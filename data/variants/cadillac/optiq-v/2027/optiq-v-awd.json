@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-cadillac-optiq", "low_confidence": true, "note_id": "n-3d05143027" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-gm-nacs", "low_confidence": true, "note_id": "n-795f9fc0f8" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -21,6 +24,10 @@
       ],
       "wheels": [
         { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cadillac-optiq-2026-specs-473179", "note_id": "n-db2002f378", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     },
     {
@@ -31,6 +38,10 @@
       ],
       "wheels": [
         { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cadillac-optiq-2026-specs-473179", "note_id": "n-db2002f378", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

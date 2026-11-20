@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-679e7efbb3" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-d9840bdea0", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Preferred" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-guideauto-hyundai-ioniq-5-2023-preferred-standard-range-rwd", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-hy-ca-ioniq5-page", "note_id": "n-20247719af", "low_confidence": true }
       ]
     }
   ]

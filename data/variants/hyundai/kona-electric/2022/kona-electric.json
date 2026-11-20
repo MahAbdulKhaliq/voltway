@@ -13,12 +13,19 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-727699c0ea" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-0138387563" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-b9f3fd83f1" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-ca-faq", "note_id": "n-40329cb8de" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Kona Electric", "US": "Kona Electric" },
       "wheels": [
         { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-hyundai-kona-ev-2022-index", "low_confidence": true, "notes": "Page shows both SEL and Limited at 17 x 7 in." }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b112-hy-us-brochure-2021-kona", "note_id": "n-3ddcf90ea8", "low_confidence": true }
       ]
     }
   ]

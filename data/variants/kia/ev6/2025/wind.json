@@ -15,6 +15,9 @@
   "curb_weight_kg": [
     { "value": 1995, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev6-2025-wind-rwd", "low_confidence": true, "notes": "Guide Auto lists 1,995 kg (4,398 lb) for the Canadian Wind RWD (84.0 kWh)." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "estimated", "source_id": "src-kia-us-ev6-2026-compare", "note_id": "n-3c700bf97f", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

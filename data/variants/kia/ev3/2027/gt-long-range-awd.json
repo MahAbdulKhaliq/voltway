@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-us-ev3-2027", "note_id": "n-636f62f934", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-kia-us-ev3-2027-compare", "note_id": "n-16b6019c45", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "GT Long Range AWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev3-2027-490025", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-us-ev3-2027-compare", "notes": "Kia US 2027 EV3 page. GT: Standard. US only." }
       ]
     }
   ]

@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-lucid-air-supercharger", "note_id": "n-0420550f7d" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -20,6 +23,9 @@
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carscom-lucid-air-2024-gt", "notes": "20x8.5 front, 20x9.5 rear." },
         { "diameter_in": 19, "is_standard": false, "source_id": "src-r2w-lucid-air-gt-2024-tires", "notes": "19 inch tire option on the 2024 sheet.", "low_confidence": true },
         { "diameter_in": 21, "is_standard": false, "source_id": "src-r2w-lucid-air-gt-2024-tires", "notes": "21 inch tire option on the 2024 sheet.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-gcr-2024-air-gt-hp", "notes": "2024 Grand Touring added the Sapphire heat pump (\"second Air model to get a heat pump\"). The page does not say standard versus optional.", "low_confidence": true }
       ]
     }
   ]

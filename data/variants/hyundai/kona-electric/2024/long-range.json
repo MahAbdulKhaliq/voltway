@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-2db2b9d23f" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-4e4db06e3c" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "Long Range" },
       "wheels": [
         { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-hyundai-kona-ev-2024-index", "low_confidence": true, "note_id": "n-e56f1613df" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b112-hy-us-brochure-2024-kona", "note_id": "n-2e75458487", "low_confidence": true }
       ]
     }
   ]

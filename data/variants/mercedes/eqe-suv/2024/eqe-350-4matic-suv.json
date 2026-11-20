@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-6cdf780c0a" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "EQE 350 4MATIC SUV", "US": "EQE 350 4MATIC SUV" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqe-350-2024-specs", "notes": "EQE 350 4MATIC SUV: 20 x 8.5 in aluminum, P255/45R20. (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-55534e68f8" }
       ]
     }
   ]

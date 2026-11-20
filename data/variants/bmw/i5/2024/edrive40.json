@@ -13,6 +13,9 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -21,6 +24,9 @@
         { "diameter_in": 19, "is_standard": true, "source_id": "src-bmw-5-series-2024-us", "notes": "eDrive40 (US): i5 eDrive40: 19-inch Aerospoke standard.", "low_confidence": true },
         { "diameter_in": 20, "is_standard": false, "source_id": "src-bmw-5-series-2024-us", "notes": "eDrive40 (US): i5 eDrive40: 20-inch optional.", "low_confidence": true },
         { "diameter_in": 21, "is_standard": false, "source_id": "src-bmw-5-series-2024-us", "notes": "eDrive40 (US): i5 eDrive40: 21-inch optional.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-adac-i5-edrive40", "notes": "Germany: ADAC list shows heat pump standard (i5 eDrive40, from 10/23). Carried to North America and to 2024-2027; BMW US 2024 release also describes a heat pump.", "low_confidence": true }
       ]
     }
   ]

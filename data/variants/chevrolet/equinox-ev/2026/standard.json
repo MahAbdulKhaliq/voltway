@@ -16,6 +16,10 @@
   "charge_port": [
     { "value": "ccs1", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-equinox-ev", "low_confidence": true, "note_id": "n-eb3ab4b451" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
   "trims": [
     {
       "id": "standard",

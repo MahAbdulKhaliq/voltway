@@ -12,6 +12,9 @@
   "consumption_highway_wh_per_km": [
     { "value": 168, "unit": "Wh/km", "kind": "tested", "source_id": "src-insideevs-oosr-modely-juniper-2025", "low_confidence": true, "notes": "Test: 70 mph (113 km/h) steady, temperature not stated, 20-30 mph winds, wheel size not stated, battery-side (car display, Out of Spec Reviews method; page does not say explicitly) | Out of Spec Reviews, 2025 Model Y Long Range AWD (Juniper), 298 miles. Page says 'around 3.7 miles per kWh': one rounded figure given for both the old and new Long Range AWD together, and the page does not state the pack: 1000 / (3.7 x 1.609344) = 168 Wh/km. Other figures seen, not recorded: tparts.com relays 275 Wh/mi (171 Wh/km) for the same test; Bjorn Nyland Juniper Premium AWD 20.1 kWh/100 km at 120 km/h but only 12 C (autonomiacocheselectricos.es, no video link); AutoReview.nl LR AWD 20.04 kWh/100 km at 130 km/h, 19 C, 14.75 kWh/100 km at 100 km/h." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-4041579456" }
+  ],
   "trims": [
     {
       "id": "standard",

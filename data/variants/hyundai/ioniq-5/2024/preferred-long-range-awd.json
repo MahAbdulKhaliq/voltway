@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-679e7efbb3" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-d9840bdea0", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-guideauto-hyundai-ioniq-5-2023-preferred-long-range-awd", "low_confidence": true, "notes": "Carried from the 2023 Canadian page; the 2024 Guide Auto page returned 404." },
         { "diameter_in": 20, "is_standard": false, "source_id": "src-michelin-ca-ioniq5-2024-ultimate", "low_confidence": true, "notes": "Ultimate Package: Michelin Canada lists 255/45R20 for the 2024 Preferred Long Range AWD w/Ultimate Pkg." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-hy-ca-ioniq5-page", "note_id": "n-cd21c6caf4", "low_confidence": true }
       ]
     }
   ]

@@ -13,6 +13,10 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true },
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -20,6 +24,9 @@
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-ix-2024-specs", "note_id": "n-689e18e9cb" },
         { "diameter_in": 21, "is_standard": false, "source_id": "src-r3w-cars-com-research-bmw-ix-2024-specs", "notes": "xDrive50: Sport Package lists 21 in wheels (255/50R21). (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-gf-adac-ix-xdrive40", "note_id": "n-979391f934", "low_confidence": true }
       ]
     }
   ]

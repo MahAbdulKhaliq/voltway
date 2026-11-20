@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-w2-ie-i5nacs", "low_confidence": true, "note_id": "n-313bf043ba" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "community", "source_id": "src-b112-insideevs-i5-nacs-2026", "notes": "InsideEVs 791474: US i5 built from March 2026 have a factory NACS port and come with an AC and a DC (CCS) adapter. Cars built before March 2026 have CCS1 and need the sold NACS-to-CCS adapter.", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "eDrive40" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2026-specs", "note_id": "n-49909c9629" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-adac-i5-edrive40", "note_id": "n-aa643fcc6d", "low_confidence": true }
       ]
     }
   ]

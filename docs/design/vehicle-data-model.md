@@ -135,7 +135,7 @@ Each source is one record, reused by every figure that came from it:
 | | `dc_max_current_a` | Matters for 800V cars on 400V chargers (C4) | *later* |
 | | `charge_curves[]` | See §5 | MVP |
 | **Ports** | `charge_port` | `nacs` / `ccs1` / `chademo` / `j1772` (AC only) | MVP |
-| | `adapters_included[]` | for example "NACS→CCS1" from the factory | Optional (B38: in the schema from Phase 1b, shown as "Unknown" until researched) |
+| | `adapters_included[]` | DC adapter for the other network, named charger plug → car port, with how owners got it: `nacs_to_ccs1` (in the box), `nacs_to_ccs1_on_request` (free on request), `nacs_to_ccs1_sold` (sold by the maker), the same for `ccs1_to_nacs`, or `none` | Optional (B38); researched for every car (B112, 2026-11-20). Later, only "in the box" switches on both plugs in My car by default |
 | | `supercharger_access` | yes / no / via adapter / unknown | MVP (feeds N3) |
 | **Efficiency** | `consumption_combined_wh_per_km` ★ | Converted from NRCan kWh/100 km × 10 | MVP |
 | | `consumption_city_wh_per_km` ★, `consumption_highway_wh_per_km` ★ | Highway is the one routing uses | MVP |

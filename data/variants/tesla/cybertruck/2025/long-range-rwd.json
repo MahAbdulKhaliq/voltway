@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-0149985cd2" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-cybertruck-ccs1", "low_confidence": true, "note_id": "n-ea638874a4" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-carscom-cybertruck-2025", "notes": "Long Range 4x2 18x9 (2025 page). AWD trims not filled: the cars.com page has no AWD data (electrive says AWD has 20 inch as its standard option)." },
         { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-electrive-cybertruck-2025", "notes": "electrive (2025-04-15): 20 inch Cyber Wheels cost $3,500 extra on the Long Range RWD.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-insideevs-cybertruck-hp", "note_id": "n-464e87e1c8", "low_confidence": true }
       ]
     }
   ]

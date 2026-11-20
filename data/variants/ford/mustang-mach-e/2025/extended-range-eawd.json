@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-ford-adapter-product", "note_id": "n-6bdf0ce985", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Extended Range eAWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-ford-us-mme-specs-2025", "note_id": "n-3a7044e837", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-ford-2025-mme-whatsnew", "note_id": "n-481515ce29", "low_confidence": true }
       ]
     }
   ]

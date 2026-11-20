@@ -15,12 +15,18 @@
   "curb_weight_kg": [
     { "value": 2310, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev9-2026-light-rwd", "low_confidence": true, "notes": "Guide Auto lists 2,310 kg (5,093 lb) for the Canadian Light RWD (76.1 kWh)." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "note_id": "n-24214986bc", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Light", "US": "Light Standard Range" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "tire_size": "255/60R19", "source_id": "src-edwards-kia-ev9-light-2026", "low_confidence": true, "notes": "US dealer spec sheet for the 2026 Light." }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "notes": "Estimated: carried over from the 2027 EV9 US page (Standard on Wind, Land, GT-Line; Not Available on Light and Light Long Range). No 2026 EV9 page or statement that the climate system is unchanged was found.", "low_confidence": true }
       ]
     }
   ]

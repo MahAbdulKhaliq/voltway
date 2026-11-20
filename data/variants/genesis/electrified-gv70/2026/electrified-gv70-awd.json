@@ -14,6 +14,10 @@
     { "value": "yes", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-f8483eeff6", "low_confidence": true },
     { "value": "yes", "kind": "estimated", "source_id": "src-greencarreports-gv70-2026", "notes": "Estimated: Native NACS port on the refreshed 2026 car; Green Car Reports: native Supercharger support, no adapter needed (US report); Genesis Canada announcement.", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-gen-us-how-to-charge", "note_id": "n-f502346965", "low_confidence": true },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-gen-ca-nacs-release", "note_id": "n-ee2e2d3d2b", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

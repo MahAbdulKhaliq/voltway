@@ -14,12 +14,18 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-page", "low_confidence": true, "note_id": "n-bdc0f55932" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-9b43603c60" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-adapter", "note_id": "n-09c00a8890", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Long Range AWD", "US": "Long Range AWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2023-433951", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-kbb-ev6-2023-specs", "note_id": "n-97257c311b", "low_confidence": true }
       ]
     }
   ]

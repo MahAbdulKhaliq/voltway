@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-ford-ca-adapter-2024", "note_id": "n-95504dbbad", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Standard Range RWD", "US": "Standard Range RWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-mache-2024-select", "low_confidence": true, "note_id": "n-2a2a65f6d0" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b112-cars-2025-mme-heatpump", "note_id": "n-c1a1c49304", "low_confidence": true }
       ]
     }
   ]

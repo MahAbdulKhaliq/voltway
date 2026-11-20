@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-1972a7a45d" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "EQS 450+ Sedan" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-plus-2022-specs", "notes": "EQS 450+ Sedan: 20 x 8.5 in aluminum, P255/45R20; no optional wheels listed." }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-mb-b112-mbpassion-eqs-hp", "note_id": "n-720e231805" }
       ]
     }
   ]

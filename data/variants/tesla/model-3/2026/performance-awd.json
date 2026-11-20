@@ -9,6 +9,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "community", "source_id": "src-thinkev-tesla-model-3-2026", "low_confidence": true, "note_id": "n-56a0dc357e" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-87641db422" }
+  ],
   "trims": [
     {
       "id": "standard",

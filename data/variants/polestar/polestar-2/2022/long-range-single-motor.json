@@ -14,6 +14,9 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-ca-tesla-supercharger-network", "low_confidence": true, "note_id": "n-e984388f46" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-32b9a75f5b" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-polestar-us-nacs", "note_id": "n-b3bcf2fc86" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -21,6 +24,9 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-ps2-ins2022", "note_id": "n-6c1fbe5eb3" },
         { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-ps2-prn2022", "note_id": "n-983aa0d381" }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b112-polestar-ca-p2-three-versions", "note_id": "n-b1507629bd", "low_confidence": true }
       ]
     }
   ]

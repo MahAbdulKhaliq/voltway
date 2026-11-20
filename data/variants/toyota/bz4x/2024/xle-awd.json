@@ -14,12 +14,18 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-ed7fb540a3" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-toyota-ca-charging", "low_confidence": true, "note_id": "n-ac4e6743a5" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-toyota-2026-bz-onsale-us", "note_id": "n-5786e34f83" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "XLE AWD", "US": "XLE AWD" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-cc-bz24", "note_id": "n-b76eaf8d94", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-insideevs-2024-bz4x", "notes": "2024: InsideEVs lists the heat pump system for the bZ4X (two grades \"just like previously\"; maker release for 2023 and 2025 both list it). Canada: carried from Toyota Canada 2023 and 2026 releases, years compared 2023 and 2026.", "low_confidence": true }
       ]
     }
   ]

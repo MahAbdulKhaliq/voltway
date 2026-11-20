@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "manufacturer", "source_id": "src-w2-bmw-ix3", "note_id": "n-c848495225" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-bmw-us-ix3-debut", "note_id": "n-9db4975438", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -20,6 +23,9 @@
         { "diameter_in": 20, "is_standard": true, "source_id": "src-bmw-ix3-2027-us", "note_id": "n-04c263dc6d", "low_confidence": true },
         { "diameter_in": 21, "is_standard": false, "source_id": "src-bmw-ix3-2027-us", "note_id": "n-93bcbe873f", "low_confidence": true },
         { "diameter_in": 22, "is_standard": false, "source_id": "src-bmw-ix3-2027-us", "note_id": "n-c7d455786b", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-evmagz-ix3-40", "note_id": "n-d0c796b2ff", "low_confidence": true }
       ]
     }
   ]

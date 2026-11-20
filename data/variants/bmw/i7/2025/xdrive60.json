@@ -13,12 +13,19 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true },
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "xDrive60", "US": "xDrive60" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i7-2025-specs-460782", "note_id": "n-cbaf5e5668", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-bmw-7-series-2023-us", "note_id": "n-435bfde0c9", "low_confidence": true }
       ]
     }
   ]

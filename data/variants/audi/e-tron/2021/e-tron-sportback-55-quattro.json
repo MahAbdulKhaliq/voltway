@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-331f04b34d" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-audiclubna-nacs", "note_id": "n-ccfccce3ec", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "e-tron Sportback 55 quattro", "US": "e-tron Sportback 55 quattro" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-etronsportback-2021-416326", "notes": "e-tron Sportback Premium quattro 2021: 20x9 read on this Cars.com page." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-ehga-etron-climate", "note_id": "n-33c63d3ffe", "low_confidence": true }
       ]
     }
   ]

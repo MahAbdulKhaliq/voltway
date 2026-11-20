@@ -17,12 +17,18 @@
     { "value": "ccs1", "kind": "estimated", "source_id": "src-polestar-ca-tesla-supercharger-network", "low_confidence": true, "note_id": "n-1f209e6eaf" },
     { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-5ff5964173" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-polestar-us-nacs", "note_id": "n-b3bcf2fc86" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Dual Motor Performance Pack", "US": "Long Range Dual Motor Performance Pack" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-ps2-global", "notes": "20-inch Performance forged wheel comes with the Performance pack; page not model-year specific, low confidence.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b112-cars-2025-p2", "notes": "Canada: optional (Climate Pack; MoneySense, Cars.com). US: Carvana says \"The Plus and Climate equipment sets are standard\" on this car, so a US car may have it as standard.", "low_confidence": true }
       ]
     }
   ]

@@ -12,6 +12,10 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-c1cc15655e" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-insideevs-audi-porsche-sc", "note_id": "n-bfa943405c", "low_confidence": true },
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-electrive-audi-porsche", "note_id": "n-62d3ad892e", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +23,9 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-audi-q6etron-2025-465467", "notes": "Q6 e-tron 2025: 19x8/19x9 read on this Cars.com page." },
         { "diameter_in": 20, "is_standard": false, "source_id": "src-cars-audi-q6etron-2025-465467", "note_id": "n-4fcf8a8ad7" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-ehga-q6-climate", "note_id": "n-999a0abc6a", "low_confidence": true }
       ]
     }
   ]

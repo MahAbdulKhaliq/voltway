@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-equinox-ev", "low_confidence": true, "note_id": "n-3d05143027" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-gm-nacs", "low_confidence": true, "note_id": "n-795f9fc0f8" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,10 @@
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-gmc-sierra-ev-2026-specs-471578", "notes": "No 2027 page on Cars.com; 18 in carried from the 2026 Extended Range Elevation page (AT4 is 18 in too).", "low_confidence": true },
         { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-gmc-sierra-ev-2026-specs-471574", "notes": "No 2027 page; 22 in carried from the 2026 Extended Range Denali page.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

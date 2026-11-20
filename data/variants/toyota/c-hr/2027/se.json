@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-9e907ae515" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "estimated", "source_id": "src-toyota-chr-2026-us", "notes": "Name is charger plug to car port. Estimated: 2027 C-HR carried from the 2026 US release (adapter included); no 2027 page opened.", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -16,6 +16,10 @@
   "consumption_highway_wh_per_km": [
     { "value": 197, "unit": "Wh/km", "kind": "tested", "source_id": "src-insideevs-lyriq-70mph-2023", "low_confidence": true, "notes": "Test: 70 mph (113 km/h) steady, upper 60s to ~80 F (about 20-27 C), wheel size not stated, battery-side (vehicle energy gauge) | 2023 Lyriq RWD (same generation; Cadillac-listed usable 102 kWh). 104.7 kWh over 330 mi: 104.7 / 330 = 317.3 Wh/mi / 1.609344 = 197 Wh/km (article says 3.1 mi/kWh). Other test seen: Car and Driver 75 mph, 2023 RWD 20-inch, 270 mi (via Autoblog, no consumption). | Main session: the page calls 102 kWh usable while our data has 95 usable / 100.4 gross, and the gauge read 104.7 kWh used; 2023 to 2026 RWD pack/motor match is plausible but not confirmed." }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
   "trims": [
     {
       "id": "11-5-kw-charger",
@@ -26,6 +30,10 @@
       ],
       "ac_max_kw": [
         { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-01bfb276ed" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     },
     {
@@ -37,6 +45,10 @@
       ],
       "ac_max_kw": [
         { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-fcbda3cf86" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

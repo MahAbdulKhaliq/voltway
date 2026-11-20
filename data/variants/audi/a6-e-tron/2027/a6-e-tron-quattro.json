@@ -12,12 +12,19 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-c1cc15655e" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-insideevs-audi-porsche-sc", "note_id": "n-407da96ab2", "low_confidence": true },
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-electrive-audi-porsche", "note_id": "n-8ff0427601", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "A6 e-tron quattro" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-a6etron-2027-483050", "notes": "Estimated: A6 e-tron Prestige RWD 2027 page shows 20x8/20x9; carried to a6-e-tron-quattro (other trims and drivetrains not read, Premium trims may differ). Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-ehga-a6-climate", "note_id": "n-24e35166f8", "low_confidence": true }
       ]
     }
   ]

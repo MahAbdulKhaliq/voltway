@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-1972a7a45d" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "EQE 350+ Sedan" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-eqe350plus-2025", "notes": "EQE 350+ Sedan (US): EQE 350+ Sedan (US): 20x9; no options listed.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-14cbffd89f", "low_confidence": true }
       ]
     }
   ]

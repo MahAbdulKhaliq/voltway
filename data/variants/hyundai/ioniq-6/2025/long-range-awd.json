@@ -13,6 +13,10 @@
   "supercharger_access": [
     { "low_confidence": true, "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-ea1d0f39b4" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-b9f3fd83f1" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-ca-faq", "note_id": "n-40329cb8de" }
+  ],
   "trims": [
     {
       "id": "18-in-wheels",

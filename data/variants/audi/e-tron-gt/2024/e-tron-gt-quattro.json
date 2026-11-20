@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-834b905dab" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-audiclubna-nacs", "note_id": "n-ccfccce3ec", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "e-tron GT quattro", "US": "e-tron GT quattro" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-etrongt-2024-443825", "notes": "e-tron GT Premium Plus quattro 2024: 20x9/20x11 read on this Cars.com page." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-audi-gt-facts", "note_id": "n-ba2546b565", "low_confidence": true }
       ]
     }
   ]

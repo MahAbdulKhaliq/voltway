@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-w2-ie-i5-27", "low_confidence": true, "note_id": "n-24bfcfaf1e" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "community", "source_id": "src-b112-insideevs-i5-2027", "note_id": "n-b6eefed2cd", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "xDrive40" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2027-specs-485396", "notes": "xDrive40 Sedan: 19 x 8.5 in aluminum, P245/45R19; the M Sport Package (Style 936M) is the same 19 in size." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-adac-i5-xdrive40", "note_id": "n-5af933bc43", "low_confidence": true }
       ]
     }
   ]

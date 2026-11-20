@@ -15,6 +15,9 @@
   "curb_weight_kg": [
     { "value": 2025, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideautoweb-bz-xle-awd-2026", "low_confidence": true, "notes": "Canadian XLE AWD: 2,025 kg (4,464 lb) listed as Weight. A dealer spec site lists 4,376 lb for all AWD trims (US-style figure); a Toyota Canada summary excerpt also read about 2,025 kg." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-toyota-ca-2026-bz-onsale", "note_id": "n-716e07d5bc", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

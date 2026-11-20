@@ -13,6 +13,10 @@
   "supercharger_access": [
     { "low_confidence": true, "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "notes": "Through its NACS port (same FAQ statement for IONIQ 5 2026+)." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-electrive-2026-ioniq5n", "notes": "electrive and KBB: the 2026 IONIQ 5 N switched to a NACS port and includes CCS adapters. (Hyundai's adapter FAQ predates the 2026 N.)", "low_confidence": true },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-ca-ioniq5-page", "note_id": "n-93dba23d46" }
+  ],
   "trims": [
     {
       "id": "standard",

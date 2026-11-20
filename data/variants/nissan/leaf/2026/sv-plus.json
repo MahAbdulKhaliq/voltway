@@ -15,6 +15,9 @@
   "curb_weight_kg": [
     { "value": 1919, "unit": "kg", "kind": "manufacturer", "source_id": "src-carscom-leaf-sv-plus-2026", "low_confidence": true, "notes": "Converted from 4,231 lb (US SV+ FWD): 4,231 x 0.45359 = 1,919. Matches EV Specifications 1,919 kg. Guide Auto gives a Canadian lineup range of 1,802-1,991 kg." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-nh-nissanusa-leaf-features", "note_id": "n-027f9c182e", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

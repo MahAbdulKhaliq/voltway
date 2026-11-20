@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-0149985cd2" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-cybertruck-ccs1", "low_confidence": true, "notes": "Tesla sells a redesigned CCS1 to NACS adapter for Cybertruck since Jan 2026 in Canada and the US (C$275 in Canada); the original adapter did not fit. No source says any Cybertruck shipped with one. Tesla Shop page is blocked, so relayed by Drive Tesla Canada. Applies to CA." }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Premium AWD" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-tesla-cybertruck-2026-specs-481629", "notes": "US Premium AWD: 20x9, P285/65SR20; applied to Canada.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-insideevs-cybertruck-hp", "note_id": "n-464e87e1c8", "low_confidence": true }
       ]
     }
   ]

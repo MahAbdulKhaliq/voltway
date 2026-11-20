@@ -13,12 +13,18 @@
     { "value": "yes", "kind": "estimated", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-c43bf8772c" },
     { "value": "yes", "kind": "estimated", "source_id": "src-toyota-ca-media-bz-onsale-2026", "low_confidence": true, "note_id": "n-e8e0827b3a" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-toyota-ca-2026-bz-onsale", "note_id": "n-e5f6657f99", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Woodland AWD", "US": "Woodland AWD" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-toyota-ca-media-bz-woodland-2026", "low_confidence": true, "notes": "Quick web lookup. 18-inch aluminum wheels with removable aero covers." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-toyota-ca-2026-bz-range", "note_id": "n-c4c8509cfa", "low_confidence": true }
       ]
     }
   ]

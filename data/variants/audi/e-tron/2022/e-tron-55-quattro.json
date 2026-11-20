@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-331f04b34d" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-audiclubna-nacs", "note_id": "n-ccfccce3ec", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-etron-2022-421672", "notes": "e-tron Premium quattro 2022: 20x9 read on this Cars.com page." },
         { "diameter_in": 21, "is_standard": true, "source_id": "src-cars-audi-etron-2022-421674", "notes": "e-tron Chronos quattro 2022: 21x9.5 read on this Cars.com page (Chronos trim; standard there)." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-ehga-etron-climate", "note_id": "n-508d22020f", "low_confidence": true }
       ]
     }
   ]

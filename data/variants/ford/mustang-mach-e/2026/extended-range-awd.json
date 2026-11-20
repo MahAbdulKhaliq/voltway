@@ -15,6 +15,9 @@
   "charge_port": [
     { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-414c61eb68" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-ford-adapter-product", "note_id": "n-f6c94fe44e", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

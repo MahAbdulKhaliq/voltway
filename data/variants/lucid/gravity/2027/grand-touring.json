@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "note_id": "n-04067ecb4a" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-guideauto-gravity-nacs", "note_id": "n-0928f72736", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

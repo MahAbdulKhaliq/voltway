@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-25ba6fdec8" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -22,6 +25,10 @@
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2026-specs-471788", "note_id": "n-1cbfa64a11" },
         { "diameter_in": 24, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2026-specs-482295", "note_id": "n-2c3780c236" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     },
     {
@@ -33,6 +40,10 @@
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2026-specs-471788", "note_id": "n-1cbfa64a11" },
         { "diameter_in": 24, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2026-specs-482295", "note_id": "n-2c3780c236" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

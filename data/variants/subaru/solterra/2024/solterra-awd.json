@@ -13,6 +13,9 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-sc-2025", "low_confidence": true, "note_id": "n-59bcf36e02" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-driveteslacanada-solterra-bz4x", "low_confidence": true, "note_id": "n-3d7f408c18" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-subaru-2025-10-solterra-supercharging", "note_id": "n-3972fc4047", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

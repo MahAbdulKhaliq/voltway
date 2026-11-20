@@ -13,12 +13,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-page", "low_confidence": true, "notes": "CCS1 Kia vehicles use Tesla Superchargers with a Kia-approved adapter." }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-adapter", "notes": "US: Kia sells the Kia-approved NACS-to-CCS1 adapter through dealers (reported $249, Electrek Jan 2025) to owners outside the free offer. 2025 EV6 is outside the free offer (2024-25 EV9 and 2024 EV6 only).", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "GT" },
       "wheels": [
         { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-kia-ev6-2025-471675", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-kbb-ev6-2025-specs", "notes": "KBB 2025 EV6: heat pump standard on AWD models (GT is AWD-only). US source.", "low_confidence": true }
       ]
     }
   ]

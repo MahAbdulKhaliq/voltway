@@ -15,6 +15,9 @@
   "consumption_highway_wh_per_km": [
     { "value": 341, "unit": "Wh/km", "kind": "estimated", "source_id": "src-nrcan-bev-2026-09", "low_confidence": true, "notes": "Estimated (B103): NRCan's highway rating for its twin, the 2025 Chevrolet Silverado EV WT Max Range (same 24-module Ultium pack, dual motor). The Denali is heavier and rides on 24-inch wheels, so real use is likely higher. The Sierra itself has no regulator rating." }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": true, "note_id": "n-6fafed3685" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -24,6 +27,10 @@
       ],
       "wheels": [
         { "diameter_in": 24, "is_standard": true, "source_id": "src-r2gm-insideevs-sierra-2024-specs", "low_confidence": true, "notes": "InsideEVs: Denali Edition 1 on 24-in wheels." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-adf23c4e53" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "estimated", "source_id": "src-electrive-stellantis-supercharger-2026", "notes": "Estimated: electrive names Grecale Folgore 2025 and 2026; 2027 is the same CCS1 hardware and The Charge Port NACS checker lists Grecale Folgore 2025-2027 as \"Paid adapter\". Free2move Charge NACS-CCS1 DC adapter, sold by Stellantis (certified LEV dealers and Mopar.com; US $230 sale price / about $250 list per InsideEVs and Electrek, announced March 2026). US only.  Prices in these notes come from InsideEVs, Electrek and Auto123 articles not cited here; Canada is inferred from \"North America\".", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

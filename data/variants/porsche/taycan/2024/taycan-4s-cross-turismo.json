@@ -13,12 +13,18 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-c33be61ae0" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-ca-supercharger-2025", "note_id": "n-da78e91c76" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-por-us-sc-access", "note_id": "n-33f75cb4ae" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Taycan 4S Cross Turismo", "US": "Taycan 4S Cross Turismo" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-porsche-taycan-2021-420599", "notes": "Estimated: the 2021 Taycan 4S Cross Turismo AWD page shows 19-inch; the 2024 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b112-por-stories-winter", "note_id": "n-0eb0b95f6f", "low_confidence": true }
       ]
     }
   ]

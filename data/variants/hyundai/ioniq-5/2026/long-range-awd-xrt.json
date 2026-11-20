@@ -15,6 +15,10 @@
   "curb_weight_kg": [
     { "value": 2135, "unit": "kg", "kind": "manufacturer", "source_id": "src-carfactsheet-ioniq5-2026", "low_confidence": true, "notes": "Converted from 4,707 lb (US XRT, CarFactSheet table attributed to Hyundai; EVSpecifications also gives 2,135 kg; KBB gives 4,720 lb = 2,141 kg). US figure; no Canadian XRT spec page found, assumed the same car (84 kWh, AWD)." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-us-adapter-faq", "note_id": "n-39db1cd66b", "low_confidence": true },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-ca-ioniq5-page", "note_id": "n-93dba23d46" }
+  ],
   "trims": [
     {
       "id": "standard",

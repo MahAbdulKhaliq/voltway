@@ -1,0 +1,52 @@
+# Check: batch-2026-11-20-b112-rivian.json
+
+**Verdict: FIX.** `--check` passes (valid; nothing written). All 110 cars in `b112-todo-rivian.json` have an adapter and a heat pump for every listed trim; no unknowns. Three groups need changes: the 2025 R1 adapter, the 2026/2027 "sold" adapter (price and Canada), and the R2 heat pump (a real conflict recorded as `standard`).
+
+Rivian's own support and Gear Shop pages returned 429 or empty content when I opened them. I did not work around that. Rivian-page claims below are therefore marked unverifiable unless a press page quotes them.
+
+## Table
+
+| Variant (group) | Field | Value | Result | Evidence |
+|---|---|---|---|---|
+| R1 2022-2024, 33 cars (CA/US) | adapters_included | nacs_to_ccs1_on_request | ⚠ | RivianTrackr: "Until now, Rivian has been giving new buyers a free adapter"; "free adapters to all current owners". "Announced March 2024" is not on the cited page. Page does not mention Canada. Drive Tesla Canada covers Canadian purchases but from Sept 2024 only. low_confidence is set, fine. |
+| R1 2025, 28 cars (CA/US) | adapters_included | nacs_to_ccs1_on_request | ❌ | InsideEVs (2024-09-25): free "NACS to CCS1 charging adapter" with every delivery, in the order summary. Drive Tesla Canada: "with every new R1T and R1S purchase made in Canada and the United States". Both say the adapter was **with the car**. RivianTrackr: from Jan 14 new vehicles don't get it free, $225 Gear Shop. The brief says record the earlier state, and the earlier state for MY2025 orders is in the box. |
+| R1 2025 | the date | 2025-01-14 | ⚠ | RivianTrackr body says "beginning January 14th" with no year. The year comes only from the page's publish date (2025-01-06). US only. Canadian cut-off and price not sourced. |
+| R1 2026 non-Quad, 28 cars (CA/US) | adapters_included | ccs1_to_nacs_sold | ⚠ | "Only Quad Launch Editions include a CCS Combo 1 DC fast adapter" (Gizmodo) supports "not in the box". "Sold" has no R1-specific source. The $200 comes from RivianTrackr's R2 article ("The CCS1 DC adapter is $200"), which is about the R2. A web search snippet of Rivian's Gear Shop reports **$300**, "compatible with 2026+ Rivian vehicles" (not confirmed by me; page returned 429). Canada: no price or Canadian offer found. |
+| R1 2026 Quad Max Pack, 4 cars | adapters_included | ccs1_to_nacs (in box) | ⚠ | Notebookcheck: Quad-Motor R1s "will also ship with a complimentary CCS adapter". Gizmodo narrows it to "Quad Launch Editions". The sources disagree on scope. A search snippet of Rivian's support page says "2026 R1 Quad configurations (including Launch Edition)", not verified. Notebookcheck is a pre-launch article ("will"). The catalogue has one Quad variant per body, so the split can't tell Launch from non-Launch Quad. |
+| R1 2026 all cars | charge port NACS | nacs in todo list | ⚠ | Notebookcheck: "all 2026 R1 models will come with native NACS ports", a pre-launch statement. A search snippet of Rivian's support page agrees ("starting with model year 2026"). Rivian page unreadable. Consistent with the repo's `charge_port`. |
+| R1 2027, 16 cars (US) | adapters_included | ccs1_to_nacs_sold | ⚠ | No 2027 page cited. Same $200 R2-article price. Quad 2027 recorded "sold" while the 2026 Quad was in the box. That is a downgrade on no evidence. It is conservative and low_confidence, but the note says Rivian says Quad carries over, so the batch contradicts its own note. |
+| R2 2027 Performance AWD | adapters_included | ccs1_to_nacs_sold | ✅/⚠ | RivianTrackr: "The CCS1 DC adapter is $200"; discount equal to the price in CA, CO, DC, DE, MA, MD, NJ, NM, NY, OR, RI, VT, WA. Matches the batch notes. US only. Whether the R2 includes one in the box: "The article doesn't say". |
+| R1 2022-2024 | heat_pump | none | ✅ | The Drive 2021: "There is indeed no dedicated heat pump, a company spokesperson confirmed." Electrek 2024-03-13: R1T/R1S "do not have a heat pump, instead relying on resistive heating". 2022 uses the 2021 quote directly. 2023 is carried from 2022 and 2024 with low_confidence, as the brief allows. |
+| R1 2025 | heat_pump | standard | ✅ | InsideEVs: "All R1 vehicles now come standard with a heat pump system". Guide Auto: "a redesigned heat pump-based thermal system" (it doesn't say every trim). |
+| R1 2026 / 2027 | heat_pump | standard | ⚠ | Carried from 2025 with no source stating the climate system is unchanged. The brief allows a carry-over only when a source says the model year is unchanged. low_confidence is set. 2027 notes say no 2027 page was opened. |
+| R2 2027 Performance AWD | heat_pump | standard | ❌ | Electrek: "Launch Edition R2s will have a heat pump" (Rivian), but also "the tested version of the vehicle didn't have a heat pump" and the certification lists "conventional AC system". The sources conflict directly on the Launch car. A web search found no other source on the R2 heat pump. The Launch Edition is not clearly the same thing as this "Performance AWD" trim. |
+| Kinds, accessed_on, urls | | manufacturer for relayed Rivian statements | ✅ | Rule 5 allows it. All sources have specific URLs and `accessed_on`. The `type` is `community` for press pages; that is odd (should probably be `press`) but not blocking. |
+| Fit with existing data | | | ✅ | Adapters and heat pumps match the repo's `supercharger_access` (every CCS1 car `via_adapter`, every NACS car `yes`), so no adapter/Supercharger disagreement. |
+
+## Answers to the riskiest points
+
+1. **2025 R1 offer change.** The mid-year change is real and sourced (Jan 14, $225), with the year inferred from page metadata. But the brief's rule picks the earlier state, which is "in the box" per InsideEVs and Drive Tesla Canada. The batch picked "free on request" instead, a different (and lower) state, and then only mentions the box offer in the notes. Change the value to `nacs_to_ccs1` (no suffix) with `low_confidence: true` and the Jan 14 / $225 change in the notes. Alternatively keep `_on_request` and explain why. Either way the Canadian end date is unsourced, so keep low_confidence and say so.
+2. **2026 Quad vs non-Quad vs 2027.** Gizmodo and Notebookcheck conflict on Quad scope (Launch Edition vs all Quad). The in-box value for the Quad is plausible but rests on a pre-launch Notebookcheck line. Non-Quad `sold` lacks any R1-specific price source, and the batch's $200 conflicts with the $300 that a search snippet attributes to the Gear Shop. 2027 Quad "sold" is a guess that contradicts the batch's own note. The NACS port for all 2026 R1 is supported by Notebookcheck (pre-launch) and the repo's port data, not by a Rivian page I could read.
+3. **R2 heat pump.** The `standard` value is supported by Rivian's statement relayed by Electrek for the Launch Edition. The same article reports the EPA-tested car had a conventional AC system. The conflict is acknowledged in the notes but the value is still stated flatly. It must not be a firm `standard`.
+4. **Gen 1 `none` and Gen 2 `standard` carry-overs.** Gen 1 `none` for 2022-2024 is well sourced (two sources). Gen 2 2025 `standard` is sourced. The 2026 and 2027 carry-overs have no "unchanged" source.
+5. **Canada.** Drive Tesla Canada does say the in-box adapter applied to Canadian R1 purchases (Sept 2024 onward). Nothing sources the earlier free-on-request offer, the Jan 14 cut-off, or the 2026+ sold price for Canada. RivianTrackr is US only; the R2 discount list is US states. The batch's low_confidence flags and "Canada" notes cover this, but 2022-2024 `on_request` and the 2026/2027 `sold` values hold for Canadian cars only on assumption.
+
+## Required changes
+
+1. **R1 2025 (28 cars):** change `nacs_to_ccs1_on_request` to `nacs_to_ccs1` (in the box, per InsideEVs and Drive Tesla Canada, both markets) with `low_confidence: true`, and put the change (no longer free from 2025-01-14, $225 US, Canadian terms unknown) in the notes. Source: keep the Drive Tesla Canada and InsideEVs ids as `source_id` (the RivianTrackr source only supports the later state).
+2. **R1 2026 non-Quad and 2027 (all trims) `ccs1_to_nacs_sold`:** price is wrong or unsupported. Either cite a read Rivian Gear Shop page (a search snippet shows $300) or drop the price and say "price not confirmed; $200 is the R2 price (RivianTrackr)". Do not use the R2 article's $200 as the R1 price. Name Canada in the notes as unsourced.
+3. **R1 2026 Quad Max Pack (4 cars):** keep `ccs1_to_nacs` only if scope is clarified. Gizmodo says Quad Launch Editions, Notebookcheck says Quad-Motor R1s. State both in the notes. Cite Gizmodo as well as Notebookcheck. Mark Notebookcheck as pre-launch. Keep low_confidence.
+4. **R1 2027 Quad (4 cars):** resolve the contradiction. Either record `ccs1_to_nacs` carried from 2026 with low_confidence, or keep `sold` and delete the "Rivian says Quad carries over" sentence.
+5. **R1 2026 and 2027 heat pump (48 cars):** carry-over needs a source saying the system is unchanged. Find one (2026 R1 press kit or Rivian spec page) or keep `standard` clearly labelled as an unsourced carry-over; the current notes do say so. Not a mismatch, but weakest-evidence group.
+6. **R2 2027 Performance AWD heat_pump:** do not leave a flat `standard`. Options: `standard`, low_confidence, and the notes say the EPA-tested car had conventional AC and Rivian says the Launch Edition has one; or find a Rivian spec page or order guide for the Performance AWD. Confirm that the Launch Edition is this trim.
+7. **Minor:** the "announced March 2024" claim in the 2022-2024 notes is not on the cited page; cite a source or remove. Consider type `press` rather than `community` for press sources.
+
+## Applied by the main session (2026-11-20)
+1. R1 2025: `nacs_to_ccs1` (in the box), `low_confidence`, cited to InsideEVs; the 2025-01-14 change (US$225) is in the notes, Canadian cut-off unknown.
+2. R1 2026 non-Quad and 2027 `ccs1_to_nacs_sold`: the R2's US$200 price removed from the notes; R1 price and Canadian price stated as unconfirmed.
+3. R1 2026 Quad: both scopes (all Quad vs Launch Edition only) in the notes, `low_confidence`.
+4. R1 2027 Quad: kept `sold`; the "carries over" sentence removed.
+5. R1 2026/2027 heat pump: kept `standard`, `low_confidence`, notes say it is an unsourced carry-over.
+6. R2 Performance AWD heat pump: kept `standard`, `low_confidence`, the EPA conflict and the trim mapping doubt in the notes.
+7. "Announced March 2024" removed where present. Source types left as `community` (the schema has no `press` type).
+- `add-facts --check`: OK.

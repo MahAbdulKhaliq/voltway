@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-0fdeb4e6b1" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-f909c36451" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "Standard AWD" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-carscom-model-y-2026", "notes": "Model Y RWD/Standard 18x9.5 (2026 page); Standard AWD assumed the same. Cars.com 2026 page shows RWD only.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-insideevs-modely-heat-pump", "note_id": "n-51654e8c98", "low_confidence": true }
       ]
     }
   ]

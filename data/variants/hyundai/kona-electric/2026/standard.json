@@ -15,12 +15,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "notes": "Per the same FAQ, with a NACS adapter (sold separately; Hyundai Canada EV hub also advertises a free CCS-to-NACS adapter offer until 2026-12-31 for eligible native-CCS EVs, model list not shown)." }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-d9840bdea0", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Kona Electric" },
       "wheels": [
         { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-hyundai-kona-ev-2025-index", "low_confidence": true, "notes": "2025 page; no 2026 Cars.com page opened, carried over." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-hy-ca-kona-2026-page", "notes": "Hyundai Canada KONA Electric page: heat pump absorbs external heat for the cabin. The page may show the current model year.", "low_confidence": true }
       ]
     }
   ]

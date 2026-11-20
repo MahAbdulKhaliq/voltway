@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "no", "kind": "estimated", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b0ca50230f" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-thedrive-leaf-no-adapter", "note_id": "n-2e0a777234", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "SV PLUS" },
       "wheels": [
         { "diameter_in": 17, "is_standard": true, "source_id": "src-r3w-nissan-leaf-2021-specs-413451", "note_id": "n-e12a1eb33c", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-nh-nissan-us-leaf-2021", "note_id": "n-897da98b98", "low_confidence": true }
       ]
     }
   ]

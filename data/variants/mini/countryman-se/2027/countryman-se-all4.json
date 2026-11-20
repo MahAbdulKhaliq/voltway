@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-3de4a68db7" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-3ad622811a", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-mini-countryman-2027-specs-487210", "notes": "Countryman SE ALL4: 18 x 7.5 in aluminum, P225/55R18." },
         { "diameter_in": 19, "is_standard": false, "source_id": "src-r3w-cars-com-research-mini-countryman-2027-specs-487210", "notes": "Countryman SE ALL4: John Cooper Works Style package ($750) lists 19 in wheels, all-season." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-gf-adac-countryman-se", "notes": "Germany: ADAC list shows heat pump standard (Countryman SE U25). North American market not confirmed; carried to 2025-2027. Carry-over: no source found saying the system is unchanged for this car or year.", "low_confidence": true }
       ]
     }
   ]

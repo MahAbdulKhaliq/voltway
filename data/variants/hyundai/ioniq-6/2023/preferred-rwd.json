@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-6fd81b4869" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-d9840bdea0", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

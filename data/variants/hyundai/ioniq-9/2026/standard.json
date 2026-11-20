@@ -15,6 +15,10 @@
   "curb_weight_kg": [
     { "value": 2502, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ioniq9-2026-essential-rwd", "low_confidence": true, "notes": "Guide Auto lists 2,502 kg (5,516 lb) for the Canadian Essential RWD (110.3 kWh). US S RWD is 5,507 lb (2,498 kg, KBB), consistent." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-carscom-ioniq9-2026", "note_id": "n-62ca9613ef" },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-ca-ioniq9-page", "note_id": "n-7ed415fa8d" }
+  ],
   "trims": [
     {
       "id": "standard",

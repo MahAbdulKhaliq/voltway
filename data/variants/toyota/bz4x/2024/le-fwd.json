@@ -14,12 +14,18 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-ed7fb540a3" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-toyota-ca-charging", "low_confidence": true, "note_id": "n-ac4e6743a5" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-toyota-2026-bz-onsale-us", "note_id": "n-5786e34f83" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "LE FWD" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-toy-ca-bz4x25", "notes": "Toyota Canada release (2025 model year) names 18-inch alloy wheels for the LE; applied to the 2024 LE FWD as the same trim, low confidence.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-toyota-ca-2023-bz4x-launch", "notes": "Canada 2024: carried between Toyota Canada 2023 launch and 2026 releases, both list the heat pump; years compared 2023 and 2026.", "low_confidence": true }
       ]
     }
   ]

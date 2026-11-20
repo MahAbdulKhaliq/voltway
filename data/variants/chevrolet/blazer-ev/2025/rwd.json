@@ -13,12 +13,19 @@
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "notes": "Estimated: GM adapter programme covers Blazer EV, Equinox EV, Silverado EV and LYRIQ (Canadian article); US availability assumed. Current state for model year 2025: adapter needed. Markets: US." },
     { "value": "via_adapter", "kind": "community", "source_id": "src-insideevs-blazer-ev-supercharger-2025", "low_confidence": true, "note_id": "n-c8f22c3b95" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "RWD" },
       "wheels": [
         { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2025-specs-455774", "note_id": "n-f95851e323", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

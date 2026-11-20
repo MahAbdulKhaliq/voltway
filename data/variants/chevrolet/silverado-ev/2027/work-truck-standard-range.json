@@ -12,12 +12,19 @@
   "supercharger_access": [
     { "value": "yes", "kind": "manufacturer", "source_id": "src-r3-insideevs-silverado-2027-nacs", "low_confidence": true, "note_id": "n-39157c93bf" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-gm-nacs", "low_confidence": true, "note_id": "n-795f9fc0f8" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "Work Truck Standard Range" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2026-specs-471783", "note_id": "n-6859aec2ba", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

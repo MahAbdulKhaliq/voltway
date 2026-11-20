@@ -14,12 +14,18 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-kia-supercharger-2025-04", "low_confidence": true, "note_id": "n-8d2ebaeb54" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-0b6dfd96cb" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-adapter-release", "note_id": "n-aea508ebf1", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Wind" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev9-2025-465964", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "note_id": "n-f42b122d23", "low_confidence": true }
       ]
     }
   ]

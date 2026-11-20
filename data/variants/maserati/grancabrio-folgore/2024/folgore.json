@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-8310e94625" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-1c78dea37e" }
+  ],
   "trims": [
     {
       "id": "standard",

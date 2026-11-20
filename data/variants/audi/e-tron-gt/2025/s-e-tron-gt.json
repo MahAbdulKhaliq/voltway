@@ -12,6 +12,10 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-039ae8cd40" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-insideevs-audi-porsche-sc", "note_id": "n-bfa943405c", "low_confidence": true },
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-electrive-audi-porsche", "note_id": "n-62d3ad892e", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +23,9 @@
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-setrongt-2025-466799", "notes": "S e-tron GT Prestige quattro 2025: 20x9/20x11 read on this Cars.com page." },
         { "diameter_in": 21, "is_standard": false, "source_id": "src-cars-audi-setrongt-2025-466799", "notes": "21-inch wheel package ($2,000 option) listed on the same page." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-audi-gt-facts", "note_id": "n-70dd10edcd", "low_confidence": true }
       ]
     }
   ]

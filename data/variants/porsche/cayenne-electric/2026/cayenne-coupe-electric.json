@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-porsche-us-cayenne-s", "low_confidence": true, "note_id": "n-82701f98d3" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "estimated", "source_id": "src-b112-por-us-cayenne-s", "note_id": "n-fd4de2b14d", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 21, "is_standard": true, "source_id": "src-cars-porsche-cayenne-2026-487222", "note_id": "n-9e04a8751b" },
         { "diameter_in": 20, "is_standard": false, "source_id": "src-cars-porsche-cayenne-2026-487222", "note_id": "n-70d8160166", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-autoedge-cayenne", "note_id": "n-722ad8d0a5", "low_confidence": true }
       ]
     }
   ]

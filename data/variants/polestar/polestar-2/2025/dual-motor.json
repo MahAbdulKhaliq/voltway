@@ -14,6 +14,9 @@
     { "value": "ccs1", "kind": "estimated", "source_id": "src-polestar-ca-tesla-supercharger-network", "low_confidence": true, "note_id": "n-1f209e6eaf" },
     { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-5ff5964173" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-polestar-us-nacs", "note_id": "n-b3bcf2fc86" }
+  ],
   "trims": [
     {
       "id": "19-in-wheels",
@@ -21,6 +24,9 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-ps2-ca", "note_id": "n-f562fb5e1b", "low_confidence": true },
         { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-ps2-global", "notes": "20-inch Pro option on Long Range Dual Motor.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b112-moneysense-p2", "note_id": "n-fa03f9fc63", "low_confidence": true }
       ]
     }
   ]

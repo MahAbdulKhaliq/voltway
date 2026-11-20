@@ -13,6 +13,10 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "low_confidence": true, "note_id": "n-5726dc3848" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-bmw-supercharger-2025", "low_confidence": true, "note_id": "n-6d3657ff82" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true },
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -20,6 +24,9 @@
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2025-specs-460991", "note_id": "n-80a324a754" },
         { "diameter_in": 19, "is_standard": false, "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2025-specs-460991", "notes": "xDrive40: M Sport Package includes 19 in M Aero wheels (Style 996M). (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-adac-i4-xdrive40", "note_id": "n-881c302e82", "low_confidence": true }
       ]
     }
   ]

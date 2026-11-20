@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-0fdeb4e6b1" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-4041579456" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Long Range AWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-carscom-model-y-2021", "note_id": "n-30f8aab34b", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-insideevs-modely-heat-pump", "note_id": "n-51654e8c98", "low_confidence": true }
       ]
     }
   ]

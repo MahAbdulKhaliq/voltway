@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "note_id": "n-ea498851bc" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-kia-us-ev6-2026-compare", "note_id": "n-3598706c62", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "GT-Line AWD" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-kia-ev6-2026-483482", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-kia-us-ev6-2026-compare", "notes": "Kia US 2026 EV6 page. GT-Line: Available (footnote: with Dual Motor e-AWD). US only." }
       ]
     }
   ]

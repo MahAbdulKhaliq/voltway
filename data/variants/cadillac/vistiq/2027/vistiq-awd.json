@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-cadillac-vistiq", "low_confidence": true, "note_id": "n-3d05143027" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-gm-nacs", "low_confidence": true, "note_id": "n-795f9fc0f8" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -22,6 +25,10 @@
       "wheels": [
         { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cadillac-vistiq-2027-specs", "note_id": "n-0e8ff30bef" },
         { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-vistiq-2026-specs-466712", "note_id": "n-b0d271e07e", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     },
     {
@@ -33,6 +40,10 @@
       "wheels": [
         { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cadillac-vistiq-2027-specs", "note_id": "n-0e8ff30bef" },
         { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-vistiq-2026-specs-466712", "note_id": "n-b0d271e07e", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

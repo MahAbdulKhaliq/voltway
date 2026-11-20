@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-lucid-air-supercharger", "note_id": "n-0420550f7d" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Dream Edition Range", "US": "Dream Edition Range" },
       "wheels": [
         { "diameter_in": 21, "is_standard": true, "source_id": "src-r2w-carscom-lucid-air-2022-dream", "note_id": "n-c58f065a57" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b112-gcr-2024-air-gt-hp", "notes": "The 2024 Grand Touring was only the second Air with a heat pump after the Sapphire, so a 2022 dream-edition-range has none (press implication).", "low_confidence": true }
       ]
     }
   ]

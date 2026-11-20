@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-specs", "note_id": "n-2af31e08db" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-compare", "note_id": "n-f132e3e8cd", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev9-2027-491328", "low_confidence": true, "notes": "The US \"AWD\" label covers Wind AWD (19 in standard on Wind)." },
         { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-kia-ev9-2027-491329", "low_confidence": true, "notes": "Standard on Land AWD." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-compare", "note_id": "n-bede3d4c12" }
       ]
     }
   ]

@@ -13,12 +13,18 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-us-nacs-adapter-page", "low_confidence": true, "note_id": "n-063a3a8846" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-ca-nacs-adapter-page", "low_confidence": true, "note_id": "n-98f001b913" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-polestar-us-nacs", "note_id": "n-b3bcf2fc86" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Long Range Dual Motor Performance", "US": "Long Range Dual Motor Performance" },
       "wheels": [
         { "diameter_in": 22, "is_standard": true, "source_id": "src-r2w-ps4-us", "notes": "22-inch Performance wheels come with the Performance pack; page not model-year specific.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-polestar-ca-p4-specs", "note_id": "n-edabd69b81", "low_confidence": true }
       ]
     }
   ]

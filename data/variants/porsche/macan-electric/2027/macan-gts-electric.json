@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-porsche-us-supercharger-2025", "low_confidence": true, "note_id": "n-7fe59224b0" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "estimated", "source_id": "src-b112-por-us-sc-access", "note_id": "n-68834a8276", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 21, "is_standard": true, "source_id": "src-cars-porsche-macan-2026-482888", "notes": "Estimated: 2026 Macan Electric GTS AWD page shows 21-inch; the 2027 Macan Electric RWD page (https://www.cars.com/research/porsche-macan-2027/specs/489385/) shows 20-inch, so 2027 is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true },
         { "diameter_in": 22, "is_standard": false, "source_id": "src-porsche-macan-press-kit-design", "note_id": "n-68330d556c", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pumps", "note_id": "n-6dd2571913", "low_confidence": true }
       ]
     }
   ]

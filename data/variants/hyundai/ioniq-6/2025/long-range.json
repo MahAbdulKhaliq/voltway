@@ -16,6 +16,10 @@
   "consumption_highway_wh_per_km": [
     { "value": 197, "unit": "Wh/km", "kind": "tested", "source_id": "src-nyland-sheet-2026-10", "low_confidence": true, "notes": "Test: 120 km/h steady, 9 °C, dry, 18-inch wheels (225/55-18 Continental VC7, winter tyres per sheet), battery-side (car display; sheet does not say explicitly) | Nyland, 'Hyundai Ioniq 6 RWD' (77.4 kWh gross pack, 75.1 kWh measured; autohled.cz says his 2023 tests were pre-facelift cars). Our 2025 Long Range RWD has the same 77.4 kWh pack, 800 V; assumed the 2025 refresh did not change pack or motor (not verified against a changelog). Matches our 18-inch trim. 90 km/h, 9 °C: 149 Wh/km. Cool, winter-tyre test, so a mild-weather figure would be lower. Other test seen, not recorded: ArenaEV LR AWD 77.4 kWh, 24 °C, 130 km/h: 22.3 kWh/100 km (speed outside 110-120 range).. | Main session: cool test (9 °C, winter tyres); borderline for calibration, give it low weight." }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-b9f3fd83f1" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-ca-faq", "note_id": "n-40329cb8de" }
+  ],
   "trims": [
     {
       "id": "18-in-wheels",

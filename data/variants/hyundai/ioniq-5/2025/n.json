@@ -12,6 +12,10 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-motor-hyundai-adapters-2025", "notes": "Hyundai press relay: the 2025 IONIQ 5 N gets a complimentary CCS-to-NACS adapter (US); Canada: NACS adapter offered (Guide Auto).", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-b9f3fd83f1" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-ca-faq", "note_id": "n-40329cb8de" }
+  ],
   "trims": [
     {
       "id": "standard",

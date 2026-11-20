@@ -12,12 +12,19 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-e4cbdc323b" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-audiclubna-nacs", "note_id": "n-90f78d20b0", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "SQ8 e-tron", "US": "SQ8 e-tron" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-sq8etron-2025-459560", "notes": "SQ8 e-tron Prestige quattro 2025: 20x10 read on this Cars.com page." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-audi-q8-facts", "note_id": "n-294cbd101a", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-ehga-q8-climate", "note_id": "n-06e9d6b8a6", "low_confidence": true }
       ]
     }
   ]

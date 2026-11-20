@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-6cdf780c0a" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "EQS 450 4MATIC Sedan", "US": "EQS 450 4MATIC Sedan" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-2024-specs-448047", "notes": "EQS 450 4MATIC Sedan: 20 x 8.5 in aluminum, P255/45R20; no optional wheels listed. (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-626caa456f" }
       ]
     }
   ]

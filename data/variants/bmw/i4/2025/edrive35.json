@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "low_confidence": true, "note_id": "n-5726dc3848" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "eDrive35" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2025-specs", "notes": "eDrive35: 18 x 7.5 in aluminum, P225/50R18. (US page carried to the Canadian car, no Canadian page opened.)", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-adac-i4-edrive35", "note_id": "n-d5539a5e65", "low_confidence": true }
       ]
     }
   ]

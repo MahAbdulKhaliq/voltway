@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-3f1c50184a" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-toyota-nacs-migration-2026", "note_id": "n-f0c07ee062" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "XLE Plus FWD" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-toy-bz26", "note_id": "n-9cc41e34e6", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-toyota-2026-bz-range-us", "note_id": "n-a4dba5f4f6" }
       ]
     }
   ]

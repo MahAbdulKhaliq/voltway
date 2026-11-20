@@ -18,6 +18,9 @@
       "names": { "CA": "Light Standard Range FWD" },
       "wheels": [
         { "diameter_in": 17, "is_standard": true, "source_id": "src-autotrader-ca-kia-ev4-2026", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-kia-ca-ev4-2026-brochure", "notes": "Kia Canada brochure text (third-party host): Light FWD lists a battery heating system and PTC heater, no heat pump; the heat pump first appears under Wind FWD \"adds to or upgrades from Light\". Guide Auto review: Wind has the heat pump, Light not mentioned. The brochure copy could not be read by the checker; evsearch.ca and ThinkEV.ca agree (heat pump from the Wind trim up).", "low_confidence": true }
       ]
     }
   ]

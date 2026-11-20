@@ -12,6 +12,10 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-039ae8cd40" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-insideevs-audi-porsche-sc", "note_id": "n-953b753b10", "low_confidence": true },
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-electrive-audi-porsche", "note_id": "n-8ff0427601", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +23,9 @@
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-setrongt-2025-466799", "notes": "Estimated: 2025 page shows 20-inch standard; 2026 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true },
         { "diameter_in": 21, "is_standard": false, "source_id": "src-cars-audi-setrongt-2025-466799", "note_id": "n-abf0e33feb", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-audi-gt-facts", "note_id": "n-a9bf3fcee7", "low_confidence": true }
       ]
     }
   ]

@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-ford-ca-adapter-2024", "note_id": "n-95504dbbad", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-ford-lightning-2024-techspecs", "notes": "Pro (SR): 18 in standard. Source is a US page; Canadian trim assumed the same.", "low_confidence": true },
         { "diameter_in": 20, "is_standard": true, "source_id": "src-ford-lightning-2024-techspecs", "notes": "XLT (SR): 20 in standard. Source is a US page; Canadian trim assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-insideevs-lightning-hp", "note_id": "n-c7d17556bc", "low_confidence": true }
       ]
     }
   ]

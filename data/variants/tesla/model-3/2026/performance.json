@@ -33,6 +33,9 @@
   "charge_port": [
     { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-467dd2e649" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-4041579456" }
+  ],
   "trims": [
     {
       "id": "standard",

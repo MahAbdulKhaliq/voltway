@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "no", "kind": "estimated", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b0ca50230f" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-thedrive-leaf-no-adapter", "note_id": "n-2e0a777234", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "S (24 kWh)", "US": "S (24 kWh)" },
       "wheels": [
         { "diameter_in": 16, "is_standard": true, "source_id": "src-r2w-cc-leaf2016", "note_id": "n-f91d24f3ca" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "manufacturer", "source_id": "src-b112-nh-nissan-us-leaf-2016", "notes": "Nissan calls it \"Hybrid heater system - (heat pump)\". Trim names: CA=S (24 kWh), US=S (24 kWh). Spec sheet shows the heat pump row as not offered for this trim. Canada not separately verified for this year; US-market spec sheet applied.", "low_confidence": true }
       ]
     }
   ]

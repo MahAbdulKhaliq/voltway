@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbca-charge", "note_id": "n-83895968ba", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "EQS 580 4MATIC Sedan", "US": "EQS 580 4MATIC Sedan" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-580-2026-specs", "notes": "EQS 580 4MATIC Sedan: 20 x 8.5 in aluminum, P255/45R20 (the 2022-25 pages list 21 in; the 2026 page lists 20 in). (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-cb55b4b951", "low_confidence": true }
       ]
     }
   ]

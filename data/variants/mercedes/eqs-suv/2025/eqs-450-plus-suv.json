@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-1972a7a45d" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "EQS 450+ SUV" },
       "wheels": [
         { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-plus-2025-specs-458283", "notes": "EQS 450+ SUV: 21 x 9.5 in, P275/45R21." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-7d6f90a426", "low_confidence": true }
       ]
     }
   ]

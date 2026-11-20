@@ -12,12 +12,19 @@
   "supercharger_access": [
     { "value": "no", "kind": "manufacturer", "source_id": "src-w2-vw-ca-nacs-egolf", "low_confidence": true, "note_id": "n-d4c1545c3c" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-b112-vwca-nacs-adapter", "note_id": "n-11abeb9d40" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "e-Golf", "US": "e-Golf" },
       "wheels": [
         { "diameter_in": 16, "is_standard": true, "source_id": "src-cars-egolf-2017", "notes": "e-Golf (CA/US): e-Golf SE: 16x6.5 aluminum; no options listed on page.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b112-carvana-egolf-2017", "note_id": "n-54a93339c1", "low_confidence": true },
+        { "value": "optional", "kind": "community", "source_id": "src-b112-carvana-egolf-2019", "note_id": "n-54a93339c1", "low_confidence": true }
       ]
     }
   ]

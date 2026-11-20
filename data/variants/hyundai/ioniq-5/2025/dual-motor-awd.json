@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-usa-nacs-adapter-faq", "note_id": "n-f2f24a3971", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-us-adapter-faq", "note_id": "n-cae3dd13b2" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2025-471570", "low_confidence": true, "note_id": "n-20623b8f9e" },
         { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2025-471572", "low_confidence": true, "note_id": "n-74c7af2a11" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-carscom-ioniq5-2025-article", "note_id": "n-e6ca85aed7", "low_confidence": true }
       ]
     }
   ]

@@ -13,6 +13,9 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-sc-2025", "low_confidence": true, "note_id": "n-59bcf36e02" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-driveteslacanada-solterra-bz4x", "low_confidence": true, "note_id": "n-3d7f408c18" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-subaru-2025-10-solterra-supercharging", "note_id": "n-3972fc4047", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -20,6 +23,9 @@
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-subaru-solterra-2023-specs-427542", "notes": "US Premium AWD page: 18x7.5, P235/60VR18; applied to Canada.", "low_confidence": true },
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-subaru-solterra-2023-specs-427543", "note_id": "n-6d5385d703", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-charged-2023-solterra", "note_id": "n-3b59c16e51" }
       ]
     }
   ]

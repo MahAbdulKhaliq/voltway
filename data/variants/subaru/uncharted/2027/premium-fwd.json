@@ -13,6 +13,9 @@
     { "value": "yes", "kind": "estimated", "source_id": "src-subaru-us-media-solterra-2026", "low_confidence": true, "note_id": "n-adac4e0ce1" },
     { "value": "yes", "kind": "estimated", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-fa13fea5e4" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "estimated", "source_id": "src-charged-uncharted-preview", "note_id": "n-b2487e94fe", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

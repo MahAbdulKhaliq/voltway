@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-electrek-hyundai-2027-lineup", "low_confidence": true, "notes": "Estimated: native NACS port on the 2027 N (Electrek); Electrek does not state Supercharger access, which is inferred from the port." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-ioniq6n", "notes": "Electrek (Hyundai 2027 lineup): the IONIQ 6 N \"comes standard with a native NACS charging port and a CCS adapter\".", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

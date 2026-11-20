@@ -14,12 +14,19 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-20a5de4f19", "low_confidence": true },
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-47e5be183e", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gen-us-giveaway-faq", "notes": "Free NACS adapter offer (Genesis USA) for cars with a retail date on or before 2025-01-31; the programme ended 2025-09-30. Genesis's own page says purchase of an external adapter is required for 2023-2025 CCS cars. Canada: adapter offered by Genesis Canada; this model year is not in the 2026 free programme list." },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gen-us-electrified-g80-page", "note_id": "n-2ca2fc4ad8" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Electrified G80 Advanced AWD", "US": "Electrified G80 Advanced AWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-genesis-electrified-g80-2025-index", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-gen-us-brochure-2023-g80", "notes": "Estimated: carried from the 2023 US brochure (same 87.2 kWh hardware, no page opened that shows a change; the 2025 edition may differ).", "low_confidence": true }
       ]
     }
   ]

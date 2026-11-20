@@ -13,12 +13,18 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-c33be61ae0" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-ca-supercharger-2025", "note_id": "n-da78e91c76" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-por-us-sc-access", "note_id": "n-aefaa835b7" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "Taycan 4S Performance Battery" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-porsche-taycan-2020-411636", "note_id": "n-5bfb9c7b4a", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b112-por-stories-winter", "note_id": "n-0eb0b95f6f", "low_confidence": true }
       ]
     }
   ]

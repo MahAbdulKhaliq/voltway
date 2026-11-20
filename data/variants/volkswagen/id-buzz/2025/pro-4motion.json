@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-vw-ca-nacs-adapter", "low_confidence": true, "notes": "VW Canada: NACS DC adapter officially available for ID.4 and ID. Buzz, unlocking Tesla NACS partner Superchargers across Canada and the US; Electrek 2025-11-12: access from 2025-11-18, $200 (CAD 304) adapter, MY2026+ include it." }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-vw-sc", "notes": "US: US$200 from VW (dealers, parts.vw.com), US$100 rebate for original owners of MY2025 cars (buy before 2026-07-15). Canada: vw.ca says 2025 ID. Buzz owners should ask their dealer; Auto123 reports it is free from the dealership (not confirmed by VW). Sold is the offer that holds in both markets.", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Pro 4MOTION", "US": "4MOTION" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-volkswagen-idbuzz-2025-469213", "notes": "ID. Buzz Pro S Plus 4MOTION 2025: 20x8 read on this Cars.com page (trim shown: Pro S Plus 4MOTION)." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-greencars-buzz", "notes": "Pre-launch article: \"A heat pump is standard on all models\" (North American ID. Buzz, no year). A pre-launch piece reportedly called it optional like on the Canadian ID.4 (not opened). No VW page found.", "low_confidence": true }
       ]
     }
   ]

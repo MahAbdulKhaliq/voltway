@@ -14,6 +14,9 @@
     { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-onsale", "note_id": "n-098d7a686d" },
     { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-ce9fd9b7fa" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-lexus-ca-ev-charging-faq", "note_id": "n-4099bc5a4b", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

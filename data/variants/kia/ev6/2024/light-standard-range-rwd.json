@@ -14,6 +14,9 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-page", "low_confidence": true, "note_id": "n-bdc0f55932" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-9b43603c60" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-adapter", "note_id": "n-f5f0166154", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

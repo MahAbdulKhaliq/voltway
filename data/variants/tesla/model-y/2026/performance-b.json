@@ -9,6 +9,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "community", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-8e40ff5dd6" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-87641db422" }
+  ],
   "trims": [
     {
       "id": "standard",

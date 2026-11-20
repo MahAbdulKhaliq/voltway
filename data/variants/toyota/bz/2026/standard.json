@@ -15,6 +15,9 @@
   "curb_weight_kg": [
     { "value": 1840, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideautoweb-bz-xle-fwd-2026", "low_confidence": true, "notes": "Relay of Toyota Canada figure for the XLE FWD (57.7 kWh, matches our variant): 1,840 kg (4,057 lb) listed as Weight. Matches US 4,057 lb for XLE FWD." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-toyota-ca-2026-bz-onsale", "note_id": "n-716e07d5bc", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

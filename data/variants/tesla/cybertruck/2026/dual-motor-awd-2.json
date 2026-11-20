@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-0149985cd2" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-cybertruck-ccs1", "low_confidence": true, "note_id": "n-ea638874a4" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "Dual Motor AWD" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-tesla-cybertruck-2026-specs-484475", "note_id": "n-a91a77c262" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-insideevs-cybertruck-hp", "note_id": "n-464e87e1c8" }
       ]
     }
   ]

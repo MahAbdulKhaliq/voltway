@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "note_id": "n-c8281813e8", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-adapter-release", "note_id": "n-aea508ebf1", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

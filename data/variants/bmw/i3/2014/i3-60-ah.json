@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "no", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-8c05e5ab78" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "community", "source_id": "src-b112-bimmerfile-sc-2025", "notes": "Bimmerfile 2025-12-20: BMW i3 not officially supported for Supercharger access (US).", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

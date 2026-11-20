@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-usa-nacs-adapter-faq", "note_id": "n-f2f24a3971", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-us-adapter-faq", "note_id": "n-cae3dd13b2" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "XRT Dual Motor AWD" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2025-471571", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-carscom-ioniq5-2025-article", "note_id": "n-e6ca85aed7", "low_confidence": true }
       ]
     }
   ]

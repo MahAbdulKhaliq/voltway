@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-nontesla-supercharger-access-2026", "low_confidence": true, "note_id": "n-0a60d767cb" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-nh-iphoneincanada-honda", "notes": "Sold by Honda/Acura, not included: CA$400 from authorized Honda and Acura dealers in Canada (access from October 2025). Relayed by press; not read on a Honda page.", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

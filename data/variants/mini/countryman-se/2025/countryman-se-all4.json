@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-3de4a68db7" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-3ad622811a", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-mini-countryman-2025-specs-461619", "note_id": "n-172fb42cca" },
         { "diameter_in": 19, "is_standard": false, "source_id": "src-r3w-cars-com-research-mini-countryman-2025-specs", "notes": "Countryman 2025 (S ALL4 page): John Cooper Works Style package lists 19 x 8 in wheels, 245/45R19; the SE page lists only the 18 in Favoured Style. (US page; Canadian cars assumed the same.)", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-gf-adac-countryman-se", "note_id": "n-ebd9545030", "low_confidence": true }
       ]
     }
   ]

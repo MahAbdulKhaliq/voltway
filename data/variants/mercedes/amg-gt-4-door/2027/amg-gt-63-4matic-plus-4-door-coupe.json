@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-af9de4010e" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-d22cc78fb3" }
+  ],
   "trims": [
     {
       "id": "standard",

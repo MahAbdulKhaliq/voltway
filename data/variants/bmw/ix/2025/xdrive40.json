@@ -13,12 +13,19 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true },
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "xDrive40", "US": "xDrive40" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-guideautoweb-com-en-makes-bmw-ix-2025-specifications-xdrive40", "notes": "xDrive40 (Guide Auto Canada 2025): P235/60R20 tires on both axles, so 20 in wheels; Guide Auto gives no wheel-diameter line.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-gf-adac-ix-xdrive40", "note_id": "n-979391f934", "low_confidence": true }
       ]
     }
   ]

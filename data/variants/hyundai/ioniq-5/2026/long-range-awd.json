@@ -15,6 +15,10 @@
   "curb_weight_kg": [
     { "value": 2090, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ioniq5-2026-preferred-awd", "low_confidence": true, "notes": "Guide Auto lists 2,090 kg (4,608 lb) for the Canadian Preferred AWD on 19-inch wheels (matches US SE AWD 4,608 lb). The 20-inch (Ultimate Package) trim may weigh more; its figure was not found, so the value is for the 19-inch trim." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-us-adapter-faq", "note_id": "n-39db1cd66b", "low_confidence": true },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-ca-ioniq5-page", "note_id": "n-93dba23d46" }
+  ],
   "trims": [
     {
       "id": "19-in-wheels",

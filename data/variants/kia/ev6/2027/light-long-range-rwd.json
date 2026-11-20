@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "note_id": "n-ea498851bc" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "estimated", "source_id": "src-kia-us-ev6-2026-compare", "note_id": "n-ee4e98a4ca", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "Light Long Range RWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2027-index", "low_confidence": true, "notes": "Light RWD shown; Light Long Range not opened." }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-kia-us-ev6-2026-compare", "note_id": "n-9f1a26540a", "low_confidence": true }
       ]
     }
   ]

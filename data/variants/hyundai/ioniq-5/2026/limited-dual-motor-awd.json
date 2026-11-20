@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-hyundai-usa-nacs-adapter-faq", "notes": "Estimated: Hyundai USA FAQ: the native-NACS 2025 IONIQ 5 uses Tesla Superchargers directly; same US car in 2026.", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-us-adapter-faq", "note_id": "n-39db1cd66b", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "Limited Dual Motor AWD" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2026-474172", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-carscom-ioniq5-2026-review", "notes": "Cars.com 2026 expert review: all-wheel-drive Ioniq 5s also get a heat pump.", "low_confidence": true }
       ]
     }
   ]

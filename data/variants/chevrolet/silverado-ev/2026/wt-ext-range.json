@@ -15,12 +15,20 @@
   "curb_weight_kg": [
     { "value": 3675, "unit": "kg", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec", "notes": "GM 2026 Silverado EV Specification Guide, WT page: base curb weight 8,102 lb / 3,675 kg for the 5WT (20-module) Extended Range." }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-c3fc6fffb6" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "WT Ext Range" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-cars-silverado-471783", "low_confidence": true, "notes": "US Cars.com: Extended Range Work Truck 18 x 8.0 in aluminum." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

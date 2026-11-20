@@ -13,6 +13,9 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -20,6 +23,9 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i7-2024-specs", "note_id": "n-028efa7cc3" },
         { "diameter_in": 20, "is_standard": false, "source_id": "src-r3w-cars-com-research-bmw-i7-2024-specs", "note_id": "n-0e7adf9d69" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-bmw-7-series-2023-us", "note_id": "n-435bfde0c9", "low_confidence": true }
       ]
     }
   ]

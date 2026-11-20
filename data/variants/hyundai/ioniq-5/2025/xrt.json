@@ -12,12 +12,19 @@
   "supercharger_access": [
     { "value": "yes", "kind": "estimated", "source_id": "src-hyundai-ca-faq", "notes": "Estimated: Canada 2025 XRT has the NACS port (Guide Auto); Hyundai Canada FAQ confirms Supercharger access through the NACS port for 2026+ and does not name the 2025 XRT; Hyundai USA says the same native-NACS 2025 car uses Tesla V3/V4 Superchargers directly.", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-us-adapter-faq", "notes": "Canada: US FAQ says the 25MY IONIQ 5 comes with a CCS adapter; the Hyundai Canada IONIQ 5 page says NACS-equipped models come with two CCS adapters (AC and DC). Canadian 2025 XRT not stated on a Canadian page for that year.", "low_confidence": true },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-ca-ioniq5-page", "notes": "Hyundai Canada IONIQ 5 page (current model year): NACS-equipped IONIQ 5 models come with two CCS adapters (AC and DC).", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "XRT" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2025-471571", "low_confidence": true, "notes": "US XRT AWD used for the Canadian XRT; Canadian page not read." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-hy-ca-ioniq5-page", "note_id": "n-89157ab85f", "low_confidence": true }
       ]
     }
   ]

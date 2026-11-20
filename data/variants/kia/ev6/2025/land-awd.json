@@ -15,12 +15,16 @@
   "curb_weight_kg": [
     { "value": 2100, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev6-2025-land-awd", "low_confidence": true, "notes": "Guide Auto lists \"Weight\" 2,100 kg (4,630 lb) for the Canadian Land AWD (84.0 kWh, P235/55R19); US Wind and GT-Line AWD are also 4,630 lb (KBB). Presumed curb weight; applies to the 19-inch trim, the 20-inch trim may differ." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "estimated", "source_id": "src-kia-us-ev6-2026-compare", "note_id": "n-3c700bf97f", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "19-in-wheels",
       "names": { "CA": "Land AWD", "US": "Light Long Range AWD" },
       "heat_pump": [
-        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" },
+        { "value": "standard", "kind": "community", "source_id": "src-kbb-ev6-2025-specs", "notes": "KBB 2025: the heat pump \"comes standard in all-wheel drive (AWD) versions\"." }
       ],
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2025-471673", "low_confidence": true, "notes": "US Wind AWD 19 in (Light Long Range AWD not opened)." }

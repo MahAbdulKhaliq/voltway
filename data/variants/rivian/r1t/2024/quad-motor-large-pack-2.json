@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-0546c7cb96" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-riviantrackr-free-nacs-adapter-ending", "low_confidence": true, "note_id": "n-ed2bf71fc0" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -20,6 +23,9 @@
         { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-carb-rivian-2024", "note_id": "n-b3ee9a4048", "low_confidence": true },
         { "diameter_in": 21, "is_standard": true, "source_id": "src-r2w-carb-rivian-2024", "note_id": "n-26933e9982", "low_confidence": true },
         { "diameter_in": 22, "is_standard": false, "source_id": "src-r2w-carb-rivian-2024", "note_id": "n-3fdfcfe75c", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "manufacturer", "source_id": "src-electrek-r2-heat-pump-r1-none-2024", "low_confidence": true, "note_id": "n-a0e0c308b0" }
       ]
     }
   ]

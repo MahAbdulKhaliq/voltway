@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "no", "kind": "manufacturer", "source_id": "src-w2-vw-ca-nacs-egolf", "low_confidence": true, "note_id": "n-d4c1545c3c" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-b112-vwca-nacs-adapter", "note_id": "n-11abeb9d40" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "e-Golf" },
       "wheels": [
         { "diameter_in": 16, "is_standard": true, "source_id": "src-cars-egolf-2015", "notes": "e-Golf (US): e-Golf Limited Edition: 16x6 steel; no options listed on page.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-conceptcarz-egolf-2015", "notes": "2015 launch e-Golf came as SEL Premium only, with a newly developed heat pump (VW press text; the page does not tie the pump to the trim). A later 2015 Limited Edition reportedly lacked it (not opened).", "low_confidence": true }
       ]
     }
   ]

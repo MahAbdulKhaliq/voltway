@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-lucid-air-supercharger", "note_id": "n-0420550f7d" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "Sapphire" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-lucid-air-sapphire-2024-wheels", "note_id": "n-92fdd2f989", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-gcr-2025-air-pure", "note_id": "n-09171141f5", "low_confidence": true }
       ]
     }
   ]

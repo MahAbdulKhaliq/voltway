@@ -14,6 +14,9 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-ff57fb6760" },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-65658f5296" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-volvomobile-nacs", "note_id": "n-472883886f", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

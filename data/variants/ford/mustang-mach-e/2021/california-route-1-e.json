@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-ford-ca-adapter-2024", "note_id": "n-95504dbbad", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-ford-us-mme-specs-2021", "notes": "California Route 1 (ER RWD): 18 in standard. Source is a US page; Canadian trim assumed the same.", "low_confidence": true },
         { "diameter_in": 19, "is_standard": true, "source_id": "src-ford-us-mme-specs-2021", "notes": "Premium (ER RWD): 19 in standard. Source is a US page; Canadian trim assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b112-cars-2025-mme-heatpump", "note_id": "n-1571b85afd", "low_confidence": true }
       ]
     }
   ]

@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-ford-adapter-product", "note_id": "n-f6c94fe44e", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

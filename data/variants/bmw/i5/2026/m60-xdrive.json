@@ -14,12 +14,19 @@
     { "value": "yes", "kind": "estimated", "source_id": "src-w2-ie-i5nacs", "low_confidence": true, "notes": "US: native NACS port." },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-932632354f" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true },
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "notes": "US: electrive 2025-12-10: BMW-approved adapters sold as accessories from Q2 2026; InsideEVs (i5) lists the Lectron-made adapter at $180 on BMW's website; Lectron Vortex Plus is the BMW-tested adapter. CONFLICT: InsideEVs 790773 says the 2026 US i5 M60 has a NACS port with a CCS DC adapter in the box (ccs1_to_nacs); the work list says ccs1 for this CA/US car; Canadian cars keep CCS1.", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "M60 xDrive", "US": "M60 xDrive" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2026-specs-481929", "note_id": "n-726ecbe95c" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-bmw-5-series-2024-us", "note_id": "n-e3d3b4887f", "low_confidence": true }
       ]
     }
   ]

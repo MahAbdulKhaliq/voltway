@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "no", "kind": "estimated", "source_id": "src-w2j-wikipedia-imiev", "low_confidence": true, "note_id": "n-a92bf7a2ae" }
   ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-wikipedia-imiev", "note_id": "n-0933c10428", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "i-MiEV", "US": "i-MiEV" },
       "wheels": [
         { "diameter_in": 15, "is_standard": true, "source_id": "src-r2w-cc-imiev12", "notes": "ES 15 in. Page shows ES only; SE assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-wikipedia-imiev", "note_id": "n-4c28fd9593", "low_confidence": true }
       ]
     }
   ]

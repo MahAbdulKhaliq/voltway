@@ -15,6 +15,9 @@
     { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-8fc44901e5" },
     { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-c86dab899b" }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-lexus-ca-ev-charging-faq", "note_id": "n-4099bc5a4b", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

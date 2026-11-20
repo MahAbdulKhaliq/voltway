@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "yes", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "notes": "mbusa NACS page: CLA has a NACS port; no adapter is required at Tesla Superchargers. Canada: no Mercedes-Benz Canada statement found; the US answer is applied to the CA/US car." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-mb-b112-mbca-charge", "notes": "Mercedes-Benz Canada: the upcoming 2026 CLA \"will include an adapter for CCS1 chargers\"; MBUSA says the same for the US.", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-cla-350-2026-specs", "notes": "CLA 350 4MATIC: 18 x 7.5 front / 18 x 9 rear aluminum, P225/45R18 and P255/40R18. (US page; Canadian cars assumed the same.)" },
         { "diameter_in": 19, "is_standard": false, "source_id": "src-r3w-cars-com-research-mercedes-benz-cla-350-2026-specs", "notes": "CLA 350 4MATIC: the Launch Edition package ($10,500) includes 19 in AMG multispoke wheels, 225/40R19 front / 255/35R19 rear. (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-automoblog-cla", "note_id": "n-3ee76f4491", "low_confidence": true }
       ]
     }
   ]

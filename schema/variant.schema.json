@@ -98,7 +98,7 @@
       "$ref": "#/$defs/fact_supercharger_access"
     },
     "adapters_included": {
-      "description": "Charging adapter that comes with the car from the factory (B38, optional; unknown until researched).",
+      "description": "DC charging adapter for the other plug standard, named charger plug -> car port, with how owners got it (B38, B112): plain = in the box, _on_request = free on request from the maker, _sold = sold by the maker. One value per car: the adapter that lets it use the other network (a CCS1 car at NACS chargers, a NACS car at CCS1 chargers). none = the maker offers none.",
       "$ref": "#/$defs/fact_adapters_included"
     },
     "consumption_combined_wh_per_km": {
@@ -397,7 +397,11 @@
                     "enum": [
                       "none",
                       "nacs_to_ccs1",
-                      "ccs1_to_nacs"
+                      "nacs_to_ccs1_on_request",
+                      "nacs_to_ccs1_sold",
+                      "ccs1_to_nacs",
+                      "ccs1_to_nacs_on_request",
+                      "ccs1_to_nacs_sold"
                     ]
                   }
                 }

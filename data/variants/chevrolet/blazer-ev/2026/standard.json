@@ -13,6 +13,10 @@
   "charge_port": [
     { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-gcn-gm-2027-nacs", "low_confidence": true, "note_id": "n-55eb8e4292" }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -20,6 +24,10 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs", "note_id": "n-b639983103" },
         { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs-473488", "notes": "AWD RS: 21 in; applied to the other RS trims.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     },
     {
@@ -27,6 +35,10 @@
       "names": { "CA": "(22\" Wheels)" },
       "wheels": [
         { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs-473490", "notes": "22 in as on the 2026 AWD SS page (the trim name says 22-in wheels; no page ties this regulator row to a trim).", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

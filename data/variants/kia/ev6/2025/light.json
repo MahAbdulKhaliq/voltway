@@ -15,6 +15,9 @@
   "curb_weight_kg": [
     { "value": 1875, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev6-2025-light-rwd", "low_confidence": true, "notes": "Guide Auto lists 1,875 kg (4,134 lb) for the Canadian Light RWD (62.9 kWh); US Light is 4,132 lb (KBB). Page label may read \"Weight\"; presumed curb weight." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "estimated", "source_id": "src-kia-us-ev6-2026-compare", "note_id": "n-3c700bf97f", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

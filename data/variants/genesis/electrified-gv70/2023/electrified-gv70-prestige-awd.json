@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-6b5430454e", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gen-ca-nacs-release", "notes": "Canada: Genesis Canada says it offers an adapter to CCS owners; the 2026 free programme names the GV70 for 2024-2025 only, so this 2023 car is recorded as sold (price not stated). Low confidence: the release does not say sold or free.", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

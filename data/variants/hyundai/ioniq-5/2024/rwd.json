@@ -12,12 +12,18 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-motor-hyundai-adapters-2025", "note_id": "n-6bc417806d", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-4e4db06e3c" }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "US": "RWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2024-445172", "low_confidence": true, "notes": "SE Standard Range RWD 19 in; other RWD trims not opened (2022 Limited RWD is 19 in)." }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b112-hy-us-brochure-2024-ioniq5", "note_id": "n-193b5f7cae", "low_confidence": true }
       ]
     }
   ]

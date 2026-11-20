@@ -12,6 +12,9 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-motor-hyundai-adapters-2025", "note_id": "n-6bc417806d", "low_confidence": true }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-4e4db06e3c" }
+  ],
   "trims": [
     {
       "id": "standard",
@@ -19,6 +22,9 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2024-445177", "low_confidence": true, "note_id": "n-20623b8f9e" },
         { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2024-445178", "low_confidence": true, "note_id": "n-74c7af2a11" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-hy-us-brochure-2024-ioniq5", "notes": "Hyundai 2024 brochure: the heat pump is listed inside the HTRAC All Wheel Drive Option, so it comes with AWD on every trim (tick marks not machine-readable). Same package in the 2023 brochure.", "low_confidence": true }
       ]
     }
   ]

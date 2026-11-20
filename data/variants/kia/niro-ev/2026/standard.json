@@ -18,12 +18,16 @@
   "supercharger_access": [
     { "value": "via_adapter", "kind": "manufacturer", "low_confidence": true, "source_id": "src-kia-us-niro-ev-2026", "notes": "US page: Supercharger access 'w/ a NACS adapter (sold separately)'. Kia Canada (2025-04-28 release, excerpt) says a Kia accessory adapter is sold at all Canadian Kia dealers for Niro EV owners; Tesla app required in Canada." }
   ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-adapter", "note_id": "n-a319b14fa9", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
       "names": { "CA": "Niro EV", "US": "Niro EV" },
       "heat_pump": [
-        { "value": "optional", "kind": "manufacturer", "source_id": "src-kia-ca-niro-ev-2026", "notes": "Page says the heat pump is “available”." }
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-kia-ca-niro-ev-2026", "notes": "Page says the heat pump is “available”." },
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-kia-us-niro-ev-2026-compare", "notes": "Kia US 2026: available with the Wind and Wave Preserve Packages." }
       ],
       "wheels": [
         { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-kia-niro-ev-2026-index", "low_confidence": true, "note_id": "n-3a5002c8f5" }

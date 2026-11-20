@@ -15,6 +15,9 @@
   "curb_weight_kg": [
     { "value": 1899, "unit": "kg", "kind": "manufacturer", "source_id": "src-carscom-leaf-s-plus-2026", "low_confidence": true, "notes": "Converted from 4,187 lb (US S+ FWD; same 75 kWh pack and 214 hp as Canadian S+): 4,187 x 0.45359 = 1,899. EV Specifications lists 1,908 kg for S+ (column mapping unverified)." }
   ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-nh-nissanusa-leaf-features", "note_id": "n-027f9c182e", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -393,14 +393,57 @@ a.btn { display: inline-block; text-decoration: none; }
 .route-car-row strong { font-family: var(--display); font-weight: 700; }
 .route-car-row:hover { background: color-mix(in srgb, var(--field-border) 14%, transparent); }
 .route-car-row:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-.route-car-acc .acc-chev { background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+.route-car-acc > .route-car-row .acc-chev { background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
 .route-car-row:hover .acc-chev { background: color-mix(in srgb, var(--field-border) 45%, var(--surface-2)); }
-.route-car-acc.open .acc-chev { rotate: 180deg; background: var(--accent-soft); }
-.route-car-acc.open .acc-chev::before { border-color: var(--accent); }
+.route-car-acc.open > .route-car-row .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+.route-car-acc.open > .route-car-row .acc-chev::before { border-color: var(--accent); }
 .route-car-acc > .acc-lane { margin: 0 12px 12px; animation: acc-paint 0.42s var(--ease-out) both; }
 .route-car-acc.shutting > .acc-lane { animation: acc-paint 0.2s var(--ease-out) reverse both; }
 .route-car-acc .route-settings { display: grid; gap: 12px; justify-items: stretch; padding: 0 12px 12px; overflow: hidden; }
 .route-car-acc .tp-pcts .field-input { width: 6.5rem; }
+/* B123 Trip settings: Battery, Route, Weather and wheels, then plugs and the car rows, each a block
+   above a faint divider (design-language §3). */
+.tp-sec { display: grid; gap: 4px; }
+.tp-sec + .tp-sec, .route-car-acc .route-car-plugs { padding-top: 10px; border-top: 1px solid color-mix(in srgb, var(--field-border) 35%, transparent); }
+.tp-sec-title { margin-bottom: 2px; }
+.route-car-acc .tp-pcts-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.route-car-acc .tp-pcts-3 .field-input, .tp-temp .field-input { width: 100%; }
+@media (max-width: 340px) { .route-car-acc .tp-pcts-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tp-suffix-field { position: relative; display: block; }
+.tp-suffix-field .field-input { padding-right: 2.1rem; font-variant-numeric: tabular-nums; }
+.tp-suffix { position: absolute; right: 10px; top: 50%; translate: 0 -50%; color: var(--muted); font-size: 0.9rem; pointer-events: none; }
+.tp-switch { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 36px; padding: 4px 0; border: 0; background: none; color: inherit; font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer; }
+.tp-switch:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+@media (max-width: 640px) { .tp-switch { min-height: 44px; } }
+/* Owner 2026-11-20: Route and Plugs used fold to their title and a grey summary line. */
+.tp-fold { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 40px; padding: 2px 0; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.tp-fold-text { display: grid; gap: 1px; flex: 1; min-width: 0; }
+.tp-fold .acc-chev { flex: none; transform: scale(0.8); background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+.tp-fold[aria-expanded=true] .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+.tp-fold[aria-expanded=true] .acc-chev::before { border-color: var(--accent); }
+.tp-fold:focus-visible, .tp-car-row:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.tp-fold-body { display: grid; gap: 2px; justify-items: stretch; }
+.tp-fold-body > .link-btn { justify-self: start; margin-top: 2px; }
+.tp-sum { margin: 0; }
+/* The wheels · heat pump line is the way to Modify car settings. */
+.tp-car-row { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 40px; padding: 4px 0; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.tp-car-row > .small { flex: 1; min-width: 0; }
+.tp-car-row-go { display: inline-flex; align-items: center; gap: 2px; flex: none; color: var(--accent); font-weight: 600; font-size: 0.85rem; }
+.tp-car-row:hover .tp-car-row-go svg { translate: 2px 0; }
+/* "Change ›" next to a value (ChangeLink.tsx): link colour, bold, the go chevron instead of an underline. */
+.link-go { display: inline-flex; align-items: center; gap: 1px; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; vertical-align: baseline; }
+.link-go svg { flex: none; transition: translate 0.15s var(--ease-out); }
+.link-go:hover svg { translate: 2px 0; }
+.link-go:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+html[data-motion="off"] .link-go svg { transition: none; }
+.tp-weather { display: grid; gap: 4px; }
+/* Owner 2026-11-20: the range estimate is the answer: display font, full text colour, last. */
+.tp-estimate { margin: 2px 0 0; font-family: var(--display); font-weight: 700; font-size: 1rem; color: var(--text); font-variant-numeric: tabular-nums; }
+.tp-plugs { display: flex; flex-wrap: wrap; gap: 4px 14px; color: var(--text); font-size: 0.9rem; }
+.tp-plugs > span { display: inline-flex; align-items: center; gap: 8px; }
+.tp-weather p { margin: 0; }
+.tp-temp { display: grid; gap: 4px; max-width: 9rem; margin-bottom: 4px; }
+.ti-weather { margin: 12px 0 0; }
 .route-soc { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
 /* Plugs used: the map filter's plug drawings, one per row, faint dividers (§3 rows). */
 .route-car-plugs-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
@@ -673,15 +716,26 @@ html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplib
 .chip-pop [role=menuitem]:hover, .chip-pop [role=menuitem]:focus-visible { background: var(--accent-soft); }
 /* My car's plug switches (B55) */
 .chip-plugs { border-top: 1px solid var(--border); margin-top: 4px; padding: 6px 2px 2px; display: grid; gap: 2px; }
-.chip-plugs-label { margin: 0 8px 2px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+.chip-plugs-label { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+/* Owner 2026-11-20: the plug switches fold to the title and the plugs that are on. */
+.chip-pop .chip-plugs-fold { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 40px; padding: 6px 10px; border: 0; border-radius: 6px; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.chip-plugs-fold:hover { background: color-mix(in srgb, var(--field-border) 14%, transparent); }
+.chip-plugs-fold:focus-visible { outline: 3px solid var(--accent); outline-offset: -1px; }
+.chip-plugs-fold-text { display: grid; gap: 1px; flex: 1; min-width: 0; }
+.chip-plugs-sum { font-size: 0.8rem; color: var(--muted); }
+.chip-plugs-fold .acc-chev { flex: none; transform: scale(0.8); background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+.chip-plugs-fold[aria-expanded=true] .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+.chip-plugs-fold[aria-expanded=true] .acc-chev::before { border-color: var(--accent); }
+.chip-plugs-list { display: grid; gap: 2px; }
+@media (max-width: 640px) { .chip-plugs-fold { min-height: 44px; } }
 .chip-plug { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border: 0; border-radius: 6px; background: none; color: var(--text); font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer; }
 .chip-plug:hover, .chip-plug:focus-visible { background: var(--accent-soft); }
 .chip-plug:disabled { cursor: progress; opacity: 0.6; }
-.chip-plug .switch, .settings-switch .switch { flex: none; position: relative; width: 30px; height: 18px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--field-border); }
-.chip-plug .switch::after, .settings-switch .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted); transition: transform 0.15s; }
-.chip-plug[aria-checked=true] .switch, .settings-switch[aria-checked=true] .switch { background: var(--paint); border-color: var(--paint-edge); }
-.chip-plug[aria-checked=true] .switch::after, .settings-switch[aria-checked=true] .switch::after { transform: translateX(12px); background: var(--paint-ink); }
-html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .settings-switch .switch::after { transition: none; }
+.chip-plug .switch, .settings-switch .switch, .tp-switch .switch { flex: none; position: relative; width: 30px; height: 18px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--field-border); }
+.chip-plug .switch::after, .settings-switch .switch::after, .tp-switch .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted); transition: transform 0.15s; }
+.chip-plug[aria-checked=true] .switch, .settings-switch[aria-checked=true] .switch, .tp-switch[aria-checked=true] .switch { background: var(--paint); border-color: var(--paint-edge); }
+.chip-plug[aria-checked=true] .switch::after, .settings-switch[aria-checked=true] .switch::after, .tp-switch[aria-checked=true] .switch::after { transform: translateX(12px); background: var(--paint-ink); }
+html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .settings-switch .switch::after, html[data-motion="off"] .tp-switch .switch::after { transition: none; }
 @media (max-width: 640px) { .chip-plug { min-height: 44px; } }
 .chip-plugs-note { margin: 4px 8px 2px; max-width: 230px; font-size: 0.78rem; color: var(--muted); }
 .cp-plugs { display: grid; gap: 6px; margin-top: 4px; }

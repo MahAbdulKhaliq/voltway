@@ -43,6 +43,9 @@ describe('trip link', () => {
     to: { label: 'Montréal, QC', lat: 45.5088, lon: -73.5878 },
     startSoc: 85,
     thresholdSoc: 20,
+    arriveSoc: 25,
+    weather: true,
+    tempC: -10,
   };
   it('round-trips through the query string', () => {
     expect(readTripLink('?' + writeTripLink(trip))).toEqual(trip);
@@ -127,7 +130,7 @@ describe('Route here from a station (3.13, B50)', () => {
     const { stationEnd, readTripLink, writeTripLink } = await import('../src/lib/trip-link.ts');
     const to = stationEnd({ geometry: { coordinates: [-76.96316, 44.26215] }, properties: { n: 'Napanee, ON - Tesla Supercharger', c: 'Napanee' } });
     expect(to).toEqual({ label: 'Napanee, ON - Tesla Supercharger', lat: 44.26215, lon: -76.96316 });
-    const t = readTripLink(`?${writeTripLink({ from: null, to, startSoc: 90, thresholdSoc: 15 })}`)!;
+    const t = readTripLink(`?${writeTripLink({ from: null, to, startSoc: 90, thresholdSoc: 15, arriveSoc: 20, weather: false, tempC: 20 })}`)!;
     expect(t.from).toBeNull();
     expect(t.to).toEqual(to);
     expect(stationEnd({ geometry: { coordinates: [-75.3, 44.8] }, properties: { n: 'Iroquois Plaza', c: 'Cornwall' } }).label).toBe('Iroquois Plaza, Cornwall');

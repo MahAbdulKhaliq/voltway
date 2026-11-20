@@ -8,6 +8,7 @@
 
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { t } from '../i18n/t.ts';
+import ChangeLink from './ChangeLink.tsx';
 import type { TripEnd } from '../lib/place-search.ts';
 import { gapDetails, hoursMinutes, pct, showDate, stopsText } from '../lib/trip-format.ts';
 import { NEAR_KM, type TripPlan } from '../lib/trip-plan.ts';
@@ -54,9 +55,12 @@ interface Props {
   onNacs?: () => void;
   /** B79: where the route crosses the border, in route order. */
   crossings?: readonly BorderRow[];
+  /** B123: Weather and wheels is on, and the line that points to it in Trip settings. */
+  weatherOn?: boolean;
+  weatherHint?: ReactNode;
 }
 
-export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, selectedSpot = null, onOpenSpot, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive, onNacs, crossings = [] }: Props) {
+export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, selectedSpot = null, onOpenSpot, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive, onNacs, crossings = [], weatherOn = false, weatherHint }: Props) {
   const bodyId = useId();
   // Stop costs use the charging price from Settings (B66); it can change while the plan is shown.
   const [price, setPrice] = useState(chargePrice);
@@ -155,7 +159,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             <span className="sr-only">{t('trip.costLabel')} </span>
             <strong className="ti-cost-value">~{stopCost(totalKwh)}</strong>{' '}
             <span className="small muted">{t('trip.costAt', { price: money.format(price) })}</span>{' '}
-            <button type="button" className="link-btn small" onClick={() => window.dispatchEvent(new CustomEvent('voltway:settings', { detail: 'price' }))}>{t('trip.costChange')}</button>
+            <ChangeLink className="small" label={t('trip.costChange')} onClick={() => window.dispatchEvent(new CustomEvent('voltway:settings', { detail: 'price' }))} />
           </p>
         )}
         <p className="small muted ti-car">{carLine}</p>
@@ -263,12 +267,14 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             {anyEstimated && <p>{t('trip.warn.estimated')}</p>}
             {plan.uncalibratedFactor && <p>{t('trip.warn.uncalibrated')}</p>}
             <p>{t('trip.assumptions', { payload: TRIP.payloadKg, target: TRIP.chargeToSoc, overhead: TRIP.stopOverheadMin })}</p>
-            <p>{t('trip.winter')}</p>
+            <p>{t(weatherOn ? 'trip.winterOn' : 'trip.winter')}</p>
             {updated && <p>{t('trip.chargerData', { date: showDate(updated) })}</p>}
             {carUpdated && <p>{t('trip.carDataDate', { date: showDate(carUpdated) })}</p>}
           </div>
         </Accordion>
       </div>
+      {/* B123: the weather the plan used, and the way to Trip settings. */}
+      {weatherHint}
       {/* Last (owner, B67): the reminder that all of this is an estimate. Always visible, phones included. */}
       <p className="small muted ti-disclaimer">{t('trip.disclaimer')}</p>
     </div>

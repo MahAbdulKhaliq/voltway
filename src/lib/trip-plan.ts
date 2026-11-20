@@ -37,6 +37,8 @@ export interface PlanInput {
   stations: readonly MapFeature[];
   startSoc?: number;
   thresholdSoc?: number;
+  /** B123: charge to have left at the destination (Arrive at %); stops along the way still use the threshold. */
+  arriveSoc?: number;
 }
 
 /** How a stop was found: in the window ≤ 2 km, in the window ≤ 10 km, an earlier charger, or past a gap. */
@@ -88,6 +90,8 @@ export interface TripPlan {
   startSoc: number;
   thresholdSoc: number;
   arriveSoc: number;
+  /** B123: the Arrive at % the plan aimed for. */
+  arriveTarget: number;
   /** False when the car would run out on some stretch (a gap with nothing after it, or arrival below 0 %). */
   reachable: boolean;
   totals: {
@@ -98,7 +102,7 @@ export interface TripPlan {
     totalMin: number;
     stops: number;
   };
-  /** Car inputs that make every figure an estimate (B47 weight, B10 gross battery). */
+  /** Car inputs that make every figure an estimate (B47 weight, B10 gross battery, B123 weather and wheels). */
   carEstimated: boolean;
   /** The highway factor is not calibrated yet (R10, B46) and this car has no tested highway figure. */
   uncalibratedFactor: boolean;
@@ -133,6 +137,7 @@ export function planTrip(input: PlanInput): TripPlan {
   const { route, car } = input;
   const start = input.startSoc ?? TRIP.defaultStartSoc;
   const threshold = input.thresholdSoc ?? TRIP.defaultThresholdSoc;
+  const arriveAt = input.arriveSoc ?? TRIP.defaultArriveSoc;
   const target = TRIP.chargeToSoc;
   const minPerKm = route.totalKm > 0 ? input.durationMin / route.totalKm : 0;
   const peak = car.dcMaxKw ?? Math.max(...car.curve.points.map((p) => p.power_kw));
@@ -200,12 +205,17 @@ export function planTrip(input: PlanInput): TripPlan {
   const departFrom = (c: Candidate): number => {
     const back = flatDrop(c.offKm);
     const after = target - back;
-    if (socAt(c.alongKm, after, route.totalKm) >= threshold) return target;
+    // B123 (owner 2026-11-20): the last stop charges only enough to arrive with Arrive at %
+    // (never more than the usual 80 %), so it doesn't sit charging to 80 % for nothing.
+    if (socAt(c.alongKm, after, route.totalKm) >= arriveAt) {
+      const need = arriveAt + socDrop(car.energy, kwhAt(route.totalKm) - kwhAt(c.alongKm)) + back;
+      return Math.min(target, Math.ceil(need));
+    }
     const next = choose(c.alongKm, after);
     if (next.chosen && next.pick !== 'earlier') return target;
     const beyond = candidates.filter((x) => x.alongKm > next.hitKm).sort((a, b) => a.alongKm - b.alongKm)[0];
     const toKm = beyond ? beyond.alongKm : route.totalKm;
-    const need = threshold + socDrop(car.energy, kwhAt(toKm) - kwhAt(c.alongKm)) + back + (beyond ? flatDrop(beyond.offKm) : 0);
+    const need = (beyond ? threshold : arriveAt) + socDrop(car.energy, kwhAt(toKm) - kwhAt(c.alongKm)) + back + (beyond ? flatDrop(beyond.offKm) : 0);
     return Math.min(100, Math.max(target, Math.ceil(need)));
   };
 
@@ -214,8 +224,12 @@ export function planTrip(input: PlanInput): TripPlan {
   let pos = 0, soc = start, reachable = true;
 
   for (let guard = 0; guard < 200; guard++) {
-    if (socAt(pos, soc, route.totalKm) >= threshold) break;
+    const left = socAt(pos, soc, route.totalKm);
+    if (left >= arriveAt) break;
     const next = choose(pos, soc);
+    // B123: the destination is reachable above the threshold but under Arrive at, and no charger
+    // ahead can top up: arrive with what's left (the plan says it's under the target).
+    if (!next.chosen && left >= threshold) break;
     const hitKm = next.hitKm;
     let pick: StopPick = next.pick;
     let chosen = next.chosen;
@@ -285,9 +299,10 @@ export function planTrip(input: PlanInput): TripPlan {
     startSoc: start,
     thresholdSoc: threshold,
     arriveSoc,
+    arriveTarget: arriveAt,
     reachable,
     totals: { distanceKm: route.totalKm + detourKm, driveMin, chargeMin, overheadMin, totalMin: driveMin + chargeMin + overheadMin, stops: stops.length },
-    carEstimated: car.energy.massEstimated || car.energy.batteryBasis === 'gross',
+    carEstimated: car.energy.massEstimated || car.energy.batteryBasis === 'gross' || Boolean(car.energy.weatherAdjusted),
     uncalibratedFactor: car.energy.whPerKmBasis === 'rated' && !TRIP.highwayCalibrated,
   };
 }

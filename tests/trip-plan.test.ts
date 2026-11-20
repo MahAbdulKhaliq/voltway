@@ -53,15 +53,16 @@ describe('planTrip: the threshold rule', () => {
     expect(p.reachable).toBe(true);
   });
 
-  it('one stop: arrival %, charge to 80 %, time from the curve + 5 min', () => {
+  it('one stop: arrival %, charge for the rest of the trip, time from the curve + 5 min', () => {
     const p = plan(500, [station(280, [ccs(150)])]);
     expect(p.stops).toHaveLength(1);
     const s = p.stops[0];
     expect(s.pick).toBe('window');
     expect(s.arriveSoc).toBeCloseTo(20, 0);
-    expect(s.departSoc).toBe(80);
-    // 60 % of 80 kWh at 150 kW (the charger limits the 200 kW curve) ≈ 19.2 min
-    expect(s.chargeMin).toBeCloseTo(19.2, 0);
+    // B123: the last stop charges only for the 220 km left + Arrive at 20 % (+ the detour), not 80 %.
+    expect(s.departSoc).toBe(76);
+    // (76 − arrival) % of 80 kWh at 150 kW (the charger limits the 200 kW curve)
+    expect(s.chargeMin).toBeCloseTo((0.8 * (76 - s.arriveSoc) / 150) * 60, 1);
     expect(s.overheadMin).toBe(5);
     expect(p.legs).toHaveLength(2);
     expect(p.arriveSoc).toBeGreaterThanOrEqual(15);
@@ -234,9 +235,11 @@ describe('QA fixes (3.15, 2026-11-16)', () => {
   });
   it('charging time uses the station kW capped at the car peak', () => {
     const p = planTrip({ route: routeOf(500), durationMin: 300, car: car({ dcMaxKw: 100 }), stations: [station(280, [ccs(350)])] });
-    // 60 % of 80 kWh at 100 kW ≈ 28.8 min, not the 200 kW curve's 14.4 min
-    expect(p.stops[0].usableKw).toBe(100);
-    expect(p.stops[0].chargeMin).toBeCloseTo(28.8, 0);
+    // (76 − arrival) % of 80 kWh at 100 kW (≈ 27 min), not at the 200 kW curve
+    const s = p.stops[0];
+    expect(s.usableKw).toBe(100);
+    expect(s.chargeMin).toBeCloseTo((0.8 * (s.departSoc - s.arriveSoc) / 100) * 60, 1);
+    expect(s.chargeMin).toBeGreaterThan(25);
   });
 });
 
@@ -249,7 +252,8 @@ describe('planTrip: charging past 80 % before a long stretch (B75)', () => {
     expect(p.stops[0].departSoc).toBeGreaterThan(TRIP.chargeToSoc);
     expect(p.stops[0].departSoc).toBeLessThanOrEqual(92);
     expect(p.stops[1].arriveSoc).toBeGreaterThanOrEqual(TRIP.defaultThresholdSoc);
-    expect(p.stops[1].departSoc).toBe(TRIP.chargeToSoc);
+    // B123: the last stop charges for the 140 km left + Arrive at 20 %, not to 80 %.
+    expect(p.stops[1].departSoc).toBe(56);
   });
 
   it('charges to what the last stretch needs, up to 100 %', () => {
@@ -258,9 +262,11 @@ describe('planTrip: charging past 80 % before a long stretch (B75)', () => {
   });
 
   it('keeps 80 % when the next window is reachable', () => {
-    const p = plan(800, [station(280, [ccs(150)]), station(500, [ccs(150)])]);
+    const p = plan(800, [station(280, [ccs(150)]), station(500, [ccs(150)])], { arriveSoc: 15 });
     // S280 at 80 % reaches S500 in the window; S500 then charges for the last 300 km.
     expect(p.stops.map((s) => s.departSoc)).toEqual([TRIP.chargeToSoc, 91]); // 75 % for 300 km + 15 %, the detour, rounded up;
+    // B123: with the default Arrive at 20 %, it charges 5 points more.
+    expect(plan(800, [station(280, [ccs(150)]), station(500, [ccs(150)])]).stops.at(-1)?.departSoc).toBe(96);
   });
 });
 

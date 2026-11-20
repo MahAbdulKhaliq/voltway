@@ -828,3 +828,24 @@ Run `npx vitest run tests/price.test.ts`, then open `/compare?cars=kia/ev3/2027/
 
 | ID | Pass / Fail | Notes |
 |----|-------------|-------|
+
+## Phase 10: Trip settings (B123, DESIGN-10)
+
+| Id | Check | How |
+|----|-------|-----|
+| 10a | Border help gone | Open Settings: no "On: … Off: …" line under Stay within the border. |
+| 10b | Region preset | Settings → US: Distances mi, Temperature °F; Canada: km, °C. Set km + °F: neither Region button pressed. Reload: kept. |
+| 10c | Temperature sync | Change °C/°F in Settings with the Charging page open: its field and switch follow; change it on the page: Settings follows. |
+| 10d | Card layout | Plan a trip, open the car card: title Trip settings; Start / Charge at / Arrive at in one row (Arrive at 20 by default); Route switches; Weather and wheels off; plugs; Modify car settings; Change car. 375 px: no sideways scroll. |
+| 10e | Route switches mirror | Turn Avoid tolls on in the card: Settings shows it on, and vice versa; the trip re-plans. "Avoiding tolls · Change" opens the card. |
+| 10f | Arrive at | Set Arrive at 50 on a trip that arrived with ~25 %: a stop is added or lengthened so arrival ≥ 50 %. Odd values (3, 95, text) are refused like the other fields. |
+| 10g | Weather and wheels | Turn on, type −10 °C: the Estimate line shows the change; the plan's energy rises (more or longer stops), totals show "~". With My car on 20″ wheels, the wheels line says so. 20 °C + rated wheels = same plan as off. |
+| 10h | Units | With °F, the field shows °F and −10 °C reads 14 °F; the link stores °C. |
+| 10i | Saved and shared | Reload: switch, temperature and Arrive at kept; the share link carries arrive= and temp=, and opening it restores them. |
+| 10j | Hint | Closed card line ends "· mild weather" (off) or "· −10 °C" (on). Results footer: "Cold out? Adjust in Trip settings" opens the card at the temperature field. |
+| 10k | Edge cases | Car with no heat pump data: line says not known, the no-heat-pump curve is used. Car with unknown wheels: wheels factor 1. Temperature out of range (−40, 60): clamped like the Charging page, with its note. |
+
+## Phase 10 results
+
+| Id | Result | Notes |
+|----|--------|-------|

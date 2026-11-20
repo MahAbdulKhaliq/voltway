@@ -20,6 +20,9 @@ import type { RouteBody, Crossing } from '../lib/ors.ts';
 import type { CarDetail } from '../lib/types.ts';
 import type { DistanceUnit } from '../lib/units.ts';
 import { TRIP } from '../config.ts';
+import { adjustedWhPerKm, type WeatherWheels } from '../lib/trip-energy.ts';
+import { heatPumpKind, trimFor, type HeatPumpKind } from '../lib/car-settings.ts';
+import { ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
 import { avoidList, avoidQuery, NO_AVOID, readRouteOptions, routeOptions, ROUTE_OPTIONS_EVENT, sameRouteOptions, type RouteOptions } from '../lib/route-options.ts';
 
 export type TripStatus =
@@ -29,7 +32,20 @@ export type TripStatus =
 export interface RouteData { route: Route; durationMin: number; key: string; countries?: CountryCode[]; crossings?: Crossing[] }
 export type Locating = 'idle' | 'busy' | 'denied';
 
-const BLANK: TripQuery = { from: null, to: null, startSoc: TRIP.defaultStartSoc, thresholdSoc: TRIP.defaultThresholdSoc };
+const BLANK: TripQuery = { from: null, to: null, startSoc: TRIP.defaultStartSoc, thresholdSoc: TRIP.defaultThresholdSoc, arriveSoc: TRIP.defaultArriveSoc, weather: false, tempC: 20 };
+/** The battery and weather settings kept in the browser with the last trip (B62, B123). */
+const savedPart = (q: TripQuery) => ({ startSoc: q.startSoc, thresholdSoc: q.thresholdSoc, arriveSoc: q.arriveSoc, weather: q.weather, tempC: q.tempC });
+
+/** B123: what Weather and wheels works with for My car, and its effect at the trip's temperature. */
+export interface WeatherInfo {
+  effect: WeatherWheels;
+  /** The wheels the plan uses (My car's, else the trim's standard); null when unknown. */
+  wheelIn: number | null;
+  /** My car's wheels differ from the standard size. */
+  wheelsChanged: boolean;
+  heatPump: HeatPumpKind;
+  heatPumpFitted: boolean;
+}
 
 /** The route's key: the API form of both points, plus the route options (B73, B79), which change the route. */
 export const endsKey = (q: Pick<TripQuery, 'from' | 'to'>, o: RouteOptions = NO_AVOID) =>
@@ -48,8 +64,9 @@ export function borderStatus(body: unknown): TripStatus | null {
  * @param corridor loads the full Level 3 stations along a route (the planner's candidates, B78: from
  *   the detail tiles the route passes); null until the tile index is in
  * @param dataFailed the station data failed to load (planning can't finish)
+ * @param wheelEffect the build's wheel-size effect (B13), for Weather and wheels (B123)
  */
-export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promise<MapFeature[]>) | null, dataFailed = false) {
+export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promise<MapFeature[]>) | null, dataFailed = false, wheelEffect: WheelEffect | null = null) {
   const [trip, setTrip] = useState<TripQuery>(BLANK);
   const [detail, setDetail] = useState<CarDetail | null>(null);
   const [routeData, setRouteData] = useState<RouteData | null>(null);
@@ -108,18 +125,40 @@ export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promis
     return () => { alive = false; };
   }, [myCar]);
   const planCar: PlanCarResult | null = useMemo(() => (detail ? planCarFrom(detail, myCar?.trimId, myCar?.plugs) : null), [detail, myCar]);
+  // B123: Weather and wheels. Worked out whether the switch is on (the card shows the estimate);
+  // the plan uses it only while it is on.
+  const weatherInfo: WeatherInfo | null = useMemo(() => {
+    if (!detail || !planCar?.ok) return null;
+    const trim = trimFor(detail.trims, myCar?.trimId);
+    const hpRaw = trim?.heat_pump ? String(trim.heat_pump.value.value) : null;
+    const chem = detail.fields.chemistry ? String(detail.fields.chemistry.value.value) : null;
+    const standardIn = standardWheel(trim);
+    const fitted = Boolean(myCar?.heatPump);
+    const effect = adjustedWhPerKm(planCar.car.energy.whPerKm, {
+      tempC: trip.tempC, heatPump: hpRaw, heatPumpFitted: fitted, chemistry: chem,
+      wheelIn: myCar?.wheelIn ?? null, ratedWheelIn: ratedWheelFor(detail.trims, trim), wheelEffect,
+    });
+    const kind = heatPumpKind(hpRaw);
+    return { effect, wheelIn: myCar?.wheelIn ?? standardIn, wheelsChanged: myCar?.wheelIn !== undefined, heatPump: kind, heatPumpFitted: kind === 'optional' && fitted };
+  }, [detail, planCar, myCar, trip.tempC, wheelEffect]);
+  const tripCar = useMemo(() => {
+    if (!planCar?.ok) return null;
+    if (!trip.weather || !weatherInfo) return planCar.car;
+    return { ...planCar.car, energy: { ...planCar.car.energy, whPerKm: weatherInfo.effect.whPerKm, weatherAdjusted: true } };
+  }, [planCar, trip.weather, weatherInfo]);
   const carUpdated = useMemo(() => (detail ? detail.sources.map((s) => s.accessed_on).filter(Boolean).sort().at(-1) ?? null : null), [detail]);
 
   const pctValid =
     trip.startSoc >= SOC_LIMITS.startMin && trip.startSoc <= SOC_LIMITS.startMax &&
     trip.thresholdSoc >= SOC_LIMITS.thresholdMin && trip.thresholdSoc <= SOC_LIMITS.thresholdMax &&
+    trip.arriveSoc >= SOC_LIMITS.arriveMin && trip.arriveSoc <= SOC_LIMITS.arriveMax &&
     trip.startSoc > trip.thresholdSoc;
 
   // Plan the stops whenever the route, the car, the percentages or the station data change (no request).
   // Percentages out of range keep the last good plan on screen; the form says what to fix.
   // B78: the stations come from the detail tiles along the route; the card shows "planning" while they load.
   useEffect(() => {
-    if (!routeData || !planCar?.ok) { setPlan(null); setNacsHelps(false); return; }
+    if (!routeData || !tripCar) { setPlan(null); setNacsHelps(false); return; }
     if (!pctValid) return;
     if (!corridor) { if (dataFailed) setStatus('error'); return; } // still loading: planning follows
     let alive = true;
@@ -128,7 +167,7 @@ export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promis
       (stations) => {
         if (!alive) return;
         // B78: stops stay in the trip's country (a border route passes chargers on the other side).
-        const input = { route: routeData.route, durationMin: routeData.durationMin, car: planCar.car, stations: inTripCountries(stations, routeData.countries), startSoc: trip.startSoc, thresholdSoc: trip.thresholdSoc };
+        const input = { route: routeData.route, durationMin: routeData.durationMin, car: tripCar, stations: inTripCountries(stations, routeData.countries), startSoc: trip.startSoc, thresholdSoc: trip.thresholdSoc, arriveSoc: trip.arriveSoc };
         const next = planTrip(input);
         setPlan(next);
         setNacsHelps(nacsRescue(input, next));
@@ -137,7 +176,15 @@ export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promis
       () => alive && setStatus('error'),
     );
     return () => { alive = false; };
-  }, [routeData, planCar, corridor, dataFailed, pctValid, trip.startSoc, trip.thresholdSoc]);
+  }, [routeData, tripCar, corridor, dataFailed, pctValid, trip.startSoc, trip.thresholdSoc, trip.arriveSoc]);
+
+  // B123: the battery and weather settings are remembered as they change (once route mode has
+  // started, so the blank form never overwrites them).
+  const started = useRef(false);
+  useEffect(() => {
+    if (!started.current) return;
+    setJSON(KEYS.lastTrip, { ...getJSON<Record<string, unknown>>(KEYS.lastTrip, {}), ...savedPart(trip) });
+  }, [trip.startSoc, trip.thresholdSoc, trip.arriveSoc, trip.weather, trip.tempC]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // A message about the last request (busy, no route, …) goes once the ends change.
   const key = endsKey(trip, opts);
@@ -151,7 +198,7 @@ export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promis
     setShareUrl('');
     // B62: the browser keeps the battery settings and the destination (Previous destinations),
     // never where the trip started.
-    setJSON(KEYS.lastTrip, { startSoc: trip.startSoc, thresholdSoc: trip.thresholdSoc });
+    setJSON(KEYS.lastTrip, savedPart(trip));
     setJSON(KEYS.recentDestinations, addRecent(readRecent(getJSON<unknown>(KEYS.recentDestinations, null)), to));
     const key = endsKey(trip, opts);
     if (routeData?.key === key) return; // Same ends: the stops re-plan from the route already here.
@@ -217,6 +264,7 @@ export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promis
     const settings = readSavedSettings(getJSON<unknown>(KEYS.lastTrip, null));
     const base: TripQuery = opts.link ? opts.link : { ...BLANK, ...settings, to: opts.to ?? null };
     setTrip(base);
+    started.current = true;
     setShareUrl('');
     autoPlan.current = Boolean(opts.link?.from && opts.link?.to);
     if (!base.from && navigator.permissions?.query) {
@@ -241,17 +289,19 @@ export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promis
     try { await navigator.clipboard?.writeText(url); } catch { /* the link is shown to copy by hand */ }
   };
 
-  const setPct = (k: 'startSoc' | 'thresholdSoc', raw: string) => {
+  const setPct = (k: 'startSoc' | 'thresholdSoc' | 'arriveSoc', raw: string) => {
     const n = Number(raw);
     if (Number.isFinite(n)) setTrip((x) => ({ ...x, [k]: n }));
   };
+  const setWeather = (on: boolean) => setTrip((x) => ({ ...x, weather: on }));
+  const setTempC = (c: number) => setTrip((x) => ({ ...x, tempC: Math.round(c * 10) / 10 }));
   const swap = () => setTrip((x) => ({ ...x, from: x.to, to: x.from }));
   const canPlan = Boolean(trip.from && trip.to && planCar?.ok && pctValid && status !== 'planning');
   /** The plan on screen belongs to the ends in the form. */
   const current = Boolean(plan && routeData && routeData.key === key);
 
   return {
-    trip, setTrip, swap, setPct, pctValid, canPlan, current, opts, setShown,
+    trip, setTrip, swap, setPct, setWeather, setTempC, weatherInfo, pctValid, canPlan, current, opts, setShown,
     planCar, carUpdated, routeData, plan, nacsHelps, status, unit,
     submit, start, stop, share, shareUrl, locate, locating,
   };

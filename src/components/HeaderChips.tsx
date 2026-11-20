@@ -23,6 +23,9 @@ import type { MessageKey } from '../i18n/t.ts';
 export default function HeaderChips() {
   const [mine, setMine] = useState<MyCar | null>(null);
   const [open, setOpen] = useState(false);
+  /** The plug switches in the menu: folded unless "Change plugs" opened the menu for them. */
+  const [plugsOpen, setPlugsOpen] = useState(false);
+  useEffect(() => { if (!open) setPlugsOpen(false); }, [open]);
   const [ready, setReady] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const button = useRef<HTMLButtonElement>(null);
@@ -79,7 +82,7 @@ export default function HeaderChips() {
     // The trip panel's "Change" next to the plugs it used opens this menu at the plug switches.
     // Opened after the asking click has finished bubbling, or the click-outside listener below
     // (added as soon as the menu opens) sees that same click and closes it again.
-    const onMenu = () => { focusPlugs.current = true; setTimeout(() => setOpen(true), 0); };
+    const onMenu = () => { focusPlugs.current = true; setPlugsOpen(true); setTimeout(() => setOpen(true), 0); };
     window.addEventListener('voltway:mycar-menu', onMenu);
     // B58: the trip form's "Choose your car", "Change car" and the map's car tile open the car dialog.
     const onPickCar = () => openPickerRef.current(document.activeElement as HTMLElement | null);
@@ -205,7 +208,16 @@ export default function HeaderChips() {
               <button type="button" role="menuitem" onClick={() => openPicker(button.current)}>{t('mycar.change')}</button>
               <button type="button" role="menuitem" onClick={() => { setMyCar(null); setOpen(false); button.current?.focus(); }}>{t('mycar.forget')}</button>
               <div className="chip-plugs" role="group" aria-labelledby="mycar-plugs-label">
-                <p id="mycar-plugs-label" className="chip-plugs-label">{t('mycar.plugs')}</p>
+                {/* Owner 2026-11-20: folds to its title and the plugs that are on, like Trip settings in Settings. */}
+                <button type="button" role="menuitem" className="chip-plugs-fold" aria-expanded={plugsOpen} aria-controls="mycar-plugs-list"
+                  onClick={(e) => { e.stopPropagation(); setPlugsOpen((o) => !o); }}>
+                  <span className="chip-plugs-fold-text">
+                    <span id="mycar-plugs-label" className="chip-plugs-label">{t('mycar.plugs')}</span>
+                    {!plugsOpen && plugsOn && <span className="chip-plugs-sum">{plugsOn.length ? plugsOn.map((p) => t(`value.${p}` as MessageKey)).join(', ') : t('route.plugsNoneShort')}</span>}
+                  </span>
+                  <span className="acc-chev" aria-hidden="true" />
+                </button>
+                {plugsOpen && <div id="mycar-plugs-list" className="chip-plugs-list">
                 {DC_PLUGS.map((p) => (
                   <button
                     key={p}
@@ -220,6 +232,7 @@ export default function HeaderChips() {
                     <span>{t(`value.${p}` as MessageKey)}</span>
                   </button>
                 ))}
+                </div>}
               </div>
             </div>
           )}

@@ -84,6 +84,7 @@ import { useTrip } from './useTrip.ts';
 import { addTripLayers, boundsOf, cancelPaint, holdTrip, paintTrip, retractTrip, setTagsFrom, setTripOverlay, STOP_LAYERS, tagsFrom, type TripOverlay } from '../lib/trip-overlay.ts';
 import { camMotion, morph, reducedMotion } from '../lib/motion.ts';
 import type { IndexEntry } from '../lib/types.ts';
+import type { WheelEffect } from '../lib/wheel-effect.ts';
 import { createBaseMap } from '../lib/map-base.ts';
 import { haversineKm, sliceRoute } from '../lib/route-geo.ts';
 import Marquee from './Marquee.tsx';
@@ -332,8 +333,8 @@ async function loadLevel(level: ChargerLevel): Promise<MapFeature[]> {
 /** Drops the trip parameters (?from, ?to, ?start, ?min) from the address bar. */
 function clearTripParams() {
   const q = new URLSearchParams(window.location.search);
-  if (!['from', 'to', 'start', 'min'].some((k) => q.has(k))) return;
-  for (const k of ['from', 'to', 'start', 'min']) q.delete(k);
+  if (!['from', 'to', 'start', 'min', 'arrive', 'temp'].some((k) => q.has(k))) return;
+  for (const k of ['from', 'to', 'start', 'min', 'arrive', 'temp']) q.delete(k);
   const rest = q.toString();
   history.replaceState(history.state, '', window.location.pathname + (rest ? `?${rest}` : '') + window.location.hash);
 }
@@ -355,7 +356,7 @@ function quickFly(map: maplibregl.Map, at: maplibregl.LngLatLike, zoom: number) 
   return { curve: 1.2, duration: Math.round(Math.min(1100, 450 + px / 6 + dz * 45)) };
 }
 
-export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
+export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: IndexEntry[]; wheelEffect?: WheelEffect | null }) {
   const box = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const pinsRef = useRef<FeatureCollection<Point, PinProps>>(EMPTY);
@@ -786,7 +787,7 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
     (route: Route) => (index ? ensureTiles(3, corridorTiles(index, 3, route.coords)) : Promise.reject(new Error('no tile index'))),
     [index, ensureTiles],
   );
-  const T = useTrip(myCar, index ? corridor : null, indexFailed);
+  const T = useTrip(myCar, index ? corridor : null, indexFailed, wheelEffect);
   const { plan, routeData } = T;
   // B78: the US AFDC pull date, for US stations and US trips (the top-level date is Canada's).
   const updatedUs = meta?.sources?.find((x) => x.source_id === 'src-afdc-us')?.fetched_at.slice(0, 10) ?? null;

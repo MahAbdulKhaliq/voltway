@@ -7,14 +7,19 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode }
 import { t, type MessageKey } from '../i18n/t.ts';
 import { openCarPicker } from '../lib/car-label.ts';
 import Itinerary from './Itinerary.tsx';
+import ChangeLink from './ChangeLink.tsx';
 import DriveView from './DriveView.tsx';
 import { clearDrive, saveDrive } from '../lib/drive.ts';
 import PlaceField, { loadUsPlaces } from './PlaceField.tsx';
 import { borderRows } from '../lib/border-rows.ts';
-import type { TripState } from './useTrip.ts';
+import type { TripState, WeatherInfo } from './useTrip.ts';
+import { setRouteOptions } from '../lib/route-options.ts';
+import { currentTempUnit, TEMP_UNIT_EVENT } from '../lib/temp-unit.ts';
+import { cToF, fToC, type TempUnit } from '../lib/temperature-effect.ts';
+import { formatNumber } from '../lib/units.ts';
 import { setMyCar, settingsChanged, type MyCar } from '../lib/my-car.ts';
 import type { PlaceSearch } from '../lib/place-search.ts';
-import { SOC_LIMITS } from '../lib/trip-link.ts';
+import { SOC_LIMITS, TEMP_LIMITS_C } from '../lib/trip-link.ts';
 import { stopsText } from '../lib/trip-format.ts';
 import PlugIcon from './PlugIcon.tsx';
 import { morph, reducedMotion } from '../lib/motion.ts';
@@ -24,6 +29,10 @@ import type { IndexEntry } from '../lib/types.ts';
 const VAL_START = '\u0001', VAL_MIN = '\u0002';
 const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)'; // --ease-out
 const OPEN_MS = 320, SHUT_MS = 220; // as the sections that unroll (road-unroll.ts)
+/** B123: a temperature in the site's unit, whole degrees ("−10 °C"). */
+function fmtTemp(c: number, unit: TempUnit): string {
+  return t('trip.tempValue', { value: formatNumber(Math.round(unit === 'F' ? cToF(c) : c)).replace('-', '−'), unit: t(`temp.unit.${unit}`) });
+}
 function withValues(text: string, nodes: Record<string, ReactNode>): ReactNode[] {
   return text.split(/([\u0001\u0002])/).map((part, i) => (part in nodes ? <span key={i}>{nodes[part]}</span> : part));
 }
@@ -114,9 +123,58 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
       ], { duration: OPEN_MS, easing: EASE });
     }
     // The labels, the plugs line and Change car rise in after them.
-    [...box.querySelectorAll<HTMLElement>('.tp-label, .route-car-plugs, .route-car-change')].forEach((el, i) =>
+    [...box.querySelectorAll<HTMLElement>('.tp-sec-title, .tp-label, .tp-switch, .route-car-plugs, .route-car-change')].forEach((el, i) =>
       el.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 240, delay: 120 + i * 30, easing: EASE, fill: 'backwards' }));
   }, [settingsOpen]);
+  // B123: Weather and wheels. The temperature is typed in the site's unit (Settings) and kept in °C.
+  const W = T.weatherInfo;
+  const [tempUnit, setTempUnitState] = useState<TempUnit>('C');
+  useEffect(() => {
+    setTempUnitState(currentTempUnit());
+    const on = (e: Event) => setTempUnitState((e as CustomEvent<TempUnit>).detail === 'F' ? 'F' : 'C');
+    window.addEventListener(TEMP_UNIT_EVENT, on);
+    return () => window.removeEventListener(TEMP_UNIT_EVENT, on);
+  }, []);
+  const tempIn = useRef<HTMLInputElement>(null);
+  const [tempText, setTempText] = useState('');
+  const typedC = (txt: string): number => {
+    const n = txt.trim() === '' ? Number.NaN : Number(txt);
+    return tempUnit === 'F' ? fToC(n) : n;
+  };
+  const tempOk = (c: number) => Number.isFinite(c) && c >= TEMP_LIMITS_C.min && c <= TEMP_LIMITS_C.max;
+  // The field follows the trip's temperature (a link, a unit change) unless it already says it.
+  useEffect(() => {
+    setTempText((txt) => (Math.abs(typedC(txt) - trip.tempC) < 0.06 ? txt : String(Math.round(tempUnit === 'F' ? cToF(trip.tempC) : trip.tempC))));
+  }, [trip.tempC, tempUnit]); // eslint-disable-line react-hooks/exhaustive-deps
+  const onTempText = (v: string) => {
+    setTempText(v);
+    const c = typedC(v);
+    if (tempOk(c)) T.setTempC(c);
+  };
+  const tempBad = trip.weather && !tempOk(typedC(tempText));
+  // Owner 2026-11-20: said as range (same battery, more energy per km = less range).
+  const estimateText = (factor: number) => {
+    const pct = Math.round((1 / factor - 1) * 100);
+    return pct === 0 ? t('trip.weatherEstimateSame') : t(pct < 0 ? 'trip.weatherEstimateLess' : 'trip.weatherEstimateMore', { pct: Math.abs(pct) });
+  };
+  const wheelsText = (w: WeatherInfo) =>
+    w.wheelIn === null ? t('trip.wheelsUnknown') : t(w.wheelsChanged ? 'trip.wheels' : 'trip.wheelsStandard', { size: w.wheelIn });
+  const hpKey = (w: WeatherInfo) =>
+    w.heatPump === 'optional' ? (w.heatPumpFitted ? 'fitted' : 'notFitted') : w.heatPump;
+  // "Change" under the closed card and the results hint open the card at Route or at Weather and
+  // wheels (the hint also turns the switch on and puts the cursor in the temperature field).
+  // Owner 2026-11-20: Route and Plugs used fold to a summary line (open state).
+  const [routeOpen, setRouteOpen] = useState(false);
+  const focusAt = useRef<'route' | 'weather' | null>(null);
+  const openCardAt = (at: 'route' | 'weather', fromResults = false) => {
+    focusAt.current = at;
+    if (at === 'route') setRouteOpen(true);
+    if (at === 'weather' && !trip.weather) T.setWeather(true);
+    if (fromResults) morph(() => { setEditing(true); setSettingsOpen(true); }, 'back', 'left');
+    else if (!settingsOpen) toggleSettings();
+    else setFocusTick((n) => n + 1);
+  };
+  const [focusTick, setFocusTick] = useState(0);
   const [sheetOpen, setSheetOpen] = useState(false);
   // Drive mode (B72): open, and which stops are reached. Kept for this tab only (sessionStorage).
   const [driving, setDriving] = useState(false);
@@ -135,28 +193,72 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
   // focus moves to the panel's heading so keyboard and screen-reader users keep their place (3.20).
   const headRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => { headRef.current?.focus({ preventScroll: true }); }, [folded]);
+  // B123: after openCardAt, once the card is open, bring the asked-for part into view and focus it.
+  useEffect(() => {
+    const at = focusAt.current;
+    if (!at || !settingsOpen || folded) return;
+    const id = requestAnimationFrame(() => {
+      const sec = document.getElementById(at === 'route' ? 'route-sec-route' : 'route-sec-weather');
+      const target = at === 'weather' ? tempIn.current : sec?.querySelector<HTMLElement>('[role="switch"]');
+      if (!sec || !target) return;
+      focusAt.current = null;
+      sec.scrollIntoView({ block: 'nearest', behavior: reducedMotion() ? 'auto' : 'smooth' });
+      target.focus({ preventScroll: true });
+      if (at === 'weather') tempIn.current?.select();
+    });
+    return () => cancelAnimationFrame(id);
+  }, [settingsOpen, folded, trip.weather, focusTick, routeOpen]);
 
   // B55: the DC plugs the plan used (My car's switches), with a way to change them.
   const dcUsed = planCar?.ok ? planCar.car.rule.plugs.filter((p) => p !== 'j1772') : null;
   // B89: the plugs as a list with the map filter's plug drawings, on a raised panel.
+  // Owner 2026-11-20: Route and Plugs used fold to a title and a summary line; Battery stays open.
+  const fold = (k: 'route', title: string, summary: string) => {
+    const open = routeOpen;
+    return (
+      <button type="button" className="tp-fold" aria-expanded={open} aria-controls={`tp-fold-${k}`}
+        onClick={() => setRouteOpen((o) => !o)}>
+        <span className="tp-fold-text">
+          <span className="route-car-plugs-title">{title}</span>
+          {!open && <span className="small muted">{summary}</span>}
+        </span>
+        <span className="acc-chev" aria-hidden="true" />
+      </button>
+    );
+  };
+  const routeSummary = [
+    T.opts.avoidTolls && T.opts.avoidHighways ? t('route.avoid.both') : T.opts.avoidTolls ? t('route.avoid.tolls') : T.opts.avoidHighways ? t('route.avoid.highways') : t('trip.routeFastest'),
+    T.opts.crossBorder ? t('trip.routeCross') : t('trip.routeStay'),
+  ].join(' · ');
+  /** A grey line with "Change ›" on the right that opens where it is changed (owner 2026-11-20). */
+  const changeRow = (line: ReactNode, srName: string, onClick: () => void) => (
+    <button type="button" className="tp-car-row" onClick={onClick}>
+      <span className="small muted">{line}</span>
+      <span className="tp-car-row-go" aria-hidden="true">{t('trip.carChange')}
+        <svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" /></svg>
+      </span>
+      <span className="sr-only">{srName}</span>
+    </button>
+  );
+  // Plugs used: the title, then the plugs (with the map filter's drawings) as a Change row that
+  // opens the My car menu's plug switches.
   const plugsLine = dcUsed && (
     <div className="route-car-plugs">
-      <div className="route-car-plugs-head">
-        <h3 className="route-car-plugs-title">{t('route.plugsTitle')}</h3>
-        <button type="button" className="link-btn small" onClick={() => window.dispatchEvent(new CustomEvent('voltway:mycar-menu'))}>{t('route.plugsChange')}</button>
-      </div>
-      {dcUsed.length ? (
-        <ul className="route-plug-list">
-          {dcUsed.map((p) => <li key={p}><PlugIcon plug={p} /><span>{t(`value.${p}` as MessageKey)}</span></li>)}
-        </ul>
-      ) : <p className="small muted">{t('route.plugsNone')}</p>}
+      <h3 className="route-car-plugs-title">{t('route.plugsTitle')}</h3>
+      {changeRow(
+        dcUsed.length
+          ? <span className="tp-plugs">{dcUsed.map((p) => <span key={p}><PlugIcon plug={p} />{t(`value.${p}` as MessageKey)}</span>)}</span>
+          : t('route.plugsNone'),
+        t('route.plugsChange'),
+        () => window.dispatchEvent(new CustomEvent('voltway:mycar-menu')),
+      )}
     </div>
   );
   // The trip card's line (B67): charging time, then the plugs used and a way to change them.
   const plugsInline = dcUsed && (
     <>
       {' · '}{dcUsed.length ? dcUsed.map((p) => t(`value.${p}` as MessageKey)).join(', ') : t('route.plugsNoneShort')}{' '}
-      <button type="button" className="link-btn" onClick={() => window.dispatchEvent(new CustomEvent('voltway:mycar-menu'))}>{t('route.plugsChange')}</button>
+      <ChangeLink label={t('route.plugsChange')} onClick={() => window.dispatchEvent(new CustomEvent('voltway:mycar-menu'))} />
     </>
   );
   const carLabel = myCar ? (myCar.label ?? cars.find((c) => c.id === myCar.carId)?.name ?? myCar.carId) : '';
@@ -276,6 +378,8 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
                       [VAL_MIN]: <span ref={minVal} className="route-soc">{trip.thresholdSoc}</span>,
                     })}
                     {dcUsed && <> · {dcUsed.length ? dcUsed.map((p) => t(`value.${p}` as MessageKey)).join(', ') : t('route.plugsNoneShort')}</>}
+                    {/* B123: the weather the plan uses, so Trip settings is one look away. */}
+                    {' · '}{trip.weather ? fmtTemp(trip.tempC, tempUnit) : t('route.weatherMild')}
                   </>
                 )}
               </span>
@@ -286,31 +390,83 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           {settingsOpen && <span className="acc-lane" aria-hidden="true" />}
           {settingsOpen && (
             <div id="route-settings" className="route-settings" ref={settingsBox}>
-              <div className="tp-pcts">
-                <label>
-                  <span className="tp-label">{t('trip.startSoc')}</span>
-                  <input ref={startIn} type="number" className="field-input" min={SOC_LIMITS.startMin} max={SOC_LIMITS.startMax} step={5}
-                    value={trip.startSoc} onChange={(e) => T.setPct('startSoc', e.target.value)} />
-                </label>
-                <label>
-                  <span className="tp-label">{t('trip.thresholdSoc')}</span>
-                  <input ref={minIn} type="number" className="field-input" min={SOC_LIMITS.thresholdMin} max={SOC_LIMITS.thresholdMax} step={5}
-                    value={trip.thresholdSoc} onChange={(e) => T.setPct('thresholdSoc', e.target.value)} />
-                </label>
+              {/* B123: Battery, Route, Weather and wheels, then the plugs and the car rows. */}
+              <div className="tp-sec tp-sec-battery">
+                <h3 className="route-car-plugs-title tp-sec-title">{t('trip.batteryTitle')}</h3>
+                <div className="tp-pcts tp-pcts-3">
+                  <label>
+                    <span className="tp-label" aria-hidden="true">{t('trip.start')}</span>
+                    <span className="tp-suffix-field">
+                      <input ref={startIn} type="number" className="field-input" min={SOC_LIMITS.startMin} max={SOC_LIMITS.startMax} step={5}
+                        aria-label={t('trip.startSoc')} value={trip.startSoc} onChange={(e) => T.setPct('startSoc', e.target.value)} />
+                      <span className="tp-suffix" aria-hidden="true">%</span>
+                    </span>
+                  </label>
+                  <label>
+                    <span className="tp-label" aria-hidden="true">{t('trip.chargeAt')}</span>
+                    <span className="tp-suffix-field">
+                      <input ref={minIn} type="number" className="field-input" min={SOC_LIMITS.thresholdMin} max={SOC_LIMITS.thresholdMax} step={5}
+                        aria-label={t('trip.thresholdSoc')} value={trip.thresholdSoc} onChange={(e) => T.setPct('thresholdSoc', e.target.value)} />
+                      <span className="tp-suffix" aria-hidden="true">%</span>
+                    </span>
+                  </label>
+                  <label>
+                    <span className="tp-label" aria-hidden="true">{t('trip.arriveAt')}</span>
+                    <span className="tp-suffix-field">
+                      <input type="number" className="field-input" min={SOC_LIMITS.arriveMin} max={SOC_LIMITS.arriveMax} step={5}
+                        aria-label={t('trip.arriveSoc')} value={trip.arriveSoc} onChange={(e) => T.setPct('arriveSoc', e.target.value)} />
+                      <span className="tp-suffix" aria-hidden="true">%</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div className="tp-sec" id="route-sec-route">
+                {fold('route', t('trip.routeTitle'), routeSummary)}
+                {/* The same stored options as the Settings menu (B73, B79): either place changes both. */}
+                {routeOpen && <div id="tp-fold-route" className="tp-fold-body">{([
+                  ['avoidTolls', t('settings.avoidTolls'), T.opts.avoidTolls],
+                  ['avoidHighways', t('settings.avoidHighways'), T.opts.avoidHighways],
+                  ['crossBorder', t('settings.inBorder'), !T.opts.crossBorder],
+                ] as const).map(([k, label, on]) => (
+                  <button key={k} type="button" role="switch" aria-checked={on} className="tp-switch"
+                    onClick={() => setRouteOptions({ ...T.opts, [k]: !T.opts[k] })}>
+                    <span>{label}</span><span className="switch" aria-hidden="true" />
+                  </button>
+                ))}</div>}
+              </div>
+              <div className="tp-sec" id="route-sec-weather">
+                <button type="button" role="switch" aria-checked={trip.weather} className="tp-switch tp-switch-head" onClick={() => T.setWeather(!trip.weather)}>
+                  <span className="route-car-plugs-title">{t('trip.weather')}</span><span className="switch" aria-hidden="true" />
+                </button>
+                {!trip.weather && <p className="small muted tp-sum">{t('trip.weatherOffLine')}</p>}
+                {trip.weather && (
+                  <div className="tp-weather">
+                    <label className="tp-temp">
+                      <span className="tp-label">{t('trip.weatherTemp')}</span>
+                      <span className="tp-suffix-field">
+                        <input ref={tempIn} type="number" inputMode="decimal" className="field-input" step={1}
+                          aria-label={t('temp.inputLabel', { unit: t(`temp.unit.${tempUnit}`) })} aria-invalid={tempBad || undefined}
+                          aria-describedby={tempBad ? 'tp-temp-error' : undefined}
+                          value={tempText} onChange={(e) => onTempText(e.target.value)} />
+                        <span className="tp-suffix" aria-hidden="true">{t(`temp.unit.${tempUnit}`)}</span>
+                      </span>
+                    </label>
+                    {tempBad && <p id="tp-temp-error" className="small tp-error" role="alert">{t('trip.weatherTempInvalid', { min: fmtTemp(TEMP_LIMITS_C.min, tempUnit), max: fmtTemp(TEMP_LIMITS_C.max, tempUnit) })}</p>}
+                    {W && (
+                      <>
+                        {/* Owner 2026-11-20: My car's wheels and heat pump feed this, so the way to
+                            change them (Modify car settings) lives here, as the line itself. */}
+                        {changeRow(t('trip.weatherCar', { wheels: wheelsText(W), heatPump: t(`trip.hp.${hpKey(W)}` as MessageKey) }), t('mycar.settings'),
+                          () => window.dispatchEvent(new CustomEvent('voltway:mycar-settings')))}
+                        {/* Owner 2026-11-20: the estimate is the answer, so it comes last and stands out. */}
+                        <p className="tp-estimate" aria-live="polite">{estimateText(W.effect.factor)}</p>
+                        {W.effect.clamped && <p className="small muted">{t('trip.weatherClamped')}</p>}
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
               {plugsLine}
-              {/* B120: Modify car settings above Change car, the same kind of row. */}
-              <button type="button" className="route-car-change" onClick={() => window.dispatchEvent(new CustomEvent('voltway:mycar-settings'))}>
-                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M4 7h10M18 7h2M4 17h4M12 17h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-                  <circle cx="16" cy="7" r="2" stroke="currentColor" strokeWidth="2" fill="none" />
-                  <circle cx="10" cy="17" r="2" stroke="currentColor" strokeWidth="2" fill="none" />
-                </svg>
-                <span>{t('mycar.settings')}</span>
-                <svg className="route-car-change-go" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                </svg>
-              </button>
               <button type="button" className="route-car-change" onClick={openCarPicker}>
                 <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M4 13l1.6-4.4A2 2 0 0 1 7.5 7.3h9a2 2 0 0 1 1.9 1.3L20 13M4 13h16v5H4v-5ZM7 18v1.5M17 18v1.5M7.5 15.5h.01M16.5 15.5h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
@@ -327,7 +483,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           {(T.opts.avoidTolls || T.opts.avoidHighways) && (
             <p className="small muted route-avoid">
               {t(T.opts.avoidTolls && T.opts.avoidHighways ? 'route.avoid.both' : T.opts.avoidTolls ? 'route.avoid.tolls' : 'route.avoid.highways')}{' · '}
-              <button type="button" className="link-btn" onClick={() => window.dispatchEvent(new CustomEvent('voltway:settings', { detail: 'route' }))}>{t('route.avoid.change')}</button>
+              <ChangeLink label={t('trip.routeChangeLabel')} onClick={() => openCardAt('route')} />
             </p>
           )}
           {!T.pctValid && <p className="small tp-error" role="alert">{t('trip.pctInvalid', { ...SOC_LIMITS })}</p>}
@@ -403,6 +559,19 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           onDrive={openDrive}
           onNacs={T.nacsHelps && myCar && dcUsed ? () => setMyCar({ ...myCar, plugs: [...dcUsed, 'nacs'] }) : undefined}
           crossings={borderList}
+          weatherOn={trip.weather}
+          weatherHint={
+            <p className="small muted ti-weather">
+              {trip.weather
+                ? (T.weatherInfo?.wheelIn
+                  ? t('trip.hintOn', { temp: fmtTemp(trip.tempC, tempUnit), wheels: t('trip.wheels', { size: T.weatherInfo.wheelIn }) })
+                  : t('trip.hintOnNoWheels', { temp: fmtTemp(trip.tempC, tempUnit) }))
+                : t('trip.hintCold')}{' '}
+              {trip.weather
+                ? <ChangeLink label={t('trip.hintChange')} onClick={() => openCardAt('weather', true)} />
+                : <button type="button" className="link-btn" onClick={() => openCardAt('weather', true)}>{t('trip.hintAdjust')}</button>}
+            </p>
+          }
           shareNote={T.shareUrl ? (
             <p className="small tp-share" role="status">
               {t('trip.shareNote')} <input className="field-input" readOnly value={T.shareUrl} onFocus={(e) => e.target.select()} aria-label={t('trip.shareLink')} />

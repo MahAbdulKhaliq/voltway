@@ -1,6 +1,7 @@
 // Trip settings in a link and in browser storage (route-planner.md §7 "Saving and sharing").
 // The last trip is saved in the browser; the share link is opt-in because it holds the places.
 // Link format (on the charger map, B50): /?from=<lat>,<lon>,<label>&to=<lat>,<lon>,<label>&start=<%>&min=<%>
+// B123: &arrive=<%>, and &temp=<°C> when Weather and wheels is on.
 // (positions first, so a label may hold commas, e.g. a station's "name, city").
 
 import { inServiceArea } from './country.ts';
@@ -12,9 +13,25 @@ export interface TripQuery {
   to: TripEnd | null;
   startSoc: number;
   thresholdSoc: number;
+  /** B123: charge left at the destination (%). */
+  arriveSoc: number;
+  /** B123: Weather and wheels on, and the outside temperature it plans for (°C). */
+  weather: boolean;
+  tempC: number;
 }
 
-export const SOC_LIMITS = { startMin: 20, startMax: 100, thresholdMin: 5, thresholdMax: 40 } as const;
+export const SOC_LIMITS = { startMin: 20, startMax: 100, thresholdMin: 5, thresholdMax: 40, arriveMin: 5, arriveMax: 90 } as const;
+/** B123: a typed temperature outside this is refused (the model clamps to −30…45 °C and says so). */
+export const TEMP_LIMITS_C = { min: -50, max: 60 } as const;
+export const MILD_TEMP_C = 20;
+
+/** B123: Arrive at %, Weather and wheels and the temperature from a link or storage; odd values fall back. */
+export function tripExtras(arrive: unknown, weather: unknown, temp: unknown): Pick<TripQuery, 'arriveSoc' | 'weather' | 'tempC'> {
+  const arriveSoc = pct(arrive, SOC_LIMITS.arriveMin, SOC_LIMITS.arriveMax, TRIP.defaultArriveSoc);
+  const n = typeof temp === 'number' ? temp : typeof temp === 'string' && temp.trim() !== '' ? Number(temp) : NaN;
+  const okTemp = Number.isFinite(n) && n >= TEMP_LIMITS_C.min && n <= TEMP_LIMITS_C.max;
+  return { arriveSoc, weather: weather === true && okTemp, tempC: okTemp ? Math.round(n * 10) / 10 : MILD_TEMP_C };
+}
 
 const round = (x: number, d: number) => Math.round(x * 10 ** d) / 10 ** d;
 
@@ -47,7 +64,7 @@ function socPair(start: unknown, min: unknown): { startSoc: number; thresholdSoc
 export function readTripLink(search: string): TripQuery | null {
   const q = new URLSearchParams(search);
   if (!q.has('from') && !q.has('to')) return null;
-  return { from: readEnd(q.get('from')), to: readEnd(q.get('to')), ...socPair(q.get('start'), q.get('min')) };
+  return { from: readEnd(q.get('from')), to: readEnd(q.get('to')), ...socPair(q.get('start'), q.get('min')), ...tripExtras(q.get('arrive'), q.has('temp'), q.get('temp')) };
 }
 
 /** The share link's query string (without "?"). */
@@ -57,6 +74,8 @@ export function writeTripLink(t: TripQuery): string {
   if (t.to) q.set('to', writeEnd(t.to));
   q.set('start', String(t.startSoc));
   q.set('min', String(t.thresholdSoc));
+  q.set('arrive', String(t.arriveSoc));
+  if (t.weather) q.set('temp', String(t.tempC));
   return q.toString();
 }
 
@@ -71,13 +90,13 @@ export function readSavedTrip(saved: unknown): TripQuery | null {
   };
   const from = end(s.from), to = end(s.to);
   if (!from && !to) return null;
-  return { from, to, ...socPair(s.startSoc, s.thresholdSoc) };
+  return { from, to, ...socPair(s.startSoc, s.thresholdSoc), ...tripExtras(s.arriveSoc, s.weather, s.tempC) };
 }
 
 /** The saved battery settings (B62: the browser keeps no trip ends, only these). */
-export function readSavedSettings(saved: unknown): { startSoc: number; thresholdSoc: number } {
+export function readSavedSettings(saved: unknown): Omit<TripQuery, 'from' | 'to'> {
   const s = saved && typeof saved === 'object' ? (saved as Record<string, unknown>) : {};
-  return socPair(s.startSoc, s.thresholdSoc);
+  return { ...socPair(s.startSoc, s.thresholdSoc), ...tripExtras(s.arriveSoc, s.weather, s.tempC) };
 }
 
 /** The API's "lon,lat" form, rounded to 3 decimals (~100 m) as the function does, so the CDN cache key is shared. */

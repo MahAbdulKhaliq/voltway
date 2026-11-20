@@ -111,6 +111,17 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
           </button>
           <div id="settings-pop" class="settings-pop" role="group" aria-labelledby="settings-title" hidden>
             <p id="settings-title" class="settings-title">{t('settings.title')}</p>
+            <!-- Owner 2026-11-20: two folds, General (open on first visit) and Trip settings; opening one
+                 closes the other, and the menu remembers which was open. -->
+            <div class="settings-group settings-group-first" role="group" aria-labelledby="settings-general">
+              <button type="button" class="settings-fold" data-fold="general" aria-expanded="true" aria-controls="settings-general-body">
+                <span class="settings-fold-text">
+                  <span id="settings-general" class="settings-sub">{t('settings.general')}</span>
+                  <span id="settings-general-sum" class="settings-fold-sum" hidden></span>
+                </span>
+                <span class="acc-chev" aria-hidden="true"></span>
+              </button>
+              <div id="settings-general-body" class="settings-trips">
             <div class="settings-row">
               <span id="settings-theme">{t('settings.theme')}</span>
               <div class="seg theme-seg" role="group" aria-labelledby="settings-theme">
@@ -126,25 +137,51 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
                 <button type="button" data-motion-choice="off" aria-pressed="false">{t('settings.motionOff')}</button>
               </div>
             </div>
+            <!-- B123: Region sets both units (Canada = km + °C, US = mi + °F); pressed only while both match. -->
             <div class="settings-row">
-              <label for="settings-price">{t('settings.price')}</label>
-              <span class="settings-money"><span aria-hidden="true">$</span><input id="settings-price" type="number" inputmode="decimal" min="0" step="0.01" aria-describedby="settings-price-help" /></span>
+              <span id="settings-region">{t('settings.region')}</span>
+              <div class="seg region-seg" role="group" aria-labelledby="settings-region">
+                <button type="button" data-region="ca" aria-pressed="false">{t('settings.regionCa')}</button>
+                <button type="button" data-region="us" aria-pressed="false">{t('settings.regionUs')}</button>
+              </div>
             </div>
-            <p id="settings-price-help" class="settings-help">{t('settings.priceHelp')}</p>
             <div class="settings-row">
-              <span id="settings-units">{t('settings.units')}</span>
-              <div class="units seg" role="group" aria-labelledby="settings-units">
-                <button type="button" data-unit="km" aria-pressed="true">{t('units.km')}</button>
-                <button type="button" data-unit="mi" aria-pressed="false">{t('units.mi')}</button>
+              <span id="settings-temp">{t('settings.temperature')}</span>
+              <div class="seg temp-seg" role="group" aria-labelledby="settings-temp">
+                <button type="button" data-temp="C" aria-pressed="false">{t('temp.unit.C')}</button>
+                <button type="button" data-temp="F" aria-pressed="false">{t('temp.unit.F')}</button>
               </div>
             </div>
             <!-- Route options (B73) and Stay within the border (B74, B78; a real switch, on by default, B79). -->
+              </div>
+            </div>
+            <!-- Owner 2026-11-20: Trip settings folds to its title and a summary line (closed by default),
+                 and holds Distances and the charging price as well as the route switches. -->
             <div class="settings-group" role="group" aria-labelledby="settings-route">
-              <p id="settings-route" class="settings-sub">{t('settings.route')}</p>
+              <button type="button" class="settings-fold" data-fold="trips" aria-expanded="false" aria-controls="settings-trips">
+                <span class="settings-fold-text">
+                  <span id="settings-route" class="settings-sub">{t('settings.route')}</span>
+                  <span id="settings-trips-sum" class="settings-fold-sum"></span>
+                </span>
+                <span class="acc-chev" aria-hidden="true"></span>
+              </button>
+              <div id="settings-trips" class="settings-trips" hidden>
+              <div class="settings-row">
+                <span id="settings-units">{t('settings.units')}</span>
+                <div class="units seg" role="group" aria-labelledby="settings-units">
+                  <button type="button" data-unit="km" aria-pressed="true">{t('units.km')}</button>
+                  <button type="button" data-unit="mi" aria-pressed="false">{t('units.mi')}</button>
+                </div>
+              </div>
+              <div class="settings-row">
+                <label for="settings-price">{t('settings.price')}</label>
+                <span class="settings-money"><span aria-hidden="true">$</span><input id="settings-price" type="number" inputmode="decimal" min="0" step="0.01" aria-describedby="settings-price-help" /></span>
+              </div>
+              <p id="settings-price-help" class="settings-help">{t('settings.priceHelp')}</p>
               <button type="button" role="switch" aria-checked="false" class="settings-switch" data-avoid="avoidTolls"><span>{t('settings.avoidTolls')}</span><span class="switch" aria-hidden="true"></span></button>
               <button type="button" role="switch" aria-checked="false" class="settings-switch" data-avoid="avoidHighways"><span>{t('settings.avoidHighways')}</span><span class="switch" aria-hidden="true"></span></button>
-              <button type="button" role="switch" aria-checked="true" class="settings-switch" data-border aria-describedby="settings-border-help"><span>{t('settings.inBorder')}</span><span class="switch" aria-hidden="true"></span></button>
-              <p id="settings-border-help" class="settings-help">{t('settings.inBorderHelp')}</p>
+              <button type="button" role="switch" aria-checked="true" class="settings-switch" data-border><span>{t('settings.inBorder')}</span><span class="switch" aria-hidden="true"></span></button>
+              </div>
             </div>
           </div>
         </div>
@@ -190,6 +227,8 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       import { motionOn, setMotion } from '../scripts/motion-client.ts';
       import { chargePrice, PRICE_EVENT, setChargePrice } from '../lib/price.ts';
       import { routeOptions, ROUTE_OPTIONS_EVENT, setRouteOptions, type RouteOptions } from '../lib/route-options.ts';
+      import { currentTempUnit, regionOf, setTempUnit, TEMP_UNIT_EVENT } from '../lib/temp-unit.ts';
+      import { getItem, setItem, KEYS } from '../lib/storage.ts';
       initBadges();
       applyUnits(currentUnit());
 
@@ -218,7 +257,8 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       const showPop = (open: boolean, refocus = false) => {
         pop.hidden = !open;
         setBtn.setAttribute('aria-expanded', String(open));
-        if (open) pop.querySelector<HTMLButtonElement>('[aria-pressed=true]')?.focus();
+        // The pressed choice in the open fold, else the first fold's button.
+        if (open) [...pop.querySelectorAll<HTMLButtonElement>('[aria-pressed=true], .settings-fold')].find((b) => b.offsetParent !== null)?.focus();
         else if (refocus) setBtn.focus();
       };
       setBtn.addEventListener('click', () => showPop(setBtn.getAttribute('aria-expanded') !== 'true'));
@@ -239,10 +279,61 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       );
       syncTheme();
       syncMotion();
+      // Two folds (owner 2026-11-20): General (open on a first visit) and Trip settings. One open at a
+      // time (or none); a closed fold shows a summary line. Remembered in the browser.
+      type Fold = 'general' | 'trips' | 'none';
+      const folds = {
+        general: { btn: pop.querySelector<HTMLButtonElement>('[data-fold="general"]')!, body: document.getElementById('settings-general-body')!, sum: document.getElementById('settings-general-sum')! },
+        trips: { btn: pop.querySelector<HTMLButtonElement>('[data-fold="trips"]')!, body: document.getElementById('settings-trips')!, sum: document.getElementById('settings-trips-sum')! },
+      };
+      const setFold = (which: Fold, remember = true) => {
+        for (const [k, f] of Object.entries(folds)) {
+          const open = k === which;
+          f.btn.setAttribute('aria-expanded', String(open));
+          f.body.hidden = !open;
+          f.sum.hidden = open;
+        }
+        if (remember) setItem(KEYS.settingsFold, which);
+      };
+      const saved = getItem(KEYS.settingsFold);
+      setFold(saved === 'trips' || saved === 'none' ? saved : 'general', false);
+      for (const [k, f] of Object.entries(folds)) {
+        f.btn.addEventListener('click', () => setFold(f.btn.getAttribute('aria-expanded') === 'true' ? 'none' : (k as Fold)));
+      }
+      const openTrips = (open: boolean) => setFold(open ? 'trips' : 'general');
+      const tripsSum = folds.trips.sum;
+      const syncGeneralSum = () => {
+        const theme = themeChoice();
+        const temp = currentTempUnit();
+        const region = regionOf(currentUnit(), temp);
+        folds.general.sum.textContent = t('settings.generalSum', {
+          theme: t(theme === 'light' ? 'settings.sumThemeLight' : theme === 'dark' ? 'settings.sumThemeDark' : 'settings.sumThemeSystem'),
+          motion: t(motionOn() ? 'settings.sumMotionOn' : 'settings.sumMotionOff'),
+          region: region ? t(region === 'us' ? 'settings.regionUs' : 'settings.regionCa') : t('settings.sumRegionMixed'),
+          temp: t(temp === 'F' ? 'temp.unit.F' : 'temp.unit.C'),
+        });
+      };
+      for (const ev of [TEMP_UNIT_EVENT, 'voltway:units', 'storage']) window.addEventListener(ev, syncGeneralSum);
+      // Theme and Animations change through their own buttons: refresh after any click in the menu.
+      pop.addEventListener('click', () => setTimeout(syncGeneralSum, 0));
+      syncGeneralSum();
+      const syncTripsSum = () => {
+        const o = routeOptions();
+        const route = o.avoidTolls && o.avoidHighways ? t('route.avoid.both') : o.avoidTolls ? t('route.avoid.tolls') : o.avoidHighways ? t('route.avoid.highways') : t('trip.routeFastest');
+        tripsSum.textContent = t('settings.tripsSum', {
+          unit: t(currentUnit() === 'mi' ? 'units.mi' : 'units.km'),
+          price: chargePrice().toFixed(2),
+          route,
+          border: o.crossBorder ? t('trip.routeCross') : t('trip.routeStay'),
+        });
+      };
+      for (const ev of [ROUTE_OPTIONS_EVENT, PRICE_EVENT, 'voltway:units', 'storage']) window.addEventListener(ev, syncTripsSum);
+      syncTripsSum();
       // "Change cost estimate" in a trip opens Settings at the price (after the click that sent it).
       window.addEventListener('voltway:settings', (e) => setTimeout(() => {
         showPop(true);
         const at = (e as CustomEvent<string>).detail;
+        if (at === 'price' || at === 'route' || at === 'border') openTrips(true);
         if (at === 'price') document.getElementById('settings-price')?.focus();
         if (at === 'route') pop.querySelector<HTMLButtonElement>('[data-avoid]')?.focus();
         if (at === 'border') pop.querySelector<HTMLButtonElement>('[data-border]')?.focus();
@@ -277,6 +368,26 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       }));
       window.addEventListener(ROUTE_OPTIONS_EVENT, syncAvoid);
       syncAvoid();
+      // B123: Temperature (°C | °F) and the Region preset that sets both units.
+      const syncUnits = () => {
+        const temp = currentTempUnit();
+        press('[data-temp]', 'data-temp', temp);
+        press('[data-region]', 'data-region', regionOf(currentUnit(), temp) ?? '');
+      };
+      pop.querySelectorAll<HTMLButtonElement>('[data-temp]').forEach((b) =>
+        b.addEventListener('click', () => setTempUnit(b.dataset.temp === 'F' ? 'F' : 'C')),
+      );
+      pop.querySelectorAll<HTMLButtonElement>('[data-region]').forEach((b) =>
+        b.addEventListener('click', () => {
+          const us = b.dataset.region === 'us';
+          setUnit(us ? 'mi' : 'km');
+          setTempUnit(us ? 'F' : 'C');
+        }),
+      );
+      window.addEventListener(TEMP_UNIT_EVENT, syncUnits);
+      window.addEventListener('voltway:units', syncUnits);
+      window.addEventListener('storage', syncUnits);
+      syncUnits();
     </script>
   </body>
 </html>
@@ -356,7 +467,20 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
   .settings-help { margin: -6px 0 0; max-width: 30ch; font-size: 0.8rem; color: var(--muted); }
   .settings-group { display: grid; gap: 6px; padding-top: 10px; border-top: 1px solid var(--border); }
   .settings-group .settings-help { margin: 0; }
-  .settings-sub { margin: 0; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+  /* Owner 2026-11-20: sentence case, as the card titles in the trip panel. */
+  .settings-sub { margin: 0; font-family: var(--display); font-size: 0.9rem; font-weight: 700; color: var(--text); }
+  .settings-fold { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 40px; padding: 2px 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+  .settings-fold-text { display: grid; gap: 1px; flex: 1; min-width: 0; }
+  .settings-fold-sum { max-width: 30ch; font-size: 0.8rem; color: var(--muted); }
+  .settings-fold .acc-chev { flex: none; transform: scale(0.8); background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+  .settings-fold[aria-expanded='true'] .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+  .settings-fold[aria-expanded='true'] .acc-chev::before { border-color: var(--accent); }
+  .settings-fold:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+  .settings-trips { display: grid; gap: 6px; }
+  .settings-group-first { padding-top: 0; border-top: 0; }
+  .settings-trips[hidden] { display: none; }
+  .settings-trips .settings-help { margin: -4px 0 4px; }
+  @media (max-width: 640px) { .settings-fold { min-height: 44px; } }
   .settings-switch {
     display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%;
     min-height: 36px; padding: 4px 0; border: 0; background: none; color: inherit; font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer;

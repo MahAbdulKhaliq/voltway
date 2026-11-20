@@ -5,5 +5,74 @@
   "generation": "first-generation",
   "years": [
     2013
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 24,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-fiat500usa-2013-specs",
+        "notes": "Fiat 2013 specification: 24 kWh, 97 cells, 364 V. Same pack 2013-2019 (no change documented).",
+        "low_confidence": true
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 22.8,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-greencarscompare-fiat-500e",
+        "notes": "22.8 kWh usable (24 kWh gross).",
+        "low_confidence": true
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-evspecifications-fiat-500e-2019",
+        "notes": "Samsung SDI NCM (NMC) cells, 97 cells, 364 V (also the 2013 column of the 2013-vs-2024 comparison page).",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-fiat500usa-2013-specs",
+        "notes": "364 V pack (97 cells).",
+        "low_confidence": true
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-fiat500usa-2013-specs",
+        "notes": "Estimated: Fiat's specification describes the pack's four automatic thermal modes (equalization, passive cooling, active cooling, active heating) and J1772 AC charging only; no user/navigation battery preconditioning feature and no DC fast charging. Not confirmed by an owner's manual. No maker launch of battery preconditioning could be cited; moot for a car with no DC port (dc_max_kw 0), so owner decision requested.",
+        "low_confidence": true
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 0,
+      "unit": "kW",
+      "kind": "community",
+      "source_id": "src-wikipedia-fiat-500-2007-500e",
+      "notes": "No DC fast-charging connector, standard or optional (Fiat 2013 spec lists none; Wikipedia; Green Cars Compare). EV Specifications lists 40 kW CCS1 for the 2019 page; contradicted by the others and not used.",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 6.6,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-fiat500usa-2013-specs",
+      "notes": "6.6 kW on-board charger.",
+      "low_confidence": true
+    }
   ]
 }

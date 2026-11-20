@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-greencarreports-2017-focus-electric",
+      "notes": "Green Car Reports: 2017 Focus Electric offers DC fast charging as standard over the CCS connector (US article). Canada not separately checked; the 2017 CA car is the same hardware.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "community",
+      "source_id": "src-insideevs-supercharger-list-2026",
+      "notes": "InsideEVs 2026 list explicitly excludes the Ford Focus Electric (Ford adapters cover E-Transit, Mustang Mach-E, F-150 Lightning only).",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

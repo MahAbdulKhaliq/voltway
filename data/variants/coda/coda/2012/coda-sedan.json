@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "j1772",
+      "kind": "estimated",
+      "source_id": "src-wikipedia-coda-electric-car",
+      "notes": "Estimated: Only a level-two (220 V) AC charge station is described; the 2012 US AC connector standard was SAE J1772. No page names the connector.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "estimated",
+      "source_id": "src-wikipedia-coda-electric-car",
+      "notes": "Estimated: AC-only 2012-2013 car with no DC fast charging described; no Supercharger use. Basis: the car has no DC port.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

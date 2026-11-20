@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "j1772",
+      "kind": "estimated",
+      "source_id": "src-insideevs-kandi-k27-epa",
+      "notes": "Estimated: US-market car charged from 240 V / 16 A AC; J1772 is the North American AC connector standard. No page names the connector.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "estimated",
+      "source_id": "src-insideevs-kandi-k27-epa",
+      "notes": "Estimated: AC-only car with no DC port. Basis: the car has no DC port.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -5,5 +5,74 @@
   "generation": "23-kwh",
   "years": [
     2014
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 23,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-doe-inl-2013-focus-electric",
+        "notes": "Rated pack energy 23 kWh (DOE/INL fact sheet for the 2013 car; Wikipedia says the same pack ran 2012-2016).",
+        "low_confidence": true
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 19.6,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-greencarscompare-focus-2012",
+        "notes": "Usable 19.6 kWh; EV Database gives the same figure for this pack (search excerpt only).",
+        "low_confidence": true
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "other",
+        "kind": "manufacturer",
+        "source_id": "src-doe-inl-2013-focus-electric",
+        "notes": "DOE/INL: Lithium-Ion (LMO), LG Chem cells. LMO is not an enum value, so recorded as other.",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-doe-inl-2013-focus-electric",
+        "notes": "Nominal system voltage 318.2 V (86 cells in series), the sub-500 V class recorded as 400v.",
+        "low_confidence": true
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-ford-focus-electric",
+        "notes": "Estimated: The 2012-2016 car has only an automatic active liquid cooling/heating thermal management system (Wikipedia, DOE/INL) and no DC fast charging; no page for this car describes a user or navigation battery preconditioning feature. Not confirmed by an owner's manual. No maker launch of battery preconditioning could be cited; moot for a car with no DC port (dc_max_kw 0), so owner decision requested.",
+        "low_confidence": true
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 0,
+      "unit": "kW",
+      "kind": "community",
+      "source_id": "src-greencarscompare-focus-2012",
+      "notes": "No DC fast charging on the 2012-2016 car (Wikipedia: DC fast charging added for 2017).",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 6.6,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-doe-inl-2013-focus-electric",
+      "notes": "On-board charger 6.6 kW (DOE/INL 2013 car; Green Cars Compare 2012 page agrees). Years compared: 2012-2016, no change documented.",
+      "low_confidence": true
+    }
   ]
 }

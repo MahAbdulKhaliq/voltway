@@ -5,5 +5,65 @@
   "generation": "first-generation",
   "years": [
     2024
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 100.5,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-stellantis-charger-daytona-2024-spec",
+        "notes": "Battery total 100.5 kWh (R/T and Scat Pack). Same pack carried 2025-2027 (no change documented). The cited sheet is titled PRELIMINARY SPECIFICATIONS (2024) and has not been checked against a final sheet.",
+        "low_confidence": true
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 93.9,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-stellantis-charger-daytona-2024-spec",
+        "notes": "Usable energy 93.9 kWh on the 2024 spec sheet; later years carry the same pack.",
+        "low_confidence": true
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-stellantis-wagoneer-s-2025-spec",
+        "notes": "Estimated: Stellantis states nickel manganese cobalt for the 400 V, 100.5 kWh, 131 Ah-cell pack in the Wagoneer S and Recon spec sheets; the Charger spec sheet gives the same kWh and 400 V but no chemistry. Motor1 calls the Charger chemistry nickel-cobalt-aluminium (conflict).",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-stellantis-charger-daytona-2024-spec",
+        "notes": "Peak battery voltage 442 V; Stellantis calls the architecture 400 V (Mopar 2026 handbook: DC fast charge (400 V)).",
+        "low_confidence": true
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 183,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-stellantis-charger-daytona-2024-spec",
+      "notes": "Peak charge rate with a 350 kW (500 A) EVSE 183 kW (InsideEVs and Motor1 agree). Conflict: Wagoneer S (same 100.5 kWh pack) is \"rated at 203 kW\" (InsideEVs) and Jeep gives 20-80 % in 23 min vs 27.6 min for 5-80 % here, so the two vehicles may not share charging hardware.",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-stellantis-charger-daytona-2024-spec",
+      "notes": "On-board charger L2 AC max charge rate 11 kW.",
+      "low_confidence": true
+    }
   ]
 }

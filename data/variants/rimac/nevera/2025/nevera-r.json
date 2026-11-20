@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-rimac-nevera-page",
+      "notes": "Estimated: Rimac lists \"DC Combo\" charging and homologation \"Global\"; US cars use the Combo 1 connector (the repo notes list EPA MY2024-2026). No page names CCS1.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "community",
+      "source_id": "src-insideevs-supercharger-list-2026",
+      "notes": "Rimac: Not on the InsideEVs 2026 list of brands with Supercharger access (updated 2026-03-20) and no adapter programme was found; absence from the list, not a statement by the maker.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

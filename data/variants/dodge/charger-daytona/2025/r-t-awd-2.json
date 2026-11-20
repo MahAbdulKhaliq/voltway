@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "community",
+      "source_id": "src-electrive-stellantis-supercharger-2026",
+      "notes": "electrive: the Charger Daytona 2024-2026 needs the Free2move Charge NACS-CCS1 adapter for Superchargers, which implies a CCS1 inlet; MoparInsiders plugged the adapter into the \"CCS charging port\" of a 2025 Scat Pack. (The Mopar 2026 handbook J1772-inlet sentence could not be read here, so it is not cited.)",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-electrive-stellantis-supercharger-2026",
+      "notes": "Stellantis (March 2026): Charger Daytona 2024-2026 can use Tesla Superchargers with the Free2move Charge NACS-CCS1 adapter. Reports say \"North America\"; Canada implied, not separately confirmed. Canada: the reports say \"North America\"; no source confirms Canadian cars are covered.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

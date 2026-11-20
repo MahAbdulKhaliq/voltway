@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "community",
+      "source_id": "src-electrive-stellantis-supercharger-2026",
+      "notes": "electrive names the \"Free2move Charge NACS-CCS1 DC Adapter\" for the Wagoneer S, which implies a CCS1 inlet; InsideEVs (review) says the car has no NACS plug but does not name the port standard.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-electrive-stellantis-supercharger-2026",
+      "notes": "Estimated: electrive lists Wagoneer S 2024-2025 (Electrek says 2026 model years qualify); the 2026 car is the same hardware with a CCS port, so the adapter works the same. Canada implied, not confirmed. Canada: the reports say \"North America\"; no source confirms Canadian cars are covered.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

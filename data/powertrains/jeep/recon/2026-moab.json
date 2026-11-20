@@ -5,5 +5,65 @@
   "generation": "first-generation",
   "years": [
     2026
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 100.5,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-stellantis-recon-2026-spec",
+        "notes": "Spec sheet: 400-volt, 100.5-kWh battery pack.",
+        "low_confidence": false
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 93.9,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-stellantis-charger-daytona-2024-spec",
+        "notes": "Estimated: Jeep gives gross only; the Charger Daytona sheet states 93.9 kWh usable of 100.5 for the same 400 V, 100.5 kWh pack (ratio 0.934).",
+        "low_confidence": true
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-stellantis-recon-2026-spec",
+        "notes": "Spec sheet: 131 Ah-cell lithium-ion nickel manganese cobalt battery pack.",
+        "low_confidence": false
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-stellantis-recon-2026-spec",
+        "notes": "Spec sheet: 400-volt pack and 250 kW / 400 V motors. (Jeep FAQ reportedly mentions an available 800-volt system; page 403, contradicted by this spec sheet.)",
+        "low_confidence": false
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 203,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-insideevs-wagoneer-s-review",
+      "notes": "Estimated: Jeep has not published a Recon peak (Electrek) and outlets quote 160-220 kW. Used the Wagoneer S rating (203 kW, InsideEVs) as a sibling with the same 100.5 kWh pack; Jeep quotes 5-80 % in about 28 min for the Recon and 20-80 % in 23 min for the Wagoneer S. Conflict: the Charger Daytona on the same pack is 183 kW (Stellantis sheet). Owner call: 183 or 203.",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-stellantis-charger-daytona-2024-spec",
+      "notes": "Estimated: Jeep gives no kW for the IDCM/OBCM; Charger Daytona (same pack) is 11 kW and the Recon's 6.8 h for 5-80 % on 240 V (spec sheet) is consistent with about 11 kW. Same charging hardware as the Charger is not proven.",
+      "low_confidence": true
+    }
   ]
 }

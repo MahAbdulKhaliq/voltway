@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-electrive-stellantis-supercharger-2026",
+      "notes": "electrive: the 2027 Dodge Charger Daytona will feature a standard NACS charging port (first Stellantis model). Electrek words it as the \"2027 Charger EV\".",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-electrive-stellantis-supercharger-2026",
+      "notes": "Native NACS port, needs no adapter (electrive).",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

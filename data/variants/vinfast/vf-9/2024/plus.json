@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "community",
+      "source_id": "src-evspecs-vinfast-vf9-compare",
+      "notes": "CCS front left on the VF 9 (EVspecs.org); North American cars use CCS1.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "community",
+      "source_id": "src-insideevs-supercharger-list-2026",
+      "notes": "VinFast: Not on the InsideEVs 2026 list of brands with Supercharger access (updated 2026-03-20) and no adapter programme was found; absence from the list, not a statement by the maker.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

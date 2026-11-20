@@ -5,5 +5,65 @@
   "generation": "first-generation",
   "years": [
     2024
+  ],
+  "battery": {
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-evspecs-rimac-nevera-compare",
+        "notes": "NMC (EVspecs.org); Rimac states \"lithium manganese nickel\" 21700 cells.",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "community",
+        "source_id": "src-insideevs-rimac-nevera-ionity",
+        "notes": "800 V system, max 730 V (InsideEVs; Rimac page max 730 V). Same architecture for the Nevera R (EVspecs.org lists 800 V inverters).",
+        "low_confidence": true
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 120,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-rimac-nevera-page",
+        "notes": "Rimac: 120 kWh (not labelled gross or usable). EVspecs.org lists 130 kWh gross.",
+        "low_confidence": true
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 106.8,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-batterydesign-rimac-nevera",
+        "notes": "Battery Design: \"Usable Energy = 106.8 kWh (120 kWh total)\", 89 % SoC window. Conflict: EVspecs.org lists 120 kWh usable / 130 gross.",
+        "low_confidence": true
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 500,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-rimac-nevera-page",
+      "notes": "Rimac: 500 kW DC Combo (0-80 % in 19 min); EVspecs.org lists 500 kW for the Nevera R too.",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 22,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-rimac-nevera-page",
+      "notes": "3-phase 22 kW on-board charger.",
+      "low_confidence": true
+    }
   ]
 }

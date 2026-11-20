@@ -5,5 +5,65 @@
   "generation": "first-generation",
   "years": [
     2025
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 130,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-evspecs-vinfast-vf9-compare",
+        "notes": "Extended-range pack 130 kWh gross (EVspecs.org).",
+        "low_confidence": true
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 123,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-vinfast-us-vf9-spec-my27",
+        "notes": "VinFast US MY27 spec sheet: 123 kWh usable. 2024-2025 North American cars assumed the same (EVspecs/Wikipedia); a 92 kWh pack exists in other markets.",
+        "low_confidence": true
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-vinfast-us-charging-page",
+        "notes": "Estimated: VinFast US charging page describes only app cabin pre-heat/pre-cool; the MY27 VF 9 spec sheet lists a High Voltage Battery Heater (automatic, not a user feature). No battery-preconditioning-for-charging feature found. Owner manual not found. No owner's manual or maker statement found; owner decision requested.",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-evdatabase-vf8-vf9-400v",
+        "notes": "Estimated: EV Database lists a 400 V architecture for the VF 9 Extended Range (123 kWh usable, search excerpt; page returned 429 when opened); no page opened states the voltage.",
+        "low_confidence": true
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "community",
+      "source_id": "src-evspecs-vinfast-vf9-compare",
+      "notes": "150 kW DC (EVspecs.org); VinFast states 10-70 % in 35 min. VinFast US sheet gives only 10-70 % in 35 min; EVspecs.org labels 150 kW \"DC Fast Charging\", not \"max\" (one review says up to 160 kW).",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "community",
+      "source_id": "src-evspecs-vinfast-vf9-compare",
+      "notes": "11 kW on-board charger (EVspecs.org).",
+      "low_confidence": true
+    }
   ]
 }

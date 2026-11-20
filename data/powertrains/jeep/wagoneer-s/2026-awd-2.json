@@ -5,5 +5,65 @@
   "generation": "first-generation",
   "years": [
     2026
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 100.5,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-stellantis-wagoneer-s-2025-spec",
+        "notes": "Stellantis spec sheet: 400-volt, 100.5-kWh battery pack. 2024-2026 compared: same pack documented.",
+        "low_confidence": true
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 93.9,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-stellantis-charger-daytona-2024-spec",
+        "notes": "Estimated: Stellantis gives gross only for the Wagoneer S; the Charger Daytona spec sheet states 93.9 kWh usable of 100.5 for the same 400 V, 100.5 kWh STLA Large pack (ratio 0.934). EVKX (blocked) is also reported to list about 94 kWh usable.",
+        "low_confidence": true
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-stellantis-wagoneer-s-2025-spec",
+        "notes": "Spec sheet: 131 Ah-cell lithium-ion nickel manganese cobalt battery pack.",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-stellantis-wagoneer-s-2025-spec",
+        "notes": "Spec sheet: 400-volt pack and 250 kW / 400 V motors.",
+        "low_confidence": true
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 203,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-wagoneer-s-review",
+      "notes": "InsideEVs: maximum DC fast-charging speed \"rated at 203 kilowatts\" (not attributed to Jeep; reviewer saw 150 kW on a 350 kW charger). The Charger Daytona on the same pack is rated 183 kW (conflict). Conflict: the Charger Daytona on the same 100.5 kWh pack is 183 kW on Stellantis's own sheet, and Jeep's 20-80 % 23 min is not proven to equal 203 kW. Jeep itself states no peak.",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-stellantis-charger-daytona-2024-spec",
+      "notes": "Estimated: Jeep gives no kW for the Integrated Dual Charging Module/OBCM; the Charger Daytona (same pack, same module naming) is 11 kW, and the Wagoneer S 6 h for 20-80 % on 240 V (spec sheet) is consistent with about 11 kW. Same charging hardware as the Charger is not proven; the figure is consistent with the sheet's 6 h for 20-80 % on 240 V.",
+      "low_confidence": true
+    }
   ]
 }

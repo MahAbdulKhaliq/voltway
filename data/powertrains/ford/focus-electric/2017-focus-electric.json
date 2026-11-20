@@ -5,5 +5,65 @@
   "generation": "33-kwh",
   "years": [
     2017
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 33.5,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-2017-focus-electric",
+        "notes": "Ford: 33.5 kWh liquid-cooled lithium-ion pack (relayed by InsideEVs); 2017 and 2018 same pack.",
+        "low_confidence": true
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 31.8,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-greencarscompare-focus-2017",
+        "notes": "Green Cars Compare 31.8 kWh usable; EV Database 29.0 and a Pod Point estimate 30.2 conflict (search excerpts only). Recorded the figure from the page opened. The repo model note also shows the 31.8 vs 29.0 kWh conflict; 31.8 is on the page opened (33.5 gross there).",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "community",
+        "source_id": "src-greencarscompare-focus-2017",
+        "notes": "Green Cars Compare states a \"400 V architecture\" for the 33 kWh car (the 23 kWh pack of the same car is 318 V nominal per DOE/INL).",
+        "low_confidence": true
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-ford-focus-electric",
+        "notes": "Estimated: Only an automatic active liquid cooling/heating thermal management system is described for the car (Wikipedia, InsideEVs: liquid-cooled); no page describes a navigation or manual battery preconditioning feature for the 2017-2018 Focus Electric. Not confirmed by an owner's manual. No owner's manual or maker statement found; owner decision requested.",
+        "low_confidence": true
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 50,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-2017-focus-electric",
+      "notes": "Ford: DC fast charging up to 50 kW over CCS (InsideEVs, Wikipedia).",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 6.6,
+      "unit": "kW",
+      "kind": "community",
+      "source_id": "src-greencarscompare-focus-2017",
+      "notes": "6.6 kW onboard charger; the 2017 car kept the 2012-2016 charger.",
+      "low_confidence": true
+    }
   ]
 }

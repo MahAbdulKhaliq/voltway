@@ -5,5 +5,74 @@
   "generation": "first-generation",
   "years": [
     2012
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 33,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-worktruck-coda-specs-2012",
+        "notes": "2012 spec list: \"31 kWh usable capacity (total rating of 33 kWh)\". Wikipedia calls the pack \"31 kWh\".",
+        "low_confidence": true
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "lfp",
+        "kind": "manufacturer",
+        "source_id": "src-wikipedia-coda-electric-car",
+        "notes": "LiFePO4 (cells via Lishen/LIO Energy Systems per Wikipedia Coda Automotive).",
+        "low_confidence": true
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-coda-electric-car",
+        "notes": "Estimated: Wikipedia mentions only an \"active thermal management system\" for range and durability; no battery preconditioning feature and no DC fast charging described for the 2012-2013 car. Not confirmed by an owner's manual. No maker launch of battery preconditioning could be cited; moot for a car with no DC port (dc_max_kw 0), so owner decision requested. Spec list: \"active thermal management for battery\" (air cooling and heating) only.",
+        "low_confidence": true
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 31,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-worktruck-coda-specs-2012",
+        "notes": "2012 spec list: 31 kWh usable.",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-worktruck-coda-specs-2012",
+        "notes": "333 V pack (spec list; NHTSA data also says a 333-volt pack, 385 V max).",
+        "low_confidence": true
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 0,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-wikipedia-coda-electric-car",
+      "notes": "Estimated: Wikipedia describes only a 6.6 kW on-board charger and a level-two (220 V) charge station; no DC fast charging is mentioned (repo model note also says none).",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 6.6,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-worktruck-coda-specs-2012",
+      "notes": "6.6 kW / 240 VAC on-board charger (1.3 kW at 110 V).",
+      "low_confidence": true
+    }
   ]
 }

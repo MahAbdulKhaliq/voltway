@@ -814,6 +814,16 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
   }, [list, listOpen, sheet.phone, you, T.unit]);
   const { setSnap } = sheet;
   const sheetOn = sheet.phone && routeMode;
+  // B134 (owner 2026-11-20): the map's bottom-right corner (credits / ⓘ, zoom) changes height as the
+  // credits open and fold; its height goes to --ctrl-br-px so status lines sit just above it.
+  useEffect(() => {
+    const root = sheet.rootRef.current;
+    const corner = root?.querySelector<HTMLElement>('.maplibregl-ctrl-bottom-right');
+    if (!root || !corner) return;
+    const ro = new ResizeObserver(() => root.style.setProperty('--ctrl-br-px', `${Math.round(corner.getBoundingClientRect().height)}px`));
+    ro.observe(corner);
+    return () => ro.disconnect();
+  }, [mapStatus === 'error']); // eslint-disable-line react-hooks/exhaustive-deps
   // B89 round 4: the trip at peek shows its vital lines only: nothing scrolls, the car card can't
   // be used, and lowering the sheet brings the trip back to its top.
   const routePeek = sheet.phone && routeMode && sheet.snap === 'peek' && !sheet.dragging;

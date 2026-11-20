@@ -558,9 +558,10 @@ html[data-motion="off"] .map-btn-label { transition: none; }
   .map-key-btn, .map-locate { width: 44px; height: 44px; min-height: 44px; padding: 0; justify-content: center; border-radius: 50%; }
   .map-btn-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
   .map-corner { align-items: flex-end; }
-  /* Owner 2026-11-20 (B134): status lines (loading, errors) sit just above the bottom bar / sheet,
-     clear of the top-left column (Stations in view, Chargers). */
-  .charger-map .map-status { top: auto; bottom: calc(var(--sheet-px, 60px) + 12px); }
+  /* Owner 2026-11-20 (B134): status lines (loading, errors) sit just above the map's bottom-right
+     controls (credits / ⓘ, which open wide on first load) over the bar / sheet, clear of the top-left
+     column. ChargerMap measures that corner into --ctrl-br-px. */
+  .charger-map .map-status { top: auto; bottom: calc(var(--sheet-px, 60px) + var(--ctrl-br-px, 40px) + 6px); }
   .map-corner { top: 64px; /* under the pill */ right: 8px; bottom: auto; max-width: calc(100% - 16px); }
   /* The key opens under its buttons as a popup over the map and the sheet, never past the screen. */
   .map-corner .map-key { order: 3; position: fixed; top: 220px; left: 8px; right: 8px; width: auto; max-width: none; max-height: max(200px, calc(100dvh - 220px - var(--sheet-px, 0px) - 48px)); z-index: 6; }

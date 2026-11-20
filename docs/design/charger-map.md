@@ -226,4 +226,4 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 
 **B126 (owner, 2026-11-20):** on phones, outside a trip, the sheet is a fixed "Where to?" bar: no handle, no dragging, and typing doesn't raise it. Place suggestions open upward over the map, full width just above the bar (the same placement as the trip's From / To, B133, unified 2026-11-20). The trip keeps the draggable sheet.
 
-**B134 (owner, 2026-11-20):** on phones the map's status lines ("Loading the map…", loading stations, tile and map errors) sit centred just above the bottom bar or sheet, instead of near the top where Stations in view and Chargers covered them.
+**B134 (owner, 2026-11-20):** on phones the map's status lines ("Loading the map…", loading stations, tile and map errors) sit centred just above the map's bottom-right controls (the credits, open wide on first load, or the folded ⓘ), which ride on the bottom bar or sheet, instead of near the top where Stations in view and Chargers covered them.

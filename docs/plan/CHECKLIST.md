@@ -593,3 +593,11 @@ Branch `feat/b116-outside-temperature`. The owner reviewed it locally and approv
   - the "beyond most published data" note shows −20 °C in the visitor's unit;
   - stale "proposed / not pushed" statuses and the missing R6 source fixed in the docs.
   - *Verified 2026-11-20:* vitest 961, astro check 0 errors. Headless Chrome on the dev server: Q4 40 at −10 °C shows ~159 km Added (Combined) and ~47 km per 10 min in both places, and the tile badge gives the temperature basis; at 20 °C both read ~79 km; Escalade IQ shows Highway in the select with Combined and City greyed out, and the label reads "Added (Highway)"; switching km → mi with no saved unit turned −10 °C into 14 °F.
+
+# Compare costs (B119, owner 2026-11-20)
+
+- [x] **[C] C1 Range basis, distance, price and costs on Compare**: `Compare.tsx`, `price.ts`, `en.json`, `tests/price.test.ts`, docs. **Done when:**
+  - under the curve, beside the Charger slider: Range basis (Combined by default; a car without the picked figure falls back to combined, then highway), Distance km/mi (the site-wide switch) and Price per kWh (the site-wide price);
+  - each lane shows ~cost for Per 10 min, for {start}% → {end}%, and ~cost/100 km (or mi) for Added, in the big figure and the line under it; Average power has none;
+  - changing basis, unit or price updates every lane and re-sorts the race;
+  - unit tests cover the 10-minute and per-100 costs; 375 px has no sideways scroll. *(Done 2026-11-20: *Verified 2026-11-20:* vitest 963 (2 new cost tests in tests/price.test.ts), astro check 0 errors. Headless Chrome on the dev server, dark: Model 3 2018 LR AWD vs EV3 2027 LR AWD at 10→80 %, no limit, $0.45, Combined: Model 3 ~122 km · ~$10.76 per 10 min, ~25 min · ~$25.17, ~286 km · ~$8.80/100 km (8.80 × 2.86 ≈ 25.17); Highway + mi + $0.60 → ~73 mi · ~$14.34, ~171 mi · ~$19.63/100 mi; 375 px scrollWidth 375. PNGs sent.)*

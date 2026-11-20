@@ -123,6 +123,7 @@ Add up across the window:
 - **Sort** by any column. The default is km per 10 min.
 - **Mixed-quality warning:** if the comparison mixes tested and estimated curves, a short note says so.
 - The comparison is saved in the browser along with the selected car.
+- *B119 (owner, 2026-11-20): Compare also has Range basis, Distance and Price per kWh under the chart, and shows cost estimates: the whole charge, 10 minutes of charging, and per 100 km (or mi) of driving.*
 
 ---
 

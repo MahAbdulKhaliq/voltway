@@ -1,0 +1,22 @@
+{
+  "id": "genesis/electrified-g80",
+  "make_id": "genesis",
+  "name": "Electrified G80",
+  "body_type": "sedan",
+  "generations": [
+    {
+      "id": "first-generation",
+      "name": "First generation (87.2 kWh)",
+      "first_year": 2023,
+      "last_year": 2025,
+      "notes": "800 V electric G80 (rear-drive-based platform, not E-GMP): 87.2 kWh pack, rated for 350 kW DC chargers (10-80 % in 22 min claimed). US sales from August 2022 as a 2023 model; Canada 2023-2025. Confidence: high (researched 2026-11-19, owner review pending). Source: https://en.wikipedia.org/wiki/Genesis_G80"
+    },
+    {
+      "id": "facelift",
+      "name": "Facelift (94.5 kWh)",
+      "first_year": 2026,
+      "notes": "The facelift has a 94.5 kWh pack (Wikipedia also shows 95.4; usable about 90 kWh). EPA's 2026 rating rises from 282 to 300 mi, which fits the bigger pack, but no US-market source confirms the 2026 car, and Genesis reportedly discontinued the US G80 EV in August 2025: owner should confirm the 2026 US car was sold (else not-sold.csv). Confidence: low (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Genesis_G80 ; https://www.cbtnews.com/genesis-upgrades-its-electrified-g80-with-enhanced-range-luxury-features-and-flagship-design/"
+    }
+  ],
+  "years": []
+}

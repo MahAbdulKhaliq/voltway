@@ -20,6 +20,8 @@ const MAKE_ALIASES: Record<string, string> = {
   'mercedes benz': 'mercedes',
   'mini': 'mini',
   'smart eq': 'smart',
+  'bugatti rimac': 'rimac', // Rimac Nevera is sold as a Rimac
+  'coda automotive': 'coda',
   'volkswagen': 'volkswagen',
   'vw': 'volkswagen',
   'chevy': 'chevrolet',

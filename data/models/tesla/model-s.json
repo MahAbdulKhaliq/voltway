@@ -1,0 +1,36 @@
+{
+  "id": "tesla/model-s",
+  "make_id": "tesla",
+  "name": "Model S",
+  "body_type": "sedan",
+  "generations": [
+    {
+      "id": "original",
+      "name": "Original (2012-2016)",
+      "first_year": 2012,
+      "last_year": 2016,
+      "notes": "Launch on 18650 cells. Packs over this span: 85 kWh (2012 Signature on), 60 kWh and a 40 kWh that was dropped in 2013 and delivered as a software-limited 60; 70/70D, 85D/P85D, 90D/P90D from 2015; 75 kWh in 2016. The 60 kWh returned in 2016 (software-limited 75). DC via Tesla's own port and Superchargers only (Supercharger network from late 2012); peak roughly 90-120 kW by pack (general knowledge, not checked on a cited page). Onboard AC: single or optional dual charger before 2016 (Wikipedia gives the dual-charger option, not its kW). The April 2016 facelift falls inside MY2016; NRCan's 2016 \"(Refresh)\" labels are facelift cars and sit in this generation. Packs become separate powertrains. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Tesla_Model_S"
+    },
+    {
+      "id": "facelift",
+      "name": "Facelift (2017-2018)",
+      "first_year": 2017,
+      "last_year": 2018,
+      "notes": "Post-facelift cars before the 2019 Raven drivetrain: 75/75D, 90D/P90D (to mid-2017), 100D and P100D (100 kWh from early 2017), 60/60D until March 2017. Dual-charger option gone; onboard charger changed around the 2016 facelift (48 A standard, 72 A optional is general knowledge, not checked on a cited page). Supercharging stayed on V2 (~120 kW class; 100 kWh pack quoted at up to ~145 kW on V2 after the 2019 update). MY2019 also has 75D/100D/P100D rows built before the April 2019 Raven change; those fall in the raven generation by model year, so their powertrains will need care. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Tesla_Model_S ; https://electrek.co/2020/06/24/tesla-model-s-x-supercharging-rate-increase-225-kw/"
+    },
+    {
+      "id": "raven",
+      "name": "Raven (2019-2021)",
+      "first_year": 2019,
+      "last_year": 2021,
+      "notes": "April 2019 \"Raven\" drivetrain (permanent-magnet front motor) on the 100 kWh pack: Long Range, Performance, Standard Range (2019-2020), Long Range Plus (2020-2021). DC peak 200 kW on V3 / 145 kW on V2 at launch, 225 kW by software in June 2020, then 250 kW for Long Range after thicker wiring (Musk). Peak rose by software and hardware within this generation, so curves need a date or build split. The refreshed (Palladium) Model S and Plaid started deliveries mid-2021 as MY2021; regulator 2021 rows mix Raven and refreshed cars, and 2021 is put here by majority. Owner question. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://electrek.co/2020/06/24/tesla-model-s-x-supercharging-rate-increase-225-kw/ ; https://insideevs.com/news/433707/thicker-wires-model-sx-charging-250-kw/ ; https://en.wikipedia.org/wiki/Tesla_Model_S"
+    },
+    {
+      "id": "palladium",
+      "name": "2021 refresh (Long Range and Plaid)",
+      "first_year": 2022,
+      "notes": "Palladium refresh: new pack (~95-100 kWh), Long Range and tri-motor Plaid, 250 kW Supercharging, new interior. The June 2025 update (front camera, ride, lighting) did not change pack or charging per the sources found, so it stays in this generation. Plaid deliveries began mid-2021 (MY2021); see the raven note. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Tesla_Model_S ; https://insideevs.com/news/513343/tesla-supercharging-plaid/"
+    }
+  ],
+  "years": []
+}

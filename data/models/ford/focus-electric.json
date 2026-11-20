@@ -1,0 +1,23 @@
+{
+  "id": "ford/focus-electric",
+  "make_id": "ford",
+  "name": "Focus Electric",
+  "body_type": "hatchback",
+  "generations": [
+    {
+      "id": "23-kwh",
+      "name": "23 kWh (2012-2016)",
+      "first_year": 2012,
+      "last_year": 2016,
+      "notes": "Launch MY2012: 23 kWh pack (EPA 76 mi), 6.6 kW AC, J1772 only. No DC fast charging is inferred from the 2017 update adding CCS (no source says it outright). NRCan rows start 2013. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://wikipedia.com/wiki/Ford_Focus_EV ; https://insideevs.com/news/330619/2017-ford-focus-electric-100-mile-range-335-kwh-battery-c-max-energi-gets-refresh-too/"
+    },
+    {
+      "id": "33-kwh",
+      "name": "33.5 kWh (2017-2018)",
+      "first_year": 2017,
+      "last_year": 2018,
+      "notes": "MY2017 update: 33.5 kWh pack (EPA 115 mi), CCS1 DC fast charging up to 50 kW standard per Ford's US spec sheet. Production ended 2018. Usable capacity conflicts (31.8 vs 29.0 kWh). Confidence: high (researched 2026-11-19, owner review pending). Sources: https://media.ford.com/content/fordmedia/fna/us/en/products/past-models/focus-electric/2017-focus-electric.html ; https://insideevs.com/news/330619/2017-ford-focus-electric-100-mile-range-335-kwh-battery-c-max-energi-gets-refresh-too/ ; https://ev-database.org/car/1084/Ford-Focus-Electric-335-kWh"
+    }
+  ],
+  "years": []
+}

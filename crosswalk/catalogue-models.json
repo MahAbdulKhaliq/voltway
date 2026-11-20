@@ -1,30 +1,1161 @@
 {
   "_about": "Which regulator model names belong to which of our models (B90, checklist 9.12). nrcan: prefixes of NRCan's Model column; epa: EPA baseModel values (with an optional prefix of EPA's model column). Longest prefix wins. Edited by hand; new models are proposed by scripts/suggest-catalogue.ts.",
   "models": [
-    { "id": "bmw/i4", "nrcan": ["i4"], "epa": ["i4"] },
-    { "id": "cadillac/lyriq", "nrcan": ["LYRIQ"], "epa": ["LYRIQ"] },
-    { "id": "chevrolet/blazer-ev", "nrcan": ["Blazer EV"], "epa": ["Blazer"] },
-    { "id": "chevrolet/equinox-ev", "nrcan": ["Equinox EV"], "epa": ["Equinox"] },
-    { "id": "chevrolet/silverado-ev", "nrcan": ["Silverado EV"], "epa": ["Silverado"] },
-    { "id": "ford/f-150-lightning", "nrcan": ["F-150 Lightning"], "epa": ["F-150 Lightning"] },
-    { "id": "ford/mustang-mach-e", "nrcan": ["Mustang Mach-E"], "epa": ["Mustang Mach-E"] },
-    { "id": "hyundai/ioniq-5", "nrcan": ["IONIQ 5"], "epa": ["Ioniq 5"] },
-    { "id": "hyundai/ioniq-6", "nrcan": ["IONIQ 6"], "epa": ["Ioniq 6"] },
-    { "id": "hyundai/ioniq-9", "nrcan": ["IONIQ 9"], "epa": ["Ioniq 9"] },
-    { "id": "hyundai/kona-electric", "nrcan": ["Kona Electric"], "epa": ["Kona"] },
-    { "id": "kia/ev6", "nrcan": ["EV6"], "epa": ["EV6"] },
-    { "id": "kia/ev9", "nrcan": ["EV9"], "epa": ["EV9"] },
-    { "id": "kia/niro-ev", "nrcan": ["Niro EV"], "epa": ["Niro"] },
-    { "id": "nissan/ariya", "nrcan": ["ARIYA"], "epa": ["ARIYA"] },
-    { "id": "nissan/leaf", "nrcan": ["LEAF"], "epa": ["Leaf", "LEAF"] },
-    { "id": "polestar/polestar-2", "nrcan": ["2"], "epa": ["2"] },
-    { "id": "subaru/solterra", "nrcan": ["Solterra"], "epa": ["Solterra"] },
-    { "id": "tesla/model-3", "nrcan": ["Model 3"], "epa": ["Model 3"] },
-    { "id": "tesla/model-y", "nrcan": ["Model Y"], "epa": ["Model Y"] },
-    { "id": "toyota/bz", "nrcan": ["bZ4X", "bZ"], "epa": ["bZ4X", "bZ"] },
-    { "id": "toyota/c-hr", "nrcan": ["C-HR"], "epa": ["C-HR"] },
-    { "id": "volkswagen/id-4", "nrcan": ["ID.4"], "epa": ["ID.4"] },
-    { "id": "volvo/ex30", "nrcan": ["EX30"], "epa": ["EX30"] },
-    { "id": "volvo/ex40", "nrcan": ["XC40 Recharge", "EX40"], "epa": ["XC40", "EX40"] }
+    {
+      "id": "bmw/i4",
+      "nrcan": [
+        "i4"
+      ],
+      "epa": [
+        "i4"
+      ]
+    },
+    {
+      "id": "cadillac/lyriq",
+      "nrcan": [
+        "LYRIQ"
+      ],
+      "epa": [
+        "LYRIQ"
+      ]
+    },
+    {
+      "id": "chevrolet/blazer-ev",
+      "nrcan": [
+        "Blazer EV"
+      ],
+      "epa": [
+        "Blazer"
+      ]
+    },
+    {
+      "id": "chevrolet/equinox-ev",
+      "nrcan": [
+        "Equinox EV"
+      ],
+      "epa": [
+        "Equinox"
+      ]
+    },
+    {
+      "id": "chevrolet/silverado-ev",
+      "nrcan": [
+        "Silverado EV"
+      ],
+      "epa": [
+        "Silverado"
+      ]
+    },
+    {
+      "id": "ford/f-150-lightning",
+      "nrcan": [
+        "F-150 Lightning"
+      ],
+      "epa": [
+        "F-150 Lightning"
+      ]
+    },
+    {
+      "id": "ford/mustang-mach-e",
+      "nrcan": [
+        "Mustang Mach-E"
+      ],
+      "epa": [
+        "Mustang Mach-E"
+      ]
+    },
+    {
+      "id": "hyundai/ioniq-5",
+      "nrcan": [
+        "IONIQ 5"
+      ],
+      "epa": [
+        "Ioniq 5"
+      ]
+    },
+    {
+      "id": "hyundai/ioniq-6",
+      "nrcan": [
+        "IONIQ 6"
+      ],
+      "epa": [
+        "Ioniq 6"
+      ]
+    },
+    {
+      "id": "hyundai/ioniq-9",
+      "nrcan": [
+        "IONIQ 9"
+      ],
+      "epa": [
+        "Ioniq 9"
+      ]
+    },
+    {
+      "id": "hyundai/kona-electric",
+      "nrcan": [
+        "Kona Electric"
+      ],
+      "epa": [
+        "Kona"
+      ]
+    },
+    {
+      "id": "kia/ev6",
+      "nrcan": [
+        "EV6"
+      ],
+      "epa": [
+        "EV6"
+      ]
+    },
+    {
+      "id": "kia/ev9",
+      "nrcan": [
+        "EV9"
+      ],
+      "epa": [
+        "EV9"
+      ]
+    },
+    {
+      "id": "kia/niro-ev",
+      "nrcan": [
+        "Niro EV"
+      ],
+      "epa": [
+        "Niro"
+      ]
+    },
+    {
+      "id": "nissan/ariya",
+      "nrcan": [
+        "ARIYA"
+      ],
+      "epa": [
+        "ARIYA"
+      ]
+    },
+    {
+      "id": "nissan/leaf",
+      "nrcan": [
+        "LEAF"
+      ],
+      "epa": [
+        "Leaf",
+        "LEAF"
+      ]
+    },
+    {
+      "id": "polestar/polestar-2",
+      "nrcan": [
+        "2"
+      ],
+      "epa": [
+        "2"
+      ]
+    },
+    {
+      "id": "subaru/solterra",
+      "nrcan": [
+        "Solterra"
+      ],
+      "epa": [
+        "Solterra"
+      ]
+    },
+    {
+      "id": "tesla/model-3",
+      "nrcan": [
+        "Model 3"
+      ],
+      "epa": [
+        "Model 3"
+      ]
+    },
+    {
+      "id": "tesla/model-y",
+      "nrcan": [
+        "Model Y"
+      ],
+      "epa": [
+        "Model Y"
+      ]
+    },
+    {
+      "id": "toyota/bz",
+      "nrcan": [
+        "bZ4X",
+        "bZ"
+      ],
+      "epa": [
+        "bZ4X",
+        "bZ"
+      ]
+    },
+    {
+      "id": "toyota/c-hr",
+      "nrcan": [
+        "C-HR"
+      ],
+      "epa": [
+        "C-HR"
+      ]
+    },
+    {
+      "id": "volkswagen/id-4",
+      "nrcan": [
+        "ID.4"
+      ],
+      "epa": [
+        "ID.4"
+      ]
+    },
+    {
+      "id": "volvo/ex30",
+      "nrcan": [
+        "EX30"
+      ],
+      "epa": [
+        "EX30"
+      ]
+    },
+    {
+      "id": "volvo/ex40",
+      "nrcan": [
+        "XC40 Recharge",
+        "EX40"
+      ],
+      "epa": [
+        "XC40",
+        "EX40"
+      ]
+    },
+    {
+      "id": "chevrolet/bolt-ev",
+      "nrcan": [
+        "Bolt EV"
+      ],
+      "epa": [
+        "Bolt EV"
+      ]
+    },
+    {
+      "id": "chevrolet/bolt-euv",
+      "nrcan": [
+        "Bolt EUV"
+      ],
+      "epa": [
+        "Bolt EUV"
+      ]
+    },
+    {
+      "id": "chevrolet/bolt",
+      "nrcan": [
+        "BOLT"
+      ],
+      "epa": [
+        "BOLT"
+      ]
+    },
+    {
+      "id": "chevrolet/spark-ev",
+      "nrcan": [
+        "Spark EV"
+      ],
+      "epa": [
+        "Spark EV"
+      ]
+    },
+    {
+      "id": "gmc/hummer-ev-pickup",
+      "nrcan": [
+        "HUMMER EV2X Pickup",
+        "HUMMER EV3X Pickup"
+      ],
+      "epa": [
+        "Hummer EV Pickup"
+      ]
+    },
+    {
+      "id": "gmc/hummer-ev-suv",
+      "nrcan": [
+        "HUMMER EV2X SUV",
+        "HUMMER EV3X SUV"
+      ],
+      "epa": [
+        "Hummer EV SUV"
+      ]
+    },
+    {
+      "id": "gmc/sierra-ev",
+      "nrcan": [
+        "Sierra EV"
+      ],
+      "epa": [
+        "Sierra"
+      ]
+    },
+    {
+      "id": "cadillac/optiq",
+      "nrcan": [
+        "OPTIQ"
+      ],
+      "epa": [
+        "OPTIQ"
+      ]
+    },
+    {
+      "id": "cadillac/optiq-v",
+      "nrcan": [
+        "OPTIQ-V"
+      ],
+      "epa": [
+        "OPTIQ AWD V SERIES"
+      ]
+    },
+    {
+      "id": "cadillac/vistiq",
+      "nrcan": [
+        "VISTIQ"
+      ],
+      "epa": [
+        "VISTIQ"
+      ]
+    },
+    {
+      "id": "cadillac/celestiq",
+      "nrcan": [
+        "CELESTIQ"
+      ],
+      "epa": [
+        "CELESTIQ"
+      ]
+    },
+    {
+      "id": "honda/prologue",
+      "nrcan": [
+        "Prologue"
+      ],
+      "epa": [
+        "Prologue"
+      ]
+    },
+    {
+      "id": "honda/fit-ev",
+      "nrcan": [
+        "Fit EV"
+      ],
+      "epa": [
+        "Fit EV"
+      ]
+    },
+    {
+      "id": "honda/clarity-electric",
+      "nrcan": [
+        "Clarity EV",
+        "Clarity Electric"
+      ],
+      "epa": [
+        "Clarity EV"
+      ]
+    },
+    {
+      "id": "acura/zdx",
+      "nrcan": [
+        "ZDX"
+      ],
+      "epa": [
+        "ZDX"
+      ]
+    },
+    {
+      "id": "genesis/gv60",
+      "nrcan": [
+        "GV60"
+      ],
+      "epa": [
+        "GV60"
+      ]
+    },
+    {
+      "id": "genesis/electrified-gv70",
+      "nrcan": [
+        "Electrified GV70"
+      ],
+      "epa": [
+        "GV70"
+      ]
+    },
+    {
+      "id": "genesis/electrified-g80",
+      "nrcan": [
+        "Electrified G80"
+      ],
+      "epa": [
+        "G80"
+      ]
+    },
+    {
+      "id": "hyundai/ioniq-electric",
+      "nrcan": [
+        "IONIQ Electric"
+      ],
+      "epa": [
+        "Ioniq Electric"
+      ]
+    },
+    {
+      "id": "kia/ev3",
+      "nrcan": [
+        "EV3"
+      ],
+      "epa": [
+        "EV3"
+      ]
+    },
+    {
+      "id": "kia/ev4",
+      "nrcan": [
+        "EV4"
+      ],
+      "epa": [
+        "EV4"
+      ]
+    },
+    {
+      "id": "kia/soul-ev",
+      "nrcan": [
+        "Soul EV"
+      ],
+      "epa": [
+        "Soul Electric"
+      ]
+    },
+    {
+      "id": "subaru/trailseeker",
+      "nrcan": [
+        "Trailseeker"
+      ],
+      "epa": [
+        "Trailseeker"
+      ]
+    },
+    {
+      "id": "subaru/uncharted",
+      "nrcan": [
+        "Uncharted"
+      ],
+      "epa": [
+        "Uncharted"
+      ]
+    },
+    {
+      "id": "toyota/rav4-ev",
+      "nrcan": [
+        "RAV4 EV"
+      ],
+      "epa": [
+        "RAV4 EV"
+      ]
+    },
+    {
+      "id": "lexus/rz",
+      "nrcan": [
+        "RZ"
+      ],
+      "epa": [
+        "RZ"
+      ]
+    },
+    {
+      "id": "lexus/es",
+      "nrcan": [
+        "ES"
+      ],
+      "epa": [
+        "ES"
+      ]
+    },
+    {
+      "id": "lexus/tz",
+      "nrcan": [
+        "TZ"
+      ],
+      "epa": [
+        "TZ"
+      ]
+    },
+    {
+      "id": "tesla/model-s",
+      "nrcan": [
+        "Model S"
+      ],
+      "epa": [
+        "Model S"
+      ]
+    },
+    {
+      "id": "tesla/model-x",
+      "nrcan": [
+        "Model X"
+      ],
+      "epa": [
+        "Model X"
+      ]
+    },
+    {
+      "id": "tesla/cybertruck",
+      "nrcan": [
+        "Cybertruck"
+      ],
+      "epa": [
+        "Cybertruck"
+      ]
+    },
+    {
+      "id": "rivian/r1s",
+      "nrcan": [
+        "R1S"
+      ],
+      "epa": [
+        "R1S"
+      ]
+    },
+    {
+      "id": "rivian/r1t",
+      "nrcan": [
+        "R1T"
+      ],
+      "epa": [
+        "R1T"
+      ]
+    },
+    {
+      "id": "rivian/r2",
+      "nrcan": [
+        "R2"
+      ],
+      "epa": [
+        "R2"
+      ]
+    },
+    {
+      "id": "lucid/air",
+      "nrcan": [
+        "Air"
+      ],
+      "epa": [
+        "Air"
+      ]
+    },
+    {
+      "id": "lucid/gravity",
+      "nrcan": [
+        "Gravity"
+      ],
+      "epa": [
+        "Gravity"
+      ]
+    },
+    {
+      "id": "polestar/polestar-3",
+      "nrcan": [
+        "3"
+      ],
+      "epa": [
+        "3"
+      ]
+    },
+    {
+      "id": "polestar/polestar-4",
+      "nrcan": [
+        "4"
+      ],
+      "epa": [
+        "4"
+      ]
+    },
+    {
+      "id": "volvo/ec40",
+      "nrcan": [
+        "C40 Recharge",
+        "EC40"
+      ],
+      "epa": [
+        "C40",
+        "EC40"
+      ]
+    },
+    {
+      "id": "volvo/ex90",
+      "nrcan": [
+        "EX90"
+      ],
+      "epa": [
+        "EX90"
+      ]
+    },
+    {
+      "id": "volvo/ex60",
+      "nrcan": [
+        "EX60"
+      ],
+      "epa": [
+        "EX60"
+      ]
+    },
+    {
+      "id": "volkswagen/id-buzz",
+      "nrcan": [
+        "ID. Buzz"
+      ],
+      "epa": [
+        "ID. Buzz"
+      ]
+    },
+    {
+      "id": "volkswagen/e-golf",
+      "nrcan": [
+        "e-Golf"
+      ],
+      "epa": [
+        "e-Golf"
+      ]
+    },
+    {
+      "id": "ford/focus-electric",
+      "nrcan": [
+        "Focus Electric"
+      ],
+      "epa": [
+        "Focus Electric"
+      ]
+    },
+    {
+      "id": "smart/fortwo",
+      "nrcan": [
+        "fortwo"
+      ],
+      "epa": [
+        "fortwo"
+      ]
+    },
+    {
+      "id": "mitsubishi/i-miev",
+      "nrcan": [
+        "i-MiEV"
+      ],
+      "epa": [
+        "i-MiEV"
+      ]
+    },
+    {
+      "id": "mitsubishi/eclipse-sportback",
+      "nrcan": [
+        "Eclipse Sportback"
+      ],
+      "epa": [
+        "Eclipse Sportback"
+      ]
+    },
+    {
+      "id": "fiat/500e",
+      "nrcan": [
+        "500e"
+      ],
+      "epa": [
+        "500e"
+      ]
+    },
+    {
+      "id": "scion/iq-ev",
+      "nrcan": [],
+      "epa": [
+        "iQ EV"
+      ]
+    },
+    {
+      "id": "coda/coda",
+      "nrcan": [],
+      "epa": [
+        "CODA"
+      ]
+    },
+    {
+      "id": "byd/e6",
+      "nrcan": [],
+      "epa": [
+        "e6"
+      ]
+    },
+    {
+      "id": "azure-dynamics/transit-connect-electric",
+      "nrcan": [],
+      "epa": [
+        "Transit Connect Electric"
+      ]
+    },
+    {
+      "id": "fisker/ocean",
+      "nrcan": [
+        "Ocean"
+      ],
+      "epa": [
+        "Ocean"
+      ]
+    },
+    {
+      "id": "vinfast/vf-6",
+      "nrcan": [
+        "VF6"
+      ],
+      "epa": [
+        "VF 6"
+      ]
+    },
+    {
+      "id": "vinfast/vf-7",
+      "nrcan": [
+        "VF7"
+      ],
+      "epa": [
+        "VF 7"
+      ]
+    },
+    {
+      "id": "vinfast/vf-8",
+      "nrcan": [
+        "VF8"
+      ],
+      "epa": [
+        "VF 8"
+      ]
+    },
+    {
+      "id": "vinfast/vf-9",
+      "nrcan": [
+        "VF9"
+      ],
+      "epa": [
+        "VF 9"
+      ]
+    },
+    {
+      "id": "jaguar/i-pace",
+      "nrcan": [
+        "I-PACE"
+      ],
+      "epa": [
+        "I-Pace"
+      ]
+    },
+    {
+      "id": "mazda/mx-30",
+      "nrcan": [
+        "MX-30"
+      ],
+      "epa": [
+        "MX-30"
+      ]
+    },
+    {
+      "id": "maserati/grecale-folgore",
+      "nrcan": [
+        "Grecale Folgore"
+      ],
+      "epa": [
+        "Grecale Folgore"
+      ]
+    },
+    {
+      "id": "maserati/granturismo-folgore",
+      "nrcan": [
+        "GranTurismo Folgore"
+      ],
+      "epa": [
+        "Granturismo Folgore"
+      ]
+    },
+    {
+      "id": "maserati/grancabrio-folgore",
+      "nrcan": [
+        "GranCabrio Folgore"
+      ],
+      "epa": [
+        "Grancabrio Folgore"
+      ]
+    },
+    {
+      "id": "lotus/eletre",
+      "nrcan": [
+        "Eletre"
+      ],
+      "epa": [
+        "Eletre"
+      ]
+    },
+    {
+      "id": "rolls-royce/spectre",
+      "nrcan": [
+        "Spectre",
+        "Black Badge Spectre"
+      ],
+      "epa": [
+        "Spectre"
+      ]
+    },
+    {
+      "id": "rimac/nevera",
+      "nrcan": [
+        "Nevera"
+      ],
+      "epa": [
+        "Nevera"
+      ]
+    },
+    {
+      "id": "kandi/k27",
+      "nrcan": [],
+      "epa": [
+        "K27"
+      ]
+    },
+    {
+      "id": "lordstown/endurance",
+      "nrcan": [
+        "Endurance"
+      ],
+      "epa": [
+        "Endurance"
+      ]
+    },
+    {
+      "id": "dodge/charger-daytona",
+      "nrcan": [
+        "Charger Daytona"
+      ],
+      "epa": [
+        "Charger Daytona",
+        "Charger 2-Dr Daytona"
+      ]
+    },
+    {
+      "id": "jeep/wagoneer-s",
+      "nrcan": [
+        "Wagoneer S"
+      ],
+      "epa": [
+        "Wagoneer S"
+      ]
+    },
+    {
+      "id": "jeep/recon",
+      "nrcan": [
+        "Recon"
+      ],
+      "epa": [
+        "Recon"
+      ]
+    },
+    {
+      "id": "bmw/i3",
+      "nrcan": [
+        "i3",
+        "i3s"
+      ],
+      "epa": [
+        "i3"
+      ]
+    },
+    {
+      "id": "bmw/i3-sedan",
+      "nrcan": [
+        "i3 50 xDrive"
+      ],
+      "epa": [
+        "i3 50 xDrive"
+      ]
+    },
+    {
+      "id": "bmw/i5",
+      "nrcan": [
+        "i5"
+      ],
+      "epa": [
+        "i5"
+      ]
+    },
+    {
+      "id": "bmw/i7",
+      "nrcan": [
+        "i7"
+      ],
+      "epa": [
+        "i7"
+      ]
+    },
+    {
+      "id": "bmw/ix",
+      "nrcan": [
+        "iX"
+      ],
+      "epa": [
+        "iX"
+      ]
+    },
+    {
+      "id": "bmw/ix3",
+      "nrcan": [
+        "iX3"
+      ],
+      "epa": [
+        "iX3"
+      ]
+    },
+    {
+      "id": "bmw/ix4",
+      "nrcan": [
+        "iX4"
+      ],
+      "epa": [
+        "iX4"
+      ]
+    },
+    {
+      "id": "bmw/ix5",
+      "nrcan": [
+        "iX5"
+      ],
+      "epa": [
+        "iX5"
+      ]
+    },
+    {
+      "id": "bmw/activee",
+      "nrcan": [
+        "ActiveE",
+        "Active E"
+      ],
+      "epa": [
+        "Active E"
+      ]
+    },
+    {
+      "id": "mini/cooper-se",
+      "nrcan": [
+        "Cooper SE",
+        "Cooper Electric"
+      ],
+      "epa": [
+        "Cooper"
+      ]
+    },
+    {
+      "id": "mini/countryman-se",
+      "nrcan": [
+        "Countryman"
+      ],
+      "epa": [
+        "Countryman"
+      ]
+    },
+    {
+      "id": "audi/e-tron",
+      "nrcan": [
+        "e-tron",
+        "Q8",
+        "SQ8"
+      ],
+      "epa": [
+        "e-tron",
+        "e-tron S",
+        "Q8 e-tron",
+        "SQ8 e-tron"
+      ]
+    },
+    {
+      "id": "audi/e-tron-gt",
+      "nrcan": [
+        "e-tron GT",
+        "S e-tron GT",
+        "RS e-tron GT"
+      ],
+      "epa": [
+        "e-tron GT",
+        "S e-tron",
+        "RS e-tron GT",
+        "RS e-tron"
+      ]
+    },
+    {
+      "id": "audi/q4-e-tron",
+      "nrcan": [
+        "Q4"
+      ],
+      "epa": [
+        "Q4 e-tron"
+      ]
+    },
+    {
+      "id": "audi/q6-e-tron",
+      "nrcan": [
+        "Q6",
+        "SQ6"
+      ],
+      "epa": [
+        "Q6 e-tron",
+        "SQ6 e-tron"
+      ]
+    },
+    {
+      "id": "audi/a6-e-tron",
+      "nrcan": [
+        "A6",
+        "S6"
+      ],
+      "epa": [
+        "A6 e-tron",
+        "S6 e-tron"
+      ]
+    },
+    {
+      "id": "mercedes/eqb",
+      "nrcan": [
+        "EQB"
+      ],
+      "epa": [
+        "EQB"
+      ]
+    },
+    {
+      "id": "mercedes/eqe",
+      "nrcan": [
+        "EQE",
+        "AMG EQE"
+      ],
+      "epa": [
+        "EQE"
+      ]
+    },
+    {
+      "id": "mercedes/eqe-suv",
+      "nrcan": [
+        "EQE 320 4MATIC SUV",
+        "EQE 350 4MATIC SUV",
+        "EQE 500 4MATIC SUV",
+        "AMG EQE 4MATIC+ SUV"
+      ],
+      "epa": [
+        "EQE 320 4matic (SUV)",
+        "EQE 320 Plus (SUV)",
+        "EQE 350 4matic (SUV)",
+        "EQE 350 Plus (SUV)",
+        "EQE 500 4matic (SUV)",
+        "AMG EQE 4matic Plus (SUV)"
+      ]
+    },
+    {
+      "id": "mercedes/eqs",
+      "nrcan": [
+        "EQS",
+        "AMG EQS"
+      ],
+      "epa": [
+        "EQS"
+      ]
+    },
+    {
+      "id": "mercedes/eqs-suv",
+      "nrcan": [
+        "EQS 400 4MATIC SUV",
+        "EQS 450 4MATIC SUV",
+        "EQS 550 4MATIC SUV",
+        "EQS 580 4MATIC SUV",
+        "Maybach EQS"
+      ],
+      "epa": [
+        "EQS 400 4matic (SUV)",
+        "EQS 450 4matic (SUV)",
+        "EQS 450 Plus (SUV)",
+        "EQS 550 4matic (SUV)",
+        "EQS 580 4matic (SUV)",
+        "EQS 680 4matic Maybach (SUV)"
+      ]
+    },
+    {
+      "id": "mercedes/amg-gt-4-door",
+      "nrcan": [
+        "AMG GT"
+      ],
+      "epa": [
+        "AMG GT"
+      ]
+    },
+    {
+      "id": "mercedes/g-580",
+      "nrcan": [
+        "G 580"
+      ],
+      "epa": [
+        "G 580",
+        "G-Class"
+      ]
+    },
+    {
+      "id": "mercedes/cla",
+      "nrcan": [
+        "CLA"
+      ],
+      "epa": [
+        "CLA-Class"
+      ]
+    },
+    {
+      "id": "mercedes/glc",
+      "nrcan": [
+        "GLC"
+      ],
+      "epa": [
+        "GLC-Class"
+      ]
+    },
+    {
+      "id": "mercedes/b-class-electric-drive",
+      "nrcan": [
+        "B-Class",
+        "B250e"
+      ],
+      "epa": [
+        "B-Class Electric Drive"
+      ]
+    },
+    {
+      "id": "porsche/taycan",
+      "nrcan": [
+        "Taycan"
+      ],
+      "epa": [
+        "Taycan"
+      ]
+    },
+    {
+      "id": "porsche/macan-electric",
+      "nrcan": [
+        "Macan"
+      ],
+      "epa": [
+        "Macan"
+      ]
+    },
+    {
+      "id": "porsche/cayenne-electric",
+      "nrcan": [
+        "Cayenne"
+      ],
+      "epa": [
+        "Cayenne"
+      ]
+    }
   ]
 }

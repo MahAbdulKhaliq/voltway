@@ -1,0 +1,30 @@
+{
+  "id": "kia/soul-ev",
+  "make_id": "kia",
+  "name": "Soul EV",
+  "body_type": "hatchback",
+  "generations": [
+    {
+      "id": "first-generation",
+      "name": "First generation (27 kWh)",
+      "first_year": 2015,
+      "last_year": 2017,
+      "notes": "27 kWh usable (30.5 gross) pack, CHAdeMO DC (Wikipedia says up to 100 kW; real peak to be researched), 6.6 kW AC. Rated 149-150 km both markets. Confidence: high (researched 2026-11-19, owner review pending). Source: https://en.wikipedia.org/wiki/Kia_Soul_EV"
+    },
+    {
+      "id": "2018-update",
+      "name": "2018 update (30 kWh)",
+      "first_year": 2018,
+      "last_year": 2019,
+      "notes": "Eight cells added: 30 kWh usable (31.8 gross); both regulators' range rises to 179 km. Same CHAdeMO port. Confidence: high (researched 2026-11-19, owner review pending). Source: https://en.wikipedia.org/wiki/Kia_Soul_EV"
+    },
+    {
+      "id": "second-generation",
+      "name": "Second generation",
+      "first_year": 2020,
+      "last_year": 2023,
+      "notes": "New Soul EV on Kona Electric hardware: CCS DC, 39.2 kWh (NRCan \"120 Ah\", Canada EV Premium) or 64 kWh (NRCan \"180 Ah\", EV Limited). Canada 2020-2023. EPA rated a 2020 US car (243 mi) but Kia never sold it in the US (reports say the rating was retracted): that EPA row is a not-sold candidate for the owner. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2022/soul-ev/MY22_Soul_EV_ENG.pdf ; https://www.thedrive.com/news/35265/the-kia-soul-ev-isnt-coming-to-the-us-and-that-sorta-stinks-report"
+    }
+  ],
+  "years": []
+}

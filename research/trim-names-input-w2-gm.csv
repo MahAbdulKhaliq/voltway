@@ -1,0 +1,123 @@
+model_id,source,year,label,market,trim_name,dealer_trims,source_url,notes,confirmed
+acura/zdx,nrcan,2024,ZDX A-SPEC AWD,CA,,,,,false
+acura/zdx,nrcan,2024,ZDX Type S AWD,CA,,,,,false
+acura/zdx,epa,2024,ZDX AWD,US,,,,,false
+acura/zdx,epa,2024,ZDX AWD Type S,US,,,,,false
+acura/zdx,epa,2024,ZDX RWD,US,,,,,false
+acura/zdx,epa,2026,ZDX AWD,US,,,,,false
+acura/zdx,epa,2026,ZDX AWD Type S,US,,,,,false
+acura/zdx,epa,2026,ZDX RWD,US,,,,,false
+cadillac/celestiq,nrcan,2025,CELESTIQ,CA,,,,,false
+cadillac/celestiq,epa,2025,CELESTIQ,US,,,,,false
+cadillac/celestiq,nrcan,2026,CELESTIQ,CA,,,,,false
+cadillac/celestiq,epa,2026,CELESTIQ,US,,,,,false
+cadillac/optiq,nrcan,2025,OPTIQ (11.5 kW Charger),CA,,,,,false
+cadillac/optiq,nrcan,2025,OPTIQ (19.2 kW Charger),CA,,,,,false
+cadillac/optiq,nrcan,2026,OPTIQ (11.5 kW Charger),CA,,,,,false
+cadillac/optiq,nrcan,2026,OPTIQ (19.2 kW Charger),CA,,,,,false
+cadillac/optiq,nrcan,2026,OPTIQ AWD (11.5 kW Charger),CA,,,,,false
+cadillac/optiq,nrcan,2026,OPTIQ AWD (19.2 kW Charger),CA,,,,,false
+cadillac/optiq,epa,2026,OPTIQ AWD (11 kW Charger),US,,,,,false
+cadillac/optiq,epa,2026,OPTIQ AWD (19 kW Charger),US,,,,,false
+cadillac/optiq,epa,2026,OPTIQ RWD (11 kW Charger),US,,,,,false
+cadillac/optiq,epa,2026,OPTIQ RWD (19 kW Charger),US,,,,,false
+cadillac/optiq,epa,2027,OPTIQ AWD 11kW Charger,US,,,,,false
+cadillac/optiq,epa,2027,OPTIQ AWD 19kW Charger,US,,,,,false
+cadillac/optiq,epa,2027,OPTIQ RWD 11kW Charger,US,,,,,false
+cadillac/optiq,epa,2027,OPTIQ RWD 19kW Charger,US,,,,,false
+cadillac/optiq-v,nrcan,2026,OPTIQ-V (11.5 kW Charger),CA,,,,,false
+cadillac/optiq-v,nrcan,2026,OPTIQ-V (19.2 kW Charger),CA,,,,,false
+cadillac/optiq-v,epa,2026,OPTIQ AWD V SERIES 11 kW Charger,US,,,,,false
+cadillac/optiq-v,epa,2026,OPTIQ AWD V SERIES 19 kW charger,US,,,,,false
+cadillac/optiq-v,epa,2027,OPTIQ AWD V SERIES 11kW Charger,US,,,,,false
+cadillac/optiq-v,epa,2027,OPTIQ AWD V SERIES 19kW Charger,US,,,,,false
+cadillac/vistiq,nrcan,2026,VISTIQ (11.5 kW Charger),CA,,,,,false
+cadillac/vistiq,nrcan,2026,VISTIQ (19.2 kW Charger),CA,,,,,false
+cadillac/vistiq,epa,2026,VISTIQ (11 kW Charger),US,,,,,false
+cadillac/vistiq,epa,2026,VISTIQ (19 kW Charger),US,,,,,false
+cadillac/vistiq,epa,2027,VISTIQ 11kW Charger,US,,,,,false
+cadillac/vistiq,epa,2027,VISTIQ 19kW Charger,US,,,,,false
+chevrolet/bolt,epa,2027,BOLT,US,,,,,false
+chevrolet/bolt-euv,nrcan,2022,Bolt EUV,CA,,,,,false
+chevrolet/bolt-euv,epa,2022,Bolt EUV,US,,,,,false
+chevrolet/bolt-euv,nrcan,2023,Bolt EUV,CA,,,,,false
+chevrolet/bolt-euv,epa,2023,Bolt EUV,US,,,,,false
+chevrolet/bolt-ev,nrcan,2017,Bolt EV,CA,,,,,false
+chevrolet/bolt-ev,epa,2017,Bolt EV,US,,,,,false
+chevrolet/bolt-ev,nrcan,2018,Bolt EV,CA,,,,,false
+chevrolet/bolt-ev,epa,2018,Bolt EV,US,,,,,false
+chevrolet/bolt-ev,nrcan,2019,Bolt EV,CA,,,,,false
+chevrolet/bolt-ev,epa,2019,Bolt EV,US,,,,,false
+chevrolet/bolt-ev,nrcan,2020,Bolt EV,CA,,,,,false
+chevrolet/bolt-ev,epa,2020,Bolt EV,US,,,,,false
+chevrolet/bolt-ev,nrcan,2021,Bolt EV,CA,,,,,false
+chevrolet/bolt-ev,epa,2021,Bolt EV,US,,,,,false
+chevrolet/bolt-ev,nrcan,2022,Bolt EV,CA,,,,,false
+chevrolet/bolt-ev,epa,2022,Bolt EV,US,,,,,false
+chevrolet/bolt-ev,nrcan,2023,Bolt EV,CA,,,,,false
+chevrolet/bolt-ev,epa,2023,Bolt EV,US,,,,,false
+chevrolet/silverado-ev,epa,2024,Silverado EV,US,,3WT; 4WT; RST,https://www.cars.com/research/chevrolet-silverado_ev-2024/specs/,"UNSURE: best guess ""Max Range"". 2024 has two EPA rows (393 and 450 mi) for Work Truck and RST (kbb 2024 lists ""Work Truck"" 450 mi and ""RST"" 393 mi); no page opened names the pack. UNSURE: best guess ""Max Range"". One EPA row for the three 2024 trims (cars.com 2024: 3WT, 4WT, RST); no page names the pack. R3: UNSURE: best guess 'Work Truck' (3WT/4WT). fueleconomy.gov 2024 (opened) has two EPA rows both labelled just 'Silverado EV': 393 mi and 450 mi. InsideEVs 2024 overview (opened): 3WT = 393 mi (20 modules), 4WT = 450 mi (24 modules); RST later quoted at 440 mi (InsideEVs, opened), which matches neither row. Cars.com 2024 specs (opened) names 'Work Truck w/3WT', 'Work Truck w/4WT', 'RST'. No 2024 source uses a pack name (Standard/Extended/Max Range only appears from 2025), so 'Max Range' is not supported. Which of the two EPA rows this label stands for decides 3WT vs 4WT; the importer should split them by range.",false
+chevrolet/spark-ev,nrcan,2014,Spark EV,CA,,,,,false
+chevrolet/spark-ev,epa,2014,Spark EV,US,,,,,false
+chevrolet/spark-ev,nrcan,2015,Spark EV,CA,,,,,false
+chevrolet/spark-ev,epa,2015,Spark EV,US,,,,,false
+chevrolet/spark-ev,nrcan,2016,Spark EV,CA,,,,,false
+chevrolet/spark-ev,epa,2016,Spark EV,US,,,,,false
+gmc/hummer-ev-pickup,nrcan,2024,HUMMER EV2X Pickup,CA,,,,,false
+gmc/hummer-ev-pickup,nrcan,2024,HUMMER EV2X Pickup Mud Terrain Tire,CA,,,,,false
+gmc/hummer-ev-pickup,epa,2024,Hummer EV Pickup,US,,,,,false
+gmc/hummer-ev-pickup,epa,2024,Hummer EV Pickup 2M20,US,,,,,false
+gmc/hummer-ev-pickup,epa,2024,Hummer EV Pickup MT Tires,US,,,,,false
+gmc/hummer-ev-pickup,epa,2024,Hummer EV Pickup MT Tires 2M20,US,,,,,false
+gmc/hummer-ev-pickup,nrcan,2025,HUMMER EV2X Pickup,CA,,,,,false
+gmc/hummer-ev-pickup,nrcan,2025,HUMMER EV2X Pickup Mud Terrain Tire,CA,,,,,false
+gmc/hummer-ev-pickup,nrcan,2025,HUMMER EV3X Pickup (20M Battery),CA,,,,,false
+gmc/hummer-ev-pickup,nrcan,2025,HUMMER EV3X Pickup Mud Terrain Tire (20M Battery),CA,,,,,false
+gmc/hummer-ev-pickup,epa,2025,Hummer EV Pickup 2X,US,,,,,false
+gmc/hummer-ev-pickup,epa,2025,Hummer EV Pickup 3X,US,,,,,false
+gmc/hummer-ev-pickup,epa,2025,Hummer EV Pickup MT Tires 2X,US,,,,,false
+gmc/hummer-ev-pickup,epa,2025,Hummer EV Pickup MT Tires 3X,US,,,,,false
+gmc/hummer-ev-suv,nrcan,2024,HUMMER EV2X SUV,CA,,,,,false
+gmc/hummer-ev-suv,nrcan,2024,HUMMER EV2X SUV Mud Terrain Tire,CA,,,,,false
+gmc/hummer-ev-suv,nrcan,2024,HUMMER EV3X SUV,CA,,,,,false
+gmc/hummer-ev-suv,nrcan,2024,HUMMER EV3X SUV Mud Terrain Tire,CA,,,,,false
+gmc/hummer-ev-suv,epa,2024,Hummer EV SUV,US,,,,,false
+gmc/hummer-ev-suv,epa,2024,Hummer EV SUV 2M20,US,,,,,false
+gmc/hummer-ev-suv,epa,2024,Hummer EV SUV MT Tires,US,,,,,false
+gmc/hummer-ev-suv,epa,2024,Hummer EV SUV MT Tires 2M20,US,,,,,false
+gmc/hummer-ev-suv,nrcan,2025,HUMMER EV2X SUV,CA,,,,,false
+gmc/hummer-ev-suv,nrcan,2025,HUMMER EV2X SUV Mud Terrain Tire,CA,,,,,false
+gmc/hummer-ev-suv,nrcan,2025,HUMMER EV3X SUV,CA,,,,,false
+gmc/hummer-ev-suv,nrcan,2025,HUMMER EV3X SUV Mud Terrain Tire,CA,,,,,false
+gmc/hummer-ev-suv,epa,2025,Hummer EV SUV 2X,US,,,,,false
+gmc/hummer-ev-suv,epa,2025,Hummer EV SUV 3X,US,,,,,false
+gmc/hummer-ev-suv,epa,2025,Hummer EV SUV MT Tires 2X,US,,,,,false
+gmc/hummer-ev-suv,epa,2025,Hummer EV SUV MT Tires 3X,US,,,,,false
+gmc/sierra-ev,nrcan,2025,Sierra EV Extended Range,CA,,,,,false
+gmc/sierra-ev,epa,2025,Sierra EV,US,,,,,false
+gmc/sierra-ev,nrcan,2026,Sierra EV Denali Ext Range (11.5 kW Charger),CA,,,,,false
+gmc/sierra-ev,nrcan,2026,Sierra EV Denali Ext Range (19.2 kW Charger),CA,,,,,false
+gmc/sierra-ev,nrcan,2026,Sierra EV Elevation Ext Range (11.5 kW Charger),CA,,,,,false
+gmc/sierra-ev,nrcan,2026,Sierra EV Elevation Ext Range (19.2 kW Charger),CA,,,,,false
+gmc/sierra-ev,nrcan,2026,Sierra EV Std Range,CA,,,,,false
+gmc/sierra-ev,epa,2026,SIERRA EV Ext Range (11kW Charger),US,,,,,false
+gmc/sierra-ev,epa,2026,SIERRA EV Ext Range (19kW Charger),US,,,,,false
+gmc/sierra-ev,epa,2026,SIERRA EV Std Range (11kW Charger),US,,,,,false
+gmc/sierra-ev,epa,2027,Sierra EV Ext Range (11kW Chgr),US,,,,,false
+honda/clarity-electric,epa,2017,Clarity EV,US,,,,,false
+honda/clarity-electric,epa,2018,Clarity EV,US,,,,,false
+honda/clarity-electric,epa,2019,Clarity EV,US,,,,,false
+honda/fit-ev,epa,2013,Fit EV,US,,,,,false
+honda/fit-ev,epa,2014,Fit EV,US,,,,,false
+honda/prologue,nrcan,2024,Prologue EX AWD,CA,,,,,false
+honda/prologue,nrcan,2024,Prologue EX-L AWD,CA,,,,,false
+honda/prologue,nrcan,2024,Prologue Touring AWD,CA,,,,,false
+honda/prologue,epa,2024,Prologue AWD Elite,US,,,,,false
+honda/prologue,epa,2024,Prologue AWD Touring,US,,,,,false
+honda/prologue,epa,2024,Prologue FWD,US,,,,,false
+honda/prologue,epa,2025,Prologue AWD Elite,US,,,,,false
+honda/prologue,epa,2025,Prologue AWD Touring,US,,,,,false
+honda/prologue,epa,2025,Prologue FWD,US,,,,,false
+honda/prologue,epa,2026,Prologue AWD Elite,US,,,,,false
+honda/prologue,epa,2026,Prologue AWD Touring,US,,,,,false
+honda/prologue,epa,2026,Prologue FWD,US,,,,,false

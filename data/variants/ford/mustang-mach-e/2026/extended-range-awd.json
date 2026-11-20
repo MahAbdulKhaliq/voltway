@@ -19,6 +19,24 @@
       "notes": "Test: 70 mph (113 km/h) steady, upper 50s to mid-60s F (about 15-18 C), dry, wheel size not stated, battery-side (car display, not confirmed) | 2023 Mach-E Premium AWD extended range (91 kWh usable; same generation and pack as our 2026 AWD ER). Article reports 3.1 mi/kWh over 285 mi: 1000 / (3.1 x 1.609344) = 200 Wh/km. Other tests seen: 2021 First Edition AWD ER 285 mi; 2021 RWD Route 1 18-inch 287.4 mi (no energy figure). | Main session: 3.1 mi/kWh is a rounded figure (197-204 Wh/km); the page states no kWh total. Our data lists 91 kWh usable."
     }
   ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-ford-ca-supercharger-2024",
+      "low_confidence": true,
+      "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; the cited Ford page names no model years, so eligibility of this model year is not shown by it; 2025 has the feature from the factory). Recorded: via adapter today."
+    }
+  ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-insideevs-mme-carplay-2026",
+      "low_confidence": true,
+      "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2024-2026 owners implies the same CCS1 port. No port change found across 2021-2026."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

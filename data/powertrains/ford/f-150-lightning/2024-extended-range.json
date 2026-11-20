@@ -5,5 +5,74 @@
   "generation": "first-generation",
   "years": [
     2024
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 131,
+        "kind": "manufacturer",
+        "source_id": "src-ford-us-fl-specs-2023",
+        "unit": "kWh",
+        "notes": "Ford 2023 spec sheet: ER 131 kWh usable (2025 sheet also 131).",
+        "low_confidence": true
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-ford-corp-sk-ncm",
+        "low_confidence": true,
+        "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-batterydesign-fl-er",
+        "low_confidence": true,
+        "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-ford-ca-nav-ev-routing",
+        "low_confidence": true,
+        "notes": "Estimated: Ford Canada says its electric vehicles use navigation-triggered battery preconditioning (route planning or choosing a DC fast charger in Connected Navigation, Google Maps or Apple Maps EV Routing). The cited page is silent on any manual control and on model years; I found no manual battery-preconditioning control documented in Ford support pages or owner forums (owners have asked for one since 2021), so automatic_with_navigation is the best fit, not a proven fact."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 142,
+        "kind": "manufacturer",
+        "source_id": "src-batterydesign-fl-er",
+        "unit": "kWh",
+        "low_confidence": true,
+        "notes": "Battery Design lists the 2022 ER pack at 349 V x 408 Ah = 142 kWh total, from published Ford specs (limited data on the page). A published figure, not an independent test."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "kind": "manufacturer",
+      "source_id": "src-ford-us-fl-specs-2023",
+      "unit": "kW",
+      "notes": "Ford 2023 spec sheet: 150 kW DC fast charge (2025 sheet: 150 kW+). Wikipedia and OpenEV Data list 155 kW, see report.",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 19.2,
+      "kind": "manufacturer",
+      "source_id": "src-ford-us-fl-specs-2023",
+      "unit": "kW",
+      "notes": "Ford 2023 spec sheet: ER onboard charger 19.2 kW input (17.6 kW output). The 2025 retail sheet lists 11.3 kW, with 19.2 kW as a fleet-only option.",
+      "low_confidence": true
+    }
   ]
 }

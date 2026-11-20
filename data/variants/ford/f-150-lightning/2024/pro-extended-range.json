@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-ford-ca-supercharger-2024",
+      "low_confidence": true,
+      "notes": "Estimated: Ford requires an adapter for Superchargers on the Lightning (all years incl. 2025), so the truck has a CCS1 port; no NACS port change found 2022-2025."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-ford-ca-supercharger-2024",
+      "low_confidence": true,
+      "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; the cited Ford page names no model years, so eligibility of this model year is not shown by it; 2025 has the feature from the factory). Recorded: via adapter today."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

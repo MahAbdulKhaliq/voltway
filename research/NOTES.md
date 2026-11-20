@@ -352,3 +352,10 @@ Both batches revised to their fact-checks (see the "Applied by the researcher" s
 - Equinox/Blazer 85 kWh: Auto-data (auto-data.net/en/chevrolet-equinox-ev-89-kwh-213hp-52038) says 89 gross / 85 net; InsideEVs calc 89.0 vs reported usable 85. Read as usable 85, gross 89. Blocked/not opened: evkx.net, Autoblog (403), chevrolet.com.
 - Blazer US Supercharger: InsideEVs 2025-05-30 article (2025 Blazer EV SS charged at a Tesla Supercharger with the Chevy adapter, US).
 - Preconditioning remains UNVERIFIED on all 45 (Chevrolet/Cadillac pages 403).
+
+## 2026-11-19: Ford batch revised after fact-check (research/batch-2026-11-19-ford.json, --check OK, not applied)
+- 2025 Mach-E sheet re-read (inflated PDF text): "ER eAWD (88 kWh)" and "ER RWD (88 kWh)", "SR/ER: 73/88", "GT: 91" (376 cells); Rally has no usable row of its own (grouped with GT). The 2025 sheet is the only Ford source for 2025/2026 packs; no 2026 sheet found.
+- Lightning 2025 retail onboard charger is 11.3 kW on every pack (19.2 kW fleet-only): the shared `2025-platinum` powertrain keeps 19.2 for 2022-2024, the 2025 Platinum car overrides to 11.3. 2024 sheet still unreachable, so 2024 AC is unproven.
+- Imported OpenEV/Chargeprice rows on 2026 GT/Rally (82/88), 2026 SR/SR AWD (91/98.8, AC 115) and Lightning 2025 Platinum/ER 131/Pro ER 131/SR (123/131, 91) conflict with the Ford sheets; batch now covers all required fields on those cars so the rows can be unlinked.
+- Dropped the 45 min 10-80 estimate on the 360-cell 2025/2026 ER.
+- Note: while revising I briefly overwrote the tracked scratch file research/gen-ford.cjs (an earlier batch's script); restored from git, unchanged.

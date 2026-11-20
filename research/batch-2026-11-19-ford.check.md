@@ -70,3 +70,16 @@ How I read the PDFs: WebFetch could not parse them, so I inflated the PDF text s
 8. **Preconditioning notes.** Change "no manual control described" to say the cited pages are silent on manual control, and add that no manual battery control is documented anywhere I could find (Ford support pages, owner forums). Say that 2021 and 2022 cars may predate the navigation trigger (Ford CA nav page: earlier years get it by software update); keep `estimated` and `low_confidence`.
 9. **Supercharger access 2021-2024.** The Ford page lists no model years. State this in the notes (already hinted at) and keep `low_confidence`.
 10. **Nice to have.** Mach-E AC 11 kW needs a Canadian source for the Canadian cars (rule 2). Wikipedia is generic. Keep as estimated.
+
+## Applied by the researcher (2026-11-19)
+Revised batch re-checked with `add-facts.ts --check`: OK (491 variants).
+1. Lightning 2025 Platinum: variant override `ford/f-150-lightning/2025/platinum` ac_max_kw 11.3 (manufacturer, 2025 sheet). Shared `2025-platinum` keeps 19.2 for 2022-2024 with the note that 2024 is unproven.
+2. Relabels: Electrek 78.21 and Battery Design 142 gross now `manufacturer`; Mach-E 2021 GT usable 88 and gross 98.8 now `estimated` (GT shares the 376-cell ER pack).
+3. 2022 SR RWD override notes reworded.
+4. `published_10_80_min` 45 removed from 2025-extended-range-rwd/-eawd and 2026-extended-range-rwd.
+5. Conflicts: usable 91 + gross 98.8 (estimated) on 2026 GT and Rally; usable 73 (estimated) + gross 78.21 (estimated), DC, AC, 10-80 33 on 2026 SR / SR AWD; usable 88 + DC + AC on 2026 ER / ER AWD (OpenEV/Chargeprice 91 is 3 % off, kept as near-match); Lightning 2025 ER 131 / Pro ER 131 usable 131, gross 142 (estimated), DC 150, AC 11.3; ER 123 usable 123, DC 150, AC 11.3; SR 98 kept. `charge_port` ccs1 added to every one of those powertrains so unlinking OpenEV rows loses nothing. All 8 required fields verified present for every car on all 42 powertrains.
+6. `low_confidence` added to every `manufacturer` value citing a sheet of a different year than the cars that take it (Lightning 2022, 2024, 2025-platinum, 2025-standard-range; Mach-E 2026 GT/Rally/ER).
+7. 2021 DC notes now say the basis is unproven (InsideEVs "improved curve") and that Wikipedia lists the same 115/150.
+8. Preconditioning notes: pages are silent on manual control, none found elsewhere; 2021/2022 may predate the navigation trigger.
+9. Supercharger notes: Ford page names no model years; all low_confidence.
+10. AC 11 kW notes say Wikipedia names no market. Chemistry notes on 2025/2026 ER mention the 360-cell pack change.

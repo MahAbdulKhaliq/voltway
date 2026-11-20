@@ -8,5 +8,64 @@
     2023,
     2024,
     2025
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 98,
+        "kind": "manufacturer",
+        "source_id": "src-ford-us-fl-specs-2023",
+        "unit": "kWh",
+        "notes": "Ford 2023 and 2025 spec sheets: SR 98 kWh usable. Replaces the imported OpenEV 91 kWh on the 2025 car.",
+        "low_confidence": true
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-ford-corp-sk-ncm",
+        "low_confidence": true,
+        "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-batterydesign-fl-er",
+        "low_confidence": true,
+        "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-ford-ca-nav-ev-routing",
+        "low_confidence": true,
+        "notes": "Estimated: Ford Canada says its electric vehicles use navigation-triggered battery preconditioning (route planning or choosing a DC fast charger in Connected Navigation, Google Maps or Apple Maps EV Routing). The cited page is silent on any manual control and on model years; I found no manual battery-preconditioning control documented in Ford support pages or owner forums (owners have asked for one since 2021), so automatic_with_navigation is the best fit, not a proven fact. Cars from 2021 and 2022 may predate the navigation trigger (the Ford Canada navigation page says earlier model years received it by software update), so the value for this model year is unconfirmed."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "kind": "manufacturer",
+      "source_id": "src-ford-us-fl-specs-2023",
+      "unit": "kW",
+      "notes": "Ford 2023 spec sheet: 150 kW DC fast charge (2025 sheet: 150 kW+). Wikipedia and OpenEV Data list 155 kW, see report.",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.3,
+      "kind": "manufacturer",
+      "source_id": "src-ford-us-fl-specs-2023",
+      "unit": "kW",
+      "notes": "Ford 2023 spec sheet: SR onboard charger 11.3 kW input (10.5 kW output); the 2025 sheet matches.",
+      "low_confidence": true
+    }
   ]
 }

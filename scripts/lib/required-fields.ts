@@ -6,7 +6,7 @@ export const REQUIRED_FIELDS = [
   'dc_max_kw', 'ac_max_kw', 'charge_port', 'supercharger_access',
 ] as const;
 
-type BuiltCar = { id: string; powertrain_id?: string; fields?: Record<string, { value?: { value?: unknown } | null } | undefined> };
+type BuiltCar = { id: string; powertrain_id?: string; fields?: Record<string, { value?: { value?: unknown } | null } | null | undefined> };
 
 /** The required fields a built car (public/data/cars/<id>.json) is still missing. */
 export function missingRequired(car: BuiltCar): string[] {

@@ -73,7 +73,7 @@ export default function CurveViewer({
   const initial = curves.find((c) => c.is_display_default) ?? curves[0];
   const [curveId, setCurveId] = useState(initial.id);
   const [settings, setSettings] = useState<Settings>(DEFAULTS);
-  const [basis, setBasis] = useState<Basis>('highway');
+  const [basis, setBasis] = useState<Basis>('combined'); // B117 (owner 2026-11-20): combined by default
   const [xAxis, setXAxis] = useState<'soc' | 'time'>('soc');
   const [unit, setUnit] = useState<DistanceUnit>('km');
   const [themeTick, setThemeTick] = useState(0);
@@ -142,7 +142,7 @@ export default function CurveViewer({
     ? CHARGER_STOPS.length - 1
     : CHARGER_STOPS.reduce((best, kw, i) => (Number.isFinite(kw) && Math.abs(kw - chargerKw) < Math.abs(CHARGER_STOPS[best] - chargerKw) ? i : best), 0);
   const chargerLabel = chargerKw == null ? t('viewer.noLimit') : t('fmt.kw', { value: formatNumber(chargerKw, Number.isInteger(chargerKw) ? 0 : 1) }); // a map link may carry 62.5 kW
-  const whPerKm = consumption[basis] ?? consumption.highway ?? consumption.combined ?? undefined;
+  const whPerKm = consumption[basis] ?? consumption.combined ?? consumption.highway ?? undefined;
   const source = sources.find((s) => s.id === curve.source_id);
 
   const result = useMemo(() => {

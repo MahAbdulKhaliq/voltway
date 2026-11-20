@@ -96,7 +96,7 @@ The data holds `nmc` 1,129, `nca` 261, `lfp` 33, `other` 7 and unknown 3 cars. L
 
 ```
 Range basis        Wheels
-[Highway ▾]        [19″ (as rated) ▾]
+[Combined ▾]        [19″ (as rated) ▾]
 Units              Price per kWh         Outside temperature     Temperature units
 [ km | mi ]        [0.45]                [ -10 ] °C              [ °C | °F ]
                                          [ ] Heat pump        (only when optional on this trim)
@@ -143,4 +143,4 @@ The NRCan cold-weather page refused automated access (HTTP 403), so it isn't cit
 
 - ~~**O1, baseline.**~~ **Settled 2026-11-20:** losses only. The owner left it to Claude's judgement; the site already presents ratings as mild-weather range (`trip.winter`: "This plan assumes mild weather"), so adding a mild-weather gain would double-count. Original question: The model treats the official rating as the **mild-weather** range, so it only ever shows losses (or 0 % at 20–25 °C). Geotab's fleet beat its ratings by up to 15 % at 21.5 °C, but mostly on city-speed trips. Showing a gain would overstate highway range, so it is left out. The alternative: scale to rated range, with gains up to +15 % in mild weather.
 - ~~**O2, LFP.**~~ **Decided by the owner 2026-11-20:** LFP takes a penalty that grows with the cold (§3). Original note: No penalty now (the evidence is mixed). The option: −3 points below −10 °C, ramping in from 0 °C.
-- **O3, remember the temperature?** It is not remembered now.
+- ~~**O3, remember the temperature?**~~ **Decided by the owner 2026-11-20:** no; each visit starts at 20 °C. Original question: It is not remembered now.

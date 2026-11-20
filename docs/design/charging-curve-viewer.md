@@ -33,10 +33,11 @@ Phase 1, step 3 of [roadmap.md](roadmap.md). How the app shows charging curves a
 | **Curve** | The variant's default curve (§7 of the data model) | A dropdown when the variant has more than one: "Tested (source, date)", "Estimated" | MVP |
 | **Start → end SoC** | **10% → 80%** | Two sliders, 0–100% in 1% steps | MVP |
 | **Charger power** | **"No limit"** (shows the car's own curve) | Presets matching the map's bands: **50 · 100 · 150 · 250 · 350 kW**, or a custom figure | MVP |
-| **Range basis** | **Highway consumption** (NRCan) | City / combined / highway | MVP |
+| **Range basis** | **Combined consumption** (B117; was highway) | City / combined / highway | MVP |
 | **Dwell time** | 0 min | Minutes for parking and paying | *later* (more useful for trips) |
 
 **Why highway by default:** fast charging mostly happens on road trips, so highway consumption gives the most realistic "km added" figure.
+*B117 (owner, 2026-11-20): the default is now **Combined**; highway stays one click away.*
 
 ---
 

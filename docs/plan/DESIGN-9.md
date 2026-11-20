@@ -177,6 +177,7 @@ Decisions from the waves 2–3 review, recorded in gaps-and-questions.md:
 - **B104** onboard-charger option trims carry their own `ac_max_kw`; GM's optional 19.2 kW is added per model and year.
 - **B105** factory wheel sizes for every trim; another source round for the 77 cars missing a B96 figure; ADAC accepted.
 - **B106** the Cars page shows 48 cards or 50 rows per page.
+- **B107** cars with no DC fast charging are left out (42 cars; `scripts/remove-variants.mjs`).
 
 Research runs as background ev-data-researcher batches (wheels by make group, GM charger options, B97 trucks and consumption, B96 gaps), each fact-checked before it is applied. Data changes stay local until the owner reviews them.
 

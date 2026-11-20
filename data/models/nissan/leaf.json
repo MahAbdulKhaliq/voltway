@@ -5,13 +5,6 @@
   "body_type": "crossover",
   "generations": [
     {
-      "id": "first-generation-24-kwh",
-      "name": "First generation (24 kWh)",
-      "first_year": 2011,
-      "last_year": 2015,
-      "notes": "Launch (ZE0/AZE0): 24 kWh pack, optional CHAdeMO (~50 kW). Split at 2016 because the 30 kWh pack arrived then. The CHAdeMO peak (~50 kW) is general knowledge, not from a fetched page. Canada first sold the Leaf for MY2012 (general knowledge, not verified here). Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Nissan_Leaf ; https://usa.nissannews.com/en-US/releases/release-9c04406501da47ec83c0c3138bf6a5f5-nissan-announces-u-s-pricing-for-2016-leaf"
-    },
-    {
       "id": "first-generation-30-kwh",
       "name": "First generation (30 kWh)",
       "first_year": 2016,
@@ -33,50 +26,6 @@
     }
   ],
   "years": [
-    {
-      "year": 2011,
-      "markets": [
-        "US"
-      ],
-      "availability_status": "production",
-      "generation": "first-generation-24-kwh"
-    },
-    {
-      "year": 2012,
-      "markets": [
-        "CA",
-        "US"
-      ],
-      "availability_status": "production",
-      "generation": "first-generation-24-kwh"
-    },
-    {
-      "year": 2013,
-      "markets": [
-        "CA",
-        "US"
-      ],
-      "availability_status": "production",
-      "generation": "first-generation-24-kwh"
-    },
-    {
-      "year": 2014,
-      "markets": [
-        "CA",
-        "US"
-      ],
-      "availability_status": "production",
-      "generation": "first-generation-24-kwh"
-    },
-    {
-      "year": 2015,
-      "markets": [
-        "CA",
-        "US"
-      ],
-      "availability_status": "production",
-      "generation": "first-generation-24-kwh"
-    },
     {
       "year": 2016,
       "markets": [

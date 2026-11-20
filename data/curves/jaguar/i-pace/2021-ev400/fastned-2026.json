@@ -1,0 +1,103 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "jaguar/i-pace/2021-ev400",
+  "kind": "tested",
+  "source_id": "src-fastned-jaguar-ipace-90kwh-2026",
+  "points": [
+    {
+      "soc_percent": 1,
+      "power_kw": 75.8
+    },
+    {
+      "soc_percent": 5,
+      "power_kw": 98
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 100
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 101
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 101.8
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 102.5
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 103
+    },
+    {
+      "soc_percent": 32,
+      "power_kw": 103.2
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 102.6
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 101.5
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 93.9
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 86.2
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 85.6
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 85.2
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 86.1
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 82
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 68.3
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 51.3
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 44.1
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 40.9
+    },
+    {
+      "soc_percent": 95,
+      "power_kw": 32.7
+    },
+    {
+      "soc_percent": 99,
+      "power_kw": 26.3
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 300
+  },
+  "notes": "Fastned graph for the I-PACE 90 kWh / 400 V NMC pack, 1-99 % SoC (near the whole range), 300 kW class, battery near 30 C. 98-103 kW to 40 % (peak 103.2 kW at 32 %), 86 kW at 50 %, 82-86 kW to 70 %, 51 kW at 80 %, 41 kW at 90 %, 26 kW at 99 %. Rated 100 kW. Fastned dates it 2020+; the 11 kW AC update from 2021 does not change DC.",
+  "is_display_default": false
+}

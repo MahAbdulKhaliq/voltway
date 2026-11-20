@@ -1,0 +1,87 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "fiat/500e/2025-500e-2",
+  "kind": "tested",
+  "source_id": "src-fastned-fiat-500e-42kwh-2026",
+  "points": [
+    {
+      "soc_percent": 8,
+      "power_kw": 72
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 73
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 80
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 85
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 84
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 81
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 78
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 68
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 67
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 66
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 65
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 53
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 53
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 53
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 48
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 44
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 44
+    },
+    {
+      "soc_percent": 89,
+      "power_kw": 13
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 150
+  },
+  "notes": "Fastned graph for the Fiat 500e 42 kWh / 400 V pack, 8-89 % SoC, 150 kW class, battery near 30 C. 72-85 kW to 25 % (peak 85 kW at 20 %), 66-68 kW at 40-50 %, 53 kW at 60-70 %, 48 kW at 75 %, 44 kW at 80-85 %, 13 kW at 89 %. Rated 85 kW. Stepped whole-kW values. European car; the 2024+ North American 500e uses the same 42 kWh pack and 85 kW rating.",
+  "is_display_default": false
+}

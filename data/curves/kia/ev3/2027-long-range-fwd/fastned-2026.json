@@ -1,0 +1,91 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "kia/ev3/2027-long-range-fwd",
+  "kind": "tested",
+  "source_id": "src-fastned-kia-ev3-lr-2026",
+  "points": [
+    {
+      "soc_percent": 3,
+      "power_kw": 103.6
+    },
+    {
+      "soc_percent": 5,
+      "power_kw": 118.8
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 121
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 122.5
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 123.5
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 124.5
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 125.4
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 126.4
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 127.6
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 129.1
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 128.6
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 129.9
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 131.4
+    },
+    {
+      "soc_percent": 63,
+      "power_kw": 132.3
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 118.5
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 77.7
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 78
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 43.3
+    },
+    {
+      "soc_percent": 82,
+      "power_kw": 36.3
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 300
+  },
+  "notes": "Fastned graph for the EV3 Long Range 81.4 kWh / 400 V NMC pack, 3-82 % SoC, 300 kW class, battery near 30 C. Rises slowly from about 104 kW at 3 % to a peak of 132.3 kW at 63 % (3 % over the 128 kW rating), then falls to 78 kW at 70-75 % and 43 kW at 80 %. European car; the 2027 Canadian-market cars are assumed to share the pack and software. The curve ends at 82 %.",
+  "is_display_default": false
+}

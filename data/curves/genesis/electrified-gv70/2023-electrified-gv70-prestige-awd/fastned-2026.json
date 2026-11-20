@@ -1,0 +1,100 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "genesis/electrified-gv70/2023-electrified-gv70-prestige-awd",
+  "kind": "tested",
+  "source_id": "src-fastned-genesis-gv70-77kwh-2026",
+  "points": [
+    {
+      "soc_percent": 2,
+      "power_kw": 214.2
+    },
+    {
+      "soc_percent": 5,
+      "power_kw": 217.6
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 222
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 223.7
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 225.5
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 226.5
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 225.7
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 226
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 227
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 230.4
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 232.9
+    },
+    {
+      "soc_percent": 52,
+      "power_kw": 234.8
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 176.1
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 178.4
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 164
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 154.4
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 154.8
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 127.7
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 79.8
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 45.4
+    },
+    {
+      "soc_percent": 95,
+      "power_kw": 32.3
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 300
+  },
+  "notes": "Fastned graph for the GV70 77.4 kWh / 800 V pack, 2-95 % SoC, battery near 30 C. The numbers are identical to Fastned's GV60 77.4 kWh graph (same E-GMP pack and charge hardware, so one series is shown under both models; not an independent second measurement). Peak 234.8 kW at 52 % (0.8 % over the 233 kW rating). Low confidence: the GV70 page repeats the GV60 series rather than a separate GV70 measurement.",
+  "low_confidence": true,
+  "is_display_default": false
+}

@@ -1,0 +1,84 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "chevrolet/bolt-ev/2018-bolt-ev",
+  "kind": "tested",
+  "source_id": "src-fastned-opel-ampera-e-60kwh-2026",
+  "points": [
+    {
+      "soc_percent": 22,
+      "power_kw": 43.6
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 44.4
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 44.9
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 45.2
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 45.5
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 45.8
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 46
+    },
+    {
+      "soc_percent": 52,
+      "power_kw": 46.2
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 40.2
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 38.6
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 39
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 27.5
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 23.3
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 23.6
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 23.8
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 15.9
+    },
+    {
+      "soc_percent": 92,
+      "power_kw": 15.9
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 50
+  },
+  "notes": "Fastned graph for the Opel Ampera-e (the European Chevrolet Bolt EV 60 kWh), 22-92 % SoC, 50 kW class chargers, battery near 30 C. 44-46 kW to 50 % (peak 46.2 kW at 52 %), drops to 39-40 kW at 55-65 %, 27.5 kW at 70 %, 23-24 kW at 75-85 %, 16 kW at 90-92 %. Step-downs near 55 % and 68 % match the published Bolt behaviour (Wikipedia: 55 kW tapering to 38 kW at 56 % and 24 kW at 68 %). The Ampera-e was limited to 50 kW; the North American Bolt can pull up to 55 kW, so the absolute level may be a few kW higher. No data below 22 %. Low confidence: European Ampera-e on 50 kW chargers, a sibling of the NA Bolt (same pack and charge hardware), not a Bolt test. Peaks at 46 kW against our 55 kW estimate (50 kW chargers), and there is no data below 22 %. Whether the dc_max is 50 or 55 kW is an open question for the owner.",
+  "low_confidence": true,
+  "is_display_default": false
+}

@@ -103,7 +103,7 @@ Plugs used                    Change plugs
   - *Owner 2026-11-20:* the **last stop** charges only enough to arrive with Arrive at % (the last stretch + the target + the way back to the route, rounded up), never more than 80 %; when 80 % would not be enough, the B75 rule still charges more, up to 100 %. Stops before it still charge to 80 % (Q-V2). The "How this was estimated" text says so.
 - The plan's `estimated` flag is set while the switch changes the figures, so totals show "~" (B24 style).
 - **Not modelled (said in the footer):** slower charging when the battery is cold (the B116 LFP note stays the only mention), the weather changing along the route, wind, preconditioning. The temperature tables are mixed-driving range data applied to highway consumption: a rough estimate, labelled as one (same caveat as B116).
-- Data: `ChargerMap` gets the build's `wheelEffect` and temperature sources (as the Charging page does from `loadEstimates()`); the car file already has `heat_pump`, `chemistry` and the trims' wheels.
+- Data: `ChargerMap` gets the build's `wheelEffect` (as the Charging page does from `loadEstimates()`; owner 2026-11-20: no temperature source link on the trip card, so the temperature sources aren't passed); the car file already has `heat_pump`, `chemistry` and the trims' wheels.
 
 ## 5. Text (all in `src/i18n/en.json`)
 

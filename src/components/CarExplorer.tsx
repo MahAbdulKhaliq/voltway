@@ -10,7 +10,7 @@ import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CarDetail, Field, IndexEntry, Source, SourcedValue } from '../lib/types.ts';
 import { applyWheelEffect, wheelSizeOptions, ratedOnItsOwn, ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
 import { display } from '../lib/format.ts';
-import { temperatureEffect, cToF, fToC, MILD_C, MIN_C, MAX_C, TEMPERATURE_SOURCE_IDS, type TempUnit } from '../lib/temperature-effect.ts';
+import { temperatureEffect, cToF, fToC, MILD_C, MIN_C, MAX_C, SPARSE_BELOW_C, TEMPERATURE_SOURCE_IDS, type TempUnit } from '../lib/temperature-effect.ts';
 import { levelTwoTime } from '../lib/l2-time.ts';
 import CurveViewer from './CurveViewer.tsx';
 import { carMapInfo, linkPlugs } from '../lib/map-filter.ts';
@@ -57,12 +57,28 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
   // Heat pump checkbox (B116, owner 2026-11-20): only for trims where it's optional; unticked = the safe case.
   const [hpFitted, setHpFitted] = useState(false);
   useEffect(() => { setWheelIn(null); setHpFitted(false); }, [carId, trimId]);
-  // °C/°F (B116) is remembered; with no saved choice it follows the distance unit (miles → °F).
+  // °C/°F (B116) is remembered; with no saved choice it follows the distance unit (miles → °F),
+  // also when km/mi is switched later (design §1).
   useEffect(() => {
     const saved = getItem(KEYS.tempUnit);
     const u: TempUnit = saved === 'C' || saved === 'F' ? saved : getItem(KEYS.units) === 'mi' ? 'F' : 'C';
     setTempUnitState(u);
     if (u === 'F') setTempText(String(Math.round(cToF(MILD_C))));
+    const onUnits = (e: Event) => {
+      const s = getItem(KEYS.tempUnit);
+      if (s === 'C' || s === 'F') return;
+      const next: TempUnit = (e as CustomEvent<DistanceUnit>).detail === 'mi' ? 'F' : 'C';
+      setTempUnitState((prev) => {
+        if (prev !== next) setTempText((txt) => {
+          const n = txt.trim() === '' ? Number.NaN : Number(txt);
+          if (!Number.isFinite(n)) return txt;
+          return String(Math.round(next === 'F' ? cToF(n) : fToC(n)));
+        });
+        return next;
+      });
+    };
+    window.addEventListener('voltway:units', onUnits);
+    return () => window.removeEventListener('voltway:units', onUnits);
   }, []);
 
   // First car: the link (?car=), else My car, else the first car in the list (B58: no first-load
@@ -203,7 +219,7 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
   const usedC = Math.min(MAX_C, Math.max(MIN_C, tempC));
   const tempBasis = tempAdjusting
     ? t('temp.basis', { temp: showTemp(usedC), pct: Math.round(temp.retained * 100), best: Math.round(temp.band.best * 100), worst: Math.round(temp.band.worst * 100), heating: t(`temp.heating.${temp.curve}` as MessageKey) }) + (temp.lfpPenalty > 0 ? ` ${t('temp.lfpBasis', { pts: Math.round(temp.lfpPenalty * 100) })}` : '')
-      + (temp.sparse ? ` ${t('temp.sparse')}` : '')
+      + (temp.sparse ? ` ${t('temp.sparse', { temp: showTemp(SPARSE_BELOW_C) })}` : '')
     : '';
   const estimate = (k: string): Field => {
     const o = official[k];
@@ -335,8 +351,11 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
     };
   };
   const d = car?.derived;
-  // Added per 10 min (QA 9.1): uses the shown trim's highway consumption (and wheel estimate), like the viewer.
-  const hwWh = shown.consumption_highway_wh_per_km?.value.value as number | undefined;
+  // Added per 10 min (QA 9.1): uses the shown trim's consumption (with any wheel or temperature
+  // estimate) on the viewer's default basis: combined, else highway (B117).
+  const per10Key = shown.consumption_combined_wh_per_km ? 'consumption_combined_wh_per_km' : 'consumption_highway_wh_per_km';
+  const hwWh = shown[per10Key]?.value.value as number | undefined;
+  const per10Estimated = isEstimate(per10Key);
   const mathsKwh = battery?.value.value as number | undefined;
   const per10 = d && d.minutes_10_80 && hwWh && mathsKwh ? ((mathsKwh * 0.7 * 1000) / hwWh / d.minutes_10_80) * 10 : null;
   const distance = (km: number) => t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(km, unit)) });
@@ -434,6 +453,7 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
                 curves={car.curves}
                 usableKwh={(battery?.value.value as number) ?? null}
                 batteryIsGross={!usable && Boolean(f.capacity_gross_kwh)}
+                consumptionEstimated={['highway', 'combined', 'city'].some((b) => isEstimate(`consumption_${b}_wh_per_km`))}
                 consumption={{
                   highway: (shown.consumption_highway_wh_per_km?.value.value as number) ?? null,
                   combined: (shown.consumption_combined_wh_per_km?.value.value as number) ?? null,
@@ -458,7 +478,7 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
               </div></div>
               <div className="readout"><p className="readout-label">{t('tile.kmPer10')}</p><div className="readout-value">
                 {per10 !== null ? (
-                  <span className="fv">{d!.estimated || adjusting ? '~' : ''}{distance(per10)} <Badge field={curveField} sources={sources} label={t('tile.kmPer10')} unit={unit} /></span>
+                  <span className="fv">{d!.estimated || adjusting || per10Estimated ? '~' : ''}{distance(per10)} <Badge field={per10Estimated ? shown[per10Key] : curveField} sources={sources} label={t('tile.kmPer10')} unit={unit} /></span>
                 ) : <span className="unknown">{t('badge.unknown')}</span>}
               </div></div>
             </div>

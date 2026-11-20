@@ -37,7 +37,7 @@ Phase 1, step 3 of [roadmap.md](roadmap.md). How the app shows charging curves a
 | **Dwell time** | 0 min | Minutes for parking and paying | *later* (more useful for trips) |
 
 **Why highway by default:** fast charging mostly happens on road trips, so highway consumption gives the most realistic "km added" figure.
-*B117 (owner, 2026-11-20): the default is now **Combined**; highway stays one click away.*
+*B117 (owner, 2026-11-20): the default is now **Combined**; highway stays one click away. When the car has no figure for the picked basis, the select and the "Added (…)" label show the one used (combined, else highway), and missing bases are greyed out (QA fix, 2026-11-20).*
 
 ---
 
@@ -131,7 +131,7 @@ Add up across the window:
 - **v1 assumption: a warm or preconditioned battery and mild weather.** This matches how most published curves are measured. It's shown as a small note: "Assumes a warm battery. Cold batteries charge slower."
 - A curve's recorded `conditions` (preconditioned, temperature, charger used) appear in the More detail panel.
 - **Cold-weather effects are out of scope for v1**, in line with Q-V4. The later plan uses temperature and battery chemistry for a rough slow-down, following the same approach as the planned winter range estimate.
-- *B116 (proposed 2026-11-20): the winter **range** estimate is now an Outside temperature field on the Charging page; see [outside-temperature.md](outside-temperature.md). The research found that heat pumps, not chemistry, drive the range difference. Cold **charging** speed is still out of scope.*
+- *B116 (owner, 2026-11-20): the winter **range** estimate is now an Outside temperature field on the Charging page; see [outside-temperature.md](outside-temperature.md). Heat pump or not drives most of the range difference; LFP packs take a smaller cold penalty. Cold **charging** speed is still out of scope.*
 
 ---
 

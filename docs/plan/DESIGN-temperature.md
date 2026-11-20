@@ -1,6 +1,6 @@
 # Outside temperature on the Charging page (B116)
 
-Status: **proposed 2026-11-20. Local branch `feat/b116-outside-temperature` only: not pushed until the owner has reviewed it.** Design and research: [`docs/design/outside-temperature.md`](../design/outside-temperature.md).
+Status: **owner reviewed it locally and approved going live 2026-11-20** (branch `feat/b116-outside-temperature`, one PR). Design and research: [`docs/design/outside-temperature.md`](../design/outside-temperature.md).
 
 ## Goal
 

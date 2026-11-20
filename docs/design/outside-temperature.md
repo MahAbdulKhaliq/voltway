@@ -1,12 +1,12 @@
 # Outside temperature and range (B116)
 
-Status: **proposed 2026-11-20, built locally for the owner's review (not pushed).** Decision row: [gaps-and-questions.md](gaps-and-questions.md) B116. Build plan: [`docs/plan/DESIGN-temperature.md`](../plan/DESIGN-temperature.md).
+Status: **decided by the owner 2026-11-20 and going live** (owner reviewed it locally first). Decision row: [gaps-and-questions.md](gaps-and-questions.md) B116. Build plan: [`docs/plan/DESIGN-temperature.md`](../plan/DESIGN-temperature.md).
 
-This follows up Q-V4 ("later: a rough % range loss from temperature and battery chemistry"), for the Charging page only. **One change from that plan:** the research (§2) shows that heat pump vs. none, not chemistry, drives the range difference. So the curves split on `trims[].heat_pump`, and chemistry only adds a note.
+This follows up Q-V4 ("later: a rough % range loss from temperature and battery chemistry"), for the Charging page only. **One change from that plan:** the research (§2) shows that heat pump vs. none drives most of the range difference. So the curves split on `trims[].heat_pump`; LFP/LMFP packs then take a smaller cold penalty (owner, 2026-11-20, §3 "LFP adjustment").
 
 ## 1. What it does
 
-The Charging page's curve controls get an **Outside temperature** field with a **°C / °F** switch. It sits in the empty cells under **Range basis** and **Wheels**. Like the Wheels picker (B13), it changes the energy per km that the page uses, so the **range** tile, the **consumption** figures, **km added** and **km per 10 min** all follow it. Under the field, a short note gives the range change, e.g. "Range −25% vs. mild weather".
+The Charging page's curve controls get an **Outside temperature** field with a **°C / °F** switch. It sits in the empty cells under **Range basis** and **Wheels**. Like the Wheels picker (B13), it changes the energy per km that the page uses, so the **range** tile, the **consumption** figures, **km added** and **km per 10 min** all follow it. Under the field, a short note gives the range change, e.g. "Estimate: range −25% vs. mild weather (likely … to …)".
 
 - The default is **20 °C (68 °F)**, where the factor is 1, so nothing changes until the visitor picks another temperature.
 - Temperatures are kept in **°C** internally. °F is only for display and input (CLAUDE.md "metric internally"), with °F = °C × 9/5 + 32.
@@ -25,7 +25,7 @@ The baseline throughout is range in **mild weather** (about 20–25 °C), meanin
 | Fleet average, all cars | **78 %** at 0 °C, **69 %** at −7 °C (59,000+ cars, 43 models). Heat pumps add "up to 8 %" at 0 °C, and the benefit shrinks toward −18 °C. | Recurrent, 2025-11-19 [R2] |
 | Heat pump benefit | **+8–10 %** range near −1 °C. Heat pumps lose their edge at very low temperatures. | Recurrent heat-pump study, 2024-11-25 [R3] |
 | Lab (dynamometer), cabin at 22 °C | Range **−41 %** at −7 °C and about **−50 %** at −18 °C (city −59 %, highway −39 %). A heat pump cut HVAC power **38 %** at −7 °C, but at −18 °C the heat-pump car ran mostly on its resistive heater. Range **−14 %** at 35 °C. | US DOE / Argonne, 2024-09-12 [R4] |
-| Lab, AAA 2019 | −41 % at −7 °C with heat (−12 % with no heat); −17 % at 35 °C with AC (−4 % with none). | AAA, 2019-02-07 [R5]; fueleconomy.gov [R6] |
+| Lab, AAA 2019 | −41 % at −7 °C with heat (−12 % with no heat); −17 % at 35 °C with AC (−4 % with none). | AAA, 2019-02-07 [R5] |
 | Lab, AAA 2026 | −39 % at −7 °C; −8.5 % at 35 °C. | AAA, 2026-05-01 [R7] |
 | Fleet temperature curve | Range peaks at **115 % of rated** at 21.5 °C, stays at or above 100 % of rated from 10–31 °C, and falls to **54 % of rated at −15 °C** (4,200 EVs, 5.2 M trips). | Geotab, 2025-10-30 [R8] |
 | Hot weather (fleet) | **−5 % at 32 °C, −15 % at 38 °C** (29,719 EVs). Heat-pump cars did no better in the heat. | Recurrent, reported by InsideEVs, 2025-06-23 [R9] |
@@ -70,7 +70,7 @@ One figure hides a wide spread. At 0 °C Recurrent's models run from about 63 % 
 
 - **Best case:** car preheated while plugged in, longer drives, seat heaters, a car that does well in the cold. Anchors:
   - the best models in Recurrent's data (about 90 % at 0 °C with a heat pump [R1][R2]);
-  - AAA's cars with the heater off: −12 % at −7 °C, the floor for any heated drive [R5][R6];
+  - AAA's cars with the heater off: −12 % at −7 °C, the floor for any heated drive [R5];
   - preconditioning saves 9–20 % on short trips at −7 °C [R4];
   - AC off in the heat: −4 % at 35 °C [R5].
 - **Worst case:** cold-soaked car, short trips, cabin at 22 °C, a car that does poorly in the cold. Anchors:
@@ -147,7 +147,7 @@ The adjusted values cite `src-b116-recurrent-heat-pump-split` [R1]. The badge no
 - [R3] `src-b116-recurrent-heat-pumps`: Recurrent, "Study: How Much Heat Pumps Boost EV Range", 2024-11-25. https://www.recurrentauto.com/research/heat-pumps
 - [R4] `src-b116-doe-cold-ambient`: US DOE Vehicle Technologies Office / Argonne, "Impact of Cold Ambient Temperature and Extreme Conditions on Electric Vehicles", 2024-09-12. https://www.energy.gov/sites/default/files/2024-10/Impact_of_Cold_Ambient_Temperature_on_BEV_Performance_v15_TechEditFinal_12Sep2024__0.pdf
 - [R5] `src-b116-aaa-2019`: AAA, "Cold weather reduces electric vehicle range", 2019-02-07. https://newsroom.aaa.com/2019/02/cold-weather-reduces-electric-vehicle-range/
-- [R6] `src-b116-fueleconomy-cold`: fueleconomy.gov, "Fuel Economy in Cold Weather". https://www.fueleconomy.gov/feg/coldweather.shtml
+- [R6] (dropped 2026-11-20: never added as a data source; AAA [R5] carries the figures it was cited with.)
 - [R7] `src-b116-aaa-2026`: AAA, temperature impacts on EV and hybrid performance, 2026-05-01. https://newsroom.aaa.com/2026/05/aaa-study-reveals-temperature-impacts-on-ev-and-hybrid-performance-efficiency-and-costs/
 - [R8] `src-b116-geotab-temperature`: Geotab, "Top EV range factors to extend fleet efficiency", 2025-10-30. https://www.geotab.com/blog/ev-range/
 - [R9] `src-b116-recurrent-summer-2025`: InsideEVs, summer range study (Recurrent data), 2025-06-23. https://insideevs.com/news/763596/evs-best-summer-driving-range/

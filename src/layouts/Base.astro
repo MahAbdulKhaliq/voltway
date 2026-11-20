@@ -68,7 +68,7 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       try {
         if (localStorage.getItem('voltway.motion') === 'off') document.documentElement.dataset.motion = 'off';
       } catch (e) {}
-      // B64: the mark's intro (lanes run, the bolt strikes) plays once per visit, not on every page.
+      // B64: the mark's intro (it strikes in with a flash) plays once per visit, not on every page.
       try {
         if (document.documentElement.dataset.motion !== 'off' && !sessionStorage.getItem('voltway.intro')) {
           document.documentElement.classList.add('intro');

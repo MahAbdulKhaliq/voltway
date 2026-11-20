@@ -538,12 +538,12 @@ Design: B83 in `gaps-and-questions.md`, `charging-curve-viewer.md` §4–§5 not
 
 # Outside temperature (B116, `docs/plan/DESIGN-temperature.md`)
 
-Local branch `feat/b116-outside-temperature` only. Nothing is pushed until the owner has reviewed it (owner, 2026-11-20).
+Branch `feat/b116-outside-temperature`. The owner reviewed it locally and approved going live on 2026-11-20 (one PR, after independent QA).
 
 - [x] **[T] T1 Model and tests**: `src/lib/temperature-effect.ts`, `tests/temperature-effect.test.ts`. **Done when:** `npx vitest run tests/temperature-effect.test.ts` passes. It checks the anchors (0 °C: 0.75 none / 0.83 heat pump; 20 °C: 1; 38 °C: 0.85 both), interpolation, clamping at −30/45 °C, the optional/unknown handling, the LFP note and the °C↔°F round trip.
   - *Verified 2026-11-20:* 15 tests pass in tests/temperature-effect.test.ts.
 - [x] **[T] T2 Sources and build**: `data/sources/src-b116-*.json`, `scripts/lib/build.ts`, `src/lib/data.ts`. **Done when:** `npm run validate` shows no new errors; `public/data/estimates.json` has `temperature.sources` with every `TEMPERATURE_SOURCE_IDS` record; removing one makes `npm run data:build` throw.
-  - *Verified 2026-11-20:* 9 src-b116 sources; validate OK (76 known B96 warnings only); estimates.json temperature.sources = 9; new build test: removing one makes buildCars throw /B116/.
+  - *Verified 2026-11-20:* 9 src-b116 sources (10 after T5 added the P3 cell study); validate OK (76 known B96 warnings only); estimates.json temperature.sources = 9 (now 10); new build test: removing one makes buildCars throw /B116/.
 - [x] **[T] T3 Field, switch and figures**: `CarExplorer.tsx`, `CurveViewer.tsx`, `ChargingPage.astro`, `src/lib/storage.ts`, `src/i18n/en.json`. **Done when:** on `/charging`:
   - the Outside temperature field and the °C/°F switch sit under Range basis / Wheels;
   - −10 °C shows "Range −40%" on a no-heat-pump car and −33% on a heat-pump car, and the range tile shows an estimate with "Rated: …";
@@ -580,3 +580,16 @@ Local branch `feat/b116-outside-temperature` only. Nothing is pushed until the o
   - optional and unknown trims and 20 °C+ show neither;
   - checked dark at 1280/375 px, PNGs sent, committed locally.
   - *Verified 2026-11-20:* 25 tests. Headless Chrome on the dev server: 2027 Bolt at −10 °C shows the LFP note then "Heat pump: standard on this trim. It saves about 7% of range here…"; at 30 °C "…saves no range at this temperature."; Q4 50 ticked: "Heat pump: saves about 7%…"; Q4 40: no-heat-pump note; Wheels Estimate line bold. PNGs: b116-shots/r6-*.
+- [x] **[T] T9 New logo (B118, owner 2026-11-20)**: `scripts/logo-assets.mjs`, `scripts/assets/`, `public/logo.png`, favicons, `og.png`, `Base.astro`, `global.css`. **Done when:**
+  - the header, favicons, iOS icon and link-preview image show the owner's new mark;
+  - one outlined file in both themes, so the mark keeps its size when the theme changes;
+  - the old `favicon.svg` and the old green `favicon.ico` are gone.
+  - *Verified 2026-11-20:* headless Chrome on the dev server: `/logo.png` 39×28 in dark, light and dark picked in Settings; the icon links point to the new files; og.png checked by eye. vitest 961, astro check 0 errors. PNGs b116-shots/logo*/.
+- [x] **[T] T10 QA fixes (independent QA, 2026-11-20)**: `CarExplorer.tsx`, `CurveViewer.tsx`, `en.json`, docs. **Done when:**
+  - figures changed by temperature or wheels show "~" everywhere: the viewer's "Added (…)" and "Added per 10 min", and the Car figures tile, whose badge then gives the estimate's basis;
+  - the Range basis select and the "Added (…)" label show the basis actually used (a car with no combined figure shows Highway; missing bases are greyed out);
+  - the Car figures "Added per 10 min" uses the same default basis as the viewer (combined, else highway);
+  - with no saved °C/°F choice, switching km/mi switches the temperature unit too;
+  - the "beyond most published data" note shows −20 °C in the visitor's unit;
+  - stale "proposed / not pushed" statuses and the missing R6 source fixed in the docs.
+  - *Verified 2026-11-20:* vitest 961, astro check 0 errors. Headless Chrome on the dev server: Q4 40 at −10 °C shows ~159 km Added (Combined) and ~47 km per 10 min in both places, and the tile badge gives the temperature basis; at 20 °C both read ~79 km; Escalade IQ shows Highway in the select with Combined and City greyed out, and the label reads "Added (Highway)"; switching km → mi with no saved unit turned −10 °C into 14 °F.

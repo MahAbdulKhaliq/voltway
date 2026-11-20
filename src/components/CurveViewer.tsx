@@ -32,6 +32,8 @@ interface Props {
   usableKwh: number | null;
   batteryIsGross: boolean;
   consumption: { highway: number | null; combined: number | null; city: number | null };
+  /** The consumption is a wheel or temperature estimate (B116), so the distance figures show "~". */
+  consumptionEstimated?: boolean;
   sources: { id: string; title: string; url: string; n: number }[];
   /** A charger cap from a map link (B31): shown as the custom preset, never saved over the remembered settings. */
   initialChargerKw?: number | null;
@@ -65,6 +67,7 @@ export default function CurveViewer({
   usableKwh,
   batteryIsGross,
   consumption,
+  consumptionEstimated = false,
   sources,
   initialChargerKw = null,
   initialWindow = null,
@@ -142,7 +145,10 @@ export default function CurveViewer({
     ? CHARGER_STOPS.length - 1
     : CHARGER_STOPS.reduce((best, kw, i) => (Number.isFinite(kw) && Math.abs(kw - chargerKw) < Math.abs(CHARGER_STOPS[best] - chargerKw) ? i : best), 0);
   const chargerLabel = chargerKw == null ? t('viewer.noLimit') : t('fmt.kw', { value: formatNumber(chargerKw, Number.isInteger(chargerKw) ? 0 : 1) }); // a map link may carry 62.5 kW
-  const whPerKm = consumption[basis] ?? consumption.combined ?? consumption.highway ?? undefined;
+  // The basis actually used: the picked one, else combined, else highway (B117). The select and the
+  // "Added (…)" label show this one, so a car without the picked figure isn't mislabelled.
+  const usedBasis: Basis = consumption[basis] != null ? basis : consumption.combined != null ? 'combined' : consumption.highway != null ? 'highway' : basis;
+  const whPerKm = consumption[usedBasis] ?? undefined;
   const source = sources.find((s) => s.id === curve.source_id);
 
   const result = useMemo(() => {
@@ -352,10 +358,10 @@ export default function CurveViewer({
               <span className="answer-time">{minutes(result.minutes)}</span>
             </p>
             <dl className="readouts figures">
-              {figure(t('viewer.result.km', { basis: t(`viewer.basis.${basis}` as MessageKey) }),
-                result.kmAdded !== null ? `${estimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>)}
+              {figure(t('viewer.result.km', { basis: t(`viewer.basis.${usedBasis}` as MessageKey) }),
+                result.kmAdded !== null ? `${estimated || consumptionEstimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>)}
               {figure(t('viewer.result.per10'),
-                result.kmPer10Min !== null ? `${estimated ? '~' : ''}${distance(result.kmPer10Min)}` : <span className="unknown small">{t('badge.unknown')}</span>)}
+                result.kmPer10Min !== null ? `${estimated || consumptionEstimated ? '~' : ''}${distance(result.kmPer10Min)}` : <span className="unknown small">{t('badge.unknown')}</span>)}
               {figure(t('viewer.result.added'), `${batteryIsGross ? '~' : ''}${t('fmt.kwh', { value: formatNumber(result.energyKwh, 1) })}`)}
               {figure(t('viewer.result.avg'), t('fmt.kw', { value: formatNumber(result.averageKw) }))}
               {figure(t('viewer.result.cost', { start: settings.start, end: settings.end }), `~${money.format(drawnKwh * settings.price)}`,
@@ -460,8 +466,8 @@ export default function CurveViewer({
         </div>
         <label>
           <span>{t('viewer.rangeBasis')}</span>
-          <select value={basis} onChange={(e) => setBasis(e.target.value as Basis)}>
-            {(['highway', 'combined', 'city'] as Basis[]).map((b) => <option key={b} value={b}>{t(`viewer.basis.${b}` as MessageKey)}</option>)}
+          <select value={usedBasis} onChange={(e) => setBasis(e.target.value as Basis)}>
+            {(['highway', 'combined', 'city'] as Basis[]).map((b) => <option key={b} value={b} disabled={consumption[b] == null && consumption[usedBasis] != null}>{t(`viewer.basis.${b}` as MessageKey)}</option>)}
           </select>
         </label>
         {extraControls}

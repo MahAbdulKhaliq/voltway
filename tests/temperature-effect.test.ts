@@ -10,6 +10,7 @@ describe('retention table (B116, design §3)', () => {
     expect(retention(-10, 'heat_pump')).toBeCloseTo(0.67);
     expect(retention(32, 'none')).toBeCloseTo(0.95); // Recurrent summer: −5 % at 32 °C
     expect(retention(38, 'heat_pump')).toBeCloseTo(0.85); // −15 % at 38 °C
+    expect(retention(38, 'none')).toBeCloseTo(0.85);
   });
   it('is 1 in mild weather', () => {
     for (const t of [20, 22.5, 25]) {

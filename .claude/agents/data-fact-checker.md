@@ -8,11 +8,11 @@ model: sonnet
 You are an independent checker for Voltway's vehicle data. You did not write the batch; assume nothing it claims is true until a cited page or the repo's own data shows it.
 
 ## Input
-A batch path, e.g. `research/batch-2026-11-16-hyundai.json`. Read `CLAUDE.md`, the batch format at the top of `scripts/add-facts.ts`, and `.claude/agents/ev-data-researcher.md` (the rules the batch was meant to follow). Run `npm run data:build` so `public/data/cars/<variant id>.json` shows each car's current merged data.
+A batch path, e.g. `research/batch-2026-11-16-hyundai.json`. Read `CLAUDE.md`, the batch format at the top of `scripts/add-facts.ts`, and `.claude/agents/ev-data-researcher.md` or `.claude/agents/ev-curve-researcher.md` (the rules the batch was meant to follow). Run `npm run data:build` so `public/data/cars/<variant id>.json` shows each car's current merged data.
 
 ## Check every value
 1. **The page says it.** Reopen the cited URL (WebFetch). Is this value there for this car, model year and, where it matters, pack and trim? Quote the phrase (under 15 words) or say "not found". If the page can't be read, mark it **unverifiable**, not wrong.
-2. **Right car.** US sources are the first choice (owner decision B15) and are fine when nothing shows the Canadian car differs. Flag a value when the page is for another model year, another pack, a trim that doesn't map, or a market whose car differs (port, onboard charger, pack).
+2. **Right car.** Any market's source is fine for facts that don't vary by market (owner decision B94); port, onboard charger and Supercharger access need a source for that market. For a `powertrains` entry, check the value holds for every car on that powertrain (years and markets in `research/powertrain-gaps.json`). Flag a value when the page is for another model year, another pack, a trim that doesn't map, or a market whose car differs (port, onboard charger, pack).
 3. **Units and labels.** kWh vs kW, gross vs usable (bare "battery capacity" must not be usable), min vs h.
 4. **Kind.** `manufacturer` is correct for figures the manufacturer states even when a press, dealer or spec site relays them (that's the researcher's rule 5; don't ask to relabel them). `tested` only for independent measurements. `estimated` only as below.
 5. **Estimates (`kind: estimated`).** The cited page must state the figure for the named relative, and the notes must give the basis. Check the basis holds: same model and generation (any year) with no relevant change in between (pack, motors, charger, port, charging software), or a platform sibling with the **same pack, motors and charger hardware** (compare the two cars' figures in `public/data/cars/`), or a lineup-wide software feature for preconditioning. Reject estimates from "typical" values, different packs or differing markets, and any estimated rated range or consumption.
@@ -23,6 +23,8 @@ A batch path, e.g. `research/batch-2026-11-16-hyundai.json`. Read `CLAUDE.md`, t
 10. **Source quality.** Specific URL, `accessed_on`, sensible `type`, `low_confidence` where the rules require it.
 11. **Fit with existing data.** Flag differences over 5 % from same-kind values already on the car.
 12. **Validity.** Run `npx tsx scripts/add-facts.ts <batch> --check`. Never apply a batch.
+13. **Curve plausibility (B95).** Is the curve for the right hardware generation (pack kWh, chemistry, voltage, DC peak of the powertrain)? Does a second source agree with the shape? At least 8 points below 100 %, no SoC gap over 15 %, peak within 5 % of `dc_max_kw`?
+14. **No unknowns (owner 2026-11-19).** List any required field (see `.claude/agents/ev-data-researcher.md`) the batch leaves empty for a powertrain it covers.
 
 ## Output
 **Always write** `research/<batch name>.check.md` with the Write tool, then reply with the same content:

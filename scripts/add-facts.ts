@@ -26,7 +26,7 @@
 //                 "source_id": "<the sibling curve's source>", "points": [ … copied … ] } ]
 // The data build picks the default curve; batches never set is_display_default.
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { cpSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -44,7 +44,15 @@ interface Patch {
 const check = process.argv.includes('--check');
 const batchPath = process.argv.slice(2).find((a) => !a.startsWith('--'));
 if (!batchPath) throw new Error('Usage: npx tsx scripts/add-facts.ts <batch.json> [--check]');
-const spec = JSON.parse(readFileSync(batchPath, 'utf8')) as { sources: { id: string }[]; variants: Record<string, Patch> };
+// Per powertrain (B95, DESIGN-9 §1; checklist 9.18): pack and charging figures go on the shared powertrain,
+// so every model year and market edition on that hardware gets them.
+//   "powertrains": { "<powertrain id>": {
+//       "fields": { "battery.capacity_usable_kwh": [ … ], "dc_max_kw": [ … ], "ac_max_kw": [ … ], … },
+//       "variant_fields": { "charge_port": [ … ], "supercharger_access": [ … ] },  // copied to every variant on it
+//       "curves": [ … same shape as variant curves; written with powertrain_id … ] } }
+interface PowertrainPatch { fields?: Record<string, Sourced[]>; variant_fields?: Record<string, Sourced[]>; curves?: Patch['curves'] }
+const spec = JSON.parse(readFileSync(batchPath, 'utf8')) as { sources: { id: string }[]; variants?: Record<string, Patch>; powertrains?: Record<string, PowertrainPatch> };
+spec.variants ??= {};
 
 const realRoot = process.cwd();
 const root = check ? mkdtempSync(join(tmpdir(), 'voltway-check-')) : realRoot;
@@ -58,6 +66,49 @@ const merge = (existing: unknown, add: Sourced[]): Sourced[] => {
   const keep = Array.isArray(existing) ? (existing as Sourced[]).filter((e) => !add.some((a) => a.source_id === e.source_id)) : [];
   return [...keep, ...add];
 };
+
+const setPath = (obj: any, path: string, values: Sourced[]) => {
+  const keys = path.split('.');
+  let node = obj;
+  for (const k of keys.slice(0, -1)) node = node[k] ??= {};
+  const last = keys[keys.length - 1];
+  node[last] = merge(node[last], values);
+};
+
+if (spec.powertrains) {
+  const listVariants = (d: string): string[] => readdirSync(d, { withFileTypes: true })
+    .flatMap((e) => e.isDirectory() ? listVariants(join(d, e.name)) : e.name.endsWith('.json') ? [join(d, e.name)] : []);
+  const byPowertrain = new Map<string, string[]>();
+  for (const f of listVariants(join(root, 'data/variants'))) {
+    const v = JSON.parse(readFileSync(f, 'utf8'));
+    if (v.powertrain_id) byPowertrain.set(v.powertrain_id, [...(byPowertrain.get(v.powertrain_id) ?? []), v.id]);
+  }
+  for (const [id, patch] of Object.entries(spec.powertrains)) {
+    const file = join(root, 'data/powertrains', `${id}.json`);
+    if (!existsSync(file)) throw new Error(`No powertrain file for ${id}`);
+    const p = JSON.parse(readFileSync(file, 'utf8'));
+    for (const [path, values] of Object.entries(patch.fields ?? {})) setPath(p, path, values);
+    const { id: _id, model_id, name, generation, years, notes, ...rest } = p;
+    writeFileSync(file, JSON.stringify({ id: p.id, model_id, name, ...(generation ? { generation } : {}), years, ...rest, ...(notes ? { notes } : {}) }, null, 2) + '\n');
+    for (const c of patch.curves ?? []) {
+      if ('is_display_default' in c) throw new Error(`${id}: curve "${c.id}" sets is_display_default; the build picks the default`);
+      const dir = join(root, 'data/curves', id);
+      mkdirSync(dir, { recursive: true });
+      const { id: curveId, ...cr } = c;
+      writeFileSync(join(dir, `${curveId}.json`), JSON.stringify({ id: curveId, powertrain_id: id, ...cr, is_display_default: false }, null, 2) + '\n');
+    }
+    if (patch.variant_fields) {
+      const vids = byPowertrain.get(id) ?? [];
+      if (!vids.length) throw new Error(`${id}: no variant uses this powertrain`);
+      for (const vid of vids) {
+        const vp = (spec.variants[vid] ??= {});
+        vp.fields = { ...(vp.fields ?? {}) };
+        for (const [path, values] of Object.entries(patch.variant_fields)) if (!vp.fields[path]) vp.fields[path] = values;
+      }
+    }
+    if (!check) console.log(`updated powertrain ${id}`);
+  }
+}
 
 for (const [id, patch] of Object.entries(spec.variants)) {
   const file = join(root, 'data/variants', `${id}.json`);

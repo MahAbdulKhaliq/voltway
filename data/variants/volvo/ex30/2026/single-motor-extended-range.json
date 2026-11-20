@@ -40,7 +40,16 @@
       "names": {
         "CA": "Single Motor Extended Range",
         "US": "Single Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ex30-2026-specs",
+          "notes": "Core: 19x8 aluminum, P245/45VR19. Plus and Ultra not opened.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

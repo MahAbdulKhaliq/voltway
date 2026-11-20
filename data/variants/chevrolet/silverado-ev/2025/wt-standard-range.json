@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "CA": "WT Standard Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs",
+          "notes": "US Standard Range Work Truck page; applied to the Canadian WT Standard Range.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

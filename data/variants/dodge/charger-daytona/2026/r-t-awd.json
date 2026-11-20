@@ -33,7 +33,22 @@
       "names": {
         "CA": "R/T AWD",
         "US": "R/T AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-dodge-charger-daytona-2026-specs-475098",
+          "notes": "R/T 4-Door AWD: 18x8.5, P245/55YR18."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r3w-dodge-charger-daytona-2026-specs-475098",
+          "notes": "Performance Handling Group ($3,495): 20x11 aluminum wheels, 305/35ZR20; the page does not say which trims can add it.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

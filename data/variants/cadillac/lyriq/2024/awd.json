@@ -41,6 +41,21 @@
           "source_id": "src-nrcan-bev-2026-09",
           "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option. Basis: NRCan 2024 lists both labels; EPA 2024 has one unlabelled row at the 19.2 kW time, so in the US the 19.2 kW trim is the one EPA rates (see new_trims)."
         }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-cadillac-lyriq-2024-specs-433251",
+          "notes": "Tech, Luxury w/1SD and Sport w/1SF pages: 20 in, 265/50R20."
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r3w-cadillac-lyriq-2024-specs-433255",
+          "notes": "Sport w/1SK page: 22 in, 275/40R22 (top 2024 trims; which other trims have 22 in not confirmed).",
+          "low_confidence": true
+        }
       ]
     },
     {
@@ -56,6 +71,21 @@
           "kind": "manufacturer",
           "source_id": "src-nrcan-bev-2026-09",
           "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. US: EPA 2024 single row 6.7 h matches this charger (11.5 kW would take about 10.7 h)."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-cadillac-lyriq-2024-specs-433251",
+          "notes": "Tech, Luxury w/1SD and Sport w/1SF pages: 20 in, 265/50R20."
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r3w-cadillac-lyriq-2024-specs-433255",
+          "notes": "Sport w/1SK page: 22 in, 275/40R22 (top 2024 trims; which other trims have 22 in not confirmed).",
+          "low_confidence": true
         }
       ]
     }

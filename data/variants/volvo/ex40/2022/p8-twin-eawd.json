@@ -45,7 +45,16 @@
       "id": "standard",
       "names": {
         "US": "P8 Twin eAWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-xc40-recharge-pure-electric-2022-specs",
+          "notes": "P8 eAWD Twin: 19x7.5, P235/50HR19 front, P255/45HR19 rear; Plus and Ultimate not shown (Ultimate may have 20 in).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

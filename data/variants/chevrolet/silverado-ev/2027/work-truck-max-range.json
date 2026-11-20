@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Work Truck Max Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-silverado-ev-2026-specs-471783",
+          "notes": "No 2027 page on Cars.com; 18 in carried from the 2026 Work Truck pages.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

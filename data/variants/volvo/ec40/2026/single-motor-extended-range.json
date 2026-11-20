@@ -40,7 +40,23 @@
       "names": {
         "CA": "Single Motor Extended Range",
         "US": "Single Motor Extended Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ec40-2025-specs-457200",
+          "notes": "RWD Core: 19x7.5, P235/50HR19 front, P255/45HR19 rear. Carried from the 2025 page.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ec40-2025-specs-457198",
+          "notes": "Twin AWD Ultra page (20 in); the RWD Ultra page was not opened, so 20 in on the single-motor Ultra is assumed.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

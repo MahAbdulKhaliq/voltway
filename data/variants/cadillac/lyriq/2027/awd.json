@@ -41,6 +41,20 @@
           "low_confidence": true,
           "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
         }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-cadillac-lyriq-2027-specs",
+          "notes": "Luxury: 20 in, 265/50R20."
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r3w-cadillac-lyriq-2027-specs-485166",
+          "notes": "Signature Sport: 22 in, 275/40R22."
+        }
       ]
     },
     {
@@ -56,6 +70,20 @@
           "source_id": "src-epa-fueleconomy-2026-11",
           "low_confidence": true,
           "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-cadillac-lyriq-2027-specs",
+          "notes": "Luxury: 20 in, 265/50R20."
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r3w-cadillac-lyriq-2027-specs-485166",
+          "notes": "Signature Sport: 22 in, 275/40R22."
         }
       ]
     }

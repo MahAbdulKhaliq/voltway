@@ -38,7 +38,15 @@
       "id": "standard",
       "names": {
         "US": "Single Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ex90-2026-specs",
+          "notes": "Single Motor Plus 7-Seater: 20x8.5 front / 20x9.5 rear, P255/50VR20 / P285/45VR20."
+        }
+      ]
     }
   ]
 }

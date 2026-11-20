@@ -1156,14 +1156,6 @@
       "title": "Cars.com - 2027 Tesla Model Y L Premium Launch Series AWD specs",
       "url": "https://www.cars.com/research/tesla-model_y-2027/specs/488787/",
       "accessed_on": "2026-11-20"
-    },
-    {
-      "id": "src-r3w-autodata-nevera",
-      "type": "community",
-      "title": "Auto-Data - Rimac Nevera 120 kWh (1914 HP) AWD",
-      "url": "https://www.auto-data.net/en/rimac-nevera-120-kwh-1914hp-awd-43581",
-      "accessed_on": "2026-11-20",
-      "notes": "Tires 275/35 R20 front, 315/35 R20 rear on 20-inch rims; covers model years 2021-2026."
     }
   ],
   "variants": {
@@ -1175,7 +1167,7 @@
               "diameter_in": 22,
               "is_standard": true,
               "source_id": "src-r3w-ga-celestiq25",
-              "notes": "Derived from the P285/40R22 tire size on Guide Auto (Canada); GM press material (not opened, news.gm.com 403) is reported to say 23 in, so this may be wrong.",
+              "notes": "Derived from the P285/40R22 tire size on Guide Auto (Canada); GM press material (not opened, news.gm.com 403) is reported to say 23 in, so this may be wrong. GM launch material says 23 in (not opened, news.gm.com 403) and a 22x9 forged accessory wheel exists; kept 22 in, low confidence.",
               "low_confidence": true
             }
           ]
@@ -1190,7 +1182,7 @@
               "diameter_in": 22,
               "is_standard": true,
               "source_id": "src-r3w-ga-celestiq25",
-              "notes": "Carried from the 2025 Guide Auto page (no 2026 page opened); derived from tire code P285/40R22. Press reports 23 in (not opened).",
+              "notes": "Carried from the 2025 Guide Auto page (no 2026 page opened); derived from tire code P285/40R22. Press reports 23 in (not opened). GM launch material says 23 in (not opened, news.gm.com 403) and a 22x9 forged accessory wheel exists; kept 22 in, low confidence.",
               "low_confidence": true
             }
           ]
@@ -1499,12 +1491,46 @@
               "low_confidence": true
             }
           ]
+        },
+        "standard": {
+          "wheels": [
+            {
+              "diameter_in": 20,
+              "is_standard": true,
+              "source_id": "src-r3w-cadillac-lyriq-2025-specs-461016",
+              "notes": "Luxury w/1SC and Sport w/1SF pages: 20 in, 265/50R20."
+            },
+            {
+              "diameter_in": 22,
+              "is_standard": true,
+              "source_id": "src-r3w-cadillac-lyriq-2025-specs-461022",
+              "notes": "Sport w/1SK page: 22 in, 275/40R22; other top trims not confirmed.",
+              "low_confidence": true
+            }
+          ]
         }
       }
     },
     "cadillac/lyriq/2025/rwd": {
       "trims": {
         "19-2-kw-charger": {
+          "wheels": [
+            {
+              "diameter_in": 20,
+              "is_standard": true,
+              "source_id": "src-r3w-cadillac-lyriq-2025-specs-461016",
+              "notes": "Luxury w/1SC and Sport w/1SF pages: 20 in, 265/50R20."
+            },
+            {
+              "diameter_in": 22,
+              "is_standard": true,
+              "source_id": "src-r3w-cadillac-lyriq-2025-specs-461022",
+              "notes": "Sport w/1SK page: 22 in, 275/40R22; other top trims not confirmed.",
+              "low_confidence": true
+            }
+          ]
+        },
+        "standard": {
           "wheels": [
             {
               "diameter_in": 20,
@@ -3807,17 +3833,10 @@
         "standard": {
           "wheels": [
             {
-              "diameter_in": 16,
-              "is_standard": true,
-              "source_id": "src-r3w-nissan-leaf-2024-specs-442395",
-              "notes": "Cars.com lists only S (16x6.5 steel, P205/55HR16) and SV PLUS for the US; this SV is not listed, so both the S wheel and the 2022 SV 17 in (below) are given.",
-              "low_confidence": true
-            },
-            {
               "diameter_in": 17,
               "is_standard": true,
-              "source_id": "src-r3w-nissan-leaf-2022-specs-420861",
-              "notes": "2022 SV page: 17x6.5 aluminum; assumed for the SV.",
+              "source_id": "src-r3w-nissan-leaf-2024-specs-442396",
+              "notes": "US SV PLUS page: 17x6.5 aluminum, P215/50VR17; applied to the CA SV / US SV PLUS variant.",
               "low_confidence": true
             }
           ]
@@ -3829,17 +3848,10 @@
         "standard": {
           "wheels": [
             {
-              "diameter_in": 16,
-              "is_standard": true,
-              "source_id": "src-r3w-nissan-leaf-2025-specs-454224",
-              "notes": "Cars.com lists only S (16x6.5 steel, P205/55HR16) and SV PLUS for the US; this SV is not listed, so both the S wheel and the 2022 SV 17 in (below) are given.",
-              "low_confidence": true
-            },
-            {
               "diameter_in": 17,
               "is_standard": true,
-              "source_id": "src-r3w-nissan-leaf-2022-specs-420861",
-              "notes": "2022 SV page: 17x6.5 aluminum; assumed for the SV.",
+              "source_id": "src-r3w-nissan-leaf-2025-specs-454225",
+              "notes": "US SV PLUS page: 17x6.5 aluminum, P215/50VR17; applied to the CA SV / US SV PLUS variant.",
               "low_confidence": true
             }
           ]
@@ -4256,17 +4268,10 @@
         "standard": {
           "wheels": [
             {
-              "diameter_in": 18,
-              "is_standard": true,
-              "source_id": "src-r3w-lexus-rz-450e-2024-specs-452533",
-              "notes": "US Premium AWD w/18 in. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
-              "low_confidence": true
-            },
-            {
               "diameter_in": 20,
               "is_standard": true,
               "source_id": "src-r3w-lexus-rz-450e-2023-specs-436374",
-              "notes": "US Premium AWD w/20 in / Luxury: 20x8 front, 20x9.5 rear, P235/50VR20 / P255/45WR20. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
+              "notes": "US Luxury AWD: 20x8 front, 20x9.5 rear, P235/50VR20 / P255/45WR20. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
               "low_confidence": true
             }
           ]
@@ -4278,10 +4283,17 @@
         "standard": {
           "wheels": [
             {
-              "diameter_in": 20,
+              "diameter_in": 18,
               "is_standard": true,
+              "source_id": "src-r3w-lexus-rz-450e-2024-specs-452533",
+              "notes": "US Premium AWD w/18 in standard. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
+              "low_confidence": true
+            },
+            {
+              "diameter_in": 20,
+              "is_standard": false,
               "source_id": "src-r3w-lexus-rz-450e-2023-specs-436374",
-              "notes": "US Luxury AWD: 20x8 front, 20x9.5 rear. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
+              "notes": "US Premium AWD w/20 in option. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
               "low_confidence": true
             }
           ]
@@ -4293,17 +4305,10 @@
         "standard": {
           "wheels": [
             {
-              "diameter_in": 18,
-              "is_standard": true,
-              "source_id": "src-r3w-lexus-rz-450e-2024-specs-452533",
-              "notes": "US Premium AWD w/18 in. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
-              "low_confidence": true
-            },
-            {
               "diameter_in": 20,
               "is_standard": true,
               "source_id": "src-r3w-lexus-rz-450e-2024-specs-452533",
-              "notes": "US Premium AWD w/20 in / Luxury: 20x8 front, 20x9.5 rear, P235/50VR20 / P255/45WR20. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
+              "notes": "US Luxury AWD: 20x8 front, 20x9.5 rear, P235/50VR20 / P255/45WR20. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
               "low_confidence": true
             }
           ]
@@ -4315,10 +4320,17 @@
         "standard": {
           "wheels": [
             {
-              "diameter_in": 20,
+              "diameter_in": 18,
               "is_standard": true,
               "source_id": "src-r3w-lexus-rz-450e-2024-specs-452533",
-              "notes": "US Luxury AWD: 20x8 front, 20x9.5 rear. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
+              "notes": "US Premium AWD w/18 in standard. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
+              "low_confidence": true
+            },
+            {
+              "diameter_in": 20,
+              "is_standard": false,
+              "source_id": "src-r3w-lexus-rz-450e-2024-specs-452533",
+              "notes": "US Premium AWD w/20 in option. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
               "low_confidence": true
             }
           ]
@@ -4330,17 +4342,10 @@
         "standard": {
           "wheels": [
             {
-              "diameter_in": 18,
-              "is_standard": true,
-              "source_id": "src-r3w-lexus-rz-450e-2025-specs-466576",
-              "notes": "US Premium AWD w/18 in. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
-              "low_confidence": true
-            },
-            {
               "diameter_in": 20,
               "is_standard": true,
               "source_id": "src-r3w-lexus-rz-450e-2025-specs-466576",
-              "notes": "US Premium AWD w/20 in / Luxury: 20x8 front, 20x9.5 rear, P235/50VR20 / P255/45WR20. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
+              "notes": "US Luxury AWD: 20x8 front, 20x9.5 rear, P235/50VR20 / P255/45WR20. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
               "low_confidence": true
             }
           ]
@@ -4352,10 +4357,17 @@
         "standard": {
           "wheels": [
             {
-              "diameter_in": 20,
+              "diameter_in": 18,
               "is_standard": true,
               "source_id": "src-r3w-lexus-rz-450e-2025-specs-466576",
-              "notes": "US Luxury AWD: 20x8 front, 20x9.5 rear. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
+              "notes": "US Premium AWD w/18 in standard. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
+              "low_confidence": true
+            },
+            {
+              "diameter_in": 20,
+              "is_standard": false,
+              "source_id": "src-r3w-lexus-rz-450e-2025-specs-466576",
+              "notes": "US Premium AWD w/20 in option. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
               "low_confidence": true
             }
           ]
@@ -4367,17 +4379,10 @@
         "standard": {
           "wheels": [
             {
-              "diameter_in": 18,
-              "is_standard": true,
-              "source_id": "src-r3w-lexus-rz-450e-2026-specs-482177",
-              "notes": "US Premium AWD: 18x7.5 front, 18x8 rear. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
-              "low_confidence": true
-            },
-            {
               "diameter_in": 20,
               "is_standard": true,
               "source_id": "src-r3w-lexus-rz-450e-2026-specs-482178",
-              "notes": "US Luxury AWD: 20x8 front, 20x9.5 rear. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
+              "notes": "US Luxury AWD: 20x8 front, 20x9.5 rear, P235/50VR20 / P255/45WR20. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
               "low_confidence": true
             }
           ]
@@ -4389,10 +4394,17 @@
         "standard": {
           "wheels": [
             {
-              "diameter_in": 20,
+              "diameter_in": 18,
               "is_standard": true,
+              "source_id": "src-r3w-lexus-rz-450e-2026-specs-482177",
+              "notes": "US Premium AWD w/18 in standard. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
+              "low_confidence": true
+            },
+            {
+              "diameter_in": 20,
+              "is_standard": false,
               "source_id": "src-r3w-lexus-rz-450e-2026-specs-482178",
-              "notes": "US Luxury AWD: 20x8 front, 20x9.5 rear. Voltway trim names (Luxury / Signature) are Canadian names; mapped to the US Premium w/18 in, Premium w/20 in and Luxury (20 in) trims, so the mapping is assumed.",
+              "notes": "US Premium AWD w/20 in option (2026 Premium page shows 18 in only; 20 in option carried from earlier years). Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
               "low_confidence": true
             }
           ]
@@ -4407,7 +4419,7 @@
               "diameter_in": 18,
               "is_standard": true,
               "source_id": "src-r3w-lexus-rz-350e-2026-specs-482181",
-              "notes": "US RZ 350e Premium FWD: 18x7.5 front, 18x8 rear, P235/60VR18 / P255/55VR18; Canadian Signature trim name assumed to match.",
+              "notes": "US RZ 350e Premium FWD: 18x7.5 front, 18x8 rear, P235/60VR18 / P255/55VR18; Canadian Signature trim name assumed to match. (350e not affected by the Luxury/Signature remap.)",
               "low_confidence": true
             }
           ]
@@ -4935,36 +4947,7 @@
               "diameter_in": 19,
               "is_standard": true,
               "source_id": "src-r3w-tesla-model-y-2027-specs-488787",
-              "notes": "L Premium Launch Series AWD: 19x9.5 aluminum, P255/45WR19 front, P275/45WR19 rear."
-            }
-          ]
-        }
-      }
-    },
-    "rimac/nevera/2024/nevera": {
-      "trims": {
-        "standard": {
-          "wheels": [
-            {
-              "diameter_in": 20,
-              "is_standard": true,
-              "source_id": "src-r3w-autodata-nevera",
-              "notes": "20 in front and rear (275/35 R20, 315/35 R20). Spec database, not a maker page; the Nevera R is reported to use 20 in front / 21 in rear.",
-              "low_confidence": true
-            }
-          ]
-        }
-      }
-    },
-    "rimac/nevera/2025/nevera": {
-      "trims": {
-        "standard": {
-          "wheels": [
-            {
-              "diameter_in": 20,
-              "is_standard": true,
-              "source_id": "src-r3w-autodata-nevera",
-              "notes": "20 in front and rear (275/35 R20, 315/35 R20). Spec database, not a maker page; the Nevera R is reported to use 20 in front / 21 in rear.",
+              "notes": "L Premium Launch Series AWD: 19x9.5 aluminum, P255/45WR19 front, P275/45WR19 rear. CONFLICT: the EPA row in the merged data says 20 in standard; Cars.com shows 19 in. No page opened supports 20 in, so 20 in is not added.",
               "low_confidence": true
             }
           ]

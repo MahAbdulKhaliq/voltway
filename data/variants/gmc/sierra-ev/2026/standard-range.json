@@ -33,7 +33,21 @@
       "names": {
         "CA": "Standard Range",
         "US": "Standard Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-gmc-sierra-ev-2026-specs",
+          "notes": "Standard Range Elevation: 18x8.5 aluminum, LT265/70R18."
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r3w-gmc-sierra-ev-2026-specs-471576",
+          "notes": "Standard Range Denali: 22x9 aluminum, LT275/50R22."
+        }
+      ]
     }
   ]
 }

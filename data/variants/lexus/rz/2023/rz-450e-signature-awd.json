@@ -43,7 +43,23 @@
       "names": {
         "CA": "RZ 450e Signature AWD",
         "US": "RZ 450e Premium AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-lexus-rz-450e-2024-specs-452533",
+          "notes": "US Premium AWD w/18 in standard. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r3w-lexus-rz-450e-2023-specs-436374",
+          "notes": "US Premium AWD w/20 in option. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

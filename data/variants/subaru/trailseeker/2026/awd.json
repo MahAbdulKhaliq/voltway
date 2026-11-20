@@ -44,7 +44,23 @@
       "id": "standard",
       "names": {
         "CA": "AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-subaru-trailseeker-2027-specs-488367",
+          "notes": "2027 US Premium AWD: 18x7.5, P235/60VR18; no 2026 Premium page opened; applied to Canada.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-subaru-trailseeker-2026-specs-483012",
+          "notes": "US 2026 Limited AWD: 20x7.5, P235/50VR20; applied to Canada.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

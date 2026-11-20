@@ -35,7 +35,15 @@
       "id": "standard",
       "names": {
         "US": "XLE Plus FWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-toyota-bz-2027-specs-486892",
+          "notes": "XLE Plus FWD: 18x7.5 aluminum, P235/60VR18."
+        }
+      ]
     }
   ]
 }

@@ -54,7 +54,16 @@
       "names": {
         "CA": "Twin",
         "US": "Twin Motor AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ex40-2026-specs",
+          "notes": "Single Motor Plus page; the twin trims were not opened (Ultra may have 20 in).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

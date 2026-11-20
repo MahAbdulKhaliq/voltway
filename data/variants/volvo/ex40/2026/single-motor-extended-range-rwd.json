@@ -45,7 +45,15 @@
       "id": "standard",
       "names": {
         "US": "Single Motor Extended Range RWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ex40-2026-specs",
+          "notes": "Plus: 19x7.5, P235/50HR19 front, P255/45HR19 rear."
+        }
+      ]
     }
   ]
 }

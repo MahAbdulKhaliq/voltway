@@ -52,7 +52,16 @@
       "id": "standard",
       "names": {
         "CA": "EX40"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ex40-2026-specs",
+          "notes": "US Plus page applied to the Canadian EX40.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

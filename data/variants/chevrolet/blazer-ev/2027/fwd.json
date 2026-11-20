@@ -31,7 +31,22 @@
       "id": "standard",
       "names": {
         "US": "FWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-blazer-ev-2027-specs",
+          "notes": "FWD LT: 19 in, 255/60R19."
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-blazer-ev-2027-specs-484978",
+          "notes": "AWD RS page read; FWD RS assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

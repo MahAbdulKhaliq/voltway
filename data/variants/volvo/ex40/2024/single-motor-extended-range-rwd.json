@@ -47,7 +47,16 @@
       "names": {
         "US": "Single Motor Extended Range RWD",
         "CA": "Single Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ex40-2025-specs",
+          "notes": "2025 Core: 19x7.5 aluminum, P235/50HR19 front, P255/45HR19 rear; no 2024 page opened.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

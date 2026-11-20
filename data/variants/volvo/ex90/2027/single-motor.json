@@ -38,7 +38,16 @@
       "id": "standard",
       "names": {
         "US": "Single Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ex90-2026-specs",
+          "notes": "No 2027 page; carried from 2026.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

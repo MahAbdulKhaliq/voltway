@@ -40,6 +40,20 @@
           "source_id": "src-nrcan-bev-2026-09",
           "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2025 lists only \"LT/RST Ext Range (19.2 kW Charger)\" for this variant; the powertrain value of 11.5 kW is wrong for it."
         }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs-459571",
+          "notes": "Extended Range LT: 18 in aluminum."
+        },
+        {
+          "diameter_in": 24,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs-459572",
+          "notes": "Extended Range RST: 24x9 aluminum, LT275/50R24."
+        }
       ]
     }
   ]

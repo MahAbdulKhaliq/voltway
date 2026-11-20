@@ -40,7 +40,22 @@
       "names": {
         "CA": "AWD",
         "US": "AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-blazer-ev-2025-specs",
+          "notes": "FWD LT page shows 19 in; the AWD LT page was not opened, assumed the same.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-blazer-ev-2025-specs-455774",
+          "notes": "AWD RS: 21 in, 275/45R21."
+        }
+      ]
     }
   ]
 }

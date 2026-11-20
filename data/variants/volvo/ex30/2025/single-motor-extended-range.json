@@ -33,7 +33,16 @@
       "names": {
         "CA": "Single Motor Extended Range",
         "US": "Single Motor Extended Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ex30-2026-specs",
+          "notes": "2026 Core page: 19x8, P245/45VR19; 2025 single-motor page not opened (the 2025 Twin Plus is also 19 in). Plus and Ultra not opened.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

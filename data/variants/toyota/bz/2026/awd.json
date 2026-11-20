@@ -48,6 +48,22 @@
           "low_confidence": true,
           "notes": "Quick web lookup. Page lists \"Heat pump system for both heating and air-conditioning\" for the model without trim qualifier; recorded as standard. Page names no trims; trim coverage unconfirmed."
         }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-toyota-bz-2026-specs-475995",
+          "notes": "US XLE AWD: 18x7.5, P235/60VR18; applied to the Canadian AWD.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-toyota-bz-2026-specs-475998",
+          "notes": "US Limited AWD: 20x7.5, P235/50VR20; applied to the Canadian AWD.",
+          "low_confidence": true
+        }
       ]
     }
   ]

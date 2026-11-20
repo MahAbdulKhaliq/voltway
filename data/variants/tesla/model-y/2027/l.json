@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "L"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-tesla-model-y-2027-specs-488787",
+          "notes": "L Premium Launch Series AWD: 19x9.5 aluminum, P255/45WR19 front, P275/45WR19 rear. CONFLICT: the EPA row in the merged data says 20 in standard; Cars.com shows 19 in. No page opened supports 20 in, so 20 in is not added.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

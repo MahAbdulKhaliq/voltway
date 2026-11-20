@@ -40,13 +40,37 @@
       "names": {
         "CA": "Blazer EV",
         "US": "FWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs",
+          "notes": "FWD LT: 19 in, 255/60R19."
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs-473488",
+          "notes": "AWD RS: 21 in; applied to the other RS trims.",
+          "low_confidence": true
+        }
+      ]
     },
     {
       "id": "22-in-wheels",
       "names": {
         "CA": "(22\" Wheels)"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs-473490",
+          "notes": "22 in as on the 2026 AWD SS page (the trim name says 22-in wheels; no page ties this regulator row to a trim).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

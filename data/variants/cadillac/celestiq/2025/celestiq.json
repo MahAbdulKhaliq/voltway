@@ -33,7 +33,16 @@
       "names": {
         "CA": "Celestiq",
         "US": "Celestiq"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r3w-ga-celestiq25",
+          "notes": "Derived from the P285/40R22 tire size on Guide Auto (Canada); GM press material (not opened, news.gm.com 403) is reported to say 23 in, so this may be wrong. GM launch material says 23 in (not opened, news.gm.com 403) and a 22x9 forged accessory wheel exists; kept 22 in, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

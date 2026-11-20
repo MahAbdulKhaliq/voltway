@@ -38,7 +38,16 @@
       "id": "standard",
       "names": {
         "US": "Twin Motor Performance"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ex90-2025-specs",
+          "notes": "No 2027 page; carried from 2025/2026 pages.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

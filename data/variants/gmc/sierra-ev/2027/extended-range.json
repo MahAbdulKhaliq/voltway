@@ -31,7 +31,23 @@
       "id": "standard",
       "names": {
         "US": "Extended Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-gmc-sierra-ev-2026-specs-471578",
+          "notes": "No 2027 page on Cars.com; 18 in carried from the 2026 Extended Range Elevation page (AT4 is 18 in too).",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r3w-gmc-sierra-ev-2026-specs-471574",
+          "notes": "No 2027 page; 22 in carried from the 2026 Extended Range Denali page.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

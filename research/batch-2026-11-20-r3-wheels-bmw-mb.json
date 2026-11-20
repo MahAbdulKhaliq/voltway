@@ -1709,7 +1709,8 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-r3w-cars-com-research-bmw-i7-2024-specs-443976",
-       "notes": "xDrive60 Sedan: 20 x 9 front / 20 x 10.5 rear aluminum, P255/45R20 and P285/40R20; M Sport Package (Style 907M) is the same 20 in size. (US page; Canadian cars assumed the same.)"
+       "notes": "xDrive60 Sedan: 20 x 9 front / 20 x 10.5 rear aluminum, P255/45R20 and P285/40R20; M Sport Package (Style 907M) is the same 20 in size. US sizes from the Cars.com US page. Canada differs: NRCan rows in the merged data give 19 in standard (20 and 21 in options) for the Canadian car; Canadian sizes are not entered here (NRCan page not opened by me).",
+       "low_confidence": true
       }
      ]
     }
@@ -1723,7 +1724,8 @@
        "diameter_in": 21,
        "is_standard": true,
        "source_id": "src-r3w-cars-com-research-bmw-i7-2024-specs-443978",
-       "notes": "M70 Sedan: 21 x 9 front / 21 x 10.5 rear aluminum, P255/40R21 and P285/35R21; no optional wheels listed. (US page; Canadian cars assumed the same.)"
+       "notes": "M70 Sedan: 21 x 9 front / 21 x 10.5 rear aluminum, P255/40R21 and P285/35R21; no optional wheels listed. US sizes from the Cars.com US page. Canada differs: NRCan rows in the merged data give 20 in standard (21 in option) for the Canadian car; Canadian sizes are not entered here (NRCan page not opened by me).",
+       "low_confidence": true
       }
      ]
     }
@@ -1757,7 +1759,8 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-r3w-cars-com-research-bmw-i7-2025-specs-460782",
-       "notes": "xDrive60 Sedan: 20 x 9 front / 20 x 10.5 rear aluminum, P255/45R20 and P285/40R20; M Sport Package (Style 907M) is the same 20 in size. (US page; Canadian cars assumed the same.)"
+       "notes": "xDrive60 Sedan: 20 x 9 front / 20 x 10.5 rear aluminum, P255/45R20 and P285/40R20; M Sport Package (Style 907M) is the same 20 in size. US sizes from the Cars.com US page. Canada differs: NRCan rows in the merged data give 19 in standard (20 and 21 in options) for the Canadian car; Canadian sizes are not entered here (NRCan page not opened by me).",
+       "low_confidence": true
       }
      ]
     }
@@ -1771,7 +1774,8 @@
        "diameter_in": 21,
        "is_standard": true,
        "source_id": "src-r3w-cars-com-research-bmw-i7-2025-specs-460783",
-       "notes": "M70 Sedan: 21 x 9 front / 21 x 10.5 rear aluminum, P255/40R21 and P285/35R21; no optional wheels listed. (US page; Canadian cars assumed the same.)"
+       "notes": "M70 Sedan: 21 x 9 front / 21 x 10.5 rear aluminum, P255/40R21 and P285/35R21; no optional wheels listed. US sizes from the Cars.com US page. Canada differs: NRCan rows in the merged data give 20 in standard (21 in option) for the Canadian car; Canadian sizes are not entered here (NRCan page not opened by me).",
+       "low_confidence": true
       }
      ]
     }
@@ -1805,7 +1809,8 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-r3w-cars-com-research-bmw-i7-2026-specs-478987",
-       "notes": "xDrive60 Sedan: 20 x 9 front / 20 x 10.5 rear aluminum, P255/45R20 and P285/40R20; M Sport Package (Style 907M) is the same 20 in size. (US page; Canadian cars assumed the same.)"
+       "notes": "xDrive60 Sedan: 20 x 9 front / 20 x 10.5 rear aluminum, P255/45R20 and P285/40R20; M Sport Package (Style 907M) is the same 20 in size. US sizes from the Cars.com US page. Canada differs: NRCan rows in the merged data give 19 in standard (20 and 21 in options) for the Canadian car; Canadian sizes are not entered here (NRCan page not opened by me).",
+       "low_confidence": true
       }
      ]
     }
@@ -1819,7 +1824,8 @@
        "diameter_in": 21,
        "is_standard": true,
        "source_id": "src-r3w-cars-com-research-bmw-i7-2026-specs-478988",
-       "notes": "M70 Sedan: 21 x 9 front / 21 x 10.5 rear aluminum, P255/40R21 and P285/35R21; no optional wheels listed. (US page; Canadian cars assumed the same.)"
+       "notes": "M70 Sedan: 21 x 9 front / 21 x 10.5 rear aluminum, P255/40R21 and P285/35R21; no optional wheels listed. US sizes from the Cars.com US page. Canada differs: NRCan rows in the merged data give 20 in standard (21 in option) for the Canadian car; Canadian sizes are not entered here (NRCan page not opened by me).",
+       "low_confidence": true
       }
      ]
     }
@@ -3457,50 +3463,6 @@
     }
    }
   },
-  "mercedes/amg-gt-4-door/2027/amg-gt-55-4matic-plus-4-door-coupe": {
-   "trims": {
-    "*": {
-     "wheels": [
-      {
-       "diameter_in": 20,
-       "is_standard": true,
-       "source_id": "src-r3w-mbusa-com-en-vehicles-class-amg-gt-4-door-mercedes-amg-gt-4-door-coupe",
-       "notes": "AMG GT 4-Door Coupe (electric): MBUSA says AMG wheels come \"in a range of 20-inch and forged-alloy 21-inch designs\". Which size is standard on which trim is not stated; 20 in (the smaller) is assumed standard.",
-       "low_confidence": true
-      },
-      {
-       "diameter_in": 21,
-       "is_standard": false,
-       "source_id": "src-r3w-greencars-com-expert-insights-2027-mercedes-amg-gt-4-door-coupe-first-look",
-       "notes": "Forged 21 in aero-optimized wheels (GreenCars, MBUSA); assumed optional.",
-       "low_confidence": true
-      }
-     ]
-    }
-   }
-  },
-  "mercedes/amg-gt-4-door/2027/amg-gt-63-4matic-plus-4-door-coupe": {
-   "trims": {
-    "*": {
-     "wheels": [
-      {
-       "diameter_in": 20,
-       "is_standard": true,
-       "source_id": "src-r3w-mbusa-com-en-vehicles-class-amg-gt-4-door-mercedes-amg-gt-4-door-coupe",
-       "notes": "AMG GT 4-Door Coupe (electric): MBUSA says AMG wheels come \"in a range of 20-inch and forged-alloy 21-inch designs\". Which size is standard on which trim is not stated; 20 in (the smaller) is assumed standard.",
-       "low_confidence": true
-      },
-      {
-       "diameter_in": 21,
-       "is_standard": false,
-       "source_id": "src-r3w-greencars-com-expert-insights-2027-mercedes-amg-gt-4-door-coupe-first-look",
-       "notes": "Forged 21 in aero-optimized wheels (GreenCars, MBUSA); assumed optional.",
-       "low_confidence": true
-      }
-     ]
-    }
-   }
-  },
   "rolls-royce/spectre/2024/spectre": {
    "trims": {
     "*": {
@@ -3530,14 +3492,14 @@
        "diameter_in": 22,
        "is_standard": false,
        "source_id": "src-r3w-driveclean-ca-gov-taxonomy-term-42595",
-       "notes": "Black Badge: CARB lists a 22 in test configuration for model years 2024 and 2025 beside the 23 in one; which cars got it is not stated. (US page; Canadian cars assumed the same.)",
+       "notes": "Black Badge: CARB lists a 22 in test configuration for model years 2024 and 2025 beside the 23 in one; which cars got it is not stated. (US page; Canadian cars assumed the same.) DriveClean shows both 22 in and 23 in Black Badge configurations for 2024/2025 without saying which is standard; the NRCan row in the merged data says 22 in, the 23 in comes from the Cars.com 2025 Black Badge page.",
        "low_confidence": true
       },
       {
        "diameter_in": 23,
        "is_standard": true,
        "source_id": "src-r3w-driveclean-ca-gov-taxonomy-term-42596",
-       "notes": "Black Badge: 23 in forged wheels (Cars.com 2025 Black Badge page: 23 in, P255/45R23 front / P285/40R23 rear; CARB 23 in configuration covers 2024 and 2025). (US page; Canadian cars assumed the same.)",
+       "notes": "Black Badge: 23 in forged wheels (Cars.com 2025 Black Badge page: 23 in, P255/45R23 front / P285/40R23 rear; CARB 23 in configuration covers 2024 and 2025). (US page; Canadian cars assumed the same.) DriveClean shows both 22 in and 23 in Black Badge configurations for 2024/2025 without saying which is standard; the NRCan row in the merged data says 22 in, the 23 in comes from the Cars.com 2025 Black Badge page.",
        "low_confidence": true
       }
      ]
@@ -3588,6 +3550,13 @@
    "trims": {
     "*": {
      "wheels": [
+      {
+       "diameter_in": 22,
+       "is_standard": false,
+       "source_id": "src-r3w-driveclean-ca-gov-taxonomy-term-42595",
+       "low_confidence": true,
+       "notes": "Black Badge: DriveClean/EPA list a 22 in configuration (the EPA row in the merged data has 22 in as standard); standard size for 2027 not stated on a page for that year, so recorded as an option next to the 23 in on the Cars.com 2027 Black Badge page. (US page; Canadian car assumed the same.)"
+      },
       {
        "diameter_in": 23,
        "is_standard": true,
@@ -3707,7 +3676,8 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-r3w-cars-com-research-maserati-grecale-folgore-2026-specs",
-       "notes": "Grecale Folgore AWD: front 20 x 9 in (P255/45R20), rear 20 x 10.5 in (P295/40R20)."
+       "notes": "Grecale Folgore AWD: front 20 x 9 in (P255/45R20), rear 20 x 10.5 in (P295/40R20). Conflict: the EPA row in the merged data lists 19 in as standard (20 and 21 in options) for the US car; the Cars.com page lists 20 in front/rear.",
+       "low_confidence": true
       }
      ]
     }
@@ -3721,7 +3691,7 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-r3w-cars-com-research-maserati-grecale-folgore-2026-specs",
-       "notes": "Grecale Folgore AWD: front 20 x 9 in (P255/45R20), rear 20 x 10.5 in (P295/40R20). Carried from the 2026 page, no page for this exact year opened.",
+       "notes": "Grecale Folgore AWD: front 20 x 9 in (P255/45R20), rear 20 x 10.5 in (P295/40R20). Carried from the 2026 page, no page for this exact year opened. Conflict: the EPA row in the merged data lists 19 in as standard (20 and 21 in options) for the US car; the Cars.com page lists 20 in front/rear.",
        "low_confidence": true
       }
      ]

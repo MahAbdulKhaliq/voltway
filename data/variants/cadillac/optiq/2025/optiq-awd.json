@@ -40,6 +40,15 @@
           "source_id": "src-nrcan-bev-2026-09",
           "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
         }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-cadillac-optiq-2025-specs",
+          "notes": "AWD Luxury w/1SC: 20 in, 245/50R20. Sport and other trims not opened.",
+          "low_confidence": true
+        }
       ]
     },
     {
@@ -54,6 +63,15 @@
           "kind": "manufacturer",
           "source_id": "src-nrcan-bev-2026-09",
           "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-cadillac-optiq-2025-specs",
+          "notes": "AWD Luxury w/1SC: 20 in, 245/50R20. Sport and other trims not opened.",
+          "low_confidence": true
         }
       ]
     }

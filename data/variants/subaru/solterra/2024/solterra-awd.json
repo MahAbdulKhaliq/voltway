@@ -38,7 +38,23 @@
       "id": "standard",
       "names": {
         "CA": "Solterra AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-subaru-solterra-2023-specs-427542",
+          "notes": "2023 US Premium AWD page; no 2024 Premium page opened.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-subaru-solterra-2024-specs-451419",
+          "notes": "US Limited AWD: 20 in; applied to Canada.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

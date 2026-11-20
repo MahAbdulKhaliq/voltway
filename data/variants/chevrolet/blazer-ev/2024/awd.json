@@ -40,7 +40,21 @@
       "names": {
         "CA": "AWD",
         "US": "AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-blazer-ev-2024-specs",
+          "notes": "eAWD LT: 19 in, 255/60R19."
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": true,
+          "source_id": "src-r3w-chevrolet-blazer-ev-2024-specs-439102",
+          "notes": "eAWD RS: 21 in, 275/45R21."
+        }
+      ]
     }
   ]
 }

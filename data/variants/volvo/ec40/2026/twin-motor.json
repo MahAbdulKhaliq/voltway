@@ -40,7 +40,23 @@
       "names": {
         "CA": "Twin Motor",
         "US": "Twin Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ec40-2025-specs-457196",
+          "notes": "Twin AWD Core: 19x7.5, P235/50HR19 front, P255/45HR19 rear. Carried from the 2025 page.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-volvo-ec40-2025-specs-457198",
+          "notes": "Twin AWD Ultra: 20x7.5, P235/45HR20 front, P255/40HR20 rear. Carried from the 2025 page.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

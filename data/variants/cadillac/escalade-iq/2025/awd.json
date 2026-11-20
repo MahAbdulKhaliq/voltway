@@ -9,34 +9,112 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-techcrunch-escalade-iq-2025",
+      "low_confidence": true,
+      "notes": "Launches with CCS (TechCrunch, relaying Cadillac); GM moved to NACS only for 2027 (autoevolution). Canadian car assumed the same. Canada: no Canadian page read; assumed the same as the US car (owner check)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-autoevolution-gm-2027-nacs",
+      "low_confidence": true,
+      "notes": "Estimated: GM says every GM EV of model year 2026 or earlier except the Optiq needs the GM NACS adapter (US page, lists Escalade IQ and IQL). Canada: GM sells the same C$310 adapter for its CCS1 EVs (Guide Auto names Lyriq, not the Escalade IQ), so the Canadian car is assumed the same. Model year 2025. Canada: no Canadian page read; assumed the same as the US car (owner check)."
+    }
+  ],
   "trims": [
     {
       "id": "luxury-1",
       "names": {
         "CA": "Luxury 1",
         "US": "Luxury 1"
-      }
+      },
+      "ac_max_kw": [
+        {
+          "value": 11.5,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-cars-escalade-iq-2025",
+          "low_confidence": true,
+          "notes": "Luxury 1 has the 11.5 kW onboard charger (Cars.com, US). Edmunds says 19.2 kW is optional on these trims. Canada not stated."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 740,
+          "unit": "km",
+          "kind": "manufacturer",
+          "source_id": "src-gm-techlink-escalade-iq",
+          "low_confidence": true,
+          "notes": "GM: \"Cadillac-estimated 460 miles\". Launch figure was 450 miles (TechCrunch, InsideEVs). Canada: \"over 700 km\" (Auto123, relaying Cadillac); no Canadian per-trim or per-wheel figure found. GM publishes one figure per model, not per wheel size; 24-inch wheels with 35-inch tires were the launch configuration. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+        }
+      ]
     },
     {
       "id": "sport-1",
       "names": {
         "CA": "Sport 1",
         "US": "Sport 1"
-      }
+      },
+      "ac_max_kw": [
+        {
+          "value": 11.5,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-cars-escalade-iq-2025",
+          "low_confidence": true,
+          "notes": "Sport 1 has the 11.5 kW onboard charger (Cars.com, US). Canada not stated."
+        }
+      ],
+      "range_km": [
+        {
+          "value": 740,
+          "unit": "km",
+          "kind": "manufacturer",
+          "source_id": "src-gm-techlink-escalade-iq",
+          "low_confidence": true,
+          "notes": "GM: \"Cadillac-estimated 460 miles\". Launch figure was 450 miles (TechCrunch, InsideEVs). Canada: \"over 700 km\" (Auto123, relaying Cadillac); no Canadian per-trim or per-wheel figure found. GM publishes one figure per model, not per wheel size; 24-inch wheels with 35-inch tires were the launch configuration. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+        }
+      ]
     },
     {
       "id": "luxury-2",
       "names": {
         "CA": "Luxury 2",
         "US": "Luxury 2"
-      }
+      },
+      "range_km": [
+        {
+          "value": 740,
+          "unit": "km",
+          "kind": "manufacturer",
+          "source_id": "src-gm-techlink-escalade-iq",
+          "low_confidence": true,
+          "notes": "GM: \"Cadillac-estimated 460 miles\". Launch figure was 450 miles (TechCrunch, InsideEVs). Canada: \"over 700 km\" (Auto123, relaying Cadillac); no Canadian per-trim or per-wheel figure found. GM publishes one figure per model, not per wheel size; 24-inch wheels with 35-inch tires were the launch configuration. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+        }
+      ]
     },
     {
       "id": "sport-2",
       "names": {
         "CA": "Sport 2",
         "US": "Sport 2"
-      }
+      },
+      "range_km": [
+        {
+          "value": 740,
+          "unit": "km",
+          "kind": "manufacturer",
+          "source_id": "src-gm-techlink-escalade-iq",
+          "low_confidence": true,
+          "notes": "GM: \"Cadillac-estimated 460 miles\". Launch figure was 450 miles (TechCrunch, InsideEVs). Canada: \"over 700 km\" (Auto123, relaying Cadillac); no Canadian per-trim or per-wheel figure found. GM publishes one figure per model, not per wheel size; 24-inch wheels with 35-inch tires were the launch configuration. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+        }
+      ]
     }
   ]
 }

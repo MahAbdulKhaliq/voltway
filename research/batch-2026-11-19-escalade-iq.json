@@ -163,7 +163,7 @@
       "kind": "manufacturer",
       "source_id": "src-wards-escalade-iql",
       "low_confidence": true,
-      "notes": "Cadillac figure for the 24-module Ultium pack shared by the IQ and IQL (Wards relaying Cadillac IQL release; Cars.com IQL, Consumer Guide, Wikipedia, TTAC and InsideEVs 2027 all say 205 kWh). GM 2025 launch text calls it \"more than 200 kWh of available energy\" (GM TechLink) and Wikipedia labels 205 as usable, so it is read as usable. KBB, Cars.com 2025 and Guide Auto say 200 kWh; Cars.com IQL says the IQL pack is 5 kWh bigger than the IQ, which Wards contradicts. Gross not stated by GM (Wikipedia 233.3 kWh unverified, not recorded)."
+      "notes": "Cadillac figure for the 24-module Ultium pack shared by the IQ and IQL (Wards relaying Cadillac IQL release; Cars.com IQL, Consumer Guide, Wikipedia, TTAC and InsideEVs 2027 all say 205 kWh). GM 2025 launch text calls it \"more than 200 kWh of available energy\" (GM TechLink) and Wikipedia labels 205 as usable, so it is read as usable. KBB, Cars.com 2025 and Guide Auto say 200 kWh; Cars.com IQL says the IQL pack is 5 kWh bigger than the IQ, which Wards contradicts. Gross not stated by GM (Wikipedia 233.3 kWh unverified, not recorded). Fact-check: no page says \"usable\" outright; GM says \"more than 200 kWh of available energy\" (owner check)."
      }
     ],
     "battery.chemistry": [
@@ -190,7 +190,7 @@
       "kind": "estimated",
       "source_id": "src-cadillac-dc-fast-charging-support",
       "low_confidence": true,
-      "notes": "Estimated: Cadillac support page (cadillac.com returns 403; read as a search excerpt only): routing to a DC fast charger with Google built-in navigation automatically preconditions the battery, and the Cadillac app offers a manual Fast Charge Prep. Lineup-wide Cadillac EV feature, not read on an Escalade IQ page. UNVERIFIED for this model."
+      "notes": "Estimated: Cadillac support page (cadillac.com returns 403; read as a search excerpt only): routing to a DC fast charger with Google built-in navigation automatically preconditions the battery, and the Cadillac app offers a manual Fast Charge Prep. Lineup-wide Cadillac EV feature, not read on an Escalade IQ page. UNVERIFIED for this model. Fact-check: support page excerpt is not Escalade-specific and says manual conditioning is \"if equipped\"."
      }
     ],
     "dc_max_kw": [
@@ -208,9 +208,9 @@
       "value": 19.2,
       "unit": "kW",
       "kind": "manufacturer",
-      "source_id": "src-techcrunch-escalade-iq-2025",
+      "source_id": "src-insideevs-escalade-iq-2027-nacs",
       "low_confidence": true,
-      "notes": "Cadillac: onboard charger up to 19.2 kW (240 V, 80 A), 37 miles of range per hour. Standard only on the higher trims in 2025 and 2026 (Luxury 1/Sport 1 and 2026 Luxury/Sport have 11.5 kW, set per trim), standard on every trim from 2027 (InsideEVs, TTAC)."
+      "notes": "Cadillac: onboard charger up to 19.2 kW (), 37 miles of range per hour. Standard only on the higher trims in 2025 and 2026 (Luxury 1/Sport 1 and 2026 Luxury/Sport have 11.5 kW, set per trim), standard on every trim from 2027 (InsideEVs, TTAC). Source corrected after fact-check: InsideEVs (2027) states 19.2 kW; TechCrunch gives only miles per hour of Level 2."
      }
     ]
    }
@@ -224,7 +224,7 @@
       "kind": "manufacturer",
       "source_id": "src-wards-escalade-iql",
       "low_confidence": true,
-      "notes": "Cadillac IQL release as relayed by Wards: 205 kWh from the 24-module battery shared with the Escalade IQ (also Cars.com IQL, TheDrive, Motor Authority). Read as usable, see the Escalade IQ powertrain. Guide Auto (Canada) says 200 kWh."
+      "notes": "Cadillac IQL release as relayed by Wards: 205 kWh from the 24-module battery shared with the Escalade IQ (also Cars.com IQL, TheDrive, Motor Authority). Read as usable, see the Escalade IQ powertrain. Guide Auto (Canada) says 200 kWh. Fact-check: no page says \"usable\" outright; GM says \"more than 200 kWh of available energy\" (owner check)."
      }
     ],
     "battery.chemistry": [
@@ -251,7 +251,7 @@
       "kind": "estimated",
       "source_id": "src-cadillac-dc-fast-charging-support",
       "low_confidence": true,
-      "notes": "Estimated: Cadillac support page (cadillac.com returns 403; read as a search excerpt only): routing to a DC fast charger with Google built-in navigation automatically preconditions the battery, and the Cadillac app offers a manual Fast Charge Prep. Lineup-wide Cadillac EV feature, not read on an Escalade IQ page. UNVERIFIED for this model."
+      "notes": "Estimated: Cadillac support page (cadillac.com returns 403; read as a search excerpt only): routing to a DC fast charger with Google built-in navigation automatically preconditions the battery, and the Cadillac app offers a manual Fast Charge Prep. Lineup-wide Cadillac EV feature, not read on an Escalade IQ page. UNVERIFIED for this model. Fact-check: support page excerpt is not Escalade-specific and says manual conditioning is \"if equipped\"."
      }
     ],
     "dc_max_kw": [
@@ -287,7 +287,7 @@
       "kind": "manufacturer",
       "source_id": "src-techcrunch-escalade-iq-2025",
       "low_confidence": true,
-      "notes": "Launches with CCS (TechCrunch, relaying Cadillac); GM moved to NACS only for 2027 (autoevolution). Canadian car assumed the same."
+      "notes": "Launches with CCS (TechCrunch, relaying Cadillac); GM moved to NACS only for 2027 (autoevolution). Canadian car assumed the same. Canada: no Canadian page read; assumed the same as the US car (owner check)."
      }
     ],
     "supercharger_access": [
@@ -296,7 +296,7 @@
       "kind": "estimated",
       "source_id": "src-autoevolution-gm-2027-nacs",
       "low_confidence": true,
-      "notes": "Estimated: GM says every GM EV of model year 2026 or earlier except the Optiq needs the GM NACS adapter (US page, lists Escalade IQ and IQL). Canada: GM sells the same C$310 adapter for its CCS1 EVs (Guide Auto names Lyriq, not the Escalade IQ), so the Canadian car is assumed the same. Model year 2025."
+      "notes": "Estimated: GM says every GM EV of model year 2026 or earlier except the Optiq needs the GM NACS adapter (US page, lists Escalade IQ and IQL). Canada: GM sells the same C$310 adapter for its CCS1 EVs (Guide Auto names Lyriq, not the Escalade IQ), so the Canadian car is assumed the same. Model year 2025. Canada: no Canadian page read; assumed the same as the US car (owner check)."
      }
     ]
    },
@@ -348,7 +348,7 @@
       "kind": "manufacturer",
       "source_id": "src-consumerguide-escalade-iq-2026",
       "low_confidence": true,
-      "notes": "Charging standard CCS on the 2026 IQ (Consumer Guide); 2026 and earlier GM EVs have CCS1 (autoevolution). Canadian car assumed the same."
+      "notes": "Charging standard CCS on the 2026 IQ (Consumer Guide); 2026 and earlier GM EVs have CCS1 (autoevolution). Canadian car assumed the same. Canada: no Canadian page read; assumed the same as the US car (owner check)."
      }
     ],
     "supercharger_access": [
@@ -357,7 +357,7 @@
       "kind": "estimated",
       "source_id": "src-autoevolution-gm-2027-nacs",
       "low_confidence": true,
-      "notes": "Estimated: GM says every GM EV of model year 2026 or earlier except the Optiq needs the GM NACS adapter (US page, lists Escalade IQ and IQL). Canada: GM sells the same C$310 adapter for its CCS1 EVs (Guide Auto names Lyriq, not the Escalade IQ), so the Canadian car is assumed the same. Model year 2026."
+      "notes": "Estimated: GM says every GM EV of model year 2026 or earlier except the Optiq needs the GM NACS adapter (US page, lists Escalade IQ and IQL). Canada: GM sells the same C$310 adapter for its CCS1 EVs (Guide Auto names Lyriq, not the Escalade IQ), so the Canadian car is assumed the same. Model year 2026. Canada: no Canadian page read; assumed the same as the US car (owner check)."
      }
     ]
    },
@@ -443,10 +443,10 @@
     "charge_port": [
      {
       "value": "ccs1",
-      "kind": "manufacturer",
+      "kind": "estimated",
       "source_id": "src-autoevolution-gm-2027-nacs",
       "low_confidence": true,
-      "notes": "IQL is a 2026 model with CCS1 (GM: NACS only from model year 2027). Canadian car assumed the same."
+      "notes": "Estimated: no page names the IQL port; same CCS1 as the 2026 IQ on the shared platform. IQL is a 2026 model with CCS1 (GM: NACS only from model year 2027). Canadian car assumed the same. Canada: no Canadian page read; assumed the same as the US car (owner check)."
      }
     ],
     "supercharger_access": [
@@ -455,7 +455,7 @@
       "kind": "estimated",
       "source_id": "src-autoevolution-gm-2027-nacs",
       "low_confidence": true,
-      "notes": "Estimated: GM says every GM EV of model year 2026 or earlier except the Optiq needs the GM NACS adapter (US page, lists Escalade IQ and IQL). Canada: GM sells the same C$310 adapter for its CCS1 EVs (Guide Auto names Lyriq, not the Escalade IQ), so the Canadian car is assumed the same. Model year 2026."
+      "notes": "Estimated: GM says every GM EV of model year 2026 or earlier except the Optiq needs the GM NACS adapter (US page, lists Escalade IQ and IQL). Canada: GM sells the same C$310 adapter for its CCS1 EVs (Guide Auto names Lyriq, not the Escalade IQ), so the Canadian car is assumed the same. Model year 2026. Canada: no Canadian page read; assumed the same as the US car (owner check)."
      }
     ]
    },
@@ -465,10 +465,10 @@
       {
        "value": 11.5,
        "unit": "kW",
-       "kind": "manufacturer",
+       "kind": "estimated",
        "source_id": "src-cars-escalade-iql-2026",
        "low_confidence": true,
-       "notes": "IQL: 11.5 kW standard, 19.2 kW available (Cars.com, relaying Cadillac). Which trims get 19.2 kW is not stated; Luxury and Sport assumed 11.5 like the 2026 IQ."
+       "notes": "Estimated: Cars.com says 11.5 kW is standard and 19.2 kW available on the IQL, not per trim; assumed Luxury/Sport carry the standard unit as on the 2026 IQ. IQL: 11.5 kW standard, 19.2 kW available (Cars.com, relaying Cadillac). Which trims get 19.2 kW is not stated; Luxury and Sport assumed 11.5 like the 2026 IQ."
       }
      ]
     },
@@ -477,10 +477,10 @@
       {
        "value": 11.5,
        "unit": "kW",
-       "kind": "manufacturer",
+       "kind": "estimated",
        "source_id": "src-cars-escalade-iql-2026",
        "low_confidence": true,
-       "notes": "IQL: 11.5 kW standard (Cars.com). Sport assumed 11.5 like the 2026 IQ."
+       "notes": "Estimated: Cars.com says 11.5 kW is standard and 19.2 kW available on the IQL, not per trim; assumed Luxury/Sport carry the standard unit as on the 2026 IQ. IQL: 11.5 kW standard (Cars.com). Sport assumed 11.5 like the 2026 IQ."
       }
      ]
     },
@@ -520,20 +520,7 @@
      }
     ]
    },
-   "trims": {
-    "*": {
-     "range_km": [
-      {
-       "value": 740,
-       "unit": "km",
-       "kind": "estimated",
-       "source_id": "src-newswheel-escalade-iq-2027",
-       "low_confidence": true,
-       "notes": "Estimated: carried over from the 2026 IQL (no 2027 IQL figure found). No 2027 IQL range found; the 2026 claim (460 miles, 740 km) is carried over as unverified; low_confidence. Manufacturer estimate, not an EPA/NRCan rating (B97)."
-      }
-     ]
-    }
-   }
+   "trims": {}
   }
  }
 }

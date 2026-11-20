@@ -137,3 +137,31 @@ export function optionsFor(index: IndexEntry[], pick: (e: IndexEntry) => string 
 
 /** Text that search looks at for a car. */
 export const searchText = (e: IndexEntry) => ({ id: e.id, make: e.make, model: e.model, name: e.name, trims: e.trims.join(' '), year: String(e.year) });
+
+/** B106: how many cars one page shows, per view. */
+export const PAGE_SIZE: Record<View, number> = { cards: 48, table: 50 };
+
+export interface PageSlice<T> { items: T[]; page: number; pages: number; from: number; to: number }
+
+/** One page of the results (1-based); an out-of-range page is clamped. `from`/`to` are 1-based positions. */
+export function pageSlice<T>(list: T[], page: number, view: View): PageSlice<T> {
+  const size = PAGE_SIZE[view];
+  const pages = Math.max(1, Math.ceil(list.length / size));
+  const p = Math.min(Math.max(1, Math.floor(page) || 1), pages);
+  const start = (p - 1) * size;
+  const items = list.slice(start, start + size);
+  return { items, page: p, pages, from: items.length ? start + 1 : 0, to: start + items.length };
+}
+
+/** Page buttons to show: first, last and the current page ±1, with null for a gap ("…"). */
+export function pageButtons(page: number, pages: number): (number | null)[] {
+  const keep = new Set([1, pages, page - 1, page, page + 1].filter((n) => n >= 1 && n <= pages));
+  const sorted = [...keep].sort((a, b) => a - b);
+  const out: (number | null)[] = [];
+  sorted.forEach((n, i) => {
+    if (i > 0 && n - sorted[i - 1] === 2) out.push(n - 1);   // a single hidden page: show it rather than "…"
+    else if (i > 0 && n - sorted[i - 1] > 2) out.push(null);
+    out.push(n);
+  });
+  return out;
+}

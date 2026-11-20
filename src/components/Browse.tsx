@@ -10,7 +10,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode, Fragment } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import {
-  activeCount, DEFAULT_DIR, defaultFilters, matches, optionsFor, readState, SORTS, sortCars,
+  activeCount, DEFAULT_DIR, defaultFilters, matches, optionsFor, pageButtons, pageSlice, readState, SORTS, sortCars,
   type BrowseFilters, type BrowseState, type SortKey,
 } from '../lib/browse.ts';
 import { makeCarSearch } from '../lib/car-search.ts';
@@ -157,8 +157,20 @@ export default function Browse({ index }: Props) {
   }, [index, f, query, search, state.sort, state.dir]);
   const terms = query.trim().split(/\s+/).filter((w) => w.length > 0);
 
+  // B106: one page at a time. A new filter, search, sort or view starts again at page 1.
+  const [page, setPage] = useState(1);
+  const listKey = `${JSON.stringify(f)}|${query}|${state.sort}|${state.dir}|${state.view}`;
+  useEffect(() => setPage(1), [listKey]);
+  const slice = pageSlice(results, page, state.view);
+  const resultsEl = useRef<HTMLElement>(null);
+  const goPage = (n: number) => {
+    setPage(n);
+    const smooth = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    resultsEl.current?.scrollIntoView({ block: 'start', behavior: smooth ? 'smooth' : 'auto' });
+  };
+
   // Live reflow: the cards (or table rows) animate whenever the shown list or its order changes.
-  const order = `${state.view}:${results.map((e) => e.id).join('|')}`;
+  const order = `${state.view}:${slice.items.map((e) => e.id).join('|')}`;
   useFlip(state.view === 'cards' ? cardsEl : rowsEl, state.view === 'cards' ? ghostEl : null, order);
 
   const active = activeCount(f, index);
@@ -362,7 +374,7 @@ export default function Browse({ index }: Props) {
         </aside>
         {sheetOpen && <div className="bf-backdrop" onClick={() => { setSheetOpen(false); sheetBtn.current?.focus(); }} aria-hidden="true" />}
 
-        <section className="browse-results" aria-busy={!ready}>
+        <section ref={resultsEl} className="browse-results" aria-busy={!ready}>
           {/* Only the status line is live (the final count, once); the big number beside it ticks. */}
           <p className="browse-count">
             <span className="count-num" aria-hidden="true">
@@ -378,7 +390,7 @@ export default function Browse({ index }: Props) {
           {state.view === 'cards' && (
             <div className="cards-stage">
               <ul ref={cardsEl} className="car-cards">
-                {results.map((e) => (
+                {slice.items.map((e) => (
                   <li key={e.id} data-flip={e.id} className="car-card card">
                     <p className="small muted cc-body">{t(`body.${e.body_type}` as MessageKey)} · {e.year}</p>
                     <h3 className="cc-name"><a href={carHref(e.id)} aria-label={t('browse.open', { car: carName(e) })}><Mark text={`${e.make} ${e.model}`} terms={terms} /></a></h3>
@@ -408,7 +420,7 @@ export default function Browse({ index }: Props) {
                 </tr>
               </thead>
               <tbody ref={rowsEl}>
-                {results.map((e) => (
+                {slice.items.map((e) => (
                   <tr key={e.id} data-flip={e.id}>
                     <td className="bt-car" data-label={t('browse.col.car')}>
                       <a className="bt-name" href={carHref(e.id)}><Mark text={`${e.make} ${e.model}`} terms={terms} /></a>
@@ -432,6 +444,20 @@ export default function Browse({ index }: Props) {
               </tbody>
             </table>
             </div>
+          )}
+
+          {slice.pages > 1 && (
+            <nav className="pager" aria-label={t('browse.pages')}>
+              <p className="small muted pager-range">{t('browse.showing', { from: formatNumber(slice.from), to: formatNumber(slice.to), count: formatNumber(results.length) })}</p>
+              <div className="pager-buttons">
+                <button type="button" className="btn small" disabled={slice.page === 1} onClick={() => goPage(slice.page - 1)}>{t('browse.prev')}</button>
+                {pageButtons(slice.page, slice.pages).map((n, i) => n === null
+                  ? <span key={`gap${i}`} className="pager-gap" aria-hidden="true">…</span>
+                  : <button key={n} type="button" className={`btn small pager-num${n === slice.page ? ' on' : ''}`} aria-current={n === slice.page ? 'page' : undefined}
+                      aria-label={t('browse.pageN', { n })} onClick={() => goPage(n)}>{n}</button>)}
+                <button type="button" className="btn small" disabled={slice.page === slice.pages} onClick={() => goPage(slice.page + 1)}>{t('browse.next')}</button>
+              </div>
+            </nav>
           )}
         </section>
       </div>

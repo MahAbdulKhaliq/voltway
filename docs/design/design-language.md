@@ -193,9 +193,14 @@ The one dialog behind the header's "Change car" and Compare's "Add a car":
 - "Plugs my car can use" is a second raised panel: one row per plug with the map filter's plug drawing, its name and a switch, divided by faint lines;
 - the actions sit in a bar pinned to the dialog's foot (surface, top border). On phones the main button takes the row.
 
-### Car settings dialog (B120, owner 2026-11-20)
+### Dialogs (B120, owner 2026-11-20)
 
-The My car settings dialog uses the car picker's frame. Its head (owner, 2026-11-20): "Car settings" as a small muted label in sentence case (owner: no all caps), then the year, make and model as the headline, in Overpass 800 at 2 rem (1.65 rem on phones) like the trip time, then the variant in smaller muted text. Then **See its charging curve** as a row action on a raised block (chart icon, label, go chevron, like the trip panel's Change car), then the **Range estimates** and **Plugs my car can use** panels. **Back to defaults** is a small underlined accent button in the Range estimates header, shown only while the wheels or heat pump differ from the defaults (like the Cars filters' Clear, §10). The pinned foot bar holds only Save and Cancel.
+Every prompt dialog (Car settings, Change car / Pick your car, Add a car to compare) shares one head and one kind of link (classes `.dlg-head`, `.dlg-eyebrow`, `.dlg-title`, `.dlg-sub`, `.dlg-row`):
+- the head: a small muted label in sentence case naming the action ("Car settings", "Change car" or "My car", "Compare"), the headline in Overpass 800 at 2 rem (1.65 rem on phones), then a muted line (the variant, or the intro);
+- a link elsewhere (the car's charging curve, "Just browsing? See all cars", "Browse all cars") is a row action on a raised block: icon, label, go chevron;
+- the pinned foot bar holds only the main button and Cancel.
+
+**Car settings:** The My car settings dialog uses the car picker's frame. Its head (owner, 2026-11-20): "Car settings" as a small muted label in sentence case (owner: no all caps), then the year, make and model as the headline, in Overpass 800 at 2 rem (1.65 rem on phones) like the trip time, then the variant in smaller muted text. Then **See its charging curve** as a row action on a raised block (chart icon, label, go chevron, like the trip panel's Change car), then the **Range estimates** and **Plugs my car can use** panels. **Back to defaults** is a small underlined accent button in the Range estimates header, shown only while the wheels or heat pump differ from the defaults (like the Cars filters' Clear, §10). The pinned foot bar holds only Save and Cancel.
 
 ### Speed marks in menus (B89 round 4, owner 2026-11-19)
 

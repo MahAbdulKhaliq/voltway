@@ -118,18 +118,18 @@ export function CarSettingsPanel({ mine, onDone }: PanelProps) {
     <section className="car-picker card car-settings" aria-labelledby={`${id}-title`}>
       {/* Owner 2026-11-20: the car leads, big and bold like the trip time (.ti-time); its variant
           smaller under it; "Car settings" a small label above. */}
-      <header className="cs-head">
-        <p className="cs-eyebrow">{t('mycar.settingsTitle')}</p>
-        <h2 id={`${id}-title`} className="cs-car">{carChipParts(mine)[1]}</h2>
-        {variantText && <p className="cs-variant">{variantText}</p>}
+      <header className="dlg-head">
+        <p className="dlg-eyebrow">{t('mycar.settingsTitle')}</p>
+        <h2 id={`${id}-title`} className="dlg-title">{carChipParts(mine)[1]}</h2>
+        {variantText && <p className="dlg-sub">{variantText}</p>}
       </header>
       {/* The car's page, as a row action like the trip panel's Change car (design-language §8 rows). */}
-      <a href={carHref(mine.carId, trimId)} className="cs-curve">
+      <a href={carHref(mine.carId, trimId)} className="dlg-row">
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 19V5M4 19h16M7 15l4-6 3 3 5-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
         <span>{t('mycar.curveLink')}</span>
-        <svg className="route-car-change-go" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+        <svg className="dlg-row-go" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
       </a>

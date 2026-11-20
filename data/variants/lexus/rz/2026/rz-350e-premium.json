@@ -41,7 +41,16 @@
       "id": "standard",
       "names": {
         "US": "RZ 350e Premium"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2w-lex-rz26",
+          "notes": "RZ 350e range is quoted with 18-inch tires; grade mapping not stated, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -87,7 +87,7 @@ describe('planCarFrom (every built car)', () => {
     const noDcPort = new Set(cars.filter((c) => c.fields.dc_max_kw?.value.value === 0).map((c) => c.id));
     const failed = results.filter((x) => !x.r.ok && !noDcPort.has(x.id) && !(x.r as { missing: string[] }).missing.includes('charge_port'));
     expect(results.length).toBeGreaterThan(50);
-    expect(failed.length).toBeLessThanOrEqual(7); // 7 on 2026-11-20: Escalade IQ/IQL x5 have no regulator highway consumption (B97, manufacturer data only); Spectre 2027 x2 have no sourced DC peak (owner question)
+    expect(failed.length).toBeLessThanOrEqual(2); // 2 on 2026-11-20: Spectre 2027 x2 have no sourced DC peak (owner question); B97 trucks now carry estimated consumption (B103)
     for (const f of results.filter((x) => !x.r.ok)) expect((f.r as { missing: string[] }).missing.length).toBeGreaterThan(0);
   });
   it('a Tesla is a NACS Tesla with a DC peak', () => {

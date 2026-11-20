@@ -55,7 +55,16 @@
       "id": "19-in-wheels",
       "names": {
         "CA": "Single Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-ps2-ca",
+          "notes": "Polestar Canada page lists 19-inch Aero only; not model-year specific, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

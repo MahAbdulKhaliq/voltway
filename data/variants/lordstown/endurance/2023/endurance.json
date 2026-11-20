@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Endurance"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-endurance-electrek",
+          "notes": "Pre-production spec list gives 20-inch wheels; whether every production truck matches is unconfirmed, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

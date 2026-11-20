@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "500e"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 17,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-f25",
+          "notes": "2024 and 2025 both 17 in; 2026 not checked, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

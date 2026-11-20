@@ -27,6 +27,16 @@
       "notes": "US: GM-approved NACS adapter; GMC Hummer EV is on InsideEVs 2026 Supercharger-access list. Current state for a 2022-23 owner."
     }
   ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 388,
+      "unit": "Wh/km",
+      "kind": "estimated",
+      "source_id": "src-r2gm-insideevs-hummer-range-test",
+      "low_confidence": true,
+      "notes": "Estimated (B103): the 2022 Edition 1's measured 70 mph highway figure (InsideEVs), same truck and powertrain (gmc/hummer-ev-pickup/2022-edition-1). No 2023 test or regulator rating (over 10,000 lb GVWR)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

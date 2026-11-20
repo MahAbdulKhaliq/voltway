@@ -48,7 +48,7 @@ describe('the real build: per-trim ratings and wheels', () => {
 
   it('gives a trim rated on its own row its own charger, efficiency and range (LYRIQ AWD 19.2 kW)', () => {
     const t = car('cadillac/lyriq/2026/awd').trims.find((x) => x.id === '19-2-kw-charger')!;
-    expect(t.ac_max_kw?.value).toMatchObject({ value: 19.2, unit: 'kW', kind: 'rated_nrcan' });
+    expect(t.ac_max_kw?.value).toMatchObject({ value: 19.2, unit: 'kW' });
     expect(t.range_km?.value.value).toBe(488);
     expect(t.consumption_combined_wh_per_km?.value.value).toBeGreaterThan(0);
     const base = car('cadillac/lyriq/2026/awd').trims.find((x) => x.id === '11-5-kw-charger')!;

@@ -47,7 +47,22 @@
       "names": {
         "CA": "Long Range Single Motor",
         "US": "Long Range Single Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-ps2-2024cars",
+          "notes": "Cars.com 2024: 19 x 8 front, 19 x 9 rear."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-ps2-ins2023",
+          "notes": "20-inch optional per the 2023 and 2022 Polestar lists; 2024 low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

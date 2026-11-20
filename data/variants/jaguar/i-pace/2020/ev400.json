@@ -33,7 +33,16 @@
       "names": {
         "CA": "EV400",
         "US": "EV400"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-ip20",
+          "notes": "S AWD 18 x 7.5 (entry trim; SE/HSE not on the page). Page gives the S trim (18 in) only; SE and HSE assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

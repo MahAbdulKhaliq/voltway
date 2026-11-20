@@ -38,7 +38,30 @@
       "id": "standard",
       "names": {
         "US": "eDrive40"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-bmw-5-series-2024-us",
+          "notes": "eDrive40 (US): i5 eDrive40: 19-inch Aerospoke standard.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-bmw-5-series-2024-us",
+          "notes": "eDrive40 (US): i5 eDrive40: 20-inch optional.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": false,
+          "source_id": "src-bmw-5-series-2024-us",
+          "notes": "eDrive40 (US): i5 eDrive40: 21-inch optional.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

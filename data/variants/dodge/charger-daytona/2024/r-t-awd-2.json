@@ -33,7 +33,21 @@
       "names": {
         "CA": "R/T AWD",
         "US": "R/T AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-ch24",
+          "notes": "R/T AWD 18 x 8.5 standard."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-cc-ch24",
+          "notes": "Plus Group ($4,995) includes 20 x 9 wheels."
+        }
+      ]
     }
   ]
 }

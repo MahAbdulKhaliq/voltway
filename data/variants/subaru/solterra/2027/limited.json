@@ -35,7 +35,15 @@
       "id": "standard",
       "names": {
         "US": "Limited"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-sub-sol27",
+          "notes": "Limited adds 20-inch wheels."
+        }
+      ]
     }
   ]
 }

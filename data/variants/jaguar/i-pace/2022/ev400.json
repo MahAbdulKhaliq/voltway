@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "CA": "EV400"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-ip22",
+          "notes": "Only trim on the page: HSE AWD 20 x 8; the Canadian car may also have an entry trim, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

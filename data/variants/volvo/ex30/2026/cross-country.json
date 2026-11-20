@@ -40,7 +40,21 @@
       "names": {
         "CA": "Cross Country",
         "US": "Cross Country"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-ex30cc-ins",
+          "notes": "Cross Country comes standard with 19-inch wheels with street tires."
+        },
+        {
+          "diameter_in": 18,
+          "is_standard": false,
+          "source_id": "src-r2w-ex30cc-ins",
+          "notes": "Optional 18-inch wheels with all-terrain tires."
+        }
+      ]
     }
   ]
 }

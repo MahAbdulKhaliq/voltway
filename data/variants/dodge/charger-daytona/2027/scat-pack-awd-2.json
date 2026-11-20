@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Scat Pack AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-ch26",
+          "notes": "2026 page; 2027 not checked, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

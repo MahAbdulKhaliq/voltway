@@ -33,7 +33,23 @@
       "names": {
         "CA": "Evolve+ e-4ORCE with Platinum+ Package",
         "US": "Platinum+ e-4ORCE"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-ar24",
+          "notes": "Base Platinum+ e-4ORCE assumed to share the Engage 19-inch wheel (page shows Engage only).",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-cars-ariya25",
+          "notes": "20-inch option on Platinum+ e-4ORCE (Cars.com 2025 article); applied to 2024 as same trim, low confidence. The 20 in shows in the Cars.com trim name only (\"w/20\\\" Wheels\"). US page; the Canadian package assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

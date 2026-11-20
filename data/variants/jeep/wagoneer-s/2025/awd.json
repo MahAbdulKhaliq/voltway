@@ -33,7 +33,16 @@
       "names": {
         "CA": "AWD",
         "US": "AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-ws25",
+          "notes": "Limited AWD 20 x 8.5. Page gives Limited 20 in only; Launch Edition assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

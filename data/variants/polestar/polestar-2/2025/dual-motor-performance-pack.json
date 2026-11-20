@@ -57,7 +57,16 @@
       "names": {
         "CA": "Dual Motor Performance Pack",
         "US": "Long Range Dual Motor Performance Pack"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-ps2-global",
+          "notes": "20-inch Performance forged wheel comes with the Performance pack; page not model-year specific, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

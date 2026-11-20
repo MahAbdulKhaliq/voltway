@@ -380,7 +380,11 @@ export function buildCars(root: string): BuildResult {
           }))
         : null;
       const wheels: TrimOut['wheels'] = t.wheels?.length
-        ? oneWheelPerSize(t.wheels).map((w) => ({ ...w, ...(perWheel?.find((p) => p.diameter_in === w.diameter_in) ?? {}), is_standard: w.is_standard }))
+        ? [
+            ...oneWheelPerSize(t.wheels).map((w) => ({ ...w, ...(perWheel?.find((p) => p.diameter_in === w.diameter_in) ?? {}), is_standard: w.is_standard })),
+            // A regulator row rates a size the researched list lacks: keep it as an option (B91, B105).
+            ...(perWheel ?? []).filter((p) => !t.wheels.some((w: { diameter_in: number }) => w.diameter_in === p.diameter_in)).map((p) => ({ ...p, is_standard: false })),
+          ].sort((a, b) => Number(b.is_standard) - Number(a.is_standard) || a.diameter_in - b.diameter_in)
         : perWheel
           ? perWheel
           : hints?.wheel_in

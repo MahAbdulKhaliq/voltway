@@ -40,7 +40,23 @@
       "names": {
         "CA": "eDrive40",
         "US": "eDrive40"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-bmw-i4-2022-ca",
+          "notes": "eDrive40 (CA/US): i4 eDrive40: 18-inch light alloy standard (Canada release).",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": false,
+          "source_id": "src-bmw-i4-2022-ca",
+          "notes": "eDrive40 (CA/US): i4 eDrive40: 19-inch optional.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

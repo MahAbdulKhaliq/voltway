@@ -36,7 +36,15 @@
       "id": "standard",
       "names": {
         "CA": "Woodland AWD (All-Terrain Tire)"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2w-toy-ca-w",
+          "notes": "Canadian Woodland: 18-inch aluminum wheels; the all-terrain tire is the variant, not a wheel size."
+        }
+      ]
     }
   ]
 }

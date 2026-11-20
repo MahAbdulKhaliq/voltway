@@ -47,7 +47,23 @@
       "names": {
         "CA": "Long Range Dual Motor",
         "US": "Long Range Dual Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-ps2-global",
+          "notes": "Polestar spec page: 19-inch Aero base wheel; page not model-year specific, low confidence.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-ps2-global",
+          "notes": "20-inch Pro option on Long Range Dual Motor (without the Performance pack).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

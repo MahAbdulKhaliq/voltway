@@ -47,7 +47,21 @@
       "names": {
         "CA": "Single Motor",
         "US": "Single Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-ps2-ins2023",
+          "notes": "19-inch standard, 20-inch optional."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-ps2-ins2023",
+          "notes": "20-inch optional."
+        }
+      ]
     }
   ]
 }

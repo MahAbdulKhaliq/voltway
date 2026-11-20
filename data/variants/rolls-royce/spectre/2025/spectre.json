@@ -33,7 +33,23 @@
       "names": {
         "CA": "Spectre",
         "US": "Spectre"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-cars-spectre-2025",
+          "notes": "Spectre (CA/US): Spectre: 22-inch forged standard.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 23,
+          "is_standard": false,
+          "source_id": "src-cars-spectre-2025",
+          "notes": "Spectre (CA/US): Spectre: 23-inch Wing Spoke Part Polished in the Enhancement Package.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

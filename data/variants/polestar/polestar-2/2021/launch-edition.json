@@ -47,7 +47,21 @@
       "names": {
         "CA": "Launch Edition",
         "US": "Launch Edition"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-ps2-2021cars",
+          "notes": "Launch Edition standard 19 x 8 / 19 x 9."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-ps2-2021cars",
+          "notes": "Performance Package swaps in 20-inch forged wheels."
+        }
+      ]
     }
   ]
 }

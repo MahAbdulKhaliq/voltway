@@ -44,7 +44,16 @@
       "id": "standard",
       "names": {
         "CA": "Long Range FWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2w-a123-unc",
+          "notes": "Auto123: \"fitted with 18-inch wheels in FWD configuration\" (Canada).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Limited"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-id4-2025",
+          "notes": "Limited (US): ID.4 Limited RWD (US): 19x8 front / 19x9 rear; options not listed on page.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

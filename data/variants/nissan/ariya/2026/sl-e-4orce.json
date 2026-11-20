@@ -53,7 +53,16 @@
       "id": "standard",
       "names": {
         "CA": "SL e-4ORCE"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-nis-ca-ariya",
+          "notes": "Nissan Canada Ariya specs page lists 19-inch alloy wheels with aero covers (and 20-inch alloy wheels, trim mapping not readable); 19-inch taken as standard, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

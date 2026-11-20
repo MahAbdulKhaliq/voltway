@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "CA": "Eco"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-vf8-23",
+          "notes": "2023 and 2025 Eco pages both 19 in; this year not checked, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

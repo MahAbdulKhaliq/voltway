@@ -47,7 +47,21 @@
       "names": {
         "CA": "Long Range Dual Motor",
         "US": "Dual Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-ps2-ins2022",
+          "notes": "Polestar change list: standard 19-inch, optional 20-inch."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-ps2-prn2022",
+          "notes": "20-inch wheels with unique spoke pattern were a $1,200 single option (Performance Pack also includes 20-inch forged)."
+        }
+      ]
     }
   ]
 }

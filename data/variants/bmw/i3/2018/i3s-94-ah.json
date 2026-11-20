@@ -33,7 +33,16 @@
       "names": {
         "CA": "i3s 94 Ah",
         "US": "i3s 94 Ah"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-bmw-i3s-us",
+          "notes": "i3s 94 Ah (CA/US): i3s: standard 20-inch bicolor double-spoke (launch release for the i3s).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

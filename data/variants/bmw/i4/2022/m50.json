@@ -40,7 +40,23 @@
       "names": {
         "CA": "M50",
         "US": "M50"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-bmw-i4-2022-ca",
+          "notes": "M50 (CA/US): i4 M50: 19-inch M light alloy standard, mixed tires (Canada release).",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-bmw-i4-2022-ca",
+          "notes": "M50 (CA/US): i4 M50: other 19 and 20-inch wheels optional.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

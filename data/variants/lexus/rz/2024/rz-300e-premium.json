@@ -35,7 +35,22 @@
       "id": "standard",
       "names": {
         "US": "RZ 300e Premium"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2w-lex-rz24",
+          "notes": "Lexus: Premium rides on 18-inch wheels; range quoted for 18- and 20-inch wheels on the RZ 300e."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-lex-rz24",
+          "notes": "20-inch wheels offered on RZ 300e (EPA range given with 20-inch wheels); Lexus does not state the Premium option explicitly.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

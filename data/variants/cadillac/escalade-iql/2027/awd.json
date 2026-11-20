@@ -26,6 +26,16 @@
       "notes": "Native NACS: Superchargers need no adapter; CCS stalls need a NACS-to-CCS adapter. US."
     }
   ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 287,
+      "unit": "Wh/km",
+      "kind": "estimated",
+      "source_id": "src-r2gm-insideevs-escalade-range-test-2025",
+      "low_confidence": true,
+      "notes": "Estimated (B103): the 2025 Escalade IQ's measured 70 mph highway figure (InsideEVs). Long-wheelbase IQ, same pack and motors, heavier, so likely a little higher. No IQL test or rating found."
+    }
+  ],
   "trims": [
     {
       "id": "luxury",

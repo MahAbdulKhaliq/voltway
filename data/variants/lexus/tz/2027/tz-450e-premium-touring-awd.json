@@ -37,7 +37,23 @@
       "id": "standard",
       "names": {
         "US": "TZ 450e Premium Touring AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-tz-autoguide",
+          "notes": "Premium Touring: range quoted on \"standard 20-inch wheels\".",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": false,
+          "source_id": "src-r2w-lex-tz",
+          "notes": "Lexus offers 22-inch wheels on the TZ (standard on the Luxury grade per AutoGuide).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -27,6 +27,16 @@
       "notes": "Estimated: GM says every GM EV of model year 2026 or earlier except the Optiq needs the GM NACS adapter (US page, lists Escalade IQ and IQL). Canada: GM sells the same C$310 adapter for its CCS1 EVs (Guide Auto names Lyriq, not the Escalade IQ), so the Canadian car is assumed the same. Model year 2026. Canada: no Canadian page read; assumed the same as the US car (owner check)."
     }
   ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 287,
+      "unit": "Wh/km",
+      "kind": "estimated",
+      "source_id": "src-r2gm-insideevs-escalade-range-test-2025",
+      "low_confidence": true,
+      "notes": "Estimated (B103): the 2025 Escalade IQ's measured 70 mph highway figure (InsideEVs). The IQL is the long-wheelbase IQ on the same 24-module pack and motors, and is heavier, so real use is likely a little higher. No IQL test or rating found."
+    }
+  ],
   "trims": [
     {
       "id": "luxury",

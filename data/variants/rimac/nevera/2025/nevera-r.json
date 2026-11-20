@@ -31,7 +31,15 @@
       "id": "standard",
       "names": {
         "US": "Nevera R"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-nevera-r",
+          "notes": "Staggered: 20-inch front, 21-inch rear (diameter_in records the front)."
+        }
+      ]
     }
   ]
 }

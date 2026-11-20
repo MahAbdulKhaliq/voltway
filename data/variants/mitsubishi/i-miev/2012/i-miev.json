@@ -33,7 +33,16 @@
       "names": {
         "CA": "i-MiEV",
         "US": "i-MiEV"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 15,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-imiev12",
+          "notes": "ES 15 in. Page shows ES only; SE assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

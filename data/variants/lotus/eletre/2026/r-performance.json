@@ -22,7 +22,23 @@
       "id": "standard",
       "names": {
         "CA": "R Performance"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r2w-eletre-ce",
+          "notes": "Australian spec page: S and R 22-inch (Eletre base 20-inch); Automotive World also gives 22-inch as the standard forged wheel outside Europe. Canadian market not confirmed, low confidence.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 23,
+          "is_standard": false,
+          "source_id": "src-r2w-eletre-lotusca",
+          "notes": "Lotus Canada Eletre specifications page shows a 23-inch forged wheel on the featured configuration; whether it is an option on these trims is not stated.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

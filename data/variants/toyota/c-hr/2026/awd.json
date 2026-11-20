@@ -48,7 +48,23 @@
       "names": {
         "CA": "AWD",
         "US": "SE"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2w-toy-chr26",
+          "notes": "SE: 18-in. wheels (US). This variant is the SE; the XSE has 20-in. wheels. Canadian trim AWD; size from the US SE page.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-toy-chr26",
+          "notes": "XSE carries 20-inch gunmetal wheels (listed as the larger size on this model). Canadian trim AWD; size from the US SE page.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

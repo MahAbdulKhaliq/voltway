@@ -45,7 +45,23 @@
       "id": "19-in-wheels",
       "names": {
         "CA": "Dual Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-ps2-ca",
+          "notes": "Polestar Canada page lists 19-inch Aero only; not model-year specific, low confidence.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-ps2-global",
+          "notes": "20-inch Pro option on Long Range Dual Motor.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -47,7 +47,16 @@
       "names": {
         "CA": "Twin Motor",
         "US": "Twin Motor AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-ex40-25",
+          "notes": "Page shows Single Motor Core (19 in); Twin Motor assumed the same, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

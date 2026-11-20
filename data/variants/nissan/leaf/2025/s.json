@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "S"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 16,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-leaf2024",
+          "notes": "Neighbouring years of the Leaf S are 16 in; this year not checked, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

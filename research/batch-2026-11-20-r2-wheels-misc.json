@@ -673,13 +673,6 @@
         "*": {
           "wheels": [
             {
-              "diameter_in": 20,
-              "is_standard": false,
-              "source_id": "src-r2w-cars-ariya25",
-              "notes": "20-inch wheels optional on Platinum+ e-4ORCE (Cars.com 2025 article; range drops to 257 mi). 2025 source applied to 2023: same trim, low confidence.",
-              "low_confidence": true
-            },
-            {
               "diameter_in": 19,
               "is_standard": true,
               "source_id": "src-r2w-cc-ar23",
@@ -689,8 +682,9 @@
             {
               "diameter_in": 20,
               "is_standard": false,
-              "source_id": "src-r2w-cc-ar23",
-              "notes": "Page lists a separate \"Platinum+ e-4ORCE AWD w/20 Wheels\" trim."
+              "source_id": "src-r2w-cars-ariya25",
+              "notes": "20-inch wheels optional on Platinum+ e-4ORCE (Cars.com 2025 article; range drops to 257 mi). 2025 source applied to 2023: same trim, low confidence. The 20 in shows in the Cars.com trim name only (\"w/20\\\" Wheels\"). US page; the Canadian package assumed the same.",
+              "low_confidence": true
             }
           ]
         }
@@ -775,13 +769,6 @@
         "*": {
           "wheels": [
             {
-              "diameter_in": 20,
-              "is_standard": false,
-              "source_id": "src-r2w-cars-ariya25",
-              "notes": "20-inch option on Platinum+ e-4ORCE (Cars.com 2025 article); applied to 2024 as same trim, low confidence.",
-              "low_confidence": true
-            },
-            {
               "diameter_in": 19,
               "is_standard": true,
               "source_id": "src-r2w-cc-ar24",
@@ -791,8 +778,9 @@
             {
               "diameter_in": 20,
               "is_standard": false,
-              "source_id": "src-r2w-cc-ar24",
-              "notes": "Page lists a separate \"Platinum+ e-4ORCE AWD w/20 Wheels\" trim."
+              "source_id": "src-r2w-cars-ariya25",
+              "notes": "20-inch option on Platinum+ e-4ORCE (Cars.com 2025 article); applied to 2024 as same trim, low confidence. The 20 in shows in the Cars.com trim name only (\"w/20\\\" Wheels\"). US page; the Canadian package assumed the same.",
+              "low_confidence": true
             }
           ]
         }
@@ -862,12 +850,6 @@
         "*": {
           "wheels": [
             {
-              "diameter_in": 20,
-              "is_standard": false,
-              "source_id": "src-r2w-cars-ariya25",
-              "notes": "Platinum+ e-4ORCE with 20-inch wheels is rated 257 mi vs 267 mi (Cars.com)."
-            },
-            {
               "diameter_in": 19,
               "is_standard": true,
               "source_id": "src-r2w-cc-ar25",
@@ -877,8 +859,9 @@
             {
               "diameter_in": 20,
               "is_standard": false,
-              "source_id": "src-r2w-cc-ar25",
-              "notes": "Page lists a separate \"Platinum+ e-4ORCE AWD w/20 Wheels\" trim."
+              "source_id": "src-r2w-cars-ariya25",
+              "notes": "Platinum+ e-4ORCE with 20-inch wheels is rated 257 mi vs 267 mi (Cars.com). The 20 in shows in the Cars.com trim name only (\"w/20\\\" Wheels\"). US page; the Canadian package assumed the same.",
+              "low_confidence": true
             }
           ]
         }
@@ -1356,13 +1339,14 @@
               "diameter_in": 18,
               "is_standard": true,
               "source_id": "src-r2w-toy-chr26",
-              "notes": "SE: 18-in. wheels (US). This variant is the SE; the XSE has 20-in. wheels."
+              "notes": "SE: 18-in. wheels (US). This variant is the SE; the XSE has 20-in. wheels. Canadian trim AWD; size from the US SE page.",
+              "low_confidence": true
             },
             {
               "diameter_in": 20,
               "is_standard": false,
               "source_id": "src-r2w-toy-chr26",
-              "notes": "XSE carries 20-inch gunmetal wheels (listed as the larger size on this model).",
+              "notes": "XSE carries 20-inch gunmetal wheels (listed as the larger size on this model). Canadian trim AWD; size from the US SE page.",
               "low_confidence": true
             }
           ]
@@ -1391,13 +1375,15 @@
               "diameter_in": 19,
               "is_standard": true,
               "source_id": "src-r2w-lex-es26",
-              "notes": "Every ES comes standard with 19-inch wheels."
+              "notes": "Every ES comes standard with 19-inch wheels.",
+              "low_confidence": true
             },
             {
               "diameter_in": 21,
-              "is_standard": true,
+              "is_standard": false,
               "source_id": "src-r2w-lex-es26",
-              "notes": "21-inch wheels available (Wheel & Tire Package). The Canadian Luxury+ trim includes 21-inch wheels (Lexus Canada pricing release)."
+              "notes": "21-inch wheels available (Wheel & Tire Package). The Canadian Luxury+ trim includes 21-inch wheels (Lexus Canada pricing release). Fact-check: the cited US page calls 21 in an optional package; Lexus Canada pricing release not cited, so recorded as optional.",
+              "low_confidence": true
             }
           ]
         }
@@ -1431,13 +1417,15 @@
               "diameter_in": 19,
               "is_standard": true,
               "source_id": "src-r2w-lex-es26",
-              "notes": "Every ES comes standard with 19-inch wheels."
+              "notes": "Every ES comes standard with 19-inch wheels.",
+              "low_confidence": true
             },
             {
               "diameter_in": 21,
-              "is_standard": true,
+              "is_standard": false,
               "source_id": "src-r2w-lex-es26",
-              "notes": "21-inch wheels available (Wheel & Tire Package). The Canadian Luxury+ trim includes 21-inch wheels (Lexus Canada pricing release)."
+              "notes": "21-inch wheels available (Wheel & Tire Package). The Canadian Luxury+ trim includes 21-inch wheels (Lexus Canada pricing release). Fact-check: the cited US page calls 21 in an optional package; Lexus Canada pricing release not cited, so recorded as optional.",
+              "low_confidence": true
             }
           ]
         }
@@ -1857,7 +1845,8 @@
               "diameter_in": 15,
               "is_standard": true,
               "source_id": "src-r2w-cc-imiev12",
-              "notes": "ES 15 in."
+              "notes": "ES 15 in. Page shows ES only; SE assumed the same.",
+              "low_confidence": true
             }
           ]
         }
@@ -1946,7 +1935,8 @@
               "diameter_in": 19,
               "is_standard": true,
               "source_id": "src-r2w-cc-ex40-25",
-              "notes": "Single Motor Extended Range RWD Core 19 x 7.5."
+              "notes": "Single Motor Extended Range RWD Core 19 x 7.5. Cars.com shows the Core trim only; other trims assumed the same.",
+              "low_confidence": true
             }
           ]
         }
@@ -1975,7 +1965,8 @@
               "diameter_in": 19,
               "is_standard": true,
               "source_id": "src-r2w-cc-ex30-25",
-              "notes": "Twin Motor AWD Plus 19 x 8."
+              "notes": "Twin Motor AWD Plus 19 x 8. Cars.com shows the Plus trim only; other trims assumed the same.",
+              "low_confidence": true
             }
           ]
         }
@@ -2009,7 +2000,8 @@
               "diameter_in": 20,
               "is_standard": true,
               "source_id": "src-r2w-cc-ex90-25",
-              "notes": "Twin Motor Plus 7-Seater 20 x 8.5 front / 20 x 9.5 rear."
+              "notes": "Twin Motor Plus 7-Seater 20 x 8.5 front / 20 x 9.5 rear. Cars.com shows the Plus trim only; other trims assumed the same.",
+              "low_confidence": true
             }
           ]
         }
@@ -2081,7 +2073,8 @@
               "diameter_in": 18,
               "is_standard": true,
               "source_id": "src-r2w-cc-ip20",
-              "notes": "S AWD 18 x 7.5 (entry trim; SE/HSE not on the page)."
+              "notes": "S AWD 18 x 7.5 (entry trim; SE/HSE not on the page). Page gives the S trim (18 in) only; SE and HSE assumed the same.",
+              "low_confidence": true
             }
           ]
         }
@@ -2331,7 +2324,8 @@
               "diameter_in": 20,
               "is_standard": true,
               "source_id": "src-r2w-cc-ws25",
-              "notes": "Limited AWD 20 x 8.5."
+              "notes": "Limited AWD 20 x 8.5. Page gives Limited 20 in only; Launch Edition assumed the same.",
+              "low_confidence": true
             }
           ]
         }
@@ -2345,7 +2339,8 @@
               "diameter_in": 20,
               "is_standard": true,
               "source_id": "src-r2w-cc-ws25",
-              "notes": "Limited AWD 20 x 8.5."
+              "notes": "Limited AWD 20 x 8.5. Page gives Limited 20 in only; Launch Edition assumed the same.",
+              "low_confidence": true
             }
           ]
         }
@@ -2514,7 +2509,8 @@
               "diameter_in": 19,
               "is_standard": true,
               "source_id": "src-r2w-cc-vf8-23",
-              "notes": "Eco AWD 19 x 7.5."
+              "notes": "Eco AWD 19 x 7.5. Cited page is for the 87.7 kWh pack.",
+              "low_confidence": true
             }
           ]
         }
@@ -2543,7 +2539,8 @@
               "diameter_in": 19,
               "is_standard": true,
               "source_id": "src-r2w-cc-vf8-25",
-              "notes": "Eco AWD 19 x 7.5."
+              "notes": "Eco AWD 19 x 7.5. Cited page is for the 87.7 kWh pack.",
+              "low_confidence": true
             }
           ]
         }

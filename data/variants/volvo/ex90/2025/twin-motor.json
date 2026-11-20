@@ -40,7 +40,16 @@
       "names": {
         "CA": "Twin Motor",
         "US": "Twin Motor"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-ex90-25",
+          "notes": "Twin Motor Plus 7-Seater 20 x 8.5 front / 20 x 9.5 rear. Cars.com shows the Plus trim only; other trims assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

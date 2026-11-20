@@ -33,7 +33,30 @@
       "names": {
         "CA": "Q8 e-tron quattro",
         "US": "Q8 e-tron quattro"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-cars-q8etron-2025",
+          "notes": "Q8 e-tron quattro (CA/US): Q8 e-tron (US; page covers Premium/Prestige/Premium Plus, not split by trim): 20-inch standard.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": false,
+          "source_id": "src-cars-q8etron-2025",
+          "notes": "Q8 e-tron quattro (CA/US): Q8 e-tron (US): 21-inch optional.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": false,
+          "source_id": "src-cars-q8etron-2025",
+          "notes": "Q8 e-tron quattro (CA/US): Q8 e-tron (US): 22-inch optional.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

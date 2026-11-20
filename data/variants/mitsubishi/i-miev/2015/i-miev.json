@@ -38,7 +38,16 @@
       "id": "standard",
       "names": {
         "CA": "i-MiEV"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 15,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-imiev12",
+          "notes": "2012 page; 2015 not checked, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

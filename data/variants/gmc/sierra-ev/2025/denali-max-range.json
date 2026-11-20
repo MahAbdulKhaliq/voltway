@@ -37,6 +37,16 @@
       "notes": "US: GMC Sierra EV on InsideEVs 2026 Supercharger-access list (GM NACS adapter)."
     }
   ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 341,
+      "unit": "Wh/km",
+      "kind": "estimated",
+      "source_id": "src-nrcan-bev-2026-09",
+      "low_confidence": true,
+      "notes": "Estimated (B103): NRCan's highway rating for its twin, the 2025 Chevrolet Silverado EV WT Max Range (same 24-module Ultium pack, dual motor). The Denali is heavier and rides on 24-inch wheels, so likely higher. Edmunds' combined test (299 Wh/km, at the charger) is on the combined field."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

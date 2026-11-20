@@ -45,7 +45,16 @@
       "id": "standard",
       "names": {
         "US": "XLE AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2w-cc-bz25",
+          "notes": "Page shows XLE FWD (18 in); XLE AWD / CA XLE assumed the same, low confidence.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

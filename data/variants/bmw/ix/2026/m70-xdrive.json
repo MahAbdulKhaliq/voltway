@@ -40,7 +40,30 @@
       "names": {
         "CA": "M70 xDrive",
         "US": "M70 xDrive"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 21,
+          "is_standard": true,
+          "source_id": "src-bmw-ix-2026-us",
+          "notes": "M70 xDrive (CA/US): iX M70 xDrive: 21-inch M alloy standard per the US release (another BMW release says 22-inch).",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": false,
+          "source_id": "src-bmw-ix-2026-us",
+          "notes": "M70 xDrive (CA/US): iX M70 xDrive: 22-inch standalone option.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 23,
+          "is_standard": false,
+          "source_id": "src-bmw-ix-2026-us",
+          "notes": "M70 xDrive (CA/US): iX M70 xDrive: 23-inch BMW Individual V-spoke standalone option.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -28,6 +28,7 @@
     "suggest:catalogue": "tsx scripts/suggest-catalogue.ts",
     "merge:trim-names": "tsx scripts/merge-trim-names.ts",
     "gaps": "tsx scripts/gap-report.ts",
+    "check:required": "tsx scripts/check-required.ts",
     "calibrate": "tsx scripts/calibrate.ts",
     "calibrate:highway": "tsx scripts/calibrate-highway.ts",
     "validate": "tsx scripts/validate.ts",

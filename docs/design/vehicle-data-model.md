@@ -10,7 +10,7 @@ This is a design document, not code. Field names are shown as `snake_case` for c
 
 1. **Every important figure records where it came from.** No bare numbers. This is how the accuracy pitch gets delivered (P9).
 2. **Rated, tested and estimated values are kept apart**, never mixed in one field (D4).
-3. **"Unknown" is a real value.** "No heat pump" and "we don't know" are different things, and the app shows them differently.
+3. **"Unknown" is a real value.** "No heat pump" and "we don't know" are different things, and the app shows them differently. *(B96, owner 2026-11-19: not for the eight charging and mapping figures — usable kWh, chemistry, voltage class, preconditioning, DC peak, AC onboard kW, charge port, Supercharger access. Every car needs a sourced value or a stated-basis estimate for those.)*
 4. **Each fact is stored at the level where it varies.** A charging curve belongs to the battery pack, not the trim name. Wheel size belongs to the trim, not the model.
 5. **Metric units throughout** (km, kWh, kW, Wh/km). Conversion to miles happens only on screen (U4).
 6. **Derived numbers are calculated, not stored.** 10–80% time, average kW and km added per minute all come from the curve plus the efficiency. That way they can never go stale or contradict their inputs.

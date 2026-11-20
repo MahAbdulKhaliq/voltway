@@ -222,6 +222,8 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 
 **B132 (owner, 2026-11-20):** the phone itinerary's **Show stops / Hide stops** button is removed: dragging the trip sheet up and down does that job. The stops are always in the list, under the totals and Drive.
 
+**B133 (owner, 2026-11-20):** on phones, typing in the trip's From / To fields no longer raises the sheet (B89 made it rise to full). While a text field has focus the sheet keeps its height; the field scrolls to the top of the sheet's body and its suggestions show under it. Dragging or tapping the handle still moves the sheet.
+
 **B69 (2026-11-17):** only the trip body scrolls under a fixed header; closing the trip draws the line back and returns the map to the view from before the trip.
 
 **B62 (2026-11-17):** the browser keeps the battery settings and the last 5 destinations (Previous destinations on the map), never where a trip started. The trip form opens with From empty (or the browser location when already allowed).

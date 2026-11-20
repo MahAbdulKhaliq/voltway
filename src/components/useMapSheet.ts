@@ -2,7 +2,7 @@
 // use the keyboard on, three heights (src/lib/sheet.ts), and the sheet's height published as
 // --sheet-px on the map so its own controls stay above it. Wider screens: no sheet, no styles.
 
-import { useCallback, useEffect, useRef, useState, type CSSProperties, type SyntheticEvent, type KeyboardEvent, type PointerEvent, type TouchEvent, type WheelEvent } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type FocusEvent, type FormEvent, type KeyboardEvent, type PointerEvent, type TouchEvent, type WheelEvent } from 'react';
 import { nextSnap, sheetHeights, SHEET_MEDIA, snapAfterDrag, stepSnap, type SheetSnap } from '../lib/sheet.ts';
 
 /** onUserSnap: the visitor moved the sheet (drag, tap or arrow keys) to this height. */
@@ -13,6 +13,7 @@ export function useMapSheet(onUserSnap?: (s: SheetSnap) => void) {
   const [rootH, setRootH] = useState(0);
   const [snap, setSnap] = useState<SheetSnap>('peek');
   const [dragH, setDragH] = useState<number | null>(null);
+  const [frozenH, setFrozenH] = useState<number | null>(null); // B133, below
   const drag = useRef<{ y: number; h: number; moved: boolean } | null>(null);
 
   useEffect(() => {
@@ -38,7 +39,8 @@ export function useMapSheet(onUserSnap?: (s: SheetSnap) => void) {
 
   const heights = sheetHeights(rootH || (typeof window !== 'undefined' ? window.innerHeight : 800));
   const heightFor = (s: SheetSnap) => heights[s];
-  const userSnap = (s: SheetSnap) => { setSnap(s); onUserSnap?.(s); };
+  // A move the visitor makes (drag, tap, keys) ends the B133 hold on the height.
+  const userSnap = (s: SheetSnap) => { setFrozenH(null); setSnap(s); onUserSnap?.(s); };
 
   const onPointerDown = (e: PointerEvent<HTMLButtonElement>) => {
     const panel = panelRef.current;
@@ -77,14 +79,26 @@ export function useMapSheet(onUserSnap?: (s: SheetSnap) => void) {
       userSnap(stepSnap(snap, e.key === 'ArrowUp' ? 1 : -1));
     }
   };
-  // Typing in a field (place search, percentages) opens the sheet fully, so its suggestions have
-  // room above the keyboard. B89 round 3 (owner): a tap alone leaves the sheet where it is. Focus
-  // the page moves itself (closing a trip) leaves it as it is too.
-  const toFull = useCallback((e: SyntheticEvent<HTMLDivElement>) => {
-    if (!phone) return;
-    const el = e.target as HTMLElement;
-    if (el.matches('input:not([type=checkbox]):not([type=range]), textarea')) setSnap('full');
-  }, [phone]);
+  // B133 (owner 2026-11-20): typing in a field no longer moves the sheet (since B89 it rose to full).
+  // While a text field has focus the sheet keeps the height it had, the suggestions scroll inside it,
+  // and the field is scrolled to the top of the sheet's body so its suggestions show under it.
+  const isText = (el: EventTarget | null) => el instanceof HTMLElement && el.matches('input:not([type=checkbox]):not([type=range]):not([type=radio]), textarea');
+  const onFocus = (e: FocusEvent<HTMLDivElement>) => {
+    if (!phone || !isText(e.target) || !panelRef.current) return;
+    setFrozenH((h) => h ?? Math.round(panelRef.current!.getBoundingClientRect().height));
+  };
+  const onBlur = (e: FocusEvent<HTMLDivElement>) => {
+    if (!isText(e.relatedTarget)) setFrozenH(null);
+  };
+  const onInput = (e: FormEvent<HTMLDivElement>) => {
+    if (!phone || !isText(e.target)) return;
+    const field = (e.target as HTMLElement).closest<HTMLElement>('.tp-field') ?? (e.target as HTMLElement);
+    const body = field.closest<HTMLElement>('.route-body');
+    if (!body) return;
+    requestAnimationFrame(() => {
+      body.scrollTop += field.getBoundingClientRect().top - body.getBoundingClientRect().top - 8;
+    });
+  };
 
   // B89 round 4 (owner): at peek the sheet's content doesn't scroll; a swipe up on it (or a wheel
   // scroll down) raises the sheet half way instead, and from there it scrolls as usual.
@@ -102,14 +116,16 @@ export function useMapSheet(onUserSnap?: (s: SheetSnap) => void) {
   };
 
   const panelStyle: CSSProperties | undefined = phone
-    ? { maxHeight: dragH ?? heights[snap], ...(dragH !== null ? { height: dragH, transition: 'none' } : {}) }
+    ? dragH === null && frozenH !== null
+      ? { maxHeight: frozenH, height: frozenH }
+      : { maxHeight: dragH ?? heights[snap], ...(dragH !== null ? { height: dragH, transition: 'none' } : {}) }
     : undefined;
 
   return {
     phone, snap, setSnap, heightFor,
     /** The handle is being dragged (the sheet follows the finger). */
     dragging: dragH !== null, rootRef, panelRef, panelStyle,
-    panelProps: { onInput: toFull, onTouchStart, onTouchMove, onWheel },
+    panelProps: { onTouchStart, onTouchMove, onWheel, onFocus, onBlur, onInput },
     handleProps: { onPointerDown, onPointerMove, onPointerUp, onPointerCancel: onPointerUp, onClick, onKeyDown },
   };
 }

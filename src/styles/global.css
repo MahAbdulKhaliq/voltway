@@ -975,7 +975,7 @@ details.acc.ti-how > .acc-body { padding: 0 14px 12px; }
 .logo-mark { display: block; flex: none; margin: -1px 0; transform-origin: 50% 60%; }
 html.intro .logo-mark { animation: bolt-strike 0.55s cubic-bezier(0.2, 1.5, 0.4, 1) 0.1s both, mark-flash 0.9s ease-out 0.5s both; }
 html.intro .logo-word { animation: word-in 0.6s var(--ease-out) 0.15s both; }
-.logo:hover .logo-mark, .logo:focus-visible .logo-mark { animation: bolt-jolt 0.4s cubic-bezier(0.2, 1.6, 0.4, 1); }
+.logo:hover .logo-mark, .logo:focus-visible .logo-mark, .logo.jolt .logo-mark { animation: bolt-jolt 0.4s cubic-bezier(0.2, 1.6, 0.4, 1); }
 @keyframes bolt-strike { 0% { opacity: 0; transform: translateY(-5px) scale(0.5); } 55% { opacity: 1; } 100% { opacity: 1; transform: none; } }
 @keyframes mark-flash { 0% { filter: drop-shadow(0 0 0 rgb(255 212 0 / 0%)); } 20% { filter: drop-shadow(0 0 7px rgb(255 212 0 / 85%)) brightness(1.12); } 100% { filter: drop-shadow(0 0 0 rgb(255 212 0 / 0%)); } }
 @keyframes word-in { from { opacity: 0; translate: -6px 0; } }

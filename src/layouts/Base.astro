@@ -85,7 +85,7 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
         <button type="button" class="icon-btn menu-btn" aria-haspopup="dialog" aria-controls="side-nav" aria-label={t('nav.menu')}>
           <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" /></svg>
         </button>
-        <a class="logo" href="/">
+        <a class="logo header-logo" href="/">
           <!-- The mark (B118, owner 2026-11-20): a V whose right arm is a road that turns into a bolt
                (scripts/logo-assets.mjs). One file for both themes: its cream outline keeps the
                near-black V visible on the dark background (owner, 2026-11-20). On a visit's first
@@ -264,6 +264,21 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       nav.addEventListener('click', (e) => { if (e.target === nav) closeNav(); }); // backdrop
       nav.addEventListener('cancel', (e) => { e.preventDefault(); closeNav(); }); // Escape
       nav.addEventListener('close', () => menuBtn.focus());
+
+      // B128 (owner 2026-11-20): while the menu button shows (under 900 px), the header's mark and name
+      // aren't a link (the side menu's are); a tap plays the hover jolt instead.
+      const headerLogo = document.querySelector<HTMLAnchorElement>('.header-logo')!;
+      const wide = matchMedia('(min-width: 900px)');
+      const syncLogoLink = () => { if (wide.matches) headerLogo.setAttribute('href', '/'); else headerLogo.removeAttribute('href'); };
+      syncLogoLink();
+      wide.addEventListener('change', syncLogoLink);
+      headerLogo.addEventListener('click', () => {
+        if (wide.matches) return;
+        headerLogo.classList.remove('jolt');
+        void headerLogo.offsetWidth; // restart the animation on every tap
+        headerLogo.classList.add('jolt');
+      });
+      headerLogo.addEventListener('animationend', () => headerLogo.classList.remove('jolt'));
 
       // Settings (B65): a small panel under the gear. Escape or a click elsewhere closes it.
       const setBtn = document.querySelector<HTMLButtonElement>('.settings-btn')!;

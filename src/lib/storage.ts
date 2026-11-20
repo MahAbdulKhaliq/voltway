@@ -68,4 +68,6 @@ export const KEYS = {
   lastTrip: 'voltway.lastTrip',
   recentDestinations: 'voltway.recentDestinations',
   routeOptions: 'voltway.routeOptions',
+  /** Owner 2026-11-20: which Settings fold is open ('general' | 'trips' | 'none'). */
+  settingsFold: 'voltway.settingsFold',
 } as const;

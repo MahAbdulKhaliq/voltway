@@ -17,6 +17,7 @@ import { carMapInfo, linkPlugs } from '../lib/map-filter.ts';
 import { GROUPS } from '../lib/spec-groups.ts';
 import { carLabel, carModel, LABEL_VERSION } from '../lib/car-label.ts';
 import { addToCompare, getCompare, removeFromCompare, getMyCar, setMyCar, type AddResult, type MyCar } from '../lib/my-car.ts';
+import { setTempUnit, TEMP_UNIT_EVENT } from '../lib/temp-unit.ts';
 import { Badge, Value, sourceNumber } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
 import VariantName from './VariantName.tsx';
@@ -56,7 +57,13 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
   const [linkWindow, setLinkWindow] = useState<{ carId: string; start: number; end: number } | null>(null);
   // Heat pump checkbox (B116, owner 2026-11-20): only for trims where it's optional; unticked = the safe case.
   const [hpFitted, setHpFitted] = useState(false);
-  useEffect(() => { setWheelIn(null); setHpFitted(false); }, [carId, trimId]);
+  // B120: showing My car, Wheels and Heat pump start from its saved settings; any other car from the defaults.
+  useEffect(() => {
+    const first = car?.trims[0]?.id ?? null;
+    const mine = myCar && car && myCar.carId === car.id && carId === car.id && (car.trims.length < 2 || (myCar.trimId ?? first) === (trimId ?? first)) ? myCar : null;
+    setWheelIn(mine?.wheelIn ?? null);
+    setHpFitted(Boolean(mine?.heatPump));
+  }, [carId, trimId, car, myCar?.carId, myCar?.trimId, myCar?.wheelIn, myCar?.heatPump]); // eslint-disable-line react-hooks/exhaustive-deps
   // °C/°F (B116) is remembered; with no saved choice it follows the distance unit (miles → °F),
   // also when km/mi is switched later (design §1).
   useEffect(() => {
@@ -78,7 +85,19 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
       });
     };
     window.addEventListener('voltway:units', onUnits);
-    return () => window.removeEventListener('voltway:units', onUnits);
+    // B123: °C | °F changed in Settings (or here): convert the typed temperature.
+    const onTemp = (e: Event) => {
+      const next = (e as CustomEvent<TempUnit>).detail;
+      setTempUnitState((prev) => {
+        if (prev !== next) setTempText((txt) => {
+          const n = txt.trim() === '' ? Number.NaN : Number(txt);
+          return Number.isFinite(n) ? String(Math.round(next === 'F' ? cToF(n) : fToC(n))) : txt;
+        });
+        return next;
+      });
+    };
+    window.addEventListener(TEMP_UNIT_EVENT, onTemp);
+    return () => { window.removeEventListener('voltway:units', onUnits); window.removeEventListener(TEMP_UNIT_EVENT, onTemp); };
   }, []);
 
   // First car: the link (?car=), else My car, else the first car in the list (B58: no first-load
@@ -284,9 +303,7 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
   // Outside temperature (B116), with a °C/°F switch like km/mi; fills the cells under Range basis / Wheels.
   const switchTempUnit = (u: TempUnit) => {
     if (u === tempUnit) return;
-    setItem(KEYS.tempUnit, u);
-    setTempUnitState(u);
-    setTempText(String(Math.round(u === 'F' ? cToF(tempC) : tempC)));
+    setTempUnit(u); // B123: site-wide; the listener below converts the field
   };
   const tempControl = temperature ? (
     <div className="temp-pick">

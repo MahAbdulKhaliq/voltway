@@ -10,12 +10,16 @@ import { DC_PLUGS, carMapInfo, defaultDcPlugs, type DcPlug } from '../lib/map-fi
 import { makeCarSearch, tripReadyFirst } from '../lib/car-search.ts';
 import VariantName from './VariantName.tsx';
 import PlugIcon from './PlugIcon.tsx';
+import { CarSettingsFields } from './CarSettings.tsx';
+import { trimSettingsInfo, trimText } from '../lib/car-settings.ts';
+import { settingsFields, type CarSettings, type MyCar } from '../lib/my-car.ts';
 import type { CarDetail, IndexEntry } from '../lib/types.ts';
 
 interface Props {
   cars: IndexEntry[];
   /** plugs: the DC plug switches when the visitor changed them or they were saved for this car, else null. */
-  onPick: (carId: string, trimId: string | null, plugs: DcPlug[] | null) => void;
+  /** extra (B120): wheels and heat pump, only where they differ from the car's defaults. */
+  onPick: (carId: string, trimId: string | null, plugs: DcPlug[] | null, extra?: Pick<MyCar, 'wheelIn' | 'heatPump'>) => void;
   /** Shown when the visitor came to change an existing My car. */
   onCancel?: () => void;
   /** Heading level: 1 on its own page (default), 2 when placed inside another page. */
@@ -24,6 +28,8 @@ interface Props {
   tripTags?: boolean;
   /** My car's saved plug switches (B58): shown again when the same car is selected. */
   savedPlugs?: { carId: string; plugs: DcPlug[] } | null;
+  /** B120: My car, so its trim, wheels and heat pump show again when the same car is selected. */
+  saved?: MyCar | null;
   /** The car to start on (My car), so "Change car" opens with it selected. */
   initialCar?: string | null;
   /** B87: 'compare' is Compare's "Add a car" dialog: its own title and button, no trim or plug steps. */
@@ -37,14 +43,7 @@ const uniq = <T,>(xs: T[]) => [...new Set(xs)];
 const byName = (a: string, b: string) => a.localeCompare(b, 'en', { sensitivity: 'base' });
 const Label = ({ e }: { e: IndexEntry }) => <>{`${e.year} ${e.make} ${e.model} · `}<VariantName name={e.name} /></>;
 
-/** Trim names repeat the variant ("eDrive40 Gran Coupe (18″ Wheels)"); show only what differs. */
-function trimText(trim: string, variant: string): string {
-  if (trim === variant) return trim;
-  const rest = trim.startsWith(variant) ? trim.slice(variant.length).trim().replace(/^\((.*)\)$/, '$1') : '';
-  return rest || trim;
-}
-
-export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags = false, savedPlugs = null, initialCar = null, purpose = 'mycar', exclude = [] }: Props) {
+export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags = false, savedPlugs = null, saved = null, initialCar = null, purpose = 'mycar', exclude = [] }: Props) {
   const forCompare = purpose === 'compare';
   const taken = (carId: string) => exclude.includes(carId);
   const Heading = level === 1 ? "h1" : "h2";
@@ -66,6 +65,12 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
   const focusGo = useRef(false);
   const [trim, setTrim] = useState('');
   const [trims, setTrims] = useState<CarDetail['trims']>([]);
+  // B120: wheels and heat pump for the selected car and trim (My car's own when they match).
+  const [settings, setSettings] = useState<CarSettings>({ wheelIn: null, heatPump: false });
+  useEffect(() => {
+    const same = saved && saved.carId === variant && (saved.trimId ?? '') === trim;
+    setSettings(same ? { wheelIn: saved.wheelIn ?? null, heatPump: Boolean(saved.heatPump) } : { wheelIn: null, heatPump: false });
+  }, [variant, trim]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const suggestions = useMemo(() => {
     const found = search(query).map((x) => byId.get(x)!).filter(Boolean);
@@ -110,6 +115,8 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
       .then((c: CarDetail) => {
         if (!alive) return;
         setTrims(c.trims);
+        // B120: Change car opens on My car's trim too.
+        if (saved?.carId === id && saved.trimId && c.trims.some((x) => x.id === saved.trimId)) setTrim(saved.trimId);
         const info = carMapInfo(c);
         setPort({ id, port: info.port, adapter: info.adapter });
       })
@@ -143,8 +150,12 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
 
   return (
     <section className={`car-picker card${forCompare ? ' cp-compare' : ''}`} aria-labelledby={`${id}-title`}>
-      <Heading id={`${id}-title`} className="cp-title">{t(forCompare ? 'compare.addTitle' : 'picker.title')}</Heading>
-      <p className="muted cp-intro">{t(forCompare ? 'compare.addIntro' : 'picker.intro')}</p>
+      {/* Dialog head (design-language "Dialogs"): small label, headline, muted line. */}
+      <header className="dlg-head">
+        <p className="dlg-eyebrow">{t(forCompare ? 'compare.eyebrow' : initialCar ? 'picker.eyebrowChange' : 'picker.eyebrowPick')}</p>
+        <Heading id={`${id}-title`} className="dlg-title">{t(forCompare ? 'compare.addTitle' : 'picker.title')}</Heading>
+        <p className="dlg-sub">{t(forCompare ? 'compare.addIntro' : 'picker.intro')}</p>
+      </header>
 
       <div className="cp-search">
         <label htmlFor={`${id}-q`} className="cp-label">{t('picker.search')}</label>
@@ -224,6 +235,14 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
       {!forCompare && <p className="muted small cp-trim-note">{t('picker.trimNote')}</p>}
       </div>
 
+      {tripTags && variant && trims.length > 0 && (
+        <div className="panel cs-panel">
+          <Sub className="panel-title">{t('mycar.rangeTitle')}</Sub>
+          <CarSettingsFields trims={trims} trimId={trim || null} variantName={variantName} settings={settings} onChange={setSettings} />
+          <p className="muted small cs-note">{t('mycar.rangeNote')}</p>
+        </div>
+      )}
+
       {tripTags && variant && (
         <div className="panel cp-plugs" role="group" aria-labelledby={`${id}-plugs`}>
           <Sub id={`${id}-plugs`} className="panel-title">{t('mycar.plugs')}</Sub>
@@ -248,10 +267,20 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
         </div>
       )}
 
+      {/* Browsing instead: a row link like Car settings' charging curve link, not a link in the foot bar. */}
+      <a href="/cars" className="dlg-row" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
+        </svg>
+        <span>{t(forCompare ? 'compare.browse' : 'picker.browse')} <span className="sr-only">{t('link.newTab')}</span></span>
+        <svg className="dlg-row-go" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8 16L16 8M9 8h7v7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </svg>
+      </a>
+
       <div className="cp-actions">
-        <button ref={goRef} type="button" className="btn primary" disabled={!variant || taken(variant)} onClick={() => onPick(variant, forCompare ? null : trim || null, forCompare ? null : keptPlugs)}>{t(forCompare ? 'compare.addGo' : 'picker.go')}</button>
+        <button ref={goRef} type="button" className="btn primary" disabled={!variant || taken(variant)} onClick={() => onPick(variant, forCompare ? null : trim || null, forCompare ? null : keptPlugs, forCompare || !trims.length ? undefined : settingsFields(settings, trimSettingsInfo(trims, trim || null)))}>{t(forCompare ? 'compare.addGo' : 'picker.go')}</button>
         {onCancel && <button type="button" className="btn" onClick={onCancel}>{t('picker.cancel')}</button>}
-        <a href="/cars" className="cp-browse">{t(forCompare ? 'compare.browse' : 'picker.browse')}</a>
       </div>
     </section>
   );

@@ -50,6 +50,8 @@ export const TRIP = {
   /** Default starting battery % (R9) and stop threshold %. */
   defaultStartSoc: 90,
   defaultThresholdSoc: 15,
+  /** B123 (owner 2026-11-20): charge left at the destination by default (Arrive at %). */
+  defaultArriveSoc: 20,
   /** Charge target at each stop (Q-V2) and minutes added per stop for parking, plugging in and paying (§5). */
   chargeToSoc: 80,
   stopOverheadMin: 5,

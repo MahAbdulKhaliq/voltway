@@ -220,6 +220,10 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 
 **B66–B68 (2026-11-17):** each stop shows an estimated **charging cost** from the price per kWh in Settings (one site-wide price, $0.45 to start; energy added ÷ 92 % × price), and the trip shows the total as its second figure ("~$43.65 at $0.45/kWh", with Change cost estimate). The trip card order is: total time (with a share-link icon), From → To, distance · driving · stops, charging time · plugs used, cost, the car line, the stops, then the estimate note. The Trip header has a back arrow to the form (no Edit button) and stays at the top while the trip scrolls. Back on the form with the same ends, the one button is **Return to plan**; with new ends it is **Plan trip**. On phones the stops open with **Show stops**.
 
+**B132 (owner, 2026-11-20):** the phone itinerary's **Show stops / Hide stops** button is removed: dragging the trip sheet up and down does that job. The stops are always in the list, under the totals and Drive.
+
+**B133 (owner, 2026-11-20):** on phones, typing in the trip's From / To fields no longer raises the sheet (B89 made it rise to full). While a text field has focus the sheet keeps its height, and the suggestions float over the map just above the sheet (like "Where to?", B126), so the sheet's content never grows; the "pick from the suggestions" hint waits until the field is left. Dragging or tapping the handle still moves the sheet.
+
 **B69 (2026-11-17):** only the trip body scrolls under a fixed header; closing the trip draws the line back and returns the map to the view from before the trip.
 
 **B62 (2026-11-17):** the browser keeps the battery settings and the last 5 destinations (Previous destinations on the map), never where a trip started. The trip form opens with From empty (or the browser location when already allowed).

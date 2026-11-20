@@ -17,6 +17,33 @@ export interface MyCar {
   /** B55: the DC plugs the driver switched on in the My car menu. Absent = the car's own plug.
    *  A newly picked car has none, so the toggles reset when the car changes. */
   plugs?: DcPlug[];
+  /** B120: wheel diameter (inches) when it isn't the trim's standard size. Absent = standard. */
+  wheelIn?: number;
+  /** B120: an optional heat pump switched on. Absent = off (the safe case, B116). */
+  heatPump?: boolean;
+}
+
+/** B120: the settings the Modify car settings dialog edits, apart from the plugs. */
+export interface CarSettings { wheelIn: number | null; heatPump: boolean }
+
+/** True when wheels or an optional heat pump differ from the defaults: the name gets a "*". */
+export const settingsChanged = (car: MyCar | null): boolean => Boolean(car && (car.wheelIn !== undefined || car.heatPump));
+
+/**
+ * B120: My car with these settings, keeping only what differs from the defaults: wheels other
+ * than the trim's standard size, and a heat pump only when it is optional and switched on.
+ */
+export function withSettings(car: MyCar, s: CarSettings, defaults: SettingsDefaults): MyCar {
+  const { wheelIn: _w, heatPump: _h, ...rest } = car;
+  return { ...rest, ...settingsFields(s, defaults) };
+}
+export interface SettingsDefaults { standardIn: number | null; heatPumpOptional: boolean }
+/** The stored form of the settings: only what differs from the defaults. */
+export function settingsFields(s: CarSettings, defaults: SettingsDefaults): Pick<MyCar, 'wheelIn' | 'heatPump'> {
+  const out: Pick<MyCar, 'wheelIn' | 'heatPump'> = {};
+  if (s.wheelIn !== null && defaults.standardIn !== null && s.wheelIn !== defaults.standardIn) out.wheelIn = s.wheelIn;
+  if (s.heatPump && defaults.heatPumpOptional) out.heatPump = true;
+  return out;
 }
 export const COMPARE_MAX = 4;
 const ID = /^[a-z0-9-]+\/[a-z0-9-]+\/\d{4}\/[a-z0-9-]+$/;
@@ -34,6 +61,8 @@ export function readMyCar(saved: unknown): MyCar | null {
   if (typeof s.label === 'string' && s.label) out.label = s.label.slice(0, 80);
   if (typeof s.model === 'string' && s.model) out.model = s.model.slice(0, 60);
   if (Array.isArray(s.plugs)) out.plugs = [...new Set(s.plugs.filter(isDcPlug))];
+  if (typeof s.wheelIn === 'number' && Number.isFinite(s.wheelIn) && s.wheelIn >= 10 && s.wheelIn <= 30) out.wheelIn = s.wheelIn;
+  if (s.heatPump === true) out.heatPump = true;
   return out;
 }
 

@@ -193,6 +193,15 @@ The one dialog behind the header's "Change car" and Compare's "Add a car":
 - "Plugs my car can use" is a second raised panel: one row per plug with the map filter's plug drawing, its name and a switch, divided by faint lines;
 - the actions sit in a bar pinned to the dialog's foot (surface, top border). On phones the main button takes the row.
 
+### Dialogs (B120, owner 2026-11-20)
+
+Every prompt dialog (Car settings, Change car / Pick your car, Add a car to compare) shares one head and one kind of link (classes `.dlg-head`, `.dlg-eyebrow`, `.dlg-title`, `.dlg-sub`, `.dlg-row`):
+- the head: a small muted label in sentence case naming the action ("Car settings", "Change car" or "My car", "Compare"), the headline in Overpass 800 at 2 rem (1.65 rem on phones), then a muted line (the variant, or the intro);
+- a link elsewhere (the car's charging curve, "Just browsing? See all cars", "Browse all cars") is a row action on a raised block: icon, label, then a ↗; it opens in a new tab so the page behind stays put (B122, owner 2026-11-20);
+- the pinned foot bar holds only the main button and Cancel.
+
+**Car settings:** The My car settings dialog uses the car picker's frame. Its head (owner, 2026-11-20): "Car settings" as a small muted label in sentence case (owner: no all caps), then the year, make and model as the headline, in Overpass 800 at 2 rem (1.65 rem on phones) like the trip time, then the variant in smaller muted text. Then **See its charging curve** as a row action on a raised block (chart icon, label, go chevron, like the trip panel's Change car), then the **Range estimates** and **Plugs my car can use** panels. **Back to defaults** is a small underlined accent button in the Range estimates header, shown only while the wheels or heat pump differ from the defaults (like the Cars filters' Clear, §10). The pinned foot bar holds only Save and Cancel.
+
 ### Speed marks in menus (B89 round 4, owner 2026-11-19)
 
 - The map's speed tag (bolts on a dark, outlined tag) stays on the map. The map key's speed rows use the bare mark too (owner, 2026-11-19: clearer there).
@@ -211,8 +220,14 @@ The one dialog behind the header's "Change car" and Compare's "Add a car":
 
 Open points for the owner: grouping the assumption controls, a shorter estimate notice, the phone order, and the first-load car picker (from the first B83 review). Compare (B85): whether a time race should draw the fastest car with the longest bar instead (owner to decide).
 
+### Button icons (B130, owner 2026-11-20)
+
+- A small line icon (text colour, 16–18 px, 6 px gap; 8 px in Drive mode's app buttons) sits before the text of: the map's **Plan** and the trip's **Plan trip** (a route ending in a pin), **Return to plan** (an itinerary list), and Drive mode's **Google Maps** (a map pin) and **Apple Maps** (a folded map). The two map icons are generic shapes that hint at each app, not the companies' logos (trademarks). Icons live in `src/components/ButtonIcons.tsx`.
+
 ### Logo (B118, owner 2026-11-20)
 
 - The mark is the owner's artwork: a dark V whose right arm is a road (yellow edge lines and dashes) that turns into a yellow bolt. It replaces the B55 yellow tile.
 - Source: `scripts/assets/logo-source.webp`. `node scripts/logo-assets.mjs` makes `public/logo.png` (both themes, with a thin cream `--text` outline so the dark V shows on dark; owner 2026-11-20: one file, so the mark keeps its size when the theme changes), `favicon.ico` (16/32/48), `favicon-192.png` and `apple-touch-icon.png` (on the dark background). Then `node scripts/og-image.mjs` puts the outlined mark on the link-preview image.
+- Header on narrow screens (B128, owner 2026-11-20): while the menu button shows (under 900 px), the header's mark and name are not a link (the side menu's are); a tap plays the hover jolt. From 900 px they link to the map as before.
+- Side menu (B127, owner 2026-11-20): the same mark and name head the menu, beside its close button. The menu slides in and, since B127, slides back out when closed (button, backdrop or Escape); with Animations off it opens and closes at once.
 - Header: shown 28 px tall (26 px of mark plus the outline) beside the name. On a visit's first page it strikes in with a flash of paint; on hover it jolts. Animations off stops both.

@@ -8,6 +8,7 @@
 
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { t } from '../i18n/t.ts';
+import ChangeLink from './ChangeLink.tsx';
 import type { TripEnd } from '../lib/place-search.ts';
 import { gapDetails, hoursMinutes, pct, showDate, stopsText } from '../lib/trip-format.ts';
 import { NEAR_KM, type TripPlan } from '../lib/trip-plan.ts';
@@ -33,9 +34,6 @@ interface Props {
   selectedSpot?: string | null;
   /** A border row's diamond, or the start or destination mark: closes in on it (again: the whole route). */
   onOpenSpot?: (key: string, at: [number, number]) => void;
-  /** Phones: the stops are folded away until opened. */
-  open: boolean;
-  onToggle: () => void;
   /** Charger data date (map meta.json), YYYY-MM-DD. */
   updated: string | null;
   /** The car's data date: the latest source check, YYYY-MM-DD. */
@@ -54,9 +52,12 @@ interface Props {
   onNacs?: () => void;
   /** B79: where the route crosses the border, in route order. */
   crossings?: readonly BorderRow[];
+  /** B123: Weather and wheels is on, and the line that points to it in Trip settings. */
+  weatherOn?: boolean;
+  weatherHint?: ReactNode;
 }
 
-export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, selectedSpot = null, onOpenSpot, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive, onNacs, crossings = [] }: Props) {
+export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, selectedSpot = null, onOpenSpot, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive, onNacs, crossings = [], weatherOn = false, weatherHint }: Props) {
   const bodyId = useId();
   // Stop costs use the charging price from Settings (B66); it can change while the plan is shown.
   const [price, setPrice] = useState(chargePrice);
@@ -123,7 +124,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
     });
 
   return (
-    <div className={`route-itinerary${open ? ' open' : ''}`}>
+    <div className="route-itinerary">
       <div className="ti-top">
         <h2 className="sr-only">{t('trip.itinerary')}</h2>
         <div className="ti-time-row">
@@ -155,9 +156,11 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             <span className="sr-only">{t('trip.costLabel')} </span>
             <strong className="ti-cost-value">~{stopCost(totalKwh)}</strong>{' '}
             <span className="small muted">{t('trip.costAt', { price: money.format(price) })}</span>{' '}
-            <button type="button" className="link-btn small" onClick={() => window.dispatchEvent(new CustomEvent('voltway:settings', { detail: 'price' }))}>{t('trip.costChange')}</button>
+            <ChangeLink className="small" label={t('trip.costChange')} onClick={() => window.dispatchEvent(new CustomEvent('voltway:settings', { detail: 'price' }))} />
           </p>
         )}
+        {/* B123; owner 2026-11-20 (B131): the weather the plan used sits under the cost. */}
+        {weatherHint}
         <p className="small muted ti-car">{carLine}</p>
         {/* B72: hand the trip to Google Maps or Apple Maps, stop by stop. */}
         <button type="button" className="btn primary ti-drive" onClick={onDrive}>
@@ -185,9 +188,6 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             <button type="button" className="btn small" onClick={onNacs}>{t('trip.nacsTurnOn')}</button>
           </div>
         )}
-        <button type="button" className="btn small ti-toggle" aria-expanded={open} aria-controls={bodyId} onClick={onToggle}>
-          {open ? t('trip.sheetHide') : t('trip.sheetShow')}
-        </button>
       </div>
 
       <div id={bodyId} className="ti-body">
@@ -240,6 +240,10 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             <div>
               <p className="ti-head"><strong>{to.label}</strong></p>
               <p className="ti-soc">{plan.arriveSoc >= 0 ? t('trip.arriveWith', { soc: pct(plan.arriveSoc) }) : t('trip.arriveEmpty')}</p>
+              {/* B123 (QA 2026-11-20): reachable but under Arrive at %, because no charger ahead can top up. */}
+              {plan.reachable && plan.arriveSoc >= 0 && Math.round(plan.arriveSoc) < plan.arriveTarget && (
+                <p className="ti-soc muted small">{t('trip.arriveUnder', { target: pct(plan.arriveTarget) })}</p>
+              )}
             </div>
           </li>
         </ol>
@@ -263,7 +267,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             {anyEstimated && <p>{t('trip.warn.estimated')}</p>}
             {plan.uncalibratedFactor && <p>{t('trip.warn.uncalibrated')}</p>}
             <p>{t('trip.assumptions', { payload: TRIP.payloadKg, target: TRIP.chargeToSoc, overhead: TRIP.stopOverheadMin })}</p>
-            <p>{t('trip.winter')}</p>
+            <p>{t(weatherOn ? 'trip.winterOn' : 'trip.winter')}</p>
             {updated && <p>{t('trip.chargerData', { date: showDate(updated) })}</p>}
             {carUpdated && <p>{t('trip.carDataDate', { date: showDate(carUpdated) })}</p>}
           </div>

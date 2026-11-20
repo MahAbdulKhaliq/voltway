@@ -138,7 +138,8 @@ export default function StationPanel({ station, updated, updatedUs = null, ocmUp
 
         {(curveHref || onRouteHere) && (
           <ul className="station-curve station-actions">
-            {curveHref && <li><a href={curveHref}>{t('map.station.howFast')}</a></li>}
+            {/* Owner 2026-11-20: a new tab, so the map and this station stay open. */}
+            {curveHref && <li><a href={curveHref} target="_blank" rel="noopener">{t('map.station.howFast')} <span className="sr-only">{t('map.station.newTab')}</span></a></li>}
             {onRouteHere && <li><button type="button" className="linklike" onClick={onRouteHere}>{t('map.place.route')}</button></li>}
           </ul>
         )}

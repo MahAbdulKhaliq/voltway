@@ -3,10 +3,12 @@
 import Base from '../layouts/Base.astro';
 import ChargerMap from '../components/ChargerMap.tsx';
 import { t } from '../i18n/t.ts';
-import { loadIndex } from '../lib/data.ts';
+import { loadEstimates, loadIndex } from '../lib/data.ts';
 import { MAP } from '../config.ts';
 
 const index = loadIndex();
+// B123: the wheel-size effect for Weather and wheels in the trip planner.
+const { wheel } = loadEstimates();
 ---
 <Base title={t('map.title')} description={t('nav.map.desc')} active="map" fill>
   <!-- The map always needs the Level 3 overview (it also holds the mixed sites shown at Level 2) and
@@ -15,6 +17,6 @@ const index = loadIndex();
   <link slot="head" rel="preload" href={`${MAP.dataUrl}/o3.json`} as="fetch" crossorigin="anonymous" />
   <link slot="head" rel="preload" href={`${MAP.dataUrl}/tiles/index.json`} as="fetch" crossorigin="anonymous" />
   <h1 class="sr-only">{t('map.title')}</h1>
-  <ChargerMap client:only="react" cars={index} />
+  <ChargerMap client:only="react" cars={index} wheelEffect={wheel} />
   <noscript><p class="banner">{t('map.error')}</p></noscript>
 </Base>

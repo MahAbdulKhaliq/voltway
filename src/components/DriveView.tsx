@@ -3,6 +3,7 @@
 // page is open. No turn-by-turn in Voltway (R7). Location is watched only while this view is open
 // and the page is visible, and is never stored; the screen is kept awake with a Wake Lock.
 
+import { FoldedMapIcon, PinIcon } from './ButtonIcons.tsx';
 import { useEffect, useRef, useState } from 'react';
 import { t } from '../i18n/t.ts';
 import type { TripEnd } from '../lib/place-search.ts';
@@ -131,8 +132,8 @@ export default function DriveView({ plan, route, from, to, unit, opts, reached, 
       <div className="drive-go" role="group" aria-label={stop ? t('drive.navigateStop') : t('drive.navigateEnd')}>
         <p className="drive-go-title">{stop ? t('drive.navigateStop') : t('drive.navigateEnd')}</p>
         <div className="drive-apps">
-          <a className="btn primary drive-app" href={nav.google} target="_blank" rel="noopener noreferrer">{t('drive.google')}</a>
-          <a className="btn primary drive-app" href={nav.apple} target="_blank" rel="noopener noreferrer">{t('drive.apple')}</a>
+          <a className="btn primary drive-app" href={nav.google} target="_blank" rel="noopener noreferrer"><PinIcon />{t('drive.google')}</a>
+          <a className="btn primary drive-app" href={nav.apple} target="_blank" rel="noopener noreferrer"><FoldedMapIcon />{t('drive.apple')}</a>
         </div>
       </div>
 
@@ -141,8 +142,8 @@ export default function DriveView({ plan, route, from, to, unit, opts, reached, 
           <p className="small drive-whole-title">{t('drive.wholeTitle')}</p>
           {whole.google || whole.apple ? (
             <div className="drive-apps">
-              {whole.google && <a className="btn drive-app" href={whole.google} target="_blank" rel="noopener noreferrer">{t('drive.google')}</a>}
-              {whole.apple && <a className="btn drive-app" href={whole.apple} target="_blank" rel="noopener noreferrer">{t('drive.apple')}</a>}
+              {whole.google && <a className="btn drive-app" href={whole.google} target="_blank" rel="noopener noreferrer"><PinIcon />{t('drive.google')}</a>}
+              {whole.apple && <a className="btn drive-app" href={whole.apple} target="_blank" rel="noopener noreferrer"><FoldedMapIcon />{t('drive.apple')}</a>}
             </div>
           ) : null}
           {(!whole.google || !whole.apple) && (

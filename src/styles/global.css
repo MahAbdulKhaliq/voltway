@@ -239,13 +239,26 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 
 /* Map filter panel: top left on desktop; full width under the header on phones. */
 .map-panel { position: absolute; top: 12px; left: 12px; z-index: 3; width: 280px; max-height: calc(100% - 24px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+/* B125 (owner 2026-11-20): above phone widths the header pill (top right) never runs into the
+   left panel. Wide screens: the pill stops short of the panel and the car name shortens. Narrower
+   screens, where both can't share the top row: the panel starts under the pill. */
+@media (min-width: 1000px) and (min-height: 481px), (min-width: 1000px) and (pointer: fine) {
+  body.fill-page:has(.map-panel) .site-header { max-width: calc(100% - 24px - 280px - 12px); }
+}
+@media (min-width: 1100px) and (min-height: 481px), (min-width: 1100px) and (pointer: fine) {
+  body.fill-page:has(.map-panel.route) .site-header { max-width: calc(100% - 24px - 380px - 12px); }
+}
+@media (min-width: 641px) and (max-width: 999.98px) and (min-height: 481px), (min-width: 641px) and (max-width: 999.98px) and (pointer: fine) {
+  .charger-map .map-panel { top: 72px; max-height: calc(100% - 84px); }
+}
+/* The trip panel is wider (380 px), so it moves under the pill up to 1100 px. */
+@media (min-width: 641px) and (max-width: 1099.98px) and (min-height: 481px), (min-width: 641px) and (max-width: 1099.98px) and (pointer: fine) {
+  .charger-map .map-panel.route { top: 72px; max-height: calc(100% - 84px); }
+}
 .map-panel-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 12px; background: none; border: 0; color: inherit; font: inherit; font-weight: 600; cursor: pointer; text-align: left; border-radius: var(--radius); }
-/* B89 phones: at the small height the sheet shows only the handle and "Where to?" (no glimpse of
-   the filters, nothing to scroll); they appear as soon as it is dragged or stepped up. */
-.map-panel.peeked { overflow: hidden; }
-.map-panel.peeked > :not(.sheet-handle):not(.map-where) { display: none; }
-/* B89 phones: the filters are always open, so the toggle is a plain heading. */
-.map-panel-head { margin: 0; cursor: default; font-size: inherit; }
+/* The Chargers summary line (B124), on phones and wide screens. */
+.map-chargers-text { display: grid; flex: 1; min-width: 0; }
+.map-chargers-sum { font-family: var(--font, inherit); font-size: 0.8rem; font-weight: 400; color: var(--muted); text-wrap: pretty; }
 .map-panel-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .map-filters { min-height: 0; }
 .map-filters > .map-filters-body { overflow-y: auto; padding: 0 12px 4px; border-top: 1px solid var(--border); }
@@ -297,6 +310,7 @@ html[data-motion="off"] .plugs-toggle .chev { transition: none; }
 /* Stations in view (B34): wide screens only for now (TD-P11). */
 /* Stations in view (B62): a switch on the right with the count of stations on screen; switched on,
    the list opens under it, in the place a station's details use (they get a Back button to it). */
+.map-left { display: contents; }
 .map-inview { position: absolute; top: 72px; right: 12px; z-index: 4; width: 340px; max-height: calc(100% - 72px - 196px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
 .map-inview:not(.open), .map-inview:not(.open) .map-inview-toggle { width: auto; border-radius: 23px; }
 .map-inview-toggle { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 8px 12px; background: none; border: 0; border-radius: var(--radius); color: inherit; font: inherit; font-weight: 600; text-align: left; cursor: pointer; }
@@ -393,14 +407,57 @@ a.btn { display: inline-block; text-decoration: none; }
 .route-car-row strong { font-family: var(--display); font-weight: 700; }
 .route-car-row:hover { background: color-mix(in srgb, var(--field-border) 14%, transparent); }
 .route-car-row:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-.route-car-acc .acc-chev { background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+.route-car-acc > .route-car-row .acc-chev { background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
 .route-car-row:hover .acc-chev { background: color-mix(in srgb, var(--field-border) 45%, var(--surface-2)); }
-.route-car-acc.open .acc-chev { rotate: 180deg; background: var(--accent-soft); }
-.route-car-acc.open .acc-chev::before { border-color: var(--accent); }
+.route-car-acc.open > .route-car-row .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+.route-car-acc.open > .route-car-row .acc-chev::before { border-color: var(--accent); }
 .route-car-acc > .acc-lane { margin: 0 12px 12px; animation: acc-paint 0.42s var(--ease-out) both; }
 .route-car-acc.shutting > .acc-lane { animation: acc-paint 0.2s var(--ease-out) reverse both; }
 .route-car-acc .route-settings { display: grid; gap: 12px; justify-items: stretch; padding: 0 12px 12px; overflow: hidden; }
 .route-car-acc .tp-pcts .field-input { width: 6.5rem; }
+/* B123 Trip settings: Battery, Route, Weather and wheels, then plugs and the car rows, each a block
+   above a faint divider (design-language §3). */
+.tp-sec { display: grid; gap: 4px; }
+.tp-sec + .tp-sec, .route-car-acc .route-car-plugs { padding-top: 10px; border-top: 1px solid color-mix(in srgb, var(--field-border) 35%, transparent); }
+.tp-sec-title { margin-bottom: 2px; }
+.route-car-acc .tp-pcts-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.route-car-acc .tp-pcts-3 .field-input, .tp-temp .field-input { width: 100%; }
+@media (max-width: 340px) { .route-car-acc .tp-pcts-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tp-suffix-field { position: relative; display: block; }
+.tp-suffix-field .field-input { padding-right: 2.1rem; font-variant-numeric: tabular-nums; }
+.tp-suffix { position: absolute; right: 10px; top: 50%; translate: 0 -50%; color: var(--muted); font-size: 0.9rem; pointer-events: none; }
+.tp-switch { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 36px; padding: 4px 0; border: 0; background: none; color: inherit; font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer; }
+.tp-switch:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+@media (max-width: 640px) { .tp-switch { min-height: 44px; } }
+/* Owner 2026-11-20: Route and Plugs used fold to their title and a grey summary line. */
+.tp-fold { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 40px; padding: 2px 0; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.tp-fold-text { display: grid; gap: 1px; flex: 1; min-width: 0; }
+.tp-fold .acc-chev { flex: none; transform: scale(0.8); background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+.tp-fold[aria-expanded=true] .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+.tp-fold[aria-expanded=true] .acc-chev::before { border-color: var(--accent); }
+.tp-fold:focus-visible, .tp-car-row:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.tp-fold-body { display: grid; gap: 2px; justify-items: stretch; }
+.tp-fold-body > .link-btn { justify-self: start; margin-top: 2px; }
+.tp-sum { margin: 0; }
+/* The wheels · heat pump line is the way to Modify car settings. */
+.tp-car-row { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 40px; padding: 4px 0; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.tp-car-row > .small { flex: 1; min-width: 0; }
+.tp-car-row-go { display: inline-flex; align-items: center; gap: 2px; flex: none; color: var(--accent); font-weight: 600; font-size: 0.85rem; }
+.tp-car-row:hover .tp-car-row-go svg { translate: 2px 0; }
+/* "Change ›" next to a value (ChangeLink.tsx): link colour, bold, the go chevron instead of an underline. */
+.link-go { display: inline-flex; align-items: center; gap: 1px; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; vertical-align: baseline; }
+.link-go svg { flex: none; transition: translate 0.15s var(--ease-out); }
+.link-go:hover svg { translate: 2px 0; }
+.link-go:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+html[data-motion="off"] .link-go svg { transition: none; }
+.tp-weather { display: grid; gap: 4px; }
+/* Owner 2026-11-20: the range estimate is the answer: display font, full text colour, last. */
+.tp-estimate { margin: 2px 0 0; font-family: var(--display); font-weight: 700; font-size: 1rem; color: var(--text); font-variant-numeric: tabular-nums; }
+.tp-plugs { display: flex; flex-wrap: wrap; gap: 4px 14px; color: var(--text); font-size: 0.9rem; }
+.tp-plugs > span { display: inline-flex; align-items: center; gap: 8px; }
+.tp-weather p { margin: 0; }
+.tp-temp { display: grid; gap: 4px; max-width: 9rem; margin-bottom: 4px; }
+.ti-weather { margin: 2px 0 0; }
 .route-soc { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
 /* Plugs used: the map filter's plug drawings, one per row, faint dividers (§3 rows). */
 .route-car-plugs-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
@@ -410,6 +467,7 @@ a.btn { display: inline-block; text-decoration: none; }
 .route-plug-list li:last-child { border-bottom: 0; }
 /* Change car: a full-width row action (car, label, go chevron) above a faint divider. */
 .route-car-change { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 8px 2px 0; background: none; border: 0; border-top: 1px solid color-mix(in srgb, var(--field-border) 35%, transparent); color: var(--text); font: inherit; font-weight: 600; font-size: 0.9rem; text-align: left; cursor: pointer; }
+.route-car-change + .route-car-change { margin-top: -4px; }
 .route-car-change-go { margin-left: auto; color: var(--muted); transition: translate 0.15s var(--ease-out); }
 .route-car-change:hover .route-car-change-go { translate: 3px 0; }
 .route-car-change:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
@@ -421,10 +479,6 @@ html[data-motion="off"] .route-car-change-go { transition: none; }
 .route-ends { overflow-wrap: anywhere; }
 .route-panel .banner { margin: 0; }
 .route-itinerary { padding-top: 2px; }
-@media (max-width: 640px) {
-  .route-itinerary:not(.open) .ti-body { display: none; }
-  .route-itinerary .ti-toggle { display: inline-block; margin-top: 4px; }
-}
 
 /* Locate me: bottom right on desktop, beside the zoom buttons and above the attribution. */
 /* Bottom right (B54): the Map key toggle above Locate me; the key opens above them. */
@@ -504,32 +558,65 @@ html[data-motion="off"] .map-btn-label { transition: none; }
   .map-key-btn, .map-locate { width: 44px; height: 44px; min-height: 44px; padding: 0; justify-content: center; border-radius: 50%; }
   .map-btn-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
   .map-corner { align-items: flex-end; }
-  .charger-map .map-status { top: 112px; bottom: auto; }
+  /* Owner 2026-11-20 (B134): status lines (loading, errors) sit just above the map's bottom-right
+     controls (credits / ⓘ, which open wide on first load) over the bar / sheet, clear of the top-left
+     column. ChargerMap measures that corner into --ctrl-br-px. */
+  .charger-map .map-status { top: auto; bottom: calc(var(--sheet-px, 60px) + var(--ctrl-br-px, 40px) + 6px); }
   .map-corner { top: 64px; /* under the pill */ right: 8px; bottom: auto; max-width: calc(100% - 16px); }
   /* The key opens under its buttons as a popup over the map and the sheet, never past the screen. */
   .map-corner .map-key { order: 3; position: fixed; top: 220px; left: 8px; right: 8px; width: auto; max-width: none; max-height: max(200px, calc(100dvh - 220px - var(--sheet-px, 0px) - 48px)); z-index: 6; }
   /* ^ It ends above the credits ⓘ, which rides on the sheet's top edge. */
   .map-corner .map-locate-msg { order: 4; }
-  /* Place suggestions grow the sheet instead of being clipped inside it. */
-  .map-panel .tp-field .cp-suggest { position: static; margin: 0; }
+  /* B133 (owner 2026-11-20): place suggestions, the trip's From / To and "Where to?" alike, float over
+     the map just above the sheet, full width (fixed, so the sheet never clips or grows). */
+  .map-panel.route .tp-field .cp-suggest, .map-panel.where-bar .map-where .cp-suggest { position: fixed; top: auto; left: 8px; right: 8px; bottom: calc(var(--sheet-px, 0px) + 6px); margin: 0; max-height: max(160px, calc(100dvh - var(--sheet-px, 0px) - 84px)); overflow-y: auto; overscroll-behavior: contain; }
+  /* ...and the "pick from the suggestions" hint waits until the field is left, so typing never grows the sheet. */
+  .map-panel.route:has(.tp-field input:focus) .tp-hint { display: none; }
+  /* B126 (owner 2026-11-20): outside a trip the sheet is a fixed "Where to?" bar. */
+  .map-panel.where-bar { overflow: visible; }
+  .map-panel.where-bar .map-where { padding-top: 10px; }
   /* B70: a station's details open in the same box as Stations in view, top left, above the folded
      sheet, so they never compete with "Where to?". */
-  .station-panel { top: 64px; left: 8px; right: auto; bottom: auto; width: max(50%, 15rem); max-height: min(18rem, calc(100% - 64px - 216px)); }
+  /* Owner 2026-11-20: the details keep the Stations in view pill's width (15rem), not half the screen. */
+  .station-panel { top: 64px; left: 8px; right: auto; bottom: auto; width: 15rem; max-width: calc(100% - 72px); max-height: min(18rem, calc(100% - 64px - 216px)); }
   /* The box is small here: the whole panel scrolls under its header, source note included. */
   .station-panel { overflow-y: auto; overscroll-behavior: contain; }
   .station-head { position: sticky; top: 0; z-index: 1; background: var(--surface); border-radius: var(--radius) var(--radius) 0 0; padding: 8px 8px 8px 12px; }
   .station-body { flex: none; overflow: visible; }
   .station-head h2 { font-size: 1rem; margin-bottom: 4px; }
   .station-head .marquee, .map-list .marquee { white-space: nowrap; }
-  .map-inview, .map-inview:not(.open) { top: 64px; left: 8px; right: auto; width: auto; max-width: calc(100% - 72px); max-height: none; }
+  .map-inview, .map-inview:not(.open) { top: 64px; left: 8px; right: auto; width: auto; min-width: 15rem; max-width: calc(100% - 72px); max-height: none; }
   /* Phones: the switch keeps its shape; the list is the sheet below. */
   .map-inview .map-inview-toggle { border-radius: 23px; }
   /* B69: on phones too the list drops under the switch, stopping above the folded sheet; names
      cut off with "…" and each row is one short line of power · place · distance. */
-  .map-inview.open { width: max(50%, 15rem); border-radius: var(--radius); max-height: calc(100% - 64px - 216px); }
+  /* Owner 2026-11-20: open, the box keeps the pill's width (the list is contained, long names
+     scroll); ChargerMap caps the list at two rows. */
+  .map-inview.open { width: auto; border-radius: var(--radius); max-height: calc(100% - 64px - 216px); }
   .map-list li button { gap: 0; }
   .map-list-away { display: block; }
   .map-inview.open .map-inview-toggle { border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
+  /* B124 (owner 2026-11-20): a top-left column holds Stations in view (or a station's details) and,
+     under it, the Chargers filters fold. The column stops above the sheet; the open filters scroll
+     inside it, so both stay usable when Stations in view is open too. */
+  .map-left { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; position: absolute; top: 64px; left: 8px; z-index: 4; width: 15rem; max-width: calc(100% - 72px); max-height: calc(100% - 64px - var(--sheet-px, 0px) - 44px); pointer-events: none; }
+  .map-left > * { pointer-events: auto; }
+  .map-left .map-inview, .map-left .map-inview:not(.open), .map-left .station-panel { position: relative; top: auto; left: auto; right: auto; bottom: auto; max-width: 100%; flex: 0 1 auto; min-height: 0; }
+  .map-left .map-inview, .map-left .map-inview:not(.open), .map-left .station-panel { width: 100%; }
+  .map-left .map-inview.open { max-height: none; }
+  .map-left .station-panel { max-height: 18rem; }
+  .map-chargers { display: flex; flex-direction: column; flex: 0 1 auto; min-height: 0; width: 100%; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 23px; box-shadow: var(--shadow); }
+  .map-chargers.open { border-radius: var(--radius); }
+  .map-chargers-toggle { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 6px 8px 6px 12px; background: none; border: 0; border-radius: inherit; color: inherit; font: inherit; text-align: left; cursor: pointer; flex: none; }
+  .map-chargers-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .map-chargers-text { display: grid; flex: 1; min-width: 0; }
+  .map-chargers-name { font-family: var(--display); font-weight: 600; }
+  .map-chargers-toggle .acc-chev { flex: none; transform: scale(0.8); background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+  .map-chargers-toggle[aria-expanded=true] .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+  .map-chargers-toggle[aria-expanded=true] .acc-chev::before { border-color: var(--accent); }
+  .map-chargers .map-filters { display: flex; flex-direction: column; min-height: 0; flex: 0 1 auto; }
+  .map-chargers .map-filters > .map-filters-body { overflow-y: auto; overscroll-behavior: contain; min-height: 0; }
+  .map-chargers .map-filters.shut { display: none; }
 
 }
 
@@ -557,6 +644,9 @@ html[data-motion="off"] .map-btn-label { transition: none; }
 html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplibregl-ctrl-bottom-right, html[data-motion="off"] .charger-map .maplibregl-ctrl-bottom-left { transition: none !important; }
 
 /* Shared buttons (Phase 1b) */
+/* B130: a button with a small icon before its text. */
+.btn-with-icon { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.btn-icon { flex: none; }
 .btn { font: inherit; font-size: 0.9rem; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
 .btn.small { font-size: 0.8rem; padding: 4px 10px; }
 .btn:hover:not(:disabled) { background: var(--surface-2); }
@@ -669,15 +759,27 @@ html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplib
 .chip-pop [role=menuitem]:hover, .chip-pop [role=menuitem]:focus-visible { background: var(--accent-soft); }
 /* My car's plug switches (B55) */
 .chip-plugs { border-top: 1px solid var(--border); margin-top: 4px; padding: 6px 2px 2px; display: grid; gap: 2px; }
-.chip-plugs-label { margin: 0 8px 2px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+.chip-plugs-label { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+/* Owner 2026-11-20: the plug switches fold to the title and the plugs that are on. */
+.chip-pop .chip-plugs-fold { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 40px; padding: 6px 10px; border: 0; border-radius: 6px; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.chip-plugs-fold:hover { background: color-mix(in srgb, var(--field-border) 14%, transparent); }
+.chip-plugs-fold:focus-visible { outline: 3px solid var(--accent); outline-offset: -1px; }
+.chip-plugs-fold-text { display: grid; gap: 1px; flex: 1; min-width: 0; }
+.chip-plugs-sum { font-size: 0.8rem; color: var(--muted); }
+.chip-plugs-fold .acc-chev { flex: none; transform: scale(0.8); background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+.chip-plugs-fold[aria-expanded=true] .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+.chip-plugs-fold[aria-expanded=true] .acc-chev::before { border-color: var(--accent); }
+.chip-plugs-list { display: grid; gap: 2px; padding: 2px; margin: 0 -2px; } /* room for focus rings inside the fold (B129) */
+.fold.shut > .chip-plugs-list { padding-top: 0; padding-bottom: 0; }
+@media (max-width: 640px) { .chip-plugs-fold { min-height: 44px; } }
 .chip-plug { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border: 0; border-radius: 6px; background: none; color: var(--text); font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer; }
 .chip-plug:hover, .chip-plug:focus-visible { background: var(--accent-soft); }
 .chip-plug:disabled { cursor: progress; opacity: 0.6; }
-.chip-plug .switch, .settings-switch .switch { flex: none; position: relative; width: 30px; height: 18px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--field-border); }
-.chip-plug .switch::after, .settings-switch .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted); transition: transform 0.15s; }
-.chip-plug[aria-checked=true] .switch, .settings-switch[aria-checked=true] .switch { background: var(--paint); border-color: var(--paint-edge); }
-.chip-plug[aria-checked=true] .switch::after, .settings-switch[aria-checked=true] .switch::after { transform: translateX(12px); background: var(--paint-ink); }
-html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .settings-switch .switch::after { transition: none; }
+.chip-plug .switch, .settings-switch .switch, .tp-switch .switch { flex: none; position: relative; width: 30px; height: 18px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--field-border); }
+.chip-plug .switch::after, .settings-switch .switch::after, .tp-switch .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted); transition: transform 0.15s; }
+.chip-plug[aria-checked=true] .switch, .settings-switch[aria-checked=true] .switch, .tp-switch[aria-checked=true] .switch { background: var(--paint); border-color: var(--paint-edge); }
+.chip-plug[aria-checked=true] .switch::after, .settings-switch[aria-checked=true] .switch::after, .tp-switch[aria-checked=true] .switch::after { transform: translateX(12px); background: var(--paint-ink); }
+html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .settings-switch .switch::after, html[data-motion="off"] .tp-switch .switch::after { transition: none; }
 @media (max-width: 640px) { .chip-plug { min-height: 44px; } }
 .chip-plugs-note { margin: 4px 8px 2px; max-width: 230px; font-size: 0.78rem; color: var(--muted); }
 .cp-plugs { display: grid; gap: 6px; margin-top: 4px; }
@@ -685,6 +787,35 @@ html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .sett
 .cp-plug-row { display: flex; flex-wrap: wrap; gap: 4px 8px; }
 .cp-plug { border: 1px solid var(--border); }
 .cp-plugs-note { margin: 0; max-width: 60ch; }
+/* B120: My car settings (Modify car settings dialog and the Change car dialog's Range estimates). */
+.car-changed { margin-left: 1px; color: var(--accent); font-weight: 700; }
+.cs-panel { display: grid; gap: 10px; margin-top: 4px; }
+.cs-panel .panel-title { margin: 0; }
+.cs-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.cs-field { display: grid; gap: 6px; align-content: start; min-width: 0; font-size: 0.875rem; }
+.cs-label { font-weight: 600; color: var(--text); }
+.cs-field select { width: 100%; min-width: 0; }
+.cs-switch { justify-content: space-between; justify-self: start; min-width: 150px; }
+.cs-note { margin: 0; max-width: 60ch; }
+.car-settings { display: grid; gap: 12px; }
+/* Dialog heads and row links (design-language "Dialogs", owner 2026-11-20): a small muted label,
+   the headline in Overpass 800 like the trip time, a muted line under it; links are row actions. */
+.dlg-head { display: grid; gap: 4px; padding-right: 8px; }
+.dlg-eyebrow { margin: 0; font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+.car-picker .dlg-title, .dlg-title { margin: 0; font-family: var(--display); font-size: 2rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; }
+.dlg-sub { margin: 0; font-size: 0.95rem; color: var(--muted); max-width: 56ch; }
+@media (max-width: 640px) { .car-picker .dlg-title, .dlg-title { font-size: 1.65rem; } }
+.settings-dialog { width: min(620px, calc(100vw - 24px)); }
+.cs-panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.cs-reset { font-size: 0.85rem; }
+/* Row links in dialogs: a row action on a raised block (§1), like the trip panel's Change car. */
+.dlg-row { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 16px; border-radius: 10px; background: var(--surface-2); color: var(--text); font-weight: 600; font-size: 0.9rem; text-decoration: none; }
+.dlg-row:hover { background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+.dlg-row-go { margin-left: auto; color: var(--muted); transition: translate 0.15s var(--ease-out); }
+.dlg-row:hover .dlg-row-go { translate: 2px -2px; }
+html[data-motion="off"] .dlg-row-go { transition: none; }
+.dlg-row:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 640px) { .settings-dialog .cs-field select, .settings-dialog .cp-actions .btn { min-height: 44px; } }
 
 /* ---- Trip planner on the charger map (B50): form fields and the itinerary. */
 .tp-field { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }
@@ -702,7 +833,6 @@ html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .sett
 .tp-share .field-input { width: 100%; }
 .tp-hint { margin: 0; }
 .linklike { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
-.ti-toggle { display: none; }
 /* Trip result (DESIGN-4 4.8): total time first, then the stops along the painted line. */
 .ti-time-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .ti-share { display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; margin-right: -6px; padding: 0; border: 1px solid var(--field-border); border-radius: 50%; background: var(--surface); color: var(--text); cursor: pointer; }

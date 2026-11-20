@@ -108,7 +108,7 @@ describe('next target and arrival', () => {
 });
 
 describe('tab-only record', () => {
-  const trip = { from: { label: 'Toronto, ON', lat: 43.65, lon: -79.38 }, to: { label: 'Montréal, QC', lat: 45.5, lon: -73.57 }, startSoc: 90, thresholdSoc: 15 };
+  const trip = { from: { label: 'Toronto, ON', lat: 43.65, lon: -79.38 }, to: { label: 'Montréal, QC', lat: 45.5, lon: -73.57 }, startSoc: 90, thresholdSoc: 15, arriveSoc: 20, weather: false, tempC: 20 };
   it('round-trips the trip and progress', () => {
     expect(readDrive(writeDrive({ trip, reached: [true, false] }))).toEqual({ trip, reached: [true, false] });
   });

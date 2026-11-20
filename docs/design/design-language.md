@@ -222,7 +222,7 @@ Open points for the owner: grouping the assumption controls, a shorter estimate 
 
 ### Button icons (B130, owner 2026-11-20)
 
-- A small line icon (text colour, 16–18 px, 6 px gap) sits before the text of: the map's **Plan** and the trip's **Plan trip** (a route ending in a pin), **Return to plan** (an itinerary list), and Drive mode's **Google Maps** (a map pin) and **Apple Maps** (a folded map). The two map icons are generic shapes that hint at each app, not the companies' logos (trademarks). Icons live in .
+- A small line icon (text colour, 16–18 px, 6 px gap) sits before the text of: the map's **Plan** and the trip's **Plan trip** (a route ending in a pin), **Return to plan** (an itinerary list), and Drive mode's **Google Maps** (a map pin) and **Apple Maps** (a folded map). The two map icons are generic shapes that hint at each app, not the companies' logos (trademarks). Icons live in `src/components/ButtonIcons.tsx`.
 
 ### Logo (B118, owner 2026-11-20)
 

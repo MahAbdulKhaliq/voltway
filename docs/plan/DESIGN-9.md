@@ -167,6 +167,19 @@ Make → Model → Generation → Powertrain (pack + charging hardware + curves)
   - research rounds per powertrain, starting with E-GMP and Tesla 3/Y;
   - data PRs for owner review.
 
+## Owner review round 2 (2026-11-20, B100–B106)
+
+Decisions from the waves 2–3 review, recorded in gaps-and-questions.md:
+- **B100** leave out the Kandi K27, Honda Fit EV and Azure Transit Connect.
+- **B101** 2023–25 bZ4X becomes its own model; the 2026+ bZ stays separate.
+- **B102** LYRIQ-V becomes its own model (OPTIQ-V and the 2027 Bolt already are); other splits stay as built.
+- **B103** B97 covers the Hummer EV pickup 2022–23 and Sierra EV 2024 Denali Edition 1; every B97 car gets a consumption figure (maker or independent test) so its 10–80 % time and range added work.
+- **B104** onboard-charger option trims carry their own `ac_max_kw`; GM's optional 19.2 kW is added per model and year.
+- **B105** factory wheel sizes for every trim; another source round for the 77 cars missing a B96 figure; ADAC accepted.
+- **B106** the Cars page shows 48 cards or 50 rows per page.
+
+Research runs as background ev-data-researcher batches (wheels by make group, GM charger options, B97 trucks and consumption, B96 gaps), each fact-checked before it is applied. Data changes stay local until the owner reviews them.
+
 ## Critical files
 
 - **Schemas:** `schema/variant.schema.json`, `schema/curve.schema.json`, `schema/model.schema.json`, new `schema/powertrain.schema.json`

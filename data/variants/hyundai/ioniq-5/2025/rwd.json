@@ -1,0 +1,30 @@
+{
+  "id": "hyundai/ioniq-5/2025/rwd",
+  "model_id": "hyundai/ioniq-5",
+  "year": 2025,
+  "name": "RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "hyundai/ioniq-5/2025-dual-motor-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-hmgma-2025-ioniq-5-xrt", "note_id": "n-681109c8eb" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-usa-nacs-adapter-faq", "note_id": "n-f2f24a3971", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-us-adapter-faq", "note_id": "n-cae3dd13b2" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "RWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2025-471565", "low_confidence": true, "note_id": "n-63c50bc49f" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b112-carscom-ioniq5-2025-article", "note_id": "n-503fdf4972", "low_confidence": true }
+      ]
+    }
+  ]
+}

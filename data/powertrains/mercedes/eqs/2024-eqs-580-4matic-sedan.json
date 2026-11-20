@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqs/2024-eqs-580-4matic-sedan",
+  "model_id": "mercedes/eqs",
+  "name": "EQS 580 4MATIC Sedan",
+  "generation": "first-generation",
+  "years": [2024],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 108.4, "unit": "kWh", "kind": "estimated", "source_id": "src-mbusa-data-2024-eqs-eqs580v4", "low_confidence": true, "note_id": "n-354952a38a" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-98b9a85e51" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-361488a6e2" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-eqe-eqs-quickstart", "low_confidence": true, "note_id": "n-ce3bdffc9d" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqs-eqs580v4", "note_id": "n-ef94359a19" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqs-eqs580v4", "note_id": "n-6c4fc42729" }
+  ],
+  "published_10_80_min": [
+    { "value": 31, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqs-eqs580v4", "note_id": "n-e94024573d" }
+  ]
+}

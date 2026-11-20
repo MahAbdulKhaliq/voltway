@@ -1,0 +1,31 @@
+{
+  "id": "subaru/solterra/2027/premium",
+  "model_id": "subaru/solterra",
+  "year": 2027,
+  "name": "Premium",
+  "drivetrain": "awd",
+  "powertrain_id": "subaru/solterra/2027-limited",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-2027-kit", "note_id": "n-47eddcd08d" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-2027-kit", "note_id": "n-9d0312d99b" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-subaru-us-media-solterra-2026", "note_id": "n-c3b47278ef" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "estimated", "source_id": "src-insideevs-2026-solterra-bz-supercharger", "note_id": "n-8df9cb4a88", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Premium" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-sub-sol27", "notes": "Premium rides on 18-inch alloy wheels." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-insideevs-2026-solterra-nacs-test", "note_id": "n-939578b021", "low_confidence": true }
+      ]
+    }
+  ]
+}

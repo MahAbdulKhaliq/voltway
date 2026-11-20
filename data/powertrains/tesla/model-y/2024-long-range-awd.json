@@ -1,0 +1,33 @@
+{
+  "id": "tesla/model-y/2024-long-range-awd",
+  "model_id": "tesla/model-y",
+  "name": "Long Range AWD",
+  "generation": "original",
+  "years": [2024, 2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 82, "unit": "kWh", "kind": "manufacturer", "source_id": "src-openev-v1-24-0", "low_confidence": true, "note_id": "n-bc2bd3e957" },
+      { "value": 82, "kind": "estimated", "source_id": "src-arenaev-model-y-lr-awd-82kwh", "low_confidence": true, "note_id": "n-cf340cad12", "unit": "kWh" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 75, "kind": "estimated", "source_id": "src-arenaev-model-y-lr-awd-82kwh", "low_confidence": true, "note_id": "n-4c3065e2e0", "unit": "kWh" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "estimated", "source_id": "src-insideevs-tesla-cell-suppliers", "low_confidence": true, "note_id": "n-29fe51b8c7" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-arenaev-model-y-lr-awd-82kwh", "low_confidence": true, "note_id": "n-fe649c21f7" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-teslabs-manual-preconditioning", "low_confidence": true, "note_id": "n-1fa6db44c3" },
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-model-y-lr-awd-1619", "low_confidence": true, "note_id": "n-42a8c6abf7" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "unit": "kW", "kind": "manufacturer", "source_id": "src-openev-v1-24-0", "low_confidence": true, "note_id": "n-18468ce25a" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-fec2e18f04", "unit": "kW" },
+    { "value": 11.5, "kind": "estimated", "source_id": "src-wikipedia-tesla-model-y", "low_confidence": true, "note_id": "n-1160ec5905", "unit": "kW" }
+  ]
+}

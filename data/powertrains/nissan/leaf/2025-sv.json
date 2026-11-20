@@ -1,0 +1,30 @@
+{
+  "id": "nissan/leaf/2025-sv",
+  "model_id": "nissan/leaf",
+  "name": "SV",
+  "generation": "second-generation",
+  "years": [2025],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 39, "unit": "kWh", "kind": "community", "source_id": "src-evdb-leaf-40-my18-22", "low_confidence": true, "note_id": "n-021714761b" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 40, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2019-press-kit", "low_confidence": true, "note_id": "n-c628eed3e5" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-leaf-40-my18-22", "low_confidence": true, "note_id": "n-d3550d5bac" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "community", "source_id": "src-evdb-leaf-40-my18-22", "low_confidence": true, "note_id": "n-4ef16f1812" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-evdb-leaf-40-my18-22", "low_confidence": true, "note_id": "n-795b60a38e" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 50, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-ca-leaf-2024-press-kit", "low_confidence": true, "note_id": "n-006980918b" }
+  ],
+  "ac_max_kw": [
+    { "value": 6.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2024-press-kit", "low_confidence": true, "note_id": "n-f6ecc5cdfa" }
+  ]
+}

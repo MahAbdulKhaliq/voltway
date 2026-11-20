@@ -1,0 +1,35 @@
+{
+  "id": "gmc/hummer-ev-pickup",
+  "make_id": "gmc",
+  "name": "Hummer EV Pickup",
+  "body_type": "truck",
+  "generations": [
+    { "id": "first-generation", "name": "First generation", "first_year": 2022, "notes": "Separate model from the SUV because both regulators rate them apart (NRCan \"HUMMER EV2X/EV3X Pickup\" vs \"... SUV\"; EPA labels \"Hummer EV Pickup ...\" vs \"Hummer EV SUV ...\") and they are different bodies. Ultium 800 V-capable pack (24-module, about 212.7 kWh usable, or 20-module, about 170 kWh), up to about 350 kW DC, 11.5/19.2 kW AC. 2022 Edition 1 (24 modules), 2023 EV3X; for 2024 the 2X and a 20-module pack were added (\"2M20\" in EPA labels), 24-module optional on 3X; 2026 brought power and software updates. Pack choices are powertrain-level, not generations. No 2022-2023 or 2026+ regulator rows in our imports (EPA/NRCan rows only 2024-2025; the truck's weight class was exempt from labelling earlier). Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/GMC_Hummer_EV ; https://gmauthority.com/blog/gm/gmc/gmc-hummer-ev/gmc-hummer-ev-pickup/2025-gmc-hummer-ev-pickup/2025-gmc-hummer-ev-pickup-updates-changes-new-features/ ; https://news.gm.com/home.detail.html/Pages/news/us/en/2025/may/0515-2026-GMC-HUMMER-EV-capable-advanced-supertruck.html" }
+  ],
+  "years": [
+    {
+      "year": 2022,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    }
+  ]
+}

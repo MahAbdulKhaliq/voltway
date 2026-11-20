@@ -1,0 +1,30 @@
+{
+  "id": "maserati/grecale-folgore/2025/folgore",
+  "model_id": "maserati/grecale-folgore",
+  "year": 2025,
+  "name": "Folgore",
+  "drivetrain": "awd",
+  "powertrain_id": "maserati/grecale-folgore/2025-folgore",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-4b2babab0d" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-adf23c4e53" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-1c78dea37e" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Folgore" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-maserati-grecale-folgore-2025-specs", "notes": "Grecale Folgore AWD: front 20 x 9 in (P255/45R20), rear 20 x 10.5 in (P295/40R20 per the 2025 page)." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-grecale-folgore-2022", "note_id": "n-63705c08d7", "low_confidence": true }
+      ]
+    }
+  ]
+}

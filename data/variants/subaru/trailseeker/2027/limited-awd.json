@@ -1,0 +1,28 @@
+{
+  "id": "subaru/trailseeker/2027/limited-awd",
+  "model_id": "subaru/trailseeker",
+  "year": 2027,
+  "name": "Limited AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "subaru/trailseeker/2027-limited-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2027", "note_id": "n-be513a9322" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-subaru-us-media-solterra-2026", "low_confidence": true, "note_id": "n-adac4e0ce1" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-fa13fea5e4" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "estimated", "source_id": "src-charged-trailseeker-first-drive", "note_id": "n-b991ff9cf8", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Limited AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-subaru-trailseeker-2027-specs-488368", "note_id": "n-9c51e9dad4" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "porsche/taycan/2023/taycan-gts",
+  "model_id": "porsche/taycan",
+  "year": 2023,
+  "name": "Taycan GTS",
+  "drivetrain": "awd",
+  "powertrain_id": "porsche/taycan/2022-taycan-gts",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-5905a75adf" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-c33be61ae0" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-ca-supercharger-2025", "note_id": "n-da78e91c76" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-por-us-sc-access", "note_id": "n-33f75cb4ae" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Taycan GTS", "US": "Taycan GTS" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-porsche-taycan-2022-426770", "notes": "Estimated: the 2022 Taycan GTS AWD page shows 20-inch; the 2023 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-porsche-taycan-2025-us", "note_id": "n-1dbf97bddc", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b112-por-stories-winter", "note_id": "n-0eb0b95f6f", "low_confidence": true }
+      ]
+    }
+  ]
+}

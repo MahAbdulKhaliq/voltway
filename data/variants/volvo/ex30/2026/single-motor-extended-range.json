@@ -4,29 +4,25 @@
   "year": 2026,
   "name": "Single Motor Extended Range",
   "drivetrain": "rwd",
-  "published_10_80_min": [
-    {
-      "value": 26,
-      "unit": "min",
-      "kind": "community",
-      "source_id": "src-thinkev-volvo-ex30-review-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Review states about 26 min 10-80% at a compatible station (153 kW peak); article covers Single Motor and Twin Motor Performance generally. Article says 'Single Motor', not 'Extended Range'; mapped because it is our only single-motor EX30 variant."
-    }
-  ],
+  "powertrain_id": "volvo/ex30/2026-single-motor-extended-range",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-motorillustrated-ex30-2026",
-      "low_confidence": true,
-      "notes": "Canadian review of the 2026 EX30 says CCS1 charge port."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-motorillustrated-ex30-2026", "low_confidence": true, "note_id": "n-6213b58f0d" },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-a9214476f3" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-36c27577b8" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "Single Motor Extended Range"
+      "names": { "CA": "Single Motor Extended Range", "US": "Single Motor" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ex30-2026-specs", "notes": "Core: 19x8 aluminum, P245/45VR19. Plus and Ultra not opened.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-jalopnik-ex30-2026", "notes": "US 2026 Single Motor lists a heat pump as standard (Jalopnik). Canada Single Motor Extended Range: ArenaEV lists Yes.", "low_confidence": true }
+      ]
     }
   ]
 }

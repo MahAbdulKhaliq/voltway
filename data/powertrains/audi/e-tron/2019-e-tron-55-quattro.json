@@ -1,0 +1,27 @@
+{
+  "id": "audi/e-tron/2019-e-tron-55-quattro",
+  "model_id": "audi/e-tron",
+  "name": "e-tron 55 quattro",
+  "generation": "first-generation",
+  "years": [2019, 2020],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 95, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-wiki-audi-q8-etron", "low_confidence": true, "note_id": "n-59a9657cf2" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-weeklydriver-etron95", "low_confidence": true, "note_id": "n-4841b88be7" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 83.6, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-wiki-audi-q8-etron", "low_confidence": true, "notes": "Wikipedia table: 2019 e-tron 55 usable 83.6 kWh as built, raised to 86.5 kWh by an Oct 2021 software update (reported for Europe; North American roll-out not confirmed). Model years compared: 2019-2023." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-w2-insideevs-etron-skin", "low_confidence": true, "note_id": "n-c1cbfae860" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-insideevs-etron-skin", "low_confidence": true, "note_id": "n-aec3316b94" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-wiki-audi-etron-2018", "low_confidence": true, "note_id": "n-59ef6ab8e7" }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqs/2026-eqs-450-4matic-sedan",
+  "model_id": "mercedes/eqs",
+  "name": "EQS 450 4MATIC Sedan",
+  "generation": "2025-update",
+  "years": [2026],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 118, "unit": "kWh", "kind": "estimated", "source_id": "src-mbusa-data-2026-eqs-eqs450v", "low_confidence": true, "notes": "Estimated: mbusa lists \"battery capacity 118 kWh\" without a gross/usable label and no second page labelling this pack was found; read as usable by analogy with the sibling packs whose usable figure is labelled (EQS 107.8, EQE 90.6, EQS 118). Read on the 2026 EQS450V page (no page opened for this exact trim/year); same pack and charger on the sibling trim." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-98b9a85e51" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-361488a6e2" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-eqe-eqs-quickstart", "low_confidence": true, "note_id": "n-ce3bdffc9d" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 200, "unit": "kW", "kind": "estimated", "source_id": "src-mbusa-data-2026-eqs-eqs450v", "low_confidence": true, "notes": "Estimated: sibling page lists 200 kW for the same pack and charger (2026 EQS450V); this car's own page was not opened." }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "estimated", "source_id": "src-mbusa-data-2026-eqs-eqs450v", "low_confidence": true, "note_id": "n-e24d436212" }
+  ],
+  "published_10_80_min": [
+    { "value": 31, "unit": "min", "kind": "estimated", "source_id": "src-mbusa-data-2026-eqs-eqs450v", "low_confidence": true, "note_id": "n-7ad5c73214" }
+  ]
+}

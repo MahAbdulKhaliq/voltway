@@ -1,0 +1,34 @@
+{
+  "id": "bmw/ix/2022/xdrive50",
+  "model_id": "bmw/ix",
+  "year": 2022,
+  "name": "xDrive50",
+  "drivetrain": "awd",
+  "powertrain_id": "bmw/ix/2022-xdrive50",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-e6c4e1a732" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true },
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "xDrive50", "US": "xDrive50" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-bmw-ix-2022-us", "notes": "xDrive50 (CA/US): iX xDrive50: 20-inch aero standard.", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-bmw-ix-2022-us", "notes": "xDrive50 (CA/US): iX xDrive50: 21-inch optional.", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-bmw-ix-2022-us", "notes": "xDrive50 (CA/US): iX xDrive50: 22-inch optional.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-gf-adac-ix-xdrive40", "note_id": "n-979391f934", "low_confidence": true }
+      ]
+    }
+  ]
+}

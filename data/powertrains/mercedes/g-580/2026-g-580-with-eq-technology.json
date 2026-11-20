@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/g-580/2026-g-580-with-eq-technology",
+  "model_id": "mercedes/g-580",
+  "name": "G 580 with EQ Technology",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 116, "unit": "kWh", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-g-g580w4e", "low_confidence": true, "note_id": "n-9c9ffcfdcc" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-mbusa-data-2026-g-g580w4e", "low_confidence": true, "note_id": "n-b0f6ade31a" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-mbusa-data-2026-g-g580w4e", "low_confidence": true, "note_id": "n-2308f9037c" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-cla-release", "low_confidence": true, "note_id": "n-7d4974290b" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-g-g580w4e", "note_id": "n-ef94359a19" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-g-g580w4e", "notes": "mbusa maximum AC charging speed. Mercedes-Benz Canada lists 11 kW AC for the 2026 G 580 (mercedes-benz.ca g580w4e page); mbusa lists 9.6 kW. One value is stored for the shared CA/US car: 9.6 (US)." }
+  ],
+  "published_10_80_min": [
+    { "value": 32, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-g-g580w4e", "note_id": "n-e94024573d" }
+  ]
+}

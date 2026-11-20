@@ -1,0 +1,28 @@
+{
+  "id": "subaru/trailseeker/2026/premium-awd",
+  "model_id": "subaru/trailseeker",
+  "year": 2026,
+  "name": "Premium AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "subaru/trailseeker/2026-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2026", "note_id": "n-9d63ebb14b" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-subaru-us-media-solterra-2026", "low_confidence": true, "note_id": "n-adac4e0ce1" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-fa13fea5e4" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-subaru-2026-trailseeker-features", "note_id": "n-b010918c16" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Premium AWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-sub-trail26", "notes": "Premium: 18-inch aluminum-alloy wheels with wheel covers." }
+      ]
+    }
+  ]
+}

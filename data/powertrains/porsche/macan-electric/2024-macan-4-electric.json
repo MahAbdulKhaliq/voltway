@@ -1,0 +1,33 @@
+{
+  "id": "porsche/macan-electric/2024-macan-4-electric",
+  "model_id": "porsche/macan-electric",
+  "name": "Macan 4 Electric",
+  "generation": "first-generation",
+  "years": [2024, 2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 100, "unit": "kWh", "kind": "manufacturer", "source_id": "src-porsche-macan-gts-battery", "note_id": "n-b16aa14414" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 95, "unit": "kWh", "kind": "manufacturer", "source_id": "src-porsche-macan-gts-battery", "low_confidence": true, "note_id": "n-6d69d57ba5" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-porsche-macan-gts-battery", "note_id": "n-0feb5b4141" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-porsche-macan-gts-battery", "note_id": "n-2ee586bab8" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "manufacturer", "source_id": "src-porsche-uk-ask-cayenne-charging", "low_confidence": true, "note_id": "n-fc3a1278cd" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 270, "unit": "kW", "kind": "manufacturer", "source_id": "src-porsche-macan-gts-battery", "note_id": "n-21b7418c7a" }
+  ],
+  "published_10_80_min": [
+    { "value": 21, "unit": "min", "kind": "manufacturer", "source_id": "src-porsche-macan-gts-battery", "note_id": "n-561c214ea5" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-macan-2024-specs", "low_confidence": true, "notes": "US on-board charger 9.6 kW (InsideEVs 2024 Macan 4/Turbo). Europe 11 kW standard (Porsche press kit), 22 kW option/standard from the new model year in Germany (electrive, Aug 2026). Same US hardware assumed for this trim/year and for Canada." }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-3/2019-performance",
+  "model_id": "tesla/model-3",
+  "name": "Performance",
+  "generation": "original-2017",
+  "years": [2019, 2020],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 78.8, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-lrawd-2019", "low_confidence": true, "note_id": "n-35ca13b43e" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 73.5, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-lrawd-2019", "low_confidence": true, "note_id": "n-8e8403a7d7" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "estimated", "source_id": "src-evdb-m3-lrawd-2019", "low_confidence": true, "note_id": "n-8e4808c4ac" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-m3-lrawd-2019", "low_confidence": true, "note_id": "n-5ea642c16b" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-notateslaapp-2020-24-6-4", "low_confidence": true, "note_id": "n-a4ab73fa1f" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-m3-2018-lrawd", "low_confidence": true, "note_id": "n-d807bb7874" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-tesla-m3-service-manual-charging", "low_confidence": true, "note_id": "n-1a7511b36f" }
+  ]
+}

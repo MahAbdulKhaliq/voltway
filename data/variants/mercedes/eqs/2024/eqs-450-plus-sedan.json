@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqs/2024/eqs-450-plus-sedan",
+  "model_id": "mercedes/eqs",
+  "year": 2024,
+  "name": "EQS 450+ Sedan",
+  "drivetrain": "rwd",
+  "powertrain_id": "mercedes/eqs/2024-eqs-450-plus-sedan",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqs-eqs450v", "note_id": "n-e863ab2c59" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-1972a7a45d" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "EQS 450+ Sedan" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-plus-2024-specs-448026", "notes": "EQS 450+ Sedan: 20 x 8.5 in, P255/45R20." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-626caa456f" }
+      ]
+    }
+  ]
+}

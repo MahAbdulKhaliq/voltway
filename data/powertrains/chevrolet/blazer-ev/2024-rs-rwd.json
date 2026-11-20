@@ -1,0 +1,27 @@
+{
+  "id": "chevrolet/blazer-ev/2024-rs-rwd",
+  "model_id": "chevrolet/blazer-ev",
+  "name": "RS RWD",
+  "generation": "first-generation",
+  "years": [2024],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 100, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-cadillac-lyriq", "low_confidence": true, "note_id": "n-47245f5485" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-lyriq-v", "low_confidence": true, "note_id": "n-26c836c550" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-r3-greencars-lyriq", "low_confidence": true, "note_id": "n-790b07a6d9" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 190, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-blazer-ev-epa-2024", "low_confidence": true, "notes": "InsideEVs table (GM figures): RS RWD 102 kWh = 190 kW; up to 190 kW in GM launch material. Years: 2024." }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-blazer-ev-epa-2024", "low_confidence": true, "notes": "InsideEVs: 11.5 kW for the Blazer EV; Wikipedia 11.5 kW. Enel X Way (reseller) lists an optional 19.2 kW on RS RWD and SS and GMAuthority shows 11.5 / 19 kW in one column; Recharged says 11.5 kW on all trims; no NRCan 19.2 kW Blazer. Recorded 11.5 kW; the conflict is unresolved." }
+  ]
+}

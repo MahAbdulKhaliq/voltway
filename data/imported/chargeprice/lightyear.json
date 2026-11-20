@@ -3,51 +3,6 @@
   "source_id": "src-chargeprice-archive-2025-04",
   "make": "lightyear",
   "records": [
-    {
-      "source_key": "2b5cce7a-fa85-4c46-b335-b5e70f3665b1",
-      "year": 2022,
-      "make": "Lightyear",
-      "model": "0",
-      "capacity_usable_kwh": [
-        {
-          "value": 60,
-          "unit": "kWh",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "dc_max_kw": [
-        {
-          "value": 100,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "ac_max_kw": [
-        {
-          "value": 11,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "nominal_voltage_class": [
-        {
-          "value": "400v",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "curve_skipped": "flagged_default"
-    }
+    { "source_key": "2b5cce7a-fa85-4c46-b335-b5e70f3665b1", "year": 2022, "make": "Lightyear", "model": "0", "capacity_usable_kwh": [{ "value": 60, "unit": "kWh", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "dc_max_kw": [{ "value": 100, "unit": "kW", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "ac_max_kw": [{ "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "nominal_voltage_class": [{ "value": "400v", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "curve_skipped": "flagged_default" }
   ]
 }

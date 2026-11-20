@@ -1,0 +1,17 @@
+{
+  "id": "insideevs-batterylife-ionity-2021",
+  "powertrain_id": "hyundai/ioniq-5/2022-preferred",
+  "kind": "tested",
+  "source_id": "src-insideevs-ioniq5-58kwh-ionity-2021",
+  "low_confidence": true,
+  "points": [
+    { "soc_percent": 7, "power_kw": 177 },
+    { "soc_percent": 45, "power_kw": 177 },
+    { "soc_percent": 50, "power_kw": 140 },
+    { "soc_percent": 57, "power_kw": 140 },
+    { "soc_percent": 86, "power_kw": 50 }
+  ],
+  "conditions": { "preconditioned": "unknown", "ambient_temp_c": 16 },
+  "note_id": "n-fe3c36b13c",
+  "is_display_default": false
+}

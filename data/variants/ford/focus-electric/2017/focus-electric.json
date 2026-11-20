@@ -1,0 +1,30 @@
+{
+  "id": "ford/focus-electric/2017/focus-electric",
+  "model_id": "ford/focus-electric",
+  "year": 2017,
+  "name": "Focus Electric",
+  "drivetrain": "fwd",
+  "powertrain_id": "ford/focus-electric/2017-focus-electric",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-greencarreports-2017-focus-electric", "note_id": "n-96b3ffda1e", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "community", "source_id": "src-insideevs-supercharger-list-2026", "note_id": "n-7066c9c00a", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-b112-ford-ca-adapter-faq", "note_id": "n-05c595aadd" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Focus Electric", "US": "Focus Electric" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-focus-electric-2017", "notes": "Only trim: 17 in aluminum wheels, P225/50R17 (Cars.com 2017 page). Source is a US page; Canadian trim assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b113-myfocuselectric-cabin-heater", "low_confidence": true, "note_id": "n-29cc91e640" }
+      ]
+    }
+  ]
+}

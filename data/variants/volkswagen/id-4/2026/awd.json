@@ -4,30 +4,27 @@
   "year": 2026,
   "name": "AWD",
   "drivetrain": "awd",
-  "battery": {
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-thinkev-vw-id4-2026",
-        "low_confidence": true,
-        "notes": "Quick web lookup. Page says NMC, 82 kWh."
-      }
-    ]
-  },
+  "powertrain_id": "volkswagen/id-4/2026-awd",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-thinkev-vw-id4-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian listing says CCS1."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thinkev-vw-id4-2026", "low_confidence": true, "note_id": "n-8116822cd3" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-vw-ca-nacs-adapter", "low_confidence": true, "note_id": "n-6cc68ef979" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-electrek-vw-sc", "note_id": "n-4528e4ca21", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "AWD"
+      "names": { "CA": "AWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2021-418045", "notes": "Estimated: 2021 ID.4 Pro AWD page shows 19x8; 2026 Canadian AWD assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b112-autotrader-id4-2024", "notes": "Canada: optional heat pump (C$1,500 in 2024, Autotrader.ca). Model year 2026 carried from 2024; no 2025/2026 page opened.", "low_confidence": true }
+      ]
     }
   ]
 }

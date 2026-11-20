@@ -3,13 +3,46 @@
   "make_id": "hyundai",
   "name": "IONIQ 5",
   "body_type": "crossover",
+  "generations": [
+    { "id": "first-generation-pre-facelift", "name": "First generation", "first_year": 2022, "last_year": 2024, "notes": "Launch on E-GMP (800 V). 77.4 kWh Long Range (DC peak ~233 kW) from launch; 58 kWh Standard Range (~175 kW) from spring 2022. CCS1 port. Canada 2022 only: the Essential trim had no DC fast charging (about 30 sold), dropped for 2023. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Ioniq_5" },
+    { "id": "2025-refresh", "name": "2025 refresh", "first_year": 2025, "notes": "Bigger packs: Standard Range 63 kWh, Long Range 84 kWh; native NACS port; production moved to the Georgia Metaplant; new XRT trim on the 84 kWh pack. Wikipedia gives 257 kW (with CCS adapter, infobox) or 238 kW (spec table) for the 84 kWh pack. Same model years in CA and US. The two Wikipedia DC figures for the 84 kWh pack disagree (257 vs 238 kW). Hyundai Canada dropped the cheapest Ioniq 5 trim for 2026 (GuideAutoWeb), a trim change only. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Ioniq_5 ; https://electrek.co/2026/11/11/hyundai-shaking-up-2027-ev-lineup-whats-changing/" }
+  ],
   "years": [
     {
+      "year": 2022,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation-pre-facelift"
+    },
+    {
+      "year": 2023,
+      "markets": ["CA"],
+      "availability_status": "production",
+      "generation": "first-generation-pre-facelift"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation-pre-facelift"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2025-refresh"
+    },
+    {
       "year": 2026,
-      "markets": [
-        "CA"
-      ],
-      "availability_status": "production"
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2025-refresh"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "2025-refresh"
     }
   ]
 }

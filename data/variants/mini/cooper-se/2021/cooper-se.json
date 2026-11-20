@@ -1,0 +1,31 @@
+{
+  "id": "mini/cooper-se/2021/cooper-se",
+  "model_id": "mini/cooper-se",
+  "year": 2021,
+  "name": "Cooper SE",
+  "drivetrain": "fwd",
+  "powertrain_id": "mini/cooper-se/2021-cooper-se",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-wiki-mini", "low_confidence": true, "note_id": "n-1520cd3d88" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-d19c6436e8" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-4460b9fc1d", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Cooper SE", "US": "Cooper SE" },
+      "wheels": [
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-r3w-cars-com-research-mini-se-hardtop-2021-specs", "note_id": "n-b2eac2d017" },
+        { "diameter_in": 17, "is_standard": false, "source_id": "src-r3w-cars-com-research-mini-se-hardtop-2021-specs", "note_id": "n-67050607b7" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-insideevs-cooper-se-2020", "low_confidence": true, "note_id": "n-74b1448c8d" }
+      ]
+    }
+  ]
+}

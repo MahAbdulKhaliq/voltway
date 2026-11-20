@@ -4,85 +4,31 @@
   "year": 2026,
   "name": "WT Std Range",
   "drivetrain": "awd",
-  "dc_max_kw": [
-    {
-      "value": 220,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-gm-silverado-ev-2026-spec",
-      "low_confidence": true,
-      "notes": "GM 2026 Silverado EV WT spec guide, Charging Specifications (pdftotext, columns 4WT/5WT/8WT): Standard Range '475 volt, up to 220 kW', Extended '670 volt, up to 300 kW', Maximum '800 volt, up to 350 kW'. Corrects the earlier 350 kW value, which belongs to the Max pack only."
-    }
-  ],
-  "battery": {
-    "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-gm-silverado-ev-2026-spec",
-        "low_confidence": true,
-        "notes": "GM spec guide: Standard Range pack '475 volt'. 475 V is the max charge voltage, not a nominal voltage; mapped to the 400v class (800 V x 14/24 = 467 V supports it). Corrects the earlier 800v value, which belongs to the Max pack."
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-thinkev-silverado-2026",
-        "low_confidence": true,
-        "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
-      }
-    ],
-    "capacity_usable_kwh": [
-      {
-        "value": 119,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-gm-silverado-ev-2026-spec",
-        "low_confidence": true,
-        "notes": "Estimated (owner to confirm the scaling basis): GM's 2026 spec guide gives no kWh figure, only pack module counts (4WT Standard Range 14, 5WT Extended 20, 8WT Maximum 24). InsideEVs (src-insideevs-silverado-battery) reports 204 kWh usable for the 24-module pack: 204 x 14/24 = 119."
-      }
-    ]
-  },
+  "powertrain_id": "chevrolet/silverado-ev/2026-wt-std-range",
+  "markets": ["CA"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-5a9f4542ec" }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-evcs-2027-silverado",
-      "low_confidence": true,
-      "notes": "Article: 2027 gets NACS instead of the CCS1 used in the 2024-2026 model years. US site; Canadian 2026 truck assumed the same (GM Canada adapter programme for Silverado EV implies CCS1)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-gcn-gm-2027-nacs", "low_confidence": true, "note_id": "n-c764303e83" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 3358,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-gm-silverado-ev-2026-spec",
-      "notes": "GM 2026 Silverado EV Specification Guide, WT page: base curb weight 7,403 lb / 3,358 kg for the 4WT (14-module) Standard Range."
-    }
+    { "value": 3358, "unit": "kg", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec", "notes": "GM 2026 Silverado EV Specification Guide, WT page: base curb weight 7,403 lb / 3,358 kg for the 4WT (14-module) Standard Range." }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-c3fc6fffb6" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "WT Std Range",
+      "names": { "CA": "WT Std Range" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-cars-silverado-471782",
-          "low_confidence": true,
-          "notes": "US Cars.com: Standard Range Work Truck 18 x 8.0 in steel; US trim mapped to Canadian WT Std Range by name and pack."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-cars-silverado-471782", "low_confidence": true, "notes": "US Cars.com: Standard Range Work Truck 18 x 8.0 in steel; US trim mapped to Canadian WT Std Range by name and pack." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

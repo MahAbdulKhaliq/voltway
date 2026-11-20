@@ -1,0 +1,31 @@
+{
+  "id": "hyundai/ioniq-6/2023/awd",
+  "model_id": "hyundai/ioniq-6",
+  "year": 2023,
+  "name": "AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "hyundai/ioniq-6/2023-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-3c1a54c87f" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-c92b50d089" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-4e4db06e3c" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "AWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-6-2023-437773", "low_confidence": true, "note_id": "n-f9645c5bfe" },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-6-2023-437775", "low_confidence": true, "notes": "Limited/SEL AWD 20 in" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-hy-us-ioniq6-2023-price-sheet", "note_id": "n-fa4e7beea3" }
+      ]
+    }
+  ]
+}

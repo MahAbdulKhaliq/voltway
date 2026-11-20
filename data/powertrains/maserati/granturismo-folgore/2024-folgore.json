@@ -1,0 +1,30 @@
+{
+  "id": "maserati/granturismo-folgore/2024-folgore",
+  "model_id": "maserati/granturismo-folgore",
+  "name": "Folgore",
+  "generation": "second-generation",
+  "years": [2024, 2025, 2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 92.5, "unit": "kWh", "kind": "manufacturer", "source_id": "src-carexpert-gt-folgore", "low_confidence": true, "note_id": "n-1e103336ea" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 83, "unit": "kWh", "kind": "manufacturer", "source_id": "src-arenaev-gt-folgore", "low_confidence": true, "note_id": "n-f9427588b8" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-carexpert-gt-folgore", "low_confidence": true, "note_id": "n-cdbddc66be" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-arenaev-gt-folgore", "low_confidence": true, "note_id": "n-a7dbcfca3d" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "community", "source_id": "src-evdb-gt-folgore-excerpt", "low_confidence": true, "note_id": "n-541e924bc1" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 270, "unit": "kW", "kind": "manufacturer", "source_id": "src-arenaev-gt-folgore", "low_confidence": true, "note_id": "n-7d347d2314" }
+  ],
+  "ac_max_kw": [
+    { "value": 22, "unit": "kW", "kind": "estimated", "source_id": "src-fueleconomy-gt-folgore-2025", "low_confidence": true, "note_id": "n-ece4a72fda" }
+  ]
+}

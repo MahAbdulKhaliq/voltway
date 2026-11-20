@@ -1,0 +1,27 @@
+{
+  "id": "lucid/air/2023-grand-touring",
+  "model_id": "lucid/air",
+  "name": "Grand Touring",
+  "generation": "first-generation",
+  "years": [2023],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 112, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-insideevs-lucid-118-usable", "low_confidence": true, "notes": "Estimated: Grand Touring 112 kWh (InsideEVs, 2022); 2023 assumed unchanged. Lucid's 2024 sheet says 111 kWh (metric)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-0e073f7924" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-w2-insideevs-lucid-118-usable", "low_confidence": true, "notes": "Estimated: >900 V on the 2022 GT; 2024 sheet 900V+." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "low_confidence": true, "note_id": "n-5b38ca5f4b" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 300, "unit": "kW", "kind": "estimated", "source_id": "src-w2-insideevs-lucid-118-usable", "low_confidence": true, "notes": "Estimated: 2022 GT up to around 300 kW; the 2024 Lucid sheet still says 300 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "low_confidence": true, "note_id": "n-560efa3597" }
+  ]
+}

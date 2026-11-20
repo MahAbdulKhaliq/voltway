@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/cla/2027/cla-350-4matic-with-eq-technology",
+  "model_id": "mercedes/cla",
+  "year": 2027,
+  "name": "CLA 350 4MATIC with EQ Technology",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/cla/2027-cla-350-4matic-with-eq-technology",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-cla-cla350e4", "note_id": "n-fc571cb0ad" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "note_id": "n-d92074b3ac" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-d2f5e34495" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "CLA 350 4MATIC with EQ Technology" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-cla-350-2026-specs", "notes": "CLA 350 4MATIC: 18 in front and rear. Carried from the 2026 CLA 350 4MATIC page (18 x 7.5 front / 18 x 9 rear), no page for this exact year opened.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-automoblog-cla", "note_id": "n-3ee76f4491", "low_confidence": true }
+      ]
+    }
+  ]
+}

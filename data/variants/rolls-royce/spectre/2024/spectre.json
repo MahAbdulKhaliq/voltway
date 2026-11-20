@@ -1,0 +1,28 @@
+{
+  "id": "rolls-royce/spectre/2024/spectre",
+  "model_id": "rolls-royce/spectre",
+  "year": 2024,
+  "name": "Spectre",
+  "drivetrain": "awd",
+  "powertrain_id": "rolls-royce/spectre/2024-black-badge-spectre",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-a-sp", "low_confidence": true, "note_id": "n-9b7d72701b" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-guide", "low_confidence": true, "note_id": "n-52a83f73d3" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Spectre", "US": "Spectre" },
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2024-specs", "notes": "Spectre: 22 x 8.5 front / 22 x 9.5 rear aluminum, P255/45R22 and P285/40R22. (US page; Canadian cars assumed the same.)" },
+        { "diameter_in": 23, "is_standard": false, "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2025-specs", "notes": "Spectre: the Spectre Enhancement Package lists 23 in Wing Spoke wheels (2025 page). Carried from the 2025 Spectre page, no page for this exact year opened. (US page; Canadian cars assumed the same.)", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-spectre-379", "note_id": "n-92c665356d", "low_confidence": true }
+      ]
+    }
+  ]
+}

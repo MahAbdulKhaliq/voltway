@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqe-suv/2026/amg-eqe-4matic-plus-suv",
+  "model_id": "mercedes/eqe-suv",
+  "year": 2026,
+  "name": "AMG EQE 4MATIC+ SUV",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/eqe-suv/2026-amg-eqe-4matic-plus-suv",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-eqe-amgeqex4", "note_id": "n-e863ab2c59" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-3bcd8deee5" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "AMG EQE 4MATIC+ SUV" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-amg-eqe-2026-specs-476510", "notes": "AMG EQE 4MATIC+ SUV: 21 x 9.5 in, P275/40R21." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-d5ca4e11db", "low_confidence": true }
+      ]
+    }
+  ]
+}

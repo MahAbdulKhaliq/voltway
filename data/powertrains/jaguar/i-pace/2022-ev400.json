@@ -1,0 +1,30 @@
+{
+  "id": "jaguar/i-pace/2022-ev400",
+  "model_id": "jaguar/i-pace",
+  "name": "EV400",
+  "generation": "update-11kw",
+  "years": [2022],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 90, "unit": "kWh", "kind": "manufacturer", "source_id": "src-jaguar-us-electrifying-performance", "low_confidence": true, "note_id": "n-6bc2b9be17" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 84.7, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-ipace-1287-excerpt", "low_confidence": true, "note_id": "n-2796b11f8e" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-jaguar-i-pace", "low_confidence": true, "note_id": "n-36d44bff2a" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-ipace-1287-excerpt", "low_confidence": true, "note_id": "n-ccc39761a2" }
+    ],
+    "preconditioning": [
+      { "value": "manual_only", "kind": "estimated", "source_id": "src-jlr-ipace-launch-precondition", "low_confidence": true, "note_id": "n-847793b53b" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 100, "unit": "kW", "kind": "manufacturer", "source_id": "src-jlr-ipace-2022-release", "low_confidence": true, "note_id": "n-b1f422b228" }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-jlr-ipace-2022-release", "low_confidence": true, "notes": "Jaguar US 2022 release: \"I-PACE now comes with an 11kW on-board charger as standard\" (2022 US model). The 2022 car is Canada-only in the catalogue; this and the port and Supercharger access rest on US pages. Jaguar had not approved a CCS1-NACS adapter (InsideEVs, Aug 2025)." }
+  ]
+}

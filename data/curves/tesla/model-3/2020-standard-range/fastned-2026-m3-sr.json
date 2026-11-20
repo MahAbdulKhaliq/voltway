@@ -1,0 +1,29 @@
+{
+  "id": "fastned-2026-m3-sr",
+  "powertrain_id": "tesla/model-3/2020-standard-range",
+  "kind": "tested",
+  "source_id": "src-fastned-tesla-curves-2026",
+  "points": [
+    { "soc_percent": 10, "power_kw": 169.72 },
+    { "soc_percent": 15, "power_kw": 168.07 },
+    { "soc_percent": 20, "power_kw": 155.01 },
+    { "soc_percent": 25, "power_kw": 147.07 },
+    { "soc_percent": 30, "power_kw": 138.26 },
+    { "soc_percent": 35, "power_kw": 126.28 },
+    { "soc_percent": 40, "power_kw": 114.64 },
+    { "soc_percent": 45, "power_kw": 101.66 },
+    { "soc_percent": 50, "power_kw": 89.7 },
+    { "soc_percent": 55, "power_kw": 80.75 },
+    { "soc_percent": 60, "power_kw": 71.53 },
+    { "soc_percent": 65, "power_kw": 63.6 },
+    { "soc_percent": 70, "power_kw": 56.91 },
+    { "soc_percent": 75, "power_kw": 46.4 },
+    { "soc_percent": 80, "power_kw": 36.89 },
+    { "soc_percent": 85, "power_kw": 28.47 },
+    { "soc_percent": 90, "power_kw": 22.11 }
+  ],
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 300 },
+  "note_id": "n-8dae86d055",
+  "low_confidence": true,
+  "is_display_default": false
+}

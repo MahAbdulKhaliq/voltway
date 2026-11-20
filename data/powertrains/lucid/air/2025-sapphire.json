@@ -1,0 +1,30 @@
+{
+  "id": "lucid/air/2025-sapphire",
+  "model_id": "lucid/air",
+  "name": "Sapphire",
+  "generation": "first-generation",
+  "years": [2025],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 118, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-insideevs-lucid-118-usable", "low_confidence": true, "note_id": "n-508dd00c77" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-0e073f7924" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-w2-lucid-air-sapphire-2024-sheet", "low_confidence": true, "notes": "Estimated: 2024 hardware assumed for 2025 (Lucid battery data lists a Sapphire 22M pack for MY26+). Lucid 2024 Sapphire sheet: 900V+." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "low_confidence": true, "note_id": "n-5b38ca5f4b" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 118, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-lucid-air-sapphire-2024-sheet", "low_confidence": true, "notes": "Estimated: 2024 hardware assumed for 2025 (Lucid battery data lists a Sapphire 22M pack for MY26+). Lucid 2024 Sapphire sheet: 118 kWh (22 module) (via search excerpt)." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 300, "unit": "kW", "kind": "estimated", "source_id": "src-w2-lucid-air-sapphire-2024-sheet", "low_confidence": true, "notes": "Estimated: 2024 hardware assumed for 2025 (Lucid battery data lists a Sapphire 22M pack for MY26+). Lucid 2024 Sapphire sheet: up to 300 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "low_confidence": true, "note_id": "n-560efa3597" }
+  ]
+}

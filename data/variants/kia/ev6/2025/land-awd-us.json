@@ -1,0 +1,34 @@
+{
+  "id": "kia/ev6/2025/land-awd-us",
+  "model_id": "kia/ev6",
+  "year": 2025,
+  "name": "Light Long Range AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "kia/ev6/2025-land-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" }
+  ],
+  "curb_weight_kg": [
+    { "value": 2100, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev6-2025-land-awd", "low_confidence": true, "note_id": "n-6ab25a210a" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "estimated", "source_id": "src-kia-us-ev6-2026-compare", "note_id": "n-3c700bf97f", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "19-in-wheels",
+      "names": { "US": "Light Long Range AWD" },
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" },
+        { "value": "standard", "kind": "community", "source_id": "src-kbb-ev6-2025-specs", "note_id": "n-db4fbb16f6" }
+      ],
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2025-471673", "low_confidence": true, "note_id": "n-a255c9cb8c" }
+      ]
+    }
+  ]
+}

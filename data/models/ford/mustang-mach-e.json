@@ -3,13 +3,47 @@
   "make_id": "ford",
   "name": "Mustang Mach-E",
   "body_type": "crossover",
+  "generations": [
+    { "id": "launch", "name": "Launch (2021)", "first_year": 2021, "last_year": 2021, "notes": "Launch. Standard Range 75.7 kWh gross / 68 kWh usable (DC up to 115 kW Select, 150 kW Premium); Extended Range 98.8 kWh gross / 88 kWh usable (DC up to 150 kW). Split because the 2022 usable-capacity unlock changes the usable kWh and so the charging curve. Wikipedia lists 2021-22 together; the InsideEVs 2022 article and Ford's 2022 order guide (as reported) give the 88 to 91 kWh change. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Ford_Mustang_Mach-E ; https://insideevs.com/news/555287/2022-ford-mache-more-range/" },
+    { "id": "usable-capacity-unlock", "name": "Usable-capacity unlock (2022)", "first_year": 2022, "last_year": 2023, "notes": "Same NCM packs with more usable energy: SR 70 kWh usable, ER 91 kWh usable. MY2023 is mixed: InsideEVs lists LFP 72 kWh Standard Range cars as 2023 models (https://insideevs.com/news/666041/lfp-2023-ford-mustang-mache-compared/), while early 2023 SR cars are 70 kWh NCM. Late-2023 SR cars may belong to the next entry. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/555287/2022-ford-mache-more-range/ ; https://insideevs.com/news/722612/2024-ford-mustang-mache-epa-range/" },
+    { "id": "lfp-standard-range", "name": "LFP Standard Range", "first_year": 2024, "notes": "All Standard Range cars switch to a CATL LFP pack, 72 kWh usable, DC peak up from 115 kW to 150 kW and 10-80% from 38 to 33 min. Extended Range stays 91 kWh usable NCM. first_year could reasonably be 2023 (LFP started during MY2023). The ER pack did not change, so ER curves carry over from 2022. No CA-specific pack differences found. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/666041/lfp-2023-ford-mustang-mache-compared/ ; https://insideevs.com/news/722612/2024-ford-mustang-mache-epa-range/" }
+  ],
   "years": [
     {
+      "year": 2021,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "launch"
+    },
+    {
+      "year": 2022,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "usable-capacity-unlock"
+    },
+    {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "usable-capacity-unlock"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "lfp-standard-range"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "lfp-standard-range"
+    },
+    {
       "year": 2026,
-      "markets": [
-        "CA"
-      ],
-      "availability_status": "production"
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "lfp-standard-range"
     }
   ]
 }

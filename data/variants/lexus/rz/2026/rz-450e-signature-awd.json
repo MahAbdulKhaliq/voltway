@@ -1,0 +1,29 @@
+{
+  "id": "lexus/rz/2026/rz-450e-signature-awd",
+  "model_id": "lexus/rz",
+  "year": 2026,
+  "name": "RZ 450e Signature AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "lexus/rz/2026-rz-350e-premium",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026", "note_id": "n-0186b26c56" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-charging", "note_id": "n-9d6ff8d15d" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-ce9fd9b7fa" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-lexus-ca-ev-charging-faq", "low_confidence": true, "note_id": "n-db6dff8778" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "RZ 450e Signature AWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-lexus-rz-450e-2026-specs-482177", "note_id": "n-eddbcdc725", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r3w-lexus-rz-450e-2026-specs-482178", "note_id": "n-515546885d", "low_confidence": true }
+      ]
+    }
+  ]
+}

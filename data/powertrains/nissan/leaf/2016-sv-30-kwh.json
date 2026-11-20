@@ -1,0 +1,30 @@
+{
+  "id": "nissan/leaf/2016-sv-30-kwh",
+  "model_id": "nissan/leaf",
+  "name": "SV (30 kWh)",
+  "generation": "first-generation-30-kwh",
+  "years": [2016],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 28, "unit": "kWh", "kind": "community", "source_id": "src-evdb-leaf-30-my15-17", "low_confidence": true, "note_id": "n-2703aee0f4" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 30, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2016-press-kit", "note_id": "n-86797f153a" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-leaf-30-my15-17", "low_confidence": true, "note_id": "n-e3a680581f" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "community", "source_id": "src-evdb-leaf-30-my15-17", "low_confidence": true, "note_id": "n-4ef16f1812" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-evdb-leaf-30-my15-17", "low_confidence": true, "note_id": "n-795b60a38e" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 47, "unit": "kW", "kind": "community", "source_id": "src-evdb-leaf-30-my15-17", "low_confidence": true, "note_id": "n-b8d05e0ec8" }
+  ],
+  "ac_max_kw": [
+    { "value": 6.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2016-press-kit", "notes": "2016 US press kit: SV 6.6 kW standard (6.0 kW output). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output)." }
+  ]
+}

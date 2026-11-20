@@ -1,0 +1,31 @@
+{
+  "id": "tesla/model-3/2023/long-range-awd-ca",
+  "model_id": "tesla/model-3",
+  "year": 2023,
+  "name": "Long Range AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "tesla/model-3/2023-long-range-awd-ca",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-467dd2e649" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-4655b2436d" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-4041579456" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Long Range AWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-carscom-model-3-2022", "note_id": "n-35e72c41d0", "low_confidence": true },
+        { "diameter_in": 19, "is_standard": false, "source_id": "src-r2w-thedriven-model-3-lr-wheels-2022", "note_id": "n-fdd7ced4bb", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-insideevs-all-heat-pump", "note_id": "n-f1fc2046b8", "low_confidence": true }
+      ]
+    }
+  ]
+}

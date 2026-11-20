@@ -4,27 +4,24 @@
   "year": 2026,
   "name": "Long Range AWD-I",
   "drivetrain": "awd",
+  "powertrain_id": "tesla/model-y/2026-long-range-awd-b",
+  "markets": ["CA"],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-thechargeport-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-8e40ff5dd6" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-4041579456" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "Long Range AWD-I",
+      "names": { "CA": "Long Range AWD-I" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "estimated",
-          "low_confidence": true,
-          "source_id": "src-evdb-model-y-premium-awd-juniper",
-          "notes": "Estimated: EV Database lists heat pump as standard equipment on the Model Y Premium AWD (Juniper, Berlin); same model and generation carries it over. Not confirmed for this exact variant."
-        }
+        { "value": "standard", "kind": "estimated", "low_confidence": true, "source_id": "src-evdb-model-y-premium-awd-juniper", "note_id": "n-048f09177f" }
+      ],
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-tslna-model-y-price-canada-2026", "note_id": "n-eed741ce87", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-tslna-model-y-price-canada-2026", "note_id": "n-5f196c7ed8", "low_confidence": true }
       ]
     }
   ]

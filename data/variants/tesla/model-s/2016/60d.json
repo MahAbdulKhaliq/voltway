@@ -1,0 +1,31 @@
+{
+  "id": "tesla/model-s/2016/60d",
+  "model_id": "tesla/model-s",
+  "year": 2016,
+  "name": "60D",
+  "drivetrain": "awd",
+  "powertrain_id": "tesla/model-s/2016-60",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-64b227cb35" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-0149985cd2" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-2172906ba3" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "60D", "US": "60D" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-carscom-model-s-2016", "note_id": "n-12759bfbd4", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r2w-electrek-model-s-wheels-2018", "note_id": "n-0f476034ea", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b112-teslanorth-sx-heat-pump", "note_id": "n-008860f6e4", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "tesla/cybertruck/2025-long-range-rwd",
+  "model_id": "tesla/cybertruck",
+  "name": "Long Range RWD",
+  "generation": "first-generation",
+  "years": [2025, 2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 123, "unit": "kWh", "kind": "community", "source_id": "src-insideevs-cybertruck-battery-passport", "low_confidence": true, "note_id": "n-14c3cdd054" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 117, "unit": "kWh", "kind": "community", "source_id": "src-gcc-cybertruck-lr-rwd", "low_confidence": true, "notes": "Green Cars Compare Cybertruck Long Range RWD: 117 kWh usable of 122.4 gross. ArenaEV Dual Motor AWD lists 111.9 usable of 123 (4.5 % lower): sources conflict. Tesla does not publish usable." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-insideevs-cybertruck-battery-passport", "low_confidence": true, "note_id": "n-209afc8554" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "community", "source_id": "src-insideevs-cybertruck-battery-passport", "low_confidence": true, "note_id": "n-1c897fca4c" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-notebookcheck-tesla-precond-season", "low_confidence": true, "note_id": "n-d1fe51b888" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "unit": "kW", "kind": "manufacturer", "source_id": "src-arenaev-cybertruck-awd-2026", "low_confidence": true, "note_id": "n-e1f176cefe" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "community", "source_id": "src-ifixit-cybertruck", "low_confidence": true, "note_id": "n-efe0a3d7ff" }
+  ]
+}

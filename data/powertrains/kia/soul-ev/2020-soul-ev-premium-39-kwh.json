@@ -1,0 +1,27 @@
+{
+  "id": "kia/soul-ev/2020-soul-ev-premium-39-kwh",
+  "model_id": "kia/soul-ev",
+  "name": "Soul EV Premium 39 kWh",
+  "generation": "second-generation",
+  "years": [2020],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 39.2, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-esoul-39", "note_id": "n-2d877e47ba", "low_confidence": true }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 42, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-esoul-39", "note_id": "n-4b8d0d34b1", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "community", "source_id": "src-arenaev-esoul-39", "note_id": "n-2a9b76cee6", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-gf-evspecs-soul-2020", "low_confidence": true, "notes": "EVSpecifications.com 2020 Soul EV 39 kWh: battery type NCM (NMC), cathode LiNiCoMnO2, SK Innovation, 39.2 kWh usable, 327 V." }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 7, "unit": "kW", "kind": "community", "source_id": "src-arenaev-esoul-39", "note_id": "n-762c795c79", "low_confidence": true }
+  ],
+  "dc_max_kw": [
+    { "value": 50, "unit": "kW", "kind": "estimated", "source_id": "src-fastned-hyundai-kona-39", "note_id": "n-c5831050ec", "low_confidence": true }
+  ]
+}

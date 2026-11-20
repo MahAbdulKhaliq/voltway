@@ -1,0 +1,29 @@
+{
+  "id": "lucid/gravity",
+  "make_id": "lucid",
+  "name": "Gravity",
+  "body_type": "suv",
+  "generations": [
+    { "id": "first-generation", "name": "First generation", "first_year": 2025, "notes": "Launch MY2025 (Grand Touring, Dream Edition), Touring from 2026. First non-Tesla with a native NACS port. Grand Touring/Dream: 123 kWh, 926 V, up to 400 kW DC; Touring: ~89 kWh, ~300 kW. On 500 V Superchargers peak drops to ~225 kW. No NRCan rows in our import. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://www.wardsauto.com/news/2025-lucid-gravity-450-miles-of-range-and-nacs-port/799062/ ; https://insideevs.com/news/779545/cheaper-lucid-gravity-touring-price-range-charging/ ; https://insideevs.com/news/757998/lucid-gravity-fast-charging-interview/" }
+  ],
+  "years": [
+    {
+      "year": 2025,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2026,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    }
+  ]
+}

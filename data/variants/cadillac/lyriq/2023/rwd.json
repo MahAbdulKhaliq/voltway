@@ -1,0 +1,32 @@
+{
+  "id": "cadillac/lyriq/2023/rwd",
+  "model_id": "cadillac/lyriq",
+  "year": 2023,
+  "name": "RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "cadillac/lyriq/2023-rwd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-lyriq", "low_confidence": true, "note_id": "n-84fd8d0a0d" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-lyriq-2027", "low_confidence": true, "note_id": "n-26dc7267b5" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "RWD", "US": "RWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2023-specs-424225", "notes": "RWD 4dr Luxury: 20 in aluminum, P265/50R20." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

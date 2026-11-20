@@ -1,0 +1,27 @@
+{
+  "id": "hyundai/kona-electric/2024/kona-electric",
+  "model_id": "hyundai/kona-electric",
+  "year": 2024,
+  "name": "Kona Electric",
+  "drivetrain": "fwd",
+  "powertrain_id": "hyundai/kona-electric/2024-kona-electric",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-68dca58074" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-67cd717b6c" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-d9840bdea0", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Kona Electric" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-hyundai-kona-ev-2024-index", "low_confidence": true, "notes": "US SE shown (17 x 7 in); Canadian trim assumed the same." }
+      ]
+    }
+  ]
+}

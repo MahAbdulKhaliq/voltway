@@ -1,0 +1,30 @@
+{
+  "id": "volvo/ec40/2022-twin-motor",
+  "model_id": "volvo/ec40",
+  "name": "Twin Motor",
+  "generation": "c40-recharge-launch",
+  "years": [2022, 2023],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 78, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-volvo-2024-upgrades", "low_confidence": true, "note_id": "n-4220a90884" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 75, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-xc40-twin-pure-my22", "low_confidence": true, "note_id": "n-50b5f1f95e" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-xc40-twin-pure-my22", "low_confidence": true, "note_id": "n-32a5c5f212" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-xc40-twin-pure-my22", "low_confidence": true, "note_id": "n-9e69f88cbc" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-xc40-twin-pure-my22", "low_confidence": true, "note_id": "n-a05b9df783" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-conceptcarz-volvo-us-2024-powertrains", "low_confidence": true, "notes": "Estimated: Volvo US 2024 release (Conceptcarz copy) states the 78 kWh Twin at 150 kW DC for the C40 and XC40; same 78 kWh pack in 2022-2023, nothing shows a charging change. (Wikipedia EX40 table is inconsistent, 150 vs 175 kW, not used.)" }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-nrcan-bev-2026-09", "low_confidence": true, "note_id": "n-068ecd38fa" }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-x/2019-long-range",
+  "model_id": "tesla/model-x",
+  "name": "Long Range",
+  "generation": "raven",
+  "years": [2019],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 100, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-model-x-lr-2019", "low_confidence": true, "notes": "ArenaEV Model X Long Range (2019-2021): 100 kWh total." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 95, "unit": "kWh", "kind": "estimated", "source_id": "src-arenaev-model-x-100d", "low_confidence": true, "notes": "Estimated: ArenaEV Model X 100D page lists 95 kWh usable for the 100 kWh pack. No page dates a Raven-hardware Model X in 2019, so these ids are kept on the 100D hardware." }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "community", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-49961bd7e1" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-17a60e76f4" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-electrek-2020-s-x-225kw", "low_confidence": true, "note_id": "n-2348c28dd2" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 145, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "notes": "Estimated: No page dates a Raven-hardware Model X in 2019 (ArenaEV X Long Range 2019-21 lists V2 150 kW). Kept on the 2018 Model X P100D hardware: EVSpecifications DC 145 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-9ff7066f28" }
+  ]
+}

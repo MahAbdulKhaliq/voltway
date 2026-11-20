@@ -1,0 +1,43 @@
+{
+  "id": "volvo/ec40",
+  "make_id": "volvo",
+  "name": "EC40",
+  "body_type": "suv",
+  "generations": [
+    { "id": "c40-recharge-launch", "name": "C40 Recharge launch", "first_year": 2022, "last_year": 2023, "notes": "Coupe-roof sibling of the XC40 Recharge on CMA, sold as C40 Recharge from MY2022 (Twin Motor AWD only in our regulator rows for 2022-2023): 78 kWh gross (~75 usable), DC up to 150 kW. Mirrors volvo/ex40's generations (same hardware). Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Volvo_EX40 ; https://www.carscoops.com/2023/05/2024-c40-and-xc40-recharge-become-first-rear-wheel-drive-volvos-in-america-in-25-years/" },
+    { "id": "2024-rwd-update", "name": "2024 RWD update", "first_year": 2024, "last_year": 2024, "notes": "New Single Motor Extended Range RWD on an 82 kWh gross (~79 usable) pack, DC up to 200 kW; Twin Motor keeps 78 kWh / 150 kW (NRCan and EPA both list \"C40 Recharge\" single and \"Twin\" for 2024). Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://www.carscoops.com/2023/05/2024-c40-and-xc40-recharge-become-first-rear-wheel-drive-volvos-in-america-in-25-years/ ; https://www.cars.com/articles/2024-volvo-c40-recharge-xc40-recharge-get-more-range-new-powertrains-465971" },
+    { "id": "ec40", "name": "EC40", "first_year": 2025, "notes": "Renamed EC40 for MY2025 (with the XC40 Recharge becoming EX40). Twin Motor moves to the 82 kWh pack; DC up to about 200-205 kW on both (same sources and caveats as volvo/ex40's ex40 generation). Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/748105/2025-volvo-ex40-rename-xc40-recharge/ ; https://www.motorauthority.com/news/1145564_2025-volvo-ex40-price" }
+  ],
+  "years": [
+    {
+      "year": 2022,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "c40-recharge-launch"
+    },
+    {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "c40-recharge-launch"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2024-rwd-update"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA"],
+      "availability_status": "production",
+      "generation": "ec40"
+    },
+    {
+      "year": 2026,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "ec40"
+    }
+  ]
+}

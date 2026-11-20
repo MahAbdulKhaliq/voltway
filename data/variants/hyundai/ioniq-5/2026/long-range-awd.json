@@ -4,92 +4,30 @@
   "year": 2026,
   "name": "Long Range AWD",
   "drivetrain": "awd",
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 84,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-hyundai-ca-ioniq-5-2026",
-        "notes": "Hyundai Canada states 84.0 kWh for the Preferred Long Range RWD only; assumed to be the same Long Range pack.",
-        "low_confidence": true
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-hyundai-au-ioniq-5-2026-spec",
-        "notes": "Battery voltage 697 V (Australian-market sheet; same pack)."
-      }
-    ],
-    "chemistry": [
-      {
-        "low_confidence": true,
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-hyundai-egmp-84",
-        "notes": "Estimated: page lists the 84 kWh E-GMP pack (2025 IONIQ 5 Long Range/XRT) as SK On NCM 811 pouch; EV Database also says NMC for the 84 kWh IONIQ 5. Hyundai Canada only says lithium-ion."
-      }
-    ]
-  },
+  "powertrain_id": "hyundai/ioniq-5/2026-long-range-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-5-2026",
-      "notes": "NACS charge port; two CCS adapters (AC and DC) included."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026", "note_id": "n-693ec5bad2" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-5-2026",
-      "notes": "Through its NACS port."
-    }
-  ],
-  "ac_max_kw": [
-    {
-      "low_confidence": true,
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-ioniq5-2026",
-      "notes": "US page: home charging up to 10.9 kW. Hyundai Canada page does not state it. EV Database lists 11 kW for the European car."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026", "note_id": "n-7e053e3948" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2090,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ioniq5-2026-preferred-awd",
-      "low_confidence": true,
-      "notes": "Guide Auto lists 2,090 kg (4,608 lb) for the Canadian Preferred AWD on 19-inch wheels (matches US SE AWD 4,608 lb). The 20-inch (Ultimate Package) trim may weigh more; its figure was not found, so the value is for the 19-inch trim."
-    }
+    { "value": 2090, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ioniq5-2026-preferred-awd", "low_confidence": true, "notes": "Guide Auto lists 2,090 kg (4,608 lb) for the Canadian Preferred AWD on 19-inch wheels (matches US SE AWD 4,608 lb). The 20-inch (Ultimate Package) trim may weigh more; its figure was not found, so the value is for the 19-inch trim." }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-us-adapter-faq", "note_id": "n-39db1cd66b", "low_confidence": true },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-ca-ioniq5-page", "note_id": "n-93dba23d46" }
   ],
   "trims": [
     {
       "id": "19-in-wheels",
-      "name": "Long Range AWD (19\" Wheels)",
+      "names": { "CA": "Long Range AWD", "US": "Dual Motor AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-hyundai-ca-ioniq-5-2026"
-        }
-      ]
-    },
-    {
-      "id": "20-in-wheels",
-      "name": "Long Range AWD (20\" Wheels)",
-      "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-hyundai-ca-ioniq-5-2026"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026" }
+      ],
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2026-474170", "low_confidence": true, "notes": "SEL AWD 19 in; the trim is named 19-in wheels. The Limited AWD 20 in is a separate US variant." }
       ]
     }
   ]

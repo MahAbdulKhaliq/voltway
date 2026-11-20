@@ -1,0 +1,32 @@
+{
+  "id": "tesla/model-y/2027-l",
+  "model_id": "tesla/model-y",
+  "name": "L",
+  "generation": "juniper",
+  "years": [2027],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 79, "kind": "estimated", "source_id": "src-wikipedia-tesla-model-y", "low_confidence": true, "notes": "Estimated: 83 kWh gross x 0.95 (the AU/NZ Model Y L is 88.2 gross / about 84 usable on Wikipedia, ratio 0.95). Ratio from the sibling L pack, not the US car.", "unit": "kWh" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-tesla-model-y", "low_confidence": true, "notes": "Estimated: Wikipedia: Model Y L uses NCM cells (China and AU/NZ listings); US pack chemistry not stated. Unproven for the US car: Wikipedia cites NCM for China/AU-NZ builds only." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-tesla-model-y", "low_confidence": true, "notes": "Estimated: Same Model Y platform, 400 V; no L-specific voltage page found." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-teslabs-manual-preconditioning", "low_confidence": true, "note_id": "n-1fa6db44c3" },
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-model-y-lr-awd-1619", "low_confidence": true, "note_id": "n-42a8c6abf7" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 83, "kind": "estimated", "source_id": "src-notateslaapp-model-y-l-us", "low_confidence": true, "notes": "Estimated: Not a Tesla App: \"83 kWh pack\" for the US Model Y L, gross or usable unstated; a bare pack figure is treated as gross (the China pack of 88 kWh is Wikipedia's 88.2 gross).", "unit": "kWh" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "kind": "estimated", "source_id": "src-notateslaapp-model-y-l-us", "low_confidence": true, "notes": "Estimated: Not a Tesla App: 250 kW peak Supercharging for the US Model Y L.", "unit": "kW" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-fec2e18f04", "unit": "kW" },
+    { "value": 11.5, "kind": "estimated", "source_id": "src-wikipedia-tesla-model-y", "low_confidence": true, "note_id": "n-1160ec5905", "unit": "kW" }
+  ]
+}

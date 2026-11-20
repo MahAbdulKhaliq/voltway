@@ -4,57 +4,30 @@
   "year": 2026,
   "name": "Standard",
   "drivetrain": "fwd",
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 64.8,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-hyundai-ca-kona-electric-2026",
-        "notes": "Page says “64.8 kWh high-voltage battery” without saying gross or usable; recorded as gross."
-      }
-    ]
-  },
-  "published_10_80_min": [
-    {
-      "value": 43,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-kona-electric-2026",
-      "low_confidence": true,
-      "notes": "“Approximately 43 minutes” on a Level 3 charger (>100 kW); the same page's FAQ says about 45 minutes."
-    }
-  ],
+  "powertrain_id": "hyundai/kona-electric/2026-standard",
+  "markets": ["CA"],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 214,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-insideevs-kona-ev-lr-75mph-test",
-      "low_confidence": true,
-      "notes": "Test: ~75 mph (about 120 km/h) steady, ~14 C, dry, low wind, wheels not stated, battery-side vs wall-side not stated (article gives kWh per 100 km, probably car display) | InsideEVs 75 mph test of a Kona Electric Long Range (64.8 kWh, same generation and pack). Full-test figure 21.4 kWh per 100 km = 214 Wh/km (first 33 mi 20.3, midpoint 20.5 kWh/100 km). 132 mi driven with 18 % left. Test car was a 2024 (same generation and pack). Wind at his back on the first leg, against on the return."
-    }
+    { "value": 214, "unit": "Wh/km", "kind": "tested", "source_id": "src-insideevs-kona-ev-lr-75mph-test", "low_confidence": true, "notes": "Test: ~75 mph (about 120 km/h) steady, ~14 C, dry, low wind, wheels not stated, battery-side vs wall-side not stated (article gives kWh per 100 km, probably car display) | InsideEVs 75 mph test of a Kona Electric Long Range (64.8 kWh, same generation and pack). Full-test figure 21.4 kWh per 100 km = 214 Wh/km (first 33 mi 20.3, midpoint 20.5 kWh/100 km). 132 mi driven with 18 % left. Test car was a 2024 (same generation and pack). Wind at his back on the first leg, against on the return." }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq-2026-11-16",
-      "notes": "Hyundai Canada FAQ names the 2026 KONA Electric as an EV with a CCS port that can use a NACS adapter available separately."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "notes": "Hyundai Canada FAQ names the 2026 KONA Electric as an EV with a CCS port that can use a NACS adapter available separately." }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq-2026-11-16",
-      "notes": "Per the same FAQ, with a NACS adapter (sold separately; Hyundai Canada EV hub also advertises a free CCS-to-NACS adapter offer until 2026-12-31 for eligible native-CCS EVs, model list not shown)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "notes": "Per the same FAQ, with a NACS adapter (sold separately; Hyundai Canada EV hub also advertises a free CCS-to-NACS adapter offer until 2026-12-31 for eligible native-CCS EVs, model list not shown)." }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-d9840bdea0", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "Kona Electric"
+      "names": { "CA": "Kona Electric" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-hyundai-kona-ev-2025-index", "low_confidence": true, "notes": "2025 page; no 2026 Cars.com page opened, carried over." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-hy-ca-kona-2026-page", "notes": "Hyundai Canada KONA Electric page: heat pump absorbs external heat for the cabin. The page may show the current model year.", "low_confidence": true }
+      ]
     }
   ]
 }

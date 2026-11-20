@@ -1,0 +1,33 @@
+{
+  "id": "lexus/es/2027-es-350e-luxury",
+  "model_id": "lexus/es",
+  "name": "ES 350e Luxury",
+  "generation": "eighth-generation",
+  "years": [2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 74.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-es-2026", "note_id": "n-0d75a51b0a" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 71, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "note_id": "n-391d68308b" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-811ec81ffa" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-insideevs-bz-charging-limit-2026", "low_confidence": true, "note_id": "n-daf9f154b2" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-w2j-lexus-us-es-2026", "low_confidence": true, "notes": "Estimated: The 2027 ES is the same car as the 2026 ES (no change found); 2026 Lexus ES release: Battery Preconditioning from the touchscreen or automatically with a charger as destination (needs Drive Connect)." }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-es-2026", "note_id": "n-1b8d5767d8" }
+  ],
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-es-2026", "note_id": "n-6e6cf4499f" }
+  ],
+  "published_10_80_min": [
+    { "value": 28, "unit": "min", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-es-2026", "note_id": "n-0dbc5a37d2" }
+  ]
+}

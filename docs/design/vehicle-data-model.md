@@ -10,7 +10,7 @@ This is a design document, not code. Field names are shown as `snake_case` for c
 
 1. **Every important figure records where it came from.** No bare numbers. This is how the accuracy pitch gets delivered (P9).
 2. **Rated, tested and estimated values are kept apart**, never mixed in one field (D4).
-3. **"Unknown" is a real value.** "No heat pump" and "we don't know" are different things, and the app shows them differently.
+3. **"Unknown" is a real value.** "No heat pump" and "we don't know" are different things, and the app shows them differently. *(B96, owner 2026-11-19: not for the eight charging and mapping figures — usable kWh, chemistry, voltage class, preconditioning, DC peak, AC onboard kW, charge port, Supercharger access. Every car needs a sourced value or a stated-basis estimate for those.)*
 4. **Each fact is stored at the level where it varies.** A charging curve belongs to the battery pack, not the trim name. Wheel size belongs to the trim, not the model.
 5. **Metric units throughout** (km, kWh, kW, Wh/km). Conversion to miles happens only on screen (U4).
 6. **Derived numbers are calculated, not stored.** 10–80% time, average kW and km added per minute all come from the curve plus the efficiency. That way they can never go stale or contradict their inputs.
@@ -18,6 +18,8 @@ This is a design document, not code. Field names are shown as `snake_case` for c
 ---
 
 ## 2. Hierarchy: how vehicles break down (D2) ✅
+
+> **Update (B90, B91, B95, 2026-11-19):** a shared **powertrain** level (pack + charging hardware + curves, per generation) sits under the model, and variants point to it with `powertrain_id`, so cars that share a pack share one record and one curve. Variants carry `markets` (CA, US); a model year can hold market-specific variants. Trims carry per-market names; wheel sizes are wheel options with their own rated range, not separate trims. Every model lists its `generations[]`. Detail in [DESIGN-9](../plan/DESIGN-9.md) §1.
 
 ```
 Make            Hyundai
@@ -56,6 +58,9 @@ Every important figure is stored as a **sourced value**, not a bare number:
 | `kind` | **What sort of number it is** (see below) | `rated_epa` |
 | `source_id` | Points to a record in the **sources** table | `src-fueleconomy-2024` |
 | `notes` | Optional context | "Rated with 19-inch wheels" |
+| `note_id` | Instead of `notes`: points to a shared note in `data/notes.json` (B111) | `n-0033adf24b` |
+
+*Storage (B111, owner 2026-11-20):* a note that two or more values repeat word for word is stored once in `data/notes.json` and each value carries `note_id` instead of `notes`; the build and the validator swap the text back in, so the built data and the site always see `notes`. `npx tsx scripts/dedupe-notes.ts` moves new repeats after a research round. Data files use the repo layout in `scripts/lib/format-json.ts` (one figure per line; imported rating files one record per line); `npm run data:format` reapplies it. A powertrain covers every year its pack, charging hardware and curves stayed the same: identical per-year records were merged (`scripts/merge-powertrains.ts`, old ids in `crosswalk/powertrain-merges.csv`).
 
 ### Kinds of value
 | `kind` | Meaning | Badge shown to the user |
@@ -130,7 +135,7 @@ Each source is one record, reused by every figure that came from it:
 | | `dc_max_current_a` | Matters for 800V cars on 400V chargers (C4) | *later* |
 | | `charge_curves[]` | See §5 | MVP |
 | **Ports** | `charge_port` | `nacs` / `ccs1` / `chademo` / `j1772` (AC only) | MVP |
-| | `adapters_included[]` | for example "NACS→CCS1" from the factory | Optional (B38: in the schema from Phase 1b, shown as "Unknown" until researched) |
+| | `adapters_included[]` | DC adapter for the other network, named charger plug → car port, with how owners got it: `nacs_to_ccs1` (in the box), `nacs_to_ccs1_on_request` (free on request), `nacs_to_ccs1_sold` (sold by the maker), the same for `ccs1_to_nacs`, or `none` | Optional (B38); researched for every car (B112, 2026-11-20). Later, only "in the box" switches on both plugs in My car by default *B113 (2026-11-20):* an offer that has ended is recorded as `_sold`; when the value differs between Canada and the US the car is split into market editions. |
 | | `supercharger_access` | yes / no / via adapter / unknown | MVP (feeds N3) |
 | **Efficiency** | `consumption_combined_wh_per_km` ★ | Converted from NRCan kWh/100 km × 10 | MVP |
 | | `consumption_city_wh_per_km` ★, `consumption_highway_wh_per_km` ★ | Highway is the one routing uses | MVP |
@@ -183,6 +188,8 @@ A list of **points: state of charge (SoC %) → power (kW)**, for one variant un
 - **Charger limits** (C4) are applied **when calculating, not stored**: the power actually delivered is the lower of the car's curve and the charger's limit. The curve stays a property of the car only.
 
 ### Estimated curves (C8)
+
+> **Update (B92, B95, 2026-11-19):** curves attach to the powertrain (`powertrain_id`), with `variant_id` only for a year-specific curve. Chargeprice curves are `community` (not `tested`) and match only within the same generation. A build-time plausibility linter warns on flat peaks, sparse points and year mismatches; a curve with an open warning can't be the display default until a person clears it.
 For variants with **no measured curve**, so every car still gets one:
 - Generated from **`dc_max_kw`, chemistry and voltage class**, using a small set of **template shapes** (for example "800V NMC: holds near peak to ~50%, then tapers" or "LFP: flatter, with a steep drop near the top").
 - Stored like any other curve with `kind: estimated`, plus a `basis` note saying which template and inputs were used.

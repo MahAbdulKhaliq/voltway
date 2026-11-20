@@ -1,0 +1,34 @@
+{
+  "id": "chevrolet/silverado-ev/2026-lt-std-range",
+  "model_id": "chevrolet/silverado-ev",
+  "name": "LT Std Range",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec", "low_confidence": true, "notes": "Estimated: GM WT spec guide lists the Standard Range pack as '475 volt' (max charge voltage, mapped to 400v class); LT Standard Range inferred to share the pack. Corrects the earlier 800v value (Max pack)." },
+      { "value": "400v", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-14", "low_confidence": true, "note_id": "n-3506c51304" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-thinkev-silverado-2026", "low_confidence": true, "note_id": "n-8daea4ea8a" },
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-60bfa013c8" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 119, "unit": "kWh", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec", "low_confidence": true, "notes": "Estimated (owner to confirm the scaling basis): LT Standard Range inferred to share the 14-module WT Standard Range pack (no cited page says so; EPA 283 mi vs WT 286 mi). GM spec guide gives no kWh; 204 kWh usable (24-module pack, InsideEVs) x 14/24 = 119." },
+      { "value": 119, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-14", "low_confidence": true, "note_id": "n-14ad7b34e3" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 220, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec", "low_confidence": true, "notes": "Estimated: GM WT spec guide gives 'up to 220 kW' for the Standard Range pack; LT Standard Range inferred to share that pack (not stated by any cited page). Corrects the earlier 350 kW value (Max pack)." },
+    { "value": 220, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-8f85162079" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-65147c90ae" }
+  ],
+  "published_10_80_min": [
+    { "value": 40, "unit": "min", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-6be11ef647" }
+  ]
+}

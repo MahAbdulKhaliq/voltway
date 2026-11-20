@@ -1,0 +1,33 @@
+{
+  "id": "genesis/gv60/2025-advanced-awd",
+  "model_id": "genesis/gv60",
+  "name": "Advanced AWD",
+  "generation": "first-generation",
+  "years": [2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 77.4, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-egmp-774", "note_id": "n-e36cddca0e", "low_confidence": true }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 74, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-egmp-774", "note_id": "n-1fe5c02af3", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-egmp-774", "note_id": "n-17dcc043c0", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-weeklydriver-egmp-774", "note_id": "n-8af6eec917", "low_confidence": true }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-genesis-de-gv60-performance", "note_id": "n-5939d19d00", "low_confidence": true }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-weeklydriver-egmp-774", "note_id": "n-52c526843d", "low_confidence": true }
+  ],
+  "dc_max_kw": [
+    { "value": 233, "unit": "kW", "kind": "estimated", "source_id": "src-weeklydriver-egmp-774", "note_id": "n-29d7d8e3aa", "low_confidence": true }
+  ],
+  "published_10_80_min": [
+    { "value": 18, "unit": "min", "kind": "manufacturer", "source_id": "src-arenaev-genesis-gv60", "note_id": "n-0faf0a6e4d", "low_confidence": true }
+  ]
+}

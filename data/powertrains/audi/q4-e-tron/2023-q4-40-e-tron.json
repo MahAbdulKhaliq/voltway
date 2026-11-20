@@ -1,0 +1,30 @@
+{
+  "id": "audi/q4-e-tron/2023-q4-40-e-tron",
+  "model_id": "audi/q4-e-tron",
+  "name": "Q4 40 e-tron",
+  "generation": "first-generation",
+  "years": [2023],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 82, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "note_id": "n-ca25351ebe" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 77, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "note_id": "n-1912341577" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-w2-wiki-audi-q4", "low_confidence": true, "note_id": "n-a282204cf6" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-guideauto-id4-2025-pro-awd", "low_confidence": true, "note_id": "n-c418444a3f" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-insideevs-id4-precond-2026", "low_confidence": true, "note_id": "n-3a022d96fe" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 135, "unit": "kW", "kind": "estimated", "source_id": "src-w2-wiki-audi-q4", "low_confidence": true, "notes": "Estimated: Wikipedia lists 135 kW for the 2021 Q4 40/45/50 (another reading gives 125 kW for the Q4 40; an Audi European release quoted in search says 135 kW for the RWD), Audi US 2024 release says 150 kW \"previously\" for the AWD Q4 50. This RWD car has no North American figure of its own, so the European RWD figure is carried over." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "note_id": "n-d73909b494" }
+  ]
+}

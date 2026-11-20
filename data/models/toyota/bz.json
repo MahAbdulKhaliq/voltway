@@ -3,13 +3,21 @@
   "make_id": "toyota",
   "name": "bZ",
   "body_type": "suv",
+  "generations": [
+    { "id": "bz-2026-refresh", "name": "2026 refresh (bZ)", "first_year": 2026, "notes": "Renamed bZ. New packs: 57.7 kWh LFP (XLE FWD) and 74.7 kWh (US figure; Toyota Canada quotes 77 kWh total); DC up to 150 kW, 10-80% in about 30 min; native NACS; 11 kW AC. Same name and year in CA and US. 74.7 (US) vs 77 kWh (CA) is probably usable vs total for one pack. The bZ Woodland (2026 US / 2027 CA on sale) is a separate wagon model, not part of this line. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Toyota_bZ4X ; https://media.toyota.ca/en/releases/2025/toyota-bz-all-electric-suv-adds-range--charging-and-exterior-upd.html" }
+  ],
   "years": [
     {
       "year": 2026,
-      "markets": [
-        "CA"
-      ],
-      "availability_status": "production"
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "bz-2026-refresh"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "bz-2026-refresh"
     }
   ]
 }

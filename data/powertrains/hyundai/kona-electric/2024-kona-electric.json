@@ -1,0 +1,27 @@
+{
+  "id": "hyundai/kona-electric/2024-kona-electric",
+  "model_id": "hyundai/kona-electric",
+  "name": "Kona Electric",
+  "generation": "second-generation",
+  "years": [2024],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 61.9, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-kona-65", "low_confidence": true, "note_id": "n-30f386a398" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evspecs-kona-2024-na", "low_confidence": true, "note_id": "n-5b5d114933" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "community", "source_id": "src-weeklydriver-kona-648", "low_confidence": true, "note_id": "n-a348903f52" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-hyundai-om-kona-sx2-2025-us", "low_confidence": true, "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Estimated: 2025 manual carried to this model year/market (same generation). Hyundai UK page also states navigation preconditioning for the Kona Electric." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 102, "unit": "kW", "kind": "manufacturer", "source_id": "src-hyundai-uk-kona-electric-performance", "low_confidence": true, "note_id": "n-c0ef8eef49" }
+  ],
+  "ac_max_kw": [
+    { "value": 10.8, "unit": "kW", "kind": "community", "source_id": "src-evspecs-kona-2024-na", "low_confidence": true, "note_id": "n-8d43f5fff7" }
+  ]
+}

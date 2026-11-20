@@ -1,0 +1,30 @@
+{
+  "id": "chevrolet/spark-ev",
+  "make_id": "chevrolet",
+  "name": "Spark EV",
+  "body_type": "hatchback",
+  "generations": [
+    { "id": "a123-lfp", "name": "2014 (A123 LFP pack)", "first_year": 2014, "last_year": 2014, "notes": "First model year: 21.3 kWh A123 Systems lithium iron phosphate pack; optional CCS DC fast charging (50 kW class, about 80 % in 20 min), 3.3 kW onboard AC. Split from 2015-2016 because the cell chemistry and capacity change, which changes the charging curve. Confidence: medium (Wikipedia; the DC option is not dated per year) (researched 2026-11-19, owner review pending). Source: https://en.wikipedia.org/wiki/Chevrolet_Spark_EV" },
+    { "id": "lg-chem", "name": "2015-2016 (LG Chem pack)", "first_year": 2015, "last_year": 2016, "notes": "GM switched to an LG Chem lithium-ion pack of about 19 kWh for 2015; EPA range unchanged at 82 mi (both regulators keep the same rating for 2014-2016). Same 3.3 kW onboard AC and optional CCS. Production ended December 2016. Confidence: medium (researched 2026-11-19, owner review pending). Source: https://en.wikipedia.org/wiki/Chevrolet_Spark_EV" }
+  ],
+  "years": [
+    {
+      "year": 2014,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "a123-lfp"
+    },
+    {
+      "year": 2015,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "lg-chem"
+    },
+    {
+      "year": 2016,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "lg-chem"
+    }
+  ]
+}

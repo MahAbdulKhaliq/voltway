@@ -11,8 +11,10 @@ import { deriveWheelEffect, type RatingRow, type WheelEffect } from '../../src/l
 import { calculateCharge } from '../../src/lib/charging.ts';
 import { t as msg } from '../../src/i18n/t.ts';
 import { estimateCurve } from '../../src/lib/estimated-curve.ts';
+import { checkCurve } from './curve-check.ts';
 import { planCarFrom } from '../../src/lib/trip-car.ts';
 import { MVP_FIELDS, type CarDetail, type CurveOut, type Field, type IndexEntry, type Source, type SourcedValue, type TrimOut } from '../../src/lib/types.ts';
+import { loadNotes, resolveNotes } from './notes.ts';
 
 // ---------- reading ----------
 function listJson(dir: string): string[] {
@@ -28,7 +30,9 @@ function listJson(dir: string): string[] {
   walk(dir);
   return out.sort();
 }
-const load = (f: string) => JSON.parse(readFileSync(f, 'utf8'));
+// B111: shared notes are swapped back in as each file loads (set per build in buildCars).
+let NOTES: Record<string, string> = {};
+const load = (f: string) => resolveNotes(JSON.parse(readFileSync(f, 'utf8')), NOTES);
 
 // ---------- precedence ----------
 type Group = 'rated' | 'spec' | 'fact' | 'curve' | 'other';
@@ -238,14 +242,19 @@ export function fillCurbWeights(cars: CarDetail[], sources: Map<string, Source>)
 }
 
 export function buildCars(root: string): BuildResult {
+  NOTES = loadNotes(root);
   const sources = new Map<string, Source>(listJson(join(root, 'data/sources')).map((f) => { const s = load(f); return [s.id, s]; }));
   const makes = new Map<string, any>(listJson(join(root, 'data/makes')).map((f) => { const m = load(f); return [m.id, m]; }));
   const models = new Map<string, any>(listJson(join(root, 'data/models')).map((f) => { const m = load(f); return [m.id, m]; }));
-  const imported: Record<string, Map<string, any>> = { nrcan: new Map(), openev: new Map(), chargeprice: new Map() };
+  const imported: Record<string, Map<string, any>> = { nrcan: new Map(), epa: new Map(), openev: new Map(), chargeprice: new Map() };
   for (const src of Object.keys(imported)) {
     for (const f of listJson(join(root, 'data/imported', src))) for (const r of load(f).records) imported[src].set(r.source_key, r);
   }
   const storedCurves = listJson(join(root, 'data/curves')).map(load);
+  const powertrains = new Map<string, any>(listJson(join(root, 'data/powertrains')).map((f) => { const p = load(f); return [p.id, p]; }));
+  // B95: a person clears a warned curve (imported ones here; stored ones carry reviewed_note).
+  const reviewsFile = join(root, 'crosswalk/curve-reviews.json');
+  const curveReviews: Record<string, string> = existsSync(reviewsFile) ? JSON.parse(readFileSync(reviewsFile, 'utf8')) : {};
   const cwFile = join(root, 'crosswalk/crosswalk.csv');
   const crosswalk = existsSync(cwFile) ? parseCsv(readFileSync(cwFile, 'utf8')).filter((r) => r.confirmed === 'true') : [];
 
@@ -278,12 +287,30 @@ export function buildCars(root: string): BuildResult {
       for (const val of values as SourcedValue[]) (cands[field] ??= []).push({ v: val, via: viaOf(val.source_id) });
     };
     for (const [k, vals] of Object.entries(ownFields(v))) add(k, vals);
+    // B95: the shared powertrain's pack and charging figures (the variant's own come first).
+    const pt = powertrains.get(v.powertrain_id);
+    if (pt) for (const [k, vals] of Object.entries(ownFields(pt))) if (!cands[k]) add(k, vals);
 
-    // NRCan: the variant's figures come from its first trim's row (or the only row).
-    const nrcanRows = rows.filter((r) => r.source === 'nrcan');
+    // Regulator rows (B90): NRCan for a variant sold in Canada, else EPA (a US-only variant). The
+    // variant's figures come from its first trim's row (or the only row); a two-market variant also
+    // carries EPA's figures, ranked after NRCan's.
+    const regSource: 'nrcan' | 'epa' = rows.some((r) => r.source === 'nrcan') ? 'nrcan' : 'epa';
+    const nrcanRows = rows.filter((r) => r.source === regSource);
+    const epaRows = rows.filter((r) => r.source === 'epa');
     const nrcanFor = (trimId?: string) => nrcanRows.find((r) => (r.our_trim_id || undefined) === trimId) ?? (trimId ? undefined : nrcanRows[0]);
-    const primaryNrcan = imported.nrcan.get((nrcanFor(trimIds[0]) ?? nrcanRows[0])?.source_key ?? '');
+    const primaryNrcan = imported[regSource].get((nrcanFor(trimIds[0]) ?? nrcanRows[0])?.source_key ?? '');
     if (primaryNrcan) for (const k of NRCAN_FIELDS) add(k, primaryNrcan[k]);
+    if (regSource === 'nrcan' && epaRows.length) {
+      const primaryEpa = imported.epa.get((epaRows.find((r) => (r.our_trim_id || undefined) === trimIds[0]) ?? epaRows[0]).source_key);
+      if (primaryEpa) for (const k of NRCAN_FIELDS) add(k, primaryEpa[k]);
+    }
+
+    // B95: a model's generations (with refreshes that changed the pack) bound which years' records
+    // apply. With no generations listed, only the same model year does.
+    const generationOf = (year: number): string | undefined =>
+      (model?.generations ?? []).find((g: any) => year >= g.first_year && (g.last_year === undefined || year <= g.last_year))?.id;
+    const sameGeneration = (year: number) =>
+      year === v.year || (generationOf(year) !== undefined && generationOf(year) === generationOf(v.year));
 
     let openevHeatPump: SourcedValue[] | undefined;
     let openevWheels: TrimOut['wheels'] = [];
@@ -300,11 +327,14 @@ export function buildCars(root: string): BuildResult {
           openevWheels = rec.wheels.map((w: TrimOut['wheels'][number]) => ({ ...w, ...(src ? { source_id: src } : {}) }));
         }
       } else if (r.source === 'chargeprice') {
+        // Chargeprice's year is the European release year, usually a year ahead of the North American
+        // model year (e.g. EV9 2023 in Europe, 2024 here), so the next year counts too.
+        if (!sameGeneration(rec.year) && !sameGeneration(rec.year + 1)) continue;
         for (const [ours, theirs] of Object.entries(CHARGEPRICE_FIELDS)) add(ours, rec[theirs]);
         if (rec.curve) {
           importedCurves.push({
             id: `chargeprice-${rec.year}`,
-            kind: 'tested',
+            kind: 'community',
             source_id: rec.curve.source_id,
             points: rec.curve.points,
             is_display_default: false,
@@ -326,30 +356,56 @@ export function buildCars(root: string): BuildResult {
     // the wheel size / onboard charger NRCan writes in its model name become trim facts.
     const asCands = (xs: unknown) => (Array.isArray(xs) ? (xs as SourcedValue[]) : []).map((x) => ({ v: x, via: viaOf(x.source_id) }));
     const differs = (f: Field, variantField: Field) => (f && f.value.value !== variantField?.value.value ? f : null);
+    const markets: string[] = v.markets ?? [...new Set(rows.flatMap((r) => (r.source === 'nrcan' ? ['CA'] : r.source === 'epa' ? ['US'] : [])))].sort();
     const trims: TrimOut[] = (v.trims ?? []).map((t: any): TrimOut => {
       const hp = asCands([...(t.heat_pump ?? []), ...(openevHeatPump ?? [])]);
-      const trimRow = imported.nrcan.get(nrcanFor(t.id)?.source_key ?? '');
+      // B91: a trim may carry several NRCan rows that differ only by wheel size; each becomes a
+      // wheel option with its own rating, and the smallest wheel's row rates the trim.
+      const wheelRows = nrcanRows
+        .filter((r) => r.our_trim_id === t.id)
+        .map((r) => imported[regSource].get(r.source_key))
+        .filter((r): r is any => Boolean(r && parseName(r.model).wheel_in))
+        .sort((a, b) => parseName(a.model).wheel_in! - parseName(b.model).wheel_in!);
+      const trimRow = wheelRows.length > 1 ? wheelRows[0] : imported[regSource].get(nrcanFor(t.id)?.source_key ?? '');
       const nrcanSource = trimRow?.range_km?.[0]?.source_id as string | undefined;
       const hints = trimRow ? parseName(trimRow.model) : null;
       const per = (k: string) => resolve(k, asCands([...(t[k] ?? []), ...(trimRow?.[k] ?? [])])) as Field<number>;
-      const acFromName: SourcedValue[] = hints?.charger_kw && nrcanSource
+      const acFromName: SourcedValue[] = regSource === 'nrcan' && hints?.charger_kw && nrcanSource
         ? [{ value: hints.charger_kw, unit: 'kW', kind: 'rated_nrcan', source_id: nrcanSource, notes: msg('note.nrcanModelName', { name: trimRow.model }) }]
         : [];
       const ac = resolve('ac_max_kw', asCands([...(t.ac_max_kw ?? []), ...acFromName])) as Field<number>;
+      const perWheel = wheelRows.length > 1
+        ? wheelRows.map((r, i) => ({
+            diameter_in: parseName(r.model).wheel_in!,
+            is_standard: i === 0,
+            source_id: r.range_km?.[0]?.source_id as string,
+            ...(r.range_km?.[0] ? { rated_range_km: r.range_km[0] as SourcedValue } : {}),
+            ...(r.consumption_combined_wh_per_km?.[0] ? { rated_consumption_wh_per_km: r.consumption_combined_wh_per_km[0] as SourcedValue } : {}),
+          }))
+        : null;
       const wheels: TrimOut['wheels'] = t.wheels?.length
-        ? oneWheelPerSize(t.wheels)
-        : hints?.wheel_in
-          ? [{ diameter_in: hints.wheel_in, is_standard: true, ...(nrcanSource ? { source_id: nrcanSource } : {}) }]
-          : openevWheels;
+        ? [
+            ...oneWheelPerSize(t.wheels).map((w) => ({ ...w, ...(perWheel?.find((p) => p.diameter_in === w.diameter_in) ?? {}), is_standard: w.is_standard })),
+            // A regulator row rates a size the researched list lacks: keep it as an option (B91, B105).
+            ...(perWheel ?? []).filter((p) => !t.wheels.some((w: { diameter_in: number }) => w.diameter_in === p.diameter_in)).map((p) => ({ ...p, is_standard: false })),
+          ].sort((a, b) => Number(b.is_standard) - Number(a.is_standard) || a.diameter_in - b.diameter_in)
+        : perWheel
+          ? perWheel
+          : hints?.wheel_in
+            ? [{ diameter_in: hints.wheel_in, is_standard: true, ...(nrcanSource ? { source_id: nrcanSource } : {}) }]
+            : openevWheels;
+      const names: Record<string, string> = t.names ?? (t.name ? { CA: t.name } : {});
       return {
         id: t.id,
-        name: t.name,
+        name: names[markets[0]] ?? Object.values(names)[0] ?? t.id,
+        names,
         ...(t.aliases ? { aliases: t.aliases } : {}),
         heat_pump: resolve('heat_pump', hp) as Field<string>,
         range_km: differs(per('range_km'), fields.range_km) as Field<number>,
         consumption_combined_wh_per_km: differs(per('consumption_combined_wh_per_km'), fields.consumption_combined_wh_per_km) as Field<number>,
         consumption_city_wh_per_km: differs(per('consumption_city_wh_per_km'), fields.consumption_city_wh_per_km) as Field<number>,
         consumption_highway_wh_per_km: differs(per('consumption_highway_wh_per_km'), fields.consumption_highway_wh_per_km) as Field<number>,
+        recharge_time_240v_h: differs(per('recharge_time_240v_h'), fields.recharge_time_240v_h) as Field<number>,
         ac_max_kw: ac,
         wheels,
       };
@@ -357,16 +413,18 @@ export function buildCars(root: string): BuildResult {
 
     // Curves: stored + imported measured; estimate when there is a DC peak. Default by precedence.
     const curves: CurveOut[] = [
-      ...storedCurves.filter((c) => c.variant_id === v.id).map((c): CurveOut => ({
+      ...storedCurves.filter((c) => c.variant_id === v.id || (c.powertrain_id && c.powertrain_id === v.powertrain_id)).map((c): CurveOut => ({
         id: c.id, kind: c.kind, source_id: c.source_id, points: c.points, is_display_default: Boolean(c.is_display_default),
         ...(c.notes ? { notes: c.notes } : {}), ...(c.conditions ? { conditions: c.conditions } : {}), ...(c.low_confidence ? { low_confidence: true } : {}),
         // B16: a curve borrowed from a same-pack sibling explains itself in the "Why estimated?" note.
         ...(c.based_on ? { based_on: c.based_on, basis: c.based_on.reason } : {}),
+        ...(c.reviewed_note ? { reviewed_note: c.reviewed_note } : {}),
       })),
       ...importedCurves,
     ];
     const dc = fields.dc_max_kw?.value;
-    if (dc && typeof dc.value === 'number') {
+    // dc_max_kw 0 means no DC port (e.g. Leaf 2011–12 SV): no template curve and no DC figures.
+    if (dc && typeof dc.value === 'number' && dc.value > 0) {
       curves.push(estimateCurve({
         dcMaxKw: dc.value,
         chemistry: (fields.chemistry?.value.value as string) ?? null,
@@ -374,11 +432,26 @@ export function buildCars(root: string): BuildResult {
         sourceId: dc.source_id,
       }));
     }
+    // B95: check every curve that isn't our own template; a warned curve is the default only once
+    // a person has cleared it (reviewed_note, or crosswalk/curve-reviews.json for imported curves).
+    for (const c of curves) {
+      if (c.kind === 'estimated' && !c.based_on) continue;
+      const issues = checkCurve(c.points, {
+        dcMaxKw: typeof dc?.value === 'number' ? dc.value : null,
+        chemistry: (fields.chemistry?.value.value as string) ?? null,
+        voltageClass: (fields.nominal_voltage_class?.value.value as string) ?? null,
+      });
+      if (issues.length) c.issues = issues;
+      const review = c.reviewed_note ?? curveReviews[`${v.id}#${c.id}`];
+      if (review) c.reviewed_note = review;
+    }
+    const eligible = (c: CurveOut) => !c.issues?.length || Boolean(c.reviewed_note);
     if (curves.length && !curves.some((c) => c.is_display_default)) {
       const order = { tested: 0, community: 1, manufacturer: 2, estimated: 3 };
       // Within "estimated", a borrowed sibling curve (B16) beats the template.
       const borrowed = (c: CurveOut) => (c.based_on ? 0 : 1);
-      const best = [...curves].sort((a, b) => order[a.kind] - order[b.kind] || borrowed(a) - borrowed(b) || Number(a.low_confidence ?? false) - Number(b.low_confidence ?? false))[0];
+      // Curves still waiting for review come last (behind the template), but beat having no curve.
+      const best = [...curves].sort((a, b) => Number(!eligible(a)) - Number(!eligible(b)) || order[a.kind] - order[b.kind] || borrowed(a) - borrowed(b) || Number(a.low_confidence ?? false) - Number(b.low_confidence ?? false))[0];
       best.is_display_default = true;
     }
     const defaultCurve = curves.find((c) => c.is_display_default);
@@ -413,7 +486,7 @@ export function buildCars(root: string): BuildResult {
     };
     collect(fields); collect(trims); collect(curves);
 
-    const soldInCanada = nrcanRows.length > 0;
+    const soldInCanada = markets.includes('CA') || rows.some((r) => r.source === 'nrcan');
     cars.push({
       id: v.id,
       make: { id: make?.id ?? v.model_id.split('/')[0], name: make?.name ?? v.model_id.split('/')[0] },
@@ -422,6 +495,8 @@ export function buildCars(root: string): BuildResult {
       name: v.name,
       drivetrain: v.drivetrain,
       sold_in_canada: soldInCanada,
+      markets,
+      powertrain_id: v.powertrain_id,
       fields,
       trims,
       curves,
@@ -443,6 +518,7 @@ export function buildCars(root: string): BuildResult {
     body_type: c.model.body_type,
     drivetrain: c.drivetrain,
     sold_in_canada: c.sold_in_canada,
+    markets: c.markets,
     range_km: num(c.fields.range_km),
     dc_max_kw: num(c.fields.dc_max_kw),
     usable_kwh: num(c.fields.capacity_usable_kwh) ?? num(c.fields.capacity_gross_kwh),

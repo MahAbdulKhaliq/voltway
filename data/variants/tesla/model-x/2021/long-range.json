@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-x/2021/long-range",
+  "model_id": "tesla/model-x",
+  "year": 2021,
+  "name": "Long Range",
+  "drivetrain": "awd",
+  "powertrain_id": "tesla/model-x/2021-long-range",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-64b227cb35" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-0149985cd2" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-2172906ba3" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Long Range", "US": "Long Range Plus" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carscom-model-x-2022", "note_id": "n-4f523eff7a", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-teslanorth-sx-heat-pump", "note_id": "n-3f808d4433", "low_confidence": true }
+      ]
+    }
+  ]
+}

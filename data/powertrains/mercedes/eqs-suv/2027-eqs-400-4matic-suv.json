@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqs-suv/2027-eqs-400-4matic-suv",
+  "model_id": "mercedes/eqs-suv",
+  "name": "EQS 400 4MATIC SUV",
+  "generation": "2025-update",
+  "years": [2027],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 118, "unit": "kWh", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-eqs-eqs400x4", "low_confidence": true, "note_id": "n-a0d2233645" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-98b9a85e51" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-361488a6e2" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-eqe-eqs-quickstart", "low_confidence": true, "note_id": "n-ce3bdffc9d" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-eqs-eqs400x4", "note_id": "n-ef94359a19" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-eqs-eqs400x4", "note_id": "n-6c4fc42729" }
+  ],
+  "published_10_80_min": [
+    { "value": 31, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-eqs-eqs400x4", "note_id": "n-e94024573d" }
+  ]
+}

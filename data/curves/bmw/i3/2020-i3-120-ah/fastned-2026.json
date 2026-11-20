@@ -1,0 +1,30 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "bmw/i3/2020-i3-120-ah",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-129",
+  "points": [
+    { "soc_percent": 15, "power_kw": 44.4 },
+    { "soc_percent": 20, "power_kw": 45 },
+    { "soc_percent": 25, "power_kw": 45.1 },
+    { "soc_percent": 30, "power_kw": 45.4 },
+    { "soc_percent": 35, "power_kw": 45.6 },
+    { "soc_percent": 40, "power_kw": 45.9 },
+    { "soc_percent": 45, "power_kw": 46.1 },
+    { "soc_percent": 50, "power_kw": 46.5 },
+    { "soc_percent": 55, "power_kw": 46.9 },
+    { "soc_percent": 60, "power_kw": 47.4 },
+    { "soc_percent": 65, "power_kw": 47.8 },
+    { "soc_percent": 70, "power_kw": 48.4 },
+    { "soc_percent": 75, "power_kw": 49 },
+    { "soc_percent": 80, "power_kw": 48.9 },
+    { "soc_percent": 85, "power_kw": 49.4 },
+    { "soc_percent": 86, "power_kw": 49.5 },
+    { "soc_percent": 90, "power_kw": 34.7 },
+    { "soc_percent": 95, "power_kw": 15.3 },
+    { "soc_percent": 98, "power_kw": 3.5 }
+  ],
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 50 },
+  "note_id": "n-47397ba112",
+  "is_display_default": false
+}

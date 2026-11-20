@@ -1,0 +1,33 @@
+{
+  "id": "chevrolet/equinox-ev/2024/fwd",
+  "model_id": "chevrolet/equinox-ev",
+  "year": 2024,
+  "name": "FWD",
+  "drivetrain": "fwd",
+  "powertrain_id": "chevrolet/equinox-ev/2024-fwd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-equinox-ev", "low_confidence": true, "notes": "CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2024." }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-equinox-ev", "low_confidence": true, "note_id": "n-13d1cf7d43" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "FWD", "US": "FWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2024-specs", "notes": "LT w/2LT: 19 in, 245/55R19." },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2024-specs-453414", "notes": "RS w/2RS: 21 in, 275/40R21." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

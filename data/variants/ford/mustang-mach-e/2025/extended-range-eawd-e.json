@@ -1,0 +1,41 @@
+{
+  "id": "ford/mustang-mach-e/2025/extended-range-eawd-e",
+  "model_id": "ford/mustang-mach-e",
+  "year": 2025,
+  "name": "Standard Range eAWD",
+  "drivetrain": "awd",
+  "powertrain_id": "ford/mustang-mach-e/2025-extended-range-eawd",
+  "markets": ["CA", "US"],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 73, "kind": "manufacturer", "source_id": "src-ford-us-mme-specs-2025", "unit": "kWh", "notes": "Ford 2025 sheet: SR 73 kWh. This variant is \"Standard Range eAWD\" (range 380 km) linked to the Extended Range powertrain." }
+    ],
+    "chemistry": [
+      { "value": "lfp", "kind": "estimated", "source_id": "src-insideevs-mme-2024-epa", "low_confidence": true, "notes": "Estimated: Standard Range is LFP (InsideEVs 2024)." }
+    ]
+  },
+  "published_10_80_min": [
+    { "value": 33, "kind": "estimated", "source_id": "src-insideevs-mme-lfp-2023", "unit": "min", "low_confidence": true, "notes": "Estimated: Ford 33 min claim for the LFP SR." }
+  ],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-6cda6347f7" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-ford-adapter-product", "note_id": "n-6bdf0ce985", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Standard Range eAWD", "US": "Standard Range eAWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-ford-us-mme-specs-2025", "note_id": "n-3a7044e837", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-ford-2025-mme-whatsnew", "note_id": "n-481515ce29", "low_confidence": true }
+      ]
+    }
+  ]
+}

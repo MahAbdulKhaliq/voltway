@@ -1,0 +1,30 @@
+{
+  "id": "chevrolet/silverado-ev/2027-work-truck-standard-range",
+  "model_id": "chevrolet/silverado-ev",
+  "name": "Work Truck Standard Range",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 119, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-14", "low_confidence": true, "note_id": "n-14ad7b34e3" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-60bfa013c8" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-14", "low_confidence": true, "note_id": "n-3506c51304" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 220, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "Estimated: GM 2026 WT spec guide lists the Standard Range (14 MOD) pack. 475 V up to 220 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-65147c90ae" }
+  ],
+  "published_10_80_min": [
+    { "value": 40, "unit": "min", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-6be11ef647" }
+  ]
+}

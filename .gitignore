@@ -36,3 +36,10 @@ sources/ocm-*/poi-raw.json
 sources/ocm-*/summary.md
 sources/ocm-*/near-misses.md
 sources/ocm-*/referencedata.json
+
+# Research working files (owner, 2026-11-20, B111): batches and trim-name inputs stay on the
+# researcher's machine. Once fact-checked they are applied to data/, which keeps each value's
+# source and note; the research log (research/NOTES.md) and fact-check reports stay in git.
+research/*.json
+research/trim-names-*.csv
+research/pairing-*.csv

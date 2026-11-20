@@ -1,0 +1,30 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "mercedes/eqe/2024-eqe-350-plus-sedan",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-578",
+  "points": [
+    { "soc_percent": 5, "power_kw": 158.9 },
+    { "soc_percent": 10, "power_kw": 165.5 },
+    { "soc_percent": 15, "power_kw": 168.2 },
+    { "soc_percent": 20, "power_kw": 169.4 },
+    { "soc_percent": 25, "power_kw": 171.5 },
+    { "soc_percent": 30, "power_kw": 173 },
+    { "soc_percent": 35, "power_kw": 166.7 },
+    { "soc_percent": 40, "power_kw": 159.6 },
+    { "soc_percent": 45, "power_kw": 151 },
+    { "soc_percent": 50, "power_kw": 143.4 },
+    { "soc_percent": 55, "power_kw": 138.8 },
+    { "soc_percent": 60, "power_kw": 130.7 },
+    { "soc_percent": 65, "power_kw": 120.9 },
+    { "soc_percent": 70, "power_kw": 104.8 },
+    { "soc_percent": 75, "power_kw": 88.7 },
+    { "soc_percent": 80, "power_kw": 72.2 },
+    { "soc_percent": 85, "power_kw": 55.6 },
+    { "soc_percent": 90, "power_kw": 38.8 },
+    { "soc_percent": 95, "power_kw": 29.6 }
+  ],
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 300 },
+  "note_id": "n-e203de2fea",
+  "is_display_default": false
+}

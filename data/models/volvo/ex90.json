@@ -1,0 +1,30 @@
+{
+  "id": "volvo/ex90",
+  "make_id": "volvo",
+  "name": "EX90",
+  "body_type": "suv",
+  "generations": [
+    { "id": "400v", "name": "Launch (400 V)", "first_year": 2025, "last_year": 2025, "notes": "Launch MY2025 on SPA2: 111 kWh gross (~107 usable), 400 V, DC up to 250 kW; Twin Motor and Twin Motor Performance. 2025 owners get the 2026 core computer free but keep the 400 V powertrain. Confidence: high for the boundary (researched 2026-11-19, owner review pending). Sources: https://www.electrive.com/2025/09/23/model-year-2026-volvo-ex90-gets-800-volt-technology ; https://www.cars.com/articles/new-800-volt-electrical-system-comprehensively-upgrades-2026-volvo-ex90-516056" },
+    { "id": "800v", "name": "2026 update (800 V)", "first_year": 2026, "notes": "Every MY2026 EX90 moves to an 800 V architecture (new motors, dual NVIDIA Orin computer); Volvo claims 155 miles in 10 min on a 350 kW charger (Volvo claim, not a test). Exact peak kW and pack figures to be researched per powertrain. Confidence: high for the boundary (researched 2026-11-19, owner review pending). Sources: https://www.electrive.com/2025/09/23/model-year-2026-volvo-ex90-gets-800-volt-technology ; https://www.cars.com/articles/new-800-volt-electrical-system-comprehensively-upgrades-2026-volvo-ex90-516056 ; https://www.volvocars.com/intl/news/articles/the-award-winning-ex90-just-levelled-up-with-faster-charging-and-new-advanced-features/" }
+  ],
+  "years": [
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "400v"
+    },
+    {
+      "year": 2026,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "800v"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "800v"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "mitsubishi/i-miev/2012-i-miev",
+  "model_id": "mitsubishi/i-miev",
+  "name": "i-MiEV",
+  "generation": "first-generation",
+  "years": [2012],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 16, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-theautochannel-imiev-2016", "low_confidence": true, "note_id": "n-b2cb68c18a" }
+    ],
+    "chemistry": [
+      { "value": "other", "kind": "manufacturer", "source_id": "src-w2j-inl-imiev-2012", "low_confidence": true, "note_id": "n-826ae7eb2e" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-w2j-theautochannel-imiev-2016", "low_confidence": true, "note_id": "n-f6996f72af" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-w2j-theautochannel-imiev-2016", "low_confidence": true, "note_id": "n-ae46880528" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 13.5, "unit": "kWh", "kind": "tested", "source_id": "src-w2j-inl-imiev-2012", "low_confidence": true, "notes": "INL 2012 i-MiEV baseline test (text extracted from the energy.gov PDF): total DC energy out of the battery 13.3-13.5 kWh in the constant-speed range-to-empty tests (rated pack 16 kWh, 330 V). Measured energy delivered, so a lower bound of usable." }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 3.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-wikipedia-imiev", "low_confidence": true, "note_id": "n-db9d574576" }
+  ],
+  "dc_max_kw": [
+    { "value": 40, "unit": "kW", "kind": "community", "source_id": "src-w2j-fastned-imiev", "low_confidence": true, "note_id": "n-122cb35106" }
+  ]
+}

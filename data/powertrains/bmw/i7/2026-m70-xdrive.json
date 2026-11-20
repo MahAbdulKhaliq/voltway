@@ -1,0 +1,31 @@
+{
+  "id": "bmw/i7/2026-m70-xdrive",
+  "model_id": "bmw/i7",
+  "name": "M70 xDrive",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 101.7, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-bmw-i7", "low_confidence": true, "note_id": "n-0e24aefedc" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 107.8, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-ie-i7", "low_confidence": true, "note_id": "n-8a61b84af0" },
+      { "value": 105.7, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-a-i7", "low_confidence": true, "note_id": "n-49165d2581" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-a-i7", "low_confidence": true, "note_id": "n-799b96c6e8" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-w2-bmw-i4", "low_confidence": true, "note_id": "n-4455cf1632" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-gf-adac-i7-m70", "low_confidence": true, "note_id": "n-178d4fc993" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 195, "unit": "kW", "kind": "estimated", "source_id": "src-w2-bmw-i7", "low_confidence": true, "note_id": "n-732edfe16c" }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-w2-ie-i7", "low_confidence": true, "note_id": "n-101cdf7625" }
+  ]
+}

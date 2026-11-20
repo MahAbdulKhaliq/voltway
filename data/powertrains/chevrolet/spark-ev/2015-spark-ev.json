@@ -1,0 +1,30 @@
+{
+  "id": "chevrolet/spark-ev/2015-spark-ev",
+  "model_id": "chevrolet/spark-ev",
+  "name": "Spark EV",
+  "generation": "lg-chem",
+  "years": [2015, 2016],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 19, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-spark-ev", "low_confidence": true, "notes": "Wikipedia: 2015-16 pack is 19 kWh Li-ion (LG Chem), same range as before; GreenCarsCompare: 19 kWh nominal. Auto-data lists 19 kWh for 2014-2016 (conflict on 2014)." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 18, "unit": "kWh", "kind": "estimated", "source_id": "src-greencarscompare-spark-ev", "low_confidence": true, "notes": "Estimated: GreenCarsCompare: \"18 kWh usable battery pack (19 kWh nominal)\"." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-chevrolet-spark-ev", "low_confidence": true, "notes": "Estimated: Wikipedia says only \"lithium-ion\" (LG Chem) for 2015-16 and no page names the cathode. NMC is an assumption (the usual LG Chem automotive pouch cell of the time), not a sourced fact. OWNER QUESTION." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-autodata-spark-ev-19", "low_confidence": true, "note_id": "n-c21f7308a5" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-wikipedia-chevrolet-spark-ev", "low_confidence": true, "note_id": "n-2670ad6bd4" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 50, "unit": "kW", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-spark-ev", "low_confidence": true, "note_id": "n-1f02a8e100" }
+  ],
+  "ac_max_kw": [
+    { "value": 3.3, "unit": "kW", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-spark-ev", "low_confidence": true, "note_id": "n-688aae7bc6" }
+  ]
+}

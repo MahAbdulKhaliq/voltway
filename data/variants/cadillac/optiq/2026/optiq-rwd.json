@@ -1,0 +1,49 @@
+{
+  "id": "cadillac/optiq/2026/optiq-rwd",
+  "model_id": "cadillac/optiq",
+  "year": 2026,
+  "name": "Optiq RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "cadillac/optiq/2025-optiq-awd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-wikipedia-cadillac-optiq", "low_confidence": true, "note_id": "n-61b0b45488" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-auto123-gm-nacs-adapter-2024", "low_confidence": true, "note_id": "n-d0c7b2442c" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": true, "note_id": "n-6fafed3685" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-2db03c68e9" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Optiq RWD", "US": "Optiq RWD" },
+      "ac_max_kw": [
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-905f0b47e5" }
+      ],
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-optiq-2026-specs-473177", "note_id": "n-6bcfe94d27", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    },
+    {
+      "id": "19-2-kw-charger",
+      "names": { "CA": "Optiq RWD (19.2 kW Charger)", "US": "Optiq RWD (19.2 kW Charger)" },
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-a135dcb7c0" }
+      ],
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-optiq-2026-specs-473177", "note_id": "n-6bcfe94d27", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

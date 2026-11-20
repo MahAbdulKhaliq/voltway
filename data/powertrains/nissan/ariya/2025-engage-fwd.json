@@ -1,0 +1,30 @@
+{
+  "id": "nissan/ariya/2025-engage-fwd",
+  "model_id": "nissan/ariya",
+  "name": "Engage FWD",
+  "generation": "first-generation",
+  "years": [2025],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 63, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-4951cbb7bc" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 66, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-30702f5e8a" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ariya-63-my26", "low_confidence": true, "note_id": "n-e48e9e7111" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "community", "source_id": "src-evdb-ariya-63-my26", "low_confidence": true, "note_id": "n-a0da86c1a2" }
+    ],
+    "preconditioning": [
+      { "value": "manual_only", "kind": "estimated", "source_id": "src-nissan-usa-ariya-2025-owner-manual", "low_confidence": true, "note_id": "n-776355771b" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 130, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-5d54cb29e7" }
+  ],
+  "ac_max_kw": [
+    { "value": 7.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-ae31fee81e" }
+  ]
+}

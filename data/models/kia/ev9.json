@@ -3,13 +3,33 @@
   "make_id": "kia",
   "name": "EV9",
   "body_type": "suv",
+  "generations": [
+    { "id": "first-generation", "name": "First generation", "first_year": 2024, "notes": "Launch on E-GMP (800 V). 76.1 kWh Standard (DC ~235 kW) and 99.8 kWh Long Range (DC ~210 kW). 2026 brings NACS and Georgia production but the same packs and peak DC, so not split. Wikipedia's infobox (240 kW) and body (210 kW) disagree on peak DC. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Kia_EV9 ; https://insideevs.com/news/741837/2026-kia-ev9-gt-specs-nacs-port/ ; https://insideevs.com/news/760989/2026-kia-ev9-cheaper-trims/" }
+  ],
   "years": [
     {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
       "year": 2026,
-      "markets": [
-        "CA"
-      ],
-      "availability_status": "production"
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "first-generation"
     }
   ]
 }

@@ -4,130 +4,441 @@
   "title": "Variant",
   "description": "A unique battery + drivetrain within a model year, with its trims (vehicle-data-model.md §2, §4). Figures may be left out here when an imported source supplies them; the data build checks that every MVP field ends up filled or \"unknown\". File: data/variants/<make>/<model>/<year>/<variant>.json",
   "type": "object",
-  "required": ["id", "model_id", "year", "name", "drivetrain"],
+  "required": [
+    "id",
+    "model_id",
+    "year",
+    "name",
+    "drivetrain",
+    "powertrain_id",
+    "markets"
+  ],
   "additionalProperties": false,
   "properties": {
-    "id": { "description": "<make>/<model>/<year>/<variant>", "type": "string", "pattern": "^[a-z0-9-]+/[a-z0-9-]+/[0-9]{4}/[a-z0-9-]+$" },
-    "model_id": { "type": "string", "pattern": "^[a-z0-9-]+/[a-z0-9-]+$" },
-    "year": { "type": "integer", "minimum": 2010, "maximum": 2100 },
-    "name": { "type": "string", "minLength": 1 },
-    "drivetrain": { "description": "\"unknown\" until confirmed; never guessed (data model principle 3).", "enum": ["fwd", "rwd", "awd", "unknown"] },
+    "id": {
+      "description": "<make>/<model>/<year>/<variant>",
+      "type": "string",
+      "pattern": "^[a-z0-9-]+/[a-z0-9-]+/[0-9]{4}/[a-z0-9-]+$"
+    },
+    "model_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+/[a-z0-9-]+$"
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 2010,
+      "maximum": 2100
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "drivetrain": {
+      "description": "\"unknown\" until confirmed; never guessed (data model principle 3).",
+      "enum": [
+        "fwd",
+        "rwd",
+        "awd",
+        "unknown"
+      ]
+    },
+    "powertrain_id": {
+      "description": "The shared pack + charging hardware record this variant is built on (B95). Its figures and curves apply unless the variant has its own.",
+      "type": "string",
+      "pattern": "^[a-z0-9-]+/[a-z0-9-]+/[a-z0-9-]+$"
+    },
+    "markets": {
+      "description": "Countries this variant is sold in (B91): CA from NRCan, US from EPA. A model year sold differently in each country has one variant per market.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "CA",
+          "US"
+        ]
+      }
+    },
     "carry_over_from": {
       "description": "A previous year's variant id this one is unchanged from (§2 carry-over rule).",
       "type": "string",
       "pattern": "^[a-z0-9-]+/[a-z0-9-]+/[0-9]{4}/[a-z0-9-]+$"
     },
-
     "battery": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "capacity_gross_kwh": { "$ref": "common.schema.json#/$defs/field_kwh" },
-        "capacity_usable_kwh": { "$ref": "common.schema.json#/$defs/field_kwh" },
-        "chemistry": { "$ref": "#/$defs/fact_chemistry" },
-        "nominal_voltage_class": { "$ref": "#/$defs/fact_voltage_class" },
-        "preconditioning": { "$ref": "#/$defs/fact_preconditioning" }
+        "capacity_gross_kwh": {
+          "$ref": "common.schema.json#/$defs/field_kwh"
+        },
+        "capacity_usable_kwh": {
+          "$ref": "common.schema.json#/$defs/field_kwh"
+        },
+        "chemistry": {
+          "$ref": "#/$defs/fact_chemistry"
+        },
+        "nominal_voltage_class": {
+          "$ref": "#/$defs/fact_voltage_class"
+        },
+        "preconditioning": {
+          "$ref": "#/$defs/fact_preconditioning"
+        }
       }
     },
-    "ac_max_kw": { "$ref": "common.schema.json#/$defs/field_kw" },
-    "dc_max_kw": { "$ref": "common.schema.json#/$defs/field_kw" },
-    "charge_port": { "$ref": "#/$defs/fact_charge_port" },
-    "supercharger_access": { "$ref": "#/$defs/fact_supercharger_access" },
+    "ac_max_kw": {
+      "$ref": "common.schema.json#/$defs/field_kw"
+    },
+    "dc_max_kw": {
+      "$ref": "common.schema.json#/$defs/field_kw"
+    },
+    "charge_port": {
+      "$ref": "#/$defs/fact_charge_port"
+    },
+    "supercharger_access": {
+      "$ref": "#/$defs/fact_supercharger_access"
+    },
     "adapters_included": {
-      "description": "Charging adapter that comes with the car from the factory (B38, optional; unknown until researched).",
+      "description": "DC charging adapter for the other plug standard, named charger plug -> car port, with how owners got it (B38, B112): plain = in the box, _on_request = free on request from the maker, _sold = sold by the maker. One value per car: the adapter that lets it use the other network (a CCS1 car at NACS chargers, a NACS car at CCS1 chargers). none = the maker offers none.",
       "$ref": "#/$defs/fact_adapters_included"
     },
-    "consumption_combined_wh_per_km": { "$ref": "common.schema.json#/$defs/field_wh_per_km" },
-    "consumption_city_wh_per_km": { "$ref": "common.schema.json#/$defs/field_wh_per_km" },
-    "consumption_highway_wh_per_km": { "$ref": "common.schema.json#/$defs/field_wh_per_km" },
-    "range_km": { "$ref": "common.schema.json#/$defs/field_km" },
-    "recharge_time_240v_h": { "$ref": "common.schema.json#/$defs/field_hours" },
-    "curb_weight_kg": { "$ref": "common.schema.json#/$defs/field_kg" },
+    "consumption_combined_wh_per_km": {
+      "$ref": "common.schema.json#/$defs/field_wh_per_km"
+    },
+    "consumption_city_wh_per_km": {
+      "$ref": "common.schema.json#/$defs/field_wh_per_km"
+    },
+    "consumption_highway_wh_per_km": {
+      "$ref": "common.schema.json#/$defs/field_wh_per_km"
+    },
+    "range_km": {
+      "$ref": "common.schema.json#/$defs/field_km"
+    },
+    "recharge_time_240v_h": {
+      "$ref": "common.schema.json#/$defs/field_hours"
+    },
+    "curb_weight_kg": {
+      "$ref": "common.schema.json#/$defs/field_kg"
+    },
     "published_10_80_min": {
       "description": "A published 10–80% DC charging time (manufacturer claim or single cited test). Used to calibrate estimated curves (charging-curve-viewer.md §9). Not the app's calculated time.",
       "$ref": "common.schema.json#/$defs/field_minutes"
     },
-
     "trims": {
       "type": "array",
-      "items": { "$ref": "#/$defs/trim" }
+      "items": {
+        "$ref": "#/$defs/trim"
+      }
     }
   },
-
   "$defs": {
     "trim": {
       "type": "object",
-      "required": ["id", "name"],
+      "required": [
+        "id",
+        "names"
+      ],
       "additionalProperties": false,
       "properties": {
-        "id": { "$ref": "common.schema.json#/$defs/slug" },
-        "name": { "description": "Canadian trim name.", "type": "string", "minLength": 1 },
-        "aliases": { "description": "Other names (e.g. US trim names) for search (D16).", "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
-        "heat_pump": { "$ref": "#/$defs/fact_heat_pump" },
+        "id": {
+          "$ref": "common.schema.json#/$defs/slug"
+        },
+        "names": {
+          "description": "Trim name in each market it is sold in (B91), e.g. {\"CA\": \"Premium RWD\", \"US\": \"Long Range RWD\"}.",
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "CA": {
+              "type": "string",
+              "minLength": 1
+            },
+            "US": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "aliases": {
+          "description": "Other names (e.g. US trim names) for search (D16).",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "heat_pump": {
+          "$ref": "#/$defs/fact_heat_pump"
+        },
         "wheels": {
           "type": "array",
           "items": {
             "type": "object",
             "description": "One factory wheel option. Hand-entered, so it names its source like any other figure (B14).",
-            "required": ["diameter_in", "is_standard", "source_id"],
+            "required": [
+              "diameter_in",
+              "is_standard",
+              "source_id"
+            ],
             "additionalProperties": false,
             "properties": {
-              "diameter_in": { "type": "number", "minimum": 12, "maximum": 26 },
-              "tire_size": { "type": "string", "minLength": 1 },
-              "is_standard": { "type": "boolean" },
-              "rated_range_km": { "$ref": "common.schema.json#/$defs/field_km" },
-              "source_id": { "$ref": "common.schema.json#/$defs/sourceId" },
-              "notes": { "type": "string", "minLength": 1 },
-              "low_confidence": { "type": "boolean" }
+              "diameter_in": {
+                "type": "number",
+                "minimum": 12,
+                "maximum": 26
+              },
+              "tire_size": {
+                "type": "string",
+                "minLength": 1
+              },
+              "is_standard": {
+                "type": "boolean"
+              },
+              "rated_range_km": {
+                "$ref": "common.schema.json#/$defs/field_km"
+              },
+              "source_id": {
+                "$ref": "common.schema.json#/$defs/sourceId"
+              },
+              "notes": {
+                "type": "string",
+                "minLength": 1
+              },
+              "low_confidence": {
+                "type": "boolean"
+              }
             }
           }
         },
-        "range_km": { "description": "Only when the trim's rating differs from the variant's.", "$ref": "common.schema.json#/$defs/field_km" },
-        "ac_max_kw": { "description": "Only when the trim's onboard charger differs from the variant's (B7, e.g. 11.5 vs 19.2 kW). Overrides the variant value.", "$ref": "common.schema.json#/$defs/field_kw" },
-        "price_msrp_cad": { "$ref": "common.schema.json#/$defs/field_cad" }
+        "range_km": {
+          "description": "Only when the trim's rating differs from the variant's.",
+          "$ref": "common.schema.json#/$defs/field_km"
+        },
+        "ac_max_kw": {
+          "description": "Only when the trim's onboard charger differs from the variant's (B7, e.g. 11.5 vs 19.2 kW). Overrides the variant value.",
+          "$ref": "common.schema.json#/$defs/field_kw"
+        },
+        "price_msrp_cad": {
+          "$ref": "common.schema.json#/$defs/field_cad"
+        }
       }
     },
-
     "fact_chemistry": {
       "oneOf": [
-        { "$ref": "common.schema.json#/$defs/unknown" },
-        { "type": "array", "minItems": 1, "items": { "allOf": [{ "$ref": "common.schema.json#/$defs/sourcedFact" }, { "type": "object", "properties": { "value": { "enum": ["nmc", "nca", "lfp", "lmfp", "other"] } } }] } }
+        {
+          "$ref": "common.schema.json#/$defs/unknown"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "common.schema.json#/$defs/sourcedFact"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "enum": [
+                      "nmc",
+                      "nca",
+                      "lfp",
+                      "lmfp",
+                      "other"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
       ]
     },
     "fact_voltage_class": {
       "oneOf": [
-        { "$ref": "common.schema.json#/$defs/unknown" },
-        { "type": "array", "minItems": 1, "items": { "allOf": [{ "$ref": "common.schema.json#/$defs/sourcedFact" }, { "type": "object", "properties": { "value": { "enum": ["400v", "800v", "other"] } } }] } }
+        {
+          "$ref": "common.schema.json#/$defs/unknown"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "common.schema.json#/$defs/sourcedFact"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "enum": [
+                      "400v",
+                      "800v",
+                      "other"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
       ]
     },
     "fact_preconditioning": {
       "oneOf": [
-        { "$ref": "common.schema.json#/$defs/unknown" },
-        { "type": "array", "minItems": 1, "items": { "allOf": [{ "$ref": "common.schema.json#/$defs/sourcedFact" }, { "type": "object", "properties": { "value": { "enum": ["automatic_with_navigation", "manual_only", "automatic_and_manual", "none"] } } }] } }
+        {
+          "$ref": "common.schema.json#/$defs/unknown"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "common.schema.json#/$defs/sourcedFact"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "enum": [
+                      "automatic_with_navigation",
+                      "manual_only",
+                      "automatic_and_manual",
+                      "none"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
       ]
     },
     "fact_charge_port": {
       "oneOf": [
-        { "$ref": "common.schema.json#/$defs/unknown" },
-        { "type": "array", "minItems": 1, "items": { "allOf": [{ "$ref": "common.schema.json#/$defs/sourcedFact" }, { "type": "object", "properties": { "value": { "enum": ["nacs", "ccs1", "chademo", "j1772"] } } }] } }
+        {
+          "$ref": "common.schema.json#/$defs/unknown"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "common.schema.json#/$defs/sourcedFact"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "enum": [
+                      "nacs",
+                      "ccs1",
+                      "chademo",
+                      "j1772"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
       ]
     },
     "fact_supercharger_access": {
       "oneOf": [
-        { "$ref": "common.schema.json#/$defs/unknown" },
-        { "type": "array", "minItems": 1, "items": { "allOf": [{ "$ref": "common.schema.json#/$defs/sourcedFact" }, { "type": "object", "properties": { "value": { "enum": ["yes", "no", "via_adapter"] } } }] } }
+        {
+          "$ref": "common.schema.json#/$defs/unknown"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "common.schema.json#/$defs/sourcedFact"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "enum": [
+                      "yes",
+                      "no",
+                      "via_adapter"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
       ]
     },
     "fact_adapters_included": {
       "oneOf": [
-        { "$ref": "common.schema.json#/$defs/unknown" },
-        { "type": "array", "minItems": 1, "items": { "allOf": [{ "$ref": "common.schema.json#/$defs/sourcedFact" }, { "type": "object", "properties": { "value": { "enum": ["none", "nacs_to_ccs1", "ccs1_to_nacs"] } } }] } }
+        {
+          "$ref": "common.schema.json#/$defs/unknown"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "common.schema.json#/$defs/sourcedFact"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "enum": [
+                      "none",
+                      "nacs_to_ccs1",
+                      "nacs_to_ccs1_on_request",
+                      "nacs_to_ccs1_sold",
+                      "ccs1_to_nacs",
+                      "ccs1_to_nacs_on_request",
+                      "ccs1_to_nacs_sold"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
       ]
     },
     "fact_heat_pump": {
       "oneOf": [
-        { "$ref": "common.schema.json#/$defs/unknown" },
-        { "type": "array", "minItems": 1, "items": { "allOf": [{ "$ref": "common.schema.json#/$defs/sourcedFact" }, { "type": "object", "properties": { "value": { "enum": ["standard", "optional", "none"] } } }] } }
+        {
+          "$ref": "common.schema.json#/$defs/unknown"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "common.schema.json#/$defs/sourcedFact"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "enum": [
+                      "standard",
+                      "optional",
+                      "none"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
       ]
     }
   }

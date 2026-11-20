@@ -1,0 +1,35 @@
+{
+  "id": "toyota/bz/2026/limited-awd-us",
+  "model_id": "toyota/bz",
+  "year": 2026,
+  "name": "Limited AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "toyota/bz/2026-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-0ea9763c03" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-3f1c50184a" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-onsale-2026", "note_id": "n-824902a2b8" }
+  ],
+  "curb_weight_kg": [
+    { "value": 2025, "unit": "kg", "kind": "manufacturer", "source_id": "src-granvilletoyota-bz-2026", "low_confidence": true, "note_id": "n-e40d88ec1a" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-toyota-nacs-migration-2026", "note_id": "n-09e7b75aac" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Limited AWD" },
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "low_confidence": true, "note_id": "n-517ae04b32" }
+      ],
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-toyota-ca-media-bz-2026", "note_id": "n-e9d4f0faf6" }
+      ]
+    }
+  ]
+}

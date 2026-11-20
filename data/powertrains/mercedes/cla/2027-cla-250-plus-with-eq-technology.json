@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/cla/2027-cla-250-plus-with-eq-technology",
+  "model_id": "mercedes/cla",
+  "name": "CLA 250+ with EQ Technology",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 85, "unit": "kWh", "kind": "manufacturer", "source_id": "src-mbusa-cla-release", "note_id": "n-5436ed160c" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-mbusa-cla-release", "note_id": "n-62eedfcb8f" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-mbusa-cla-future", "note_id": "n-32e52391e3" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "manufacturer", "source_id": "src-mbusa-cla-release", "low_confidence": true, "note_id": "n-76ca80a4c5" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 320, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-cla-cla250e", "note_id": "n-8c29ce126d" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-cla-cla250e", "note_id": "n-771432063f" }
+  ],
+  "published_10_80_min": [
+    { "value": 22, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-cla-cla250e", "note_id": "n-b8e1fc62d5" }
+  ]
+}

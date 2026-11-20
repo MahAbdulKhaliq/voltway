@@ -1,0 +1,33 @@
+{
+  "id": "genesis/gv60/2026/advanced-awd",
+  "model_id": "genesis/gv60",
+  "year": 2026,
+  "name": "Advanced AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "genesis/gv60/2026-advanced-awd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-4f11cd6f71", "low_confidence": true },
+    { "value": "nacs", "kind": "estimated", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-a1012ad0ca", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-9f95a1ea04", "low_confidence": true },
+    { "value": "yes", "kind": "estimated", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-126f8e7e97", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-gen-us-how-to-charge", "note_id": "n-e4e09f8d67", "low_confidence": true },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-gen-ca-nacs-release", "note_id": "n-ee2e2d3d2b", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Advanced AWD", "US": "Advanced AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-genesis-gv60-2026-index", "low_confidence": true, "notes": "Advanced 20\" AWD: 20 in from the trim name on the 2026 index page; its own page was not opened." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-gen-us-brochure-2023-gv60", "note_id": "n-a76de62b8c", "low_confidence": true }
+      ]
+    }
+  ]
+}

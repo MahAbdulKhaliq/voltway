@@ -1,0 +1,24 @@
+{
+  "id": "kia/ev9/2026-land-awd-gt-line",
+  "model_id": "kia/ev9",
+  "name": "Land AWD GT-Line",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 99.8, "unit": "kWh", "kind": "manufacturer", "source_id": "src-slashgear-2026-ev9", "low_confidence": true, "note_id": "n-e79a5631ca" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-slashgear-2026-ev9", "low_confidence": true, "note_id": "n-fb631f1b14" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evseekers-ev9-battery", "low_confidence": true, "note_id": "n-d0688008fb" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-kia-manual-mv1-2026-battery-conditioning", "low_confidence": true, "note_id": "n-7eeaa7ccfa" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 210, "unit": "kW", "kind": "manufacturer", "source_id": "src-edwards-kia-ev9-gt-line-2026", "low_confidence": true, "notes": "US Kia spec sheet via dealer: 210 max DC (99.8 kWh pack). InsideEVs measured 216 kW on a 2024 GT-Line. Replaces an unsourced 240 kW." }
+  ]
+}

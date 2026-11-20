@@ -1,0 +1,21 @@
+{
+  "id": "nissan/ariya/2026-sl-e-4orce",
+  "model_id": "nissan/ariya",
+  "name": "SL e-4ORCE",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 66, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-4400f5f2e7" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ariya-63-my26", "low_confidence": true, "note_id": "n-e48e9e7111" }
+    ],
+    "preconditioning": [
+      { "value": "manual_only", "kind": "estimated", "source_id": "src-nissan-usa-ariya-2023-owner-manual", "low_confidence": true, "note_id": "n-f385a3373c" }
+    ]
+  },
+  "published_10_80_min": [
+    { "value": 35, "unit": "min", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-32521af9b3" }
+  ]
+}

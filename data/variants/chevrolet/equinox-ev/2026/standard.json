@@ -4,68 +4,32 @@
   "year": 2026,
   "name": "Standard",
   "drivetrain": "fwd",
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 85,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-chevrolet-equinox-ev",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked). “85 kWh battery pack”; gross or usable not stated."
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-gm-ultium-85",
-        "low_confidence": true,
-        "notes": "Estimated: The Weekly Driver (spec site, no GM citation) says the 85 kWh Ultium pack is NCMA; nmc is the nearest value. Page lists the 85 kWh Ultium pack used in the Equinox EV (FWD and AWD) as NCMA (nickel cobalt manganese aluminum); recorded as nmc (the schema has no separate NCMA value). Spec-site relay of the GM pack description."
-      }
-    ]
-  },
-  "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-chevrolet-equinox-ev",
-      "low_confidence": true,
-      "notes": "Quick web lookup (rough, not cross-checked)."
-    }
-  ],
+  "powertrain_id": "chevrolet/equinox-ev/2026-standard",
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-5a9f4542ec" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-equinox-ev", "low_confidence": true, "note_id": "n-0c4fb58f29" }
   ],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 185,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-insideevs-equinox-ev-range-test-2024",
-      "low_confidence": true,
-      "notes": "Test: 70 mph (113 km/h) steady, mid-80s F (~29 C), climate 70 F low fan, wheel size not stated, battery-side (car display) | 2024 Equinox EV FWD 2RS (same generation and 85 kWh pack as our 2026 FWD). Car reported 90.2 kWh used over 303 mi (3.4 mi/kWh): 90.2 kWh / 303 mi = 297.7 Wh/mi / 1.609344 = 185 Wh/km. Hot weather with A/C load. Other tests seen: Consumer Reports AWD 304 mi at 70 mph (no energy figure, paywalled)."
-    }
+    { "value": 185, "unit": "Wh/km", "kind": "tested", "source_id": "src-insideevs-equinox-ev-range-test-2024", "low_confidence": true, "notes": "Test: 70 mph (113 km/h) steady, mid-80s F (~29 C), climate 70 F low fan, wheel size not stated, battery-side (car display) | 2024 Equinox EV FWD 2RS (same generation and 85 kWh pack as our 2026 FWD). Car reported 90.2 kWh used over 303 mi (3.4 mi/kWh): 90.2 kWh / 303 mi = 297.7 Wh/mi / 1.609344 = 185 Wh/km. Hot weather with A/C load. Other tests seen: Consumer Reports AWD 304 mi at 70 mph (no energy figure, paywalled)." }
+  ],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-equinox-ev", "low_confidence": true, "note_id": "n-eb3ab4b451" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "Equinox EV",
+      "names": { "CA": "Equinox EV", "US": "FWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-chevrolet-equinox-ev",
-          "low_confidence": true,
-          "notes": "Quick web lookup (rough, not cross-checked)."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-chevrolet-equinox-ev", "low_confidence": true, "note_id": "n-fb631f1b14" }
+      ],
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2026-specs", "note_id": "n-fb9c57e10e" },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2026-specs-478456", "note_id": "n-41fdecc0c6" }
       ]
     }
   ]

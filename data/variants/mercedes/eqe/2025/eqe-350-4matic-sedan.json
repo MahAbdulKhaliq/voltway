@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqe/2025/eqe-350-4matic-sedan",
+  "model_id": "mercedes/eqe",
+  "year": 2025,
+  "name": "EQE 350 4MATIC Sedan",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/eqe/2025-eqe-350-4matic-sedan",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-eqe-eqe350v4", "note_id": "n-e863ab2c59" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-6cdf780c0a" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "EQE 350 4MATIC Sedan", "US": "EQE 350 4MATIC Sedan" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqe-350-2025-specs-458707", "note_id": "n-acfeb96928" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-14cbffd89f", "low_confidence": true }
+      ]
+    }
+  ]
+}

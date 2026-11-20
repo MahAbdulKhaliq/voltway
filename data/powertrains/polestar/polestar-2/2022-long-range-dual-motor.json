@@ -1,0 +1,30 @@
+{
+  "id": "polestar/polestar-2/2022-long-range-dual-motor",
+  "model_id": "polestar/polestar-2",
+  "name": "Long Range Dual Motor",
+  "generation": "launch",
+  "years": [2022],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 78, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-polestar-2", "low_confidence": true, "note_id": "n-905cade3d1" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 75, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-polestar-2", "low_confidence": true, "note_id": "n-181d3b150d" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-wikipedia-polestar-2", "low_confidence": true, "note_id": "n-cc088d2156" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-xc40-twin-pure-my22", "low_confidence": true, "note_id": "n-f981eaa930" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-polestar-us-manual-2024-gmaps", "low_confidence": true, "notes": "Estimated: Same line as the 2023/2024 manuals: the 2024 and 2023 US Polestar 2 manuals describe only the Google Maps navigation trigger (no manual control); the 2021 manual only says preconditioning lengthens charging time. Nothing shows a change for this model year." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-polestar-us-manual-2022-charging", "low_confidence": true, "notes": "Polestar US 2022 manual (read by the fact-checker): up to 150 kW DC, about 35 min. (Wikipedia gives 155 kW.)" }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-polestar-us-manual-2022-charging", "low_confidence": true, "notes": "Polestar US 2022 manual: AC max 11 kW." }
+  ]
+}

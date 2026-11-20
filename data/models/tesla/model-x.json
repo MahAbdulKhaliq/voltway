@@ -1,0 +1,79 @@
+{
+  "id": "tesla/model-x",
+  "make_id": "tesla",
+  "name": "Model X",
+  "body_type": "suv",
+  "generations": [
+    { "id": "original", "name": "Original (2016-2018)", "first_year": 2016, "last_year": 2018, "notes": "Launch Sept 2015 as MY2016: 60D (75 kWh software-limited, July-Oct 2016), 75D, 90D (to June 2017), 100D and P100D (Aug 2016). Supercharging on V2 (~120 kW class; general knowledge). 75D/100D/P100D continue into MY2019 before the May 2019 Raven change and fall in the raven generation by model year. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Tesla_Model_X" },
+    { "id": "raven", "name": "Raven (2019-2021)", "first_year": 2019, "last_year": 2021, "notes": "May 2019 engineering refresh (Raven drivetrain) on the 100 kWh pack: Long Range, Performance, Standard Range (2019-2020), Long Range Plus (Feb 2020 on). DC 200 kW (V3) at launch, 225 kW by software June 2020, later 250 kW (thicker wiring). Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Tesla_Model_X ; https://electrek.co/2020/06/24/tesla-model-s-x-supercharging-rate-increase-225-kw/ ; https://insideevs.com/news/433707/thicker-wires-model-sx-charging-250-kw/" },
+    { "id": "palladium", "name": "2022 refresh (Long Range and Plaid)", "first_year": 2022, "notes": "Refresh with Plaid; EPA and NRCan list the refreshed Model X and Plaid from MY2022, so the boundary is clean by model year. 250 kW Supercharging. The June 2025 refresh (front camera, wheels, third-row space, lighting) lists no charging change. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Tesla_Model_X" }
+  ],
+  "years": [
+    {
+      "year": 2016,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "original"
+    },
+    {
+      "year": 2017,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "original"
+    },
+    {
+      "year": 2018,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "original"
+    },
+    {
+      "year": 2019,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "raven"
+    },
+    {
+      "year": 2020,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "raven"
+    },
+    {
+      "year": 2021,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "raven"
+    },
+    {
+      "year": 2022,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "palladium"
+    },
+    {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "palladium"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "palladium"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "palladium"
+    },
+    {
+      "year": 2026,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "palladium"
+    }
+  ]
+}

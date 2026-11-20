@@ -1,0 +1,51 @@
+{
+  "id": "cadillac/vistiq/2026/vistiq-awd",
+  "model_id": "cadillac/vistiq",
+  "year": 2026,
+  "name": "Vistiq AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "cadillac/vistiq/2026-vistiq-awd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thechargeport-cadillac-vistiq", "low_confidence": true, "notes": "The Charge Port: the 2026 Vistiq uses CCS1 and needs the GM $299 NACS DC adapter for Superchargers." }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-auto123-gm-nacs-adapter-2024", "low_confidence": true, "note_id": "n-d0c7b2442c" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": true, "note_id": "n-6fafed3685" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-2db03c68e9" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Vistiq AWD", "US": "Vistiq AWD" },
+      "ac_max_kw": [
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-905f0b47e5" }
+      ],
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cadillac-vistiq-2026-specs", "note_id": "n-0e8ff30bef" },
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-vistiq-2026-specs-466712", "note_id": "n-70646e70b2" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    },
+    {
+      "id": "19-2-kw-charger",
+      "names": { "CA": "Vistiq AWD (19.2 kW Charger)", "US": "Vistiq AWD (19.2 kW Charger)" },
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-a135dcb7c0" }
+      ],
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cadillac-vistiq-2026-specs", "note_id": "n-0e8ff30bef" },
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-vistiq-2026-specs-466712", "note_id": "n-70646e70b2" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

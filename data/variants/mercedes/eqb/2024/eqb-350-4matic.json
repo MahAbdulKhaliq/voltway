@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqb/2024/eqb-350-4matic",
+  "model_id": "mercedes/eqb",
+  "year": 2024,
+  "name": "EQB 350 4MATIC",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/eqb/2024-eqb-350-4matic",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqb-eqb350w4", "note_id": "n-e863ab2c59" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-1972a7a45d" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "EQB 350 4MATIC" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqb-350-2024-specs", "note_id": "n-1b76e9850d" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-eqb350-105", "note_id": "n-f09c2cf53d", "low_confidence": true }
+      ]
+    }
+  ]
+}

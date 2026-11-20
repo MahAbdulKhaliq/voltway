@@ -1,0 +1,33 @@
+{
+  "id": "kia/ev9/2027-awd",
+  "model_id": "kia/ev9",
+  "name": "AWD",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 99.8, "unit": "kWh", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-specs", "notes": "Kia US 2027 EV9 page: 99.8 kWh on Light Long Range, Wind, Land, GT-Line." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 96, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ev9-998-awd", "low_confidence": true, "note_id": "n-8b1d8c6b8a" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evseekers-ev9-battery", "low_confidence": true, "note_id": "n-e38426af13" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-kia-uk-ev9-specification", "low_confidence": true, "note_id": "n-bb8d68ba36" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-kia-manual-mv1-2024-battery-conditioning", "low_confidence": true, "note_id": "n-39ae1efb27" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 210, "unit": "kW", "kind": "manufacturer", "source_id": "src-kia-uk-ev9-specification", "low_confidence": true, "note_id": "n-42aea16fb5" }
+  ],
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-specs", "note_id": "n-bb18121dc9" }
+  ],
+  "published_10_80_min": [
+    { "value": 24, "unit": "min", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-specs", "notes": "Kia US 2027 EV9 page: about 24 min 10-80 % at 350 kW (CCS); 34 min via NACS." }
+  ]
+}

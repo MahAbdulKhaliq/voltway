@@ -4,129 +4,27 @@
   "year": 2026,
   "name": "Wind",
   "drivetrain": "rwd",
+  "powertrain_id": "kia/ev9/2026-wind",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev9-2026"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev9-2026"
-    }
-  ],
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 99.8,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-slashgear-2026-ev9",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked). Gross capacity."
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-slashgear-2026-ev9",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-evseekers-ev9-battery",
-        "low_confidence": true,
-        "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database lists NMC for the 99.8 kWh pack."
-      }
-    ],
-    "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-kia-manual-mv1-2026-battery-conditioning",
-        "low_confidence": true,
-        "notes": "Manual switch plus conditioning timed to a fast charger set as waypoint/destination (MV1 2026 manual; MV1 is the EV9 per the en_US specs page). Cited page is the UK copy; the en_US copy of this page was not found. Manual says the feature applies only to vehicles with a battery heater."
-      }
-    ],
-    "capacity_usable_kwh": [
-      {
-        "value": 96,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-ev9-998-awd",
-        "low_confidence": true,
-        "notes": "EV Database (European listing) 96.0 kWh usable for the 99.8 kWh pack; page marks it estimated. Australian Kia fact sheet also says 96."
-      }
-    ]
-  },
-  "ac_max_kw": [
-    {
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-edwards-kia-ev9-wind-2026",
-      "low_confidence": true,
-      "notes": "US Kia spec sheet via dealer: onboard charger 10.9 (unit omitted on page). US Wind is AWD, Canadian Wind here is RWD; onboard charger assumed identical."
-    }
-  ],
-  "dc_max_kw": [
-    {
-      "value": 210,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-evdb-ev9-998-awd",
-      "low_confidence": true,
-      "notes": "EV Database: Kia claimed maximum 210 kW for the 99.8 kWh pack (EV Database measured 209). InsideEVs measured 216 kW."
-    }
-  ],
-  "published_10_80_min": [
-    {
-      "value": 24,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-edwards-kia-ev9-wind-2026",
-      "low_confidence": true,
-      "notes": "US Kia spec via dealer: 24 min at 350 kW (CCS). Kia notes NACS/Supercharger times are longer."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2418,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ev9-2026-wind-rwd",
-      "low_confidence": true,
-      "notes": "Guide Auto lists \"Weight\" 2,418 kg (5,331 lb) for the Canadian Wind RWD (99.8 kWh); presumed curb weight."
-    }
+    { "value": 2418, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev9-2026-wind-rwd", "low_confidence": true, "note_id": "n-044b91ca57" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "Wind",
+      "names": { "CA": "Wind" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-kia-ca-ev9-2026"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" },
+        { "value": "standard", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "low_confidence": true, "note_id": "n-3af1046a8b" }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "tire_size": "255/60R19",
-          "source_id": "src-edwards-kia-ev9-wind-2026",
-          "low_confidence": true,
-          "notes": "US dealer spec sheet for Wind (AWD); Canadian RWD Wind assumed to have the same wheels."
-        }
+        { "diameter_in": 19, "is_standard": true, "tire_size": "255/60R19", "source_id": "src-edwards-kia-ev9-wind-2026", "low_confidence": true, "note_id": "n-3cfccfa120" }
       ]
     }
   ]

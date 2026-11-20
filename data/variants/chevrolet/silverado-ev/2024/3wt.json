@@ -1,0 +1,32 @@
+{
+  "id": "chevrolet/silverado-ev/2024/3wt",
+  "model_id": "chevrolet/silverado-ev",
+  "year": 2024,
+  "name": "3WT",
+  "drivetrain": "unknown",
+  "powertrain_id": "chevrolet/silverado-ev/2024-3wt",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-6d92bdd0b0" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-19e45ce735" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-c3fc6fffb6" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "3WT" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs-459568", "note_id": "n-6922821bac", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

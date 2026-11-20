@@ -10,7 +10,6 @@ import '@fontsource-variable/archivo/wght.css';
 import '@fontsource-variable/overpass/wght.css';
 import '../styles/global.css';
 import { t, type MessageKey } from '../i18n/t.ts';
-import { COVERAGE } from '../config.ts';
 import HeaderChips from '../components/HeaderChips.tsx';
 
 type Page = 'map' | 'charging' | 'cars' | 'compare' | 'about';
@@ -180,7 +179,6 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
     </main>
     {!fill && <footer class="site-footer">
       <div class="wrap">
-        <p>{t('scope.note', { market: COVERAGE.market, regulator: COVERAGE.regulator })}</p>
         <p>{t('footer.note')}</p>
         <p class="small">{t('footer.data')} <a href="/about#data">{t('footer.about')}</a></p>
       </div>

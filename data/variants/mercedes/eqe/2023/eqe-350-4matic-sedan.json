@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqe/2023/eqe-350-4matic-sedan",
+  "model_id": "mercedes/eqe",
+  "year": 2023,
+  "name": "EQE 350 4MATIC Sedan",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/eqe/2023-eqe-350-4matic-sedan",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2023-eqe-eqe350v4", "note_id": "n-e863ab2c59" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-6cdf780c0a" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "EQE 350 4MATIC Sedan" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqe-350-2023-specs-431954", "notes": "EQE 350 4MATIC+ Sedan: 19 x 8 in aluminum, P255/45R19. (US page carried to the Canadian car, no Canadian page opened.)", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-5883db21f8", "low_confidence": true }
+      ]
+    }
+  ]
+}

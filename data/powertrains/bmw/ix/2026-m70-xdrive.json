@@ -1,0 +1,28 @@
+{
+  "id": "bmw/ix/2026-m70-xdrive",
+  "model_id": "bmw/ix",
+  "name": "M70 xDrive",
+  "generation": "2026-update",
+  "years": [2026],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "note_id": "n-fbc6e2054c" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 112.6, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-ie-ix26", "low_confidence": true, "notes": "InsideEVs (US coverage of the 2026 refresh): 112.6 kWh usable, BMW-reported (evspecifications and KBB relay the same set, M70 112.8). Conflict: the BMW global release gives 108.9 kWh usable energy content; the gap is 4-6 %." },
+      { "value": 108.9, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-ix26", "low_confidence": true, "notes": "BMW global release: usable energy content 108.9 kWh (launch text; the later 2026 refresh coverage quotes higher figures)." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-ie-ix26", "low_confidence": true, "note_id": "n-04cb3dd05b" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-gf-adac-ix-xdrive60-2025", "low_confidence": true, "notes": "Estimated: the iX M70 xDrive shares the facelift iX large pack and 195 kW DC with the xDrive60 (data on file); ADAC lists Nickel-Mangan-Cobalt for the xDrive60 (ab 03/25) and the pre-facelift M60 (111.5 gross, 195 kW). No ADAC page found for the M70 itself." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 195, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-ix26", "low_confidence": true, "note_id": "n-44feb3ebbd" }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-evs-ix26", "low_confidence": true, "note_id": "n-f0535090d9" }
+  ]
+}

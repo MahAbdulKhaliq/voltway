@@ -1,0 +1,16 @@
+{
+  "id": "insideevs-2026",
+  "powertrain_id": "subaru/solterra/2026-awd",
+  "kind": "tested",
+  "low_confidence": true,
+  "source_id": "src-insideevs-solterra-nacs-test-2026",
+  "points": [
+    { "soc_percent": 16, "power_kw": 98 },
+    { "soc_percent": 61, "power_kw": 104 },
+    { "soc_percent": 72, "power_kw": 91 },
+    { "soc_percent": 85, "power_kw": 71 }
+  ],
+  "conditions": { "preconditioned": "yes", "charger_kw": 250, "ambient_temp_c": 1 },
+  "notes": "2026 Touring XT (74.7 kWh), Tesla V3. Plug-in 98 kW then about 121 kW plateau (Tesla app); the 50% point is inferred from the article saying the plateau lasted past 50%. Other points read from stated times. Older chargeprice-2022 curve is for the previous pack/100 kW.",
+  "is_display_default": false
+}

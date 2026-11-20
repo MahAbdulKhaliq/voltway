@@ -1,0 +1,30 @@
+{
+  "id": "lucid/air/2023-grand-touring-performance",
+  "model_id": "lucid/air",
+  "name": "Grand Touring Performance",
+  "generation": "first-generation",
+  "years": [2023],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 109.1, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-arenaev-lucid-gtp-2022", "low_confidence": true, "notes": "Estimated: ArenaEV 2022 GT Performance page lists 109.1 kWh usable; applied to 2023. Conflict: InsideEVs lists 112 usable for the Grand Touring." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-0e073f7924" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-w2-arenaev-lucid-gtp-2022", "low_confidence": true, "notes": "Estimated: ArenaEV lists 900 V." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "low_confidence": true, "note_id": "n-5b38ca5f4b" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 112, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-arenaev-lucid-gtp-2022", "low_confidence": true, "notes": "Estimated: ArenaEV 2022 Grand Touring Performance page, 112 kWh total, applied to the 2023 car (no change found). Wikipedia lists 118 kWh for this trim, uncited: conflict." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 300, "unit": "kW", "kind": "estimated", "source_id": "src-w2-arenaev-lucid-gtp-2022", "low_confidence": true, "notes": "Estimated: ArenaEV 2022 GT Performance DC 300 kW; InsideEVs Grand Touring up to around 300 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "low_confidence": true, "note_id": "n-560efa3597" }
+  ]
+}

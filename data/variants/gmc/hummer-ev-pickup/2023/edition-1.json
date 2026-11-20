@@ -1,0 +1,38 @@
+{
+  "id": "gmc/hummer-ev-pickup/2023/edition-1",
+  "model_id": "gmc/hummer-ev-pickup",
+  "year": 2023,
+  "name": "Edition 1",
+  "drivetrain": "awd",
+  "powertrain_id": "gmc/hummer-ev-pickup/2022-edition-1",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-r2gm-motorauthority-hummer-2022", "low_confidence": true, "note_id": "n-660b037ea9" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-nontesla-supercharger-access-2026", "low_confidence": true, "note_id": "n-4115af9db7" }
+  ],
+  "consumption_highway_wh_per_km": [
+    { "value": 388, "unit": "Wh/km", "kind": "estimated", "source_id": "src-r2gm-insideevs-hummer-range-test", "low_confidence": true, "notes": "Estimated (B103): the 2022 Edition 1's measured 70 mph highway figure (InsideEVs), same truck and powertrain (gmc/hummer-ev-pickup/2022-edition-1). No 2023 test or regulator rating (over 10,000 lb GVWR)." }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": true, "note_id": "n-6fafed3685" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-2db03c68e9" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Edition 1", "CA": "Edition 1" },
+      "range_km": [
+        { "value": 529, "unit": "km", "kind": "manufacturer", "source_id": "src-r2gm-kbb-hummer-2023-trims", "low_confidence": true, "note_id": "n-de59bd4a6f" }
+      ],
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2gm-motorauthority-hummer-2022", "low_confidence": true, "notes": "Carried from the 2022 Edition 1 page (Motor Authority 305/70R18); no source states the 2023 Edition 1 wheel size, same truck assumed." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

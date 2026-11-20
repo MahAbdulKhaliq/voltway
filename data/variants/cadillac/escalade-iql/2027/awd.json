@@ -1,0 +1,83 @@
+{
+  "id": "cadillac/escalade-iql/2027/awd",
+  "model_id": "cadillac/escalade-iql",
+  "year": 2027,
+  "name": "AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "cadillac/escalade-iql/205-kwh-800v",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-autoevolution-gm-2027-nacs", "low_confidence": true, "note_id": "n-46d35ff982" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-insideevs-escalade-iq-2027-nacs", "low_confidence": true, "note_id": "n-b5b7073a22" }
+  ],
+  "consumption_highway_wh_per_km": [
+    { "value": 287, "unit": "Wh/km", "kind": "estimated", "source_id": "src-r2gm-insideevs-escalade-range-test-2025", "low_confidence": true, "notes": "Estimated (B103): the 2025 Escalade IQ's measured 70 mph highway figure (InsideEVs). Long-wheelbase IQ, same pack and motors, heavier, so likely a little higher. No IQL test or rating found." }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-gm-nacs", "low_confidence": true, "note_id": "n-795f9fc0f8" }
+  ],
+  "trims": [
+    {
+      "id": "luxury",
+      "names": { "US": "Luxury" },
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-escalade-iq-2027-nacs", "low_confidence": true, "note_id": "n-0bf141187b" }
+      ],
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-escalade-iql-2027-specs", "note_id": "n-2d0c872ccd" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" },
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-escalade-iq", "low_confidence": true, "note_id": "n-e0509d5f2b" }
+      ]
+    },
+    {
+      "id": "sport",
+      "names": { "US": "Sport" },
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-escalade-iq-2027-nacs", "low_confidence": true, "note_id": "n-0bf141187b" }
+      ],
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-escalade-iql-2027-specs", "notes": "Sport page not opened; 22 in carried from the IQL Luxury page (Sport is 22 in on the 2027 Escalade IQ).", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" },
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-escalade-iq", "low_confidence": true, "note_id": "n-e0509d5f2b" }
+      ]
+    },
+    {
+      "id": "premium-luxury",
+      "names": { "US": "Premium Luxury" },
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-escalade-iq-2027-nacs", "low_confidence": true, "note_id": "n-0bf141187b" }
+      ],
+      "wheels": [
+        { "diameter_in": 24, "is_standard": true, "source_id": "src-r3w-cadillac-escalade-iql-2027-specs-490396", "notes": "Premium Luxury page not opened; 24 in carried from the IQL Premium Sport page (Premium Luxury is 24 in on the IQ).", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" },
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-escalade-iq", "low_confidence": true, "note_id": "n-e0509d5f2b" }
+      ]
+    },
+    {
+      "id": "premium-sport",
+      "names": { "US": "Premium Sport" },
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-escalade-iq-2027-nacs", "low_confidence": true, "note_id": "n-0bf141187b" }
+      ],
+      "wheels": [
+        { "diameter_in": 24, "is_standard": true, "source_id": "src-r3w-cadillac-escalade-iql-2027-specs-490396", "note_id": "n-fa3ce7b213" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" },
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-escalade-iq", "low_confidence": true, "note_id": "n-e0509d5f2b" }
+      ]
+    }
+  ]
+}

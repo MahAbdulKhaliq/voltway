@@ -10,7 +10,7 @@ export type View = 'cards' | 'table';
 export type HeatPumpFilter = 'any' | 'standard' | 'available';
 
 export interface BrowseFilters {
-  canadaOnly: boolean;
+  markets: string[];        // B98: CA / US; empty = all
   years: number[];          // empty = all
   makes: string[];          // empty = all (same for every list below)
   bodies: string[];
@@ -31,15 +31,10 @@ export const SORTS: SortKey[] = ['name', 'range', 'efficiency', 'dc', 'time1080'
 /** The natural direction for each sort: better first (§4). */
 export const DEFAULT_DIR: Record<SortKey, SortDir> = { name: 'asc', range: 'desc', efficiency: 'asc', dc: 'desc', time1080: 'asc', km10: 'desc', newest: 'desc' };
 
-/** Current and previous model year present in the data (§4 default). */
-export function defaultYears(index: IndexEntry[]): number[] {
-  const max = Math.max(...index.map((e) => e.year));
-  return Number.isFinite(max) ? [max, max - 1] : [];
-}
-
-export function defaultFilters(index: IndexEntry[]): BrowseFilters {
+// Owner 2026-11-20: every model year by default (no years ticked), not the newest two.
+export function defaultFilters(_index: IndexEntry[]): BrowseFilters {
   return {
-    canadaOnly: true, years: defaultYears(index), makes: [], bodies: [], drivetrains: [], ports: [], voltages: [], chemistries: [],
+    markets: [], years: [], makes: [], bodies: [], drivetrains: [], ports: [], voltages: [], chemistries: [],
     heatPump: 'any', minRangeKm: 0, minDcKw: 0, max1080Min: 0, measuredOnly: false,
   };
 }
@@ -65,14 +60,14 @@ export function readState(saved: unknown, index: IndexEntry[]): BrowseState {
   if (o.view === 'cards' || o.view === 'table') s.view = o.view;
   const f = o.filters as Record<string, unknown> | undefined;
   if (f && typeof f === 'object') {
-    for (const k of ['canadaOnly', 'measuredOnly'] as const) if (typeof f[k] === 'boolean') s.filters[k] = f[k] as boolean;
+    for (const k of ['measuredOnly'] as const) if (typeof f[k] === 'boolean') s.filters[k] = f[k] as boolean;
     for (const k of ['minRangeKm', 'minDcKw', 'max1080Min'] as const) {
       const n = f[k];
       if (typeof n === 'number' && Number.isFinite(n) && n >= 0) s.filters[k] = n;
     }
     if (f.heatPump === 'any' || f.heatPump === 'standard' || f.heatPump === 'available') s.filters.heatPump = f.heatPump;
     if (Array.isArray(f.years) && f.years.every((y) => Number.isInteger(y))) s.filters.years = f.years as number[];
-    for (const k of ['makes', 'bodies', 'drivetrains', 'ports', 'voltages', 'chemistries'] as const) {
+    for (const k of ['markets', 'makes', 'bodies', 'drivetrains', 'ports', 'voltages', 'chemistries'] as const) {
       const v = f[k];
       if (Array.isArray(v) && v.every((x) => typeof x === 'string')) s.filters[k] = v as string[];
     }
@@ -84,7 +79,7 @@ const inList = (list: string[], v: string | null) => list.length === 0 || (v !==
 
 /** True when the car passes every filter. An unknown figure fails a min/max filter only while it is set. */
 export function matches(e: IndexEntry, f: BrowseFilters): boolean {
-  if (f.canadaOnly && !e.sold_in_canada) return false;
+  if (f.markets.length && !e.markets.some((m) => f.markets.includes(m))) return false;
   if (f.years.length && !f.years.includes(e.year)) return false;
   if (!inList(f.makes, e.make) || !inList(f.bodies, e.body_type) || !inList(f.drivetrains, e.drivetrain)) return false;
   if (!inList(f.ports, e.charge_port) || !inList(f.voltages, e.voltage_class) || !inList(f.chemistries, e.chemistry)) return false;
@@ -137,3 +132,31 @@ export function optionsFor(index: IndexEntry[], pick: (e: IndexEntry) => string 
 
 /** Text that search looks at for a car. */
 export const searchText = (e: IndexEntry) => ({ id: e.id, make: e.make, model: e.model, name: e.name, trims: e.trims.join(' '), year: String(e.year) });
+
+/** B106: how many cars one page shows, per view. */
+export const PAGE_SIZE: Record<View, number> = { cards: 48, table: 50 };
+
+export interface PageSlice<T> { items: T[]; page: number; pages: number; from: number; to: number }
+
+/** One page of the results (1-based); an out-of-range page is clamped. `from`/`to` are 1-based positions. */
+export function pageSlice<T>(list: T[], page: number, view: View): PageSlice<T> {
+  const size = PAGE_SIZE[view];
+  const pages = Math.max(1, Math.ceil(list.length / size));
+  const p = Math.min(Math.max(1, Math.floor(page) || 1), pages);
+  const start = (p - 1) * size;
+  const items = list.slice(start, start + size);
+  return { items, page: p, pages, from: items.length ? start + 1 : 0, to: start + items.length };
+}
+
+/** Page buttons to show: first, last and the current page ±1, with null for a gap ("…"). */
+export function pageButtons(page: number, pages: number): (number | null)[] {
+  const keep = new Set([1, pages, page - 1, page, page + 1].filter((n) => n >= 1 && n <= pages));
+  const sorted = [...keep].sort((a, b) => a - b);
+  const out: (number | null)[] = [];
+  sorted.forEach((n, i) => {
+    if (i > 0 && n - sorted[i - 1] === 2) out.push(n - 1);   // a single hidden page: show it rather than "…"
+    else if (i > 0 && n - sorted[i - 1] > 2) out.push(null);
+    out.push(n);
+  });
+  return out;
+}

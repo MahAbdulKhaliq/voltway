@@ -1,0 +1,13 @@
+{
+  "id": "tesla/model-y/2026-rwd-b",
+  "model_id": "tesla/model-y",
+  "name": "RWD-B",
+  "generation": "juniper",
+  "years": [2026],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-teslabs-manual-preconditioning", "low_confidence": true, "note_id": "n-1fa6db44c3" },
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-model-y-rwd-juniper-3103", "low_confidence": true, "note_id": "n-42a8c6abf7" }
+    ]
+  }
+}

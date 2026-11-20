@@ -1,0 +1,31 @@
+{
+  "id": "porsche/cayenne-electric/2026/cayenne-s-electric",
+  "model_id": "porsche/cayenne-electric",
+  "year": 2026,
+  "name": "Cayenne S Electric",
+  "drivetrain": "awd",
+  "powertrain_id": "porsche/cayenne-electric/2026-cayenne-coupe-electric",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-porsche-us-cayenne-s", "note_id": "n-c729022746" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-porsche-us-cayenne-s", "low_confidence": true, "note_id": "n-82701f98d3" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-por-us-cayenne-s", "note_id": "n-be7a018865", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Cayenne S Electric", "US": "Cayenne S Electric" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-porsche-cayenne-s-electric", "note_id": "n-5e8ecd1eca", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-porsche-cayenne-s-electric", "note_id": "n-92ec473bdc", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-autoedge-cayenne", "note_id": "n-722ad8d0a5", "low_confidence": true }
+      ]
+    }
+  ]
+}

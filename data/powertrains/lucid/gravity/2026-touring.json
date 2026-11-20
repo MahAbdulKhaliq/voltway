@@ -1,0 +1,30 @@
+{
+  "id": "lucid/gravity/2026-touring",
+  "model_id": "lucid/gravity",
+  "name": "Touring",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-1856386b99" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-w2-insideevs-gravity-touring", "low_confidence": true, "note_id": "n-f253a0fa2c" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "low_confidence": true, "note_id": "n-6fe2eec92b" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 89, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-wards-gravity-touring", "low_confidence": true, "notes": "Wards and InsideEVs: Touring battery sized at 89 kWh (usable/gross not stated; bare capacity recorded as gross)." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 87.5, "unit": "kWh", "kind": "estimated", "source_id": "src-gf-electrek-gravity", "low_confidence": true, "note_id": "n-9334680a78" }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "low_confidence": true, "note_id": "n-292d80aa59" }
+  ],
+  "dc_max_kw": [
+    { "value": 300, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-wards-gravity-touring", "low_confidence": true, "notes": "Wards: maximum DC fast-charge rate 300 kW; InsideEVs: up to 300 kW on 1,000 V stalls, 225 kW on 500 V Superchargers." }
+  ]
+}

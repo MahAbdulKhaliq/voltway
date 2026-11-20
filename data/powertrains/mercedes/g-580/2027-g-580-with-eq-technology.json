@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/g-580/2027-g-580-with-eq-technology",
+  "model_id": "mercedes/g-580",
+  "name": "G 580 with EQ Technology",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 117, "unit": "kWh", "kind": "estimated", "source_id": "src-mbusa-data-2027-g-g580w4e", "low_confidence": true, "notes": "Estimated: mbusa lists \"battery capacity 117 kWh\" without a gross/usable label and no second page labelling this pack was found; read as usable by analogy with the sibling packs whose usable figure is labelled (EQS 107.8, EQE 90.6, EQS 118)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-mbusa-data-2027-g-g580w4e", "low_confidence": true, "note_id": "n-b0f6ade31a" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-mbusa-data-2027-g-g580w4e", "low_confidence": true, "note_id": "n-2308f9037c" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-cla-release", "low_confidence": true, "note_id": "n-7d4974290b" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-g-g580w4e", "note_id": "n-ef94359a19" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-g-g580w4e", "note_id": "n-6c4fc42729" }
+  ],
+  "published_10_80_min": [
+    { "value": 29, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-g-g580w4e", "note_id": "n-e94024573d" }
+  ]
+}

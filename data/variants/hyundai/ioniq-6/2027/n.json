@@ -1,0 +1,30 @@
+{
+  "id": "hyundai/ioniq-6/2027/n",
+  "model_id": "hyundai/ioniq-6",
+  "year": 2027,
+  "name": "N",
+  "drivetrain": "awd",
+  "powertrain_id": "hyundai/ioniq-6/2027-n",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-electrek-hyundai-2027-lineup", "low_confidence": true, "notes": "2027 IONIQ 6 N has a native NACS port (a CCS adapter is included per Hyundai relays)." }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-electrek-hyundai-2027-lineup", "low_confidence": true, "notes": "Estimated: native NACS port on the 2027 N (Electrek); Electrek does not state Supercharger access, which is inferred from the port." }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-ioniq6n", "notes": "Electrek (Hyundai 2027 lineup): the IONIQ 6 N \"comes standard with a native NACS charging port and a CCS adapter\".", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "N" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-hyundai-n-ioniq-6-n", "low_confidence": true, "notes": "Diameter read from the 275/35R20 tire size on the Hyundai N global page, not a US 2027 spec sheet. Some reviews say 21 in." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-hy-au-ioniq6n-my27-spec", "notes": "Hyundai Australia MY27 IONIQ 6 N spec sheet: \"Heat pump system - high efficiency heater\". Australian page for the single N variant; no US 2027 sheet opened.", "low_confidence": true }
+      ]
+    }
+  ]
+}

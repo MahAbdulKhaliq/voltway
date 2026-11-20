@@ -1,0 +1,30 @@
+{
+  "id": "fisker/ocean/2023/extreme",
+  "model_id": "fisker/ocean",
+  "year": 2023,
+  "name": "Extreme",
+  "drivetrain": "awd",
+  "powertrain_id": "fisker/ocean/2023-extreme",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "community", "source_id": "src-evspecs-fisker-ocean-compare", "note_id": "n-bc7db26afe", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "community", "source_id": "src-insideevs-supercharger-list-2026", "note_id": "n-fb4c104991", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112o-carscom-fisker-supercharger-2023", "note_id": "n-ad6f53577c", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Extreme", "US": "Extreme" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-fisker-ocean-2023-specs-431107", "notes": "Extreme AWD: 20x7.5, P255/50VR20." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-fisker-awd", "note_id": "n-2e2ae5bb71", "low_confidence": true }
+      ]
+    }
+  ]
+}

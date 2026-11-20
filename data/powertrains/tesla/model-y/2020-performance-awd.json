@@ -1,0 +1,33 @@
+{
+  "id": "tesla/model-y/2020-performance-awd",
+  "model_id": "tesla/model-y",
+  "name": "Performance AWD",
+  "generation": "original",
+  "years": [2020, 2021, 2022, 2023],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 82, "kind": "estimated", "source_id": "src-arenaev-model-y-lr-awd-82kwh", "low_confidence": true, "note_id": "n-51540fbb6a", "unit": "kWh" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 75, "kind": "estimated", "source_id": "src-evdb-model-y-lr-awd-1619", "low_confidence": true, "note_id": "n-921fa7f060", "unit": "kWh" },
+      { "value": 75, "kind": "estimated", "source_id": "src-arenaev-model-y-lr-awd-82kwh", "low_confidence": true, "note_id": "n-fe879ab02f", "unit": "kWh" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "estimated", "source_id": "src-insideevs-tesla-cell-suppliers", "low_confidence": true, "note_id": "n-9b7f3aab93" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-model-y-lr-awd-1619", "low_confidence": true, "note_id": "n-11f0eb6f98" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-teslabs-manual-preconditioning", "low_confidence": true, "note_id": "n-1fa6db44c3" },
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-model-y-performance-1183", "low_confidence": true, "note_id": "n-42a8c6abf7" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "kind": "estimated", "source_id": "src-arenaev-model-y-lr-awd-82kwh", "low_confidence": true, "note_id": "n-00d9a08220", "unit": "kW" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-fec2e18f04", "unit": "kW" },
+    { "value": 11.5, "kind": "estimated", "source_id": "src-wikipedia-tesla-model-y", "low_confidence": true, "note_id": "n-1160ec5905", "unit": "kW" }
+  ]
+}

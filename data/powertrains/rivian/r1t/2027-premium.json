@@ -1,0 +1,27 @@
+{
+  "id": "rivian/r1t/2027-premium",
+  "model_id": "rivian/r1t",
+  "name": "Premium",
+  "generation": "gen-2",
+  "years": [2027],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 109.4, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-gcr-2025-r1-lfp", "low_confidence": true, "note_id": "n-9779ef56a4" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "estimated", "source_id": "src-w2-gcr-2025-r1-lfp", "low_confidence": true, "note_id": "n-dd4d6e4dd9" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-insideevs-r1-210kw", "low_confidence": true, "note_id": "n-2ab06b85e8" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-insideevs-rivian-precond-2025-18", "low_confidence": true, "note_id": "n-83e0633659" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 220, "unit": "kW", "kind": "estimated", "source_id": "src-w2-gcr-2025-r1-lfp", "low_confidence": true, "note_id": "n-11d8651670" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-w2-gcr-2025-ac", "low_confidence": true, "note_id": "n-8b046a266c" }
+  ]
+}

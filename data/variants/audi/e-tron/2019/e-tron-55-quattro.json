@@ -1,0 +1,30 @@
+{
+  "id": "audi/e-tron/2019/e-tron-55-quattro",
+  "model_id": "audi/e-tron",
+  "year": 2019,
+  "name": "e-tron 55 quattro",
+  "drivetrain": "awd",
+  "powertrain_id": "audi/e-tron/2019-e-tron-55-quattro",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-chargepapa-q8-port", "low_confidence": true, "note_id": "n-191815a17b" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-331f04b34d" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-audiclubna-nacs", "note_id": "n-ccfccce3ec", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "e-tron 55 quattro", "US": "e-tron 55 quattro" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-etron-2019", "notes": "e-tron 55 quattro (CA/US): e-tron Premium Plus quattro (US): 20x9; options not listed on page.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-ehga-etron-climate", "notes": "Climate control \"with heat pump as standard\" (non-maker page, no market or year). No North American order guide found; carried across model year 2019. Source is an independent, Europe-leaning fan site; not confirmed for North America.", "low_confidence": true }
+      ]
+    }
+  ]
+}

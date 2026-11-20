@@ -1,0 +1,34 @@
+{
+  "id": "subaru/trailseeker/2026-awd",
+  "model_id": "subaru/trailseeker",
+  "name": "AWD",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 74.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2026", "low_confidence": true, "notes": "Subaru USA press kit: \"74.7-kWh lithium-ion battery\" (usable not stated)." },
+      { "value": 74.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-subaru-ca-trailseeker-2026", "low_confidence": true, "notes": "Subaru Canada release: 74.7-kWh lithium-ion battery." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 71, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "note_id": "n-0642804d32" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-bde74a19f9" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "note_id": "n-ef8fe61df6" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2026", "notes": "\"onboard battery-preconditioning system\" started by navigating to a charging destination or by the driver via touchscreen." }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-w2j-subaru-us-uncharted-2026", "low_confidence": true, "note_id": "n-b9fa804cb1" }
+  ],
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2026", "notes": "\"speeds up to 150 kW on a fast-charger\"." }
+  ],
+  "published_10_80_min": [
+    { "value": 28, "unit": "min", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2026", "notes": "80% in 28 minutes (10% start not stated in the 2026 kit; the 2027 kit says 10-80% in as little as 28 min)." }
+  ]
+}

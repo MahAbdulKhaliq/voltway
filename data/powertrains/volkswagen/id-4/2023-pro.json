@@ -1,0 +1,27 @@
+{
+  "id": "volkswagen/id-4/2023-pro",
+  "model_id": "volkswagen/id-4",
+  "name": "Pro",
+  "generation": "2023-us-built",
+  "years": [2023],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 77, "unit": "kWh", "kind": "manufacturer", "source_id": "src-slashgear-id4-2023", "low_confidence": true, "notes": "82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear; Wikipedia agrees)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-thinkev-vw-id4-2026", "low_confidence": true, "note_id": "n-c97dbfdb81" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-guideauto-id4-2025-pro-awd", "low_confidence": true, "note_id": "n-fcef87382e" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-insideevs-id4-precond-2026", "low_confidence": true, "note_id": "n-f7fd11b20c" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 170, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-id4-2023-us", "low_confidence": true, "notes": "InsideEVs/SlashGear: 2023 Pro and AWD Pro up to 170 kW (SK On pack). Wikipedia says some 2023 RWD cars carry an LG pack limited to 135 kW; that split is not modelled here. Wikipedia also lists 2023 AWD at 175 kW. Pro S and Pro S AWD rest on SlashGear pack-level wording (InsideEVs names only Pro and AWD Pro). RWD cars with LG cells may be 135 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-slashgear-id4-2023", "low_confidence": true, "note_id": "n-7ad72a0610" }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "hyundai/ioniq-6/2024/se-standard-range-rwd",
+  "model_id": "hyundai/ioniq-6",
+  "year": 2024,
+  "name": "SE Standard Range RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "hyundai/ioniq-6/2024-se-standard-range-rwd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-3c1a54c87f" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-c92b50d089" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-4e4db06e3c" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "SE Standard Range RWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-6-2024-index", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b113-cars-ioniq6-2025-pricing", "notes": "Estimated: the 2024 SE Standard Range was repackaged with a lower price and KBB 2024 says standard features, including heated front seats, were dropped; Cars.com 2025 says the Standard Range lacks the heat pump that long-range SE has. The 2023 version (with a heat pump) is the only year that had it. 2024 and 2025 compared; no 2024 equipment sheet opened. KBB 2025 says \"minor changes\", so the 2025 value carries back; the 2023 sheet lists a heat pump on this trim, so the year it was dropped (2024) is inferred.", "low_confidence": true }
+      ]
+    }
+  ]
+}

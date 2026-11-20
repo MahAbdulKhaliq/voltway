@@ -1,0 +1,27 @@
+{
+  "id": "audi/e-tron/2023-e-tron-s-quattro",
+  "model_id": "audi/e-tron",
+  "name": "e-tron S quattro",
+  "generation": "first-generation",
+  "years": [2023],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 95, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-wiki-audi-q8-etron", "low_confidence": true, "note_id": "n-59a9657cf2" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-weeklydriver-etron95", "low_confidence": true, "note_id": "n-4841b88be7" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 86.5, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-wiki-audi-q8-etron", "low_confidence": true, "note_id": "n-a796df79be" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-w2-insideevs-etron-skin", "low_confidence": true, "note_id": "n-c1cbfae860" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-w2-insideevs-etron-skin", "low_confidence": true, "note_id": "n-81aba391e8" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-wiki-audi-etron-2018", "low_confidence": true, "note_id": "n-59ef6ab8e7" }
+  ]
+}

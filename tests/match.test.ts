@@ -90,3 +90,17 @@ describe('slugify', () => {
     expect(slugify('SL+ e-4ORCE')).toBe('sl-plus-e-4orce');
   });
 });
+
+describe('parseName: regulator labels that are not trim names (B90)', () => {
+  it('reads EPA "(19inch Wheels)" like NRCan "(19" Wheels)"', async () => {
+    const { parseName } = await import('../scripts/lib/match.ts');
+    expect(parseName('Ioniq 5 AWD (19inch Wheels)')).toMatchObject({ base: 'Ioniq 5 AWD', wheel_in: 19, drivetrain: 'awd' });
+    expect(parseName('IONIQ 5 Long Range AWD (20" Wheels)')).toMatchObject({ base: 'IONIQ 5 Long Range AWD', wheel_in: 20 });
+  });
+  it('strips NRCan letter codes and date notes into their own fields', async () => {
+    const { parseName } = await import('../scripts/lib/match.ts');
+    expect(parseName('Model 3 Premium AWD-I')).toMatchObject({ base: 'Model 3 Premium AWD', code: 'I', drivetrain: 'awd' });
+    expect(parseName('Model Y Long Range AWD-B (pre-6/11/25)')).toMatchObject({ base: 'Model Y Long Range AWD', code: 'B', date_note: 'pre-6/11/25' });
+    expect(parseName('ID.4 AWD Pro S')).not.toHaveProperty('code');
+  });
+});

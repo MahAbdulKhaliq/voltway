@@ -1,0 +1,30 @@
+{
+  "id": "nissan/leaf/2018/s",
+  "model_id": "nissan/leaf",
+  "year": 2018,
+  "name": "S",
+  "drivetrain": "fwd",
+  "powertrain_id": "nissan/leaf/2018-s",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "chademo", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2018-press-kit", "low_confidence": true, "notes": "Quick charge port (CHAdeMO) per the 2018 press kit. On the S it is optional (Quick Charge Package): a base S without it has only the J1772 AC port. Canada 2018 pricing release lists the quick charge port in standard equipment (trims not itemised; src-nissan-ca-leaf-2018-pricing)." }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "estimated", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b0ca50230f" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-thedrive-leaf-no-adapter", "note_id": "n-2e0a777234", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "S", "US": "S" },
+      "wheels": [
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-r2w-cc-leaf2018", "note_id": "n-f91d24f3ca" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "manufacturer", "source_id": "src-b112-nh-nissan-us-leaf-2018", "note_id": "n-e7a7a2f9fe", "low_confidence": true }
+      ]
+    }
+  ]
+}

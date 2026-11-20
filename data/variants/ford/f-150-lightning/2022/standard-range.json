@@ -1,0 +1,31 @@
+{
+  "id": "ford/f-150-lightning/2022/standard-range",
+  "model_id": "ford/f-150-lightning",
+  "year": 2022,
+  "name": "Standard Range",
+  "drivetrain": "unknown",
+  "powertrain_id": "ford/f-150-lightning/2025-standard-range",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-5f8f5065c6" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-engadget-ford-adapter", "note_id": "n-471535aa8b" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Standard Range", "US": "Standard Range" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-ford-us-fl-specs-2022", "note_id": "n-37fc5199da", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-ford-us-fl-specs-2022", "note_id": "n-119301e5f4", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b112-insideevs-lightning-hp", "note_id": "n-b087b05059", "low_confidence": true }
+      ]
+    }
+  ]
+}

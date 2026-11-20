@@ -1,0 +1,31 @@
+{
+  "id": "porsche/taycan/2023/taycan-4s-performance-battery-plus",
+  "model_id": "porsche/taycan",
+  "year": 2023,
+  "name": "Taycan 4S Performance Battery Plus",
+  "drivetrain": "rwd",
+  "powertrain_id": "porsche/taycan/2021-taycan-4s-performance-battery-plus",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-5905a75adf" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-c33be61ae0" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-ca-supercharger-2025", "note_id": "n-da78e91c76" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-por-us-sc-access", "note_id": "n-33f75cb4ae" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Taycan 4S Performance Battery Plus", "US": "Taycan Performance Battery Plus" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-porsche-taycan-2024-444597", "note_id": "n-3bf1ca60b6", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b112-por-stories-winter", "note_id": "n-0eb0b95f6f", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "genesis/electrified-gv70/2023/electrified-gv70-prestige-awd",
+  "model_id": "genesis/electrified-gv70",
+  "year": 2023,
+  "name": "Electrified GV70 Prestige AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "genesis/electrified-gv70/2023-electrified-gv70-prestige-awd",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-91e86e1fae", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-6b5430454e", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gen-ca-nacs-release", "notes": "Canada: Genesis Canada says it offers an adapter to CCS owners; the 2026 free programme names the GV70 for 2024-2025 only, so this 2023 car is recorded as sold (price not stated). Low confidence: the release does not say sold or free.", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Electrified GV70 Prestige AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-genesis-electrified-gv70-2023-index", "low_confidence": true, "notes": "Advanced AWD shown; Prestige not opened separately (Prestige Package is options only per the page)." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-genesis-au-gv70-aug2022", "notes": "Launch-era (Aug 2022) Australian spec sheet lists \"Heat pump system\" for the Electrified GV70. Genesis Australia GV70 EV spec sheet lists \"Heat pump system\"; Auto Express (UK, 2025 facelift) says every trim has an energy-saving heat pump as standard. No US or Canada Genesis page opened (genesis.com US pages did not mention it).", "low_confidence": true }
+      ]
+    }
+  ]
+}

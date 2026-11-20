@@ -1,0 +1,25 @@
+{
+  "id": "lotus/eletre/2026/s-long-range",
+  "model_id": "lotus/eletre",
+  "year": 2026,
+  "name": "S Long Range",
+  "drivetrain": "unknown",
+  "powertrain_id": "lotus/eletre/2026-r-long-range",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-autopian-eletre-canada", "low_confidence": true, "note_id": "n-8fdcc3c039" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "S Long Range" },
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2w-eletre-ce", "note_id": "n-5853c05297", "low_confidence": true },
+        { "diameter_in": 23, "is_standard": false, "source_id": "src-r2w-eletre-lotusca", "note_id": "n-6f374cddda", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-lotus-ca-eletre-specs", "note_id": "n-fc9036a897", "low_confidence": true }
+      ]
+    }
+  ]
+}

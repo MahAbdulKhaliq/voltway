@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqe/2026-eqe-320-plus-sedan",
+  "model_id": "mercedes/eqe",
+  "name": "EQE 320+ Sedan",
+  "generation": "2025-update",
+  "years": [2026],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 96, "unit": "kWh", "kind": "estimated", "source_id": "src-mbusa-data-2026-eqe-eqe320v", "low_confidence": true, "note_id": "n-de4902360c" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mb-eqe", "low_confidence": true, "note_id": "n-98b9a85e51" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-mb-eqe", "low_confidence": true, "note_id": "n-361488a6e2" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-eqe-eqs-quickstart", "low_confidence": true, "note_id": "n-ce3bdffc9d" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 170, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-eqe-eqe320v", "note_id": "n-ef94359a19" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-eqe-eqe320v", "note_id": "n-6c4fc42729" }
+  ],
+  "published_10_80_min": [
+    { "value": 32, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-eqe-eqe320v", "note_id": "n-e94024573d" }
+  ]
+}

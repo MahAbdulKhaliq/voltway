@@ -1,0 +1,31 @@
+{
+  "id": "volkswagen/id-4/2024/pro-s-awd",
+  "model_id": "volkswagen/id-4",
+  "year": 2024,
+  "name": "Pro S AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "volkswagen/id-4/2024-pro",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-vw-launch-2021-conceptcarz", "low_confidence": true, "note_id": "n-ed39cfbd74" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-vw-ca-nacs-adapter", "low_confidence": true, "note_id": "n-6cc68ef979" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-vw-sc", "note_id": "n-a233708e20" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-vwca-nacs-adapter", "note_id": "n-861f0b44f5" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Pro S AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2025-464031", "note_id": "n-eaef54b5d8", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b112-autotrader-id4-2024", "note_id": "n-b7a7ddde01" }
+      ]
+    }
+  ]
+}

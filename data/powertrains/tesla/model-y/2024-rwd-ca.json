@@ -1,0 +1,31 @@
+{
+  "id": "tesla/model-y/2024-rwd-ca",
+  "model_id": "tesla/model-y",
+  "name": "RWD",
+  "generation": "original",
+  "years": [2024],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 60, "kind": "estimated", "source_id": "src-evdb-model-y-rwd-catl-1743", "low_confidence": true, "notes": "Estimated: EV Database nominal 60 kWh for the CATL LFP Model Y RWD (Shanghai-built); InsideEVs/Electrek say Canada gets this Shanghai LFP RWD from 2023. The powertrain also carries a US 2024 RWD edition (EPA 418 km); a TMC thread reports US RWD cars use CATL LFP software-limited below 60 kWh, but that page was blocked, so the pack is assumed the same.", "unit": "kWh" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 57, "kind": "estimated", "source_id": "src-evdb-model-y-rwd-catl-1743", "low_confidence": true, "notes": "Estimated: EV Database useable 57 kWh (site estimate) for the same CATL LFP pack. The powertrain also carries a US 2024 RWD edition (EPA 418 km); a TMC thread reports US RWD cars use CATL LFP software-limited below 60 kWh, but that page was blocked, so the pack is assumed the same.", "unit": "kWh" }
+    ],
+    "chemistry": [
+      { "value": "lfp", "kind": "estimated", "source_id": "src-evdb-model-y-rwd-catl-1743", "low_confidence": true, "note_id": "n-445e2ae5f0" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-model-y-rwd-catl-1743", "low_confidence": true, "note_id": "n-4aacf87c6f" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-teslabs-manual-preconditioning", "low_confidence": true, "note_id": "n-1fa6db44c3" },
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-model-y-rwd-catl-1743", "low_confidence": true, "note_id": "n-42a8c6abf7" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 170, "kind": "estimated", "source_id": "src-evdb-model-y-rwd-catl-1743", "low_confidence": true, "note_id": "n-cbc4aa4a20", "unit": "kW" }
+  ],
+  "ac_max_kw": [
+    { "value": 7.7, "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-efb1abfb81", "unit": "kW" }
+  ]
+}

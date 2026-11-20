@@ -11,7 +11,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { t } from '../i18n/t.ts';
 import { getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import CarPicker from './CarPicker.tsx';
-import { carChipParts, carLabel } from '../lib/car-label.ts';
+import { carChipParts, carLabel, carModel, LABEL_VERSION } from '../lib/car-label.ts';
 import type { IndexEntry } from '../lib/types.ts';
 import { DC_PLUGS, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
 import type { MessageKey } from '../i18n/t.ts';
@@ -51,15 +51,15 @@ export default function HeaderChips() {
     const el = carText.current;
     if (el && fit > 0 && el.scrollWidth > el.clientWidth + 1) setFit(fit - 1);
   });
-  // A car saved before B71 has no model on record: look it up once from the car list.
+  // A car saved with an older label format (before B71, or before make + model labels): relabel it once.
   useEffect(() => {
-    if (!mine || mine.model) return;
+    if (!mine || mine.labelV === LABEL_VERSION) return;
     let live = true;
     fetch('/data/index.json')
       .then((r) => (r.ok ? (r.json() as Promise<IndexEntry[]>) : Promise.reject(r.status)))
       .then((list) => {
         const e = list.find((c) => c.id === mine.carId);
-        if (live && e && getMyCar()?.carId === mine.carId) setMyCar({ ...mine, label: mine.label ?? carLabel(e), model: e.model });
+        if (live && e && getMyCar()?.carId === mine.carId) setMyCar({ ...mine, label: carLabel(e), model: carModel(e), labelV: LABEL_VERSION });
       })
       .catch(() => {});
     return () => { live = false; };
@@ -159,7 +159,7 @@ export default function HeaderChips() {
     const e = cars?.find((c) => c.id === carId);
     // B58: the plug switches shown in the dialog are saved with the car (none changed and a new
     // car: its own plug, worked out from its file when needed).
-    setMyCar({ carId, trimId, label: e ? carLabel(e) : undefined, model: e?.model, ...(plugs ? { plugs } : {}) });
+    setMyCar({ carId, trimId, label: e ? carLabel(e) : undefined, model: e ? carModel(e) : undefined, labelV: LABEL_VERSION, ...(plugs ? { plugs } : {}) });
     closePicker();
   };
 

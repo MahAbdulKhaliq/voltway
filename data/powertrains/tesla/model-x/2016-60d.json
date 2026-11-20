@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-x/2016-60d",
+  "model_id": "tesla/model-x",
+  "name": "60D",
+  "generation": "original",
+  "years": [2016, 2017],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 61, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-model-x-60d", "low_confidence": true, "notes": "ArenaEV Model X 60D: 61 kWh gross, 58.5 kWh net. Wikipedia (Model S 2016 and Model X): the 60 is a 75 kWh pack software-limited to 60 kWh (upgradable by software to 75). Gross here is the 60 kWh limit, not the hardware." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 58.5, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-model-x-60d", "low_confidence": true, "notes": "ArenaEV Model X 60D: 58.5 kWh net (usable). The 2016-2017 Model S 60/60D uses the same 75 kWh pack with the same 60 kWh software limit (Wikipedia Model S and X). Early-2016 \"60\" cars may carry the real 60 kWh pack rather than the limited 75." }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "community", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-49961bd7e1" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-17a60e76f4" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-manualslib-tesla-s-owners-manual-p145", "low_confidence": true, "note_id": "n-ae91cd491f" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 120, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-ce65b7b94c" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-9ff7066f28" }
+  ]
+}

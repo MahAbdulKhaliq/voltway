@@ -4,94 +4,51 @@
   "year": 2026,
   "name": "Standard",
   "drivetrain": "rwd",
+  "powertrain_id": "cadillac/lyriq/2026-standard",
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-5a9f4542ec" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-lyriq-2027", "low_confidence": true, "note_id": "n-0c4fb58f29" }
   ],
-  "battery": {
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-evdb-lyriq-v",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists the LYRIQ-V (MY26) cells as GM Ultium 140Ah NMC pouch. GM describes Ultium cells as NCMA (NMC family with aluminium), closest enum value nmc. Same Ultium cells assumed across LYRIQ trims; the page also shows non-US-spec pack figures that were not used."
-      }
-    ]
-  },
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-lyriq",
-      "low_confidence": true,
-      "notes": "Page: the 2026 car kept its CCS1 port (US). thinkEV (Canada) says the 2027 LYRIQ trades the CCS connector on current models for NACS; EVChargingStations says earlier years used CCS1. Conflicts with OpenEV (nacs, probably 2027 data). No Canadian GM page read."
-    }
-  ],
-  "published_10_80_min": [
-    {
-      "value": 40,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-cargurus-lyriq-2026",
-      "low_confidence": true,
-      "notes": "Cadillac says 10-80% in about 40 min at a public DC fast charger (CarGurus; The Charge Port repeats it for LYRIQ and LYRIQ-V). Model-level claim."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-lyriq", "low_confidence": true, "note_id": "n-5924c04119" }
   ],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 197,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-insideevs-lyriq-70mph-2023",
-      "low_confidence": true,
-      "notes": "Test: 70 mph (113 km/h) steady, upper 60s to ~80 F (about 20-27 C), wheel size not stated, battery-side (vehicle energy gauge) | 2023 Lyriq RWD (same generation; Cadillac-listed usable 102 kWh). 104.7 kWh over 330 mi: 104.7 / 330 = 317.3 Wh/mi / 1.609344 = 197 Wh/km (article says 3.1 mi/kWh). Other test seen: Car and Driver 75 mph, 2023 RWD 20-inch, 270 mi (via Autoblog, no consumption). | Main session: the page calls 102 kWh usable while our data has 95 usable / 100.4 gross, and the gauge read 104.7 kWh used; 2023 to 2026 RWD pack/motor match is plausible but not confirmed."
-    }
+    { "value": 197, "unit": "Wh/km", "kind": "tested", "source_id": "src-insideevs-lyriq-70mph-2023", "low_confidence": true, "notes": "Test: 70 mph (113 km/h) steady, upper 60s to ~80 F (about 20-27 C), wheel size not stated, battery-side (vehicle energy gauge) | 2023 Lyriq RWD (same generation; Cadillac-listed usable 102 kWh). 104.7 kWh over 330 mi: 104.7 / 330 = 317.3 Wh/mi / 1.609344 = 197 Wh/km (article says 3.1 mi/kWh). Other test seen: Car and Driver 75 mph, 2023 RWD 20-inch, 270 mi (via Autoblog, no consumption). | Main session: the page calls 102 kWh usable while our data has 95 usable / 100.4 gross, and the gauge read 104.7 kWh used; 2023 to 2026 RWD pack/motor match is plausible but not confirmed." }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
   ],
   "trims": [
     {
       "id": "11-5-kw-charger",
-      "name": "(11.5 kW Charger)",
+      "names": { "CA": "(11.5 kW Charger)", "US": "RWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-lyriq-468062",
-          "low_confidence": true,
-          "notes": "US Cars.com: Luxury RWD 20 in aluminum, 265/50R20. CarGurus: 20 in standard on non-Signature trims. Signature trims are 22 in standard, so this is the base size."
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": false,
-          "source_id": "src-cargurus-lyriq-2026",
-          "low_confidence": true,
-          "notes": "CarGurus: 22 in available on Luxury, Sport, Premium Luxury, Premium Sport (standard on Signature)."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-lyriq-468062", "low_confidence": true, "note_id": "n-1a42858e9c" },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-cargurus-lyriq-2026", "low_confidence": true, "note_id": "n-32118db0ed" }
+      ],
+      "ac_max_kw": [
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-01bfb276ed" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     },
     {
       "id": "19-2-kw-charger",
-      "name": "(19.2 kW Charger)",
+      "names": { "CA": "(19.2 kW Charger)" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-lyriq-468062",
-          "low_confidence": true,
-          "notes": "US Cars.com: Luxury RWD 20 in aluminum, 265/50R20. CarGurus: 20 in standard on non-Signature trims. Signature trims are 22 in standard, so this is the base size."
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": false,
-          "source_id": "src-cargurus-lyriq-2026",
-          "low_confidence": true,
-          "notes": "CarGurus: 22 in available on Luxury, Sport, Premium Luxury, Premium Sport (standard on Signature)."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-lyriq-468062", "low_confidence": true, "note_id": "n-1a42858e9c" },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-cargurus-lyriq-2026", "low_confidence": true, "note_id": "n-32118db0ed" }
+      ],
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-fcbda3cf86" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

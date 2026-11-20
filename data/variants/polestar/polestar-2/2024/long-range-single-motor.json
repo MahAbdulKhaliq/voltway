@@ -1,0 +1,33 @@
+{
+  "id": "polestar/polestar-2/2024/long-range-single-motor",
+  "model_id": "polestar/polestar-2",
+  "year": 2024,
+  "name": "Long Range Single Motor",
+  "drivetrain": "rwd",
+  "powertrain_id": "polestar/polestar-2/2024-long-range-single-motor",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-polestar-ca-tesla-supercharger-network", "low_confidence": true, "note_id": "n-b5f7ec4145" },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-5ff5964173" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-ca-tesla-supercharger-network", "low_confidence": true, "note_id": "n-e984388f46" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-32b9a75f5b" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-polestar-us-nacs", "note_id": "n-b3bcf2fc86" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Long Range Single Motor", "US": "Long Range Single Motor" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-ps2-2024cars", "notes": "Cars.com 2024: 19 x 8 front, 19 x 9 rear." },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-ps2-ins2023", "notes": "20-inch optional per the 2023 and 2022 Polestar lists; 2024 low confidence.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b113-kbb-p2-2024", "notes": "US: KBB says the heat pump is optional (Plus Pack; the Single Motor Plus trim carries it); Carvana 2024 agrees that only Plus versions include one. Canada: Plus Pack C$3,000 includes the heat pump per Auto123/Drive Tesla Canada (dual-motor wording), single motor Canada not confirmed.", "low_confidence": true }
+      ]
+    }
+  ]
+}

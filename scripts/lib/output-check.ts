@@ -9,6 +9,10 @@ const isScalar = (v: unknown) => typeof v === 'number' || typeof v === 'string' 
 export function outputProblems(car: CarDetail): string[] {
   const ids = new Set(car.sources.map((s) => s.id));
   const problems: string[] = [];
+  // B95: an impossible curve (unsorted, out of range, above the car's peak) is never shown by default.
+  for (const c of car.curves) {
+    if (c.is_display_default && c.issues?.some((i) => i.level === 'error')) problems.push(`${car.id} curve ${c.id}: default curve fails its checks (${c.issues.filter((i) => i.level === 'error').map((i) => i.message).join('; ')})`);
+  }
   const cite = (o: Record<string, unknown>, path: string, what: string) => {
     if (typeof o.source_id !== 'string' || !o.source_id) problems.push(`${car.id} ${path}: ${what} has no source_id`);
     else if (!ids.has(o.source_id)) problems.push(`${car.id} ${path}: ${what} cites unlisted source ${o.source_id}`);

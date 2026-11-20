@@ -1,0 +1,30 @@
+{
+  "id": "kia/ev9/2027/gt-line-awd",
+  "model_id": "kia/ev9",
+  "year": 2027,
+  "name": "GT-Line AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "kia/ev9/2027-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-specs", "note_id": "n-3b6c0a711d" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-specs", "note_id": "n-2af31e08db" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-compare", "note_id": "n-f132e3e8cd", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "GT-Line AWD" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-kia-ev9-2027-491330", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-compare", "note_id": "n-bede3d4c12" }
+      ]
+    }
+  ]
+}

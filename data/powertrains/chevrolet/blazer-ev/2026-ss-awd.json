@@ -1,0 +1,31 @@
+{
+  "id": "chevrolet/blazer-ev/2026-ss-awd",
+  "model_id": "chevrolet/blazer-ev",
+  "name": "SS AWD",
+  "generation": "first-generation",
+  "years": [2025, 2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 102, "unit": "kWh", "kind": "manufacturer", "source_id": "src-thinkev-blazer-ev-2026", "low_confidence": true, "note_id": "n-fb631f1b14" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-thinkev-blazer-ev-2026", "low_confidence": true, "note_id": "n-fb631f1b14" },
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-lyriq-v", "low_confidence": true, "note_id": "n-26c836c550" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 100, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-cadillac-lyriq", "low_confidence": true, "note_id": "n-47245f5485" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-r3-greencars-lyriq", "low_confidence": true, "note_id": "n-790b07a6d9" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 190, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-blazer-ev-epa-2024", "low_confidence": true, "notes": "Estimated: InsideEVs table (GM figures): RS RWD 102 kWh = 190 kW; up to 190 kW in GM launch material. SS shares the 102 kWh pack. Years: 2025/2026." }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-blazer-ev-epa-2024", "low_confidence": true, "note_id": "n-c5e1447057" }
+  ]
+}

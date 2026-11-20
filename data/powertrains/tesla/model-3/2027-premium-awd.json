@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-3/2027-premium-awd",
+  "model_id": "tesla/model-3",
+  "name": "Premium AWD",
+  "generation": "highland",
+  "years": [2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 82, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-premium-awd-2026", "low_confidence": true, "notes": "Estimated: 78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EV Database Premium AWD (Highland, Dec 2025+): 82.0 kWh nominal / 79.0 kWh usable, LG 5M NMC, 250 kW, 11 kW AC; the existing OpenEV data for the 2026 Canadian Premium AWD-I is the same 82/79. Same trim line carried to the 2027 US car; KBB US 2026 lists 75 kWh for Premium without saying usable or gross, so a US 78.1/75 pack is possible." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 79, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-premium-awd-2026", "low_confidence": true, "notes": "Estimated: 75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EV Database Premium AWD (Highland, Dec 2025+): 82.0 kWh nominal / 79.0 kWh usable, LG 5M NMC, 250 kW, 11 kW AC; the existing OpenEV data for the 2026 Canadian Premium AWD-I is the same 82/79. Same trim line carried to the 2027 US car; KBB US 2026 lists 75 kWh for Premium without saying usable or gross, so a US 78.1/75 pack is possible." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-m3-premium-awd-2026", "low_confidence": true, "notes": "Estimated: NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EV Database Premium AWD (Highland, Dec 2025+): 82.0 kWh nominal / 79.0 kWh usable, LG 5M NMC, 250 kW, 11 kW AC; the existing OpenEV data for the 2026 Canadian Premium AWD-I is the same 82/79. Same trim line carried to the 2027 US car; KBB US 2026 lists 75 kWh for Premium without saying usable or gross, so a US 78.1/75 pack is possible." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-m3-premium-awd-2026", "low_confidence": true, "notes": "Estimated: 357 V nominal, 400 V architecture. EV Database Premium AWD (Highland, Dec 2025+): 82.0 kWh nominal / 79.0 kWh usable, LG 5M NMC, 250 kW, 11 kW AC; the existing OpenEV data for the 2026 Canadian Premium AWD-I is the same 82/79. Same trim line carried to the 2027 US car; KBB US 2026 lists 75 kWh for Premium without saying usable or gross, so a US 78.1/75 pack is possible." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-notateslaapp-2020-24-6-4", "low_confidence": true, "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2027 Premium AWD). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "unit": "kW", "kind": "estimated", "source_id": "src-evdb-m3-premium-awd-2026", "low_confidence": true, "notes": "Estimated: 250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EV Database Premium AWD (Highland, Dec 2025+): 82.0 kWh nominal / 79.0 kWh usable, LG 5M NMC, 250 kW, 11 kW AC; the existing OpenEV data for the 2026 Canadian Premium AWD-I is the same 82/79. Same trim line carried to the 2027 US car; KBB US 2026 lists 75 kWh for Premium without saying usable or gross, so a US 78.1/75 pack is possible." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-evdb-m3-premium-awd-2026", "low_confidence": true, "note_id": "n-8c98745583" }
+  ]
+}

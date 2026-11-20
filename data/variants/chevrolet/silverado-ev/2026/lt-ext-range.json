@@ -4,99 +4,45 @@
   "year": 2026,
   "name": "LT Ext Range",
   "drivetrain": "awd",
-  "dc_max_kw": [
-    {
-      "value": 350,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-gm-silverado-ev-2026-spec",
-      "low_confidence": true,
-      "notes": "Quick web lookup (rough, not cross-checked). “Up to 350 kW” public DC fast charging."
-    }
-  ],
-  "battery": {
-    "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-gm-silverado-ev-2026-spec",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked). Charges at about 800 V."
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-thinkev-silverado-2026",
-        "low_confidence": true,
-        "notes": "thinkEV lists NMC for the 2026 Silverado EV (model level); InsideEVs also describes the Silverado pack as NMC pouch cells. Not trim-specific."
-      }
-    ],
-    "capacity_gross_kwh": [
-      {
-        "value": 170,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-silverado-test",
-        "low_confidence": true,
-        "notes": "InsideEVs: 2025 LT Extended Range has a 170 kWh pack (bare capacity, treated as gross); Wikipedia agrees."
-      }
-    ]
-  },
+  "powertrain_id": "chevrolet/silverado-ev/2026-lt-ext-range",
+  "markets": ["CA"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-5a9f4542ec" }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-evcs-2027-silverado",
-      "low_confidence": true,
-      "notes": "Article: 2027 gets NACS instead of the CCS1 used in the 2024-2026 model years. US site; Canadian 2026 truck assumed the same (GM Canada adapter programme for Silverado EV implies CCS1)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-gcn-gm-2027-nacs", "low_confidence": true, "note_id": "n-c764303e83" }
   ],
-  "published_10_80_min": [
-    {
-      "value": 40,
-      "unit": "min",
-      "kind": "tested",
-      "source_id": "src-insideevs-silverado-test",
-      "low_confidence": true,
-      "notes": "InsideEVs tester (2025 LT Extended Range, 350 kW charger) did 10-80% in about 40 min; the article also calls 40 min a Chevrolet claim, though The Charge Port says Chevrolet published no time. Single rounded test, conditions not stated."
-    }
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
   ],
   "trims": [
     {
       "id": "11-5-kw-charger",
-      "name": "LT Ext Range (11.5 kW Charger)",
+      "names": { "CA": "LT Ext Range (11.5 kW Charger)" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-cars-silverado-471786",
-          "low_confidence": true,
-          "notes": "US Cars.com: Extended Range LT 18 x 8.5 in aluminum (applied to both charger trims)."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-cars-silverado-471786", "low_confidence": true, "note_id": "n-723db73c86" }
+      ],
+      "ac_max_kw": [
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-01bfb276ed" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     },
     {
       "id": "19-2-kw-charger",
-      "name": "LT Ext Range (19.2 kW Charger)",
+      "names": { "CA": "LT Ext Range (19.2 kW Charger)" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-cars-silverado-471786",
-          "low_confidence": true,
-          "notes": "US Cars.com: Extended Range LT 18 x 8.5 in aluminum (applied to both charger trims)."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-cars-silverado-471786", "low_confidence": true, "note_id": "n-723db73c86" }
+      ],
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-fcbda3cf86" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
       ]
     }
   ]

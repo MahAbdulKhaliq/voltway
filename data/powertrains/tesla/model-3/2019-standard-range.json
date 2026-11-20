@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-3/2019-standard-range",
+  "model_id": "tesla/model-3",
+  "name": "Standard Range",
+  "generation": "original-2017",
+  "years": [2019],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 53.1, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-srp-2019", "low_confidence": true, "note_id": "n-86fd781464" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 45, "unit": "kWh", "kind": "estimated", "source_id": "src-cleantechnica-sr-softlocked-2019", "low_confidence": true, "note_id": "n-f5617648fd" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "estimated", "source_id": "src-evdb-m3-srp-2019", "low_confidence": true, "note_id": "n-8ae6975c90" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-m3-srp-2019", "low_confidence": true, "note_id": "n-edae5db96e" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-notateslaapp-2020-24-6-4", "low_confidence": true, "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2019 SR). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 170, "unit": "kW", "kind": "estimated", "source_id": "src-cleantechnica-srp-170kw-2019", "low_confidence": true, "note_id": "n-dacdef9121" }
+  ],
+  "ac_max_kw": [
+    { "value": 7.7, "unit": "kW", "kind": "estimated", "source_id": "src-tesla-m3-service-manual-charging", "low_confidence": true, "note_id": "n-c9cb172b91" }
+  ]
+}

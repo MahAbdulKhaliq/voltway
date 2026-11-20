@@ -1,0 +1,31 @@
+{
+  "id": "chevrolet/silverado-ev/2025-lt-rst-extended-range",
+  "model_id": "chevrolet/silverado-ev",
+  "name": "LT/RST Extended Range",
+  "generation": "first-generation",
+  "years": [2025],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 170, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-20", "low_confidence": true, "note_id": "n-2ba289b04d" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-60bfa013c8" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-ddaa2e8bd2" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 300, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-b41d40b9f5" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-159f0d5f5f" },
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "notes": "NRCan 2025: \"Silverado EV LT/RST Ext Range (19.2 kW Charger)\", 240 V charge time 11.5 h." }
+  ],
+  "published_10_80_min": [
+    { "value": 42, "unit": "min", "kind": "estimated", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-cb9e28a92a" }
+  ]
+}

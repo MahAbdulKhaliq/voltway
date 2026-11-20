@@ -4,46 +4,47 @@
   "year": 2026,
   "name": "Performance",
   "drivetrain": "awd",
+  "powertrain_id": "tesla/model-3/2026-performance",
+  "markets": ["CA"],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-thinkev-tesla-model-3-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Source lists a NACS port for the 2026 Model 3; Supercharger access follows from that."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-thinkev-tesla-model-3-2026", "low_confidence": true, "note_id": "n-56a0dc357e" },
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-4655b2436d" }
   ],
-  "published_10_80_min": [
-    {
-      "value": 25,
-      "unit": "min",
-      "kind": "community",
-      "source_id": "src-thinkev-tesla-model-3-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. 25 min 10–80 % from one spec block that does not name the trim (assumed Performance)."
-    }
+  "battery": {
+    "capacity_gross_kwh": [
+      { "unit": "kWh", "value": 82, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+    ],
+    "capacity_usable_kwh": [
+      { "unit": "kWh", "value": 79, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+    ]
+  },
+  "dc_max_kw": [
+    { "unit": "kW", "value": 250, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+  ],
+  "ac_max_kw": [
+    { "unit": "kW", "value": 11, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+  ],
+  "charge_port": [
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-467dd2e649" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-4041579456" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "Performance",
+      "names": { "CA": "Performance" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "community",
-          "low_confidence": true,
-          "source_id": "src-evdb-model-3-performance-highland",
-          "notes": "EV Database Performance (Highland) lists heat pump standard equipment (European listing; same model generation)."
-        }
+        { "value": "standard", "kind": "community", "low_confidence": true, "source_id": "src-evdb-model-3-performance-highland", "notes": "EV Database Performance (Highland) lists heat pump standard equipment (European listing; same model generation)." }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-driveteslacanada-model-3-performance-tires",
-          "low_confidence": true,
-          "notes": "US report: Model 3 Performance comes standard with 20-inch Warp wheels. Canadian Performance assumed the same (same trim name); not confirmed."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-driveteslacanada-model-3-performance-tires", "low_confidence": true, "note_id": "n-947605a69c" }
       ]
     }
   ]

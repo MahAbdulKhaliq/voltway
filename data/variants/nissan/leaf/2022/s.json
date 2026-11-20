@@ -1,0 +1,30 @@
+{
+  "id": "nissan/leaf/2022/s",
+  "model_id": "nissan/leaf",
+  "year": 2022,
+  "name": "S",
+  "drivetrain": "fwd",
+  "powertrain_id": "nissan/leaf/2022-s",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "chademo", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2024-press-kit", "low_confidence": true, "note_id": "n-54d9ecf64f" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "estimated", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b0ca50230f" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-thedrive-leaf-no-adapter", "note_id": "n-2e0a777234", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "S" },
+      "wheels": [
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-r2w-cc-leaf2022", "note_id": "n-f91d24f3ca" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "manufacturer", "source_id": "src-b112-nh-nissan-us-leaf-2022", "note_id": "n-d2e9d9f490" }
+      ]
+    }
+  ]
+}

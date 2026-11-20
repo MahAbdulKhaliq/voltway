@@ -1,0 +1,17 @@
+{
+  "id": "porsche/cayenne-electric",
+  "make_id": "porsche",
+  "name": "Cayenne Electric",
+  "body_type": "suv",
+  "generations": [
+    { "id": "first-generation", "name": "First generation (PPE)", "first_year": 2026, "notes": "PPE, 800 V, 113 kWh gross / 108 kWh usable, up to 400 kW DC, 11 kW AC (inductive charging optional). Coupe is a body variant; \"Range Setup\" and 21\" tire ratings are options. Confidence: medium-high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Porsche_Cayenne" }
+  ],
+  "years": [
+    {
+      "year": 2026,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    }
+  ]
+}

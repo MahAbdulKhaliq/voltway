@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MahAbdulKhaliq/voltway/schema/powertrain.schema.json",
+  "title": "Powertrain",
+  "description": "A battery pack with its charging hardware, shared by every model year and market edition built on it (B95, DESIGN-9 §1). Variants point to it with powertrain_id and inherit its figures and curves; a variant's own value overrides. A pack, chemistry, DC power or charging-software change starts a new powertrain (or a new curve version). File: data/powertrains/<make>/<model>/<slug>.json",
+  "type": "object",
+  "required": [
+    "id",
+    "model_id",
+    "name",
+    "years"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "description": "<make>/<model>/<slug>",
+      "type": "string",
+      "pattern": "^[a-z0-9-]+/[a-z0-9-]+/[a-z0-9-]+$"
+    },
+    "model_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+/[a-z0-9-]+$"
+    },
+    "name": {
+      "description": "e.g. \"Long Range 84 kWh\" or \"Performance (Highland)\"",
+      "type": "string",
+      "minLength": 1
+    },
+    "generation": {
+      "description": "Id of the model generation this pack belongs to (model generations[]).",
+      "$ref": "common.schema.json#/$defs/slug"
+    },
+    "years": {
+      "description": "Model years built on this powertrain (any market).",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 2010,
+        "maximum": 2100
+      }
+    },
+    "battery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "capacity_gross_kwh": {
+          "$ref": "common.schema.json#/$defs/field_kwh"
+        },
+        "capacity_usable_kwh": {
+          "$ref": "common.schema.json#/$defs/field_kwh"
+        },
+        "chemistry": {
+          "$ref": "variant.schema.json#/$defs/fact_chemistry"
+        },
+        "nominal_voltage_class": {
+          "$ref": "variant.schema.json#/$defs/fact_voltage_class"
+        },
+        "preconditioning": {
+          "$ref": "variant.schema.json#/$defs/fact_preconditioning"
+        }
+      }
+    },
+    "ac_max_kw": {
+      "$ref": "common.schema.json#/$defs/field_kw"
+    },
+    "dc_max_kw": {
+      "$ref": "common.schema.json#/$defs/field_kw"
+    },
+    "published_10_80_min": {
+      "$ref": "common.schema.json#/$defs/field_minutes"
+    },
+    "notes": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

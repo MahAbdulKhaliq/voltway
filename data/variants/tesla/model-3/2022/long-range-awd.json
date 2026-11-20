@@ -1,0 +1,31 @@
+{
+  "id": "tesla/model-3/2022/long-range-awd",
+  "model_id": "tesla/model-3",
+  "year": 2022,
+  "name": "Long Range AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "tesla/model-3/2022-long-range-awd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-467dd2e649" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-4655b2436d" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-87641db422" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Long Range AWD", "US": "Long Range AWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-thedriven-model-3-lr-wheels-2022", "notes": "The Driven (2022-04-26): 18 inch aero back as standard on the Long Range in April 2022. Cars built before then had 19 inch sport wheels as standard, so early-2022 cars may differ. The cars.com 2022 page shows only the RWD trim.", "low_confidence": true },
+        { "diameter_in": 19, "is_standard": false, "source_id": "src-r2w-thedriven-model-3-lr-wheels-2022", "notes": "The Driven (2022-04-26): 19 inch sport wheels became an option (US$1,500 in the US).", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-insideevs-all-heat-pump", "note_id": "n-f1fc2046b8", "low_confidence": true }
+      ]
+    }
+  ]
+}

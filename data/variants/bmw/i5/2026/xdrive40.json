@@ -1,0 +1,30 @@
+{
+  "id": "bmw/i5/2026/xdrive40",
+  "model_id": "bmw/i5",
+  "year": 2026,
+  "name": "xDrive40",
+  "drivetrain": "awd",
+  "powertrain_id": "bmw/i5/2026-edrive40",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-8ad5e49e4e" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-932632354f" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "xDrive40" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2026-specs-470575", "note_id": "n-00ac4d3378" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-adac-i5-xdrive40", "note_id": "n-5af933bc43", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "lucid/air/2025-pure",
+  "model_id": "lucid/air",
+  "name": "Pure",
+  "generation": "first-generation",
+  "years": [2025],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 84, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-evdb-lucid-air-excerpts", "low_confidence": true, "notes": "Estimated: Lucid 2025 Pure sheet capacity 84 kWh and EV Database 84.0 usable / 88.0 nominal (search excerpt) for the same pack family; Lucid markets 5.0 mi/kWh on 84 kWh. " }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-0e073f7924" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-w2-lucid-air-pure-2025-sheet", "low_confidence": true, "note_id": "n-c2f35cd78e" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "low_confidence": true, "note_id": "n-5b38ca5f4b" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 84, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-lucid-air-pure-2025-sheet", "low_confidence": true, "notes": "Lucid 2025 Pure sheet: battery capacity 84 kWh (16 module); Lucid says 420 mi from 84 kWh." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-evercars-lucid-air-2026", "low_confidence": true, "note_id": "n-459e398ce9" }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "low_confidence": true, "note_id": "n-560efa3597" }
+  ]
+}

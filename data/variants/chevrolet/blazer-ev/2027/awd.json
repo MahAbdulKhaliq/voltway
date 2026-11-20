@@ -1,0 +1,32 @@
+{
+  "id": "chevrolet/blazer-ev/2027/awd",
+  "model_id": "chevrolet/blazer-ev",
+  "year": 2027,
+  "name": "AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "chevrolet/blazer-ev/2027-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r3-electrek-blazer-2027-nacs", "low_confidence": true, "note_id": "n-ce4d21c800" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r3-electrek-gm-2027-nacs", "low_confidence": true, "note_id": "n-c9ec08f823" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-gm-nacs", "low_confidence": true, "note_id": "n-795f9fc0f8" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "AWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2027-specs", "note_id": "n-e137b4cece", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2027-specs-484978", "note_id": "n-b39950278b" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

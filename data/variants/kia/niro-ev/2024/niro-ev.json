@@ -1,0 +1,31 @@
+{
+  "id": "kia/niro-ev/2024/niro-ev",
+  "model_id": "kia/niro-ev",
+  "year": 2024,
+  "name": "Niro EV",
+  "drivetrain": "fwd",
+  "powertrain_id": "kia/niro-ev/2023-niro-ev",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-aaa4912adb" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-kia-supercharger-2025-04", "low_confidence": true, "note_id": "n-52a612fb38" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-us-niro-ev-2026", "low_confidence": true, "note_id": "n-060d960b32" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-adapter", "note_id": "n-a319b14fa9", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Niro EV", "US": "Niro EV" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-kia-niro-ev-2024-index", "low_confidence": true, "note_id": "n-3a5002c8f5" }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-kia-us-niro-ev-2026-compare", "notes": "Kia US 2026 Niro EV page: heat pump optional on Wind and Wave Preserve Packages. KBB says the Niro EV was left alone for 2024 and 2025 after the 2023 redesign (src-kbb-niro-ev-2025-specs), so carried to 2024. US source; Canada not verified.", "low_confidence": true }
+      ]
+    }
+  ]
+}

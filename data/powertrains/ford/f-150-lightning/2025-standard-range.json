@@ -1,0 +1,27 @@
+{
+  "id": "ford/f-150-lightning/2025-standard-range",
+  "model_id": "ford/f-150-lightning",
+  "name": "Standard Range",
+  "generation": "first-generation",
+  "years": [2022, 2023, 2024, 2025],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 98, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2023", "unit": "kWh", "notes": "Ford 2023 and 2025 spec sheets: SR 98 kWh usable. Replaces the imported OpenEV 91 kWh on the 2025 car.", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-ford-corp-sk-ncm", "low_confidence": true, "note_id": "n-cbc6600333" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-batterydesign-fl-er", "low_confidence": true, "note_id": "n-f9d6bfa8f7" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-ford-ca-nav-ev-routing", "low_confidence": true, "note_id": "n-09a7a762e0" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2023", "unit": "kW", "note_id": "n-cf6d6a443b", "low_confidence": true }
+  ],
+  "ac_max_kw": [
+    { "value": 11.3, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2023", "unit": "kW", "notes": "Ford 2023 spec sheet: SR onboard charger 11.3 kW input (10.5 kW output); the 2025 sheet matches.", "low_confidence": true }
+  ]
+}

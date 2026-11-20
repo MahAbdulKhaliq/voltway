@@ -1,0 +1,33 @@
+{
+  "id": "bmw/ix/2024-m60",
+  "model_id": "bmw/ix",
+  "name": "M60",
+  "generation": "first-generation",
+  "years": [2024],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "note_id": "n-fbc6e2054c" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-bmw-ix-us", "low_confidence": true, "note_id": "n-11f36356cc" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-a-ix", "low_confidence": true, "note_id": "n-05c52545db" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 105.2, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "note_id": "n-d84ff11cd0" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 111.5, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "note_id": "n-ad5e22ba1c" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 195, "unit": "kW", "kind": "estimated", "source_id": "src-w2-bmw-ix-ie", "low_confidence": true, "note_id": "n-95b11b9c0c" }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "note_id": "n-5bdbcdee4a" }
+  ],
+  "published_10_80_min": [
+    { "value": 35, "unit": "min", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "note_id": "n-150213ce26" }
+  ]
+}

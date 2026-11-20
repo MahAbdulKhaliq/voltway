@@ -29,7 +29,7 @@ Phase 1, step 3 of [roadmap.md](roadmap.md). How the app shows charging curves a
 
 | Input | Default | Options | |
 |-------|---------|---------|-|
-| **Vehicle** | The car picked on first load (saved in the browser) | Make → model → year → variant. Filter: sold in Canada (on by default) | MVP |
+| **Vehicle** | The car picked on first load (saved in the browser) | Make → model → year → variant. Every car is listed whatever its markets (B98, 2026-11-20; was "filter: sold in Canada, on by default") | MVP |
 | **Curve** | The variant's default curve (§7 of the data model) | A dropdown when the variant has more than one: "Tested (source, date)", "Estimated" | MVP |
 | **Start → end SoC** | **10% → 80%** | Two sliders, 0–100% in 1% steps | MVP |
 | **Charger power** | **"No limit"** (shows the car's own curve) | Presets matching the map's bands: **50 · 100 · 150 · 250 · 350 kW**, or a custom figure | MVP |
@@ -64,7 +64,7 @@ Add up across the window:
 **Decision:** in v1, **no loss factor in the time calculation.** The curve's kW is treated as the power going into the battery, and energy is labeled "**added to battery**".
 
 - **Why:** it keeps the maths transparent and in line with how most published curves are presented. Losses mostly affect **energy drawn from the charger**, which matters for **cost**, and cost is out of scope for v1. *(Superseded by B19: cost is in v1.)*
-- **Added 2026-11-15 (B19):** cost is in v1 after all: price per kWh input (default C$0.45), cost = energy added ÷ 0.92 × price, with the drawn kWh and the assumed losses shown.
+- **Added 2026-11-15 (B19):** cost is in v1 after all: price per kWh input (default C$0.45; *B99, 2026-11-20: plain $0.45, no currency or country*), cost = energy added ÷ 0.92 × price, with the drawn kWh and the assumed losses shown.
 - **Originally:** when cost is added, show "drawn from charger ≈ added ÷ efficiency" with a stated assumption, for example ~90–95% for DC. That figure is an assumption to check then.
 - **Note for imports:** when a source says whether its curve was measured at the charger or the battery, record it in the curve's `conditions`.
 
@@ -177,6 +177,7 @@ For variants with no measured curve. Each template is a list of **SoC → fracti
 **Result (2026-11-16, B41):** a weighted Huber fit (tested curves count most) moved only the 30–80 % points. Still outside ±15 %: Silverado EV (−36 %), LYRIQ (−26 %) and Kona (−20 %), all estimated faster than their reference; GM Ultium may need its own template once tested GM curves exist. LFP rests on one car (EX30). No template split for now. Re-run with `npm run calibrate` as references are added.
 
 ### How estimated curves are shown
+- **Update (B92, 2026-11-19):** the viewer shows the best curve only. The Curve dropdown appears only when a car has two or more measured curves (labelled by source and year); a template estimate is shown only when it is the car's only curve.
 - Dashed line, an "Estimated" badge, and an expandable explanation: "Based on a typical 800V NMC curve and this car's 220 kW peak. No measured curve available yet."
 - Results calculated from estimated curves show times **rounded to the nearest 5 minutes** (for example "~25 min"), so they don't look more precise than they are.
 

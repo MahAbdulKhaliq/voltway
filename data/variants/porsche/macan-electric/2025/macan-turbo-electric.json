@@ -1,0 +1,33 @@
+{
+  "id": "porsche/macan-electric/2025/macan-turbo-electric",
+  "model_id": "porsche/macan-electric",
+  "year": 2025,
+  "name": "Macan Turbo Electric",
+  "drivetrain": "awd",
+  "powertrain_id": "porsche/macan-electric/2024-macan-4-electric",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-6fa2aefa9c" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-d3a2166c47" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-ca-supercharger-2025", "note_id": "n-17a1b5ae99" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-por-us-sc-access", "note_id": "n-d267dc700f" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Macan Turbo Electric", "US": "Macan Turbo Electric" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-porsche-macan-press-kit-design", "note_id": "n-113c4028ef", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-porsche-macan-2025-release", "note_id": "n-25d9672024", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-porsche-macan-press-kit-design", "note_id": "n-34aa61b9a3", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-por-macan-turbo-intl", "note_id": "n-818eea5027", "low_confidence": true }
+      ]
+    }
+  ]
+}

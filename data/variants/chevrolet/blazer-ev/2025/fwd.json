@@ -1,0 +1,34 @@
+{
+  "id": "chevrolet/blazer-ev/2025/fwd",
+  "model_id": "chevrolet/blazer-ev",
+  "year": 2025,
+  "name": "FWD",
+  "drivetrain": "fwd",
+  "powertrain_id": "chevrolet/blazer-ev/2027-fwd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-electrek-blazer-2027-nacs", "low_confidence": true, "note_id": "n-7710550859" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-cef5d86ca8" },
+    { "value": "via_adapter", "kind": "community", "source_id": "src-insideevs-blazer-ev-supercharger-2025", "low_confidence": true, "note_id": "n-c8f22c3b95" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "FWD", "US": "FWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2025-specs", "note_id": "n-b639983103" },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2025-specs-455774", "note_id": "n-046d7da3cc", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

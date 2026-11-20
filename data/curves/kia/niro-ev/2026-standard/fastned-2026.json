@@ -1,0 +1,32 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "kia/niro-ev/2026-standard",
+  "kind": "tested",
+  "source_id": "src-fastned-vehicle-curves-2026",
+  "points": [
+    { "soc_percent": 7, "power_kw": 80.7 },
+    { "soc_percent": 10, "power_kw": 81.2 },
+    { "soc_percent": 15, "power_kw": 80.9 },
+    { "soc_percent": 20, "power_kw": 80.6 },
+    { "soc_percent": 25, "power_kw": 81.1 },
+    { "soc_percent": 28, "power_kw": 83.9 },
+    { "soc_percent": 30, "power_kw": 77.1 },
+    { "soc_percent": 35, "power_kw": 77.4 },
+    { "soc_percent": 40, "power_kw": 77.5 },
+    { "soc_percent": 45, "power_kw": 63.7 },
+    { "soc_percent": 50, "power_kw": 63.6 },
+    { "soc_percent": 55, "power_kw": 64.6 },
+    { "soc_percent": 60, "power_kw": 58.5 },
+    { "soc_percent": 65, "power_kw": 58.3 },
+    { "soc_percent": 70, "power_kw": 59.9 },
+    { "soc_percent": 75, "power_kw": 44.5 },
+    { "soc_percent": 80, "power_kw": 45.4 },
+    { "soc_percent": 85, "power_kw": 26.1 },
+    { "soc_percent": 90, "power_kw": 26.2 },
+    { "soc_percent": 91, "power_kw": 26.1 }
+  ],
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 300, "measured_at": "unknown" },
+  "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 64 kWh Niro EV (2022+), the second generation (64.8 kWh). Data 7-91 %; 80-84 kW to 29 %, 77-78 kW to 44 %, 64 kW to 58 %, 58-60 kW to 70 %, 45 kW to 82 %, then 26 kW. Applied to the 2026 Standard on the assumption that the pack is unchanged. Peak (84 kW) is below the 94 kW in the pending spec batch. 2026 reuse: same-generation hardware assumed, match unproven.",
+  "low_confidence": true,
+  "is_display_default": false
+}

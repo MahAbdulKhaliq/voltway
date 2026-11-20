@@ -1,0 +1,31 @@
+{
+  "id": "jaguar/i-pace/2021/ev400",
+  "model_id": "jaguar/i-pace",
+  "year": 2021,
+  "name": "EV400",
+  "drivetrain": "awd",
+  "powertrain_id": "jaguar/i-pace/2021-ev400",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-a05c1cd34f" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-jaguar-supercharger-2025", "low_confidence": true, "note_id": "n-44a27f28d7" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-insideevs-jaguar-supercharger-2025", "note_id": "n-e39c6c67c5", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "EV400" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-jaguar-i-pace-2020-specs", "notes": "I-PACE S: 18 x 7.5 in aluminum (2020 S page). Carried from the 2020 S page; Cars.com has no 2021 I-PACE page, no page for this exact year opened.", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-jaguar-i-pace-2022-specs", "notes": "I-PACE SE and HSE: 20 x 8 in (2019 SE/HSE and 2022 HSE pages agree). Carried from the 2019 and 2022 pages, no page for this exact year opened.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-i-pace-ev400-2018", "note_id": "n-39ff9728bd", "low_confidence": true }
+      ]
+    }
+  ]
+}

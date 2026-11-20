@@ -79,6 +79,8 @@ Curve settings (SoC window, charger power) can be included in the link too (*lat
 
 ## 4. Cars: browse screen (D6) ✅
 
+*Changed 2026-11-20 (owner, B110):* the Model year filter starts with nothing ticked (every year), replacing the "current and previous model year" default.
+
 ### Layout
 **B39 (2026-11-16):** this layout replaces B11's make → model accordions. Each card opens the car in the Charging tab.
 
@@ -91,7 +93,7 @@ Curve settings (SoC window, charger power) can be included in the link too (*lat
 *(B86, owner 2026-11-19: each filter category is a collapsible section showing its choices as pills when closed; sections start closed unless in use, and open/closed is remembered. Owner review 2026-11-19: choices are a checkbox list, and each section has its own Clear while its filter is set. The page uses the content-page design language with animated "Live reflow" results; see `design-language.md`.)*
 | Filter | Type | Default |
 |--------|------|---------|
-| **Sold in Canada** | toggle | **On** |
+| **Sold in** | checklist: Canada, United States | none ticked (all) · *B98, 2026-11-20: replaces the "Sold in Canada" toggle* |
 | Model year | range | Current and previous year |
 | Make | multi-select | All |
 | Body type | multi-select | All |
@@ -131,13 +133,14 @@ One page per **model year**, with a **variant selector** (and an optional trim s
    - Each tile carries its **source badge** (§7).
 3. **Charging curve:** the full **curve viewer**, set up for this variant.
 4. **Specs (layer 2):** grouped tables (Battery · Charging · Efficiency & range · Ports & access · Dimensions *later*). "Unknown" values are shown, not hidden.
+   - *Added 2026-11-20 (B104):* the AC charger and the full charge at 240 V follow the trim picked. A charger-option trim with its own regulator row shows that row's 240 V time. One with no row of its own shows the car's rated time scaled by the charger ratio, marked Estimated, with the basis in its badge.
 5. **Trims:** a table of trims on this variant: wheels (standard and options), heat pump, trim-specific range where available.
 6. **Sources (layer 3):** every source used on this page, with license and access date. "Report a problem" (*later*, could be just a mailto or GitHub issue link).
 
 ### Data notices
 - **Estimated curve:** a short banner in the curve section, saying no measured curve is available yet.
 - **Sources differ:** a small icon on the figure (§7).
-- **Not sold in Canada:** a banner when browsing with the Canada filter off.
+- ~~**Not sold in Canada:** a banner when browsing with the Canada filter off.~~ *Removed (B98, 2026-11-20): markets never limit or flag a car.*
 
 ---
 
@@ -197,7 +200,7 @@ The data model gives every figure a *kind* and a source. On screen:
 | Distance | **km** | mi |
 | Efficiency | **kWh/100 km** (what NRCan uses) | Wh/km, mi/kWh |
 | Power, energy | kW, kWh | n/a |
-| Currency | CAD | *later*, with prices |
+| Currency | ~~CAD~~ plain $, no currency code (B99, 2026-11-20) | *later*, with prices |
 
 **Language (U5) ✅:** English for v1, but **all on-screen text is kept separate from the code** (labels, badges, notes), so French can be added later as translation work. Québec is Canada's largest EV market, so French is a likely early addition.
 

@@ -1,0 +1,30 @@
+{
+  "id": "toyota/bz4x/2023-limited-awd",
+  "model_id": "toyota/bz4x",
+  "name": "Limited AWD",
+  "generation": "bz4x-launch",
+  "years": [2023],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 72.8, "unit": "kWh", "kind": "manufacturer", "source_id": "src-r19-insideevs-bz4x-awd-test", "low_confidence": true, "notes": "InsideEVs: 'US AWD Limited: 72.8 kWh total capacity, maximum charge rate 100 kW (CATL cell)'." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 65.3, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-awd-1565", "low_confidence": true, "note_id": "n-4fc0c62d12" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-e3713b7aca" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-r19-evspecs-solterra", "low_confidence": true, "note_id": "n-8cd514b588" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-awd-1565", "low_confidence": true, "note_id": "n-f8b6cc7c09" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 100, "unit": "kW", "kind": "manufacturer", "source_id": "src-r19-insideevs-bz4x-awd-test", "low_confidence": true, "notes": "InsideEVs: AWD 72.8 kWh 'maximum charge rate of 100 kW'; the Out of Spec test peaked at 88 kW. Toyota raised the AWD to 150 kW for model year 2024." }
+  ],
+  "ac_max_kw": [
+    { "value": 7, "unit": "kW", "kind": "estimated", "source_id": "src-r19-pressroom-toyota-bz-2026-read", "low_confidence": true, "note_id": "n-5e948304b2" }
+  ]
+}

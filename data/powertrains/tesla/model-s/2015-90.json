@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-s/2015-90",
+  "model_id": "tesla/model-s",
+  "name": "90",
+  "generation": "original",
+  "years": [2015],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 85.8, "unit": "kWh", "kind": "estimated", "source_id": "src-arenaev-model-x-90d", "low_confidence": true, "note_id": "n-469bb4b811" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 81.8, "unit": "kWh", "kind": "estimated", "source_id": "src-arenaev-model-x-90d", "low_confidence": true, "note_id": "n-efd89baae2" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "community", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-49961bd7e1" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-17a60e76f4" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-manualslib-tesla-s-owners-manual-p145", "low_confidence": true, "note_id": "n-ae91cd491f" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 120, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2014-85", "low_confidence": true, "notes": "Estimated: EVSpecifications gives 120 kW for the 2014 85 kWh, 2015 85D, 2017 75D/90D and 2018 75D/100D/P100D Model S; carried to 2015 90 (other year or pack than the cited page). No page shows a pack-specific limit." }
+  ],
+  "ac_max_kw": [
+    { "value": 10, "unit": "kW", "kind": "estimated", "source_id": "src-tesla-s-service-vin-2012-2020", "low_confidence": true, "note_id": "n-cfac4fd371" }
+  ]
+}

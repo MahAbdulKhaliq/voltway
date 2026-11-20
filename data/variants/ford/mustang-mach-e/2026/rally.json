@@ -4,32 +4,27 @@
   "year": 2026,
   "name": "Rally",
   "drivetrain": "awd",
+  "powertrain_id": "ford/mustang-mach-e/2026-rally",
+  "markets": ["CA", "US"],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
+  ],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-414c61eb68" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-ford-adapter-product", "note_id": "n-f6c94fe44e", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Rally",
+      "names": { "CA": "Rally", "US": "Rally" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-ford-ca-mach-e-rally-2026",
-          "notes": "Listed as Vapor Injection Heat Pump on the Rally page."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-ford-ca-mach-e-rally-2026", "notes": "Listed as Vapor Injection Heat Pump on the Rally page." }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "tire_size": "235/55R19",
-          "source_id": "src-ford-ca-mach-e-rally-2026",
-          "notes": "Michelin CrossClimate2 all-season."
-        },
-        {
-          "diameter_in": 19,
-          "is_standard": false,
-          "source_id": "src-ford-ca-mach-e-rally-2026",
-          "notes": "Optional 19 in High-Gloss Oxford White; no tire size listed."
-        }
+        { "diameter_in": 19, "is_standard": true, "tire_size": "235/55R19", "source_id": "src-ford-ca-mach-e-rally-2026", "notes": "Michelin CrossClimate2 all-season." },
+        { "diameter_in": 19, "is_standard": false, "source_id": "src-ford-ca-mach-e-rally-2026", "notes": "Optional 19 in High-Gloss Oxford White; no tire size listed." }
       ]
     }
   ]

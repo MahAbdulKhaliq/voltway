@@ -1,0 +1,61 @@
+{
+  "id": "bmw/i3",
+  "make_id": "bmw",
+  "name": "i3",
+  "body_type": "hatchback",
+  "generations": [
+    { "id": "60-ah", "name": "60 Ah battery", "first_year": 2014, "last_year": 2016, "notes": "Launch (I01). 60 Ah cells, 22 kWh gross / about 18.8 kWh usable. DC fast charging (CCS, up to 50 kW) was optional; 7.4 kW AC. MY2017 offered both the 60 Ah and 94 Ah packs (NRCan and EPA both rate \"i3 (60 Ah)\" and \"i3 (94 Ah)\" for 2017), so 2017 overlaps the next generation; the 2017 rows split by pack. Range-extender (REx) versions are plug-in hybrids and not part of this catalogue. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/BMW_i3 MY2017 also had a 60 Ah option; the year is filed under 94-ah (validator: no overlapping generations), and the 60 Ah powertrain carries its own pack figures." },
+    { "id": "94-ah", "name": "94 Ah battery", "first_year": 2017, "last_year": 2018, "notes": "94 Ah cells, 33 kWh gross / about 27.2 kWh usable, same 50 kW CCS and 7.4 kW AC. The i3s (sportier, wider track) joined for MY2018 on the same pack. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/BMW_i3" },
+    { "id": "120-ah", "name": "120 Ah battery", "first_year": 2019, "last_year": 2021, "notes": "120 Ah cells, 42.2 kWh gross / about 37.9 kWh usable, 50 kW CCS, 11 kW AC in Europe (7.4 kW in North America). Sold in North America through MY2021 (production ended 2022). Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/BMW_i3" }
+  ],
+  "years": [
+    {
+      "year": 2014,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "60-ah"
+    },
+    {
+      "year": 2015,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "60-ah"
+    },
+    {
+      "year": 2016,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "60-ah"
+    },
+    {
+      "year": 2017,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "94-ah"
+    },
+    {
+      "year": 2018,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "94-ah"
+    },
+    {
+      "year": 2019,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "120-ah"
+    },
+    {
+      "year": 2020,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "120-ah"
+    },
+    {
+      "year": 2021,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "120-ah"
+    }
+  ]
+}

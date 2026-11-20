@@ -9,7 +9,7 @@ import { join } from 'node:path';
 import Base from '../layouts/Base.astro';
 import Unroll from '../components/Unroll.astro';
 import { t, type MessageKey } from '../i18n/t.ts';
-import { COVERAGE, COST } from '../config.ts';
+import { COST } from '../config.ts';
 import { loadEstimates, loadIndex } from '../lib/data.ts';
 import { formatNumber } from '../lib/units.ts';
 import type { Source } from '../lib/types.ts';
@@ -22,8 +22,10 @@ const allSources: Source[] = readdirSync(sourceDir)
   .map((f) => JSON.parse(readFileSync(join(sourceDir, f), 'utf8')));
 
 // Licence texts (links, not translated) per open dataset, keyed by source id.
-const DATASETS: { id: string; key: 'nrcan' | 'openev' | 'chargeprice' | 'afdc' | 'afdcUs' | 'ocm' | 'geonames' | 'naturalearth'; licenceUrl: string; notice?: string }[] = [
+const DATASETS: { id: string; key: 'nrcan' | 'epa' | 'openev' | 'chargeprice' | 'afdc' | 'afdcUs' | 'ocm' | 'geonames' | 'naturalearth'; licenceUrl: string; notice?: string }[] = [
   { id: 'src-nrcan-bev-2026-09', key: 'nrcan', licenceUrl: 'https://open.canada.ca/en/open-government-licence-canada' },
+  // US official ratings (B90).
+  { id: 'src-epa-fueleconomy-2026-11', key: 'epa', licenceUrl: 'https://www.fueleconomy.gov/feg/download.shtml' },
   { id: 'src-openev-v1-24-0', key: 'openev', licenceUrl: 'https://cdla.dev/permissive-2-0/' },
   { id: 'src-chargeprice-archive-2025-04', key: 'chargeprice', licenceUrl: 'https://github.com/KilowattApp/open-ev-data/blob/32d7dc59e7b8b7391572ca1e132a1517be9a3b5e/LICENSE', notice: openEvMit },
   // Charger map (B30: used under NLR's data terms).
@@ -91,7 +93,7 @@ const dataChips = [t('about.chip.datasets', { count: datasets.length }), t('abou
         </div>
       ))}
     </dl>
-    <p class="small muted about-coverage">{t('about.coverage', { market: COVERAGE.market, count: cars.length })}</p>
+    <p class="small muted about-coverage">{t('about.coverage', { count: cars.length })}</p>
   </header>
 
   <section class="card about-builder" aria-labelledby="builder">
@@ -130,7 +132,7 @@ const dataChips = [t('about.chip.datasets', { count: datasets.length }), t('abou
         <dd>{t('about.kind.unknown')}</dd>
       </div>
     </dl>
-    <p>{t('about.precedence', { regulator: COVERAGE.regulator })}</p>
+    <p>{t('about.precedence')}</p>
     <ul class="about-estimates">
       <li>{t('about.estimate.curves')}</li>
       <li>{wheel ? t('about.estimate.wheels', { pct: pct(wheel.pct_per_inch), pairs: wheel.pairs }) : t('about.estimate.wheelsNone')}</li>

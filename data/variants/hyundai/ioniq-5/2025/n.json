@@ -1,0 +1,30 @@
+{
+  "id": "hyundai/ioniq-5/2025/n",
+  "model_id": "hyundai/ioniq-5",
+  "year": 2025,
+  "name": "N",
+  "drivetrain": "awd",
+  "powertrain_id": "hyundai/ioniq-5/2026-n",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-usa-nacs-adapter-faq", "note_id": "n-f9f5fba44f" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-motor-hyundai-adapters-2025", "note_id": "n-022e8e1bb1", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-98b4e9e819" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "N" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-n-2025-index", "low_confidence": true, "note_id": "n-4dc67c542d" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-hy-ca-ioniq5n-2025", "note_id": "n-33eb4a0281" }
+      ]
+    }
+  ]
+}

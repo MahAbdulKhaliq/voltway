@@ -3,13 +3,77 @@
   "make_id": "tesla",
   "name": "Model 3",
   "body_type": "sedan",
+  "generations": [
+    { "id": "original-2017", "name": "Original (2017-2020)", "first_year": 2017, "last_year": 2020, "notes": "Launch. Long Range ~75 kWh (DC up to 250 kW after the 2019 V3 update); Standard Range / Standard Range Plus ~50-54 kWh. US deliveries started July 2017 (MY2017); Canadian deliveries started in 2018, so Canada's first year is effectively 2018 (general knowledge, not checked on a cited page). Peak DC rose by over-the-air update in 2019, which changes curves within this entry. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Tesla_Model_3" },
+    { "id": "2021-refresh", "name": "2021 refresh", "first_year": 2021, "last_year": 2023, "notes": "Long Range pack grows to ~82 kWh (Panasonic cells), heat pump added. From about MY2022, RWD/SR+ cars in North America use an LFP pack (~57.5-60 kWh). Pack changes happened by build date, not cleanly by model year (Tesla does not do annual model-year changeovers). The LFP RWD timing (late 2021 / MY2022) was not confirmed on a fetched page. Consider modelling the LFP RWD as a variant inside this entry. Confidence: low (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/519345/bjorn-tesla-model3-lr-range/ ; https://en.wikipedia.org/wiki/Tesla_Model_3" },
+    { "id": "highland", "name": "Highland refresh", "first_year": 2024, "notes": "Highland refresh (about 50% new parts). RWD LFP ~60-64 kWh (DC up to ~170 kW); Long Range / Premium ~78-82 kWh (DC up to 250 kW). A cheaper Model 3 Standard arrived Oct 2025. Same year in CA and US. The Oct 2025 Model 3 Standard is a variant addition (smaller pack), not a line-wide change. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Tesla_Model_3 ; https://insideevs.com/news/704076/2024-tesla-model3-highland-range-specs-pricing/" }
+  ],
   "years": [
     {
+      "year": 2017,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "original-2017"
+    },
+    {
+      "year": 2018,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "original-2017"
+    },
+    {
+      "year": 2019,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "original-2017"
+    },
+    {
+      "year": 2020,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "original-2017"
+    },
+    {
+      "year": 2021,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2021-refresh"
+    },
+    {
+      "year": 2022,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2021-refresh"
+    },
+    {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2021-refresh"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "highland"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "highland"
+    },
+    {
       "year": 2026,
-      "markets": [
-        "CA"
-      ],
-      "availability_status": "production"
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "highland"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "highland"
     }
   ]
 }

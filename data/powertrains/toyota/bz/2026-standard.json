@@ -1,0 +1,35 @@
+{
+  "id": "toyota/bz/2026-standard",
+  "model_id": "toyota/bz",
+  "name": "Standard",
+  "generation": "bz-2026-refresh",
+  "years": [2026],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "note_id": "n-cd7d98683b" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-insideevs-bz-charging-limit-2026", "low_confidence": true, "notes": "Toyota chief engineer (via InsideEVs): bZ \"still runs on a 400-volt electrical architecture\". Autopian gives the 57.7 kWh pack as 288.6 V." }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 57.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "notes": "Toyota Canada: \"A 57.7-kWh battery will also be available on a XLE FWD model\" (total, usable not stated). US release says the same." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 54, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-fwd-577", "low_confidence": true, "note_id": "n-c7d64b4a52" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-fwd-577", "low_confidence": true, "note_id": "n-05e026f100" },
+      { "value": "nmc", "kind": "estimated", "source_id": "src-greencars-bz-2026", "low_confidence": true, "note_id": "n-fa854f9016" }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "note_id": "n-8f31f0af0a" }
+  ],
+  "published_10_80_min": [
+    { "value": 30, "unit": "min", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "note_id": "n-9c02a37f76" }
+  ],
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-fwd-577", "low_confidence": true, "note_id": "n-139a99d188" },
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-bz-charging-limit-2026", "low_confidence": true, "note_id": "n-3fd9df2e62" }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "honda/prologue/2024/fwd",
+  "model_id": "honda/prologue",
+  "year": 2024,
+  "name": "FWD",
+  "drivetrain": "fwd",
+  "powertrain_id": "honda/prologue/2024-ex-l-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thechargeport-honda-prologue", "low_confidence": true, "note_id": "n-df0ef80d31" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-nontesla-supercharger-access-2026", "low_confidence": true, "note_id": "n-da9452f6da" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-nh-tflcar-honda-adapter", "note_id": "n-01a0f3898c", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "FWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-honda-prologue-2024-us-specs", "note_id": "n-53177c1f76" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-prologue-awd-2023", "notes": "ArenaEV 2023-listed Prologue AWD: heat pump yes (US). Honda's own spec pages (US features by trim, Canada 2024 specs release) do not mention a heat pump either way. ArenaEV lists \"Heat pump: Yes\" without saying standard or optional, and its pages mix EU data.", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-0aa7aa8d36", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "kia/soul-ev/2020/soul-ev-premium-39-kwh",
+  "model_id": "kia/soul-ev",
+  "year": 2020,
+  "name": "Soul EV Premium 39 kWh",
+  "drivetrain": "unknown",
+  "powertrain_id": "kia/soul-ev/2020-soul-ev-premium-39-kwh",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "community", "source_id": "src-electrek-soul-ev-2018-64kwh", "note_id": "n-bbf58110c6", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "note_id": "n-c8281813e8", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-adapter-release", "note_id": "n-aea508ebf1", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Soul EV Premium 39 kWh" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-guideauto-kia-soul-2020-ev-premium", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b113-kia-ca-soul-ev-my22-brochure", "note_id": "n-c718f58d43", "low_confidence": true }
+      ]
+    }
+  ]
+}

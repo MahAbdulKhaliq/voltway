@@ -1,0 +1,33 @@
+{
+  "id": "polestar/polestar-2/2023/dual-motor",
+  "model_id": "polestar/polestar-2",
+  "year": 2023,
+  "name": "Dual Motor",
+  "drivetrain": "awd",
+  "powertrain_id": "polestar/polestar-2/2023-dual-motor",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-polestar-ca-tesla-supercharger-network", "low_confidence": true, "note_id": "n-4de47f9d3d" },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-5ff5964173" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-ca-tesla-supercharger-network", "low_confidence": true, "note_id": "n-e984388f46" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-32b9a75f5b" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-polestar-us-nacs", "note_id": "n-b3bcf2fc86" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Dual Motor", "US": "Dual Motor" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-ps2-ins2023", "note_id": "n-eb46c6c1a4" },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-ps2-ins2023", "note_id": "n-08fc1f371c" }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b112-insideevs-2023-p2-us", "note_id": "n-45aa8bd858", "low_confidence": true }
+      ]
+    }
+  ]
+}

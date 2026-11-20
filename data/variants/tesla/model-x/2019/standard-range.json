@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-x/2019/standard-range",
+  "model_id": "tesla/model-x",
+  "year": 2019,
+  "name": "Standard Range",
+  "drivetrain": "unknown",
+  "powertrain_id": "tesla/model-x/2019-standard-range",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-64b227cb35" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-0149985cd2" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-f8b4f4aee1" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Standard Range" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carscom-model-x-2020", "note_id": "n-4f523eff7a", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b112-teslanorth-sx-heat-pump", "note_id": "n-008860f6e4", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -4,115 +4,30 @@
   "year": 2025,
   "name": "Long Range",
   "drivetrain": "rwd",
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 77.4,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-auto123-ioniq-6-2025",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-auto123-ioniq-6-2025",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
-    ],
-    "chemistry": [
-      {
-        "low_confidence": true,
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-evdb-ioniq6-lr-awd",
-        "notes": "Estimated: EV Database lists NMC cathode, 77.4 kWh, 697 V for the IONIQ 6 Long Range (MY23-25, European), same model and generation and pack."
-      }
-    ],
-    "preconditioning": [
-      {
-        "low_confidence": true,
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-greencarreports-ioniq6-battery-conditioning",
-        "notes": "Estimated: navigation trigger (DC charger as destination/waypoint) stated for the 2023 IONIQ 6 (no manual control then); manual start via Bluelink app or in-car button stated on Hyundai Ireland's IONIQ 6 page (src-hyundai-ie-ioniq6-features). Combined across years/markets."
-      }
-    ]
-  },
-  "ac_max_kw": [
-    {
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-auto123-ioniq-6-2025",
-      "low_confidence": true,
-      "notes": "Quick web lookup (rough, not cross-checked)."
-    }
-  ],
+  "powertrain_id": "hyundai/ioniq-6/2025-long-range",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "low_confidence": true,
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq",
-      "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier use CCS and need a NACS adapter; IONIQ 6 not named."
-    },
-    {
-      "low_confidence": true,
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-nacs-checker",
-      "notes": "US page: 2025 IONIQ 6 kept CCS1 (model ended with MY2025)."
-    }
+    { "low_confidence": true, "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-69323bce3e" },
+    { "low_confidence": true, "value": "ccs1", "kind": "manufacturer", "source_id": "src-thechargeport-nacs-checker", "note_id": "n-12a901f900" }
   ],
   "supercharger_access": [
-    {
-      "low_confidence": true,
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq",
-      "notes": "Hyundai Canada FAQ: owners of CCS-port 2025-and-earlier Hyundai EVs reach Tesla Superchargers (146 Canadian stations) with a separately available NACS adapter. IONIQ 6 not named. A forum post claims a free Canadian adapter programme from 2026-06-01; not confirmed on a Hyundai page."
-    }
+    { "low_confidence": true, "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-ea1d0f39b4" }
   ],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 197,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-nyland-sheet-2026-10",
-      "low_confidence": true,
-      "notes": "Test: 120 km/h steady, 9 °C, dry, 18-inch wheels (225/55-18 Continental VC7, winter tyres per sheet), battery-side (car display; sheet does not say explicitly) | Nyland, 'Hyundai Ioniq 6 RWD' (77.4 kWh gross pack, 75.1 kWh measured; autohled.cz says his 2023 tests were pre-facelift cars). Our 2025 Long Range RWD has the same 77.4 kWh pack, 800 V; assumed the 2025 refresh did not change pack or motor (not verified against a changelog). Matches our 18-inch trim. 90 km/h, 9 °C: 149 Wh/km. Cool, winter-tyre test, so a mild-weather figure would be lower. Other test seen, not recorded: ArenaEV LR AWD 77.4 kWh, 24 °C, 130 km/h: 22.3 kWh/100 km (speed outside 110-120 range).. | Main session: cool test (9 °C, winter tyres); borderline for calibration, give it low weight."
-    }
+    { "value": 197, "unit": "Wh/km", "kind": "tested", "source_id": "src-nyland-sheet-2026-10", "low_confidence": true, "note_id": "n-03e76f0e41" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-98b4e9e819" }
   ],
   "trims": [
     {
       "id": "18-in-wheels",
-      "name": "Long Range (18\" Wheels)",
+      "names": { "CA": "Long Range" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-auto123-ioniq-6-2025",
-          "low_confidence": true,
-          "notes": "Quick web lookup (rough, not cross-checked). Dealer spec sheet lists a heat pump on RWD and AWD."
-        }
-      ]
-    },
-    {
-      "id": "20-in-wheels",
-      "name": "Long Range (20\" Wheels)",
-      "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-auto123-ioniq-6-2025",
-          "low_confidence": true,
-          "notes": "Quick web lookup (rough, not cross-checked). Dealer spec sheet lists a heat pump on RWD and AWD."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-auto123-ioniq-6-2025", "low_confidence": true, "note_id": "n-047f595d93" }
+      ],
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-6-2025-index", "low_confidence": true, "note_id": "n-34f77e6586" }
       ]
     }
   ]

@@ -3,13 +3,41 @@
   "make_id": "subaru",
   "name": "Solterra",
   "body_type": "suv",
+  "generations": [
+    { "id": "launch", "name": "Launch", "first_year": 2023, "last_year": 2023, "notes": "Launch (bZ4X twin): AWD 72.8 kWh pack, DC up to ~100 kW. The Solterra is AWD-only, so it shares the bZ4X AWD pack and charging. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Toyota_bZ4X ; https://insideevs.com/news/585939/toyota-bz4x-awd-fast-charging-curve/" },
+    { "id": "2024-charging-update", "name": "2024 charging update", "first_year": 2024, "last_year": 2025, "notes": "Same 72.8 kWh pack with an uprated battery conditioning system for faster DC charging in the cold; some sources say the AWD peak rose from 100 to 150 kW. Neither Toyota nor Subaru states a new peak kW; the 100 to 150 kW claim is from reviews of the twin bZ4X. Carscoops reported early that the US might not get the cold-charging upgrade, which conflicts with Toyota's US release. Keep this split only if 2024+ curves really differ. Confidence: low (researched 2026-11-19, owner review pending). Sources: https://media.subaru.com/pressrelease/2264/1/2025-subaru-solterra-press-kit ; https://evpulse.com/reviews/2024-toyota-bz4x-awd-limited-review-significantly-improved-still-hard-to-recommend" },
+    { "id": "2026-refresh", "name": "2026 refresh", "first_year": 2026, "notes": "New 74.7 kWh pack (US; Canada quotes 77.0 kWh total), DC up to 150 kW, battery preconditioning, native NACS port, more power (XT trim 338 hp). CA 77.0 kWh vs US 74.7 kWh is probably gross vs usable for the same pack (AutoGuide, Auto123), not a different pack. Same model years in CA and US. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://media.subaru.com/pressrelease/2307/1/all-new-2026-subaru-solterra-ev-debuts-updated ; https://newswire.ca/news-releases/subaru-debuts-all-new-2026-solterra-ev-800059542.html ; https://www.jdpower.com/cars/expert-reviews/2026-subaru-solterra-review-update" }
+  ],
   "years": [
     {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "launch"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2024-charging-update"
+    },
+    {
+      "year": 2025,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "2024-charging-update"
+    },
+    {
       "year": 2026,
-      "markets": [
-        "CA"
-      ],
-      "availability_status": "production"
+      "markets": ["CA"],
+      "availability_status": "production",
+      "generation": "2026-refresh"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "2026-refresh"
     }
   ]
 }

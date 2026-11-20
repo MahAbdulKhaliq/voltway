@@ -3,52 +3,6 @@
   "source_id": "src-chargeprice-archive-2025-04",
   "make": "artega",
   "records": [
-    {
-      "source_key": "1c9126d4-24d6-4e9f-a49d-15813fa49728",
-      "year": 2020,
-      "make": "Artega",
-      "model": "Karo",
-      "variant": "Range Plus",
-      "capacity_usable_kwh": [
-        {
-          "value": 14.4,
-          "unit": "kWh",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "dc_max_kw": [
-        {
-          "value": 150,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "ac_max_kw": [
-        {
-          "value": 4,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "nominal_voltage_class": [
-        {
-          "value": "400v",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "curve_skipped": "flagged_default"
-    }
+    { "source_key": "1c9126d4-24d6-4e9f-a49d-15813fa49728", "year": 2020, "make": "Artega", "model": "Karo", "variant": "Range Plus", "capacity_usable_kwh": [{ "value": 14.4, "unit": "kWh", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "dc_max_kw": [{ "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "ac_max_kw": [{ "value": 4, "unit": "kW", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "nominal_voltage_class": [{ "value": "400v", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "curve_skipped": "flagged_default" }
   ]
 }

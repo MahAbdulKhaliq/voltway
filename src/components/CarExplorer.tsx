@@ -4,17 +4,17 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
-import { COVERAGE } from '../config.ts';
 import { displayMinutes } from '../lib/charging.ts';
 import { getItem, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
-import type { CarDetail, Field, IndexEntry } from '../lib/types.ts';
-import { applyWheelEffect, ratedOnItsOwn, ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
+import type { CarDetail, Field, IndexEntry, SourcedValue } from '../lib/types.ts';
+import { applyWheelEffect, wheelSizeOptions, ratedOnItsOwn, ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
 import { display } from '../lib/format.ts';
+import { levelTwoTime } from '../lib/l2-time.ts';
 import CurveViewer from './CurveViewer.tsx';
 import { carMapInfo, linkPlugs } from '../lib/map-filter.ts';
 import { GROUPS } from '../lib/spec-groups.ts';
-import { carLabel } from '../lib/car-label.ts';
+import { carLabel, carModel, LABEL_VERSION } from '../lib/car-label.ts';
 import { addToCompare, getCompare, removeFromCompare, getMyCar, setMyCar, type AddResult, type MyCar } from '../lib/my-car.ts';
 import { Badge, Value, sourceNumber } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
@@ -35,7 +35,7 @@ export function trimLabel(trim: string, variant: string): string {
 }
 
 export default function CarExplorer({ index, wheelEffect }: Props) {
-  const cars = useMemo(() => index.filter((e) => e.sold_in_canada), [index]);
+  const cars = index; // B98: every car, whatever its markets
   const [carId, setCarId] = useState<string | null>(null);
   const [trimId, setTrimId] = useState<string | null>(null);
   const [car, setCar] = useState<CarDetail | null>(null);
@@ -147,6 +147,12 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const usable = f.capacity_usable_kwh ?? null;
   const battery = usable ?? f.capacity_gross_kwh ?? null;
   const ac: Field = trim?.ac_max_kw ?? f.ac_max_kw ?? null;
+  // B104: the Level 2 time follows the picked trim's onboard charger (the car's time is rated with the first trim's).
+  const refAc = (car?.trims[0]?.ac_max_kw ?? f.ac_max_kw)?.value.value as number | undefined;
+  const trimAc = ac?.value.value as number | undefined;
+  const carL2 = f.recharge_time_240v_h ?? null;
+  const l2: Field = levelTwoTime(carL2, trim?.recharge_time_240v_h ?? null, refAc, trimAc,
+    t('l2.basis', { trim: formatNumber(trimAc ?? 0, 1), ref: formatNumber(refAc ?? 0, 1), hours: formatNumber((carL2?.value.value as number) ?? 0, 1) }));
   // Figures rated for this trim when it has its own rating, else the variant's.
   const rated: Record<string, Field> = {
     range_km: trim?.range_km ?? f.range_km ?? null,
@@ -165,7 +171,16 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const basis = wheelEffect
     ? t('wheel.basis', { size: chosenIn ?? '', base: baseIn ?? '', pct: pct(wheelEffect.pct_per_inch), low: pct(wheelEffect.low), high: pct(wheelEffect.high), pairs: wheelEffect.pairs })
     : '';
+  // B91: when a trim is rated at the picked wheel size too (NRCan wheel-split rows merged into one
+  // trim), that official figure is shown instead of an estimate.
+  const wheelRated = adjusting ? trim?.wheels.find((w) => w.diameter_in === chosenIn && w.rated_range_km) : undefined;
+  const official: Record<string, SourcedValue | undefined> = {
+    range_km: wheelRated?.rated_range_km,
+    consumption_combined_wh_per_km: wheelRated?.rated_consumption_wh_per_km,
+  };
   const estimate = (k: string): Field => {
+    const o = official[k];
+    if (o) return { value: o, others: [], conflict: false };
     const r = rated[k];
     if (!adjusting || !r || typeof r.value.value !== 'number') return r;
     const v = k === 'range_km' ? r.value.value / factor : r.value.value * factor;
@@ -178,13 +193,10 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const shown: Record<string, Field> = Object.fromEntries(Object.keys(rated).map((k) => [k, estimate(k)]));
   const range = shown.range_km;
   const ratedLine = (k: string) =>
-    adjusting && rated[k] ? <span className="rated">{t('tile.rated', { value: display(rated[k]!.value, unit).text })}</span> : null;
+    adjusting && rated[k] && !official[k] ? <span className="rated">{t('tile.rated', { value: display(rated[k]!.value, unit).text })}</span> : null;
   const factorySizes = new Set((car?.trims ?? []).flatMap((x) => x.wheels.map((w) => w.diameter_in)));
   const officialTrim = adjusting ? car?.trims.find((x) => x.id !== trim?.id && x.wheels.some((w) => w.diameter_in === chosenIn) && (x.range_km || x.consumption_combined_wh_per_km)) : undefined;
-  const sizes =
-    baseIn !== null
-      ? [...new Set([...Array.from({ length: 11 }, (_, i) => 14 + i), baseIn, ...factorySizes])].sort((a, b) => a - b)
-      : [];
+  const sizes = baseIn !== null ? wheelSizeOptions([...factorySizes], baseIn) : []; // B93
   const defaultCurve = car?.curves.find((c) => c.is_display_default);
   // B24: when the 10–80 % window reaches past the measured points, the tiles' figures are estimated.
   const extended = Boolean(car?.derived.extrapolated) && defaultCurve?.kind !== 'estimated';
@@ -309,7 +321,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
             <p className="muted eyebrow">{car.year} · {car.make.name} · {t(`body.${car.model.body_type}` as MessageKey)} · {t(`value.${car.drivetrain}` as MessageKey)}</p>
             <h1>{car.model.name} <span className="variant"><VariantName name={car.name} /></span></h1>
             <div className="car-actions">
-              <button type="button" className={`btn small${isMine ? ' primary' : ''}`} aria-pressed={isMine} onClick={() => !isMine && setMyCar({ carId: car.id, trimId: car.trims.length > 1 ? trimId : null, label: labelFor(car.id), model: cars.find((c) => c.id === car.id)?.model })}>
+              <button type="button" className={`btn small${isMine ? ' primary' : ''}`} aria-pressed={isMine} onClick={() => !isMine && setMyCar({ carId: car.id, trimId: car.trims.length > 1 ? trimId : null, label: labelFor(car.id), model: (() => { const e = cars.find((c) => c.id === car.id); return e ? carModel(e) : undefined; })(), labelV: LABEL_VERSION })}>
                 {isMine ? t('mycar.isMine') : t('mycar.set')}
               </button>
               <button type="button" className={`btn small cmp-toggle${inCompare ? ' on' : ''}`}
@@ -320,7 +332,6 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
             </div>
             {compareNote === 'full' && <p className="banner small" role="status">{t('browse.compareFull')}</p>}
           </header>
-          {!car.sold_in_canada && <p className="banner">{t('car.notInMarket', { market: COVERAGE.market, regulator: COVERAGE.regulatorShort })}</p>}
 
           <section aria-labelledby="curve">
             <h2 id="curve">{t('car.curve')}</h2>
@@ -347,8 +358,8 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
           <Accordion headingId="key" title={t('car.details')} preview={detailsPreview}>
             <p className="muted small acc-help">{t('car.detailsHelp')}</p>
             <div className="readouts tiles">
-              <div className="readout"><p className="readout-label">{t('tile.range')}</p><div className="readout-value"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={adjusting} />{ratedLine('range_km')}</div></div>
-              <div className="readout"><p className="readout-label">{t('tile.efficiency')}</p><div className="readout-value"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={adjusting} />{ratedLine('consumption_combined_wh_per_km')}</div></div>
+              <div className="readout"><p className="readout-label">{t('tile.range')}</p><div className="readout-value"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={adjusting && !official.range_km} />{ratedLine('range_km')}</div></div>
+              <div className="readout"><p className="readout-label">{t('tile.efficiency')}</p><div className="readout-value"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={adjusting && !official.consumption_combined_wh_per_km} />{ratedLine('consumption_combined_wh_per_km')}</div></div>
               <div className="readout"><p className="readout-label">{usable ? t('tile.battery') : t('tile.batteryGross')}</p><div className="readout-value"><Value field={battery} sources={sources} label={t('tile.battery')} unit={unit} /></div></div>
               <div className="readout"><p className="readout-label">{t('tile.dcPeak')}</p><div className="readout-value"><Value field={f.dc_max_kw ?? null} sources={sources} label={t('tile.dcPeak')} unit={unit} /></div></div>
               <div className="readout"><p className="readout-label">{t('tile.time1080')}</p><div className="readout-value">
@@ -372,8 +383,8 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
                   <table className="stack-table">
                     <tbody>
                       {g.fields.map((k) => {
-                        const field: Field = k in shown ? shown[k] : k === 'ac_max_kw' ? ac : f[k] ?? null;
-                        return <tr key={k}><th scope="row">{label(k)}</th><td data-label={label(k)}><Value field={field} sources={sources} label={label(k)} unit={unit} approx={adjusting && k in shown} />{k in shown && ratedLine(k)}</td></tr>;
+                        const field: Field = k in shown ? shown[k] : k === 'ac_max_kw' ? ac : k === 'recharge_time_240v_h' ? l2 : f[k] ?? null;
+                        return <tr key={k}><th scope="row">{label(k)}</th><td data-label={label(k)}><Value field={field} sources={sources} label={label(k)} unit={unit} approx={adjusting && k in shown && !official[k]} />{k in shown && ratedLine(k)}</td></tr>;
                       })}
                       {g.title === 'group.ports' && (
                         <tr><th scope="row">{t('field.heat_pump')}</th><td data-label={t('field.heat_pump')}><Value field={trim?.heat_pump ?? null} sources={sources} label={t('field.heat_pump')} unit={unit} /></td></tr>

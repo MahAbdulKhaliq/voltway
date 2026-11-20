@@ -1,0 +1,31 @@
+{
+  "id": "rivian/r1s/2026/dual-motor-large-pack-2",
+  "model_id": "rivian/r1s",
+  "year": 2026,
+  "name": "Dual-Motor Large Pack",
+  "drivetrain": "awd",
+  "powertrain_id": "rivian/r1s/2026-dual-motor-large-pack",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-81d2002905" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-2b61353dba" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-riviantrackr-r2-adapters", "low_confidence": true, "note_id": "n-31cfe24d36" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Dual-Motor Large Pack", "US": "Dual-Motor Large Pack" },
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2w-kbb-rivian-r1t-2027-tires", "note_id": "n-a05accd950", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-carb-rivian-2026", "note_id": "n-0d43f7e830", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-insideevs-r1-gen2-review", "low_confidence": true, "note_id": "n-6ea48478f7" }
+      ]
+    }
+  ]
+}

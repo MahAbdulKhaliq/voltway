@@ -1,0 +1,32 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "bmw/i3/2015-i3-60-ah",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-80",
+  "points": [
+    { "soc_percent": 9, "power_kw": 43.9 },
+    { "soc_percent": 10, "power_kw": 44 },
+    { "soc_percent": 15, "power_kw": 45 },
+    { "soc_percent": 20, "power_kw": 45.9 },
+    { "soc_percent": 25, "power_kw": 46.7 },
+    { "soc_percent": 28, "power_kw": 46.9 },
+    { "soc_percent": 30, "power_kw": 46.7 },
+    { "soc_percent": 35, "power_kw": 44 },
+    { "soc_percent": 40, "power_kw": 44 },
+    { "soc_percent": 45, "power_kw": 44.1 },
+    { "soc_percent": 50, "power_kw": 44.3 },
+    { "soc_percent": 55, "power_kw": 44.5 },
+    { "soc_percent": 60, "power_kw": 44.8 },
+    { "soc_percent": 65, "power_kw": 39.5 },
+    { "soc_percent": 70, "power_kw": 33.2 },
+    { "soc_percent": 75, "power_kw": 26.3 },
+    { "soc_percent": 80, "power_kw": 18.2 },
+    { "soc_percent": 85, "power_kw": 12.9 },
+    { "soc_percent": 90, "power_kw": 8.2 },
+    { "soc_percent": 95, "power_kw": 3.9 },
+    { "soc_percent": 96, "power_kw": 3.1 }
+  ],
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 50 },
+  "note_id": "n-2e690cdc7f",
+  "is_display_default": false
+}

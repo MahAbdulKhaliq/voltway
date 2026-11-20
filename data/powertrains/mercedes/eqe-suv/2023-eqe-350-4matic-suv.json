@@ -1,0 +1,33 @@
+{
+  "id": "mercedes/eqe-suv/2023-eqe-350-4matic-suv",
+  "model_id": "mercedes/eqe-suv",
+  "name": "EQE 350 4MATIC SUV",
+  "generation": "first-generation",
+  "years": [2023],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 89, "unit": "kWh", "kind": "manufacturer", "source_id": "src-mbusa-data-2023-eqe-eqe350x4", "low_confidence": true, "note_id": "n-a715903cc5" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 100, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-mb-eqe", "low_confidence": true, "note_id": "n-30f3a98dfe" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mb-eqe", "low_confidence": true, "note_id": "n-98b9a85e51" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-mb-eqe", "low_confidence": true, "note_id": "n-361488a6e2" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-eqe-eqs-quickstart", "low_confidence": true, "note_id": "n-ce3bdffc9d" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 170, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2023-eqe-eqe350x4", "note_id": "n-ef94359a19" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2023-eqe-eqe350x4", "note_id": "n-6c4fc42729" }
+  ],
+  "published_10_80_min": [
+    { "value": 32, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2023-eqe-eqe350x4", "note_id": "n-e94024573d" }
+  ]
+}

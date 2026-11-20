@@ -1,0 +1,35 @@
+{
+  "id": "chevrolet/silverado-ev/2026-wt-ext-range",
+  "model_id": "chevrolet/silverado-ev",
+  "name": "WT Ext Range",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec", "low_confidence": true, "note_id": "n-2668b49398" },
+      { "value": "800v", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-ddaa2e8bd2" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-thinkev-silverado-2026", "low_confidence": true, "note_id": "n-8daea4ea8a" },
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-60bfa013c8" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 170, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-silverado-test", "low_confidence": true, "notes": "InsideEVs: 2025 LT Extended Range has a 170 kWh pack (bare capacity, treated as gross); Wikipedia agrees. WT Extended assumed to use the same Extended pack." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 170, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-20", "low_confidence": true, "note_id": "n-2ba289b04d" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 300, "unit": "kW", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-001f5b3f30" }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-f41066f22d" }
+  ],
+  "published_10_80_min": [
+    { "value": 42, "unit": "min", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-782d1411c6" }
+  ]
+}

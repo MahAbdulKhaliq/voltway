@@ -1,0 +1,30 @@
+{
+  "id": "ford/f-150-lightning/2025-pro-extended-range-131-kwh",
+  "model_id": "ford/f-150-lightning",
+  "name": "PRO Extended Range (131 kWh)",
+  "generation": "first-generation",
+  "years": [2025],
+  "battery": {
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-ford-corp-sk-ncm", "low_confidence": true, "note_id": "n-cbc6600333" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-ford-ca-nav-ev-routing", "low_confidence": true, "note_id": "n-3f5f651b5c" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-batterydesign-fl-er", "low_confidence": true, "note_id": "n-f9d6bfa8f7" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 131, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2025", "unit": "kWh", "note_id": "n-5bc1317d00" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 142, "kind": "estimated", "source_id": "src-batterydesign-fl-er", "unit": "kWh", "low_confidence": true, "note_id": "n-448a07e389" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2025", "unit": "kW", "note_id": "n-6a0fa6e140" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.3, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2025", "unit": "kW", "note_id": "n-982dfae07a" }
+  ]
+}

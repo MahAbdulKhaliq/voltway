@@ -1,0 +1,33 @@
+{
+  "id": "hyundai/ioniq-5/2023-preferred-long-range",
+  "model_id": "hyundai/ioniq-5",
+  "name": "Preferred Long Range",
+  "generation": "first-generation-pre-facelift",
+  "years": [2023],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 77.4, "unit": "kWh", "kind": "manufacturer", "source_id": "src-canadadrives-ioniq5-2022", "note_id": "n-12fce92c2c", "low_confidence": true }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 74, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ioniq5-lr-awd", "note_id": "n-4053341c8a", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ioniq5-lr-awd", "note_id": "n-07ee0c74f0", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "community", "source_id": "src-evdb-ioniq5-lr-awd", "note_id": "n-ba06b4f7d7", "low_confidence": true }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-electrive-ioniq5-preconditioning-2023", "note_id": "n-7fc2f2e146", "low_confidence": true }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 233, "unit": "kW", "kind": "community", "source_id": "src-wikipedia-ioniq5", "note_id": "n-6f54561de1", "low_confidence": true }
+  ],
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-canadadrives-ioniq5-2022", "note_id": "n-ebbdacdce1", "low_confidence": true }
+  ],
+  "published_10_80_min": [
+    { "value": 18, "unit": "min", "kind": "manufacturer", "source_id": "src-slashgear-ioniq5-2022-us", "note_id": "n-0b3faee864", "low_confidence": true }
+  ]
+}

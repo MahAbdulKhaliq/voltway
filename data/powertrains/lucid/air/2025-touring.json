@@ -1,0 +1,30 @@
+{
+  "id": "lucid/air/2025-touring",
+  "model_id": "lucid/air",
+  "name": "Touring",
+  "generation": "first-generation",
+  "years": [2025],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 89.6, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-arenaev-lucid-air-2023", "low_confidence": true, "note_id": "n-b27f20dee5" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-0e073f7924" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-w2-lucid-air-touring-2025-sheet", "low_confidence": true, "note_id": "n-3cf9b99c1e" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "low_confidence": true, "note_id": "n-5b38ca5f4b" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 92, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-lucid-air-touring-2025-sheet", "low_confidence": true, "notes": "Lucid 2025 Touring sheet: battery capacity 92 kWh (18 module); 2024 sheet 92 (US), 91 (metric)." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-air-touring-2025-sheet", "low_confidence": true, "notes": "Lucid 2025 Touring sheet: DC up to 250 kW; 2024 sheet the same." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "low_confidence": true, "note_id": "n-560efa3597" }
+  ]
+}

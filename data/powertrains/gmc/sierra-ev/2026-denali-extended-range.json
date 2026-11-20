@@ -1,0 +1,27 @@
+{
+  "id": "gmc/sierra-ev/2026-denali-extended-range",
+  "model_id": "gmc/sierra-ev",
+  "name": "Denali Extended Range",
+  "generation": "first-generation",
+  "years": [2026, 2027],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 170, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-20", "low_confidence": true, "note_id": "n-cc823dc24b" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-c801dbd3dd" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-fa6ad8238d" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-39d7004859" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 300, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-da8fccf6b9" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-thechargeport-gmc-sierra-ev", "low_confidence": true, "note_id": "n-14895dc4b3" }
+  ]
+}

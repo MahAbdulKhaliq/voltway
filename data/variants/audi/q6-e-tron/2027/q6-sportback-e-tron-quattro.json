@@ -1,0 +1,32 @@
+{
+  "id": "audi/q6-e-tron/2027/q6-sportback-e-tron-quattro",
+  "model_id": "audi/q6-e-tron",
+  "year": 2027,
+  "name": "Q6 Sportback e-tron quattro",
+  "drivetrain": "awd",
+  "powertrain_id": "audi/q6-e-tron/2027-q6-e-tron-quattro",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-80c03df249" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-c1cc15655e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-insideevs-audi-porsche-sc", "note_id": "n-407da96ab2", "low_confidence": true },
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-electrive-audi-porsche", "note_id": "n-8ff0427601", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Q6 Sportback e-tron quattro" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-audi-q6etronsportback-2025-471662", "notes": "Estimated: 2025 Q6 Sportback page shows 19-inch; 2027 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-cars-audi-q6etron-2025-465467", "note_id": "n-8e269b1e44", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-ehga-q6-climate", "note_id": "n-999a0abc6a", "low_confidence": true }
+      ]
+    }
+  ]
+}

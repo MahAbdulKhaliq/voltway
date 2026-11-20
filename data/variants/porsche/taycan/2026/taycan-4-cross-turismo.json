@@ -1,0 +1,31 @@
+{
+  "id": "porsche/taycan/2026/taycan-4-cross-turismo",
+  "model_id": "porsche/taycan",
+  "year": 2026,
+  "name": "Taycan 4 Cross Turismo",
+  "drivetrain": "awd",
+  "powertrain_id": "porsche/taycan/2026-taycan-4-cross-turismo",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-5905a75adf" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-c33be61ae0" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-ca-supercharger-2025", "note_id": "n-da78e91c76" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-por-us-sc-access", "note_id": "n-1d15ead5c9", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Taycan 4 Cross Turismo" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-porsche-taycan-2024-444608", "notes": "Estimated: the 2024 Taycan 4 Cross Turismo AWD page shows 19-inch; the 2026 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-por-ca-taycan-2025", "note_id": "n-1372c1e9a6", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "volvo/ex90/2025/twin-motor-performance",
+  "model_id": "volvo/ex90",
+  "year": 2025,
+  "name": "Twin Motor Performance",
+  "drivetrain": "awd",
+  "powertrain_id": "volvo/ex90/2025-twin-motor",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-8517058905" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-b60e063996" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-b564dd4260" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-volvomobile-nacs", "note_id": "n-472883886f", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Twin Motor Performance", "US": "Twin Motor Performance" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-volvo-ex90-2025-specs", "notes": "Twin Motor Plus 7-Seater: 20 in aluminum (255/50 front, 285/45 rear); Performance trims not opened.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-insideevs-ex90-2025", "note_id": "n-569b0608e0", "low_confidence": true }
+      ]
+    }
+  ]
+}

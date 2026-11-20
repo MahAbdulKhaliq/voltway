@@ -1,0 +1,30 @@
+{
+  "id": "nissan/leaf/2019/sv-plus",
+  "model_id": "nissan/leaf",
+  "year": 2019,
+  "name": "SV PLUS",
+  "drivetrain": "unknown",
+  "powertrain_id": "nissan/leaf/2019-s-plus",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "chademo", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2019-press-kit", "low_confidence": true, "note_id": "n-1a75adcbbf" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "estimated", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b0ca50230f" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-thedrive-leaf-no-adapter", "note_id": "n-2e0a777234", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "SV PLUS" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-r3w-nissan-leaf-2019-specs-405823", "note_id": "n-e12a1eb33c", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b112-nh-nissan-us-leaf-2019", "note_id": "n-05dd1de38a", "low_confidence": true }
+      ]
+    }
+  ]
+}

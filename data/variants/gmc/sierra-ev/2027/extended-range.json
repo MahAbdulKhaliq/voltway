@@ -1,0 +1,32 @@
+{
+  "id": "gmc/sierra-ev/2027/extended-range",
+  "model_id": "gmc/sierra-ev",
+  "year": 2027,
+  "name": "Extended Range",
+  "drivetrain": "awd",
+  "powertrain_id": "gmc/sierra-ev/2026-denali-extended-range",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "estimated", "source_id": "src-thechargeport-equinox-ev", "low_confidence": true, "notes": "Estimated: Estimated from the GM 2027 changeover: The Charge Port says the 2027 Equinox EV has native NACS (2024-2026 CCS1), and its 2027 Lyriq and Vistiq pages say the same; no page for the 2027 Sierra EV or Silverado EV states the port (gmc.com 403, Charge Port Sierra page silent). Weak: the truck is not confirmed." }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-equinox-ev", "low_confidence": true, "note_id": "n-3d05143027" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-gm-nacs", "low_confidence": true, "note_id": "n-795f9fc0f8" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Extended Range" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-gmc-sierra-ev-2026-specs-471578", "notes": "No 2027 page on Cars.com; 18 in carried from the 2026 Extended Range Elevation page (AT4 is 18 in too).", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-gmc-sierra-ev-2026-specs-471574", "notes": "No 2027 page; 22 in carried from the 2026 Extended Range Denali page.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

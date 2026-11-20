@@ -1,0 +1,32 @@
+{
+  "id": "kia/ev6/2023/gt-long-range-awd",
+  "model_id": "kia/ev6",
+  "year": 2023,
+  "name": "GT Long Range AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "kia/ev6/2023-gt-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-e97a9274cf" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-electrek-2025-ev6-us-built", "low_confidence": true, "note_id": "n-7c8cc0d709" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-page", "low_confidence": true, "note_id": "n-bdc0f55932" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-9b43603c60" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-adapter", "notes": "US: Kia sells the Kia-approved NACS-to-CCS1 adapter through dealers (reported $249, Electrek Jan 2025) to owners outside the free offer. 2023 EV6 is outside the free offer (2024-25 EV9 and 2024 EV6 only).", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "GT Long Range AWD" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-kia-ev6-2023-433953", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-kbb-ev6-2023-specs", "notes": "KBB 2023 EV6: heat pump standard on the GT. US source.", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/cla/2027/cla-250-plus-with-eq-technology-2",
+  "model_id": "mercedes/cla",
+  "year": 2027,
+  "name": "CLA 250+ with EQ Technology",
+  "drivetrain": "rwd",
+  "powertrain_id": "mercedes/cla/2027-cla-250-plus-with-eq-technology",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-cla-cla250e", "note_id": "n-fc571cb0ad" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "note_id": "n-d92074b3ac" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-d2f5e34495" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "CLA 250+ with EQ Technology" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-cla-250-plus-2027-specs", "note_id": "n-7e5ac8d543" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-automoblog-cla", "note_id": "n-3ee76f4491", "low_confidence": true }
+      ]
+    }
+  ]
+}

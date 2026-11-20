@@ -1,0 +1,30 @@
+{
+  "id": "jeep/wagoneer-s/2025/awd-2",
+  "model_id": "jeep/wagoneer-s",
+  "year": 2025,
+  "name": "AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "jeep/wagoneer-s/2025-awd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "community", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-0a10fd51e3", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-4f5621d246", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-f1a3d4617e", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "AWD", "US": "AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-cc-ws25", "note_id": "n-53a75edf49", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-wagoneer-s-500hp-2025", "note_id": "n-5693d1fd54", "low_confidence": true }
+      ]
+    }
+  ]
+}

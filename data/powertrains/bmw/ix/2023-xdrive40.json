@@ -1,0 +1,33 @@
+{
+  "id": "bmw/ix/2023-xdrive40",
+  "model_id": "bmw/ix",
+  "name": "xDrive40",
+  "generation": "first-generation",
+  "years": [2023],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "note_id": "n-fbc6e2054c" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-w2-a-ix40", "low_confidence": true, "notes": "ArenaEV iX xDrive40 page: liquid-cooled Li-ion, \"400V\"." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 71, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "notes": "Estimated: same hardware as MY2022 (the page read); model years compared 2022 to 2023, nothing shows a change. BMW global: xDrive40 net 71 kWh. 2023-2025 compared." }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 76.6, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "notes": "Estimated: same hardware as MY2022 (the page read); model years compared 2022 to 2023, nothing shows a change. BMW global: gross 76.6 kWh." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-gf-adac-ix-xdrive40", "low_confidence": true, "notes": "Estimated: same hardware in another model year (the ADAC page covers 03/24-01/25). ADAC manufacturer-data table for the iX xDrive40 (03/24-01/25): Nickel-Mangan-Cobalt, 76.6 kWh gross, 400 V, the same 76.6 kWh gross as this car. Years 2023-2025 compared." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "notes": "Estimated: same hardware as MY2022 (the page read); model years compared 2022 to 2023, nothing shows a change. BMW global: up to 150 kW (xDrive40)." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "notes": "Estimated: same hardware as MY2022 (the page read); model years compared 2022 to 2023, nothing shows a change. BMW global: up to 11 kW." }
+  ],
+  "published_10_80_min": [
+    { "value": 31, "unit": "min", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "notes": "Estimated: same hardware as MY2022 (the page read); model years compared 2022 to 2023, nothing shows a change. BMW global: 31 min (xDrive40)." }
+  ]
+}

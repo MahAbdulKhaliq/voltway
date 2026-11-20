@@ -1,0 +1,27 @@
+{
+  "id": "ford/mustang-mach-e/2026-extended-range",
+  "model_id": "ford/mustang-mach-e",
+  "name": "Extended Range",
+  "generation": "lfp-standard-range",
+  "years": [2026],
+  "battery": {
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-mme-lfp-2023", "low_confidence": true, "note_id": "n-508e42566c" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-ford-ca-precondition", "low_confidence": true, "note_id": "n-3f5f651b5c" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-electrek-ford-lfp-2023", "low_confidence": true, "note_id": "n-0e768d8164" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 88, "kind": "manufacturer", "source_id": "src-ford-us-mme-specs-2025", "unit": "kWh", "low_confidence": true, "notes": "Ford 2025 spec sheet: ER RWD and ER eAWD 88 kWh usable (360 cells); the 2026 sheet was not read. OpenEV and Chargeprice list 91 kWh (3 % apart, the older 376-cell pack)." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "kind": "manufacturer", "source_id": "src-ford-us-mme-specs-2025", "unit": "kW", "note_id": "n-6b3f20c607", "low_confidence": true }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "kind": "estimated", "source_id": "src-wikipedia-mach-e", "unit": "kW", "low_confidence": true, "note_id": "n-6d63d05bc5" }
+  ]
+}

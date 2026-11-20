@@ -1,0 +1,30 @@
+{
+  "id": "fisker/ocean/2024/sport",
+  "model_id": "fisker/ocean",
+  "year": 2024,
+  "name": "Sport",
+  "drivetrain": "fwd",
+  "powertrain_id": "fisker/ocean/2024-sport",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "community", "source_id": "src-evspecs-fisker-ocean-compare", "note_id": "n-bc7db26afe", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "community", "source_id": "src-insideevs-supercharger-list-2026", "note_id": "n-fb4c104991", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112o-carscom-fisker-supercharger-2023", "note_id": "n-ad6f53577c", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Sport", "US": "Sport" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-cc-oc23", "notes": "2023 Sport FWD 20 x 7.5; 2024 not checked, low confidence.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b113-arenaev-fisker-fwd", "notes": "ArenaEV FWD (275 hp, 80 kWh LFP Sport) lists Heat pump: No. KBB lists the heat pump only on the Ultra.", "low_confidence": true }
+      ]
+    }
+  ]
+}

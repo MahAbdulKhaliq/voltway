@@ -1,0 +1,31 @@
+{
+  "id": "hyundai/ioniq-5/2025/preferred-long-range-awd",
+  "model_id": "hyundai/ioniq-5",
+  "year": 2025,
+  "name": "Preferred Long Range AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "hyundai/ioniq-5/2025-dual-motor-awd",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-guideauto-ioniq5-2025-lineup-ca", "notes": "Canada: other 2025 IONIQ 5 models use a CCS port and are offered a NACS adapter.", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "notes": "Hyundai Canada FAQ: model year 2025 and earlier Hyundai EVs can use a NACS adapter sold separately." }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-d9840bdea0", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Preferred Long Range AWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-guideauto-hyundai-ioniq-5-2023-preferred-long-range-awd", "low_confidence": true, "notes": "Carried from the 2023 Canadian page; 2025 not read." },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-michelin-ca-ioniq5-2024-ultimate", "low_confidence": true, "notes": "Ultimate Package, 2024 Michelin Canada fitment; 2025 not confirmed." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-hy-ca-ioniq5-page", "note_id": "n-89157ab85f", "low_confidence": true }
+      ]
+    }
+  ]
+}

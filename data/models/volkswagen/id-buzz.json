@@ -1,0 +1,17 @@
+{
+  "id": "volkswagen/id-buzz",
+  "make_id": "volkswagen",
+  "name": "ID. Buzz",
+  "body_type": "van",
+  "generations": [
+    { "id": "first-generation", "name": "First generation", "first_year": 2025, "notes": "North American long-wheelbase ID. Buzz on MEB from MY2025: 91 kWh gross (~86 usable) pack, 400 V; RWD and 4MOTION; CCS1 port. VW skipped MY2026 in the US and returns for MY2027 with the same 91 kWh pack, updated software and a native NACS port (port change only, so kept in one generation, as for chevrolet/blazer-ev). Peak DC: 200 kW is often quoted but not confirmed here (one reader comment says 170 kW); to research per powertrain. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://electrek.co/2026/05/14/volkswagen-brings-id-buzz-back-for-2027-the-id-4-goes-on-hiatus/ ; https://insideevs.com/news/795883/2027-volkswagen-id-buzz-returns-to-the-us/ ; https://www.kbb.com/car-news/2027-volkswagen-id-buzz-returns-with-new-tourer-camp-trim/" }
+  ],
+  "years": [
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    }
+  ]
+}

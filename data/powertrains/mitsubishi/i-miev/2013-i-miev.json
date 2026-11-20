@@ -1,0 +1,30 @@
+{
+  "id": "mitsubishi/i-miev/2013-i-miev",
+  "model_id": "mitsubishi/i-miev",
+  "name": "i-MiEV",
+  "generation": "first-generation",
+  "years": [2013, 2014, 2015, 2016, 2017],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 16, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-theautochannel-imiev-2016", "low_confidence": true, "note_id": "n-b2cb68c18a" }
+    ],
+    "chemistry": [
+      { "value": "other", "kind": "manufacturer", "source_id": "src-w2j-inl-imiev-2012", "low_confidence": true, "note_id": "n-826ae7eb2e" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-w2j-theautochannel-imiev-2016", "low_confidence": true, "note_id": "n-f6996f72af" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-w2j-theautochannel-imiev-2016", "low_confidence": true, "note_id": "n-ae46880528" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 13.5, "unit": "kWh", "kind": "estimated", "source_id": "src-w2j-inl-imiev-2012", "low_confidence": true, "notes": "Estimated: same hardware in another model year. INL measured 13.3-13.5 kWh out of the 2012 car's 16 kWh pack; the 2013+ LEV50N cells keep the same 16 kWh pack per Wikipedia/Mitsubishi (years 2012-2017 compared). Other databases quote 14.5 kWh usable (not opened)." }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 3.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-wikipedia-imiev", "low_confidence": true, "note_id": "n-db9d574576" }
+  ],
+  "dc_max_kw": [
+    { "value": 40, "unit": "kW", "kind": "community", "source_id": "src-w2j-fastned-imiev", "low_confidence": true, "note_id": "n-122cb35106" }
+  ]
+}

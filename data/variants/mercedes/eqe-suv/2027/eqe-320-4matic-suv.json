@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqe-suv/2027/eqe-320-4matic-suv",
+  "model_id": "mercedes/eqe-suv",
+  "year": 2027,
+  "name": "EQE 320 4MATIC SUV",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/eqe-suv/2027-eqe-320-4matic-suv",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-eqe-eqe320x4", "note_id": "n-e863ab2c59" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-80b5774b56", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "EQE 320 4MATIC SUV" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqe-320-2027-specs", "notes": "EQE 320 4MATIC SUV: 20 x 8.5 in, P255/45R20." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-363bfe8488", "low_confidence": true }
+      ]
+    }
+  ]
+}

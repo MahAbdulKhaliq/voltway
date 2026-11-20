@@ -1,0 +1,31 @@
+{
+  "id": "toyota/bz/2027/woodland-awd",
+  "model_id": "toyota/bz",
+  "year": 2027,
+  "name": "Woodland AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "toyota/bz/2026-woodland-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-woodland-2026", "low_confidence": true, "note_id": "n-0100c89edc" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-c43bf8772c" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-toyota-ca-media-bz-onsale-2026", "low_confidence": true, "note_id": "n-e8e0827b3a" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-toyota-2027-bz-woodland-us", "note_id": "n-59a62038a3", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Woodland AWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-toy-bz27w", "notes": "Standard 18-inch aluminum wheels with black aero covers; All-Terrain tires optional." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-toyota-2027-bz-woodland-us", "note_id": "n-7c0b0ad6a4", "low_confidence": true }
+      ]
+    }
+  ]
+}

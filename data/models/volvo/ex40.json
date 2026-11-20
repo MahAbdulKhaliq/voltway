@@ -3,13 +3,47 @@
   "make_id": "volvo",
   "name": "EX40",
   "body_type": "suv",
+  "generations": [
+    { "id": "xc40-recharge-launch", "name": "XC40 Recharge launch", "first_year": 2021, "last_year": 2023, "notes": "Launch as XC40 Recharge Pure Electric, Twin Motor AWD: 78 kWh gross (~75 usable) pack, DC up to 150 kW. A front-motor single (69 kWh) existed in some markets in 2022-2023. I did not confirm whether a 69 kWh front-motor single was sold in North America. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Volvo_EX40 ; https://www.edmunds.com/car-news/volvo-bring-back-rwd-more-range-for-xc40-c40-recharge.html" },
+    { "id": "2024-rwd-update", "name": "2024 RWD update", "first_year": 2024, "last_year": 2024, "notes": "New Single Motor Extended Range RWD on an 82 kWh gross (~79 usable) pack, DC up to 200 kW (10-80% about 28 min). Twin Motor keeps 78 kWh / 150 kW. Volvo US press (as quoted by search) gives 200 kW for the 82 kWh pack; the Volvo media page itself returned 403. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://www.carscoops.com/2023/05/2024-c40-and-xc40-recharge-become-first-rear-wheel-drive-volvos-in-america-in-25-years/ ; https://www.cars.com/articles/2024-volvo-c40-recharge-xc40-recharge-get-more-range-new-powertrains-465971" },
+    { "id": "ex40", "name": "EX40", "first_year": 2025, "notes": "Renamed EX40. Twin Motor moves to the 82 kWh pack; DC peak up to 205 kW on both Single and Twin Motor. Green Car Reports says the opposite (dual motor keeps 78 kWh); most sources say 82. US end: KBB implies 2026 is the last US model year; Electrek and Motor1 say after MY2027. Canada: Autoevolution says it continues to be sold there. last_year left open. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/748105/2025-volvo-ex40-rename-xc40-recharge/ ; https://www.motorauthority.com/news/1145564_2025-volvo-ex40-price ; https://www.kbb.com/car-news/volvo-ex40-discontinued-refreshed-xc40-skips-2027-model-year/" }
+  ],
   "years": [
     {
+      "year": 2021,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "xc40-recharge-launch"
+    },
+    {
+      "year": 2022,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "xc40-recharge-launch"
+    },
+    {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "xc40-recharge-launch"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2024-rwd-update"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "ex40"
+    },
+    {
       "year": 2026,
-      "markets": [
-        "CA"
-      ],
-      "availability_status": "production"
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "ex40"
     }
   ]
 }

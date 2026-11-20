@@ -1,0 +1,30 @@
+{
+  "id": "lucid/air/2025/sapphire",
+  "model_id": "lucid/air",
+  "year": 2025,
+  "name": "Sapphire",
+  "drivetrain": "awd",
+  "powertrain_id": "lucid/air/2025-sapphire",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "note_id": "n-9227bf3775" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-lucid-air-supercharger", "note_id": "n-0420550f7d" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Sapphire", "US": "Sapphire" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-lucid-air-sapphire-2024-wheels", "note_id": "n-92fdd2f989", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-carscoops-2025-air", "note_id": "n-f09fc7b509", "low_confidence": true }
+      ]
+    }
+  ]
+}

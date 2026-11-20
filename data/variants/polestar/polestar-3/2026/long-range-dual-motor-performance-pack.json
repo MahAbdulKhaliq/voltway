@@ -1,0 +1,31 @@
+{
+  "id": "polestar/polestar-3/2026/long-range-dual-motor-performance-pack",
+  "model_id": "polestar/polestar-3",
+  "year": 2026,
+  "name": "Long Range Dual Motor Performance Pack",
+  "drivetrain": "awd",
+  "powertrain_id": "polestar/polestar-3/2026-long-range-dual-motor",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-95808f81e1" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-us-nacs-adapter-page", "low_confidence": true, "note_id": "n-de5dd5d63b" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-ca-nacs-adapter-page", "low_confidence": true, "note_id": "n-616aab9b8a" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-polestar-us-nacs", "note_id": "n-b3bcf2fc86" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Long Range Dual Motor Performance Pack", "US": "Long Range Dual Motor Performance Pack" },
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2w-ps3-us", "note_id": "n-6c2e89c1e1", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-polestar-us-p3-specs", "note_id": "n-b7b2d36a2a", "low_confidence": true }
+      ]
+    }
+  ]
+}

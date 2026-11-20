@@ -1,0 +1,32 @@
+{
+  "id": "lexus/rz/2025/rz-450e-luxury-awd",
+  "model_id": "lexus/rz",
+  "year": 2025,
+  "name": "RZ 450e Luxury AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "lexus/rz/2023-rz-450e-luxury-awd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2023", "note_id": "n-d62508a568" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-charging", "note_id": "n-2c08fb9ccc" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-onsale", "note_id": "n-e252e1353b" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-ea19cb0f49" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-lexus-2026-rz-onsale-us", "note_id": "n-fc9912f990" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "RZ 450e Luxury AWD", "US": "RZ 450e Luxury AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-lexus-rz-450e-2025-specs-466576", "note_id": "n-dcb631b18a", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-arenaev-rz-450e-2023", "note_id": "n-406a7425be", "low_confidence": true }
+      ]
+    }
+  ]
+}

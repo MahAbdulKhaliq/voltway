@@ -3,51 +3,6 @@
   "source_id": "src-chargeprice-archive-2025-04",
   "make": "lancia",
   "records": [
-    {
-      "source_key": "aa5ff953-ac14-4ce3-95c5-351ed18b35db",
-      "year": 2024,
-      "make": "Lancia",
-      "model": "Ypsilon",
-      "capacity_usable_kwh": [
-        {
-          "value": 48.1,
-          "unit": "kWh",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "dc_max_kw": [
-        {
-          "value": 100,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "ac_max_kw": [
-        {
-          "value": 11,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "nominal_voltage_class": [
-        {
-          "value": "400v",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "curve_skipped": "generic_shape"
-    }
+    { "source_key": "aa5ff953-ac14-4ce3-95c5-351ed18b35db", "year": 2024, "make": "Lancia", "model": "Ypsilon", "capacity_usable_kwh": [{ "value": 48.1, "unit": "kWh", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "dc_max_kw": [{ "value": 100, "unit": "kW", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "ac_max_kw": [{ "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "nominal_voltage_class": [{ "value": "400v", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "curve_skipped": "generic_shape" }
   ]
 }

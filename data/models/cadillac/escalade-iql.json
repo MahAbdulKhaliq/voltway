@@ -1,0 +1,23 @@
+{
+  "id": "cadillac/escalade-iql",
+  "make_id": "cadillac",
+  "name": "ESCALADE IQL",
+  "body_type": "suv",
+  "generations": [
+    { "id": "first-generation", "name": "First generation", "first_year": 2026 }
+  ],
+  "years": [
+    {
+      "year": 2026,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "announced",
+      "generation": "first-generation"
+    }
+  ]
+}

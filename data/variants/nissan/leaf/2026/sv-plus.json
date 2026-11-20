@@ -4,87 +4,29 @@
   "year": 2026,
   "name": "SV PLUS",
   "drivetrain": "unknown",
-  "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Article says the LEAF 'can charge at up to 150 kW'; not stated per trim."
-    }
-  ],
+  "powertrain_id": "nissan/leaf/2026-sv-plus",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. NACS passenger-side fast-charge port; J1772 on driver's side for AC."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-9295dad563" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Native NACS port; article says it unlocks Tesla Superchargers across Canada."
-    }
-  ],
-  "published_10_80_min": [
-    {
-      "value": 35,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Model-wide figure; pack/trim not stated on the page."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-c07c0722f9" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 1919,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-carscom-leaf-sv-plus-2026",
-      "low_confidence": true,
-      "notes": "Converted from 4,231 lb (US SV+ FWD): 4,231 x 0.45359 = 1,919. Matches EV Specifications 1,919 kg. Guide Auto gives a Canadian lineup range of 1,802-1,991 kg."
-    }
+    { "value": 1919, "unit": "kg", "kind": "manufacturer", "source_id": "src-carscom-leaf-sv-plus-2026", "low_confidence": true, "notes": "Converted from 4,231 lb (US SV+ FWD): 4,231 x 0.45359 = 1,919. Matches EV Specifications 1,919 kg. Guide Auto gives a Canadian lineup range of 1,802-1,991 kg." }
   ],
-  "battery": {
-    "capacity_usable_kwh": [
-      {
-        "value": 75.1,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-nissan-global-leaf-press-kit-2026",
-        "low_confidence": true,
-        "notes": "Nissan global press kit spec table: 75.1 kWh usable for the 75 kWh LEAF pack. US press kit (src-nissan-usa-leaf-press-kit-2026) lists 75 kWh for SV+ as well; Canadian SV+ assumed identical."
-      }
-    ]
-  },
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-nh-nissanusa-leaf-features", "note_id": "n-027f9c182e", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "SV PLUS",
+      "names": { "CA": "SV PLUS", "US": "SV+" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-driveteslacanada-leaf-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. Article says heat pump standard; not per trim."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-driveteslacanada-leaf-2026", "low_confidence": true, "note_id": "n-e17f94008c" }
       ],
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-spinelli-nissan-leaf-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. '18-inch alloy wheels' listed for SV+."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "notes": "Quick web lookup. '18-inch alloy wheels' listed for SV+." }
       ]
     }
   ]

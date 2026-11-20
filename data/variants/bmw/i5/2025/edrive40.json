@@ -1,0 +1,31 @@
+{
+  "id": "bmw/i5/2025/edrive40",
+  "model_id": "bmw/i5",
+  "year": 2025,
+  "name": "eDrive40",
+  "drivetrain": "rwd",
+  "powertrain_id": "bmw/i5/2025-edrive40",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-69059c5f7e" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "eDrive40" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2025-specs", "note_id": "n-49909c9629" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-adac-i5-edrive40", "note_id": "n-aa643fcc6d", "low_confidence": true }
+      ]
+    }
+  ]
+}

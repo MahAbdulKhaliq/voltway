@@ -1,0 +1,32 @@
+{
+  "id": "volvo/ex40/2023/twin",
+  "model_id": "volvo/ex40",
+  "year": 2023,
+  "name": "Twin",
+  "drivetrain": "awd",
+  "powertrain_id": "volvo/ex40/2023-twin",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-volvo-hamilton-ex40-2026-charging", "low_confidence": true, "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2023 Twin." },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-59345ebdf7" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-ff57fb6760" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-65658f5296" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-volvomobile-nacs", "note_id": "n-03e72b7235" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Twin", "US": "Twin eAWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-xc40-recharge-pure-electric-2022-specs", "notes": "2023 page lists no wheel data; carried from the 2022 P8 Twin and 2025 EX40 pages (both 19 in).", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b113-kbb-xc40-2023", "notes": "US: climate pack (includes a heat pump) optional on Core/Plus, standard on Ultimate. Canada carried from 2022 (Canadian Climate Package incl. heat pump). \"Optional\" here means a package on lower trims (Core/Plus) and standard on the top trim (Ultra/Ultimate); this record holds one trim.", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "bmw/i3/2014/i3-60-ah",
+  "model_id": "bmw/i3",
+  "year": 2014,
+  "name": "i3 60 Ah",
+  "drivetrain": "rwd",
+  "powertrain_id": "bmw/i3/2014-i3-60-ah",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-wiki-i3", "low_confidence": true, "note_id": "n-f6dc8c54ca" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-8c05e5ab78" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "community", "source_id": "src-b112-bimmerfile-sc-2025", "notes": "Bimmerfile 2025-12-20: BMW i3 not officially supported for Supercharger access (US).", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "i3 60 Ah" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i3-2014-specs", "notes": "i3 4dr HB: 19 x 5 in forged aluminum, P155/70R19; no optional wheels listed." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-bmw-us-2014-i3-pricing", "notes": "BMW of North America MY2014 pricing guide: \"4T9 Heat pump STD\" (standard on the i3 and the i3 REx)." }
+      ]
+    }
+  ]
+}

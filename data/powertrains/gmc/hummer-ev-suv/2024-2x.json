@@ -1,0 +1,27 @@
+{
+  "id": "gmc/hummer-ev-suv/2024-2x",
+  "model_id": "gmc/hummer-ev-suv",
+  "name": "2X",
+  "generation": "first-generation",
+  "years": [2024, 2025],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 170, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-20", "low_confidence": true, "note_id": "n-e576442c5f" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-24", "low_confidence": true, "note_id": "n-1456b8b703" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-gm-techlink-hummer-ev-ultium", "note_id": "n-8d3e7112bf" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-0a38e924d4" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 300, "unit": "kW", "kind": "manufacturer", "source_id": "src-thechargeport-gmc-hummer-ev", "low_confidence": true, "note_id": "n-b287dfe54e" }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-thechargeport-gmc-hummer-ev", "low_confidence": true, "note_id": "n-e387916d96" }
+  ]
+}

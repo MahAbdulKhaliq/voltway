@@ -1,0 +1,30 @@
+{
+  "id": "vinfast/vf-8/2026/plus-performance",
+  "model_id": "vinfast/vf-8",
+  "year": 2026,
+  "name": "Plus Performance",
+  "drivetrain": "unknown",
+  "powertrain_id": "vinfast/vf-8/2023-eco",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "community", "source_id": "src-evspecs-vinfast-vf8-compare", "note_id": "n-d928dde95e", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "community", "source_id": "src-insideevs-supercharger-list-2026", "note_id": "n-924a37894c", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "community", "source_id": "src-thechargeport-nacs-checker-2026", "note_id": "n-fc7cc2fbe2", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Plus Performance" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-vinfast-vf-8-2025-specs-469190", "note_id": "n-9ac4ed0860", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-vf8-plus-sr", "notes": "ArenaEV lists a heat pump on this VinFast trim (2022 sheet; the VF8 Plus sheet says \"For Europe, USA & Canada\"). Model year 2026 carried from 2022 and Plus Performance carried from the Plus page. ArenaEV is a spec aggregator and no maker page was found; the page is a European-market sheet unless stated. ArenaEV lists \"Heat pump: Yes\" without saying standard or optional, and its pages mix EU data.", "low_confidence": true }
+      ]
+    }
+  ]
+}

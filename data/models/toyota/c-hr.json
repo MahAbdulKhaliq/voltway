@@ -3,13 +3,21 @@
   "make_id": "toyota",
   "name": "C-HR",
   "body_type": "crossover",
+  "generations": [
+    { "id": "bev-first-generation", "name": "Battery-electric C-HR", "first_year": 2026, "notes": "First battery-electric C-HR for North America (C-HR+ elsewhere): 77 kWh total pack (Toyota Canada; US press gives 74.7 kWh), AWD, native NACS, 10-80% in about 30 min. The earlier gas/hybrid C-HR is out of scope. I did not open a Toyota USA page for the US model year or peak DC kW; the 150 kW figure often quoted is unverified here. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://media.toyota.ca/en/releases/2025/toyota-debuts-stylish--powerful-2026-c-hr-battery-electric-vehic.html ; https://electricautonomy.ca/automakers/passenger-electric-vehicles/2026-02-19/toyotas-new-c-hr-suv-qualifies-for-canadian-ev-rebates-at-48300/ ; https://en.wikipedia.org/wiki/Toyota_C-HR" }
+  ],
   "years": [
     {
       "year": 2026,
-      "markets": [
-        "CA"
-      ],
-      "availability_status": "production"
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "bev-first-generation"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "bev-first-generation"
     }
   ]
 }

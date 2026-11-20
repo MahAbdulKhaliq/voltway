@@ -1,0 +1,48 @@
+{
+  "id": "ford/mustang-mach-e/2023/standard-range-eawd",
+  "model_id": "ford/mustang-mach-e",
+  "year": 2023,
+  "name": "Standard Range eAWD",
+  "drivetrain": "awd",
+  "powertrain_id": "ford/mustang-mach-e/2023-standard-range-eawd",
+  "markets": ["CA"],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 70, "kind": "estimated", "source_id": "src-ford-us-mme-specs-2022", "unit": "kWh", "low_confidence": true, "note_id": "n-2bdfce73e1" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 75.7, "kind": "manufacturer", "source_id": "src-insideevs-mme-2022-usable", "unit": "kWh", "low_confidence": true, "note_id": "n-2d5f1c8be5" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-mme-lfp-2023", "low_confidence": true, "note_id": "n-90d2ac783b" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 115, "kind": "estimated", "source_id": "src-ford-us-mme-specs-2022", "unit": "kW", "low_confidence": true, "note_id": "n-2bdfce73e1" }
+  ],
+  "published_10_80_min": [
+    { "value": 38, "kind": "manufacturer", "source_id": "src-insideevs-mme-lfp-2023", "unit": "min", "low_confidence": true, "note_id": "n-301a0ab752" }
+  ],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-b78113c27b" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-engadget-ford-adapter", "note_id": "n-471535aa8b" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Standard Range eAWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-ford-us-mme-specs-2023", "note_id": "n-baa37194e7", "low_confidence": true },
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-ford-us-mme-specs-2023", "note_id": "n-d8cec56dcf", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b112-cars-2025-mme-heatpump", "note_id": "n-b7c972e410", "low_confidence": true }
+      ]
+    }
+  ]
+}

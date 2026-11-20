@@ -1,0 +1,33 @@
+{
+  "id": "lotus/eletre/2026-r-long-range",
+  "model_id": "lotus/eletre",
+  "name": "R Long Range",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 111.9, "unit": "kWh", "kind": "manufacturer", "source_id": "src-carexpert-eletre-s", "low_confidence": true, "notes": "CarExpert (S spec): 111.9 kWh gross; Wikipedia 112 total. All Eletre trims use the same 112 kWh pack (Canada trims differ in motors and range only, per Auto123)." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 109, "unit": "kWh", "kind": "manufacturer", "source_id": "src-carexpert-eletre-s", "low_confidence": true, "notes": "CarExpert: 109 kWh usable. CONFLICT: Wikipedia lists 107 usable / 112 total." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-carexpert-eletre-s", "low_confidence": true, "notes": "CarExpert: NMC cells from CATL." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-auto123-eletre-canada-2027", "low_confidence": true, "notes": "Auto123 (Canada): \"sits on an 800-volt electric architecture\"; Wikipedia 800 V; CarExpert lists a 708 V nominal pack." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-lotus-eletre-ota-history", "low_confidence": true, "notes": "Estimated: Lotus software notes: Hyper OS 1.5.1u made battery pre-conditioning use navigation information, Hyper OS 2.2.0 added a manual battery-preheating switch (page has no dates; Canadian 2026 cars are assumed to run 2.2.0 or later). Canadian owner manual not opened." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 350, "unit": "kW", "kind": "manufacturer", "source_id": "src-lotus-ca-charging", "low_confidence": true, "notes": "Lotus Canada charging page: 350 kW DC adds 400 km in about 20 minutes. Wikipedia infobox also says 430 kW; CarExpert 350 kW. Peak figure varies by source." }
+  ],
+  "ac_max_kw": [
+    { "value": 22, "unit": "kW", "kind": "manufacturer", "source_id": "src-lotus-ca-charging", "low_confidence": true, "notes": "Lotus Canada charging page: \"22 kW AC charger built-in\"." }
+  ],
+  "published_10_80_min": [
+    { "value": 20, "unit": "min", "kind": "manufacturer", "source_id": "src-carexpert-eletre-s", "low_confidence": true, "notes": "CarExpert: 10-80% about 20 minutes at 350 kW (Lotus: 400 km in about 20 min)." }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "mercedes/eqs/2022-amg-eqs-4matic-plus-sedan",
+  "model_id": "mercedes/eqs",
+  "name": "AMG EQS 4MATIC+ Sedan",
+  "generation": "first-generation",
+  "years": [2022],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 107.8, "unit": "kWh", "kind": "estimated", "source_id": "src-mbusa-data-2022-eqs-eqs580v4", "low_confidence": true, "notes": "Estimated: mbusa lists \"battery capacity 107.8 kWh\" without a gross/usable label and no second page labelling this pack was found; read as usable by analogy with the sibling packs whose usable figure is labelled (EQS 107.8, EQE 90.6, EQS 118). Read on the 2022 EQS580V4 page (no page opened for this exact trim/year); same pack and charger on the sibling trim." }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 120, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-8423854248" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-98b9a85e51" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-361488a6e2" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-eqe-eqs-quickstart", "low_confidence": true, "note_id": "n-ce3bdffc9d" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 200, "unit": "kW", "kind": "estimated", "source_id": "src-mbusa-data-2022-eqs-eqs580v4", "low_confidence": true, "notes": "Estimated: sibling page lists 200 kW for the same pack and charger (2022 EQS580V4); this car's own page was not opened." }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "estimated", "source_id": "src-mbusa-data-2022-eqs-eqs580v4", "low_confidence": true, "note_id": "n-e24d436212" }
+  ],
+  "published_10_80_min": [
+    { "value": 31, "unit": "min", "kind": "estimated", "source_id": "src-mbusa-data-2022-eqs-eqs580v4", "low_confidence": true, "note_id": "n-7ad5c73214" }
+  ]
+}

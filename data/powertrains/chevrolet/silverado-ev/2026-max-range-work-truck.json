@@ -1,0 +1,30 @@
+{
+  "id": "chevrolet/silverado-ev/2026-max-range-work-truck",
+  "model_id": "chevrolet/silverado-ev",
+  "name": "Max Range Work Truck",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 204, "unit": "kWh", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-b45cf69790" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-60bfa013c8" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. Charges at 800 V." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 350, "unit": "kW", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. 800 V up to 350 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. 19.2 kW module on Maximum Range." }
+  ],
+  "published_10_80_min": [
+    { "value": 46, "unit": "min", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-c770361611" }
+  ]
+}

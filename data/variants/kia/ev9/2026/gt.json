@@ -4,118 +4,26 @@
   "year": 2026,
   "name": "GT",
   "drivetrain": "awd",
+  "powertrain_id": "kia/ev9/2026-gt",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev9-2026"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev9-2026"
-    }
-  ],
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 99.8,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-slashgear-2026-ev9",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked). Gross capacity."
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-slashgear-2026-ev9",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-evseekers-ev9-battery",
-        "low_confidence": true,
-        "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database lists NMC for the 99.8 kWh pack."
-      }
-    ],
-    "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-kia-manual-mv1-2026-battery-conditioning",
-        "low_confidence": true,
-        "notes": "Manual switch plus conditioning timed to a fast charger set as waypoint/destination (MV1 2026 manual; MV1 is the EV9 per the en_US specs page). Cited page is the UK copy; the en_US copy of this page was not found. Manual says the feature applies only to vehicles with a battery heater."
-      }
-    ],
-    "capacity_usable_kwh": [
-      {
-        "value": 96,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-ev9-gt",
-        "low_confidence": true,
-        "notes": "EV Database GT listing: 96.0 kWh usable of 99.8 kWh nominal."
-      }
-    ]
-  },
-  "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-evdb-ev9-gt",
-      "low_confidence": true,
-      "notes": "EV Database (European listing): 11 kW AC; US sheets give 10.9 kW for other EV9 trims. No GT-specific US/Canadian page found."
-    }
-  ],
-  "dc_max_kw": [
-    {
-      "value": 206,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-evdb-ev9-gt",
-      "low_confidence": true,
-      "notes": "EV Database lists 206 kW for the GT, matching an Australian Kia spec sheet (via Zecar). Other 99.8 kWh trims: 210 kW."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2684,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ev9-2026-gt",
-      "low_confidence": true,
-      "notes": "Guide Auto lists 2,684 kg (5,917 lb) for the Canadian 2026 EV9 GT (99.8 kWh, 21-inch)."
-    }
+    { "value": 2684, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev9-2026-gt", "low_confidence": true, "notes": "Guide Auto lists 2,684 kg (5,917 lb) for the Canadian 2026 EV9 GT (99.8 kWh, 21-inch)." }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "GT",
+      "names": { "CA": "GT" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-kia-ca-ev9-2026"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
       ],
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "tire_size": "285/45R21",
-          "source_id": "src-kia-ca-ev9-gt-release",
-          "notes": "Kia Canada release: 21-inch alloy wheels with 285/45R21 tires on the EV9 GT."
-        }
+        { "diameter_in": 21, "is_standard": true, "tire_size": "285/45R21", "source_id": "src-kia-ca-ev9-gt-release", "notes": "Kia Canada release: 21-inch alloy wheels with 285/45R21 tires on the EV9 GT." }
       ]
     }
   ]

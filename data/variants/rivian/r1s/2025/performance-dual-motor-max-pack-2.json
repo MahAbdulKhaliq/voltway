@@ -1,0 +1,31 @@
+{
+  "id": "rivian/r1s/2025/performance-dual-motor-max-pack-2",
+  "model_id": "rivian/r1s",
+  "year": 2025,
+  "name": "Performance Dual-Motor Max Pack",
+  "drivetrain": "awd",
+  "powertrain_id": "rivian/r1s/2025-dual-motor-max-pack",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-f742b1d644" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-0546c7cb96" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-insideevs-2025-r1-nacs-adapter-included", "low_confidence": true, "note_id": "n-99b2522635" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Performance Dual-Motor Max Pack", "US": "Performance Dual-Motor Max Pack" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-slashgear-rivian-r1-2025", "note_id": "n-ff55c4a37e", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-r2w-carb-rivian-2025", "note_id": "n-3fdfcfe75c", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-insideevs-r1-gen2-review", "low_confidence": true, "note_id": "n-207f8224ba" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "subaru/trailseeker/2026/awd",
+  "model_id": "subaru/trailseeker",
+  "year": 2026,
+  "name": "AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "subaru/trailseeker/2026-awd",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-subaru-ca-trailseeker-2026", "notes": "Subaru Canada: standard NACS charging port (Canada)." }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-subaru-us-media-solterra-2026", "low_confidence": true, "note_id": "n-adac4e0ce1" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-fa13fea5e4" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-driveteslacanada-toyota-subaru-sc-2025", "low_confidence": true, "note_id": "n-7c4c5d9a13" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "AWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-subaru-trailseeker-2027-specs-488367", "notes": "2027 US Premium AWD: 18x7.5, P235/60VR18; no 2026 Premium page opened; applied to Canada.", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-subaru-trailseeker-2026-specs-483012", "notes": "US 2026 Limited AWD: 20x7.5, P235/50VR20; applied to Canada.", "low_confidence": true }
+      ]
+    }
+  ]
+}

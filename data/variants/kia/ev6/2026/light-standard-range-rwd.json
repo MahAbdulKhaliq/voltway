@@ -1,0 +1,30 @@
+{
+  "id": "kia/ev6/2026/light-standard-range-rwd",
+  "model_id": "kia/ev6",
+  "year": 2026,
+  "name": "Light Standard Range RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "kia/ev6/2026-light-standard-range-rwd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "note_id": "n-0dfb734595" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "note_id": "n-ea498851bc" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-kia-us-ev6-2026-compare", "note_id": "n-3598706c62", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Light Standard Range RWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2026-index", "low_confidence": true, "note_id": "n-7f86bec70f" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "manufacturer", "source_id": "src-kia-us-ev6-2026-compare", "notes": "Kia US 2026 EV6 page. Light: Not Available. US only." }
+      ]
+    }
+  ]
+}

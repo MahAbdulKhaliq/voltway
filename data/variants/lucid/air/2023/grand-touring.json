@@ -1,0 +1,30 @@
+{
+  "id": "lucid/air/2023/grand-touring",
+  "model_id": "lucid/air",
+  "year": 2023,
+  "name": "Grand Touring",
+  "drivetrain": "awd",
+  "powertrain_id": "lucid/air/2023-grand-touring",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "note_id": "n-9227bf3775" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-lucid-air-supercharger", "note_id": "n-0420550f7d" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Grand Touring", "US": "Grand Touring" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r2w-carscom-lucid-air-2022-gt", "note_id": "n-24e1797f89", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b112-gcr-2024-air-gt-hp", "notes": "The 2024 Grand Touring was only the second Air with a heat pump after the Sapphire, so a 2023 grand-touring has none (press implication).", "low_confidence": true }
+      ]
+    }
+  ]
+}

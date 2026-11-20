@@ -1,0 +1,17 @@
+{
+  "id": "borrowed-ioniq5-58kwh-2021",
+  "powertrain_id": "kia/ev6/2022-standard-range-rwd",
+  "kind": "estimated",
+  "source_id": "src-insideevs-ioniq5-58kwh-ionity-2021",
+  "low_confidence": true,
+  "points": [
+    { "soc_percent": 7, "power_kw": 177 },
+    { "soc_percent": 45, "power_kw": 177 },
+    { "soc_percent": 50, "power_kw": 140 },
+    { "soc_percent": 57, "power_kw": 140 },
+    { "soc_percent": 86, "power_kw": 50 }
+  ],
+  "note_id": "n-9996460449",
+  "based_on": { "variant_id": "hyundai/ioniq-5/2022/preferred", "reason": "Same E-GMP 58 kWh (54 usable) pack; EV6 Standard Range DC peak 180 kW vs 175 kW on the Ioniq 5. No EV6 58 kWh measured curve found." },
+  "is_display_default": false
+}

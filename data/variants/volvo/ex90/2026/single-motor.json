@@ -1,0 +1,25 @@
+{
+  "id": "volvo/ex90/2026/single-motor",
+  "model_id": "volvo/ex90",
+  "year": 2026,
+  "name": "Single Motor",
+  "drivetrain": "rwd",
+  "powertrain_id": "volvo/ex90/2026-single-motor",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-8517058905" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-b60e063996" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-b564dd4260" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Single Motor" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-volvo-ex90-2026-specs", "notes": "Single Motor Plus 7-Seater: 20x8.5 front / 20x9.5 rear, P255/50VR20 / P285/45VR20." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "lexus/rz",
+  "make_id": "lexus",
+  "name": "RZ",
+  "body_type": "suv",
+  "generations": [
+    { "id": "first-generation", "name": "First generation", "first_year": 2023, "last_year": 2025, "notes": "e-TNGA (bZ4X/Solterra platform). RZ 450e AWD: 71.4 kWh; RZ 300e FWD (2024-2025, US): 72.8 kWh CATL pack. CCS1, about 150 kW DC peak, 6.6-7 kW onboard AC. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://pressroom.lexus.com/whats-new-2024-lexus-rz/ ; https://en.wikipedia.org/wiki/Lexus_RZ" },
+    { "id": "2026-update", "name": "2026 update", "first_year": 2026, "notes": "For 2026 the lineup becomes RZ 350e (FWD), 450e (AWD), 550e F SPORT: 74.7 kWh (350e/450e) and 77.0 kWh (550e) packs, 11 kW onboard AC (was 7 kW), native NACS; ranges up on both regulators. DC peak reportedly still 150 kW. New packs plus a new charger, so a new generation. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://pressroom.lexus.com/five-things-to-know-about-the-thoroughly-enhanced-2026-lexus-rz/ ; https://media.lexus.ca/en/releases/2025/2026-lexus-rz-adds-more-power-and-performance0.html ; https://insideevs.com/news/760083/2026-lexus-rz-specs-shift/" }
+  ],
+  "years": [
+    {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2026,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2026-update"
+    }
+  ]
+}

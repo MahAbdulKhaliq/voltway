@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-s/2013-40",
+  "model_id": "tesla/model-s",
+  "name": "40",
+  "generation": "original",
+  "years": [2013],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 60, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-tesla-model-s", "low_confidence": true, "notes": "Estimated: Wikipedia Model S: the 40 kWh car was delivered as a 60 kWh pack software-limited to 40 kWh (2013). VIN reference lists the 51-60 kWh tier for 2012-2013." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 40, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-tesla-model-s", "low_confidence": true, "notes": "Estimated: Software limit of 40 kWh on the 60 kWh pack (Wikipedia Model S). The 2013 \"40\" label is the 60 kWh hardware with a 40 kWh software cap." }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "community", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-49961bd7e1" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-17a60e76f4" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-manualslib-tesla-s-owners-manual-p145", "low_confidence": true, "note_id": "n-ae91cd491f" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 120, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2014-85", "low_confidence": true, "note_id": "n-5f365fcb0e" }
+  ],
+  "ac_max_kw": [
+    { "value": 10, "unit": "kW", "kind": "manufacturer", "source_id": "src-tesla-s-service-vin-2012-2020", "low_confidence": true, "note_id": "n-86b1ced89d" }
+  ]
+}

@@ -11,6 +11,8 @@ export interface ParsedName {
   wheel_in?: number;     // e.g. (20" Wheels)
   charger_kw?: number;   // e.g. (11.5 kW Charger)
   pack_kwh?: number;     // e.g. (131 kWh)
+  code?: string;         // NRCan's trailing letter code, e.g. "Model 3 Premium-I" → "I" (B90: not a trim name)
+  date_note?: string;    // e.g. "(pre-6/11/25)": a mid-year change, not a trim name
 }
 
 const MAKE_ALIASES: Record<string, string> = {
@@ -18,6 +20,8 @@ const MAKE_ALIASES: Record<string, string> = {
   'mercedes benz': 'mercedes',
   'mini': 'mini',
   'smart eq': 'smart',
+  'bugatti rimac': 'rimac', // Rimac Nevera is sold as a Rimac
+  'coda automotive': 'coda',
   'volkswagen': 'volkswagen',
   'vw': 'volkswagen',
   'chevy': 'chevrolet',
@@ -56,10 +60,14 @@ export function parseName(model: string): ParsedName {
     base = base.replace(m[0], ' ');
     return Number(m[1]);
   };
-  const wheel_in = grab(/\((\d{2})(?:"|''|-inch| inch)\s*Wheels?\)/i);
+  const wheel_in = grab(/\((\d{2})(?:"|''|″|-inch| inch|inch|-in| in|in)\s*(?:Wheels?)?\)/i);
   const charger_kw = grab(/\((\d+(?:\.\d+)?)\s*kW(?:\s*Charger)?\)/i);
   const pack_kwh = grab(/\((\d+(?:\.\d+)?)\s*kWh\)/i);
+  const dateNote = base.match(/\(((?:pre|post)-[^)]*)\)/i);
+  if (dateNote) base = base.replace(dateNote[0], ' ');
   base = base.replace(/\s+/g, ' ').trim();
+  const code = base.match(/-([A-Z])$/);
+  if (code) base = base.slice(0, -2).trim();
   return {
     base,
     tokens: tokenize(base),
@@ -67,6 +75,8 @@ export function parseName(model: string): ParsedName {
     ...(wheel_in ? { wheel_in } : {}),
     ...(charger_kw ? { charger_kw } : {}),
     ...(pack_kwh ? { pack_kwh } : {}),
+    ...(code ? { code: code[1] } : {}),
+    ...(dateNote ? { date_note: dateNote[1] } : {}),
   };
 }
 

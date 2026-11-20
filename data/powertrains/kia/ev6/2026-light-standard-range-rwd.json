@@ -1,0 +1,33 @@
+{
+  "id": "kia/ev6/2026-light-standard-range-rwd",
+  "model_id": "kia/ev6",
+  "name": "Light Standard Range RWD",
+  "generation": "2025-refresh",
+  "years": [2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 63, "unit": "kWh", "kind": "manufacturer", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "note_id": "n-4f7e5866be" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 60, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ev6-sr-2025", "low_confidence": true, "note_id": "n-6d93c00a24" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ev6-sr-2025", "low_confidence": true, "note_id": "n-5ab0a9ede0" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "community", "source_id": "src-evdb-ev6-sr-2025", "low_confidence": true, "note_id": "n-065e85d96e" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-kia-uk-battery-preconditioning", "low_confidence": true, "note_id": "n-954750b5e1" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 180, "unit": "kW", "kind": "estimated", "source_id": "src-automoblog-2025-ev6", "low_confidence": true, "note_id": "n-5cf561eca1" }
+  ],
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "notes": "Kia US 2026 EV6 page: 10.9 kW onboard charger on Light." }
+  ],
+  "published_10_80_min": [
+    { "value": 20, "unit": "min", "kind": "manufacturer", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "notes": "Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (figure from a GT AWD test)." }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "vinfast/vf-9/2025/eco",
+  "model_id": "vinfast/vf-9",
+  "year": 2025,
+  "name": "Eco",
+  "drivetrain": "unknown",
+  "powertrain_id": "vinfast/vf-9/2024-eco",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "community", "source_id": "src-evspecs-vinfast-vf9-compare", "note_id": "n-856f2b2f8f", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "community", "source_id": "src-insideevs-supercharger-list-2026", "note_id": "n-924a37894c", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "community", "source_id": "src-thechargeport-nacs-checker-2026", "note_id": "n-fc7cc2fbe2", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Eco" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-vinfast-vf-9-2024-specs-454031", "notes": "No 2025 page opened; carried from the 2024 Eco page.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-vf9-eco-sr", "note_id": "n-e2e6ace5d0", "low_confidence": true }
+      ]
+    }
+  ]
+}

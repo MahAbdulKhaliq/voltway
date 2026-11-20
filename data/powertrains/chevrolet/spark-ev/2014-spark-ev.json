@@ -1,0 +1,30 @@
+{
+  "id": "chevrolet/spark-ev/2014-spark-ev",
+  "model_id": "chevrolet/spark-ev",
+  "name": "Spark EV",
+  "generation": "a123-lfp",
+  "years": [2014],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 21.3, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-spark-ev", "low_confidence": true, "notes": "Wikipedia: 2014 pack is 21.3 kWh LiFePO4 (A123). Nominal, treated as gross." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 20.2, "unit": "kWh", "kind": "estimated", "source_id": "src-greencarscompare-spark-ev", "low_confidence": true, "notes": "Estimated: No page gives usable energy for the 2014 21.3 kWh LFP pack. Applied the published usable/nominal ratio of the 2015-16 Spark EV pack (18/19, GreenCarsCompare): 21.3 x 18/19 = 20.2. WEAK: different cells (LFP vs the later Li-ion pack)." }
+    ],
+    "chemistry": [
+      { "value": "lfp", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-spark-ev", "low_confidence": true, "notes": "Wikipedia: 21.3 kWh lithium iron phosphate pack supplied by A123 Systems (2014)." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-autodata-spark-ev-19", "low_confidence": true, "note_id": "n-c21f7308a5" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-wikipedia-chevrolet-spark-ev", "low_confidence": true, "note_id": "n-2670ad6bd4" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 50, "unit": "kW", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-spark-ev", "low_confidence": true, "note_id": "n-1f02a8e100" }
+  ],
+  "ac_max_kw": [
+    { "value": 3.3, "unit": "kW", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-spark-ev", "low_confidence": true, "note_id": "n-688aae7bc6" }
+  ]
+}

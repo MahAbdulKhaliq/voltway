@@ -1,0 +1,34 @@
+{
+  "id": "hyundai/ioniq-6/2025-se-standard-range-rwd",
+  "model_id": "hyundai/ioniq-6",
+  "name": "SE Standard Range RWD",
+  "generation": "first-generation-pre-facelift",
+  "years": [2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 53, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-ioniq6-sr", "low_confidence": true, "note_id": "n-370e40f2d0" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 50, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-ioniq6-sr", "low_confidence": true, "note_id": "n-1819bbaaa1" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-ioniq6-sr", "low_confidence": true, "note_id": "n-2d08287811" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-hyundai-ww-ioniq6-la-2022", "low_confidence": true, "note_id": "n-985f147705" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-hyundai-ww-ioniq6-la-2022", "low_confidence": true, "notes": "Estimated: Hyundai US launch release for the 2023 IONIQ 6 (77.4 kWh) states a battery heater that starts when a charging stop is entered in navigation and can be warmed manually via the app; the CE1 (IONIQ 6) 2025 US manual states a manual Battery Conditioning Mode and automatic operation when the battery is cold or the scheduled climate is on (it does not itself state the DC-destination trigger, does not name the model, and says the function needs a battery heater). A battery heater on the Standard Range is not shown on any page; assumed because the same model and charging system carry the feature across packs." },
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-hyundai-om-ce1-2025-us", "low_confidence": true, "note_id": "n-b684469956" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-evdb-ioniq6-sr", "low_confidence": true, "note_id": "n-47b725bed1" }
+  ],
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "estimated", "source_id": "src-hyundai-ww-ioniq6-la-2022", "low_confidence": true, "note_id": "n-b6814b5125" }
+  ],
+  "published_10_80_min": [
+    { "value": 18, "unit": "min", "kind": "estimated", "source_id": "src-evdb-ioniq6-sr", "low_confidence": true, "note_id": "n-9eea15bfd1" }
+  ]
+}

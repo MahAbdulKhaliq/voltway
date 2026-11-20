@@ -1,0 +1,33 @@
+{
+  "id": "mercedes/eqb/2022-eqb-350-4matic",
+  "model_id": "mercedes/eqb",
+  "name": "EQB 350 4MATIC",
+  "generation": "first-generation",
+  "years": [2022],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 70.5, "unit": "kWh", "kind": "manufacturer", "source_id": "src-mbusa-data-2022-eqb-eqb350w4", "note_id": "n-6d893c3cea" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 66.5, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-mb-eqb", "low_confidence": true, "note_id": "n-7deda96492" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mb-eqb", "low_confidence": true, "note_id": "n-b0f6ade31a" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-mb-eqb", "low_confidence": true, "note_id": "n-44400b9a83" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-cla-release", "low_confidence": true, "note_id": "n-7d4974290b" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 100, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2022-eqb-eqb350w4", "note_id": "n-ef94359a19" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2022-eqb-eqb350w4", "note_id": "n-6c4fc42729" }
+  ],
+  "published_10_80_min": [
+    { "value": 32, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2022-eqb-eqb350w4", "note_id": "n-e94024573d" }
+  ]
+}

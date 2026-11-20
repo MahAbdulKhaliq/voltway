@@ -1,0 +1,27 @@
+{
+  "id": "volkswagen/id-4/2025-base",
+  "model_id": "volkswagen/id-4",
+  "name": "Base",
+  "generation": "2024-update",
+  "years": [2025],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 58, "unit": "kWh", "kind": "estimated", "source_id": "src-arenaev-id4-standard-2024", "low_confidence": true, "notes": "Estimated: 62 kWh gross pack has 58 kWh usable (VW figure relayed by SlashGear 2023; ArenaEV 2024 lists 58 usable). Same pack compared 2023 to 2025 (nothing shows a change)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-id4", "low_confidence": true, "note_id": "n-f3241fe2c8" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-guideauto-id4-2025-base", "low_confidence": true, "note_id": "n-26ef4a83a3" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-vw-us-cold-weather", "low_confidence": true, "note_id": "n-4505b58ab7" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 140, "unit": "kW", "kind": "estimated", "source_id": "src-slashgear-id4-2023", "low_confidence": true, "notes": "Estimated: 62 kWh pack peaks at 140 kW (Cars.com 2024; SlashGear 2023). Same 62 kWh pack compared 2023 to 2025." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-slashgear-id4-2023", "low_confidence": true, "note_id": "n-3c3cd81aa3" }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "subaru/uncharted/2027/premium-fwd",
+  "model_id": "subaru/uncharted",
+  "year": 2027,
+  "name": "Premium FWD",
+  "drivetrain": "fwd",
+  "powertrain_id": "subaru/uncharted/2027-gt-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-uncharted-2027", "note_id": "n-ce5de972fb" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-subaru-us-media-solterra-2026", "low_confidence": true, "note_id": "n-adac4e0ce1" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-fa13fea5e4" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "estimated", "source_id": "src-charged-uncharted-preview", "note_id": "n-b2487e94fe", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Premium FWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-subaru-uncharted-2027-specs-488166", "notes": "Premium FWD: 18x7.5, P235/60VR18." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-arenaev-uncharted-premium-fwd", "note_id": "n-21dbbc4747", "low_confidence": true }
+      ]
+    }
+  ]
+}

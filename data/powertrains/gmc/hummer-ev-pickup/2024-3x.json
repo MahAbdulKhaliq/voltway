@@ -1,0 +1,30 @@
+{
+  "id": "gmc/hummer-ev-pickup/2024-3x",
+  "model_id": "gmc/hummer-ev-pickup",
+  "name": "3X",
+  "generation": "first-generation",
+  "years": [2024],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 246.8, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-gmc-hummer-ev", "low_confidence": true, "note_id": "n-b42eeb3a00" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 200, "unit": "kWh", "kind": "manufacturer", "source_id": "src-gm-techlink-hummer-ev-ultium", "low_confidence": true, "note_id": "n-997b6f250f" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-24", "low_confidence": true, "note_id": "n-1456b8b703" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-gm-techlink-hummer-ev-ultium", "note_id": "n-2575752525" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-0a38e924d4" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 350, "unit": "kW", "kind": "manufacturer", "source_id": "src-gm-techlink-hummer-ev-ultium", "low_confidence": true, "note_id": "n-f80317d5ea" }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-thechargeport-gmc-hummer-ev", "low_confidence": true, "note_id": "n-83132f22d6" }
+  ]
+}

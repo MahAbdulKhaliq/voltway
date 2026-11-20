@@ -1,0 +1,27 @@
+{
+  "id": "kia/ev4/2026/wind-premium-long-range-fwd",
+  "model_id": "kia/ev4",
+  "year": 2026,
+  "name": "Wind Premium Long Range FWD",
+  "drivetrain": "fwd",
+  "powertrain_id": "kia/ev4/2026-gt-line-long-range-fwd",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "nacs", "kind": "community", "source_id": "src-guideauto-ev4-canada", "note_id": "n-d419abeb03", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "community", "source_id": "src-guideauto-ev4-canada", "note_id": "n-9c7d46a7a3", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Wind Premium Long Range FWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-autotrader-ca-kia-ev4-2026", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-kia-ca-ev4-2026-brochure", "note_id": "n-380e8e05c4", "low_confidence": true }
+      ]
+    }
+  ]
+}

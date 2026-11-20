@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-x/2016-90d",
+  "model_id": "tesla/model-x",
+  "name": "90D",
+  "generation": "original",
+  "years": [2016, 2017],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 85.8, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-model-x-90d", "low_confidence": true, "notes": "ArenaEV Model X 90D: 85.8 kWh total (gross), 81.8 kWh usable. ArenaEV's Model S 90D page and EVSpecifications call the pack \"90 kWh\" (marketing size); one value kept for both models." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 81.8, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-model-x-90d", "low_confidence": true, "notes": "ArenaEV Model X 90D: 81.8 kWh usable (81.8 / 85.8 = 0.953)." }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "community", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-49961bd7e1" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-17a60e76f4" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-manualslib-tesla-s-owners-manual-p145", "low_confidence": true, "note_id": "n-ae91cd491f" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 120, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-ce65b7b94c" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-9ff7066f28" }
+  ]
+}

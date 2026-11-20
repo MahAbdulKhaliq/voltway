@@ -3,51 +3,6 @@
   "source_id": "src-chargeprice-archive-2025-04",
   "make": "cadillac",
   "records": [
-    {
-      "source_key": "f21bbedf-e8f5-44eb-8793-891a2c61156f",
-      "year": 2024,
-      "make": "Cadillac",
-      "model": "Lyriq 600 E4",
-      "capacity_usable_kwh": [
-        {
-          "value": 102,
-          "unit": "kWh",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "dc_max_kw": [
-        {
-          "value": 190,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "ac_max_kw": [
-        {
-          "value": 11,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "nominal_voltage_class": [
-        {
-          "value": "400v",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "curve_skipped": "generic_shape"
-    }
+    { "source_key": "f21bbedf-e8f5-44eb-8793-891a2c61156f", "year": 2024, "make": "Cadillac", "model": "Lyriq 600 E4", "capacity_usable_kwh": [{ "value": 102, "unit": "kWh", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "dc_max_kw": [{ "value": 190, "unit": "kW", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "ac_max_kw": [{ "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "nominal_voltage_class": [{ "value": "400v", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "curve_skipped": "generic_shape" }
   ]
 }

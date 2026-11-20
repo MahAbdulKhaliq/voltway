@@ -1,0 +1,27 @@
+{
+  "id": "volkswagen/id-4/2022-pro",
+  "model_id": "volkswagen/id-4",
+  "name": "Pro",
+  "generation": "launch-german-built",
+  "years": [2022],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 77, "unit": "kWh", "kind": "estimated", "source_id": "src-slashgear-id4-2023", "low_confidence": true, "notes": "Estimated: 82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear 2023 first drive; Wikipedia table gives 82/77 for 2021-22 too). Same 82 kWh pack carried to MY2022 (cell supplier LG in 2021-22 vs SK On from 2023)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-thinkev-vw-id4-2026", "low_confidence": true, "note_id": "n-c97dbfdb81" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-guideauto-id4-2025-pro-awd", "low_confidence": true, "note_id": "n-fcef87382e" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-insideevs-id4-precond-2026", "low_confidence": true, "note_id": "n-f7fd11b20c" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 135, "unit": "kW", "kind": "manufacturer", "source_id": "src-gcr-id4-2022-range", "low_confidence": true, "notes": "Launch cars were 125 kW (VW 2021 release); Green Car Reports: 2022 peak 135 kW versus the previous 125 kW via OTA update (Software 3.0); Wikipedia agrees. Recorded as the figure after the update; unupdated cars may still be 125 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-slashgear-id4-2023", "low_confidence": true, "note_id": "n-7ad72a0610" }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "nissan/leaf/2016/sv-30-kwh",
+  "model_id": "nissan/leaf",
+  "year": 2016,
+  "name": "SV (30 kWh)",
+  "drivetrain": "fwd",
+  "powertrain_id": "nissan/leaf/2016-sv-30-kwh",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "chademo", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2016-press-kit", "low_confidence": true, "notes": "Quick charge port (CHAdeMO) per the 2016 press kit." }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "estimated", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b0ca50230f" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-thedrive-leaf-no-adapter", "note_id": "n-2e0a777234", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "SV (30 kWh)", "US": "SV (30 kWh)" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-r3w-nissan-leaf-2016-specs-376842", "notes": "4dr HB SV: 17x7 aluminum, P215/50VR17." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-nh-nissan-us-leaf-2016", "notes": "Nissan calls it \"Hybrid heater system - (heat pump)\". Trim names: CA=SV (30 kWh), US=SV (30 kWh). Canada not separately verified for this year; US-market spec sheet applied.", "low_confidence": true }
+      ]
+    }
+  ]
+}

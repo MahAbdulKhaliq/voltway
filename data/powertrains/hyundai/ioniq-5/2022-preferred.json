@@ -1,0 +1,30 @@
+{
+  "id": "hyundai/ioniq-5/2022-preferred",
+  "model_id": "hyundai/ioniq-5",
+  "name": "Preferred",
+  "generation": "first-generation-pre-facelift",
+  "years": [2022, 2023],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 58, "unit": "kWh", "kind": "manufacturer", "source_id": "src-canadadrives-ioniq5-2022", "note_id": "n-9214e22b1a", "low_confidence": true }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 54, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ioniq5-sr-2wd", "note_id": "n-4f3986048f", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ioniq5-sr-2wd", "note_id": "n-3fb3028f5b", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "community", "source_id": "src-evdb-ioniq5-sr-2wd", "note_id": "n-75356f31d3", "low_confidence": true }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-electrive-ioniq5-preconditioning-2023", "note_id": "n-7fc2f2e146", "low_confidence": true }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 175, "unit": "kW", "kind": "community", "source_id": "src-wikipedia-ioniq5", "note_id": "n-41ae4b5af4", "low_confidence": true }
+  ],
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-canadadrives-ioniq5-2022", "notes": "Canada Drives (Canadian 2022 trims): \"10.9 kW, standard on all models\". Applied to the 2023 Preferred by carry-over (same hardware). EV Database rounds to 11 kW.", "low_confidence": true }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "volvo/ex90/2025-twin-motor",
+  "model_id": "volvo/ex90",
+  "name": "Twin Motor",
+  "generation": "400v",
+  "years": [2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 111, "unit": "kWh", "kind": "manufacturer", "source_id": "src-motor1-ex90-teardown", "low_confidence": true, "notes": "Motor1: 111 kWh gross / 107 kWh net on the Twin Motor (2025 US trims are Twin Motor and Twin Motor Performance). Wikipedia agrees." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 107, "unit": "kWh", "kind": "manufacturer", "source_id": "src-motor1-ex90-teardown", "low_confidence": true, "notes": "Motor1: 107 kWh net; Wikipedia/EV Database agree." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-motor1-ex90-teardown", "low_confidence": true, "notes": "Motor1: traditional nickel-manganese-cobalt, CATL." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-insideevs-ex90-2026-upgrade", "low_confidence": true, "notes": "InsideEVs: the 2026 EX90 moves from a 400 V system to 800 V, so 2025 is 400 V." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-volvo-ex90-precondition-support-excerpt", "low_confidence": true, "note_id": "n-06d423b606" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-ex90-2026-upgrade", "low_confidence": true, "notes": "InsideEVs/Electrifying: 2025 peak 250 kW (10-80% about 30 min). Motor1 agrees." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-motor1-ex90-teardown", "low_confidence": true, "notes": "Motor1: 11 kW onboard charger (0-100% in at least 10 h). Market not stated; the Polestar US page lists 11 kW on the sibling pack." }
+  ],
+  "published_10_80_min": [
+    { "value": 30, "unit": "min", "kind": "manufacturer", "source_id": "src-insideevs-ex90-2026-upgrade", "low_confidence": true, "notes": "InsideEVs: 10-80% in about 30 minutes (2025)." }
+  ]
+}

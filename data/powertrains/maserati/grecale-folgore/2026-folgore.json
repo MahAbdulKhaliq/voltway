@@ -1,0 +1,33 @@
+{
+  "id": "maserati/grecale-folgore/2026-folgore",
+  "model_id": "maserati/grecale-folgore",
+  "name": "Folgore",
+  "generation": "first-generation",
+  "years": [2026, 2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 105, "unit": "kWh", "kind": "manufacturer", "source_id": "src-carexpert-grecale-folgore", "low_confidence": true, "note_id": "n-ad3834b89c" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 95, "unit": "kWh", "kind": "manufacturer", "source_id": "src-carexpert-grecale-folgore", "low_confidence": true, "note_id": "n-f901f3cdee" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-carexpert-grecale-folgore", "low_confidence": true, "note_id": "n-cdbddc66be" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-carexpert-grecale-folgore", "low_confidence": true, "note_id": "n-b2fa2b431b" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "manufacturer", "source_id": "src-autoexpress-grecale-2026", "low_confidence": true, "notes": "Auto Express (relaying Maserati): 2026 update adds pre-conditioning that intervenes when a charging station is chosen on the sat-nav via EV Routing; electrive: added to the route planner for model year 2026. 2027 carried over. Manual control not mentioned." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-carexpert-grecale-folgore", "low_confidence": true, "note_id": "n-94ba27589f" }
+  ],
+  "ac_max_kw": [
+    { "value": 22, "unit": "kW", "kind": "estimated", "source_id": "src-fueleconomy-grecale-folgore-2025", "low_confidence": true, "note_id": "n-ece4a72fda" }
+  ],
+  "published_10_80_min": [
+    { "value": 40, "unit": "min", "kind": "manufacturer", "source_id": "src-carexpert-grecale-folgore", "low_confidence": true, "note_id": "n-b7ff2a996a" }
+  ]
+}

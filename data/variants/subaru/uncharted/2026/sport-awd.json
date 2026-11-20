@@ -1,0 +1,30 @@
+{
+  "id": "subaru/uncharted/2026/sport-awd",
+  "model_id": "subaru/uncharted",
+  "year": 2026,
+  "name": "Sport AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "subaru/uncharted/2026-sport-awd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-uncharted-2026", "note_id": "n-ce5de972fb" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-guideauto-uncharted-ca-2026", "notes": "Guide Auto (Canada): standard NACS charge port (Canada)." }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-subaru-us-media-solterra-2026", "low_confidence": true, "note_id": "n-adac4e0ce1" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-fa13fea5e4" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-driveteslacanada-toyota-subaru-sc-2025", "low_confidence": true, "note_id": "n-7c4c5d9a13" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Sport AWD", "US": "Sport AWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-subaru-uncharted-2026-specs-483087", "notes": "Sport AWD: 18x7.5, P235/60VR18." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-uncharted-sport", "notes": "ArenaEV (North America) lists a heat pump for this trim; matched to the same hardware for the  ArenaEV lists \"Heat pump: Yes\" without saying standard or optional, and its pages mix EU data.", "low_confidence": true }
+      ]
+    }
+  ]
+}

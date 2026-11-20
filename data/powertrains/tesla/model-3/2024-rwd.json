@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-3/2024-rwd",
+  "model_id": "tesla/model-3",
+  "name": "RWD",
+  "generation": "highland",
+  "years": [2024],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 60, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-rwd-lfp-2021", "low_confidence": true, "notes": "Estimated: 60.0 kWh nominal, CATL LFP (EV Database 2021-23 RWD; the existing OpenEV import for the 2026 Premium-I also shows 60/57). evspecifications lists 62 kWh for 2023-24, Wikipedia 64 kWh for the current RWD. Carried over from the 2021-2023 LFP RWD (EV Database); Highland RWD keeps the 170 kW peak (InsideEVs)." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 57, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-rwd-lfp-2021", "low_confidence": true, "notes": "Estimated: 57.0 kWh usable (EV Database estimate). Carried over from the 2021-2023 LFP RWD (EV Database); Highland RWD keeps the 170 kW peak (InsideEVs)." }
+    ],
+    "chemistry": [
+      { "value": "lfp", "kind": "estimated", "source_id": "src-evdb-m3-rwd-lfp-2021", "low_confidence": true, "notes": "Estimated: LFP (CATL); evspecifications 2023/2024 RWD LFP. Carried over from the 2021-2023 LFP RWD (EV Database); Highland RWD keeps the 170 kW peak (InsideEVs)." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-m3-rwd-lfp-2021", "low_confidence": true, "notes": "Estimated: 400 V architecture (EV Database); evspecifications 345 V nominal. Carried over from the 2021-2023 LFP RWD (EV Database); Highland RWD keeps the 170 kW peak (InsideEVs)." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-notateslaapp-2020-24-6-4", "low_confidence": true, "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2024 RWD). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 170, "unit": "kW", "kind": "estimated", "source_id": "src-evdb-m3-rwd-lfp-2021", "low_confidence": true, "notes": "Estimated: 170 kW (EV Database; evspecifications 2023 and 2024 RWD 170 kW; InsideEVs Highland: RWD 170 kW unchanged). Carried over from the 2021-2023 LFP RWD (EV Database); Highland RWD keeps the 170 kW peak (InsideEVs)." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-evdb-m3-rwd-lfp-2021", "low_confidence": true, "note_id": "n-41d73095d6" }
+  ]
+}

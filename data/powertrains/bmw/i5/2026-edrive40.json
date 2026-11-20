@@ -1,0 +1,33 @@
+{
+  "id": "bmw/i5/2026-edrive40",
+  "model_id": "bmw/i5",
+  "name": "eDrive40",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 81.2, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-bmw-i5", "low_confidence": true, "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. BMW global release: usable energy content 81.2 kWh (eDrive40; xDrive40 and M60 share the pack per InsideEVs/ArenaEV). 2024-2027 compared: no pack change named." }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 83.9, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-a-i5", "low_confidence": true, "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. ArenaEV: 83.9 kWh total." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-bmw-i4", "low_confidence": true, "note_id": "n-ab38fadb85" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-a-i5", "low_confidence": true, "note_id": "n-cc10a45b11" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-w2-bmw-i4", "low_confidence": true, "note_id": "n-8ea1ad7f2a" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 205, "unit": "kW", "kind": "estimated", "source_id": "src-w2-bmw-i5", "low_confidence": true, "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. BMW global: DC up to 205 kW (InsideEVs 2027 repeats 205 kW for the 2027 i5)." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-w2-bmw-i5", "low_confidence": true, "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. BMW global: AC up to 11 kW standard, 22 kW optional (some markets); ArenaEV 11 kW. North America assumed 11 kW (US i7 listing says 11 kW); no US/CA i5 page read." }
+  ],
+  "published_10_80_min": [
+    { "value": 30, "unit": "min", "kind": "estimated", "source_id": "src-w2-bmw-i5", "low_confidence": true, "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. BMW global: 10 to 80 percent in around 30 minutes." }
+  ]
+}

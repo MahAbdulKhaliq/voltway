@@ -1,0 +1,41 @@
+{
+  "id": "vinfast/vf-8",
+  "make_id": "vinfast",
+  "name": "VF 8",
+  "body_type": "suv",
+  "generations": [
+    { "id": "first-generation", "name": "First generation", "first_year": 2023, "notes": "Samsung SDI NMC packs: \"standard range\" 82 kWh usable and \"extended range\" 87.7 kWh usable (90 kWh gross), Eco (260 kW) and Plus (300 kW) AWD. The first North American cars (2023 \"City Edition\") had the smaller pack, so the two packs are variants, not a line-wide change; no year-by-year hardware change documented. Batteries were leased separately in the US. NRCan MY2023-2026, EPA MY2023, 2025, 2027. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/VinFast_VF_8" }
+  ],
+  "years": [
+    {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2026,
+      "markets": ["CA"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    }
+  ]
+}

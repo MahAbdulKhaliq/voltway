@@ -1,0 +1,31 @@
+{
+  "id": "acura/zdx/2024/a-spec-awd",
+  "model_id": "acura/zdx",
+  "year": 2024,
+  "name": "A-Spec AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "acura/zdx/2024-a-spec-awd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thechargeport-acura-zdx", "low_confidence": true, "note_id": "n-ca26641e93" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-nontesla-supercharger-access-2026", "low_confidence": true, "note_id": "n-0a60d767cb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-nh-tflcar-honda-adapter", "note_id": "n-1f2a360160", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "A-Spec AWD", "US": "A-Spec AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-acura-zdx-2024-specs", "notes": "A-Spec: 20x9.0, 265/50R20. Source is a US page; Canadian trim assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-a85fb7b31c", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-bevdb-zdx-a-spec-awd-2025", "note_id": "n-00396a2813", "low_confidence": true }
+      ]
+    }
+  ]
+}

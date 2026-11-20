@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqs/2025/eqs-580-4matic-sedan",
+  "model_id": "mercedes/eqs",
+  "year": 2025,
+  "name": "EQS 580 4MATIC Sedan",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/eqs/2025-eqs-450-4matic-sedan",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-eqs-eqs450v", "note_id": "n-6abe2191f4" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-6cdf780c0a" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "EQS 580 4MATIC Sedan", "US": "EQS 580 4MATIC Sedan" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-580-2025-specs", "note_id": "n-159c8914c4" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-7d6f90a426", "low_confidence": true }
+      ]
+    }
+  ]
+}

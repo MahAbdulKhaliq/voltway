@@ -1,0 +1,30 @@
+{
+  "id": "lucid/air/2024-grand-touring",
+  "model_id": "lucid/air",
+  "name": "Grand Touring",
+  "generation": "first-generation",
+  "years": [2024],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 112, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-insideevs-lucid-118-usable", "low_confidence": true, "notes": "Estimated: Grand Touring 112 kWh usable (InsideEVs, 2022); Lucid 2024 metric sheet gives 111 as a bare capacity for the same 22-module pack; ArenaEV (GT Performance) lists 109.1 usable: conflict." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-0e073f7924" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-w2-lucid-air-gt-2024-sheet-me", "low_confidence": true, "notes": "Lucid 2024 GT sheet: platform architecture 900V+." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "low_confidence": true, "note_id": "n-5b38ca5f4b" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 111, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-lucid-air-gt-2024-sheet-me", "low_confidence": true, "notes": "Lucid 2024 GT metric sheet: battery capacity 111 kWh (22 module); other sources give 112 for the same pack." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 300, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-air-gt-2024-sheet-me", "low_confidence": true, "notes": "Lucid 2024 GT sheet: DC charge power up to 300 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "low_confidence": true, "note_id": "n-560efa3597" }
+  ]
+}

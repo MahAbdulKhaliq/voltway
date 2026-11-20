@@ -1,0 +1,30 @@
+{
+  "id": "nissan/leaf/2023/sv-plus",
+  "model_id": "nissan/leaf",
+  "year": 2023,
+  "name": "SV PLUS",
+  "drivetrain": "fwd",
+  "powertrain_id": "nissan/leaf/2023-sv-plus",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "chademo", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2024-press-kit", "low_confidence": true, "note_id": "n-a58a73bd09" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "estimated", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b0ca50230f" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-thedrive-leaf-no-adapter", "note_id": "n-2e0a777234", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "SV PLUS" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-r3w-nissan-leaf-2023-specs-427532", "notes": "SV PLUS: 17x6.5 aluminum, P215/50VR17." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-nh-nissan-us-leaf-2023", "notes": "Nissan calls it \"Hybrid heater system - (heat pump)\". Trim names: US=SV PLUS." }
+      ]
+    }
+  ]
+}

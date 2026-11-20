@@ -1,0 +1,48 @@
+{
+  "id": "cadillac/optiq/2027/optiq-rwd",
+  "model_id": "cadillac/optiq",
+  "year": 2027,
+  "name": "Optiq RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "cadillac/optiq/2025-optiq-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "estimated", "source_id": "src-thechargeport-cadillac-optiq", "low_confidence": true, "note_id": "n-6530f8dc3a" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-cadillac-optiq", "low_confidence": true, "note_id": "n-3d05143027" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-gm-nacs", "low_confidence": true, "note_id": "n-795f9fc0f8" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Optiq RWD" },
+      "ac_max_kw": [
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-epa-fueleconomy-2026-11", "low_confidence": true, "note_id": "n-cba09055af" }
+      ],
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-optiq-2027-specs", "note_id": "n-62b5a1924a", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    },
+    {
+      "id": "19-2-kw-charger",
+      "names": { "US": "Optiq RWD (19.2 kW Charger)" },
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-epa-fueleconomy-2026-11", "low_confidence": true, "note_id": "n-9f835e2a7d" }
+      ],
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-optiq-2027-specs", "note_id": "n-62b5a1924a", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "rivian/r2/2027/performance-awd",
+  "model_id": "rivian/r2",
+  "year": 2027,
+  "name": "Performance AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "rivian/r2/2027-performance-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "notes": "Rivian: every R2 has a NACS port." }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "notes": "Rivian: every R2 has a NACS port with access to over 21,000 Tesla Superchargers." }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-riviantrackr-r2-adapters", "low_confidence": true, "notes": "Native NACS port. Combo CCS1 DC adapter $200 outside CA, CO, DC, DE, MA, MD, NJ, NM, NY, OR, RI, VT, WA, where a discount equal to its price applies when registering a new R2 (effectively free there). One forum report of \"Included\" in a configurator is unverified." }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Performance AWD" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r2w-carb-rivian-2027", "notes": "2027 R2 Performance AWD is listed in 21 inch and 20 inch all-terrain; which is standard is not stated. Standard inferred.", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-carb-rivian-2027", "note_id": "n-44ec866847", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-electrek-r2-epa-heat-pump", "low_confidence": true, "notes": "Rivian told Electrek \"Launch Edition R2s will have a heat pump\", but Electrek also reports the EPA-tested R2 had a conventional AC system and no heat pump. That the Launch Edition is this Performance AWD trim is unconfirmed." }
+      ]
+    }
+  ]
+}

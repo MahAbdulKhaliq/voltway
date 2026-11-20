@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-3/2020/standard-range-plus",
+  "model_id": "tesla/model-3",
+  "year": 2020,
+  "name": "Standard Range Plus",
+  "drivetrain": "rwd",
+  "powertrain_id": "tesla/model-3/2020-standard-range-plus",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-467dd2e649" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-4655b2436d" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-cf671571b1" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Standard Range Plus", "US": "Standard Range Plus" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-carscom-model-3-2022", "note_id": "n-f7b5fedbc5", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b112-insideevs-all-heat-pump", "note_id": "n-60482ad03c", "low_confidence": true }
+      ]
+    }
+  ]
+}

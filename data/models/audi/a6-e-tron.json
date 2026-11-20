@@ -1,0 +1,23 @@
+{
+  "id": "audi/a6-e-tron",
+  "make_id": "audi",
+  "name": "A6 e-tron",
+  "body_type": "sedan",
+  "generations": [
+    { "id": "first-generation", "name": "First generation (PPE)", "first_year": 2025, "notes": "Launch on PPE, 800 V. Sportback (and Avant where sold) share the hardware. 100 kWh gross / 94.9 kWh usable, up to 270 kW DC; a smaller 83 / 75.8 kWh pack (225 kW) exists in Europe, check per variant. NRCan rates MY2025; EPA ratings start at MY2027. Confidence: medium-high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Audi_A6_e-tron" }
+  ],
+  "years": [
+    {
+      "year": 2025,
+      "markets": ["CA"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    }
+  ]
+}

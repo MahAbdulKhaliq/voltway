@@ -1,0 +1,32 @@
+{
+  "id": "tesla/model-y/2027-premium-awd",
+  "model_id": "tesla/model-y",
+  "name": "Premium AWD",
+  "generation": "juniper",
+  "years": [2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 82, "kind": "estimated", "source_id": "src-openev-v1-24-0", "low_confidence": true, "notes": "Estimated: OpenEV Data lists 82 kWh gross for the 2025 Long Range AWD/Performance and the existing 2026 Premium AWD-B record; 2027 US model assumed unchanged (no pack change reported). Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027.", "unit": "kWh" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 79, "kind": "estimated", "source_id": "src-openev-v1-24-0", "low_confidence": true, "note_id": "n-c11a827e08", "unit": "kWh" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-openev-v1-24-0", "low_confidence": true, "note_id": "n-7f4c099e6b" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-openev-v1-24-0", "low_confidence": true, "note_id": "n-e97904b300" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-teslabs-manual-preconditioning", "low_confidence": true, "note_id": "n-1fa6db44c3" },
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-model-y-lr-awd-1619", "low_confidence": true, "note_id": "n-42a8c6abf7" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "kind": "estimated", "source_id": "src-openev-v1-24-0", "low_confidence": true, "note_id": "n-05e7520b14", "unit": "kW" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-fec2e18f04", "unit": "kW" },
+    { "value": 11.5, "kind": "estimated", "source_id": "src-wikipedia-tesla-model-y", "low_confidence": true, "note_id": "n-1160ec5905", "unit": "kW" }
+  ]
+}

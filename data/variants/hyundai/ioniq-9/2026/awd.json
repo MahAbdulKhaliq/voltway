@@ -4,58 +4,28 @@
   "year": 2026,
   "name": "AWD",
   "drivetrain": "awd",
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 110.3,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-hyundai-ca-ioniq-9-2026",
-        "notes": "Page says “110.3kWh battery” without saying gross or usable; recorded as gross."
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-hyundai-ca-ioniq-9-2026"
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-electrek-ioniq9-review-2026",
-        "low_confidence": true,
-        "notes": "Review says 110.3 kWh NMC pack (relayed; NCM/NMC are the same family). Same pack across the three variants."
-      }
-    ]
-  },
+  "powertrain_id": "hyundai/ioniq-9/2026-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-9-2026",
-      "notes": "NACS port; AC and DC CCS adapters included."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026", "note_id": "n-571a38fa77" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-9-2026"
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-carscom-ioniq9-2026", "note_id": "n-62ca9613ef" },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-ca-ioniq9-page", "note_id": "n-7ed415fa8d" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "AWD",
+      "names": { "CA": "AWD", "US": "AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-hyundai-ca-ioniq-9-2026"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }
+      ],
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-9-2026-473079", "low_confidence": true, "notes": "S RWD 19 in; the SE AWD page was not opened (SE AWD 19 in is expected on the same wheel)." },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-9-2026-473081", "low_confidence": true, "notes": "SEL AWD 20 in" }
       ]
     }
   ]

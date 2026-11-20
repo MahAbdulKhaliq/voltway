@@ -1,0 +1,30 @@
+{
+  "id": "jaguar/i-pace/2020-ev400",
+  "model_id": "jaguar/i-pace",
+  "name": "EV400",
+  "generation": "launch-7kw",
+  "years": [2020],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 90, "unit": "kWh", "kind": "manufacturer", "source_id": "src-jaguar-us-electrifying-performance", "low_confidence": true, "note_id": "n-6bc2b9be17" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 84.7, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-ipace-1287-excerpt", "low_confidence": true, "note_id": "n-2796b11f8e" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-jaguar-i-pace", "low_confidence": true, "note_id": "n-36d44bff2a" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-ipace-1287-excerpt", "low_confidence": true, "note_id": "n-ccc39761a2" }
+    ],
+    "preconditioning": [
+      { "value": "manual_only", "kind": "estimated", "source_id": "src-jlr-ipace-launch-precondition", "low_confidence": true, "note_id": "n-847793b53b" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 100, "unit": "kW", "kind": "manufacturer", "source_id": "src-jlr-ipace-2022-release", "low_confidence": true, "note_id": "n-b1f422b228" }
+  ],
+  "ac_max_kw": [
+    { "value": 7, "unit": "kW", "kind": "manufacturer", "source_id": "src-cars-2022-ipace", "low_confidence": true, "note_id": "n-b0b9cc5abc" }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "lucid/air/2024/sapphire",
+  "model_id": "lucid/air",
+  "year": 2024,
+  "name": "Sapphire",
+  "drivetrain": "awd",
+  "powertrain_id": "lucid/air/2024-sapphire",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "note_id": "n-9227bf3775" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-lucid-air-supercharger", "note_id": "n-0420550f7d" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Sapphire", "US": "Sapphire" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-lucid-air-sapphire-2024-wheels", "notes": "Front 20, rear 21 (staggered 265/35R20, 295/30R21). Read from a PDF whose text the checker could not decode; unverified.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-gcr-2024-air-gt-hp", "notes": "Sapphire was the first Air with a heat pump (Green Car Reports 2024 Grand Touring article). The page does not say standard versus optional.", "low_confidence": true }
+      ]
+    }
+  ]
+}

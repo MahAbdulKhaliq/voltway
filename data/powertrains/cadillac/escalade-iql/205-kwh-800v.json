@@ -1,0 +1,27 @@
+{
+  "id": "cadillac/escalade-iql/205-kwh-800v",
+  "model_id": "cadillac/escalade-iql",
+  "name": "205 kWh 800 V AWD",
+  "generation": "first-generation",
+  "years": [2026, 2027],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 205, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wards-escalade-iql", "low_confidence": true, "notes": "Cadillac IQL release as relayed by Wards: 205 kWh from the 24-module battery shared with the Escalade IQ (also Cars.com IQL, TheDrive, Motor Authority). Read as usable, see the Escalade IQ powertrain. Guide Auto (Canada) says 200 kWh. Fact-check: no page says \"usable\" outright; GM says \"more than 200 kWh of available energy\" (owner check)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-ultium-24-module", "low_confidence": true, "note_id": "n-a920a0223e" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-gm-techlink-escalade-iq", "low_confidence": true, "notes": "Estimated: IQL uses the same 24-module pack as the IQ (Wards), and GM says the IQ pack enables 800-volt DC fast charging." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-cadillac-dc-fast-charging-support", "low_confidence": true, "note_id": "n-852f2f1368" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 350, "unit": "kW", "kind": "estimated", "source_id": "src-consumerguide-escalade-iq-2026", "low_confidence": true, "notes": "Estimated: same pack and charger hardware as the 2026 IQ (350 kW per Cadillac); the IQL release gives about 116 miles in 10 min (Wards), no kW figure." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-cars-escalade-iql-2026", "low_confidence": true, "notes": "IQL: 11.5 kW standard, 19.2 kW available (Cars.com, relaying Cadillac); 19.2 kW on every IQL from 2027 (InsideEVs, TTAC). The powertrain value is the maximum; the lower trims are set per trim." }
+  ]
+}

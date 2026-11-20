@@ -1,0 +1,28 @@
+{
+  "id": "hyundai/kona-electric/2025/n-line",
+  "model_id": "hyundai/kona-electric",
+  "year": 2025,
+  "name": "N Line",
+  "drivetrain": "fwd",
+  "powertrain_id": "hyundai/kona-electric/2025-long-range",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-8517409b92" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-68dca58074" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-67cd717b6c" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-98b4e9e819" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "N Line Ultimate" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-hyundai-kona-ev-2025-455675", "low_confidence": true, "note_id": "n-b0613ac55d" }
+      ]
+    }
+  ]
+}

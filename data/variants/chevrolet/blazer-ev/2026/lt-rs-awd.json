@@ -4,58 +4,31 @@
   "year": 2026,
   "name": "LT/RS AWD",
   "drivetrain": "awd",
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 85,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-thinkev-blazer-ev-2026",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-thinkev-blazer-ev-2026",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
-    ]
-  },
-  "dc_max_kw": [
-    {
-      "value": 190,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-thinkev-blazer-ev-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup (rough, not cross-checked). Canadian listing; not confirmed by Chevrolet."
-    },
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-coughlin-2026-blazer-ev-rs-awd",
-      "low_confidence": true,
-      "notes": "2026 RS AWD window-sticker text: 85 kWh battery, up to 150 kW DC fast-charging capable. Conflicts with 190 kW (thinkEV) and 195 kW (OpenEV, which also lists 102 kWh gross / 97 usable for this variant, apparently the 102 kWh pack)."
-    }
-  ],
+  "powertrain_id": "chevrolet/blazer-ev/2026-lt-rs-awd",
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-7afe377ec7" },
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-blazer-ev-supercharger-2025", "low_confidence": true, "note_id": "n-3849b1e559" }
+  ],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-gcn-gm-2027-nacs", "low_confidence": true, "note_id": "n-55eb8e4292" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "LT/RS AWD"
+      "names": { "CA": "LT/RS AWD", "US": "AWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs", "note_id": "n-e137b4cece", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs-473488", "note_id": "n-b39950278b" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
     }
   ]
 }

@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-3/2017/long-range",
+  "model_id": "tesla/model-3",
+  "year": 2017,
+  "name": "Long Range",
+  "drivetrain": "rwd",
+  "powertrain_id": "tesla/model-3/2017-long-range",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-467dd2e649" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-4655b2436d" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "notes": "Tesla has sold its CCS Combo 1 adapter in Canada and the US since Sept 2022 (C$325 at launch, C$175 in Aug 2024). No source says any Tesla shipped with one. Cars built before 2020 and some 2020 cars lack the required chip and need a retrofit with the adapter (Canada C$310, Aug 2024). Tesla Shop pages are blocked (403), so relayed by press. Applies to US." }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Long Range" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-thedriven-model-3-lr-wheels-2022", "note_id": "n-94d4bbf414", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b112-insideevs-all-heat-pump", "note_id": "n-60482ad03c", "low_confidence": true }
+      ]
+    }
+  ]
+}

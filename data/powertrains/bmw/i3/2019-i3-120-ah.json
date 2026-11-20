@@ -1,0 +1,30 @@
+{
+  "id": "bmw/i3/2019-i3-120-ah",
+  "model_id": "bmw/i3",
+  "name": "i3 120 Ah",
+  "generation": "120-ah",
+  "years": [2019],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 42.2, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-19", "notes": "BMW US 2019 spec table gross battery content." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 37.9, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-19", "notes": "BMW US 2019 spec table net battery content." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-wiki-i3", "low_confidence": true, "note_id": "n-dd5bc7f59c" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-19", "notes": "BMW US 2019 table: system voltage 352 V (Wikipedia: 355 V nominal); 400 V class." }
+    ],
+    "preconditioning": [
+      { "value": "manual_only", "kind": "estimated", "source_id": "src-w2-bmw-i3-17", "low_confidence": true, "notes": "Estimated: same hardware as MY2017 (the page read); model years compared 2017 to 2019, nothing shows a change. BMW US 2017 release: BMW Home Charger Connect \"can precondition the vehicle battery when connected\" and the battery can be warmed before starting off (no navigation trigger or DC-charge trigger described). Read as manual/scheduled only; the 2019 page mentions cabin pre-conditioning and battery warming \"under certain conditions\". Owner may prefer none." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 50, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-19", "notes": "BMW US 2019 spec table: DC Combo 50 kW (all four variants)." }
+  ],
+  "ac_max_kw": [
+    { "value": 7.4, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-19", "low_confidence": true, "notes": "BMW US 2019 table: 7.4 kW (its Level 1 / Level 2 AC rows look mislabelled). Europe offers 11 kW three-phase." }
+  ]
+}

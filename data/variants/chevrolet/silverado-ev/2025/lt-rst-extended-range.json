@@ -1,0 +1,36 @@
+{
+  "id": "chevrolet/silverado-ev/2025/lt-rst-extended-range",
+  "model_id": "chevrolet/silverado-ev",
+  "year": 2025,
+  "name": "LT/RST Extended Range",
+  "drivetrain": "unknown",
+  "powertrain_id": "chevrolet/silverado-ev/2025-lt-rst-extended-range",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-8ca55e1703" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-40f0c520f6" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "LT/RST Extended Range" },
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2025 lists only \"LT/RST Ext Range (19.2 kW Charger)\" for this variant; the powertrain value of 11.5 kW is wrong for it." }
+      ],
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs-459571", "notes": "Extended Range LT: 18 in aluminum." },
+        { "diameter_in": 24, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs-459572", "note_id": "n-2c3780c236" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

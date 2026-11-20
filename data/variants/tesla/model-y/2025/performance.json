@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-y/2025/performance",
+  "model_id": "tesla/model-y",
+  "year": 2025,
+  "name": "Performance",
+  "drivetrain": "awd",
+  "powertrain_id": "tesla/model-y/2024-long-range-awd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "estimated", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-498d0e51b3" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-0fdeb4e6b1" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-87641db422" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Performance", "US": "Performance" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r2w-carscom-model-y-2027-performance", "note_id": "n-f2e43ac926", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-insideevs-modely-heat-pump", "note_id": "n-51654e8c98", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 // These files are regenerated on every import; review changes as git diffs.
 
 import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { formatJson } from './lib/format-json.ts';
 import { join } from 'node:path';
 import { parseCsv } from './lib/csv.ts';
 import { normalizeNrcanRows, type NrcanRecord } from './lib/nrcan.ts';
@@ -30,6 +31,6 @@ for (const old of readdirSync(outDir)) rmSync(join(outDir, old));
 for (const [year, list] of [...byYear].sort(([a], [b]) => a - b)) {
   list.sort((a, b) => a.source_key.localeCompare(b.source_key));
   const file = { source: 'nrcan', source_id: sourceId, year, records: list };
-  writeFileSync(join(outDir, `${year}.json`), JSON.stringify(file, null, 2) + '\n');
+  writeFileSync(join(outDir, `${year}.json`), formatJson(file, { oneLine: 'records' }));
 }
 console.log(`import:nrcan: ${records.length} rows → ${byYear.size} files in data/imported/nrcan/ (source ${sourceId})`);

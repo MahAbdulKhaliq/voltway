@@ -1,0 +1,31 @@
+{
+  "id": "toyota/bz4x/2024-le-fwd",
+  "model_id": "toyota/bz4x",
+  "name": "LE FWD",
+  "generation": "bz4x-2024-charging-update",
+  "years": [2024, 2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 71.4, "unit": "kWh", "kind": "manufacturer", "source_id": "src-r19-insideevs-bz4x-awd-test", "low_confidence": true, "note_id": "n-845a09ebfe" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 64, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-fwd-1564", "low_confidence": true, "note_id": "n-ce7544e0fa" },
+      { "value": 64, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-awd-1565", "low_confidence": true, "note_id": "n-778c744dd5" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-ccb5b400dc" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-awd-1565", "low_confidence": true, "note_id": "n-e8a9225208" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-awd-1565", "low_confidence": true, "note_id": "n-f8b6cc7c09" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-r19-insideevs-bz4x-awd-test", "low_confidence": true, "note_id": "n-92552a6a78" }
+  ],
+  "ac_max_kw": [
+    { "value": 7, "unit": "kW", "kind": "estimated", "source_id": "src-r19-pressroom-toyota-bz-2026-read", "low_confidence": true, "note_id": "n-5e948304b2" }
+  ]
+}

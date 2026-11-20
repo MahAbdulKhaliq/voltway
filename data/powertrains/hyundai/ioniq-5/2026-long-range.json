@@ -1,0 +1,33 @@
+{
+  "id": "hyundai/ioniq-5/2026-long-range",
+  "model_id": "hyundai/ioniq-5",
+  "name": "Long Range",
+  "generation": "2025-refresh",
+  "years": [2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 84, "unit": "kWh", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026", "notes": "Hyundai Canada states “a battery capacity of 84.0 kWh” for the Preferred Long Range RWD without saying gross or usable; recorded as gross." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-hyundai-au-ioniq-5-2026-spec", "note_id": "n-2e3939720b" }
+    ],
+    "chemistry": [
+      { "low_confidence": true, "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-hyundai-egmp-84", "note_id": "n-4fcd4da0d8" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 80, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ioniq5-84-rwd", "note_id": "n-2beb6294e5", "low_confidence": true }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-ioniq5-manual-ne1a-2026", "note_id": "n-bf017ffa8d", "low_confidence": true }
+    ]
+  },
+  "ac_max_kw": [
+    { "low_confidence": true, "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-thechargeport-ioniq5-2026", "note_id": "n-2a30015373" }
+  ],
+  "published_10_80_min": [
+    { "value": 18, "unit": "min", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026", "notes": "“Approximately 18 minutes” from 10% to 80% on a 350 kW charger (manufacturer claim)." }
+  ],
+  "dc_max_kw": [
+    { "value": 257, "unit": "kW", "kind": "estimated", "source_id": "src-electrek-ioniq5-2025-first-drive", "note_id": "n-795dcfa772", "low_confidence": true }
+  ]
+}

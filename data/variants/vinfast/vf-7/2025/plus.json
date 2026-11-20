@@ -1,0 +1,27 @@
+{
+  "id": "vinfast/vf-7/2025/plus",
+  "model_id": "vinfast/vf-7",
+  "year": 2025,
+  "name": "Plus",
+  "drivetrain": "awd",
+  "powertrain_id": "vinfast/vf-7/2025-plus",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "community", "source_id": "src-greencarscompare-vf7-plus", "note_id": "n-28843de796", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "community", "source_id": "src-insideevs-supercharger-list-2026", "note_id": "n-924a37894c", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Plus", "US": "Plus" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-vinfast-id-vf7", "notes": "VinFast Indonesia page for the VF 7 Plus; no US or Canada page opened.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-vf7-plus", "note_id": "n-e2e6ace5d0", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "lucid/air/2024-pure",
+  "model_id": "lucid/air",
+  "name": "Pure",
+  "generation": "first-generation",
+  "years": [2024],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 84, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-evdb-lucid-air-excerpts", "low_confidence": true, "notes": "Estimated: EV Database lists the Pure RWD (MY24-25) at 84.0 kWh usable and 88.0 nominal (search excerpt; page rate-limited), matching the 88 kWh capacity on the 2024 Lucid sheet; " }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-0e073f7924" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-w2-evercars-lucid-air-2026", "low_confidence": true, "note_id": "n-35672868d0" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "low_confidence": true, "note_id": "n-5b38ca5f4b" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 88, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-lucid-air-pure-2024-sheet", "low_confidence": true, "notes": "Lucid 2024 Pure sheet (US): battery capacity 88 kWh (16 module); the metric sheet says 86." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-evercars-lucid-air-2026", "low_confidence": true, "note_id": "n-459e398ce9" }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "low_confidence": true, "note_id": "n-560efa3597" }
+  ]
+}

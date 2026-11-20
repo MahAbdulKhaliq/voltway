@@ -1,4 +1,4 @@
-import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -92,6 +92,7 @@ describe('buildCars on the fixture', () => {
   const setCrosswalk = (d: string, rows: string[]) =>
     writeFileSync(join(d, 'crosswalk/crosswalk.csv'), ['our_variant_id,source,source_key,match_method,confirmed,our_trim_id,notes', ...rows].join('\n') + '\n');
   const V = 'testmake/sparkle/2025/long-range-awd';
+  const PT = 'testmake/sparkle/2025-long-range-awd';
 
   it('gives every figure a default, others and a source; missing ones are null', () => {
     const [car] = buildCars(repo()).cars;
@@ -108,17 +109,31 @@ describe('buildCars on the fixture', () => {
 
   it('prefers a curve borrowed from a same-pack sibling over the template, and explains it (B16)', () => {
     const d = repo();
-    const file = join(d, 'data/curves', V, 'test-2025.json');
+    const file = join(d, 'data/curves', PT, 'test-2025.json');
     const c = JSON.parse(readFileSync(file, 'utf8'));
     rmSync(file);
-    writeFileSync(join(d, 'data/curves', V, 'borrowed.json'), JSON.stringify({
+    writeFileSync(join(d, 'data/curves', PT, 'borrowed.json'), JSON.stringify({
       ...c, id: 'borrowed', kind: 'estimated', low_confidence: true, is_display_default: false,
       based_on: { variant_id: 'testmake/sparkle/2025/twin', reason: 'Same 80 kWh 800 V pack.' },
+      reviewed_note: 'Checked against the sibling test.',
     }));
     const [car] = buildCars(d).cars;
     const def = car.curves.find((x) => x.is_display_default);
     expect(def).toMatchObject({ id: 'borrowed', kind: 'estimated', basis: 'Same 80 kWh 800 V pack.' });
     expect(car.curves.filter((x) => x.kind === 'estimated')).toHaveLength(2);
+  });
+
+  it('keeps a warned curve off the default until a person clears it (B95)', () => {
+    const d = repo();
+    const file = join(d, 'data/curves', PT, 'test-2025.json');
+    writeFileSync(file, JSON.stringify({ ...JSON.parse(readFileSync(file, 'utf8')), is_display_default: false })); // no hand-set default
+    const [before] = buildCars(d).cars;
+    const measured = before.curves.find((x) => x.kind !== 'estimated')!;
+    expect(measured.issues?.length).toBeGreaterThan(0); // the fixture curve is sparse
+    expect(before.curves.find((x) => x.is_display_default)?.kind).toBe('estimated');
+    writeFileSync(join(d, 'crosswalk/curve-reviews.json'), JSON.stringify({ [`${before.id}#${measured.id}`]: 'Matches the published chart.' }));
+    const [after] = buildCars(d).cars;
+    expect(after.curves.find((x) => x.is_display_default)).toMatchObject({ id: measured.id, reviewed_note: 'Matches the published chart.' });
   });
 
   it('makes the estimate the default only when nothing measured exists', () => {
@@ -130,11 +145,62 @@ describe('buildCars on the fixture', () => {
     expect(car.derived.estimated).toBe(true);
   });
 
-  it('derives sold_in_canada from a confirmed NRCan row', () => {
+  it('derives sold_in_canada from the variant markets or a confirmed NRCan row (B91)', () => {
     const d = repo();
-    expect(buildCars(d).cars[0].sold_in_canada).toBe(true);
+    expect(buildCars(d).cars[0]).toMatchObject({ sold_in_canada: true, markets: ['CA'] });
     setCrosswalk(d, [`${V},nrcan,"2025 · Testmake · Sparkle AWD, LR",automatic,false,,`]);
-    expect(buildCars(d).cars[0].sold_in_canada).toBe(false);
+    const file = join(d, 'data/variants', `${V}.json`);
+    writeFileSync(file, JSON.stringify({ ...JSON.parse(readFileSync(file, 'utf8')), markets: ['US'] }));
+    expect(buildCars(d).cars[0]).toMatchObject({ sold_in_canada: false, markets: ['US'] });
+  });
+
+  const epaRecord = (key: string, model: string, range: number) => ({
+    source_key: key, epa_id: key, year: 2025, make: 'Testmake', model, base_model: 'Sparkle', drive: 'All-Wheel Drive',
+    range_km: [{ value: range, unit: 'km', kind: 'rated_epa', source_id: 'src-test-regulator' }],
+    consumption_combined_wh_per_km: [{ value: 190, unit: 'Wh/km', kind: 'rated_epa', source_id: 'src-test-regulator' }],
+  });
+  const writeEpa = (d: string, records: unknown[]) => {
+    mkdirSync(join(d, 'data/imported/epa'), { recursive: true });
+    writeFileSync(join(d, 'data/imported/epa/2025.json'), JSON.stringify({ source: 'epa', source_id: 'src-test-regulator', year: 2025, records }));
+  };
+  const dropMarkets = (d: string, ...also: string[]) => {
+    const file = join(d, 'data/variants', `${V}.json`);
+    const { markets: _m, ...rest } = JSON.parse(readFileSync(file, 'utf8'));
+    for (const k of also) delete rest[k];
+    writeFileSync(file, JSON.stringify(rest));
+  };
+
+  it('ranks EPA after NRCan on a two-market variant and derives both markets from the crosswalk (B90)', () => {
+    const d = repo();
+    writeEpa(d, [epaRecord('e1', 'Sparkle AWD LR', 440)]);
+    setCrosswalk(d, [`${V},nrcan,"2025 · Testmake · Sparkle AWD, LR",automatic,true,,`, `${V},epa,e1,manual,true,,`]);
+    dropMarkets(d);
+    const [car] = buildCars(d).cars;
+    expect(car.markets).toEqual(['CA', 'US']);
+    expect(car.fields.range_km?.value).toMatchObject({ kind: 'rated_nrcan', value: 450 });
+    expect(car.fields.range_km?.others).toContainEqual(expect.objectContaining({ kind: 'rated_epa', value: 440 }));
+  });
+
+  it('rates a US-only variant from EPA rows, one wheel option per EPA wheel row (B90, B91)', () => {
+    const d = repo();
+    writeEpa(d, [epaRecord('e19', 'Sparkle AWD LR (19 inch wheels)', 440), epaRecord('e20', 'Sparkle AWD LR (20 inch wheels)', 410)]);
+    const trim = JSON.parse(readFileSync(join(d, 'data/variants', `${V}.json`), 'utf8')).trims[0].id;
+    setCrosswalk(d, [`${V},epa,e19,manual,true,${trim},`, `${V},epa,e20,manual,true,${trim},`]);
+    dropMarkets(d, 'range_km', 'consumption_combined_wh_per_km');
+    const [car] = buildCars(d).cars;
+    expect(car.markets).toEqual(['US']);
+    expect(car.sold_in_canada).toBe(false);
+    expect(car.fields.range_km?.value).toMatchObject({ kind: 'rated_epa', value: 440 });
+    const wheels = car.trims[0].wheels;
+    // The trim's own wheel list wins; EPA's per-wheel rating lands on the matching size.
+    expect(wheels.find((w) => w.diameter_in === 19)?.rated_range_km).toMatchObject({ kind: 'rated_epa', value: 440 });
+  });
+
+  it('inherits pack and charging figures and curves from the powertrain (B95)', () => {
+    const [car] = buildCars(repo()).cars;
+    expect(car.powertrain_id).toBe(PT);
+    expect(car.fields.dc_max_kw?.value.value).toBeGreaterThan(0);
+    expect(car.curves.some((c) => c.id === 'test-2025')).toBe(true);
   });
 
   it('ignores unconfirmed crosswalk rows', () => {
@@ -174,9 +240,24 @@ describe('the real build', () => {
     }
   });
 
-  it('never makes an estimated curve the default when a measured one exists', () => {
+  it('never makes an estimated curve the default when a checked or cleared measured one exists (B95)', () => {
     for (const car of buildCars(REPO).cars) {
-      if (car.curves.some((c) => c.kind !== 'estimated')) expect(car.curves.find((c) => c.is_display_default)?.kind).not.toBe('estimated');
+      const ok = car.curves.some((c) => c.kind !== 'estimated' && (!c.issues?.length || c.reviewed_note));
+      if (ok) expect(car.curves.find((c) => c.is_display_default)?.kind).not.toBe('estimated');
+    }
+  });
+
+  it('attaches Chargeprice records only within the same generation, as community curves (B95)', () => {
+    for (const car of buildCars(REPO).cars) {
+      for (const c of car.curves.filter((x) => x.id.startsWith('chargeprice-'))) expect(c.kind).toBe('community');
+    }
+    const m3 = buildCars(REPO).cars.filter((c) => c.id.startsWith('tesla/model-3/2026/'));
+    // 2021 is the pre-Highland generation; a 2023 European record may be Highland (its NA year is 2024),
+    // so it attaches, but its flat 250 kW plateau keeps it off the default until reviewed.
+    for (const car of m3) {
+      expect(car.curves.map((c) => c.id)).not.toContain('chargeprice-2021');
+      const cp = car.curves.find((c) => c.id === 'chargeprice-2023');
+      if (cp) expect(cp).toMatchObject({ is_display_default: false, issues: expect.arrayContaining([expect.objectContaining({ code: 'flat_peak' })]) });
     }
   });
 

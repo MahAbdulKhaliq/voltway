@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-s/2012-85",
+  "model_id": "tesla/model-s",
+  "name": "85",
+  "generation": "original",
+  "years": [2012],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 85, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-model-s-85", "low_confidence": true, "note_id": "n-6de88307f0" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 81, "unit": "kWh", "kind": "estimated", "source_id": "src-arenaev-model-x-90d", "low_confidence": true, "note_id": "n-cc36ab6e77" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "community", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-49961bd7e1" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-17a60e76f4" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-manualslib-tesla-s-owners-manual-p145", "low_confidence": true, "note_id": "n-ae91cd491f" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 90, "unit": "kW", "kind": "community", "source_id": "src-evspecs-model-s-2012-85", "low_confidence": true, "notes": "EVSpecifications 2012 Signature 85: DC max 90 kW (early Superchargers). 2013+ listings say 120 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 10, "unit": "kW", "kind": "manufacturer", "source_id": "src-tesla-s-service-vin-2012-2020", "low_confidence": true, "note_id": "n-86b1ced89d" }
+  ]
+}

@@ -44,19 +44,23 @@ export interface CurveOut {
   based_on?: { variant_id: string; reason: string }; // borrowed from a same-pack sibling (B16)
   conditions?: Record<string, unknown>;
   low_confidence?: boolean;
+  issues?: { level: 'error' | 'warning'; code: string; message: string }[]; // B95 plausibility checks
+  reviewed_note?: string;       // B95: a person cleared the warnings
 }
 
 export interface TrimOut {
   id: string;
-  name: string;
+  name: string;                 // the name in the variant's first market
+  names: Partial<Record<'CA' | 'US', string>>; // B91: per-market names
   aliases?: string[];
   heat_pump: Field<string>;
   range_km: Field<number>;      // only set when it differs from the variant's
   consumption_combined_wh_per_km: Field<number>; // only set when the trim is rated on its own
   consumption_city_wh_per_km: Field<number>;
   consumption_highway_wh_per_km: Field<number>;
+  recharge_time_240v_h?: Field<number>; // B104: only set when the trim is rated on its own row and differs
   ac_max_kw: Field<number>;     // the trim's own onboard charger (B7), when known
-  wheels: { diameter_in: number; is_standard: boolean; tire_size?: string; source_id?: string; notes?: string; low_confidence?: boolean }[];
+  wheels: { diameter_in: number; is_standard: boolean; tire_size?: string; source_id?: string; notes?: string; low_confidence?: boolean; rated_range_km?: SourcedValue; rated_consumption_wh_per_km?: SourcedValue }[];
 }
 
 export interface Derived {
@@ -79,6 +83,8 @@ export interface CarDetail {
   name: string;                 // variant name
   drivetrain: string;
   sold_in_canada: boolean;
+  markets: string[];            // B91: CA / US
+  powertrain_id?: string;       // B95
   fields: Record<string, Field>;
   trims: TrimOut[];
   curves: CurveOut[];
@@ -95,6 +101,7 @@ export interface IndexEntry {
   body_type: string;
   drivetrain: string;
   sold_in_canada: boolean;
+  markets: string[];
   range_km: number | null;
   dc_max_kw: number | null;
   usable_kwh: number | null;

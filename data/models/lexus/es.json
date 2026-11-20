@@ -1,0 +1,23 @@
+{
+  "id": "lexus/es",
+  "make_id": "lexus",
+  "name": "ES",
+  "body_type": "sedan",
+  "generations": [
+    { "id": "eighth-generation", "name": "Eighth generation (battery-electric)", "first_year": 2026, "notes": "The new-generation ES is the first with battery-electric versions, ES 350e (FWD) and ES 500e (AWD): 74.7 kWh pack, NACS port. Only the electric ES is in our scope; the ES hybrid is not a BEV and the regulator imports are BEV-only, so the bare \"ES\" prefix is safe. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://pressroom.lexus.com/?p=75723 ; https://pressroom.lexus.com/2027-lexus-es-battery-electric-models-return-with-up-to-307-miles-of-epa-estimated-total-range/" }
+  ],
+  "years": [
+    {
+      "year": 2026,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "eighth-generation"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "eighth-generation"
+    }
+  ]
+}

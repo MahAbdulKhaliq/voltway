@@ -1,0 +1,30 @@
+{
+  "id": "lucid/gravity/2026/grand-touring",
+  "model_id": "lucid/gravity",
+  "year": 2026,
+  "name": "Grand Touring",
+  "drivetrain": "awd",
+  "powertrain_id": "lucid/gravity/2025-grand-touring",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "note_id": "n-2f32f4143a" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "note_id": "n-04067ecb4a" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-guideauto-gravity-nacs", "note_id": "n-d3435f7cc9", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Grand Touring" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carscom-lucid-gravity-2026-gt", "notes": "Front 20x8.5, rear 21x9.5 (staggered)." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-arenaev-gravity-gt-2024", "note_id": "n-b0786aae48", "low_confidence": true }
+      ]
+    }
+  ]
+}

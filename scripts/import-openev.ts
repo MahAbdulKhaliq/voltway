@@ -2,6 +2,7 @@
 // and writes North American records, one file per make, to data/imported/openev/<make>.json.
 
 import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { formatJson } from './lib/format-json.ts';
 import { join } from 'node:path';
 import { isNorthAmerican, normalizeOpenEv, type OpenEvRecord, type OpenEvVehicle } from './lib/openev.ts';
 
@@ -31,7 +32,7 @@ mkdirSync(outDir, { recursive: true });
 for (const old of readdirSync(outDir)) rmSync(join(outDir, old));
 for (const [make, list] of [...byMake].sort(([a], [b]) => a.localeCompare(b))) {
   list.sort((a, b) => a.source_key.localeCompare(b.source_key));
-  writeFileSync(join(outDir, `${make}.json`), JSON.stringify({ source: 'openev', source_id: sourceId, make, records: list }, null, 2) + '\n');
+  writeFileSync(join(outDir, `${make}.json`), formatJson({ source: 'openev', source_id: sourceId, make, records: list }, { oneLine: 'records' }));
 }
 console.log(
   `import:openev: ${na.length} of ${release.vehicles.length} records are North American → ${byMake.size} files in data/imported/openev/ (source ${sourceId})`,

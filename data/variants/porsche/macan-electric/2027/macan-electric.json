@@ -1,0 +1,32 @@
+{
+  "id": "porsche/macan-electric/2027/macan-electric",
+  "model_id": "porsche/macan-electric",
+  "year": 2027,
+  "name": "Macan Electric",
+  "drivetrain": "rwd",
+  "powertrain_id": "porsche/macan-electric/2025-macan-4s-electric",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-porsche-us-supercharger-2025", "low_confidence": true, "note_id": "n-9597b4635d" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-porsche-us-supercharger-2025", "low_confidence": true, "note_id": "n-7fe59224b0" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "estimated", "source_id": "src-b112-por-us-sc-access", "note_id": "n-68834a8276", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Macan Electric" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-porsche-macan-2027-489385", "notes": "Macan Electric RWD 2027: 20-inch (front 20x7.5, rear 20x10) read on this Cars.com page.", "low_confidence": false },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-porsche-macan-press-kit-design", "note_id": "n-fc2a22e5b5", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-porsche-macan-press-kit-design", "note_id": "n-68330d556c", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-por-us-macan-2027", "notes": "Porsche USA 2027 Macan Electric page lists the heat pump as standard equipment.", "low_confidence": true }
+      ]
+    }
+  ]
+}

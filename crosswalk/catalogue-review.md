@@ -1,0 +1,3180 @@
+# Catalogue review: wave 1
+
+Generated 2026-11-20 by `npm run suggest:catalogue -- --wave 1` (B90, DESIGN-9 §2). **Nothing here is live.** Each proposal is one variant: a model year × pack × drivetrain × market edition. Rows from NRCan (Canada) and EPA (US) are paired when their trim words and drivetrain agree; otherwise each country gets its own variant (B91).
+
+How to review: in `crosswalk/catalogue-review.csv`, set `approved` to `yes` on the rows to keep (all rows of a proposal), edit `trim_ca` / `trim_us` / `variant_id` / `powertrain` where they are wrong, then run `npm run suggest:catalogue -- --wave 1 --apply`. Flags: ⚠ code = NRCan letter code (plant or certification, not a trim name), ⚠ date = mid-year change, ⚠ pair = Canada/US pairing is a guess, ⚠ name = trim name needs a check.
+
+864 proposals from 2030 regulator rows (124 mapped models): 810 clean (no ⚠, `check` empty in the CSV), 54 to check.
+
+## acura/zdx
+
+- **2024 CA: A-Spec AWD · US: A-Spec AWD** → `acura/zdx/2024/a-spec-awd` [CA, US] awd · powertrain new
+  - NRCan: ZDX A-SPEC AWD
+  - EPA: ZDX AWD
+- **2024 CA: Type S AWD · US: Type S AWD** → `acura/zdx/2024/type-s-awd` [CA, US] awd · powertrain new
+  - NRCan: ZDX Type S AWD
+  - EPA: ZDX AWD Type S
+- **2024 US: A-Spec RWD** → `acura/zdx/2024/a-spec-rwd` [US] rwd · powertrain new
+  - EPA: ZDX RWD
+## audi/a6-e-tron
+
+- **2025 CA: A6 e-tron quattro** → `audi/a6-e-tron/2025/a6-e-tron-quattro` [CA] awd · powertrain new
+  - NRCan: A6 60 e-tron
+- **2025 CA: A6 e-tron ultra** → `audi/a6-e-tron/2025/a6-e-tron-ultra` [CA] drivetrain ? · powertrain new
+  - NRCan: A6 60 e-tron ultra
+- **2025 CA: S6 e-tron quattro** → `audi/a6-e-tron/2025/s6-e-tron-quattro` [CA] awd · wheels 20/21″ · powertrain new
+  - NRCan: S6 e-tron quattro (20" Wheels)
+  - NRCan: S6 e-tron quattro (21" Wheels)
+- **2027 US: A6 e-tron** → `audi/a6-e-tron/2027/a6-e-tron` [US] rwd · powertrain new
+  - EPA: A6 e-tron
+- **2027 US: A6 e-tron quattro** → `audi/a6-e-tron/2027/a6-e-tron-quattro` [US] awd · powertrain new
+  - EPA: A6 e-tron quattro
+- **2027 US: A6 e-tron quattro ultra** → `audi/a6-e-tron/2027/a6-e-tron-quattro-ultra` [US] awd · powertrain new
+  - EPA: A6 e-tron quattro ultra
+- **2027 US: A6 e-tron ultra** → `audi/a6-e-tron/2027/a6-e-tron-ultra` [US] rwd · powertrain new
+  - EPA: A6 e-tron ultra
+- **2027 US: S6 e-tron quattro** → `audi/a6-e-tron/2027/s6-e-tron-quattro` [US] awd · wheels 20/21″ · powertrain new
+  - EPA: S6 e-tron (20 inch wheels)
+  - EPA: S6 e-tron (21 inch wheels)
+## audi/e-tron-gt
+
+- **2022 CA: e-tron GT quattro · US: e-tron GT quattro** → `audi/e-tron-gt/2022/e-tron-gt-quattro` [CA, US] awd · powertrain new
+  - NRCan: e-tron GT
+  - EPA: e-tron GT
+- **2022 CA: RS e-tron GT · US: RS e-tron GT** → `audi/e-tron-gt/2022/rs-e-tron-gt` [CA, US] awd · powertrain new
+  - NRCan: RS e-tron GT
+  - EPA: RS e-tron GT
+- **2023 CA: e-tron GT quattro · US: e-tron GT quattro** → `audi/e-tron-gt/2023/e-tron-gt-quattro` [CA, US] awd · powertrain new
+  - NRCan: e-tron GT
+  - EPA: e-tron GT
+- **2023 CA: RS e-tron GT · US: RS e-tron GT** → `audi/e-tron-gt/2023/rs-e-tron-gt` [CA, US] awd · powertrain new
+  - NRCan: RS e-tron GT
+  - EPA: RS e-tron GT
+- **2024 CA: e-tron GT quattro · US: e-tron GT quattro** → `audi/e-tron-gt/2024/e-tron-gt-quattro` [CA, US] awd · powertrain new
+  - NRCan: e-tron GT
+  - EPA: e-tron GT
+- **2024 CA: RS e-tron GT · US: RS e-tron GT** → `audi/e-tron-gt/2024/rs-e-tron-gt` [CA, US] awd · powertrain new
+  - NRCan: RS e-tron GT
+  - EPA: RS e-tron GT
+- **2025 CA: RS e-tron GT performance · US: RS e-tron GT performance** → `audi/e-tron-gt/2025/rs-e-tron-gt-performance` [CA, US] awd · powertrain new
+  - NRCan: RS e-tron GT quattro performance
+  - EPA: RS e-tron GT Performance
+- **2025 CA: S e-tron GT · US: S e-tron GT** → `audi/e-tron-gt/2025/s-e-tron-gt` [CA, US] awd · wheels 20/21″ · powertrain new
+  - NRCan: S e-tron GT (20" Wheels)
+  - NRCan: S e-tron GT (21" Wheels)
+  - EPA: S e-tron GT (20 inch wheels)
+  - EPA: S e-tron GT (21 inch wheels)
+- **2026 CA: RS e-tron GT performance · US: RS e-tron GT performance** → `audi/e-tron-gt/2026/rs-e-tron-gt-performance` [CA, US] awd · powertrain new
+  - NRCan: RS e-tron GT quattro performance
+  - EPA: RS e-tron GT Performance
+- **2026 CA: S e-tron GT · US: S e-tron GT** → `audi/e-tron-gt/2026/s-e-tron-gt` [CA, US] awd · wheels 20/21″ · powertrain new
+  - NRCan: S e-tron GT (20" Wheels)
+  - NRCan: S e-tron GT (21" Wheels)
+  - EPA: S e-tron GT (20 inch wheels)
+  - EPA: S e-tron GT (21 inch wheels)
+- **2027 US: RS e-tron GT performance** → `audi/e-tron-gt/2027/rs-e-tron-gt-performance` [US] awd · powertrain new
+  - EPA: RS e-tron GT Performance
+- **2027 US: S e-tron GT** → `audi/e-tron-gt/2027/s-e-tron-gt` [US] awd · wheels 20/21″ · powertrain new
+  - EPA: S e-tron GT (20 inch wheels)
+  - EPA: S e-tron GT (21 inch wheels)
+## audi/e-tron
+
+- **2019 CA: e-tron 55 quattro · US: e-tron 55 quattro** → `audi/e-tron/2019/e-tron-55-quattro` [CA, US] awd · powertrain new
+  - NRCan: e-tron 55 quattro
+  - EPA: e-tron
+- **2020 CA: e-tron Sportback 55 quattro · US: e-tron Sportback 55 quattro** → `audi/e-tron/2020/e-tron-sportback-55-quattro` [CA, US] awd · powertrain new
+  - NRCan: e-tron Sportback 55 quattro
+  - EPA: e-tron Sportback
+- **2021 CA: e-tron 55 quattro · US: e-tron 55 quattro** → `audi/e-tron/2021/e-tron-55-quattro` [CA, US] awd · powertrain new
+  - NRCan: e-tron 55 quattro
+  - EPA: e-tron
+- **2021 CA: e-tron Sportback 55 quattro · US: e-tron Sportback 55 quattro** → `audi/e-tron/2021/e-tron-sportback-55-quattro` [CA, US] awd · powertrain new
+  - NRCan: e-tron Sportback 55 quattro
+  - EPA: e-tron Sportback
+- **2022 CA: e-tron 55 quattro · US: e-tron 55 quattro** → `audi/e-tron/2022/e-tron-55-quattro` [CA, US] awd · powertrain new
+  - NRCan: e-tron 55 quattro
+  - EPA: e-tron quattro
+- **2022 CA: e-tron S Sportback quattro · US: e-tron S Sportback quattro** → `audi/e-tron/2022/e-tron-s-sportback-quattro` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: e-tron S Sportback quattro (20" Wheels)
+  - NRCan: e-tron S Sportback quattro (21" or 22" Wheels)
+  - EPA: e-tron S Sportback (20 inch wheels)
+  - EPA: e-tron S Sportback (21/22 inch wheels)
+- **2022 CA: e-tron Sportback 55 quattro · US: e-tron Sportback 55 quattro** → `audi/e-tron/2022/e-tron-sportback-55-quattro` [CA, US] awd · powertrain new
+  - NRCan: e-tron Sportback 55 quattro
+  - EPA: e-tron Sportback quattro
+- **2022 US: e-tron S quattro** → `audi/e-tron/2022/e-tron-s-quattro` [US] awd · wheels 20/21/22″ · powertrain new
+  - EPA: e-tron S (20in wheels)
+  - EPA: e-tron S (21/22 inch wheels)
+- **2023 CA: e-tron 55 quattro · US: e-tron 55 quattro** → `audi/e-tron/2023/e-tron-55-quattro` [CA, US] awd · powertrain new
+  - NRCan: e-tron 55 quattro
+  - EPA: e-tron quattro
+- **2023 CA: e-tron Sportback 55 quattro · US: e-tron Sportback 55 quattro** → `audi/e-tron/2023/e-tron-sportback-55-quattro` [CA, US] awd · powertrain new
+  - NRCan: e-tron Sportback 55 quattro
+  - EPA: e-tron Sportback quattro
+- **2023 US: e-tron S quattro** → `audi/e-tron/2023/e-tron-s-quattro` [US] awd · wheels 20/21/22″ · powertrain new
+  - EPA: e-tron S (20 inch wheels)
+  - EPA: e-tron S (21/22 inch wheels)
+- **2023 US: e-tron S Sportback quattro** → `audi/e-tron/2023/e-tron-s-sportback-quattro` [US] awd · wheels 20/21/22″ · powertrain new
+  - EPA: e-tron S Sportback (20 inch wheels)
+  - EPA: e-tron S Sportback (21/22 inch wheels)
+- **2024 CA: Q8 e-tron quattro · US: Q8 e-tron quattro** → `audi/e-tron/2024/q8-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q8 e-tron
+  - EPA: Q8 e-tron quattro
+- **2024 CA: Q8 Sportback e-tron quattro · US: Q8 Sportback e-tron quattro** → `audi/e-tron/2024/q8-sportback-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q8 Sportback e-tron
+  - EPA: Q8 Sportback e-tron quattro
+- **2024 CA: SQ8 e-tron · US: SQ8 e-tron** → `audi/e-tron/2024/sq8-e-tron` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: SQ8 e-tron (20" Wheels)
+  - NRCan: SQ8 e-tron (21" or 22" Wheels)
+  - EPA: SQ8 e-tron (20 inch wheels)
+  - EPA: SQ8 e-tron (21/22 inch wheels)
+- **2024 CA: SQ8 Sportback e-tron · US: SQ8 Sportback e-tron** → `audi/e-tron/2024/sq8-sportback-e-tron` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: SQ8 Sportback e-tron (20" Wheels)
+  - NRCan: SQ8 Sportback e-tron (21" or 22" Wheels)
+  - EPA: SQ8 Sportback e-tron (20 inch wheels)
+  - EPA: SQ8 Sportback e-tron (21/22 inch wheels)
+- **2024 US: Q8 Sportback e-tron ultra quattro** → `audi/e-tron/2024/q8-sportback-e-tron-ultra-quattro` [US] awd · powertrain new
+  - EPA: Q8 Sportback e-tron ultra quattro
+- **2025 CA: Q8 e-tron quattro · US: Q8 e-tron quattro** → `audi/e-tron/2025/q8-e-tron-quattro` [CA, US] awd · wheels 20/21″ · powertrain new
+  - NRCan: Q8 e-tron (20" Wheels)
+  - NRCan: Q8 e-tron (21" Wheels)
+  - EPA: Q8 e-tron quattro (20 inch wheels)
+  - EPA: Q8 e-tron quattro (21 inch wheels)
+- **2025 CA: Q8 Sportback e-tron quattro · US: Q8 Sportback e-tron quattro** → `audi/e-tron/2025/q8-sportback-e-tron-quattro` [CA, US] awd · wheels 20/21″ · powertrain new
+  - NRCan: Q8 Sportback e-tron (20" Wheels)
+  - NRCan: Q8 Sportback e-tron (21" Wheels)
+  - EPA: Q8 Sportback e-tron quattro (20 inch wheels)
+  - EPA: Q8 Sportback e-tron quattro (21 inch wheels)
+- **2025 CA: SQ8 e-tron · US: SQ8 e-tron** → `audi/e-tron/2025/sq8-e-tron` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: SQ8 e-tron (20" Wheels)
+  - NRCan: SQ8 e-tron (21" or 22" Wheels)
+  - EPA: SQ8 e-tron (20 inch wheels)
+  - EPA: SQ8 e-tron (21/22 inch wheels)
+- **2025 CA: SQ8 Sportback e-tron · US: SQ8 Sportback e-tron** → `audi/e-tron/2025/sq8-sportback-e-tron` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: SQ8 Sportback e-tron (20" Wheels)
+  - NRCan: SQ8 Sportback e-tron (21" or 22" Wheels)
+  - EPA: SQ8 Sportback e-tron (20 inch wheels)
+  - EPA: SQ8 Sportback e-tron (21/22 inch wheels)
+## audi/q4-e-tron
+
+- **2022 CA: Q4 50 e-tron quattro · US: Q4 50 e-tron quattro** → `audi/q4-e-tron/2022/q4-50-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 50 e-tron quattro
+  - EPA: Q4 e-tron quattro
+- **2022 CA: Q4 Sportback 50 e-tron quattro · US: Q4 Sportback 50 e-tron quattro** → `audi/q4-e-tron/2022/q4-sportback-50-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 50 e-tron Sportback quattro
+  - EPA: Q4 e-tron Sportback quattro
+- **2023 CA: Q4 50 e-tron quattro · US: Q4 50 e-tron quattro** → `audi/q4-e-tron/2023/q4-50-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 50 e-tron quattro
+  - EPA: Q4 e-tron quattro
+- **2023 CA: Q4 Sportback 50 e-tron quattro · US: Q4 Sportback 40 e-tron** → `audi/q4-e-tron/2023/q4-sportback-50-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 Sportback 50 e-tron quattro
+  - EPA: Q4 e-tron Sportback
+- **2023 US: Q4 40 e-tron** → `audi/q4-e-tron/2023/q4-40-e-tron` [US] rwd · powertrain new
+  - EPA: Q4 e-tron
+- **2024 CA: Q4 45 e-tron · US: Q4 40 e-tron** → `audi/q4-e-tron/2024/q4-45-e-tron` [CA, US] rwd · powertrain new
+  - NRCan: Q4 45 e-tron
+  - EPA: Q4 40 e-tron
+- **2024 CA: Q4 50 e-tron quattro · US: Q4 50 e-tron quattro** → `audi/q4-e-tron/2024/q4-50-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 50 e-tron
+  - EPA: Q4 50 e-tron quattro
+- **2024 CA: Q4 55 e-tron quattro · US: Q4 55 e-tron quattro** → `audi/q4-e-tron/2024/q4-55-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 55 e-tron
+  - EPA: Q4 55 e-tron quattro
+- **2024 CA: Q4 Sportback 50 e-tron quattro · US: Q4 Sportback 50 e-tron quattro** → `audi/q4-e-tron/2024/q4-sportback-50-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 Sportback 50 e-tron
+  - EPA: Q4 Sportback 50 e-tron quattro
+- **2024 CA: Q4 Sportback 55 e-tron quattro · US: Q4 Sportback 55 e-tron quattro** → `audi/q4-e-tron/2024/q4-sportback-55-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 Sportback 55 e-tron
+  - EPA: Q4 Sportback 55 e-tron quattro
+- **2025 CA: Q4 45 e-tron · US: Q4 45 e-tron** → `audi/q4-e-tron/2025/q4-45-e-tron` [CA, US] rwd · powertrain new
+  - NRCan: Q4 45 e-tron
+  - EPA: Q4 45 e-tron
+- **2025 CA: Q4 55 e-tron quattro · US: Q4 55 e-tron quattro** → `audi/q4-e-tron/2025/q4-55-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 55 e-tron quattro
+  - EPA: Q4 55 e-tron quattro
+- **2025 CA: Q4 Sportback 55 e-tron quattro · US: Q4 Sportback 55 e-tron quattro** → `audi/q4-e-tron/2025/q4-sportback-55-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 Sportback 55 e-tron quattro
+  - EPA: Q4 Sportback 55 e-tron quattro
+- **2026 CA: Q4 45 e-tron · US: Q4 45 e-tron** → `audi/q4-e-tron/2026/q4-45-e-tron` [CA, US] rwd · powertrain new
+  - NRCan: Q4 45 e-tron
+  - EPA: Q4 45 e-tron
+- **2026 CA: Q4 55 e-tron quattro · US: Q4 55 e-tron quattro** → `audi/q4-e-tron/2026/q4-55-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 55 e-tron quattro
+  - EPA: Q4 55 e-tron quattro
+- **2026 CA: Q4 Sportback 55 e-tron quattro · US: Q4 Sportback 55 e-tron quattro** → `audi/q4-e-tron/2026/q4-sportback-55-e-tron-quattro` [CA, US] awd · powertrain new
+  - NRCan: Q4 Sportback 55 e-tron quattro
+  - EPA: Q4 Sportback 55 e-tron quattro
+## audi/q6-e-tron
+
+- **2025 CA: Q6 e-tron quattro · US: Q6 e-tron quattro** → `audi/q6-e-tron/2025/q6-e-tron-quattro` [CA, US] awd · wheels 19/20″ · powertrain new
+  - NRCan: Q6 60 e-tron quattro (19" Wheels)
+  - NRCan: Q6 60 e-tron quattro (20" Wheels)
+  - EPA: Q6 e-tron quattro (19 inch wheels)
+  - EPA: Q6 e-tron quattro (20 inch wheels)
+- **2025 CA: Q6 Sportback e-tron quattro · US: Q6 Sportback e-tron quattro** → `audi/q6-e-tron/2025/q6-sportback-e-tron-quattro` [CA, US] awd · wheels 19/20″ · powertrain new
+  - NRCan: Q6 Sportback 60 e-tron quattro (19" Wheels)
+  - NRCan: Q6 Sportback 60 e-tron quattro (20" Wheels)
+  - EPA: Q6 Sportback e-tron quattro (19 inch wheels)
+  - EPA: Q6 Sportback e-tron quattro (20 inch wheels)
+- **2025 CA: SQ6 e-tron · US: SQ6 e-tron** → `audi/q6-e-tron/2025/sq6-e-tron` [CA, US] awd · powertrain new
+  - NRCan: SQ6 e-tron
+  - EPA: SQ6 e-tron
+- **2025 CA: SQ6 Sportback e-tron · US: SQ6 Sportback e-tron** → `audi/q6-e-tron/2025/sq6-sportback-e-tron` [CA, US] awd · powertrain new
+  - NRCan: SQ6 Sportback e-tron quattro
+  - EPA: SQ6 Sportback e-tron
+- **2025 US: Q6 e-tron** → `audi/q6-e-tron/2025/q6-e-tron` [US] rwd · wheels 19/20″ · powertrain new
+  - EPA: Q6 e-tron (19 inch wheels)
+  - EPA: Q6 e-tron (20 inch wheels)
+- **2025 US: Q6 e-tron ultra** → `audi/q6-e-tron/2025/q6-e-tron-ultra` [US] rwd · powertrain new
+  - EPA: Q6 e-tron ultra
+- **2027 US: Q6 e-tron quattro** → `audi/q6-e-tron/2027/q6-e-tron-quattro` [US] awd · wheels 19/20″ · powertrain new
+  - EPA: Q6 e-tron quattro (19 inch Tires)
+  - EPA: Q6 e-tron quattro (20 inch Tires)
+- **2027 US: Q6 Sportback e-tron quattro** → `audi/q6-e-tron/2027/q6-sportback-e-tron-quattro` [US] awd · wheels 20″ · powertrain new
+  - EPA: Q6 e-tron SB quattro (20 inch Tires)
+  - EPA: Q6 Sportback e-tron quattro
+- **2027 US: SQ6 e-tron** → `audi/q6-e-tron/2027/sq6-e-tron` [US] awd · wheels 20/21″ · powertrain new
+  - EPA: SQ6 e-tron (20 inch Tires)
+  - EPA: SQ6 e-tron (21 inch Tires)
+- **2027 US: SQ6 Sportback e-tron** → `audi/q6-e-tron/2027/sq6-sportback-e-tron` [US] awd · wheels 20/21″ · powertrain new
+  - EPA: SQ6 Sportback e-tron (20 inch Tires)
+  - EPA: SQ6 Sportback e-tron (21 inch Tires)
+## azure-dynamics/transit-connect-electric
+
+- **2012 US: Transit Connect Electric** → `azure-dynamics/transit-connect-electric/2012/transit-connect-electric` [US] fwd · powertrain new
+  - EPA: Transit Connect Electric Van/Wagon
+## bmw/i3-sedan
+
+- **2027 US: i3 50 xDrive** → `bmw/i3-sedan/2027/i3-50-xdrive` [US] awd · wheels 19/20/21″ · powertrain new
+  - EPA: i3 50 xDrive Sedan (19 inch All-Season Tires)
+  - EPA: i3 50 xDrive Sedan (20 inch All-Season Tires)
+  - EPA: i3 50 xDrive Sedan (20 inch Summer Tires)
+  - EPA: i3 50 xDrive Sedan (21 inch Summer Tires)
+## bmw/i3
+
+- **2014 US: i3 60 Ah** → `bmw/i3/2014/i3-60-ah` [US] rwd · powertrain new
+  - EPA: i3 BEV
+- **2015 CA: i3 60 Ah · US: i3 60 Ah** → `bmw/i3/2015/i3-60-ah` [CA, US] rwd · powertrain new
+  - NRCan: i3
+  - EPA: i3 BEV
+- **2016 CA: i3 60 Ah · US: i3 60 Ah** → `bmw/i3/2016/i3-60-ah` [CA, US] rwd · powertrain new
+  - NRCan: i3
+  - EPA: i3 BEV
+- **2017 CA: i3 60 Ah · US: i3 60 Ah** → `bmw/i3/2017/i3-60-ah` [CA, US] rwd · powertrain new
+  - NRCan: i3 (60 Ah)
+  - EPA: i3 BEV (60  Amp-hour battery)
+- **2017 CA: i3 94 Ah · US: i3 94 Ah** → `bmw/i3/2017/i3-94-ah` [CA, US] rwd · powertrain new
+  - NRCan: i3 (94 Ah)
+  - EPA: i3 BEV (94 Amp-hour battery)
+- **2018 CA: i3 94 Ah · US: i3 94 Ah** → `bmw/i3/2018/i3-94-ah` [CA, US] rwd · powertrain new · ⚠ note: "(94Ah)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: i3
+  - EPA: i3 (94Ah)
+- **2018 CA: i3s 94 Ah · US: i3s 94 Ah** → `bmw/i3/2018/i3s-94-ah` [CA, US] rwd · powertrain new · ⚠ note: "(94Ah)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: i3s
+  - EPA: i3s (94Ah)
+- **2019 CA: i3 120 Ah · US: i3 120 Ah** → `bmw/i3/2019/i3-120-ah` [CA, US] rwd · powertrain new
+  - NRCan: i3 (120 Ah)
+  - EPA: i3
+- **2019 CA: i3s 120 Ah · US: i3s 120 Ah** → `bmw/i3/2019/i3s-120-ah` [CA, US] rwd · powertrain new
+  - NRCan: i3s (120 Ah)
+  - EPA: i3s
+- **2020 CA: i3 120 Ah · US: i3 120 Ah** → `bmw/i3/2020/i3-120-ah` [CA, US] rwd · powertrain new
+  - NRCan: i3 (120 Ah)
+  - EPA: i3
+- **2020 CA: i3s 120 Ah · US: i3s 120 Ah** → `bmw/i3/2020/i3s-120-ah` [CA, US] rwd · powertrain new
+  - NRCan: i3s (120 Ah)
+  - EPA: i3s
+- **2021 CA: i3 120 Ah · US: i3 120 Ah** → `bmw/i3/2021/i3-120-ah` [CA, US] rwd · powertrain new
+  - NRCan: i3 (120 Ah)
+  - EPA: i3
+- **2021 CA: i3s 120 Ah · US: i3s 120 Ah** → `bmw/i3/2021/i3s-120-ah` [CA, US] rwd · powertrain new
+  - NRCan: i3s (120 Ah)
+  - EPA: i3s
+## bmw/i5
+
+- **2024 CA: M60 xDrive · US: M60 xDrive** → `bmw/i5/2024/m60-xdrive` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: i5 M60 Sedan (19" Wheels)
+  - NRCan: i5 M60 Sedan (20" Wheels)
+  - NRCan: i5 M60 Sedan (21" Wheels)
+  - EPA: i5 M60 xDrive Sedan (19 inch Wheels)
+  - EPA: i5 M60 xDrive Sedan (20 inch Wheels)
+  - EPA: i5 M60 xDrive Sedan (21 inch Wheels)
+- **2024 US: eDrive40** → `bmw/i5/2024/edrive40` [US] rwd · wheels 19/20/21″ · powertrain new
+  - EPA: i5 eDrive40 Sedan (19 inch Wheels)
+  - EPA: i5 eDrive40 Sedan (20 inch Wheels)
+  - EPA: i5 eDrive40 Sedan (21 inch Wheels)
+- **2025 CA: M60 xDrive · US: M60 xDrive** → `bmw/i5/2025/m60-xdrive` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: i5 M60 xDrive Sedan (19" Wheels)
+  - NRCan: i5 M60 xDrive Sedan (20" Wheels)
+  - NRCan: i5 M60 xDrive Sedan (21" Wheels)
+  - EPA: i5 M60 xDrive Sedan (19 inch Wheels)
+  - EPA: i5 M60 xDrive Sedan (20 inch Wheels)
+  - EPA: i5 M60 xDrive Sedan (21 inch Wheels)
+- **2025 CA: xDrive40 · US: xDrive40** → `bmw/i5/2025/xdrive40` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: i5 xDrive40 Sedan (19" Wheels)
+  - NRCan: i5 xDrive40 Sedan (20" Wheels)
+  - NRCan: i5 xDrive40 Sedan (21" Wheels)
+  - EPA: i5 xDrive40 Sedan (19 inch Wheels)
+  - EPA: i5 xDrive40 Sedan (20 inch Wheels)
+  - EPA: i5 xDrive40 Sedan (21 inch Wheels)
+- **2025 US: eDrive40** → `bmw/i5/2025/edrive40` [US] rwd · wheels 19/20/21″ · powertrain new
+  - EPA: i5 eDrive40 Sedan (19 inch Wheels)
+  - EPA: i5 eDrive40 Sedan (20 inch Wheels)
+  - EPA: i5 eDrive40 Sedan (21 inch Wheels)
+- **2026 CA: M60 xDrive · US: M60 xDrive** → `bmw/i5/2026/m60-xdrive` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: i5 M60 xDrive Sedan (19" Wheels)
+  - NRCan: i5 M60 xDrive Sedan (20" Wheels)
+  - NRCan: i5 M60 xDrive Sedan (21" Wheels)
+  - EPA: i5 M60 xDrive Sedan (19 inch Wheels)
+  - EPA: i5 M60 xDrive Sedan (20 inch Wheels)
+  - EPA: i5 M60 xDrive Sedan (21 inch Wheels)
+- **2026 CA: xDrive40 · US: xDrive40** → `bmw/i5/2026/xdrive40` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: i5 xDrive40 Sedan (19" Wheels)
+  - NRCan: i5 xDrive40 Sedan (20" Wheels)
+  - NRCan: i5 xDrive40 Sedan (21" Wheels)
+  - EPA: i5 xDrive40 Sedan (19 inch Wheels)
+  - EPA: i5 xDrive40 Sedan (20 inch Wheels)
+  - EPA: i5 xDrive40 Sedan (21 inch Wheels)
+- **2026 US: eDrive40** → `bmw/i5/2026/edrive40` [US] rwd · wheels 19/20/21″ · powertrain new
+  - EPA: i5 eDrive40 Sedan (19 inch Wheels)
+  - EPA: i5 eDrive40 Sedan (20 inch Wheels)
+  - EPA: i5 eDrive40 Sedan (21 inch Wheels)
+- **2027 US: eDrive40** → `bmw/i5/2027/edrive40` [US] rwd · wheels 19/20/21″ · powertrain new
+  - EPA: i5 eDrive40 Sedan (19 inch Wheels)
+  - EPA: i5 eDrive40 Sedan (20 inch Wheels)
+  - EPA: i5 eDrive40 Sedan (21 inch Wheels)
+- **2027 US: M60 xDrive** → `bmw/i5/2027/m60-xdrive` [US] awd · wheels 19/20/21″ · powertrain new
+  - EPA: i5 M60 xDrive Sedan (19 inch Wheels)
+  - EPA: i5 M60 xDrive Sedan (20 inch Wheels)
+  - EPA: i5 M60 xDrive Sedan (21 inch Wheels)
+- **2027 US: xDrive40** → `bmw/i5/2027/xdrive40` [US] awd · wheels 19/20/21″ · powertrain new
+  - EPA: i5 xDrive40 Sedan (19 inch Wheels)
+  - EPA: i5 xDrive40 Sedan (20 inch Wheels)
+  - EPA: i5 xDrive40 Sedan (21 inch Wheels)
+## bmw/i7
+
+- **2023 CA: xDrive60 · US: xDrive60** → `bmw/i7/2023/xdrive60` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: i7 xDrive60 (19" Wheels)
+  - NRCan: i7 xDrive60 (20" Wheels)
+  - NRCan: i7 xDrive60 (21" Wheels)
+  - EPA: i7 xDrive60 Sedan (19 inch wheels)
+  - EPA: i7 xDrive60 Sedan (20 inch wheels)
+  - EPA: i7 xDrive60 Sedan (21 inch wheels)
+- **2024 CA: M70 xDrive · US: M70 xDrive** → `bmw/i7/2024/m70-xdrive` [CA, US] awd · wheels 20/21″ · powertrain new
+  - NRCan: i7 M70 xDrive Sedan (20" Wheels)
+  - NRCan: i7 M70 xDrive Sedan (21" Wheels)
+  - EPA: i7 M70 xDrive Sedan (20 inch Wheels)
+  - EPA: i7 M70 xDrive Sedan (21 inch Wheels)
+- **2024 CA: xDrive60 · US: xDrive60** → `bmw/i7/2024/xdrive60` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: i7 xDrive60 Sedan (19" Wheels)
+  - NRCan: i7 xDrive60 Sedan (20" Wheels)
+  - NRCan: i7 xDrive60 Sedan (21" Wheels)
+  - EPA: i7 xDrive60 Sedan (19 inch wheels)
+  - EPA: i7 xDrive60 Sedan (20 inch wheels)
+  - EPA: i7 xDrive60 Sedan (21 inch wheels)
+- **2024 US: eDrive50** → `bmw/i7/2024/edrive50` [US] rwd · wheels 19/20/21″ · powertrain new
+  - EPA: i7 eDrive50 Sedan (19 inch Wheels)
+  - EPA: i7 eDrive50 Sedan (20 inch Wheels)
+  - EPA: i7 eDrive50 Sedan (21 inch Wheels)
+- **2025 CA: M70 xDrive · US: M70 xDrive** → `bmw/i7/2025/m70-xdrive` [CA, US] awd · wheels 20/21″ · powertrain new
+  - NRCan: i7 M70 xDrive Sedan (20" Wheels)
+  - NRCan: i7 M70 xDrive Sedan (21" Wheels)
+  - EPA: i7 M70 xDrive Sedan (20 inch Wheels)
+  - EPA: i7 M70 xDrive Sedan (21 inch Wheels)
+- **2025 CA: xDrive60 · US: xDrive60** → `bmw/i7/2025/xdrive60` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: i7 xDrive60 Sedan (19" Wheels)
+  - NRCan: i7 xDrive60 Sedan (20" Wheels)
+  - NRCan: i7 xDrive60 Sedan (21" Wheels)
+  - EPA: i7 xDrive60 Sedan (19 inch wheels)
+  - EPA: i7 xDrive60 Sedan (20 inch wheels)
+  - EPA: i7 xDrive60 Sedan (21inch wheels)
+- **2025 US: eDrive50** → `bmw/i7/2025/edrive50` [US] rwd · wheels 19/20/21″ · powertrain new
+  - EPA: i7 eDrive50 Sedan (19 inch Wheels)
+  - EPA: i7 eDrive50 Sedan (20 inch Wheels)
+  - EPA: i7 eDrive50 Sedan (21 inch Wheels)
+- **2026 CA: M70 xDrive · US: M70 xDrive** → `bmw/i7/2026/m70-xdrive` [CA, US] awd · wheels 20/21″ · powertrain new
+  - NRCan: i7 M70 xDrive Sedan (20" Wheels)
+  - NRCan: i7 M70 xDrive Sedan (21" Wheels)
+  - EPA: i7 M70 xDrive Sedan (20 inch Wheels)
+  - EPA: i7 M70 xDrive Sedan (21 inch Wheels)
+- **2026 CA: xDrive60 · US: xDrive60** → `bmw/i7/2026/xdrive60` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: i7 xDrive60 Sedan (19" Wheels)
+  - NRCan: i7 xDrive60 Sedan (20" Wheels)
+  - NRCan: i7 xDrive60 Sedan (21" Wheels)
+  - EPA: i7 xDrive60 Sedan (19 inch Wheels)
+  - EPA: i7 xDrive60 Sedan (20 inch Wheels)
+  - EPA: i7 xDrive60 Sedan (21 inch Wheels)
+- **2026 US: eDrive50** → `bmw/i7/2026/edrive50` [US] rwd · wheels 19/20/21″ · powertrain new
+  - EPA: i7 eDrive50 Sedan (19 inch Wheels)
+  - EPA: i7 eDrive50 Sedan (20 inch Wheels)
+  - EPA: i7 eDrive50 Sedan (21 inch Wheels)
+- **2027 US: 50 xDrive** → `bmw/i7/2027/50-xdrive` [US] awd · wheels 20/21″ · powertrain new
+  - EPA: i7 xDrive50 Sedan (20 inch All-Season Tires)
+  - EPA: i7 xDrive50 Sedan (20 inch Summer Tires)
+  - EPA: i7 xDrive50 Sedan (21 inch All-Season Tires)
+  - EPA: i7 xDrive50 Sedan (21 inch Summer Tires)
+- **2027 US: 60 xDrive** → `bmw/i7/2027/60-xdrive` [US] awd · wheels 20/21″ · powertrain new
+  - EPA: i7 xDrive60 Sedan (20 inch All-Season Tires)
+  - EPA: i7 xDrive60 Sedan (20 inch Summer Tires)
+  - EPA: i7 xDrive60 Sedan (21 inch All-Season Tires)
+  - EPA: i7 xDrive60 Sedan (21 inch Summer Tires)
+## bmw/ix
+
+- **2022 CA: xDrive50 · US: xDrive50** → `bmw/ix/2022/xdrive50` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: iX xDrive50 (20" Wheels)
+  - NRCan: iX xDrive50 (21" Wheels)
+  - NRCan: iX xDrive50 (22" Wheels)
+  - EPA: iX xDrive50 (20 inch wheels)
+  - EPA: iX xDrive50 (21 inch wheels)
+  - EPA: iX xDrive50 (22 inch wheels)
+- **2023 CA: M60 · US: M60** → `bmw/ix/2023/m60` [CA, US] awd · wheels 21/22″ · powertrain new
+  - NRCan: iX M60 (21" Wheels)
+  - NRCan: iX M60 (22" Wheels)
+  - EPA: iX M60 (21 inch wheels)
+  - EPA: iX M60 (22 inch wheels)
+- **2023 CA: xDrive40** → `bmw/ix/2023/xdrive40` [CA] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: iX xDrive40 (20" Wheels)
+  - NRCan: iX xDrive40 (21" Wheels)
+  - NRCan: iX xDrive40 (22" Wheels)
+- **2023 CA: xDrive50 · US: xDrive50** → `bmw/ix/2023/xdrive50` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: iX xDrive50 (20" Wheels)
+  - NRCan: iX xDrive50 (21" Wheels)
+  - NRCan: iX xDrive50 (22" Wheels)
+  - EPA: iX xDrive50 (20 inch wheels)
+  - EPA: iX xDrive50 (21 inch wheels)
+  - EPA: iX xDrive50 (22 inch wheels)
+- **2024 CA: M60 · US: M60** → `bmw/ix/2024/m60` [CA, US] awd · wheels 21/22″ · powertrain new
+  - NRCan: iX M60 (21" Wheels)
+  - NRCan: iX M60 (22" Wheels)
+  - EPA: iX M60 (21 inch Wheels)
+  - EPA: iX M60 (22 inch Wheels)
+- **2024 CA: xDrive40 · US: xDrive40** → `bmw/ix/2024/xdrive40` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: iX xDrive40 (20" Wheels)
+  - NRCan: iX xDrive40 (21" Wheels)
+  - NRCan: iX xDrive40 (22" Wheels)
+  - EPA: iX xDrive40 (20 inch Wheels)
+  - EPA: iX xDrive40 (21 inch Wheels)
+  - EPA: iX xDrive40 (22 inch Wheels)
+- **2024 CA: xDrive50 · US: xDrive50** → `bmw/ix/2024/xdrive50` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: iX xDrive50 (20" Wheels)
+  - NRCan: iX xDrive50 (21" Wheels)
+  - NRCan: iX xDrive50 (22" Wheels)
+  - EPA: iX xDrive50 (20 inch wheels)
+  - EPA: iX xDrive50 (21 inch wheels)
+  - EPA: iX xDrive50 (22 inch wheels)
+- **2025 CA: M60 · US: M60** → `bmw/ix/2025/m60` [CA, US] awd · wheels 21/22″ · powertrain new
+  - NRCan: iX M60 (21" Wheels)
+  - NRCan: iX M60 (22" Wheels)
+  - EPA: iX M60 (21 inch Wheels)
+  - EPA: iX M60 (22 inch Wheels)
+- **2025 CA: xDrive40 · US: xDrive40** → `bmw/ix/2025/xdrive40` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: iX xDrive40 (20" Wheels)
+  - NRCan: iX xDrive40 (21" Wheels)
+  - NRCan: iX xDrive40 (22" Wheels)
+  - EPA: iX xDrive40 (20 inch Wheels)
+  - EPA: iX xDrive40 (21 inch Wheels)
+  - EPA: iX xDrive40 (22 inch Wheels)
+- **2025 CA: xDrive50 · US: xDrive50** → `bmw/ix/2025/xdrive50` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: iX xDrive50 (20" Wheels)
+  - NRCan: iX xDrive50 (21" Wheels)
+  - NRCan: iX xDrive50 (22" Wheels)
+  - EPA: iX xDrive50 (20 inch wheels)
+  - EPA: iX xDrive50 (21 inch wheels)
+  - EPA: iX xDrive50 (22 inch wheels)
+- **2026 CA: M70 xDrive · US: M70 xDrive** → `bmw/ix/2026/m70-xdrive` [CA, US] awd · wheels 21/22/23″ · powertrain new
+  - NRCan: iX M70 (21" Wheels)
+  - NRCan: iX M70 (22" Wheels)
+  - NRCan: iX M70 (23" Wheels)
+  - EPA: iX M70 (21 inch Wheels)
+  - EPA: iX M70 (22 inch Wheels)
+  - EPA: iX M70 (23 inch Wheels)
+- **2026 CA: xDrive45 · US: xDrive45** → `bmw/ix/2026/xdrive45` [CA, US] awd · wheels 20/21/22/23″ · powertrain new
+  - NRCan: iX xDrive45 (20" Wheels)
+  - NRCan: iX xDrive45 (21" Wheels)
+  - NRCan: iX xDrive45 (22" Wheels)
+  - NRCan: iX xDrive45 (23" Wheels)
+  - EPA: iX xDrive45 (20 inch Wheels)
+  - EPA: iX xDrive45 (21 inch Wheels)
+  - EPA: iX xDrive45 (22 inch Wheels)
+  - EPA: iX xDrive45 (23 inch Wheels)
+- **2026 CA: xDrive60 · US: xDrive60** → `bmw/ix/2026/xdrive60` [CA, US] awd · wheels 20/21/22/23″ · powertrain new
+  - NRCan: iX xDrive60 (20" Wheels)
+  - NRCan: iX xDrive60 (21" Wheels)
+  - NRCan: iX xDrive60 (22" Wheels)
+  - NRCan: iX xDrive60 (23" Wheels)
+  - EPA: iX xDrive60 (20 inch Wheels)
+  - EPA: iX xDrive60 (21 inch Wheels)
+  - EPA: iX xDrive60 (22 inch Wheels)
+  - EPA: iX xDrive60 (23 inch Wheels)
+## bmw/ix3
+
+- **2027 US: 50 xDrive** → `bmw/ix3/2027/50-xdrive` [US] awd · wheels 20/21/22″ · powertrain new
+  - EPA: iX3 50 xDrive (20 inch All-Season Tires)
+  - EPA: iX3 50 xDrive (20 inch Summer Tires)
+  - EPA: iX3 50 xDrive (21 inch All-Season Tires)
+  - EPA: iX3 50 xDrive (21 inch Summer Tires)
+  - EPA: iX3 50 xDrive (22 inch Summer Tires)
+## bmw/ix4
+
+- **2027 US: 50 xDrive** → `bmw/ix4/2027/50-xdrive` [US] awd · wheels 20/21/22″ · powertrain new
+  - EPA: iX4 50 xDrive (20 inch All-Season Tires)
+  - EPA: iX4 50 xDrive (20 inch Summer Tires)
+  - EPA: iX4 50 xDrive (21 inch All-Season Tires)
+  - EPA: iX4 50 xDrive (21 inch Summer Tires)
+  - EPA: iX4 50 xDrive (22 inch Summer Tires)
+## bmw/ix5
+
+- **2027 US: 60 xDrive** → `bmw/ix5/2027/60-xdrive` [US] awd · wheels 21/22″ · powertrain new
+  - EPA: iX5 60 xDrive (21 inch Summer Tires)
+  - EPA: iX5 60 xDrive (22 inch All-Season Tires)
+  - EPA: iX5 60 xDrive (22 inch Summer Tires)
+## cadillac/celestiq
+
+- **2025 CA: Celestiq · US: Celestiq** → `cadillac/celestiq/2025/celestiq` [CA, US] awd · powertrain new
+  - NRCan: CELESTIQ
+  - EPA: CELESTIQ
+- **2026 CA: Celestiq · US: Celestiq** → `cadillac/celestiq/2026/celestiq` [CA, US] awd · powertrain new
+  - NRCan: CELESTIQ
+  - EPA: CELESTIQ
+## cadillac/lyriq
+
+- **2026 US: AWD** → `cadillac/lyriq/2026/awd` [US] awd · powertrain cadillac/lyriq/2026-awd · ⚠ powertrain: same name as cadillac/lyriq/2025/awd; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
+  - EPA: LYRIQ PAWD
+## cadillac/optiq-v
+
+- **2026 CA: Optiq-V AWD · US: Optiq-V AWD** → `cadillac/optiq-v/2026/optiq-v-awd` [CA, US] awd · powertrain new · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger)
+  - **Recommend:** yes: the onboard charger differs by option, same car
+  - NRCan: OPTIQ-V (11.5 kW Charger)
+  - NRCan: OPTIQ-V (19.2 kW Charger)
+  - EPA: OPTIQ AWD V SERIES 11 kW Charger
+  - EPA: OPTIQ AWD V SERIES 19 kW charger
+- **2027 US: Optiq-V AWD** → `cadillac/optiq-v/2027/optiq-v-awd` [US] awd · powertrain new
+  - EPA: OPTIQ AWD V SERIES 11kW Charger
+  - EPA: OPTIQ AWD V SERIES 19kW Charger
+## cadillac/optiq
+
+- **2025 CA: Optiq AWD** → `cadillac/optiq/2025/optiq-awd` [CA] awd · powertrain new · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger)
+  - **Recommend:** yes: the onboard charger differs by option, same car
+  - NRCan: OPTIQ (11.5 kW Charger)
+  - NRCan: OPTIQ (19.2 kW Charger)
+- **2026 CA: Optiq RWD · US: Optiq RWD** → `cadillac/optiq/2026/optiq-rwd` [CA, US] rwd · powertrain new · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger); charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger)
+  - **Recommend:** yes: the onboard charger differs by option, same car
+  - NRCan: OPTIQ (11.5 kW Charger)
+  - NRCan: OPTIQ (19.2 kW Charger)
+  - EPA: OPTIQ RWD (11 kW Charger)
+  - EPA: OPTIQ RWD (19 kW Charger)
+- **2026 CA: Optiq AWD · US: Optiq AWD** → `cadillac/optiq/2026/optiq-awd` [CA, US] awd · powertrain new · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger); charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger)
+  - **Recommend:** yes: the onboard charger differs by option, same car
+  - NRCan: OPTIQ AWD (11.5 kW Charger)
+  - NRCan: OPTIQ AWD (19.2 kW Charger)
+  - EPA: OPTIQ AWD (11 kW Charger)
+  - EPA: OPTIQ AWD (19 kW Charger)
+- **2027 US: Optiq AWD** → `cadillac/optiq/2027/optiq-awd` [US] awd · powertrain new
+  - EPA: OPTIQ AWD 11kW Charger
+  - EPA: OPTIQ AWD 19kW Charger
+- **2027 US: Optiq RWD** → `cadillac/optiq/2027/optiq-rwd` [US] rwd · powertrain new
+  - EPA: OPTIQ RWD 11kW Charger
+  - EPA: OPTIQ RWD 19kW Charger
+## cadillac/vistiq
+
+- **2026 CA: Vistiq AWD · US: Vistiq AWD** → `cadillac/vistiq/2026/vistiq-awd` [CA, US] awd · powertrain new · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger); charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger)
+  - **Recommend:** yes: the onboard charger differs by option, same car
+  - NRCan: VISTIQ (11.5 kW Charger)
+  - NRCan: VISTIQ (19.2 kW Charger)
+  - EPA: VISTIQ (11 kW Charger)
+  - EPA: VISTIQ (19 kW Charger)
+- **2027 US: Vistiq AWD** → `cadillac/vistiq/2027/vistiq-awd` [US] awd · powertrain new
+  - EPA: VISTIQ 11kW Charger
+  - EPA: VISTIQ 19kW Charger
+## chevrolet/bolt-euv
+
+- **2022 CA: Bolt EUV · US: Bolt EUV** → `chevrolet/bolt-euv/2022/bolt-euv` [CA, US] fwd · powertrain new
+  - NRCan: Bolt EUV
+  - EPA: Bolt EUV
+- **2023 CA: Bolt EUV · US: Bolt EUV** → `chevrolet/bolt-euv/2023/bolt-euv` [CA, US] fwd · powertrain new
+  - NRCan: Bolt EUV
+  - EPA: Bolt EUV
+## chevrolet/bolt-ev
+
+- **2017 CA: Bolt EV · US: Bolt EV** → `chevrolet/bolt-ev/2017/bolt-ev` [CA, US] fwd · powertrain new
+  - NRCan: Bolt EV
+  - EPA: Bolt EV
+- **2018 CA: Bolt EV · US: Bolt EV** → `chevrolet/bolt-ev/2018/bolt-ev` [CA, US] fwd · powertrain new
+  - NRCan: Bolt EV
+  - EPA: Bolt EV
+- **2019 CA: Bolt EV · US: Bolt EV** → `chevrolet/bolt-ev/2019/bolt-ev` [CA, US] fwd · powertrain new
+  - NRCan: Bolt EV
+  - EPA: Bolt EV
+- **2020 CA: Bolt EV · US: Bolt EV** → `chevrolet/bolt-ev/2020/bolt-ev` [CA, US] fwd · powertrain new
+  - NRCan: Bolt EV
+  - EPA: Bolt EV
+- **2021 CA: Bolt EV · US: Bolt EV** → `chevrolet/bolt-ev/2021/bolt-ev` [CA, US] fwd · powertrain new
+  - NRCan: Bolt EV
+  - EPA: Bolt EV
+- **2022 CA: Bolt EV · US: Bolt EV** → `chevrolet/bolt-ev/2022/bolt-ev` [CA, US] fwd · powertrain new
+  - NRCan: Bolt EV
+  - EPA: Bolt EV
+- **2023 CA: Bolt EV · US: Bolt EV** → `chevrolet/bolt-ev/2023/bolt-ev` [CA, US] fwd · powertrain new
+  - NRCan: Bolt EV
+  - EPA: Bolt EV
+## chevrolet/bolt
+
+- **2027 US: Bolt** → `chevrolet/bolt/2027/bolt` [US] fwd · powertrain new
+  - EPA: BOLT
+## chevrolet/equinox-ev
+
+- **2024 CA: AWD · US: eAWD** → `chevrolet/equinox-ev/2024/awd` [CA, US] awd · powertrain chevrolet/equinox-ev/2026-awd · ⚠ pair: names differ, same motor power (247 kW); powertrain: same name as chevrolet/equinox-ev/2025/awd; check the pack didn't change
+  - **Recommend:** check: paired only by motor power and the names differ: keep apart as a Canada car and a US car (owner rule)
+  - NRCan: Equinox EV AWD
+  - EPA: Equinox EV AWD
+## chevrolet/silverado-ev
+
+- **2024 US: AWD** → `chevrolet/silverado-ev/2024/awd` [US] awd · powertrain new · names: regulator wording · ⚠ name: no trim words in the regulator label
+  - **Recommend:** check: no researched trim name yet (round-2 research)
+  - EPA: Silverado EV
+  - EPA: Silverado EV
+## chevrolet/spark-ev
+
+- **2014 CA: Spark EV · US: Spark EV** → `chevrolet/spark-ev/2014/spark-ev` [CA, US] fwd · powertrain new
+  - NRCan: Spark EV
+  - EPA: Spark EV
+- **2015 CA: Spark EV · US: Spark EV** → `chevrolet/spark-ev/2015/spark-ev` [CA, US] fwd · powertrain new
+  - NRCan: Spark EV
+  - EPA: Spark EV
+- **2016 CA: Spark EV · US: Spark EV** → `chevrolet/spark-ev/2016/spark-ev` [CA, US] fwd · powertrain new
+  - NRCan: Spark EV
+  - EPA: Spark EV
+## coda/coda
+
+- **2012 US: CODA Sedan** → `coda/coda/2012/coda-sedan` [US] fwd · powertrain new
+  - EPA: CODA
+- **2013 US: CODA Sedan** → `coda/coda/2013/coda-sedan` [US] fwd · powertrain new
+  - EPA: CODA
+## dodge/charger-daytona
+
+- **2024 CA: R/T AWD · US: R/T AWD** → `dodge/charger-daytona/2024/r-t-awd` [CA, US] awd · wheels 18/20″ · powertrain new
+  - NRCan: Charger Daytona R/T AWD 2Dr (18" Nexen Tire)
+  - NRCan: Charger Daytona R/T AWD 2Dr (20" Goodyear Tire)
+  - NRCan: Charger Daytona R/T AWD 2Dr (20" Nexen Tire)
+  - EPA: Charger 2-Dr Daytona R/T AWD 18in
+  - EPA: Charger 2-Dr Daytona R/T AWD 20in Goodyear
+  - EPA: Charger 2-Dr Daytona R/T AWD 20in Nexen
+- **2024 CA: Scat Pack AWD · US: Scat Pack AWD** → `dodge/charger-daytona/2024/scat-pack-awd` [CA, US] awd · powertrain new
+  - NRCan: Charger Daytona Scat Pack Trk Pack AWD 2Dr 3S Tire
+  - NRCan: Charger Daytona Scat Pack Trk Pack AWD 2Dr AS Tire
+  - EPA: Charger 2-Dr Daytona Scat Pack Track Pack AWD
+  - EPA: Charger 2-Dr Daytona Scat Pack Track Pack AWD A/S
+- **2025 CA: R/T AWD · US: R/T AWD** → `dodge/charger-daytona/2025/r-t-awd` [CA, US] awd · wheels 18/20″ · powertrain new
+  - NRCan: Charger Daytona R/T AWD 2Dr (18" Nexen Tire)
+  - NRCan: Charger Daytona R/T AWD 2Dr (20" Goodyear Tire)
+  - NRCan: Charger Daytona R/T AWD 2Dr (20" Nexen Tire)
+  - EPA: Charger Daytona R/T AWD 245/55ZR18
+  - EPA: Charger Daytona R/T AWD 255/45R20
+  - EPA: Charger Daytona R/T AWD 275/40R20
+  - EPA: Charger Daytona R/T AWD 305/35ZR20
+- **2025 CA: Scat Pack AWD · US: Scat Pack AWD** → `dodge/charger-daytona/2025/scat-pack-awd` [CA, US] awd · powertrain new
+  - NRCan: Charger Daytona Scat Pack Trk Pack AWD 2Dr 3S Tire
+  - NRCan: Charger Daytona Scat Pack Trk Pack AWD 2Dr AS Tire
+  - EPA: Charger Daytona Scat Pack AWD 305/35ZR20
+  - EPA: Charger Daytona Scat Pack AWD 325/35ZR20 Rear
+  - EPA: Charger Daytona Scat Pack AWD 325/35ZR20 Rear A/S
+- **2026 CA: R/T AWD · US: R/T AWD** → `dodge/charger-daytona/2026/r-t-awd` [CA, US] awd · powertrain new
+  - NRCan: Charger Daytona R/T AWD 245/55ZR18
+  - NRCan: Charger Daytona R/T AWD 255/45R20
+  - NRCan: Charger Daytona R/T AWD 275/40R20
+  - NRCan: Charger Daytona R/T AWD 305/35ZR20
+  - EPA: Charger Daytona R/T AWD 245/55ZR18
+  - EPA: Charger Daytona R/T AWD 255/45R20
+  - EPA: Charger Daytona R/T AWD 275/40R20
+  - EPA: Charger Daytona R/T AWD 305/35ZR20
+- **2026 CA: Scat Pack AWD · US: Scat Pack AWD** → `dodge/charger-daytona/2026/scat-pack-awd` [CA, US] awd · powertrain new
+  - NRCan: Charger Daytona Scat Pack AWD 305/35ZR20
+  - NRCan: Charger Daytona Scat Pack AWD 325/35ZR20 Rear
+  - NRCan: Charger Daytona Scat Pack AWD 325/35ZR20 Rear 3S
+  - EPA: Charger Daytona Scat Pack AWD 305/35ZR20
+  - EPA: Charger Daytona Scat Pack AWD 325/35ZR20 Rear
+  - EPA: Charger Daytona Scat Pack AWD 325/35ZR20 Rear A/S
+- **2027 US: Scat Pack AWD** → `dodge/charger-daytona/2027/scat-pack-awd` [US] awd · powertrain new
+  - EPA: Charger Daytona Scat Pack AWD 305/35ZR20
+  - EPA: Charger Daytona Scat Pack AWD 325/35ZR20 Rear
+  - EPA: Charger Daytona Scat Pack AWD 325/35ZR20 Rear A/S
+## fiat/500e
+
+- **2013 US: 500e** → `fiat/500e/2013/500e` [US] fwd · powertrain new
+  - EPA: 500e
+- **2014 US: 500e** → `fiat/500e/2014/500e` [US] fwd · powertrain new
+  - EPA: 500e
+- **2015 US: 500e** → `fiat/500e/2015/500e` [US] fwd · powertrain new
+  - EPA: 500e
+- **2016 US: 500e** → `fiat/500e/2016/500e` [US] fwd · powertrain new
+  - EPA: 500e
+- **2017 US: 500e** → `fiat/500e/2017/500e` [US] fwd · powertrain new
+  - EPA: 500e
+- **2018 US: 500e** → `fiat/500e/2018/500e` [US] fwd · powertrain new
+  - EPA: 500e
+- **2019 US: 500e** → `fiat/500e/2019/500e` [US] fwd · powertrain new
+  - EPA: 500e
+- **2024 CA: 500e · US: 500e** → `fiat/500e/2024/500e` [CA, US] fwd · powertrain new
+  - NRCan: 500e
+  - EPA: 500e
+  - EPA: 500e All Season
+- **2025 CA: 500e · US: 500e** → `fiat/500e/2025/500e` [CA, US] fwd · powertrain new
+  - NRCan: 500e
+  - EPA: 500e
+  - EPA: 500e All Season
+- **2026 CA: 500e · US: 500e** → `fiat/500e/2026/500e` [CA, US] fwd · powertrain new
+  - NRCan: 500e
+  - EPA: 500e
+  - EPA: 500e All Season
+## fisker/ocean
+
+- **2023 CA: Extreme · US: Extreme** → `fisker/ocean/2023/extreme` [CA, US] awd · powertrain new
+  - NRCan: Ocean Extreme/One
+  - EPA: Ocean Extreme One
+- **2023 CA: Ultra** → `fisker/ocean/2023/ultra` [CA] drivetrain ? · powertrain new
+  - NRCan: Ocean Ultra
+- **2024 CA: Extreme** → `fisker/ocean/2024/extreme` [CA] drivetrain ? · wheels 20/22″ · powertrain new
+  - NRCan: Ocean Extreme (20" Wheels)
+  - NRCan: Ocean Extreme (22" Wheels)
+- **2024 CA: Sport · US: Sport** → `fisker/ocean/2024/sport` [CA, US] fwd · wheels 20/22″ · powertrain new
+  - NRCan: Ocean Sport (20" Wheels)
+  - NRCan: Ocean Sport (22" Wheels)
+  - EPA: Ocean Sport 20in
+  - EPA: Ocean Sport 22in
+- **2024 CA: Ultra** → `fisker/ocean/2024/ultra` [CA] drivetrain ? · wheels 20/22″ · powertrain new
+  - NRCan: Ocean Ultra (20" Wheels)
+  - NRCan: Ocean Ultra (22" Wheels)
+## ford/focus-electric
+
+- **2012 US: Focus Electric** → `ford/focus-electric/2012/focus-electric` [US] fwd · powertrain new
+  - EPA: Focus Electric
+- **2013 CA: Focus Electric · US: Focus Electric** → `ford/focus-electric/2013/focus-electric` [CA, US] fwd · powertrain new
+  - NRCan: Focus Electric
+  - EPA: Focus Electric
+- **2014 CA: Focus Electric · US: Focus Electric** → `ford/focus-electric/2014/focus-electric` [CA, US] fwd · powertrain new
+  - NRCan: Focus Electric
+  - EPA: Focus Electric
+- **2015 CA: Focus Electric · US: Focus Electric** → `ford/focus-electric/2015/focus-electric` [CA, US] fwd · powertrain new
+  - NRCan: Focus Electric
+  - EPA: Focus Electric
+- **2016 CA: Focus Electric · US: Focus Electric** → `ford/focus-electric/2016/focus-electric` [CA, US] fwd · powertrain new
+  - NRCan: Focus Electric
+  - EPA: Focus Electric
+- **2017 CA: Focus Electric · US: Focus Electric** → `ford/focus-electric/2017/focus-electric` [CA, US] fwd · powertrain new
+  - NRCan: Focus Electric
+  - EPA: Focus Electric
+- **2018 CA: Focus Electric · US: Focus Electric** → `ford/focus-electric/2018/focus-electric` [CA, US] fwd · powertrain new
+  - NRCan: Focus Electric
+  - EPA: Focus Electric
+## ford/mustang-mach-e
+
+- **2024 CA: Rally · US: Rally** → `ford/mustang-mach-e/2024/rally` [CA, US] awd · powertrain ford/mustang-mach-e/2026-rally · ⚠ existing?: same motor power as ford/mustang-mach-e/2024/gt, but another 2024 row has it too; powertrain: same name as ford/mustang-mach-e/2026/rally; check the pack didn't change
+  - **Recommend:** check: several existing cars share its motor power and none is clearly the same name
+  - NRCan: Mustang Mach-E Rally
+  - EPA: Mustang Mach-E Rally
+- **2025 CA: Rally · US: Rally** → `ford/mustang-mach-e/2025/rally` [CA, US] awd · powertrain ford/mustang-mach-e/2026-rally · ⚠ existing?: same motor power as ford/mustang-mach-e/2025/gt, but another 2025 row has it too; powertrain: same name as ford/mustang-mach-e/2026/rally; check the pack didn't change
+  - **Recommend:** check: several existing cars share its motor power and none is clearly the same name
+  - NRCan: Mustang Mach-E Rally
+  - EPA: Mustang Mach-E Rally
+## genesis/electrified-g80
+
+- **2023 CA: Electrified G80 Prestige AWD · US: Electrified G80 Prestige AWD** → `genesis/electrified-g80/2023/electrified-g80-prestige-awd` [CA, US] awd · powertrain new
+  - NRCan: Electrified G80
+  - EPA: Electrified G80
+- **2024 CA: Electrified G80 AWD · US: Electrified G80 AWD** → `genesis/electrified-g80/2024/electrified-g80-awd` [CA, US] awd · powertrain new
+  - NRCan: Electrified G80
+  - EPA: Electrified G80
+- **2025 CA: Electrified G80 Advanced AWD · US: Electrified G80 Advanced AWD** → `genesis/electrified-g80/2025/electrified-g80-advanced-awd` [CA, US] awd · powertrain new
+  - NRCan: Electrified G80
+  - EPA: Electrified G80
+## genesis/electrified-gv70
+
+- **2023 CA: Electrified GV70 Prestige AWD** → `genesis/electrified-gv70/2023/electrified-gv70-prestige-awd` [CA] awd · powertrain new
+  - NRCan: Electrified GV70
+- **2024 CA: Electrified GV70 AWD · US: Electrified GV70 AWD** → `genesis/electrified-gv70/2024/electrified-gv70-awd` [CA, US] awd · powertrain new
+  - NRCan: Electrified GV70
+  - EPA: Electrified GV70
+- **2025 CA: Electrified GV70 AWD · US: Electrified GV70 AWD** → `genesis/electrified-gv70/2025/electrified-gv70-awd` [CA, US] awd · powertrain new
+  - NRCan: Electrified GV70
+  - EPA: Electrified GV70
+- **2026 CA: Electrified GV70 AWD · US: Electrified GV70 AWD** → `genesis/electrified-gv70/2026/electrified-gv70-awd` [CA, US] awd · wheels 20″ · powertrain new
+  - NRCan: Electrified GV70
+  - EPA: Electrified GV70 AWD (20 inch Wheels)
+- **2026 US: Electrified GV70 Standard AWD** → `genesis/electrified-gv70/2026/electrified-gv70-standard-awd` [US] awd · wheels 19″ · powertrain new
+  - EPA: Electrified GV70 AWD (19 inch Wheels)
+- **2027 US: Electrified GV70 AWD** → `genesis/electrified-gv70/2027/electrified-gv70-awd` [US] awd · powertrain new
+  - EPA: Electrified GV70 AWD
+## genesis/gv60
+
+- **2023 CA: Advanced AWD · US: Advanced AWD** → `genesis/gv60/2023/advanced-awd` [CA, US] awd · powertrain new
+  - NRCan: GV60 Advanced AWD
+  - EPA: GV60 ADVANCE
+- **2023 CA: Performance AWD · US: Performance AWD** → `genesis/gv60/2023/performance-awd` [CA, US] awd · powertrain new
+  - NRCan: GV60 Performance AWD
+  - EPA: GV60 PERFORMANCE
+- **2024 CA: Advanced AWD · US: Advanced AWD** → `genesis/gv60/2024/advanced-awd` [CA, US] awd · wheels 19/20″ · powertrain new
+  - NRCan: GV60 Advanced AWD
+  - EPA: GV60 Advanced (19 inch Wheels)
+  - EPA: GV60 Advanced (20 inch Wheels)
+- **2024 CA: Performance AWD · US: Performance AWD** → `genesis/gv60/2024/performance-awd` [CA, US] awd · powertrain new
+  - NRCan: GV60 Performance AWD
+  - EPA: GV60 PERFORMANCE
+- **2024 US: Standard RWD** → `genesis/gv60/2024/standard-rwd` [US] rwd · powertrain new
+  - EPA: GV60 Standard
+- **2025 CA: Advanced AWD · US: Advanced AWD** → `genesis/gv60/2025/advanced-awd` [CA, US] awd · wheels 20″ · powertrain new
+  - NRCan: GV60 Advanced AWD
+  - EPA: GV60 AWD Advanced (20 inch Wheels)
+- **2025 CA: Performance AWD · US: Performance AWD** → `genesis/gv60/2025/performance-awd` [CA, US] awd · powertrain new
+  - NRCan: GV60 Performance AWD
+  - EPA: GV60 AWD Performance
+- **2025 US: Standard AWD** → `genesis/gv60/2025/standard-awd` [US] awd · wheels 19″ · powertrain new
+  - EPA: GV60 AWD (19 inch Wheels)
+- **2025 US: Standard RWD** → `genesis/gv60/2025/standard-rwd` [US] rwd · powertrain new
+  - EPA: GV60 RWD
+- **2026 CA: Advanced AWD · US: Advanced AWD** → `genesis/gv60/2026/advanced-awd` [CA, US] awd · wheels 20″ · powertrain new
+  - NRCan: GV60 Advanced AWD
+  - EPA: GV60 AWD Advanced (20 inch Wheels)
+- **2026 CA: Performance AWD · US: Performance AWD** → `genesis/gv60/2026/performance-awd` [CA, US] awd · powertrain new
+  - NRCan: GV60 Performance AWD
+  - EPA: GV60 AWD Performance
+- **2026 US: Standard AWD** → `genesis/gv60/2026/standard-awd` [US] awd · wheels 19″ · powertrain new
+  - EPA: GV60 AWD (19 inch Wheels)
+- **2026 US: Standard RWD** → `genesis/gv60/2026/standard-rwd` [US] rwd · powertrain new
+  - EPA: GV60 RWD
+- **2027 US: Standard AWD** → `genesis/gv60/2027/standard-awd` [US] awd · wheels 19″ · powertrain new
+  - EPA: GV60 AWD (19 inch Wheels)
+- **2027 US: Advanced AWD** → `genesis/gv60/2027/advanced-awd` [US] awd · wheels 20″ · powertrain new
+  - EPA: GV60 AWD Prestige (20 inch Wheels)
+- **2027 US: Magma AWD** → `genesis/gv60/2027/magma-awd` [US] awd · powertrain new
+  - EPA: GV60 Magma
+- **2027 US: Standard RWD** → `genesis/gv60/2027/standard-rwd` [US] rwd · powertrain new
+  - EPA: GV60 RWD
+## gmc/hummer-ev-pickup
+
+- **2024 CA: 2X · US: 2X** → `gmc/hummer-ev-pickup/2024/2x` [CA, US] awd · powertrain new
+  - NRCan: HUMMER EV2X Pickup
+  - NRCan: HUMMER EV2X Pickup Mud Terrain Tire
+  - EPA: Hummer EV Pickup 2M20
+  - EPA: Hummer EV Pickup MT Tires 2M20
+- **2024 US: 3X** → `gmc/hummer-ev-pickup/2024/3x` [US] awd · powertrain new
+  - EPA: Hummer EV Pickup
+  - EPA: Hummer EV Pickup MT Tires
+- **2025 CA: 2X · US: 2X** → `gmc/hummer-ev-pickup/2025/2x` [CA, US] awd · powertrain new
+  - NRCan: HUMMER EV2X Pickup
+  - NRCan: HUMMER EV2X Pickup Mud Terrain Tire
+  - EPA: Hummer EV Pickup 2X
+  - EPA: Hummer EV Pickup MT Tires 2X
+- **2025 CA: 3X · US: 3X** → `gmc/hummer-ev-pickup/2025/3x` [CA, US] awd · powertrain new
+  - NRCan: HUMMER EV3X Pickup (20M Battery)
+  - NRCan: HUMMER EV3X Pickup Mud Terrain Tire (20M Battery)
+  - EPA: Hummer EV Pickup 3X
+  - EPA: Hummer EV Pickup MT Tires 3X
+## gmc/hummer-ev-suv
+
+- **2024 CA: 2X · US: 2X** → `gmc/hummer-ev-suv/2024/2x` [CA, US] awd · powertrain new
+  - NRCan: HUMMER EV2X SUV
+  - NRCan: HUMMER EV2X SUV Mud Terrain Tire
+  - EPA: Hummer EV SUV 2M20
+  - EPA: Hummer EV SUV MT Tires 2M20
+- **2024 CA: 3X · US: 3X** → `gmc/hummer-ev-suv/2024/3x` [CA, US] awd · powertrain new
+  - NRCan: HUMMER EV3X SUV
+  - NRCan: HUMMER EV3X SUV Mud Terrain Tire
+  - EPA: Hummer EV SUV
+  - EPA: Hummer EV SUV MT Tires
+- **2025 CA: 2X · US: 2X** → `gmc/hummer-ev-suv/2025/2x` [CA, US] awd · powertrain new
+  - NRCan: HUMMER EV2X SUV
+  - NRCan: HUMMER EV2X SUV Mud Terrain Tire
+  - EPA: Hummer EV SUV 2X
+  - EPA: Hummer EV SUV MT Tires 2X
+- **2025 CA: 3X · US: 3X** → `gmc/hummer-ev-suv/2025/3x` [CA, US] awd · powertrain new
+  - NRCan: HUMMER EV3X SUV
+  - NRCan: HUMMER EV3X SUV Mud Terrain Tire
+  - EPA: Hummer EV SUV 3X
+  - EPA: Hummer EV SUV MT Tires 3X
+## gmc/sierra-ev
+
+- **2025 CA: Denali Extended Range · US: Denali Extended Range** → `gmc/sierra-ev/2025/denali-extended-range` [CA, US] awd · powertrain new
+  - NRCan: Sierra EV Extended Range
+  - EPA: Sierra EV
+- **2026 CA: Denali Extended Range · US: Extended Range** → `gmc/sierra-ev/2026/denali-extended-range` [CA, US] awd · powertrain new · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger); charger 11 kW on one row (trim onboard charger); charger 19 kW on one row (trim onboard charger)
+  - **Recommend:** yes: the onboard charger differs by option, same car
+  - NRCan: Sierra EV Denali Ext Range (11.5 kW Charger)
+  - NRCan: Sierra EV Denali Ext Range (19.2 kW Charger)
+  - EPA: SIERRA EV Ext Range (11kW Charger)
+  - EPA: SIERRA EV Ext Range (19kW Charger)
+- **2026 CA: Elevation Extended Range** → `gmc/sierra-ev/2026/elevation-extended-range` [CA] drivetrain ? · powertrain new · ⚠ charger 11.5 kW on one row (trim onboard charger); charger 19.2 kW on one row (trim onboard charger)
+  - **Recommend:** yes: the onboard charger differs by option, same car
+  - NRCan: Sierra EV Elevation Ext Range (11.5 kW Charger)
+  - NRCan: Sierra EV Elevation Ext Range (19.2 kW Charger)
+- **2026 CA: Standard Range · US: Standard Range** → `gmc/sierra-ev/2026/standard-range` [CA, US] awd · powertrain new · ⚠ charger 11 kW on one row (trim onboard charger)
+  - **Recommend:** yes: the onboard charger differs by option, same car
+  - NRCan: Sierra EV Std Range
+  - EPA: SIERRA EV Std Range (11kW Charger)
+- **2027 US: Extended Range** → `gmc/sierra-ev/2027/extended-range` [US] awd · powertrain new · ⚠ charger 11 kW on one row (trim onboard charger)
+  - **Recommend:** yes: the onboard charger differs by option, same car
+  - EPA: Sierra EV Ext Range (11kW Chgr)
+## honda/clarity-electric
+
+- **2017 US: Clarity Electric** → `honda/clarity-electric/2017/clarity-electric` [US] fwd · powertrain new
+  - EPA: Clarity EV
+- **2018 US: Clarity Electric** → `honda/clarity-electric/2018/clarity-electric` [US] fwd · powertrain new
+  - EPA: Clarity EV
+- **2019 US: Clarity Electric** → `honda/clarity-electric/2019/clarity-electric` [US] fwd · powertrain new
+  - EPA: Clarity EV
+## honda/fit-ev
+
+- **2013 US: Fit EV** → `honda/fit-ev/2013/fit-ev` [US] fwd · powertrain new
+  - EPA: Fit EV
+- **2014 US: Fit EV** → `honda/fit-ev/2014/fit-ev` [US] fwd · powertrain new
+  - EPA: Fit EV
+## honda/prologue
+
+- **2024 CA: EX AWD · US: Elite AWD** → `honda/prologue/2024/ex-awd` [CA, US] awd · powertrain new · ⚠ pair: names differ, same motor power (247 kW)
+  - **Recommend:** check: paired only by motor power and the names differ: keep apart as a Canada car and a US car (owner rule)
+  - NRCan: Prologue EX AWD
+  - EPA: Prologue AWD Elite
+- **2024 CA: EX-L AWD** → `honda/prologue/2024/ex-l-awd` [CA] awd · powertrain new
+  - NRCan: Prologue EX-L AWD
+- **2024 CA: Touring AWD · US: Touring AWD** → `honda/prologue/2024/touring-awd` [CA, US] awd · powertrain new
+  - NRCan: Prologue Touring AWD
+  - EPA: Prologue AWD Touring
+- **2024 US: FWD** → `honda/prologue/2024/fwd` [US] fwd · powertrain new
+  - EPA: Prologue FWD
+- **2025 US: Elite AWD** → `honda/prologue/2025/elite-awd` [US] awd · powertrain new
+  - EPA: Prologue AWD Elite
+- **2025 US: Touring AWD** → `honda/prologue/2025/touring-awd` [US] awd · powertrain new
+  - EPA: Prologue AWD Touring
+- **2025 US: FWD** → `honda/prologue/2025/fwd` [US] fwd · powertrain new
+  - EPA: Prologue FWD
+- **2026 US: Elite AWD** → `honda/prologue/2026/elite-awd` [US] awd · powertrain new
+  - EPA: Prologue AWD Elite
+- **2026 US: Touring AWD** → `honda/prologue/2026/touring-awd` [US] awd · powertrain new
+  - EPA: Prologue AWD Touring
+- **2026 US: FWD** → `honda/prologue/2026/fwd` [US] fwd · powertrain new
+  - EPA: Prologue FWD
+## hyundai/ioniq-5
+
+- **2025 CA: Preferred Long Range RWD** → `hyundai/ioniq-5/2025/preferred-standard-range` [CA] rwd · powertrain hyundai/ioniq-5/2025-preferred-standard-range
+  - NRCan: IONIQ 5 Long Range
+- **2026 US: Limited Dual Motor AWD** → `hyundai/ioniq-5/2026/limited-dual-motor-awd` [US] awd · wheels 20″ · powertrain hyundai/ioniq-5/2025-limited-dual-motor-awd · ⚠ powertrain: same name as hyundai/ioniq-5/2025/limited-dual-motor-awd; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
+  - EPA: Ioniq 5 AWD (20inch Wheels)
+## hyundai/ioniq-6
+
+- **2023 US: SE Standard Range RWD** → `hyundai/ioniq-6/2023/se-long-range-rwd` [US] rwd · powertrain hyundai/ioniq-6/2023-se-long-range-rwd
+  - EPA: Ioniq 6 Standard Range RWD
+## hyundai/ioniq-9
+
+- **2027 US: SE AWD** → `hyundai/ioniq-9/2027/se-awd` [US] awd · powertrain new
+  - EPA: Ioniq 9 AWD
+- **2027 US: Performance AWD** → `hyundai/ioniq-9/2027/performance-awd` [US] awd · powertrain new
+  - EPA: Ioniq 9 AWD Performance
+- **2027 US: S RWD** → `hyundai/ioniq-9/2027/s-rwd` [US] rwd · powertrain new
+  - EPA: Ioniq 9 RWD
+## hyundai/ioniq-electric
+
+- **2017 CA: Ioniq Electric · US: Ioniq Electric** → `hyundai/ioniq-electric/2017/ioniq-electric` [CA, US] fwd · powertrain new
+  - NRCan: IONIQ Electric
+  - EPA: Ioniq Electric
+- **2018 CA: Ioniq Electric · US: Ioniq Electric** → `hyundai/ioniq-electric/2018/ioniq-electric` [CA, US] fwd · powertrain new
+  - NRCan: IONIQ Electric
+  - EPA: Ioniq Electric
+- **2019 CA: Ioniq Electric · US: Ioniq Electric** → `hyundai/ioniq-electric/2019/ioniq-electric` [CA, US] fwd · powertrain new
+  - NRCan: IONIQ Electric
+  - EPA: Ioniq Electric
+- **2020 CA: Ioniq Electric · US: Ioniq Electric** → `hyundai/ioniq-electric/2020/ioniq-electric` [CA, US] fwd · powertrain new
+  - NRCan: IONIQ Electric
+  - EPA: Ioniq Electric
+- **2021 CA: Ioniq Electric · US: Ioniq Electric** → `hyundai/ioniq-electric/2021/ioniq-electric` [CA, US] fwd · powertrain new
+  - NRCan: IONIQ Electric
+  - EPA: Ioniq Electric
+## hyundai/kona-electric
+
+- **2025 CA: Preferred** → `hyundai/kona-electric/2025/n-line` [CA] drivetrain ? · wheels 17″ · powertrain hyundai/kona-electric/2025-n-line · ⚠ existing: joins hyundai/kona-electric/2025/n-line by motor power (150 kW); names differ
+  - **Recommend:** yes: becomes the US edition of a car we already have
+  - NRCan: Kona Electric (17" Wheels)
+## jaguar/i-pace
+
+- **2019 CA: EV400 · US: EV400** → `jaguar/i-pace/2019/ev400` [CA, US] awd · powertrain new
+  - NRCan: I-PACE
+  - EPA: I-Pace
+- **2020 CA: EV400 · US: EV400** → `jaguar/i-pace/2020/ev400` [CA, US] awd · powertrain new
+  - NRCan: I-PACE
+  - EPA: I-Pace
+- **2021 US: EV400** → `jaguar/i-pace/2021/ev400` [US] awd · powertrain new
+  - EPA: I-Pace EV400
+- **2022 CA: EV400** → `jaguar/i-pace/2022/ev400` [CA] drivetrain ? · powertrain new
+  - NRCan: I-PACE
+- **2023 CA: EV400 · US: EV400** → `jaguar/i-pace/2023/ev400` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: I-PACE
+  - EPA: I-Pace EV400 (20 inch tires)
+  - EPA: I-Pace EV400 (22 inch tires)
+- **2024 CA: EV400 · US: EV400** → `jaguar/i-pace/2024/ev400` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: I-PACE
+  - EPA: I-Pace EV400 (20 inch tires)
+  - EPA: I-Pace EV400 (22 inch tires)
+## jeep/recon
+
+- **2026 CA: Moab · US: Moab** → `jeep/recon/2026/moab` [CA, US] awd · powertrain new
+  - NRCan: Recon MOAB 4X4
+  - EPA: Recon MOAB 4WD
+## jeep/wagoneer-s
+
+- **2024 CA: AWD · US: AWD** → `jeep/wagoneer-s/2024/awd` [CA, US] awd · powertrain new · ⚠ note: "(Falken Tire)"; note: "(Pirelli Tire)"; note: "(Falken tire)"; note: "(Pirelli tire)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: Wagoneer S AWD (Falken Tire)
+  - NRCan: Wagoneer S AWD (Pirelli Tire)
+  - EPA: Wagoneer S AWD (Falken tire)
+  - EPA: Wagoneer S AWD (Pirelli tire)
+- **2025 CA: AWD · US: AWD** → `jeep/wagoneer-s/2025/awd` [CA, US] awd · powertrain new · ⚠ note: "(Falken Tire)"; note: "(Pirelli Tire)"; note: "(Falken tire)"; note: "(Pirelli tire)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: Wagoneer S AWD (Falken Tire)
+  - NRCan: Wagoneer S AWD (Pirelli Tire)
+  - EPA: Wagoneer S AWD (Falken tire)
+  - EPA: Wagoneer S AWD (Pirelli tire)
+- **2026 CA: AWD · US: AWD** → `jeep/wagoneer-s/2026/awd` [CA, US] awd · powertrain new · ⚠ note: "(Falken Tire)"; note: "(Pirelli Tire)"; note: "(Falken tire)"; note: "(Pirelli tire)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: Wagoneer S AWD (Falken Tire)
+  - NRCan: Wagoneer S AWD (Pirelli Tire)
+  - EPA: Wagoneer S AWD (Falken tire)
+  - EPA: Wagoneer S AWD (Pirelli tire)
+## kandi/k27
+
+- **2021 US: K27** → `kandi/k27/2021/k27` [US] fwd · powertrain new
+  - EPA: K27
+## kia/ev3
+
+- **2027 US: Long Range AWD** → `kia/ev3/2027/long-range-awd` [US] awd · powertrain new
+  - EPA: EV3 Long Range AWD
+- **2027 US: Long Range FWD** → `kia/ev3/2027/long-range-fwd` [US] fwd · powertrain new
+  - EPA: EV3 Long Range FWD
+- **2027 US: GT Long Range AWD** → `kia/ev3/2027/gt-long-range-awd` [US] awd · powertrain new
+  - EPA: EV3 Long Range GT AWD
+- **2027 US: Light Standard Range FWD** → `kia/ev3/2027/light-standard-range-fwd` [US] fwd · powertrain new
+  - EPA: EV3 Standard Range FWD
+## kia/ev4
+
+- **2026 CA: GT-Line Long Range FWD** → `kia/ev4/2026/gt-line-long-range-fwd` [CA] fwd · powertrain new
+  - NRCan: EV4 GT-Line
+- **2026 CA: Light Standard Range FWD** → `kia/ev4/2026/light-standard-range-fwd` [CA] fwd · powertrain new
+  - NRCan: EV4 Light
+- **2026 CA: Wind Long Range FWD** → `kia/ev4/2026/wind-long-range-fwd` [CA] fwd · powertrain new
+  - NRCan: EV4 Wind
+- **2026 CA: Wind Premium Long Range FWD** → `kia/ev4/2026/wind-premium-long-range-fwd` [CA] fwd · powertrain new
+  - NRCan: EV4 Wind Premium
+## kia/ev6
+
+- **2023 CA: Standard Range RWD · US: Light RWD** → `kia/ev6/2023/standard-range-rwd` [CA, US] rwd · powertrain kia/ev6/2022-standard-range-rwd · ⚠ pair: only one candidate each side, words differ; powertrain: same name as kia/ev6/2022/standard-range-rwd; check the pack didn't change
+  - **Recommend:** check: Canada/US pairing is a guess (one candidate each side, words differ)
+  - NRCan: EV6 Standard Range
+  - EPA: EV6 Standard Range RWD
+## kia/ev9
+
+- **2025 CA: Land · US: Land** → `kia/ev9/2025/land-gt-line` [CA, US] awd · powertrain kia/ev9/2024-land-gt-line · ⚠ existing: joins kia/ev9/2025/land-gt-line by motor power (282 kW); names differ; powertrain: same name as kia/ev9/2024/land-gt-line; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked); becomes the US edition of a car we already have
+  - NRCan: EV9 Land AWD
+  - EPA: EV9 Long Range AWD
+## kia/soul-ev
+
+- **2015 CA: Soul EV · US: Soul EV** → `kia/soul-ev/2015/soul-ev` [CA, US] fwd · powertrain new
+  - NRCan: Soul EV
+  - EPA: Soul Electric
+- **2016 CA: Soul EV · US: Soul EV** → `kia/soul-ev/2016/soul-ev` [CA, US] fwd · powertrain new
+  - NRCan: Soul EV
+  - EPA: Soul Electric
+- **2017 CA: Soul EV · US: Soul EV** → `kia/soul-ev/2017/soul-ev` [CA, US] fwd · powertrain new
+  - NRCan: Soul EV
+  - EPA: Soul Electric
+- **2018 CA: Soul EV · US: Soul EV** → `kia/soul-ev/2018/soul-ev` [CA, US] fwd · powertrain new
+  - NRCan: Soul EV
+  - EPA: Soul Electric
+- **2019 CA: Soul EV · US: Soul EV** → `kia/soul-ev/2019/soul-ev` [CA, US] fwd · powertrain new
+  - NRCan: Soul EV
+  - EPA: Soul Electric
+- **2020 CA: Soul EV Premium 39 kWh** → `kia/soul-ev/2020/soul-ev-premium-39-kwh` [CA] drivetrain ? · powertrain new
+  - NRCan: Soul EV (120 Ah)
+- **2020 CA: Soul EV Limited 64 kWh** → `kia/soul-ev/2020/soul-ev-limited-64-kwh` [CA] drivetrain ? · powertrain new
+  - NRCan: Soul EV (180 Ah)
+- **2021 CA: Soul EV Premium 39 kWh** → `kia/soul-ev/2021/soul-ev-premium-39-kwh` [CA] drivetrain ? · powertrain new
+  - NRCan: Soul EV (120 Ah)
+- **2021 CA: Soul EV Limited 64 kWh** → `kia/soul-ev/2021/soul-ev-limited-64-kwh` [CA] drivetrain ? · powertrain new
+  - NRCan: Soul EV (180 Ah)
+- **2022 CA: Soul EV Premium 39 kWh** → `kia/soul-ev/2022/soul-ev-premium-39-kwh` [CA] drivetrain ? · powertrain new
+  - NRCan: Soul EV (120 Ah)
+- **2022 CA: Soul EV Limited 64 kWh** → `kia/soul-ev/2022/soul-ev-limited-64-kwh` [CA] drivetrain ? · powertrain new
+  - NRCan: Soul EV (180 Ah)
+- **2023 CA: Soul EV Premium 39 kWh** → `kia/soul-ev/2023/soul-ev-premium-39-kwh` [CA] drivetrain ? · powertrain new
+  - NRCan: Soul EV (120 Ah)
+- **2023 CA: Soul EV Limited 64 kWh** → `kia/soul-ev/2023/soul-ev-limited-64-kwh` [CA] drivetrain ? · powertrain new
+  - NRCan: Soul EV (180 Ah)
+## lexus/es
+
+- **2026 CA: ES 350e Premium · US: ES 350e Premium** → `lexus/es/2026/es-350e-premium` [CA, US] fwd · wheels 19″ · powertrain new
+  - NRCan: ES 350e (19" Wheels)
+  - EPA: ES 350e (19 inch Wheels)
+- **2026 CA: ES 350e Luxury+ · US: ES 350e Luxury** → `lexus/es/2026/es-350e-luxury-plus` [CA, US] fwd · wheels 21″ · powertrain new
+  - NRCan: ES 350e (21" Wheels)
+  - EPA: ES 350e (21 inch Wheels)
+- **2026 CA: ES 500e Premium AWD · US: ES 500e Premium AWD** → `lexus/es/2026/es-500e-premium-awd` [CA, US] awd · wheels 19″ · powertrain new
+  - NRCan: ES 500e AWD (19" Wheels)
+  - EPA: ES 500e AWD (19 inch Wheels)
+- **2026 CA: ES 500e Luxury+ AWD · US: ES 500e Luxury AWD** → `lexus/es/2026/es-500e-luxury-plus-awd` [CA, US] awd · wheels 21″ · powertrain new
+  - NRCan: ES 500e AWD (21" Wheels)
+  - EPA: ES 500e AWD (21 inch Wheels)
+- **2027 US: ES 350e Premium** → `lexus/es/2027/es-350e-premium` [US] fwd · wheels 19″ · powertrain new
+  - EPA: ES 350e (19 inch Wheels)
+- **2027 US: ES 350e Luxury** → `lexus/es/2027/es-350e-luxury` [US] fwd · wheels 21″ · powertrain new
+  - EPA: ES 350e (21 inch Wheels)
+- **2027 US: ES 500e Premium AWD** → `lexus/es/2027/es-500e-premium-awd` [US] awd · wheels 19″ · powertrain new
+  - EPA: ES 500e AWD (19 inch Wheels)
+- **2027 US: ES 500e Luxury AWD** → `lexus/es/2027/es-500e-luxury-awd` [US] awd · wheels 21″ · powertrain new
+  - EPA: ES 500e AWD (21 inch Wheels)
+## lexus/rz
+
+- **2023 CA: RZ 450e Signature AWD · US: RZ 450e Premium AWD** → `lexus/rz/2023/rz-450e-signature-awd` [CA, US] awd · wheels 18″ · powertrain new
+  - NRCan: RZ 450e AWD (18" Wheels)
+  - EPA: RZ 450e AWD (18 inch Wheels)
+- **2023 CA: RZ 450e Luxury AWD · US: RZ 450e Luxury AWD** → `lexus/rz/2023/rz-450e-luxury-awd` [CA, US] awd · wheels 20″ · powertrain new
+  - NRCan: RZ 450e AWD (20" Wheels)
+  - EPA: RZ 450e AWD (20 inch Wheels)
+- **2024 CA: RZ 450e Signature AWD · US: RZ 450e Premium AWD** → `lexus/rz/2024/rz-450e-signature-awd` [CA, US] awd · wheels 18″ · powertrain new
+  - NRCan: RZ 450e AWD (18" Wheels)
+  - EPA: RZ 450e AWD (18 inch wheels)
+- **2024 CA: RZ 450e Luxury AWD · US: RZ 450e Luxury AWD** → `lexus/rz/2024/rz-450e-luxury-awd` [CA, US] awd · wheels 20″ · powertrain new
+  - NRCan: RZ 450e AWD (20" Wheels)
+  - EPA: RZ 450e AWD (20 inch wheels)
+- **2024 US: RZ 300e Premium** → `lexus/rz/2024/rz-300e-premium` [US] fwd · wheels 18″ · powertrain new
+  - EPA: RZ 300e (18 inch wheels)
+- **2024 US: RZ 300e Luxury** → `lexus/rz/2024/rz-300e-luxury` [US] fwd · wheels 20″ · powertrain new
+  - EPA: RZ 300e (20 inch wheels)
+- **2025 CA: RZ 450e Signature AWD · US: RZ 450e Premium AWD** → `lexus/rz/2025/rz-450e-signature-awd` [CA, US] awd · wheels 18″ · powertrain new
+  - NRCan: RZ 450e AWD (18" Wheels)
+  - EPA: RZ 450e AWD (18 inch wheels)
+- **2025 CA: RZ 450e Luxury AWD · US: RZ 450e Luxury AWD** → `lexus/rz/2025/rz-450e-luxury-awd` [CA, US] awd · wheels 20″ · powertrain new
+  - NRCan: RZ 450e AWD (20" Wheels)
+  - EPA: RZ 450e AWD (20 inch wheels)
+- **2025 US: RZ 300e Premium** → `lexus/rz/2025/rz-300e-premium` [US] fwd · wheels 18″ · powertrain new
+  - EPA: RZ 300e (18 inch wheels)
+- **2025 US: RZ 300e Luxury** → `lexus/rz/2025/rz-300e-luxury` [US] fwd · wheels 20″ · powertrain new
+  - EPA: RZ 300e (20 inch wheels)
+- **2026 CA: RZ 350e Signature FWD · US: RZ 350e** → `lexus/rz/2026/rz-350e-signature-fwd` [CA, US] fwd · wheels 18″ · powertrain new
+  - NRCan: RZ 350e
+  - EPA: RZ 350e FWD (18 inch wheels)
+- **2026 CA: RZ 450e Signature AWD · US: RZ 450e AWD** → `lexus/rz/2026/rz-450e-signature-awd` [CA, US] awd · wheels 18″ · powertrain new
+  - NRCan: RZ 450e AWD (18" Wheels)
+  - EPA: RZ 450e AWD (18 inch wheels)
+- **2026 CA: RZ 450e Luxury AWD · US: RZ 450e Luxury AWD** → `lexus/rz/2026/rz-450e-luxury-awd` [CA, US] awd · wheels 20″ · powertrain new
+  - NRCan: RZ 450e AWD (20" Wheels)
+  - EPA: RZ 450e AWD (20 inch wheels - 235/50R20,255/45R20)
+- **2026 CA: RZ 550e F SPORT AWD · US: RZ 550e F SPORT AWD** → `lexus/rz/2026/rz-550e-f-sport-awd` [CA, US] awd · powertrain new
+  - NRCan: RZ 550e AWD
+  - EPA: RZ 550e AWD
+- **2026 US: RZ 350e Premium** → `lexus/rz/2026/rz-350e-premium` [US] fwd · wheels 20″ · powertrain new
+  - EPA: RZ 350e FWD (20 inch wheels)
+- **2026 US: RZ 450e Premium AWD** → `lexus/rz/2026/rz-450e-premium-awd` [US] awd · wheels 20″ · powertrain new
+  - EPA: RZ 450e AWD (20 inch wheels - 235/50R20)
+## lexus/tz
+
+- **2027 US: TZ 450e Premium AWD** → `lexus/tz/2027/tz-450e-premium-awd` [US] awd · wheels 20″ · powertrain new
+  - EPA: TZ 450e 11kW  (20 inch Wheels)
+- **2027 US: TZ 450e Premium Touring AWD** → `lexus/tz/2027/tz-450e-premium-touring-awd` [US] awd · wheels 20″ · powertrain new
+  - EPA: TZ 450e 19kW (20 inch Wheels)
+## lordstown/endurance
+
+- **2023 US: Endurance** → `lordstown/endurance/2023/endurance` [US] awd · powertrain new
+  - EPA: Endurance
+## lotus/eletre
+
+- **2026 CA: R Long Range** → `lotus/eletre/2026/r-long-range` [CA] drivetrain ? · powertrain new
+  - NRCan: Eletre R Long Range
+- **2026 CA: R Performance** → `lotus/eletre/2026/r-performance` [CA] drivetrain ? · powertrain new
+  - NRCan: Eletre R Performance
+- **2026 CA: S Long Range** → `lotus/eletre/2026/s-long-range` [CA] drivetrain ? · powertrain new
+  - NRCan: Eletre S Long Range
+- **2026 CA: S Performance** → `lotus/eletre/2026/s-performance` [CA] drivetrain ? · powertrain new
+  - NRCan: Eletre S Performance
+## lucid/air
+
+- **2022 CA: Dream Edition Performance · US: Dream Edition Performance** → `lucid/air/2022/dream-edition-performance` [CA, US] awd · wheels 19/21″ · powertrain new
+  - NRCan: Air Dream P AWD (19" Wheels)
+  - NRCan: Air Dream P AWD (21" Wheels)
+  - EPA: Air Dream P AWD w/19 inch wheels
+  - EPA: Air Dream P AWD w/21 inch wheels
+- **2022 CA: Dream Edition Range · US: Dream Edition Range** → `lucid/air/2022/dream-edition-range` [CA, US] awd · wheels 19/21″ · powertrain new
+  - NRCan: Air Dream R AWD (19" Wheels)
+  - NRCan: Air Dream R AWD (21" Wheels)
+  - EPA: Air Dream R AWD w/19 inch wheels
+  - EPA: Air Dream R AWD w/21 inch wheels
+- **2022 CA: Grand Touring · US: Grand Touring** → `lucid/air/2022/grand-touring` [CA, US] awd · wheels 19/21″ · powertrain new
+  - NRCan: Air Grand Touring AWD (19" Wheels)
+  - NRCan: Air Grand Touring AWD (21" Wheels)
+  - EPA: Air G Touring AWD w/19 inch wheels
+  - EPA: Air G Touring AWD w/21 inch wheels
+- **2023 CA: Grand Touring Performance · US: Grand Touring Performance** → `lucid/air/2023/grand-touring-performance` [CA, US] awd · wheels 21″ · powertrain new
+  - NRCan: Air Grand Touring Performance (21" Wheels)
+  - EPA: Air GT P AWD with 21 inch wheels
+- **2023 CA: Grand Touring · US: Grand Touring** → `lucid/air/2023/grand-touring` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: Air Grand Touring XR (19" Wheels)
+  - NRCan: Air Grand Touring XR (20" Wheels)
+  - NRCan: Air Grand Touring XR (21" Wheels)
+  - EPA: Air G Touring XR AWD with 19 inch wheels
+  - EPA: Air G Touring XR AWD with 20 inch wheels
+  - EPA: Air G Touring XR AWD with 21 inch wheels
+- **2023 CA: Pure · US: Pure** → `lucid/air/2023/pure` [CA, US] awd · wheels 19/20″ · powertrain new
+  - NRCan: Air Pure (19" Wheels)
+  - NRCan: Air Pure (20" Wheels)
+  - EPA: Air Pure AWD with 19 inch wheels
+  - EPA: Air Pure AWD with 20 inch wheels
+- **2023 CA: Touring · US: Touring** → `lucid/air/2023/touring` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: Air Touring (19" Wheels)
+  - NRCan: Air Touring (20" Wheels)
+  - NRCan: Air Touring (21" Wheels)
+  - EPA: Air Touring AWD with 19 inch wheels
+  - EPA: Air Touring AWD with 20 inch wheels
+  - EPA: Air Touring AWD with 21 inch wheels
+- **2024 CA: Grand Touring · US: Grand Touring** → `lucid/air/2024/grand-touring` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: Air Grand Touring XR AWD (19" Wheels)
+  - NRCan: Air Grand Touring XR AWD (20" Wheels)
+  - NRCan: Air Grand Touring XR AWD (21" Wheels)
+  - EPA: Air G Touring XR AWD with 20 inch wheels
+  - EPA: Air G Touring XR AWD with 21 inch wheels
+  - EPA: Air G Touring XR AWD with19 inch wheels
+- **2024 CA: Pure · US: Pure** → `lucid/air/2024/pure` [CA, US] rwd · wheels 19/20″ · powertrain new
+  - NRCan: Air Pure (19" Wheels)
+  - NRCan: Air Pure (20" Wheels)
+  - EPA: Air Pure RWD with 19 inch wheels
+  - EPA: Air Pure RWD with 20 inch wheels
+- **2024 CA: Sapphire · US: Sapphire** → `lucid/air/2024/sapphire` [CA, US] awd · powertrain new
+  - NRCan: Air Sapphire AWD
+  - EPA: Air Sapphire AWD
+- **2024 CA: Touring · US: Touring** → `lucid/air/2024/touring` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: Air Touring AWD (19" Wheels)
+  - NRCan: Air Touring AWD (20" Wheels)
+  - NRCan: Air Touring AWD (21" Wheels)
+  - EPA: Air Touring AWD with 19 inch wheels
+  - EPA: Air Touring AWD with 20 inch wheels
+  - EPA: Air Touring AWD with 21inch wheels
+- **2025 CA: Grand Touring · US: Grand Touring** → `lucid/air/2025/grand-touring` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: Air Grand Touring XR AWD (19" Wheels)
+  - NRCan: Air Grand Touring XR AWD (20" Wheels)
+  - NRCan: Air Grand Touring XR AWD (21" Wheels)
+  - EPA: Air G Touring XR AWD with 19 inch wheels
+  - EPA: Air G Touring XR AWD with 20 inch wheels
+  - EPA: Air G Touring XR AWD with 21 inch wheels
+- **2025 CA: Pure · US: Pure** → `lucid/air/2025/pure` [CA, US] rwd · wheels 19/20″ · powertrain new
+  - NRCan: Air Pure (19" Wheels)
+  - NRCan: Air Pure (20" Wheels)
+  - EPA: Air Pure RWD with 19 inch wheels
+  - EPA: Air Pure RWD with 20 inch wheels
+- **2025 CA: Sapphire · US: Sapphire** → `lucid/air/2025/sapphire` [CA, US] awd · powertrain new
+  - NRCan: Air Sapphire AWD
+  - EPA: Air Sapphire AWD
+- **2025 CA: Touring · US: Touring** → `lucid/air/2025/touring` [CA, US] awd · wheels 19/20/21″ · powertrain new
+  - NRCan: Air Touring AWD (19" Wheels)
+  - NRCan: Air Touring AWD (20" Wheels)
+  - NRCan: Air Touring AWD (21" Wheels)
+  - EPA: Air Touring AWD with 19 inch wheels
+  - EPA: Air Touring AWD with 20 inch wheels
+  - EPA: Air Touring AWD with 21 inch wheels
+- **2026 US: Grand Touring** → `lucid/air/2026/grand-touring` [US] awd · powertrain new
+  - EPA: Air G Touring XR AWD with 20 inch wheels
+  - EPA: Air G Touring XR AWD with 21 inch wheels
+  - EPA: Air G Touring XR AWD with19 inch wheels
+- **2026 US: Pure** → `lucid/air/2026/pure` [US] rwd · powertrain new
+  - EPA: Air Pure RWD with 19 inch wheels
+  - EPA: Air Pure RWD with 20 inch wheels
+- **2026 US: Sapphire** → `lucid/air/2026/sapphire` [US] awd · powertrain new
+  - EPA: Air Sapphire AWD
+- **2026 US: Touring** → `lucid/air/2026/touring` [US] awd · powertrain new
+  - EPA: Air Touring AWD with 19 inch wheels
+  - EPA: Air Touring AWD with 20 inch wheels
+- **2027 US: Grand Touring** → `lucid/air/2027/grand-touring` [US] awd · powertrain new
+  - EPA: Air G Touring XR AWD with 20 inch wheels
+  - EPA: Air G Touring XR AWD with 21 inch wheels
+  - EPA: Air G Touring XR AWD with19 inch wheels
+- **2027 US: Pure** → `lucid/air/2027/pure` [US] rwd · powertrain new
+  - EPA: Air Pure RWD with 19 inch wheels
+  - EPA: Air Pure RWD with 20 inch wheels
+- **2027 US: Sapphire** → `lucid/air/2027/sapphire` [US] awd · powertrain new
+  - EPA: Air Sapphire AWD
+- **2027 US: Touring** → `lucid/air/2027/touring` [US] awd · powertrain new
+  - EPA: Air Touring AWD with 19 inch wheels
+  - EPA: Air Touring AWD with 20 inch wheels
+## lucid/gravity
+
+- **2025 US: Grand Touring** → `lucid/gravity/2025/grand-touring` [US] awd · powertrain new · ⚠ note: "(2R)"; note: "(3R)"
+  - **Recommend:** yes: bracket note kept for reference
+  - EPA: Gravity GT w/20F21R wheels (2R)
+  - EPA: Gravity GT w/20F21R wheels (3R)
+  - EPA: Gravity GT w/21F22R wheels (2R)
+  - EPA: Gravity GT w/21F22R wheels (3R)
+  - EPA: Gravity GT w/22F23R wheels (2R)
+  - EPA: Gravity GT w/22F23R wheels (3R)
+- **2026 US: Dream Edition** → `lucid/gravity/2026/dream-edition` [US] awd · powertrain new · ⚠ note: "(3R)"
+  - **Recommend:** yes: bracket note kept for reference
+  - EPA: Gravity Dream w/20F21R wheels (3R)
+  - EPA: Gravity Dream w/21F22R wheels (3R)
+  - EPA: Gravity Dream w/22F23R wheels (3R)
+- **2026 US: Grand Touring** → `lucid/gravity/2026/grand-touring` [US] awd · powertrain new · ⚠ note: "(2R)"; note: "(3R)"
+  - **Recommend:** yes: bracket note kept for reference
+  - EPA: Gravity GT w/20F21R wheels (2R)
+  - EPA: Gravity GT w/20F21R wheels (3R)
+  - EPA: Gravity GT w/21F22R wheels (2R)
+  - EPA: Gravity GT w/21F22R wheels (3R)
+  - EPA: Gravity GT w/22F23R wheels (2R)
+  - EPA: Gravity GT w/22F23R wheels (3R)
+- **2026 US: Touring** → `lucid/gravity/2026/touring` [US] awd · powertrain new
+  - EPA: Gravity Touring w/20F21R wheels
+- **2027 US: Grand Touring** → `lucid/gravity/2027/grand-touring` [US] awd · powertrain new · ⚠ note: "(2R)"; note: "(3R)"
+  - **Recommend:** yes: bracket note kept for reference
+  - EPA: Gravity GT w/20F21R wheels (2R)
+  - EPA: Gravity GT w/20F21R wheels (3R)
+  - EPA: Gravity GT w/21F22R wheels (2R)
+  - EPA: Gravity GT w/21F22R wheels (3R)
+  - EPA: Gravity GT w/22F23R wheels (2R)
+  - EPA: Gravity GT w/22F23R wheels (3R)
+- **2027 US: Touring** → `lucid/gravity/2027/touring` [US] awd · powertrain new
+  - EPA: Gravity Touring w/20F21R wheels
+## maserati/grancabrio-folgore
+
+- **2024 US: Folgore** → `maserati/grancabrio-folgore/2024/folgore` [US] awd · powertrain new
+  - EPA: Grancabrio Folgore
+- **2025 US: Folgore** → `maserati/grancabrio-folgore/2025/folgore` [US] awd · powertrain new
+  - EPA: Grancabrio Folgore
+- **2026 US: Folgore** → `maserati/grancabrio-folgore/2026/folgore` [US] awd · powertrain new
+  - EPA: Grancabrio Folgore
+## maserati/granturismo-folgore
+
+- **2024 US: Folgore** → `maserati/granturismo-folgore/2024/folgore` [US] awd · powertrain new
+  - EPA: Granturismo Folgore
+- **2025 US: Folgore** → `maserati/granturismo-folgore/2025/folgore` [US] awd · powertrain new
+  - EPA: Granturismo Folgore
+- **2026 US: Folgore** → `maserati/granturismo-folgore/2026/folgore` [US] awd · powertrain new
+  - EPA: Granturismo Folgore
+## maserati/grecale-folgore
+
+- **2025 US: Folgore** → `maserati/grecale-folgore/2025/folgore` [US] awd · wheels 20/21″ · powertrain new
+  - EPA: Grecale Folgore (20 inch Wheels)
+  - EPA: Grecale Folgore (21 inch Wheels)
+- **2026 US: Folgore** → `maserati/grecale-folgore/2026/folgore` [US] awd · wheels 19/20/21″ · powertrain new
+  - EPA: Grecale Folgore (19 inch wheels)
+  - EPA: Grecale Folgore (20 inch Wheels)
+  - EPA: Grecale Folgore (21 inch wheels)
+- **2027 US: Folgore** → `maserati/grecale-folgore/2027/folgore` [US] awd · wheels 19/20/21″ · powertrain new
+  - EPA: Grecale Folgore (19 inch wheels)
+  - EPA: Grecale Folgore (20 inch Wheels)
+  - EPA: Grecale Folgore (21 inch wheels)
+## mazda/mx-30
+
+- **2022 CA: MX-30 · US: MX-30** → `mazda/mx-30/2022/mx-30` [CA, US] fwd · powertrain new
+  - NRCan: MX-30
+  - EPA: MX-30
+- **2023 CA: MX-30 · US: MX-30** → `mazda/mx-30/2023/mx-30` [CA, US] fwd · powertrain new
+  - NRCan: MX-30
+  - EPA: MX-30
+- **2024 CA: MX-30** → `mazda/mx-30/2024/mx-30` [CA] drivetrain ? · powertrain new
+  - NRCan: MX-30
+## mercedes/amg-gt-4-door
+
+- **2027 US: AMG GT 55 4MATIC+ 4-Door Coupe** → `mercedes/amg-gt-4-door/2027/amg-gt-55-4matic-plus-4-door-coupe` [US] awd · powertrain new
+  - EPA: AMG GT 55 4dr Coupe
+- **2027 US: AMG GT 63 4MATIC+ 4-Door Coupe** → `mercedes/amg-gt-4-door/2027/amg-gt-63-4matic-plus-4-door-coupe` [US] awd · powertrain new
+  - EPA: AMG GT 63 4dr Coupe
+## mercedes/b-class-electric-drive
+
+- **2014 US: B-Class Electric Drive** → `mercedes/b-class-electric-drive/2014/b-class-electric-drive` [US] fwd · powertrain new
+  - EPA: B-Class Electric Drive
+- **2015 US: B-Class Electric Drive** → `mercedes/b-class-electric-drive/2015/b-class-electric-drive` [US] fwd · powertrain new
+  - EPA: B-Class Electric Drive
+- **2016 US: B 250e** → `mercedes/b-class-electric-drive/2016/b-250e` [US] fwd · powertrain new
+  - EPA: B250e
+- **2017 US: B 250e** → `mercedes/b-class-electric-drive/2017/b-250e` [US] fwd · powertrain new
+  - EPA: B250e
+## mercedes/cla
+
+- **2026 CA: CLA 350 4MATIC with EQ Technology · US: CLA 350 4MATIC with EQ Technology** → `mercedes/cla/2026/cla-350-4matic-with-eq-technology` [CA, US] awd · powertrain new
+  - NRCan: CLA 350 4MATIC with EQ Technology
+  - EPA: CLA350 4matic with EQ Tech
+- **2026 US: CLA 250+ with EQ Technology** → `mercedes/cla/2026/cla-250-plus-with-eq-technology` [US] rwd · powertrain new · ⚠ note: "(R22)"
+  - **Recommend:** yes: bracket note kept for reference
+  - EPA: CLA250 Plus with EQ Tech
+  - EPA: CLA250 Plus with EQ Tech (R22)
+- **2027 US: CLA 250+ with EQ Technology** → `mercedes/cla/2027/cla-250-plus-with-eq-technology` [US] rwd · powertrain new · ⚠ note: "(R22)"
+  - **Recommend:** yes: bracket note kept for reference
+  - EPA: CLA250 Plus with EQ Tech
+  - EPA: CLA250 Plus with EQ Tech (R22)
+- **2027 US: CLA 350 4MATIC with EQ Technology** → `mercedes/cla/2027/cla-350-4matic-with-eq-technology` [US] awd · powertrain new
+  - EPA: CLA350 4matic with EQ Tech
+## mercedes/eqb
+
+- **2022 CA: EQB 350 4MATIC · US: EQB 350 4MATIC** → `mercedes/eqb/2022/eqb-350-4matic` [CA, US] awd · powertrain new
+  - NRCan: EQB 350 4MATIC SUV
+  - EPA: EQB 350 4matic
+- **2022 US: EQB 300 4MATIC** → `mercedes/eqb/2022/eqb-300-4matic` [US] awd · powertrain new
+  - EPA: EQB 300 4matic
+- **2023 CA: EQB 250+** → `mercedes/eqb/2023/eqb-250-plus` [CA] drivetrain ? · powertrain new
+  - NRCan: EQB 250+
+- **2023 CA: EQB 350 4MATIC** → `mercedes/eqb/2023/eqb-350-4matic` [CA] awd · powertrain new
+  - NRCan: EQB 350 4MATIC SUV
+- **2024 CA: EQB 250+ · US: EQB 250+** → `mercedes/eqb/2024/eqb-250-plus` [CA, US] fwd · powertrain new
+  - NRCan: EQB 250+
+  - EPA: EQB 250 Plus
+- **2024 CA: EQB 300 4MATIC · US: EQB 300 4MATIC** → `mercedes/eqb/2024/eqb-300-4matic` [CA, US] awd · powertrain new
+  - NRCan: EQB 300 4MATIC
+  - EPA: EQB 300 4matic
+- **2024 US: EQB 350 4MATIC** → `mercedes/eqb/2024/eqb-350-4matic` [US] awd · powertrain new
+  - EPA: EQB 350 4matic
+- **2025 CA: EQB 250+ · US: EQB 250+** → `mercedes/eqb/2025/eqb-250-plus` [CA, US] fwd · powertrain new
+  - NRCan: EQB 250+
+  - EPA: EQB 250 Plus
+- **2025 CA: EQB 300 4MATIC · US: EQB 300 4MATIC** → `mercedes/eqb/2025/eqb-300-4matic` [CA, US] awd · powertrain new
+  - NRCan: EQB 300 4MATIC
+  - EPA: EQB 300 4matic
+- **2025 US: EQB 350 4MATIC** → `mercedes/eqb/2025/eqb-350-4matic` [US] awd · powertrain new
+  - EPA: EQB 350 4matic
+## mercedes/eqe-suv
+
+- **2023 CA: EQE 350 4MATIC SUV** → `mercedes/eqe-suv/2023/eqe-350-4matic-suv` [CA] awd · powertrain new
+  - NRCan: EQE 350 4MATIC SUV
+- **2023 CA: EQE 500 4MATIC SUV** → `mercedes/eqe-suv/2023/eqe-500-4matic-suv` [CA] awd · powertrain new
+  - NRCan: EQE 500 4MATIC SUV
+- **2024 CA: AMG EQE 4MATIC+ SUV · US: AMG EQE 4MATIC+ SUV** → `mercedes/eqe-suv/2024/amg-eqe-4matic-plus-suv` [CA, US] awd · powertrain new
+  - NRCan: AMG EQE 4MATIC+ SUV
+  - EPA: AMG EQE 4matic Plus (SUV)
+- **2024 CA: EQE 350 4MATIC SUV · US: EQE 350 4MATIC SUV** → `mercedes/eqe-suv/2024/eqe-350-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQE 350 4MATIC SUV
+  - EPA: EQE 350 4matic (SUV)
+- **2024 CA: EQE 500 4MATIC SUV · US: EQE 500 4MATIC SUV** → `mercedes/eqe-suv/2024/eqe-500-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQE 500 4MATIC SUV
+  - EPA: EQE 500 4matic (SUV)
+- **2024 US: EQE 350+ SUV** → `mercedes/eqe-suv/2024/eqe-350-plus-suv` [US] rwd · powertrain new
+  - EPA: EQE 350 Plus (SUV)
+- **2025 CA: AMG EQE 4MATIC+ SUV · US: AMG EQE 4MATIC+ SUV** → `mercedes/eqe-suv/2025/amg-eqe-4matic-plus-suv` [CA, US] awd · powertrain new
+  - NRCan: AMG EQE 4MATIC+ SUV
+  - EPA: AMG EQE 4matic Plus (SUV)
+- **2025 CA: EQE 350 4MATIC SUV · US: EQE 350 4MATIC SUV** → `mercedes/eqe-suv/2025/eqe-350-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQE 350 4MATIC SUV
+  - EPA: EQE 350 4matic (SUV)
+- **2025 CA: EQE 500 4MATIC SUV · US: EQE 500 4MATIC SUV** → `mercedes/eqe-suv/2025/eqe-500-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQE 500 4MATIC SUV
+  - EPA: EQE 500 4matic (SUV)
+- **2025 US: EQE 350+ SUV** → `mercedes/eqe-suv/2025/eqe-350-plus-suv` [US] rwd · powertrain new
+  - EPA: EQE 350 Plus (SUV)
+- **2026 CA: EQE 320 4MATIC SUV · US: EQE 320 4MATIC SUV** → `mercedes/eqe-suv/2026/eqe-320-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQE 320 4MATIC SUV
+  - EPA: EQE 320 4matic (SUV)
+- **2026 US: AMG EQE 4MATIC+ SUV** → `mercedes/eqe-suv/2026/amg-eqe-4matic-plus-suv` [US] awd · powertrain new
+  - EPA: AMG EQE 4matic Plus (SUV)
+- **2026 US: EQE 320+ SUV** → `mercedes/eqe-suv/2026/eqe-320-plus-suv` [US] rwd · powertrain new
+  - EPA: EQE 320 Plus (SUV)
+- **2027 US: EQE 320 4MATIC SUV** → `mercedes/eqe-suv/2027/eqe-320-4matic-suv` [US] awd · powertrain new
+  - EPA: EQE 320 4matic (SUV)
+- **2027 US: EQE 320+ SUV** → `mercedes/eqe-suv/2027/eqe-320-plus-suv` [US] rwd · powertrain new
+  - EPA: EQE 320 Plus (SUV)
+## mercedes/eqe
+
+- **2023 CA: AMG EQE 4MATIC+ Sedan** → `mercedes/eqe/2023/amg-eqe-4matic-plus-sedan` [CA] awd · powertrain new
+  - NRCan: AMG EQE 4MATIC+ Sedan
+- **2023 CA: EQE 350 4MATIC Sedan** → `mercedes/eqe/2023/eqe-350-4matic-sedan` [CA] awd · powertrain new
+  - NRCan: EQE 350 4MATIC Sedan
+- **2023 CA: EQE 500 4MATIC Sedan** → `mercedes/eqe/2023/eqe-500-4matic-sedan` [CA] awd · powertrain new
+  - NRCan: EQE 500 4MATIC Sedan
+- **2024 CA: AMG EQE 4MATIC+ Sedan · US: AMG EQE 4MATIC+ Sedan** → `mercedes/eqe/2024/amg-eqe-4matic-plus-sedan` [CA, US] awd · powertrain new
+  - NRCan: AMG EQE 4MATIC+ Sedan
+  - EPA: AMG EQE 4matic Plus
+- **2024 CA: EQE 350 4MATIC Sedan · US: EQE 350 4MATIC Sedan** → `mercedes/eqe/2024/eqe-350-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQE 350 4MATIC Sedan
+  - EPA: EQE 350 4matic
+- **2024 CA: EQE 500 4MATIC Sedan · US: EQE 500 4MATIC Sedan** → `mercedes/eqe/2024/eqe-500-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQE 500 4MATIC Sedan
+  - EPA: EQE 500 4matic
+- **2024 US: EQE 350+ Sedan** → `mercedes/eqe/2024/eqe-350-plus-sedan` [US] rwd · powertrain new
+  - EPA: EQE 350 Plus
+- **2025 CA: AMG EQE 4MATIC+ Sedan · US: AMG EQE 4MATIC+ Sedan** → `mercedes/eqe/2025/amg-eqe-4matic-plus-sedan` [CA, US] awd · powertrain new
+  - NRCan: AMG EQE 4MATIC+ Sedan
+  - EPA: AMG EQE 4matic Plus
+- **2025 CA: EQE 350 4MATIC Sedan · US: EQE 350 4MATIC Sedan** → `mercedes/eqe/2025/eqe-350-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQE 350 4MATIC Sedan
+  - EPA: EQE 350 4matic
+- **2025 CA: EQE 500 4MATIC Sedan · US: EQE 500 4MATIC Sedan** → `mercedes/eqe/2025/eqe-500-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQE 500 4MATIC Sedan
+  - EPA: EQE 500 4matic
+- **2025 US: EQE 350+ Sedan** → `mercedes/eqe/2025/eqe-350-plus-sedan` [US] rwd · powertrain new
+  - EPA: EQE 350 Plus
+- **2026 CA: EQE 320 4MATIC Sedan · US: EQE 320 4MATIC Sedan** → `mercedes/eqe/2026/eqe-320-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQE 320 4MATIC Sedan
+  - EPA: EQE 320 4matic
+- **2026 US: AMG EQE 4MATIC+ Sedan** → `mercedes/eqe/2026/amg-eqe-4matic-plus-sedan` [US] awd · powertrain new
+  - EPA: AMG EQE 4matic Plus
+- **2026 US: EQE 320+ Sedan** → `mercedes/eqe/2026/eqe-320-plus-sedan` [US] rwd · powertrain new
+  - EPA: EQE 320 Plus
+## mercedes/eqs-suv
+
+- **2023 CA: EQS 450 4MATIC SUV · US: EQS 450 4MATIC SUV** → `mercedes/eqs-suv/2023/eqs-450-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQS 450 4MATIC SUV
+  - EPA: EQS 450 4matic (SUV)
+- **2023 CA: EQS 580 4MATIC SUV · US: EQS 580 4MATIC SUV** → `mercedes/eqs-suv/2023/eqs-580-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQS 580 4MATIC SUV
+  - EPA: EQS 580 4matic (SUV)
+- **2023 US: EQS 450+ SUV** → `mercedes/eqs-suv/2023/eqs-450-plus-suv` [US] rwd · powertrain new
+  - EPA: EQS 450 Plus (SUV)
+- **2024 CA: EQS 450 4MATIC SUV · US: EQS 450 4MATIC SUV** → `mercedes/eqs-suv/2024/eqs-450-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQS 450 4MATIC SUV
+  - EPA: EQS 450 4matic (SUV)
+- **2024 CA: EQS 580 4MATIC SUV · US: EQS 580 4MATIC SUV** → `mercedes/eqs-suv/2024/eqs-580-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQS 580 4MATIC SUV
+  - EPA: EQS 580 4matic (SUV)
+- **2024 CA: Mercedes-Maybach EQS 680 SUV · US: Mercedes-Maybach EQS 680 SUV** → `mercedes/eqs-suv/2024/mercedes-maybach-eqs-680-suv` [CA, US] awd · powertrain new
+  - NRCan: Maybach EQS 680 4MATIC SUV
+  - EPA: EQS 680 4matic Maybach (SUV)
+  - EPA: EQS 680 4matic Maybach (SUV)
+- **2024 US: EQS 450+ SUV** → `mercedes/eqs-suv/2024/eqs-450-plus-suv` [US] rwd · powertrain new
+  - EPA: EQS 450 Plus (SUV)
+- **2025 CA: EQS 450 4MATIC SUV · US: EQS 450 4MATIC SUV** → `mercedes/eqs-suv/2025/eqs-450-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQS 450 4MATIC SUV
+  - EPA: EQS 450 4matic (SUV)
+- **2025 CA: EQS 580 4MATIC SUV · US: EQS 580 4MATIC SUV** → `mercedes/eqs-suv/2025/eqs-580-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQS 580 4MATIC SUV
+  - EPA: EQS 580 4matic (SUV)
+- **2025 CA: Mercedes-Maybach EQS 680 SUV · US: Mercedes-Maybach EQS 680 SUV** → `mercedes/eqs-suv/2025/mercedes-maybach-eqs-680-suv` [CA, US] awd · powertrain new
+  - NRCan: Maybach EQS 680 4MATIC SUV
+  - EPA: EQS 680 4matic Maybach (SUV)
+- **2025 US: EQS 450+ SUV** → `mercedes/eqs-suv/2025/eqs-450-plus-suv` [US] rwd · powertrain new
+  - EPA: EQS 450 Plus (SUV)
+- **2026 CA: EQS 400 4MATIC SUV · US: EQS 400 4MATIC SUV** → `mercedes/eqs-suv/2026/eqs-400-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQS 400 4MATIC SUV
+  - EPA: EQS 400 4matic (SUV)
+- **2026 CA: EQS 550 4MATIC SUV · US: EQS 550 4MATIC SUV** → `mercedes/eqs-suv/2026/eqs-550-4matic-suv` [CA, US] awd · powertrain new
+  - NRCan: EQS 550 4MATIC SUV
+  - EPA: EQS 550 4matic (SUV)
+- **2026 US: Mercedes-Maybach EQS 680 SUV** → `mercedes/eqs-suv/2026/mercedes-maybach-eqs-680-suv` [US] awd · powertrain new
+  - EPA: EQS 680 4matic Maybach (SUV)
+- **2027 US: EQS 400 4MATIC SUV** → `mercedes/eqs-suv/2027/eqs-400-4matic-suv` [US] awd · powertrain new
+  - EPA: EQS 400 4matic (SUV)
+- **2027 US: EQS 550 4MATIC SUV** → `mercedes/eqs-suv/2027/eqs-550-4matic-suv` [US] awd · powertrain new
+  - EPA: EQS 550 4matic (SUV)
+## mercedes/eqs
+
+- **2022 CA: EQS 580 4MATIC Sedan · US: EQS 580 4MATIC Sedan** → `mercedes/eqs/2022/eqs-580-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQS 580 4MATIC Sedan
+  - EPA: EQS 580 4matic
+- **2022 US: AMG EQS 4MATIC+ Sedan** → `mercedes/eqs/2022/amg-eqs-4matic-plus-sedan` [US] awd · powertrain new
+  - EPA: AMG EQS 4matic Plus
+- **2022 US: EQS 450+ Sedan** → `mercedes/eqs/2022/eqs-450-plus-sedan` [US] rwd · powertrain new
+  - EPA: EQS 450 Plus
+- **2023 CA: AMG EQS 4MATIC+ Sedan** → `mercedes/eqs/2023/amg-eqs-4matic-plus-sedan` [CA] awd · powertrain new
+  - NRCan: AMG EQS 4MATIC+ Sedan
+- **2023 CA: EQS 450 4MATIC Sedan · US: EQS 450 4MATIC Sedan** → `mercedes/eqs/2023/eqs-450-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQS 450 4MATIC Sedan
+  - EPA: EQS 450 4matic
+- **2023 CA: EQS 580 4MATIC Sedan** → `mercedes/eqs/2023/eqs-580-4matic-sedan` [CA] awd · powertrain new
+  - NRCan: EQS 580 4MATIC Sedan
+- **2024 CA: AMG EQS 4MATIC+ Sedan · US: AMG EQS 4MATIC+ Sedan** → `mercedes/eqs/2024/amg-eqs-4matic-plus-sedan` [CA, US] awd · powertrain new
+  - NRCan: AMG EQS 4MATIC+ Sedan
+  - EPA: AMG EQS 4matic Plus
+- **2024 CA: EQS 450 4MATIC Sedan · US: EQS 450 4MATIC Sedan** → `mercedes/eqs/2024/eqs-450-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQS 450 4MATIC Sedan
+  - EPA: EQS 450 4matic
+- **2024 CA: EQS 580 4MATIC Sedan · US: EQS 580 4MATIC Sedan** → `mercedes/eqs/2024/eqs-580-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQS 580 4MATIC Sedan
+  - EPA: EQS 580 4matic
+- **2024 US: EQS 450+ Sedan** → `mercedes/eqs/2024/eqs-450-plus-sedan` [US] rwd · powertrain new
+  - EPA: EQS 450 Plus
+- **2025 CA: AMG EQS 4MATIC+ Sedan · US: AMG EQS 4MATIC+ Sedan** → `mercedes/eqs/2025/amg-eqs-4matic-plus-sedan` [CA, US] awd · powertrain new
+  - NRCan: AMG EQS 4MATIC+ Sedan
+  - EPA: AMG EQS 4matic Plus
+- **2025 CA: EQS 450 4MATIC Sedan · US: EQS 450 4MATIC Sedan** → `mercedes/eqs/2025/eqs-450-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQS 450 4MATIC Sedan
+  - EPA: EQS 450 4matic
+- **2025 CA: EQS 580 4MATIC Sedan · US: EQS 580 4MATIC Sedan** → `mercedes/eqs/2025/eqs-580-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQS 580 4MATIC Sedan
+  - EPA: EQS 580 4matic
+- **2025 US: EQS 450+ Sedan** → `mercedes/eqs/2025/eqs-450-plus-sedan` [US] rwd · powertrain new
+  - EPA: EQS 450 Plus
+- **2026 CA: EQS 450 4MATIC Sedan · US: EQS 450 4MATIC Sedan** → `mercedes/eqs/2026/eqs-450-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQS 450 4MATIC Sedan
+  - EPA: EQS 450 4matic
+- **2026 CA: EQS 580 4MATIC Sedan · US: EQS 580 4MATIC Sedan** → `mercedes/eqs/2026/eqs-580-4matic-sedan` [CA, US] awd · powertrain new
+  - NRCan: EQS 580 4MATIC Sedan
+  - EPA: EQS 580 4matic
+- **2026 US: EQS 450+ Sedan** → `mercedes/eqs/2026/eqs-450-plus-sedan` [US] rwd · powertrain new
+  - EPA: EQS 450 Plus
+- **2027 US: EQS 500 4MATIC Sedan** → `mercedes/eqs/2027/eqs-500-4matic-sedan` [US] awd · powertrain new
+  - EPA: EQS 500 4matic
+- **2027 US: EQS 580 4MATIC Sedan** → `mercedes/eqs/2027/eqs-580-4matic-sedan` [US] awd · powertrain new
+  - EPA: EQS 580 4matic
+## mercedes/g-580
+
+- **2025 CA: G 580 with EQ Technology · US: G 580 with EQ Technology** → `mercedes/g-580/2025/g-580-with-eq-technology` [CA, US] awd · powertrain new
+  - NRCan: G 580 with EQ Technology
+  - EPA: G 580 with EQ Technology
+- **2026 CA: G 580 with EQ Technology · US: G 580 with EQ Technology** → `mercedes/g-580/2026/g-580-with-eq-technology` [CA, US] awd · powertrain new
+  - NRCan: G 580 with EQ Technology
+  - EPA: G 580 with EQ Technology
+- **2027 US: G 580 with EQ Technology** → `mercedes/g-580/2027/g-580-with-eq-technology` [US] awd · powertrain new
+  - EPA: G 580 with EQ Technology
+## mercedes/glc
+
+- **2027 US: GLC 400 4MATIC with EQ Technology** → `mercedes/glc/2027/glc-400-4matic-with-eq-technology` [US] awd · powertrain new · ⚠ note: "(ST)"
+  - **Recommend:** yes: bracket note kept for reference
+  - EPA: GLC400 4matic electric
+  - EPA: GLC400 4matic electric (ST)
+## mini/cooper-se
+
+- **2020 CA: Cooper SE · US: Cooper SE** → `mini/cooper-se/2020/cooper-se` [CA, US] fwd · powertrain new
+  - NRCan: Cooper SE 3 Door
+  - EPA: Cooper SE Hardtop 2 door
+- **2021 CA: Cooper SE · US: Cooper SE** → `mini/cooper-se/2021/cooper-se` [CA, US] fwd · powertrain new
+  - NRCan: Cooper SE 3 Door
+  - EPA: Cooper SE Hardtop 2 door
+- **2022 CA: Cooper SE · US: Cooper SE** → `mini/cooper-se/2022/cooper-se` [CA, US] fwd · powertrain new
+  - NRCan: Cooper SE 3 Door
+  - EPA: Cooper SE Hardtop 2 door
+- **2023 CA: Cooper SE · US: Cooper SE** → `mini/cooper-se/2023/cooper-se` [CA, US] fwd · powertrain new
+  - NRCan: Cooper SE 3 Door
+  - EPA: Cooper SE Hardtop 2 door
+- **2024 CA: Cooper SE · US: Cooper SE** → `mini/cooper-se/2024/cooper-se` [CA, US] fwd · powertrain new
+  - NRCan: Cooper SE 3 Door
+  - EPA: Cooper SE Hardtop 2 door
+## mini/countryman-se
+
+- **2025 CA: Countryman SE ALL4 · US: Countryman SE ALL4** → `mini/countryman-se/2025/countryman-se-all4` [CA, US] awd · wheels 18/19″ · powertrain new
+  - NRCan: Countryman SE ALL4 (18" Wheels)
+  - NRCan: Countryman SE ALL4 (19" Wheels)
+  - EPA: Countryman SE ALL4 (18 inch Wheels)
+  - EPA: Countryman SE ALL4 (19 inch Wheels)
+- **2026 CA: Countryman SE ALL4 · US: Countryman SE ALL4** → `mini/countryman-se/2026/countryman-se-all4` [CA, US] awd · wheels 18/19″ · powertrain new
+  - NRCan: Countryman SE ALL4 (18" Wheels)
+  - NRCan: Countryman SE ALL4 (19" Wheels)
+  - EPA: Countryman SE ALL4 (18 inch Wheels)
+  - EPA: Countryman SE ALL4 (19 inch Wheels)
+- **2027 US: Countryman SE ALL4** → `mini/countryman-se/2027/countryman-se-all4` [US] awd · wheels 18/19″ · powertrain new
+  - EPA: Countryman SE ALL4 (18 inch Wheels)
+  - EPA: Countryman SE ALL4 (19 inch Wheels)
+## mitsubishi/eclipse-sportback
+
+- **2027 US: Eclipse Sportback EV** → `mitsubishi/eclipse-sportback/2027/eclipse-sportback-ev` [US] fwd · powertrain new
+  - EPA: Eclipse Sportback
+## mitsubishi/i-miev
+
+- **2012 CA: i-MiEV · US: i-MiEV** → `mitsubishi/i-miev/2012/i-miev` [CA, US] rwd · powertrain new
+  - NRCan: i-MiEV
+  - EPA: i-MiEV
+- **2013 CA: i-MiEV · US: i-MiEV** → `mitsubishi/i-miev/2013/i-miev` [CA, US] rwd · powertrain new
+  - NRCan: i-MiEV
+  - EPA: i-MiEV
+- **2014 CA: i-MiEV · US: i-MiEV** → `mitsubishi/i-miev/2014/i-miev` [CA, US] rwd · powertrain new
+  - NRCan: i-MiEV
+  - EPA: i-MiEV
+- **2015 CA: i-MiEV** → `mitsubishi/i-miev/2015/i-miev` [CA] drivetrain ? · powertrain new
+  - NRCan: i-MiEV
+- **2016 CA: i-MiEV · US: i-MiEV** → `mitsubishi/i-miev/2016/i-miev` [CA, US] rwd · powertrain new
+  - NRCan: i-MiEV
+  - EPA: i-MiEV
+- **2017 CA: i-MiEV · US: i-MiEV** → `mitsubishi/i-miev/2017/i-miev` [CA, US] rwd · powertrain new
+  - NRCan: i-MiEV
+  - EPA: i-MiEV
+## polestar/polestar-2
+
+- **2023 CA: BST edition 270 · US: BST edition 270** → `polestar/polestar-2/2023/bst-edition-270` [CA, US] awd · powertrain new · ⚠ existing?: same motor power as polestar/polestar-2/2023/dual-motor-performance-pack, but another 2023 row has it too
+  - **Recommend:** check: several existing cars share its motor power and none is clearly the same name
+  - NRCan: 2 BST Edition
+  - EPA: 2 BST edition
+## polestar/polestar-3
+
+- **2025 CA: Long Range Dual Motor · US: Long Range Dual Motor** → `polestar/polestar-3/2025/long-range-dual-motor` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: 3 Long Range Dual Motor (20" Wheels)
+  - NRCan: 3 Long Range Dual Motor (21" Wheels)
+  - NRCan: 3 Long Range Dual Motor (22" Wheels)
+  - EPA: 3 Long Range Dual Motor (20 Inch Wheels)
+  - EPA: 3 Long Range Dual Motor (21 Inch Wheels)
+  - EPA: 3 Long Range Dual Motor (22 Inch Wheels)
+- **2025 CA: Long Range Dual Motor Performance Pack · US: Long Range Dual Motor Performance Pack** → `polestar/polestar-3/2025/long-range-dual-motor-performance-pack` [CA, US] awd · powertrain new
+  - NRCan: 3 Long Range Dual Motor Performance Pack
+  - EPA: 3 Long Range Dual Motor Performance Pack
+- **2025 CA: Long Range Single Motor · US: Long Range Single Motor** → `polestar/polestar-3/2025/long-range-single-motor` [CA, US] rwd · wheels 20/21/22″ · powertrain new
+  - NRCan: 3 Long Range Single Motor (20" Wheels)
+  - NRCan: 3 Long Range Single Motor (21" Wheels)
+  - NRCan: 3 Long Range Single Motor (22" Wheels)
+  - EPA: 3 Long Range Single Motor (20 Inch Wheels)
+  - EPA: 3 Long Range Single Motor (21 Inch Wheels)
+  - EPA: 3 Long Range Single Motor (22 Inch Wheels)
+- **2026 CA: Long Range Dual Motor · US: Long Range Dual Motor** → `polestar/polestar-3/2026/long-range-dual-motor` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: 3 Long Range Dual Motor (20" Wheels)
+  - NRCan: 3 Long Range Dual Motor (21" Wheels)
+  - NRCan: 3 Long Range Dual Motor (22" Wheels)
+  - EPA: 3 Long Range Dual Motor (21 Inch Wheels)
+  - EPA: 3 Long Range Dual Motor (22 Inch Wheels)
+- **2026 CA: Long Range Dual Motor Performance Pack · US: Long Range Dual Motor Performance Pack** → `polestar/polestar-3/2026/long-range-dual-motor-performance-pack` [CA, US] awd · powertrain new
+  - NRCan: 3 Long Range Dual Motor Performance Pack
+  - EPA: 3 Long Range Dual Motor Performance Pack
+- **2026 CA: Long Range Single Motor · US: Long Range Single Motor** → `polestar/polestar-3/2026/long-range-single-motor` [CA, US] rwd · wheels 20/21″ · powertrain new
+  - NRCan: 3 Long Range Single Motor (20" Wheels)
+  - NRCan: 3 Long Range Single Motor (21" Wheels)
+  - EPA: 3 Long Range Single Motor (20 Inch Wheels)
+  - EPA: 3 Long Range Single Motor (21 Inch Wheels)
+## polestar/polestar-4
+
+- **2025 CA: Long Range Dual Motor · US: Long Range Dual Motor** → `polestar/polestar-4/2025/long-range-dual-motor` [CA, US] awd · powertrain new
+  - NRCan: 4 Long Range Dual Motor
+  - EPA: 4 Long Range Dual Motor
+- **2025 CA: Long Range Single Motor · US: Long Range Single Motor** → `polestar/polestar-4/2025/long-range-single-motor` [CA, US] rwd · powertrain new
+  - NRCan: 4 Long Range Single Motor
+  - EPA: 4 Long Range Single Motor
+- **2026 CA: Long Range Dual Motor · US: Long Range Dual Motor** → `polestar/polestar-4/2026/long-range-dual-motor` [CA, US] awd · powertrain new
+  - NRCan: 4 Long Range Dual Motor
+  - EPA: 4 Long Range Dual Motor
+- **2026 CA: Long Range Dual Motor Performance · US: Long Range Dual Motor Performance** → `polestar/polestar-4/2026/long-range-dual-motor-performance` [CA, US] awd · powertrain new
+  - NRCan: 4 Long Range Dual Motor Performance
+  - EPA: 4 Long Range Dual Motor Performance
+- **2026 CA: Long Range Single Motor · US: Long Range Single Motor** → `polestar/polestar-4/2026/long-range-single-motor` [CA, US] rwd · powertrain new
+  - NRCan: 4 Long Range Single Motor
+  - EPA: 4 Long Range Single Motor
+## porsche/cayenne-electric
+
+- **2026 CA: Cayenne Coupe Electric · US: Cayenne Coupe Electric** → `porsche/cayenne-electric/2026/cayenne-coupe-electric` [CA, US] awd · powertrain new
+  - NRCan: Cayenne Coupe Electric
+  - NRCan: Cayenne Coupe Electric (Range Setup)
+  - EPA: Cayenne Coupe Electric
+  - EPA: Cayenne Coupe Electric Range Setup
+- **2026 CA: Cayenne Electric · US: Cayenne Electric** → `porsche/cayenne-electric/2026/cayenne-electric` [CA, US] awd · powertrain new
+  - NRCan: Cayenne Electric
+  - NRCan: Cayenne Electric (Range Setup)
+  - EPA: Cayenne Electric
+  - EPA: Cayenne Electric Range Setup
+- **2026 CA: Cayenne S Coupe Electric · US: Cayenne S Coupe Electric** → `porsche/cayenne-electric/2026/cayenne-s-coupe-electric` [CA, US] awd · powertrain new
+  - NRCan: Cayenne S Coupe Electric
+  - NRCan: Cayenne S Coupe Electric (Range Setup)
+  - EPA: Cayenne S Coupe Electric
+  - EPA: Cayenne S Coupe Electric Range Setup
+- **2026 CA: Cayenne S Electric · US: Cayenne S Electric** → `porsche/cayenne-electric/2026/cayenne-s-electric` [CA, US] awd · powertrain new
+  - NRCan: Cayenne S Electric
+  - NRCan: Cayenne S Electric (Range Setup)
+  - EPA: Cayenne S Electric
+  - EPA: Cayenne S Electric Range Setup
+- **2026 CA: Cayenne Turbo Coupe Electric · US: Cayenne Turbo Coupe Electric** → `porsche/cayenne-electric/2026/cayenne-turbo-coupe-electric` [CA, US] awd · wheels 21″ · powertrain new
+  - NRCan: Cayenne Turbo Coupe Electric
+  - NRCan: Cayenne Turbo Coupe Electric (21" All-Season Tire)
+  - EPA: Cayenne Turbo Coupe Electric
+  - EPA: Cayenne Turbo Coupe Electric w/21in All-Season Tires
+- **2026 CA: Cayenne Turbo Electric · US: Cayenne Turbo Electric** → `porsche/cayenne-electric/2026/cayenne-turbo-electric` [CA, US] awd · wheels 21″ · powertrain new
+  - NRCan: Cayenne Turbo Electric
+  - NRCan: Cayenne Turbo Electric (21" All-Season Tire)
+  - EPA: Cayenne Turbo Electric
+  - EPA: Cayenne Turbo Electric w/21in All-Season Tires
+## porsche/macan-electric
+
+- **2024 CA: Macan 4 Electric · US: Macan 4 Electric** → `porsche/macan-electric/2024/macan-4-electric` [CA, US] awd · powertrain new
+  - NRCan: Macan 4 Electric
+  - EPA: Macan 4 Electric
+- **2024 CA: Macan Turbo Electric · US: Macan Turbo Electric** → `porsche/macan-electric/2024/macan-turbo-electric` [CA, US] awd · powertrain new
+  - NRCan: Macan Turbo Electric
+  - EPA: Macan Turbo Electric
+- **2025 CA: Macan 4 Electric · US: Macan 4 Electric** → `porsche/macan-electric/2025/macan-4-electric` [CA, US] awd · powertrain new
+  - NRCan: Macan 4 Electric
+  - EPA: Macan 4 Electric
+- **2025 CA: Macan 4S Electric · US: Macan 4S Electric** → `porsche/macan-electric/2025/macan-4s-electric` [CA, US] awd · powertrain new
+  - NRCan: Macan 4S Electric
+  - EPA: Macan 4S Electric
+- **2025 CA: Macan Electric · US: Macan Electric** → `porsche/macan-electric/2025/macan-electric` [CA, US] rwd · powertrain new
+  - NRCan: Macan Electric
+  - EPA: Macan Electric
+- **2025 CA: Macan Turbo Electric · US: Macan Turbo Electric** → `porsche/macan-electric/2025/macan-turbo-electric` [CA, US] awd · powertrain new
+  - NRCan: Macan Turbo Electric
+  - EPA: Macan Turbo Electric
+- **2026 CA: Macan 4 Electric · US: Macan 4 Electric** → `porsche/macan-electric/2026/macan-4-electric` [CA, US] awd · wheels 20″ · powertrain new
+  - NRCan: Macan 4 Electric
+  - NRCan: Macan 4 Electric (20" Wheels)
+  - EPA: Macan 4 Electric
+  - EPA: Macan 4 Electric 20in Wheels
+- **2026 CA: Macan 4S Electric · US: Macan 4S Electric** → `porsche/macan-electric/2026/macan-4s-electric` [CA, US] awd · powertrain new
+  - NRCan: Macan 4S Electric
+  - EPA: Macan 4S Electric
+- **2026 CA: Macan Electric · US: Macan Electric** → `porsche/macan-electric/2026/macan-electric` [CA, US] rwd · wheels 20″ · powertrain new
+  - NRCan: Macan Electric
+  - NRCan: Macan Electric (20" Wheels)
+  - EPA: Macan Electric
+  - EPA: Macan Electric 20in Wheels
+- **2026 CA: Macan GTS Electric · US: Macan GTS Electric** → `porsche/macan-electric/2026/macan-gts-electric` [CA, US] awd · powertrain new
+  - NRCan: Macan GTS Electric
+  - EPA: Macan GTS Electric
+- **2026 CA: Macan Turbo Electric · US: Macan Turbo Electric** → `porsche/macan-electric/2026/macan-turbo-electric` [CA, US] awd · powertrain new
+  - NRCan: Macan Turbo Electric
+  - EPA: Macan Turbo Electric
+- **2027 US: Macan 4 Electric** → `porsche/macan-electric/2027/macan-4-electric` [US] awd · powertrain new
+  - EPA: Macan 4 Electric
+  - EPA: Macan 4 Electric 20in Wheels
+- **2027 US: Macan 4S Electric** → `porsche/macan-electric/2027/macan-4s-electric` [US] awd · powertrain new
+  - EPA: Macan 4S Electric
+- **2027 US: Macan Electric** → `porsche/macan-electric/2027/macan-electric` [US] rwd · powertrain new
+  - EPA: Macan Electric
+  - EPA: Macan Electric 20in Wheels
+- **2027 US: Macan GTS Electric** → `porsche/macan-electric/2027/macan-gts-electric` [US] awd · powertrain new
+  - EPA: Macan GTS Electric
+- **2027 US: Macan Turbo Electric** → `porsche/macan-electric/2027/macan-turbo-electric` [US] awd · powertrain new
+  - EPA: Macan Turbo Electric
+## porsche/taycan
+
+- **2020 CA: Taycan 4S Performance Battery Plus · US: Taycan 4S Performance Battery Plus** → `porsche/taycan/2020/taycan-4s-performance-battery-plus` [CA, US] awd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery Plus)
+  - EPA: Taycan 4S Perf Battery Plus
+- **2020 CA: Taycan Turbo · US: Taycan Turbo** → `porsche/taycan/2020/taycan-turbo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo
+  - EPA: Taycan Turbo
+- **2020 CA: Taycan Turbo S · US: Taycan Turbo S** → `porsche/taycan/2020/taycan-turbo-s` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo S
+  - EPA: Taycan Turbo S
+- **2021 CA: Taycan 4 Cross Turismo · US: Taycan 4 Cross Turismo** → `porsche/taycan/2021/taycan-4-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan 4 Cross Turismo
+  - EPA: Taycan 4 Cross Turismo
+- **2021 CA: Taycan 4S Performance Battery Plus · US: Taycan Performance Battery Plus** → `porsche/taycan/2021/taycan-4s-performance-battery-plus` [CA, US] rwd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery Plus)
+  - EPA: Taycan Perf Battery Plus
+- **2021 CA: Taycan 4S Performance Battery · US: Taycan Performance Battery** → `porsche/taycan/2021/taycan-4s-performance-battery` [CA, US] rwd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery)
+  - EPA: Taycan Perf Battery
+- **2021 CA: Taycan 4S Cross Turismo · US: Taycan 4S Cross Turismo** → `porsche/taycan/2021/taycan-4s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan 4S Cross Turismo
+  - EPA: Taycan 4S Cross Turismo
+- **2021 CA: Taycan Turbo · US: Taycan Turbo** → `porsche/taycan/2021/taycan-turbo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo
+  - EPA: Taycan Turbo
+- **2021 CA: Taycan Turbo Cross Turismo · US: Taycan Turbo Cross Turismo** → `porsche/taycan/2021/taycan-turbo-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo Cross Turismo
+  - EPA: Taycan Turbo Cross Turismo
+- **2021 CA: Taycan Turbo S · US: Taycan Turbo S** → `porsche/taycan/2021/taycan-turbo-s` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo S
+  - EPA: Taycan Turbo S
+- **2021 CA: Taycan Turbo S Cross Turismo · US: Taycan Turbo S Cross Turismo** → `porsche/taycan/2021/taycan-turbo-s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo S Cross Turismo
+  - EPA: Taycan Turbo S Cross Turismo
+- **2021 US: Taycan 4S Performance Battery** → `porsche/taycan/2021/taycan-4s-performance-battery-us` [US] awd · powertrain new
+  - EPA: Taycan 4S Perf Battery
+- **2021 US: Taycan 4S Performance Battery Plus** → `porsche/taycan/2021/taycan-4s-performance-battery-plus-us` [US] awd · powertrain new
+  - EPA: Taycan 4S Perf Battery Plus
+- **2022 CA: Taycan 4 Cross Turismo · US: Taycan 4 Cross Turismo** → `porsche/taycan/2022/taycan-4-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan 4 Cross Turismo
+  - EPA: Taycan 4 Cross Turismo
+- **2022 CA: Taycan 4S Performance Battery Plus · US: Taycan Performance Battery Plus** → `porsche/taycan/2022/taycan-4s-performance-battery-plus` [CA, US] rwd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery Plus)
+  - EPA: Taycan Perf Battery Plus
+- **2022 CA: Taycan 4S Performance Battery · US: Taycan Performance Battery** → `porsche/taycan/2022/taycan-4s-performance-battery` [CA, US] rwd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery)
+  - EPA: Taycan Perf Battery
+- **2022 CA: Taycan 4S Cross Turismo · US: Taycan 4S Cross Turismo** → `porsche/taycan/2022/taycan-4s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan 4S Cross Turismo
+  - EPA: Taycan 4S Cross Turismo
+- **2022 CA: Taycan GTS · US: Taycan GTS** → `porsche/taycan/2022/taycan-gts` [CA, US] awd · powertrain new
+  - NRCan: Taycan GTS
+  - EPA: Taycan GTS
+- **2022 CA: Taycan GTS Sport Turismo · US: Taycan GTS Sport Turismo** → `porsche/taycan/2022/taycan-gts-sport-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan GTS Sport Turismo
+  - EPA: Taycan GTS ST
+- **2022 CA: Taycan Turbo · US: Taycan Turbo** → `porsche/taycan/2022/taycan-turbo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo
+  - EPA: Taycan Turbo
+- **2022 CA: Taycan Turbo Cross Turismo · US: Taycan Turbo Cross Turismo** → `porsche/taycan/2022/taycan-turbo-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo Cross Turismo
+  - EPA: Taycan Turbo Cross Turismo
+- **2022 CA: Taycan Turbo S · US: Taycan Turbo S** → `porsche/taycan/2022/taycan-turbo-s` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo S
+  - EPA: Taycan Turbo S
+- **2022 CA: Taycan Turbo S Cross Turismo · US: Taycan Turbo S Cross Turismo** → `porsche/taycan/2022/taycan-turbo-s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo S Cross Turismo
+  - EPA: Taycan Turbo S Cross Turismo
+- **2022 US: Taycan 4S Performance Battery** → `porsche/taycan/2022/taycan-4s-performance-battery-us` [US] awd · powertrain new
+  - EPA: Taycan 4S Perf Battery
+- **2022 US: Taycan 4S Performance Battery Plus** → `porsche/taycan/2022/taycan-4s-performance-battery-plus-us` [US] awd · powertrain new
+  - EPA: Taycan 4S Perf Battery Plus
+- **2023 CA: Taycan 4S Performance Battery Plus · US: Taycan Performance Battery Plus** → `porsche/taycan/2023/taycan-4s-performance-battery-plus` [CA, US] rwd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery Plus)
+  - EPA: Taycan Perf Battery Plus
+- **2023 CA: Taycan 4S Performance Battery · US: Taycan Performance Battery** → `porsche/taycan/2023/taycan-4s-performance-battery` [CA, US] rwd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery)
+  - EPA: Taycan Performance Battery
+- **2023 CA: Taycan 4S Cross Turismo · US: Taycan 4S Cross Turismo** → `porsche/taycan/2023/taycan-4s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan 4S Cross Turismo
+  - EPA: Taycan 4S Cross Turismo
+- **2023 CA: Taycan GTS · US: Taycan GTS** → `porsche/taycan/2023/taycan-gts` [CA, US] awd · powertrain new
+  - NRCan: Taycan GTS
+  - EPA: Taycan GTS
+- **2023 CA: Taycan GTS Sport Turismo · US: Taycan GTS Sport Turismo** → `porsche/taycan/2023/taycan-gts-sport-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan GTS Sport Turismo
+  - EPA: Taycan GTS Sport Turismo
+- **2023 CA: Taycan Turbo · US: Taycan Turbo** → `porsche/taycan/2023/taycan-turbo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo
+  - EPA: Taycan Turbo
+- **2023 CA: Taycan Turbo Cross Turismo · US: Taycan Turbo Cross Turismo** → `porsche/taycan/2023/taycan-turbo-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo Cross Turismo
+  - EPA: Taycan Turbo Cross Turismo
+- **2023 CA: Taycan Turbo S · US: Taycan Turbo S** → `porsche/taycan/2023/taycan-turbo-s` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo S
+  - EPA: Taycan Turbo S
+- **2023 CA: Taycan Turbo S Cross Turismo · US: Taycan Turbo S Cross Turismo** → `porsche/taycan/2023/taycan-turbo-s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo S Cross Turismo
+  - EPA: Taycan Turbo S Cross Turismo
+- **2023 US: Taycan 4 Cross Turismo** → `porsche/taycan/2023/taycan-4-cross-turismo` [US] awd · powertrain new
+  - EPA: Taycan 4 Cross Turismo
+- **2023 US: Taycan 4S Performance Battery Plus** → `porsche/taycan/2023/taycan-4s-performance-battery-plus-us` [US] awd · powertrain new
+  - EPA: Taycan 4S Perf Battery Plus
+- **2023 US: Taycan 4S Performance Battery** → `porsche/taycan/2023/taycan-4s-performance-battery-us` [US] awd · powertrain new
+  - EPA: Taycan 4S Performance Battery
+- **2024 CA: Taycan 4S Performance Battery Plus · US: Taycan Performance Battery Plus** → `porsche/taycan/2024/taycan-4s-performance-battery-plus` [CA, US] rwd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery Plus)
+  - EPA: Taycan Performance Battery Plus
+- **2024 CA: Taycan 4S Performance Battery · US: Taycan Performance Battery** → `porsche/taycan/2024/taycan-4s-performance-battery` [CA, US] rwd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery)
+  - EPA: Taycan Performance Battery
+- **2024 CA: Taycan 4S Cross Turismo · US: Taycan 4S Cross Turismo** → `porsche/taycan/2024/taycan-4s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan 4S Cross Turismo
+  - EPA: Taycan 4S Cross Turismo
+- **2024 CA: Taycan GTS · US: Taycan GTS** → `porsche/taycan/2024/taycan-gts` [CA, US] awd · powertrain new
+  - NRCan: Taycan GTS
+  - EPA: Taycan GTS
+- **2024 CA: Taycan GTS Sport Turismo · US: Taycan GTS Sport Turismo** → `porsche/taycan/2024/taycan-gts-sport-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan GTS Sport Turismo
+  - EPA: Taycan GTS Sport Turismo
+- **2024 CA: Taycan Turbo · US: Taycan Turbo** → `porsche/taycan/2024/taycan-turbo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo
+  - EPA: Taycan Turbo
+- **2024 CA: Taycan Turbo Cross Turismo · US: Taycan Turbo Cross Turismo** → `porsche/taycan/2024/taycan-turbo-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo Cross Turismo
+  - EPA: Taycan Turbo Cross Turismo
+- **2024 CA: Taycan Turbo S · US: Taycan Turbo S** → `porsche/taycan/2024/taycan-turbo-s` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo S
+  - EPA: Taycan Turbo S
+- **2024 CA: Taycan Turbo S Cross Turismo · US: Taycan Turbo S Cross Turismo** → `porsche/taycan/2024/taycan-turbo-s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo S Cross Turismo
+  - EPA: Taycan Turbo S Cross Turismo
+- **2024 US: Taycan 4 Cross Turismo** → `porsche/taycan/2024/taycan-4-cross-turismo` [US] awd · powertrain new
+  - EPA: Taycan 4 Cross Turismo
+- **2024 US: Taycan 4S Performance Battery** → `porsche/taycan/2024/taycan-4s-performance-battery-us` [US] awd · powertrain new
+  - EPA: Taycan 4S Performance Battery
+- **2024 US: Taycan 4S Performance Battery Plus** → `porsche/taycan/2024/taycan-4s-performance-battery-plus-us` [US] awd · powertrain new
+  - EPA: Taycan 4S Performance Battery Plus
+- **2025 CA: Taycan 4S Performance Battery Plus · US: Taycan Performance Battery Plus** → `porsche/taycan/2025/taycan-4s-performance-battery-plus` [CA, US] rwd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery Plus)
+  - EPA: Taycan Perf Battery Plus
+- **2025 CA: Taycan 4S Performance Battery · US: Taycan Performance Battery** → `porsche/taycan/2025/taycan-4s-performance-battery` [CA, US] rwd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery)
+  - EPA: Taycan Performance Battery
+- **2025 CA: Taycan 4S Cross Turismo · US: Taycan 4S Cross Turismo** → `porsche/taycan/2025/taycan-4s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan 4S Cross Turismo
+  - EPA: Taycan 4S Cross Turismo
+- **2025 CA: Taycan GTS · US: Taycan GTS** → `porsche/taycan/2025/taycan-gts` [CA, US] awd · powertrain new
+  - NRCan: Taycan GTS
+  - EPA: Taycan GTS
+- **2025 CA: Taycan GTS Sport Turismo · US: Taycan GTS Sport Turismo** → `porsche/taycan/2025/taycan-gts-sport-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan GTS Sport Turismo
+  - EPA: Taycan GTS Sport Turismo
+- **2025 CA: Taycan Turbo · US: Taycan Turbo** → `porsche/taycan/2025/taycan-turbo` [CA, US] awd · powertrain new · ⚠ note: "(285/35)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: Taycan Turbo
+  - EPA: Taycan Turbo
+  - EPA: Taycan Turbo 21in Aero-Design wheel (285/35)
+- **2025 CA: Taycan Turbo Cross Turismo · US: Taycan Turbo Cross Turismo** → `porsche/taycan/2025/taycan-turbo-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo Cross Turismo
+  - EPA: Taycan Turbo Cross Turismo
+- **2025 CA: Taycan Turbo GT · US: Taycan Turbo GT** → `porsche/taycan/2025/taycan-turbo-gt` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo GT
+  - EPA: Taycan Turbo GT
+- **2025 CA: Taycan Turbo GT with Weissach Package · US: Taycan Turbo GT with Weissach Package** → `porsche/taycan/2025/taycan-turbo-gt-with-weissach-package` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo GT with Weissach Package
+  - EPA: Taycan Turbo GT with Weissach Package
+- **2025 CA: Taycan Turbo S · US: Taycan Turbo S** → `porsche/taycan/2025/taycan-turbo-s` [CA, US] awd · powertrain new · ⚠ note: "(285/35)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: Taycan Turbo S
+  - EPA: Taycan Turbo S
+  - EPA: Taycan Turbo S 21in Aero-Design wheel (285/35)
+- **2025 CA: Taycan Turbo S Cross Turismo · US: Taycan Turbo S Cross Turismo** → `porsche/taycan/2025/taycan-turbo-s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo S Cross Turismo
+  - EPA: Taycan Turbo S Cross Turismo
+- **2025 US: Taycan 4 Cross Turismo** → `porsche/taycan/2025/taycan-4-cross-turismo` [US] awd · powertrain new
+  - EPA: Taycan 4 Cross Turismo
+- **2025 US: Taycan 4 Performance Battery Plus** → `porsche/taycan/2025/taycan-4-performance-battery-plus` [US] awd · powertrain new
+  - EPA: Taycan 4 Perf Battery Plus
+- **2025 US: Taycan 4S Performance Battery Plus** → `porsche/taycan/2025/taycan-4s-performance-battery-plus-us` [US] awd · powertrain new
+  - EPA: Taycan 4S Perf Battery Plus
+  - EPA: Taycan 4S Perf Battery Plus 19 inch Wheels
+- **2025 US: Taycan 4S Performance Battery** → `porsche/taycan/2025/taycan-4s-performance-battery-us` [US] awd · powertrain new
+  - EPA: Taycan 4S Performance Battery
+- **2026 CA: 4S** → `porsche/taycan/2026/4s` [CA] drivetrain ? · wheels 19″ · powertrain new · names: regulator wording
+  - NRCan: Taycan 4S (Performance Battery Plus, 19" AS Tire)
+- **2026 CA: Taycan 4S Performance Battery Plus · US: Taycan 4S Performance Battery Plus** → `porsche/taycan/2026/taycan-4s-performance-battery-plus` [CA, US] awd · powertrain new · ⚠ note: "(M+S)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: Taycan 4S (Performance Battery Plus)
+  - EPA: Taycan 4S Perf Battery Plus
+  - EPA: Taycan 4S Perf Battery Plus 19in All-Season (M+S)
+- **2026 CA: Taycan 4S Performance Battery · US: Taycan Performance Battery** → `porsche/taycan/2026/taycan-4s-performance-battery` [CA, US] rwd · powertrain new
+  - NRCan: Taycan 4S (Performance Battery)
+  - EPA: Taycan Performance Battery
+- **2026 CA: Taycan 4S Cross Turismo · US: Taycan 4S Cross Turismo** → `porsche/taycan/2026/taycan-4s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan 4S Cross Turismo
+  - EPA: Taycan 4S Cross Turismo
+- **2026 CA: Taycan GTS · US: Taycan GTS** → `porsche/taycan/2026/taycan-gts` [CA, US] awd · powertrain new
+  - NRCan: Taycan GTS
+  - EPA: Taycan GTS
+- **2026 CA: Taycan GTS Sport Turismo · US: Taycan GTS Sport Turismo** → `porsche/taycan/2026/taycan-gts-sport-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan GTS Sport Turismo
+  - EPA: Taycan GTS Sport Turismo
+- **2026 CA: Taycan Turbo · US: Taycan Turbo** → `porsche/taycan/2026/taycan-turbo` [CA, US] awd · wheels 21″ · powertrain new
+  - NRCan: Taycan Turbo
+  - NRCan: Taycan Turbo (21" Aero Design Wheels)
+  - EPA: Taycan Turbo
+- **2026 CA: Taycan Turbo Cross Turismo · US: Taycan Turbo Cross Turismo** → `porsche/taycan/2026/taycan-turbo-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo Cross Turismo
+  - EPA: Taycan Turbo Cross Turismo
+- **2026 CA: Taycan Turbo GT · US: Taycan Turbo GT** → `porsche/taycan/2026/taycan-turbo-gt` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo GT
+  - EPA: Taycan Turbo GT
+- **2026 CA: Taycan Turbo GT with Weissach Package · US: Taycan Turbo GT with Weissach Package** → `porsche/taycan/2026/taycan-turbo-gt-with-weissach-package` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo GT with Weissach Package
+  - EPA: Taycan Turbo GT with Weissach Package
+- **2026 CA: Taycan Turbo S · US: Taycan Turbo S** → `porsche/taycan/2026/taycan-turbo-s` [CA, US] awd · wheels 21″ · powertrain new · ⚠ note: "(285/35)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: Taycan Turbo S
+  - NRCan: Taycan Turbo S (21" Aero Design Wheels)
+  - EPA: Taycan Turbo S
+  - EPA: Taycan Turbo S 21in Aero-Design wheel (285/35)
+- **2026 CA: Taycan Turbo S Cross Turismo · US: Taycan Turbo S Cross Turismo** → `porsche/taycan/2026/taycan-turbo-s-cross-turismo` [CA, US] awd · powertrain new
+  - NRCan: Taycan Turbo S Cross Turismo
+  - EPA: Taycan Turbo S Cross Turismo
+- **2026 US: Taycan 4 Cross Turismo** → `porsche/taycan/2026/taycan-4-cross-turismo` [US] awd · powertrain new
+  - EPA: Taycan 4 Cross Turismo
+- **2026 US: Taycan 4 Performance Battery Plus** → `porsche/taycan/2026/taycan-4-performance-battery-plus` [US] awd · powertrain new · ⚠ note: "(M+S)"
+  - **Recommend:** yes: bracket note kept for reference
+  - EPA: Taycan 4 Perf Battery Plus
+  - EPA: Taycan 4 Perf Battery Plus 19in All-Season (M+S)
+- **2026 US: Taycan 4 Performance Battery** → `porsche/taycan/2026/taycan-4-performance-battery` [US] awd · powertrain new
+  - EPA: Taycan 4 Performance Battery
+- **2026 US: Taycan 4S Performance Battery** → `porsche/taycan/2026/taycan-4s-performance-battery-us` [US] awd · powertrain new
+  - EPA: Taycan 4S Performance Battery
+- **2027 US: Taycan 4 Performance Battery Plus** → `porsche/taycan/2027/taycan-4-performance-battery-plus` [US] awd · powertrain new
+  - EPA: Taycan 4 Perf Battery Plus
+  - EPA: Taycan 4 Perf Battery Plus 19in All Season
+- **2027 US: Taycan 4S Cross Turismo** → `porsche/taycan/2027/taycan-4s-cross-turismo` [US] awd · powertrain new
+  - EPA: Taycan 4S Cross Turismo
+- **2027 US: Taycan 4S Performance Battery Plus** → `porsche/taycan/2027/taycan-4s-performance-battery-plus` [US] awd · powertrain new
+  - EPA: Taycan 4S Perf Battery Plus
+  - EPA: Taycan 4S Perf Battery Plus 19in All Season
+- **2027 US: Taycan GTS** → `porsche/taycan/2027/taycan-gts` [US] awd · powertrain new
+  - EPA: Taycan GTS
+- **2027 US: Taycan Turbo** → `porsche/taycan/2027/taycan-turbo` [US] awd · powertrain new
+  - EPA: Taycan Turbo
+- **2027 US: Taycan Turbo GT** → `porsche/taycan/2027/taycan-turbo-gt` [US] awd · powertrain new
+  - EPA: Taycan Turbo GT
+- **2027 US: Taycan Turbo S** → `porsche/taycan/2027/taycan-turbo-s` [US] awd · powertrain new
+  - EPA: Taycan Turbo S
+## rimac/nevera
+
+- **2024 US: Nevera** → `rimac/nevera/2024/nevera` [US] awd · powertrain new
+  - EPA: Nevera
+- **2025 US: Nevera** → `rimac/nevera/2025/nevera` [US] awd · powertrain new
+  - EPA: Nevera
+- **2025 US: Nevera R** → `rimac/nevera/2025/nevera-r` [US] awd · powertrain new
+  - EPA: Nevera R
+- **2026 US: Nevera R** → `rimac/nevera/2026/nevera-r` [US] awd · powertrain new
+  - EPA: Nevera R
+## rivian/r1s
+
+- **2022 CA: Quad-Motor Large Pack · US: Quad-Motor Large Pack** → `rivian/r1s/2022/quad-motor-large-pack` [CA, US] awd · powertrain new
+  - NRCan: R1S
+  - EPA: R1S
+- **2023 CA: Quad-Motor Large Pack · US: Quad-Motor Large Pack** → `rivian/r1s/2023/quad-motor-large-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1S (20" Wheels)
+  - NRCan: R1S (20" Wheels) All-Terrain
+  - NRCan: R1S (21" Wheels)
+  - NRCan: R1S (22" Wheels)
+  - EPA: R1S (20 inch wheels)
+  - EPA: R1S (21 inch wheels)
+  - EPA: R1S (22 inch wheels)
+  - EPA: R1S 20 inch All-Terrain
+- **2023 CA: Dual-Motor Large Pack · US: Dual-Motor Large Pack** → `rivian/r1s/2023/dual-motor-large-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1S (20" Wheels) AT Dual Large
+  - NRCan: R1S (21" Wheels) Dual Large
+  - NRCan: R1S (22" Wheels) Dual Large
+  - EPA: R1S 20 inch All-Terrain Dual Large
+  - EPA: R1S 21 inch Dual Large
+  - EPA: R1S 22 inch Dual Large
+- **2023 CA: Dual-Motor Max Pack · US: Performance Dual-Motor Large Pack** → `rivian/r1s/2023/dual-motor-max-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1S (20" Wheels) AT Dual Max
+  - NRCan: R1S (21" Wheels) Dual Max
+  - NRCan: R1S (22" Wheels) Dual Max
+  - EPA: R1S 20 inch All-Terrain Performance Dual Large
+  - EPA: R1S 21 inch Performance Dual Large
+  - EPA: R1S 22 inch Performance Dual Large
+- **2023 CA: Performance Dual-Motor Large Pack** → `rivian/r1s/2023/performance-dual-motor-large-pack` [CA] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1S (20" Wheels) AT Performance Dual Large
+  - NRCan: R1S (21" Wheels) Performance Dual Large
+  - NRCan: R1S (22" Wheels) Performance Dual Large
+- **2023 CA: Performance Dual-Motor Max Pack** → `rivian/r1s/2023/performance-dual-motor-max-pack` [CA] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1S (20" Wheels) AT Performance Dual Max
+  - NRCan: R1S (21" Wheels) Performance Dual Max
+  - NRCan: R1S (22" Wheels) Performance Dual Max
+- **2024 CA: Dual-Motor Large Pack · US: Dual-Motor Large Pack** → `rivian/r1s/2024/dual-motor-large-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1S All-Terrain Dual Large (20" Wheels)
+  - NRCan: R1S Dual Large (21" Wheels)
+  - NRCan: R1S Dual Large (22" Wheels)
+  - EPA: R1S All-Terrain Dual Large (20in)
+  - EPA: R1S Dual Large (21in)
+  - EPA: R1S Dual Large (22in)
+- **2024 CA: Dual-Motor Max Pack · US: Dual-Motor Max Pack** → `rivian/r1s/2024/dual-motor-max-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1S All-Terrain Dual Max (20" Wheels)
+  - NRCan: R1S Dual Max (21" Wheels)
+  - NRCan: R1S Dual Max (22" Wheels)
+  - EPA: R1S All-Terrain Dual Max (20in)
+  - EPA: R1S Dual Max (21in)
+  - EPA: R1S Dual Max (22in)
+- **2024 CA: Performance Dual-Motor Max Pack · US: Performance Dual-Motor Max Pack** → `rivian/r1s/2024/performance-dual-motor-max-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1S All-Terrain Performance Dual Max (20" Wheels)
+  - NRCan: R1S Performance Dual Max (21" Wheels)
+  - NRCan: R1S Performance Dual Max (22" Wheels)
+  - EPA: R1S All-Terrain Performance Dual Max (20in)
+  - EPA: R1S Performance Dual Max (21in)
+  - EPA: R1S Performance Dual Max (22in)
+- **2024 CA: Quad-Motor Large Pack · US: Quad-Motor Large Pack** → `rivian/r1s/2024/quad-motor-large-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1S All-Terrain Quad Large (20" Wheels)
+  - NRCan: R1S Quad Large (20" Wheels)
+  - NRCan: R1S Quad Large (21" Wheels)
+  - NRCan: R1S Quad Large (22" Wheels)
+  - EPA: R1S All-Terrain Quad Large (20 inch)
+  - EPA: R1S Quad Large (20in)
+  - EPA: R1S Quad Large (21in)
+  - EPA: R1S Quad Large (22in)
+- **2024 CA: Performance Dual-Motor Large Pack · US: Performance Dual-Motor Large Pack** → `rivian/r1s/2024/performance-dual-motor-large-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1S AT Performance Dual Large (20" Wheels)
+  - NRCan: R1S Performance Dual Large (21" Wheels)
+  - NRCan: R1S Performance Dual Large (22" Wheels)
+  - EPA: R1S All-Terrain Performance Dual Large (20in)
+  - EPA: R1S Performance Dual Large (21in)
+  - EPA: R1S Performance Dual Large (22in)
+- **2024 US: Dual-Motor Standard Plus Pack** → `rivian/r1s/2024/dual-motor-standard-plus-pack` [US] awd · wheels 20/21/22″ · powertrain new
+  - EPA: R1S All-Terrain Dual Standard Plus (20in)
+  - EPA: R1S Dual Standard Plus (21in)
+  - EPA: R1S Dual Standard Plus (22in)
+- **2024 US: Performance Dual-Motor Standard Plus Pack** → `rivian/r1s/2024/performance-dual-motor-standard-plus-pack` [US] awd · wheels 20/21″ · powertrain new
+  - EPA: R1S AT Performance Dual Standard Plus (20in)
+  - EPA: R1S Performance Dual Standard Plus (21in)
+- **2024 US: Dual-Motor Standard Pack** → `rivian/r1s/2024/dual-motor-standard-pack` [US] awd · wheels 21/22″ · powertrain new
+  - EPA: R1S Dual Standard (21in)
+  - EPA: R1S Dual Standard (22in)
+- **2024 US: Performance Dual-Motor Standard Pack** → `rivian/r1s/2024/performance-dual-motor-standard-pack` [US] awd · wheels 22″ · powertrain new
+  - EPA: R1S Performance Dual Standard (22in)
+- **2025 CA: Dual-Motor Large Pack · US: Dual-Motor Large Pack** → `rivian/r1s/2025/dual-motor-large-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S All-Terrain Dual Large (20" Wheels)
+  - NRCan: R1S Dual Large (20" Wheels)
+  - NRCan: R1S Dual Large (22" Wheels)
+  - EPA: R1S All-Terrain Dual Large (20in)
+  - EPA: R1S Dual Large (20in)
+  - EPA: R1S Dual Large (22in)
+- **2025 CA: Dual-Motor Large Plus Pack · US: Dual-Motor Large Plus Pack** → `rivian/r1s/2025/dual-motor-large-plus-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S All-Terrain Dual Large Plus (20" Wheels)
+  - NRCan: R1S Dual Large Plus (20" Wheels)
+  - NRCan: R1S Dual Large Plus (22" Wheels)
+  - EPA: R1S All-Terrain Dual Large Plus (20in)
+  - EPA: R1S Dual Large Plus (20in)
+  - EPA: R1S Dual Large Plus (22in)
+- **2025 CA: Dual-Motor Max Pack · US: Dual-Motor Max Pack** → `rivian/r1s/2025/dual-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S All-Terrain Dual Max (20" Wheels)
+  - NRCan: R1S Dual Max (20" Wheels)
+  - NRCan: R1S Dual Max (22" Wheels)
+  - EPA: R1S All-Terrain Dual Max (20in)
+  - EPA: R1S Dual Max (20in)
+  - EPA: R1S Dual Max (22in)
+- **2025 CA: Performance Dual-Motor Max Pack · US: Performance Dual-Motor Max Pack** → `rivian/r1s/2025/performance-dual-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S All-Terrain Performance Dual Max (20" Wheels)
+  - NRCan: R1S Performance Dual Max (20" Wheels)
+  - NRCan: R1S Performance Dual Max (22" Wheels)
+  - EPA: R1S All-Terrain Performance  Dual Max (20in)
+  - EPA: R1S Performance Dual Max (20in)
+  - EPA: R1S Performance Dual Max (22in)
+- **2025 CA: Tri-Motor Max Pack · US: Tri-Motor Max Pack** → `rivian/r1s/2025/tri-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S All-Terrain Tri Max (20" Wheels)
+  - NRCan: R1S Tri Max (22" Wheels)
+  - EPA: R1S All-Terrain Tri Max (20in)
+  - EPA: R1S Tri Max (22in)
+- **2025 CA: Performance Dual-Motor Large Pack · US: Performance Dual-Motor Large Pack** → `rivian/r1s/2025/performance-dual-motor-large-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S AT Performance Dual Large (20" Wheels)
+  - NRCan: R1S Performance Dual Large (20" Wheels)
+  - NRCan: R1S Performance Dual Large (22" Wheels)
+  - EPA: R1S All-Terrain Performance Dual Large (20in)
+  - EPA: R1S Performance Dual Large (20in)
+  - EPA: R1S Performance Dual Large (22in)
+- **2025 CA: Performance Dual-Motor Large Plus Pack · US: Performance Dual-Motor Large Plus Pack** → `rivian/r1s/2025/performance-dual-motor-large-plus-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S AT Performance Dual Large Plus (20" Wheels)
+  - NRCan: R1S Performance Dual Large Plus (20" Wheels)
+  - NRCan: R1S Performance Dual Large Plus (22" Wheels)
+  - EPA: R1S All-Terrain Performance Dual Large Plus (20in)
+  - EPA: R1S Performance Dual Large Plus (20in)
+  - EPA: R1S Performance Dual Large Plus (22in)
+- **2025 CA: Dual-Motor Standard Pack · US: Dual-Motor Standard Pack** → `rivian/r1s/2025/dual-motor-standard-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S Dual Standard (20" Wheels)
+  - NRCan: R1S Dual Standard (22" Wheels)
+  - EPA: R1S Dual Standard (20in)
+  - EPA: R1S Dual Standard (22in)
+- **2026 CA: Dual-Motor Large Pack · US: Dual-Motor Large Pack** → `rivian/r1s/2026/dual-motor-large-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S All-Terrain Dual Large (20" Wheels)
+  - NRCan: R1S Dual Large (20" Wheels)
+  - NRCan: R1S Dual Large (22" Wheels)
+  - EPA: R1S All-Terrain Dual Large (20in)
+  - EPA: R1S Dual Large (20in)
+  - EPA: R1S Dual Large (22in)
+- **2026 CA: Dual-Motor Large Plus Pack · US: Dual-Motor Large Plus Pack** → `rivian/r1s/2026/dual-motor-large-plus-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S All-Terrain Dual Large Plus (20" Wheels)
+  - NRCan: R1S Dual Large Plus (20" Wheels)
+  - NRCan: R1S Dual Large Plus (22" Wheels)
+  - EPA: R1S All-Terrain Dual Large Plus (20in)
+  - EPA: R1S Dual Large Plus (20in)
+  - EPA: R1S Dual Large Plus (22in)
+- **2026 CA: Dual-Motor Max Pack · US: Dual-Motor Max Pack** → `rivian/r1s/2026/dual-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S All-Terrain Dual Max (20" Wheels)
+  - NRCan: R1S Dual Max (20" Wheels)
+  - NRCan: R1S Dual Max (22" Wheels)
+  - EPA: R1S All-Terrain Dual Max (20in)
+  - EPA: R1S Dual Max (20in)
+  - EPA: R1S Dual Max (22in)
+- **2026 CA: Performance Dual-Motor Max Pack · US: Performance Dual-Motor Max Pack** → `rivian/r1s/2026/performance-dual-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S All-Terrain Performance Dual Max (20" Wheels)
+  - NRCan: R1S Performance Dual Max (20" Wheels)
+  - NRCan: R1S Performance Dual Max (22" Wheels)
+  - EPA: R1S All-Terrain Performance  Dual Max (20in)
+  - EPA: R1S Performance Dual Max (20in)
+  - EPA: R1S Performance Dual Max (22in)
+- **2026 CA: Tri-Motor Max Pack · US: Tri-Motor Max Pack** → `rivian/r1s/2026/tri-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S All-Terrain Tri Max (20" Wheels)
+  - NRCan: R1S Tri Max (22" Wheels)
+  - EPA: R1S All-Terrain Tri Max (20in)
+  - EPA: R1S Tri Max (22in)
+- **2026 CA: Performance Dual-Motor Large Pack · US: Performance Dual-Motor Large Pack** → `rivian/r1s/2026/performance-dual-motor-large-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S AT Performance Dual Large (20" Wheels)
+  - NRCan: R1S Performance Dual Large (20" Wheels)
+  - NRCan: R1S Performance Dual Large (22" Wheels)
+  - EPA: R1S All-Terrain Performance Dual Large (20in)
+  - EPA: R1S Performance Dual Large (20in)
+  - EPA: R1S Performance Dual Large (22in)
+- **2026 CA: Performance Dual-Motor Large Plus Pack · US: Performance Dual-Motor Large Plus Pack** → `rivian/r1s/2026/performance-dual-motor-large-plus-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S AT Performance Dual Large Plus (20" Wheels)
+  - NRCan: R1S Performance Dual Large Plus (20" Wheels)
+  - NRCan: R1S Performance Dual Large Plus (22" Wheels)
+  - EPA: R1S All-Terrain Performance Dual Large Plus (20in)
+  - EPA: R1S Performance Dual Large Plus (20in)
+  - EPA: R1S Performance Dual Large Plus (22in)
+- **2026 CA: Dual-Motor Standard Pack · US: Dual-Motor Standard Pack** → `rivian/r1s/2026/dual-motor-standard-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S Dual Standard (20" Wheels)
+  - NRCan: R1S Dual Standard (22" Wheels)
+  - EPA: R1S Dual Standard (20in)
+  - EPA: R1S Dual Standard (22in)
+- **2026 CA: Quad-Motor Max Pack · US: Quad-Motor Max Pack** → `rivian/r1s/2026/quad-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1S Quad Max (20" Wheels AT)
+  - NRCan: R1S Quad Max (22" Wheels UHP)
+  - NRCan: R1S Quad Max (22" Wheels)
+  - EPA: R1S Quad Max (20in AT)
+  - EPA: R1S Quad Max (22in UHP)
+  - EPA: R1S Quad Max (22in)
+- **2027 US: Performance** → `rivian/r1s/2027/performance` [US] awd · wheels 20/22″ · powertrain new
+  - EPA: R1S Performance (20in AT)
+  - EPA: R1S Performance (20in)
+  - EPA: R1S Performance (22in)
+- **2027 US: Premium** → `rivian/r1s/2027/premium` [US] awd · wheels 20/22″ · powertrain new
+  - EPA: R1S Premium (20in AT)
+  - EPA: R1S Premium (20in)
+  - EPA: R1S Premium (22in)
+- **2027 US: Premium Long Range** → `rivian/r1s/2027/premium-long-range` [US] awd · wheels 20/22″ · powertrain new
+  - EPA: R1S Premium Long Range (20in AT)
+  - EPA: R1S Premium Long Range (20in)
+  - EPA: R1S Premium Long Range (22in)
+- **2027 US: Quad** → `rivian/r1s/2027/quad` [US] awd · wheels 20/22″ · powertrain new
+  - EPA: R1S Quad (20in AT)
+  - EPA: R1S Quad (22in UHP)
+  - EPA: R1S Quad (22in)
+## rivian/r1t
+
+- **2022 CA: Quad-Motor Large Pack · US: Quad-Motor Large Pack** → `rivian/r1t/2022/quad-motor-large-pack` [CA, US] awd · powertrain new
+  - NRCan: R1T
+  - EPA: R1T
+- **2023 CA: Quad-Motor Large Pack · US: Quad-Motor Large Pack** → `rivian/r1t/2023/quad-motor-large-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1T (20" Wheels)
+  - NRCan: R1T (20" Wheels) All-Terrain
+  - NRCan: R1T (21" Wheels)
+  - NRCan: R1T (22" Wheels)
+  - EPA: R1T (20 inch wheels)
+  - EPA: R1T (21 inch wheels)
+  - EPA: R1T (22 inch wheels)
+- **2023 CA: Dual-Motor Large Pack · US: Dual-Motor Large Pack** → `rivian/r1t/2023/dual-motor-large-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1T (20" Wheels) AT Dual Large
+  - NRCan: R1T (21" Wheels) Dual Large
+  - NRCan: R1T (22" Wheels) Dual Large
+  - EPA: R1T 21 inch Dual Large
+  - EPA: R1T 22 inch Dual Large
+- **2023 CA: Dual-Motor Max Pack · US: Performance Dual-Motor Large Pack** → `rivian/r1t/2023/dual-motor-max-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1T (20" Wheels) AT Dual Max
+  - NRCan: R1T (21" Wheels) Dual Max
+  - NRCan: R1T (22" Wheels) Dual Max
+  - EPA: R1T 21 inch Performance Dual Large
+  - EPA: R1T 22 inch Performance Dual Large
+- **2023 CA: Performance Dual-Motor Large Pack** → `rivian/r1t/2023/performance-dual-motor-large-pack` [CA] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1T (20" Wheels) AT Performance Dual Large
+  - NRCan: R1T (21" Wheels) Performance Dual Large
+  - NRCan: R1T (22" Wheels) Performance Dual Large
+- **2023 CA: Performance Dual-Motor Max Pack** → `rivian/r1t/2023/performance-dual-motor-max-pack` [CA] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1T (20" Wheels) AT Performance Dual Max
+  - NRCan: R1T (21" Wheels) Performance Dual Max
+  - NRCan: R1T (22" Wheels) Performance Dual Max
+- **2024 CA: Dual-Motor Large Pack · US: Dual-Motor Large Pack** → `rivian/r1t/2024/dual-motor-large-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1T All-Terrain Dual Large (20" Wheels)
+  - NRCan: R1T Dual Large (21" Wheels)
+  - NRCan: R1T Dual Large (22" Wheels)
+  - EPA: R1T All-Terrain Dual Large (20in)
+  - EPA: R1T Dual Large (21in)
+  - EPA: R1T Dual Large (22in)
+- **2024 CA: Dual-Motor Max Pack · US: Dual-Motor Max Pack** → `rivian/r1t/2024/dual-motor-max-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1T All-Terrain Dual Max (20" Wheels)
+  - NRCan: R1T Dual Max (21" Wheels)
+  - NRCan: R1T Dual Max (22" Wheels)
+  - EPA: R1T All-Terrain Dual Max (20in)
+  - EPA: R1T Dual Max (21in)
+  - EPA: R1T Dual Max (22in)
+- **2024 CA: Performance Dual-Motor Max Pack · US: Performance Dual-Motor Max Pack** → `rivian/r1t/2024/performance-dual-motor-max-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1T All-Terrain Performance Dual Max (20" Wheels)
+  - NRCan: R1T Performance Dual Max (21" Wheels)
+  - NRCan: R1T Performance Dual Max (22" Wheels)
+  - EPA: R1T All-Terrain Performance Dual Max (20in)
+  - EPA: R1T Performance Dual Max (21in)
+  - EPA: R1T Performance Dual Max (22in)
+- **2024 CA: Quad-Motor Large Pack · US: Quad-Motor Large Pack** → `rivian/r1t/2024/quad-motor-large-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1T All-Terrain Quad Large (20" Wheels)
+  - NRCan: R1T Quad Large (20" Wheels)
+  - NRCan: R1T Quad Large (21" Wheels)
+  - NRCan: R1T Quad Large (22" Wheels)
+  - EPA: R1T All-Terrain Quad Large (20in)
+  - EPA: R1T Quad Large (20in)
+  - EPA: R1T Quad Large (21in)
+  - EPA: R1T Quad Large (22in)
+- **2024 CA: Performance Dual-Motor Large Pack · US: Performance Dual-Motor Large Pack** → `rivian/r1t/2024/performance-dual-motor-large-pack` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: R1T AT Performance Dual Large (20" Wheels)
+  - NRCan: R1T Performance Dual Large (21" Wheels)
+  - NRCan: R1T Performance Dual Large (22" Wheels)
+  - EPA: R1T All-Terrain Performance Dual Large (20in)
+  - EPA: R1T Performance Dual Large (21in)
+  - EPA: R1T Performance Dual Large (22in)
+- **2024 US: Dual-Motor Standard Plus Pack** → `rivian/r1t/2024/dual-motor-standard-plus-pack` [US] awd · wheels 20/21/22″ · powertrain new
+  - EPA: R1T All-Terrain Dual Standard Plus (20in)
+  - EPA: R1T Dual Standard Plus (21in)
+  - EPA: R1T Dual Standard Plus (22in)
+- **2024 US: Performance Dual-Motor Standard Plus Pack** → `rivian/r1t/2024/performance-dual-motor-standard-plus-pack` [US] awd · wheels 20/21/22″ · powertrain new
+  - EPA: R1T AT Performance Dual Standard Plus (20in)
+  - EPA: R1T Performance Dual Standard Plus (21in)
+  - EPA: R1T Performance Dual Standard Plus (22in)
+- **2024 US: Dual-Motor Standard Pack** → `rivian/r1t/2024/dual-motor-standard-pack` [US] awd · wheels 21/22″ · powertrain new
+  - EPA: R1T Dual Standard (21in)
+  - EPA: R1T Dual Standard (22in)
+- **2025 CA: Dual-Motor Large Pack · US: Dual-Motor Large Pack** → `rivian/r1t/2025/dual-motor-large-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T All-Terrain Dual Large (20" Wheels)
+  - NRCan: R1T Dual Large (20" Wheels)
+  - NRCan: R1T Dual Large (22" Wheels)
+  - EPA: R1T All-Terrain Dual Large (20in)
+  - EPA: R1T Dual Large (20in)
+  - EPA: R1T Dual Large (22in)
+- **2025 CA: Dual-Motor Large Plus Pack · US: Dual-Motor Large Plus Pack** → `rivian/r1t/2025/dual-motor-large-plus-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T All-Terrain Dual Large Plus (20" Wheels)
+  - NRCan: R1T Dual Large Plus (20" Wheels)
+  - NRCan: R1T Dual Large Plus (22" Wheels)
+  - EPA: R1T All-Terrain Dual Large Plus (20in)
+  - EPA: R1T Dual Large Plus (20in)
+  - EPA: R1T Dual Large Plus (22in)
+- **2025 CA: Dual-Motor Max Pack · US: Dual-Motor Max Pack** → `rivian/r1t/2025/dual-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T All-Terrain Dual Max (20" Wheels)
+  - NRCan: R1T Dual Max (20" Wheels)
+  - NRCan: R1T Dual Max (22" Wheels)
+  - EPA: R1T All-Terrain Dual Max (20in)
+  - EPA: R1T Dual Max (20in)
+  - EPA: R1T Dual Max (22in)
+- **2025 CA: Performance Dual-Motor Max Pack · US: Performance Dual-Motor Max Pack** → `rivian/r1t/2025/performance-dual-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T All-Terrain Performance Dual Max (20" Wheels)
+  - NRCan: R1T Performance Dual Max (20" Wheels)
+  - NRCan: R1T Performance Dual Max (22" Wheels)
+  - EPA: R1T All-Terrain Performance Dual Max (20in)
+  - EPA: R1T Performance Dual Max (20in)
+  - EPA: R1T Performance Dual Max (22in)
+- **2025 CA: Tri-Motor Max Pack · US: Tri-Motor Max Pack** → `rivian/r1t/2025/tri-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T All-Terrain Tri Max (20" Wheels)
+  - NRCan: R1T Tri Max (22" Wheels)
+  - EPA: R1T All-Terrain Tri Max (20in)
+  - EPA: R1T Tri Max (22in)
+- **2025 CA: Performance Dual-Motor Large Pack · US: Performance Dual-Motor Large Pack** → `rivian/r1t/2025/performance-dual-motor-large-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T AT Performance Dual Large (20" Wheels)
+  - NRCan: R1T Performance Dual Large (20" Wheels)
+  - NRCan: R1T Performance Dual Large (22" Wheels)
+  - EPA: R1T All-Terrain Performance Dual Large (20in)
+  - EPA: R1T Performance Dual Large (20in)
+  - EPA: R1T Performance Dual Large (22in)
+- **2025 CA: Performance Dual-Motor Large Plus Pack · US: Performance Dual-Motor Large Plus Pack** → `rivian/r1t/2025/performance-dual-motor-large-plus-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T AT Performance Dual Large Plus (20" Wheels)
+  - NRCan: R1T Performance Dual Large Plus (20" Wheels)
+  - NRCan: R1T Performance Dual Large Plus (22" Wheels)
+  - EPA: R1T All-Terrain Performance Dual Large Plus (20in)
+  - EPA: R1T Performance Dual Large Plus (20in)
+  - EPA: R1T Performance Dual Large Plus (22in)
+- **2025 CA: Dual-Motor Standard Pack · US: Dual-Motor Standard Pack** → `rivian/r1t/2025/dual-motor-standard-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T Dual Standard (20" Wheels)
+  - NRCan: R1T Dual Standard (22" Wheels)
+  - EPA: R1T Dual Standard (20in)
+  - EPA: R1T Dual Standard (22in)
+- **2026 CA: Dual-Motor Large Pack · US: Dual-Motor Large Pack** → `rivian/r1t/2026/dual-motor-large-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T All-Terrain Dual Large (20" Wheels)
+  - NRCan: R1T Dual Large (20" Wheels)
+  - NRCan: R1T Dual Large (22" Wheels)
+  - EPA: R1T All-Terrain Dual Large (20in)
+  - EPA: R1T Dual Large (20in)
+  - EPA: R1T Dual Large (22in)
+- **2026 CA: Dual-Motor Large Plus Pack · US: Dual-Motor Large Plus Pack** → `rivian/r1t/2026/dual-motor-large-plus-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T All-Terrain Dual Large Plus (20" Wheels)
+  - NRCan: R1T Dual Large Plus (20" Wheels)
+  - NRCan: R1T Dual Large Plus (22" Wheels)
+  - EPA: R1T All-Terrain Dual Large Plus (20in)
+  - EPA: R1T Dual Large Plus (20in)
+  - EPA: R1T Dual Large Plus (22in)
+- **2026 CA: Dual-Motor Max Pack · US: Dual-Motor Max Pack** → `rivian/r1t/2026/dual-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T All-Terrain Dual Max (20" Wheels)
+  - NRCan: R1T Dual Max (20" Wheels)
+  - NRCan: R1T Dual Max (22" Wheels)
+  - EPA: R1T All-Terrain Dual Max (20in)
+  - EPA: R1T Dual Max (20in)
+  - EPA: R1T Dual Max (22in)
+- **2026 CA: Performance Dual-Motor Max Pack · US: Performance Dual-Motor Max Pack** → `rivian/r1t/2026/performance-dual-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T All-Terrain Performance Dual Max (20" Wheels)
+  - NRCan: R1T Performance Dual Max (20" Wheels)
+  - NRCan: R1T Performance Dual Max (22" Wheels)
+  - EPA: R1T All-Terrain Performance Dual Max (20in)
+  - EPA: R1T Performance Dual Max (20in)
+  - EPA: R1T Performance Dual Max (22in)
+- **2026 CA: Tri-Motor Max Pack · US: Tri-Motor Max Pack** → `rivian/r1t/2026/tri-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T All-Terrain Tri Max (20" Wheels)
+  - NRCan: R1T Tri Max (22" Wheels)
+  - EPA: R1T All-Terrain Tri Max (20in)
+  - EPA: R1T Tri Max (22in)
+- **2026 CA: Performance Dual-Motor Large Pack · US: Performance Dual-Motor Large Pack** → `rivian/r1t/2026/performance-dual-motor-large-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T AT Performance Dual Large (20" Wheels)
+  - NRCan: R1T Performance Dual Large (20" Wheels)
+  - NRCan: R1T Performance Dual Large (22" Wheels)
+  - EPA: R1T All-Terrain Performance Dual Large (20in)
+  - EPA: R1T Performance Dual Large (20in)
+  - EPA: R1T Performance Dual Large (22in)
+- **2026 CA: Performance Dual-Motor Large Plus Pack · US: Performance Dual-Motor Large Plus Pack** → `rivian/r1t/2026/performance-dual-motor-large-plus-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T AT Performance Dual Large Plus (20" Wheels)
+  - NRCan: R1T Performance Dual Large Plus (20" Wheels)
+  - NRCan: R1T Performance Dual Large Plus (22" Wheels)
+  - EPA: R1T All-Terrain Performance Dual Large Plus (20in)
+  - EPA: R1T Performance Dual Large Plus (20in)
+  - EPA: R1T Performance Dual Large Plus (22in)
+- **2026 CA: Dual-Motor Standard Pack · US: Dual-Motor Standard Pack** → `rivian/r1t/2026/dual-motor-standard-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T Dual Standard (20" Wheels)
+  - NRCan: R1T Dual Standard (22" Wheels)
+  - EPA: R1T Dual Standard (20in)
+  - EPA: R1T Dual Standard (22in)
+- **2026 CA: Quad-Motor Max Pack · US: Quad-Motor Max Pack** → `rivian/r1t/2026/quad-motor-max-pack` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: R1T Quad Max (20" Wheels AT)
+  - NRCan: R1T Quad Max (22" Wheels UHP)
+  - NRCan: R1T Quad Max (22" Wheels)
+  - EPA: R1T Quad Max (20in AT)
+  - EPA: R1T Quad Max (22in UHP)
+  - EPA: R1T Quad Max (22in)
+- **2027 US: Performance** → `rivian/r1t/2027/performance` [US] awd · wheels 20/22″ · powertrain new
+  - EPA: R1T Performance (20in AT)
+  - EPA: R1T Performance (20in)
+  - EPA: R1T Performance (22in)
+- **2027 US: Premium** → `rivian/r1t/2027/premium` [US] awd · wheels 20/22″ · powertrain new
+  - EPA: R1T Premium (20in AT)
+  - EPA: R1T Premium (20in)
+  - EPA: R1T Premium (22in)
+- **2027 US: Premium Long Range** → `rivian/r1t/2027/premium-long-range` [US] awd · wheels 20/22″ · powertrain new
+  - EPA: R1T Premium Long Range (20in AT)
+  - EPA: R1T Premium Long Range (20in)
+  - EPA: R1T Premium Long Range (22in)
+- **2027 US: Quad** → `rivian/r1t/2027/quad` [US] awd · wheels 20/22″ · powertrain new
+  - EPA: R1T Quad (20in AT)
+  - EPA: R1T Quad (22in UHP)
+  - EPA: R1T Quad (22in)
+## rivian/r2
+
+- **2027 US: Performance AWD** → `rivian/r2/2027/performance-awd` [US] awd · wheels 20/21″ · powertrain new
+  - EPA: R2 Performance AWD (20in AT)
+  - EPA: R2 Performance AWD (21in)
+## rolls-royce/spectre
+
+- **2024 CA: Black Badge Spectre · US: Black Badge Spectre** → `rolls-royce/spectre/2024/black-badge-spectre` [CA, US] awd · wheels 22/23″ · powertrain new
+  - NRCan: Black Badge Spectre (22" Wheels)
+  - NRCan: Black Badge Spectre (23" Wheels)
+  - EPA: Spectre Black Badge (22 inch wheels)
+  - EPA: Spectre Black Badge (23 inch wheels)
+- **2024 CA: Spectre · US: Spectre** → `rolls-royce/spectre/2024/spectre` [CA, US] awd · wheels 22/23″ · powertrain new
+  - NRCan: Spectre (22" Wheels)
+  - NRCan: Spectre (23" Wheels)
+  - EPA: Spectre (22 inch wheels)
+  - EPA: Spectre (23 inch wheels)
+- **2025 CA: Black Badge Spectre · US: Black Badge Spectre** → `rolls-royce/spectre/2025/black-badge-spectre` [CA, US] awd · wheels 22/23″ · powertrain new
+  - NRCan: Black Badge Spectre (22" Wheels)
+  - NRCan: Black Badge Spectre (23" Wheels)
+  - EPA: Spectre Black Badge (22 inch wheels)
+  - EPA: Spectre Black Badge (23 inch wheels)
+- **2025 CA: Spectre · US: Spectre** → `rolls-royce/spectre/2025/spectre` [CA, US] awd · wheels 22/23″ · powertrain new
+  - NRCan: Spectre (22" Wheels)
+  - NRCan: Spectre (23" Wheels)
+  - EPA: Spectre (22 inch wheels)
+  - EPA: Spectre (23 inch Wheels)
+- **2026 CA: Black Badge Spectre · US: Black Badge Spectre** → `rolls-royce/spectre/2026/black-badge-spectre` [CA, US] awd · wheels 22/23″ · powertrain new
+  - NRCan: Black Badge Spectre (22" Wheels)
+  - NRCan: Black Badge Spectre (23" Wheels)
+  - EPA: Spectre Black Badge (22 inch Wheels)
+  - EPA: Spectre Black Badge (23 inch Wheels)
+- **2026 CA: Spectre · US: Spectre** → `rolls-royce/spectre/2026/spectre` [CA, US] awd · wheels 22/23″ · powertrain new
+  - NRCan: Spectre (22" Wheels)
+  - NRCan: Spectre (23" Wheels)
+  - EPA: Spectre (22 inch Wheels)
+  - EPA: Spectre (23 inch Wheels)
+- **2027 US: Spectre** → `rolls-royce/spectre/2027/spectre` [US] awd · wheels 22/23″ · powertrain new
+  - EPA: Spectre (22 inch wheels)
+  - EPA: Spectre (23 inch Wheels)
+- **2027 US: Black Badge Spectre** → `rolls-royce/spectre/2027/black-badge-spectre` [US] awd · wheels 22/23″ · powertrain new
+  - EPA: Spectre Black Badge (22 inch wheels)
+  - EPA: Spectre Black Badge (23 inch wheels)
+## smart/fortwo
+
+- **2011 US: electric drive Convertible** → `smart/fortwo/2011/electric-drive-convertible` [US] rwd · powertrain new
+  - EPA: fortwo electric drive cabriolet
+- **2011 US: electric drive Coupe** → `smart/fortwo/2011/electric-drive-coupe` [US] rwd · powertrain new
+  - EPA: fortwo electric drive coupe
+- **2013 CA: electric drive Cabriolet · US: electric drive Convertible** → `smart/fortwo/2013/electric-drive-cabriolet` [CA, US] rwd · powertrain new
+  - NRCan: fortwo electric drive cabriolet
+  - EPA: fortwo electric drive convertible
+- **2013 CA: electric drive Coupe · US: electric drive Coupe** → `smart/fortwo/2013/electric-drive-coupe` [CA, US] rwd · powertrain new
+  - NRCan: fortwo electric drive coupe
+  - EPA: fortwo electric drive coupe
+- **2014 CA: electric drive Cabriolet · US: electric drive Convertible** → `smart/fortwo/2014/electric-drive-cabriolet` [CA, US] rwd · powertrain new
+  - NRCan: fortwo electric drive cabriolet
+  - EPA: fortwo electric drive convertible
+- **2014 CA: electric drive Coupe · US: electric drive Coupe** → `smart/fortwo/2014/electric-drive-coupe` [CA, US] rwd · powertrain new
+  - NRCan: fortwo electric drive coupe
+  - EPA: fortwo electric drive coupe
+- **2015 CA: electric drive Cabriolet · US: electric drive Convertible** → `smart/fortwo/2015/electric-drive-cabriolet` [CA, US] rwd · powertrain new
+  - NRCan: fortwo electric drive cabriolet
+  - EPA: fortwo electric drive convertible
+- **2015 CA: electric drive Coupe · US: electric drive Coupe** → `smart/fortwo/2015/electric-drive-coupe` [CA, US] rwd · powertrain new
+  - NRCan: fortwo electric drive coupe
+  - EPA: fortwo electric drive coupe
+- **2016 CA: electric drive Cabriolet · US: electric drive Convertible** → `smart/fortwo/2016/electric-drive-cabriolet` [CA, US] rwd · powertrain new
+  - NRCan: fortwo electric drive cabriolet
+  - EPA: fortwo electric drive convertible
+- **2016 CA: electric drive Coupe · US: electric drive Coupe** → `smart/fortwo/2016/electric-drive-coupe` [CA, US] rwd · powertrain new
+  - NRCan: fortwo electric drive coupe
+  - EPA: fortwo electric drive coupe
+- **2017 US: electric drive Convertible** → `smart/fortwo/2017/electric-drive-convertible` [US] rwd · powertrain new
+  - EPA: fortwo electric drive convertible
+- **2017 US: electric drive Coupe** → `smart/fortwo/2017/electric-drive-coupe` [US] rwd · powertrain new
+  - EPA: fortwo electric drive coupe
+- **2018 CA: electric drive Cabriolet · US: electric drive Convertible** → `smart/fortwo/2018/electric-drive-cabriolet` [CA, US] rwd · powertrain new
+  - NRCan: fortwo electric drive cabriolet
+  - EPA: fortwo electric drive convertible
+- **2018 CA: electric drive Coupe · US: electric drive Coupe** → `smart/fortwo/2018/electric-drive-coupe` [CA, US] rwd · powertrain new
+  - NRCan: fortwo electric drive coupe
+  - EPA: fortwo electric drive coupe
+- **2019 CA: EQ fortwo Cabriolet · US: EQ fortwo Convertible** → `smart/fortwo/2019/eq-fortwo-cabriolet` [CA, US] rwd · powertrain new · ⚠ note: "(convertible)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: fortwo cabriolet
+  - EPA: EQ fortwo (convertible)
+- **2019 CA: EQ fortwo Coupe · US: EQ fortwo Coupe** → `smart/fortwo/2019/eq-fortwo-coupe` [CA, US] rwd · powertrain new · ⚠ note: "(coupe)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: fortwo coupe
+  - EPA: EQ fortwo (coupe)
+## subaru/solterra
+
+- **2026 US: Limited** → `subaru/solterra/2026/limited` [US] awd · powertrain subaru/solterra/2027-limited · ⚠ existing?: same motor power as subaru/solterra/2026/awd, but another 2026 row has it too; powertrain: same name as subaru/solterra/2027/limited; check the pack didn't change
+  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
+  - EPA: Solterra 20 AWD
+- **2026 US: Premium** → `subaru/solterra/2026/premium` [US] awd · powertrain subaru/solterra/2027-premium · ⚠ existing?: same motor power as subaru/solterra/2026/awd, but another 2026 row has it too; powertrain: same name as subaru/solterra/2027/premium; check the pack didn't change
+  - **Recommend:** check: US trim lineup on Canadian hardware: research which Canadian car it matches, then pair (owner 2026-11-19)
+  - EPA: Solterra AWD
+## subaru/trailseeker
+
+- **2026 CA: AWD** → `subaru/trailseeker/2026/awd` [CA] awd · powertrain new
+  - NRCan: Trailseeker AWD
+- **2026 US: Limited AWD** → `subaru/trailseeker/2026/limited-awd` [US] awd · powertrain new
+  - EPA: Trailseeker 20 inch AWD
+- **2026 US: Premium AWD** → `subaru/trailseeker/2026/premium-awd` [US] awd · powertrain new
+  - EPA: Trailseeker AWD
+- **2027 US: Limited AWD** → `subaru/trailseeker/2027/limited-awd` [US] awd · powertrain new
+  - EPA: Trailseeker 20 inch AWD
+- **2027 US: Premium AWD** → `subaru/trailseeker/2027/premium-awd` [US] awd · powertrain new
+  - EPA: Trailseeker AWD
+## subaru/uncharted
+
+- **2026 CA: FWD · US: Premium FWD** → `subaru/uncharted/2026/fwd` [CA, US] fwd · powertrain new · ⚠ pair: names differ, same motor power (167 kW)
+  - **Recommend:** check: paired only by motor power and the names differ: keep apart as a Canada car and a US car (owner rule)
+  - NRCan: Uncharted
+  - EPA: Uncharted
+- **2026 CA: Sport AWD · US: Sport AWD** → `subaru/uncharted/2026/sport-awd` [CA, US] awd · powertrain new
+  - NRCan: Uncharted AWD
+  - EPA: Uncharted AWD
+- **2026 CA: Long Range FWD** → `subaru/uncharted/2026/long-range-fwd` [CA] fwd · powertrain new
+  - NRCan: Uncharted Long Range
+- **2026 US: GT AWD** → `subaru/uncharted/2026/gt-awd` [US] awd · powertrain new
+  - EPA: Uncharted 20 inch AWD
+- **2027 US: Premium FWD** → `subaru/uncharted/2027/premium-fwd` [US] fwd · powertrain new
+  - EPA: Uncharted
+- **2027 US: GT AWD** → `subaru/uncharted/2027/gt-awd` [US] awd · powertrain new
+  - EPA: Uncharted 20 inch AWD
+- **2027 US: Sport AWD** → `subaru/uncharted/2027/sport-awd` [US] awd · powertrain new
+  - EPA: Uncharted AWD
+## tesla/cybertruck
+
+- **2025 CA: Dual Motor AWD · US: Dual Motor AWD** → `tesla/cybertruck/2025/dual-motor-awd` [CA, US] awd · powertrain new
+  - NRCan: Cybertruck AWD
+  - EPA: Cybertruck AWD
+- **2025 US: Long Range RWD** → `tesla/cybertruck/2025/long-range-rwd` [US] rwd · wheels 20″ · powertrain new
+  - EPA: Cybertruck Long Range
+  - EPA: Cybertruck Long Range (20in Cyber wheels)
+- **2026 CA: Dual Motor AWD · US: Dual Motor AWD** → `tesla/cybertruck/2026/dual-motor-awd` [CA, US] awd · powertrain new
+  - NRCan: Cybertruck AWD
+  - EPA: Cybertruck AWD
+  - EPA: Cybertruck Dual Motor AWD
+- **2026 CA: Premium AWD** → `tesla/cybertruck/2026/premium-awd` [CA] awd · powertrain new
+  - NRCan: Cybertruck Premium
+- **2026 US: Long Range RWD** → `tesla/cybertruck/2026/long-range-rwd` [US] rwd · wheels 20″ · powertrain new
+  - EPA: Cybertruck Long Range (20in Cyber wheels)
+## tesla/model-3
+
+- **2021 CA: Standard Range · US: Standard Range Plus** → `tesla/model-3/2021/standard-range-plus` [CA, US] rwd · powertrain tesla/model-3/2021-standard-range-plus · names: regulator wording
+  - NRCan: Model 3 Standard Range
+  - EPA: Model 3 Standard Range Plus RWD
+- **2022 CA: Standard Range** → `tesla/model-3/2022/rwd` [CA] drivetrain ? · powertrain tesla/model-3/2022-rwd · names: regulator wording · ⚠ existing: joins tesla/model-3/2022/rwd by motor power (191 kW); names differ; powertrain: same name as tesla/model-3/2023/rwd; check the pack didn't change
+  - **Recommend:** check: no researched trim name yet (round-2 research)
+  - NRCan: Model 3 Standard Range
+- **2026 US: Performance** → `tesla/model-3/2026/performance-awd` [US] awd · powertrain tesla/model-3/2026-performance-awd
+  - EPA: Model 3 Performance
+## tesla/model-s
+
+- **2012 US: 85** → `tesla/model-s/2012/85` [US] rwd · powertrain new
+  - EPA: Model S
+- **2013 CA: 40 · US: 40** → `tesla/model-s/2013/40` [CA, US] rwd · powertrain new
+  - NRCan: Model S (40 kWh)
+  - EPA: Model S (40 kW-hr battery pack)
+- **2013 CA: 60 · US: 60** → `tesla/model-s/2013/60` [CA, US] rwd · powertrain new
+  - NRCan: Model S (60 kWh)
+  - EPA: Model S (60 kW-hr battery pack)
+- **2013 CA: 85 · US: 85** → `tesla/model-s/2013/85` [CA, US] rwd · powertrain new
+  - NRCan: Model S (85 kWh)
+  - EPA: Model S (85 kW-hr battery pack)
+- **2013 CA: P85** → `tesla/model-s/2013/p85` [CA] drivetrain ? · powertrain new
+  - NRCan: Model S Performance
+- **2014 CA: 60 · US: 60** → `tesla/model-s/2014/60` [CA, US] rwd · powertrain new
+  - NRCan: Model S (60 kWh)
+  - EPA: Model S (60 kW-hr battery pack)
+- **2014 CA: 85 · US: 85** → `tesla/model-s/2014/85` [CA, US] rwd · powertrain new
+  - NRCan: Model S (85 kWh)
+  - EPA: Model S (85 kW-hr battery pack)
+- **2014 CA: P85** → `tesla/model-s/2014/p85` [CA] drivetrain ? · powertrain new
+  - NRCan: Model S Performance
+- **2014 US: 85** → `tesla/model-s/2014/85-us` [US] awd · powertrain new
+  - EPA: Model S AWD (85 kW-hr battery pack)
+- **2015 CA: 60 · US: 60** → `tesla/model-s/2015/60` [CA, US] rwd · powertrain new
+  - NRCan: Model S (60 kWh)
+  - EPA: Model S (60 kW-hr battery pack)
+- **2015 CA: 70** → `tesla/model-s/2015/70` [CA] drivetrain ? · powertrain new
+  - NRCan: Model S (70 kWh)
+- **2015 CA: 90 · US: 90** → `tesla/model-s/2015/90` [CA, US] rwd · powertrain new
+  - NRCan: Model S (85/90 kWh)
+  - EPA: Model S (90 kW-hr battery pack)
+- **2015 CA: 70D · US: 70D** → `tesla/model-s/2015/70d` [CA, US] awd · powertrain new
+  - NRCan: Model S 70D
+  - EPA: Model S AWD - 70D
+- **2015 CA: 90D · US: 90D** → `tesla/model-s/2015/90d` [CA, US] awd · powertrain new
+  - NRCan: Model S 85D/90D
+  - EPA: Model S AWD - 90D
+- **2015 CA: P90D · US: P90D** → `tesla/model-s/2015/p90d` [CA, US] awd · powertrain new
+  - NRCan: Model S P85D/P90D
+  - EPA: Model S AWD - P90D
+- **2015 US: 85** → `tesla/model-s/2015/85` [US] rwd · powertrain new
+  - EPA: Model S (85 kW-hr battery pack)
+- **2015 US: 85D** → `tesla/model-s/2015/85d` [US] awd · powertrain new
+  - EPA: Model S AWD - 85D
+- **2015 US: P85D** → `tesla/model-s/2015/p85d` [US] awd · powertrain new
+  - EPA: Model S AWD - P85D
+- **2016 CA: 60 · US: 60** → `tesla/model-s/2016/60` [CA, US] rwd · powertrain new
+  - NRCan: Model S (60 kWh pre-6/16)
+  - NRCan: Model S (60 kWh)
+  - EPA: Model S (60 kW-hr battery pack)
+- **2016 CA: 70 · US: 70** → `tesla/model-s/2016/70` [CA, US] rwd · powertrain new
+  - NRCan: Model S (70 kWh)
+  - EPA: Model S (70 kW-hr battery pack)
+- **2016 CA: 75 · US: 75** → `tesla/model-s/2016/75` [CA, US] rwd · powertrain new
+  - NRCan: Model S (75 kWh)
+  - EPA: Model S (75 kW-hr battery pack)
+- **2016 CA: 90 · US: 90** → `tesla/model-s/2016/90` [CA, US] rwd · powertrain new
+  - NRCan: Model S (85/90 kWh)
+  - EPA: Model S (90 kW-hr battery pack)
+- **2016 CA: 60D · US: 60D** → `tesla/model-s/2016/60d` [CA, US] awd · powertrain new
+  - NRCan: Model S 60D
+  - EPA: Model S AWD - 60D
+- **2016 CA: 70D · US: 70D** → `tesla/model-s/2016/70d` [CA, US] awd · powertrain new
+  - NRCan: Model S 70D
+  - EPA: Model S AWD - 70D
+- **2016 CA: 75D · US: 75D** → `tesla/model-s/2016/75d` [CA, US] awd · powertrain new
+  - NRCan: Model S 75D
+  - EPA: Model S AWD - 75D
+- **2016 CA: 90D · US: 90D** → `tesla/model-s/2016/90d` [CA, US] awd · powertrain new · ⚠ note: "(Refresh)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: Model S 85D/90D
+  - NRCan: Model S 90D (Refresh)
+  - EPA: Model S AWD - 90D
+- **2016 CA: P100D · US: P100D** → `tesla/model-s/2016/p100d` [CA, US] awd · powertrain new
+  - NRCan: Model S P100D
+  - EPA: Model S AWD - P100D
+- **2016 CA: P90D · US: P90D** → `tesla/model-s/2016/p90d` [CA, US] awd · powertrain new · ⚠ note: "(Refresh)"
+  - **Recommend:** yes: bracket note kept for reference
+  - NRCan: Model S P85D/P90D
+  - NRCan: Model S P90D (Refresh)
+  - EPA: Model S AWD - P90D
+- **2016 US: 85** → `tesla/model-s/2016/85` [US] rwd · powertrain new
+  - EPA: Model S (85 kW-hr battery pack)
+- **2016 US: 85D** → `tesla/model-s/2016/85d` [US] awd · powertrain new
+  - EPA: Model S AWD - 85D
+- **2016 US: P85D** → `tesla/model-s/2016/p85d` [US] awd · powertrain new
+  - EPA: Model S AWD - P85D
+- **2017 CA: 60 · US: 60** → `tesla/model-s/2017/60` [CA, US] rwd · powertrain new
+  - NRCan: Model S (60 kWh)
+  - EPA: Model S (60 kW-hr battery pack)
+- **2017 CA: 75 · US: 75** → `tesla/model-s/2017/75` [CA, US] rwd · powertrain new
+  - NRCan: Model S (75 kWh)
+  - EPA: Model S (75 kW-hr battery pack)
+- **2017 CA: 100D · US: 100D** → `tesla/model-s/2017/100d` [CA, US] awd · powertrain new
+  - NRCan: Model S 100D
+  - EPA: Model S AWD - 100D
+- **2017 CA: 60D · US: 60D** → `tesla/model-s/2017/60d` [CA, US] awd · powertrain new
+  - NRCan: Model S 60D
+  - EPA: Model S AWD - 60D
+- **2017 CA: 75D · US: 75D** → `tesla/model-s/2017/75d` [CA, US] awd · powertrain new
+  - NRCan: Model S 75D
+  - EPA: Model S AWD - 75D
+- **2017 CA: 90D · US: 90D** → `tesla/model-s/2017/90d` [CA, US] awd · powertrain new
+  - NRCan: Model S 90D
+  - EPA: Model S AWD - 90D
+- **2017 CA: P100D · US: P100D** → `tesla/model-s/2017/p100d` [CA, US] awd · powertrain new
+  - NRCan: Model S P100D
+  - EPA: Model S AWD - P100D
+- **2017 CA: P90D · US: P90D** → `tesla/model-s/2017/p90d` [CA, US] awd · powertrain new
+  - NRCan: Model S P90D
+  - EPA: Model S AWD - P90D
+- **2018 CA: 75** → `tesla/model-s/2018/75` [CA] drivetrain ? · powertrain new
+  - NRCan: Model S (75 kWh)
+- **2018 CA: 100D · US: 100D** → `tesla/model-s/2018/100d` [CA, US] awd · powertrain new
+  - NRCan: Model S 100D
+  - EPA: Model S 100D
+- **2018 CA: 75D · US: 75D** → `tesla/model-s/2018/75d` [CA, US] awd · powertrain new
+  - NRCan: Model S 75D
+  - EPA: Model S 75D
+- **2018 CA: P100D · US: P100D** → `tesla/model-s/2018/p100d` [CA, US] awd · powertrain new
+  - NRCan: Model S P100D
+  - EPA: Model S P100D
+- **2018 US: 75kWh** → `tesla/model-s/2018/75kwh` [US] rwd · powertrain new · names: regulator wording
+  - EPA: Model S 75kWh
+- **2019 CA: 100D · US: 100D** → `tesla/model-s/2019/100d` [CA, US] awd · powertrain new
+  - NRCan: Model S 100D
+  - EPA: Model S 100D
+- **2019 CA: 75D · US: 75D** → `tesla/model-s/2019/75d` [CA, US] awd · powertrain new
+  - NRCan: Model S 75D
+  - EPA: Model S 75D
+- **2019 CA: Long Range · US: Long Range** → `tesla/model-s/2019/long-range` [CA, US] awd · powertrain new
+  - NRCan: Model S Long Range
+  - EPA: Model S Long Range
+- **2019 CA: P100D · US: P100D** → `tesla/model-s/2019/p100d` [CA, US] awd · powertrain new
+  - NRCan: Model S P100D
+  - EPA: Model S P100D
+- **2019 CA: Performance · US: Performance** → `tesla/model-s/2019/performance` [CA, US] awd · wheels 19/21″ · powertrain new
+  - NRCan: Model S Performance (19" Wheels)
+  - NRCan: Model S Performance (21" Wheels)
+  - EPA: Model S Performance (19in Wheels)
+  - EPA: Model S Performance (21in Wheels)
+- **2019 CA: Standard Range · US: Standard Range** → `tesla/model-s/2019/standard-range` [CA, US] awd · powertrain new
+  - NRCan: Model S Standard Range
+  - EPA: Model S Standard Range
+- **2020 CA: Long Range · US: Long Range** → `tesla/model-s/2020/long-range` [CA, US] awd · powertrain new
+  - NRCan: Model S Long Range
+  - EPA: Model S Long Range
+- **2020 CA: Long Range Plus · US: Long Range Plus** → `tesla/model-s/2020/long-range-plus` [CA, US] awd · powertrain new · ⚠ date: "pre-15/6/20"
+  - **Recommend:** yes: a mid-year change of the same car
+  - NRCan: Model S Long Range Plus
+  - NRCan: Model S Long Range Plus (pre-15/6/20)
+  - EPA: Model S Long Range Plus
+- **2020 CA: Performance · US: Performance** → `tesla/model-s/2020/performance` [CA, US] awd · wheels 19/21″ · powertrain new
+  - NRCan: Model S Performance (19" Wheels)
+  - NRCan: Model S Performance (21" Wheels)
+  - EPA: Model S Performance (19in Wheels)
+  - EPA: Model S Performance (21in Wheels)
+- **2020 CA: Standard Range · US: Standard Range** → `tesla/model-s/2020/standard-range` [CA, US] awd · powertrain new
+  - NRCan: Model S Standard Range
+  - EPA: Model S Standard Range
+- **2021 CA: Long Range · US: Long Range** → `tesla/model-s/2021/long-range` [CA, US] awd · powertrain new
+  - NRCan: Model S Long Range
+  - EPA: Model S Long Range
+- **2021 CA: Long Range Plus** → `tesla/model-s/2021/long-range-plus` [CA] drivetrain ? · powertrain new
+  - NRCan: Model S Long Range Plus
+- **2021 CA: Performance · US: Performance** → `tesla/model-s/2021/performance` [CA, US] awd · wheels 19/21″ · powertrain new
+  - NRCan: Model S Performance (19" Wheels)
+  - NRCan: Model S Performance (21" Wheels)
+  - EPA: Model S Performance (19in Wheels)
+  - EPA: Model S Performance (21in Wheels)
+- **2021 CA: Plaid · US: Plaid** → `tesla/model-s/2021/plaid` [CA, US] awd · wheels 19/21″ · powertrain new
+  - NRCan: Model S Plaid (19" Wheels)
+  - NRCan: Model S Plaid (21" Wheels)
+  - EPA: Model S Plaid (21inch wheels)
+- **2022 CA: Dual Motor AWD · US: Dual Motor AWD** → `tesla/model-s/2022/dual-motor-awd` [CA, US] awd · powertrain new
+  - NRCan: Model S
+  - EPA: Model S
+- **2022 CA: Plaid · US: Plaid** → `tesla/model-s/2022/plaid` [CA, US] awd · wheels 19/21″ · powertrain new
+  - NRCan: Model S Plaid (19" Wheels)
+  - NRCan: Model S Plaid (21" Wheels)
+  - EPA: Model S Plaid (19 inch wheels)
+  - EPA: Model S Plaid (21 inch wheels)
+- **2023 CA: Dual Motor AWD · US: Dual Motor AWD** → `tesla/model-s/2023/dual-motor-awd` [CA, US] awd · powertrain new
+  - NRCan: Model S
+  - EPA: Model S
+- **2023 CA: Plaid** → `tesla/model-s/2023/plaid` [CA] drivetrain ? · wheels 19/21″ · powertrain new
+  - NRCan: Model S Plaid (19" Wheels)
+  - NRCan: Model S Plaid (21" Wheels)
+- **2024 CA: Dual Motor AWD · US: Dual Motor AWD** → `tesla/model-s/2024/dual-motor-awd` [CA, US] awd · powertrain new
+  - NRCan: Model S
+  - EPA: Model S
+- **2024 CA: Plaid · US: Plaid** → `tesla/model-s/2024/plaid` [CA, US] awd · wheels 19/21″ · powertrain new
+  - NRCan: Model S Plaid (19" Wheels)
+  - NRCan: Model S Plaid (21" Wheels)
+  - EPA: Model S Plaid (19in wheels)
+  - EPA: Model S Plaid (21in wheels)
+- **2025 CA: Dual Motor AWD · US: Dual Motor AWD** → `tesla/model-s/2025/dual-motor-awd` [CA, US] awd · powertrain new
+  - NRCan: Model S
+  - EPA: Model S
+- **2025 CA: Plaid · US: Plaid** → `tesla/model-s/2025/plaid` [CA, US] awd · wheels 19/21″ · powertrain new
+  - NRCan: Model S Plaid (19" Wheels)
+  - NRCan: Model S Plaid (21" Wheels)
+  - EPA: Model S Plaid (19in wheels)
+  - EPA: Model S Plaid (21in wheels)
+- **2026 CA: AWD · US: AWD** → `tesla/model-s/2026/awd` [CA, US] awd · powertrain new
+  - NRCan: Model S
+  - EPA: Model S
+- **2026 CA: Plaid · US: Plaid** → `tesla/model-s/2026/plaid` [CA, US] awd · wheels 19/21″ · powertrain new
+  - NRCan: Model S Plaid (19" Wheels)
+  - NRCan: Model S Plaid (21" Wheels)
+  - EPA: Model S Plaid
+  - EPA: Model S Plaid (21in wheels)
+## tesla/model-x
+
+- **2016 CA: 60D · US: 60D** → `tesla/model-x/2016/60d` [CA, US] awd · powertrain new
+  - NRCan: Model X 60D
+  - EPA: Model X AWD - 60D
+- **2016 CA: 75D · US: 75D** → `tesla/model-x/2016/75d` [CA, US] awd · powertrain new
+  - NRCan: Model X 75D
+  - EPA: Model X AWD - 75D
+- **2016 CA: 90D · US: 90D** → `tesla/model-x/2016/90d` [CA, US] awd · powertrain new
+  - NRCan: Model X 90D
+  - EPA: Model X AWD - 90D
+- **2016 CA: P100D · US: P100D** → `tesla/model-x/2016/p100d` [CA, US] awd · powertrain new
+  - NRCan: Model X P100D
+  - EPA: Model X AWD - P100D
+- **2016 CA: P90D · US: P90D** → `tesla/model-x/2016/p90d` [CA, US] awd · powertrain new
+  - NRCan: Model X P90D
+  - EPA: Model X AWD - P90D
+- **2017 CA: 100D · US: 100D** → `tesla/model-x/2017/100d` [CA, US] awd · powertrain new
+  - NRCan: Model X 100D
+  - EPA: Model X AWD - 100D
+- **2017 CA: 60D · US: 60D** → `tesla/model-x/2017/60d` [CA, US] awd · powertrain new
+  - NRCan: Model X 60D
+  - EPA: Model X AWD - 60D
+- **2017 CA: 75D · US: 75D** → `tesla/model-x/2017/75d` [CA, US] awd · powertrain new
+  - NRCan: Model X 75D
+  - EPA: Model X AWD - 75D
+- **2017 CA: 90D · US: 90D** → `tesla/model-x/2017/90d` [CA, US] awd · powertrain new
+  - NRCan: Model X 90D
+  - EPA: Model X AWD - 90D
+- **2017 CA: P100D · US: P100D** → `tesla/model-x/2017/p100d` [CA, US] awd · powertrain new
+  - NRCan: Model X P100D
+  - EPA: Model X AWD - P100D
+- **2017 CA: P90D · US: P90D** → `tesla/model-x/2017/p90d` [CA, US] awd · powertrain new
+  - NRCan: Model X P90D
+  - EPA: Model X AWD - P90D
+- **2018 CA: 100D · US: 100D** → `tesla/model-x/2018/100d` [CA, US] awd · powertrain new
+  - NRCan: Model X 100D
+  - EPA: Model X 100D
+- **2018 CA: 75D · US: 75D** → `tesla/model-x/2018/75d` [CA, US] awd · powertrain new
+  - NRCan: Model X 75D
+  - EPA: Model X 75D
+- **2018 CA: P100D · US: P100D** → `tesla/model-x/2018/p100d` [CA, US] awd · powertrain new
+  - NRCan: Model X P100D
+  - EPA: Model X P100D
+- **2019 CA: 100D · US: 100D** → `tesla/model-x/2019/100d` [CA, US] awd · powertrain new
+  - NRCan: Model X 100D
+  - EPA: Model X 100D
+- **2019 CA: 75D · US: 75D** → `tesla/model-x/2019/75d` [CA, US] awd · powertrain new
+  - NRCan: Model X 75D
+  - EPA: Model X 75D
+- **2019 CA: Long Range · US: Long Range** → `tesla/model-x/2019/long-range` [CA, US] awd · powertrain new
+  - NRCan: Model X Long Range
+  - EPA: Model X Long Range
+- **2019 CA: P100D · US: P100D** → `tesla/model-x/2019/p100d` [CA, US] awd · powertrain new
+  - NRCan: Model X P100D
+  - EPA: Model X P100D
+- **2019 CA: Performance · US: Performance** → `tesla/model-x/2019/performance` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: Model X Performance (20" Wheels)
+  - NRCan: Model X Performance (22" Wheels)
+  - EPA: Model X Performance (22in Wheels)
+- **2019 CA: Standard Range** → `tesla/model-x/2019/standard-range` [CA] drivetrain ? · powertrain new
+  - NRCan: Model X Standard Range
+- **2020 CA: Long Range · US: Long Range** → `tesla/model-x/2020/long-range` [CA, US] awd · powertrain new
+  - NRCan: Model X Long Range
+  - EPA: Model X Long Range
+- **2020 CA: Long Range Plus · US: Long Range Plus** → `tesla/model-x/2020/long-range-plus` [CA, US] awd · powertrain new
+  - NRCan: Model X Long Range Plus
+  - EPA: Model X Long Range Plus
+- **2020 CA: Performance · US: Performance** → `tesla/model-x/2020/performance` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: Model X Performance (20" Wheels)
+  - NRCan: Model X Performance (22" Wheels)
+  - EPA: Model X Performance (20in Wheels)
+  - EPA: Model X Performance (22in Wheels)
+- **2020 CA: Standard Range · US: Standard Range** → `tesla/model-x/2020/standard-range` [CA, US] awd · powertrain new
+  - NRCan: Model X Standard Range
+  - EPA: Model X Standard Range
+- **2021 CA: Long Range · US: Long Range Plus** → `tesla/model-x/2021/long-range` [CA, US] awd · powertrain new
+  - NRCan: Model X Long Range
+  - EPA: Model X Long Range Plus
+- **2021 CA: Long Range Plus** → `tesla/model-x/2021/long-range-plus` [CA] drivetrain ? · powertrain new
+  - NRCan: Model X Long Range Plus
+- **2021 CA: Performance · US: Performance** → `tesla/model-x/2021/performance` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: Model X Performance (20" Wheels)
+  - NRCan: Model X Performance (22" Wheels)
+  - EPA: Model X Performance (20in Wheels)
+  - EPA: Model X Performance (22in Wheels)
+- **2022 CA: Dual Motor AWD · US: Dual Motor AWD** → `tesla/model-x/2022/dual-motor-awd` [CA, US] awd · powertrain new
+  - NRCan: Model X
+  - EPA: Model X
+- **2022 CA: Plaid · US: Plaid** → `tesla/model-x/2022/plaid` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: Model X Plaid (20" Wheels)
+  - NRCan: Model X Plaid (22" Wheels)
+  - EPA: Model X Plaid (20 inch wheels)
+  - EPA: Model X Plaid (22 inch wheels)
+- **2023 CA: Dual Motor AWD · US: Dual Motor AWD** → `tesla/model-x/2023/dual-motor-awd` [CA, US] awd · powertrain new
+  - NRCan: Model X
+  - EPA: Model X
+- **2023 CA: Plaid · US: Plaid** → `tesla/model-x/2023/plaid` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: Model X Plaid (20" Wheels)
+  - NRCan: Model X Plaid (22" Wheels)
+  - EPA: Model X Plaid (20 inch wheels)
+  - EPA: Model X Plaid (22 inch wheels)
+- **2024 CA: Dual Motor AWD · US: Dual Motor AWD** → `tesla/model-x/2024/dual-motor-awd` [CA, US] awd · powertrain new
+  - NRCan: Model X
+  - EPA: Model X
+- **2024 CA: Plaid · US: Plaid** → `tesla/model-x/2024/plaid` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: Model X Plaid (20" Wheels)
+  - NRCan: Model X Plaid (22" Wheels)
+  - EPA: Model X Plaid (20in wheels)
+  - EPA: Model X Plaid (22in wheels)
+- **2025 CA: Dual Motor AWD · US: Dual Motor AWD** → `tesla/model-x/2025/dual-motor-awd` [CA, US] awd · powertrain new
+  - NRCan: Model X
+  - EPA: Model X
+- **2025 CA: Plaid · US: Plaid** → `tesla/model-x/2025/plaid` [CA, US] awd · wheels 20/22″ · powertrain new
+  - NRCan: Model X Plaid (20" Wheels)
+  - NRCan: Model X Plaid (22" Wheels)
+  - EPA: Model X Plaid (20in wheels)
+  - EPA: Model X Plaid (22in wheels)
+- **2026 CA: AWD · US: AWD** → `tesla/model-x/2026/awd` [CA, US] awd · powertrain new
+  - NRCan: Model X
+  - EPA: Model X
+- **2026 CA: Plaid · US: Plaid** → `tesla/model-x/2026/plaid` [CA, US] awd · powertrain new
+  - NRCan: Model X Plaid
+  - EPA: Model X Plaid
+## tesla/model-y
+
+- **2022 CA: AWD · US: Standard Range AWD** → `tesla/model-y/2022/long-range-awd` [CA, US] awd · powertrain tesla/model-y/2022-long-range-awd · names: regulator wording · ⚠ pair: names differ, same motor power (291 kW); existing: joins tesla/model-y/2022/long-range-awd by motor power (291 kW); names differ; powertrain: same name as tesla/model-y/2021/long-range-awd; check the pack didn't change
+  - **Recommend:** check: no researched trim name yet (round-2 research)
+  - NRCan: Model Y AWD
+  - EPA: Model Y AWD
+- **2023 CA: AWD · US: Standard Range AWD** → `tesla/model-y/2023/awd` [CA, US] awd · powertrain new · names: regulator wording · ⚠ pair: names differ, same motor power (291 kW)
+  - **Recommend:** check: no researched trim name yet (round-2 research)
+  - NRCan: Model Y AWD
+  - EPA: Model Y AWD
+## toyota/bz
+
+- **2023 CA: L · US: Limited FWD** → `toyota/bz/2023/l` [CA, US] fwd · powertrain new · ⚠ pair: names differ, same motor power (150 kW)
+  - **Recommend:** check: paired only by motor power and the names differ: keep apart as a Canada car and a US car (owner rule)
+  - NRCan: bZ4X
+  - EPA: bZ4X LIMITED
+- **2026 US: Limited FWD** → `toyota/bz/2026/limited-fwd` [US] fwd · powertrain toyota/bz/2026-limited-fwd · ⚠ powertrain: same name as toyota/bz/2027/limited-fwd; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
+  - EPA: bZ LIMITED (energy capacity 191 Ah)
+## toyota/c-hr
+
+- **2026 US: XSE** → `toyota/c-hr/2026/awd` [US] awd · powertrain toyota/c-hr/2026-awd · ⚠ existing: joins toyota/c-hr/2026/awd by motor power (254 kW); names differ
+  - **Recommend:** yes: becomes the US edition of a car we already have
+  - EPA: C-HR AWD 20inch
+## toyota/rav4-ev
+
+- **2012 US: RAV4 EV** → `toyota/rav4-ev/2012/rav4-ev` [US] fwd · powertrain new
+  - EPA: RAV4 EV
+- **2013 US: RAV4 EV** → `toyota/rav4-ev/2013/rav4-ev` [US] fwd · powertrain new
+  - EPA: RAV4 EV
+- **2014 US: RAV4 EV** → `toyota/rav4-ev/2014/rav4-ev` [US] fwd · powertrain new
+  - EPA: RAV4 EV
+## vinfast/vf-7
+
+- **2025 CA: Plus · US: Plus** → `vinfast/vf-7/2025/plus` [CA, US] awd · powertrain new
+  - NRCan: VF7 PLUS
+  - EPA: VF 7 Plus
+- **2027 US: Plus** → `vinfast/vf-7/2027/plus` [US] awd · powertrain new
+  - EPA: VF 7 Plus
+## vinfast/vf-8
+
+- **2023 CA: Eco · US: Eco** → `vinfast/vf-8/2023/eco` [CA, US] awd · powertrain new
+  - NRCan: VF8 ECO
+  - EPA: VF 8 Eco
+- **2023 CA: Plus · US: Plus** → `vinfast/vf-8/2023/plus` [CA, US] awd · powertrain new
+  - NRCan: VF8 PLUS
+  - EPA: VF 8 Plus
+- **2023 CA: Plus Performance** → `vinfast/vf-8/2023/plus-performance` [CA] drivetrain ? · powertrain new
+  - NRCan: VF8 PLUS Performance
+- **2024 CA: Eco** → `vinfast/vf-8/2024/eco` [CA] drivetrain ? · powertrain new
+  - NRCan: VF8 ECO
+- **2024 CA: Plus** → `vinfast/vf-8/2024/plus` [CA] drivetrain ? · powertrain new
+  - NRCan: VF8 PLUS
+- **2024 CA: Plus Performance** → `vinfast/vf-8/2024/plus-performance` [CA] drivetrain ? · powertrain new
+  - NRCan: VF8 PLUS Performance
+- **2025 CA: Eco · US: Eco** → `vinfast/vf-8/2025/eco` [CA, US] awd · powertrain new
+  - NRCan: VF8 ECO
+  - EPA: VF 8 Eco
+- **2025 CA: Plus · US: Plus** → `vinfast/vf-8/2025/plus` [CA, US] awd · powertrain new
+  - NRCan: VF8 PLUS
+  - EPA: VF 8 Plus
+- **2025 CA: Plus Performance** → `vinfast/vf-8/2025/plus-performance` [CA] drivetrain ? · powertrain new
+  - NRCan: VF8 PLUS Performance
+- **2026 CA: Eco** → `vinfast/vf-8/2026/eco` [CA] drivetrain ? · powertrain new
+  - NRCan: VF8 ECO
+- **2026 CA: Plus** → `vinfast/vf-8/2026/plus` [CA] drivetrain ? · powertrain new
+  - NRCan: VF8 PLUS
+- **2026 CA: Plus Performance** → `vinfast/vf-8/2026/plus-performance` [CA] drivetrain ? · powertrain new
+  - NRCan: VF8 PLUS Performance
+- **2027 US: Eco** → `vinfast/vf-8/2027/eco` [US] awd · powertrain new
+  - EPA: VF 8 Eco
+- **2027 US: Plus** → `vinfast/vf-8/2027/plus` [US] awd · powertrain new
+  - EPA: VF 8 Plus
+## vinfast/vf-9
+
+- **2024 CA: Eco · US: Eco** → `vinfast/vf-9/2024/eco` [CA, US] awd · powertrain new
+  - NRCan: VF9 ECO
+  - EPA: VF 9 Eco
+- **2024 CA: Plus · US: Plus** → `vinfast/vf-9/2024/plus` [CA, US] awd · powertrain new
+  - NRCan: VF9 PLUS
+  - EPA: VF 9 Plus
+- **2025 CA: Eco** → `vinfast/vf-9/2025/eco` [CA] drivetrain ? · powertrain new
+  - NRCan: VF9 ECO
+- **2025 CA: Plus · US: Plus** → `vinfast/vf-9/2025/plus` [CA, US] awd · powertrain new
+  - NRCan: VF9 PLUS
+  - EPA: VF 9 Plus
+- **2027 US: Plus** → `vinfast/vf-9/2027/plus` [US] awd · powertrain new
+  - EPA: VF 9 Plus
+## volkswagen/e-golf
+
+- **2015 US: e-Golf** → `volkswagen/e-golf/2015/e-golf` [US] fwd · powertrain new
+  - EPA: e-Golf
+- **2016 US: e-Golf** → `volkswagen/e-golf/2016/e-golf` [US] fwd · powertrain new
+  - EPA: e-Golf
+- **2017 CA: e-Golf · US: e-Golf** → `volkswagen/e-golf/2017/e-golf` [CA, US] fwd · powertrain new
+  - NRCan: e-Golf
+  - EPA: e-Golf
+- **2018 CA: e-Golf · US: e-Golf** → `volkswagen/e-golf/2018/e-golf` [CA, US] fwd · powertrain new
+  - NRCan: e-Golf
+  - EPA: e-Golf
+- **2019 CA: e-Golf · US: e-Golf** → `volkswagen/e-golf/2019/e-golf` [CA, US] fwd · powertrain new
+  - NRCan: e-Golf
+  - EPA: e-Golf
+- **2020 CA: e-Golf** → `volkswagen/e-golf/2020/e-golf` [CA] drivetrain ? · powertrain new
+  - NRCan: e-Golf
+## volkswagen/id-4
+
+- **2024 CA: S · US: S** → `volkswagen/id-4/2024/pro-s` [CA, US] rwd · powertrain volkswagen/id-4/2024-pro-s · ⚠ powertrain: same name as volkswagen/id-4/2025/pro-s; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
+  - NRCan: ID.4 S
+  - EPA: ID.4 S
+- **2025 CA: S · US: S Limited** → `volkswagen/id-4/2025/pro-s` [CA, US] rwd · powertrain volkswagen/id-4/2025-pro-s · ⚠ powertrain: same name as volkswagen/id-4/2024/pro-s; check the pack didn't change
+  - **Recommend:** yes: shares hardware with the same-named car of the same generation (pack not re-checked)
+  - NRCan: ID.4 S
+  - EPA: ID.4 S
+## volkswagen/id-buzz
+
+- **2025 CA: Pro · US: RWD** → `volkswagen/id-buzz/2025/pro` [CA, US] rwd · powertrain new · ⚠ pair: names differ, same motor power (210 kW)
+  - **Recommend:** check: paired only by motor power and the names differ: keep apart as a Canada car and a US car (owner rule)
+  - NRCan: ID. Buzz Pro
+  - EPA: ID. Buzz
+- **2025 CA: Pro 4MOTION · US: 4MOTION** → `volkswagen/id-buzz/2025/pro-4motion` [CA, US] awd · powertrain new
+  - NRCan: ID. Buzz Pro 4MOTION
+  - EPA: ID. Buzz 4motion
+## volvo/ec40
+
+- **2022 CA: Twin Motor · US: Twin Motor** → `volvo/ec40/2022/twin-motor` [CA, US] awd · powertrain new
+  - NRCan: C40 Recharge Twin
+  - EPA: C40 Recharge twin
+- **2023 CA: Twin Motor · US: Twin Motor** → `volvo/ec40/2023/twin-motor` [CA, US] awd · powertrain new
+  - NRCan: C40 Recharge Twin
+  - EPA: C40 Recharge twin
+- **2024 CA: Single Motor Extended Range · US: Single Motor Extended Range** → `volvo/ec40/2024/single-motor-extended-range` [CA, US] rwd · powertrain new
+  - NRCan: C40 Recharge
+  - EPA: C40 Recharge
+- **2024 CA: Twin Motor · US: Twin Motor** → `volvo/ec40/2024/twin-motor` [CA, US] awd · powertrain new
+  - NRCan: C40 Recharge Twin
+  - EPA: C40 Recharge twin
+- **2025 CA: Single Motor Extended Range** → `volvo/ec40/2025/single-motor-extended-range` [CA] rwd · powertrain new
+  - NRCan: EC40
+- **2025 CA: Twin Motor** → `volvo/ec40/2025/twin-motor` [CA] awd · powertrain new
+  - NRCan: EC40 Twin
+- **2026 CA: Single Motor Extended Range · US: Single Motor Extended Range** → `volvo/ec40/2026/single-motor-extended-range` [CA, US] rwd · powertrain new
+  - NRCan: EC40
+  - EPA: EC40
+- **2026 CA: Twin Motor · US: Twin Motor** → `volvo/ec40/2026/twin-motor` [CA, US] awd · powertrain new
+  - NRCan: EC40 Twin
+  - EPA: EC40 Twin
+## volvo/ex60
+
+- **2027 US: P10 AWD** → `volvo/ex60/2027/p10-awd` [US] awd · wheels 22″ · powertrain new
+  - EPA: EX60 P10 AWD electric
+  - EPA: EX60 P10 AWD electric (22 Inch Wheels)
+- **2027 US: P6** → `volvo/ex60/2027/p6` [US] rwd · wheels 22″ · powertrain new
+  - EPA: EX60 P6 electric
+  - EPA: EX60 P6 electric (22 Inch Wheels)
+## volvo/ex90
+
+- **2025 CA: Twin Motor · US: Twin Motor** → `volvo/ex90/2025/twin-motor` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: EX90 Twin Motor (20" and 22" Wheels)
+  - NRCan: EX90 Twin Motor (21" Wheels)
+  - EPA: EX90 Twin Motor (20 and 22 Inch Wheels)
+  - EPA: EX90 Twin Motor (21 Inch Wheels)
+- **2025 CA: Twin Motor Performance · US: Twin Motor Performance** → `volvo/ex90/2025/twin-motor-performance` [CA, US] awd · wheels 20/21/22″ · powertrain new
+  - NRCan: EX90 Twin Motor Performance (20" and 22" Wheels)
+  - NRCan: EX90 Twin Motor Performance (21" Wheels)
+  - EPA: EX90 Twin Motor Performance (20 and 22 Inch Wheels)
+  - EPA: EX90 Twin Motor Performance (21 Inch Wheels)
+- **2026 US: Single Motor** → `volvo/ex90/2026/single-motor` [US] rwd · wheels 21″ · powertrain new
+  - EPA: EX90
+  - EPA: EX90 (21 Inch Wheels)
+- **2026 US: Twin Motor** → `volvo/ex90/2026/twin-motor` [US] awd · wheels 21″ · powertrain new
+  - EPA: EX90 Twin Motor
+  - EPA: EX90 Twin Motor (21 Inch Wheels)
+- **2026 US: Twin Motor Performance** → `volvo/ex90/2026/twin-motor-performance` [US] awd · wheels 21″ · powertrain new
+  - EPA: EX90 Twin Motor Performance
+  - EPA: EX90 Twin Motor Performance (21 Inch Wheels)
+- **2027 US: Single Motor** → `volvo/ex90/2027/single-motor` [US] rwd · wheels 21″ · powertrain new
+  - EPA: EX90
+  - EPA: EX90 (21 Inch Wheels)
+- **2027 US: Twin Motor** → `volvo/ex90/2027/twin-motor` [US] awd · wheels 21″ · powertrain new
+  - EPA: EX90 Twin Motor
+  - EPA: EX90 Twin Motor (21 Inch Wheels)
+- **2027 US: Twin Motor Performance** → `volvo/ex90/2027/twin-motor-performance` [US] awd · wheels 21″ · powertrain new
+  - EPA: EX90 Twin Motor Performance
+  - EPA: EX90 Twin Motor Performance (21 Inch Wheels)

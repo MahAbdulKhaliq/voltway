@@ -1,0 +1,33 @@
+{
+  "id": "audi/q6-e-tron/2027-q6-e-tron-quattro",
+  "model_id": "audi/q6-e-tron",
+  "name": "Q6 e-tron quattro",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 100, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-audi-ppe-charging-release", "low_confidence": true, "note_id": "n-3f40ac5c84" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 94.4, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-electrive-2027-a6-q6", "low_confidence": true, "note_id": "n-5a997eb481" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-w2-wiki-audi-a6", "low_confidence": true, "note_id": "n-451cc9c12e" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-w2-audi-ppe-charging-release", "note_id": "n-0e99b1800b" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-w2-audi-ppe-charging-release", "low_confidence": true, "note_id": "n-56c15aa116" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 270, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-insideevs-2027-a6-q6", "low_confidence": true, "note_id": "n-df0d60046d" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "estimated", "source_id": "src-w2-wiki-audi-a6", "low_confidence": true, "note_id": "n-b0fbece151" }
+  ],
+  "published_10_80_min": [
+    { "value": 21, "unit": "min", "kind": "manufacturer", "source_id": "src-w2-insideevs-2027-a6-q6", "low_confidence": true, "note_id": "n-8205973a41" }
+  ]
+}

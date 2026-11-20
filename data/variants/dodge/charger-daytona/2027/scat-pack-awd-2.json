@@ -1,0 +1,30 @@
+{
+  "id": "dodge/charger-daytona/2027/scat-pack-awd-2",
+  "model_id": "dodge/charger-daytona",
+  "year": 2027,
+  "name": "Scat Pack AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "dodge/charger-daytona/2027-scat-pack-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-ba58595cc0", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-3e8b0c4255", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112o-insideevs-charger-daytona-2027-nacs", "note_id": "n-f7e771e6e4" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Scat Pack AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-cc-ch26", "note_id": "n-ee3d0f1a0c", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-charger-daytona-scat-pack-2024", "note_id": "n-8375254c22", "low_confidence": true }
+      ]
+    }
+  ]
+}

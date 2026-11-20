@@ -1,0 +1,31 @@
+{
+  "id": "toyota/bz/2027/xle-awd",
+  "model_id": "toyota/bz",
+  "year": 2027,
+  "name": "XLE AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "toyota/bz/2027-xle-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-0ea9763c03" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-2027", "note_id": "n-0e28ed7e6b" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-3f1c50184a" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-toyota-2027-bz-us", "note_id": "n-59a62038a3", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "XLE AWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-toyota-bz-2027-specs-486898", "notes": "XLE AWD: 18x7.5 aluminum, P235/60VR18." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-toyota-2027-bz-us", "note_id": "n-7c0b0ad6a4", "low_confidence": true }
+      ]
+    }
+  ]
+}

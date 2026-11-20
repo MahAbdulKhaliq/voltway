@@ -1,0 +1,23 @@
+{
+  "id": "fisker/ocean",
+  "make_id": "fisker",
+  "name": "Ocean",
+  "body_type": "suv",
+  "generations": [
+    { "id": "first-generation", "name": "First generation", "first_year": 2023, "last_year": 2024, "notes": "Built by Magna in Graz (late 2022-Mar 2024); Fisker filed for bankruptcy in Jun 2024. Two packs, which are variants inside this generation: Sport 80 kWh gross / 75 kWh usable LFP; One, Extreme and Ultra 113 kWh gross / 106.5 kWh usable NMC. DC listed at 175 kW for all trims (other sources differ), 7.4 kW AC (Wikipedia; other markets' figures not checked), CCS1 in North America. US deliveries from Jun 2023. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Fisker_Ocean" }
+  ],
+  "years": [
+    {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    }
+  ]
+}

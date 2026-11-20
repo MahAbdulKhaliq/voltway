@@ -4,28 +4,32 @@
   "year": 2025,
   "name": "Dual Motor Performance Pack",
   "drivetrain": "awd",
+  "powertrain_id": "polestar/polestar-2/2025-dual-motor-performance-pack",
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-ca-tesla-supercharger-network",
-      "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter, ordered via a Polestar Service Point. Page names the Polestar 2 without model years."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-ca-tesla-supercharger-network", "low_confidence": true, "note_id": "n-e984388f46" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-32b9a75f5b" }
   ],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 222,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-nyland-sheet-2026-10",
-      "low_confidence": true,
-      "notes": "Test: 120 km/h steady, 11 °C, dry, 20-inch wheels (245/40-20 Continental SC6), battery-side (car display; sheet does not say explicitly) | Nyland, 'Polestar 2 Performance 2024' (dual motor Performance, 79.1 kWh measured, 82 kWh refresh pack). Our variant shows 78/75 kWh from OpenEV, which looks stale for the 2024+ refresh; I attached the test to the real refresh car, so check our pack figure. 90 km/h, 11 °C: 169 Wh/km. Winter row for 'Polestar 2 LR DM' 2024 (not Performance, 19-inch, -6 °C wet): 266 Wh/km, not used.."
-    }
+    { "value": 222, "unit": "Wh/km", "kind": "tested", "source_id": "src-nyland-sheet-2026-10", "low_confidence": true, "notes": "Test: 120 km/h steady, 11 °C, dry, 20-inch wheels (245/40-20 Continental SC6), battery-side (car display; sheet does not say explicitly) | Nyland, 'Polestar 2 Performance 2024' (dual motor Performance, 79.1 kWh measured, 82 kWh refresh pack). Our variant shows 78/75 kWh from OpenEV, which looks stale for the 2024+ refresh; I attached the test to the real refresh car, so check our pack figure. 90 km/h, 11 °C: 169 Wh/km. Winter row for 'Polestar 2 LR DM' 2024 (not Performance, 19-inch, -6 °C wet): 266 Wh/km, not used.." }
+  ],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-polestar-ca-tesla-supercharger-network", "low_confidence": true, "note_id": "n-1f209e6eaf" },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-5ff5964173" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-polestar-us-nacs", "note_id": "n-b3bcf2fc86" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "Dual Motor Performance Pack"
+      "names": { "CA": "Dual Motor Performance Pack", "US": "Long Range Dual Motor Performance Pack" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-ps2-global", "notes": "20-inch Performance forged wheel comes with the Performance pack; page not model-year specific, low confidence.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b112-cars-2025-p2", "notes": "Canada: optional (Climate Pack; MoneySense, Cars.com). US: Carvana says \"The Plus and Climate equipment sets are standard\" on this car, so a US car may have it as standard.", "low_confidence": true }
+      ]
     }
   ]
 }

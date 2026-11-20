@@ -1,0 +1,30 @@
+{
+  "id": "lexus/rz/2023-rz-450e-luxury-awd",
+  "model_id": "lexus/rz",
+  "name": "RZ 450e Luxury AWD",
+  "generation": "first-generation",
+  "years": [2023, 2024, 2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 71.4, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2023", "notes": "Lexus USA: \"The 71.4 kWh battery\"; RZ 450e battery developed by PPES (2025 Lexus release)." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 64, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-awd-1565", "low_confidence": true, "notes": "Estimated: EV Database lists 71.4 kWh nominal / 64.0 kWh usable for the same-size 71.4 kWh bZ4X pack (European listing; Toyota/Lexus state total only). Lexus RZ 450e uses the 71.4 kWh pack (Lexus 2023 and 2025 pressroom pages)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-awd-1565", "low_confidence": true, "note_id": "n-f4634aab01" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-awd-1565", "low_confidence": true, "notes": "Estimated: EV Database lists 355 V for the 71.4 kWh bZ4X pack; the RZ 450e uses the same pack (Lexus 2023 pressroom)." }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-w2j-motor1-rz-2026", "low_confidence": true, "note_id": "n-7f0a268131" }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 7, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-five", "low_confidence": true, "note_id": "n-f702ba9e1c" }
+  ],
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-r19-insideevs-bz4x-awd-test", "low_confidence": true, "notes": "Estimated: InsideEVs test of the bZ4X: the 71.4 kWh PPES pack (US bZ4X FWD, single motor) charges at up to 150 kW; the RZ 450e uses the same pack but has two motors, so this is a weak basis. Lexus pages for 2023-2025 give times only (low battery light to 80% in about 30 min), no peak kW. A Lexus RZ charging-information page and EV Database (unopenable: 403 and 429) reportedly give 150 kW and 147 kW." }
+  ]
+}

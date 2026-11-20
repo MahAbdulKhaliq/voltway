@@ -1,0 +1,30 @@
+{
+  "id": "bmw/i5/2026/m60-xdrive-us",
+  "model_id": "bmw/i5",
+  "year": 2026,
+  "name": "M60 xDrive",
+  "drivetrain": "awd",
+  "powertrain_id": "bmw/i5/2026-edrive40",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-ie-i5nacs", "low_confidence": true, "notes": "US: InsideEVs says the 2026 i5 M60 was the only 2026 i5 with a Tesla-style port before March 2026 builds." }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2-ie-i5nacs", "low_confidence": true, "notes": "US: native NACS port." }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "community", "source_id": "src-b112-insideevs-i5-nacs-2026", "low_confidence": true, "notes": "US: the 2026 i5 M60 has a NACS port from launch with an AC and a DC (CCS) adapter in the box (InsideEVs)." }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "M60 xDrive" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2026-specs-481929", "note_id": "n-726ecbe95c" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-bmw-5-series-2024-us", "note_id": "n-e3d3b4887f", "low_confidence": true }
+      ]
+    }
+  ]
+}

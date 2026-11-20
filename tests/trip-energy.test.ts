@@ -12,7 +12,7 @@ const f = (value: number, kind: Kind = 'manufacturer', others: { value: number; 
 function car(fields: Record<string, Field>, trims: CarDetail['trims'] = []): CarDetail {
   return {
     id: 'make/model/2026/v', make: { id: 'make', name: 'Make' }, model: { id: 'make/model', name: 'Model', body_type: 'suv' },
-    year: 2026, name: 'V', drivetrain: 'awd', sold_in_canada: true, fields, trims, curves: [],
+    year: 2026, name: 'V', drivetrain: 'awd', sold_in_canada: true, markets: ['CA'], fields, trims, curves: [],
     derived: { minutes_10_80: null, km_per_10_min: null, estimated: true, extrapolated: false, battery_basis: null }, sources: [],
   };
 }

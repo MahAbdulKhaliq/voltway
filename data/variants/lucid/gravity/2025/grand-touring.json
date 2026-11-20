@@ -1,0 +1,30 @@
+{
+  "id": "lucid/gravity/2025/grand-touring",
+  "model_id": "lucid/gravity",
+  "year": 2025,
+  "name": "Grand Touring",
+  "drivetrain": "awd",
+  "powertrain_id": "lucid/gravity/2025-grand-touring",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "note_id": "n-2f32f4143a" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "note_id": "n-04067ecb4a" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-guideauto-gravity-nacs", "notes": "In the box: \"CCS1 to NACS and SAE J1772 to NACS adapters are included with the Gravity\" (Guide Auto relaying Lucid, written about the launch Gravity). US only.", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Grand Touring" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carscom-lucid-gravity-2026-gt", "note_id": "n-efa1d83bc3", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-gravity-gt-2024", "notes": "ArenaEV Gravity Grand Touring: \"Heat pump: Yes\". A Lucid owners forum moderator agrees. ArenaEV lists \"Heat pump: Yes\" without saying standard or optional, and its pages mix EU data.", "low_confidence": true }
+      ]
+    }
+  ]
+}

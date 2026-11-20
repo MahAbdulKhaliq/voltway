@@ -1,0 +1,33 @@
+{
+  "id": "volvo/ex40/2024-single-motor-extended-range-rwd",
+  "model_id": "volvo/ex40",
+  "name": "Single Motor Extended Range RWD",
+  "generation": "2024-rwd-update",
+  "years": [2024],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 82, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-volvo-2024-upgrades", "low_confidence": true, "note_id": "n-98444c76be" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 79, "unit": "kWh", "kind": "manufacturer", "source_id": "src-evdb-xc40-twin-motor-my24", "low_confidence": true, "notes": "EV Database (European 82 kWh pack, 108s1p prismatic NMC): 79.0 kWh usable; Volvo UK press (search excerpt) calls the pack 82/79 kWh nominal/usable. Usable carried from the same 82 kWh pack in the European 2024 Twin page." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-evdb-xc40-twin-motor-my24", "low_confidence": true, "note_id": "n-2cb572915a" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-evdb-xc40-twin-motor-my24", "low_confidence": true, "note_id": "n-56182fbaa2" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-ex40-twin-my26", "low_confidence": true, "note_id": "n-2a45cd5692" }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-nrcan-bev-2026-09", "low_confidence": true, "note_id": "n-7c762081d7" }
+  ],
+  "dc_max_kw": [
+    { "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-conceptcarz-volvo-us-2024-powertrains", "low_confidence": true, "note_id": "n-03a5382908" }
+  ],
+  "published_10_80_min": [
+    { "value": 28, "unit": "min", "kind": "manufacturer", "source_id": "src-conceptcarz-volvo-us-2024-powertrains", "low_confidence": true, "note_id": "n-9fff5ac463" }
+  ]
+}

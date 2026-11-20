@@ -1,0 +1,27 @@
+{
+  "id": "cadillac/optiq-v/2026-optiq-v-awd",
+  "model_id": "cadillac/optiq-v",
+  "name": "Optiq-V AWD",
+  "generation": "first-generation",
+  "years": [2026, 2027],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 85, "unit": "kWh", "kind": "estimated", "source_id": "src-kbb-cadillac-optiq-v-2026-specs", "low_confidence": true, "notes": "Estimated: KBB lists 85.00 kWh for the Optiq-V; same pack as the Optiq (Wikipedia: 85.0 kWh usable). Years 2026-2027." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-cadillac-optiq", "low_confidence": true, "note_id": "n-fd8076dea8" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-cadillac-optiq", "low_confidence": true, "note_id": "n-b04fd7138d" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-cadillac-dc-fast-charging-support", "low_confidence": true, "note_id": "n-9d29f5998e" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-wikipedia-cadillac-optiq", "low_confidence": true, "notes": "Estimated: Same 85 kWh pack and charger hardware as the Optiq (150 kW); no Optiq-V-specific figure found." }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-thechargeport-cadillac-optiq", "low_confidence": true, "notes": "Estimated: The Charge Port does not publish an Optiq-V AC rating (\"check the owner's manual\"); Optiq standard charger 11.5 kW assumed." }
+  ]
+}

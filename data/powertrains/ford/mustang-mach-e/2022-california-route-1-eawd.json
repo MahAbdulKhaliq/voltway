@@ -1,0 +1,33 @@
+{
+  "id": "ford/mustang-mach-e/2022-california-route-1-eawd",
+  "model_id": "ford/mustang-mach-e",
+  "name": "California Route 1 eAWD",
+  "generation": "usable-capacity-unlock",
+  "years": [2022],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 91, "kind": "manufacturer", "source_id": "src-ford-us-mme-specs-2022", "unit": "kWh", "note_id": "n-30e2795629" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 98.8, "kind": "manufacturer", "source_id": "src-insideevs-mme-2022-usable", "unit": "kWh", "low_confidence": true, "note_id": "n-93fefe335b" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mach-e", "low_confidence": true, "note_id": "n-035b0d8e58" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-electrek-ford-lfp-2023", "low_confidence": true, "note_id": "n-0e768d8164" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-ford-ca-precondition", "low_confidence": true, "note_id": "n-09a7a762e0" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "kind": "manufacturer", "source_id": "src-ford-us-mme-specs-2022", "unit": "kW", "note_id": "n-424865e6b5" }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "kind": "estimated", "source_id": "src-wikipedia-mach-e", "unit": "kW", "low_confidence": true, "note_id": "n-6d63d05bc5" }
+  ],
+  "published_10_80_min": [
+    { "value": 45, "kind": "manufacturer", "source_id": "src-insideevs-mme-lfp-2023", "unit": "min", "low_confidence": true, "note_id": "n-5b4b62d8ec" }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-s/2024-dual-motor-awd",
+  "model_id": "tesla/model-s",
+  "name": "Dual Motor AWD",
+  "generation": "palladium",
+  "years": [2024],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 100, "unit": "kWh", "kind": "estimated", "source_id": "src-arenaev-model-s-plaid-2025", "low_confidence": true, "note_id": "n-1d1d05a61b" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 92.3, "unit": "kWh", "kind": "estimated", "source_id": "src-arenaev-model-s-plaid-2025", "low_confidence": true, "note_id": "n-720219a159" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "community", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-49961bd7e1" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-17a60e76f4" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-electrek-2020-s-x-225kw", "low_confidence": true, "note_id": "n-2348c28dd2" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2023-plaid", "low_confidence": true, "note_id": "n-7b7a6d5b5b" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2023-plaid", "low_confidence": true, "note_id": "n-548f78fcce" }
+  ]
+}

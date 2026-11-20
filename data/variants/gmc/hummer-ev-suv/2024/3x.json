@@ -1,0 +1,32 @@
+{
+  "id": "gmc/hummer-ev-suv/2024/3x",
+  "model_id": "gmc/hummer-ev-suv",
+  "year": 2024,
+  "name": "3X",
+  "drivetrain": "awd",
+  "powertrain_id": "gmc/hummer-ev-suv/2024-3x",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thechargeport-gmc-hummer-ev", "low_confidence": true, "note_id": "n-3be431f682" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-auto123-gm-nacs-adapter-2024", "low_confidence": true, "note_id": "n-d0c7b2442c" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": true, "note_id": "n-6fafed3685" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-2db03c68e9" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "3X", "US": "3X" },
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-gmc-hummer-ev-suv-2025-specs-455538", "note_id": "n-ea65b9139c", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

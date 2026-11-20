@@ -1,0 +1,31 @@
+{
+  "id": "hyundai/ioniq-5/2027/xrt-dual-motor-awd",
+  "model_id": "hyundai/ioniq-5",
+  "year": 2027,
+  "name": "XRT Dual Motor AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "hyundai/ioniq-5/2027-dual-motor-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "estimated", "source_id": "src-hmgma-2025-ioniq-5-xrt", "note_id": "n-b886cad02d", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-hyundai-usa-nacs-adapter-faq", "note_id": "n-2a10528afb", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-hy-us-adapter-faq", "note_id": "n-39db1cd66b", "low_confidence": true },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-ioniq6n", "note_id": "n-db97718c1e", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "XRT Dual Motor AWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2027-489675", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-carscom-ioniq5-2026-review", "note_id": "n-81129d125d", "low_confidence": true }
+      ]
+    }
+  ]
+}

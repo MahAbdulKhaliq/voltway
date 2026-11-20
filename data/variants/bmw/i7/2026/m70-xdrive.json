@@ -1,0 +1,32 @@
+{
+  "id": "bmw/i7/2026/m70-xdrive",
+  "model_id": "bmw/i7",
+  "year": 2026,
+  "name": "M70 xDrive",
+  "drivetrain": "awd",
+  "powertrain_id": "bmw/i7/2026-m70-xdrive",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-50672eade4" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true },
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "M70 xDrive", "US": "M70 xDrive" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i7-2026-specs-478988", "note_id": "n-2f927b71ca", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-gf-adac-i7-m70", "note_id": "n-dcf9c8bea2", "low_confidence": true }
+      ]
+    }
+  ]
+}

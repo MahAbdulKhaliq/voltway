@@ -1,0 +1,35 @@
+{
+  "id": "toyota/bz/2026-limited-fwd",
+  "model_id": "toyota/bz",
+  "name": "Limited FWD",
+  "generation": "bz-2026-refresh",
+  "years": [2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 74.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-r19-pressroom-toyota-bz-2026-read", "note_id": "n-c12ad16892" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 71, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "note_id": "n-92e30f5182" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-greencars-bz-2026", "low_confidence": true, "note_id": "n-654a473006" },
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-3f6607f95c" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-ec8b4c4e98" },
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-insideevs-bz-charging-limit-2026", "low_confidence": true, "note_id": "n-5ff82926ba" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-r19-pressroom-toyota-bz-2026-read", "note_id": "n-589ce8a078" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-bz-charging-limit-2026", "low_confidence": true, "note_id": "n-bbb59d7c84" }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-r19-pressroom-toyota-bz-2026-read", "note_id": "n-9c526a4048" }
+  ],
+  "published_10_80_min": [
+    { "value": 30, "unit": "min", "kind": "manufacturer", "source_id": "src-r19-pressroom-toyota-bz-2026-read", "note_id": "n-9de355b1d5" }
+  ]
+}

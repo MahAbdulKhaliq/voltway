@@ -1,0 +1,30 @@
+{
+  "id": "jeep/recon/2026/moab",
+  "model_id": "jeep/recon",
+  "year": 2026,
+  "name": "Moab",
+  "drivetrain": "awd",
+  "powertrain_id": "jeep/recon/2026-moab",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-electrek-jeep-recon-2025", "notes": "Electrek: launches with CCS; Stellantis plans NACS starting 2026 (electrive names the 2027 Charger as the first native NACS model, so the 2026 Recon is CCS1).", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "notes": "Stellantis (March 2026): the 2026 Recon is included with the Free2move Charge NACS-CCS1 adapter. Canada implied, not separately confirmed. Canada: the reports say \"North America\"; no source confirms Canadian cars are covered.", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "notes": "Free2move Charge NACS-CCS1 DC adapter, sold by Stellantis (certified LEV dealers and Mopar.com; US $230 sale price / about $250 list per InsideEVs and Electrek, announced March 2026). Canada: Mopar.ca and Stellantis dealers, CAD 386 (Auto123, model years not stated). Canada low confidence: Auto123 only says Recon is expected to benefit. Prices in these notes come from InsideEVs, Electrek and Auto123 articles not cited here; Canada is inferred from \"North America\".", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Moab", "US": "Moab" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-cc-recon", "notes": "Moab 4xe 18 x 8.5." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-recon-awd-2026", "notes": "ArenaEV Recon 2026 sheet lists a heat pump. ArenaEV is a spec aggregator and no maker page was found; the page is a European-market sheet unless stated. ArenaEV lists \"Heat pump: Yes\" without saying standard or optional, and its pages mix EU data.", "low_confidence": true }
+      ]
+    }
+  ]
+}

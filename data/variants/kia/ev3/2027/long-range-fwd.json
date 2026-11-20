@@ -1,0 +1,31 @@
+{
+  "id": "kia/ev3/2027/long-range-fwd",
+  "model_id": "kia/ev3",
+  "year": 2027,
+  "name": "Long Range FWD",
+  "drivetrain": "fwd",
+  "powertrain_id": "kia/ev3/2027-gt-long-range-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-us-ev3-2027", "note_id": "n-cff41cb177", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-us-ev3-2027", "note_id": "n-636f62f934", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-kia-us-ev3-2027-compare", "note_id": "n-16b6019c45", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Long Range FWD" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-kia-ev3-2027-490020", "low_confidence": true, "notes": "Wind FWD 17 in" },
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev3-2027-490021", "low_confidence": true, "notes": "Land FWD 19 in" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "manufacturer", "source_id": "src-kia-us-ev3-2027-compare", "notes": "Kia US 2027 EV3 page. Wind/Land: heat pump offered only on the AWD versions (Wind AWD, Land AWD), not FWD. US only." }
+      ]
+    }
+  ]
+}

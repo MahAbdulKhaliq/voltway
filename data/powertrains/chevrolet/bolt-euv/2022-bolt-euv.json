@@ -1,0 +1,30 @@
+{
+  "id": "chevrolet/bolt-euv/2022-bolt-euv",
+  "model_id": "chevrolet/bolt-euv",
+  "name": "Bolt EUV",
+  "generation": "first-generation",
+  "years": [2022, 2023],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 65, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-bolt", "notes": "Wikipedia lists the Bolt EUV pack at 65.0 kWh; InsideEVs (2022 technical comparison) 65 kWh (288 cells). Bare nominal, treated as gross." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 65, "unit": "kWh", "kind": "estimated", "source_id": "src-insideevs-bolt-euv-2022-technical", "low_confidence": true, "note_id": "n-e195a09959" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-chevrolet-bolt", "low_confidence": true, "note_id": "n-447f22d191" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-arenaev-bolt-ev-66", "low_confidence": true, "note_id": "n-cb954fbd15" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-insideevs-2027-bolt-fast-charging", "low_confidence": true, "note_id": "n-8a6709ab4b" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 55, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-bolt-euv-2022-technical", "note_id": "n-422cb2ede8" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-bolt", "low_confidence": true, "notes": "Wikipedia: EUV 11.5 kW at 48 A." }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "volkswagen/e-golf/2017-e-golf",
+  "model_id": "volkswagen/e-golf",
+  "name": "e-Golf",
+  "generation": "35-kwh",
+  "years": [2017, 2018, 2019, 2020],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 35.8, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-cars-egolf-2017", "low_confidence": true, "notes": "Cars.com (VW release): 35.8 kWh, up from 24.2 kWh (2017-2020)." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 31.5, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-dewiki-vw-egolf", "low_confidence": true, "notes": "German Wikipedia: net 31.5 kWh per the registration table (2017-2020)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-evdbnz-egolf", "low_confidence": true, "notes": "Estimated: EV Database NZ lists the e-Golf (used examples 2017-2021) with battery type NMC, 32 kWh usable, 400 V, DC 40 kW. Community database, not a VW statement. The 24.2 kWh 2015-2016 pack is not covered by that page." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-dewiki-vw-egolf", "low_confidence": true, "notes": "Estimated: 323 V nominal is stated for the 24.2 kWh pack (German Wikipedia); no voltage is given for the 35.8 kWh pack, which has the same cell architecture family; 400 V class either way." }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-insideevs-id4-precond-2026", "low_confidence": true, "note_id": "n-1f18afd642" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 40, "unit": "kW", "kind": "estimated", "source_id": "src-w2-wiki-vw-egolf", "low_confidence": true, "notes": "Estimated: same 40 kW CCS ceiling carried to the 35.8 kWh 2017-2020 car; VW says 80 % in about an hour (Cars.com 2017); no 2017+ page states kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 7.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-cars-egolf-2017", "low_confidence": true, "notes": "Cars.com (VW release): \"Newly standard is a 7.2-kW onboard charger\" (2017). 2018-2020 compared: no change shown. Canada not separately sourced." }
+  ]
+}

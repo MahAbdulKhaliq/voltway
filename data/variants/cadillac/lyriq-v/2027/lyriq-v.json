@@ -1,0 +1,48 @@
+{
+  "id": "cadillac/lyriq-v/2027/lyriq-v",
+  "model_id": "cadillac/lyriq-v",
+  "year": 2027,
+  "name": "LYRIQ-V",
+  "drivetrain": "awd",
+  "powertrain_id": "cadillac/lyriq-v/2027-lyriq-v",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-electrek-2027-lyriq-nacs", "low_confidence": true, "note_id": "n-f7a6277120" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-electrek-2027-lyriq-nacs", "low_confidence": true, "note_id": "n-684132b59f" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-gm-nacs", "low_confidence": true, "note_id": "n-795f9fc0f8" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "LYRIQ-V" },
+      "ac_max_kw": [
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-epa-fueleconomy-2026-11", "low_confidence": true, "note_id": "n-cba09055af" }
+      ],
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2027-specs-485169", "note_id": "n-ed5be534cc" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    },
+    {
+      "id": "19-2-kw-charger",
+      "names": { "US": "LYRIQ-V (19.2 kW Charger)" },
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-epa-fueleconomy-2026-11", "low_confidence": true, "note_id": "n-9f835e2a7d" }
+      ],
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2027-specs-485169", "note_id": "n-ed5be534cc" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

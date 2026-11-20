@@ -1,0 +1,27 @@
+{
+  "id": "rimac/nevera/2024-nevera",
+  "model_id": "rimac/nevera",
+  "name": "Nevera",
+  "generation": "first-generation",
+  "years": [2024, 2025],
+  "battery": {
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evspecs-rimac-nevera-compare", "note_id": "n-b79c104c5c", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "community", "source_id": "src-insideevs-rimac-nevera-ionity", "note_id": "n-be1773bb7a", "low_confidence": true }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 120, "unit": "kWh", "kind": "manufacturer", "source_id": "src-rimac-nevera-page", "notes": "Rimac: 120 kWh (not labelled gross or usable). EVspecs.org lists 130 kWh gross.", "low_confidence": true }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 106.8, "unit": "kWh", "kind": "community", "source_id": "src-batterydesign-rimac-nevera", "notes": "Battery Design: \"Usable Energy = 106.8 kWh (120 kWh total)\", 89 % SoC window. Conflict: EVspecs.org lists 120 kWh usable / 130 gross.", "low_confidence": true }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 500, "unit": "kW", "kind": "manufacturer", "source_id": "src-rimac-nevera-page", "note_id": "n-be362a7b65", "low_confidence": true }
+  ],
+  "ac_max_kw": [
+    { "value": 22, "unit": "kW", "kind": "manufacturer", "source_id": "src-rimac-nevera-page", "note_id": "n-c889ede967", "low_confidence": true }
+  ]
+}

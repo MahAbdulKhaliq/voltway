@@ -4,10 +4,35 @@
   "year": 2026,
   "name": "SL+ e-4ORCE",
   "drivetrain": "awd",
+  "powertrain_id": "nissan/ariya/2026-sl-plus-e-4orce",
+  "markets": ["CA"],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 87, "unit": "kWh", "kind": "manufacturer", "source_id": "src-guideauto-ariya-2026-canada", "low_confidence": true, "note_id": "n-afed35fba6" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 91, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-ca-ariya-specs", "low_confidence": true, "note_id": "n-0298bac8be" }
+    ]
+  },
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b96c0ca63a" }
+  ],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-21dd660e1c" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-nh-guideauto-ariya-adapter", "note_id": "n-fb1d25cbc0", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "SL+ e-4ORCE"
+      "names": { "CA": "SL+ e-4ORCE" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-nis-ca-ariya", "note_id": "n-971f728785", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-gcr-ev-extreme-temps", "note_id": "n-8c05be4087", "low_confidence": true }
+      ]
     }
   ]
 }

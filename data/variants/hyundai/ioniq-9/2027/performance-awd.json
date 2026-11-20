@@ -1,0 +1,30 @@
+{
+  "id": "hyundai/ioniq-9/2027/performance-awd",
+  "model_id": "hyundai/ioniq-9",
+  "year": 2027,
+  "name": "Performance AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "hyundai/ioniq-9/2027-performance-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "community", "source_id": "src-cargurus-ioniq-9-2027", "note_id": "n-94d4cde516", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "community", "source_id": "src-cargurus-ioniq-9-2027", "note_id": "n-c2dec915c2", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "estimated", "source_id": "src-b112-carscom-ioniq9-2026", "note_id": "n-a5cc73b699", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Performance AWD" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-9-2026-473082", "low_confidence": true, "notes": "2026 page; the 2027 Cars.com page lists no trims, carried over, nothing seen to change." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-hy-ca-ioniq9-2026-page", "note_id": "n-27d4adc465", "low_confidence": true }
+      ]
+    }
+  ]
+}

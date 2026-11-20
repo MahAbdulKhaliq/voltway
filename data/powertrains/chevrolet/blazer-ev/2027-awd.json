@@ -1,0 +1,30 @@
+{
+  "id": "chevrolet/blazer-ev/2027-awd",
+  "model_id": "chevrolet/blazer-ev",
+  "name": "AWD",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 85, "unit": "kWh", "kind": "estimated", "source_id": "src-autodata-equinox-ev-89", "low_confidence": true, "note_id": "n-7e52dc3e1b" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-85", "low_confidence": true, "note_id": "n-989dd08094" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-insideevs-equinox-ev-ultium-voltage", "low_confidence": true, "note_id": "n-d78a87f14f" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 89, "unit": "kWh", "kind": "estimated", "source_id": "src-autodata-equinox-ev-89", "low_confidence": true, "note_id": "n-0d0b450cc1" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-blazer-ev-epa-2024", "low_confidence": true, "notes": "Estimated: InsideEVs Blazer table (GM figures): LT/RS 85 kWh = 150 kW. Years on this powertrain: 2027." }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-blazer-ev-epa-2024", "low_confidence": true, "note_id": "n-a0837cfbf9" }
+  ]
+}

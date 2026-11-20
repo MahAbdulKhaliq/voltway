@@ -1,0 +1,31 @@
+{
+  "id": "tesla/model-y/2027-awd",
+  "model_id": "tesla/model-y",
+  "name": "AWD",
+  "generation": "juniper",
+  "years": [2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 69, "kind": "estimated", "source_id": "src-arenaev-model-y-standard-2025", "low_confidence": true, "note_id": "n-44883fd420", "unit": "kWh" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 64.7, "kind": "estimated", "source_id": "src-evdb-model-y-rwd-juniper-3103", "low_confidence": true, "note_id": "n-ae48da3916", "unit": "kWh" }
+    ],
+    "chemistry": [
+      { "value": "lfp", "kind": "estimated", "source_id": "src-arenaev-model-y-standard-2025", "low_confidence": true, "note_id": "n-e984994f79" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-arenaev-model-y-standard-2025", "low_confidence": true, "note_id": "n-420053b9e2" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-teslabs-manual-preconditioning", "low_confidence": true, "note_id": "n-1fa6db44c3" },
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-model-y-rwd-juniper-3103", "low_confidence": true, "note_id": "n-42a8c6abf7" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 225, "kind": "estimated", "source_id": "src-arenaev-model-y-standard-2025", "low_confidence": true, "note_id": "n-d4e292ff70", "unit": "kW" }
+  ],
+  "ac_max_kw": [
+    { "value": 7.7, "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-30164acfa1", "unit": "kW" }
+  ]
+}

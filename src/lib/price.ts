@@ -21,3 +21,6 @@ export function setChargePrice(price: number): void {
 
 /** Cost of adding `addedKwh` to the battery: the charger bills a little more than it delivers. */
 export const chargeCost = (addedKwh: number, price: number): number => (addedKwh / COST.dcEfficiency) * price;
+
+/** B99: costs read as plain "$12.34", with no currency code or country, whatever the browser's locale. */
+export const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', currencyDisplay: 'narrowSymbol' });

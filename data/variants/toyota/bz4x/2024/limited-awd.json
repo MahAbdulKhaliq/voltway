@@ -1,0 +1,32 @@
+{
+  "id": "toyota/bz4x/2024/limited-awd",
+  "model_id": "toyota/bz4x",
+  "year": 2024,
+  "name": "Limited AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "toyota/bz4x/2024-limited-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-onsale-2026", "low_confidence": true, "note_id": "n-74f7f7a536" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-857331e6b0" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-ed7fb540a3" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-toyota-ca-charging", "low_confidence": true, "note_id": "n-ac4e6743a5" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-toyota-2026-bz-onsale-us", "note_id": "n-5786e34f83" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Limited AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-toyota-bz4x-2024-specs-447863", "note_id": "n-bf576957e6" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-insideevs-2024-bz4x", "note_id": "n-cde5139e78", "low_confidence": true }
+      ]
+    }
+  ]
+}

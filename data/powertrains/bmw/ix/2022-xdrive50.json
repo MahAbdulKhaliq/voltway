@@ -1,0 +1,34 @@
+{
+  "id": "bmw/ix/2022-xdrive50",
+  "model_id": "bmw/ix",
+  "name": "xDrive50",
+  "generation": "first-generation",
+  "years": [2022],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "note_id": "n-fbc6e2054c" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-bmw-ix-us", "low_confidence": true, "note_id": "n-11f36356cc" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-w2-a-ix", "low_confidence": true, "notes": "ArenaEV iX xDrive50 page: \"400V\" (BMW iX pages do not state voltage)." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 105.2, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-ix", "notes": "BMW global: xDrive50 net 105.2 kWh. M60 shares the pack (model notes). 2022-2025 compared: no change named." }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 111.5, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-ix", "notes": "BMW global: gross 111.5 kWh." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-ix", "notes": "BMW global release: up to 200 kW (xDrive50). Other listings state 195 kW for US cars." },
+    { "value": 195, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-ix-ie", "low_confidence": true, "notes": "BMW Ireland table lists 195 kW for the xDrive50 (provisional); InsideEVs also says BMW rates the xDrive50 at 195 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-ix", "notes": "BMW global: Flexible Fast Charger up to 11 kW." }
+  ],
+  "published_10_80_min": [
+    { "value": 35, "unit": "min", "kind": "manufacturer", "source_id": "src-w2-bmw-ix", "notes": "BMW global: 10-80 % around 35 min (xDrive50)." }
+  ]
+}

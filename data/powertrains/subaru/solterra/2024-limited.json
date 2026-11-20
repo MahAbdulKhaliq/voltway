@@ -1,0 +1,33 @@
+{
+  "id": "subaru/solterra/2024-limited",
+  "model_id": "subaru/solterra",
+  "name": "Limited",
+  "generation": "2024-charging-update",
+  "years": [2024, 2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 72.8, "unit": "kWh", "kind": "manufacturer", "source_id": "src-r19-insideevs-solterra-2023", "low_confidence": true, "note_id": "n-654b23172d" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 65.3, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-awd-1565", "low_confidence": true, "note_id": "n-dd398f767b" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-6b2567430c" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-r19-evspecs-solterra", "low_confidence": true, "note_id": "n-deab900008" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-subaru-us-media-solterra-2026", "low_confidence": true, "note_id": "n-e133d4bea0" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-bz-charging-limit-2026", "low_confidence": true, "notes": "Estimated: Toyota raised the twin bZ4X AWD from 100 to 150 kW for model year 2024 (InsideEVs, EV Pulse) with the same pack and the same battery thermal upgrade Subaru describes for the 2024 Solterra; Subaru's 10-80% in 'as little as 35 minutes' (2025 press kit) is not reachable at a 100 kW cap. EV Specifications shows 150 kW for 2025 but 100 kW for 2024; Subaru states no peak kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 7, "unit": "kW", "kind": "estimated", "source_id": "src-r19-pressroom-toyota-bz-2026-read", "low_confidence": true, "note_id": "n-cfde8d8978" }
+  ],
+  "published_10_80_min": [
+    { "value": 35, "unit": "min", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-2025-kit", "notes": "Subaru: battery 'can charge from 10% to 80% in as little as 35 minutes' (2025 press kit; the 2024 update says the same)." }
+  ]
+}

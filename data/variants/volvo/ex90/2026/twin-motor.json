@@ -1,0 +1,25 @@
+{
+  "id": "volvo/ex90/2026/twin-motor",
+  "model_id": "volvo/ex90",
+  "year": 2026,
+  "name": "Twin Motor",
+  "drivetrain": "awd",
+  "powertrain_id": "volvo/ex90/2026-twin-motor",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-8517058905" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-b60e063996" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-b564dd4260" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Twin Motor" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-volvo-ex90-2025-specs", "note_id": "n-1b12a23776", "low_confidence": true }
+      ]
+    }
+  ]
+}

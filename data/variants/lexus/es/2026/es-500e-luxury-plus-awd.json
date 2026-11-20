@@ -1,0 +1,31 @@
+{
+  "id": "lexus/es/2026/es-500e-luxury-plus-awd",
+  "model_id": "lexus/es",
+  "year": 2026,
+  "name": "ES 500e Luxury+ AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "lexus/es/2026-es-350e-luxury-plus",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-es-2026", "note_id": "n-9e9cebb0f4" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-charging", "note_id": "n-9d6ff8d15d" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "tested", "source_id": "src-w2j-insideevs-es-350e-2026", "note_id": "n-a36478e516" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-8fc44901e5" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-c86dab899b" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-lexus-ca-ev-charging-faq", "note_id": "n-4099bc5a4b", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "ES 500e Luxury+ AWD", "US": "ES 500e Luxury AWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-lex-es26", "note_id": "n-f355766bd9", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r2w-lex-es26", "note_id": "n-995d15adde", "low_confidence": true }
+      ]
+    }
+  ]
+}

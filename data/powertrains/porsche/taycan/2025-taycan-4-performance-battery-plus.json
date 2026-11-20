@@ -1,0 +1,33 @@
+{
+  "id": "porsche/taycan/2025-taycan-4-performance-battery-plus",
+  "model_id": "porsche/taycan",
+  "name": "Taycan 4 Performance Battery Plus",
+  "generation": "2025-update",
+  "years": [2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 105, "unit": "kWh", "kind": "manufacturer", "source_id": "src-porsche-us-taycan-2025-models", "notes": "105 kWh gross (Porsche US: Performance Battery Plus 105 kWh gross). Pack from trim: named in the trim." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 97, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-taycan-2025-specs", "low_confidence": true, "note_id": "n-2b4d390e92" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-porsche-j1-93", "low_confidence": true, "note_id": "n-9f342ae582" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-porsche-taycan-battery-page", "note_id": "n-d66bae151a" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-porsche-taycan-range-planner", "note_id": "n-4c087d5dde" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 320, "unit": "kW", "kind": "manufacturer", "source_id": "src-porsche-us-taycan-2025-models", "note_id": "n-822a8f598f" }
+  ],
+  "published_10_80_min": [
+    { "value": 18, "unit": "min", "kind": "manufacturer", "source_id": "src-porsche-us-taycan-2025-models", "low_confidence": true, "note_id": "n-9389388c3c" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-taycan-2025-specs", "low_confidence": true, "note_id": "n-73be3c5ffe" }
+  ]
+}

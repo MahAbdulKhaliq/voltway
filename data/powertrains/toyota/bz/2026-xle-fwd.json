@@ -1,0 +1,35 @@
+{
+  "id": "toyota/bz/2026-xle-fwd",
+  "model_id": "toyota/bz",
+  "name": "XLE FWD",
+  "generation": "bz-2026-refresh",
+  "years": [2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 57.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-r19-pressroom-toyota-bz-2026-read", "note_id": "n-bcce0f4483" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 54, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-fwd-577", "low_confidence": true, "note_id": "n-c7d64b4a52" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-fwd-577", "low_confidence": true, "note_id": "n-05e026f100" },
+      { "value": "nmc", "kind": "estimated", "source_id": "src-greencars-bz-2026", "low_confidence": true, "note_id": "n-fa854f9016" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-948629d25b" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-r19-pressroom-toyota-bz-2026-read", "note_id": "n-589ce8a078" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-fwd-577", "low_confidence": true, "note_id": "n-139a99d188" },
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-bz-charging-limit-2026", "low_confidence": true, "note_id": "n-3fd9df2e62" }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-r19-pressroom-toyota-bz-2026-read", "note_id": "n-9c526a4048" }
+  ],
+  "published_10_80_min": [
+    { "value": 30, "unit": "min", "kind": "manufacturer", "source_id": "src-r19-pressroom-toyota-bz-2026-read", "note_id": "n-9de355b1d5" }
+  ]
+}

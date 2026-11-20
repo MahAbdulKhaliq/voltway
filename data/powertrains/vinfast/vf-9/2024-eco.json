@@ -1,0 +1,30 @@
+{
+  "id": "vinfast/vf-9/2024-eco",
+  "model_id": "vinfast/vf-9",
+  "name": "Eco",
+  "generation": "first-generation",
+  "years": [2024, 2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 130, "unit": "kWh", "kind": "community", "source_id": "src-evspecs-vinfast-vf9-compare", "note_id": "n-8891dd3ddc", "low_confidence": true }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 123, "unit": "kWh", "kind": "manufacturer", "source_id": "src-vinfast-us-vf9-spec-my27", "note_id": "n-c1156870da", "low_confidence": true }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-vinfast-us-charging-page", "note_id": "n-9b3c6fd0e5", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdatabase-vf8-vf9-400v", "note_id": "n-76f14a86c8", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-gf-adac-vf9", "low_confidence": true, "note_id": "n-7744799e2d" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "community", "source_id": "src-evspecs-vinfast-vf9-compare", "note_id": "n-ce044b16c2", "low_confidence": true }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "community", "source_id": "src-evspecs-vinfast-vf9-compare", "note_id": "n-3625b0b706", "low_confidence": true }
+  ]
+}

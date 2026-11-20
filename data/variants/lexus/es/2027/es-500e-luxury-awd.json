@@ -1,0 +1,28 @@
+{
+  "id": "lexus/es/2027/es-500e-luxury-awd",
+  "model_id": "lexus/es",
+  "year": 2027,
+  "name": "ES 500e Luxury AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "lexus/es/2027-es-350e-luxury",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "estimated", "source_id": "src-w2j-lexus-us-es-2026", "low_confidence": true, "note_id": "n-3f1643161a" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-0132953f8f" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "estimated", "source_id": "src-lexus-2026-rz-onsale-us", "note_id": "n-a8d9421317", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "ES 500e Luxury AWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-lex-es27", "note_id": "n-f355766bd9" },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r2w-lex-es27", "note_id": "n-45922609cd" }
+      ]
+    }
+  ]
+}

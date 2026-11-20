@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqb/2022/eqb-300-4matic",
+  "model_id": "mercedes/eqb",
+  "year": 2022,
+  "name": "EQB 300 4MATIC",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/eqb/2022-eqb-300-4matic",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2022-eqb-eqb300w4", "note_id": "n-e863ab2c59" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-1972a7a45d" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "EQB 300 4MATIC" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqb-300-2022-specs-428303", "notes": "EQB 300 4MATIC: 18 x 7.5 in aluminum, P235/55R18 (AMG Night Package also 18 in)." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-arenaev-eqb350-105", "note_id": "n-203964f7f4", "low_confidence": true }
+      ]
+    }
+  ]
+}

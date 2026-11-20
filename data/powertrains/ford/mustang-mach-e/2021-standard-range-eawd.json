@@ -1,0 +1,33 @@
+{
+  "id": "ford/mustang-mach-e/2021-standard-range-eawd",
+  "model_id": "ford/mustang-mach-e",
+  "name": "Standard Range eAWD",
+  "generation": "launch",
+  "years": [2021],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 68, "kind": "manufacturer", "source_id": "src-insideevs-mme-2022-usable", "unit": "kWh", "low_confidence": true, "notes": "2021 launch usable 68 kWh (SR), changed to 70 kWh in 2022 (InsideEVs, relays Ford)." }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 75.7, "kind": "manufacturer", "source_id": "src-insideevs-mme-2022-usable", "unit": "kWh", "low_confidence": true, "note_id": "n-e9c5182332" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mach-e", "low_confidence": true, "note_id": "n-035b0d8e58" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-electrek-ford-lfp-2023", "low_confidence": true, "note_id": "n-0e768d8164" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-ford-ca-precondition", "low_confidence": true, "note_id": "n-09a7a762e0" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 115, "kind": "estimated", "source_id": "src-ford-us-mme-specs-2022", "unit": "kW", "low_confidence": true, "notes": "Estimated: the 2022 Ford spec sheet lists up to 115 kW for this pack and Wikipedia lists the same 115 / 150 kW for 2020-22, but the basis is unproven: InsideEVs (2022) says Ford \"improved the fast charging curve\" for 2022, so the 2021 peak may differ." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "kind": "estimated", "source_id": "src-wikipedia-mach-e", "unit": "kW", "low_confidence": true, "note_id": "n-6d63d05bc5" }
+  ],
+  "published_10_80_min": [
+    { "value": 38, "kind": "manufacturer", "source_id": "src-autotrader-ca-mme-1080", "unit": "min", "low_confidence": true, "note_id": "n-97a3e8dc61" }
+  ]
+}

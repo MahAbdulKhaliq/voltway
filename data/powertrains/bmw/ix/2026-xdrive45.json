@@ -1,0 +1,28 @@
+{
+  "id": "bmw/ix/2026-xdrive45",
+  "model_id": "bmw/ix",
+  "name": "xDrive45",
+  "generation": "2026-update",
+  "years": [2026],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-w2-bmw-ix", "low_confidence": true, "note_id": "n-fbc6e2054c" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 100.1, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-ie-ix26", "low_confidence": true, "notes": "InsideEVs (US coverage of the 2026 refresh): 100.1 kWh usable, BMW-reported (evspecifications and KBB relay the same set, M70 112.8). Conflict: the BMW global release gives 94.8 kWh usable energy content; the gap is 4-6 %." },
+      { "value": 94.8, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-ix26", "low_confidence": true, "notes": "BMW global release: usable energy content 94.8 kWh (launch text; the later 2026 refresh coverage quotes higher figures)." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-ie-ix26", "low_confidence": true, "note_id": "n-04cb3dd05b" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-gf-adac-ix-xdrive45-2025", "low_confidence": true, "notes": "ADAC manufacturer-data table for the iX xDrive45 (ab 03/25, 94.8 kWh net, DC 175 kW): Nickel-Mangan-Cobalt." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 175, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-ix26", "low_confidence": true, "notes": "BMW global release: 175 kW (InsideEVs: 195 kW unchanged)." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-evs-ix26", "low_confidence": true, "note_id": "n-f0535090d9" }
+  ]
+}

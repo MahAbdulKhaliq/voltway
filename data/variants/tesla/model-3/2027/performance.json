@@ -1,0 +1,50 @@
+{
+  "id": "tesla/model-3/2027/performance",
+  "model_id": "tesla/model-3",
+  "year": 2027,
+  "name": "Performance",
+  "drivetrain": "awd",
+  "powertrain_id": "tesla/model-3/2026-performance",
+  "markets": ["US"],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "unit": "kWh", "value": 82, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+    ],
+    "capacity_usable_kwh": [
+      { "unit": "kWh", "value": 79, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+    ]
+  },
+  "dc_max_kw": [
+    { "unit": "kW", "value": 250, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+  ],
+  "ac_max_kw": [
+    { "unit": "kW", "value": 11, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
+  ],
+  "charge_port": [
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-467dd2e649" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-4655b2436d" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-f909c36451" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Performance" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carscom-model-3-2021-performance", "note_id": "n-2ab15d35ec", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-insideevs-all-heat-pump", "note_id": "n-f1fc2046b8", "low_confidence": true }
+      ]
+    }
+  ]
+}

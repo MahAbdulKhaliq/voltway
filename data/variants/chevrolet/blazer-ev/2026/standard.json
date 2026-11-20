@@ -4,100 +4,42 @@
   "year": 2026,
   "name": "Standard",
   "drivetrain": "fwd",
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 85,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-thinkev-blazer-ev-2026",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-thinkev-blazer-ev-2026",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
-    ],
-    "capacity_usable_kwh": [
-      {
-        "value": 80,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-gm-ultium-85",
-        "low_confidence": true,
-        "notes": "Estimated: no page gives usable kWh for the Blazer EV. The 85 kWh 10-module Ultium pack is the same one in the Equinox EV (The Weekly Driver lists both), and the Equinox record (OpenEV) has 80 kWh usable."
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-gm-ultium-85",
-        "low_confidence": true,
-        "notes": "Estimated: same 85 kWh 10-module Ultium pack as the Equinox EV (nominal 336 V per The Weekly Driver, 288 V per EVChargingStations; either way a 400 V-class pack, as stored for the Equinox)."
-      }
-    ]
-  },
-  "dc_max_kw": [
-    {
-      "value": 190,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-thinkev-blazer-ev-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup (rough, not cross-checked). Canadian listing; not confirmed by Chevrolet."
-    },
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-jimellis-blazer-ev-2026-dcfc",
-      "low_confidence": true,
-      "notes": "US dealer page: LT and RS (85 kWh) up to 150 kW; 190 kW is the 102 kWh SS. Same wording on a 2026 RS AWD window sticker (src-coughlin-2026-blazer-ev-rs-awd) and in EVChargingStations (2027 article). Conflicts with the 190 kW already stored from thinkEV (which says 102 kWh for all trims; likely wrong for the 85 kWh pack)."
-    }
-  ],
+  "powertrain_id": "chevrolet/blazer-ev/2026-standard",
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
-    }
-  ],
-  "ac_max_kw": [
-    {
-      "value": 11.5,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-coughlin-2026-blazer-ev-rs-awd",
-      "low_confidence": true,
-      "notes": "Estimated: the page is a 2026 RS AWD window sticker (11.5 kW onboard charging module). Other sources say every Blazer EV configuration has the 11.5 kW module; no 19.2 kW option found."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-7afe377ec7" },
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-blazer-ev-supercharger-2025", "low_confidence": true, "note_id": "n-3849b1e559" }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-evchargingstations-2027-blazer-ev-nacs",
-      "low_confidence": true,
-      "notes": "Article states the 2026 Blazer EV has a CCS1 port (2027 moves to native NACS). US article; Supercharger access is by adapter (already recorded)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-gcn-gm-2027-nacs", "low_confidence": true, "note_id": "n-55eb8e4292" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "Blazer EV"
+      "names": { "CA": "Blazer EV", "US": "FWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs", "note_id": "n-b639983103" },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs-473488", "notes": "AWD RS: 21 in; applied to the other RS trims.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
     },
     {
       "id": "22-in-wheels",
-      "name": "(22\" Wheels)"
+      "names": { "CA": "(22\" Wheels)" },
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs-473490", "notes": "22 in as on the 2026 AWD SS page (the trim name says 22-in wheels; no page ties this regulator row to a trim).", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
     }
   ]
 }

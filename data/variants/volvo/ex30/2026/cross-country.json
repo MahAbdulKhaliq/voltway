@@ -4,23 +4,26 @@
   "year": 2026,
   "name": "Cross Country",
   "drivetrain": "awd",
+  "powertrain_id": "volvo/ex30/2026-cross-country",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-motorillustrated-ex30-2026",
-      "low_confidence": true,
-      "notes": "Canadian review of the 2026 EX30 line-up including the Cross Country says the EX30 has a CCS1 charge port."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-motorillustrated-ex30-2026", "low_confidence": true, "notes": "Canadian review of the 2026 EX30 line-up including the Cross Country says the EX30 has a CCS1 charge port." },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-a9214476f3" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-36c27577b8" }
   ],
   "trims": [
     {
       "id": "18-in-wheels",
-      "name": "Cross Country (18\" Wheels)"
-    },
-    {
-      "id": "19-in-wheels",
-      "name": "Cross Country (19\" Wheels)"
+      "names": { "CA": "Cross Country", "US": "Cross Country" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-ex30cc-ins", "notes": "Cross Country comes standard with 19-inch wheels with street tires." },
+        { "diameter_in": 18, "is_standard": false, "source_id": "src-r2w-ex30cc-ins", "notes": "Optional 18-inch wheels with all-terrain tires." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-gearjunkie-ex30-cc", "notes": "US: Cross Country is sold only as Ultra, which comes with a heat pump (GearJunkie). Canada assumed the same.", "low_confidence": true }
+      ]
     }
   ]
 }

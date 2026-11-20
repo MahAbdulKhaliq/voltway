@@ -1,0 +1,31 @@
+{
+  "id": "jaguar/i-pace/2019/ev400",
+  "model_id": "jaguar/i-pace",
+  "year": 2019,
+  "name": "EV400",
+  "drivetrain": "awd",
+  "powertrain_id": "jaguar/i-pace/2019-ev400",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-a05c1cd34f" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-jaguar-supercharger-2025", "low_confidence": true, "note_id": "n-44a27f28d7" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-insideevs-jaguar-supercharger-2025", "note_id": "n-e39c6c67c5", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "EV400", "US": "EV400" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-jaguar-i-pace-2019-specs", "notes": "I-PACE S: 18 x 7.5 in aluminum, P235/65R18. (US page; Canadian cars assumed the same.)" },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-jaguar-i-pace-2019-specs-399652", "notes": "I-PACE SE, HSE and First Edition: 20 x 8 in aluminum, P245/50R20 (SE page; HSE and First Edition pages show the same size). (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-i-pace-ev400-2018", "note_id": "n-39ff9728bd", "low_confidence": true }
+      ]
+    }
+  ]
+}

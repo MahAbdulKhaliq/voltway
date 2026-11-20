@@ -1,0 +1,50 @@
+{
+  "id": "cadillac/lyriq-v/2026/v",
+  "model_id": "cadillac/lyriq-v",
+  "year": 2026,
+  "name": "LYRIQ-V",
+  "drivetrain": "awd",
+  "powertrain_id": "cadillac/lyriq-v/2026-v",
+  "markets": ["CA", "US"],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-5a9f4542ec" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-lyriq-2027", "low_confidence": true, "note_id": "n-0c4fb58f29" }
+  ],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-lyriq", "low_confidence": true, "note_id": "n-5924c04119" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
+  "trims": [
+    {
+      "id": "11-5-kw-charger",
+      "names": { "CA": "LYRIQ-V (11.5 kW Charger)", "US": "LYRIQ-V" },
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-cars-lyriq-468080", "low_confidence": true, "note_id": "n-ca127214db" }
+      ],
+      "ac_max_kw": [
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-01bfb276ed" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    },
+    {
+      "id": "19-2-kw-charger",
+      "names": { "CA": "LYRIQ-V (19.2 kW Charger)" },
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-cars-lyriq-468080", "low_confidence": true, "note_id": "n-ca127214db" }
+      ],
+      "ac_max_kw": [
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-fcbda3cf86" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" }
+      ]
+    }
+  ]
+}

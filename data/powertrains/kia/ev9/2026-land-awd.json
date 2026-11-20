@@ -1,0 +1,30 @@
+{
+  "id": "kia/ev9/2026-land-awd",
+  "model_id": "kia/ev9",
+  "name": "Land AWD",
+  "generation": "first-generation",
+  "years": [2024, 2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 99.8, "unit": "kWh", "kind": "manufacturer", "source_id": "src-slashgear-2026-ev9", "low_confidence": true, "note_id": "n-e79a5631ca" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-slashgear-2026-ev9", "low_confidence": true, "note_id": "n-fb631f1b14" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evseekers-ev9-battery", "low_confidence": true, "note_id": "n-d0688008fb" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-kia-manual-mv1-2026-battery-conditioning", "low_confidence": true, "note_id": "n-7eeaa7ccfa" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 96, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ev9-998-awd", "low_confidence": true, "note_id": "n-8b1d8c6b8a" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 210, "unit": "kW", "kind": "manufacturer", "source_id": "src-evdb-ev9-998-awd", "low_confidence": true, "notes": "EV Database: Kia claimed maximum 210 kW for the 99.8 kWh pack; Edwards GT-Line US sheet also says 210 max DC. InsideEVs measured 216 kW. Replaces an unsourced 240 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-2024-ev9-epa", "low_confidence": true, "note_id": "n-96ae456579" }
+  ]
+}

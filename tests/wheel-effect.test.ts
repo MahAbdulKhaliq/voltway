@@ -48,17 +48,26 @@ describe('the real build: per-trim ratings and wheels', () => {
 
   it('gives a trim rated on its own row its own charger, efficiency and range (LYRIQ AWD 19.2 kW)', () => {
     const t = car('cadillac/lyriq/2026/awd').trims.find((x) => x.id === '19-2-kw-charger')!;
-    expect(t.ac_max_kw?.value).toMatchObject({ value: 19.2, unit: 'kW', kind: 'rated_nrcan' });
+    expect(t.ac_max_kw?.value).toMatchObject({ value: 19.2, unit: 'kW' });
     expect(t.range_km?.value.value).toBe(488);
     expect(t.consumption_combined_wh_per_km?.value.value).toBeGreaterThan(0);
     const base = car('cadillac/lyriq/2026/awd').trims.find((x) => x.id === '11-5-kw-charger')!;
     expect(base.ac_max_kw?.value.value).toBe(11.5);
   });
 
-  it('takes wheel sizes from NRCan model names (IONIQ 5 AWD 19″ / 20″)', () => {
+  it('gives a charger-option trim its own rated 240 V time (B104: 2026 Equinox EV AWD 19.2 kW)', () => {
+    const c = car('chevrolet/equinox-ev/2026/awd');
+    expect(c.fields.recharge_time_240v_h?.value.value).toBe(9.5);
+    expect(c.trims.find((x) => x.id === '19-2-kw-charger')!.recharge_time_240v_h?.value.value).toBe(5.9);
+    expect(c.trims.find((x) => x.id === '11-5-kw-charger')!.recharge_time_240v_h).toBeFalsy();
+  });
+
+  it('makes NRCan wheel-split rows wheel options of one trim, each with its rating (IONIQ 5 AWD 19″ / 20″, B91)', () => {
     const trims = car('hyundai/ioniq-5/2026/long-range-awd').trims;
-    expect(trims.map((t) => t.wheels[0]?.diameter_in)).toEqual([19, 20]);
-    expect(trims[1].consumption_combined_wh_per_km?.value.value).toBe(215);
+    expect(trims).toHaveLength(1);
+    expect(trims[0].wheels.map((w) => [w.diameter_in, w.is_standard])).toEqual([[19, true], [20, false]]);
+    expect(trims[0].wheels[1].rated_consumption_wh_per_km?.value).toBe(215);
+    expect(trims[0].wheels[1].rated_range_km?.kind).toBe('rated_nrcan');
   });
 
   it('builds rating rows from NRCan names with a source on each', () => {
@@ -82,5 +91,14 @@ describe('ratedWheelFor (4.3: which wheels the shown rating belongs to)', () => 
   it("falls back to the trim's wheels when the first trim's are unknown", () => {
     expect(ratedWheelFor([{ wheels: [] }, unrated], unrated)).toBe(21);
     expect(standardWheel({ wheels: [] })).toBeNull();
+  });
+});
+
+describe('wheelSizeOptions (B93)', () => {
+  it('runs from 2″ below the smallest to 2″ above the largest factory size', async () => {
+    const { wheelSizeOptions } = await import('../src/lib/wheel-effect.ts');
+    expect(wheelSizeOptions([18, 19, 20], 18)).toEqual([16, 17, 18, 19, 20, 21, 22]);
+    expect(wheelSizeOptions([19], 19)).toEqual([17, 18, 19, 20, 21]);
+    expect(wheelSizeOptions([], null)).toEqual([]);
   });
 });

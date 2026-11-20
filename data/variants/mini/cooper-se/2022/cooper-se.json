@@ -1,0 +1,31 @@
+{
+  "id": "mini/cooper-se/2022/cooper-se",
+  "model_id": "mini/cooper-se",
+  "year": 2022,
+  "name": "Cooper SE",
+  "drivetrain": "fwd",
+  "powertrain_id": "mini/cooper-se/2022-cooper-se",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-wiki-mini", "low_confidence": true, "note_id": "n-1520cd3d88" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-d19c6436e8" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-4460b9fc1d", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Cooper SE", "US": "Cooper SE" },
+      "wheels": [
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-r3w-cars-com-research-mini-se-hardtop-2022-specs", "notes": "Cooper SE FWD: 16 x 6.5 in aluminum, P195/55R16 (page does not name the standard wheel; the spec table shows 16 in). (US page; Canadian cars assumed the same.)" },
+        { "diameter_in": 17, "is_standard": false, "source_id": "src-r3w-cars-com-research-mini-se-hardtop-2022-specs", "notes": "Cooper SE: Signature Plus, Electric Collection and Iconic packages include 17 x 7 in wheels, 205/45R17. (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-insideevs-cooper-se-2020", "low_confidence": true, "note_id": "n-74b1448c8d" }
+      ]
+    }
+  ]
+}

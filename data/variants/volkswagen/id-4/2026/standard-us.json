@@ -1,0 +1,30 @@
+{
+  "id": "volkswagen/id-4/2026/standard-us",
+  "model_id": "volkswagen/id-4",
+  "year": 2026,
+  "name": "Pro AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "volkswagen/id-4/2026-standard",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thinkev-vw-id4-2026", "low_confidence": true, "note_id": "n-8116822cd3" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-vw-ca-nacs-adapter", "low_confidence": true, "note_id": "n-6cc68ef979" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-electrek-vw-sc", "note_id": "n-4528e4ca21", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Pro AWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2023-430895", "note_id": "n-6faec3148f", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b112-autoguide-id4-nohp", "notes": "US: no heat pump offered (Green Car Reports 2021; AutoGuide/InsideEVs Jan 2023: the US ID.4 does not come with one). Model year 2026 carried, no change found. US cars have no heat pump." }
+      ]
+    }
+  ]
+}

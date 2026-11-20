@@ -1,0 +1,27 @@
+{
+  "id": "volkswagen/id-4/2024-pro",
+  "model_id": "volkswagen/id-4",
+  "name": "Pro",
+  "generation": "2024-update",
+  "years": [2024],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 77, "unit": "kWh", "kind": "estimated", "source_id": "src-slashgear-id4-2023", "low_confidence": true, "note_id": "n-7a92265e97" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-thinkev-vw-id4-2026", "low_confidence": true, "note_id": "n-c97dbfdb81" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-guideauto-id4-2025-pro-awd", "low_confidence": true, "note_id": "n-fcef87382e" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-vw-us-cold-weather", "low_confidence": true, "note_id": "n-c7e5008e0c" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 175, "unit": "kW", "kind": "manufacturer", "source_id": "src-cars-id4-2024", "low_confidence": true, "notes": "Cars.com 2024 US: 82 kWh versions 175 kW (up from 170), 10-80% about 30 min; Wikipedia 175 kW from 2024; vw.com 2026 page claims about 28 min." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-slashgear-id4-2023", "low_confidence": true, "note_id": "n-3c3cd81aa3" }
+  ]
+}

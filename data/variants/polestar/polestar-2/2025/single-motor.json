@@ -4,32 +4,32 @@
   "year": 2025,
   "name": "Single Motor",
   "drivetrain": "rwd",
+  "powertrain_id": "polestar/polestar-2/2025-single-motor",
+  "markets": ["CA"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-ca-tesla-supercharger-network",
-      "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter, ordered via a Polestar Service Point. Page names the Polestar 2 without model years."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-ca-tesla-supercharger-network", "low_confidence": true, "note_id": "n-e984388f46" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-32b9a75f5b" }
   ],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 218,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-nyland-sheet-2026-10",
-      "low_confidence": true,
-      "notes": "Test: 120 km/h steady, 15 °C, dry, 20-inch wheels (245/40-20 Continental PreCon 6), battery-side (car display; sheet does not say explicitly) | Nyland, 'Polestar 2 LR SM refresh' (2024+ refresh: rear single motor, 79.1 kWh measured, i.e. the 82 kWh refresh pack). Our variant shows 78/75 kWh from OpenEV, which looks stale for the 2024+ refresh; I attached the test to the real refresh car, so check our pack figure. Matches our 20-inch trim. 90 km/h, 16 °C: 153 Wh/km.."
-    }
+    { "value": 218, "unit": "Wh/km", "kind": "tested", "source_id": "src-nyland-sheet-2026-10", "low_confidence": true, "notes": "Test: 120 km/h steady, 15 °C, dry, 20-inch wheels (245/40-20 Continental PreCon 6), battery-side (car display; sheet does not say explicitly) | Nyland, 'Polestar 2 LR SM refresh' (2024+ refresh: rear single motor, 79.1 kWh measured, i.e. the 82 kWh refresh pack). Our variant shows 78/75 kWh from OpenEV, which looks stale for the 2024+ refresh; I attached the test to the real refresh car, so check our pack figure. Matches our 20-inch trim. 90 km/h, 16 °C: 153 Wh/km.." }
+  ],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-polestar-ca-tesla-supercharger-network", "low_confidence": true, "note_id": "n-1f209e6eaf" },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-5ff5964173" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-polestar-us-nacs", "note_id": "n-b3bcf2fc86" }
   ],
   "trims": [
     {
       "id": "19-in-wheels",
-      "name": "Single Motor (19\" Wheels)"
-    },
-    {
-      "id": "20-in-wheels",
-      "name": "Single Motor (20\" Wheels)"
+      "names": { "CA": "Single Motor" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-ps2-ca", "note_id": "n-f562fb5e1b", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b112-moneysense-p2", "note_id": "n-fa03f9fc63", "low_confidence": true }
+      ]
     }
   ]
 }

@@ -1,0 +1,31 @@
+{
+  "id": "kia/niro-ev/2023-niro-ev",
+  "model_id": "kia/niro-ev",
+  "name": "Niro EV",
+  "generation": "second-generation",
+  "years": [2023, 2024, 2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 68, "unit": "kWh", "kind": "community", "source_id": "src-evdb-niro-ev-2022", "low_confidence": true, "notes": "EV Database: 68.0 kWh nominal; Kia's published 64.8 kWh is the usable figure per EV Database (Chargeprice shows 68.4). Kia states only \"64.8 kWh\" without gross/usable; EV Database and EVKX read it as usable (68.0 gross), and Nyland measured 64.3 kWh usable, which supports 64.8 usable. The existing Chargeprice 68.4 usable is not supported." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 64.8, "unit": "kWh", "kind": "community", "source_id": "src-evdb-niro-ev-2022", "low_confidence": true, "notes": "EV Database: 64.8 kWh usable / 68.0 nominal (2022-2025 listing). Nyland measured 64.3 kWh." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-weeklydriver-niro-ev-648", "low_confidence": true, "notes": "The Weekly Driver: CATL NCM cells, 2023-2025 Niro EV." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "community", "source_id": "src-weeklydriver-niro-ev-648", "low_confidence": true, "notes": "358 V nominal (also EV Database)." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-niro-ev-2022", "low_confidence": true, "notes": "Estimated: EV Database (Niro EV 2022-2025) lists automatic preconditioning when using navigation; Kia says conditioning is standard on the second-generation Niro EV (Europe). No Niro EV manual page showing a manual switch was found, so only the navigation trigger is recorded." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 85, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-2023-niro-ev", "low_confidence": true, "notes": "Estimated: Kia gives no car peak; its 10-80 % in 43 min is on an 85 kW charger, Kia Ireland lists 43 min at both 100 and 300 kW, and CarExpert AU (search excerpt) lists 83.8 kW, so the car is limited near 85 kW. EV Database/EVKX list 94 kW (modelled); the Chargeprice import shows 80 kW." },
+    { "value": 94, "unit": "kW", "kind": "community", "source_id": "src-evdb-niro-ev-2022", "low_confidence": true, "notes": "EV Database: max DC 94 kW (EVKX also 94 kW); probably above what the car sustains, see the 85 kW entry." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "community", "source_id": "src-insideevs-2023-niro-ev", "low_confidence": true, "notes": "InsideEVs: 11 kW onboard charger (EV Database also 11 kW); Kia Ireland lists 7.2 kW single-phase / 11 kW three-phase." }
+  ]
+}

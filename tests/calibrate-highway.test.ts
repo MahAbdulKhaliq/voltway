@@ -4,7 +4,7 @@ import type { CarDetail, Kind } from '../src/lib/types.ts';
 
 const car = (values: { value: number; kind: Kind }[]): CarDetail => ({
   id: 'm/x/2026/v', make: { id: 'm', name: 'M' }, model: { id: 'm/x', name: 'X', body_type: 'suv' }, year: 2026, name: 'V',
-  drivetrain: 'awd', sold_in_canada: true, trims: [], curves: [], sources: [],
+  drivetrain: 'awd', sold_in_canada: true, markets: ['CA'], trims: [], curves: [], sources: [],
   derived: { minutes_10_80: null, km_per_10_min: null, estimated: true, extrapolated: false, battery_basis: null },
   fields: values.length ? { consumption_highway_wh_per_km: { value: { ...values[0], source_id: 's0' }, others: values.slice(1).map((v, i) => ({ ...v, source_id: `s${i + 1}` })), conflict: false } } : {},
 });

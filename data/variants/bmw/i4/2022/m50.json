@@ -1,0 +1,33 @@
+{
+  "id": "bmw/i4/2022/m50",
+  "model_id": "bmw/i4",
+  "year": 2022,
+  "name": "M50",
+  "drivetrain": "awd",
+  "powertrain_id": "bmw/i4/2022-edrive40",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-lectron-bmw-adapter", "low_confidence": true, "note_id": "n-42cc7366c9" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "low_confidence": true, "note_id": "n-5726dc3848" },
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-bmw-supercharger-2025", "low_confidence": true, "note_id": "n-0c3fdec9eb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true },
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "M50", "US": "M50" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-bmw-i4-2022-ca", "notes": "M50 (CA/US): i4 M50: 19-inch M light alloy standard, mixed tires (Canada release).", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-bmw-i4-2022-ca", "notes": "M50 (CA/US): i4 M50: other 19 and 20-inch wheels optional.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-w2-bmw-i4", "note_id": "n-0b69b680e4" }
+      ]
+    }
+  ]
+}

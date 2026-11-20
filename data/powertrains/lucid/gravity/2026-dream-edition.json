@@ -1,0 +1,30 @@
+{
+  "id": "lucid/gravity/2026-dream-edition",
+  "model_id": "lucid/gravity",
+  "name": "Dream Edition",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-1856386b99" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-w2-wards-gravity-2025", "low_confidence": true, "note_id": "n-2fd94aa524" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "low_confidence": true, "note_id": "n-6fe2eec92b" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 123, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-wards-gravity-2025", "low_confidence": true, "note_id": "n-f7bfcbeb5d" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 121, "unit": "kWh", "kind": "estimated", "source_id": "src-gf-electrek-gravity", "low_confidence": true, "notes": "Estimated: the Dream Edition has the same 123 kWh gross pack as the Grand Touring (KBB/Wards on file); Electrek states 121 kWh usable for the Grand Touring (2025-2027 compared)." }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "low_confidence": true, "note_id": "n-292d80aa59" }
+  ],
+  "dc_max_kw": [
+    { "value": 400, "unit": "kW", "kind": "estimated", "source_id": "src-w2-wards-gravity-2025", "low_confidence": true, "notes": "Estimated: the Dream Edition shares the 123 kWh pack of the Grand Touring (KBB 2026). Wards: up to 400 kW on 1000 V chargers (225 kW sustained at 500 V); Lucid page: 200 miles in 10.5 min at 400 kW." }
+  ]
+}

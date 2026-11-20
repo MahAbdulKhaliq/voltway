@@ -1,0 +1,32 @@
+{
+  "id": "kia/ev6/2022/standard-range-rwd",
+  "model_id": "kia/ev6",
+  "year": 2022,
+  "name": "Standard Range RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "kia/ev6/2022-standard-range-rwd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-e97a9274cf" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-electrek-2025-ev6-us-built", "low_confidence": true, "note_id": "n-7c8cc0d709" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-page", "low_confidence": true, "note_id": "n-bdc0f55932" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-9b43603c60" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-adapter", "note_id": "n-3f4f33dee3", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Standard Range RWD", "US": "Light Standard Range RWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2022-index", "low_confidence": true, "notes": "Light 19 in" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "manufacturer", "source_id": "src-b113-kia-ca-ev6-my22-brochure", "notes": "Canada 2022: the RWD Standard Range block has no heat pump; it first appears in the RWD Long Range block. US \"Light Standard Range RWD\": Kia US 2023 brochure shows \"-\" (not available) for Light (src-b113-kia-us-ev6-2023-brochure, a different year), so US is low confidence.", "low_confidence": true }
+      ]
+    }
+  ]
+}

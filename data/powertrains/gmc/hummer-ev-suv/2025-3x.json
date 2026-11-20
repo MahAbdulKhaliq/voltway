@@ -1,0 +1,27 @@
+{
+  "id": "gmc/hummer-ev-suv/2025-3x",
+  "model_id": "gmc/hummer-ev-suv",
+  "name": "3X",
+  "generation": "first-generation",
+  "years": [2025],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 170, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-20", "low_confidence": true, "notes": "Estimated: UNPROVEN pack for the 2025 SUV 3X (OWNER QUESTION): no page gives it. Basis: the 2025 pickup 3X carries NRCan's label \"(20M Battery)\"; the SUV 3X has no such label but its EPA range (502.1 km) equals the pickup 3X, and The Charge Port (2026 page) lists the SUV 3X at 300 kW, the 20-module level. 20-module pack c. 170 kWh (Wikipedia; Weekly Driver as published)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-24", "low_confidence": true, "note_id": "n-1456b8b703" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-gm-techlink-hummer-ev-ultium", "note_id": "n-8d3e7112bf" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-0a38e924d4" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 300, "unit": "kW", "kind": "manufacturer", "source_id": "src-thechargeport-gmc-hummer-ev", "low_confidence": true, "note_id": "n-b287dfe54e" }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-thechargeport-gmc-hummer-ev", "low_confidence": true, "note_id": "n-e387916d96" }
+  ]
+}

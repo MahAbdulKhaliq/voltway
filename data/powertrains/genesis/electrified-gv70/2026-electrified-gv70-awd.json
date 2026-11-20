@@ -1,0 +1,33 @@
+{
+  "id": "genesis/electrified-gv70/2026-electrified-gv70-awd",
+  "model_id": "genesis/electrified-gv70",
+  "name": "Electrified GV70 AWD",
+  "generation": "2026-facelift",
+  "years": [2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 84, "unit": "kWh", "kind": "manufacturer", "source_id": "src-greencarreports-gv70-2026", "notes": "Relays Genesis: 2026 Electrified GV70 has an 84 kWh pack.", "low_confidence": true }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 80, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-ioniq5-84-rwd", "note_id": "n-e2a0a799a2", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-genesis-kr-battery-notice", "note_id": "n-649c93e06e", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-genesis-kr-battery-notice", "note_id": "n-f6a8e73128", "low_confidence": true }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-genesis-us-owner-battery-conditioning", "note_id": "n-d95d63de7e", "low_confidence": true }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-weeklydriver-egmp-774", "note_id": "n-c652f10688", "low_confidence": true }
+  ],
+  "dc_max_kw": [
+    { "value": 260, "unit": "kW", "kind": "estimated", "source_id": "src-fastned-genesis-gv60", "note_id": "n-cc20415724", "low_confidence": true }
+  ],
+  "published_10_80_min": [
+    { "value": 20, "unit": "min", "kind": "manufacturer", "source_id": "src-greencarreports-gv70-2026", "notes": "Relays Genesis: about 20 minutes 10-80 % for the 2026 car.", "low_confidence": true }
+  ]
+}

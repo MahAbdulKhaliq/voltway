@@ -1,0 +1,27 @@
+{
+  "id": "rimac/nevera/2025-nevera-r",
+  "model_id": "rimac/nevera",
+  "name": "Nevera R",
+  "generation": "first-generation",
+  "years": [2025, 2026],
+  "battery": {
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evspecs-rimac-nevera-compare", "note_id": "n-b79c104c5c", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "community", "source_id": "src-insideevs-rimac-nevera-ionity", "note_id": "n-be1773bb7a", "low_confidence": true }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 108, "unit": "kWh", "kind": "manufacturer", "source_id": "src-rimac-nevera-page", "notes": "Rimac page shows a \"108 kWh\" spec block that it does not label as the Nevera R; EVspecs.org states Nevera R 108 gross / 104 usable.", "low_confidence": true }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 104, "unit": "kWh", "kind": "community", "source_id": "src-evspecs-rimac-nevera-compare", "notes": "EVspecs.org: Nevera R 104 kWh usable.", "low_confidence": true }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 500, "unit": "kW", "kind": "manufacturer", "source_id": "src-rimac-nevera-page", "note_id": "n-be362a7b65", "low_confidence": true }
+  ],
+  "ac_max_kw": [
+    { "value": 22, "unit": "kW", "kind": "manufacturer", "source_id": "src-rimac-nevera-page", "note_id": "n-c889ede967", "low_confidence": true }
+  ]
+}

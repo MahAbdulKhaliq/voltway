@@ -1,0 +1,30 @@
+{
+  "id": "kia/soul-ev/2017/soul-ev",
+  "model_id": "kia/soul-ev",
+  "year": 2017,
+  "name": "Soul EV",
+  "drivetrain": "fwd",
+  "powertrain_id": "kia/soul-ev/2015-soul-ev",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "chademo", "kind": "community", "source_id": "src-electrek-soul-ev-2018-64kwh", "note_id": "n-e2bf441b57", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "estimated", "source_id": "src-kia-us-charge-pass-page", "note_id": "n-3c32da2e12", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-kia-us-charge-pass-adapter", "note_id": "n-7481b0b8b8", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Soul EV", "US": "Soul EV" },
+      "wheels": [
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-carscom-kia-soul-ev-2017-index", "low_confidence": true, "note_id": "n-8d7164a4f9" }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b113-carvana-soul-ev-2017", "notes": "Higher-trim feature, not on every car: Canada Luxury only (EV base has none); US the middle EV and EV+ trims (EV-e has none). US 2017 Carvana: the middle Soul EV adds a heat-pump climate system; Canada 2017 Autotrader.ca: Luxury adds a heat pump.", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "volvo/ec40/2026/twin-motor",
+  "model_id": "volvo/ec40",
+  "year": 2026,
+  "name": "Twin Motor",
+  "drivetrain": "awd",
+  "powertrain_id": "volvo/ec40/2026-twin-motor",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-273418125a" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-eaa51df48d" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-e5aef72387" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Twin Motor", "US": "Twin Motor" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ec40-2025-specs-457196", "note_id": "n-4ffb55c515", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-volvo-ec40-2025-specs-457198", "note_id": "n-6b31108a07", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-villa-ec40-2026", "notes": "Canada 2026 EC40 (Core and Black Edition Ultra): \"Both trims include a heat pump\" (Ontario Volvo dealer). US 2026 EC40 not confirmed.", "low_confidence": true }
+      ]
+    }
+  ]
+}

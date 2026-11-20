@@ -1,0 +1,27 @@
+{
+  "id": "rivian/r1s/2026-dual-motor-large-pack",
+  "model_id": "rivian/r1s",
+  "name": "Dual-Motor Large Pack",
+  "generation": "gen-2",
+  "years": [2026],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 109.4, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-gcr-2025-r1-lfp", "low_confidence": true, "note_id": "n-bbcecc470d" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "manufacturer", "source_id": "src-w2-gcr-2025-r1-lfp", "low_confidence": true, "note_id": "n-cc9fb24634" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-insideevs-r1-210kw", "low_confidence": true, "note_id": "n-2ab06b85e8" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-insideevs-rivian-precond-2025-18", "low_confidence": true, "note_id": "n-83e0633659" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 220, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-gcr-2025-r1-lfp", "low_confidence": true, "note_id": "n-f41333e0d1" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-w2-gcr-2025-ac", "low_confidence": true, "note_id": "n-53ea164e3a" }
+  ]
+}

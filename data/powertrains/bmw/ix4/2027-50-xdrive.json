@@ -1,0 +1,30 @@
+{
+  "id": "bmw/ix4/2027-50-xdrive",
+  "model_id": "bmw/ix4",
+  "name": "50 xDrive",
+  "generation": "neue-klasse",
+  "years": [2027],
+  "battery": {
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-w2-bmw-ix4", "note_id": "n-85d16dae36" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-bmw-ix4", "note_id": "n-396b5101ec" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 112.2, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-ix4", "notes": "BMW US: usable energy content 112.2 kWh (iX4 50 xDrive)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-evs-i3", "low_confidence": true, "notes": "Estimated: same Gen6 46x95 mm cylindrical cell as the iX3 (BMW US iX4 page), listed as NCM by evspecifications." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 400, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-ix4", "note_id": "n-a7e2a345a7" }
+  ],
+  "ac_max_kw": [
+    { "value": 15.4, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-ix4", "note_id": "n-0b1b5a6812" }
+  ],
+  "published_10_80_min": [
+    { "value": 21, "unit": "min", "kind": "manufacturer", "source_id": "src-w2-bmw-ix4", "note_id": "n-26044dd724" }
+  ]
+}

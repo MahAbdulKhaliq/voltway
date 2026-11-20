@@ -1,0 +1,30 @@
+{
+  "id": "bmw/i3/2018/i3s-94-ah",
+  "model_id": "bmw/i3",
+  "year": 2018,
+  "name": "i3s 94 Ah",
+  "drivetrain": "rwd",
+  "powertrain_id": "bmw/i3/2018-i3-94-ah",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-wiki-i3", "low_confidence": true, "note_id": "n-f6dc8c54ca" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-8c05e5ab78" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-e8ab711a04", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "i3s 94 Ah", "US": "i3s 94 Ah" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-bmw-i3s-us", "notes": "i3s 94 Ah (CA/US): i3s: standard 20-inch bicolor double-spoke (launch release for the i3s).", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-gcf-i3-aux-heating", "notes": "Green Car Future: in the US \"all units made before the 2019 model year came with a heat pump as standard\". The i3s was new for MY2018; no BMW page lists the i3s heat pump itself. Same 94 Ah pack and climate system as the i3. Source is a US document; Canada not checked.", "low_confidence": true }
+      ]
+    }
+  ]
+}

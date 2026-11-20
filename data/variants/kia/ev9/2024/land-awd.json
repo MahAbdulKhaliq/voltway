@@ -1,0 +1,33 @@
+{
+  "id": "kia/ev9/2024/land-awd",
+  "model_id": "kia/ev9",
+  "year": 2024,
+  "name": "Land AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "kia/ev9/2026-land-awd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-page", "low_confidence": true, "note_id": "n-41cc931c47" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-b0224fa442" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-kia-supercharger-2025-04", "low_confidence": true, "note_id": "n-8d2ebaeb54" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-0b6dfd96cb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-adapter", "note_id": "n-b8db2e545d", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Land AWD", "US": "AWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-guideauto-kia-ev9-2024-land-awd", "low_confidence": true, "notes": "Canada only: Guide Auto lists P255/60R19 for the Canadian Land AWD, so 19 in is the standard Canadian wheel (not an option). Also the US Wind AWD size (Cars.com 450313: 19 in)." },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-kia-ev9-2024-450314", "low_confidence": true, "notes": "US only: the US \"AWD\" label covers Wind AWD (19 in, standard on Wind) and Land AWD (20 in, standard on Land). Standard on the US Land trim." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "note_id": "n-1532578e1d", "low_confidence": true }
+      ]
+    }
+  ]
+}

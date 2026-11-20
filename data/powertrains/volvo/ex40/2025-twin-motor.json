@@ -1,0 +1,30 @@
+{
+  "id": "volvo/ex40/2025-twin-motor",
+  "model_id": "volvo/ex40",
+  "name": "Twin Motor",
+  "generation": "ex40",
+  "years": [2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 82, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-ex40-2025-rename", "low_confidence": true, "notes": "InsideEVs (Volvo US 2025 release): Twin Motor versions get the 82 kWh pack, up from 78. CONFLICT: Green Car Reports says the 2025 dual-motor keeps 78 kWh. 82 is supported by the rated range rise (254 to 260 mi) and KBB 82 kWh for the 2026 Twin." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 79, "unit": "kWh", "kind": "manufacturer", "source_id": "src-evdb-xc40-twin-motor-my24", "low_confidence": true, "notes": "EV Database (European 82 kWh pack, 108s1p prismatic NMC): 79.0 kWh usable; Volvo UK press (search excerpt) calls the pack 82/79 kWh nominal/usable. From 2025 the Twin moved from 78 to 82 kWh (Volvo US pricing release via InsideEVs; EPA 260 mi vs 254 mi; KBB 82 kWh for the 2026 Twin)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-evdb-xc40-twin-motor-my24", "low_confidence": true, "note_id": "n-2cb572915a" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-evdb-xc40-twin-motor-my24", "low_confidence": true, "note_id": "n-56182fbaa2" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-ex40-twin-my26", "low_confidence": true, "note_id": "n-2a45cd5692" }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-nrcan-bev-2026-09", "low_confidence": true, "note_id": "n-7c762081d7" }
+  ],
+  "dc_max_kw": [
+    { "value": 205, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-ex40-2025-rename", "low_confidence": true, "note_id": "n-43c4131849" }
+  ]
+}

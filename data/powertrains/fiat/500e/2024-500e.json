@@ -1,0 +1,30 @@
+{
+  "id": "fiat/500e/2024-500e",
+  "model_id": "fiat/500e",
+  "name": "500e",
+  "generation": "stla-small-2024",
+  "years": [2024, 2025, 2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 42, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-2024-fiat-500e", "notes": "42 kWh pack (Wikipedia, EV Specifications, CarExpert agree on 42 gross).", "low_confidence": true }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 37.3, "unit": "kWh", "kind": "community", "source_id": "src-evspecifications-fiat-500e-2024", "notes": "37.3 kWh usable (also Wikipedia, CarExpert). Years compared 2024-2026: no change documented.", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-designnews-fiat-500e-2024", "notes": "Design News (read as a search excerpt only, page blocked): \"42-kilowatt-hour nickel manganese cobalt (NMC) battery\"; EVKX (blocked) agrees. The EV Specifications 2024 page lists only lithium-ion.", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "community", "source_id": "src-evspecifications-fiat-500e-2024", "notes": "400 V, 2p96s (96 cells in series). CarExpert also shows 350 V in another configuration listing.", "low_confidence": true }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-autotrader-ca-2024-fiat-500e", "notes": "Estimated: AutoTrader.ca (Canadian first drive): the car preconditions the cabin while plugged in but not the battery for more efficient charging. A press statement, not an owner's manual; Stellantis pages not read (blocked). No owner's manual or maker statement found; owner decision requested.", "low_confidence": true }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 85, "unit": "kW", "kind": "community", "source_id": "src-insideevs-2024-fiat-500e", "notes": "Up to 85 kW DC (InsideEVs, AutoTrader.ca, Wikipedia, EV Specifications).", "low_confidence": true }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "community", "source_id": "src-insideevs-2024-fiat-500e", "notes": "11 kW on-board charger.", "low_confidence": true }
+  ]
+}

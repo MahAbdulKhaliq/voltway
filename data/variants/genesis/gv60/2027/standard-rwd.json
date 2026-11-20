@@ -1,0 +1,31 @@
+{
+  "id": "genesis/gv60/2027/standard-rwd",
+  "model_id": "genesis/gv60",
+  "year": 2027,
+  "name": "Standard RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "genesis/gv60/2027-advanced-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-4f11cd6f71", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-9f95a1ea04", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-gen-us-how-to-charge", "note_id": "n-e4e09f8d67", "low_confidence": true },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-gen-ca-nacs-release", "note_id": "n-ee2e2d3d2b", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Standard RWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-genesis-gv60-2027-index", "low_confidence": true, "notes": "19\" RWD trim (19 in from the trim name on the 2027 index page)." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-gen-us-brochure-2023-gv60", "note_id": "n-81265e76f6", "low_confidence": true }
+      ]
+    }
+  ]
+}

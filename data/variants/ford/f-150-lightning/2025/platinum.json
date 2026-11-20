@@ -4,10 +4,30 @@
   "year": 2025,
   "name": "Platinum",
   "drivetrain": "awd",
+  "powertrain_id": "ford/f-150-lightning/2025-platinum",
+  "markets": ["CA", "US"],
+  "ac_max_kw": [
+    { "value": 11.3, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2025", "unit": "kW", "notes": "Ford 2025 spec sheet: onboard charger 11.3 kW / 10.5 kW (48 A) on every battery; 19.2 kW / 17.6 kW is a fleet-only option. Overrides the 2022-2024 value of 19.2 kW on the shared powertrain." }
+  ],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-5f8f5065c6" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-ford-adapter-product", "note_id": "n-6bdf0ce985", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Platinum"
+      "names": { "CA": "Platinum", "US": "Platinum" },
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-ford-us-fl-specs-2025", "notes": "Platinum: 22 in standard. Source is a US page; Canadian trim assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-insideevs-lightning-hp", "note_id": "n-e5cc33c09d", "low_confidence": true }
+      ]
     }
   ]
 }

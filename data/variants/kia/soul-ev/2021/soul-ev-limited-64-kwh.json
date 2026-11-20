@@ -1,0 +1,30 @@
+{
+  "id": "kia/soul-ev/2021/soul-ev-limited-64-kwh",
+  "model_id": "kia/soul-ev",
+  "year": 2021,
+  "name": "Soul EV Limited 64 kWh",
+  "drivetrain": "unknown",
+  "powertrain_id": "kia/soul-ev/2020-soul-ev-limited-64-kwh",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "community", "source_id": "src-electrek-soul-ev-2018-64kwh", "note_id": "n-bbf58110c6", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "note_id": "n-c8281813e8", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-adapter-release", "note_id": "n-aea508ebf1", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Soul EV Limited 64 kWh" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-guideauto-kia-soul-2020-ev-limited", "low_confidence": true, "note_id": "n-5f79182ea1" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-kia-ca-soul-ev-my22-brochure", "note_id": "n-f6644135ba", "low_confidence": true }
+      ]
+    }
+  ]
+}

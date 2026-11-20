@@ -1,0 +1,32 @@
+{
+  "id": "audi/q4-e-tron/2022/q4-50-e-tron-quattro",
+  "model_id": "audi/q4-e-tron",
+  "year": 2022,
+  "name": "Q4 50 e-tron quattro",
+  "drivetrain": "awd",
+  "powertrain_id": "audi/q4-e-tron/2022-q4-50-e-tron-quattro",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-38cbbe8453" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-52c7b05743" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-b112-electrive-audi-porsche", "note_id": "n-25dacd4d74" },
+    { "value": "none", "kind": "manufacturer", "source_id": "src-b112-insideevs-audi-porsche-sc", "note_id": "n-aa2d879f01" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Q4 50 e-tron quattro", "US": "Q4 50 e-tron quattro" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-audi-q4etron-2022-425581", "notes": "Q4 e-tron Prestige 50 quattro 2022: 19x8 read on this Cars.com page." },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-cars-audi-q4etron-2022-425581", "notes": "20-inch 10-Spoke-Star-Aero wheels come in the S line Plus Package (option), per the same page." }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b112-ehga-q4-climate", "note_id": "n-746e568a6e", "low_confidence": true }
+      ]
+    }
+  ]
+}

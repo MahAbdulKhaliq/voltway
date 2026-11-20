@@ -1,0 +1,29 @@
+{
+  "id": "lexus/rz/2026/rz-350e-premium",
+  "model_id": "lexus/rz",
+  "year": 2026,
+  "name": "RZ 350e Premium",
+  "drivetrain": "fwd",
+  "powertrain_id": "lexus/rz/2026-rz-350e-premium",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026", "note_id": "n-0186b26c56" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-charging", "note_id": "n-9d6ff8d15d" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-onsale", "note_id": "n-098d7a686d" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-ce9fd9b7fa" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-lexus-2026-rz-onsale-us", "note_id": "n-837b638598" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "RZ 350e Premium" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-lex-rz26", "notes": "RZ 350e range is quoted with 18-inch tires; grade mapping not stated, low confidence.", "low_confidence": true }
+      ]
+    }
+  ]
+}

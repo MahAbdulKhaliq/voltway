@@ -1,0 +1,30 @@
+{
+  "id": "ford/mustang-mach-e/2021-gt",
+  "model_id": "ford/mustang-mach-e",
+  "name": "GT",
+  "generation": "launch",
+  "years": [2021],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 88, "kind": "estimated", "source_id": "src-insideevs-mme-2022-usable", "unit": "kWh", "low_confidence": true, "notes": "Estimated: InsideEVs (2022) gives 88 kWh usable (2021) for the Extended Range; the page does not name the GT. The GT shares the ER pack (376 cells, 2023 Ford sheet), so 88 kWh." }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 98.8, "kind": "estimated", "source_id": "src-insideevs-mme-2022-usable", "unit": "kWh", "low_confidence": true, "notes": "Estimated: InsideEVs (2022) gives 98.8 kWh total for the Extended Range pack; the GT shares that pack (376 cells, 2023 Ford sheet)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mach-e", "low_confidence": true, "note_id": "n-035b0d8e58" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-electrek-ford-lfp-2023", "low_confidence": true, "note_id": "n-0e768d8164" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-ford-ca-precondition", "low_confidence": true, "note_id": "n-09a7a762e0" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "kind": "estimated", "source_id": "src-ford-us-mme-specs-2022", "unit": "kW", "low_confidence": true, "note_id": "n-70e746994b" }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "kind": "estimated", "source_id": "src-wikipedia-mach-e", "unit": "kW", "low_confidence": true, "note_id": "n-6d63d05bc5" }
+  ]
+}

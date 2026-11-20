@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/glc/2027/glc-400-4matic-with-eq-technology-2",
+  "model_id": "mercedes/glc",
+  "year": 2027,
+  "name": "GLC 400 4MATIC with EQ Technology",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/glc/2027-glc-400-4matic-with-eq-technology",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-glc-glc400e4", "note_id": "n-cb80b0cf99" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-3c23166419" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-d22cc78fb3" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "GLC 400 4MATIC with EQ Technology" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-glc-400-2027-specs", "note_id": "n-ed6ca96230" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-motor1-glc", "note_id": "n-819a3ff7a3", "low_confidence": true }
+      ]
+    }
+  ]
+}

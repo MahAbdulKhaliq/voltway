@@ -1,0 +1,30 @@
+{
+  "id": "maserati/granturismo-folgore/2025/folgore",
+  "model_id": "maserati/granturismo-folgore",
+  "year": 2025,
+  "name": "Folgore",
+  "drivetrain": "awd",
+  "powertrain_id": "maserati/granturismo-folgore/2024-folgore",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-68974cb7a8" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-8310e94625" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-1c78dea37e" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Folgore" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-maserati-granturismo-folgore-2025-specs", "note_id": "n-b9dc98ad25" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-granturismo-folgore-2023", "note_id": "n-13be327466", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -478,6 +478,13 @@ Read `docs/plan/DESIGN-5.md` and B72–B74 in `docs/design/gaps-and-questions.md
 | QD7 | Drive appears only with a planned trip | Form, errors and no-car states have no Drive button | 0-stop trip: the next target is the destination |
 | QD8 | Next stop panel | Name, distance, arrive ~time, planned charge and cost; km/mi switch | Estimated curve shows ~ |
 | QD9 | Navigate links | Read each link: Google `…/maps/dir/?api=1&destination=lat,lng&travelmode=driving&dir_action=navigate`; Apple `maps.apple.com/directions?destination=lat,lng&mode=driving` (+ avoid) | Only coordinates in the URLs |
+| QD9b | Market-neutral screens (B98, 9.15b) | `/charging?car=chevrolet/bolt/2027/bolt` opens the 2027 Bolt with no "not sold in Canada" banner; no "Coverage: Canada" note in the Charging intro or "Currently covers EVs sold in Canada" in the footer; Cars page: "Sold in" checklist, Canada only → no US-only cars, United States only → no CA-only cars, none → all | An old saved Cars state with `canadaOnly` loads without error and shows all markets |
+| QD9c | Prices without a country (B99, 9.15c) | Charging: cost reads "~$xx.xx", price label "Price per kWh ($)", help says "a typical Supercharger rate"; trip itinerary and Drive costs also plain "$"; footer and About data list credit the US EPA | A browser set to French or en-GB still shows "$", not "CA$"/"US$" |
+| QD9d | Cars page pages (B106, 9.17a) | Cars, all years: 48 cards and page controls; page 2 shows 49–96; a filter change returns to page 1; table view 50 rows | Last page shows the remainder; 375 px: controls fit without horizontal scroll; keyboard reaches Previous/Next |
+| QD9e | Review round 2 data (B100–B105, 9.20c) | Kandi, Fit EV, Azure absent from Cars and pickers; 2024 Toyota shows "bZ4X", 2026 shows "bZ"; LYRIQ-V is its own model; 2026 Equinox EV AWD 19.2 kW trim shows a shorter Level 2 time than the 11.5 kW trim; 2022 Polestar 2 offers 19″/20″ wheels; Escalade IQ shows a 10–80 % time | A B97 car's consumption names its source; wheel picker range is 2″ around the factory sizes |
+| QD9f | Simpler data storage (B111, 9.22) | `npx tsx scripts/merge-powertrains.ts --dry` merges 0; `npx tsx scripts/dedupe-notes.ts --dry` changes 0 files; `npm run data:format` rewrites 0 files; a car whose values use `note_id` shows the full note text on /charging; `npm run validate` reports a made-up `note_id` | Built `public/data/cars` identical to a build of the commit before B111 |
+| QD9g | Charging adapters and heat pumps (B112, 9.23) | Pick 10 random cars and 10 random trims: each `adapters_included`/`heat_pump` value opens on its cited page and matches it; no source cites EVChargingStations, iSeeCars, Tire Wheel Guide, Unplugged Performance or ArenaEV for B112 values; /charging shows the "Charging adapter" label with the four wordings; `npm run validate` rejects an unknown adapter value | A CA+US car whose value differs by market says so in its notes |
+| QD9h | B112 follow-ups (B113, 9.24) | /charging for `volkswagen/id-4/2022/pro` (Canada) shows a heat pump and `volkswagen/id-4/2022/pro-us` shows none; a 2023 Mach-E shows "sold by the maker"; an ArenaEV-sourced heat pump shows its caveat and low confidence; the trim list labels split cars "· Canada"/"· US" | My car saved with a split car id still loads (the Canadian edition keeps the id) |
 | QD10 | Whole-trip limits | 2-stop trip: both whole-trip buttons; 5 stops: Apple only; 10 stops (Toronto → Halifax): neither until stops are reached | Waypoint order matches the plan |
 | QD11 | Progress from location | Stub positions near stop 1, then 2 km past it along the route: ticked, next moves on | Position > 5 km off the route ticks nothing; Mark as reached / Not reached yet |
 | QD12 | Foreground only | With Drive open, hide the page: the watch stops; show it: it resumes | Leaving Drive stops it |
@@ -741,3 +748,41 @@ Read B89 in `docs/design/gaps-and-questions.md`. Page: `/` (the charger map and 
 | QZ7 | Pass | aria-expanded, plugs list, Change car row, values kept, close only shrinks; FLIP grow not visible in stills; Animations off not checked |
 | QZ8 | Pass after fix | restyle OK in header dialog and Compare Add a car, no contrast fails. Found: at 1280 the dialog reopened scrolled 32 px, clipping the title; fixed (scroll reset on open, 4/4 opens at 0) |
 | QZ9 | Pass | 150/250 tiers in list and key (bare bolts), L2 plug; credits open 460 ms even / close 320 ms, ⓘ fixed, About Voltway first → /about; Animations off instant; locate loader above the sheet at 375. Not testable: auto-locate with access granted; no exact 150/250 kW station in view |
+
+## 9. Car data rebuild (B90–B95, DESIGN-9)
+
+Run from a fresh clone of the branch. `npm ci`, then `npm run validate && npx vitest run && npx astro check && npm run build`; all must pass. Start the dev server (`preview_start` "voltway-dev") for the screen checks. Check 1280 px and 375 px, dark and light.
+
+| ID | Requirement | How to check | Edge cases / failure paths |
+|----|-------------|--------------|----------------------------|
+| QD1 | Every model lists generations (9.1) | `node -e` over `data/models/**`: each has `generations[]` with `first_year`; validate rejects a model with none | Model whose generation is still running (no `last_year`) |
+| QD2 | Chargeprice curves are `community`, same generation only (9.2, B95) | `public/data/cars/tesla/model-3/2026/*.json`: no `chargeprice-2021`/`-2023` curve; grep built cars for `"kind":"tested"` with a `chargeprice-` id: none | A Chargeprice record from an older year of the *same* generation still attaches |
+| QD3 | Curve linter (9.3) | `npx vitest run tests/curve-check.test.ts`; `crosswalk/GAPS.md` lists warnings; edit a curve's peak above `dc_max_kw` + 5 % → validate fails | A warned curve with `reviewed_note` can be default; without it, it isn't |
+| QD4 | Curve picker (B92, 9.4) | `/charging?car=tesla/model-3/2026/performance-awd`: one curve, no dropdown; a car with two measured curves (find one with `node -e`): dropdown lists only measured curves by source and year; an IONIQ 5 with no measured curve: template, marked Estimated, no dropdown | Screen reader label on the dropdown; French-ready (no hard-coded text) |
+| QD5 | Wheel picker (B93, 9.5) | A car with 18/19/20″ factory wheels offers 16–22″ only; a car with one size (19″) offers 17–21″ | Car with no wheel data: picker hidden |
+| QD6 | Powertrain model (9.7–9.9) | Each `data/variants/**` has `powertrain_id` that resolves; two variants on one powertrain show the same curve; a variant's own range overrides the powertrain | Curve with `variant_id` only shows on that variant |
+| QD7 | Migration kept figures (9.8) | Compare the before/after snapshot in the PR: only listed intended changes differ | IONIQ 5 "(19" Wheels)"/"(20" Wheels)" now one trim with two wheel options, each with its rated range |
+| QD8 | EPA import (9.11) | `npx vitest run tests/epa.test.ts`; `data/imported/epa/2017.json` contains a Bolt EV row with range in km and Wh/km consumption | Units: 1 mi = 1.609344 km; kWh/100 mi → Wh/km = ×10 / 1.609344 |
+| QD9 | Catalogue and trim names (9.12–9.15, B90) | `index.json` has a 2017 Chevrolet Bolt EV and a 2014 Tesla Model S; no trim name contains "-I", "-B", "(19\" Wheels)" or "(pre-"; each wave's review file shows owner approval | Duplicate NRCan rows (Model 3 Performance vs Performance AWD) merged or kept with a stated reason |
+| QD10 | Market labels (B91, 9.16) | A model year with CA- and US-specific variants (2026 Model 3) shows "· Canada"/"· US" in the Charging, Compare and trip car pickers; a shared car (2019 Bolt EV) shows no suffix | 375 px: suffix doesn't wrap the select |
+| QD11 | Scale (9.17) | Measured `index.json` size, MiniSearch build and Cars first render within the budgets in CHECKLIST 9.17 | Year select order: newest first |
+| QD12 | Research process (9.18–9.20, B94, B95) | Read the three agent files and the skill: curve researcher exists with dense-point and source rules; spec researcher has no curve duty and market-neutral sources; fact-checker checks plausibility; source licences recorded in `data/sources/` | No source fetched by working around a bot block (evkx.net is manual reference only) |
+| QD13 | Review before push (owner, 2026-11-19) | `git log origin/main..` vs what the owner approved: no Phase 9 data was pushed before the owner's review | — |
+
+## Phase 9 results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+| QD1 | | |
+| QD2 | | |
+| QD3 | | |
+| QD4 | | |
+| QD5 | | |
+| QD6 | | |
+| QD7 | | |
+| QD8 | | |
+| QD9 | | |
+| QD10 | | |
+| QD11 | | |
+| QD12 | | |
+| QD13 | | |

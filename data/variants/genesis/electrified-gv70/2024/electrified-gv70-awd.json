@@ -1,0 +1,31 @@
+{
+  "id": "genesis/electrified-gv70/2024/electrified-gv70-awd",
+  "model_id": "genesis/electrified-gv70",
+  "year": 2024,
+  "name": "Electrified GV70 AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "genesis/electrified-gv70/2023-electrified-gv70-prestige-awd",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-467a78f7ba", "low_confidence": true },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-91e86e1fae", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-6b5430454e", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-conceptcarz-genesis-ca-adapter", "note_id": "n-fc7c88d2f3", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Electrified GV70 AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-genesis-electrified-gv70-2024-index", "low_confidence": true, "note_id": "n-1115697a2f" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-genesis-au-gv70-spec-sheet", "note_id": "n-dfea15ae53", "low_confidence": true }
+      ]
+    }
+  ]
+}

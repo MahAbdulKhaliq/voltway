@@ -1,0 +1,27 @@
+{
+  "id": "honda/clarity-electric/2017/clarity-electric",
+  "model_id": "honda/clarity-electric",
+  "year": 2017,
+  "name": "Clarity Electric",
+  "drivetrain": "fwd",
+  "powertrain_id": "honda/clarity-electric/2017-clarity-electric",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-wikipedia-honda-clarity-electric", "low_confidence": true, "note_id": "n-de4b20cf22" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "estimated", "source_id": "src-insideevs-nontesla-supercharger-access-2026", "low_confidence": true, "note_id": "n-d80990beed" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-tflcar-honda-adapter", "note_id": "n-b1ed065756", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Clarity Electric" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-honda-clarity-electric-2017-specs", "note_id": "n-0e16f09813" }
+      ]
+    }
+  ]
+}

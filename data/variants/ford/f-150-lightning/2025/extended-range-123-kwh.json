@@ -4,10 +4,25 @@
   "year": 2025,
   "name": "Extended Range (123 kWh)",
   "drivetrain": "awd",
+  "powertrain_id": "ford/f-150-lightning/2025-extended-range-123-kwh",
+  "markets": ["CA", "US"],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
+  ],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-5f8f5065c6" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-ford-adapter-product", "note_id": "n-6bdf0ce985", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "Extended Range (123 kWh)"
+      "names": { "CA": "Extended Range (123 kWh)", "US": "Extended Range (123 kWh)" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-ford-us-fl-specs-2025", "notes": "Pro (123 kWh, fleet only): 18 in standard. Source is a US page; Canadian trim assumed the same.", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-ford-us-fl-specs-2025", "notes": "Flash (123 kWh): 20 in standard. Source is a US page; Canadian trim assumed the same.", "low_confidence": true }
+      ]
     }
   ]
 }

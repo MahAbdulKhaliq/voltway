@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-s/2025-plaid",
+  "model_id": "tesla/model-s",
+  "name": "Plaid",
+  "generation": "palladium",
+  "years": [2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 100, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-model-s-plaid-2025", "low_confidence": true, "notes": "ArenaEV Model S Plaid 2025: 100 kWh total (EVSpecifications: 99 kWh, 7,920 cells, 5 modules). Long Range/AWD cars (92.6 kWh usable of 100 in an ArenaEV search snippet) and Plaid share the Palladium pack." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 92.3, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-model-s-plaid-2025", "low_confidence": true, "notes": "ArenaEV Model S Plaid 2025: 92.3 kWh usable (same figure on the 2021 and 2025 pages)." }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "community", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-49961bd7e1" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-17a60e76f4" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-electrek-2020-s-x-225kw", "low_confidence": true, "note_id": "n-2348c28dd2" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "unit": "kW", "kind": "community", "source_id": "src-evspecs-model-s-2025-plaid", "low_confidence": true, "note_id": "n-f99b0d9e9f" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "community", "source_id": "src-evspecs-model-s-2025-plaid", "low_confidence": true, "note_id": "n-75d23a2e7e" }
+  ]
+}

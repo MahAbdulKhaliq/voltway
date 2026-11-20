@@ -1,0 +1,30 @@
+{
+  "id": "bmw/i3/2021/i3-120-ah",
+  "model_id": "bmw/i3",
+  "year": 2021,
+  "name": "i3 120 Ah",
+  "drivetrain": "rwd",
+  "powertrain_id": "bmw/i3/2021-i3-120-ah",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-wiki-i3", "low_confidence": true, "note_id": "n-f6dc8c54ca" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-8c05e5ab78" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-e8ab711a04", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "i3 120 Ah", "US": "i3 120 Ah" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i3-2021-specs", "note_id": "n-084552fb53" }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b113-gcf-i3-aux-heating", "note_id": "n-eb11f66410", "low_confidence": true }
+      ]
+    }
+  ]
+}

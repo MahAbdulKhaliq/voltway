@@ -4,125 +4,31 @@
   "year": 2026,
   "name": "Limited AWD",
   "drivetrain": "awd",
+  "powertrain_id": "toyota/bz/2026-awd",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-2026"
-    }
-  ],
-  "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-2026",
-      "notes": "11 kW on-board AC charger. Page says \"across all trims\"."
-    }
-  ],
-  "published_10_80_min": [
-    {
-      "value": 30,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-2026",
-      "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
-    }
-  ],
-  "battery": {
-    "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-toyota-ca-media-bz-2026",
-        "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-bz-charging-limit-2026",
-        "low_confidence": true,
-        "notes": "Toyota chief engineer (via InsideEVs): bZ \"still runs on a 400-volt electrical architecture\". Autopian: pack 391 V."
-      }
-    ],
-    "capacity_gross_kwh": [
-      {
-        "value": 77,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-toyota-ca-media-bz-2026",
-        "notes": "Toyota Canada release lists 77 kWh for XLE AWD and Limited AWD (total, usable not stated). US release says 74.7 kWh for the same trims; NRCan ranges match US EPA ranges, so probably the same pack stated differently."
-      },
-      {
-        "value": 74.7,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-pressroom-toyota-bz-2026",
-        "low_confidence": true,
-        "notes": "Toyota USA release: 74.7 kWh total capacity for XLE AWD and Limited AWD. Conflicts with Toyota Canada 77 kWh."
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-autopian-bz-2026",
-        "low_confidence": true,
-        "notes": "Autopian (chief engineer interview): \"The larger pack retains the same chemistry and cells as the previous version\" (NMC). GreenCars: \"still has nickel-manganese-cobalt cathodes\". Relayed by press."
-      }
-    ]
-  },
-  "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-bz-charging-limit-2026",
-      "low_confidence": true,
-      "notes": "InsideEVs relays Toyota: bZ charging \"capped at 150 kilowatts\". Model-level, not stated per pack."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-0ea9763c03" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-onsale-2026",
-      "low_confidence": true,
-      "notes": "Toyota Canada release: \"Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network\"; 2026 has a native NACS port. Wording is not model-specific."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-3f1c50184a" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-onsale-2026", "note_id": "n-824902a2b8" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2025,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-granvilletoyota-bz-2026",
-      "low_confidence": true,
-      "notes": "Converted from 4,464 lb (x0.45359 = 2,024.8): Canadian dealer page relaying Toyota Canada, Limited AWD. Fact-check: a search excerpt of the Toyota Canada sheet also shows 2024.84 (4464). The Car Guide page gives 2,065 kg (4,553 lb) and is treated as the outlier."
-    }
+    { "value": 2025, "unit": "kg", "kind": "manufacturer", "source_id": "src-granvilletoyota-bz-2026", "low_confidence": true, "note_id": "n-e40d88ec1a" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-toyota-ca-2026-bz-onsale", "low_confidence": true, "note_id": "n-075f4773f4" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "Limited AWD",
+      "names": { "CA": "Limited AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-toyota-ca-media-bz-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. Page lists \"Heat pump system for both heating and air-conditioning\" for the model without trim qualifier; recorded as standard. Page names no trims; trim coverage unconfirmed."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "low_confidence": true, "note_id": "n-517ae04b32" }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-toyota-ca-media-bz-2026",
-          "notes": "Limited AWD: 20-inch black multi-spoke alloy wheels."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-toyota-ca-media-bz-2026", "note_id": "n-e9d4f0faf6" }
       ]
     }
   ]

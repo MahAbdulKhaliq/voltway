@@ -81,13 +81,17 @@ describe('planCarFrom (every built car)', () => {
 
   it('plans for most cars; the rest say what is missing', () => {
     const results = cars.map((c) => ({ id: c.id, r: planCarFrom(c) }));
-    const failed = results.filter((x) => !x.r.ok);
+    // Catalogue skeletons (B90 wave 1, 2026-11-19) have no researched port or specs until the research rounds;
+    // they must still say what is missing. The bound applies to researched cars.
+    // Cars with no DC port (dc_max_kw 0: Leaf 2011–12 SV, Canadian 2013–15 S) can't plan a fast-charge trip by design.
+    const noDcPort = new Set(cars.filter((c) => c.fields.dc_max_kw?.value.value === 0).map((c) => c.id));
+    const failed = results.filter((x) => !x.r.ok && !noDcPort.has(x.id) && !(x.r as { missing: string[] }).missing.includes('charge_port'));
     expect(results.length).toBeGreaterThan(50);
-    expect(failed.length).toBeLessThanOrEqual(5); // 5 on 2026-11-16 (was 17): IONIQ 5 long-range x3, EV9 Light, bZ standard lack a sourced DC peak, so no curve
-    for (const f of failed) expect((f.r as { missing: string[] }).missing.length).toBeGreaterThan(0);
+    expect(failed.length).toBeLessThanOrEqual(2); // 2 on 2026-11-20: Spectre 2027 x2 have no sourced DC peak (owner question); B97 trucks now carry estimated consumption (B103)
+    for (const f of results.filter((x) => !x.r.ok)) expect((f.r as { missing: string[] }).missing.length).toBeGreaterThan(0);
   });
   it('a Tesla is a NACS Tesla with a DC peak', () => {
-    const tesla = cars.find((c) => c.make.id === 'tesla')!;
+    const tesla = cars.find((c) => c.id === 'tesla/model-3/2026/performance-awd')!;
     const r = planCarFrom(tesla);
     expect(r.ok).toBe(true);
     if (r.ok) {

@@ -1,0 +1,27 @@
+{
+  "id": "volvo/ex30/2025/single-motor-extended-range",
+  "model_id": "volvo/ex30",
+  "year": 2025,
+  "name": "Single Motor Extended Range",
+  "drivetrain": "rwd",
+  "powertrain_id": "volvo/ex30/2026-single-motor-extended-range",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-a9214476f3" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-36c27577b8" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Single Motor Extended Range" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ex30-2026-specs", "note_id": "n-0d179103cb", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-ex30-ser", "notes": "ArenaEV lists Heat pump Yes for the Single Motor Extended Range. Jalopnik (US 2026 single motor) also lists a heat pump as standard. Market caveat: ArenaEV sheets are European; US Climate package pages (Edmunds, dealers) list heated seats/wheel only. ArenaEV lists \"Heat pump: Yes\" without saying standard or optional, and its pages mix EU data.", "low_confidence": true }
+      ]
+    }
+  ]
+}

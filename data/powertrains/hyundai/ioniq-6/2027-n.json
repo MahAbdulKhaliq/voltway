@@ -1,0 +1,34 @@
+{
+  "id": "hyundai/ioniq-6/2027-n",
+  "model_id": "hyundai/ioniq-6",
+  "name": "N",
+  "generation": "facelift",
+  "years": [2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 84, "unit": "kWh", "kind": "manufacturer", "source_id": "src-hyundai-uk-ioniq6-n-range-charging", "low_confidence": true, "notes": "\"Upgraded 84 kWh battery\" (Hyundai UK); Electrek relays 84 kWh for the US car. Treated as gross." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 80, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-ioniq6-n", "low_confidence": true, "notes": "Estimated: EV Database lists 80.0 kWh usable (itself an estimate) for the 84.0 kWh European IONIQ 6 N; same 84 kWh pack." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-ioniq6-n", "low_confidence": true, "notes": "Estimated: EV Database lists NMC cathode for the 84 kWh IONIQ 6 N (European)." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-hyundai-uk-ioniq6-n-range-charging", "low_confidence": true, "notes": "Hyundai: 800 V charging system (400/800 V multi-charging; EVDB 697 V nominal)." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-hyundai-ww-ioniq6-la-2022", "low_confidence": true, "notes": "Estimated: the standard IONIQ 6 (same model and platform) has the navigation-triggered battery heater (this US launch release) plus a manual Battery Conditioning Mode (CE1 manual, src-hyundai-om-ce1-2025-us); carried to the N as the same model family. Hyundai UK says the N has an upgraded coolant heater and thermal management (src-hyundai-uk-ioniq6-n-range-charging); its \"preconditions the battery\" line may describe the N track battery mode, which is not counted here. No N-specific manual found." },
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-hyundai-om-ce1-2025-us", "low_confidence": true, "notes": "Estimated: companion to the value from src-hyundai-ww-ioniq6-la-2022 (manual control from the CE1 2025 US manual)." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 240, "unit": "kW", "kind": "manufacturer", "source_id": "src-hyundai-uk-ioniq6-n-range-charging", "low_confidence": true, "notes": "Hyundai UK footnote: car accepts up to 240 kW in optimal conditions (page headline 350 kW is the charger). Other figures: CarExpert AU 260 kW, EV Database 263 kW. UK-spec figure, assumed same for the US car." }
+  ],
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "estimated", "source_id": "src-hyundai-ww-ioniq6-la-2022", "low_confidence": true, "notes": "Estimated: the US IONIQ 6 (same model) has a 10.9 kW onboard charger (US launch release); Hyundai says the N has an enhanced ICCU but gives no kW. CarExpert (Australian N) says up to 10.5 kW, EVDB 11 kW (all within 5 %). No US N figure found." }
+  ],
+  "published_10_80_min": [
+    { "value": 18, "unit": "min", "kind": "manufacturer", "source_id": "src-electrek-hyundai-2027-lineup", "low_confidence": true, "notes": "About 18 min 10-80 % on a 350 kW charger (Hyundai claim relayed by Electrek)." }
+  ]
+}

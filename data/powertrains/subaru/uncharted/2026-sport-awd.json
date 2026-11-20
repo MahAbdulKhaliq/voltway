@@ -1,0 +1,34 @@
+{
+  "id": "subaru/uncharted/2026-sport-awd",
+  "model_id": "subaru/uncharted",
+  "name": "Sport AWD",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 77, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-guideauto-uncharted-ca-2026", "low_confidence": true, "note_id": "n-f7bd03296c" },
+      { "value": 74.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-uncharted-2026", "low_confidence": true, "note_id": "n-299d195c90" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 71, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "notes": "Estimated: EV Database lists 71.0 kWh usable for the 74.7 kWh pack (bZ4X Touring AWD MY26); same pack in the Subaru twin of the bZ/C-HR (Subaru US releases state 74.7 kWh). Applies to the US 74.7 kWh pack only; the Canadian 77 kWh pack has no usable figure and this single CA/US record cannot split by market." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-bde74a19f9" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "note_id": "n-ef8fe61df6" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-w2j-subaru-us-uncharted-2026", "low_confidence": true, "note_id": "n-36e2600ea9" }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-driveteslacanada-subaru-2026", "low_confidence": true, "note_id": "n-12e51a2eb7" }
+  ],
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-guideauto-uncharted-ca-2026", "low_confidence": true, "note_id": "n-56182a8fd6" }
+  ],
+  "published_10_80_min": [
+    { "value": 30, "unit": "min", "kind": "manufacturer", "source_id": "src-w2j-guideauto-uncharted-ca-2026", "low_confidence": true, "note_id": "n-c5f18b08d7" }
+  ]
+}

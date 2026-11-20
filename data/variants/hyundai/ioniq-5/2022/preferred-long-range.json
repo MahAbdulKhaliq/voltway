@@ -1,0 +1,30 @@
+{
+  "id": "hyundai/ioniq-5/2022/preferred-long-range",
+  "model_id": "hyundai/ioniq-5",
+  "year": 2022,
+  "name": "Preferred Long Range",
+  "drivetrain": "rwd",
+  "powertrain_id": "hyundai/ioniq-5/2022-preferred-long-range",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-2adefeeec1" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-679e7efbb3" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-d9840bdea0", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Preferred Long Range" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-guideauto-hyundai-ioniq-5-2022-preferred-long-range-awd", "low_confidence": true, "notes": "Page is for the Preferred Long Range AWD; the 2023 Canadian Long Range RWD page also shows 19 in." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-canadadrives-ioniq5-2022-hp", "note_id": "n-35da4b1829", "low_confidence": true }
+      ]
+    }
+  ]
+}

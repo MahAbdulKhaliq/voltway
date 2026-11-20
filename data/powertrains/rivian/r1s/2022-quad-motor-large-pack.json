@@ -1,0 +1,30 @@
+{
+  "id": "rivian/r1s/2022-quad-motor-large-pack",
+  "model_id": "rivian/r1s",
+  "name": "Quad-Motor Large Pack",
+  "generation": "gen-1",
+  "years": [2022, 2023, 2024],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 128.6, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-weeklydriver-rivian-21700", "low_confidence": true, "note_id": "n-65b746a58a" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "manufacturer", "source_id": "src-w2-autoevolution-r1-packs-2025", "low_confidence": true, "note_id": "n-950464c171" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-w2-insideevs-r1-210kw", "low_confidence": true, "note_id": "n-beb33484e5" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-insideevs-rivian-precond-2025-18", "low_confidence": true, "note_id": "n-83e0633659" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 135, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-insideevs-r1-gen2-debut", "low_confidence": true, "note_id": "n-c2835a9e5e" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 210, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-insideevs-r1-210kw", "low_confidence": true, "note_id": "n-4de63769de" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-insideevs-r1-210kw", "low_confidence": true, "note_id": "n-060810420f" }
+  ]
+}

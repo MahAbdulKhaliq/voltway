@@ -1,0 +1,33 @@
+{
+  "id": "cadillac/lyriq-v/2026-v",
+  "model_id": "cadillac/lyriq-v",
+  "name": "LYRIQ-V",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-lyriq-v", "low_confidence": true, "note_id": "n-4e8cf34fe2" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-cadillac-dc-fast-charging-support", "low_confidence": true, "note_id": "n-65ba504840" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 102, "unit": "kWh", "kind": "manufacturer", "source_id": "src-kbb-lyriq-2026-specs", "low_confidence": true, "note_id": "n-b0f8dc4226" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 100, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-cadillac-lyriq", "low_confidence": true, "note_id": "n-182b62d54f" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-r3-greencars-lyriq-v", "low_confidence": true, "note_id": "n-a05f10a86f" }
+    ]
+  },
+  "published_10_80_min": [
+    { "value": 40, "unit": "min", "kind": "manufacturer", "source_id": "src-cargurus-lyriq-2026", "low_confidence": true, "note_id": "n-c55c5f2d7c" }
+  ],
+  "dc_max_kw": [
+    { "value": 190, "unit": "kW", "kind": "estimated", "source_id": "src-r3-greencars-lyriq-v", "low_confidence": true, "notes": "Estimated: GreenCarsCompare gives 190 kW DC for the Lyriq-V; InsideEVs (2023, Cadillac figure) and Electrek (2027) both state 190 kW, same pack and charger hardware 2023-2027 with no change found. Model year 2026." }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-r3-greencars-lyriq-v", "low_confidence": true, "note_id": "n-d60d5a4fc8" }
+  ]
+}

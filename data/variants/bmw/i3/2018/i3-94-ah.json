@@ -1,0 +1,30 @@
+{
+  "id": "bmw/i3/2018/i3-94-ah",
+  "model_id": "bmw/i3",
+  "year": 2018,
+  "name": "i3 94 Ah",
+  "drivetrain": "rwd",
+  "powertrain_id": "bmw/i3/2018-i3-94-ah",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-wiki-i3", "low_confidence": true, "note_id": "n-f6dc8c54ca" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-8c05e5ab78" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-e8ab711a04", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "i3 94 Ah", "US": "i3 94 Ah" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i3-2018-specs", "notes": "i3 94 Ah: 19 x 5 front / 19 x 5.5 rear forged aluminum, P155/70R19 and P175/60R19. (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-bmw-us-2017-i3-94ah-pricing", "notes": "Estimated: no MY2018 US guide opened (the BMW Canada 2018 product guide has no heat-pump line). The MY2017 guide lists STD on the same 94 Ah car and Green Car Future (US) says every i3 made before 2019 had it. Years compared: 2017 and \"before 2019\". Source is a US document; Canada not checked.", "low_confidence": true }
+      ]
+    }
+  ]
+}

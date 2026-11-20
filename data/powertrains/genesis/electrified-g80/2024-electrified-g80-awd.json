@@ -1,0 +1,33 @@
+{
+  "id": "genesis/electrified-g80/2024-electrified-g80-awd",
+  "model_id": "genesis/electrified-g80",
+  "name": "Electrified G80 AWD",
+  "generation": "first-generation",
+  "years": [2024, 2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 87.2, "unit": "kWh", "kind": "estimated", "source_id": "src-cars-genesis-g80-2023", "notes": "Estimated: same 87.2 kWh pack as the 2023 car; years compared 2023-2025, nothing found that changes the pack before the 94.5 kWh facelift (2026+; UK/Germany release 2025-05, Genesis DE page now lists 94.5 kWh).", "low_confidence": true }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 83.4, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-egmp-774", "note_id": "n-fc60394e9e", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-genesis-au-g80-charging", "note_id": "n-de4ff95b29", "low_confidence": true }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-genesis-au-g80-electric", "note_id": "n-d5b029cc1d", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-r2-koreatimes-g80-sk", "low_confidence": true, "note_id": "n-8c2b0b22ef" }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "community", "source_id": "src-cars-genesis-g80-2023", "note_id": "n-88a15da8e0", "low_confidence": true }
+  ],
+  "dc_max_kw": [
+    { "value": 187, "unit": "kW", "kind": "community", "source_id": "src-cars-genesis-g80-2023", "note_id": "n-bd820c2824", "low_confidence": true }
+  ],
+  "published_10_80_min": [
+    { "value": 22, "unit": "min", "kind": "manufacturer", "source_id": "src-genesis-au-g80-charging", "note_id": "n-82c686f347", "low_confidence": true }
+  ]
+}

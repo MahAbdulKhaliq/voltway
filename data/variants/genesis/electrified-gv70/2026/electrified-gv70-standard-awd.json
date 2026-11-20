@@ -1,0 +1,31 @@
+{
+  "id": "genesis/electrified-gv70/2026/electrified-gv70-standard-awd",
+  "model_id": "genesis/electrified-gv70",
+  "year": 2026,
+  "name": "Electrified GV70 Standard AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "genesis/electrified-gv70/2026-electrified-gv70-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-4f11cd6f71", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-f8483eeff6", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-gen-us-how-to-charge", "note_id": "n-f502346965", "low_confidence": true },
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-b112-gen-ca-nacs-release", "note_id": "n-ee2e2d3d2b", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Electrified GV70 Standard AWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-genesis-electrified-gv70-2026-index", "low_confidence": true, "notes": "19\" AWD trim: 19 x 8 in, P235/55VR19." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-autoexpress-gv70-2025", "note_id": "n-bb82b514f5", "low_confidence": true }
+      ]
+    }
+  ]
+}

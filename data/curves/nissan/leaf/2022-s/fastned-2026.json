@@ -1,0 +1,29 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "nissan/leaf/2022-s",
+  "kind": "tested",
+  "source_id": "src-fastned-vehicle-curves-2026",
+  "points": [
+    { "soc_percent": 17, "power_kw": 42.2 },
+    { "soc_percent": 20, "power_kw": 43.1 },
+    { "soc_percent": 25, "power_kw": 43.6 },
+    { "soc_percent": 30, "power_kw": 43.7 },
+    { "soc_percent": 35, "power_kw": 44.2 },
+    { "soc_percent": 40, "power_kw": 44.5 },
+    { "soc_percent": 45, "power_kw": 44.7 },
+    { "soc_percent": 50, "power_kw": 44.8 },
+    { "soc_percent": 55, "power_kw": 45.4 },
+    { "soc_percent": 57, "power_kw": 45.6 },
+    { "soc_percent": 60, "power_kw": 45.6 },
+    { "soc_percent": 65, "power_kw": 36.5 },
+    { "soc_percent": 70, "power_kw": 32.8 },
+    { "soc_percent": 75, "power_kw": 29.9 },
+    { "soc_percent": 80, "power_kw": 26 },
+    { "soc_percent": 85, "power_kw": 23.2 },
+    { "soc_percent": 90, "power_kw": 20.2 },
+    { "soc_percent": 92, "power_kw": 19.1 }
+  ],
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 50, "measured_at": "unknown" },
+  "note_id": "n-59e9edd9e7",
+  "is_display_default": false
+}

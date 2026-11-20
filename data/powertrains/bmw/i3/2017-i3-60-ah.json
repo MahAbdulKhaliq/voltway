@@ -1,0 +1,32 @@
+{
+  "id": "bmw/i3/2017-i3-60-ah",
+  "model_id": "bmw/i3",
+  "name": "i3 60 Ah",
+  "generation": "94-ah",
+  "years": [2017],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 22, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-17", "low_confidence": true, "notes": "BMW US 2017 release, previous (60 Ah) pack: \"22 kWh (gross)/19 kWh (net)\"." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 19, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-17", "low_confidence": true, "notes": "BMW US 2017 release: 60 Ah pack 19 kWh net." },
+      { "value": 18.8, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-a-i3", "low_confidence": true, "note_id": "n-7b674cbaa5" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-wiki-i3", "low_confidence": true, "note_id": "n-dd5bc7f59c" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-bmw-i3-19", "low_confidence": true, "note_id": "n-4f26bca7f4" }
+    ],
+    "preconditioning": [
+      { "value": "manual_only", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-17", "low_confidence": true, "note_id": "n-eebb9a1cab" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 50, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-17", "low_confidence": true, "notes": "BMW US 2017 release \"50 kW DC fast charging\" for the i3 range; the 60 Ah car has the same CCS system. DC was an option on early cars (see port note)." },
+    { "value": 47, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-a-i3", "low_confidence": true, "note_id": "n-30fc5abf9a" }
+  ],
+  "ac_max_kw": [
+    { "value": 7.4, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-a-i3", "low_confidence": true, "note_id": "n-b646daf3f9" }
+  ]
+}

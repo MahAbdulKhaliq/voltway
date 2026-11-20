@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqe/2026/amg-eqe-4matic-plus-sedan",
+  "model_id": "mercedes/eqe",
+  "year": 2026,
+  "name": "AMG EQE 4MATIC+ Sedan",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/eqe/2026-amg-eqe-4matic-plus-sedan",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-eqe-amgeqev4", "note_id": "n-e863ab2c59" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-3bcd8deee5" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "AMG EQE 4MATIC+ Sedan" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-amg-eqe-2026-specs", "notes": "AMG EQE 4MATIC+ Sedan: 20 x 9.5 front / 20 x 10.5 rear." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-298ec6a49a", "low_confidence": true }
+      ]
+    }
+  ]
+}

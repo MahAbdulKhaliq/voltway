@@ -1,0 +1,26 @@
+{
+  "id": "volvo/ec40/2026/single-motor-extended-range",
+  "model_id": "volvo/ec40",
+  "year": 2026,
+  "name": "Single Motor Extended Range",
+  "drivetrain": "rwd",
+  "powertrain_id": "volvo/ec40/2026-single-motor-extended-range",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-273418125a" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-eaa51df48d" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-e5aef72387" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Single Motor Extended Range", "US": "Single Motor Extended Range" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ec40-2025-specs-457200", "note_id": "n-8121125bfb", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-volvo-ec40-2025-specs-457198", "note_id": "n-6914315e23", "low_confidence": true }
+      ]
+    }
+  ]
+}

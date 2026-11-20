@@ -1,0 +1,32 @@
+{
+  "id": "lucid/air/2026/grand-touring",
+  "model_id": "lucid/air",
+  "year": 2026,
+  "name": "Grand Touring",
+  "drivetrain": "awd",
+  "powertrain_id": "lucid/air/2026-grand-touring",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "note_id": "n-9227bf3775" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-lucid-air-supercharger", "note_id": "n-0420550f7d" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Grand Touring" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-lucid-air-grand-touring-page", "note_id": "n-8f3921dda2", "low_confidence": true },
+        { "diameter_in": 19, "is_standard": false, "source_id": "src-r2w-lucid-air-grand-touring-page", "note_id": "n-ea3a9440fe", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r2w-lucid-air-grand-touring-page", "note_id": "n-003613618a", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-gcr-2025-air-pure", "note_id": "n-09171141f5", "low_confidence": true }
+      ]
+    }
+  ]
+}

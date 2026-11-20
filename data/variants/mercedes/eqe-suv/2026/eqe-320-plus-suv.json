@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/eqe-suv/2026/eqe-320-plus-suv",
+  "model_id": "mercedes/eqe-suv",
+  "year": 2026,
+  "name": "EQE 320+ SUV",
+  "drivetrain": "rwd",
+  "powertrain_id": "mercedes/eqe-suv/2026-eqe-320-plus-suv",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-eqe-eqe320x", "note_id": "n-e863ab2c59" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-3bcd8deee5" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "EQE 320+ SUV" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqe-320-plus-2026-specs-474469", "note_id": "n-ab42bd2f6f" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-d5ca4e11db", "low_confidence": true }
+      ]
+    }
+  ]
+}

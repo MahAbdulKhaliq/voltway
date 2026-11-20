@@ -1,0 +1,30 @@
+{
+  "id": "fiat/500e/2024/500e-2",
+  "model_id": "fiat/500e",
+  "year": 2024,
+  "name": "500e",
+  "drivetrain": "fwd",
+  "powertrain_id": "fiat/500e/2024-500e",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "community", "source_id": "src-wikipedia-fiat-500e", "note_id": "n-540a726c77", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-3732d95d70", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-059a0df71e" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "500e" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-r2w-cc-f24", "note_id": "n-9c30431ae1", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-fiat-500-42kwh-2020", "note_id": "n-600d4b68f1", "low_confidence": true }
+      ]
+    }
+  ]
+}

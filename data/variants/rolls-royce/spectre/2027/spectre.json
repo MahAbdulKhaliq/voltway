@@ -1,0 +1,28 @@
+{
+  "id": "rolls-royce/spectre/2027/spectre",
+  "model_id": "rolls-royce/spectre",
+  "year": 2027,
+  "name": "Spectre",
+  "drivetrain": "awd",
+  "powertrain_id": "rolls-royce/spectre/2027-spectre",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-blog-sp2", "low_confidence": true, "note_id": "n-92fe6c65fd" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2-blog-sp2", "low_confidence": true, "note_id": "n-ba64ea98e2" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Spectre" },
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2027-specs", "notes": "Spectre: 22 x 8.5 front / 22 x 9.5 rear forged aluminum." },
+        { "diameter_in": 23, "is_standard": false, "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2027-specs", "notes": "Spectre: Spectre Enhancement Package includes 23 in polished wheels." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-spectre-s2-993", "notes": "ArenaEV lists the Series II (2026-) with Heat pump: Yes; Series II is the MY2027 US car. ArenaEV is a spec database (EU-oriented) and lists the feature as \"Yes\" without saying standard or optional; read as standard. Rolls-Royce site not usable. ArenaEV lists \"Heat pump: Yes\" without saying standard or optional (it also says Yes for the 2019–21 i3, where it was a paid option), and its pages mix EU data.", "low_confidence": true }
+      ]
+    }
+  ]
+}

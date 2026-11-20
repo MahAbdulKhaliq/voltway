@@ -1,0 +1,33 @@
+{
+  "id": "nissan/ariya/2023-engage-plus-e-4orce",
+  "model_id": "nissan/ariya",
+  "name": "Engage+ e-4ORCE",
+  "generation": "first-generation",
+  "years": [2023],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 87, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "note_id": "n-b50ef43bdc" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 91, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "note_id": "n-7231061bd0" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ariya-87-e4orce-my23-24", "low_confidence": true, "note_id": "n-863f36f549" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "community", "source_id": "src-evdb-ariya-87-e4orce-my23-24", "low_confidence": true, "note_id": "n-f733c75a42" }
+    ],
+    "preconditioning": [
+      { "value": "manual_only", "kind": "estimated", "source_id": "src-nissan-usa-ariya-2023-owner-manual", "low_confidence": true, "note_id": "n-776355771b" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 130, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "note_id": "n-f69460c65a" }
+  ],
+  "ac_max_kw": [
+    { "value": 7.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "note_id": "n-ae31fee81e" }
+  ],
+  "published_10_80_min": [
+    { "value": 40, "unit": "min", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-73a4681e8a" }
+  ]
+}

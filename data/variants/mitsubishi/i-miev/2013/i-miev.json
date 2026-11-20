@@ -1,0 +1,30 @@
+{
+  "id": "mitsubishi/i-miev/2013/i-miev",
+  "model_id": "mitsubishi/i-miev",
+  "year": 2013,
+  "name": "i-MiEV",
+  "drivetrain": "rwd",
+  "powertrain_id": "mitsubishi/i-miev/2013-i-miev",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "chademo", "kind": "community", "source_id": "src-w2j-myimiev-chademo", "low_confidence": true, "note_id": "n-81f46a9288" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "estimated", "source_id": "src-w2j-wikipedia-imiev", "low_confidence": true, "note_id": "n-a92bf7a2ae" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-wikipedia-imiev", "note_id": "n-0933c10428", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "i-MiEV", "US": "i-MiEV" },
+      "wheels": [
+        { "diameter_in": 15, "is_standard": true, "source_id": "src-r2w-cc-imiev12", "notes": "2012 page; 2013 not checked, low confidence.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b112-nh-wikipedia-imiev", "note_id": "n-4c28fd9593", "low_confidence": true }
+      ]
+    }
+  ]
+}

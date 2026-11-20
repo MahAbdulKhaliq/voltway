@@ -1,0 +1,32 @@
+{
+  "id": "bmw/i4/2023/m50",
+  "model_id": "bmw/i4",
+  "year": 2023,
+  "name": "M50",
+  "drivetrain": "awd",
+  "powertrain_id": "bmw/i4/2023-edrive40",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-lectron-bmw-adapter", "low_confidence": true, "note_id": "n-f82013d8b0" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "low_confidence": true, "note_id": "n-5726dc3848" },
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-bmw-supercharger-2025", "low_confidence": true, "note_id": "n-0c3fdec9eb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true },
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "M50", "US": "M50" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2023-specs-430370", "notes": "M50: 19 x 8.5 front / 19 x 9 rear aluminum, P245/40R19 and P255/40R19; the page lists no optional wheels. (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-adac-i4-edrive40", "note_id": "n-4199fe2f63", "low_confidence": true }
+      ]
+    }
+  ]
+}

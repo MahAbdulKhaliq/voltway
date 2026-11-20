@@ -1109,6 +1109,14 @@ html[data-motion="off"] :is(.explorer, .compare, .browse, .car-picker) select { 
 .bf-label { font-size: 0.875rem; color: var(--muted); }
 .bf-label strong { color: var(--text); font-weight: 650; font-variant-numeric: tabular-nums; }
 .browse-count { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin: 0 0 12px; }
+/* B106: Cars page pages. */
+.pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin: 20px 0 8px; }
+.pager-range { margin: 0; }
+.pager-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.pager .btn { min-height: 36px; min-width: 36px; }
+.pager .btn:disabled { opacity: 0.45; cursor: default; }
+.pager-num.on { background: var(--accent-soft); border-color: var(--accent); font-weight: 700; }
+.pager-gap { color: var(--muted); padding: 0 2px; }
 .count-num { font-family: var(--display); font-weight: 800; font-size: 1.5rem; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 .car-card .cc-name { font-family: var(--display); font-weight: 700; letter-spacing: -0.01em; }
 .car-card .cc-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 10px 0; }

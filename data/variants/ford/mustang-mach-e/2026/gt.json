@@ -4,33 +4,27 @@
   "year": 2026,
   "name": "GT",
   "drivetrain": "awd",
+  "powertrain_id": "ford/mustang-mach-e/2026-gt",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-414c61eb68" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-ford-adapter-product", "note_id": "n-f6c94fe44e", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "GT",
+      "names": { "CA": "GT", "US": "GT" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-ford-ca-mach-e-gt-2026",
-          "notes": "Listed as Vapor Injection Heat Pump on the GT page."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-ford-ca-mach-e-gt-2026", "notes": "Listed as Vapor Injection Heat Pump on the GT page." }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "tire_size": "245/45R20",
-          "source_id": "src-ford-ca-mach-e-gt-2026",
-          "notes": "20 in Monochromatic High-Gloss Black-Painted, all-season."
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "tire_size": "245/45R20",
-          "source_id": "src-ford-ca-mach-e-gt-2026",
-          "notes": "Optional 20 in machined-face with Carbonized Grey pockets, summer tires."
-        }
+        { "diameter_in": 20, "is_standard": true, "tire_size": "245/45R20", "source_id": "src-ford-ca-mach-e-gt-2026", "notes": "20 in Monochromatic High-Gloss Black-Painted, all-season." },
+        { "diameter_in": 20, "is_standard": false, "tire_size": "245/45R20", "source_id": "src-ford-ca-mach-e-gt-2026", "notes": "Optional 20 in machined-face with Carbonized Grey pockets, summer tires." }
       ]
     }
   ]

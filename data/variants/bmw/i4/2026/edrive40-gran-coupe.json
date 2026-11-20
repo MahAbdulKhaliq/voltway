@@ -4,32 +4,25 @@
   "year": 2026,
   "name": "eDrive40",
   "drivetrain": "rwd",
+  "powertrain_id": "bmw/i4/2026-edrive40-gran-coupe",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-thinkev-bmw-i4-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thinkev-bmw-i4-2026", "low_confidence": true, "notes": "Quick web lookup." }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-bmw-canada-nacs-superchargers-2026-04",
-      "low_confidence": true,
-      "notes": "BMW Canada (2026-04-08): CCS-port BMW BEVs get Supercharger access via RSU and the approved Lectron Vortex Plus NACS-to-CCS adapter; the i4 keeps its CCS1 port (native NACS only on all-new 2026+ models such as iX3, i3). US access began 2025-12-10 (BMWBlog lists i4)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "low_confidence": true, "notes": "BMW Canada (2026-04-08): CCS-port BMW BEVs get Supercharger access via RSU and the approved Lectron Vortex Plus NACS-to-CCS adapter; the i4 keeps its CCS1 port (native NACS only on all-new 2026+ models such as iX3, i3). US access began 2025-12-10 (BMWBlog lists i4)." }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "note_id": "n-a07be1fb15", "low_confidence": true },
+    { "value": "nacs_to_ccs1_sold", "kind": "community", "source_id": "src-b112-electrive-bmw-sc-2025", "note_id": "n-9d78f32779", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "18-in-wheels",
-      "name": "eDrive40 (18\" Wheels)"
-    },
-    {
-      "id": "19-in-wheels",
-      "name": "eDrive40 (19\" Wheels)"
+      "names": { "CA": "eDrive40", "US": "eDrive40" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2026-specs", "notes": "eDrive40 (2026 page): 18 x 7.5 in aluminum, P225/50R18. The page says the M Sport package adds larger wheels without a size, so no option is recorded. (US page; Canadian cars assumed the same.)" }
+      ]
     }
   ]
 }

@@ -1,0 +1,33 @@
+{
+  "id": "kia/ev6/2022-standard-range-rwd",
+  "model_id": "kia/ev6",
+  "name": "Standard Range RWD",
+  "generation": "first-generation-pre-facelift",
+  "years": [2022],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 58, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-kia-ev6", "low_confidence": true, "note_id": "n-bcbd0c9ef6" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 54, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ev6-sr-gen1", "low_confidence": true, "note_id": "n-1eb2e59165" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ev6-sr-gen1", "low_confidence": true, "note_id": "n-c06348fa94" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "community", "source_id": "src-evdb-ev6-sr-gen1", "low_confidence": true, "note_id": "n-54d7f016ca" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-insideevs-ev6-cold-weather-update", "low_confidence": true, "note_id": "n-0bf3f70c5f" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 180, "unit": "kW", "kind": "manufacturer", "source_id": "src-wikipedia-kia-ev6", "low_confidence": true, "note_id": "n-c60d2a81a3" }
+  ],
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-ev6-2022-us-specs", "low_confidence": true, "note_id": "n-7c4a5aecb6" }
+  ],
+  "published_10_80_min": [
+    { "value": 18, "unit": "min", "kind": "manufacturer", "source_id": "src-evdb-ev6-sr-gen1", "low_confidence": true, "note_id": "n-b4c62e517d" }
+  ]
+}

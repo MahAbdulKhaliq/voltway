@@ -1,0 +1,33 @@
+{
+  "id": "chevrolet/equinox-ev/2027-fwd",
+  "model_id": "chevrolet/equinox-ev",
+  "name": "FWD",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 85, "unit": "kWh", "kind": "estimated", "source_id": "src-autodata-equinox-ev-89", "low_confidence": true, "note_id": "n-99793c9e3c" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-85", "low_confidence": true, "note_id": "n-989dd08094" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-insideevs-equinox-ev-ultium-voltage", "low_confidence": true, "note_id": "n-c8980bc11f" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 89, "unit": "kWh", "kind": "community", "source_id": "src-autodata-equinox-ev-89", "low_confidence": true, "note_id": "n-3bb8116af0" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-equinox-ev-ultium-voltage", "low_confidence": true, "notes": "Estimated: InsideEVs and The Charge Port (2026 specs): 150 kW peak; same pack and hardware 2024-2027 (Wikipedia, KBB). Years on this powertrain: 2027." }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-wikipedia-chevrolet-equinox-ev", "low_confidence": true, "note_id": "n-1418c2c431" }
+  ],
+  "published_10_80_min": [
+    { "value": 42, "unit": "min", "kind": "estimated", "source_id": "src-thechargeport-equinox-ev", "low_confidence": true, "notes": "Estimated: The Charge Port gives about 42 minutes for the 2026 specs; carried to this year because the pack and charger are unchanged. Chevrolet's 2027 page instead claims 'up to 80 miles' in 10 min and publishes no 10-80 time. The Charge Port (2027 page) says the 2026 specs listed about 42 min for 10-80 % (Recharged also reports Chevy's site saying 42 min); InsideEVs said GM had not published a 10-80 % time at launch. Model-level claim." }
+  ]
+}

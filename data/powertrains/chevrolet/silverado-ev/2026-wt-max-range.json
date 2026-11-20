@@ -1,0 +1,34 @@
+{
+  "id": "chevrolet/silverado-ev/2026-wt-max-range",
+  "model_id": "chevrolet/silverado-ev",
+  "name": "WT Max Range",
+  "generation": "first-generation",
+  "years": [2025, 2026],
+  "battery": {
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec", "low_confidence": true, "note_id": "n-2668b49398" },
+      { "value": "800v", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "Estimated: same Max Range 24-module pack as the other Max Range Silverado EVs. GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. Charges at 800 V." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-thinkev-silverado-2026", "low_confidence": true, "note_id": "n-8daea4ea8a" },
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-60bfa013c8" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 204, "unit": "kWh", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-b45cf69790" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-thechargeport-silverado", "low_confidence": true, "notes": "The Charge Port lists the fleet-only WT Max Range at 19.2 kW; the listing carries no model year. US page." },
+    { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "Estimated: same Max Range 24-module pack as the other Max Range Silverado EVs. GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. 19.2 kW module on Maximum Range." }
+  ],
+  "dc_max_kw": [
+    { "value": 350, "unit": "kW", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec", "low_confidence": true, "notes": "Quick web lookup (rough, not cross-checked). “Up to 350 kW” public DC fast charging." },
+    { "value": 350, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "Estimated: same Max Range 24-module pack as the other Max Range Silverado EVs. GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. 800 V up to 350 kW." }
+  ],
+  "published_10_80_min": [
+    { "value": 46, "unit": "min", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-c770361611" }
+  ]
+}

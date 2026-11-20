@@ -1,0 +1,30 @@
+{
+  "id": "porsche/taycan/2021-taycan-4-cross-turismo",
+  "model_id": "porsche/taycan",
+  "name": "Taycan 4 Cross Turismo",
+  "generation": "first-generation",
+  "years": [2021, 2022, 2023, 2024],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 93.4, "unit": "kWh", "kind": "manufacturer", "source_id": "src-porsche-2021-taycan-rwd", "low_confidence": true, "notes": "Performance Battery Plus: 93.4 kWh gross (Porsche). Pack for this trim: all Cross Turismo launch models use the Plus pack (Porsche 2021 Cross Turismo release, Wikipedia). Same pack 2020-2024 (no change reported across those years)." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 83.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-taycan", "low_confidence": true, "note_id": "n-321f61ca89" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-porsche-j1-93", "low_confidence": true, "note_id": "n-b485c755ea" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-porsche-taycan-battery-page", "note_id": "n-d66bae151a" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-porsche-taycan-range-planner", "note_id": "n-4c087d5dde" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 270, "unit": "kW", "kind": "manufacturer", "source_id": "src-porsche-2021-taycan-rwd", "low_confidence": true, "note_id": "n-4879005daa" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-taycan-2025-specs", "low_confidence": true, "note_id": "n-7848fbd3d3" }
+  ]
+}

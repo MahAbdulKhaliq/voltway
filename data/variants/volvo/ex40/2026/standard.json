@@ -3,29 +3,25 @@
   "model_id": "volvo/ex40",
   "year": 2026,
   "name": "Standard",
-  "drivetrain": "fwd",
+  "drivetrain": "rwd",
+  "powertrain_id": "volvo/ex40/2026-standard",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-volvo-hamilton-ex40-2026-charging",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian dealer article says the EX40 natively uses CCS (CCS1 for North America). Page says only 'CCS'; CCS1 inferred from the North American market."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-volvo-hamilton-ex40-2026-charging", "low_confidence": true, "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2026 Canada Standard." },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-59345ebdf7" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-volvo-hamilton-ex40-2026-charging",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Volvo's NACS adapter gives access to over 18,000 Tesla Supercharger stations in Canada and the US."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-volvo-hamilton-ex40-2026-charging", "low_confidence": true, "note_id": "n-5f85aa4352" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-ff57fb6760" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-65658f5296" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "EX40"
+      "names": { "CA": "EX40" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ex40-2026-specs", "notes": "US Plus page applied to the Canadian EX40.", "low_confidence": true }
+      ]
     }
   ]
 }

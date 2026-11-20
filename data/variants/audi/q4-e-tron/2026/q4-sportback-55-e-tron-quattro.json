@@ -1,0 +1,31 @@
+{
+  "id": "audi/q4-e-tron/2026/q4-sportback-55-e-tron-quattro",
+  "model_id": "audi/q4-e-tron",
+  "year": 2026,
+  "name": "Q4 Sportback 55 e-tron quattro",
+  "drivetrain": "awd",
+  "powertrain_id": "audi/q4-e-tron/2026-q4-45-e-tron",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-38cbbe8453" }
+  ],
+  "supercharger_access": [
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-52c7b05743" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-b112-electrive-audi-porsche", "note_id": "n-25dacd4d74" },
+    { "value": "none", "kind": "manufacturer", "source_id": "src-b112-insideevs-audi-porsche-sc", "note_id": "n-aa2d879f01" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Q4 Sportback 55 e-tron quattro", "US": "Q4 Sportback 55 e-tron quattro" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-q4etronsportback-2022-425583", "notes": "Estimated: 2022 Q4 Sportback page shows 20-inch; 2026 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b112-insideevs-q4-2025", "note_id": "n-9ddcf2b9af", "low_confidence": true }
+      ]
+    }
+  ]
+}

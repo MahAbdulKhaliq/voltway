@@ -4,82 +4,28 @@
   "year": 2026,
   "name": "Woodland AWD (All-Terrain Tire)",
   "drivetrain": "awd",
+  "powertrain_id": "toyota/bz/2026-woodland-awd",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-woodland-2026"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-woodland-2026" }
   ],
-  "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-woodland-2026",
-      "notes": "11 kW on-board AC charger."
-    }
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-c43bf8772c" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-toyota-ca-media-bz-onsale-2026", "low_confidence": true, "note_id": "n-e8e0827b3a" }
   ],
-  "published_10_80_min": [
-    {
-      "value": 30,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-woodland-2026",
-      "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
-    }
-  ],
-  "battery": {
-    "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-toyota-ca-media-bz-woodland-2026",
-        "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination. Automatic start needs a Toyota Drive Connect trial or subscription."
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-insideevs-bz-charging-limit-2026",
-        "low_confidence": true,
-        "notes": "Estimated: the source covers the 2026 bZ's 74.7 kWh pack, not the Woodland by name; Woodland uses the same 74.7 kWh pack (Toyota Canada Woodland release). Toyota chief engineer (via InsideEVs): bZ \"still runs on a 400-volt electrical architecture\". Autopian: pack 391 V."
-      }
-    ],
-    "capacity_gross_kwh": [
-      {
-        "value": 74.7,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-toyota-ca-media-bz-woodland-2026",
-        "notes": "Toyota Canada Woodland release: \"total capacity of 74.7 kWh\" (usable not stated)."
-      }
-    ],
-    "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-autopian-bz-2026",
-        "low_confidence": true,
-        "notes": "Estimated: the source covers the 2026 bZ's 74.7 kWh pack, not the Woodland by name; Woodland uses the same 74.7 kWh pack (Toyota Canada Woodland release). Autopian (chief engineer interview): \"The larger pack retains the same chemistry and cells as the previous version\" (NMC). GreenCars: \"still has nickel-manganese-cobalt cathodes\". Relayed by press."
-      }
-    ]
-  },
-  "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-insideevs-bz-charging-limit-2026",
-      "low_confidence": true,
-      "notes": "Estimated: the source covers the 2026 bZ's 74.7 kWh pack, not the Woodland by name; Woodland uses the same 74.7 kWh pack (Toyota Canada Woodland release). InsideEVs relays Toyota: bZ charging \"capped at 150 kilowatts\". Model-level, not stated per pack."
-    }
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-toyota-ca-2026-bz-onsale", "note_id": "n-716e07d5bc", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "Woodland AWD (All-Terrain Tire)"
+      "names": { "CA": "Woodland AWD (All-Terrain Tire)" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-toy-ca-w", "notes": "Canadian Woodland: 18-inch aluminum wheels; the all-terrain tire is the variant, not a wheel size." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-toyota-ca-2026-bz-range", "note_id": "n-c4c8509cfa", "low_confidence": true }
+      ]
     }
   ]
 }

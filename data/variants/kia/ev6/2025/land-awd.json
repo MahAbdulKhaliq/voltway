@@ -4,110 +4,27 @@
   "year": 2025,
   "name": "Land AWD",
   "drivetrain": "awd",
+  "powertrain_id": "kia/ev6/2025-land-awd",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev6-2025"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev6-2025"
-    }
-  ],
-  "ac_max_kw": [
-    {
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev6-2025-specs",
-      "low_confidence": true,
-      "notes": "Spec table value; not confirmed per trim."
-    }
-  ],
-  "battery": {
-    "capacity_gross_kwh": [
-      {
-        "value": 84,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-2025-ev6-specs",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked). 84 kWh long-range pack."
-      }
-    ],
-    "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-2025-ev6-specs",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
-    ],
-    "chemistry": [
-      {
-        "low_confidence": true,
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-evdb-ev6-gt",
-        "notes": "Estimated: EV Database lists NMC cathode for the 84 kWh EV6 GT (same 84 kWh / 697 V pack as Wind and Land); The Weekly Driver lists the 2025 EV6 Long Range under the SK On NCM 811 pouch pack."
-      }
-    ]
-  },
-  "dc_max_kw": [
-    {
-      "value": 240,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-2025-ev6-specs",
-      "low_confidence": true,
-      "notes": "Quick web lookup (rough, not cross-checked). US figure."
-    }
-  ],
-  "published_10_80_min": [
-    {
-      "value": 20,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev6-2025",
-      "notes": "“As little as 20 minutes” on a 350 kW charger (best case)."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2100,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ev6-2025-land-awd",
-      "low_confidence": true,
-      "notes": "Guide Auto lists \"Weight\" 2,100 kg (4,630 lb) for the Canadian Land AWD (84.0 kWh, P235/55R19); US Wind and GT-Line AWD are also 4,630 lb (KBB). Presumed curb weight; applies to the 19-inch trim, the 20-inch trim may differ."
-    }
+    { "value": 2100, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev6-2025-land-awd", "low_confidence": true, "note_id": "n-6ab25a210a" }
   ],
   "trims": [
     {
       "id": "19-in-wheels",
-      "name": "Land AWD (19\" Wheels)",
+      "names": { "CA": "Land AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-kia-ca-ev6-2025"
-        }
-      ]
-    },
-    {
-      "id": "20-in-wheels",
-      "name": "Land AWD (20\" Wheels)",
-      "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-kia-ca-ev6-2025"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" },
+        { "value": "standard", "kind": "community", "source_id": "src-kbb-ev6-2025-specs", "note_id": "n-db4fbb16f6" }
+      ],
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2025-471673", "low_confidence": true, "note_id": "n-a255c9cb8c" }
       ]
     }
   ]

@@ -1,0 +1,30 @@
+{
+  "id": "audi/e-tron/2022/e-tron-s-sportback-quattro",
+  "model_id": "audi/e-tron",
+  "year": 2022,
+  "name": "e-tron S Sportback quattro",
+  "drivetrain": "awd",
+  "powertrain_id": "audi/e-tron/2022-e-tron-s-quattro",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-chargepapa-q8-port", "low_confidence": true, "note_id": "n-191815a17b" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-331f04b34d" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "estimated", "source_id": "src-b112-audiclubna-nacs", "note_id": "n-ccfccce3ec", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "e-tron S Sportback quattro", "US": "e-tron S Sportback quattro" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-etrons-2022-424951", "notes": "Estimated: 2022 e-tron S Sportback taken from the 2022 e-tron S (SUV body) Premium Plus quattro page, 20x10. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-ehga-etron-climate", "note_id": "n-508d22020f", "low_confidence": true }
+      ]
+    }
+  ]
+}

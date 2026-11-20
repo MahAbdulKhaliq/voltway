@@ -1,0 +1,30 @@
+{
+  "id": "bmw/ix5/2027-60-xdrive",
+  "model_id": "bmw/ix5",
+  "name": "60 xDrive",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-w2-bmw-ix5", "note_id": "n-85d16dae36" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-bmw-ix5", "note_id": "n-396b5101ec" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 144, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-ix5", "notes": "BMW US: \"144 kWh of net usable energy\"." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-evs-i3", "low_confidence": true, "notes": "Estimated: BMW US says the iX5 cells \"use the same cell chemistry as the 95-millimeter-high cells in the BMW iX3\", which evspecifications lists as NCM." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 460, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-ix5", "notes": "BMW US: up to 460 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 15.4, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-ix5", "note_id": "n-0b1b5a6812" }
+  ],
+  "published_10_80_min": [
+    { "value": 22, "unit": "min", "kind": "manufacturer", "source_id": "src-w2-bmw-ix5", "notes": "BMW US: 10-80 % in 22 minutes at an 800V DC station." }
+  ]
+}

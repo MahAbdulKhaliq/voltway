@@ -1,0 +1,31 @@
+{
+  "id": "nissan/ariya/2025/evolve-plus-e-4orce",
+  "model_id": "nissan/ariya",
+  "year": 2025,
+  "name": "Evolve+ e-4ORCE",
+  "drivetrain": "awd",
+  "powertrain_id": "nissan/ariya/2025-evolve-plus-e-4orce",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-7d53206d11" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b96c0ca63a" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-nh-insideevs-ariya-sc", "note_id": "n-bc7fb57511", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Evolve+ e-4ORCE", "US": "Engage+ e-4ORCE" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-cc-ar25", "note_id": "n-3a80885ec9", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-gcr-ev-extreme-temps", "note_id": "n-1c15a63ab9", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-91831f4ab6", "low_confidence": true }
+      ]
+    }
+  ]
+}

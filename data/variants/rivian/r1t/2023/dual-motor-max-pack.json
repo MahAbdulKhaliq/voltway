@@ -1,0 +1,32 @@
+{
+  "id": "rivian/r1t/2023/dual-motor-max-pack",
+  "model_id": "rivian/r1t",
+  "year": 2023,
+  "name": "Dual-Motor Max Pack",
+  "drivetrain": "awd",
+  "powertrain_id": "rivian/r1t/2023-dual-motor-max-pack",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-f742b1d644" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-0546c7cb96" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-riviantrackr-free-nacs-adapter-ending", "note_id": "n-023b74d207" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Dual-Motor Max Pack", "US": "Performance Dual-Motor Large Pack" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-carb-rivian-2023", "note_id": "n-aa28741163", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r2w-carb-rivian-2023", "note_id": "n-26933e9982", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-r2w-carb-rivian-2023", "note_id": "n-3fdfcfe75c", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "manufacturer", "source_id": "src-electrek-r2-heat-pump-r1-none-2024", "low_confidence": true, "note_id": "n-9b5d5a7ddb" }
+      ]
+    }
+  ]
+}

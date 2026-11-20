@@ -1,0 +1,30 @@
+{
+  "id": "jaguar/i-pace/2022/ev400",
+  "model_id": "jaguar/i-pace",
+  "year": 2022,
+  "name": "EV400",
+  "drivetrain": "unknown",
+  "powertrain_id": "jaguar/i-pace/2022-ev400",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-a05c1cd34f" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-jaguar-supercharger-2025", "low_confidence": true, "note_id": "n-44a27f28d7" }
+  ],
+  "adapters_included": [
+    { "value": "none", "kind": "manufacturer", "source_id": "src-insideevs-jaguar-supercharger-2025", "note_id": "n-e39c6c67c5", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "EV400" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-cc-ip22", "notes": "Only trim on the page: HSE AWD 20 x 8; the Canadian car may also have an entry trim, low confidence.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-i-pace-ev400-2018", "note_id": "n-39ff9728bd", "low_confidence": true }
+      ]
+    }
+  ]
+}

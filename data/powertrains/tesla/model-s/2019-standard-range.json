@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-s/2019-standard-range",
+  "model_id": "tesla/model-s",
+  "name": "Standard Range",
+  "generation": "raven",
+  "years": [2019, 2020],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 75, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-model-s-sr-2019", "low_confidence": true, "notes": "ArenaEV Model S Standard Range 2019: 75 kWh total (nominal), no net figure. Model X Standard Range assumed to use the same pack (not confirmed on any opened page)." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 72.6, "unit": "kWh", "kind": "estimated", "source_id": "src-arenaev-model-s-75", "low_confidence": true, "note_id": "n-e895eea9fe" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "community", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-49961bd7e1" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-17a60e76f4" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-electrek-2020-s-x-225kw", "low_confidence": true, "note_id": "n-2348c28dd2" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 120, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2017-90d-75d-compare", "low_confidence": true, "note_id": "n-374d347889" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-b77aa50c4c" }
+  ]
+}

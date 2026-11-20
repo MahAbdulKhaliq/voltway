@@ -1,0 +1,32 @@
+{
+  "id": "nissan/ariya/2023/evolve-plus-fwd",
+  "model_id": "nissan/ariya",
+  "year": 2023,
+  "name": "Evolve+ FWD",
+  "drivetrain": "fwd",
+  "powertrain_id": "nissan/ariya/2023-evolve-plus-fwd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "note_id": "n-7d53206d11" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b96c0ca63a" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-nh-insideevs-ariya-sc", "note_id": "n-bfcd5be3c9", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Evolve+ FWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-cc-ar23", "note_id": "n-3a80885ec9", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-gcr-ariya-2023", "note_id": "n-c9256c1261", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-91831f4ab6", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-bevdb-ariya-2023", "note_id": "n-c2befecb43", "low_confidence": true }
+      ]
+    }
+  ]
+}

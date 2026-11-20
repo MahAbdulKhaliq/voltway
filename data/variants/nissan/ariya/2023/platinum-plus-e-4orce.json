@@ -1,0 +1,33 @@
+{
+  "id": "nissan/ariya/2023/platinum-plus-e-4orce",
+  "model_id": "nissan/ariya",
+  "year": 2023,
+  "name": "Platinum+ e-4ORCE",
+  "drivetrain": "awd",
+  "powertrain_id": "nissan/ariya/2026-platinum-plus-e-4orce",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-7d53206d11" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b96c0ca63a" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-nh-insideevs-ariya-sc", "note_id": "n-bfcd5be3c9", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Platinum+ e-4ORCE" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-cc-ar23", "note_id": "n-b69ae88e51", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-cars-ariya25", "notes": "20-inch wheels optional on Platinum+ e-4ORCE (Cars.com 2025 article; range drops to 257 mi). 2025 source applied to 2023: same trim, low confidence. The 20 in shows in the Cars.com trim name only (\"w/20\\\" Wheels\"). US page; the Canadian package assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-gcr-ariya-2023", "note_id": "n-c9256c1261", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-91831f4ab6", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-bevdb-ariya-2023", "note_id": "n-c2befecb43", "low_confidence": true }
+      ]
+    }
+  ]
+}

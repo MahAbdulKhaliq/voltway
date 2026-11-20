@@ -1,0 +1,25 @@
+{
+  "id": "bmw/i3-sedan/2027/i3-50-xdrive-2",
+  "model_id": "bmw/i3-sedan",
+  "year": 2027,
+  "name": "i3 50 xDrive",
+  "drivetrain": "awd",
+  "powertrain_id": "bmw/i3-sedan/2027-i3-50-xdrive",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-bmw-i3s", "note_id": "n-fc1d83dbd6" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2-bmw-i3s", "note_id": "n-375a2431d0" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "i3 50 xDrive" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-newsroom-bmwgroup-com-americas-the-new-bmw-3-series-en-us", "note_id": "n-df9b514ef3" },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r3w-newsroom-bmwgroup-com-americas-the-new-bmw-3-series-en-us", "note_id": "n-5e1a86d422", "low_confidence": true }
+      ]
+    }
+  ]
+}

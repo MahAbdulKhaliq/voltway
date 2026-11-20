@@ -6,6 +6,8 @@ import { join, relative, sep } from 'node:path';
 import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 import { parseCsv } from './csv.ts';
+import { loadNotes, resolveNotes } from './notes.ts';
+import { regulatorOption } from './catalogue.ts';
 import { COUNTRIES } from './countries.ts';
 import { MIN_POPULATION_FOR, PROVINCE_CODES, US_STATES, type GeoCountry } from './geonames.ts';
 
@@ -22,9 +24,11 @@ const SCHEMA_FILES = [
   'make.schema.json',
   'model.schema.json',
   'variant.schema.json',
+  'powertrain.schema.json',
   'curve.schema.json',
   'crosswalk-row.schema.json',
   'imported-nrcan.schema.json',
+  'imported-epa.schema.json',
   'imported-openev.schema.json',
   'imported-chargeprice.schema.json',
   'imported-afdc.schema.json',
@@ -49,9 +53,11 @@ function loadValidators(schemaDir: string) {
     make: get('make.schema.json'),
     model: get('model.schema.json'),
     variant: get('variant.schema.json'),
+    powertrain: get('powertrain.schema.json'),
     curve: get('curve.schema.json'),
     crosswalkRow: get('crosswalk-row.schema.json'),
     importedNrcan: get('imported-nrcan.schema.json'),
+    importedEpa: get('imported-epa.schema.json'),
     importedOpenev: get('imported-openev.schema.json'),
     importedChargeprice: get('imported-chargeprice.schema.json'),
     importedAfdc: get('imported-afdc.schema.json'),
@@ -98,11 +104,12 @@ export function validateRepo(root: string): ValidationResult {
   const errors: string[] = [];
   const v = loadValidators(join(root, 'schema'));
   const dataDir = join(root, 'data');
+  const notes = loadNotes(root); // B111: shared notes, swapped back in before the schema check
 
   const read = (dir: string, rel: string): unknown => {
     const file = `data/${dir}/${rel}`;
     try {
-      return JSON.parse(readFileSync(join(dataDir, dir, rel), 'utf8'));
+      return resolveNotes(JSON.parse(readFileSync(join(dataDir, dir, rel), 'utf8')), notes, (id) => errors.push(`${file}: note_id ${id} is not in data/notes.json`));
     } catch (e) {
       errors.push(`${file}: not valid JSON (${(e as Error).message})`);
       return undefined;
@@ -154,6 +161,7 @@ export function validateRepo(root: string): ValidationResult {
 
   // --- Models ---
   const modelYears = new Map<string, Set<number>>();
+  const modelGenerations = new Map<string, { id: string; first_year: number; last_year?: number }[]>();
   for (const rel of listJson(join(dataDir, 'models'))) {
     const file = `data/models/${rel}`;
     const data = read('models', rel) as
@@ -184,16 +192,40 @@ export function validateRepo(root: string): ValidationResult {
       else if (y.year < g.first_year || (g.last_year !== undefined && y.year > g.last_year)) errors.push(`${file}: year ${y.year} is outside generation "${g.id}" (${g.first_year}–${g.last_year ?? 'current'})`);
     }
     modelYears.set(data.id, years);
+    modelGenerations.set(data.id, gens);
+  }
+
+  // --- Powertrains (B95) ---
+  const powertrains = new Map<string, { model_id: string; years: number[] }>();
+  for (const rel of listJson(join(dataDir, 'powertrains'))) {
+    const file = `data/powertrains/${rel}`;
+    const data = read('powertrains', rel) as { id: string; model_id: string; generation?: string; years: number[] } | undefined;
+    if (data === undefined || !check(v.powertrain, data, file)) continue;
+    const expectedId = rel.replace(/.json$/, '');
+    if (data.id !== expectedId) errors.push(`${file}: id "${data.id}" must match its path "${expectedId}"`);
+    const [make, model] = data.id.split('/');
+    if (data.model_id !== `${make}/${model}`) errors.push(`${file}: model_id "${data.model_id}" doesn't match id "${data.id}"`);
+    if (!modelYears.has(data.model_id)) errors.push(`${file}: model "${data.model_id}" has no file in data/models`);
+    const gens = modelGenerations.get(data.model_id) ?? [];
+    if (data.generation) {
+      const g = gens.find((x) => x.id === data.generation);
+      if (!g) errors.push(`${file}: generation "${data.generation}" isn't listed on ${data.model_id}`);
+      else for (const y of data.years) if (y < g.first_year || (g.last_year !== undefined && y > g.last_year)) errors.push(`${file}: year ${y} is outside generation "${g.id}"`);
+    }
+    checkSourced(data, file);
+    powertrains.set(data.id, data);
   }
 
   // --- Variants ---
   const variants = new Set<string>();
   const trimsByVariant = new Map<string, Set<string>>();
+  const variantPowertrain = new Map<string, string>();
+  const variantMarkets = new Map<string, string[]>();
   const carryOvers: { file: string; target: string }[] = [];
   for (const rel of listJson(join(dataDir, 'variants'))) {
     const file = `data/variants/${rel}`;
     const data = read('variants', rel) as
-      | { id: string; model_id: string; year: number; carry_over_from?: string; trims?: { id: string }[] }
+      | { id: string; model_id: string; year: number; powertrain_id: string; markets: string[]; carry_over_from?: string; trims?: { id: string }[] }
       | undefined;
     if (data === undefined || !check(v.variant, data, file)) continue;
     const expectedId = rel.replace(/\.json$/, '');
@@ -204,6 +236,13 @@ export function validateRepo(root: string): ValidationResult {
     const years = modelYears.get(data.model_id);
     if (!years) errors.push(`${file}: model "${data.model_id}" has no file in data/models`);
     else if (!years.has(data.year)) errors.push(`${file}: model "${data.model_id}" has no entry for year ${data.year}`);
+    variantMarkets.set(data.id, data.markets);
+    const pt = powertrains.get(data.powertrain_id);
+    if (!pt) errors.push(`${file}: powertrain "${data.powertrain_id}" has no file in data/powertrains`);
+    else {
+      if (pt.model_id !== data.model_id) errors.push(`${file}: powertrain "${data.powertrain_id}" belongs to another model`);
+      if (!pt.years.includes(data.year)) errors.push(`${file}: powertrain "${data.powertrain_id}" doesn't list year ${data.year}`);
+    }
     const trimIds = new Set<string>();
     for (const trim of data.trims ?? []) {
       if (trimIds.has(trim.id)) errors.push(`${file}: trim id "${trim.id}" used twice`);
@@ -212,6 +251,7 @@ export function validateRepo(root: string): ValidationResult {
     if (data.carry_over_from) carryOvers.push({ file, target: data.carry_over_from });
     checkSourced(data, file);
     variants.add(data.id);
+    variantPowertrain.set(data.id, data.powertrain_id);
     trimsByVariant.set(data.id, trimIds);
   }
   for (const { file, target } of carryOvers) {
@@ -224,18 +264,22 @@ export function validateRepo(root: string): ValidationResult {
   for (const rel of listJson(join(dataDir, 'curves'))) {
     const file = `data/curves/${rel}`;
     const data = read('curves', rel) as
-      | { id: string; variant_id: string; points: { soc_percent: number }[]; is_display_default: boolean; based_on?: { variant_id: string } }
+      | { id: string; variant_id?: string; powertrain_id?: string; points: { soc_percent: number }[]; is_display_default: boolean; based_on?: { variant_id: string } }
       | undefined;
     if (data === undefined || !check(v.curve, data, file)) continue;
     curveCount++;
     const parts = rel.replace(/\.json$/, '').split('/');
     const curveId = parts.pop();
-    const variantFromPath = parts.join('/');
+    const ownerFromPath = parts.join('/');
+    // B95: a curve belongs to a powertrain (shared by its variants) or to one variant.
+    const owner = (data.powertrain_id ?? data.variant_id)!;
+    const ownPt = data.powertrain_id ?? (data.variant_id ? variantPowertrain.get(data.variant_id) : undefined);
     if (data.id !== curveId) errors.push(`${file}: id "${data.id}" must match its file name "${curveId}"`);
-    if (data.variant_id !== variantFromPath) errors.push(`${file}: variant_id "${data.variant_id}" must match its folder "${variantFromPath}"`);
-    if (!variants.has(data.variant_id)) errors.push(`${file}: variant "${data.variant_id}" has no file in data/variants`);
+    if (owner !== ownerFromPath) errors.push(`${file}: ${data.powertrain_id ? 'powertrain_id' : 'variant_id'} "${owner}" must match its folder "${ownerFromPath}"`);
+    if (data.powertrain_id && !powertrains.has(data.powertrain_id)) errors.push(`${file}: powertrain "${data.powertrain_id}" has no file in data/powertrains`);
+    if (data.variant_id && !variants.has(data.variant_id)) errors.push(`${file}: variant "${data.variant_id}" has no file in data/variants`);
     if (data.based_on && !variants.has(data.based_on.variant_id)) errors.push(`${file}: based_on variant "${data.based_on.variant_id}" has no file in data/variants`);
-    if (data.based_on?.variant_id === data.variant_id) errors.push(`${file}: a borrowed curve can't be based on its own variant`);
+    if (data.based_on && (data.based_on.variant_id === data.variant_id || variantPowertrain.get(data.based_on.variant_id) === ownPt)) errors.push(`${file}: a borrowed curve can't be based on its own variant or powertrain`);
     for (let i = 1; i < data.points.length; i++) {
       if (data.points[i].soc_percent <= data.points[i - 1].soc_percent) {
         errors.push(`${file}: points must be sorted by soc_percent with no repeats (point ${i} is ${data.points[i].soc_percent}% after ${data.points[i - 1].soc_percent}%)`);
@@ -243,9 +287,9 @@ export function validateRepo(root: string): ValidationResult {
       }
     }
     if (data.is_display_default) {
-      const list = defaultsPerVariant.get(data.variant_id) ?? [];
+      const list = defaultsPerVariant.get(owner) ?? [];
       list.push(data.id);
-      defaultsPerVariant.set(data.variant_id, list);
+      defaultsPerVariant.set(owner, list);
     }
     checkSourced(data, file);
   }
@@ -268,6 +312,23 @@ export function validateRepo(root: string): ValidationResult {
       if (r.year !== data.year) errors.push(`${file}: records[${i}] has year ${r.year}, expected ${data.year}`);
       if (nrcanKeys.has(r.source_key)) errors.push(`${file}: duplicate source_key "${r.source_key}"`);
       nrcanKeys.add(r.source_key);
+    });
+    checkSourced(data, file);
+  }
+
+  // --- Imported EPA / fueleconomy.gov ratings (B90) ---
+  const epaKeys = new Set<string>();
+  let epaFiles = 0;
+  for (const rel of listJson(join(dataDir, 'imported', 'epa'))) {
+    const file = `data/imported/epa/${rel}`;
+    const data = read('imported/epa', rel) as { year: number; records: { source_key: string; year: number }[] } | undefined;
+    if (data === undefined || !check(v.importedEpa, data, file)) continue;
+    epaFiles++;
+    if (rel !== `${data.year}.json`) errors.push(`${file}: file name must be ${data.year}.json`);
+    data.records.forEach((r, i) => {
+      if (r.year !== data.year) errors.push(`${file}: records[${i}] has year ${r.year}, expected ${data.year}`);
+      if (epaKeys.has(r.source_key)) errors.push(`${file}: duplicate source_key "${r.source_key}"`);
+      epaKeys.add(r.source_key);
     });
     checkSourced(data, file);
   }
@@ -333,8 +394,16 @@ export function validateRepo(root: string): ValidationResult {
       else if (row.our_trim_id && !trimsByVariant.get(variantId)?.has(row.our_trim_id as string)) {
         errors.push(`${where}: trim "${row.our_trim_id}" is not a trim of ${variantId}`);
       }
+      // B91: a confirmed regulator row is that market's rating, so the variant must be sold there.
+      const market = row.source === 'nrcan' ? 'CA' : row.source === 'epa' ? 'US' : undefined;
+      if (market && row.confirmed === true && variants.has(variantId) && !variantMarkets.get(variantId)?.includes(market)) {
+        errors.push(`${where}: confirmed ${row.source} row, but ${variantId} doesn't list market ${market}`);
+      }
       if (row.source === 'nrcan' && nrcanFiles > 0 && !nrcanKeys.has(row.source_key as string)) {
         errors.push(`${where}: NRCan key "${row.source_key}" is not in data/imported/nrcan`);
+      }
+      if (row.source === 'epa' && epaFiles > 0 && !epaKeys.has(row.source_key as string)) {
+        errors.push(`${where}: EPA key "${row.source_key}" is not in data/imported/epa`);
       }
       if (row.source === 'openev' && openevFiles > 0 && !openevKeys.has(row.source_key as string)) {
         errors.push(`${where}: OpenEV key "${row.source_key}" is not in data/imported/openev`);
@@ -342,7 +411,10 @@ export function validateRepo(root: string): ValidationResult {
       if (row.source === 'chargeprice' && chargepriceFiles > 0 && !chargepriceKeys.has(row.source_key as string)) {
         errors.push(`${where}: Chargeprice key "${row.source_key}" is not in data/imported/chargeprice`);
       }
-      const key = `${variantId}|${row.source}|${row.our_trim_id ?? ''}`;
+      // A trim may carry several regulator rows that differ only by wheel size (B91: wheel options, not trims).
+      // EPA writes the same options without brackets: "19in. Wheels", "22 inch tire", "235/60R18", "11kW Charger".
+      const option = regulatorOption(String(row.source_key));
+      const key = `${variantId}|${row.source}|${row.our_trim_id ?? ''}|${row.our_trim_id ? option : ''}`;
       if (seen.has(key)) errors.push(`${where}: ${variantId}${row.our_trim_id ? ` trim ${row.our_trim_id}` : ""} already has a ${row.source} row`);
       seen.add(key);
     });
@@ -403,6 +475,7 @@ export function validateRepo(root: string): ValidationResult {
       curves: curveCount,
       crosswalk_rows: crosswalkCount,
       nrcan_records: nrcanKeys.size,
+      epa_records: epaKeys.size,
       openev_records: openevKeys.size,
       chargeprice_records: chargepriceKeys.size,
       afdc_stations: afdcStations,

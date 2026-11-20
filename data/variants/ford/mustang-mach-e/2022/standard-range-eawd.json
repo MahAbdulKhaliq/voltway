@@ -1,0 +1,31 @@
+{
+  "id": "ford/mustang-mach-e/2022/standard-range-eawd",
+  "model_id": "ford/mustang-mach-e",
+  "year": 2022,
+  "name": "Standard Range eAWD",
+  "drivetrain": "awd",
+  "powertrain_id": "ford/mustang-mach-e/2022-standard-range-eawd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-93d5f84f2e" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-engadget-ford-adapter", "note_id": "n-471535aa8b" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Standard Range eAWD", "US": "Standard Range eAWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-ford-us-mme-specs-2022", "note_id": "n-baa37194e7", "low_confidence": true },
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-ford-us-mme-specs-2022", "note_id": "n-d8cec56dcf", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b112-cars-2025-mme-heatpump", "note_id": "n-7d0bb1a920", "low_confidence": true }
+      ]
+    }
+  ]
+}

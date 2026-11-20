@@ -1,0 +1,26 @@
+{
+  "id": "bmw/ix4/2027/50-xdrive-2",
+  "model_id": "bmw/ix4",
+  "year": 2027,
+  "name": "50 xDrive",
+  "drivetrain": "awd",
+  "powertrain_id": "bmw/ix4/2027-50-xdrive",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "estimated", "source_id": "src-w2-blog-i3", "low_confidence": true, "note_id": "n-7c5f2fd579" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2-blog-i3", "low_confidence": true, "note_id": "n-29fe6b9458" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "50 xDrive" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-newsroom-bmwgroup-com-americas-the-bmw-ix4", "note_id": "n-ff2b3edcbb" },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r3w-newsroom-bmwgroup-com-americas-the-bmw-ix4", "note_id": "n-395884360f" },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-r3w-newsroom-bmwgroup-com-americas-the-bmw-ix4", "note_id": "n-078b97a4c6" }
+      ]
+    }
+  ]
+}

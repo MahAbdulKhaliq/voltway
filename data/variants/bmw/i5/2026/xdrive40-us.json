@@ -1,0 +1,30 @@
+{
+  "id": "bmw/i5/2026/xdrive40-us",
+  "model_id": "bmw/i5",
+  "year": 2026,
+  "name": "xDrive40",
+  "drivetrain": "awd",
+  "powertrain_id": "bmw/i5/2026-edrive40",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-ie-i5nacs", "low_confidence": true, "note_id": "n-5f64ac4827" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2-ie-i5nacs", "low_confidence": true, "note_id": "n-313bf043ba" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "community", "source_id": "src-b112-insideevs-i5-nacs-2026", "low_confidence": true, "notes": "US: i5 built from March 2026 have a NACS port and come with an AC and a DC (CCS) adapter (InsideEVs 791474). Earlier 2026 builds had CCS1 and need the sold NACS-to-CCS adapter." }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "xDrive40" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2026-specs-470575", "note_id": "n-00ac4d3378" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-adac-i5-xdrive40", "note_id": "n-5af933bc43", "low_confidence": true }
+      ]
+    }
+  ]
+}

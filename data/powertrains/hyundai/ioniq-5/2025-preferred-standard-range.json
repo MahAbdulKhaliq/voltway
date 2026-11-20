@@ -1,0 +1,30 @@
+{
+  "id": "hyundai/ioniq-5/2025-preferred-standard-range",
+  "model_id": "hyundai/ioniq-5",
+  "name": "Preferred Standard Range",
+  "generation": "2025-refresh",
+  "years": [2025],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 63, "unit": "kWh", "kind": "manufacturer", "source_id": "src-hmgma-2025-ioniq-5-xrt", "notes": "Hyundai release: Standard Range models 58.0 to 63.0 kWh (63.0 kWh for 2025); bare capacity recorded as gross.", "low_confidence": true }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 60, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ioniq5-63-rwd", "note_id": "n-5a67f7bfa4", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ioniq5-63-rwd", "note_id": "n-4acac9f3fe", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "community", "source_id": "src-evdb-ioniq5-63-rwd", "note_id": "n-fae77b42d2", "low_confidence": true }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-ioniq5-manual-ne1a-2025", "note_id": "n-88f6ddbbe7", "low_confidence": true }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 180, "unit": "kW", "kind": "estimated", "source_id": "src-arenaev-ioniq5-63", "note_id": "n-2947f5934e", "low_confidence": true }
+  ],
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "estimated", "source_id": "src-thechargeport-ioniq5-2026", "note_id": "n-2ef1f2c8df", "low_confidence": true }
+  ]
+}

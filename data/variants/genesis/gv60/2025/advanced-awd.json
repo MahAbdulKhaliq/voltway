@@ -1,0 +1,31 @@
+{
+  "id": "genesis/gv60/2025/advanced-awd",
+  "model_id": "genesis/gv60",
+  "year": 2025,
+  "name": "Advanced AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "genesis/gv60/2025-advanced-awd",
+  "markets": ["CA"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-467a78f7ba", "low_confidence": true },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-388ac3f2d2", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-9f6aac6327", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-conceptcarz-genesis-ca-adapter", "note_id": "n-fc7c88d2f3", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Advanced AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-genesis-gv60-2025-456095", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-gen-us-brochure-2023-gv60", "note_id": "n-36159093c5", "low_confidence": true }
+      ]
+    }
+  ]
+}

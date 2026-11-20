@@ -1,0 +1,27 @@
+{
+  "id": "mercedes/amg-gt-4-door/2027/amg-gt-55-4matic-plus-4-door-coupe",
+  "model_id": "mercedes/amg-gt-4-door",
+  "year": 2027,
+  "name": "AMG GT 55 4MATIC+ 4-Door Coupe",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/amg-gt-4-door/2027-amg-gt-55-4matic-plus-4-door-coupe",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-jalopnik-amg-gt-4door-2027", "low_confidence": true, "note_id": "n-79441b9094" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-af9de4010e" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-d22cc78fb3" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "AMG GT 55 4MATIC+ 4-Door Coupe" },
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-arenaev-gt63-986", "notes": "Estimated: GT 55 and GT 63 share one powertrain (same 106 kWh pack) in our data; the GT 63 page lists Heat pump: Yes. No page opened for the GT 55 itself. ArenaEV is a spec database with EU figures; \"Yes\" does not say standard or optional and no Mercedes US/CA page could be opened (media.mbusa.com 404; KBB, Cars.com, Green Car Reports silent). ArenaEV lists \"Heat pump: Yes\" without saying standard or optional (it also says Yes for the 2019–21 i3, where it was a paid option), and its pages mix EU data.", "low_confidence": true }
+      ]
+    }
+  ]
+}

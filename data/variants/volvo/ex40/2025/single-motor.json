@@ -1,0 +1,32 @@
+{
+  "id": "volvo/ex40/2025/single-motor",
+  "model_id": "volvo/ex40",
+  "year": 2025,
+  "name": "Single Motor",
+  "drivetrain": "rwd",
+  "powertrain_id": "volvo/ex40/2025-single-motor",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-volvo-hamilton-ex40-2026-charging", "low_confidence": true, "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2025." },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-59345ebdf7" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-ff57fb6760" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-65658f5296" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-volvomobile-nacs", "note_id": "n-472883886f", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Single Motor", "US": "Single Motor Extended Range RWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-cc-ex40-25", "notes": "Single Motor Extended Range RWD Core 19 x 7.5. Cars.com shows the Core trim only; other trims assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b113-kbb-ex40-2025", "note_id": "n-a6152ad57f", "low_confidence": true }
+      ]
+    }
+  ]
+}

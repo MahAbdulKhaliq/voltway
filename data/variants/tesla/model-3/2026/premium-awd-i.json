@@ -4,53 +4,27 @@
   "year": 2026,
   "name": "Premium AWD-I",
   "drivetrain": "awd",
+  "powertrain_id": "tesla/model-3/2026-premium-awd-i",
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-thinkev-tesla-model-3-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Source lists a NACS port for the 2026 Model 3; Supercharger access follows from that."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-thinkev-tesla-model-3-2026", "low_confidence": true, "note_id": "n-56a0dc357e" }
   ],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 161,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-nyland-sheet-2026-10",
-      "low_confidence": true,
-      "notes": "Test: 120 km/h steady, 19 °C, dry, 18-inch wheels (235/45-18 Michelin e-Primacy), battery-side (car display; sheet does not say explicitly) | Nyland, 'Tesla Model 3 LR Highland' (dual-motor Long Range AWD, Highland generation, 74.5 kWh measured usable; same 82 kWh gross NMC pack and layout as our Premium AWD-I). Our trim's standard wheel is 18-inch, same as the test. Test car model year not stated (Highland = 2024+). Same car at 90 km/h, 17 °C: 123 Wh/km. Winter row (3 °C, wet, Falken winter tyres): 226 Wh/km at 120 km/h. Not used: evmagazine.eu/zerofy repeat the same 161 figure.."
-    }
+    { "value": 161, "unit": "Wh/km", "kind": "tested", "source_id": "src-nyland-sheet-2026-10", "low_confidence": true, "notes": "Test: 120 km/h steady, 19 °C, dry, 18-inch wheels (235/45-18 Michelin e-Primacy), battery-side (car display; sheet does not say explicitly) | Nyland, 'Tesla Model 3 LR Highland' (dual-motor Long Range AWD, Highland generation, 74.5 kWh measured usable; same 82 kWh gross NMC pack and layout as our Premium AWD-I). Our trim's standard wheel is 18-inch, same as the test. Test car model year not stated (Highland = 2024+). Same car at 90 km/h, 17 °C: 123 Wh/km. Winter row (3 °C, wet, Falken winter tyres): 226 Wh/km at 120 km/h. Not used: evmagazine.eu/zerofy repeat the same 161 figure.." }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-dtc-ccs-prices-2024", "low_confidence": true, "note_id": "n-87641db422" }
   ],
   "trims": [
     {
       "id": "standard",
-      "name": "Premium AWD-I",
+      "names": { "CA": "Premium AWD-I", "US": "Premium AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "community",
-          "low_confidence": true,
-          "source_id": "src-evdb-model-3-lr-awd-highland",
-          "notes": "EV Database Long Range AWD (Highland) lists heat pump standard; mapped to Premium AWD by content (same Highland AWD car, renamed). Fact-check: the cited EV Database page may be the pre-Highland LR AWD; low confidence."
-        }
+        { "value": "standard", "kind": "community", "low_confidence": true, "source_id": "src-evdb-model-3-lr-awd-highland", "notes": "EV Database Long Range AWD (Highland) lists heat pump standard; mapped to Premium AWD by content (same Highland AWD car, renamed). Fact-check: the cited EV Database page may be the pre-Highland LR AWD; low confidence." }
       ],
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-iphoneincanada-model-3-awd-2026",
-          "low_confidence": true,
-          "notes": "Canadian Premium AWD: 570 km range quoted for the standard 18-inch wheels."
-        },
-        {
-          "diameter_in": 19,
-          "is_standard": false,
-          "source_id": "src-iphoneincanada-model-3-awd-2026",
-          "low_confidence": true,
-          "notes": "Upgrading to 19-inch wheels reduces range to 520 km (option; price not on page)."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-iphoneincanada-model-3-awd-2026", "low_confidence": true, "notes": "Canadian Premium AWD: 570 km range quoted for the standard 18-inch wheels." },
+        { "diameter_in": 19, "is_standard": false, "source_id": "src-iphoneincanada-model-3-awd-2026", "low_confidence": true, "notes": "Upgrading to 19-inch wheels reduces range to 520 km (option; price not on page)." }
       ]
     }
   ]

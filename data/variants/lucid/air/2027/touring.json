@@ -1,0 +1,31 @@
+{
+  "id": "lucid/air/2027/touring",
+  "model_id": "lucid/air",
+  "year": 2027,
+  "name": "Touring",
+  "drivetrain": "awd",
+  "powertrain_id": "lucid/air/2027-touring",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-lucid-air-charging-guide", "low_confidence": true, "note_id": "n-3a16ff8e52" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-lucid-air-supercharger", "note_id": "n-0420550f7d" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Touring" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-lucid-air-touring-page", "note_id": "n-922612d664", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-lucid-air-touring-page", "note_id": "n-b94917d516", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-gcr-2025-air-pure", "note_id": "n-09171141f5", "low_confidence": true }
+      ]
+    }
+  ]
+}

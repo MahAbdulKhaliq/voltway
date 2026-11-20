@@ -1,0 +1,17 @@
+{
+  "id": "chevrolet/bolt",
+  "make_id": "chevrolet",
+  "name": "Bolt",
+  "body_type": "crossover",
+  "generations": [
+    { "id": "first-generation", "name": "First generation (LFP)", "first_year": 2027, "notes": "Why a separate model, not part of bolt-ev: GM sells it as \"Chevrolet Bolt\" (no \"EV\"/\"EUV\"), EPA lists it under its own base model \"BOLT\", it follows a three-year gap (none in 2024-2026), and the hardware is new (Ultium-derived drive, 65 kWh LFP prismatic pack, about 150 kW DC peak, 11.5 kW onboard AC, native NACS, the first Chevrolet with one). Body is based on the Bolt EUV. Chevrolet treats it as the Bolt's comeback, so the owner may prefer to fold it into bolt-ev as a third generation. Battery cells are temporarily from an outside supplier. Not yet in NRCan's data (2027 Canadian rows may appear as \"Bolt\"/\"BOLT\"; the NRCan prefix BOLT is listed for that). Confidence: high on hardware, the model split is a judgement call (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/775280/2027-chevy-bolt-ev-fast-charging-improvements/ ; https://www.motor1.com/news/775179/2027-chevy-bolt-price-specs/ ; https://www.electrichybridvehicletechnology.com/news/pure-electric-powertrain/gm-relaunches-chevrolet-bolt-for-2027-with-new-battery-chemistry.html" }
+  ],
+  "years": [
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    }
+  ]
+}

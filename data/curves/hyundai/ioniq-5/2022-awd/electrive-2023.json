@@ -1,0 +1,16 @@
+{
+  "id": "electrive-2023",
+  "powertrain_id": "hyundai/ioniq-5/2022-awd",
+  "kind": "tested",
+  "source_id": "src-electrive-ioniq5-preconditioning-2023",
+  "low_confidence": true,
+  "points": [
+    { "soc_percent": 19, "power_kw": 113 },
+    { "soc_percent": 40, "power_kw": 224 },
+    { "soc_percent": 55, "power_kw": 224 },
+    { "soc_percent": 80, "power_kw": 125 }
+  ],
+  "conditions": { "preconditioned": "yes", "charger_kw": 300 },
+  "note_id": "n-66e3260c52",
+  "is_display_default": false
+}

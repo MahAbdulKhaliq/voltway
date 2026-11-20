@@ -1,0 +1,27 @@
+{
+  "id": "toyota/c-hr/2027/se",
+  "model_id": "toyota/c-hr",
+  "year": 2027,
+  "name": "SE",
+  "drivetrain": "awd",
+  "powertrain_id": "toyota/c-hr/2027-se",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-chr-2027", "notes": "Toyota USA: the C-HR comes with a NACS port that supports Level 3 DC fast charging." }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-9e907ae515" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "estimated", "source_id": "src-toyota-chr-2026-us", "notes": "Name is charger plug to car port. Estimated: 2027 C-HR carried from the 2026 US release (adapter included); no 2027 page opened.", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "SE" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-toy-chr27", "notes": "2027 SE: 18-inch wheels with black inserts." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "kia/ev6/2024/gt-long-range-awd",
+  "model_id": "kia/ev6",
+  "year": 2024,
+  "name": "GT Long Range AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "kia/ev6/2023-gt-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-e97a9274cf" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-electrek-2025-ev6-us-built", "low_confidence": true, "note_id": "n-7c8cc0d709" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-page", "low_confidence": true, "note_id": "n-bdc0f55932" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-9b43603c60" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-adapter", "note_id": "n-f5f0166154", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "GT Long Range AWD" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-kia-ev6-2024-449919", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-kbb-ev6-2024-specs", "note_id": "n-1aa716fa73", "low_confidence": true }
+      ]
+    }
+  ]
+}

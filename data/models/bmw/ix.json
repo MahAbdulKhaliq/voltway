@@ -1,0 +1,42 @@
+{
+  "id": "bmw/ix",
+  "make_id": "bmw",
+  "name": "iX",
+  "body_type": "suv",
+  "generations": [
+    { "id": "first-generation", "name": "First generation (I20)", "first_year": 2022, "last_year": 2025, "notes": "Launch. xDrive50 and M60: 111.5 kWh gross / 105.2 kWh usable, about 195-200 kW DC. xDrive40: 76.6 kWh gross / 71 kWh usable, 150 kW DC (Canada from MY2023, US MY2024-2025 per the ratings). Two packs, so two powertrains in this generation. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/BMW_iX" },
+    { "id": "2026-update", "name": "2026 update (LCI)", "first_year": 2026, "notes": "LCI with new packs: xDrive45 about 100 kWh gross / 94.8 kWh usable, 175 kW DC; xDrive60 and M70 about 113 kWh gross / 109.1 kWh usable, 195 kW DC. New names (xDrive45, xDrive60, M70) in both regulators from MY2026. Confidence: medium-high (Wikipedia mixes gross/net for the LCI) (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/BMW_iX" }
+  ],
+  "years": [
+    {
+      "year": 2022,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2026,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2026-update"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "chevrolet/silverado-ev/2027-work-truck-max-range",
+  "model_id": "chevrolet/silverado-ev",
+  "name": "Work Truck Max Range",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 204, "unit": "kWh", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 24 modules per the GM spec guide, so 204 x 24/24 = 204. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2027. The Weekly Driver 24-module page gives 205 kWh \"as published\" (usable or total not stated)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-60bfa013c8" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "Estimated: GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. Charges at 800 V." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 350, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "Estimated: GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. 800 V up to 350 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "Estimated: GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. 19.2 kW module on Maximum Range." }
+  ],
+  "published_10_80_min": [
+    { "value": 46, "unit": "min", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "Estimated: GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. Low-80% time to charge 46 min and 124 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)." }
+  ]
+}

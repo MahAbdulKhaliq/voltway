@@ -1,0 +1,30 @@
+{
+  "id": "volvo/ex60/2027-p10-awd",
+  "model_id": "volvo/ex60",
+  "name": "P10 AWD",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 95, "unit": "kWh", "kind": "manufacturer", "source_id": "src-kbb-ex60-2027-specs", "low_confidence": true, "notes": "KBB 2027 EX60 Plus/Ultra: 95.00 kWh (P10 AWD)." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 91, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-ex60-battery", "low_confidence": true, "notes": "InsideEVs: smaller EX60 packs are 80 and 91 kWh usable (P12 117 gross / 112 usable); KBB/Motor1 give 91 kWh for this US trim." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-ex60-battery", "low_confidence": true, "note_id": "n-cd756196d9" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-kbb-ex60-launch", "low_confidence": true, "note_id": "n-7b8a29cc66" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-volvo-ex90-precondition-support-excerpt", "low_confidence": true, "note_id": "n-ea6ee6dff1" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 370, "unit": "kW", "kind": "manufacturer", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "notes": "The Charge Port (relaying Volvo): P10 AWD peaks at 370 kW, P6 at 320 kW. KBB and InsideEVs agree on 370 kW; Motor1 lists 350/400 kW (charger-class figures)." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-kbb-ex60-launch", "low_confidence": true, "note_id": "n-ad040554ef" }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "lexus/rz/2024/rz-300e-luxury",
+  "model_id": "lexus/rz",
+  "year": 2024,
+  "name": "RZ 300e Luxury",
+  "drivetrain": "fwd",
+  "powertrain_id": "lexus/rz/2024-rz-300e-luxury",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2024", "note_id": "n-19b4fe6b76" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2025", "note_id": "n-c93108e10c" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-onsale", "note_id": "n-8591cce88b" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-lexus-2026-rz-onsale-us", "note_id": "n-fc9912f990" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "RZ 300e Luxury" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-lex-rz24", "note_id": "n-24178ec186" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-rz-300e-2024", "note_id": "n-8c3133af36", "low_confidence": true }
+      ]
+    }
+  ]
+}

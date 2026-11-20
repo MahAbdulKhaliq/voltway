@@ -1,0 +1,27 @@
+{
+  "id": "dodge/charger-daytona/2027-scat-pack-awd",
+  "model_id": "dodge/charger-daytona",
+  "name": "Scat Pack AWD",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 100.5, "unit": "kWh", "kind": "manufacturer", "source_id": "src-stellantis-charger-daytona-2024-spec", "notes": "Battery total 100.5 kWh (R/T and Scat Pack). Same pack carried 2025-2027 (no change documented). 2027: the 2024 spec sheet is the only maker sheet read; the same pack is assumed (EV Specifications lists the 2026 cars at 93.9 usable). The cited sheet is titled PRELIMINARY SPECIFICATIONS (2024) and has not been checked against a final sheet.", "low_confidence": true }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 93.9, "unit": "kWh", "kind": "manufacturer", "source_id": "src-stellantis-charger-daytona-2024-spec", "note_id": "n-9a8e0aa6d4", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-stellantis-wagoneer-s-2025-spec", "note_id": "n-1f5a9c0d70", "low_confidence": true }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-stellantis-charger-daytona-2024-spec", "note_id": "n-4f0a697ccd", "low_confidence": true }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 183, "unit": "kW", "kind": "manufacturer", "source_id": "src-stellantis-charger-daytona-2024-spec", "note_id": "n-74b3c9b4a5", "low_confidence": true }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-stellantis-charger-daytona-2024-spec", "note_id": "n-18667a5ba2", "low_confidence": true }
+  ]
+}

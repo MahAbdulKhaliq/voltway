@@ -1,0 +1,30 @@
+{
+  "id": "ford/f-150-lightning/2024/platinum",
+  "model_id": "ford/f-150-lightning",
+  "year": 2024,
+  "name": "Platinum",
+  "drivetrain": "awd",
+  "powertrain_id": "ford/f-150-lightning/2025-platinum",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-5f8f5065c6" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-engadget-ford-adapter", "note_id": "n-471535aa8b" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Platinum", "US": "Platinum" },
+      "wheels": [
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-ford-lightning-2024-techspecs", "notes": "Platinum: 22 in bright machined standard (22 in matte black optional). Source is a US page; Canadian trim assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-insideevs-lightning-hp", "note_id": "n-c7d17556bc", "low_confidence": true }
+      ]
+    }
+  ]
+}

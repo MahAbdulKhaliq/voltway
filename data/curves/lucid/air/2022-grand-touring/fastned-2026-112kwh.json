@@ -1,0 +1,32 @@
+{
+  "id": "fastned-2026-112kwh",
+  "powertrain_id": "lucid/air/2022-grand-touring",
+  "kind": "tested",
+  "source_id": "src-w23-fastned-lucid-2026",
+  "points": [
+    { "soc_percent": 2, "power_kw": 305.6 },
+    { "soc_percent": 5, "power_kw": 286 },
+    { "soc_percent": 10, "power_kw": 252.9 },
+    { "soc_percent": 15, "power_kw": 241.1 },
+    { "soc_percent": 20, "power_kw": 231.8 },
+    { "soc_percent": 25, "power_kw": 224.3 },
+    { "soc_percent": 30, "power_kw": 216.5 },
+    { "soc_percent": 35, "power_kw": 212.9 },
+    { "soc_percent": 40, "power_kw": 203.8 },
+    { "soc_percent": 45, "power_kw": 193.5 },
+    { "soc_percent": 50, "power_kw": 180.1 },
+    { "soc_percent": 55, "power_kw": 166.1 },
+    { "soc_percent": 60, "power_kw": 154.8 },
+    { "soc_percent": 65, "power_kw": 144.6 },
+    { "soc_percent": 70, "power_kw": 135.3 },
+    { "soc_percent": 75, "power_kw": 112.4 },
+    { "soc_percent": 80, "power_kw": 94.3 },
+    { "soc_percent": 85, "power_kw": 89.5 },
+    { "soc_percent": 90, "power_kw": 87.6 },
+    { "soc_percent": 95, "power_kw": 66.8 }
+  ],
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 300 },
+  "low_confidence": true,
+  "note_id": "n-492f6d2c0f",
+  "is_display_default": false
+}

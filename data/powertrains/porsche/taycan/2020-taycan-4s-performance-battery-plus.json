@@ -1,0 +1,30 @@
+{
+  "id": "porsche/taycan/2020-taycan-4s-performance-battery-plus",
+  "model_id": "porsche/taycan",
+  "name": "Taycan 4S Performance Battery Plus",
+  "generation": "first-generation",
+  "years": [2020],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 93.4, "unit": "kWh", "kind": "manufacturer", "source_id": "src-porsche-2021-taycan-rwd", "note_id": "n-e0b7154e12" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 83.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-taycan", "low_confidence": true, "note_id": "n-321f61ca89" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-porsche-j1-93", "low_confidence": true, "note_id": "n-b485c755ea" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-porsche-taycan-battery-page", "note_id": "n-d66bae151a" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-porsche-taycan-range-planner", "note_id": "n-4c087d5dde" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 270, "unit": "kW", "kind": "manufacturer", "source_id": "src-porsche-2021-taycan-rwd", "note_id": "n-4879005daa" }
+  ],
+  "ac_max_kw": [
+    { "value": 9.6, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-taycan-2025-specs", "low_confidence": true, "note_id": "n-7848fbd3d3" }
+  ]
+}

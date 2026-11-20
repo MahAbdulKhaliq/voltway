@@ -1,0 +1,33 @@
+{
+  "id": "kia/ev9/2026-light",
+  "model_id": "kia/ev9",
+  "name": "Light",
+  "generation": "first-generation",
+  "years": [2025, 2026],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 76.1, "unit": "kWh", "kind": "manufacturer", "source_id": "src-slashgear-2026-ev9", "low_confidence": true, "note_id": "n-e79a5631ca" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-slashgear-2026-ev9", "low_confidence": true, "note_id": "n-fb631f1b14" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evseekers-ev9-battery", "low_confidence": true, "note_id": "n-8763c6b424" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-kia-manual-mv1-2026-battery-conditioning", "low_confidence": true, "note_id": "n-7eeaa7ccfa" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 73, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ev9-761", "low_confidence": true, "note_id": "n-fe24185dd5" }
+    ]
+  },
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-edwards-kia-ev9-light-2026", "low_confidence": true, "notes": "US Kia spec sheet via dealer: onboard charger 10.9 (unit omitted on page)." }
+  ],
+  "published_10_80_min": [
+    { "value": 20, "unit": "min", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026", "notes": "Light RWD, “as little as 20 minutes” on a 350 kW charger." }
+  ],
+  "dc_max_kw": [
+    { "value": 236, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-2024-ev9-epa", "low_confidence": true, "note_id": "n-904365bdfb" }
+  ]
+}

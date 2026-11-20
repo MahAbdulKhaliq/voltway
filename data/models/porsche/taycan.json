@@ -1,0 +1,60 @@
+{
+  "id": "porsche/taycan",
+  "make_id": "porsche",
+  "name": "Taycan",
+  "body_type": "sedan",
+  "generations": [
+    { "id": "first-generation", "name": "First generation (J1)", "first_year": 2020, "last_year": 2024, "notes": "800 V. Performance Battery 79.2 kWh gross / 71.0 kWh usable (225 kW DC) and Performance Battery Plus 93.4 / 83.7 kWh (270 kW DC). Cross Turismo from MY2021 and Sport Turismo from MY2022 are body variants on the same hardware. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Porsche_Taycan" },
+    { "id": "2025-update", "name": "2025 update", "first_year": 2025, "notes": "New packs: Performance Battery 89 kWh gross / 82.3 kWh usable and Performance Battery Plus 105 / 97 kWh, DC up to 320 kW; Turbo GT added. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Porsche_Taycan" }
+  ],
+  "years": [
+    {
+      "year": 2020,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2021,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2022,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2023,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2024,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "first-generation"
+    },
+    {
+      "year": 2025,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2025-update"
+    },
+    {
+      "year": 2026,
+      "markets": ["CA", "US"],
+      "availability_status": "production",
+      "generation": "2025-update"
+    },
+    {
+      "year": 2027,
+      "markets": ["US"],
+      "availability_status": "production",
+      "generation": "2025-update"
+    }
+  ]
+}

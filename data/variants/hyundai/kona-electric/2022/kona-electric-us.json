@@ -1,0 +1,32 @@
+{
+  "id": "hyundai/kona-electric/2022/kona-electric-us",
+  "model_id": "hyundai/kona-electric",
+  "year": 2022,
+  "name": "Kona Electric",
+  "drivetrain": "fwd",
+  "powertrain_id": "hyundai/kona-electric/2019-kona-electric",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-xautoworld-kona-electric-2019", "low_confidence": true, "note_id": "n-4067c06635" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-727699c0ea" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-0138387563" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-4e4db06e3c" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-ca-faq", "note_id": "n-40329cb8de" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Kona Electric" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-hyundai-kona-ev-2022-index", "low_confidence": true, "note_id": "n-8dc38ca352" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b112-hy-us-brochure-2021-kona", "note_id": "n-3ddcf90ea8", "low_confidence": true }
+      ]
+    }
+  ]
+}

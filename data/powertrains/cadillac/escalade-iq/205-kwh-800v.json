@@ -1,0 +1,27 @@
+{
+  "id": "cadillac/escalade-iq/205-kwh-800v",
+  "model_id": "cadillac/escalade-iq",
+  "name": "205 kWh 800 V AWD",
+  "generation": "first-generation",
+  "years": [2025, 2026, 2027],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 205, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wards-escalade-iql", "low_confidence": true, "notes": "Cadillac figure for the 24-module Ultium pack shared by the IQ and IQL (Wards relaying Cadillac IQL release; Cars.com IQL, Consumer Guide, Wikipedia, TTAC and InsideEVs 2027 all say 205 kWh). GM 2025 launch text calls it \"more than 200 kWh of available energy\" (GM TechLink) and Wikipedia labels 205 as usable, so it is read as usable. KBB, Cars.com 2025 and Guide Auto say 200 kWh; Cars.com IQL says the IQL pack is 5 kWh bigger than the IQ, which Wards contradicts. Gross not stated by GM (Wikipedia 233.3 kWh unverified, not recorded). Fact-check: no page says \"usable\" outright; GM says \"more than 200 kWh of available energy\" (owner check)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-ultium-24-module", "low_confidence": true, "note_id": "n-a920a0223e" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-gm-techlink-escalade-iq", "low_confidence": true, "notes": "GM: \"The flexible, high-voltage architecture enables 800-volt DC fast charging\" (24-module pack). The pack is switched to 800 V for DC charging (Weekly Driver gives a 350 V nominal pack voltage); recorded 800v as GM markets it, like the Silverado EV Max records." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-cadillac-dc-fast-charging-support", "low_confidence": true, "note_id": "n-852f2f1368" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 350, "unit": "kW", "kind": "manufacturer", "source_id": "src-consumerguide-escalade-iq-2026", "low_confidence": true, "notes": "Maximum charge rate 350 kW \"per Cadillac\" (Consumer Guide, 2026 IQ); Cadillac launch copy: 100 miles in 10 min on a 350 kW charger (InsideEVs debut, TechCrunch). 2026 claim rose to 117 miles in 10 min with no stated hardware change (Carvana); no 2025-2027 DC peak change found." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-escalade-iq-2027-nacs", "low_confidence": true, "notes": "Cadillac: onboard charger up to 19.2 kW (), 37 miles of range per hour. Standard only on the higher trims in 2025 and 2026 (Luxury 1/Sport 1 and 2026 Luxury/Sport have 11.5 kW, set per trim), standard on every trim from 2027 (InsideEVs, TTAC). Source corrected after fact-check: InsideEVs (2027) states 19.2 kW; TechCrunch gives only miles per hour of Level 2." }
+  ]
+}

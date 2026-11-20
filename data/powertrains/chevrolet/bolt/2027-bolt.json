@@ -1,0 +1,33 @@
+{
+  "id": "chevrolet/bolt/2027-bolt",
+  "model_id": "chevrolet/bolt",
+  "name": "Bolt",
+  "generation": "first-generation",
+  "years": [2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 65, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-2027-bolt-fast-charging", "low_confidence": true, "notes": "GM spec: 65 kWh LFP pack (prismatic cells); GM lists it as rated energy, not usable. Gross by default." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 65, "unit": "kWh", "kind": "estimated", "source_id": "src-insideevs-2027-bolt-charging-curve", "low_confidence": true, "notes": "Estimated: No page states a usable figure. GM publishes 65 kWh as the pack size and recommends charging this LFP pack to 100 % (GM Authority, search excerpt), so 65 kWh is used for usable too. WEAK basis (search excerpt, no maker statement of usable). An owner OBD scan read 69.9 kWh (wind-works.org, flagged unreliable by its author)." }
+    ],
+    "chemistry": [
+      { "value": "lfp", "kind": "manufacturer", "source_id": "src-insideevs-2027-bolt-fast-charging", "low_confidence": true, "notes": "InsideEVs: \"new 65-kilowatt-hour lithium-iron-phosphate (LFP) battery\"; GM specs say LFP in prismatic can cells, cell-to-pack." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-insideevs-2027-bolt-charging-curve", "low_confidence": true, "notes": "Estimated: InsideEVs: the LFP pack has \"a nominal voltage that's a lot closer to 400\" (than the ~290 V Ultium modules); AutoGuide calls it a 400 V architecture (search excerpt). No GM figure." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "manufacturer", "source_id": "src-automotiveworld-2027-bolt", "low_confidence": true, "notes": "GM release relayed by Automotive World: \"If DC fast charging is available along your route, automatic battery preconditioning gives your battery a warm-up\" via Google Maps. No manual control found in the release." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-automotiveworld-2027-bolt", "low_confidence": true, "notes": "GM: peak 150 kW or more; InsideEVs test reached 151 kW (156 kW at 18 %)." }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-evwire-2027-bolt", "low_confidence": true, "notes": "GM spec relayed by EVWire and The EV Report: AC up to 11.5 kW." }
+  ],
+  "published_10_80_min": [
+    { "value": 26, "unit": "min", "kind": "manufacturer", "source_id": "src-automotiveworld-2027-bolt", "low_confidence": true, "notes": "GM: about 26 minutes for 10-80 % on public DC fast charging (Automotive World, InsideEVs); a KBB piece says 25." }
+  ]
+}

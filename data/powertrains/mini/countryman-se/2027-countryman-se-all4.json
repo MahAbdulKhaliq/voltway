@@ -1,0 +1,34 @@
+{
+  "id": "mini/countryman-se/2027-countryman-se-all4",
+  "model_id": "mini/countryman-se",
+  "name": "Countryman SE ALL4",
+  "generation": "u25",
+  "years": [2027],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 66.5, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-ie-cty", "low_confidence": true, "notes": "Estimated: same hardware as MY2025 (the page read); model years compared 2025 to 2027, nothing shows a change. InsideEVs: 66.5 kWh gross (BMW global: energy content 66.45 kWh)." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 64.7, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-ie-cty", "low_confidence": true, "notes": "Estimated: same hardware as MY2025 (the page read); model years compared 2025 to 2027, nothing shows a change. InsideEVs quoting the MINI US spec sheet: 64.7 kWh usable (ArenaEV 64.6). 2025-2027 compared: no US pack change found." },
+      { "value": 65.2, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-a-cty26", "low_confidence": true, "note_id": "n-fa0f791291" }
+    ],
+    "preconditioning": [
+      { "value": "manual_only", "kind": "manufacturer", "source_id": "src-w2-motoring", "low_confidence": true, "note_id": "n-88c6f868ef" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-gf-adac-countryman-se", "low_confidence": true, "note_id": "n-0b2300187a" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-gf-adac-countryman-se", "low_confidence": true, "note_id": "n-3120192504" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 130, "unit": "kW", "kind": "estimated", "source_id": "src-w2-mini-us", "low_confidence": true, "notes": "Estimated: same hardware as MY2025 (the page read); model years compared 2025 to 2027, nothing shows a change. MINI USA: fast charging with DC at up to 130 kW." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-motoring", "low_confidence": true, "note_id": "n-49d161ff12" }
+  ],
+  "published_10_80_min": [
+    { "value": 29, "unit": "min", "kind": "estimated", "source_id": "src-w2-ie-cty", "low_confidence": true, "notes": "Estimated: same hardware as MY2025 (the page read); model years compared 2025 to 2027, nothing shows a change. InsideEVs: 10-80 % in 29 min according to MINI (MINI US: \"just under 30 minutes\")." }
+  ]
+}

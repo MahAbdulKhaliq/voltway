@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-s/2019-100d",
+  "model_id": "tesla/model-s",
+  "name": "100D",
+  "generation": "raven",
+  "years": [2019],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 100, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-model-s-100d", "low_confidence": true, "note_id": "n-28fdd519e1" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 95, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-model-s-100d", "low_confidence": true, "note_id": "n-c46cc379b4" }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "community", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-49961bd7e1" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-17a60e76f4" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-electrek-2020-s-x-225kw", "low_confidence": true, "note_id": "n-2348c28dd2" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 120, "unit": "kW", "kind": "estimated", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "notes": "Estimated: EVSpecifications gives 120 kW for the 2014 85 kWh, 2015 85D, 2017 75D/90D and 2018 75D/100D/P100D Model S; carried to 2019 100 (other year or pack than the cited page). No page shows a pack-specific limit." }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "community", "source_id": "src-evspecs-model-s-2018-100d-compare", "low_confidence": true, "note_id": "n-0b56956b51" }
+  ]
+}

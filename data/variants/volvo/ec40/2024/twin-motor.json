@@ -1,0 +1,32 @@
+{
+  "id": "volvo/ec40/2024/twin-motor",
+  "model_id": "volvo/ec40",
+  "year": 2024,
+  "name": "Twin Motor",
+  "drivetrain": "awd",
+  "powertrain_id": "volvo/ec40/2024-twin-motor",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-273418125a" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-eaa51df48d" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-e5aef72387" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-volvomobile-nacs", "note_id": "n-03e72b7235" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "Twin Motor", "US": "Twin Motor" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ec40-2025-specs-457196", "note_id": "n-4ffb55c515", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-volvo-ec40-2025-specs-457198", "note_id": "n-6b31108a07", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "estimated", "source_id": "src-b113-kbb-xc40-2024", "note_id": "n-171581c6fc", "low_confidence": true }
+      ]
+    }
+  ]
+}

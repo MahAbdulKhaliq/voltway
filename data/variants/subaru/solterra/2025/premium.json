@@ -1,0 +1,31 @@
+{
+  "id": "subaru/solterra/2025/premium",
+  "model_id": "subaru/solterra",
+  "year": 2025,
+  "name": "Premium",
+  "drivetrain": "awd",
+  "powertrain_id": "subaru/solterra/2024-limited",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r19-evspecs-solterra", "low_confidence": true, "note_id": "n-46f73e1ed9" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-sc-2025", "low_confidence": true, "note_id": "n-59bcf36e02" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-driveteslacanada-solterra-bz4x", "low_confidence": true, "note_id": "n-3d7f408c18" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-subaru-2025-10-solterra-supercharging", "note_id": "n-3972fc4047" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Premium" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-cc-sol25", "note_id": "n-48d98a80d0" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-solterra-2023-25", "note_id": "n-1ffd4eb8a1", "low_confidence": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "volkswagen/id-4/2026-pro-rwd",
+  "model_id": "volkswagen/id-4",
+  "name": "Pro RWD",
+  "generation": "2024-update",
+  "years": [2026],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 77, "unit": "kWh", "kind": "estimated", "source_id": "src-slashgear-id4-2023", "low_confidence": true, "note_id": "n-7a92265e97" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-thinkev-vw-id4-2026", "low_confidence": true, "note_id": "n-c97dbfdb81" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-guideauto-id4-2025-pro-awd", "low_confidence": true, "note_id": "n-fcef87382e" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-vw-us-cold-weather", "low_confidence": true, "note_id": "n-4dcd1be33a" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 175, "unit": "kW", "kind": "estimated", "source_id": "src-cars-id4-2024", "low_confidence": true, "note_id": "n-156bd3c5bf" }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-slashgear-id4-2023", "low_confidence": true, "note_id": "n-3c3cd81aa3" }
+  ]
+}

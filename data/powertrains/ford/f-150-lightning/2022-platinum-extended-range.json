@@ -1,0 +1,30 @@
+{
+  "id": "ford/f-150-lightning/2022-platinum-extended-range",
+  "model_id": "ford/f-150-lightning",
+  "name": "Platinum Extended Range",
+  "generation": "first-generation",
+  "years": [2022],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 131, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2023", "unit": "kWh", "note_id": "n-bb551b806d", "low_confidence": true }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-ford-corp-sk-ncm", "low_confidence": true, "note_id": "n-cbc6600333" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-batterydesign-fl-er", "low_confidence": true, "note_id": "n-f9d6bfa8f7" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-ford-ca-nav-ev-routing", "low_confidence": true, "note_id": "n-09a7a762e0" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 142, "kind": "manufacturer", "source_id": "src-batterydesign-fl-er", "unit": "kWh", "low_confidence": true, "note_id": "n-3a2c754ef1" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2023", "unit": "kW", "note_id": "n-cf6d6a443b", "low_confidence": true }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2023", "unit": "kW", "note_id": "n-b692f03e55", "low_confidence": true }
+  ]
+}

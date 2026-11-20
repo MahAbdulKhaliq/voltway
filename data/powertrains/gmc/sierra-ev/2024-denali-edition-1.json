@@ -1,0 +1,27 @@
+{
+  "id": "gmc/sierra-ev/2024-denali-edition-1",
+  "model_id": "gmc/sierra-ev",
+  "name": "Denali Edition 1 2024",
+  "generation": "first-generation",
+  "years": [2024, 2025],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 204, "unit": "kWh", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "notes": "Estimated: GM has not published the Sierra EV Edition 1 capacity. Same-truck basis: the Silverado EV Max Range 24-module pack is recorded in the repo at 204 kWh usable (InsideEVs); InsideEVs says the Sierra EV Edition 1 is \"likely the same 800-volt, 24-module pack\". Green Car Reports gives \"205 kWh pack\" for the 2025 Sierra Max Range without saying usable or gross, so it is not used as usable. The Hummer 3X (200 kWh) is not used: it has three motors, the Edition 1 two." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-24", "low_confidence": true, "notes": "Estimated: 24-module Ultium truck pack (NCMA pouch cells) per Weekly Driver; closest enum nmc." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-r2gm-insideevs-sierra-2024-specs", "low_confidence": true, "notes": "InsideEVs: 800 V DC fast charging at up to 350 kW (pack about 400 V per layer, series for 800 V charging)." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "notes": "Estimated: lineup-wide GM guide (automatic with Google navigation plus manual app prep); GM sites return 403 (search excerpt). Caution: the guide was never readable; the nav trigger for a 2024 Sierra EV is not shown on any page opened." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 350, "unit": "kW", "kind": "manufacturer", "source_id": "src-r2gm-insideevs-sierra-2024-specs", "low_confidence": true, "notes": "InsideEVs relaying GM: 350 kW, about 100 mi in 10 min." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-r2gm-insideevs-sierra-2024-range-update", "low_confidence": true, "notes": "InsideEVs relaying GM: 19.2 kW onboard AC." }
+  ]
+}

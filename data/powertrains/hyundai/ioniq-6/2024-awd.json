@@ -1,0 +1,31 @@
+{
+  "id": "hyundai/ioniq-6/2024-awd",
+  "model_id": "hyundai/ioniq-6",
+  "name": "AWD",
+  "generation": "first-generation-pre-facelift",
+  "years": [2024],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 74, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-ioniq6-lr-2wd", "low_confidence": true, "note_id": "n-074d8f2e7c" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-ioniq6-lr-2wd", "low_confidence": true, "note_id": "n-1889ad3ab4" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-hyundai-ww-ioniq6-la-2022", "note_id": "n-de7e0ea3ae" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-hyundai-ww-ioniq6-la-2022", "low_confidence": true, "note_id": "n-dbc74c8263" },
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-hyundai-om-ce1-2024-us", "low_confidence": true, "note_id": "n-3baa12bebf" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 233, "unit": "kW", "kind": "estimated", "source_id": "src-evdb-ioniq6-lr-2wd", "low_confidence": true, "note_id": "n-b01dc3087b" }
+  ],
+  "ac_max_kw": [
+    { "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-hyundai-ww-ioniq6-la-2022", "note_id": "n-f7d545d1d0" }
+  ],
+  "published_10_80_min": [
+    { "value": 18, "unit": "min", "kind": "manufacturer", "source_id": "src-hyundai-ww-ioniq6-la-2022", "note_id": "n-d5bafa6292" }
+  ]
+}

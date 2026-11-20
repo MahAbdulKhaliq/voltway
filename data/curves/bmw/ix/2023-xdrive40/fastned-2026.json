@@ -1,0 +1,33 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "bmw/ix/2023-xdrive40",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-469",
+  "points": [
+    { "soc_percent": 1, "power_kw": 143.9 },
+    { "soc_percent": 5, "power_kw": 146 },
+    { "soc_percent": 10, "power_kw": 147.6 },
+    { "soc_percent": 14, "power_kw": 149.2 },
+    { "soc_percent": 15, "power_kw": 137.4 },
+    { "soc_percent": 20, "power_kw": 138.2 },
+    { "soc_percent": 25, "power_kw": 139.4 },
+    { "soc_percent": 30, "power_kw": 141 },
+    { "soc_percent": 35, "power_kw": 119.2 },
+    { "soc_percent": 40, "power_kw": 119.8 },
+    { "soc_percent": 45, "power_kw": 91.9 },
+    { "soc_percent": 50, "power_kw": 93.4 },
+    { "soc_percent": 55, "power_kw": 71.9 },
+    { "soc_percent": 60, "power_kw": 73.1 },
+    { "soc_percent": 65, "power_kw": 73.6 },
+    { "soc_percent": 70, "power_kw": 66.2 },
+    { "soc_percent": 75, "power_kw": 67.7 },
+    { "soc_percent": 80, "power_kw": 44.2 },
+    { "soc_percent": 85, "power_kw": 45.8 },
+    { "soc_percent": 90, "power_kw": 44 },
+    { "soc_percent": 95, "power_kw": 44.2 },
+    { "soc_percent": 99, "power_kw": 23.8 }
+  ],
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 300 },
+  "note_id": "n-0005b2deb6",
+  "is_display_default": false
+}

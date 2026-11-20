@@ -1,0 +1,30 @@
+{
+  "id": "bmw/i3/2017-i3-94-ah",
+  "model_id": "bmw/i3",
+  "name": "i3 94 Ah",
+  "generation": "94-ah",
+  "years": [2017],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 33, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-17", "notes": "BMW US release: \"overall battery energy to 33 kWh\", 94 Ah." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 27.2, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-17", "notes": "BMW US release: 27.2 kWh \"can be effectively used\"." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-wiki-i3", "low_confidence": true, "note_id": "n-dd5bc7f59c" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-bmw-i3-19", "low_confidence": true, "note_id": "n-4f26bca7f4" }
+    ],
+    "preconditioning": [
+      { "value": "manual_only", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-17", "low_confidence": true, "note_id": "n-eebb9a1cab" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 50, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-17", "notes": "BMW US release: \"future-proof 50 kW direct current (DC) fast charging\", standard equipment; under 40 min to 80 %." }
+  ],
+  "ac_max_kw": [
+    { "value": 7.4, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-bmw-i3-17", "notes": "BMW US release: \"The 7.4 kW charging electronics of the BMW i3 (94 Ah)\"." }
+  ]
+}

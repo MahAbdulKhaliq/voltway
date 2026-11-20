@@ -1,0 +1,29 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "volvo/ex30/2026-single-motor-extended-range",
+  "kind": "tested",
+  "source_id": "src-fastned-volvo-ex30-69kwh",
+  "points": [
+    { "soc_percent": 10, "power_kw": 152.7 },
+    { "soc_percent": 15, "power_kw": 154.8 },
+    { "soc_percent": 20, "power_kw": 155.9 },
+    { "soc_percent": 25, "power_kw": 158.3 },
+    { "soc_percent": 29, "power_kw": 158.7 },
+    { "soc_percent": 30, "power_kw": 145 },
+    { "soc_percent": 35, "power_kw": 143.2 },
+    { "soc_percent": 40, "power_kw": 129.7 },
+    { "soc_percent": 45, "power_kw": 115.1 },
+    { "soc_percent": 50, "power_kw": 100.7 },
+    { "soc_percent": 55, "power_kw": 87.7 },
+    { "soc_percent": 60, "power_kw": 72.6 },
+    { "soc_percent": 65, "power_kw": 75.1 },
+    { "soc_percent": 70, "power_kw": 66.7 },
+    { "soc_percent": 75, "power_kw": 69 },
+    { "soc_percent": 80, "power_kw": 61.2 },
+    { "soc_percent": 85, "power_kw": 38.6 },
+    { "soc_percent": 89, "power_kw": 26.2 }
+  ],
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 300 },
+  "note_id": "n-885d1f4777",
+  "is_display_default": false
+}

@@ -1,0 +1,31 @@
+{
+  "id": "cadillac/lyriq/2023-rwd",
+  "model_id": "cadillac/lyriq",
+  "name": "RWD",
+  "generation": "first-generation",
+  "years": [2023],
+  "battery": {
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-cadillac-dc-fast-charging-support", "low_confidence": true, "note_id": "n-65ba504840" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 102, "unit": "kWh", "kind": "manufacturer", "source_id": "src-kbb-lyriq-2026-specs", "low_confidence": true, "note_id": "n-b0f8dc4226" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 100, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-cadillac-lyriq", "low_confidence": true, "notes": "Estimated: Wikipedia: 102 kWh gross, 100 kWh usable; Auto-data gives net 100.4 kWh. Same 102 kWh pack across LYRIQ years and trims (years on this powertrain: 2023)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-lyriq-v", "low_confidence": true, "note_id": "n-4e8cf34fe2" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-r3-greencars-lyriq", "low_confidence": true, "note_id": "n-d663592ce5" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 190, "unit": "kW", "kind": "manufacturer", "source_id": "src-r3-insideevs-lyriq-fast-charge-2022", "low_confidence": true, "notes": "InsideEVs (first-year Lyriq test): \"Cadillac states that the Lyriq has a maximum DC fast charge rate of 190 kW.\" Relayed maker figure; the page is not Cadillac's own." }
+  ],
+  "ac_max_kw": [
+    { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-epa-fueleconomy-2026-11", "low_confidence": true, "notes": "Estimated: NRCan 2023 \"LYRIQ\" and EPA 2023 LYRIQ list one 240 V charge time of 6.5 h, which matches the 19.2 kW car (2025 LYRIQ 19.2 kW: 7.0 h; 11.5 kW: 11.2 h; 2023 AWD, 10.7 h, is the 11.5 kW car). 100 kWh / 6.5 h is about 15 kW into the pack, not possible on 11.5 kW. Basis: same hardware in another model year, years compared 2023 and 2025. Replaces the repo 11.5 kW estimate. 2023 AWD stays 11.5 kW (10.7 h)." },
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-r3-greencars-lyriq", "low_confidence": true, "note_id": "n-d60d5a4fc8" }
+  ]
+}

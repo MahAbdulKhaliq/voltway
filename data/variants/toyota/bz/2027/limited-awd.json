@@ -1,0 +1,31 @@
+{
+  "id": "toyota/bz/2027/limited-awd",
+  "model_id": "toyota/bz",
+  "year": 2027,
+  "name": "Limited AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "toyota/bz/2026-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-0ea9763c03" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-3f1c50184a" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-onsale-2026", "note_id": "n-824902a2b8" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-toyota-2027-bz-us", "note_id": "n-59a62038a3", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Limited AWD" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-toyota-bz-2027-specs-486901", "note_id": "n-9c51e9dad4" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-toyota-2027-bz-us", "note_id": "n-7c0b0ad6a4", "low_confidence": true }
+      ]
+    }
+  ]
+}

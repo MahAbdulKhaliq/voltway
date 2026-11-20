@@ -1,0 +1,30 @@
+{
+  "id": "tesla/model-3/2023-performance",
+  "model_id": "tesla/model-3",
+  "name": "Performance",
+  "generation": "2021-refresh",
+  "years": [2023],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 82, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-lrawd-2021-pana", "low_confidence": true, "notes": "Estimated: EV Database Panasonic 2170L pack: 82.0 kWh nominal; evspecifications 2021 North American LR AWD: 82.1 kWh. Carried over from the 2021 Fremont-built LR AWD/Performance. Not verified for North America; EU 2022-23 Performance used the LG 78.1 kWh pack." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 76, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-lrawd-2021-pana", "low_confidence": true, "notes": "Estimated: EV Database Panasonic 2170L pack: 76.0 kWh usable. Carried over from the 2021 Fremont-built LR AWD/Performance. Not verified for North America; EU 2022-23 Performance used the LG 78.1 kWh pack." }
+    ],
+    "chemistry": [
+      { "value": "nca", "kind": "estimated", "source_id": "src-evdb-m3-lrawd-2021-pana", "low_confidence": true, "notes": "Estimated: NCA (Panasonic); evspecifications 2021 LR AWD NCA; Wikipedia: Fremont cells are Panasonic NCA. Carried over from the 2021 Fremont-built LR AWD/Performance. Not verified for North America; EU 2022-23 Performance used the LG 78.1 kWh pack." }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-m3-lrawd-2021-pana", "low_confidence": true, "notes": "Estimated: 357 V nominal, 400 V architecture. Carried over from the 2021 Fremont-built LR AWD/Performance. Not verified for North America; EU 2022-23 Performance used the LG 78.1 kWh pack." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-notateslaapp-2020-24-6-4", "low_confidence": true, "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2023 Performance). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 250, "unit": "kW", "kind": "estimated", "source_id": "src-evdb-m3-lrawd-2021-pana", "low_confidence": true, "notes": "Estimated: 250 kW (EV Database; evspecifications 2021 LR AWD 250 kW). Carried over from the 2021 Fremont-built LR AWD/Performance. Not verified for North America; EU 2022-23 Performance used the LG 78.1 kWh pack." }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-tesla-m3-service-manual-charging", "low_confidence": true, "notes": "Estimated: Performance shares the LR pack and the manual names only the Long Range battery. Tesla service manual: up to 48 A with the Long Range battery (about 11 kW; 48 A x 240 V = 11.5 kW); Basenor groups 2020-2023 LR and Performance at 48 A. 2023 Performance" }
+  ]
+}

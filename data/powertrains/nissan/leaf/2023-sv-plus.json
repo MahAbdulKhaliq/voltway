@@ -1,0 +1,30 @@
+{
+  "id": "nissan/leaf/2023-sv-plus",
+  "model_id": "nissan/leaf",
+  "name": "SV PLUS",
+  "generation": "second-generation",
+  "years": [2023],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 59, "unit": "kWh", "kind": "community", "source_id": "src-evdb-leaf-eplus-62-my23-25", "low_confidence": true, "note_id": "n-24a68de40d" }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 62, "unit": "kWh", "kind": "community", "source_id": "src-evdb-leaf-eplus-62-my23-25", "low_confidence": true, "note_id": "n-acfc7641bc" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-leaf-eplus-62-my23-25", "low_confidence": true, "note_id": "n-2dc53c6187" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "community", "source_id": "src-evdb-leaf-eplus-62-my23-25", "low_confidence": true, "note_id": "n-4ef16f1812" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-evdb-leaf-eplus-62-my23-25", "low_confidence": true, "note_id": "n-795b60a38e" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 100, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2019-press-kit", "low_confidence": true, "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". EV Database lists max DC 46 kW (10-80 % average 44 kW) for this pack and the 2019 kit itself gives 80 % in 45 min, so 100 kW is a brief peak at best. OWNER FLAG: Nissan figure kept as manufacturer. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change)." }
+  ],
+  "ac_max_kw": [
+    { "value": 6.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2024-press-kit", "low_confidence": true, "note_id": "n-9c16c82efa" }
+  ]
+}

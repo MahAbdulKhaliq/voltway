@@ -1,0 +1,15 @@
+{
+  "id": "evercars-2026",
+  "powertrain_id": "hyundai/ioniq-9/2026-awd",
+  "kind": "community",
+  "source_id": "src-evercars-ioniq9-charge-test",
+  "low_confidence": true,
+  "points": [
+    { "soc_percent": 10, "power_kw": 211 },
+    { "soc_percent": 60, "power_kw": 235 },
+    { "soc_percent": 80, "power_kw": 124 }
+  ],
+  "conditions": { "preconditioned": "no", "charger_kw": 400 },
+  "note_id": "n-271fe8498a",
+  "is_display_default": false
+}

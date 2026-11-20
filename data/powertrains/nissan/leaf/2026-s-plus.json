@@ -1,0 +1,30 @@
+{
+  "id": "nissan/leaf/2026-s-plus",
+  "model_id": "nissan/leaf",
+  "name": "S PLUS",
+  "generation": "third-generation",
+  "years": [2026],
+  "battery": {
+    "capacity_usable_kwh": [
+      { "value": 75.1, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-global-leaf-press-kit-2026", "low_confidence": true, "notes": "Nissan global press kit spec table: 75.1 kWh usable for the larger (160 kW motor) LEAF pack. US press kit says the S+ has a 75 kWh pack with a 214 hp (160 kW) motor, so the Canadian S+ is taken to be the same pack; the global page is not Canada-specific." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-leaf-75-my26", "low_confidence": true, "note_id": "n-b39dad2fb1" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "community", "source_id": "src-evdb-leaf-75-my26", "low_confidence": true, "note_id": "n-53927dbf48" }
+    ],
+    "preconditioning": [
+      { "value": "manual_only", "kind": "estimated", "source_id": "src-nissan-ca-leaf-2026-press-kit", "low_confidence": true, "notes": "Estimated: Nissan Canada 2026 kit says the driver \"can engage the heater to warm the battery before charging in cold weather\" (manual battery heater, standard on all grades) while the Google Maps charging-stop planner is only on the SV+ and PLATINUM+ screens (S+ has no Google built-in), so no navigation trigger is assumed for the S+. The European third-generation manual has an AUTO mode tied to navigation route guidance (src-nissan-malta-leaf-ze2-2025-battery-heater)." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-4b5bebcf5f" }
+  ],
+  "published_10_80_min": [
+    { "value": 35, "unit": "min", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-9c7c759a09" }
+  ],
+  "ac_max_kw": [
+    { "value": 7.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-ca-leaf-2026-press-kit", "note_id": "n-46834cb204" }
+  ]
+}

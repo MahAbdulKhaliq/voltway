@@ -1,0 +1,34 @@
+{
+  "id": "chevrolet/silverado-ev/2026-wt-std-range",
+  "model_id": "chevrolet/silverado-ev",
+  "name": "WT Std Range",
+  "generation": "first-generation",
+  "years": [2026],
+  "battery": {
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec", "low_confidence": true, "notes": "GM spec guide: Standard Range pack '475 volt'. 475 V is the max charge voltage, not a nominal voltage; mapped to the 400v class (800 V x 14/24 = 467 V supports it). Corrects the earlier 800v value, which belongs to the Max pack." },
+      { "value": "400v", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-14", "low_confidence": true, "note_id": "n-3506c51304" }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-thinkev-silverado-2026", "low_confidence": true, "note_id": "n-8daea4ea8a" },
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-60bfa013c8" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 119, "unit": "kWh", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec", "low_confidence": true, "notes": "Estimated (owner to confirm the scaling basis): GM's 2026 spec guide gives no kWh figure, only pack module counts (4WT Standard Range 14, 5WT Extended 20, 8WT Maximum 24). InsideEVs (src-insideevs-silverado-battery) reports 204 kWh usable for the 24-module pack: 204 x 14/24 = 119." },
+      { "value": 119, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-14", "low_confidence": true, "note_id": "n-14ad7b34e3" }
+    ],
+    "preconditioning": [
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 220, "unit": "kW", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec", "low_confidence": true, "notes": "GM 2026 Silverado EV WT spec guide, Charging Specifications (pdftotext, columns 4WT/5WT/8WT): Standard Range '475 volt, up to 220 kW', Extended '670 volt, up to 300 kW', Maximum '800 volt, up to 350 kW'. Corrects the earlier 350 kW value, which belongs to the Max pack only." },
+    { "value": 220, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-8f85162079" }
+  ],
+  "ac_max_kw": [
+    { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-72dcfa7174" }
+  ],
+  "published_10_80_min": [
+    { "value": 40, "unit": "min", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-cb12947230" }
+  ]
+}

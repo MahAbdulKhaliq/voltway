@@ -1,0 +1,33 @@
+{
+  "id": "ford/mustang-mach-e/2026-standard-range",
+  "model_id": "ford/mustang-mach-e",
+  "name": "Standard Range",
+  "generation": "lfp-standard-range",
+  "years": [2026],
+  "battery": {
+    "chemistry": [
+      { "value": "lfp", "kind": "estimated", "source_id": "src-insideevs-mme-2024-epa", "low_confidence": true, "notes": "Estimated: Standard Range is LFP since 2023/2024 (InsideEVs); the Ford 2025 sheet shows the 108-cell SR pack unchanged." }
+    ],
+    "preconditioning": [
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-ford-ca-precondition", "low_confidence": true, "note_id": "n-3f5f651b5c" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-electrek-ford-lfp-2023", "low_confidence": true, "note_id": "n-0e768d8164" }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 73, "kind": "estimated", "source_id": "src-ford-us-mme-specs-2025", "unit": "kWh", "low_confidence": true, "notes": "Estimated: Ford 2025 spec sheet lists SR RWD and SR eAWD at 73 kWh usable (108 LFP-pack cells); same hardware carried to 2026 (2025 vs 2026 compared; nothing shows a change). Replaces the imported OpenEV / Chargeprice figures (70 and 91 kWh)." }
+    ],
+    "capacity_gross_kwh": [
+      { "value": 78.21, "kind": "estimated", "source_id": "src-electrek-ford-lfp-2023", "unit": "kWh", "low_confidence": true, "notes": "Estimated: Electrek reports 78.21 kWh total for the 2023 LFP SR pack (108 cells, Ford presentation); the 2025 sheet lists the same 108-cell SR pack. Replaces the imported OpenEV 75.7 kWh (the older NMC pack)." }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 150, "kind": "estimated", "source_id": "src-ford-us-mme-specs-2025", "unit": "kW", "notes": "Estimated: Ford 2025 spec sheet: up to 150 kW DC fast charge (all trims); same hardware carried to 2026." }
+  ],
+  "ac_max_kw": [
+    { "value": 11, "kind": "estimated", "source_id": "src-wikipedia-mach-e", "unit": "kW", "low_confidence": true, "note_id": "n-6d63d05bc5" }
+  ],
+  "published_10_80_min": [
+    { "value": 33, "kind": "estimated", "source_id": "src-insideevs-mme-lfp-2023", "unit": "min", "low_confidence": true, "note_id": "n-5fd3af62f4" }
+  ]
+}

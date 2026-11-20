@@ -1,0 +1,30 @@
+{
+  "id": "fastned-2026-m3-lr",
+  "powertrain_id": "tesla/model-3/2018-long-range",
+  "kind": "tested",
+  "source_id": "src-fastned-tesla-curves-2026",
+  "points": [
+    { "soc_percent": 11, "power_kw": 180.6 },
+    { "soc_percent": 15, "power_kw": 186.1 },
+    { "soc_percent": 20, "power_kw": 188.6 },
+    { "soc_percent": 25, "power_kw": 190.6 },
+    { "soc_percent": 30, "power_kw": 192.1 },
+    { "soc_percent": 35, "power_kw": 194.1 },
+    { "soc_percent": 38, "power_kw": 195.1 },
+    { "soc_percent": 40, "power_kw": 192.5 },
+    { "soc_percent": 45, "power_kw": 172.1 },
+    { "soc_percent": 50, "power_kw": 153.7 },
+    { "soc_percent": 55, "power_kw": 137 },
+    { "soc_percent": 60, "power_kw": 110.9 },
+    { "soc_percent": 65, "power_kw": 100.7 },
+    { "soc_percent": 70, "power_kw": 89.6 },
+    { "soc_percent": 75, "power_kw": 72.8 },
+    { "soc_percent": 80, "power_kw": 56.8 },
+    { "soc_percent": 85, "power_kw": 43.9 },
+    { "soc_percent": 90, "power_kw": 34.3 }
+  ],
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 300 },
+  "note_id": "n-9e1048baa0",
+  "low_confidence": true,
+  "is_display_default": false
+}

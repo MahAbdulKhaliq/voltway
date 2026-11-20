@@ -1,0 +1,30 @@
+{
+  "id": "mini/cooper-se/2021-cooper-se",
+  "model_id": "mini/cooper-se",
+  "name": "Cooper SE",
+  "generation": "f56",
+  "years": [2021],
+  "battery": {
+    "capacity_gross_kwh": [
+      { "value": 32.6, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-ie-cooper", "low_confidence": true, "notes": "Estimated: same hardware as MY2020 (the page read); model years compared 2020 to 2021, nothing shows a change. Spec list: 32.6 kWh gross." }
+    ],
+    "capacity_usable_kwh": [
+      { "value": 28.9, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-ie-cooper", "low_confidence": true, "notes": "Estimated: same hardware as MY2020 (the page read); model years compared 2020 to 2021, nothing shows a change. Spec list: 28.9 kWh net. 2020-2024 compared: no pack change (same 12-module pack through MY2024)." }
+    ],
+    "chemistry": [
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-wiki-i3", "low_confidence": true, "note_id": "n-fc35422195" }
+    ],
+    "nominal_voltage_class": [
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-ie-cooper", "low_confidence": true, "note_id": "n-90f344bc03" }
+    ],
+    "preconditioning": [
+      { "value": "none", "kind": "estimated", "source_id": "src-w2-dt-cooper", "low_confidence": true, "note_id": "n-efb64ca07e" }
+    ]
+  },
+  "dc_max_kw": [
+    { "value": 50, "unit": "kW", "kind": "estimated", "source_id": "src-w2-ie-cooper", "low_confidence": true, "notes": "Estimated: same hardware as MY2020 (the page read); model years compared 2020 to 2021, nothing shows a change. Spec list: DC fast charging 0-80 % in 35 min \"at up to around 50 kW\" (Digital Trends: maximum 50 kW)." }
+  ],
+  "ac_max_kw": [
+    { "value": 7.4, "unit": "kW", "kind": "estimated", "source_id": "src-w2-dt-cooper", "low_confidence": true, "note_id": "n-ce77328605" }
+  ]
+}

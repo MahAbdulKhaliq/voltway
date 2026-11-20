@@ -1,0 +1,32 @@
+{
+  "id": "audi/e-tron-gt/2027/rs-e-tron-gt-performance",
+  "model_id": "audi/e-tron-gt",
+  "year": 2027,
+  "name": "RS e-tron GT performance",
+  "drivetrain": "awd",
+  "powertrain_id": "audi/e-tron-gt/2027-rs-e-tron-gt-performance",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-869d0e1c36" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-039ae8cd40" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-insideevs-audi-porsche-sc", "note_id": "n-407da96ab2", "low_confidence": true },
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-b112-electrive-audi-porsche", "note_id": "n-8ff0427601", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "RS e-tron GT performance" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-rsetrongt-2025-467477", "notes": "Estimated: 2025 page shows 20-inch; 2027 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-cars-audi-setrongt-2025-466799", "note_id": "n-a2cf7f7352", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b112-audi-gt-facts", "note_id": "n-f742fac848", "low_confidence": true }
+      ]
+    }
+  ]
+}

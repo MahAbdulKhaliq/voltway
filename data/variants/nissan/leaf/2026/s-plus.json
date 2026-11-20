@@ -4,78 +4,29 @@
   "year": 2026,
   "name": "S PLUS",
   "drivetrain": "unknown",
-  "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Article says the LEAF 'can charge at up to 150 kW'; not stated per trim."
-    }
-  ],
+  "powertrain_id": "nissan/leaf/2026-s-plus",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. NACS passenger-side fast-charge port; J1772 on driver's side for AC."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-9295dad563" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Native NACS port; article says it unlocks Tesla Superchargers across Canada."
-    }
-  ],
-  "published_10_80_min": [
-    {
-      "value": 35,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Model-wide figure; pack/trim not stated on the page."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-c07c0722f9" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 1899,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-carscom-leaf-s-plus-2026",
-      "low_confidence": true,
-      "notes": "Converted from 4,187 lb (US S+ FWD; same 75 kWh pack and 214 hp as Canadian S+): 4,187 x 0.45359 = 1,899. EV Specifications lists 1,908 kg for S+ (column mapping unverified)."
-    }
+    { "value": 1899, "unit": "kg", "kind": "manufacturer", "source_id": "src-carscom-leaf-s-plus-2026", "low_confidence": true, "note_id": "n-bb121c4244" }
   ],
-  "battery": {
-    "capacity_usable_kwh": [
-      {
-        "value": 75.1,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-nissan-global-leaf-press-kit-2026",
-        "low_confidence": true,
-        "notes": "Nissan global press kit spec table: 75.1 kWh usable for the larger (160 kW motor) LEAF pack. US press kit says the S+ has a 75 kWh pack with a 214 hp (160 kW) motor, so the Canadian S+ is taken to be the same pack; the global page is not Canada-specific."
-      }
-    ]
-  },
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-nh-nissanusa-leaf-features", "note_id": "n-027f9c182e", "low_confidence": true }
+  ],
   "trims": [
     {
       "id": "standard",
-      "name": "S PLUS",
+      "names": { "CA": "S PLUS" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-driveteslacanada-leaf-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. Article says heat pump standard; not per trim."
-        }
+        { "value": "standard", "kind": "community", "source_id": "src-b113-cargurus-ca-leaf-2026", "notes": "Canada: CarGurus.ca says a heat pump is standard in Canada (no trim exceptions)." }
+      ],
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-cc-leaf2026", "note_id": "n-ea27863f36" }
       ]
     }
   ]

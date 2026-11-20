@@ -1,0 +1,32 @@
+{
+  "id": "kia/ev9/2025/light-long-range",
+  "model_id": "kia/ev9",
+  "year": 2025,
+  "name": "Light Long Range",
+  "drivetrain": "rwd",
+  "powertrain_id": "kia/ev9/2025-light-long-range",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-page", "low_confidence": true, "note_id": "n-41cc931c47" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-b0224fa442" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-kia-supercharger-2025-04", "low_confidence": true, "note_id": "n-8d2ebaeb54" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-0b6dfd96cb" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-adapter", "note_id": "n-0f99d94dc5", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Light Long Range" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev9-2025-index", "low_confidence": true, "note_id": "n-775d442653" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "note_id": "n-f42b122d23", "low_confidence": true }
+      ]
+    }
+  ]
+}

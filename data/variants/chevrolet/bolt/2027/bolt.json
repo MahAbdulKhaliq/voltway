@@ -1,0 +1,32 @@
+{
+  "id": "chevrolet/bolt/2027/bolt",
+  "model_id": "chevrolet/bolt",
+  "year": 2027,
+  "name": "Bolt",
+  "drivetrain": "fwd",
+  "powertrain_id": "chevrolet/bolt/2027-bolt",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-automotiveworld-2027-bolt", "low_confidence": true, "notes": "GM: the 2027 Bolt is Chevrolet's first vehicle with a native NACS port." }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-insideevs-2027-bolt-fast-charging", "low_confidence": true, "notes": "Native NACS; InsideEVs charged a 2027 Bolt at a Tesla Supercharger with a NACS cable; KBB: plugs directly into compatible Superchargers. US." }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-electrek-2027-gm-nacs", "low_confidence": true, "notes": "Native NACS port. GM sells a CCS1 DC adapter for $189 (J1772 $67, both $256), per Electrek 2026-08-14 relaying GM; no source found that puts one in the box for this model. US only (no Canadian 2027 car). Conflict: Notebookcheck says the 2027 Bolt \"comes with a CCS adapter included in its price\"; Charged EVs and Electrek both list it as a $189 purchase from Chevrolet, so sold is recorded." },
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-chargedevs-bolt-2027", "low_confidence": true, "notes": "Charged EVs: CCS-to-NACS adapter $189 and J1772-to-NACS $67 available from Chevrolet, sold separately." }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Bolt" },
+      "wheels": [
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-r3w-chevrolet-bolt-2027-specs-481900", "notes": "RS page: 17 in aluminum, 215/50R17; the LT (trim index page) is also 17 in." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112-chargedevs-bolt-2027", "low_confidence": true, "notes": "Charged EVs: fitted with a heat pump for the first time." },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "notes": "Recurrent: Bolt 2027+ yes, listed for all trims." }
+      ]
+    }
+  ]
+}

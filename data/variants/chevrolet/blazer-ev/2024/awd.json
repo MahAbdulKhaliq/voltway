@@ -1,0 +1,35 @@
+{
+  "id": "chevrolet/blazer-ev/2024/awd",
+  "model_id": "chevrolet/blazer-ev",
+  "year": 2024,
+  "name": "AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "chevrolet/blazer-ev/2024-awd",
+  "markets": ["CA", "US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-electrek-blazer-2027-nacs", "low_confidence": true, "note_id": "n-a09f709cdf" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2024: adapter needed. Markets: CA/US." },
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-blazer-ev-supercharger-2025", "low_confidence": true, "note_id": "n-6d9283124a" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gm-techlink-nacs-adapter", "low_confidence": false, "note_id": "n-8714790d87" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-guideauto-gm-nacs-ca", "low_confidence": true, "note_id": "n-4ba2048ded" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "CA": "AWD", "US": "AWD" },
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2024-specs", "notes": "eAWD LT: 19 in, 255/60R19." },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2024-specs-439102", "notes": "eAWD RS: 21 in, 275/45R21." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-motor-ultium-energy-recovery", "low_confidence": true, "note_id": "n-6d3d47b68b" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-recurrent-heat-pump-list", "low_confidence": true, "note_id": "n-73c93ae215" },
+        { "value": "standard", "kind": "community", "source_id": "src-b112-autotrader-blazer-ev-2024", "low_confidence": true, "note_id": "n-5170157c2a" }
+      ]
+    }
+  ]
+}

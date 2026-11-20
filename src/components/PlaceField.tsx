@@ -5,6 +5,7 @@ import { useEffect, useId, useMemo, useState, useSyncExternalStore } from 'react
 import { t } from '../i18n/t.ts';
 import { hasExactName, makePlaceSearch, type PlaceRow, type PlaceSearch, type TripEnd } from '../lib/place-search.ts';
 import { routeOptions } from '../lib/route-options.ts';
+import { SHEET_MEDIA } from '../lib/sheet.ts';
 
 // The place lists: one fetch each per visit, shared by every field. Canada loads first; the US list
 // (B78, DESIGN-7 D5) loads when a search finds few matches or the map is over the US (loadUsPlaces).
@@ -31,6 +32,10 @@ export const loadUsPlaces = () =>
 const useWide = () => useSyncExternalStore((l) => { listeners.add(l); return () => listeners.delete(l); }, () => wide, () => null);
 /** A search with fewer matches than this, or none with exactly the typed name, asks for the US list. */
 const FEW = 3;
+/** B136 (owner 2026-11-20): on phones (the map sheet) at most this many suggestions show, so the list stays small. */
+const PHONE_MAX = 3;
+const onPhone = () => typeof matchMedia !== 'undefined' && matchMedia(SHEET_MEDIA).matches;
+const usePhone = () => useSyncExternalStore((l) => { if (typeof matchMedia === 'undefined') return () => {}; const m = matchMedia(SHEET_MEDIA); m.addEventListener('change', l); return () => m.removeEventListener('change', l); }, onPhone, () => false);
 
 interface FieldProps {
   label: string;
@@ -72,7 +77,9 @@ export default function PlaceField({ label, value, onChange, search: own, extra,
   useEffect(() => {
     if (search && !wideSearch && open && text.trim().length >= 3 && (local.length < FEW || !exact)) loadUsPlaces().catch(() => {});
   }, [search, wideSearch, open, text, local.length, exact]);
-  const options = remote ?? local;
+  const phone = usePhone();
+  const all = remote ?? local;
+  const options = phone ? all.slice(0, PHONE_MAX) : all;
   useEffect(() => setActive(-1), [text, remote]);
 
   const pick = (end: TripEnd) => {

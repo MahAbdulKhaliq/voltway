@@ -2,7 +2,7 @@
 // use the keyboard on, three heights (src/lib/sheet.ts), and the sheet's height published as
 // --sheet-px on the map so its own controls stay above it. Wider screens: no sheet, no styles.
 
-import { useEffect, useRef, useState, type CSSProperties, type FocusEvent, type KeyboardEvent, type PointerEvent, type TouchEvent, type WheelEvent } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type FocusEvent, type FormEvent, type KeyboardEvent, type PointerEvent, type TouchEvent, type WheelEvent } from 'react';
 import { nextSnap, sheetHeights, SHEET_MEDIA, snapAfterDrag, stepSnap, type SheetSnap } from '../lib/sheet.ts';
 
 /** onUserSnap: the visitor moved the sheet (drag, tap or arrow keys) to this height. */
@@ -80,8 +80,8 @@ export function useMapSheet(onUserSnap?: (s: SheetSnap) => void) {
     }
   };
   // B133 (owner 2026-11-20): typing in a field no longer moves the sheet (since B89 it rose to full).
-  // While a text field has focus the sheet keeps the height it had; the place suggestions float above
-  // the sheet (global.css).
+  // While a text field has focus the sheet keeps the height it had, the suggestions scroll inside it,
+  // and the field is scrolled to the top of the sheet's body so its suggestions show under it.
   const isText = (el: EventTarget | null) => el instanceof HTMLElement && el.matches('input:not([type=checkbox]):not([type=range]):not([type=radio]), textarea');
   const onFocus = (e: FocusEvent<HTMLDivElement>) => {
     if (!phone || !isText(e.target) || !panelRef.current) return;
@@ -89,6 +89,15 @@ export function useMapSheet(onUserSnap?: (s: SheetSnap) => void) {
   };
   const onBlur = (e: FocusEvent<HTMLDivElement>) => {
     if (!isText(e.relatedTarget)) setFrozenH(null);
+  };
+  const onInput = (e: FormEvent<HTMLDivElement>) => {
+    if (!phone || !isText(e.target)) return;
+    const field = (e.target as HTMLElement).closest<HTMLElement>('.tp-field') ?? (e.target as HTMLElement);
+    const body = field.closest<HTMLElement>('.route-body');
+    if (!body) return;
+    requestAnimationFrame(() => {
+      body.scrollTop += field.getBoundingClientRect().top - body.getBoundingClientRect().top - 8;
+    });
   };
 
   // B89 round 4 (owner): at peek the sheet's content doesn't scroll; a swipe up on it (or a wheel
@@ -116,7 +125,7 @@ export function useMapSheet(onUserSnap?: (s: SheetSnap) => void) {
     phone, snap, setSnap, heightFor,
     /** The handle is being dragged (the sheet follows the finger). */
     dragging: dragH !== null, rootRef, panelRef, panelStyle,
-    panelProps: { onTouchStart, onTouchMove, onWheel, onFocus, onBlur },
+    panelProps: { onTouchStart, onTouchMove, onWheel, onFocus, onBlur, onInput },
     handleProps: { onPointerDown, onPointerMove, onPointerUp, onPointerCancel: onPointerUp, onClick, onKeyDown },
   };
 }

@@ -14,7 +14,7 @@ import { levelTwoTime } from '../lib/l2-time.ts';
 import CurveViewer from './CurveViewer.tsx';
 import { carMapInfo, linkPlugs } from '../lib/map-filter.ts';
 import { GROUPS } from '../lib/spec-groups.ts';
-import { carLabel } from '../lib/car-label.ts';
+import { carLabel, carModel, LABEL_VERSION } from '../lib/car-label.ts';
 import { addToCompare, getCompare, removeFromCompare, getMyCar, setMyCar, type AddResult, type MyCar } from '../lib/my-car.ts';
 import { Badge, Value, sourceNumber } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
@@ -321,7 +321,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
             <p className="muted eyebrow">{car.year} · {car.make.name} · {t(`body.${car.model.body_type}` as MessageKey)} · {t(`value.${car.drivetrain}` as MessageKey)}</p>
             <h1>{car.model.name} <span className="variant"><VariantName name={car.name} /></span></h1>
             <div className="car-actions">
-              <button type="button" className={`btn small${isMine ? ' primary' : ''}`} aria-pressed={isMine} onClick={() => !isMine && setMyCar({ carId: car.id, trimId: car.trims.length > 1 ? trimId : null, label: labelFor(car.id), model: cars.find((c) => c.id === car.id)?.model })}>
+              <button type="button" className={`btn small${isMine ? ' primary' : ''}`} aria-pressed={isMine} onClick={() => !isMine && setMyCar({ carId: car.id, trimId: car.trims.length > 1 ? trimId : null, label: labelFor(car.id), model: (() => { const e = cars.find((c) => c.id === car.id); return e ? carModel(e) : undefined; })(), labelV: LABEL_VERSION })}>
                 {isMine ? t('mycar.isMine') : t('mycar.set')}
               </button>
               <button type="button" className={`btn small cmp-toggle${inCompare ? ' on' : ''}`}

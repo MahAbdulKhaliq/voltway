@@ -19,15 +19,15 @@ const B = car({ id: 'tesla/model-y/2026/long-range-awd', markets: ['CA', 'US'], 
 const C = car({ id: 'nissan/leaf/2025/s', make: 'Nissan', model: 'LEAF', year: 2025, name: 'S', body_type: 'hatchback', drivetrain: 'fwd', range_km: null, dc_max_kw: null, charge_port: null, voltage_class: null, chemistry: null, heat_pump: ['unknown'], consumption_wh_per_km: null, curve_kind: null, derived: { minutes_10_80: null, km_per_10_min: null, estimated: true, extrapolated: false, battery_basis: null } });
 const D = car({ id: 'kia/ev9/2024/light', make: 'Kia', model: 'EV9', year: 2024, sold_in_canada: false, markets: ['US'], heat_pump: ['optional'] });
 const ALL = [A, B, C, D];
-const f = (over: Partial<BrowseFilters> = {}) => ({ ...defaultFilters(ALL), ...over });
+const f = (over: Partial<BrowseFilters> = {}) => ({ ...defaultFilters(ALL), years: [2026, 2025], ...over });
 const ids = (list: IndexEntry[]) => list.map((e) => e.id.split('/')[1]);
 
 describe('browse filters (database-ui.md §4)', () => {
-  it('defaults: every market, current and previous model year', () => {
+  it('defaults: every market and every model year (owner 2026-11-20)', () => {
     const d = defaultFilters(ALL);
     expect(d.markets).toEqual([]);
-    expect(d.years).toEqual([2026, 2025]);
-    expect(ids(ALL.filter((e) => matches(e, d)))).toEqual(['ioniq-5', 'model-y', 'leaf']);
+    expect(d.years).toEqual([]);
+    expect(ids(ALL.filter((e) => matches(e, d)))).toEqual(['ioniq-5', 'model-y', 'leaf', 'ev9']);
     expect(matches(D, f({ years: [] }))).toBe(true);
   });
 
@@ -66,9 +66,9 @@ describe('browse filters (database-ui.md §4)', () => {
   });
 
   it('counts changed filters', () => {
-    expect(activeCount(f(), ALL)).toBe(0);
-    expect(activeCount(f({ makes: ['Kia'], minRangeKm: 300 }), ALL)).toBe(2);
-    expect(activeCount(f({ years: [2025, 2026] }), ALL)).toBe(0);
+    expect(activeCount(defaultFilters(ALL), ALL)).toBe(0);
+    expect(activeCount({ ...defaultFilters(ALL), makes: ['Kia'], minRangeKm: 300 }, ALL)).toBe(2);
+    expect(activeCount(f({ years: [2025, 2026] }), ALL)).toBe(1);
   });
 });
 
@@ -99,7 +99,7 @@ describe('saved browse state', () => {
     expect(s.filters.makes).toEqual(['Kia']);
     expect(s.filters.minRangeKm).toBe(300);
     expect(s.filters.heatPump).toBe('any');
-    expect(s.filters.years).toEqual([2026, 2025]);
+    expect(s.filters.years).toEqual([]);
     expect(s.filters.markets).toEqual(['US']); // an old saved canadaOnly is ignored
     expect(readState({ sort: 'price', view: 'grid', filters: { minDcKw: -5 } }, ALL)).toEqual(defaultState(ALL));
   });

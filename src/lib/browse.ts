@@ -31,15 +31,10 @@ export const SORTS: SortKey[] = ['name', 'range', 'efficiency', 'dc', 'time1080'
 /** The natural direction for each sort: better first (§4). */
 export const DEFAULT_DIR: Record<SortKey, SortDir> = { name: 'asc', range: 'desc', efficiency: 'asc', dc: 'desc', time1080: 'asc', km10: 'desc', newest: 'desc' };
 
-/** Current and previous model year present in the data (§4 default). */
-export function defaultYears(index: IndexEntry[]): number[] {
-  const max = Math.max(...index.map((e) => e.year));
-  return Number.isFinite(max) ? [max, max - 1] : [];
-}
-
-export function defaultFilters(index: IndexEntry[]): BrowseFilters {
+// Owner 2026-11-20: every model year by default (no years ticked), not the newest two.
+export function defaultFilters(_index: IndexEntry[]): BrowseFilters {
   return {
-    markets: [], years: defaultYears(index), makes: [], bodies: [], drivetrains: [], ports: [], voltages: [], chemistries: [],
+    markets: [], years: [], makes: [], bodies: [], drivetrains: [], ports: [], voltages: [], chemistries: [],
     heatPump: 'any', minRangeKm: 0, minDcKw: 0, max1080Min: 0, measuredOnly: false,
   };
 }

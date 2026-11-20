@@ -12,6 +12,8 @@ export interface MyCar {
   label?: string;
   /** The model alone ("Model Y"), so the header chip can drop the trim on narrow screens (B71). */
   model?: string;
+  /** Label format the label and model were written with (LABEL_VERSION in car-label.ts). */
+  labelV?: number;
   /** B55: the DC plugs the driver switched on in the My car menu. Absent = the car's own plug.
    *  A newly picked car has none, so the toggles reset when the car changes. */
   plugs?: DcPlug[];

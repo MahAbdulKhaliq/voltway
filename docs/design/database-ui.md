@@ -79,6 +79,8 @@ Curve settings (SoC window, charger power) can be included in the link too (*lat
 
 ## 4. Cars: browse screen (D6) ✅
 
+*Changed 2026-11-20 (owner, B110):* the Model year filter starts with nothing ticked (every year), replacing the "current and previous model year" default.
+
 ### Layout
 **B39 (2026-11-16):** this layout replaces B11's make → model accordions. Each card opens the car in the Charging tab.
 

@@ -18,3 +18,14 @@ describe('carChipParts (B71)', () => {
     expect(readMyCar({ carId: 'kia/ev9/2025/land', trimId: null, label: 'EV9 Land', model: 'EV9' })?.model).toBe('EV9');
   });
 });
+
+describe('carLabel and carModel (owner 2026-11-20)', () => {
+  it('names make and model, and drops a variant named like its model', async () => {
+    const { carLabel, carModel } = await import('../src/lib/car-label.ts');
+    expect(carLabel({ make: 'Chevrolet', model: 'Bolt', name: 'Bolt' })).toBe('Chevrolet Bolt');
+    expect(carLabel({ make: 'Polestar', model: '2', name: 'Long Range Dual Motor' })).toBe('Polestar 2 Long Range Dual Motor');
+    expect(carLabel({ make: 'Tesla', model: 'Model Y', name: 'Long Range AWD-B' })).toBe('Tesla Model Y Long Range AWD');
+    expect(carModel({ make: 'Chevrolet', model: 'Bolt' })).toBe('Chevrolet Bolt');
+    expect(carChipParts({ carId: 'chevrolet/bolt/2027/bolt', label: 'Chevrolet Bolt', model: 'Chevrolet Bolt' })).toEqual(['Chevrolet Bolt', '2027 Chevrolet Bolt', '2027 Chevrolet Bolt']);
+  });
+});

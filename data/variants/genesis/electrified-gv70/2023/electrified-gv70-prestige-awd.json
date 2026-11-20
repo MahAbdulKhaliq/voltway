@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-genesis-ca-nacs-2023",
+      "notes": "Genesis Canada: Genesis EVs with CCS ports get Supercharger access via adapter from Q1 2025 (so 2023-2024 cars are CCS).",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-genesis-ca-nacs-2023",
+      "notes": "Canada: Genesis announced Supercharger access via adapter for CCS Genesis EVs from Q1 2025 (names the Electrified GV70).",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

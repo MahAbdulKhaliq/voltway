@@ -9,6 +9,38 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-genesis-us-nacs-lineup",
+      "notes": "Genesis USA: 2023-2025 Genesis EVs have CCS ports (NACS only from 2026).",
+      "low_confidence": true
+    },
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-genesis-ca-nacs-2023",
+      "notes": "Estimated: Genesis Canada said new or refreshed EVs get NACS only from 2025; the GV70 refresh is the 2026 model, so a 2025 Canadian car is assumed CCS1 like the US 2025 car. Not proven for Canada.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-genesis-supercharger-2025",
+      "notes": "US: free Genesis NACS-to-CCS adapter for eligible owners (bought or leased by 2025-01-31); about 20,000 Supercharger sites.",
+      "low_confidence": true
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-genesis-ca-nacs-2023",
+      "notes": "Canada: Genesis announced Supercharger access via adapter for CCS Genesis EVs from Q1 2025 (names the Electrified GV70).",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

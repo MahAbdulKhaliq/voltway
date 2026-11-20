@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-genesis-us-nacs-lineup",
+      "notes": "Genesis USA: 2023-2025 Genesis EVs have CCS ports (NACS only from 2026).",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-genesis-supercharger-2025",
+      "notes": "US: free Genesis NACS-to-CCS adapter for eligible owners (bought or leased by 2025-01-31).",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -5,5 +5,84 @@
   "generation": "first-generation",
   "years": [
     2023
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 77.4,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-greencarreports-gv70-2026",
+        "notes": "Relays Genesis: the 2025 Electrified GV70 had a 77.4 kWh pack (84 kWh from 2026). Years 2023-2025 share the pack (Genesis model notes).",
+        "low_confidence": true
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 74,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-egmp-774",
+        "notes": "Estimated: same 77.4 kWh E-GMP pack as the GV60 (usable 74 kWh on the Weekly Driver pack page, which lists the GV60 but not the GV70).",
+        "low_confidence": true
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-egmp-774",
+        "notes": "Estimated: same 77.4 kWh E-GMP pack as the GV60 (NCM 811).",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-egmp-774",
+        "notes": "Estimated: same pack as the GV60: 697 V nominal, 800 V architecture.",
+        "low_confidence": true
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-genesis-us-owner-battery-conditioning",
+        "notes": "Genesis USA owner page for the Electrified GV70: manual Battery Conditioning Mode (EV menu) plus automatic activation when navigating to a fast charger. Page lists no model years; applied to all GV70 EVs.",
+        "low_confidence": true
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-weeklydriver-egmp-774",
+      "notes": "Estimated: same E-GMP onboard charger as the GV60 (11 kW AC on the pack page; Hyundai US states 10.9 kW for the same hardware on the Ioniq 5).",
+      "low_confidence": true
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 233,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-weeklydriver-egmp-774",
+      "notes": "Estimated: same 77.4 kWh pack and charger as the GV60 (233 kW peak on the pack page; Fastned GV60 77.4: 230 kW). Genesis quotes the same 18 min 10-80 % for GV60 and GV70.",
+      "low_confidence": true
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 18,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-greencarreports-gv70-2026",
+      "notes": "Relays Genesis: the 2025 GV70 charged 10-80 % in about 18 minutes with a CCS adapter.",
+      "low_confidence": true
+    }
   ]
 }

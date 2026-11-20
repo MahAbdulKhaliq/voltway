@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "community",
+      "source_id": "src-electrek-soul-ev-2018-64kwh",
+      "notes": "Electrek: CCS standard on the 2020 Soul EV (Wikipedia: CCS from 2020).",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-nacs-guide-2026",
+      "notes": "Kia Canada: owners of current Soul EVs can buy an accessory NACS adapter at Kia dealers (page body not readable; wording from a search excerpt).",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

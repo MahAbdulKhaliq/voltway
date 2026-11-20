@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "estimated",
+      "source_id": "src-hmgma-2025-ioniq-5-xrt",
+      "notes": "Estimated: the 2025 US IONIQ 5 Limited Dual Motor AWD has a manufacturer-stated NACS port (US-built 2025 release); same US car in 2026, years compared 2025-2026, no port change found.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-hyundai-usa-nacs-adapter-faq",
+      "notes": "Estimated: Hyundai USA FAQ: the native-NACS 2025 IONIQ 5 uses Tesla Superchargers directly; same US car in 2026.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-genesis-us-nacs-lineup",
+      "notes": "Genesis USA: starting with 2026 models every Genesis EV has a NACS port.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-genesis-us-nacs-lineup",
+      "notes": "Genesis USA: NACS port gives access to more than 36,000 Tesla Superchargers.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

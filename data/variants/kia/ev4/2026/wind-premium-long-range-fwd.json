@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "community",
+      "source_id": "src-guideauto-ev4-canada",
+      "notes": "Guide Auto (Canada): native NACS connector on the Canadian EV4 (AutoTrader.ca also says NACS).",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "community",
+      "source_id": "src-guideauto-ev4-canada",
+      "notes": "Guide Auto (Canada): the native NACS connector gives direct access to Tesla Superchargers (InsideEVs says no adapter needed for the US-spec car).",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

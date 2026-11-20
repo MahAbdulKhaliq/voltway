@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "chademo",
+      "kind": "community",
+      "source_id": "src-electrek-soul-ev-2018-64kwh",
+      "notes": "Electrek: the 2020 Soul EV moved to CCS, \"previous models used CHAdeMO\" (Wikipedia and Fastned agree). Caveat: some early US trims may have lacked the DC port; not verified.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "estimated",
+      "source_id": "src-kia-us-charge-pass-page",
+      "notes": "Estimated: Kia US/Canada Supercharger adapter offers cover CCS-port Kias only; a CHAdeMO car has no adapter route.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

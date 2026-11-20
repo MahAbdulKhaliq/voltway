@@ -9,6 +9,38 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-genesis-us-nacs-lineup",
+      "notes": "Genesis USA: NACS only from the 2026 model year; 2023-2025 models have CCS ports (CCS1 in North America).",
+      "low_confidence": true
+    },
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-genesis-ca-nacs-2023",
+      "notes": "Estimated: Genesis Canada page names only the GV60 and GV70; the Canadian G80 is assumed CCS1 like the US car (the Canadian 2025 car is not proven).",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-genesis-us-nacs-lineup",
+      "notes": "US: Genesis says 2023-2025 CCS models need an external adapter for Tesla Superchargers; Genesis ships a free NACS-to-CCS adapter to eligible owners (InsideEVs).",
+      "low_confidence": true
+    },
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-genesis-ca-nacs-2023",
+      "notes": "Estimated: Genesis Canada announced Supercharger access via an adapter from Q1 2025 for Genesis EVs with CCS ports; the page names the GV60 and Electrified GV70 only, so the G80 is inferred.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

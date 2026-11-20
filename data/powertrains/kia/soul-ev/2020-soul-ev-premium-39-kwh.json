@@ -5,5 +5,56 @@
   "generation": "second-generation",
   "years": [
     2020
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 39.2,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-arenaev-esoul-39",
+        "notes": "ArenaEV e-Soul 39 kWh (European car, same 39.2 kWh pack as the Canadian Soul EV Premium): 39.2 kWh usable.",
+        "low_confidence": true
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 42,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-arenaev-esoul-39",
+        "notes": "ArenaEV e-Soul 39 kWh: 42 kWh total.",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "community",
+        "source_id": "src-arenaev-esoul-39",
+        "notes": "ArenaEV: 327 V nominal.",
+        "low_confidence": true
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "value": 7,
+      "unit": "kW",
+      "kind": "community",
+      "source_id": "src-arenaev-esoul-39",
+      "notes": "ArenaEV e-Soul 39 kWh: 7 kW AC (European spec); no Canadian page found (the 64 kWh Soul/Niro/Kona are 7.2 kW).",
+      "low_confidence": true
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 50,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-fastned-hyundai-kona-39",
+      "notes": "Estimated: Fastned lists the Kona Electric 39 kWh (same hardware, 2022-2023) at 50 kW max CCS; no Soul EV 39.2 page found. Conflicts: EV Database reportedly 44 kW for the e-Soul 39 (search excerpt), ArenaEV 100 kW (charger rating).",
+      "low_confidence": true
+    }
   ]
 }

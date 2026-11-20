@@ -9,6 +9,31 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "community",
+      "source_id": "src-cleantechnica-ioniq-electric-2017",
+      "notes": "\"SAE Combo\" DC fast charging, i.e. CCS1 (Wikipedia: CCS Combo 1 inlet, all years).",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-motor-hyundai-adapters-2025",
+      "notes": "US: Hyundai (relayed by Motor.com) gives IONIQ Electric owners (bought by 2025-01-31) a complimentary CCS-to-NACS adapter.",
+      "low_confidence": true
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-faq",
+      "notes": "Canada: Hyundai FAQ says Hyundai EVs of model year 2025 and earlier with a CCS port can use a NACS adapter sold separately (Ioniq Electric not named).",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

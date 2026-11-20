@@ -9,6 +9,38 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-genesis-us-nacs-lineup",
+      "notes": "Genesis USA: starting with 2026 models every Genesis EV has a NACS port.",
+      "low_confidence": true
+    },
+    {
+      "value": "nacs",
+      "kind": "estimated",
+      "source_id": "src-genesis-ca-nacs-2023",
+      "notes": "Estimated: Genesis Canada announced exclusively NACS on all new or refreshed Genesis EVs from 2025; the 2026 GV70 is the refreshed car.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-genesis-us-nacs-lineup",
+      "notes": "Genesis USA: the NACS port gives access to more than 36,000 Tesla Superchargers.",
+      "low_confidence": true
+    },
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-greencarreports-gv70-2026",
+      "notes": "Estimated: Native NACS port on the refreshed 2026 car; Green Car Reports: native Supercharger support, no adapter needed (US report); Genesis Canada announcement.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

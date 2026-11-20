@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-kia-us-ev3-2027",
+      "notes": "Kia USA: the EV3 has a built-in NACS charge port.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-kia-us-ev3-2027",
+      "notes": "Kia USA: the NACS port gives access to Tesla Superchargers.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

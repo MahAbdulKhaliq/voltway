@@ -225,3 +225,5 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 **B125 (owner, 2026-11-20):** above phone widths the header pill never overlaps the left panel: from 1000 px (1100 px for the trip panel) the pill's width stops 12 px short of the panel and the car name shortens; from 641 px up to those widths the panel starts under the pill instead.
 
 **B126 (owner, 2026-11-20):** on phones, outside a trip, the sheet is a fixed "Where to?" bar: no handle, no dragging, and typing doesn't raise it. Place suggestions open upward over the map, full width just above the bar (the same placement as the trip's From / To, B133, unified 2026-11-20). The trip keeps the draggable sheet.
+
+**B134 (owner, 2026-11-20):** on phones the map's status lines ("Loading the map…", loading stations, tile and map errors) sit centred just above the bottom bar or sheet, instead of near the top where Stations in view and Chargers covered them.

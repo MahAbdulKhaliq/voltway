@@ -9,6 +9,31 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-nacs-checker-2026",
+      "low_confidence": true,
+      "notes": "Estimated: The Charge Port US checker lists Polestar 4 (2025-2026) as CCS1 with a paid adapter; Polestar US/CA pages say the car is compatible with the NACS adapter."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-polestar-us-nacs-adapter-page",
+      "low_confidence": true,
+      "notes": "Polestar US: Polestar 4 is compatible with the NACS adapter."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-polestar-ca-nacs-adapter-page",
+      "low_confidence": true,
+      "notes": "Polestar Canada: same statement."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

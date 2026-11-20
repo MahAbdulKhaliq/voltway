@@ -5,5 +5,74 @@
   "generation": "c40-recharge-launch",
   "years": [
     2023
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 78,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-volvo-2024-upgrades",
+        "low_confidence": true,
+        "notes": "Relays Volvo US: AWD versions keep the 78 kWh battery; the 78 kWh pack is the XC40/C40 Recharge Twin pack since launch (2021-2024)."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 75,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-evdb-xc40-twin-pure-my22",
+        "low_confidence": true,
+        "notes": "Estimated: EC40 is the C40 Recharge renamed for 2025 and shares the CMA platform, pack and charger with the same-year EX40 (and the XC40/C40 pair before); the EX40 value was read on the cited page. EV Database (European MY22 car, same 78 kWh pack): 75.0 kWh usable. Wikipedia also gives 78 gross / 75 usable for the C40."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-xc40-twin-pure-my22",
+        "low_confidence": true,
+        "notes": "Estimated: EC40 is the C40 Recharge renamed for 2025 and shares the CMA platform, pack and charger with the same-year EX40 (and the XC40/C40 pair before); the EX40 value was read on the cited page. EV Database: NMC cathode, pouch, 108s3p (same cell family on all 78 kWh packs)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-evdb-xc40-twin-pure-my22",
+        "low_confidence": true,
+        "notes": "Estimated: EC40 is the C40 Recharge renamed for 2025 and shares the CMA platform, pack and charger with the same-year EX40 (and the XC40/C40 pair before); the EX40 value was read on the cited page. EV Database: 400 V nominal and architecture."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-evdb-xc40-twin-pure-my22",
+        "low_confidence": true,
+        "notes": "Estimated: EC40 is the C40 Recharge renamed for 2025 and shares the CMA platform, pack and charger with the same-year EX40 (and the XC40/C40 pair before); the EX40 value was read on the cited page. Estimated: Volvo support says the battery is preconditioned when a rapid charger is set as the Google Maps destination (read via search excerpt; page 403), and EV Database says preconditioning can start automatically via navigation. No manual control found in any Volvo page read, but no North American owner manual could be opened (volvocars.com returns 403), so a manual control cannot be ruled out."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-conceptcarz-volvo-us-2024-powertrains",
+      "low_confidence": true,
+      "notes": "Estimated: Volvo US 2024 release (Conceptcarz copy) states the 78 kWh Twin at 150 kW DC for the C40 and XC40; same 78 kWh pack in 2022-2023, nothing shows a charging change. (Wikipedia EX40 table is inconsistent, 150 vs 175 kW, not used.)"
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-nrcan-bev-2026-09",
+      "low_confidence": true,
+      "notes": "Estimated: EC40 is the C40 Recharge renamed for 2025 and shares the CMA platform, pack and charger with the same-year EX40 (and the XC40/C40 pair before); the EX40 value was read on the cited page. Estimated: NRCan and EPA both rate the 2025-2026 EX40 at 8 h on 240 V (NRCan row EX40 / EX40 Twin, recharge time 8 h), which fits an 11 kW onboard charger for a 79-82 kWh pack. Volvo Canada support (EX40 charging time, read only as a search excerpt, page 403) says the highest AC output is 11 kW, and EV Database lists 11 kW (European 3-phase). Older model years carried over (same CMA charger); no North American page opened states it directly."
+    }
   ]
 }

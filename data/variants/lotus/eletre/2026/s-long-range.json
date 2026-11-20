@@ -8,6 +8,15 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-autopian-eletre-canada",
+      "low_confidence": true,
+      "notes": "Estimated: The Autopian review of the Canadian car says the port is \"of the CCS variety rather than the Tesla-style NACS port\" (CCS1 in North America). Review, not a Lotus statement."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

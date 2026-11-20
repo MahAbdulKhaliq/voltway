@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-kbb-ex60-launch",
+      "low_confidence": true,
+      "notes": "KBB/Motor1: every EX60 has a native NACS port, a first for Volvo."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-kbb-ex60-launch",
+      "low_confidence": true,
+      "notes": "Native NACS port: Tesla Superchargers without an adapter (KBB, Motor1, The Charge Port)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

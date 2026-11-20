@@ -8,6 +8,31 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-nacs-checker-2026",
+      "low_confidence": true,
+      "notes": "Estimated: The Charge Port US checker lists EC40 (C40 Recharge) 2022-2024 and 2025-2026 as CCS1. Volvo sells a NACS-to-CCS1 adapter for all its EVs (Cision, InsideEVs), which a native NACS port would not need. Canada: same car, same adapter release."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-cision-volvo-ca-nacs-2024",
+      "low_confidence": true,
+      "notes": "Volvo Canada release: owners of current fully electric Volvo cars can order a NACS adapter (CA$310) from Nov 18 2024; included with new 2025 EX90/EX40/EC40."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+      "low_confidence": true,
+      "notes": "US: $230 adapter via retailers for existing Volvo EV owners; free with 2025 EX90/EX40/EC40."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

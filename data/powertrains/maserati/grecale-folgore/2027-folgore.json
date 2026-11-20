@@ -5,5 +5,84 @@
   "generation": "first-generation",
   "years": [
     2027
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 105,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-carexpert-grecale-folgore",
+        "low_confidence": true,
+        "notes": "CarExpert: 105 kWh gross; Wikipedia 105.0 kWh."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 95,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-carexpert-grecale-folgore",
+        "low_confidence": true,
+        "notes": "CarExpert: 95 kWh usable."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-carexpert-grecale-folgore",
+        "low_confidence": true,
+        "notes": "CarExpert: NMC."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-carexpert-grecale-folgore",
+        "low_confidence": true,
+        "notes": "CarExpert: 400 V (Wikipedia: 400 V)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "manufacturer",
+        "source_id": "src-autoexpress-grecale-2026",
+        "low_confidence": true,
+        "notes": "Auto Express (relaying Maserati): 2026 update adds pre-conditioning that intervenes when a charging station is chosen on the sat-nav via EV Routing; electrive: added to the route planner for model year 2026. 2027 carried over. Manual control not mentioned."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-carexpert-grecale-folgore",
+      "low_confidence": true,
+      "notes": "CarExpert: DC up to 150 kW; The Charge Port US 150 kW for 2025-2027."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 22,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-fueleconomy-grecale-folgore-2025",
+      "low_confidence": true,
+      "notes": "Estimated: same hardware in another market. CarExpert, ArenaEV and Wikipedia state a 22 kW onboard charger (Type 2, three-phase) and no source shows a US difference. Caveat: US 240 V single-phase supply limits the delivered rate to about 10-11.5 kW (EPA 240 V times: 9 h for 83 kWh GranTurismo, 11 h for 95 kWh Grecale); owner may prefer 11 kW."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 40,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-carexpert-grecale-folgore",
+      "low_confidence": true,
+      "notes": "CarExpert: 10-80% about 40 minutes (0.66 h)."
+    }
   ]
 }

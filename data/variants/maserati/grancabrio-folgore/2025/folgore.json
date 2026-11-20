@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-nacs-checker-2026",
+      "low_confidence": true,
+      "notes": "Estimated: The Charge Port US checker lists GranTurismo / GranCabrio Folgore (2024-2026) as CCS1."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-nacs-checker-2026",
+      "low_confidence": true,
+      "notes": "Estimated: The Charge Port US checker lists GranTurismo / GranCabrio Folgore (2024-2026) with a paid adapter; its FAQ gives the Stellantis Maserati adapter at $255 via the Mopar eStore (Grecale row)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

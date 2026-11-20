@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-nacs-checker-2026",
+      "low_confidence": true,
+      "notes": "Estimated: The Charge Port US checker lists Grecale Folgore (2025-2027) as CCS1."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-nacs-checker-2026",
+      "low_confidence": true,
+      "notes": "Estimated: The Charge Port US checker: Grecale Folgore (2025-2027) paid adapter; FAQ: Maserati adapter $255 MSRP via the Mopar eStore."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

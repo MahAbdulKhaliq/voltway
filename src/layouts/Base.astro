@@ -190,6 +190,11 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
 
     <dialog id="side-nav" class="side-nav" aria-label={t('nav.main')}>
       <div class="side-top">
+        <!-- B127 (owner 2026-11-20): the menu carries the same mark and name as the header pill. -->
+        <a class="logo side-logo" href="/">
+          <img class="logo-mark" src="/logo.png" width="39" height="28" alt="" aria-hidden="true" />
+          <span class="logo-word">{t('site.name')}</span>
+        </a>
         <button type="button" class="icon-btn close-btn" aria-label={t('nav.close')}>
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
         </button>
@@ -246,9 +251,18 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       // Side nav (B20; narrow screens only, B65): a modal <dialog>, so focus stays inside and Escape closes it.
       const nav = document.getElementById('side-nav') as HTMLDialogElement;
       const menuBtn = document.querySelector<HTMLButtonElement>('.menu-btn')!;
-      menuBtn.addEventListener('click', () => nav.showModal());
-      nav.querySelector('.close-btn')!.addEventListener('click', () => nav.close());
-      nav.addEventListener('click', (e) => { if (e.target === nav) nav.close(); }); // backdrop
+      menuBtn.addEventListener('click', () => { nav.classList.remove('closing'); nav.showModal(); });
+      // B127 (owner 2026-11-20): it slides back out when closed, unless Animations are off (then the
+      // closing animation is "none" and it closes at once).
+      const closeNav = () => {
+        if (!nav.open || nav.classList.contains('closing')) return;
+        nav.classList.add('closing');
+        if (getComputedStyle(nav).animationName === 'none') { nav.classList.remove('closing'); nav.close(); return; }
+        nav.addEventListener('animationend', () => { nav.classList.remove('closing'); nav.close(); }, { once: true });
+      };
+      nav.querySelector('.close-btn')!.addEventListener('click', closeNav);
+      nav.addEventListener('click', (e) => { if (e.target === nav) closeNav(); }); // backdrop
+      nav.addEventListener('cancel', (e) => { e.preventDefault(); closeNav(); }); // Escape
       nav.addEventListener('close', () => menuBtn.focus());
 
       // Settings (B65): a small panel under the gear. Escape or a click elsewhere closes it.
@@ -435,8 +449,16 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
   .side-nav[open] { display: flex; flex-direction: column; gap: 14px; animation: slide-in 0.18s ease-out; }
   .side-nav::backdrop { background: rgb(0 0 0 / 55%); }
   @keyframes slide-in { from { transform: translateX(-100%); } to { transform: none; } }
-  :global(html[data-motion="off"]) .side-nav[open] { animation: none; }
-  .side-top { display: flex; justify-content: flex-end; align-items: center; }
+  .side-nav.closing { animation: slide-out 0.2s ease-in forwards; }
+  .side-nav[open]::backdrop { animation: fade-in 0.18s ease-out; }
+  .side-nav.closing::backdrop { animation: fade-out 0.2s ease-in forwards; }
+  @keyframes slide-out { from { transform: none; } to { transform: translateX(-100%); } }
+  @keyframes fade-in { from { opacity: 0; } }
+  @keyframes fade-out { to { opacity: 0; } }
+  :global(html[data-motion="off"]) .side-nav[open], :global(html[data-motion="off"]) .side-nav.closing,
+  :global(html[data-motion="off"]) .side-nav[open]::backdrop, :global(html[data-motion="off"]) .side-nav.closing::backdrop { animation: none; }
+  .side-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .side-logo { margin: 0; padding-left: 4px; }
   .page-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
   .page-list a { display: grid; gap: 2px; padding: 10px 12px; border-radius: 10px; color: var(--text); text-decoration: none; }
   .page-list a:hover { background: var(--surface-2); }

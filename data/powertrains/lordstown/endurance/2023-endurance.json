@@ -26,6 +26,15 @@
         "notes": "EVspecs.org: 104 kWh usable (page notes some figures are estimated).",
         "low_confidence": true
       }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "community",
+        "source_id": "src-r2-sae-met-lordstown",
+        "low_confidence": true,
+        "notes": "SAE Media article: 370 V nominal (hub motors on 370 V nominal), 109 kWh pack; 370 V is in the 400 V class."
+      }
     ]
   },
   "dc_max_kw": [

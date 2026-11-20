@@ -5,6 +5,7 @@ Shared brief for the round 2 researchers. Read `research/SPECS-BRIEF-W2.md` too:
 ## Rules that never change
 - Never work around a site that blocks automated fetches (403, 429, bot walls): Tesla, Volvo, GM/Chevrolet/Cadillac/GMC, Edmunds, evkx.net, web.archive.org, and any other. Use another source.
 - Never cite EVChargingStations.com: its terms forbid database use.
+- Never cite iSeeCars (added 2026-11-20): its terms bar reproducing or distributing its material without written authorization. Check any other spec aggregator's terms before citing it.
 - Every value names its source. Open the page you cite.
 - If a fact has no source and no allowed estimate basis, leave it out and list it in your report. Don't guess.
 - Write only your own output file(s) under `research/`. Use your own scratch-script names, because other agents share the scratchpad.
@@ -16,6 +17,9 @@ Shared brief for the round 2 researchers. Read `research/SPECS-BRIEF-W2.md` too:
   `[{ "diameter_in": 19, "is_standard": true, "source_id": "src-…", "notes"?: "…", "low_confidence"?: true }]`.
   - List every factory size offered on that trim in that model year and market: the standard one with `is_standard: true`, and options with `false`.
   - Use `"*"` as the trim key when every trim of the variant has the same wheels.
+  - A variant (one regulator rating) can cover several maker trims. Mark a size `is_standard: true` when it is standard on **any** trim the variant covers, and `false` only when it is an option on every trim that offers it. Name the trim in each entry's notes, and list the smallest standard size first. A size that differs by market follows the same rule, with the market named in the note. (Added 2026-11-20.)
+  - Don't use iSeeCars, Tire Wheel Guide or Unplugged Performance: their terms bar reuse or scraping.
+  - Cars.com and KBB are allowed for wheel sizes (owner decision B108, 2026-11-20). Cars.com pages show one trim's wheel only, so name the trim the page shows, and mark sizes carried to sibling trims `low_confidence`.
   - Best sources: the maker's spec or build pages, press kits and brochures (Canadian site for Canadian trims). After that: Car and Driver, MotorTrend, Edmunds-style spec pages that don't block, Driving.ca, Guide Auto, Wikipedia.
   - Sizes can carry over from the year before or after only when a source says that year is unchanged. Mark those `low_confidence` and say so in the notes.
 - **Onboard-charger options (B104):**

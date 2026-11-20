@@ -44,6 +44,15 @@
         "notes": "Genesis Australia G80 page: Battery Conditioning Mode activates when a fast-charging station is set as the destination and can also be turned on manually. The page describes the current 94.5 kWh car; no page for the 2023-2025 car found, assumed the same mode.",
         "low_confidence": true
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-r2-koreatimes-g80-sk",
+        "low_confidence": true,
+        "notes": "Korea Times (2021): G80 EV carries the SK 87.2 kWh pack, \"SK Innovation's NCM811 batteries\" (industry official, not Genesis). Corroborated for the later 94.5 kWh pack by the Genesis Korea notice (src-genesis-kr-battery-notice: SK On, pouch, NCM). Applies to the 87.2 kWh pack of the 2023-2025 US/CA cars."
+      }
     ]
   },
   "ac_max_kw": [

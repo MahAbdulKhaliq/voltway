@@ -25,6 +25,24 @@
         "low_confidence": true,
         "notes": "Estimated: InsideEVs: battery preconditioning standard; Lexus release: \"Optimizes battery temperature before charging in cold conditions\", 5G-dependent, subscription. The Lexus TZ page names battery preconditioning but not its trigger; assumed as on the Lexus ES (touchscreen or automatic with a charger as destination), not confirmed."
       }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "community",
+        "source_id": "src-r2-autodata-tz-450e-9582",
+        "low_confidence": true,
+        "notes": "Auto-Data.net: battery voltage 385 V for the TZ 450e 95.82 kWh. Toyota press release: 312 cells in this pack vs 104 in the 76.96 kWh pack (400 V class, src-insideevs-bz-charging-limit-2026)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-r2-greencars-highlander-ev",
+        "low_confidence": true,
+        "notes": "Estimated: platform sibling with the same pack. Lexus says the TZ 95.82 kWh pack is the Toyota Highlander EV 95.8 kWh pack (Toyota Liberty NC assembly); GreenCars reports LG Energy Solution pouch cells with nickel-manganese-cobalt-aluminum cathode (NMCA, recorded as nmc). Toyota states \"lithium-ion\" only (src-r2-lexus-tz-global-pr)."
+      }
     ]
   },
   "ac_max_kw": [

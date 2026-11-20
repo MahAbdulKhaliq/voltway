@@ -5,5 +5,82 @@
   "generation": "first-generation",
   "years": [
     2025
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 100,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-porsche-macan-gts-battery",
+        "low_confidence": true,
+        "notes": "Estimated: 100 kWh gross (Porsche press kits for Macan 4, Turbo, GTS). Porsche pages for the Macan 4, Turbo and GTS give the same pack; same hardware assumed for this trim."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 95,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-porsche-macan-gts-battery",
+        "low_confidence": true,
+        "notes": "Estimated: Usable 95 kWh (InsideEVs also says 95; Porsche: \"up to 95 kWh of its gross energy capacity ... actively used\"). Porsche pages for the Macan 4, Turbo and GTS give the same pack; same hardware assumed for this trim."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-porsche-macan-gts-battery",
+        "notes": "Porsche: nickel:cobalt:manganese 8:1:1 cathode, graphite anode."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-porsche-macan-gts-battery",
+        "notes": "Porsche: 800-volt technology (PPE)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "manufacturer",
+        "source_id": "src-porsche-uk-ask-cayenne-charging",
+        "low_confidence": true,
+        "notes": "Porsche UK support page for Cayenne Electric from MY2026: \"the high-voltage battery is preconditioned automatically during active route guidance\" via the Charging Planner. UK page, not a North American one; Porsche US names Cayenne preconditioning only in the Track-mode context."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 270,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-porsche-macan-gts-battery",
+      "low_confidence": true,
+      "notes": "Estimated: Up to 270 kW at 800 V (135 kW at 400 V). Porsche pages for the Macan 4, Turbo and GTS give the same pack; same hardware assumed for this trim."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 21,
+      "unit": "min",
+      "kind": "estimated",
+      "source_id": "src-porsche-macan-gts-battery",
+      "low_confidence": true,
+      "notes": "Estimated: About 21 minutes 10-80% at a suitable station. Porsche pages for the Macan 4, Turbo and GTS give the same pack; same hardware assumed for this trim."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 9.6,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-insideevs-macan-2024-specs",
+      "low_confidence": true,
+      "notes": "Estimated: US on-board charger 9.6 kW (InsideEVs 2024 Macan 4/Turbo). Europe 11 kW standard (Porsche press kit), 22 kW option/standard from the new model year in Germany (electrive, Aug 2026). Same US hardware assumed for this trim/year and for Canada."
+    }
   ]
 }

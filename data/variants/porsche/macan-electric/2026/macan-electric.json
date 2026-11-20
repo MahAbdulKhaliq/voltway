@@ -9,6 +9,28 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-porsche-us-supercharger-2025",
+      "notes": "Porsche US: \"CCS-equipped ... Macan Electric\" (adapter needed for NACS stations)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-porsche-us-supercharger-2025",
+      "notes": "US: Porsche NACS DC adapter (free for existing Macan Electric owners, included with MY2026)."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-porsche-ca-supercharger-2025",
+      "notes": "Canada: adapter, free for existing Macan Electric owners and MY2026 cars (up to about 135 kW at 400 V NACS)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

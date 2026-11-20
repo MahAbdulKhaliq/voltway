@@ -8,6 +8,28 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-porsche-us-supercharger-2025",
+      "notes": "Porsche US/Canada: \"CCS-equipped Taycan\" needs the NACS DC adapter; CCS1 for North America. Native NACS starts with MY2027."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-porsche-us-supercharger-2025",
+      "notes": "US: Porsche NACS DC adapter (included with MY2026, free for MY2025, purchasable for MY2024 and older at $185)."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-porsche-ca-supercharger-2025",
+      "notes": "Canada: same programme; adapter free for MY2025 and MY2026, C$250 for MY2024 and older."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

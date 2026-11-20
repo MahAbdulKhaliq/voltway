@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-porsche-us-supercharger-2025",
+      "low_confidence": true,
+      "notes": "Estimated: Macan Electric CCS1 through MY2026 (Porsche US); the MY2027 release announces native NACS only for the Taycan, nothing found for the Macan."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-porsche-us-supercharger-2025",
+      "low_confidence": true,
+      "notes": "US: Porsche NACS DC adapter (free for existing Macan Electric owners, included with MY2026). MY2027 assumed to match MY2026 (CCS1 + adapter)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

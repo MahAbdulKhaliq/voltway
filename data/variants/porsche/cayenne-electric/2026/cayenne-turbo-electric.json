@@ -9,6 +9,23 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-porsche-us-cayenne-s",
+      "notes": "US: J3400 (NACS) DC-only port driver-side rear fender, J1772 AC-only port passenger side; CCS DC adapter standard. Canada release does not state ports (assumed the same)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-porsche-us-cayenne-s",
+      "low_confidence": true,
+      "notes": "Estimated: native NACS DC port; no Porsche page opened states Supercharger access for the Cayenne explicitly (the 2025 programme pages name only Taycan and Macan). Canada Plug & Charge release (Jan 2026) says Cayenne Electric gets Plug & Charge on arrival."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -565,7 +565,11 @@ html[data-motion="off"] .map-btn-label { transition: none; }
   /* ^ It ends above the credits ⓘ, which rides on the sheet's top edge. */
   .map-corner .map-locate-msg { order: 4; }
   /* Place suggestions grow the sheet instead of being clipped inside it. */
-  .map-panel.route .tp-field .cp-suggest { position: static; margin: 0; }
+  /* B133 (owner 2026-11-20): the trip's From / To suggestions float over the map just above the
+     sheet (fixed, so the sheet's scrolling body doesn't clip or grow), like "Where to?" (B126). */
+  .map-panel.route .tp-field .cp-suggest { position: fixed; top: auto; left: 8px; right: 8px; bottom: calc(var(--sheet-px, 0px) + 6px); margin: 0; max-height: max(160px, calc(100dvh - var(--sheet-px, 0px) - 84px)); overflow-y: auto; overscroll-behavior: contain; }
+  /* ...and the "pick from the suggestions" hint waits until the field is left, so typing never grows the sheet. */
+  .map-panel.route:has(.tp-field input:focus) .tp-hint { display: none; }
   /* B126 (owner 2026-11-20): outside a trip the sheet is a fixed "Where to?" bar; its place
      suggestions open upward over the map instead of growing the bar. */
   .map-panel.where-bar { overflow: visible; }

@@ -766,7 +766,8 @@ html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplib
 .chip-plugs-fold .acc-chev { flex: none; transform: scale(0.8); background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
 .chip-plugs-fold[aria-expanded=true] .acc-chev { rotate: 180deg; background: var(--accent-soft); }
 .chip-plugs-fold[aria-expanded=true] .acc-chev::before { border-color: var(--accent); }
-.chip-plugs-list { display: grid; gap: 2px; }
+.chip-plugs-list { display: grid; gap: 2px; padding: 2px; margin: 0 -2px; } /* room for focus rings inside the fold (B129) */
+.fold.shut > .chip-plugs-list { padding-top: 0; padding-bottom: 0; }
 @media (max-width: 640px) { .chip-plugs-fold { min-height: 44px; } }
 .chip-plug { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border: 0; border-radius: 6px; background: none; color: var(--text); font: inherit; font-size: 0.9rem; text-align: left; cursor: pointer; }
 .chip-plug:hover, .chip-plug:focus-visible { background: var(--accent-soft); }

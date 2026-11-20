@@ -121,7 +121,8 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
                 </span>
                 <span class="acc-chev" aria-hidden="true"></span>
               </button>
-              <div id="settings-general-body" class="settings-trips">
+              <!-- B129 (owner 2026-11-20): the folds open and close with the shared .fold animation. -->
+              <div class="fold settings-fold-body" data-fold-body="general"><div id="settings-general-body" class="settings-trips">
             <div class="settings-row">
               <span id="settings-theme">{t('settings.theme')}</span>
               <div class="seg theme-seg" role="group" aria-labelledby="settings-theme">
@@ -153,7 +154,7 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
               </div>
             </div>
             <!-- Route options (B73) and Stay within the border (B74, B78; a real switch, on by default, B79). -->
-              </div>
+              </div></div>
             </div>
             <!-- Owner 2026-11-20: Trip settings folds to its title and a summary line (closed by default),
                  and holds Distances and the charging price as well as the route switches. -->
@@ -165,7 +166,7 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
                 </span>
                 <span class="acc-chev" aria-hidden="true"></span>
               </button>
-              <div id="settings-trips" class="settings-trips" hidden>
+              <div class="fold settings-fold-body shut" data-fold-body="trips"><div id="settings-trips" class="settings-trips">
               <div class="settings-row">
                 <span id="settings-units">{t('settings.units')}</span>
                 <div class="units seg" role="group" aria-labelledby="settings-units">
@@ -181,7 +182,7 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
               <button type="button" role="switch" aria-checked="false" class="settings-switch" data-avoid="avoidTolls"><span>{t('settings.avoidTolls')}</span><span class="switch" aria-hidden="true"></span></button>
               <button type="button" role="switch" aria-checked="false" class="settings-switch" data-avoid="avoidHighways"><span>{t('settings.avoidHighways')}</span><span class="switch" aria-hidden="true"></span></button>
               <button type="button" role="switch" aria-checked="true" class="settings-switch" data-border><span>{t('settings.inBorder')}</span><span class="switch" aria-hidden="true"></span></button>
-              </div>
+              </div></div>
             </div>
           </div>
         </div>
@@ -288,7 +289,7 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
         pop.hidden = !open;
         setBtn.setAttribute('aria-expanded', String(open));
         // The pressed choice in the open fold, else the first fold's button.
-        if (open) [...pop.querySelectorAll<HTMLButtonElement>('[aria-pressed=true], .settings-fold')].find((b) => b.offsetParent !== null)?.focus();
+        if (open) [...pop.querySelectorAll<HTMLButtonElement>('[aria-pressed=true], .settings-fold')].find((b) => b.offsetParent !== null && !b.closest('.fold.shut'))?.focus();
         else if (refocus) setBtn.focus();
       };
       setBtn.addEventListener('click', () => showPop(setBtn.getAttribute('aria-expanded') !== 'true'));
@@ -313,14 +314,14 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       // time (or none); a closed fold shows a summary line. Remembered in the browser.
       type Fold = 'general' | 'trips' | 'none';
       const folds = {
-        general: { btn: pop.querySelector<HTMLButtonElement>('[data-fold="general"]')!, body: document.getElementById('settings-general-body')!, sum: document.getElementById('settings-general-sum')! },
-        trips: { btn: pop.querySelector<HTMLButtonElement>('[data-fold="trips"]')!, body: document.getElementById('settings-trips')!, sum: document.getElementById('settings-trips-sum')! },
+        general: { btn: pop.querySelector<HTMLButtonElement>('[data-fold="general"]')!, body: pop.querySelector<HTMLElement>('[data-fold-body="general"]')!, sum: document.getElementById('settings-general-sum')! },
+        trips: { btn: pop.querySelector<HTMLButtonElement>('[data-fold="trips"]')!, body: pop.querySelector<HTMLElement>('[data-fold-body="trips"]')!, sum: document.getElementById('settings-trips-sum')! },
       };
       const setFold = (which: Fold, remember = true) => {
         for (const [k, f] of Object.entries(folds)) {
           const open = k === which;
           f.btn.setAttribute('aria-expanded', String(open));
-          f.body.hidden = !open;
+          f.body.classList.toggle('shut', !open);
           f.sum.hidden = open;
         }
         if (remember) setItem(KEYS.settingsFold, which);
@@ -516,6 +517,10 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
   .settings-fold:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
   .settings-trips { display: grid; gap: 6px; }
   .settings-group-first { padding-top: 0; border-top: 0; }
+  /* B129: the fold's own gap moves inside it, and a little room keeps focus rings from being clipped. */
+  .settings-group:has(> .settings-fold-body) { gap: 0; }
+  .settings-fold-body > * { padding: 6px 3px 3px; margin: 0 -3px; }
+  .settings-fold-body.shut > * { padding-top: 0; padding-bottom: 0; }
   .settings-trips[hidden] { display: none; }
   .settings-trips .settings-help { margin: -4px 0 4px; }
   @media (max-width: 640px) { .settings-fold { min-height: 44px; } }

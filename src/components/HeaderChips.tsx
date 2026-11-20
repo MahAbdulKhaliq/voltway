@@ -25,7 +25,8 @@ export default function HeaderChips() {
   const [open, setOpen] = useState(false);
   /** The plug switches in the menu: folded unless "Change plugs" opened the menu for them. */
   const [plugsOpen, setPlugsOpen] = useState(false);
-  useEffect(() => { if (!open) setPlugsOpen(false); }, [open]);
+  // B129 (owner 2026-11-20): the plugs fold keeps its state while the page is open (closing the menu
+  // doesn't fold it); a new page load starts it closed.
   const [ready, setReady] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const button = useRef<HTMLButtonElement>(null);
@@ -189,7 +190,7 @@ export default function HeaderChips() {
   const onMenuKey = (e: React.KeyboardEvent) => {
     if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
     e.preventDefault();
-    const items = [...(root.current?.querySelectorAll<HTMLElement>('[role=menuitem], [role=menuitemcheckbox]') ?? [])];
+    const items = [...(root.current?.querySelectorAll<HTMLElement>('[role=menuitem], [role=menuitemcheckbox]') ?? [])].filter((el) => !el.closest('.fold.shut'));
     const i = items.indexOf(document.activeElement as HTMLElement);
     items[(i + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length]?.focus();
   };
@@ -217,7 +218,7 @@ export default function HeaderChips() {
                   </span>
                   <span className="acc-chev" aria-hidden="true" />
                 </button>
-                {plugsOpen && <div id="mycar-plugs-list" className="chip-plugs-list">
+                <div className={`fold${plugsOpen ? '' : ' shut'}`}><div id="mycar-plugs-list" className="chip-plugs-list">
                 {DC_PLUGS.map((p) => (
                   <button
                     key={p}
@@ -232,7 +233,7 @@ export default function HeaderChips() {
                     <span>{t(`value.${p}` as MessageKey)}</span>
                   </button>
                 ))}
-                </div>}
+                </div></div>
               </div>
             </div>
           )}

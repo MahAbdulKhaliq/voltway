@@ -62,14 +62,14 @@
 
 ## Specs (11 groups + Escalade IQ, applied)
 
-Every group was fact-checked, fixed and then applied. Fields with no allowed basis (same hardware elsewhere, same-pack sibling, same-cell ratio, lineup-wide feature) were left empty for you; validate fails on those cars until you decide (list in ).
+Every group was fact-checked, fixed and then applied. Fields with no allowed basis (same hardware elsewhere, same-pack sibling, same-cell ratio, lineup-wide feature) were left empty for you; validate fails on those cars until you decide (list in `research/powertrain-gaps.json`).
 
 **Questions from the spec batches:**
 1. **AC charger, standard vs optional:** Porsche (9.6 vs 11 kW Cayenne; 11 vs 19.2/22), Tesla, Audi, Maserati (11 vs 22). We store the standard unit. OK?
-2. **Chemistry  estimates** where no page names it (Audi e-tron/Q8/GT, e-Golf, older Hyundai/Kia/Genesis, Mercedes EQB/G 580/B-Class/smart). Keep as low-confidence estimates or leave empty?
+2. **Chemistry `nmc` estimates** where no page names it (Audi e-tron/Q8/GT, e-Golf, older Hyundai/Kia/Genesis, Mercedes EQB/G 580/B-Class/smart). Keep as low-confidence estimates or leave empty?
 3. **Peak figures that disagree:** Cybertruck 325 kW display vs 250 kW stated; Stellantis 183 vs 203 kW; Rivian R2 217 vs 229; Rivian Max 210; Gen 2 Large 220 vs 215.
-4. **Supercharger access:**  set where a car is absent from Tesla's NACS table; pre-2025 Audi  vs ; Canadian evidence is thin.
-5. **Labels:**  for LMO cells (early Leaf/i-MiEV); Mercedes bare pack figures read as usable; i3 preconditioning  vs ; Tesla MCU1 preconditioning.
+4. **Supercharger access:** `no` set where a car is absent from Tesla's NACS table; pre-2025 Audi `via_adapter` vs `no`; Canadian evidence is thin.
+5. **Labels:** `other` for LMO cells (early Leaf/i-MiEV); Mercedes bare pack figures read as usable; i3 preconditioning `manual_only` vs `none`; Tesla MCU1 preconditioning.
 6. **Hardware calls:** 2025 Hummer SUV 3X pack; Celestiq estimates; Polestar 3 2026 800 V and the CA/US split (repo 2026 data is itself inconsistent: gross 106, usable 107); 2026 i5 NACS build-date cut; Q8 NCA from one source.
 
 ## Curves (3 batches, applied: 3f2d149, ad1a18d, 3df32cd)

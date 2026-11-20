@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-wikipedia-chevrolet-spark-ev",
+      "low_confidence": true,
+      "notes": "Wikipedia: optional CCS Combo 1 inlet, first car in the US with CCS; cars without the option have J1772 only. Canada: limited fleet sales from 2014, port not stated."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
+      "low_confidence": true,
+      "notes": "InsideEVs: the Spark EV \"cannot be recharged at Tesla Superchargers\" and is not in the GM adapter programme."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

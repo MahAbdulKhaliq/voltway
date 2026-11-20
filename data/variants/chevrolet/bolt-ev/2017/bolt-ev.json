@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-wikipedia-chevrolet-bolt",
+      "low_confidence": true,
+      "notes": "Wikipedia: J1772 inlet for AC, with the SAE Combo (CCS1) DC inlet a factory option on 2017-2020 cars (standard from 2021 Premier and 2022). Cars without the option have only J1772 and no DC."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-auto123-gm-nacs-adapter-2024",
+      "low_confidence": true,
+      "notes": "Estimated: GM announced the NACS adapter for all GM EVs on 2024-09-18, US first and Canada before the end of 2024 (Auto123, ArenaEV); no Canadian page for this exact model was readable (gm.ca, chevrolet.ca, cadillaccanada.ca return 403). Assumed the Canadian car has the same adapter access as the US car. Markets on this powertrain: CA and US; US reads InsideEVs' list."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

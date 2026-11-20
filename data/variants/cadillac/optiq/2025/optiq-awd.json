@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-wikipedia-cadillac-optiq",
+      "low_confidence": true,
+      "notes": "Estimated: Wikipedia: North American Optiq has a CCS Type 1 port (NACS via adapter); same on the Optiq-V. Model years 2025-2026 (2027 moves to NACS)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-auto123-gm-nacs-adapter-2024",
+      "low_confidence": true,
+      "notes": "Estimated: GM announced the NACS adapter for all GM EVs on 2024-09-18, US first and Canada before the end of 2024 (Auto123, ArenaEV); no Canadian page for this exact model was readable (gm.ca, chevrolet.ca, cadillaccanada.ca return 403). Assumed the Canadian car has the same adapter access as the US car. Canada only."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

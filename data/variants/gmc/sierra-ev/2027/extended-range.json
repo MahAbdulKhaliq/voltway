@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-equinox-ev",
+      "low_confidence": true,
+      "notes": "Estimated: Estimated from the GM 2027 changeover: The Charge Port says the 2027 Equinox EV has native NACS (2024-2026 CCS1), and its 2027 Lyriq and Vistiq pages say the same; no page for the 2027 Sierra EV or Silverado EV states the port (gmc.com 403, Charge Port Sierra page silent). Weak: the truck is not confirmed."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-equinox-ev",
+      "low_confidence": true,
+      "notes": "Estimated: Native NACS port on the 2027 model year charges at Tesla Superchargers without an adapter (The Charge Port pages for Vistiq/Optiq/Equinox EV; Sierra EV inferred from the port estimate). US."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

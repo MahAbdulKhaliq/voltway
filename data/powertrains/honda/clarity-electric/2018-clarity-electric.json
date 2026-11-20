@@ -5,5 +5,72 @@
   "generation": "first-generation",
   "years": [
     2018
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 25.5,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-hondanews-clarity-electric-specs",
+        "notes": "Honda spec sheet: 25.5 kWh lithium-ion battery (capacity)."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 24.2,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-greencarscompare-clarity-electric",
+        "low_confidence": true,
+        "notes": "Estimated: GreenCarsCompare lists 24.2 kWh usable of 25.5 kWh nominal; Honda does not publish a usable figure."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-hondanews-clarity-electric-specs",
+        "low_confidence": true,
+        "notes": "Estimated: Honda says only \"lithium-ion\"; no page names the chemistry. NMC is an assumption (typical 2017 automotive pack), not sourced. OWNER QUESTION."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-greencarscompare-clarity-electric",
+        "low_confidence": true,
+        "notes": "Estimated: GreenCarsCompare: 400 V architecture; no 800 V car existed in 2017-2019."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-hondanews-clarity-electric-specs",
+        "low_confidence": true,
+        "notes": "Estimated: Absence of mention: the Honda 2017 spec sheet lists DC fast charging and a 6.6 kW charger and no battery warm-up feature; the first Honda feature found is the 2024 Prologue (Wikipedia: Google Maps preconditioning). No page states the absence outright."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 50,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-greencarscompare-clarity-electric",
+      "low_confidence": true,
+      "notes": "Estimated: GreenCarsCompare: DC max 50 kW; Honda says 80 % in 30 minutes with DC fast charging (consistent with ~50 kW); other sources 55 and 80 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 6.6,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-hondanews-clarity-electric-specs",
+      "notes": "Honda spec sheet: 6.6 kW onboard 32-amp charger; 3.5 h on 240 V."
+    }
   ]
 }

@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-cadillac-vistiq",
+      "low_confidence": true,
+      "notes": "Estimated: The Charge Port: the 2027 Vistiq has a native NACS port. Model-year 2027."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-cadillac-vistiq",
+      "low_confidence": true,
+      "notes": "Estimated: Native NACS port on the 2027 model year charges at Tesla Superchargers without an adapter (The Charge Port pages for Vistiq/Optiq/Equinox EV; Sierra EV inferred from the port estimate). US."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

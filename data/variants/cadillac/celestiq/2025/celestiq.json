@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-lyriq-2027",
+      "low_confidence": true,
+      "notes": "Estimated: GM Ultium Cadillacs through 2026 use CCS1 (The Charge Port, LYRIQ/Vistiq pages); no Celestiq page states the port. Model years 2025-2026."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-auto123-gm-nacs-adapter-2024",
+      "low_confidence": true,
+      "notes": "Estimated: GM announced the NACS adapter for all GM EVs on 2024-09-18, US first and Canada before the end of 2024 (Auto123, ArenaEV); no Canadian page for this exact model was readable (gm.ca, chevrolet.ca, cadillaccanada.ca return 403). Assumed the Canadian car has the same adapter access as the US car. Markets on this powertrain: CA and US; US reads InsideEVs' list."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

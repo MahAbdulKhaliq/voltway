@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-cadillac-optiq",
+      "low_confidence": true,
+      "notes": "Estimated: The Charge Port Optiq page describes the Optiq and Optiq-V trims as \"native NACS\" (no year split stated); the 2026 car uses CCS1 (Wikipedia). Model-year 2027."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-cadillac-optiq",
+      "low_confidence": true,
+      "notes": "Estimated: Native NACS port on the 2027 model year charges at Tesla Superchargers without an adapter (The Charge Port pages for Vistiq/Optiq/Equinox EV; Sierra EV inferred from the port estimate). US."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

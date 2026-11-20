@@ -5,5 +5,74 @@
   "generation": "lg-chem",
   "years": [
     2015
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 19,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-wikipedia-chevrolet-spark-ev",
+        "low_confidence": true,
+        "notes": "Wikipedia: 2015-16 pack is 19 kWh Li-ion (LG Chem), same range as before; GreenCarsCompare: 19 kWh nominal. Auto-data lists 19 kWh for 2014-2016 (conflict on 2014)."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 18,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-greencarscompare-spark-ev",
+        "low_confidence": true,
+        "notes": "Estimated: GreenCarsCompare: \"18 kWh usable battery pack (19 kWh nominal)\"."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-chevrolet-spark-ev",
+        "low_confidence": true,
+        "notes": "Estimated: Wikipedia says only \"lithium-ion\" (LG Chem) for 2015-16 and no page names the cathode. NMC is an assumption (the usual LG Chem automotive pouch cell of the time), not a sourced fact. OWNER QUESTION."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-autodata-spark-ev-19",
+        "low_confidence": true,
+        "notes": "Estimated: Auto-data lists the Spark EV battery at 400 V; no 800 V production car existed before 2019."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-chevrolet-spark-ev",
+        "low_confidence": true,
+        "notes": "Estimated: Absence of mention: Wikipedia describes only a liquid thermal management system and no battery warm-up feature; GM's navigation-based preconditioning appears only on the 2022+ Ultium cars (2027 Bolt release). No page states that the Spark EV lacks preconditioning."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 50,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-wikipedia-chevrolet-spark-ev",
+      "low_confidence": true,
+      "notes": "Wikipedia: optional CCS Combo 1 at 50 kW DC, 80 % in 20 minutes; EVSpecs and GreenCarsCompare agree on 50 kW. DC was optional: cars without it have no DC port."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 3.3,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-wikipedia-chevrolet-spark-ev",
+      "low_confidence": true,
+      "notes": "Wikipedia: maximum 3.3 kW onboard charger (EVSpecs 3.84 kW at 240 V)."
+    }
   ]
 }

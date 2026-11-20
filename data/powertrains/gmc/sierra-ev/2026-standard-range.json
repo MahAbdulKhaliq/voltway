@@ -5,5 +5,64 @@
   "generation": "first-generation",
   "years": [
     2026
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 119,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-gm-ultium-truck-14",
+        "low_confidence": true,
+        "notes": "Estimated: Wikipedia: Sierra EV Standard Range pack 119 kWh; Weekly Driver 14-module Ultium truck pack 119 kWh as published (no usable/gross split)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-insideevs-silverado-battery",
+        "low_confidence": true,
+        "notes": "Estimated: GM Ultium cells shared with the Silverado EV; closest enum nmc."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-gm-ultium-truck-14",
+        "low_confidence": true,
+        "notes": "Estimated: Weekly Driver: 14-module pack ~470 V nominal as published; GM spec guide 475 V up to 220 kW; Silverado EV Standard Range recorded 400 V class."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-chevrolet-battery-preconditioning-guide",
+        "low_confidence": true,
+        "notes": "Estimated: GM's battery-preconditioning guide (chevrolet.com returns 403, search excerpt only): automatic with Google built-in navigation plus a manual Fast Charge Prep in the app; applied lineup-wide to GM Ultium vehicles as for Silverado EV/Equinox EV records. UNVERIFIED on a page for this model. "
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 220,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-gm-silverado-ev-2026-spec-guide",
+      "low_confidence": true,
+      "notes": "Estimated: Same 14-module pack as the Silverado EV Standard Range: GM spec guide 475 V up to 220 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-gm-silverado-ev-2026-spec-guide",
+      "low_confidence": true,
+      "notes": "Estimated: Silverado EV Standard Range 11.5 kW charging module (GM spec guide); Wikipedia lists 19.2 kW as the Sierra EV maximum (ER/Max)."
+    }
   ]
 }

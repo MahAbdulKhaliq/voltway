@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-gm-silverado-ev-2026-spec-guide",
+      "low_confidence": true,
+      "notes": "Estimated: The GM 2026 Silverado EV spec guide treats the J1772/CCS1 inlet as native with an optional NACS DC adapter; the Sierra EV is the same truck. Model years 2025-2026."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-auto123-gm-nacs-adapter-2024",
+      "low_confidence": true,
+      "notes": "Estimated: GM announced the NACS adapter for all GM EVs on 2024-09-18, US first and Canada before the end of 2024 (Auto123, ArenaEV); no Canadian page for this exact model was readable (gm.ca, chevrolet.ca, cadillaccanada.ca return 403). Assumed the Canadian car has the same adapter access as the US car. Canada only."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-wikipedia-honda-clarity-electric",
+      "low_confidence": true,
+      "notes": "Wikipedia: US Clarity Electric has a CCS Type 1 combo port for DC; Honda: DC fast charging with SAE CCS."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "estimated",
+      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
+      "low_confidence": true,
+      "notes": "Estimated: Not on InsideEVs' list of non-Tesla EVs with Supercharger access; Honda's Supercharger access programme covers the Prologue and later. US only."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

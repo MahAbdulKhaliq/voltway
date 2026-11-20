@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-acura-zdx",
+      "low_confidence": true,
+      "notes": "Charge Port: \"The ZDX uses a CCS1 port.\""
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-acura-zdx",
+      "low_confidence": true,
+      "notes": "US: CCS1 car, Supercharger access with the manufacturer-approved NACS adapter; listed on InsideEVs. Current state for this model year."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

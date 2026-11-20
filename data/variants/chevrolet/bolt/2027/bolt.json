@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-automotiveworld-2027-bolt",
+      "low_confidence": true,
+      "notes": "GM: the 2027 Bolt is Chevrolet's first vehicle with a native NACS port."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-2027-bolt-fast-charging",
+      "low_confidence": true,
+      "notes": "Native NACS; InsideEVs charged a 2027 Bolt at a Tesla Supercharger with a NACS cable; KBB: plugs directly into compatible Superchargers. US."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-honda-prologue",
+      "low_confidence": true,
+      "notes": "The Charge Port: CCS1 port; Superchargers need an adapter (2024-2026 model years)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
+      "low_confidence": true,
+      "notes": "US: CCS1 car, Supercharger access with the manufacturer-approved NACS adapter; listed on InsideEVs. Current state for this model year."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

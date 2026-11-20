@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-honda-prologue",
+      "low_confidence": true,
+      "notes": "The Charge Port: CCS1 port; Superchargers need an adapter (2024-2026 model years)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
+      "low_confidence": true,
+      "notes": "Estimated: US: listed on InsideEVs as Supercharger-compatible with the Honda/Acura adapter (The Charge Port for ZDX: Acura adapter $225, access since July 2025). Canada: no Honda Canada/Acura Canada page found; assumed the same adapter access for the Canadian car. Current state for this model year."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

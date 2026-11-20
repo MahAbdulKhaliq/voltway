@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-gmc-hummer-ev",
+      "low_confidence": true,
+      "notes": "The Charge Port: the Hummer EV has a CCS1 port that needs an adapter for Superchargers (tools section)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
+      "low_confidence": true,
+      "notes": "US: the GM/Honda-approved NACS adapter is needed on this CCS1 car; the model is on InsideEVs' list of non-Tesla EVs with Supercharger access. Current state for this model year. "
+    }
+  ],
   "trims": [
     {
       "id": "standard",

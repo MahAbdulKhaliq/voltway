@@ -176,7 +176,6 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
     else setFocusTick((n) => n + 1);
   };
   const [focusTick, setFocusTick] = useState(0);
-  const [sheetOpen, setSheetOpen] = useState(false);
   // Drive mode (B72): open, and which stops are reached. Kept for this tab only (sessionStorage).
   const [driving, setDriving] = useState(false);
   const [reached, setReached] = useState<boolean[]>([]);
@@ -270,7 +269,6 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
     if (!planKey || planKey === foldedFor.current) return; // a car change re-plans the same route: leave the panel as it is
     foldedFor.current = planKey;
     setEditing(false);
-    setSheetOpen(false);
     // A new plan starts Drive over, unless this tab is coming back to it.
     if (resume.current) { setReached(resume.current.slice(0, plan?.stops.length ?? 0)); setDriving(true); resume.current = null; }
     else { setDriving(false); setReached([]); clearDrive(); }
@@ -550,8 +548,6 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
           onOpenStop={onOpenStop}
           selectedSpot={selectedSpot}
           onOpenSpot={onOpenSpot}
-          open={sheetOpen}
-          onToggle={() => setSheetOpen((o) => !o)}
           updated={updated}
           carUpdated={T.carUpdated}
           carLine={t('route.carLine', { car: carLabel, start: trip.startSoc, min: trip.thresholdSoc })}

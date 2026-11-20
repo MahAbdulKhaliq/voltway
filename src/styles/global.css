@@ -479,10 +479,6 @@ html[data-motion="off"] .route-car-change-go { transition: none; }
 .route-ends { overflow-wrap: anywhere; }
 .route-panel .banner { margin: 0; }
 .route-itinerary { padding-top: 2px; }
-@media (max-width: 640px) {
-  .route-itinerary:not(.open) .ti-body { display: none; }
-  .route-itinerary .ti-toggle { display: inline-block; margin-top: 4px; }
-}
 
 /* Locate me: bottom right on desktop, beside the zoom buttons and above the attribution. */
 /* Bottom right (B54): the Map key toggle above Locate me; the key opens above them. */
@@ -833,7 +829,6 @@ html[data-motion="off"] .dlg-row-go { transition: none; }
 .tp-share .field-input { width: 100%; }
 .tp-hint { margin: 0; }
 .linklike { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
-.ti-toggle { display: none; }
 /* Trip result (DESIGN-4 4.8): total time first, then the stops along the painted line. */
 .ti-time-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .ti-share { display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; margin-right: -6px; padding: 0; border: 1px solid var(--field-border); border-radius: 50%; background: var(--surface); color: var(--text); cursor: pointer; }

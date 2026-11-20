@@ -34,9 +34,6 @@ interface Props {
   selectedSpot?: string | null;
   /** A border row's diamond, or the start or destination mark: closes in on it (again: the whole route). */
   onOpenSpot?: (key: string, at: [number, number]) => void;
-  /** Phones: the stops are folded away until opened. */
-  open: boolean;
-  onToggle: () => void;
   /** Charger data date (map meta.json), YYYY-MM-DD. */
   updated: string | null;
   /** The car's data date: the latest source check, YYYY-MM-DD. */
@@ -60,7 +57,7 @@ interface Props {
   weatherHint?: ReactNode;
 }
 
-export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, selectedSpot = null, onOpenSpot, open, onToggle, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive, onNacs, crossings = [], weatherOn = false, weatherHint }: Props) {
+export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, selectedSpot = null, onOpenSpot, updated, carUpdated, carLine, plugs, onShare, shareNote, onDrive, onNacs, crossings = [], weatherOn = false, weatherHint }: Props) {
   const bodyId = useId();
   // Stop costs use the charging price from Settings (B66); it can change while the plan is shown.
   const [price, setPrice] = useState(chargePrice);
@@ -127,7 +124,7 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
     });
 
   return (
-    <div className={`route-itinerary${open ? ' open' : ''}`}>
+    <div className="route-itinerary">
       <div className="ti-top">
         <h2 className="sr-only">{t('trip.itinerary')}</h2>
         <div className="ti-time-row">
@@ -191,9 +188,6 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             <button type="button" className="btn small" onClick={onNacs}>{t('trip.nacsTurnOn')}</button>
           </div>
         )}
-        <button type="button" className="btn small ti-toggle" aria-expanded={open} aria-controls={bodyId} onClick={onToggle}>
-          {open ? t('trip.sheetHide') : t('trip.sheetShow')}
-        </button>
       </div>
 
       <div id={bodyId} className="ti-body">

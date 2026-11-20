@@ -313,13 +313,13 @@ describe('carMapInfo (car file → map info)', () => {
   const sv = (value: string) => ({ value: { value, kind: 'manufacturer', source_id: 's' }, others: [], conflict: false });
   it('reads make, port and access', () => {
     const tesla = carMapInfo({ make: { id: 'tesla' }, fields: { charge_port: sv('nacs'), supercharger_access: sv('yes') } });
-    expect(tesla).toEqual({ isTesla: true, access: 'yes', port: 'nacs', rule: { plugs: ['nacs', 'j1772'], superchargerAdapter: false } });
+    expect(tesla).toEqual({ isTesla: true, access: 'yes', port: 'nacs', adapter: null, rule: { plugs: ['nacs', 'j1772'], superchargerAdapter: false } });
     const ioniq = carMapInfo({ make: { id: 'hyundai' }, fields: { charge_port: sv('ccs1'), supercharger_access: sv('via_adapter') } });
     expect(ioniq.rule?.superchargerAdapter).toBe(true);
   });
   it('missing fields → unknown port', () => {
     expect(carMapInfo({ make: { id: 'bmw' }, fields: { charge_port: null } }).rule).toBeNull();
-    expect(carMapInfo(null)).toEqual({ isTesla: false, access: null, port: null, rule: null });
+    expect(carMapInfo(null)).toEqual({ isTesla: false, access: null, port: null, adapter: null, rule: null });
   });
 });
 
@@ -394,6 +394,18 @@ describe('My car plug switches (B55)', () => {
     expect(myCarRule(unknown, undefined)).toBeNull();
     expect(myCarRule(unknown, ['ccs1'])?.plugs).toEqual(['ccs1', 'j1772']);
     expect(myCarRule(null, ['ccs1'])).toBeNull();
+  });
+  it('B115: an adapter in the box adds its plug to the default; sold or on-request adapters do not', () => {
+    expect(defaultDcPlugs('nacs', 'ccs1_to_nacs')).toEqual(['nacs', 'ccs1']);
+    expect(defaultDcPlugs('ccs1', 'nacs_to_ccs1')).toEqual(['nacs', 'ccs1']);
+    expect(defaultDcPlugs('nacs', 'ccs1_to_nacs_sold')).toEqual(['nacs']);
+    expect(defaultDcPlugs('ccs1', 'nacs_to_ccs1_on_request')).toEqual(['ccs1']);
+    expect(defaultDcPlugs('chademo', 'none')).toEqual(['chademo']);
+    expect(defaultDcPlugs(null, 'nacs_to_ccs1')).toEqual([]);
+    const ioniq27 = carMapInfo({ make: { id: 'hyundai' }, fields: { charge_port: sv('nacs'), supercharger_access: sv('yes'), adapters_included: sv('ccs1_to_nacs') } });
+    expect(ioniq27.adapter).toBe('ccs1_to_nacs');
+    expect(myCarRule(ioniq27, undefined)?.plugs).toEqual(['nacs', 'ccs1', 'j1772']);
+    expect(myCarRule(ioniq27, ['nacs'])?.plugs).toEqual(['nacs', 'j1772']);
   });
 });
 

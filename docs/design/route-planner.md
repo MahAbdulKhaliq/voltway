@@ -113,7 +113,7 @@ At the destination: arrive with at least the threshold %. If not, add a stop as 
 ```
 
 ### What counts as "compatible" (R5)
-**B55 (2026-11-17):** the plugs switched on in **My car** (NACS, CCS1, CHAdeMO; by default only the car's own plug, no adapters assumed), and **Supercharger access** from the data model for Tesla-network sites. The trip panel names the plugs it used. *(Before B55: the map's "Chargers my car can use" rule, car port plus adapters from the data.)*
+**B55 (2026-11-17):** the plugs switched on in **My car** (NACS, CCS1, CHAdeMO; by default only the car's own plug, no adapters assumed; *B115, 2026-11-20: plus the plug of an adapter that comes in the box*), and **Supercharger access** from the data model for Tesla-network sites. The trip panel names the plugs it used. *(Before B55: the map's "Chargers my car can use" rule, car port plus adapters from the data.)*
 - **Public** stations only. "Temporarily unavailable" and planned sites are **skipped**.
 - Superchargers used for a non-Tesla car are **flagged** in the itinerary (access varies by site).
 

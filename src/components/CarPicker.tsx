@@ -6,7 +6,7 @@
 
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
-import { DC_PLUGS, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
+import { DC_PLUGS, carMapInfo, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
 import { makeCarSearch, tripReadyFirst } from '../lib/car-search.ts';
 import VariantName from './VariantName.tsx';
 import PlugIcon from './PlugIcon.tsx';
@@ -60,7 +60,7 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
   const [year, setYear] = useState(start ? String(start.year) : '');
   const [variant, setVariant] = useState(start?.id ?? '');
   // The selected car's own plug (from its file) and any switches the visitor changed here.
-  const [port, setPort] = useState<{ id: string; port: string | null } | null>(null);
+  const [port, setPort] = useState<{ id: string; port: string | null; adapter?: string | null } | null>(null);
   const [changed, setChanged] = useState<{ id: string; plugs: DcPlug[] } | null>(null);
   const goRef = useRef<HTMLButtonElement>(null);
   const focusGo = useRef(false);
@@ -107,11 +107,11 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
     const id = variant;
     fetch(`/data/cars/${id}.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-      .then((c: CarDetail & { fields?: { charge_port?: { value?: { value?: unknown } } } }) => {
+      .then((c: CarDetail) => {
         if (!alive) return;
         setTrims(c.trims);
-        const v = c.fields?.charge_port?.value?.value;
-        setPort({ id, port: typeof v === 'string' ? v : null });
+        const info = carMapInfo(c);
+        setPort({ id, port: info.port, adapter: info.adapter });
       })
       .catch(() => alive && setPort({ id, port: null }));
     return () => { alive = false; };
@@ -132,7 +132,7 @@ export default function CarPicker({ cars, onPick, onCancel, level = 1, tripTags 
   const plugsOn: DcPlug[] | null = !variant ? null
     : changed?.id === variant ? changed.plugs
     : savedPlugs?.carId === variant ? savedPlugs.plugs
-    : port?.id === variant ? defaultDcPlugs(port.port)
+    : port?.id === variant ? defaultDcPlugs(port.port, port.adapter)
     : null;
   const togglePlug = (p: DcPlug) => {
     if (!plugsOn) return;

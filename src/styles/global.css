@@ -843,18 +843,20 @@ details.acc.ti-how > .acc-body { padding: 0 14px 12px; }
 }
 :root[data-theme="dark"] body.fill-page { --surface: #26272C; --surface-2: #313238; --border: #45464D; --field-border: #86847B; --shadow: 0 1px 2px rgb(0 0 0 / 55%), 0 10px 28px rgb(0 0 0 / 45%); }
 
-/* The mark: on a visit's first page the lane dashes run toward the driver, then the bolt strikes
-   with a flash of paint and the name slides in (html.intro, set once per visit in Base.astro). */
-.logo-mark { overflow: visible; }
-.logo-lane { opacity: 0; }
-.logo-bolt { transform-box: fill-box; transform-origin: 50% 50%; }
-html.intro .logo-lane { opacity: 1; animation: lane-run 0.38s linear 3, lane-out 0.22s ease-out 1.05s forwards; }
-html.intro .logo-bolt { animation: bolt-strike 0.55s cubic-bezier(0.2, 1.5, 0.4, 1) 1.1s both; }
-html.intro .logo-mark { animation: mark-flash 0.9s ease-out 1.15s both; }
+/* The mark (B118): the light theme shows the artwork as drawn; the dark theme the copy with a cream
+   outline. On a visit's first page the mark strikes in with a flash of paint and the name slides in
+   (html.intro, set once per visit in Base.astro). */
+.logo-mark { display: block; flex: none; transform-origin: 50% 60%; }
+.logo-mark-dark { display: none; margin: -1px 0; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .logo-mark-light { display: none; }
+  :root:not([data-theme="light"]) .logo-mark-dark { display: block; }
+}
+:root[data-theme="dark"] .logo-mark-light { display: none; }
+:root[data-theme="dark"] .logo-mark-dark { display: block; }
+html.intro .logo-mark { animation: bolt-strike 0.55s cubic-bezier(0.2, 1.5, 0.4, 1) 0.1s both, mark-flash 0.9s ease-out 0.5s both; }
 html.intro .logo-word { animation: word-in 0.6s var(--ease-out) 0.15s both; }
-.logo:hover .logo-bolt, .logo:focus-visible .logo-bolt { animation: bolt-jolt 0.4s cubic-bezier(0.2, 1.6, 0.4, 1); }
-@keyframes lane-run { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -5; } }
-@keyframes lane-out { to { opacity: 0; } }
+.logo:hover .logo-mark, .logo:focus-visible .logo-mark { animation: bolt-jolt 0.4s cubic-bezier(0.2, 1.6, 0.4, 1); }
 @keyframes bolt-strike { 0% { opacity: 0; transform: translateY(-5px) scale(0.5); } 55% { opacity: 1; } 100% { opacity: 1; transform: none; } }
 @keyframes mark-flash { 0% { filter: drop-shadow(0 0 0 rgb(255 212 0 / 0%)); } 20% { filter: drop-shadow(0 0 7px rgb(255 212 0 / 85%)) brightness(1.12); } 100% { filter: drop-shadow(0 0 0 rgb(255 212 0 / 0%)); } }
 @keyframes word-in { from { opacity: 0; translate: -6px 0; } }
@@ -927,8 +929,7 @@ html[data-vt] .station-panel, html[data-vt] .map-inview, html[data-vt] .map-invi
 @keyframes ti-draw { from { transform: scaleY(0); } }
 
 /* Animations off (Settings, B65): everything above stands still. */
-html[data-motion="off"].intro .logo-lane { animation: none; opacity: 0; }
-html[data-motion="off"] .logo-bolt, html[data-motion="off"] .logo-mark, html[data-motion="off"] .logo-word { animation: none !important; }
+html[data-motion="off"] .logo-mark, html[data-motion="off"] .logo-word { animation: none !important; }
 html[data-motion="off"] .road-loader > span { animation: none; }
 html[data-motion="off"] .site-header .bar, html[data-motion="off"] .map-panel, html[data-motion="off"] .map-inview, html[data-motion="off"] .map-corner > *, html[data-motion="off"] .ti-list > li, html[data-motion="off"] .ti-list > li::before { animation: none !important; }
 html[data-motion="off"] .map-key, html[data-motion="off"] .map-inview, html[data-motion="off"] .map-inview .map-list, html[data-motion="off"] .map-locate-msg, html[data-motion="off"] .cp-suggest, html[data-motion="off"] .map-place-near, html[data-motion="off"] .route-panel .banner, html[data-motion="off"] .station-panel, html[data-motion="off"] .map-key-btn, html[data-motion="off"] .map-locate { transition: none; }

@@ -4,10 +4,13 @@
 // (global.css), the map pins (map-icons.ts) and the route line (trip-map-style.ts).
 
 import sharp from 'sharp';
+import { readFileSync } from 'node:fs';
 
 const W = 1200, H = 630;
 const bg = '#1A1B1E', text = '#F5F3EC', muted = '#A4A29A', paint = '#FFD400', ink = '#1A1B1E';
 const band = '#2B2C30', road2 = '#34353A', l3 = '#FFD400', l2 = '#F5F3EC';
+// The mark with its cream outline (B118), made by scripts/logo-assets.mjs.
+const logo = `data:image/png;base64,${readFileSync('scripts/assets/logo-og.png').toString('base64')}`;
 const font = "Archivo, 'Segoe UI', system-ui, Helvetica, Arial, sans-serif";
 
 // A made-up road on the right half, with three numbered charging stops along it.
@@ -38,8 +41,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <rect width="${W}" height="${H}" fill="url(#fade)"/>
 
   <g transform="translate(72 84)">
-    <g transform="scale(2.3333333333333335)"><rect width="24" height="24" rx="6" fill="${paint}"/><path d="M9.4 3h5.2L20 21.5H4Z" fill="${ink}"/><path d="M12.9 4.6 9.7 12.3h2.6l-1.3 6.5 3.8-8.1h-2.7l.8-6.1Z" fill="${paint}"/></g>
-    <text x="76" y="41" font-family="${font}" font-weight="800" font-size="38" fill="${text}">Voltway</text>
+    <image href="${logo}" x="0" y="-10" width="82" height="60"/>
+    <text x="96" y="41" font-family="${font}" font-weight="800" font-size="38" fill="${text}">Voltway</text>
   </g>
   <text font-family="${font}" font-weight="800" font-size="58" fill="${text}">
     <tspan x="72" y="262">EV road trips,</tspan>

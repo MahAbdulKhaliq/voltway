@@ -126,6 +126,6 @@ The NRCan cold-weather page refused automated access (HTTP 403), so it isn't cit
 
 ## 7. Open questions for the owner
 
-- **O1, baseline.** The model treats the official rating as the **mild-weather** range, so it only ever shows losses (or 0 % at 20–25 °C). Geotab's fleet beat its ratings by up to 15 % at 21.5 °C, but mostly on city-speed trips. Showing a gain would overstate highway range, so it is left out. The alternative: scale to rated range, with gains up to +15 % in mild weather.
+- ~~**O1, baseline.**~~ **Settled 2026-11-20:** losses only. The owner left it to Claude's judgement; the site already presents ratings as mild-weather range (`trip.winter`: "This plan assumes mild weather"), so adding a mild-weather gain would double-count. Original question: The model treats the official rating as the **mild-weather** range, so it only ever shows losses (or 0 % at 20–25 °C). Geotab's fleet beat its ratings by up to 15 % at 21.5 °C, but mostly on city-speed trips. Showing a gain would overstate highway range, so it is left out. The alternative: scale to rated range, with gains up to +15 % in mild weather.
 - **O2, LFP.** No penalty now (the evidence is mixed). The option: −3 points below −10 °C, ramping in from 0 °C.
 - **O3, remember the temperature?** It is not remembered now.

@@ -1,0 +1,95 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "bmw/i5/2025-xdrive40",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-849",
+  "points": [
+    {
+      "soc_percent": 7,
+      "power_kw": 196.7
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 202
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 205.6
+    },
+    {
+      "soc_percent": 17,
+      "power_kw": 207.4
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 195.5
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 177
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 166.2
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 156.5
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 146.7
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 138.4
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 126.5
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 115.1
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 99.4
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 90.7
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 85.8
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 78.1
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 67
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 60.8
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 57.2
+    },
+    {
+      "soc_percent": 92,
+      "power_kw": 53.9
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 400
+  },
+  "notes": "Fastned's published charge curve for the BMW i5 Touring 81,2 kWh (2024+) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states its curves show the car with the battery in optimal condition (about 30 C) on its 400 kW-class chargers; cold or hot batteries charge slower. European-market car. i5 Touring 81.2 kWh (2024+), 205 kW; Fastned's i5 sedan listing (id 818) has no graph, so the Touring listing (same 81.2 kWh pack) is used for all i5 ids. Peak 207.4 kW at 17 % against a stated DC peak of 205 kW. Integrating 10-80 % over 81.2 kWh usable gives about 28 min (single dense source; no second curve found).",
+  "is_display_default": false
+}

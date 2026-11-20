@@ -1,0 +1,99 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "audi/e-tron/2024-sq8-sportback-e-tron",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-743",
+  "points": [
+    {
+      "soc_percent": 9,
+      "power_kw": 135.3
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 135.6
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 138
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 140
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 141.2
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 147.5
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 156
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 162.6
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 164.2
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 165.9
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 167.7
+    },
+    {
+      "soc_percent": 56,
+      "power_kw": 168.1
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 153.6
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 146.9
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 146.3
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 124.8
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 73.3
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 84.3
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 61
+    },
+    {
+      "soc_percent": 95,
+      "power_kw": 36.3
+    },
+    {
+      "soc_percent": 99,
+      "power_kw": 16.5
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 300
+  },
+  "notes": "Fastned's published charge curve for the Audi Q8 e-tron 55 quattro | 114 kWh (2023 - 2024) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states its curves show the car with the battery in optimal condition (about 30 C) on its 300 kW-class chargers; cold or hot batteries charge slower. European-market car. Q8 e-tron 55 quattro 114 kWh (2023-2024); the Sportback (id 745) is identical. Applied to the 2025 ids too (same pack and 170 kW). Peak 168.1 kW at 56 % against a stated DC peak of 170 kW. Integrating 10-80 % over 106 kWh usable gives about 31 min (single dense source; no second curve found).",
+  "is_display_default": false
+}

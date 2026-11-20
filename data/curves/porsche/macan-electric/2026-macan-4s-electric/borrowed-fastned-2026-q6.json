@@ -1,0 +1,92 @@
+{
+  "id": "borrowed-fastned-2026-q6",
+  "powertrain_id": "porsche/macan-electric/2026-macan-4s-electric",
+  "kind": "estimated",
+  "low_confidence": true,
+  "based_on": {
+    "variant_id": "audi/q6-e-tron/2025/q6-e-tron-quattro",
+    "reason": "Same pack family as audi/q6-e-tron/2025-q6-e-tron-quattro: Audi Q6 e-tron Quattro | 100 kWh (2024+) (Fastned 918, 100 kWh gross, peak 269 kW). Fastned's own Macan 4 Electric (885) and Macan Turbo Electric (886) listings are byte-identical to the Q6 e-tron 100 kWh listing (918), so they are not an independent Macan measurement. Same PPE 100 kWh pack, 270 kW."
+  },
+  "source_id": "src-w2g-fastned-918",
+  "points": [
+    {
+      "soc_percent": 5,
+      "power_kw": 256.6
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 263.1
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 267.3
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 265.3
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 269.2
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 257.2
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 248.5
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 231.9
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 218.1
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 203
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 184.5
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 156.3
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 149.1
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 125.9
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 109.4
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 99.9
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 63.7
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 41.1
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 400
+  },
+  "notes": "Borrowed (estimated) from the Audi Q6 e-tron Quattro | 100 kWh (2024+) curve: Audi Q6 e-tron Quattro | 100 kWh (2024+) (Fastned 918, 100 kWh gross, peak 269 kW). Body, weight and software differ, so the real curve may differ; no measurement of this model was found.",
+  "is_display_default": false
+}

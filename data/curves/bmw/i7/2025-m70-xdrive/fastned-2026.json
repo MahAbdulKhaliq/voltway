@@ -1,0 +1,99 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "bmw/i7/2025-m70-xdrive",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-663",
+  "points": [
+    {
+      "soc_percent": 7,
+      "power_kw": 187
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 188.4
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 189.9
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 193.7
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 196.4
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 198.6
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 200.4
+    },
+    {
+      "soc_percent": 38,
+      "power_kw": 201.7
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 199.2
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 187.2
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 162.8
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 142.2
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 128.2
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 120.6
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 111.9
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 90.7
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 80.9
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 78.4
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 83.9
+    },
+    {
+      "soc_percent": 95,
+      "power_kw": 65.1
+    },
+    {
+      "soc_percent": 99,
+      "power_kw": 42.1
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 300
+  },
+  "notes": "Fastned's published charge curve for the BMW i7 101,7 kWh (2022+) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states its curves show the car with the battery in optimal condition (about 30 C) on its 300 kW-class chargers; cold or hot batteries charge slower. European-market car. i7 101.7 kWh (2022+); the M70 listing (id 773) is identical. The 2027 112.5 kWh pack gets no curve. Peak 201.7 kW at 38 % against a stated DC peak of 195 kW. Integrating 10-80 % over 101.7 kWh usable gives about 29 min (single dense source; no second curve found).",
+  "is_display_default": false
+}

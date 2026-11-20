@@ -1,0 +1,95 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "porsche/taycan/2026-taycan-turbo-s",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-933",
+  "points": [
+    {
+      "soc_percent": 8,
+      "power_kw": 287.6
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 298.5
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 299.8
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 306.4
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 311.2
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 313.5
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 314
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 322.3
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 322
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 313.7
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 313.6
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 304.2
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 209.6
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 211.8
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 204.7
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 107.4
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 87
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 63.3
+    },
+    {
+      "soc_percent": 95,
+      "power_kw": 42.8
+    },
+    {
+      "soc_percent": 99,
+      "power_kw": 15.7
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 400
+  },
+  "notes": "Fastned's published charge curve for the Porsche Taycan 97 kWh (2024+) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states its curves show the car with the battery in optimal condition (about 30 C) on its 400 kW-class chargers; cold or hot batteries charge slower. European-market car. Fastned labels it 97 kWh (2024+), the 105 kWh gross / 97 usable 800 V pack with 320 kW. Fastned lists identical data on the Audi e-tron GT 97 kWh (2024+) page (id 977), so it may be shared rather than measured on each car. Peak 322.3 kW at 40 % against a stated DC peak of 320 kW. Integrating 10-80 % over 97 kWh usable gives about 15 min (single dense source; no second curve found).",
+  "is_display_default": false
+}

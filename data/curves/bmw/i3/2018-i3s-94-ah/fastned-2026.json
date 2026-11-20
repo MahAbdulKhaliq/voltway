@@ -1,0 +1,91 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "bmw/i3/2018-i3s-94-ah",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-81",
+  "points": [
+    {
+      "soc_percent": 7,
+      "power_kw": 44.6
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 45.4
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 43.9
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 44.1
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 44.1
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 44.2
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 44.5
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 44.7
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 44.9
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 45.2
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 45.5
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 46.7
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 47.9
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 48.2
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 49
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 49.2
+    },
+    {
+      "soc_percent": 82,
+      "power_kw": 49.5
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 38.8
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 26.6
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 50
+  },
+  "notes": "Fastned's published charge curve for the BMW i3 33 kWh (2017 - 2018) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states its curves show the car with the battery in optimal condition (about 30 C) on its 50+ kW-class chargers; cold or hot batteries charge slower. European-market car. i3 33 kWh 94 Ah (2017-2018). Peak 49.5 kW at 82 % against a stated DC peak of 50 kW. Integrating 10-80 % over 27.2 kWh usable gives about 25 min (single dense source; no second curve found).",
+  "is_display_default": false
+}

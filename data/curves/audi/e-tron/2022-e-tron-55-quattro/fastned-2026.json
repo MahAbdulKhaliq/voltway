@@ -1,0 +1,92 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "audi/e-tron/2022-e-tron-55-quattro",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-79",
+  "points": [
+    {
+      "soc_percent": 12,
+      "power_kw": 139.6
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 143
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 144.5
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 145.6
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 146.7
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 147.3
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 147.9
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 148.5
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 149.5
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 150.5
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 151.8
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 153.4
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 155
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 151.7
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 130.4
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 96.8
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 81.7
+    },
+    {
+      "soc_percent": 95,
+      "power_kw": 66.3
+    },
+    {
+      "soc_percent": 99,
+      "power_kw": 53.6
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 150
+  },
+  "notes": "Fastned's published charge curve for the Audi e-tron 55 Quattro | 95 kWh (2019 - 2022) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states its curves show the car with the battery in optimal condition (about 30 C) on its 150+ kW-class chargers; cold or hot batteries charge slower. European-market car. e-tron 55 quattro 95 kWh, Fastned years 2019-2022; kept on the 2021-22 ids only (2019-20 have 83.6 kWh usable, 2023 is outside the page's range). Fastned's graph for this listing is byte-identical to its Q8 e-tron 50 quattro 89 kWh (2023-2024) listing (id 744, a different pack), so it may not be a measurement of this car. The Sportback 55 listing (id 137) is also identical (compared 2026-11-20). Peak 155 kW at 70 % against a stated DC peak of 150 kW. Linter warnings (flat_peak, off_template) expected: the first-gen e-tron holds about 150 kW up to roughly 70-80 % SoC, a known trait, not a data error.",
+  "low_confidence": true,
+  "is_display_default": false
+}

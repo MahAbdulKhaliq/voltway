@@ -1,0 +1,99 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "bmw/i3/2016-i3-60-ah",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-80",
+  "points": [
+    {
+      "soc_percent": 9,
+      "power_kw": 43.9
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 44
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 45
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 45.9
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 46.7
+    },
+    {
+      "soc_percent": 28,
+      "power_kw": 46.9
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 46.7
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 44
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 44
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 44.1
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 44.3
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 44.5
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 44.8
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 39.5
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 33.2
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 26.3
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 18.2
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 12.9
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 8.2
+    },
+    {
+      "soc_percent": 95,
+      "power_kw": 3.9
+    },
+    {
+      "soc_percent": 96,
+      "power_kw": 3.1
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 50
+  },
+  "notes": "Fastned's published charge curve for the BMW i3 22 kWh (2013 - 2017) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states its curves show the car with the battery in optimal condition (about 30 C) on its 50+ kW-class chargers; cold or hot batteries charge slower. European-market car. i3 22 kWh 60 Ah (2013-2017). Also applied to the 2017 60 Ah id. Peak 46.9 kW at 28 % against a stated DC peak of 50 kW. Integrating 10-80 % over 19 kWh usable gives about 20 min (single dense source; no second curve found). Linter flat_peak warning expected: the i3 is limited to about 50 kW and holds it for most of the charge.",
+  "is_display_default": false
+}

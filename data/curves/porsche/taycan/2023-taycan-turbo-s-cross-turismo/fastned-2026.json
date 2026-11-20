@@ -1,0 +1,103 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "porsche/taycan/2023-taycan-turbo-s-cross-turismo",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-106",
+  "points": [
+    {
+      "soc_percent": 4,
+      "power_kw": 229.5
+    },
+    {
+      "soc_percent": 5,
+      "power_kw": 229.8
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 251
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 255.2
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 257.8
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 259.7
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 262.1
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 263.8
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 265.5
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 267.6
+    },
+    {
+      "soc_percent": 47,
+      "power_kw": 268
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 247.3
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 206.7
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 189
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 169.8
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 159.6
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 118.8
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 62.8
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 41.4
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 25.8
+    },
+    {
+      "soc_percent": 95,
+      "power_kw": 47.7
+    },
+    {
+      "soc_percent": 99,
+      "power_kw": 18
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 300
+  },
+  "notes": "Fastned's published charge curve for the Porsche Taycan 93,4 kWh (2021 -2024) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states its curves show the car with the battery in optimal condition (about 30 C) on its 300 kW-class chargers; cold or hot batteries charge slower. European-market car. Taycan 93.4 kWh Performance Battery Plus (2021-2024); Fastned id 559 (Cross Turismo 93.4) carries identical data. Peak 268 kW at 47 % against a stated DC peak of 270 kW. Integrating 10-80 % over 83.7 kWh usable gives about 17 min (single dense source; no second curve found).",
+  "is_display_default": false
+}

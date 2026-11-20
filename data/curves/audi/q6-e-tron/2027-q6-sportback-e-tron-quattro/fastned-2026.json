@@ -1,0 +1,87 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "audi/q6-e-tron/2027-q6-sportback-e-tron-quattro",
+  "kind": "tested",
+  "source_id": "src-w2g-fastned-918",
+  "points": [
+    {
+      "soc_percent": 5,
+      "power_kw": 256.6
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 263.1
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 267.3
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 265.3
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 269.2
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 257.2
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 248.5
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 231.9
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 218.1
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 203
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 184.5
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 156.3
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 149.1
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 125.9
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 109.4
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 99.9
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 63.7
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 41.1
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 400
+  },
+  "notes": "Fastned's published charge curve for the Audi Q6 e-tron Quattro | 100 kWh (2024+) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states its curves show the car with the battery in optimal condition (about 30 C) on its 400 kW-class chargers; cold or hot batteries charge slower. European-market car. Q6 e-tron quattro 100 kWh (2024+); Fastned shows identical data for the SQ6 (id 919), Q6 Sportback (id 1151) and Porsche Macan 4/Turbo Electric (ids 885/886). The 260 kW RWD Q6 ids are covered too (peak 269 kW is 3.5 % above 260). Peak 269.2 kW at 25 % against a stated DC peak of 260-270 kW. Integrating 10-80 % over 94.9 kWh usable gives about 21 min (single dense source; no second curve found).",
+  "is_display_default": false
+}

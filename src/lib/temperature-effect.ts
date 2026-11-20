@@ -110,6 +110,8 @@ export interface TemperatureEffect {
   withHeatPump: number | null;
   /** The heat-pump curve's band, alongside `withHeatPump`. */
   withHeatPumpBand: Band | null;
+  /** Range a heat pump keeps over no heat pump at this temperature (middle figures; 0 when they meet). */
+  heatPumpSaving: number;
   /** The trim's heat pump is optional, so the page offers a Heat pump checkbox. */
   heatPumpOptional: boolean;
   /** LFP cold penalty included in retained (share of range; 0 when none). */
@@ -149,6 +151,7 @@ export function temperatureEffect(
     curve,
     withHeatPump: showHp ? hp : null,
     withHeatPumpBand: showHp ? band(t, 'heat_pump', chemistry) : null,
+    heatPumpSaving: Math.max(0, hp - retention(t, 'none', chemistry)),
     heatPumpOptional: optional,
     lfpPenalty: lfpPenalty(t, chemistry),
     heatPumpUnknown: !heatPump || heatPump === 'unknown',

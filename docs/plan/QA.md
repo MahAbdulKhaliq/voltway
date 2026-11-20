@@ -803,6 +803,7 @@ Branch `feat/b116-outside-temperature` (local). Run `npx vitest run tests/temper
 | QT9 | LFP penalty (owner 2026-11-20) | Unit tests; on screen, Bolt 2027 (LFP, heat pump) at −10 °C shows −38 % vs. −33 % for an NMC heat-pump car | 10 °C and above: same as NMC; LMFP treated as LFP |
 | QT10 | Heat pump checkbox (owner 2026-11-20) | `audi/q4-e-tron/2022/q4-50-e-tron-quattro` at −10 °C: checkbox unticked → −40 % + "With the heat pump: −33%"; ticked → −33 %, no extra line, and the range tile follows | No checkbox on standard/none/unknown trims; switching trim unticks it |
 | QT11 | Best/worst band and Estimate labels (owner 2026-11-20) | Unit tests. At −10 °C, `audi/q4-e-tron/2023/q4-40-e-tron` reads "Estimate: range −40% vs. mild weather (likely −28% to −48%)"; the Q4 50 with Heat pump unticked also shows "With the heat pump: −33% (−20% to −42%)"; picking 21″ wheels reads "Estimate: …% energy per km…" | 20 °C: "Mild weather: range as rated", no band; the figures use the middle only |
+| QT12 | Heat pump note (owner 2026-11-20) | −10 °C: 2027 Bolt (standard) shows "…saves about 7% of range here…" after the LFP note, and at 30 °C "…saves no range at this temperature."; Q4 50 with the box ticked shows "Heat pump: saves about 7%…"; the Wheels "Estimate:" line is bold; Q4 40 (none) shows "No heat pump on this trim…" | Q4 50 (optional) and i3 sedan (unknown): neither note; 30 °C: neither |
 | QT8 | Not pushed | `git log origin/main..feat/b116-outside-temperature` exists only locally; `git ls-remote` has no such branch | — |
 
 ## Outside temperature results

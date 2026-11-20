@@ -773,5 +773,10 @@
   "temp.heating.none": "without a heat pump",
   "temp.heatPump": "Heat pump",
   "temp.heatPumpHelp": "This trim has a heat pump as an option. Tick it if your car has one.",
-  "temp.lfpBasis": "LFP battery: {pts} points more range lost than NMC at this temperature; few published measurements, so treat it as rough."
+  "temp.lfpBasis": "LFP battery: {pts} points more range lost than NMC at this temperature; few published measurements, so treat it as rough.",
+  "temp.hasHeatPump": "Heat pump: standard on this trim. It saves about {pct}% of range here compared with no heat pump.",
+  "temp.noHeatPump": "No heat pump on this trim: heating takes more energy, so it loses more range in the cold.",
+  "temp.hasHeatPumpNone": "Heat pump: standard on this trim. It saves no range at this temperature.",
+  "temp.fittedHeatPump": "Heat pump: saves about {pct}% of range here compared with no heat pump.",
+  "temp.fittedHeatPumpNone": "Heat pump: saves no range at this temperature."
 }

@@ -540,7 +540,7 @@ export default function CurveViewer({
         .viewer .temp-input input { flex: 1 1 auto; }
         .viewer .temp-unit { color: var(--text); font-weight: 600; }
         .viewer .temp-notes { grid-column: 1 / -1; margin: 0; display: grid; gap: 2px; }
-        .viewer .temp-change { color: var(--text); font-weight: 600; }
+        .viewer .est-change { color: var(--text); font-weight: 600; } /* the "Estimate:" line under Wheels and Outside temperature */
         .viewer .temp-hp { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; color: var(--text); font-size: 0.875rem; cursor: pointer; }
         .viewer .temp-hp input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); }
         .viewer .control-note { display: block; font-size: 0.8rem; color: var(--muted); }

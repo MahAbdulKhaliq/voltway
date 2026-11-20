@@ -108,12 +108,12 @@ For `lfp` and `lmfp` packs, the share kept is **r(T) − p(T)**, with `p` linear
 
 | `heat_pump` | Range figures use | Note under the field |
 |---|---|---|
-| `standard` | Heat pump curve | — |
-| `none` | No heat pump curve | — |
+| `standard` | Heat pump curve | "Heat pump: standard on this trim. It saves about X% of range here compared with no heat pump." X is the middle heat-pump figure minus the middle no-heat-pump figure. Where X rounds to 0: "It saves no range at this temperature." A ticked optional heat pump gets the same note without "standard on this trim". (owner, 2026-11-20) |
+| `none` | No heat pump curve | "No heat pump on this trim: heating takes more energy, so it loses more range in the cold." (owner, 2026-11-20) |
 | `optional`, `standard_or_optional` | A **Heat pump** checkbox appears beside the field (owner, 2026-11-20). Unticked (the default, the safe case): no heat pump curve. Ticked: heat pump curve. | Unticked: "With the heat pump: −X%" |
 | unknown (`null`) | No heat pump curve | "Heat pump not known; assumes none" |
 
-Above 25 °C both curves are the same, so these notes appear only below 20 °C.
+Above 25 °C both curves are the same, so these notes appear only below 20 °C. The heat-pump note comes after the battery chemistry (LFP) note. The no-heat-pump note appears only below 20 °C. The heat-pump saving note appears at any temperature that changes the figures, so in the heat it says the heat pump saves nothing. The "Estimate:" lines under Wheels and Outside temperature are both bold.
 
 ### Chemistry (`fields.chemistry`)
 

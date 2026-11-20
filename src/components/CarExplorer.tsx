@@ -254,7 +254,7 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
             ))}
           </select>
           {adjusting
-            ? <span className="control-note">{t('wheel.change', { pct: (factor >= 1 ? '+' : '') + pct(factor - 1) })}</span>
+            ? <span className="control-note est-change">{t('wheel.change', { pct: (factor >= 1 ? '+' : '') + pct(factor - 1) })}</span>
             : baseWheel?.tire_size && <span className="control-note">{t('wheel.tire', { tire: baseWheel.tire_size })}</span>}
           {officialTrim && (
             <button type="button" className="control-note linkish" onClick={() => setTrimId(officialTrim.id)}>{t('wheel.useOfficial', { trim: trimLabel(officialTrim.name, car?.name ?? '') })}</button>
@@ -302,11 +302,20 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
         </label>
       )}
       <p className="temp-notes" aria-live="polite">
-        <span className="control-note temp-change">{tempAdjusting ? t('temp.change', { pct: signedPct(temp.retained), best: signedPct(temp.band.best), worst: signedPct(temp.band.worst) }) : t('temp.mild')}</span>
+        <span className="control-note est-change">{tempAdjusting ? t('temp.change', { pct: signedPct(temp.retained), best: signedPct(temp.band.best), worst: signedPct(temp.band.worst) }) : t('temp.mild')}</span>
         {tempAdjusting && temp.withHeatPump !== null && <span className="control-note">{t('temp.withHeatPump', { pct: signedPct(temp.withHeatPump), best: signedPct(temp.withHeatPumpBand!.best), worst: signedPct(temp.withHeatPumpBand!.worst) })}</span>}
         {tempAdjusting && temp.heatPumpUnknown && tempC < MILD_C && <span className="control-note">{t('temp.heatPumpUnknown')}</span>}
         {temp.clamped && <span className="control-note">{t('temp.clamped', { value: showTemp(usedC) })}</span>}
         {temp.lfpNote && <span className="control-note">{t('temp.lfpNote')}</span>}
+        {tempAdjusting && temp.curve === 'heat_pump' && (() => {
+          // How much range the heat pump keeps over none here (owner 2026-11-20); none in the heat or the deepest cold.
+          const pts = Math.round(temp.heatPumpSaving * 100);
+          const standard = heatPump === 'standard';
+          return <span className="control-note">{pts > 0
+            ? t(standard ? 'temp.hasHeatPump' : 'temp.fittedHeatPump', { pct: pts })
+            : t(standard ? 'temp.hasHeatPumpNone' : 'temp.fittedHeatPumpNone')}</span>;
+        })()}
+        {tempAdjusting && tempC < MILD_C && heatPump === 'none' && <span className="control-note">{t('temp.noHeatPump')}</span>}
       </p>
     </div>
   ) : null;

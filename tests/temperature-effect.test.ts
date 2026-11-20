@@ -128,7 +128,7 @@ describe('sources and strings', () => {
     expect(new Set(TEMPERATURE_SOURCE_IDS).size).toBe(TEMPERATURE_SOURCE_IDS.length);
   });
   it('has every temp.* string', () => {
-    const keys = ['temp.label', 'temp.units', 'temp.unit.C', 'temp.unit.F', 'temp.change', 'temp.mild', 'temp.withHeatPump', 'temp.heatPumpUnknown', 'temp.lfpNote', 'temp.clamped', 'temp.basis', 'temp.sparse', 'temp.heatPump', 'temp.heatPumpHelp', 'temp.lfpBasis'];
+    const keys = ['temp.label', 'temp.units', 'temp.unit.C', 'temp.unit.F', 'temp.change', 'temp.mild', 'temp.withHeatPump', 'temp.heatPumpUnknown', 'temp.lfpNote', 'temp.clamped', 'temp.basis', 'temp.sparse', 'temp.heatPump', 'temp.heatPumpHelp', 'temp.lfpBasis', 'temp.hasHeatPump', 'temp.noHeatPump', 'temp.hasHeatPumpNone', 'temp.fittedHeatPump', 'temp.fittedHeatPumpNone'];
     for (const k of keys) expect((en as Record<string, string>)[k], k).toBeTruthy();
   });
 });
@@ -170,5 +170,16 @@ describe('best and worst case (owner 2026-11-20, design §3)', () => {
     const l = temperatureEffect(-10, 'standard', 'lfp').band;
     expect(n.best - l.best).toBeCloseTo(0.05);
     expect(n.worst - l.worst).toBeCloseTo(0.05);
+  });
+});
+
+describe('heat pump saving (owner 2026-11-20)', () => {
+  it('is the gap between the middle curves, whatever the chemistry', () => {
+    expect(temperatureEffect(-10, 'standard', 'nmc').heatPumpSaving).toBeCloseTo(0.07);
+    expect(temperatureEffect(-10, 'standard', 'lfp').heatPumpSaving).toBeCloseTo(0.07);
+    expect(temperatureEffect(0, 'none', 'nmc').heatPumpSaving).toBeCloseTo(0.08);
+  });
+  it('is zero where the curves meet', () => {
+    for (const t of [-30, 20, 30, 40]) expect(temperatureEffect(t, 'standard', 'nmc').heatPumpSaving).toBeCloseTo(0);
   });
 });

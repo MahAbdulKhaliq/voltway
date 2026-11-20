@@ -573,3 +573,10 @@ Local branch `feat/b116-outside-temperature` only. Nothing is pushed until the o
   - a picked wheel size reads "Estimate: …";
   - checked at 1280/375 px dark, PNGs sent, committed locally.
   - *Verified 2026-11-20:* 23 tests in tests/temperature-effect.test.ts. Headless Chrome on the dev server: Q4 40 at −10 °C reads "Estimate: range −40% vs. mild weather (likely −28% to −48%)"; Q4 50 unticked adds "With the heat pump: −33% (−20% to −42%)"; 21″ wheels read "Estimate: +7.1% energy per km vs. rated wheels"; Bolt (LFP) −38% (−25% to −47%); 375 px scrollWidth 375. PNGs: b116-shots/r4-*.
+- [x] **[T] T8 Heat pump note (owner 2026-11-20)**: `CarExplorer.tsx`, `en.json`. **Done when:**
+  - after the LFP note, a standard-heat-pump trim (or a ticked optional one) shows how much range the heat pump saves: −10 °C "about 7%", 30 °C "saves no range";
+  - below 20 °C, a no-heat-pump trim shows "No heat pump on this trim…";
+  - the Wheels "Estimate:" line is bold like the temperature one;
+  - optional and unknown trims and 20 °C+ show neither;
+  - checked dark at 1280/375 px, PNGs sent, committed locally.
+  - *Verified 2026-11-20:* 25 tests. Headless Chrome on the dev server: 2027 Bolt at −10 °C shows the LFP note then "Heat pump: standard on this trim. It saves about 7% of range here…"; at 30 °C "…saves no range at this temperature."; Q4 50 ticked: "Heat pump: saves about 7%…"; Q4 40: no-heat-pump note; Wheels Estimate line bold. PNGs: b116-shots/r6-*.

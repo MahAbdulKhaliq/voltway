@@ -272,13 +272,14 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
       const syncLogoLink = () => { if (wide.matches) headerLogo.setAttribute('href', '/'); else headerLogo.removeAttribute('href'); };
       syncLogoLink();
       wide.addEventListener('change', syncLogoLink);
+      // Played from script so every tap restarts it: a touch leaves the logo in :hover, which keeps
+      // the CSS jolt applied and would never replay. Same keyframe as bolt-jolt (global.css).
+      const headerMark = headerLogo.querySelector<HTMLElement>('.logo-mark')!;
       headerLogo.addEventListener('click', () => {
-        if (wide.matches) return;
-        headerLogo.classList.remove('jolt');
-        void headerLogo.offsetWidth; // restart the animation on every tap
-        headerLogo.classList.add('jolt');
+        if (wide.matches || !motionOn()) return;
+        headerMark.getAnimations().forEach((a) => a.cancel());
+        headerMark.animate([{ transform: 'none' }, { transform: 'scale(1.18) rotate(-4deg)', offset: 0.4 }, { transform: 'none' }], { duration: 400, easing: 'cubic-bezier(0.2, 1.6, 0.4, 1)' });
       });
-      headerLogo.addEventListener('animationend', () => headerLogo.classList.remove('jolt'));
 
       // Settings (B65): a small panel under the gear. Escape or a click elsewhere closes it.
       const setBtn = document.querySelector<HTMLButtonElement>('.settings-btn')!;

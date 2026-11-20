@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-w2-electrive-audi-nacs",
+      "low_confidence": true,
+      "notes": "Estimated: Audi says the Q4 e-tron cannot use its NACS DC adapter, and Audi EVs lack a NACS port (electrive, InsideEVs 2025-09-08); no NACS Q4 is reported for 2022-2026."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "manufacturer",
+      "source_id": "src-w2-electrive-audi-nacs",
+      "low_confidence": true,
+      "notes": "Audi (quoted by electrive 2025-09-08): \"The Audi Q4 e-tron cannot currently use the Audi NACS DC charging adapter or the Tesla NACS Partner Supercharger network\"; InsideEVs: Q4 excluded, no timeline. No later announcement found (not found, not confirmed absent)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

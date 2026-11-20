@@ -5,5 +5,65 @@
   "generation": "24-kwh",
   "years": [
     2015
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 24.2,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-wiki-vw-egolf",
+        "low_confidence": true,
+        "notes": "Wikipedia: 24.2 kWh at launch (2014-2016); German Wikipedia table 24.2 gross."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 21.2,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-dewiki-vw-egolf",
+        "low_confidence": true,
+        "notes": "German Wikipedia: 21.2 kWh usable for the 2014-16 model (21.1 net per the registration table)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-w2-dewiki-vw-egolf",
+        "low_confidence": true,
+        "notes": "German Wikipedia: 323 V nominal for the 2014 model."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-insideevs-id4-precond-2026",
+        "low_confidence": true,
+        "notes": "Estimated: VW's first automatic battery preconditioning arrived with the 2024 ID.4 software (InsideEVs: ID.4/ID.5 built 2020-2024 lacked it, automatic from 2024); the e-Golf (2015-2020) predates it and no e-Golf page describes a battery-warming feature (Wikipedia mentions only a heat pump option and Eco+ mode)."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 40,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-wiki-vw-egolf",
+      "low_confidence": true,
+      "notes": "Wikipedia: DC power accepted at a maximum rate of 40 kW (CCS option, 2014-2016)."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 7.2,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-wiki-vw-egolf",
+      "low_confidence": true,
+      "notes": "Wikipedia: the DC fast charging option also upgrades the onboard AC charger from 3.6 to 7.2 kW (2015-2016). Trims without DC have 3.6 kW (2015 US was SEL Premium only; the 2016 SE had no DC); the repo model notes also cite 6.6 kW from Autobytel/Cars.com."
+    }
   ]
 }

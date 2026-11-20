@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-w2-chargepapa-q8-port",
+      "low_confidence": true,
+      "notes": "Estimated: ChargePapa: 2023-2024 Q8 e-tron has a CCS1 inlet; Wikipedia describes J1772 AC for the 2019 e-tron; no NACS-inlet e-tron before the Q8 transition years is reported, and Audi says its EVs lack a NACS port (InsideEVs 2025)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-w2-insideevs-audi-porsche-sc",
+      "low_confidence": true,
+      "notes": "Estimated: InsideEVs 2025-09-08: all Audi EVs except the Q4 e-tron are compatible with Tesla Superchargers (Canada on the same date), with an adapter because Audi EVs lack a NACS port. The e-tron is not named, and electrive says the Audi adapter is only supplied with new 2025 Q6, A6 and GT and is not yet sold to existing owners (no timeline), so a 2019-2023 owner cannot buy an Audi adapter today. OWNER: via_adapter or no?"
+    }
+  ],
   "trims": [
     {
       "id": "standard",

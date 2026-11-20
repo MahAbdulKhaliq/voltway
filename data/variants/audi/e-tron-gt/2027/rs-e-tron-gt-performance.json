@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-w2-electrive-audi-nacs",
+      "low_confidence": true,
+      "notes": "Estimated: Audi's EVs lack a NACS port (electrive/InsideEVs 2025-09-08); nothing found shows a native NACS e-tron GT for MY2027."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-w2-insideevs-audi-porsche-sc",
+      "low_confidence": true,
+      "notes": "InsideEVs/electrive 2025-09-08: e-tron GT gains Supercharger access (US and Canada same date); new 2025 e-tron GT purchases include the NACS adapter."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

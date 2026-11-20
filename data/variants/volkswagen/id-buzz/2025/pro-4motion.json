@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-w2-vw-us-id-buzz",
+      "low_confidence": true,
+      "notes": "vw.com: a Volkswagen-approved NACS DC adapter is sold separately for Tesla Superchargers, so the car has a CCS1 DC inlet (VW Canada says the same)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-vw-ca-nacs-adapter",
+      "low_confidence": true,
+      "notes": "VW Canada: NACS DC adapter officially available for ID.4 and ID. Buzz, unlocking Tesla NACS partner Superchargers across Canada and the US; Electrek 2025-11-12: access from 2025-11-18, $200 (CAD 304) adapter, MY2026+ include it."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -5,5 +5,84 @@
   "generation": "2025-update",
   "years": [
     2025
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 105,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-electrive-gt-usa-2025",
+        "low_confidence": true,
+        "notes": "electrive (US 2025): 105 kWh battery, up from 93.4, on all models. InsideEVs: 105 kWh gross."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 97,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-insideevs-gt-2025",
+        "low_confidence": true,
+        "notes": "InsideEVs: 105 kWh gross, 97 kWh usable (2025 refresh)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-w2-insideevs-gt-2025",
+        "low_confidence": true,
+        "notes": "InsideEVs: 800-volt platform (2025 refresh)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-w2-weeklydriver-j1-105",
+        "low_confidence": true,
+        "notes": "Estimated: The Weekly Driver lists the Audi e-tron GT 2025-2026 (S and RS performance) on the 105 kWh J1 pack: NMC 811, LG Energy Solution."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-w2-audi-winter-2021",
+        "low_confidence": true,
+        "notes": "Estimated: same e-tron GT battery-preconditioning feature (2021 launch); nothing shows its removal for the 2025-2027 facelift; years compared 2022-2027."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 320,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-electrive-gt-usa-2025",
+      "low_confidence": true,
+      "notes": "electrive: 320 kW peak, up from 270 (2025 US S e-tron GT and RS e-tron GT performance, 105 kWh battery on all models)."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-w2-audi-gt-battery-page",
+      "low_confidence": true,
+      "notes": "Estimated: the only page is Audi's European launch page for the 93.4 kWh GT (11 kW standard); no page states AC power for the 105 kWh 2025+ GT, so the same-model-line charger is assumed although the pack changed. North America may be 9.6 kW as on the Q6/A6 (Cars.com, Wikipedia)."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 18,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-w2-electrive-gt-usa-2025",
+      "low_confidence": true,
+      "notes": "electrive: about 18 minutes from 10 to 80 % \"under ideal conditions\" (2025 US e-tron GT)."
+    }
   ]
 }

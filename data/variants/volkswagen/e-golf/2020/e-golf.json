@@ -3,10 +3,28 @@
   "model_id": "volkswagen/e-golf",
   "year": 2020,
   "name": "e-Golf",
-  "drivetrain": "unknown",
+  "drivetrain": "fwd",
   "powertrain_id": "volkswagen/e-golf/2020-e-golf",
   "markets": [
     "CA"
+  ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-w2-cars-egolf-2017",
+      "low_confidence": true,
+      "notes": "Cars.com/Wikipedia: DC fast charging (CCS) $995 option on SE, standard on SEL Premium and Limited Edition. SE cars without the option have J1772 only (counts unknown). Canada not separately sourced."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "manufacturer",
+      "source_id": "src-w2-vw-ca-nacs-egolf",
+      "low_confidence": true,
+      "notes": "VW Canada: the NACS DC adapter is officially for ID.4 and ID. Buzz and is not compatible with the e-Golf; Electrek (2025-11-12) lists only ID.4 and ID. Buzz. Applied to US and Canada."
+    }
   ],
   "trims": [
     {

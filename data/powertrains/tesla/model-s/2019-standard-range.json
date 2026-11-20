@@ -5,5 +5,74 @@
   "generation": "raven",
   "years": [
     2019
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 75,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-arenaev-model-s-sr-2019",
+        "low_confidence": true,
+        "notes": "ArenaEV Model S Standard Range 2019: 75 kWh total (nominal), no net figure. Model X Standard Range assumed to use the same pack (not confirmed on any opened page)."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 72.6,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-arenaev-model-s-75",
+        "low_confidence": true,
+        "notes": "Estimated: Standard Range pack = 75 kWh; 72.6 kWh net on ArenaEV Model S 75 (same 75 kWh size). No page states usable for the Standard Range itself."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nca",
+        "kind": "community",
+        "source_id": "src-evspecs-model-s-2018-100d-compare",
+        "low_confidence": true,
+        "notes": "EVSpecifications 2017-2018 Model S/X: NCA (Panasonic NCR18650A, LiNiCoAlO2); Wikipedia Model S: NCA cathode."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-evspecs-model-s-2018-100d-compare",
+        "low_confidence": true,
+        "notes": "Estimated: Pack voltage 300-407 V (EVSpecifications: 302 V 75 kWh, 346 V 85/90 kWh, 400-407 V 100 kWh; ArenaEV 300-360 V), well below 800 V: 400 V class."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-electrek-2020-s-x-225kw",
+        "low_confidence": true,
+        "notes": "Estimated: Tesla release note (software 2020.24.6, Electrek) for Model S/X: \"when you navigate to a Supercharger, your car will condition its battery during the drive\"; lineup-wide software feature. No manual control found; tesla.com manuals are blocked (403). Cars without navigation or on the oldest MCU1 hardware (2012-2017) may not run it: unconfirmed."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 120,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evspecs-model-s-2017-90d-75d-compare",
+      "low_confidence": true,
+      "notes": "Estimated: EVSpecifications 2017-2018 75D (75 kWh): DC max 120 kW; ArenaEV lists 150 kW V2 on the Standard Range. No page gives a Standard Range limit; Raven chassis may allow more (Raven LR/Performance 200-250 kW)."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evspecs-model-s-2018-100d-compare",
+      "low_confidence": true,
+      "notes": "Estimated: 2017-2018 Model S pages (EVSpecifications) give 11.5 kW and the 2023 Model S Plaid page gives 11.5 kW (240 V, 48 A); same charger carried over. EVSpecifications 2023/2025 Model S Plaid: AC 11.5 kW (240 V, 48 A). A 72 A / 16.5-17.3 kW charger was optional on some cars (EVSpecifications: 16.5 kW on Model X Plaid pages and 17.28 kW on the 2018 X P100D); standard figure recorded."
+    }
   ]
 }

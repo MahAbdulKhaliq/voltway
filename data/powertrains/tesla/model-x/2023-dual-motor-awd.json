@@ -5,5 +5,74 @@
   "generation": "palladium",
   "years": [
     2023
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 100,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-arenaev-model-s-plaid-2025",
+        "low_confidence": true,
+        "notes": "Estimated: Palladium-pack sibling (Model S Plaid, ArenaEV page: 100 kWh total, 92.3 kWh usable; EVSpecifications 99 kWh) applied to this trim, year or model. ArenaEV Model S Plaid 2025: 100 kWh total (EVSpecifications: 99 kWh, 7,920 cells, 5 modules). Long Range/AWD cars (92.6 kWh usable of 100 in an ArenaEV search snippet) and Plaid share the Palladium pack. Model X Plaid per EVSpecifications 99 kWh too."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 92.3,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-arenaev-model-s-plaid-2025",
+        "low_confidence": true,
+        "notes": "Estimated: ArenaEV Model S Plaid 2025: 92.3 kWh usable (same figure on the 2021 and 2025 pages). Applied to the Model X on the same Palladium-era pack (EVSpecifications 99 kWh on X Plaid). Applied to the Long Range/AWD cars: same pack (the Palladium LR and Plaid share 99-100 kWh)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nca",
+        "kind": "community",
+        "source_id": "src-evspecs-model-s-2018-100d-compare",
+        "low_confidence": true,
+        "notes": "EVSpecifications 2017-2018 Model S/X: NCA (Panasonic NCR18650A, LiNiCoAlO2); Wikipedia Model S: NCA cathode."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-evspecs-model-s-2018-100d-compare",
+        "low_confidence": true,
+        "notes": "Estimated: Pack voltage 300-407 V (EVSpecifications: 302 V 75 kWh, 346 V 85/90 kWh, 400-407 V 100 kWh; ArenaEV 300-360 V), well below 800 V: 400 V class."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-electrek-2020-s-x-225kw",
+        "low_confidence": true,
+        "notes": "Estimated: Tesla release note (software 2020.24.6, Electrek) for Model S/X: \"when you navigate to a Supercharger, your car will condition its battery during the drive\"; lineup-wide software feature. No manual control found; tesla.com manuals are blocked (403). Cars without navigation or on the oldest MCU1 hardware (2012-2017) may not run it: unconfirmed."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 250,
+      "unit": "kW",
+      "kind": "community",
+      "source_id": "src-evspecs-model-x-2023-plaid",
+      "low_confidence": true,
+      "notes": "EVSpecifications 2023/2025 Model S and X Plaid: DC max 250 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evspecs-model-s-2023-plaid",
+      "low_confidence": true,
+      "notes": "Estimated: no Model X page states the standard onboard charger; EVSpecifications X Plaid pages list 7.4 kW and 16.5 kW AC, ArenaEV X pages 11 / 16.5 kW. Standard 48 A / 11.5 kW taken from the same-year Model S (EVSpecifications 2023/2025 S Plaid: 11.5 kW, 240 V 48 A); higher-amperage charger optional."
+    }
   ]
 }

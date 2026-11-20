@@ -5,5 +5,74 @@
   "generation": "original",
   "years": [
     2016
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 70,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-arenaev-model-s-70d",
+        "low_confidence": true,
+        "notes": "ArenaEV Model S 70D (2015-2016): 70 kWh nominal, 300 V."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 67.8,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-arenaev-model-s-75",
+        "low_confidence": true,
+        "notes": "Estimated: No page states usable for the 70 kWh pack. Ratio 72.6 net / 75 gross = 0.968 on the Model S 75 page (same 300 V pack family, 300 V on both ArenaEV pages) x 70 = 67.8. Weak: no page shows the 70 kWh pack shares the 75 pack hardware (EVSpecifications gives 5,880 cells and 302 V only for the 75)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nca",
+        "kind": "community",
+        "source_id": "src-evspecs-model-s-2018-100d-compare",
+        "low_confidence": true,
+        "notes": "EVSpecifications 2017-2018 Model S/X: NCA (Panasonic NCR18650A, LiNiCoAlO2); Wikipedia Model S: NCA cathode."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-evspecs-model-s-2018-100d-compare",
+        "low_confidence": true,
+        "notes": "Estimated: Pack voltage 300-407 V (EVSpecifications: 302 V 75 kWh, 346 V 85/90 kWh, 400-407 V 100 kWh; ArenaEV 300-360 V), well below 800 V: 400 V class."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-manualslib-tesla-s-owners-manual-p145",
+        "low_confidence": true,
+        "notes": "Estimated: a Model S owner's manual (ManualsLib page 145, undated edition, quoted: \"When navigating to a Supercharger location, Model S may allocate energy to pre-heat the Battery\"); Electrek (2020.24.6 release note) gives the same behaviour for Model S/X in 2020 software. No page says whether every MCU1-era car (2012-2017) runs it, and cars ordered without navigation (Tech Package; TMC thread 2019-03-07) probably do not. No manual battery control found. tesla.com manuals are 403."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 120,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evspecs-model-s-2014-85",
+      "low_confidence": true,
+      "notes": "Estimated: EVSpecifications gives 120 kW for the 2014 85 kWh, 2015 85D, 2017 75D/90D and 2018 75D/100D/P100D Model S; carried to 2016 70 (other year or pack than the cited page). No page shows a pack-specific limit."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evspecs-model-s-2018-100d-compare",
+      "low_confidence": true,
+      "notes": "Estimated: EVSpecifications 2017-2018 Model S (75D/90D/100D/P100D) list AC 11.5 kW (48 A); a 72 A / 16.5-17.3 kW higher-amperage charger was optional (EVSpecifications lists 17.28 kW on the 2018 Model X P100D). 2016 cars carried over from 2017; the pre-refresh 2016 cars (before about May 2016) may have the 10 kW single or dual charger. "
+    }
   ]
 }

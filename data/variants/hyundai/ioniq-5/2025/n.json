@@ -32,7 +32,16 @@
       "names": {
         "CA": "N",
         "US": "N"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 21,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-ioniq-5-n-2025-index",
+          "low_confidence": true,
+          "notes": "Cars.com page for the 2025 Ioniq 5 N (US). No Canadian N source was read; Canadian N assumed the same."
+        }
+      ]
     }
   ]
 }

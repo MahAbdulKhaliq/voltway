@@ -33,7 +33,23 @@
       "names": {
         "CA": "Standard Range",
         "US": "Standard Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-ford-us-fl-specs-2022",
+          "notes": "XLT: 18 in standard (20 in optional on XLT). Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-ford-us-fl-specs-2022",
+          "notes": "Lariat: 20 in standard (also optional on XLT). Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

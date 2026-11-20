@@ -27,6 +27,16 @@
       "notes": "Estimated: GM says every GM EV of model year 2026 or earlier except the Optiq needs the GM NACS adapter (US page, lists Escalade IQ and IQL). Canada: GM sells the same C$310 adapter for its CCS1 EVs (Guide Auto names Lyriq, not the Escalade IQ), so the Canadian car is assumed the same. Model year 2025. Canada: no Canadian page read; assumed the same as the US car (owner check)."
     }
   ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 287,
+      "unit": "Wh/km",
+      "kind": "tested",
+      "source_id": "src-r2gm-insideevs-escalade-range-test-2025",
+      "low_confidence": true,
+      "notes": "Measured by Tom Moloughney on a 2025 Escalade IQ, constant GPS-measured 70 mph on the NJ Turnpike, 482.2 mi, 222.7 kWh drawn in total (214.9 kWh driving only = 277 Wh/km), cabin about 70 F, ambient rising into the 80s F, about 8 h. 222.7/482.2 = 46.2 kWh/100 mi x 10/1.609344 = 287 Wh/km. Independent test, not a maker or regulator rating (B97). Energy basis: not stated by the page; 222.7 kWh is above the roughly 205 kWh pack, so it probably includes charging losses or climate/prep draw, i.e. nearer wall-to-wheels than pack-side. 2025 only (not carried to other model years)."
+    }
+  ],
   "trims": [
     {
       "id": "luxury-1",
@@ -97,6 +107,16 @@
           "low_confidence": true,
           "notes": "GM: \"Cadillac-estimated 460 miles\". Launch figure was 450 miles (TechCrunch, InsideEVs). Canada: \"over 700 km\" (Auto123, relaying Cadillac); no Canadian per-trim or per-wheel figure found. GM publishes one figure per model, not per wheel size; 24-inch wheels with 35-inch tires were the launch configuration. Manufacturer estimate, not an EPA/NRCan rating (B97)."
         }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-r2gm-cars-escalade-iq-2025-price",
+          "low_confidence": true,
+          "notes": "Cars.com: 11.5 kW standard on the \"1\" trims, the \"2\" trims add the 19.2 kW charger (US). Cars.com is a US page; the Canadian car (CA trim names exist) is unverified."
+        }
       ]
     },
     {
@@ -113,6 +133,16 @@
           "source_id": "src-gm-techlink-escalade-iq",
           "low_confidence": true,
           "notes": "GM: \"Cadillac-estimated 460 miles\". Launch figure was 450 miles (TechCrunch, InsideEVs). Canada: \"over 700 km\" (Auto123, relaying Cadillac); no Canadian per-trim or per-wheel figure found. GM publishes one figure per model, not per wheel size; 24-inch wheels with 35-inch tires were the launch configuration. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-r2gm-cars-escalade-iq-2025-price",
+          "low_confidence": true,
+          "notes": "Cars.com: 11.5 kW standard on the \"1\" trims, the \"2\" trims add the 19.2 kW charger (US). Cars.com is a US page; the Canadian car (CA trim names exist) is unverified."
         }
       ]
     }

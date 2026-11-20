@@ -73,6 +73,14 @@
       "source_id": "src-evcs-2027-lyriq-nacs",
       "low_confidence": true,
       "notes": "Estimated: 11.5 kW onboard charger is standard; a 19.2 kW charger is optional (about $1,480, higher trims, AWD per Cadillac's spec page); NRCan lists both Charger variants for the 2024-2026 Canadian LYRIQ, LYRIQ AWD and LYRIQ-V, captured per trim. Powertrain value is the standard charger. A Cadillac LYRIQ-V page was also read as listing 19.2 kW, which conflicts with a Cadillac-page excerpt saying the V uses 11.5 kW."
+    },
+    {
+      "value": 19.2,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-epa-fueleconomy-2026-11",
+      "low_confidence": true,
+      "notes": "Estimated: NRCan 2023 \"LYRIQ\" and EPA 2023 LYRIQ list one 240 V charge time of 6.5 h, which matches the 19.2 kW car (2025 LYRIQ 19.2 kW: 7.0 h; 11.5 kW: 11.2 h; 2023 AWD, 10.7 h, is the 11.5 kW car). 100 kWh / 6.5 h is about 15 kW into the pack, not possible on 11.5 kW. Basis: same hardware in another model year, years compared 2023 and 2025. Replaces the repo 11.5 kW estimate. 2023 AWD stays 11.5 kW (10.7 h)."
     }
   ]
 }

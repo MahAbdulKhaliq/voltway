@@ -31,25 +31,65 @@
       "id": "luxury",
       "names": {
         "US": "Luxury"
-      }
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "estimated",
+          "source_id": "src-insideevs-escalade-iq-2027-nacs",
+          "low_confidence": true,
+          "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
+        }
+      ]
     },
     {
       "id": "sport",
       "names": {
         "US": "Sport"
-      }
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "estimated",
+          "source_id": "src-insideevs-escalade-iq-2027-nacs",
+          "low_confidence": true,
+          "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
+        }
+      ]
     },
     {
       "id": "premium-luxury",
       "names": {
         "US": "Premium Luxury"
-      }
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "estimated",
+          "source_id": "src-insideevs-escalade-iq-2027-nacs",
+          "low_confidence": true,
+          "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
+        }
+      ]
     },
     {
       "id": "premium-sport",
       "names": {
         "US": "Premium Sport"
-      }
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "estimated",
+          "source_id": "src-insideevs-escalade-iq-2027-nacs",
+          "low_confidence": true,
+          "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
+        }
+      ]
     }
   ]
 }

@@ -40,6 +40,15 @@
           "low_confidence": true,
           "notes": "US Cars.com: Extended Range LT 18 x 8.5 in aluminum (applied to both charger trims)."
         }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.5,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+        }
       ]
     },
     {
@@ -54,6 +63,15 @@
           "source_id": "src-cars-silverado-471786",
           "low_confidence": true,
           "notes": "US Cars.com: Extended Range LT 18 x 8.5 in aluminum (applied to both charger trims)."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
         }
       ]
     }

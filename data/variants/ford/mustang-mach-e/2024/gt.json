@@ -33,7 +33,16 @@
       "names": {
         "CA": "GT",
         "US": "GT"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-carscom-mache-2024-gt",
+          "notes": "GT: 20 in standard (Cars.com 2024 GT page). Not clear whether this variant also covers the Rally. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

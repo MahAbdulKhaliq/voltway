@@ -33,7 +33,23 @@
       "names": {
         "CA": "Long Range AWD",
         "US": "Long Range AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2w-carscom-model-3-2022",
+          "notes": "Base-trim wheel on the cars.com page for that era. Carried over from a neighbouring model year on the same body; that year was not opened. Cars.com page shows RWD only; Long Range AWD is a sibling trim (18 inch standard per The Driven from April 2022).",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": false,
+          "source_id": "src-r2w-thedriven-model-3-lr-wheels-2022",
+          "notes": "The Driven (2022-04-26): 19 inch sport wheels an option on the Long Range (US$1,500 in the US); carried to 2023 by assumption.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

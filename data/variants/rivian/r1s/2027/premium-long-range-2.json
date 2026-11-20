@@ -29,7 +29,23 @@
       "id": "standard",
       "names": {
         "US": "Premium Long Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-kbb-rivian-r1t-2027-tires",
+          "notes": "2027 R1T standard 20 inch (KBB); CARB lists 20, 22 and 20 all-terrain. R1S assumed the same. Standard inferred for R1S (KBB covers the R1T only).",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": false,
+          "source_id": "src-r2w-kbb-rivian-r1t-2027-tires",
+          "notes": "22 inch: $1,000 on R1T per KBB (no cost on Premium Long Range).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

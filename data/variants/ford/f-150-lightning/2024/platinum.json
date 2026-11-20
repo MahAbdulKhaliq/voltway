@@ -33,7 +33,16 @@
       "names": {
         "CA": "Platinum",
         "US": "Platinum"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-ford-lightning-2024-techspecs",
+          "notes": "Platinum: 22 in bright machined standard (22 in matte black optional). Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -31,7 +31,23 @@
       "names": {
         "CA": "Tri-Motor Max Pack",
         "US": "Tri-Motor Max Pack"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r2w-carb-rivian-2025",
+          "notes": "Road configuration listed in 22 inch only; standard flag inferred.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-carb-rivian-2025",
+          "notes": "20 inch all-terrain configuration.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

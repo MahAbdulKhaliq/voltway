@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Premium RWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2w-carscom-model-3-2027",
+          "notes": "Base-trim wheel on the cars.com page for that era. Cars.com 2027 page shows wheel data for Premium AWD only; this trim is carried from it.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Pro Extended Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-ford-lightning-2024-techspecs",
+          "notes": "Pro: 18 in standard.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

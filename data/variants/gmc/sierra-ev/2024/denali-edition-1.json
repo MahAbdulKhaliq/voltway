@@ -1,0 +1,56 @@
+{
+  "id": "gmc/sierra-ev/2024/denali-edition-1",
+  "model_id": "gmc/sierra-ev",
+  "year": 2024,
+  "name": "Denali Edition 1",
+  "drivetrain": "awd",
+  "powertrain_id": "gmc/sierra-ev/2024-denali-edition-1",
+  "markets": [
+    "US"
+  ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-gm-silverado-ev-2026-spec-guide",
+      "low_confidence": true,
+      "notes": "Estimated: GM Silverado EV spec guide treats the J1772/CCS1 inlet as native with an optional NACS adapter; Sierra EV is the same truck."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
+      "low_confidence": true,
+      "notes": "US: GMC Sierra EV on InsideEVs 2026 Supercharger-access list (GM NACS adapter)."
+    }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": {
+        "US": "Denali Edition 1"
+      },
+      "range_km": [
+        {
+          "value": 708,
+          "unit": "km",
+          "kind": "manufacturer",
+          "source_id": "src-r2gm-insideevs-sierra-2024-range-update",
+          "low_confidence": true,
+          "notes": "GM estimate 440 mi. Launch estimate was 400 mi. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 24,
+          "is_standard": true,
+          "source_id": "src-r2gm-insideevs-sierra-2024-specs",
+          "low_confidence": true,
+          "notes": "InsideEVs: Denali Edition 1 on 24-in wheels."
+        }
+      ]
+    }
+  ]
+}

@@ -33,7 +33,16 @@
       "names": {
         "CA": "WT Max Range",
         "US": "Work Truck Max Range"
-      }
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2025 lists only \"WT Max Range (19.2 kW Charger)\"."
+        }
+      ]
     }
   ]
 }

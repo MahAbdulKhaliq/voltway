@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "CA": "Platinum Extended Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-ford-us-fl-specs-2023",
+          "notes": "Platinum: 22 in bright machined standard. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

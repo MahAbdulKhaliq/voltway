@@ -33,7 +33,16 @@
       "names": {
         "CA": "Extended Range eAWD",
         "US": "Extended Range eAWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-carscom-mache-2024-select",
+          "low_confidence": true,
+          "notes": "Select: 19 in standard (Cars.com 2024 Select page). Source is a US page; Canadian trim assumed the same."
+        }
+      ]
     }
   ]
 }

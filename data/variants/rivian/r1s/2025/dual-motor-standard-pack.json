@@ -31,7 +31,23 @@
       "names": {
         "CA": "Dual-Motor Standard Pack",
         "US": "Dual-Motor Standard Pack"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-slashgear-rivian-r1-2025",
+          "notes": "Second-generation entry wheel is 20 inch (SlashGear); CARB lists 20 and 22 inch road configurations, plus 20 inch all-terrain. Standard inferred: SlashGear says 'entry-level', not 'standard'. KBB says the 2026 R1T standard was 22 inch and CARB states neither, so the standard size is unresolved.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 22,
+          "is_standard": false,
+          "source_id": "src-r2w-carb-rivian-2025",
+          "notes": "22 inch option.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

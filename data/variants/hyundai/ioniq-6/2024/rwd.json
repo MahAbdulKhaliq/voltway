@@ -29,7 +29,23 @@
       "id": "standard",
       "names": {
         "US": "RWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-ioniq-6-2024-index",
+          "low_confidence": true,
+          "notes": "SE Standard Range RWD 18 in"
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-ioniq-6-2024-445824",
+          "low_confidence": true,
+          "notes": "SEL RWD 20 in"
+        }
+      ]
     }
   ]
 }

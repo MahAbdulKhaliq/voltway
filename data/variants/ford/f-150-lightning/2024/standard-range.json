@@ -33,7 +33,23 @@
       "names": {
         "CA": "Standard Range",
         "US": "Standard Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-ford-lightning-2024-techspecs",
+          "notes": "Pro (SR): 18 in standard. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-ford-lightning-2024-techspecs",
+          "notes": "XLT (SR): 20 in standard. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

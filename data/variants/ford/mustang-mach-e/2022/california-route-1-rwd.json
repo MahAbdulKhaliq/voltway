@@ -33,7 +33,16 @@
       "names": {
         "CA": "California Route 1 RWD",
         "US": "California Route 1 RWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-ford-us-mme-specs-2022",
+          "notes": "California Route 1: 18 in standard. The sheet shows Route 1 only as ER eAWD; RWD assumed on the same wheel. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

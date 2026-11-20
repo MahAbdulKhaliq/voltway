@@ -30,7 +30,16 @@
       "id": "standard",
       "names": {
         "CA": "Preferred Standard Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-guideauto-hyundai-ioniq-5-2023-preferred-standard-range-rwd",
+          "low_confidence": true,
+          "notes": "Carried from the 2023 Canadian Preferred Standard Range RWD page; 2025 not read directly."
+        }
+      ]
     }
   ]
 }

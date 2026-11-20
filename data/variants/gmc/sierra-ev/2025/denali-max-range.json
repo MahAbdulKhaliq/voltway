@@ -1,0 +1,68 @@
+{
+  "id": "gmc/sierra-ev/2025/denali-max-range",
+  "model_id": "gmc/sierra-ev",
+  "year": 2025,
+  "name": "Denali Max Range",
+  "drivetrain": "awd",
+  "powertrain_id": "gmc/sierra-ev/2024-denali-edition-1",
+  "markets": [
+    "CA",
+    "US"
+  ],
+  "consumption_combined_wh_per_km": [
+    {
+      "value": 299,
+      "unit": "Wh/km",
+      "kind": "tested",
+      "source_id": "src-r2gm-insideevs-sierra-range-king",
+      "low_confidence": true,
+      "notes": "Edmunds EV Range Test of the Sierra EV Max Range Denali (24-in wheels, 200+ kWh pack): 507 mi, 48.1 kWh/100 mi x 10/1.609344 = 299 Wh/km, 60/40 city/highway mix at 40 mph average, 58 F. Combined-style figure, not steady highway. Independent test, not a rating (B97). Model year 2025 is not stated on the cited pages (InsideEVs, Jalopnik); Edmunds, the original, blocks fetches. Energy basis: at the charger / wall-to-wheels, since 48.1 kWh/100 mi x 507 mi = 244 kWh exceeds the 205 kWh pack, so it sits beside EPA-style figures, not beside the pack-side Hummer figure."
+    }
+  ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-gm-silverado-ev-2026-spec-guide",
+      "low_confidence": true,
+      "notes": "Estimated: GM Silverado EV spec guide treats the J1772/CCS1 inlet as native with an optional NACS adapter; Sierra EV is the same truck."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
+      "low_confidence": true,
+      "notes": "US: GMC Sierra EV on InsideEVs 2026 Supercharger-access list (GM NACS adapter)."
+    }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": {
+        "US": "Denali Max Range",
+        "CA": "Denali Max Range"
+      },
+      "range_km": [
+        {
+          "value": 740,
+          "unit": "km",
+          "kind": "manufacturer",
+          "source_id": "src-r2gm-gcr-sierra-ev-2025-max",
+          "low_confidence": true,
+          "notes": "GM estimate 460 mi. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 24,
+          "is_standard": true,
+          "source_id": "src-r2gm-jalopnik-sierra-edmunds",
+          "low_confidence": true,
+          "notes": "Jalopnik: the Sierra EV Denali Max Range tested by Edmunds is \"only available with 24-inch wheels\"; model year not stated on the page."
+        }
+      ]
+    }
+  ]
+}

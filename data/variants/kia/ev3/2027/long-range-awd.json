@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Long Range AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-carscom-kia-ev3-2027-490022",
+          "low_confidence": true,
+          "notes": "Wind AWD 19 in; Land AWD not opened."
+        }
+      ]
     }
   ]
 }

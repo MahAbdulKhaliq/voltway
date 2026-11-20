@@ -30,7 +30,16 @@
       "id": "standard",
       "names": {
         "US": "RWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-ioniq-5-2022-426518",
+          "low_confidence": true,
+          "notes": "Limited RWD; SE/SEL RWD not opened."
+        }
+      ]
     }
   ]
 }

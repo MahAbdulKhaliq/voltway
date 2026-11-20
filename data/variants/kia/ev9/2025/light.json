@@ -45,7 +45,16 @@
       "id": "standard",
       "names": {
         "CA": "Light"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-carscom-kia-ev9-2025-index",
+          "low_confidence": true,
+          "notes": "US Light; Canadian Light assumed the same."
+        }
+      ]
     }
   ]
 }

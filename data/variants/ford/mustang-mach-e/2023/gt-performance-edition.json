@@ -33,7 +33,16 @@
       "names": {
         "CA": "GT Performance Edition",
         "US": "GT Performance Edition"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-ford-us-mme-specs-2023",
+          "notes": "GT and GT Performance Edition: 20 in standard. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

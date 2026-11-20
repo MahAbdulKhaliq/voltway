@@ -33,7 +33,16 @@
       "names": {
         "CA": "Denali Extended Range",
         "US": "Denali Extended Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r2gm-insideevs-sierra-2024-specs",
+          "low_confidence": true,
+          "notes": "InsideEVs: regular Denali (from late 2024) 22 in; 24 in was the Edition 1. 2025 Denali Extended Range assumed the regular Denali. Conflict: Jalopnik says the Sierra EV Denali is \"only available with 24-inch wheels\" (that article covers the Max Range test truck); the Extended Range Denali size is not shown on any page opened."
+        }
+      ]
     }
   ]
 }

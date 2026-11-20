@@ -31,7 +31,22 @@
       "id": "standard",
       "names": {
         "CA": "Preferred AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-guideauto-hyundai-ioniq-6-2023-preferred-awd",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-guideauto-hyundai-ioniq-6-2023-preferred-awd-with-ultimate-package",
+          "low_confidence": true,
+          "notes": "With Ultimate Package"
+        }
+      ]
     }
   ]
 }

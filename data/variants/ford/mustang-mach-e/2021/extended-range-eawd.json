@@ -33,7 +33,16 @@
       "names": {
         "CA": "Extended Range eAWD",
         "US": "Extended Range AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-ford-us-mme-specs-2021",
+          "notes": "Premium and First Edition (ER AWD): 19 in standard. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

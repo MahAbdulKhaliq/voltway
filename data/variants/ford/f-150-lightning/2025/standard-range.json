@@ -33,7 +33,16 @@
       "names": {
         "CA": "Standard Range",
         "US": "Standard Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-ford-us-fl-specs-2025",
+          "notes": "Pro and XLT (98 kWh): 18 in standard. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

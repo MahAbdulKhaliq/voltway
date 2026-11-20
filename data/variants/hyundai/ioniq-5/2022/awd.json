@@ -30,7 +30,23 @@
       "id": "standard",
       "names": {
         "US": "AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-ioniq-5-2022-426520",
+          "low_confidence": true,
+          "notes": "SE/SEL AWD 19 in"
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-ioniq-5-2022-426521",
+          "low_confidence": true,
+          "notes": "Limited AWD 20 in"
+        }
+      ]
     }
   ]
 }

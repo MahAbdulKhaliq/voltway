@@ -1,0 +1,66 @@
+{
+  "id": "gmc/hummer-ev-pickup/2022/edition-1",
+  "model_id": "gmc/hummer-ev-pickup",
+  "year": 2022,
+  "name": "Edition 1",
+  "drivetrain": "awd",
+  "powertrain_id": "gmc/hummer-ev-pickup/2022-edition-1",
+  "markets": [
+    "US"
+  ],
+  "consumption_highway_wh_per_km": [
+    {
+      "value": 388,
+      "unit": "Wh/km",
+      "kind": "tested",
+      "source_id": "src-r2gm-insideevs-hummer-range-test",
+      "low_confidence": true,
+      "notes": "InsideEVs test of a 2022 Hummer EV Pickup Edition 1: constant 70 mph on I-94 Michigan, 343 mi at 1.6 mi/kWh = 62.5 kWh/100 mi x 10/1.609344 = 388 Wh/km (article also gives 38.75 kWh/100 km), 70-78 F, 10 mph wind, climate 68-70 F lowest fan, Normal mode. Independent test, not a rating (B97). Energy basis: battery-side, from the trip gauge (1.6 mi/kWh) on the 212.7 kWh usable pack; wall-to-wheels would be higher. 2022 truck only."
+    }
+  ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-r2gm-motorauthority-hummer-2022",
+      "low_confidence": true,
+      "notes": "Motor Authority: 350 kW CCS (North America: CCS1)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
+      "low_confidence": true,
+      "notes": "US: GM-approved NACS adapter; GMC Hummer EV is on InsideEVs 2026 Supercharger-access list. Current state for a 2022-23 owner."
+    }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": {
+        "US": "Edition 1"
+      },
+      "range_km": [
+        {
+          "value": 529,
+          "unit": "km",
+          "kind": "manufacturer",
+          "source_id": "src-r2gm-motorauthority-hummer-329",
+          "low_confidence": true,
+          "notes": "GM estimate 329 mi. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2gm-motorauthority-hummer-2022",
+          "low_confidence": true,
+          "notes": "Motor Authority: 18-in wheels (305/70R18)."
+        }
+      ]
+    }
+  ]
+}

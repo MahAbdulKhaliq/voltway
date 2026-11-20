@@ -29,7 +29,23 @@
       "id": "standard",
       "names": {
         "US": "AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-ioniq-6-2023-437773",
+          "low_confidence": true,
+          "notes": "SE AWD 18 in"
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-ioniq-6-2023-437775",
+          "low_confidence": true,
+          "notes": "Limited/SEL AWD 20 in"
+        }
+      ]
     }
   ]
 }

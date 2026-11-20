@@ -33,7 +33,40 @@
       "names": {
         "CA": "RWD",
         "US": "RWD"
-      }
+      },
+      "ac_max_kw": [
+        {
+          "value": 11.5,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2gm-cars-lyriq-2025-specs",
+          "low_confidence": true,
+          "notes": "Cars.com details only the Luxury w/1SC trim (20 in, 265/50R20); other 2025 trims and options not confirmed."
+        }
+      ]
+    },
+    {
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "RWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ]
     }
   ]
 }

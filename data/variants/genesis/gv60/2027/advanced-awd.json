@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Advanced AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-carscom-genesis-gv60-2027-487301",
+          "low_confidence": true,
+          "notes": "The 2027 Cars.com page has no \"Advanced\" row; the 20 in AWD trim is named \"Prestige 20\\\" AWD\" there. Mapped Advanced AWD to it as the 20 in AWD trim (the Advanced and Prestige trims both ran 20 in)."
+        }
+      ]
     }
   ]
 }

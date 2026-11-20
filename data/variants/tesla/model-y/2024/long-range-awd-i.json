@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Long Range AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-carscom-model-y-2021",
+          "notes": "Model Y 19x9.5 (2021 Standard Range page). Carried over from a neighbouring model year on the same body; that year was not opened.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

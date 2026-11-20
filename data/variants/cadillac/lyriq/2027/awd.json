@@ -31,7 +31,33 @@
       "id": "standard",
       "names": {
         "US": "AWD"
-      }
+      },
+      "ac_max_kw": [
+        {
+          "value": 11.5,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-epa-fueleconomy-2026-11",
+          "low_confidence": true,
+          "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
+        }
+      ]
+    },
+    {
+      "id": "19-2-kw-charger",
+      "names": {
+        "US": "AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-epa-fueleconomy-2026-11",
+          "low_confidence": true,
+          "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
+        }
+      ]
     }
   ]
 }

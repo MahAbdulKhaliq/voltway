@@ -45,7 +45,16 @@
       "id": "standard",
       "names": {
         "US": "Light Long Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-carscom-kia-ev9-2025-index",
+          "low_confidence": true,
+          "notes": "Light Short Range shown; Light Long Range not opened."
+        }
+      ]
     }
   ]
 }

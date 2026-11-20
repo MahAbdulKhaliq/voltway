@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Standard RWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-carscom-genesis-gv60-2027-index",
+          "low_confidence": true,
+          "notes": "19\" RWD trim (19 in from the trim name on the 2027 index page)."
+        }
+      ]
     }
   ]
 }

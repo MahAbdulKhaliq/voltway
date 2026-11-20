@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Platinum"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-ford-us-fl-specs-2022",
+          "notes": "Platinum: 22 in bright machined standard.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -33,7 +33,21 @@
       "names": {
         "CA": "Touring AWD",
         "US": "Touring AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-honda-prologue-2024-us-specs",
+          "notes": "US market, Touring AWD: 19x8.5, 255/60R19 (Honda US)."
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": true,
+          "source_id": "src-honda-prologue-2024-ca-specs",
+          "notes": "Canada market, Touring AWD: 21x9.5, 275/45R21 (Honda Canada)."
+        }
+      ]
     }
   ]
 }

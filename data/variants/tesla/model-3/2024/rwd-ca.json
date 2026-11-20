@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "CA": "RWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2w-carscom-model-3-2024",
+          "notes": "Base-trim wheel on the cars.com page for that era. Cars.com 2024 page shows the RWD trim only; this trim (Canada market) is carried from it.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

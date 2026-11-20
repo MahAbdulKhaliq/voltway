@@ -45,7 +45,23 @@
       "names": {
         "CA": "Preferred Long Range AWD",
         "US": "SE Long Range AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-ioniq-6-2024-445826",
+          "low_confidence": true,
+          "notes": "US SE AWD 18 in; Canadian 2023 Preferred AWD is also 18 in (Guide Auto), 2024 Canadian page not found."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-guideauto-hyundai-ioniq-6-2023-preferred-awd-with-ultimate-package",
+          "low_confidence": true,
+          "notes": "With Ultimate Package (2023 Canadian page); 2024 not read."
+        }
+      ]
     }
   ]
 }

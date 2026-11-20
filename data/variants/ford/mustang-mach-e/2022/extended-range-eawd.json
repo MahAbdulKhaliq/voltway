@@ -33,7 +33,16 @@
       "names": {
         "CA": "Extended Range eAWD",
         "US": "Extended Range eAWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-ford-us-mme-specs-2022",
+          "notes": "Premium (ER; the only trim with the ER RWD or ER eAWD pack besides Route 1): 19 in standard. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

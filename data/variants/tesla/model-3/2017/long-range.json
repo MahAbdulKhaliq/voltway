@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Long Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-thedriven-model-3-lr-wheels-2022",
+          "notes": "The Driven (2022-04-26): the Long Range's 19 inch sport wheels 'used to be standard' until 18 inch aero returned as standard in April 2022. Applied to this year by assumption; the cars.com 2019 page shows only Standard Range RWD (18 inch), so it does not cover this trim. No 18 inch option is stated by any opened source.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -33,7 +33,23 @@
       "names": {
         "CA": "Standard Range eAWD",
         "US": "Standard Range eAWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-ford-us-mme-specs-2023",
+          "notes": "Select (SR): 18 in standard. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-ford-us-mme-specs-2023",
+          "notes": "Premium (SR): 19 in standard. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

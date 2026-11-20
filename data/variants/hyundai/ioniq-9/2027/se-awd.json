@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "SE AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-ioniq-9-2026-473079",
+          "low_confidence": true,
+          "notes": "2026 S RWD page (19 in); SE AWD page not opened and 2027 not available, carried over."
+        }
+      ]
     }
   ]
 }

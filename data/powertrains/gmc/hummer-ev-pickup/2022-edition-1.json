@@ -1,0 +1,69 @@
+{
+  "id": "gmc/hummer-ev-pickup/2022-edition-1",
+  "model_id": "gmc/hummer-ev-pickup",
+  "name": "Edition 1 2022",
+  "generation": "first-generation",
+  "years": [
+    2022,
+    2023
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 205,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-r2gm-motorauthority-hummer-2022",
+        "low_confidence": true,
+        "notes": "Motor Authority, per GM: 205 kWh usable (IEC 62660), 213 kWh (ISO 12405). GM TechLink says \"approximately 200 kWh available\" (used on the 2024 3X record)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-gm-ultium-truck-24",
+        "low_confidence": true,
+        "notes": "Estimated: same 24-module Ultium NCMA pouch cells as the 2024 3X record (Weekly Driver); closest enum nmc."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-gm-techlink-hummer-ev-ultium",
+        "low_confidence": false,
+        "notes": "GM TechLink (2022-04-14): about 400 V per layer, series for \"800-volt DC fast charging\". Treated as 800v like the 2024 records."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "manual_only",
+        "kind": "manufacturer",
+        "source_id": "src-gm-techlink-hummer-ev-ultium",
+        "low_confidence": true,
+        "notes": "GM TechLink (2022-04-14): \"apps can precondition the battery\". No automatic navigation trigger is documented for the 2022 truck on any page opened (the GM preconditioning guide returns 403), so manual_only; the 2024 3X record may differ."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 350,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-r2gm-motorauthority-hummer-2022",
+      "low_confidence": true,
+      "notes": "Motor Authority, per GM: 350 kW CCS; TechLink: up to 800 V/350 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-r2gm-insideevs-hummer-bidirectional",
+      "low_confidence": true,
+      "notes": "InsideEVs: \"previous model year Hummers came with a standard 11.5 kW AC onboard charger\" (19.2 kW starts 2024); Motor Authority 2022: 11.5 kW Level 2. Differs from the 2024 powertrains (19.2 kW)."
+    }
+  ]
+}

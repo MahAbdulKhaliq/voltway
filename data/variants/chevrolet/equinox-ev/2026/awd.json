@@ -39,7 +39,7 @@
       "id": "11-5-kw-charger",
       "names": {
         "CA": "AWD (11.5 kW Charger)",
-        "US": "AWD"
+        "US": "AWD (11.5 kW Charger)"
       },
       "heat_pump": [
         {
@@ -49,12 +49,22 @@
           "low_confidence": true,
           "notes": "Quick web lookup (rough, not cross-checked)."
         }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 11.5,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+        }
       ]
     },
     {
       "id": "19-2-kw-charger",
       "names": {
-        "CA": "AWD (19.2 kW Charger)"
+        "CA": "AWD (19.2 kW Charger)",
+        "US": "AWD (19.2 kW Charger)"
       },
       "heat_pump": [
         {
@@ -63,6 +73,15 @@
           "source_id": "src-chevrolet-equinox-ev",
           "low_confidence": true,
           "notes": "Quick web lookup (rough, not cross-checked)."
+        }
+      ],
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
         }
       ]
     }

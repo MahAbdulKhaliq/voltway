@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "CA": "XRT"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-ioniq-5-2025-471571",
+          "low_confidence": true,
+          "notes": "US XRT AWD used for the Canadian XRT; Canadian page not read."
+        }
+      ]
     }
   ]
 }

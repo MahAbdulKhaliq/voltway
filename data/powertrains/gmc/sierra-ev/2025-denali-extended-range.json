@@ -63,6 +63,14 @@
       "source_id": "src-thechargeport-gmc-sierra-ev",
       "low_confidence": true,
       "notes": "Estimated: The Charge Port Sierra EV page: home charging is 11.5 kW on Elevation, Denali and AT4 Extended Range; 19.2 kW applies only to the Max Range (Denali Max, 205 kWh). Wikipedia lists 19.2 kW as the model maximum, not for this pack."
+    },
+    {
+      "value": 19.2,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-nrcan-bev-2026-09",
+      "low_confidence": true,
+      "notes": "Estimated: NRCan 2025 \"Sierra EV Extended Range\" shows a 240 V charge time of 11.5 h and EPA 2025 the same, identical to the Silverado EV rows labelled \"19.2 kW Charger\" (same truck and pack; the 11.5 kW rows take 18.6 h). 2026 Sierra Denali has both options."
     }
   ]
 }

@@ -1,0 +1,58 @@
+{
+  "id": "gmc/hummer-ev-pickup/2023/edition-1",
+  "model_id": "gmc/hummer-ev-pickup",
+  "year": 2023,
+  "name": "Edition 1",
+  "drivetrain": "awd",
+  "powertrain_id": "gmc/hummer-ev-pickup/2022-edition-1",
+  "markets": [
+    "CA",
+    "US"
+  ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-r2gm-motorauthority-hummer-2022",
+      "low_confidence": true,
+      "notes": "Motor Authority: 350 kW CCS (North America: CCS1)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
+      "low_confidence": true,
+      "notes": "US: GM-approved NACS adapter; GMC Hummer EV is on InsideEVs 2026 Supercharger-access list. Current state for a 2022-23 owner."
+    }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": {
+        "US": "Edition 1",
+        "CA": "Edition 1"
+      },
+      "range_km": [
+        {
+          "value": 529,
+          "unit": "km",
+          "kind": "manufacturer",
+          "source_id": "src-r2gm-kbb-hummer-2023-trims",
+          "low_confidence": true,
+          "notes": "GM estimate 329 mi. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+        }
+      ],
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r2gm-motorauthority-hummer-2022",
+          "low_confidence": true,
+          "notes": "Carried from the 2022 Edition 1 page (Motor Authority 305/70R18); no source states the 2023 Edition 1 wheel size, same truck assumed."
+        }
+      ]
+    }
+  ]
+}

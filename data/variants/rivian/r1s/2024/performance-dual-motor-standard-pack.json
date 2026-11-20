@@ -29,7 +29,16 @@
       "id": "standard",
       "names": {
         "US": "Performance Dual-Motor Standard Pack"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r2w-carb-rivian-2024",
+          "notes": "Only 22 inch is listed for the R1S Performance Dual Standard. Standard inferred: no source states it.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

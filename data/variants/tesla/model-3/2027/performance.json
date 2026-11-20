@@ -91,7 +91,16 @@
       "id": "standard",
       "names": {
         "US": "Performance"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-carscom-model-3-2021-performance",
+          "notes": "Performance AWD 20x8.5 (2021 page). Carried over from the 2021 Performance; no source shows a change. 2024 onward is the Highland redesign (a different car); the 20 inch carry rests on the 2021 Performance page of the previous body.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

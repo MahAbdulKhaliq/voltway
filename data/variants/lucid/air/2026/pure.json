@@ -29,7 +29,23 @@
       "id": "standard",
       "names": {
         "US": "Pure"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r2w-lucid-air-pure-page",
+          "notes": "Aero Range 19 inch standard. From the current Lucid page (2026-27 lineup).",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-lucid-air-pure-page",
+          "notes": "20 inch Aero Lite Stealth optional.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

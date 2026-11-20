@@ -45,7 +45,16 @@
       "id": "standard",
       "names": {
         "CA": "Land AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-carscom-kia-ev6-2024-449917",
+          "low_confidence": true,
+          "notes": "US Wind AWD 19 in; the Canadian Land AWD page was not read (GT-Line packages are separate Canadian trims)."
+        }
+      ]
     }
   ]
 }

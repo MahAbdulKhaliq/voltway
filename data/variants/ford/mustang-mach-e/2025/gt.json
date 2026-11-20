@@ -33,7 +33,16 @@
       "names": {
         "CA": "GT",
         "US": "GT"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-ford-us-mme-specs-2025",
+          "notes": "GT: 20 in monochromatic high-gloss black (std); other 20 in designs optional. This variant is the GT only; the Rally (19 in std) has no 2025 variant. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

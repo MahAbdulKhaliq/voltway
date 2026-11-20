@@ -33,7 +33,16 @@
       "names": {
         "CA": "Standard Range",
         "US": "Standard Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-carscom-model-x-2020",
+          "notes": "20 inch aluminum standard. Cars.com 2020 page shows Long Range Plus only; this trim is a sibling carry.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

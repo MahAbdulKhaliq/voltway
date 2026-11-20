@@ -29,7 +29,23 @@
       "id": "standard",
       "names": {
         "US": "Quad"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r2w-carb-rivian-2027",
+          "notes": "Quad listed in 22 and 22 UHP road configurations. Standard inferred.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r2w-carb-rivian-2027",
+          "notes": "20 inch all-terrain configuration.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

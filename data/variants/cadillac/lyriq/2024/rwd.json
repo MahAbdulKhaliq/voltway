@@ -31,9 +31,33 @@
     {
       "id": "standard",
       "names": {
-        "CA": "RWD",
-        "US": "RWD"
-      }
+        "CA": "RWD"
+      },
+      "ac_max_kw": [
+        {
+          "value": 11.5,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option. Basis: NRCan 2024 lists both labels; EPA 2024 has one unlabelled row at the 19.2 kW time, so in the US the 19.2 kW trim is the one EPA rates (see new_trims)."
+        }
+      ]
+    },
+    {
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "RWD (19.2 kW Charger)",
+        "US": "RWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. US: EPA 2024 single row 6.5 h matches this charger (11.5 kW would take about 10.7 h)."
+        }
+      ]
     }
   ]
 }

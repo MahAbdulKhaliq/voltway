@@ -29,7 +29,22 @@
       "id": "standard",
       "names": {
         "CA": "Preferred Long Range AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-guideauto-hyundai-ioniq-5-2022-preferred-long-range-awd",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-guideauto-hyundai-ioniq-5-2023-preferred-long-range-awd-with-ultimate-package",
+          "low_confidence": true,
+          "notes": "20 in with the Ultimate Package; read on the 2023 Canadian page (2022 Ultimate Package page not opened)."
+        }
+      ]
     }
   ]
 }

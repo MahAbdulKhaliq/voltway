@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "N"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-hyundai-n-ioniq-6-n",
+          "low_confidence": true,
+          "notes": "Diameter read from the 275/35R20 tire size on the Hyundai N global page, not a US 2027 spec sheet. Some reviews say 21 in."
+        }
+      ]
     }
   ]
 }

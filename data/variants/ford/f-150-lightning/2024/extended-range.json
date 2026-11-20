@@ -33,7 +33,16 @@
       "names": {
         "CA": "Extended Range",
         "US": "Extended Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-ford-lightning-2024-techspecs",
+          "notes": "Flash and Lariat (ER): 20 in standard. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -33,7 +33,16 @@
       "names": {
         "CA": "A-Spec AWD",
         "US": "A-Spec AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-acura-zdx-2024-specs",
+          "notes": "A-Spec: 20x9.0, 265/50R20. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

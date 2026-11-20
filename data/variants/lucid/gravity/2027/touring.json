@@ -29,7 +29,16 @@
       "id": "standard",
       "names": {
         "US": "Touring"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-carscom-lucid-gravity-2026-touring",
+          "notes": "Front 20x8.5, rear 21x9.5 (staggered). Carried from the 2026 listing.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -33,7 +33,16 @@
       "names": {
         "CA": "GT Performance",
         "US": "GT Performance Edition"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-ford-us-mme-specs-2021",
+          "notes": "GT: 20 in standard (Ford 2021 sheet). Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -31,7 +31,31 @@
       "id": "standard",
       "names": {
         "CA": "Optiq AWD"
-      }
+      },
+      "ac_max_kw": [
+        {
+          "value": 11.5,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+        }
+      ]
+    },
+    {
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "Optiq AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ]
     }
   ]
 }

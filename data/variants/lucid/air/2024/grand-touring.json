@@ -31,7 +31,29 @@
       "names": {
         "CA": "Grand Touring",
         "US": "Grand Touring"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-carscom-lucid-air-2024-gt",
+          "notes": "20x8.5 front, 20x9.5 rear."
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": false,
+          "source_id": "src-r2w-lucid-air-gt-2024-tires",
+          "notes": "19 inch tire option on the 2024 sheet.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": false,
+          "source_id": "src-r2w-lucid-air-gt-2024-tires",
+          "notes": "21 inch tire option on the 2024 sheet.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

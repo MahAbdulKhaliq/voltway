@@ -31,7 +31,15 @@
       "id": "standard",
       "names": {
         "US": "GT"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-ford-us-mme-specs-2022",
+          "notes": "GT and GT Performance Edition: 20 in standard."
+        }
+      ]
     }
   ]
 }

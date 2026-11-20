@@ -31,7 +31,16 @@
       "names": {
         "CA": "Dual-Motor Large Plus Pack",
         "US": "Dual-Motor Large Plus Pack"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-carb-rivian-2026",
+          "notes": "CARB 2026 lists the R1S Dual Large Plus pack in 20 inch only. Standard inferred: no source states it.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

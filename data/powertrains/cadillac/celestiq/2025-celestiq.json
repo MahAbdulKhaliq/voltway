@@ -73,6 +73,14 @@
       "source_id": "src-thechargeport-cadillac-vistiq",
       "low_confidence": true,
       "notes": "Estimated: No Celestiq page gives an AC rating. Basis: Cadillac states 11.5 kW as the standard onboard charger with 19.2 kW optional on its Ultium models (Vistiq and Optiq pages); the standard 11.5 kW is recorded because no Celestiq option list was found. OWNER QUESTION."
+    },
+    {
+      "value": 19.2,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-r2gm-gcc-celestiq",
+      "low_confidence": true,
+      "notes": "Estimated: Green Cars Compare (spec site, does not name GM) says \"up to 19.2 kW AC\", 111 kWh usable (116.8 gross); NRCan/EPA 240 V charge time 8.0 h agrees: 108.8 kWh (repo usable estimate) / 8.0 h = 13.6 kW into the pack, 111 / 8.0 = 13.9 kW, about 71-72% of 19.2 kW, similar to the 19.2 kW Lyriq (100 kWh / 7.0 h = 14.3 kW). An 11.5 kW car would need about 11 h. Replaces the 11.5 kW estimate."
     }
   ]
 }

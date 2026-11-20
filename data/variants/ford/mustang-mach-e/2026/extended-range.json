@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "CA": "Extended Range"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-ford-ca-mache-premium-2026",
+          "notes": "Premium: 19 in aluminum standard (Ford Canada 2026 Premium page); Ford 2025 sheet gives 19 in for Select and Premium. 2026 Select not read separately. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

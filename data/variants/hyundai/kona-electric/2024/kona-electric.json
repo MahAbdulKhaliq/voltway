@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "CA": "Kona Electric"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 17,
+          "is_standard": true,
+          "source_id": "src-carscom-hyundai-kona-ev-2024-index",
+          "low_confidence": true,
+          "notes": "US SE shown (17 x 7 in); Canadian trim assumed the same."
+        }
+      ]
     }
   ]
 }

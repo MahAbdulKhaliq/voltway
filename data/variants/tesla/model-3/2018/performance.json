@@ -33,7 +33,16 @@
       "names": {
         "CA": "Performance",
         "US": "Performance"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-carscom-model-3-2021-performance",
+          "notes": "Performance AWD 20x8.5 (2021 page). Carried over from the 2021 Performance; no source shows a change.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

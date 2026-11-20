@@ -33,7 +33,16 @@
       "names": {
         "CA": "Type S AWD",
         "US": "Type S AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-acura-zdx-2024-specs",
+          "notes": "Type S: 22x9.5, 275/40R22 (Performance Wheel & Tire package keeps 22 in, summer tires). Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

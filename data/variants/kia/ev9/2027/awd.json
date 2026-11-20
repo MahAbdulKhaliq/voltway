@@ -29,7 +29,23 @@
       "id": "standard",
       "names": {
         "US": "AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-carscom-kia-ev9-2027-491328",
+          "low_confidence": true,
+          "notes": "The US \"AWD\" label covers Wind AWD (19 in standard on Wind)."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-carscom-kia-ev9-2027-491329",
+          "low_confidence": true,
+          "notes": "Standard on Land AWD."
+        }
+      ]
     }
   ]
 }

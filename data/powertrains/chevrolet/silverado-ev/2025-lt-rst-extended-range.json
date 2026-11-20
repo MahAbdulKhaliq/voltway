@@ -63,6 +63,13 @@
       "source_id": "src-gm-silverado-ev-2025-spec-guide",
       "low_confidence": true,
       "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 11.5 kW is the base module; 19.2 kW is an option (K20 / XKT package) or standard on the 2026 WT (NRCan lists both Charger variants of the Canadian Ext Range trims, captured per trim). Powertrain value is the base 11.5 kW. LT/RST charger hardware is not covered by the WT guide: NRCan lists both 11.5 kW and 19.2 kW chargers per trim (captured per trim); powertrain value is the 11.5 kW charger. The 2025 guide row for the charging module is partly unreadable (glyph-encoded font)."
+    },
+    {
+      "value": 19.2,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-nrcan-bev-2026-09",
+      "notes": "NRCan 2025: \"Silverado EV LT/RST Ext Range (19.2 kW Charger)\", 240 V charge time 11.5 h."
     }
   ],
   "published_10_80_min": [

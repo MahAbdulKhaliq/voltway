@@ -29,7 +29,16 @@
       "id": "standard",
       "names": {
         "US": "Light Long Range RWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-carscom-kia-ev6-2027-index",
+          "low_confidence": true,
+          "notes": "Light RWD shown; Light Long Range not opened."
+        }
+      ]
     }
   ]
 }

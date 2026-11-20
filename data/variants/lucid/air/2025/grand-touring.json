@@ -31,7 +31,30 @@
       "names": {
         "CA": "Grand Touring",
         "US": "Grand Touring"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r2w-lucid-air-grand-touring-page",
+          "notes": "Aero Lite 20 inch standard. 2025 assumed same as 2024 and the current lineup.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": false,
+          "source_id": "src-r2w-lucid-air-grand-touring-page",
+          "notes": "19 inch Aero Range optional.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": false,
+          "source_id": "src-r2w-lucid-air-grand-touring-page",
+          "notes": "21 inch Aero Sport Stealth optional.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

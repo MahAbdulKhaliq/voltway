@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Premium RWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-tslna-model-y-price-canada-2026",
+          "notes": "Estimated: Premium trim 19 inch standard on the Canadian 2026 Premium AWD page (same Juniper hardware, other market); no US page opened. The Canadian page is Premium AWD; mapped to Premium RWD by assumption (the same page lists the RWD at 18 inch).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

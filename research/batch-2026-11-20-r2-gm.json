@@ -1,0 +1,1840 @@
+{
+  "sources": [
+    {
+      "id": "src-r2gm-insideevs-escalade-range-test-2025",
+      "type": "testing_org",
+      "title": "InsideEVs: The Cadillac Escalade IQ crushed its estimated range in a 70-mph test (Moloughney, 2025-06-23)",
+      "url": "https://insideevs.com/reviews/763595/cadillac-escalade-iq-range-test/",
+      "accessed_on": "2026-11-20",
+      "notes": "2025 Escalade IQ held a GPS-measured 70 mph on the NJ Turnpike: 482.2 mi on one charge, 222.7 kWh used in total (214.9 kWh driving + 7.8 kWh climate and charge prep), cabin 70 F low fan, ambient rising into the 80s F. Trim and wheels not stated."
+    },
+    {
+      "id": "src-r2gm-cars-escalade-iq-2025-price",
+      "type": "community",
+      "title": "Cars.com: 2025 Cadillac Escalade IQ starts at $129,990",
+      "url": "https://www.cars.com/articles/2025-cadillac-escalade-iq-the-electric-icon-starts-at-129990-492255",
+      "accessed_on": "2026-11-20",
+      "notes": "11.5 kW onboard charger standard on Luxury 1 and Sport 1; the 2 trims add the 19.2 kW charger."
+    },
+    {
+      "id": "src-r2gm-cars-escalade-iql-2026",
+      "type": "community",
+      "title": "Cars.com: All-electric 2026 Cadillac Escalade IQL",
+      "url": "https://www.cars.com/articles/all-electric-2026-cadillac-escalade-iql-follows-in-the-longer-footsteps-of-the-esv-505798",
+      "accessed_on": "2026-11-20",
+      "notes": "IQL: 11.5 kW onboard charger standard, 19.2 kW optional (no trim breakdown); wheels Luxury/Sport 22 in, Premium Luxury/Premium Sport 24 in."
+    },
+    {
+      "id": "src-r2gm-gcc-celestiq",
+      "type": "community",
+      "title": "Green Cars Compare: Cadillac Celestiq charging",
+      "url": "https://greencarscompare.com/car/cadillac-celestiq-2024/charging/",
+      "accessed_on": "2026-11-20",
+      "notes": "Lists up to 19.2 kW AC and 190 kW DC, CCS1, 400 V, \"116.8 kWh battery (111 kWh usable)\". Spec site; does not name GM as the source, so the AC value is recorded as estimated. EPA/NRCan 240 V charge time 8.0 h."
+    },
+    {
+      "id": "src-r2gm-insideevs-sierra-2024-specs",
+      "type": "community",
+      "title": "InsideEVs: 2024 GMC Sierra EV range, specs and pricing overview",
+      "url": "https://insideevs.com/news/705612/2024-gmc-sierra-ev-range-specs-pricing/",
+      "accessed_on": "2026-11-20",
+      "notes": "Denali Edition 1: about 400 mi GM estimate, 24-module 200+ kWh pack, 350 kW on 800 V chargers, 19.2 kW onboard AC, 24-in wheels (later Denali 22 in; 2025 Elevation/AT4 18 in)."
+    },
+    {
+      "id": "src-r2gm-insideevs-sierra-2024-range-update",
+      "type": "community",
+      "title": "InsideEVs: 2024 GMC Sierra EV Denali Edition 1 gets 440 miles of range",
+      "url": "https://insideevs.com/news/716215/2024-gmc-sierra-ev-denali-edition-1-updated-range-towing-price/",
+      "accessed_on": "2026-11-20",
+      "notes": "GM updated estimate: up to 440 mi; up to 350 kW, about 100 mi in 10 min; 19.2 kW onboard AC; pack kWh not stated, \"likely the same 800 V 24-module pack\" as Hummer/Silverado."
+    },
+    {
+      "id": "src-r2gm-gcr-sierra-ev-2025-max",
+      "type": "community",
+      "title": "Green Car Reports: 2025 GMC Sierra EV test drive review",
+      "url": "https://greencarreports.com/news/1145063_2025-gmc-sierra-ev-test-drive-review",
+      "accessed_on": "2026-11-20",
+      "notes": "Denali Max Range 2025: GM-estimated 460 mi (heavy truck, no EPA rating), 205 kWh pack, 350 kW peak; Extended Range 170 kWh / 300 kW."
+    },
+    {
+      "id": "src-r2gm-insideevs-sierra-range-king",
+      "type": "testing_org",
+      "title": "InsideEVs: The GMC Sierra Denali is the new EV range king (Edmunds test)",
+      "url": "https://insideevs.com/news/748512/gmc-sierra-ev-denali-range-king/",
+      "accessed_on": "2026-11-20",
+      "notes": "Edmunds EV Range Test: 507 mi, 48.1 kWh/100 mi (2.0 mi/kWh), 60/40 city/highway mix at 40 mph average, 58 F, 24-in wheels, Denali with the 200+ kWh Max pack. Edmunds blocks fetches; read via this relay and Jalopnik."
+    },
+    {
+      "id": "src-r2gm-jalopnik-sierra-edmunds",
+      "type": "community",
+      "title": "Jalopnik: GMC Sierra EV Denali goes 507 miles in Edmunds range test",
+      "url": "https://jalopnik.com/gmc-sierra-ev-denali-goes-507-miles-in-edmunds-range-te-1851747491",
+      "accessed_on": "2026-11-20",
+      "notes": "Edmunds tested the Sierra EV Max Range Denali: 507 mi, 48.1 kWh/100 mi, 24-in wheels, mixed route."
+    },
+    {
+      "id": "src-r2gm-motorauthority-hummer-2022",
+      "type": "community",
+      "title": "Motor Authority: 2022 GMC Hummer EV price, specs, review",
+      "url": "https://www.motorauthority.com/news/1129566_2022-gmc-hummer-ev-price-specs-review-photos-info",
+      "accessed_on": "2026-11-20",
+      "notes": "2022 Hummer EV Edition 1 per GM: 205 kWh usable (IEC 62660) / 213 kWh (ISO 12405); 400 V packs in parallel or 800 V in series; 350 kW DC CCS; 11.5 kW Level 2 onboard; 329 mi; 18-in wheels."
+    },
+    {
+      "id": "src-r2gm-motorauthority-hummer-329",
+      "type": "community",
+      "title": "Motor Authority: 2022 Hummer EV Edition 1 has 329 miles of range, too heavy for EPA rating",
+      "url": "https://www.motorauthority.com/news/1134272_2022-gmc-hummer-ev-edition-1-to-have-329-miles-of-range-too-heavy-for-official-epa-rating",
+      "accessed_on": "2026-11-20",
+      "notes": "GM confirmed 329 mi; not EPA rated (GVWR 10,400 lb); 200 kWh pack."
+    },
+    {
+      "id": "src-r2gm-kbb-hummer-2023-trims",
+      "type": "community",
+      "title": "KBB: Hummer EV gets new trim levels, 355-mile range",
+      "url": "https://www.kbb.com/car-news/hummer-ev-gets-new-trim-levels-355-mile-range",
+      "accessed_on": "2026-11-20",
+      "notes": "2023 pickup: Edition 1 329 mi; EV3X 22-in wheels 355 mi (8,500 lb tow) or 329 mi with Extreme Off-Road package."
+    },
+    {
+      "id": "src-r2gm-insideevs-hummer-bidirectional",
+      "type": "community",
+      "title": "InsideEVs: 2024 GMC Hummer EV gets bidirectional charging",
+      "url": "https://insideevs.com/news/656865/2024-hummer-ev-bidirectional-charging/",
+      "accessed_on": "2026-11-20",
+      "notes": "\"The previous model year Hummers came with a standard 11.5 kW AC onboard charger\"; 2024 adds a 19.2 kW Level 2 onboard charger as standard on SUV Edition 1/3X/2X and pickup 3X/2X."
+    },
+    {
+      "id": "src-r2gm-insideevs-hummer-range-test",
+      "type": "testing_org",
+      "title": "InsideEVs: Hummer EV range test (70 mph)",
+      "url": "https://insideevs.com/reviews/612030/hummer-ev-range-test/",
+      "accessed_on": "2026-11-20",
+      "notes": "2022 Hummer EV Pickup Edition 1, constant 70 mph on I-94 Michigan, 343 mi, 1.6 mi/kWh (38.75 kWh/100 km), 70-78 F, 10 mph wind, climate 68-70 F lowest fan, Normal mode, 212.7 kWh usable pack, 9,063 lb."
+    },
+    {
+      "id": "src-r2gm-cars-lyriq-2025-specs",
+      "type": "community",
+      "title": "Cars.com: 2025 Cadillac Lyriq specs (Luxury w/1SC)",
+      "url": "https://www.cars.com/research/cadillac-lyriq-2025/specs/",
+      "accessed_on": "2026-11-20",
+      "notes": "Only the Luxury w/1SC is detailed: 20-in aluminium wheels, 265/50R20 tires."
+    },
+    {
+      "id": "src-r2gm-electricautonomy-sierra-ev-ca-2025",
+      "type": "community",
+      "title": "Electric Autonomy: GMC announces Canadian pricing of Sierra EV Denali pickup truck (2024-10-16)",
+      "url": "https://electricautonomy.ca/automakers/2024-10-16/sierra-ev-denali-price-canada-gmc/",
+      "accessed_on": "2026-11-20",
+      "notes": "2025 Sierra EV Denali arriving at Canadian dealers in two versions: Extended Range (628 km) and Max Range ($119,699 MSRP, \"an extended 740 km\"). Range stated for Max Range without saying whether it is a GM estimate."
+    },
+    {
+      "id": "src-r2gm-canadadrives-hummer-2023",
+      "type": "community",
+      "title": "Canada Drives: 2023 GMC Hummer EV Pickup first drive review",
+      "url": "https://canadadrives.ca/blog/car-guide/2023-gmc-hummer-ev-pickup-first-drive-review",
+      "accessed_on": "2026-11-20",
+      "notes": "Edition 1 pickup: Canadian pricing \"closer to the Hummer's arrival in Canada, slated for December 2022\"; \"530 kilometres of range\". Does not confirm a Canadian sale date or a final price."
+    }
+  ],
+  "variants": {
+    "chevrolet/equinox-ev/2026/awd": {
+      "trims": {
+        "11-5-kw-charger": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+            }
+          ]
+        },
+        "19-2-kw-charger": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/lyriq/2026/awd": {
+      "trims": {
+        "11-5-kw-charger": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+            }
+          ]
+        },
+        "19-2-kw-charger": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/lyriq/2026/standard": {
+      "trims": {
+        "11-5-kw-charger": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+            }
+          ]
+        },
+        "19-2-kw-charger": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/lyriq-v/2026/v": {
+      "trims": {
+        "11-5-kw-charger": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+            }
+          ]
+        },
+        "19-2-kw-charger": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+            }
+          ]
+        }
+      }
+    },
+    "chevrolet/silverado-ev/2026/lt-ext-range": {
+      "trims": {
+        "11-5-kw-charger": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+            }
+          ]
+        },
+        "19-2-kw-charger": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
+            }
+          ]
+        }
+      }
+    },
+    "chevrolet/equinox-ev/2025/awd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/lyriq/2024/rwd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option. Basis: NRCan 2024 lists both labels; EPA 2024 has one unlabelled row at the 19.2 kW time, so in the US the 19.2 kW trim is the one EPA rates (see new_trims)."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/lyriq/2024/awd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option. Basis: NRCan 2024 lists both labels; EPA 2024 has one unlabelled row at the 19.2 kW time, so in the US the 19.2 kW trim is the one EPA rates (see new_trims)."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/lyriq/2025/rwd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 20,
+              "is_standard": true,
+              "source_id": "src-r2gm-cars-lyriq-2025-specs",
+              "low_confidence": true,
+              "notes": "Cars.com details only the Luxury w/1SC trim (20 in, 265/50R20); other 2025 trims and options not confirmed."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/lyriq/2025/awd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 20,
+              "is_standard": true,
+              "source_id": "src-r2gm-cars-lyriq-2025-specs",
+              "low_confidence": true,
+              "notes": "Cars.com details only the Luxury w/1SC trim (20 in, 265/50R20); other 2025 trims and options not confirmed. AWD trim not shown on the Cars.com page: AWD wheel size unconfirmed, assumed equal to the detailed trim."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/lyriq/2027/rwd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-epa-fueleconomy-2026-11",
+              "low_confidence": true,
+              "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/lyriq/2027/awd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-epa-fueleconomy-2026-11",
+              "low_confidence": true,
+              "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/lyriq-v/2027/lyriq-v": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-epa-fueleconomy-2026-11",
+              "low_confidence": true,
+              "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/optiq/2025/optiq-awd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/optiq/2026/optiq-awd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/optiq/2026/optiq-rwd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/optiq/2027/optiq-awd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-epa-fueleconomy-2026-11",
+              "low_confidence": true,
+              "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/optiq/2027/optiq-rwd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-epa-fueleconomy-2026-11",
+              "low_confidence": true,
+              "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/optiq-v/2026/optiq-v-awd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/optiq-v/2027/optiq-v-awd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-epa-fueleconomy-2026-11",
+              "low_confidence": true,
+              "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/vistiq/2026/vistiq-awd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/vistiq/2027/vistiq-awd": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-epa-fueleconomy-2026-11",
+              "low_confidence": true,
+              "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "chevrolet/silverado-ev/2025/lt-extended-range": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "chevrolet/silverado-ev/2025/wt-extended-range": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "chevrolet/silverado-ev/2026/extended-range": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-epa-fueleconomy-2026-11",
+              "low_confidence": true,
+              "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "gmc/sierra-ev/2026/denali-extended-range": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "gmc/sierra-ev/2026/elevation-extended-range": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 11.5,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
+            }
+          ]
+        }
+      }
+    },
+    "chevrolet/silverado-ev/2025/lt-rst-extended-range": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2025 lists only \"LT/RST Ext Range (19.2 kW Charger)\" for this variant; the powertrain value of 11.5 kW is wrong for it."
+            }
+          ]
+        }
+      }
+    },
+    "chevrolet/silverado-ev/2025/wt-max-range": {
+      "trims": {
+        "standard": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-nrcan-bev-2026-09",
+              "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2025 lists only \"WT Max Range (19.2 kW Charger)\"."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/escalade-iq/2025/awd": {
+      "trims": {
+        "luxury-2": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-r2gm-cars-escalade-iq-2025-price",
+              "low_confidence": true,
+              "notes": "Cars.com: 11.5 kW standard on the \"1\" trims, the \"2\" trims add the 19.2 kW charger (US). Cars.com is a US page; the Canadian car (CA trim names exist) is unverified."
+            }
+          ]
+        },
+        "sport-2": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-r2gm-cars-escalade-iq-2025-price",
+              "low_confidence": true,
+              "notes": "Cars.com: 11.5 kW standard on the \"1\" trims, the \"2\" trims add the 19.2 kW charger (US). Cars.com is a US page; the Canadian car (CA trim names exist) is unverified."
+            }
+          ]
+        }
+      },
+      "fields": {
+        "consumption_highway_wh_per_km": [
+          {
+            "value": 287,
+            "unit": "Wh/km",
+            "kind": "tested",
+            "source_id": "src-r2gm-insideevs-escalade-range-test-2025",
+            "low_confidence": true,
+            "notes": "Measured by Tom Moloughney on a 2025 Escalade IQ, constant GPS-measured 70 mph on the NJ Turnpike, 482.2 mi, 222.7 kWh drawn in total (214.9 kWh driving only = 277 Wh/km), cabin about 70 F, ambient rising into the 80s F, about 8 h. 222.7/482.2 = 46.2 kWh/100 mi x 10/1.609344 = 287 Wh/km. Independent test, not a maker or regulator rating (B97). Energy basis: not stated by the page; 222.7 kWh is above the roughly 205 kWh pack, so it probably includes charging losses or climate/prep draw, i.e. nearer wall-to-wheels than pack-side. 2025 only (not carried to other model years)."
+          }
+        ]
+      }
+    },
+    "cadillac/escalade-iq/2026/awd": {
+      "trims": {
+        "premium-luxury": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-insideevs-escalade-iq-2027-nacs",
+              "low_confidence": true,
+              "notes": "InsideEVs: 2026 Premium Luxury and Premium Sport came with 19.2 kW (US). InsideEVs is a US article; Canadian car unverified."
+            }
+          ]
+        },
+        "premium-sport": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "manufacturer",
+              "source_id": "src-insideevs-escalade-iq-2027-nacs",
+              "low_confidence": true,
+              "notes": "InsideEVs: 2026 Premium Luxury and Premium Sport came with 19.2 kW (US). InsideEVs is a US article; Canadian car unverified."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/escalade-iq/2027/awd": {
+      "trims": {
+        "luxury": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "estimated",
+              "source_id": "src-ttac-escalade-iq-2027",
+              "low_confidence": true,
+              "notes": "Estimated: TTAC (\"every Escalade IQ trim comes standard with a 19.2-kW on-board charger\") and InsideEVs (more powerful charger standard across all trims) state it; GM did not announce it (GM Authority found it), so not recorded as manufacturer. US sources; Canada unverified."
+            }
+          ]
+        },
+        "sport": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "estimated",
+              "source_id": "src-ttac-escalade-iq-2027",
+              "low_confidence": true,
+              "notes": "Estimated: TTAC (\"every Escalade IQ trim comes standard with a 19.2-kW on-board charger\") and InsideEVs (more powerful charger standard across all trims) state it; GM did not announce it (GM Authority found it), so not recorded as manufacturer. US sources; Canada unverified."
+            }
+          ]
+        },
+        "premium-luxury": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "estimated",
+              "source_id": "src-ttac-escalade-iq-2027",
+              "low_confidence": true,
+              "notes": "Estimated: TTAC (\"every Escalade IQ trim comes standard with a 19.2-kW on-board charger\") and InsideEVs (more powerful charger standard across all trims) state it; GM did not announce it (GM Authority found it), so not recorded as manufacturer. US sources; Canada unverified."
+            }
+          ]
+        },
+        "premium-sport": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "estimated",
+              "source_id": "src-ttac-escalade-iq-2027",
+              "low_confidence": true,
+              "notes": "Estimated: TTAC (\"every Escalade IQ trim comes standard with a 19.2-kW on-board charger\") and InsideEVs (more powerful charger standard across all trims) state it; GM did not announce it (GM Authority found it), so not recorded as manufacturer. US sources; Canada unverified."
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/escalade-iql/2026/awd": {
+      "trims": {
+        "premium-luxury": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "estimated",
+              "source_id": "src-r2gm-cars-escalade-iql-2026",
+              "low_confidence": true,
+              "notes": "Estimated: Cars.com says the IQL has 11.5 kW standard and 19.2 kW optional; the IQ Premium trims have 19.2 kW (InsideEVs) on the same pack and trim names. Trim mapping is the estimate."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 24,
+              "is_standard": true,
+              "source_id": "src-r2gm-cars-escalade-iql-2026",
+              "low_confidence": true
+            }
+          ]
+        },
+        "premium-sport": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "estimated",
+              "source_id": "src-r2gm-cars-escalade-iql-2026",
+              "low_confidence": true,
+              "notes": "Estimated: Cars.com says the IQL has 11.5 kW standard and 19.2 kW optional; the IQ Premium trims have 19.2 kW (InsideEVs) on the same pack and trim names. Trim mapping is the estimate."
+            }
+          ],
+          "wheels": [
+            {
+              "diameter_in": 24,
+              "is_standard": true,
+              "source_id": "src-r2gm-cars-escalade-iql-2026",
+              "low_confidence": true
+            }
+          ]
+        },
+        "luxury": {
+          "wheels": [
+            {
+              "diameter_in": 22,
+              "is_standard": true,
+              "source_id": "src-r2gm-cars-escalade-iql-2026",
+              "low_confidence": true
+            }
+          ]
+        },
+        "sport": {
+          "wheels": [
+            {
+              "diameter_in": 22,
+              "is_standard": true,
+              "source_id": "src-r2gm-cars-escalade-iql-2026",
+              "low_confidence": true
+            }
+          ]
+        }
+      }
+    },
+    "cadillac/escalade-iql/2027/awd": {
+      "trims": {
+        "luxury": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "estimated",
+              "source_id": "src-insideevs-escalade-iq-2027-nacs",
+              "low_confidence": true,
+              "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
+            }
+          ]
+        },
+        "sport": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "estimated",
+              "source_id": "src-insideevs-escalade-iq-2027-nacs",
+              "low_confidence": true,
+              "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
+            }
+          ]
+        },
+        "premium-luxury": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "estimated",
+              "source_id": "src-insideevs-escalade-iq-2027-nacs",
+              "low_confidence": true,
+              "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
+            }
+          ]
+        },
+        "premium-sport": {
+          "ac_max_kw": [
+            {
+              "value": 19.2,
+              "unit": "kW",
+              "kind": "estimated",
+              "source_id": "src-insideevs-escalade-iq-2027-nacs",
+              "low_confidence": true,
+              "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
+            }
+          ]
+        }
+      }
+    },
+    "gmc/sierra-ev/2025/denali-extended-range": {
+      "trims": {
+        "standard": {
+          "wheels": [
+            {
+              "diameter_in": 22,
+              "is_standard": true,
+              "source_id": "src-r2gm-insideevs-sierra-2024-specs",
+              "low_confidence": true,
+              "notes": "InsideEVs: regular Denali (from late 2024) 22 in; 24 in was the Edition 1. 2025 Denali Extended Range assumed the regular Denali. Conflict: Jalopnik says the Sierra EV Denali is \"only available with 24-inch wheels\" (that article covers the Max Range test truck); the Extended Range Denali size is not shown on any page opened."
+            }
+          ]
+        }
+      }
+    }
+  },
+  "powertrains": {
+    "gmc/sierra-ev/2025-denali-extended-range": {
+      "fields": {
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-nrcan-bev-2026-09",
+            "low_confidence": true,
+            "notes": "Estimated: NRCan 2025 \"Sierra EV Extended Range\" shows a 240 V charge time of 11.5 h and EPA 2025 the same, identical to the Silverado EV rows labelled \"19.2 kW Charger\" (same truck and pack; the 11.5 kW rows take 18.6 h). 2026 Sierra Denali has both options."
+          }
+        ]
+      }
+    },
+    "cadillac/celestiq/2025-celestiq": {
+      "fields": {
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-r2gm-gcc-celestiq",
+            "low_confidence": true,
+            "notes": "Estimated: Green Cars Compare (spec site, does not name GM) says \"up to 19.2 kW AC\", 111 kWh usable (116.8 gross); NRCan/EPA 240 V charge time 8.0 h agrees: 108.8 kWh (repo usable estimate) / 8.0 h = 13.6 kW into the pack, 111 / 8.0 = 13.9 kW, about 71-72% of 19.2 kW, similar to the 19.2 kW Lyriq (100 kWh / 7.0 h = 14.3 kW). An 11.5 kW car would need about 11 h. Replaces the 11.5 kW estimate."
+          }
+        ]
+      }
+    },
+    "cadillac/celestiq/2026-celestiq": {
+      "fields": {
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-r2gm-gcc-celestiq",
+            "low_confidence": true,
+            "notes": "Estimated: Green Cars Compare (spec site, does not name GM) says \"up to 19.2 kW AC\", 111 kWh usable (116.8 gross); NRCan/EPA 240 V charge time 8.0 h agrees: 108.8 kWh (repo usable estimate) / 8.0 h = 13.6 kW into the pack, 111 / 8.0 = 13.9 kW, about 71-72% of 19.2 kW, similar to the 19.2 kW Lyriq (100 kWh / 7.0 h = 14.3 kW). An 11.5 kW car would need about 11 h. Replaces the 11.5 kW estimate. 2025 value carried to 2026 (no change found)."
+          }
+        ]
+      }
+    },
+    "chevrolet/silverado-ev/2025-lt-rst-extended-range": {
+      "fields": {
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-nrcan-bev-2026-09",
+            "notes": "NRCan 2025: \"Silverado EV LT/RST Ext Range (19.2 kW Charger)\", 240 V charge time 11.5 h."
+          }
+        ]
+      }
+    },
+    "cadillac/lyriq/2023-rwd": {
+      "fields": {
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-epa-fueleconomy-2026-11",
+            "low_confidence": true,
+            "notes": "Estimated: NRCan 2023 \"LYRIQ\" and EPA 2023 LYRIQ list one 240 V charge time of 6.5 h, which matches the 19.2 kW car (2025 LYRIQ 19.2 kW: 7.0 h; 11.5 kW: 11.2 h; 2023 AWD, 10.7 h, is the 11.5 kW car). 100 kWh / 6.5 h is about 15 kW into the pack, not possible on 11.5 kW. Basis: same hardware in another model year, years compared 2023 and 2025. Replaces the repo 11.5 kW estimate. 2023 AWD stays 11.5 kW (10.7 h)."
+          }
+        ]
+      }
+    }
+  },
+  "new_trims": [
+    {
+      "variant_id": "chevrolet/equinox-ev/2025/awd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "AWD (19.2 kW Charger)",
+        "US": "AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan 2025 and EPA 2025 list \"Equinox EV AWD\" with 11 and 19 kW chargers"
+    },
+    {
+      "variant_id": "cadillac/lyriq/2024/rwd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "RWD (19.2 kW Charger)",
+        "US": "RWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. US: EPA 2024 single row 6.5 h matches this charger (11.5 kW would take about 10.7 h)."
+        }
+      ],
+      "why": "NRCan 2024 lists \"LYRIQ\" with both charger labels (10.7 h / 6.7 h). EPA 2024 has ONE unlabelled row for this car (6.5 h at 240 V), which is the 19.2 kW time, so the US-rated 2024 car is the 19.2 kW one: US name added here. Lead: give the base trim (\"standard\", 11.5 kW) no US name for 2024, or keep it only if the owner prefers to show both."
+    },
+    {
+      "variant_id": "cadillac/lyriq/2024/awd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "AWD (19.2 kW Charger)",
+        "US": "AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. US: EPA 2024 single row 6.7 h matches this charger (11.5 kW would take about 10.7 h)."
+        }
+      ],
+      "why": "NRCan 2024 lists \"LYRIQ AWD\" with both charger labels (10.7 h / 6.7 h). EPA 2024 has ONE unlabelled row for this car (6.7 h at 240 V), which is the 19.2 kW time, so the US-rated 2024 car is the 19.2 kW one: US name added here. Lead: give the base trim (\"standard\", 11.5 kW) no US name for 2024, or keep it only if the owner prefers to show both."
+    },
+    {
+      "variant_id": "cadillac/lyriq/2025/rwd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "RWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan 2025 lists \"LYRIQ\" with both chargers"
+    },
+    {
+      "variant_id": "cadillac/lyriq/2025/awd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "AWD (19.2 kW Charger)",
+        "US": "AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan 2025 and EPA 2025 list \"LYRIQ AWD\" with both chargers"
+    },
+    {
+      "variant_id": "cadillac/lyriq/2027/rwd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "US": "RWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-epa-fueleconomy-2026-11",
+          "low_confidence": true,
+          "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
+        }
+      ],
+      "why": "EPA 2027 lists \"LYRIQ 11kW Charger\" and \"19kW Charger\""
+    },
+    {
+      "variant_id": "cadillac/lyriq/2027/awd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "US": "AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-epa-fueleconomy-2026-11",
+          "low_confidence": true,
+          "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
+        }
+      ],
+      "why": "EPA 2027 lists \"LYRIQ AWD\" with both chargers"
+    },
+    {
+      "variant_id": "cadillac/lyriq-v/2027/lyriq-v",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "US": "LYRIQ-V (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-epa-fueleconomy-2026-11",
+          "low_confidence": true,
+          "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
+        }
+      ],
+      "why": "EPA 2027 lists \"LYRIQ AWD V SERIES\" with both chargers"
+    },
+    {
+      "variant_id": "cadillac/optiq/2025/optiq-awd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "Optiq AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan 2025 lists \"OPTIQ\" with both chargers"
+    },
+    {
+      "variant_id": "cadillac/optiq/2026/optiq-awd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "Optiq AWD (19.2 kW Charger)",
+        "US": "Optiq AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan and EPA 2026 list \"OPTIQ AWD\" with both chargers"
+    },
+    {
+      "variant_id": "cadillac/optiq/2026/optiq-rwd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "Optiq RWD (19.2 kW Charger)",
+        "US": "Optiq RWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan and EPA 2026 list \"OPTIQ\"/\"OPTIQ RWD\" with both chargers"
+    },
+    {
+      "variant_id": "cadillac/optiq/2027/optiq-awd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "US": "Optiq AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-epa-fueleconomy-2026-11",
+          "low_confidence": true,
+          "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
+        }
+      ],
+      "why": "EPA 2027 lists \"OPTIQ AWD 11kW / 19kW Charger\" (owner-noticed gap)"
+    },
+    {
+      "variant_id": "cadillac/optiq/2027/optiq-rwd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "US": "Optiq RWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-epa-fueleconomy-2026-11",
+          "low_confidence": true,
+          "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
+        }
+      ],
+      "why": "EPA 2027 lists \"OPTIQ RWD 11kW / 19kW Charger\" (owner-noticed gap)"
+    },
+    {
+      "variant_id": "cadillac/optiq-v/2026/optiq-v-awd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "Optiq-V AWD (19.2 kW Charger)",
+        "US": "Optiq-V AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan and EPA 2026 list OPTIQ-V with both chargers"
+    },
+    {
+      "variant_id": "cadillac/optiq-v/2027/optiq-v-awd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "US": "Optiq-V AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-epa-fueleconomy-2026-11",
+          "low_confidence": true,
+          "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
+        }
+      ],
+      "why": "EPA 2027 lists \"OPTIQ AWD V SERIES 11kW / 19kW Charger\""
+    },
+    {
+      "variant_id": "cadillac/vistiq/2026/vistiq-awd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "Vistiq AWD (19.2 kW Charger)",
+        "US": "Vistiq AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan and EPA 2026 list VISTIQ with both chargers"
+    },
+    {
+      "variant_id": "cadillac/vistiq/2027/vistiq-awd",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "US": "Vistiq AWD (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-epa-fueleconomy-2026-11",
+          "low_confidence": true,
+          "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
+        }
+      ],
+      "why": "EPA 2027 lists \"VISTIQ 11kW / 19kW Charger\""
+    },
+    {
+      "variant_id": "chevrolet/silverado-ev/2025/lt-extended-range",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "LT Extended Range (19.2 kW Charger)",
+        "US": "LT Extended Range (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan 2025 \"Silverado EV LT Ext Range (11.5 kW)\" and \"LT/RST Ext Range (19.2 kW)\"; EPA 2025 \"Silverado EV (11 kW)/(19 kW)\""
+    },
+    {
+      "variant_id": "chevrolet/silverado-ev/2025/wt-extended-range",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "WT Extended Range (19.2 kW Charger)",
+        "US": "WT Extended Range (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan 2025 \"WT Ext Range\" 11.5 and 19.2; EPA 2025 \"5WT (11 kW)/(19 kW)\""
+    },
+    {
+      "variant_id": "chevrolet/silverado-ev/2026/extended-range",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "US": "Extended Range (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-epa-fueleconomy-2026-11",
+          "low_confidence": true,
+          "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
+        }
+      ],
+      "why": "EPA 2026 \"Ext Range (11kW)/(19kW Charger)\""
+    },
+    {
+      "variant_id": "gmc/sierra-ev/2026/denali-extended-range",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "Denali Extended Range (19.2 kW Charger)",
+        "US": "Denali Extended Range (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan 2026 \"Sierra EV Denali Ext Range\" 11.5 and 19.2; EPA 2026 \"SIERRA EV Ext Range (11kW)/(19kW)\""
+    },
+    {
+      "variant_id": "gmc/sierra-ev/2026/elevation-extended-range",
+      "base_trim_id": "standard",
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "Elevation Extended Range (19.2 kW Charger)"
+      },
+      "ac_max_kw": [
+        {
+          "value": 19.2,
+          "unit": "kW",
+          "kind": "manufacturer",
+          "source_id": "src-nrcan-bev-2026-09",
+          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
+        }
+      ],
+      "why": "NRCan 2026 \"Sierra EV Elevation Ext Range\" 11.5 and 19.2"
+    }
+  ],
+  "new_cars": [
+    {
+      "model_id": "gmc/hummer-ev-pickup",
+      "year": 2022,
+      "variant_slug": "edition-1",
+      "name": "Edition 1",
+      "drivetrain": "awd",
+      "markets": [
+        "US"
+      ],
+      "trims": [
+        {
+          "id": "standard",
+          "names": {
+            "US": "Edition 1"
+          }
+        }
+      ],
+      "powertrain": "new",
+      "powertrain_id": "gmc/hummer-ev-pickup/2022-edition-1",
+      "notes": "Not EPA-rated (GVWR over 10,000 lb). 3 motors, 24-module pack, 18-in wheels (Motor Authority). Differs from gmc/hummer-ev-pickup/2024-3x in AC charger (11.5 vs 19.2 kW) and usable (205 vs 200 kWh, both GM). Canada: no 2022 model-year sale found (Canada Drives says the Edition 1 was due there in December 2022, listed as the 2023 truck); kept US only, CA stated unknown for 2022.",
+      "powertrain_facts": {
+        "gmc/hummer-ev-pickup/2022-edition-1": {
+          "fields": {
+            "battery.capacity_usable_kwh": [
+              {
+                "value": 205,
+                "unit": "kWh",
+                "kind": "manufacturer",
+                "source_id": "src-r2gm-motorauthority-hummer-2022",
+                "low_confidence": true,
+                "notes": "Motor Authority, per GM: 205 kWh usable (IEC 62660), 213 kWh (ISO 12405). GM TechLink says \"approximately 200 kWh available\" (used on the 2024 3X record)."
+              }
+            ],
+            "battery.chemistry": [
+              {
+                "value": "nmc",
+                "unit": "",
+                "kind": "estimated",
+                "source_id": "src-weeklydriver-gm-ultium-truck-24",
+                "low_confidence": true,
+                "notes": "Estimated: same 24-module Ultium NCMA pouch cells as the 2024 3X record (Weekly Driver); closest enum nmc."
+              }
+            ],
+            "battery.nominal_voltage_class": [
+              {
+                "value": "800v",
+                "unit": "",
+                "kind": "manufacturer",
+                "source_id": "src-gm-techlink-hummer-ev-ultium",
+                "low_confidence": false,
+                "notes": "GM TechLink (2022-04-14): about 400 V per layer, series for \"800-volt DC fast charging\". Treated as 800v like the 2024 records."
+              }
+            ],
+            "battery.preconditioning": [
+              {
+                "value": "manual_only",
+                "unit": "",
+                "kind": "manufacturer",
+                "source_id": "src-gm-techlink-hummer-ev-ultium",
+                "low_confidence": true,
+                "notes": "GM TechLink (2022-04-14): \"apps can precondition the battery\". No automatic navigation trigger is documented for the 2022 truck on any page opened (the GM preconditioning guide returns 403), so manual_only; the 2024 3X record may differ."
+              }
+            ],
+            "dc_max_kw": [
+              {
+                "value": 350,
+                "unit": "kW",
+                "kind": "manufacturer",
+                "source_id": "src-r2gm-motorauthority-hummer-2022",
+                "low_confidence": true,
+                "notes": "Motor Authority, per GM: 350 kW CCS; TechLink: up to 800 V/350 kW."
+              }
+            ],
+            "ac_max_kw": [
+              {
+                "value": 11.5,
+                "unit": "kW",
+                "kind": "manufacturer",
+                "source_id": "src-r2gm-insideevs-hummer-bidirectional",
+                "low_confidence": true,
+                "notes": "InsideEVs: \"previous model year Hummers came with a standard 11.5 kW AC onboard charger\" (19.2 kW starts 2024); Motor Authority 2022: 11.5 kW Level 2. Differs from the 2024 powertrains (19.2 kW)."
+              }
+            ]
+          },
+          "variant_fields": {
+            "charge_port": [
+              {
+                "value": "ccs1",
+                "unit": "",
+                "kind": "manufacturer",
+                "source_id": "src-r2gm-motorauthority-hummer-2022",
+                "low_confidence": true,
+                "notes": "Motor Authority: 350 kW CCS (North America: CCS1)."
+              }
+            ],
+            "supercharger_access": [
+              {
+                "value": "via_adapter",
+                "unit": "",
+                "kind": "manufacturer",
+                "source_id": "src-insideevs-nontesla-supercharger-access-2026",
+                "low_confidence": true,
+                "notes": "US: GM-approved NACS adapter; GMC Hummer EV is on InsideEVs 2026 Supercharger-access list. Current state for a 2022-23 owner."
+              }
+            ]
+          }
+        }
+      },
+      "variant_facts": {
+        "gmc/hummer-ev-pickup/2022/edition-1": {
+          "fields": {
+            "consumption_highway_wh_per_km": [
+              {
+                "value": 388,
+                "unit": "Wh/km",
+                "kind": "tested",
+                "source_id": "src-r2gm-insideevs-hummer-range-test",
+                "low_confidence": true,
+                "notes": "InsideEVs test of a 2022 Hummer EV Pickup Edition 1: constant 70 mph on I-94 Michigan, 343 mi at 1.6 mi/kWh = 62.5 kWh/100 mi x 10/1.609344 = 388 Wh/km (article also gives 38.75 kWh/100 km), 70-78 F, 10 mph wind, climate 68-70 F lowest fan, Normal mode. Independent test, not a rating (B97). Energy basis: battery-side, from the trip gauge (1.6 mi/kWh) on the 212.7 kWh usable pack; wall-to-wheels would be higher. 2022 truck only."
+              }
+            ]
+          },
+          "trims": {
+            "standard": {
+              "range_km": [
+                {
+                  "value": 529,
+                  "unit": "km",
+                  "kind": "manufacturer",
+                  "source_id": "src-r2gm-motorauthority-hummer-329",
+                  "low_confidence": true,
+                  "notes": "GM estimate 329 mi. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+                }
+              ],
+              "wheels": [
+                {
+                  "diameter_in": 18,
+                  "is_standard": true,
+                  "source_id": "src-r2gm-motorauthority-hummer-2022",
+                  "low_confidence": true,
+                  "notes": "Motor Authority: 18-in wheels (305/70R18)."
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "model_id": "gmc/hummer-ev-pickup",
+      "year": 2023,
+      "variant_slug": "edition-1",
+      "name": "Edition 1",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "trims": [
+        {
+          "id": "standard",
+          "names": {
+            "US": "Edition 1",
+            "CA": "Edition 1"
+          }
+        }
+      ],
+      "powertrain": "gmc/hummer-ev-pickup/2022-edition-1",
+      "notes": "Same truck as 2022 (KBB lists 329 mi, 2023). Powertrain id is the new 2022 one. Canada: Canada Drives (2022 first drive) says the Edition 1 was due in Canada from December 2022 with 530 km; GM Authority headline \"2023 GMC Hummer EV pickup Edition 1 soon available in Canada\" seen in a search excerpt only (403). No readable page shows a Canadian price or order guide, so CA is low confidence. The 2023 EV3X pickup stayed US only (GM Authority headline \"Canada won't get a 2023 Hummer EV pickup 3X\", excerpt only).",
+      "variant_facts": {
+        "gmc/hummer-ev-pickup/2023/edition-1": {
+          "trims": {
+            "standard": {
+              "range_km": [
+                {
+                  "value": 529,
+                  "unit": "km",
+                  "kind": "manufacturer",
+                  "source_id": "src-r2gm-kbb-hummer-2023-trims",
+                  "low_confidence": true,
+                  "notes": "GM estimate 329 mi. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+                }
+              ],
+              "wheels": [
+                {
+                  "diameter_in": 18,
+                  "is_standard": true,
+                  "source_id": "src-r2gm-motorauthority-hummer-2022",
+                  "low_confidence": true,
+                  "notes": "Carried from the 2022 Edition 1 page (Motor Authority 305/70R18); no source states the 2023 Edition 1 wheel size, same truck assumed."
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "model_id": "gmc/hummer-ev-pickup",
+      "year": 2023,
+      "variant_slug": "ev3x",
+      "name": "EV3X",
+      "drivetrain": "awd",
+      "markets": [
+        "US"
+      ],
+      "trims": [
+        {
+          "id": "standard",
+          "names": {
+            "US": "EV3X"
+          }
+        }
+      ],
+      "powertrain": "gmc/hummer-ev-pickup/2022-edition-1",
+      "notes": "First 3X (April 2023): 22-in wheels, 355 mi GM estimate (329 mi with the Extreme Off-Road package, KBB). Same 24-module pack and 11.5 kW charger assumed (nothing found showing a change before 2024). No consumption test found.",
+      "variant_facts": {
+        "gmc/hummer-ev-pickup/2023/ev3x": {
+          "trims": {
+            "standard": {
+              "range_km": [
+                {
+                  "value": 571,
+                  "unit": "km",
+                  "kind": "manufacturer",
+                  "source_id": "src-r2gm-kbb-hummer-2023-trims",
+                  "low_confidence": true,
+                  "notes": "GM estimate 355 mi. 329 mi with the Extreme Off-Road Package. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+                }
+              ],
+              "wheels": [
+                {
+                  "diameter_in": 22,
+                  "is_standard": true,
+                  "source_id": "src-r2gm-kbb-hummer-2023-trims",
+                  "low_confidence": true,
+                  "notes": "KBB: EV3X on 22-in wheels (355 mi); the Extreme Off-Road package (329 mi) changes the tires, size not stated."
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "model_id": "gmc/sierra-ev",
+      "year": 2024,
+      "variant_slug": "denali-edition-1",
+      "name": "Denali Edition 1",
+      "drivetrain": "awd",
+      "markets": [
+        "US"
+      ],
+      "trims": [
+        {
+          "id": "standard",
+          "names": {
+            "US": "Denali Edition 1"
+          }
+        }
+      ],
+      "powertrain": "new",
+      "powertrain_id": "gmc/sierra-ev/2024-denali-edition-1",
+      "notes": "Launch 2024 truck (later called Max Range). Not EPA-rated. Same 24-module pack as 2024 Hummer 3X / Silverado 4WT (sibling). 24-in wheels. Canada: not found.",
+      "powertrain_facts": {
+        "gmc/sierra-ev/2024-denali-edition-1": {
+          "fields": {
+            "battery.capacity_usable_kwh": [
+              {
+                "value": 204,
+                "unit": "kWh",
+                "kind": "estimated",
+                "source_id": "src-insideevs-silverado-battery",
+                "low_confidence": true,
+                "notes": "Estimated: GM has not published the Sierra EV Edition 1 capacity. Same-truck basis: the Silverado EV Max Range 24-module pack is recorded in the repo at 204 kWh usable (InsideEVs); InsideEVs says the Sierra EV Edition 1 is \"likely the same 800-volt, 24-module pack\". Green Car Reports gives \"205 kWh pack\" for the 2025 Sierra Max Range without saying usable or gross, so it is not used as usable. The Hummer 3X (200 kWh) is not used: it has three motors, the Edition 1 two."
+              }
+            ],
+            "battery.chemistry": [
+              {
+                "value": "nmc",
+                "unit": "",
+                "kind": "estimated",
+                "source_id": "src-weeklydriver-gm-ultium-truck-24",
+                "low_confidence": true,
+                "notes": "Estimated: 24-module Ultium truck pack (NCMA pouch cells) per Weekly Driver; closest enum nmc."
+              }
+            ],
+            "battery.nominal_voltage_class": [
+              {
+                "value": "800v",
+                "unit": "",
+                "kind": "manufacturer",
+                "source_id": "src-r2gm-insideevs-sierra-2024-specs",
+                "low_confidence": true,
+                "notes": "InsideEVs: 800 V DC fast charging at up to 350 kW (pack about 400 V per layer, series for 800 V charging)."
+              }
+            ],
+            "battery.preconditioning": [
+              {
+                "value": "automatic_and_manual",
+                "unit": "",
+                "kind": "estimated",
+                "source_id": "src-chevrolet-battery-preconditioning-guide",
+                "low_confidence": true,
+                "notes": "Estimated: lineup-wide GM guide (automatic with Google navigation plus manual app prep); GM sites return 403 (search excerpt). Caution: the guide was never readable; the nav trigger for a 2024 Sierra EV is not shown on any page opened."
+              }
+            ],
+            "dc_max_kw": [
+              {
+                "value": 350,
+                "unit": "kW",
+                "kind": "manufacturer",
+                "source_id": "src-r2gm-insideevs-sierra-2024-specs",
+                "low_confidence": true,
+                "notes": "InsideEVs relaying GM: 350 kW, about 100 mi in 10 min."
+              }
+            ],
+            "ac_max_kw": [
+              {
+                "value": 19.2,
+                "unit": "kW",
+                "kind": "manufacturer",
+                "source_id": "src-r2gm-insideevs-sierra-2024-range-update",
+                "low_confidence": true,
+                "notes": "InsideEVs relaying GM: 19.2 kW onboard AC."
+              }
+            ]
+          },
+          "variant_fields": {
+            "charge_port": [
+              {
+                "value": "ccs1",
+                "unit": "",
+                "kind": "estimated",
+                "source_id": "src-gm-silverado-ev-2026-spec-guide",
+                "low_confidence": true,
+                "notes": "Estimated: GM Silverado EV spec guide treats the J1772/CCS1 inlet as native with an optional NACS adapter; Sierra EV is the same truck."
+              }
+            ],
+            "supercharger_access": [
+              {
+                "value": "via_adapter",
+                "unit": "",
+                "kind": "manufacturer",
+                "source_id": "src-insideevs-nontesla-supercharger-access-2026",
+                "low_confidence": true,
+                "notes": "US: GMC Sierra EV on InsideEVs 2026 Supercharger-access list (GM NACS adapter)."
+              }
+            ]
+          }
+        }
+      },
+      "variant_facts": {
+        "gmc/sierra-ev/2024/denali-edition-1": {
+          "trims": {
+            "standard": {
+              "range_km": [
+                {
+                  "value": 708,
+                  "unit": "km",
+                  "kind": "manufacturer",
+                  "source_id": "src-r2gm-insideevs-sierra-2024-range-update",
+                  "low_confidence": true,
+                  "notes": "GM estimate 440 mi. Launch estimate was 400 mi. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+                }
+              ],
+              "wheels": [
+                {
+                  "diameter_in": 24,
+                  "is_standard": true,
+                  "source_id": "src-r2gm-insideevs-sierra-2024-specs",
+                  "low_confidence": true,
+                  "notes": "InsideEVs: Denali Edition 1 on 24-in wheels."
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "model_id": "gmc/sierra-ev",
+      "year": 2025,
+      "variant_slug": "denali-max-range",
+      "name": "Denali Max Range",
+      "drivetrain": "awd",
+      "markets": [
+        "CA",
+        "US"
+      ],
+      "trims": [
+        {
+          "id": "standard",
+          "names": {
+            "US": "Denali Max Range",
+            "CA": "Denali Max Range"
+          }
+        }
+      ],
+      "powertrain": "gmc/sierra-ev/2024-denali-edition-1",
+      "notes": "Extra car found: 2025 Denali Max Range, 205 kWh, 350 kW, GM 460 mi, no EPA/NRCan row (our 2025 Sierra record is only Extended Range). Also exists 2026+ (not researched). Canada: sold from fall 2024 as Max Range Denali, 740 km, $119,699 MSRP (Electric Autonomy 2024-10-16); NRCan has no row for it (heavy truck). Canadian 740 km equals GM's 460 mi, so the range value below applies to both markets.",
+      "variant_facts": {
+        "gmc/sierra-ev/2025/denali-max-range": {
+          "fields": {
+            "consumption_combined_wh_per_km": [
+              {
+                "value": 299,
+                "unit": "Wh/km",
+                "kind": "tested",
+                "source_id": "src-r2gm-insideevs-sierra-range-king",
+                "low_confidence": true,
+                "notes": "Edmunds EV Range Test of the Sierra EV Max Range Denali (24-in wheels, 200+ kWh pack): 507 mi, 48.1 kWh/100 mi x 10/1.609344 = 299 Wh/km, 60/40 city/highway mix at 40 mph average, 58 F. Combined-style figure, not steady highway. Independent test, not a rating (B97). Model year 2025 is not stated on the cited pages (InsideEVs, Jalopnik); Edmunds, the original, blocks fetches. Energy basis: at the charger / wall-to-wheels, since 48.1 kWh/100 mi x 507 mi = 244 kWh exceeds the 205 kWh pack, so it sits beside EPA-style figures, not beside the pack-side Hummer figure."
+              }
+            ]
+          },
+          "trims": {
+            "standard": {
+              "range_km": [
+                {
+                  "value": 740,
+                  "unit": "km",
+                  "kind": "manufacturer",
+                  "source_id": "src-r2gm-gcr-sierra-ev-2025-max",
+                  "low_confidence": true,
+                  "notes": "GM estimate 460 mi. Manufacturer estimate, not an EPA/NRCan rating (B97)."
+                }
+              ],
+              "wheels": [
+                {
+                  "diameter_in": 24,
+                  "is_standard": true,
+                  "source_id": "src-r2gm-jalopnik-sierra-edmunds",
+                  "low_confidence": true,
+                  "notes": "Jalopnik: the Sierra EV Denali Max Range tested by Edmunds is \"only available with 24-inch wheels\"; model year not stated on the page."
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

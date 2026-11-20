@@ -42,7 +42,16 @@
       "names": {
         "CA": "Platinum",
         "US": "Platinum"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-ford-us-fl-specs-2025",
+          "notes": "Platinum: 22 in standard. Source is a US page; Canadian trim assumed the same.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -21,6 +21,10 @@
       "names": { "US": "e-Golf" },
       "wheels": [
         { "diameter_in": 16, "is_standard": true, "source_id": "src-cars-volkswagen-egolf-2016-378528", "notes": "e-Golf SE 2016: 16x6.5 read on this Cars.com page (US market). The SEL Premium page for that year also shows 16-inch. Only one trim page was read for this year; other trims not opened.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b113-portlandtribune-egolf-2016", "notes": "Fitted on the SEL Premium only (Portland Tribune, 2016 SEL Premium); the SE reportedly has none (MyVWeGolf forum, owner posts only). This car record covers both trims, so \"optional\" stands for \"on some trims\", as for the 2017-19 e-Golf records.", "low_confidence": true },
+        { "value": "optional", "kind": "community", "source_id": "src-b113-myvwegolf-2016-changes", "notes": "2016 SE \"no heat pump\" per owner posts; no VW page opened (VW media pages render empty).", "low_confidence": true }
       ]
     }
   ]

@@ -22,6 +22,10 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-cc-ar24", "note_id": "n-b69ae88e51", "low_confidence": true },
         { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-cars-ariya25", "notes": "20-inch option on Platinum+ e-4ORCE (Cars.com 2025 article); applied to 2024 as same trim, low confidence. The 20 in shows in the Cars.com trim name only (\"w/20\\\" Wheels\"). US page; the Canadian package assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-gcr-ev-extreme-temps", "note_id": "n-1c15a63ab9", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-91831f4ab6", "low_confidence": true }
       ]
     }
   ]

@@ -5,7 +5,7 @@
   "name": "Pro S",
   "drivetrain": "rwd",
   "powertrain_id": "volkswagen/id-4/2024-pro",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "ccs1", "kind": "estimated", "source_id": "src-vw-launch-2021-conceptcarz", "low_confidence": true, "note_id": "n-ed39cfbd74" }
   ],
@@ -19,12 +19,12 @@
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "Pro S", "US": "Pro S" },
+      "names": { "CA": "Pro S" },
       "wheels": [
-        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2024-451427", "notes": "ID.4 Pro S RWD 2024: 20-inch read on this Cars.com page." }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2024-451427", "note_id": "n-6e0ec64050" }
       ],
       "heat_pump": [
-        { "value": "none", "kind": "community", "source_id": "src-b112-autoguide-id4-nohp", "note_id": "n-73b017df06", "low_confidence": true }
+        { "value": "optional", "kind": "community", "source_id": "src-b112-autotrader-id4-2024", "note_id": "n-b7a7ddde01" }
       ]
     }
   ]

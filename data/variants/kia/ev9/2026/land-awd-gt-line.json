@@ -5,7 +5,7 @@
   "name": "Land AWD GT-Line",
   "drivetrain": "awd",
   "powertrain_id": "kia/ev9/2026-land-awd-gt-line",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
@@ -13,24 +13,21 @@
     { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "curb_weight_kg": [
-    { "value": 2650, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev9-2026-land-awd-gt-line", "low_confidence": true, "notes": "Guide Auto lists 2,650 kg (5,842 lb) for the Canadian Land AWD with GT-Line Package (99.8 kWh, 21-inch). Page label may read \"Weight\"; presumed curb weight." }
+    { "value": 2650, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev9-2026-land-awd-gt-line", "low_confidence": true, "note_id": "n-228cc7710f" }
   ],
   "consumption_highway_wh_per_km": [
-    { "value": 259, "unit": "Wh/km", "kind": "tested", "source_id": "src-candd-ev9-gt-line-75mph-aol", "low_confidence": true, "notes": "Test: 75 mph (about 121 km/h) steady, temperature not stated, 21-inch 285/45R21 wheels (match this trim), battery-side vs wall-side not stated | Car and Driver 75-mph highway range test of the 2024 EV9 GT-Line AWD (99.8 kWh, same generation, pack, motors and wheels), 240 mi vs 270 mi EPA. 2.4 mi/kWh -> 1000 / (2.4 x 1.609344) = 259 Wh/km. Syndicated via AOL; original Car and Driver page not fetched. Not attached to other EV9 trims (19-inch wheels or different motors). Also seen: ArenaEV 130 km/h, 11 C, 33.2 kWh/100 km (332 Wh/km); outside 110-120 km/h so not used." }
-  ],
-  "adapters_included": [
-    { "value": "ccs1_to_nacs_sold", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "note_id": "n-24214986bc", "low_confidence": true }
+    { "value": 259, "unit": "Wh/km", "kind": "tested", "source_id": "src-candd-ev9-gt-line-75mph-aol", "low_confidence": true, "note_id": "n-2117684a69" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "Land AWD GT-Line", "US": "GT-Line" },
+      "names": { "CA": "Land AWD GT-Line" },
       "heat_pump": [
         { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" },
         { "value": "standard", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "low_confidence": true, "note_id": "n-3af1046a8b" }
       ],
       "wheels": [
-        { "diameter_in": 21, "is_standard": true, "tire_size": "285/45R21", "source_id": "src-edwards-kia-ev9-gt-line-2026", "low_confidence": true, "notes": "US dealer spec sheet for GT-Line; Canadian trim mapped by name." }
+        { "diameter_in": 21, "is_standard": true, "tire_size": "285/45R21", "source_id": "src-edwards-kia-ev9-gt-line-2026", "low_confidence": true, "note_id": "n-6ecfab74f4" }
       ]
     }
   ]

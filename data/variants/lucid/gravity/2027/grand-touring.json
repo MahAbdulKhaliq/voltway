@@ -21,6 +21,9 @@
       "names": { "US": "Grand Touring" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carscom-lucid-gravity-2026-gt", "note_id": "n-efa1d83bc3", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-arenaev-gravity-gt-2024", "notes": "Estimated: carried from the 2025 Gravity Grand Touring (ArenaEV: \"Heat pump: Yes\"); no source covers this trim or 2027. ArenaEV lists \"Heat pump: Yes\" without saying standard or optional, and its pages mix EU data.", "low_confidence": true }
       ]
     }
   ]

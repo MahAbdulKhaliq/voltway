@@ -21,6 +21,10 @@
       "names": { "CA": "Evolve+ e-4ORCE with Premiere Package" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-nissan-ariya-2025-specs", "notes": "Engage FWD page: 19x7.5, P235/55R19; Evolve+ not opened. The page says Platinum+ e-4ORCE comes with 20 in wheels.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-gcr-ev-extreme-temps", "note_id": "n-1c15a63ab9", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-91831f4ab6", "low_confidence": true }
       ]
     }
   ]

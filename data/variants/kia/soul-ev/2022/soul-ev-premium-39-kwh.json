@@ -21,6 +21,9 @@
       "names": { "CA": "Soul EV Premium 39 kWh" },
       "wheels": [
         { "diameter_in": 17, "is_standard": true, "source_id": "src-guideauto-kia-soul-2020-ev-premium", "low_confidence": true, "note_id": "n-6b003ae361" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "manufacturer", "source_id": "src-b113-kia-ca-soul-ev-my22-brochure", "notes": "Kia Canada MY22 brochure: the EV Premium block lists \"Battery heating system\" and no heat pump; the heat pump appears only in the EV Limited block.", "low_confidence": true }
       ]
     }
   ]

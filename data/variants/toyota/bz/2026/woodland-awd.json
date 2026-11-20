@@ -5,7 +5,7 @@
   "name": "Woodland AWD",
   "drivetrain": "awd",
   "powertrain_id": "toyota/bz/2026-woodland-awd",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-woodland-2026", "low_confidence": true, "note_id": "n-0100c89edc" }
   ],
@@ -14,14 +14,14 @@
     { "value": "yes", "kind": "estimated", "source_id": "src-toyota-ca-media-bz-onsale-2026", "low_confidence": true, "note_id": "n-e8e0827b3a" }
   ],
   "adapters_included": [
-    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-toyota-ca-2026-bz-onsale", "note_id": "n-e5f6657f99", "low_confidence": true }
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-toyota-ca-2026-bz-onsale", "low_confidence": true, "note_id": "n-075f4773f4" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "Woodland AWD", "US": "Woodland AWD" },
+      "names": { "CA": "Woodland AWD" },
       "wheels": [
-        { "diameter_in": 18, "is_standard": true, "source_id": "src-toyota-ca-media-bz-woodland-2026", "low_confidence": true, "notes": "Quick web lookup. 18-inch aluminum wheels with removable aero covers." }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-toyota-ca-media-bz-woodland-2026", "low_confidence": true, "note_id": "n-13d5183385" }
       ],
       "heat_pump": [
         { "value": "standard", "kind": "estimated", "source_id": "src-toyota-ca-2026-bz-range", "note_id": "n-c4c8509cfa", "low_confidence": true }

@@ -23,6 +23,9 @@
       "names": { "CA": "Twin", "US": "Twin Motor AWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ex40-2025-specs", "notes": "2025 Core (single motor) page; no twin or 2024 page opened.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b113-kbb-xc40-2024", "note_id": "n-2ed78b08ad", "low_confidence": true }
       ]
     }
   ]

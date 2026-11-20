@@ -18,7 +18,10 @@
   "trims": [
     {
       "id": "standard",
-      "names": { "US": "AMG GT 63 4MATIC+ 4-Door Coupe" }
+      "names": { "US": "AMG GT 63 4MATIC+ 4-Door Coupe" },
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-gt63-986", "notes": "ArenaEV lists the GT 63 (2026-) with Heat pump: Yes; 106 kWh usable. The Mercedes media page for the GT 4-Door (opened) does not mention a heat pump. ArenaEV is a spec database with EU figures; \"Yes\" does not say standard or optional and no Mercedes US/CA page could be opened (media.mbusa.com 404; KBB, Cars.com, Green Car Reports silent). ArenaEV lists \"Heat pump: Yes\" without saying standard or optional (it also says Yes for the 2019–21 i3, where it was a paid option), and its pages mix EU data.", "low_confidence": true }
+      ]
     }
   ]
 }

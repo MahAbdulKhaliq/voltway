@@ -21,6 +21,10 @@
       "names": { "US": "A-Spec RWD" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-acura-zdx-2024-specs", "notes": "A-Spec: 20x9.0, 265/50R20." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "notes": "Recurrent: 2024+ Acura ZDX, all trims, all drivetrains (US). Acura's own spec pages and Cars.com/KBB/Guide Auto spec lists do not mention a heat pump.", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-bevdb-zdx-a-spec-awd-2025", "note_id": "n-00396a2813", "low_confidence": true }
       ]
     }
   ]

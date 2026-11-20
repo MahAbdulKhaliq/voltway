@@ -15,7 +15,10 @@
   "trims": [
     {
       "id": "standard",
-      "names": { "US": "Nevera" }
+      "names": { "US": "Nevera" },
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-rimac-nevera-2021", "note_id": "n-f56a1378b5", "low_confidence": true }
+      ]
     }
   ]
 }

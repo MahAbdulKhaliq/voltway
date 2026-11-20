@@ -23,6 +23,9 @@
       "names": { "CA": "Ioniq Electric", "US": "Ioniq Electric" },
       "wheels": [
         { "diameter_in": 16, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-ev-2017-index", "low_confidence": true, "notes": "Cars.com 2017 page: both trims 16 x 6.5 in." }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "estimated", "source_id": "src-b113-autotrader-ca-ioniq-electric-2018", "notes": "Estimated: Autotrader.ca (2018) says the SE Cold Climate Package \"adds ... HVAC heat pump\"; Guide Auto lists the same package for 2017. US: on the Limited trim.", "low_confidence": true }
       ]
     }
   ]

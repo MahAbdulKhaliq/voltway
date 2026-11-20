@@ -22,6 +22,9 @@
       "names": { "CA": "Twin Motor", "US": "Twin Motor" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-volvo-c40-recharge-pure-electric-2022-specs", "notes": "C40 Recharge P8 eAWD Ultimate: 20 in aluminum, P235/45HR20 front, P255/40HR20 rear." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-autotrader-ca-c40-2022", "notes": "Canada: Autotrader.ca says the C40 comes standard with a heat pump; 2022 was a single Ultimate trim. US 2022 not opened for C40; Carvana 2023 lists a heat pump on the top trim.", "low_confidence": true }
       ]
     }
   ]

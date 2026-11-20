@@ -22,6 +22,9 @@
       "names": { "CA": "Twin Performance", "US": "Twin Motor Performance" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ex30-2025-specs", "notes": "2025 Twin Motor AWD Plus: 19x8, P245/45VR19; no 2026 twin page opened.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-auto123-ex30-review", "notes": "Estimated: Auto123 2025 review (Canada) says the system includes a heat pump; the page links the 2026 Ultra Performance; ArenaEV Twin Motor Performance lists Yes. 2025 compared with 2026; no source shows a change. US 2026 twin not confirmed from a US page.", "low_confidence": true }
       ]
     }
   ]

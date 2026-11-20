@@ -5,22 +5,20 @@
   "name": "Ioniq Electric",
   "drivetrain": "fwd",
   "powertrain_id": "hyundai/ioniq-electric/2021-ioniq-electric",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "ccs1", "kind": "community", "source_id": "src-cleantechnica-ioniq-electric-2017", "note_id": "n-2afeb946d7", "low_confidence": true }
   ],
   "supercharger_access": [
-    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-motor-hyundai-adapters-2025", "note_id": "n-754209f7a2", "low_confidence": true },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-4d5e5a6642", "low_confidence": true }
   ],
   "adapters_included": [
-    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-b9f3fd83f1" },
-    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-ca-faq", "note_id": "n-40329cb8de" }
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-98b4e9e819" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "Ioniq Electric", "US": "Ioniq Electric" },
+      "names": { "CA": "Ioniq Electric" },
       "wheels": [
         { "diameter_in": 16, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-ev-2021-index", "low_confidence": true, "note_id": "n-967ea98289" }
       ]

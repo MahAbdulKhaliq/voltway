@@ -23,6 +23,9 @@
       "names": { "CA": "P8" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-xc40-recharge-pure-electric-2022-specs", "notes": "US P8 eAWD Twin page applied to Canada; Plus and Ultimate not shown.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b113-canadadrives-xc40-2022", "notes": "Canada 2022: heat pump in the optional Climate Package (C$1,000 CanadaDrives, C$1,500 Autotrader.ca); standard on the Ultimate (Autotrader.ca). \"Optional\" here means a package on lower trims (Core/Plus) and standard on the top trim (Ultra/Ultimate); this record holds one trim.", "low_confidence": true }
       ]
     }
   ]

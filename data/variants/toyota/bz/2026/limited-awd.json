@@ -5,7 +5,7 @@
   "name": "Limited AWD",
   "drivetrain": "awd",
   "powertrain_id": "toyota/bz/2026-awd",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026" },
     { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-0ea9763c03" }
@@ -15,20 +15,20 @@
     { "value": "yes", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-onsale-2026", "note_id": "n-824902a2b8" }
   ],
   "curb_weight_kg": [
-    { "value": 2025, "unit": "kg", "kind": "manufacturer", "source_id": "src-granvilletoyota-bz-2026", "low_confidence": true, "notes": "Converted from 4,464 lb (x0.45359 = 2,024.8): Canadian dealer page relaying Toyota Canada, Limited AWD. Fact-check: a search excerpt of the Toyota Canada sheet also shows 2024.84 (4464). The Car Guide page gives 2,065 kg (4,553 lb) and is treated as the outlier." }
+    { "value": 2025, "unit": "kg", "kind": "manufacturer", "source_id": "src-granvilletoyota-bz-2026", "low_confidence": true, "note_id": "n-e40d88ec1a" }
   ],
   "adapters_included": [
-    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-toyota-ca-2026-bz-onsale", "note_id": "n-e5f6657f99", "low_confidence": true }
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-toyota-ca-2026-bz-onsale", "low_confidence": true, "note_id": "n-075f4773f4" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "Limited AWD", "US": "Limited AWD" },
+      "names": { "CA": "Limited AWD" },
       "heat_pump": [
         { "value": "standard", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "low_confidence": true, "note_id": "n-517ae04b32" }
       ],
       "wheels": [
-        { "diameter_in": 20, "is_standard": true, "source_id": "src-toyota-ca-media-bz-2026", "notes": "Limited AWD: 20-inch black multi-spoke alloy wheels." }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-toyota-ca-media-bz-2026", "note_id": "n-e9d4f0faf6" }
       ]
     }
   ]

@@ -20,6 +20,9 @@
       "names": { "CA": "Long Range FWD" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-a123-unc", "notes": "Auto123: \"fitted with 18-inch wheels in FWD configuration\" (Canada).", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-arenaev-uncharted-premium-fwd", "notes": "Estimated: this Canadian trim is mapped to the US Premium FWD, whose ArenaEV North America page says \"Heat pump: Yes\". ArenaEV lists \"Heat pump: Yes\" without saying standard or optional, and its pages mix EU data.", "low_confidence": true }
       ]
     }
   ]

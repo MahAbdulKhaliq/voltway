@@ -5,7 +5,7 @@
   "name": "Long Range AWD",
   "drivetrain": "awd",
   "powertrain_id": "kia/ev6/2022-long-range-awd",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-e97a9274cf" },
     { "value": "ccs1", "kind": "manufacturer", "source_id": "src-electrek-2025-ev6-us-built", "low_confidence": true, "note_id": "n-7c8cc0d709" }
@@ -20,13 +20,13 @@
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "Long Range AWD", "US": "Long Range AWD" },
+      "names": { "CA": "Long Range AWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-guideauto-kia-ev6-2022-long-range-awd", "low_confidence": true },
-        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-kia-ev6-2022-426824", "low_confidence": true, "notes": "GT-Line AWD 20 in (US)" }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-kia-ev6-2022-426824", "low_confidence": true, "note_id": "n-c820725af8" }
       ],
       "heat_pump": [
-        { "value": "optional", "kind": "community", "source_id": "src-kbb-ev6-2022-specs", "note_id": "n-4012b32eb0", "low_confidence": true }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-kia-ca-ev6-my22-brochure", "low_confidence": true, "note_id": "n-02caa42871" }
       ]
     }
   ]

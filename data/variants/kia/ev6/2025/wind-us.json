@@ -1,0 +1,33 @@
+{
+  "id": "kia/ev6/2025/wind-us",
+  "model_id": "kia/ev6",
+  "year": 2025,
+  "name": "Light Long Range RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "kia/ev6/2025-land-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" }
+  ],
+  "curb_weight_kg": [
+    { "value": 1995, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev6-2025-wind-rwd", "low_confidence": true, "note_id": "n-a085b66f34" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "estimated", "source_id": "src-kia-us-ev6-2026-compare", "note_id": "n-3c700bf97f", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Light Long Range RWD" },
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" }
+      ],
+      "wheels": [
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-kia-us-ev6-2026-specs", "tire_size": "235/55R19", "low_confidence": true, "note_id": "n-8fa10570a6" }
+      ]
+    }
+  ]
+}

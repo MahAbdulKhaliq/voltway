@@ -21,6 +21,9 @@
       "names": { "CA": "Electrified GV70 Prestige AWD" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-genesis-electrified-gv70-2023-index", "low_confidence": true, "notes": "Advanced AWD shown; Prestige not opened separately (Prestige Package is options only per the page)." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-genesis-au-gv70-aug2022", "notes": "Launch-era (Aug 2022) Australian spec sheet lists \"Heat pump system\" for the Electrified GV70. Genesis Australia GV70 EV spec sheet lists \"Heat pump system\"; Auto Express (UK, 2025 facelift) says every trim has an energy-saving heat pump as standard. No US or Canada Genesis page opened (genesis.com US pages did not mention it).", "low_confidence": true }
       ]
     }
   ]

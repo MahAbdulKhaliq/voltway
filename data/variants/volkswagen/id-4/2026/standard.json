@@ -5,7 +5,7 @@
   "name": "Standard",
   "drivetrain": "awd",
   "powertrain_id": "volkswagen/id-4/2026-standard",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thinkev-vw-id4-2026", "low_confidence": true, "note_id": "n-8116822cd3" }
   ],
@@ -18,12 +18,12 @@
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "ID.4", "US": "Pro AWD" },
+      "names": { "CA": "ID.4" },
       "wheels": [
-        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2023-430895", "notes": "Estimated: 2023 Standard RWD page shows 19x8; 2026 standard assumed the same. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2023-430895", "note_id": "n-6faec3148f", "low_confidence": true }
       ],
       "heat_pump": [
-        { "value": "none", "kind": "community", "source_id": "src-b112-autoguide-id4-nohp", "notes": "Market US: US: no heat pump offered (Green Car Reports 2021; AutoGuide/InsideEVs Jan 2023: the US ID.4 does not come with one). Model year 2026 carried, no change found. US cars have no heat pump. Canadian cars of this model year: optional (src-b112-autotrader-id4-2024).", "low_confidence": true }
+        { "value": "optional", "kind": "community", "source_id": "src-b112-autotrader-id4-2024", "note_id": "n-b7a7ddde01" }
       ]
     }
   ]

@@ -19,6 +19,9 @@
       "wheels": [
         { "diameter_in": 22, "is_standard": false, "source_id": "src-r3w-driveclean-ca-gov-taxonomy-term-42595", "low_confidence": true, "notes": "Black Badge: DriveClean/EPA list a 22 in configuration (the EPA row in the merged data has 22 in as standard); standard size for 2027 not stated on a page for that year, so recorded as an option next to the 23 in on the Cars.com 2027 Black Badge page. (US page; Canadian car assumed the same.)" },
         { "diameter_in": 23, "is_standard": true, "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2027-specs-490896", "notes": "Black Badge Coupe: 23 in forged aluminum wheels, P255/40R23 front / P295/35R23 rear." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-spectre-s2-bb-994", "notes": "ArenaEV lists the Series II Black Badge (2026-) with Heat pump: Yes. ArenaEV is a spec database (EU-oriented) and lists the feature as \"Yes\" without saying standard or optional; read as standard. Rolls-Royce site not usable. ArenaEV lists \"Heat pump: Yes\" without saying standard or optional (it also says Yes for the 2019–21 i3, where it was a paid option), and its pages mix EU data.", "low_confidence": true }
       ]
     }
   ]

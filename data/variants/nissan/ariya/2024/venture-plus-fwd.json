@@ -21,6 +21,10 @@
       "names": { "US": "Venture+ FWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-cc-ar24", "note_id": "n-3a80885ec9", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-gcr-ev-extreme-temps", "notes": "Standard on every trim: Green Car Reports says \"in all of its versions, the Ariya includes both a heat pump and battery warmer\" (2023 Platinum+ drive); Recurrent lists 2023+ Ariya, all trims; ArenaEV and BEV Database list a heat pump (BEV Database: standard) for the 2023 e-4ORCE 87 kWh. Nissan's own press kits list only a \"battery heater\", so no Nissan page confirms it. Year carried from 2023 (no source shows a change for 2024-25).", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-91831f4ab6", "low_confidence": true }
       ]
     }
   ]

@@ -21,6 +21,9 @@
       "names": { "CA": "i3 60 Ah", "US": "i3 60 Ah" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i3-2015-specs", "notes": "i3 4dr HB: 19 x 5 in forged aluminum, P155/70R19; no optional wheels listed. (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-bmw-us-2016-i3-pricing", "notes": "Estimated: no MY2015 guide opened. The BMW US MY2014 guide (Dec 2013) and the MY2016 guide (Sept 2015, cited) both list the heat pump as STD on the same 60 Ah car, and Green Car Future says every US i3 made before 2019 had it. Years compared: 2014 and 2016. Source is a US document; Canada not checked.", "low_confidence": true }
       ]
     }
   ]

@@ -22,6 +22,11 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-cc-ar23", "note_id": "n-b69ae88e51", "low_confidence": true },
         { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-cars-ariya25", "notes": "20-inch wheels optional on Platinum+ e-4ORCE (Cars.com 2025 article; range drops to 257 mi). 2025 source applied to 2023: same trim, low confidence. The 20 in shows in the Cars.com trim name only (\"w/20\\\" Wheels\"). US page; the Canadian package assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-gcr-ariya-2023", "note_id": "n-c9256c1261", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-91831f4ab6", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-bevdb-ariya-2023", "note_id": "n-c2befecb43", "low_confidence": true }
       ]
     }
   ]

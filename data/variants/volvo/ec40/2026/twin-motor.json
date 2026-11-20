@@ -20,6 +20,9 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ec40-2025-specs-457196", "note_id": "n-4ffb55c515", "low_confidence": true },
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-volvo-ec40-2025-specs-457198", "note_id": "n-6b31108a07", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-villa-ec40-2026", "notes": "Canada 2026 EC40 (Core and Black Edition Ultra): \"Both trims include a heat pump\" (Ontario Volvo dealer). US 2026 EC40 not confirmed.", "low_confidence": true }
       ]
     }
   ]

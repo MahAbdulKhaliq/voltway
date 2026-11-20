@@ -20,6 +20,9 @@
       "names": { "US": "Single Motor Extended Range RWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ex40-2026-specs", "notes": "Plus: 19x7.5, P235/50HR19 front, P255/45HR19 rear." }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "estimated", "source_id": "src-b113-kbb-ex40-2025", "notes": "Estimated: KBB 2025 EX40 (US): optional on Core/Plus, standard on Ultra. No 2026 US page opened states the heat pump (KBB, Carvana 2026 specs are silent). 2025 carried to 2026. \"Optional\" here means a package on lower trims (Core/Plus) and standard on the top trim (Ultra/Ultimate); this record holds one trim.", "low_confidence": true }
       ]
     }
   ]

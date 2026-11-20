@@ -21,6 +21,9 @@
       "names": { "CA": "Moab", "US": "Moab" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-cc-recon", "notes": "Moab 4xe 18 x 8.5." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-recon-awd-2026", "notes": "ArenaEV Recon 2026 sheet lists a heat pump. ArenaEV is a spec aggregator and no maker page was found; the page is a European-market sheet unless stated. ArenaEV lists \"Heat pump: Yes\" without saying standard or optional, and its pages mix EU data.", "low_confidence": true }
       ]
     }
   ]

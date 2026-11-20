@@ -22,6 +22,9 @@
       "names": { "CA": "Twin Motor", "US": "Twin Motor" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-volvo-c40-recharge-pure-electric-2022-specs", "notes": "No 2023 page opened; carried from the 2022 C40 Ultimate page and the 2025 Twin AWD Ultra (both 20 in).", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "estimated", "source_id": "src-b113-kbb-xc40-2023", "notes": "Estimated: KBB 2023 XC40 Recharge (US): climate pack with heat pump optional on Core/Plus, standard on Ultimate; Carvana 2023 C40 lists a heat pump only on the top trim. C40 and XC40 share this trim and package structure; no C40 page opened states the package outright. \"Optional\" here means a package on lower trims (Core/Plus) and standard on the top trim (Ultra/Ultimate); this record holds one trim.", "low_confidence": true }
       ]
     }
   ]

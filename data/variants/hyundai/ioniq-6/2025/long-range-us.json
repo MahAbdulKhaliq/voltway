@@ -1,0 +1,35 @@
+{
+  "id": "hyundai/ioniq-6/2025/long-range-us",
+  "model_id": "hyundai/ioniq-6",
+  "year": 2025,
+  "name": "SE Long Range RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "hyundai/ioniq-6/2025-long-range",
+  "markets": ["US"],
+  "charge_port": [
+    { "low_confidence": true, "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-69323bce3e" },
+    { "low_confidence": true, "value": "ccs1", "kind": "manufacturer", "source_id": "src-thechargeport-nacs-checker", "note_id": "n-12a901f900" }
+  ],
+  "supercharger_access": [
+    { "low_confidence": true, "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-ea1d0f39b4" }
+  ],
+  "consumption_highway_wh_per_km": [
+    { "value": 197, "unit": "Wh/km", "kind": "tested", "source_id": "src-nyland-sheet-2026-10", "low_confidence": true, "note_id": "n-03e76f0e41" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-4e4db06e3c" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-ca-faq", "note_id": "n-40329cb8de" }
+  ],
+  "trims": [
+    {
+      "id": "18-in-wheels",
+      "names": { "US": "SE Long Range RWD" },
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-auto123-ioniq-6-2025", "low_confidence": true, "note_id": "n-047f595d93" }
+      ],
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-6-2025-index", "low_confidence": true, "note_id": "n-34f77e6586" }
+      ]
+    }
+  ]
+}

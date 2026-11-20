@@ -21,6 +21,9 @@
       "names": { "CA": "i3 94 Ah", "US": "i3 94 Ah" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i3-2018-specs", "notes": "i3 94 Ah (2018 page, base trim): 19 x 5 front / 19 x 5.5 rear forged aluminum. Carried from the 2018 i3 94 Ah page (same 94 Ah car), no page for this exact year opened. (US page; Canadian cars assumed the same.)", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-bmw-us-2017-i3-94ah-pricing", "notes": "BMW US MY2017 pricing guide for the i3 94 Ah (effective 2017-04-01): \"4T9 Heat pump\" STD. Source is a US document; Canada not checked.", "low_confidence": true }
       ]
     }
   ]

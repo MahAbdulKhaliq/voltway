@@ -5,23 +5,25 @@
   "name": "N",
   "drivetrain": "awd",
   "powertrain_id": "hyundai/ioniq-5/2026-n",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
-    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-usa-nacs-adapter-faq", "notes": "US: the IONIQ 5 N does not have a native NACS port. Canada: the 2025 N uses a CCS port with an offered NACS adapter (Guide Auto). The 2026 N has NACS (already on file)." }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-usa-nacs-adapter-faq", "note_id": "n-f9f5fba44f" }
   ],
   "supercharger_access": [
-    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-motor-hyundai-adapters-2025", "notes": "Hyundai press relay: the 2025 IONIQ 5 N gets a complimentary CCS-to-NACS adapter (US); Canada: NACS adapter offered (Guide Auto).", "low_confidence": true }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-motor-hyundai-adapters-2025", "note_id": "n-022e8e1bb1", "low_confidence": true }
   ],
   "adapters_included": [
-    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-b9f3fd83f1" },
-    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-ca-faq", "note_id": "n-40329cb8de" }
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-hy-ca-evhub", "note_id": "n-98b4e9e819" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "N", "US": "N" },
+      "names": { "CA": "N" },
       "wheels": [
-        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-n-2025-index", "low_confidence": true, "notes": "Cars.com page for the 2025 Ioniq 5 N (US). No Canadian N source was read; Canadian N assumed the same." }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-n-2025-index", "low_confidence": true, "note_id": "n-4dc67c542d" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-hy-ca-ioniq5n-2025", "note_id": "n-33eb4a0281" }
       ]
     }
   ]

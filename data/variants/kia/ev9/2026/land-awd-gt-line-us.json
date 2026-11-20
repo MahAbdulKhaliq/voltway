@@ -1,0 +1,37 @@
+{
+  "id": "kia/ev9/2026/land-awd-gt-line-us",
+  "model_id": "kia/ev9",
+  "year": 2026,
+  "name": "GT-Line",
+  "drivetrain": "awd",
+  "powertrain_id": "kia/ev9/2026-land-awd-gt-line",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
+  ],
+  "curb_weight_kg": [
+    { "value": 2650, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev9-2026-land-awd-gt-line", "low_confidence": true, "note_id": "n-228cc7710f" }
+  ],
+  "consumption_highway_wh_per_km": [
+    { "value": 259, "unit": "Wh/km", "kind": "tested", "source_id": "src-candd-ev9-gt-line-75mph-aol", "low_confidence": true, "note_id": "n-2117684a69" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "note_id": "n-24214986bc", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "GT-Line" },
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" },
+        { "value": "standard", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "low_confidence": true, "note_id": "n-3af1046a8b" }
+      ],
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "tire_size": "285/45R21", "source_id": "src-edwards-kia-ev9-gt-line-2026", "low_confidence": true, "note_id": "n-6ecfab74f4" }
+      ]
+    }
+  ]
+}

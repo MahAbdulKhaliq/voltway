@@ -22,6 +22,9 @@
       "names": { "US": "GT AWD" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-sub-unc26pr", "notes": "Uncharted GT includes 20-inch wheels ()." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-uncharted-gt", "notes": "ArenaEV (North America) lists a heat pump for this trim. ArenaEV lists \"Heat pump: Yes\" without saying standard or optional, and its pages mix EU data.", "low_confidence": true }
       ]
     }
   ]

@@ -21,6 +21,10 @@
       "names": { "CA": "EX-L AWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-honda-prologue-2024-ca-specs", "notes": "Canada EX-L AWD: 19x8.5, 255/60R19." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-prologue-awd-2023", "note_id": "n-776f6defee", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-0aa7aa8d36", "low_confidence": true }
       ]
     }
   ]

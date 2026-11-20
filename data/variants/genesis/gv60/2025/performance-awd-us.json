@@ -1,0 +1,32 @@
+{
+  "id": "genesis/gv60/2025/performance-awd-us",
+  "model_id": "genesis/gv60",
+  "year": 2025,
+  "name": "Performance AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "genesis/gv60/2025-advanced-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-467a78f7ba", "low_confidence": true },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-388ac3f2d2", "low_confidence": true }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-genesis-supercharger-2025", "note_id": "n-09941ff439", "low_confidence": true }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gen-us-giveaway-faq", "note_id": "n-676531a30c" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gen-us-electrified-g80-page", "note_id": "n-2ca2fc4ad8" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Performance AWD" },
+      "wheels": [
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-genesis-gv60-2025-456096", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b112-gen-us-brochure-2023-gv60", "note_id": "n-36159093c5", "low_confidence": true }
+      ]
+    }
+  ]
+}

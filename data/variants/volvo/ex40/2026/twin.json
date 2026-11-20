@@ -21,6 +21,9 @@
       "names": { "CA": "Twin", "US": "Twin Motor AWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ex40-2026-specs", "notes": "Single Motor Plus page; the twin trims were not opened (Ultra may have 20 in).", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b113-villa-ex40-2026-trims", "notes": "Canada 2026 Twin Motor Core: \"heat pump (optional)\" (Ontario Volvo dealer); Plus listing shows it with the Climate package; Ultra Black Edition includes the climate package (Saint-Leonard). US 2026 not confirmed (2025 US optional on Core/Plus). \"Optional\" here means a package on lower trims (Core/Plus) and standard on the top trim (Ultra/Ultimate); this record holds one trim.", "low_confidence": true }
       ]
     }
   ]

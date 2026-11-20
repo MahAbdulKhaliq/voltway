@@ -20,6 +20,10 @@
       "names": { "US": "Eclipse Sportback EV" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-a123-ecl", "notes": "Standard 18-inch two-tone alloy wheels." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-kbb-eclipse-sportback-ev", "notes": "KBB: \"a standard heat pump\"; Motor Illustrated: \"a heat pump comes standard\". One US trim (Tech Package optional).", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-motorillustrated-eclipse-sportback-ev", "notes": "\"Also note that a heat pump comes standard.\"", "low_confidence": true }
       ]
     }
   ]

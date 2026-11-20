@@ -22,6 +22,9 @@
       "names": { "CA": "C-HR" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-toyota-ca-media-c-hr-2026", "notes": "SE (FWD): 18-in wheels with black alloy inserts." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-guideauto-chr-2026", "notes": "Guide Auto (Canada) says the C-HR incorporates a heat pump, in a paragraph about all C-HR models.", "low_confidence": true }
       ]
     }
   ]

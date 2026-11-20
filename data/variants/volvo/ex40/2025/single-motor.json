@@ -23,6 +23,9 @@
       "names": { "CA": "Single Motor", "US": "Single Motor Extended Range RWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-cc-ex40-25", "notes": "Single Motor Extended Range RWD Core 19 x 7.5. Cars.com shows the Core trim only; other trims assumed the same.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b113-kbb-ex40-2025", "note_id": "n-a6152ad57f", "low_confidence": true }
       ]
     }
   ]

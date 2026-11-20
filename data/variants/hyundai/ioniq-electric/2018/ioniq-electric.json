@@ -23,6 +23,9 @@
       "names": { "CA": "Ioniq Electric", "US": "Ioniq Electric" },
       "wheels": [
         { "diameter_in": 16, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-ev-2018-index", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b113-autotrader-ca-ioniq-electric-2018", "notes": "Canada 2018: \"SE can be optioned with a cold climate package... adds heated rear seats, a battery temperature management system and HVAC heat pump\". US: heat pump listed for the Limited in 2019 (Carvana); no 2018 US page names it.", "low_confidence": true }
       ]
     }
   ]

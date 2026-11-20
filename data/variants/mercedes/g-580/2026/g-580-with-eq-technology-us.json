@@ -1,0 +1,30 @@
+{
+  "id": "mercedes/g-580/2026/g-580-with-eq-technology-us",
+  "model_id": "mercedes/g-580",
+  "year": 2026,
+  "name": "G 580 with EQ Technology",
+  "drivetrain": "awd",
+  "powertrain_id": "mercedes/g-580/2026-g-580-with-eq-technology",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-g-g580w4e", "note_id": "n-e863ab2c59" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1", "kind": "manufacturer", "source_id": "src-mb-b112-mbusa-nacs", "note_id": "n-2ba70c05a6" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "G 580 with EQ Technology" },
+      "wheels": [
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-g-class-2026-specs-479858", "note_id": "n-61298d0ad3" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-g580-678", "note_id": "n-4ff71aa7eb", "low_confidence": true }
+      ]
+    }
+  ]
+}

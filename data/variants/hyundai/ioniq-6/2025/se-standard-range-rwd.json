@@ -21,6 +21,9 @@
       "names": { "US": "SE Standard Range RWD" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-6-2025-index", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "manufacturer", "source_id": "src-b113-cars-ioniq6-2025-pricing", "notes": "US 2025. Cars.com (relaying Hyundai) says the long-range SE \"gains a heat pump\" and heated front seats over the SE Standard Range, so the Standard Range has none. Carvana trims comparison agrees (no battery heating or heated seats on Standard Range).", "low_confidence": true }
       ]
     }
   ]

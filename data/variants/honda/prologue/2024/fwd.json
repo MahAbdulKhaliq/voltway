@@ -21,6 +21,10 @@
       "names": { "US": "FWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-honda-prologue-2024-us-specs", "note_id": "n-53177c1f76" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-arenaev-prologue-awd-2023", "notes": "ArenaEV 2023-listed Prologue AWD: heat pump yes (US). Honda's own spec pages (US features by trim, Canada 2024 specs release) do not mention a heat pump either way. ArenaEV lists \"Heat pump: Yes\" without saying standard or optional, and its pages mix EU data.", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-0aa7aa8d36", "low_confidence": true }
       ]
     }
   ]

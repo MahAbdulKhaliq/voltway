@@ -1,0 +1,31 @@
+{
+  "id": "toyota/bz/2026/woodland-awd-us",
+  "model_id": "toyota/bz",
+  "year": 2026,
+  "name": "Woodland AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "toyota/bz/2026-woodland-awd",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-woodland-2026", "low_confidence": true, "note_id": "n-0100c89edc" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "estimated", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-c43bf8772c" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-toyota-ca-media-bz-onsale-2026", "low_confidence": true, "note_id": "n-e8e0827b3a" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs", "kind": "manufacturer", "source_id": "src-toyota-nacs-migration-2026", "note_id": "n-09e7b75aac" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "Woodland AWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-toyota-ca-media-bz-woodland-2026", "low_confidence": true, "note_id": "n-13d5183385" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-toyota-ca-2026-bz-range", "note_id": "n-c4c8509cfa", "low_confidence": true }
+      ]
+    }
+  ]
+}

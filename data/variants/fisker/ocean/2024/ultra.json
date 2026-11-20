@@ -21,6 +21,9 @@
       "names": { "CA": "Ultra" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-fisker-ocean-2024-specs-453320", "note_id": "n-1972d6bb63", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-kbb-fisker-2023-trims", "notes": "Estimated: carried from the 2023 Ultra (KBB: \"An added heat pump\").", "low_confidence": true }
       ]
     }
   ]

@@ -23,6 +23,9 @@
       "names": { "CA": "Standard Range RWD", "US": "Light Standard Range RWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2022-index", "low_confidence": true, "notes": "Light 19 in" }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "manufacturer", "source_id": "src-b113-kia-ca-ev6-my22-brochure", "notes": "Canada 2022: the RWD Standard Range block has no heat pump; it first appears in the RWD Long Range block. US \"Light Standard Range RWD\": Kia US 2023 brochure shows \"-\" (not available) for Light (src-b113-kia-us-ev6-2023-brochure, a different year), so US is low confidence.", "low_confidence": true }
       ]
     }
   ]

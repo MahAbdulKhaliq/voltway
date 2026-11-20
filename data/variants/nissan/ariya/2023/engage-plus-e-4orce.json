@@ -21,6 +21,11 @@
       "names": { "US": "Engage+ e-4ORCE" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-cc-ar23", "note_id": "n-3a80885ec9", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b113-gcr-ariya-2023", "note_id": "n-c9256c1261", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-recurrent-heat-pumps", "note_id": "n-91831f4ab6", "low_confidence": true },
+        { "value": "standard", "kind": "community", "source_id": "src-b113-bevdb-ariya-2023", "note_id": "n-c2befecb43", "low_confidence": true }
       ]
     }
   ]

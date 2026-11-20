@@ -5,7 +5,7 @@
   "name": "EQE 320 4MATIC Sedan",
   "drivetrain": "awd",
   "powertrain_id": "mercedes/eqe/2026-eqe-320-4matic-sedan",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-eqe-eqe320v4", "note_id": "n-e863ab2c59" }
   ],
@@ -13,14 +13,14 @@
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
   "adapters_included": [
-    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbca-charge", "note_id": "n-83895968ba", "low_confidence": true }
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-mb-b112-mbca-charge", "note_id": "n-c38e6427a0" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "EQE 320 4MATIC Sedan", "US": "EQE 320 4MATIC Sedan" },
+      "names": { "CA": "EQE 320 4MATIC Sedan" },
       "wheels": [
-        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqe-320-2026-specs-474179", "notes": "EQE 320 Sedan: 20 x 9 in aluminum, P255/40R20. (US page; Canadian cars assumed the same.)" }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqe-320-2026-specs-474179", "note_id": "n-b17cd333b6" }
       ],
       "heat_pump": [
         { "value": "standard", "kind": "manufacturer", "source_id": "src-mb-b112-gcr-hp-2024", "note_id": "n-298ec6a49a", "low_confidence": true }

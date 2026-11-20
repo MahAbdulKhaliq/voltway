@@ -23,6 +23,9 @@
       "names": { "CA": "Twin", "US": "Twin eAWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-xc40-recharge-pure-electric-2022-specs", "notes": "2023 page lists no wheel data; carried from the 2022 P8 Twin and 2025 EX40 pages (both 19 in).", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "community", "source_id": "src-b113-kbb-xc40-2023", "notes": "US: climate pack (includes a heat pump) optional on Core/Plus, standard on Ultimate. Canada carried from 2022 (Canadian Climate Package incl. heat pump). \"Optional\" here means a package on lower trims (Core/Plus) and standard on the top trim (Ultra/Ultimate); this record holds one trim.", "low_confidence": true }
       ]
     }
   ]

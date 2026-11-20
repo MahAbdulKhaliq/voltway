@@ -21,6 +21,9 @@
       "names": { "CA": "Preferred RWD" },
       "wheels": [
         { "diameter_in": 18, "is_standard": true, "source_id": "src-guideauto-hyundai-ioniq-6-2023-preferred-rwd", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-caaquebec-ioniq6-2023", "notes": "Estimated: CAA-Quebec lists a standard heat pump on the Canadian AWD and describes the RWD as the same lineup; Hyundai US 2023 sheet (src-b113-hy-us-ioniq6-2023-price-sheet) has it on the equivalent 77.4 kWh RWD. Hyundai Canada product card not opened.", "low_confidence": true }
       ]
     }
   ]

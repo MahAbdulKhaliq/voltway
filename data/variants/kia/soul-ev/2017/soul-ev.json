@@ -21,6 +21,9 @@
       "names": { "CA": "Soul EV", "US": "Soul EV" },
       "wheels": [
         { "diameter_in": 16, "is_standard": true, "source_id": "src-carscom-kia-soul-ev-2017-index", "low_confidence": true, "note_id": "n-8d7164a4f9" }
+      ],
+      "heat_pump": [
+        { "value": "optional", "kind": "manufacturer", "source_id": "src-b113-carvana-soul-ev-2017", "notes": "Higher-trim feature, not on every car: Canada Luxury only (EV base has none); US the middle EV and EV+ trims (EV-e has none). US 2017 Carvana: the middle Soul EV adds a heat-pump climate system; Canada 2017 Autotrader.ca: Luxury adds a heat pump.", "low_confidence": true }
       ]
     }
   ]

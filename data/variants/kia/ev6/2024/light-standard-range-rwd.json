@@ -23,6 +23,9 @@
       "names": { "US": "Light Standard Range RWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2024-index", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b113-kia-us-ev6-2023-brochure", "notes": "Estimated: Kia US 2023 brochure marks the heat pump \"-\" (not available) on Light, and KBB 2024 says it is \"standard in AWD models\" (src-b113-kbb-ev6-2024-overview); Light Standard Range is RWD only. 2023 and 2024 compared; no 2024 US grid opened.", "low_confidence": true }
       ]
     }
   ]

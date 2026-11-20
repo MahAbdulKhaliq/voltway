@@ -1,0 +1,33 @@
+{
+  "id": "nissan/leaf/2026/s-plus-us",
+  "model_id": "nissan/leaf",
+  "year": 2026,
+  "name": "S+",
+  "drivetrain": "unknown",
+  "powertrain_id": "nissan/leaf/2026-s-plus",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-9295dad563" }
+  ],
+  "supercharger_access": [
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-c07c0722f9" }
+  ],
+  "curb_weight_kg": [
+    { "value": 1899, "unit": "kg", "kind": "manufacturer", "source_id": "src-carscom-leaf-s-plus-2026", "low_confidence": true, "note_id": "n-bb121c4244" }
+  ],
+  "adapters_included": [
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-b112-nh-nissanusa-leaf-features", "note_id": "n-027f9c182e", "low_confidence": true }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "S+" },
+      "heat_pump": [
+        { "value": "none", "kind": "community", "source_id": "src-b113-motor1-leaf-2026", "notes": "US: Motor1 says a heat pump is standard on the top two trims (SV+ and Platinum+), so the S+ has none; Cars.com names only the SV+." }
+      ],
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-cc-leaf2026", "note_id": "n-ea27863f36" }
+      ]
+    }
+  ]
+}

@@ -23,6 +23,9 @@
       "names": { "CA": "Wind RWD" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-guideauto-kia-ev6-2024-wind-rwd", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-kia-ca-ev6-my24-brochure", "notes": "Canada 2024: Kia Canada brochure lists the heat pump in the base Wind RWD block (Canadian trims differ from US: the US RWD cars have none). Market difference, so the earlier \"none\" estimate for this car was wrong." }
       ]
     }
   ]

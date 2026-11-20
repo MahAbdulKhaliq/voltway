@@ -21,6 +21,9 @@
       "names": { "CA": "i3 60 Ah", "US": "i3 60 Ah" },
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i3-2016-specs", "notes": "i3 4dr HB: 19 x 5 in forged aluminum (rear 5.5 in in the Giga/Tera World packages, same 19 in diameter). (US page; Canadian cars assumed the same.)" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-bmw-us-2016-i3-pricing", "notes": "BMW US MY2016 pricing guide (effective 2015-09-09): \"4T9 Heat pump\" under Standard, STD for the i3. Source is a US document; Canada not checked.", "low_confidence": true }
       ]
     }
   ]

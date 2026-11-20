@@ -21,6 +21,9 @@
       "names": { "US": "N" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-hyundai-n-ioniq-6-n", "low_confidence": true, "notes": "Diameter read from the 275/35R20 tire size on the Hyundai N global page, not a US 2027 spec sheet. Some reviews say 21 in." }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-hy-au-ioniq6n-my27-spec", "notes": "Hyundai Australia MY27 IONIQ 6 N spec sheet: \"Heat pump system - high efficiency heater\". Australian page for the single N variant; no US 2027 sheet opened.", "low_confidence": true }
       ]
     }
   ]

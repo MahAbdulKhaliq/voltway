@@ -1,0 +1,33 @@
+{
+  "id": "hyundai/ioniq-6/2024/preferred-long-range-us",
+  "model_id": "hyundai/ioniq-6",
+  "year": 2024,
+  "name": "SE Long Range RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "hyundai/ioniq-6/2024-preferred-long-range",
+  "markets": ["US"],
+  "charge_port": [
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-3c1a54c87f" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-f7b4248b98" }
+  ],
+  "supercharger_access": [
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-c92b50d089" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-6fd81b4869" }
+  ],
+  "adapters_included": [
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-us-giveaway-faq", "note_id": "n-4e4db06e3c" },
+    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-hy-ca-faq", "note_id": "n-40329cb8de" }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": { "US": "SE Long Range RWD" },
+      "wheels": [
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-6-2024-index", "low_confidence": true, "note_id": "n-73475c0bf0" }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "estimated", "source_id": "src-b113-cars-ioniq6-2025-pricing", "note_id": "n-10ce8a6edd", "low_confidence": true }
+      ]
+    }
+  ]
+}

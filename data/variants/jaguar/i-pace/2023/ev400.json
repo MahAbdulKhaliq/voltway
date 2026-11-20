@@ -21,6 +21,9 @@
       "names": { "CA": "EV400", "US": "EV400" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-cc-ip24", "notes": "2022 and 2024 pages both 20 in; 2023 not checked, low confidence.", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "community", "source_id": "src-b112o-i-pace-ev400-2023", "note_id": "n-39ff9728bd", "low_confidence": true }
       ]
     }
   ]

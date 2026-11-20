@@ -5,24 +5,23 @@
   "name": "RZ 550e F SPORT AWD",
   "drivetrain": "awd",
   "powertrain_id": "lexus/rz/2026-rz-550e-f-sport-awd",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026", "note_id": "n-0186b26c56" },
     { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-charging", "note_id": "n-9d6ff8d15d" }
   ],
   "supercharger_access": [
-    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-onsale", "note_id": "n-098d7a686d" },
     { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-ce9fd9b7fa" }
   ],
   "adapters_included": [
-    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-lexus-ca-ev-charging-faq", "note_id": "n-4099bc5a4b", "low_confidence": true }
+    { "value": "ccs1_to_nacs_sold", "kind": "manufacturer", "source_id": "src-lexus-ca-ev-charging-faq", "low_confidence": true, "note_id": "n-db6dff8778" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "RZ 550e F SPORT AWD", "US": "RZ 550e F SPORT AWD" },
+      "names": { "CA": "RZ 550e F SPORT AWD" },
       "wheels": [
-        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-lex-rz26", "notes": "F SPORT has 20-inch wheels with aero covers." }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-lex-rz26", "note_id": "n-2f23f4e06a" }
       ]
     }
   ]

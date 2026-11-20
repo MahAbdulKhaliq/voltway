@@ -21,6 +21,9 @@
       "names": { "CA": "Soul EV Limited 64 kWh" },
       "wheels": [
         { "diameter_in": 17, "is_standard": true, "source_id": "src-guideauto-kia-soul-2022-ev-limited", "low_confidence": true }
+      ],
+      "heat_pump": [
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-b113-kia-ca-soul-ev-my22-brochure", "notes": "Kia Canada MY22 brochure: the EV LIMITED block lists \"Heat pump\". Block order read from decoded PDF text.", "low_confidence": true }
       ]
     }
   ]

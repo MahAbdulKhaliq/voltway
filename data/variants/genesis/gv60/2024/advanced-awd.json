@@ -5,23 +5,21 @@
   "name": "Advanced AWD",
   "drivetrain": "awd",
   "powertrain_id": "genesis/gv60/2024-advanced-awd",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "ccs1", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-467a78f7ba", "low_confidence": true },
     { "value": "ccs1", "kind": "manufacturer", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-91e86e1fae", "low_confidence": true }
   ],
   "supercharger_access": [
-    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-genesis-supercharger-2025", "note_id": "n-09941ff439", "low_confidence": true },
     { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-9f6aac6327", "low_confidence": true }
   ],
   "adapters_included": [
-    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gen-us-giveaway-faq", "note_id": "n-8f4aa9f71e" },
-    { "value": "nacs_to_ccs1_sold", "kind": "manufacturer", "source_id": "src-b112-gen-us-electrified-g80-page", "note_id": "n-2ca2fc4ad8" }
+    { "value": "nacs_to_ccs1_on_request", "kind": "manufacturer", "source_id": "src-b112-conceptcarz-genesis-ca-adapter", "note_id": "n-fc7c88d2f3", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "Advanced AWD", "US": "Advanced AWD" },
+      "names": { "CA": "Advanced AWD" },
       "wheels": [
         { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-genesis-gv60-2024-445817", "low_confidence": true }
       ],

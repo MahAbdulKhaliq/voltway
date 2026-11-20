@@ -5,7 +5,7 @@
   "name": "Wind",
   "drivetrain": "rwd",
   "powertrain_id": "kia/ev9/2026-wind",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
@@ -13,21 +13,18 @@
     { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "curb_weight_kg": [
-    { "value": 2418, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev9-2026-wind-rwd", "low_confidence": true, "notes": "Guide Auto lists \"Weight\" 2,418 kg (5,331 lb) for the Canadian Wind RWD (99.8 kWh); presumed curb weight." }
-  ],
-  "adapters_included": [
-    { "value": "ccs1_to_nacs_sold", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "note_id": "n-24214986bc", "low_confidence": true }
+    { "value": 2418, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev9-2026-wind-rwd", "low_confidence": true, "note_id": "n-044b91ca57" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "Wind", "US": "Light Long Range" },
+      "names": { "CA": "Wind" },
       "heat_pump": [
         { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" },
         { "value": "standard", "kind": "estimated", "source_id": "src-kia-us-ev9-2027-compare", "low_confidence": true, "note_id": "n-3af1046a8b" }
       ],
       "wheels": [
-        { "diameter_in": 19, "is_standard": true, "tire_size": "255/60R19", "source_id": "src-edwards-kia-ev9-wind-2026", "low_confidence": true, "notes": "US dealer spec sheet for Wind (AWD); Canadian RWD Wind assumed to have the same wheels." }
+        { "diameter_in": 19, "is_standard": true, "tire_size": "255/60R19", "source_id": "src-edwards-kia-ev9-wind-2026", "low_confidence": true, "note_id": "n-3cfccfa120" }
       ]
     }
   ]

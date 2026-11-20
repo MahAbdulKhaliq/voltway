@@ -5,7 +5,7 @@
   "name": "Pro AWD",
   "drivetrain": "awd",
   "powertrain_id": "volkswagen/id-4/2021-pro",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "ccs1", "kind": "manufacturer", "source_id": "src-vw-launch-2021-conceptcarz", "low_confidence": true, "note_id": "n-d4b827a616" }
   ],
@@ -19,12 +19,12 @@
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "Pro AWD", "US": "Pro AWD" },
+      "names": { "CA": "Pro AWD" },
       "wheels": [
-        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2021-418045", "notes": "ID.4 Pro AWD 2021: 19-inch read on this Cars.com page." }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2021-418045", "note_id": "n-ea30a811a2" }
       ],
       "heat_pump": [
-        { "value": "none", "kind": "community", "source_id": "src-b112-gcr-id4-nohp", "note_id": "n-f4c2cf9560", "low_confidence": true }
+        { "value": "standard", "kind": "community", "source_id": "src-b112-drivetesla-id4-hp-2021", "note_id": "n-b7a7ddde01" }
       ]
     }
   ]

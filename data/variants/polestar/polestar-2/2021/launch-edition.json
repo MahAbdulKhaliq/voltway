@@ -24,6 +24,9 @@
       "wheels": [
         { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-ps2-2021cars", "notes": "Launch Edition standard 19 x 8 / 19 x 9." },
         { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-ps2-2021cars", "notes": "Performance Package swaps in 20-inch forged wheels." }
+      ],
+      "heat_pump": [
+        { "value": "none", "kind": "estimated", "source_id": "src-b113-polestar-my22-release", "notes": "Estimated: Polestar says the Plus Pack \"debuts a mechanical heat pump\" for model year 2022, so the 2021 Launch Edition had none.", "low_confidence": true }
       ]
     }
   ]

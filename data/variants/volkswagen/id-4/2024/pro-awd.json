@@ -5,7 +5,7 @@
   "name": "Pro AWD",
   "drivetrain": "awd",
   "powertrain_id": "volkswagen/id-4/2024-pro",
-  "markets": ["CA", "US"],
+  "markets": ["CA"],
   "charge_port": [
     { "value": "ccs1", "kind": "estimated", "source_id": "src-vw-launch-2021-conceptcarz", "low_confidence": true, "note_id": "n-ed39cfbd74" }
   ],
@@ -19,12 +19,12 @@
   "trims": [
     {
       "id": "standard",
-      "names": { "CA": "Pro AWD", "US": "Pro AWD" },
+      "names": { "CA": "Pro AWD" },
       "wheels": [
-        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2021-418045", "notes": "Estimated: 2021 ID.4 Pro AWD page shows 19x8; 2024 assumed unchanged (2025 and 2026 Pro RWD pages also show 19). Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2021-418045", "note_id": "n-3acae8544a", "low_confidence": true }
       ],
       "heat_pump": [
-        { "value": "none", "kind": "community", "source_id": "src-b112-autoguide-id4-nohp", "note_id": "n-73b017df06", "low_confidence": true }
+        { "value": "optional", "kind": "community", "source_id": "src-b112-autotrader-id4-2024", "note_id": "n-b7a7ddde01" }
       ]
     }
   ]

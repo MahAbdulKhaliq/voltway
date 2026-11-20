@@ -220,6 +220,8 @@ In order of preference:
 
 > **Update (B90, 2026-11-19):** step 1 is superseded: the car list is rebuilt from NRCan **and** EPA, every BEV from 2011 on, through a catalogue suggester the owner approves in waves (DESIGN-9 §2).
 
+> **Update (B97, 2026-11-19):** a BEV that neither regulator lists (heavy-duty exempt, e.g. Cadillac Escalade IQ) is added from the manufacturer's official data; its range is the maker's estimate (`manufacturer`), with no regulator crosswalk rows.
+
 1. **Build the starter vehicle list from NRCan:** recent model years (for example 2024–2026), deduplicated to the models that matter.
 2. **Fill it in from OpenEV Data and the Chargeprice archive** where matches exist.
 3. **Enter by hand** what's still missing for a starter set (about 20–30 popular Canadian EVs). This is design work for `vehicle-data-model.md`, not code.

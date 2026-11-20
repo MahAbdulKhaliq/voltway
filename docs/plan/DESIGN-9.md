@@ -40,6 +40,7 @@ The owner found the car data unreliable:
 | B94 | **Sources are market-neutral** (replaces B15's Canada-first wording). Any market's source may be used for facts that don't vary by market. Facts that vary carry the market they apply to. |
 | B95 | **Curves get their own research and checks:** a curve-only researcher, a plausibility linter in the build, and Chargeprice curves re-graded to `community` and matched within a generation only. |
 | B96 | **No unknowns on charging and mapping figures** (owner, added 2026-11-19 after wave 1): usable kWh, chemistry, voltage class, preconditioning, DC peak, AC onboard kW, charge port and Supercharger access are required for every car, sourced or estimated with a stated basis; `npm run check:required`, later part of validate. |
+| B97 | **Cars no regulator lists** (owner, 2026-11-19): a BEV absent from NRCan and EPA (e.g. heavy-duty exempt Escalade IQ) may be added from the manufacturer's official data; its range is the maker's figure (`manufacturer`), no regulator crosswalk rows. Extends B90. |
 
 Each one gets a dated row in `docs/design/gaps-and-questions.md` and a note in the matching design doc.
 

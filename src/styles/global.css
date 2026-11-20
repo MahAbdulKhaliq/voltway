@@ -843,17 +843,9 @@ details.acc.ti-how > .acc-body { padding: 0 14px 12px; }
 }
 :root[data-theme="dark"] body.fill-page { --surface: #26272C; --surface-2: #313238; --border: #45464D; --field-border: #86847B; --shadow: 0 1px 2px rgb(0 0 0 / 55%), 0 10px 28px rgb(0 0 0 / 45%); }
 
-/* The mark (B118): the light theme shows the artwork as drawn; the dark theme the copy with a cream
-   outline. On a visit's first page the mark strikes in with a flash of paint and the name slides in
+/* The mark (B118): one file in both themes, with a cream outline. On a visit's first page the mark strikes in with a flash of paint and the name slides in
    (html.intro, set once per visit in Base.astro). */
-.logo-mark { display: block; flex: none; transform-origin: 50% 60%; }
-.logo-mark-dark { display: none; margin: -1px 0; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .logo-mark-light { display: none; }
-  :root:not([data-theme="light"]) .logo-mark-dark { display: block; }
-}
-:root[data-theme="dark"] .logo-mark-light { display: none; }
-:root[data-theme="dark"] .logo-mark-dark { display: block; }
+.logo-mark { display: block; flex: none; margin: -1px 0; transform-origin: 50% 60%; }
 html.intro .logo-mark { animation: bolt-strike 0.55s cubic-bezier(0.2, 1.5, 0.4, 1) 0.1s both, mark-flash 0.9s ease-out 0.5s both; }
 html.intro .logo-word { animation: word-in 0.6s var(--ease-out) 0.15s both; }
 .logo:hover .logo-mark, .logo:focus-visible .logo-mark { animation: bolt-jolt 0.4s cubic-bezier(0.2, 1.6, 0.4, 1); }

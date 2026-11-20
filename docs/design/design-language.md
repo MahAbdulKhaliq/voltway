@@ -214,5 +214,5 @@ Open points for the owner: grouping the assumption controls, a shorter estimate 
 ### Logo (B118, owner 2026-11-20)
 
 - The mark is the owner's artwork: a dark V whose right arm is a road (yellow edge lines and dashes) that turns into a yellow bolt. It replaces the B55 yellow tile.
-- Source: `scripts/assets/logo-source.webp`. `node scripts/logo-assets.mjs` makes `public/logo.png` (light theme), `public/logo-dark.png` (dark theme, thin cream `--text` outline so the dark V shows), `favicon.ico` (16/32/48), `favicon-192.png` and `apple-touch-icon.png` (on the dark background). Then `node scripts/og-image.mjs` puts the outlined mark on the link-preview image.
-- Header: shown 26 px tall beside the name. On a visit's first page it strikes in with a flash of paint; on hover it jolts. Animations off stops both.
+- Source: `scripts/assets/logo-source.webp`. `node scripts/logo-assets.mjs` makes `public/logo.png` (both themes, with a thin cream `--text` outline so the dark V shows on dark; owner 2026-11-20: one file, so the mark keeps its size when the theme changes), `favicon.ico` (16/32/48), `favicon-192.png` and `apple-touch-icon.png` (on the dark background). Then `node scripts/og-image.mjs` puts the outlined mark on the link-preview image.
+- Header: shown 28 px tall (26 px of mark plus the outline) beside the name. On a visit's first page it strikes in with a flash of paint; on hover it jolts. Animations off stops both.

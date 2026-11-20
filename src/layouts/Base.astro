@@ -87,11 +87,10 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
         </button>
         <a class="logo" href="/">
           <!-- The mark (B118, owner 2026-11-20): a V whose right arm is a road that turns into a bolt
-               (scripts/logo-assets.mjs). The dark theme shows the copy with a cream outline, since the
-               near-black V would vanish on the dark background. On a visit's first page the mark
-               strikes in with a flash of paint (html.intro, global.css). -->
-          <img class="logo-mark logo-mark-light" src="/logo.png" width="37" height="26" alt="" aria-hidden="true" />
-          <img class="logo-mark logo-mark-dark" src="/logo-dark.png" width="39" height="28" alt="" aria-hidden="true" />
+               (scripts/logo-assets.mjs). One file for both themes: its cream outline keeps the
+               near-black V visible on the dark background (owner, 2026-11-20). On a visit's first
+               page the mark strikes in with a flash of paint (html.intro, global.css). -->
+          <img class="logo-mark" src="/logo.png" width="39" height="28" alt="" aria-hidden="true" />
           <span class="logo-word">{t('site.name')}</span>
         </a>
         <!-- The header is a small floating pill on every page (B54); on wide screens it also lists the pages. -->

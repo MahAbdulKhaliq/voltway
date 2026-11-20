@@ -1,11 +1,11 @@
 // Makes every logo file from the owner's artwork (scripts/assets/logo-source.webp, 2026-11-20, B118):
-// the header mark (light and dark), the favicons and the mark the link-preview image uses.
+// the header mark, the favicons and the mark the link-preview image uses.
 // Run `node scripts/logo-assets.mjs`, then `node scripts/og-image.mjs`. The outputs are committed,
 // so the build doesn't need this.
 //
-// The mark's road and V are near-black, which disappears on the dark theme's #1A1B1E. The dark-theme
-// mark and the favicons (browser tabs can be dark) get a thin cream outline (the dark theme's
-// --text) that follows the shape. The light-theme mark is the artwork as drawn.
+// The mark's road and V are near-black, which disappears on the dark theme's #1A1B1E, so every copy
+// gets a thin cream outline (the dark theme's --text) that follows the shape. The header uses one
+// file in both themes (owner, 2026-11-20: two files made the mark change size with the theme).
 
 import sharp from 'sharp';
 import { writeFileSync } from 'node:fs';
@@ -85,8 +85,7 @@ function ico(pngs) {
 
 const mark = await cleanMark();
 // Header mark: shown 26 px tall, drawn at 6× for sharp screens.
-writeFileSync('public/logo.png', await markAt(mark, 156));
-writeFileSync('public/logo-dark.png', await markAt(mark, 156, 7));
+writeFileSync('public/logo.png', await markAt(mark, 168, 7));
 // Favicons: outlined so they read on dark and light tab strips.
 const icons = await Promise.all([16, 32, 48].map(async (size) => ({ size, png: await square(mark, size, { halo: size <= 16 ? 1 : 2 }) })));
 writeFileSync('public/favicon.ico', ico(icons));
@@ -95,4 +94,4 @@ writeFileSync('public/favicon-192.png', await square(mark, 192, { halo: 6 }));
 writeFileSync('public/apple-touch-icon.png', await square(mark, 180, { halo: 5, background: DARK_BG }));
 // For scripts/og-image.mjs (dark background).
 writeFileSync('scripts/assets/logo-og.png', await markAt(mark, 120, 5));
-console.log('wrote public/logo.png, logo-dark.png, favicon.ico, favicon-192.png, apple-touch-icon.png, scripts/assets/logo-og.png');
+console.log('wrote public/logo.png, favicon.ico, favicon-192.png, apple-touch-icon.png, scripts/assets/logo-og.png');

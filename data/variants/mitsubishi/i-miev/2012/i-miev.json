@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "chademo",
+      "kind": "community",
+      "source_id": "src-w2j-myimiev-chademo",
+      "low_confidence": true,
+      "notes": "2012: CHAdeMO optional on ES, standard on SE Premium, absent on SE (US owner thread); Wikipedia: optional US$750 on 2012 US cars. Trim split (one car record here): 2012 ES CHAdeMO optional, SE none, SE Premium standard; recorded as chademo, SE cars without it are J1772 only with no DC. Canadian cars: Mitsubishi Canada sheets (seen in a search result only) list CHAdeMO standard."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "estimated",
+      "source_id": "src-w2j-wikipedia-imiev",
+      "low_confidence": true,
+      "notes": "Estimated: CHAdeMO is the only DC port (Wikipedia) and Tesla Superchargers use NACS; no Mitsubishi adapter programme found for the i-MiEV."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

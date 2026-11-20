@@ -8,6 +8,30 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-us-tz-2027",
+      "notes": "\"The U.S. model features the North American Charging System (NACS) port.\""
+    },
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-insideevs-tz-2027",
+      "low_confidence": true,
+      "notes": "Native NACS charge port, front right behind a motorized door."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-w2j-lexus-us-rz-2026-onsale",
+      "low_confidence": true,
+      "notes": "Estimated: The TZ has a native NACS port (Lexus release); Lexus says Tesla Supercharger access is open to its BEV owners (2026 RZ release; the ES was tested on a Supercharger)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

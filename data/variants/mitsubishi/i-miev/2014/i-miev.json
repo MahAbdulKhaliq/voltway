@@ -9,6 +9,31 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "chademo",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-theautochannel-imiev-2016",
+      "low_confidence": true,
+      "notes": "DC quick-charge port (CHAdeMO protocol) standard (2016 press kit); owner thread: single trim with CHAdeMO standard 2014-2017."
+    },
+    {
+      "value": "chademo",
+      "kind": "community",
+      "source_id": "src-w2j-myimiev-chademo",
+      "low_confidence": true,
+      "notes": "2014, 2016, 2017: all North American cars came with CHAdeMO."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "estimated",
+      "source_id": "src-w2j-wikipedia-imiev",
+      "low_confidence": true,
+      "notes": "Estimated: CHAdeMO is the only DC port (Wikipedia) and Tesla Superchargers use NACS; no Mitsubishi adapter programme found for the i-MiEV."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

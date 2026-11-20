@@ -5,5 +5,74 @@
   "generation": "second-generation",
   "years": [
     2014
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 41.8,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2j-toyota-pressroom-rav4ev-2012",
+        "low_confidence": true,
+        "notes": "Toyota says only \"full capacity of 41.8 kWh\" in Extended Mode (Standard Mode 35 kWh); Toyota does not label it gross."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 41.8,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2j-gcr-rav4ev-2012",
+        "low_confidence": true,
+        "notes": "Green Car Reports: \"41.8 kilowatt-hours of usable capacity\"; Wikipedia: 41.8 kWh usable. Standard Mode (default) charges to 35 kWh per Toyota, so the everyday usable figure is lower."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nca",
+        "kind": "estimated",
+        "source_id": "src-w2j-wikipedia-model-s",
+        "low_confidence": true,
+        "notes": "Estimated: Wikipedia (RAV4 EV): pack, electronics and powertrain \"similar to\" the Tesla Model S, about 4,500 Panasonic cells; Wikipedia (Model S): 18650 cells with a nickel-cobalt-aluminum cathode. Inference only: a Tesla-designed pack with Model S-type cells; neither Toyota nor Wikipedia names the RAV4 EV cell chemistry."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-w2j-wikipedia-rav4ev",
+        "low_confidence": true,
+        "notes": "Wikipedia: 386 V lithium-ion pack (class 400v)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-w2j-toyota-pressroom-rav4ev-2012",
+        "low_confidence": true,
+        "notes": "Estimated: The Toyota 2012 pressroom page describes charging (240 V/40 A, about six hours) with a liquid-cooled pack and no battery-warming or preconditioning feature; the car has no DC charging, so DC preconditioning does not apply."
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "value": 10,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-gcr-rav4ev-2012",
+      "low_confidence": true,
+      "notes": "Green Car Reports: the Tesla-designed charger \"can charge at up to 10 kilowatts\" (Wikipedia: 9.6 kW / 10 kW)."
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 0,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-w2j-wikipedia-rav4ev",
+      "low_confidence": true,
+      "notes": "Estimated: Wikipedia: only a J1772 240 V 40 A input; DC quick charge appears only as a third-party aftermarket upgrade (Quick Charge Power, 48 kW CHAdeMO); neither Toyota nor Green Car Reports mentions DC charging. Same car 2012-2014."
+    }
   ]
 }

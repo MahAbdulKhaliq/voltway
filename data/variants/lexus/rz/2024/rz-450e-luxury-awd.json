@@ -9,6 +9,34 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-us-rz-2023",
+      "notes": "Lexus USA 2023 RZ 450e: CCS1 socket on all models (US)."
+    },
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-ca-charging",
+      "notes": "Lexus Canada: CCS1 on 2023-2025 Lexus BEVs (Canada)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-us-rz-2026-onsale",
+      "notes": "US: MY2023-25 RZ need a CCS to J3400 adapter for Tesla Superchargers; complimentary adapter via dealer from Nov 2025."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-ca-media-bev-2025",
+      "notes": "Canada: MY2023-25 need a CCS1 to J3400 adapter (Lexus Canada release, Nov 2025)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -8,6 +8,28 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-us-rz-2024",
+      "notes": "Lexus USA 2024 RZ 300e: CCS1 socket (US)."
+    },
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-us-rz-2025",
+      "notes": "Lexus USA 2025 RZ: all models CCS1."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-us-rz-2026-onsale",
+      "notes": "US: MY2023-25 RZ need a CCS to J3400 adapter for Tesla Superchargers; complimentary adapter via dealer."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

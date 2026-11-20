@@ -8,6 +8,30 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-subaru-us-trailseeker-2026",
+      "notes": "Standard NACS port on the right front fender (US)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-subaru-us-media-solterra-2026",
+      "low_confidence": true,
+      "notes": "Estimated: Subaru US 2026 Solterra release (same NACS lineup): Superchargers open to Subaru EVs; no Subaru page names this car."
+    },
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-w2j-insideevs-sc-list-2026",
+      "low_confidence": true,
+      "notes": "Estimated: InsideEVs list of non-Tesla EVs that can use Superchargers includes the Subaru Trailseeker and Uncharted."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

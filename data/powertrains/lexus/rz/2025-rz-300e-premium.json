@@ -5,5 +5,73 @@
   "generation": "first-generation",
   "years": [
     2025
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 72.8,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2j-lexus-us-rz-2024",
+        "notes": "Lexus USA: RZ 300e \"72.8kWh Contemporary Amperex Technology Co. Limited (CATL) lithium-ion battery\"."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 65.3,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-r19-evdb-bz4x-awd-1565",
+        "low_confidence": true,
+        "notes": "Estimated: Same value already recorded for the 72.8 kWh bZ4X AWD pack in the repo: it is the 64.0/71.4 ratio of the 71.4 kWh PPES pack applied to the 72.8 kWh CATL pack, so it assumes similar usable/gross although the cell supplier differs (the cited EV Database page gives only 64.0 for the PPES pack). The RZ 300e is FWD with that 72.8 kWh CATL pack (Lexus 2024 pressroom; InsideEVs: US bZ4X AWD 72.8 kWh CATL)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-r19-evdb-bz4x-awd-1565",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database lists NMC for the 71.4 kWh bZ4X pack; the RZ 450e uses the same 71.4 kWh pack (Lexus 2023/2025 pressroom pages). Compared 2023-2025: no pack change described."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-r19-evdb-bz4x-awd-1565",
+        "low_confidence": true,
+        "notes": "Estimated: bZ4X 72.8 kWh CATL pack is 355.2 V (EVSpecifications, see src-r19-evspecs-solterra); the RZ 300e uses the same pack (Lexus 2024 pressroom). 355 V is 400v class like the 71.4 kWh pack."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-w2j-motor1-rz-2026",
+        "low_confidence": true,
+        "notes": "Estimated: Motor1 says the 2026 RZ \"gains\" an upgraded charging system with preconditioning, i.e. the 2023-2025 cars lacked it; Lexus 2023-2025 pages describe DC charging with no battery-warming feature; EV Database lists preconditioning \"No\" for the 71.4 kWh bZ4X sibling. Compared 2023, 2024 and 2025 pages: no change described."
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "value": 7,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-us-rz-2026-five",
+      "low_confidence": true,
+      "notes": "Lexus USA 2026 release: the 11 kW charger is \"up from 7-kW capacity on the prior model year\", i.e. 7 kW on 2025 and earlier."
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-r19-evpulse-bz4x-2024",
+      "low_confidence": true,
+      "notes": "Estimated: EVPulse: the bZ4X AWD (two-motor, 72.8 kWh CATL) peak rose from 100 to 150 kW for 2024; the RZ 300e (2024-2025 only) is single-motor FWD with the same pack (Lexus 2024/2025 pressroom), so motors differ and this is a weak basis. The 2023 bZ4X AWD was 100 kW (InsideEVs test)."
+    }
   ]
 }

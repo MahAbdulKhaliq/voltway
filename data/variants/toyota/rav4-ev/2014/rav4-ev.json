@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "j1772",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-wikipedia-rav4ev",
+      "low_confidence": true,
+      "notes": "Wikipedia: \"Production models use the SAE J1772 charging standard\", 240 V 40 A input (US only, no DC port)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "estimated",
+      "source_id": "src-w2j-wikipedia-rav4ev",
+      "low_confidence": true,
+      "notes": "Estimated: No DC port and a pre-NACS Tesla-built car with a J1772 inlet; no Tesla or Toyota adapter programme found."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

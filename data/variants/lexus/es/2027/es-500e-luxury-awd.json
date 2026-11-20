@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "estimated",
+      "source_id": "src-w2j-lexus-us-es-2026",
+      "low_confidence": true,
+      "notes": "Estimated: The 2027 ES is a carry-over of the 2026 ES (no 2027 page found); the 2026 ES release states the NACS J3400-style port. Compared 2026 vs 2027, US only."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-w2j-insideevs-sc-list-2026",
+      "low_confidence": true,
+      "notes": "Estimated: The 2027 ES carries the 2026 ES hardware (native NACS); the 2026 ES charged at a Tesla Supercharger (InsideEVs test) and is listed as Supercharger-compatible."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

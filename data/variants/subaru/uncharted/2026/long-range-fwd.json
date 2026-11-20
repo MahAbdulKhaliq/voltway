@@ -8,6 +8,37 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-guideauto-uncharted-ca-2026",
+      "notes": "Guide Auto (Canada): standard NACS charge port on the front right fender, all 2026 Subaru EVs."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-subaru-us-media-solterra-2026",
+      "low_confidence": true,
+      "notes": "Estimated: Subaru US 2026 Solterra release (same NACS lineup): Superchargers open to Subaru EVs; no Subaru page names this car."
+    },
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-w2j-insideevs-sc-list-2026",
+      "low_confidence": true,
+      "notes": "Estimated: InsideEVs list of non-Tesla EVs that can use Superchargers includes the Subaru Trailseeker and Uncharted."
+    },
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-driveteslacanada-toyota-subaru-sc-2025",
+      "low_confidence": true,
+      "notes": "Estimated: Drive Tesla Canada relays Subaru: Superchargers available to Subaru EV owners in Canada and the US through the SubaruConnect app (Solterra); 2026 Subaru EVs have native NACS."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-w2j-greencarscompare-mx30",
+      "low_confidence": true,
+      "notes": "Estimated: Green Cars Compare lists CCS Type 1 for the MX-30; North American cars use CCS1; no Mazda North American page opened. Same hardware 2022-2024."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "estimated",
+      "source_id": "src-w2j-insideevs-sc-list-2026",
+      "low_confidence": true,
+      "notes": "Estimated: The InsideEVs Supercharger-access list does not include the MX-30 and notes Mazda sells no EV in the US after the MX-30. Canada: nothing found; assumed the same."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

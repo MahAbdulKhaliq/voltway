@@ -9,6 +9,41 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-us-es-2026",
+      "notes": "NACS J3400-style port, power-operated door; CCS-to-NACS adapter in the box (US)."
+    },
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-ca-charging",
+      "notes": "Lexus Canada: 2026 model BEVs come with the NACS port (Canada)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "tested",
+      "source_id": "src-w2j-insideevs-es-350e-2026",
+      "notes": "US: 10-80% in 28 min at a V4 Tesla Supercharger (InsideEVs test)."
+    },
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-insideevs-sc-list-2026",
+      "low_confidence": true,
+      "notes": "Listed among non-Tesla EVs that can use Tesla Superchargers."
+    },
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-w2j-lexus-ca-media-bev-2025",
+      "notes": "Canada: Lexus BEV guests can charge on the Tesla Supercharger Network; 2026 ES gets Plug & Charge."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

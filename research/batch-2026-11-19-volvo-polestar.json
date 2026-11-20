@@ -1,0 +1,2686 @@
+{
+  "sources": [
+    {
+      "id": "src-evdb-xc40-twin-pure-my22",
+      "type": "community",
+      "title": "EV Database - Volvo XC40 Recharge Twin Pure Electric (MY22)",
+      "url": "https://ev-database.org/car/1520/Volvo-XC40-Recharge-Twin-Pure-Electric",
+      "accessed_on": "2026-11-19",
+      "notes": "European spec page: 78 kWh nominal / 75 usable, NMC, 400 V, 149 kW measured max, AC 11 kW, preconditioning supported and can start automatically via navigation."
+    },
+    {
+      "id": "src-evdb-xc40-twin-motor-my24",
+      "type": "community",
+      "title": "EV Database - Volvo XC40 Recharge Twin Motor (MY24)",
+      "url": "https://ev-database.org/car/1798/Volvo-XC40-Recharge-Twin-Motor",
+      "accessed_on": "2026-11-19",
+      "notes": "European 2024 spec page: 82 kWh nominal / 79 usable, NMC 108s1p prismatic, 400 V, Volvo-claimed 205 kW, AC 11 kW, preconditioning (automatic via navigation). The European 2024 Twin got the 82 kWh pack; the US/Canada 2024 Twin kept 78 kWh."
+    },
+    {
+      "id": "src-evdb-ex40-twin-my26",
+      "type": "community",
+      "title": "EV Database - Volvo EX40 Twin Motor (MY26-27)",
+      "url": "https://ev-database.org/car/3160/Volvo-EX40-Twin-Motor",
+      "accessed_on": "2026-11-19",
+      "notes": "European 2026 spec page: 82 kWh nominal / 79 usable, NMC, 400 V, 207 kW tested (Volvo claims 205 kW), AC 11 kW, 28 min claimed 10-80%, preconditioning automatic via navigation."
+    },
+    {
+      "id": "src-insideevs-volvo-2024-upgrades",
+      "type": "community",
+      "title": "InsideEVs - Volvo Outlines 2024 C40 Recharge And XC40 Recharge Upgrades",
+      "url": "https://insideevs.com/news/665158/2024-volvo-c40-xc40-recharge-upgrades/",
+      "accessed_on": "2026-11-19",
+      "notes": "Relays Volvo US 2024 announcement: RWD single motor 82 kWh, 200 kW, 10-80% about 28 min; AWD keeps 78 kWh and 150 kW (37 min for the 78 kWh pack at 150 kW)."
+    },
+    {
+      "id": "src-conceptcarz-volvo-us-2024-powertrains",
+      "type": "community",
+      "title": "Conceptcarz - Volvo Car USA announces 2024 line-up with new fully electric powertrains (copy of Volvo US press release)",
+      "url": "https://www.conceptcarz.com/a50263/volvo-car-usa-2024-fully-electric-powertrains.aspx",
+      "accessed_on": "2026-11-19",
+      "notes": "Copy of the Volvo Car USA 2024 release: Single Motor 82 kWh, 200 kW DC, 10-80% about 28 min; Twin Motor retains 78 kWh at 150 kW DC. Volvo media pages themselves return 403 to the fetcher."
+    },
+    {
+      "id": "src-insideevs-ex40-2025-rename",
+      "type": "community",
+      "title": "InsideEVs - 2025 Volvo EX40 rename (XC40 Recharge becomes EX40)",
+      "url": "https://insideevs.com/news/748105/2025-volvo-ex40-rename-xc40-recharge/",
+      "accessed_on": "2026-11-19",
+      "notes": "Volvo US 2025 pricing release relayed: Twin Motor gets 82 kWh (from 78), DC peak 200 to 205 kW for both Single and Twin Motor. The article text says single-motor versions keep 78 kWh, which contradicts the 2024 US release (single already 82 kWh) and Green Car Reports."
+    },
+    {
+      "id": "src-gcr-ex40-2025",
+      "type": "community",
+      "title": "Green Car Reports - 2025 Volvo EX40 (formerly XC40 Recharge) price and specs",
+      "url": "https://www.greencarreports.com/news/1145554_2025-volvo-ex40-price",
+      "accessed_on": "2026-11-19",
+      "notes": "2025 EX40: 82 kWh single-motor, 78 kWh dual-motor per this article (conflicts with the Volvo US release as relayed by InsideEVs); DC up from 200 to 205 kW."
+    },
+    {
+      "id": "src-kbb-ex40-2026-specs",
+      "type": "community",
+      "title": "Kelley Blue Book - 2026 Volvo EX40 specs",
+      "url": "https://www.kbb.com/volvo/ex40/2026/specs/",
+      "accessed_on": "2026-11-19",
+      "notes": "Lists 82 kWh battery for 2026 EX40 Plus and Ultra Black Edition (Twin Motor AWD, 402 hp, 260 mi). No charging data."
+    },
+    {
+      "id": "src-cision-volvo-ca-nacs-2024",
+      "type": "community",
+      "title": "Volvo Car Canada release (Cision) - Volvo Cars to open access to more than 17,800 NACS charging points through Tesla Supercharger network",
+      "url": "https://news.cision.com/volvo-car-canada/r/volvo-cars-to-open-access-to-more-than-17-800-nacs-charging-points-through-tesla-supercharger-network,c4177356",
+      "accessed_on": "2026-11-19",
+      "notes": "Volvo Canada release: owners of fully electric Volvo cars can order a NACS adapter (CA$310) from Nov 18, 2024; included with new 2025 EX90/EX40/EC40; EX30 adapter to be announced later."
+    },
+    {
+      "id": "src-insideevs-volvo-polestar-nacs-2024",
+      "type": "community",
+      "title": "InsideEVs - Volvo, Polestar Owners Get Tesla Supercharger Access",
+      "url": "https://insideevs.com/news/739114/tesla-volvo-polestar-nacs-supercharger/",
+      "accessed_on": "2026-11-19",
+      "notes": "US: NACS adapter $230 for existing Volvo and Polestar 2 owners via dealers/Service Points; free with 2025 EX90/EX40/EC40. EX30 adapter to be announced later (Oct 2024)."
+    },
+    {
+      "id": "src-wikipedia-volvo-ex40",
+      "type": "community",
+      "title": "Wikipedia - Volvo EX40",
+      "url": "https://en.wikipedia.org/wiki/Volvo_EX40",
+      "accessed_on": "2026-11-19",
+      "notes": "Powertrain table: 150 kW peak for 69 and 78 kWh packs, 175 kW (earlier figure) for 2023+ RWD/twin; 82 kWh from 2022-23; NMC; 11 kW AC. Page is internally inconsistent on pack sizes."
+    },
+    {
+      "id": "src-volvo-ca-ex40-charging-time-excerpt",
+      "type": "oem",
+      "title": "Volvo Cars Canada support - EX40 Charging time",
+      "url": "https://volvocars.com/en-ca/support/car/ex40/article/67784cb0d2e19139c0a801513d392da6",
+      "accessed_on": "2026-11-19",
+      "notes": "Page returned 403 to the fetcher; content read only from a search-result excerpt: highest AC charging output 11 kW (single-phase 48 A = 11 kW, about 8 h); preconditioning of the battery when a rapid charger is set as the destination in Google Maps."
+    },
+    {
+      "id": "src-insideevs-ex30-specs-2025",
+      "type": "community",
+      "title": "InsideEVs - 2025 Volvo EX30 Range, Specs And Pricing Overview",
+      "url": "https://insideevs.com/news/702527/2025-volvo-ex30-range-specs-pricing/",
+      "accessed_on": "2026-11-19",
+      "notes": "US EX30 (Single Motor Extended Range RWD and Twin Motor Performance AWD): 69 kWh gross / 64 usable NMC, 153 kW DC peak, AC about 11 kW, 10-80% about 26.5 min, CCS1 initially. Europe LFP 51/49 kWh at 134 kW is a separate pack."
+    },
+    {
+      "id": "src-insideevs-ex30-charging-test-2025",
+      "type": "testing_org",
+      "title": "InsideEVs - 2025 Volvo EX30 Charging Test Is A Little Disappointing",
+      "url": "https://insideevs.com/news/750622/2025-volvo-ex30-charging-test/",
+      "accessed_on": "2026-11-19",
+      "notes": "US-spec 2025 Twin Motor Performance tested at an Electrify America charger: about 150 kW at 8% SoC; Tesla Supercharger attempt failed (no adapter used)."
+    },
+    {
+      "id": "src-evdb-ex30-twin-perf",
+      "type": "community",
+      "title": "EV Database - Volvo EX30 Twin Motor Performance (MY24-26)",
+      "url": "https://ev-database.org/car/1911/Volvo-EX30-Twin-Motor-Performance",
+      "accessed_on": "2026-11-19",
+      "notes": "69 kWh nominal / 65 usable NMC, 392 V nominal (400 V architecture), Volvo-claimed 153 kW, AC 11 kW standard (22 kW optional in Europe), preconditioning auto via navigation, 28 min 10-80%."
+    },
+    {
+      "id": "src-kbb-ex30-2026-specs",
+      "type": "community",
+      "title": "Kelley Blue Book - 2026 Volvo EX30 specs",
+      "url": "https://www.kbb.com/volvo/ex30/2026/specs/",
+      "accessed_on": "2026-11-19",
+      "notes": "All four 2026 US EX30 trims (Single Motor Extended Range Plus RWD, Twin Motor Performance Plus/Ultra/Cross Country Ultra AWD) list a 69.00 kWh battery."
+    },
+    {
+      "id": "src-thechargeport-nacs-checker-2026",
+      "type": "community",
+      "title": "The Charge Port - NACS Port & Adapter Checker 2026",
+      "url": "https://thechargeport.com/nacs-checker",
+      "accessed_on": "2026-11-19",
+      "notes": "US checker verified 2026-10-20: Volvo EX30 (2025-2026) is CCS1 with a paid adapter (read from search excerpt; the fetched summary did not list rows); Polestar charges for the adapter."
+    },
+    {
+      "id": "src-polestar-us-manual-2024-gmaps",
+      "type": "oem",
+      "title": "Polestar US - Polestar 2 2024 manual: Electric vehicle functions with Google Maps",
+      "url": "https://www.polestar.com/us/manual/polestar-2/2024/article/1e2c80dd24931039c0a801510d8092e4/",
+      "accessed_on": "2026-11-19",
+      "notes": "Says: when charging stations have been added in Google Maps the battery will be preconditioned to reduce charging time. No manual control mentioned."
+    },
+    {
+      "id": "src-polestar-us-manual-2023-charging",
+      "type": "oem",
+      "title": "Polestar US - Polestar 2 2023 manual: Charging time",
+      "url": "https://www.polestar.com/us/manual/polestar-2/2023/article/88c8206d7df00acac0a801512bfd5131/",
+      "accessed_on": "2026-11-19",
+      "notes": "Vehicle max AC output 11 kW (single-phase 48 A = 11 kW); DC 10-80% about 35 min at a 150 kW station; battery preconditioning is triggered by adding a rapid charging station as a destination in Google Maps."
+    },
+    {
+      "id": "src-polestar-us-manual-2021-charging",
+      "type": "oem",
+      "title": "Polestar US - Polestar 2 2021 manual: Charging output",
+      "url": "https://www.polestar.com/us/manual/polestar-2/2021/article/88c8206d7df00acac0a801512bfd5131/",
+      "accessed_on": "2026-11-19",
+      "notes": "AC max 11 kW; DC rapid charging up to 150 kW, 0-80% about 35 min at 150 kW; preconditioning lengthens charging time."
+    },
+    {
+      "id": "src-polestar-us-specs",
+      "type": "oem",
+      "title": "Polestar US - Polestar 2 specifications (Long range Dual motor with Performance pack)",
+      "url": "https://www.polestar.com/us/polestar-2/specifications",
+      "accessed_on": "2026-11-19",
+      "notes": "400 V lithium-ion, 82 kWh capacity (gross/usable not split), up to 205 kW DC, 10-80% in 28 min, AC 11 kW."
+    },
+    {
+      "id": "src-insideevs-polestar-2024-epa",
+      "type": "community",
+      "title": "InsideEVs - 2024 Polestar 2 EPA Ratings Reveal Increased Range And Efficiency",
+      "url": "https://insideevs.com/news/684047/2024-polestar2-epa-range-efficiency/",
+      "accessed_on": "2026-11-19",
+      "notes": "US 2024 Polestar 2: Single Motor RWD 82 kWh, up to 205 kW, 28 min 10-80% (2023: 78 kWh, 155 kW, 35 min); Dual Motor and Performance Pack 78 kWh, up to 155 kW, 34 min."
+    },
+    {
+      "id": "src-wikipedia-polestar-2",
+      "type": "community",
+      "title": "Wikipedia - Polestar 2",
+      "url": "https://en.wikipedia.org/wiki/Polestar_2",
+      "accessed_on": "2026-11-19",
+      "notes": "Spec table (garbled column order): Long Range 78/75 kWh gross/usable 2021-2023 (single) and dual motor 2021-2024; 82/79 for single 2024-25 and dual 2025; NMC all packs; DC 155 kW (2021-23), 205 kW (2024+ single, 2025 dual); AC 11 kW."
+    },
+    {
+      "id": "src-evdb-polestar-2-lr-dual-my24",
+      "type": "community",
+      "title": "EV Database - Polestar 2 Long Range Dual Motor (MY24)",
+      "url": "https://ev-database.org/car/1819/Polestar-2-Long-Range-Dual-Motor",
+      "accessed_on": "2026-11-19",
+      "notes": "European 2024 page: 82 kWh nominal / 79 usable, NMC, 400 V, Polestar-claimed 205 kW, AC 11 kW, preconditioning automatic via navigation. (European 2024 dual had 82 kWh; US 2024 dual kept 78 kWh.)"
+    }
+  ],
+  "powertrains": {
+    "volvo/ex40/2022-p8": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-2024-upgrades",
+            "low_confidence": true,
+            "notes": "Relays Volvo US: AWD versions keep the 78 kWh battery; the 78 kWh pack is the XC40/C40 Recharge Twin pack since launch (2021-2024)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database (European MY22 car, same 78 kWh pack): 75.0 kWh usable. Wikipedia also gives 78 gross / 75 usable for the C40."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode, pouch, 108s3p (same cell family on all 78 kWh packs)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database: 400 V nominal and architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo support says the battery is preconditioned when a rapid charger is set as the Google Maps destination (read via search excerpt; page 403), and EV Database says preconditioning can start automatically via navigation. No manual control found in any Volvo page read, but no North American owner manual could be opened (volvocars.com returns 403), so a manual control cannot be ruled out."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-volvo-ex40",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo launch spec 150 kW for the 78 kWh pack (Wikipedia powertrain table: 150 kW for 69 and 78 kWh variants; Volvo US 2024 release says the Twin keeps its 150 kW). Same pack in 2021-2024, nothing shows a charging change."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "low_confidence": true,
+            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW; North American single-phase 48 A = 11 kW. EV Database lists 11 kW for the XC40 Recharge Twin as well."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-volvo-hamilton-ex40-2026-charging",
+            "low_confidence": true,
+            "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2021-2022 P8."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-cision-volvo-ca-nacs-2024",
+            "low_confidence": true,
+            "notes": "Volvo Canada release: owners of fully electric Volvo cars (all existing EVs) can order a NACS-to-CCS1 adapter at authorized retailers (CA$310) and use Tesla Superchargers from Nov 18 2024; the adapter is included with new 2025 EX90/EX40/EC40."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: adapter ($230) sold to existing Volvo EV owners via retailers; free with 2025 EX90/EX40/EC40."
+          }
+        ]
+      }
+    },
+    "volvo/ex40/2022-p8-twin-eawd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-2024-upgrades",
+            "low_confidence": true,
+            "notes": "Relays Volvo US: AWD versions keep the 78 kWh battery; the 78 kWh pack is the XC40/C40 Recharge Twin pack since launch (2021-2024)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database (European MY22 car, same 78 kWh pack): 75.0 kWh usable. Wikipedia also gives 78 gross / 75 usable for the C40."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode, pouch, 108s3p (same cell family on all 78 kWh packs)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database: 400 V nominal and architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo support says the battery is preconditioned when a rapid charger is set as the Google Maps destination (read via search excerpt; page 403), and EV Database says preconditioning can start automatically via navigation. No manual control found in any Volvo page read, but no North American owner manual could be opened (volvocars.com returns 403), so a manual control cannot be ruled out."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-volvo-ex40",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo launch spec 150 kW for the 78 kWh pack (Wikipedia powertrain table); same pack as the 2024 Twin that Volvo US states at 150 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "low_confidence": true,
+            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW; North American single-phase 48 A = 11 kW. EV Database lists 11 kW for the XC40 Recharge Twin as well."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-volvo-hamilton-ex40-2026-charging",
+            "low_confidence": true,
+            "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2022 P8 Twin eAWD (US)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-cision-volvo-ca-nacs-2024",
+            "low_confidence": true,
+            "notes": "Volvo Canada release: owners of fully electric Volvo cars (all existing EVs) can order a NACS-to-CCS1 adapter at authorized retailers (CA$310) and use Tesla Superchargers from Nov 18 2024; the adapter is included with new 2025 EX90/EX40/EC40."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: adapter ($230) sold to existing Volvo EV owners via retailers; free with 2025 EX90/EX40/EC40."
+          }
+        ]
+      }
+    },
+    "volvo/ex40/2023-twin": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-2024-upgrades",
+            "low_confidence": true,
+            "notes": "Relays Volvo US: AWD versions keep the 78 kWh battery; the 78 kWh pack is the XC40/C40 Recharge Twin pack since launch (2021-2024)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database (European MY22 car, same 78 kWh pack): 75.0 kWh usable. Wikipedia also gives 78 gross / 75 usable for the C40."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode, pouch, 108s3p (same cell family on all 78 kWh packs)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database: 400 V nominal and architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo support says the battery is preconditioned when a rapid charger is set as the Google Maps destination (read via search excerpt; page 403), and EV Database says preconditioning can start automatically via navigation. No manual control found in any Volvo page read, but no North American owner manual could be opened (volvocars.com returns 403), so a manual control cannot be ruled out."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-volvo-ex40",
+            "low_confidence": true,
+            "notes": "Estimated: Same 78 kWh pack and 150 kW peak as the 2024 Twin that Volvo US states at 150 kW; Wikipedia gives 150 kW for the 2021-2023 pack."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "low_confidence": true,
+            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW; North American single-phase 48 A = 11 kW. EV Database lists 11 kW for the XC40 Recharge Twin as well."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-volvo-hamilton-ex40-2026-charging",
+            "low_confidence": true,
+            "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2023 Twin."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-cision-volvo-ca-nacs-2024",
+            "low_confidence": true,
+            "notes": "Volvo Canada release: owners of fully electric Volvo cars (all existing EVs) can order a NACS-to-CCS1 adapter at authorized retailers (CA$310) and use Tesla Superchargers from Nov 18 2024; the adapter is included with new 2025 EX90/EX40/EC40."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: adapter ($230) sold to existing Volvo EV owners via retailers; free with 2025 EX90/EX40/EC40."
+          }
+        ]
+      }
+    },
+    "volvo/ex40/2024-twin": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-2024-upgrades",
+            "low_confidence": true,
+            "notes": "Relays Volvo US: AWD versions keep the 78 kWh battery; the 78 kWh pack is the XC40/C40 Recharge Twin pack since launch (2021-2024)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database (European MY22 car, same 78 kWh pack): 75.0 kWh usable. Wikipedia also gives 78 gross / 75 usable for the C40."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode, pouch, 108s3p (same cell family on all 78 kWh packs)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "EV Database: 400 V nominal and architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo support says the battery is preconditioned when a rapid charger is set as the Google Maps destination (read via search excerpt; page 403), and EV Database says preconditioning can start automatically via navigation. No manual control found in any Volvo page read, but no North American owner manual could be opened (volvocars.com returns 403), so a manual control cannot be ruled out."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-conceptcarz-volvo-us-2024-powertrains",
+            "low_confidence": true,
+            "notes": "Volvo Car USA 2024 release (copy): Twin Motor variants retain the 78 kWh battery pack with a top charging rate of 150 kW DC."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "low_confidence": true,
+            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW; North American single-phase 48 A = 11 kW. EV Database lists 11 kW for the XC40 Recharge Twin as well."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-volvo-hamilton-ex40-2026-charging",
+            "low_confidence": true,
+            "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2024 Twin."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-cision-volvo-ca-nacs-2024",
+            "low_confidence": true,
+            "notes": "Volvo Canada release: owners of fully electric Volvo cars (all existing EVs) can order a NACS-to-CCS1 adapter at authorized retailers (CA$310) and use Tesla Superchargers from Nov 18 2024; the adapter is included with new 2025 EX90/EX40/EC40."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: adapter ($230) sold to existing Volvo EV owners via retailers; free with 2025 EX90/EX40/EC40."
+          }
+        ]
+      }
+    },
+    "volvo/ex40/2024-single-motor-extended-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-2024-upgrades",
+            "low_confidence": true,
+            "notes": "Relays Volvo US 2024 release: new RWD single motor with an uprated 82 kWh battery (up from 78)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 79,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database (European 82 kWh pack, 108s1p prismatic NMC): 79.0 kWh usable; Volvo UK press (search excerpt) calls the pack 82/79 kWh nominal/usable. Usable carried from the same 82 kWh pack in the European 2024 Twin page."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode, prismatic, 108 cells."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: 400 V nominal and architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-ex40-twin-my26",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo support says the battery is preconditioned when a rapid charger is set as the Google Maps destination (read via search excerpt; page 403), and EV Database says preconditioning can start automatically via navigation. No manual control found in any Volvo page read, but no North American owner manual could be opened (volvocars.com returns 403), so a manual control cannot be ruled out."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "low_confidence": true,
+            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 200,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-conceptcarz-volvo-us-2024-powertrains",
+            "low_confidence": true,
+            "notes": "Volvo Car USA 2024 release (copy): the uprated 82 kWh pack allows charging at a top rate of 200 kW DC. (Volvo UK press gives 205 kW for the larger pack; North America stated 200 kW for 2024, raised to 205 kW for 2025.)"
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 28,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-conceptcarz-volvo-us-2024-powertrains",
+            "low_confidence": true,
+            "notes": "Volvo Car USA 2024 release (copy): 10-80% takes approximately 28 minutes."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-volvo-hamilton-ex40-2026-charging",
+            "low_confidence": true,
+            "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2024 RWD."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-cision-volvo-ca-nacs-2024",
+            "low_confidence": true,
+            "notes": "Volvo Canada release: owners of fully electric Volvo cars (all existing EVs) can order a NACS-to-CCS1 adapter at authorized retailers (CA$310) and use Tesla Superchargers from Nov 18 2024; the adapter is included with new 2025 EX90/EX40/EC40."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: adapter ($230) sold to existing Volvo EV owners via retailers; free with 2025 EX90/EX40/EC40."
+          }
+        ]
+      }
+    },
+    "volvo/ex40/2025-single-motor": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kbb-ex40-2026-specs",
+            "low_confidence": true,
+            "notes": "KBB: 82 kWh battery on the 2026 EX40; US 2025 pricing release (via InsideEVs) puts the Twin on 82 kWh; the single motor has been on the 82 kWh pack since 2024."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 79,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database (European 82 kWh pack, 108s1p prismatic NMC): 79.0 kWh usable; Volvo UK press (search excerpt) calls the pack 82/79 kWh nominal/usable. Same 82 kWh pack as the 2024 RWD."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode, prismatic, 108 cells."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: 400 V nominal and architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-ex40-twin-my26",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo support says the battery is preconditioned when a rapid charger is set as the Google Maps destination (read via search excerpt; page 403), and EV Database says preconditioning can start automatically via navigation. No manual control found in any Volvo page read, but no North American owner manual could be opened (volvocars.com returns 403), so a manual control cannot be ruled out."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "low_confidence": true,
+            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 205,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex40-2025-rename",
+            "low_confidence": true,
+            "notes": "Volvo US 2025 release as relayed by InsideEVs and Green Car Reports: DC fast-charging peak up from 200 kW to 205 kW for the 2025 EX40 (Volvo Hamilton, a Canadian dealer, says up to 200 kW for the 2026 Twin). EV Database tests 207 kW."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-volvo-hamilton-ex40-2026-charging",
+            "low_confidence": true,
+            "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-cision-volvo-ca-nacs-2024",
+            "low_confidence": true,
+            "notes": "Volvo Canada release: owners of fully electric Volvo cars (all existing EVs) can order a NACS-to-CCS1 adapter at authorized retailers (CA$310) and use Tesla Superchargers from Nov 18 2024; the adapter is included with new 2025 EX90/EX40/EC40."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: adapter ($230) sold to existing Volvo EV owners via retailers; free with 2025 EX90/EX40/EC40."
+          }
+        ]
+      }
+    },
+    "volvo/ex40/2025-twin-motor": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kbb-ex40-2026-specs",
+            "low_confidence": true,
+            "notes": "KBB: 82 kWh battery on the 2026 EX40; US 2025 pricing release (via InsideEVs) puts the Twin on 82 kWh; the single motor has been on the 82 kWh pack since 2024."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 79,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database (European 82 kWh pack, 108s1p prismatic NMC): 79.0 kWh usable; Volvo UK press (search excerpt) calls the pack 82/79 kWh nominal/usable. From 2025 the Twin moved from 78 to 82 kWh (Volvo US pricing release via InsideEVs; EPA 260 mi vs 254 mi; KBB 82 kWh for the 2026 Twin)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode, prismatic, 108 cells."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: 400 V nominal and architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-ex40-twin-my26",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo support says the battery is preconditioned when a rapid charger is set as the Google Maps destination (read via search excerpt; page 403), and EV Database says preconditioning can start automatically via navigation. No manual control found in any Volvo page read, but no North American owner manual could be opened (volvocars.com returns 403), so a manual control cannot be ruled out."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "low_confidence": true,
+            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 205,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex40-2025-rename",
+            "low_confidence": true,
+            "notes": "Volvo US 2025 release as relayed by InsideEVs and Green Car Reports: DC fast-charging peak up from 200 kW to 205 kW for the 2025 EX40 (Volvo Hamilton, a Canadian dealer, says up to 200 kW for the 2026 Twin). EV Database tests 207 kW."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-volvo-hamilton-ex40-2026-charging",
+            "low_confidence": true,
+            "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2025 Twin."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-cision-volvo-ca-nacs-2024",
+            "low_confidence": true,
+            "notes": "Volvo Canada release: owners of fully electric Volvo cars (all existing EVs) can order a NACS-to-CCS1 adapter at authorized retailers (CA$310) and use Tesla Superchargers from Nov 18 2024; the adapter is included with new 2025 EX90/EX40/EC40."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: adapter ($230) sold to existing Volvo EV owners via retailers; free with 2025 EX90/EX40/EC40."
+          }
+        ]
+      }
+    },
+    "volvo/ex40/2026-single-motor-extended-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kbb-ex40-2026-specs",
+            "low_confidence": true,
+            "notes": "KBB: 82 kWh battery on the 2026 EX40; US 2025 pricing release (via InsideEVs) puts the Twin on 82 kWh; the single motor has been on the 82 kWh pack since 2024."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 79,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database (European 82 kWh pack, 108s1p prismatic NMC): 79.0 kWh usable; Volvo UK press (search excerpt) calls the pack 82/79 kWh nominal/usable. Same 82 kWh pack carried from 2024-2025."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode, prismatic, 108 cells."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: 400 V nominal and architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-ex40-twin-my26",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo support says the battery is preconditioned when a rapid charger is set as the Google Maps destination (read via search excerpt; page 403), and EV Database says preconditioning can start automatically via navigation. No manual control found in any Volvo page read, but no North American owner manual could be opened (volvocars.com returns 403), so a manual control cannot be ruled out."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "low_confidence": true,
+            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 205,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex40-2025-rename",
+            "low_confidence": true,
+            "notes": "Volvo US 2025 release as relayed by InsideEVs and Green Car Reports: DC fast-charging peak up from 200 kW to 205 kW for the 2025 EX40 (Volvo Hamilton, a Canadian dealer, says up to 200 kW for the 2026 Twin). EV Database tests 207 kW."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-volvo-hamilton-ex40-2026-charging",
+            "low_confidence": true,
+            "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2026 US."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-cision-volvo-ca-nacs-2024",
+            "low_confidence": true,
+            "notes": "Volvo Canada release: owners of fully electric Volvo cars (all existing EVs) can order a NACS-to-CCS1 adapter at authorized retailers (CA$310) and use Tesla Superchargers from Nov 18 2024; the adapter is included with new 2025 EX90/EX40/EC40."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: adapter ($230) sold to existing Volvo EV owners via retailers; free with 2025 EX90/EX40/EC40."
+          }
+        ]
+      }
+    },
+    "volvo/ex40/2026-standard": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kbb-ex40-2026-specs",
+            "low_confidence": true,
+            "notes": "KBB: 82 kWh battery on the 2026 EX40; US 2025 pricing release (via InsideEVs) puts the Twin on 82 kWh; the single motor has been on the 82 kWh pack since 2024."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 79,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database (European 82 kWh pack, 108s1p prismatic NMC): 79.0 kWh usable; Volvo UK press (search excerpt) calls the pack 82/79 kWh nominal/usable. Canadian 2026 \"Standard\": NRCan row EX40 185 kW 476 km is the same row as the 2025 single motor (82 kWh RWD, EPA 296 mi = 476 km), so it is the same single-motor pack as the US 2026 Extended Range RWD. Our variant file calls it FWD and OpenEV shows 78/69 kWh at 150 kW; both look stale."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode, prismatic, 108 cells."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: 400 V nominal and architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-ex40-twin-my26",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo support says the battery is preconditioned when a rapid charger is set as the Google Maps destination (read via search excerpt; page 403), and EV Database says preconditioning can start automatically via navigation. No manual control found in any Volvo page read, but no North American owner manual could be opened (volvocars.com returns 403), so a manual control cannot be ruled out."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "low_confidence": true,
+            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 205,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex40-2025-rename",
+            "low_confidence": true,
+            "notes": "Volvo US 2025 release as relayed by InsideEVs and Green Car Reports: DC fast-charging peak up from 200 kW to 205 kW for the 2025 EX40 (Volvo Hamilton, a Canadian dealer, says up to 200 kW for the 2026 Twin). EV Database tests 207 kW."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-volvo-hamilton-ex40-2026-charging",
+            "low_confidence": true,
+            "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2026 Canada Standard."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-cision-volvo-ca-nacs-2024",
+            "low_confidence": true,
+            "notes": "Volvo Canada release: owners of fully electric Volvo cars (all existing EVs) can order a NACS-to-CCS1 adapter at authorized retailers (CA$310) and use Tesla Superchargers from Nov 18 2024; the adapter is included with new 2025 EX90/EX40/EC40."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: adapter ($230) sold to existing Volvo EV owners via retailers; free with 2025 EX90/EX40/EC40."
+          }
+        ]
+      }
+    },
+    "volvo/ex40/2026-twin": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kbb-ex40-2026-specs",
+            "low_confidence": true,
+            "notes": "KBB: 82 kWh battery on the 2026 EX40; US 2025 pricing release (via InsideEVs) puts the Twin on 82 kWh; the single motor has been on the 82 kWh pack since 2024."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 79,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database (European 82 kWh pack, 108s1p prismatic NMC): 79.0 kWh usable; Volvo UK press (search excerpt) calls the pack 82/79 kWh nominal/usable. 2026 Twin Motor AWD: KBB lists 82 kWh; EV Database MY26 Twin 82/79. OpenEV shows 78/69 kWh at 150 kW, which conflicts and looks stale."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode, prismatic, 108 cells."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-xc40-twin-motor-my24",
+            "low_confidence": true,
+            "notes": "EV Database: 400 V nominal and architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-ex40-twin-my26",
+            "low_confidence": true,
+            "notes": "Estimated: Volvo support says the battery is preconditioned when a rapid charger is set as the Google Maps destination (read via search excerpt; page 403), and EV Database says preconditioning can start automatically via navigation. No manual control found in any Volvo page read, but no North American owner manual could be opened (volvocars.com returns 403), so a manual control cannot be ruled out."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "low_confidence": true,
+            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 205,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex40-2025-rename",
+            "low_confidence": true,
+            "notes": "Volvo US 2025 release as relayed by InsideEVs and Green Car Reports: DC fast-charging peak up from 200 kW to 205 kW for the 2025 EX40 (Volvo Hamilton, a Canadian dealer, says up to 200 kW for the 2026 Twin). EV Database tests 207 kW."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-volvo-hamilton-ex40-2026-charging",
+            "low_confidence": true,
+            "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2026 Twin."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-cision-volvo-ca-nacs-2024",
+            "low_confidence": true,
+            "notes": "Volvo Canada release: owners of fully electric Volvo cars (all existing EVs) can order a NACS-to-CCS1 adapter at authorized retailers (CA$310) and use Tesla Superchargers from Nov 18 2024; the adapter is included with new 2025 EX90/EX40/EC40."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: adapter ($230) sold to existing Volvo EV owners via retailers; free with 2025 EX90/EX40/EC40."
+          }
+        ]
+      }
+    },
+    "volvo/ex30/2025-twin-motor-performance": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 69,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "US EX30 (Single Motor Extended Range RWD and Twin Motor Performance AWD): 69 kWh gross. KBB lists 69 kWh for all four 2026 US trims. "
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 64,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: 64 kWh usable for the US NMC pack. Other pages differ: EV Database 65.0, ArenaEV 65.4, OpenEV 66; auto-data/EVKX 64."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: NMC for the US models (Europe entry pack is LFP 51/49 kWh, which our 2026 single-motor variant shows from OpenEV; the Canadian/US Extended Range is the 69 kWh NMC pack: NRCan 420 km matches 261 mi on 69 kWh)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ex30-twin-perf",
+            "low_confidence": true,
+            "notes": "EV Database: 392 V nominal, 400 V architecture (69 kWh NMC pack)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-ex30-twin-perf",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database says preconditioning can start automatically using navigation on the EX30; Volvo says the same for its Google-built-in cars (see EX40 notes). No manual control found, no owner manual openable (volvocars.com 403)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 153,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: up to 153 kW (Volvo US). EV Database also says Volvo claims 153 kW. An InsideEVs test of a 2025 Twin Motor Performance measured about 150 kW at 8% SoC. A Volvo Canada page excerpt shows 175 kW for the larger pack; not used (page not readable)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: onboard charger rated about 11 kW (about 8 h on 240 V). EV Database: 11 kW standard (22 kW optional in Europe)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: charging port initially CCS1 (NACS was expected, but Volvo has since offered a NACS-to-CCS1 adapter instead)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 checker lists the EX30 (2025-2026) as CCS1 with a paid adapter (search excerpt); a Volvo US support page excerpt lists the EX30 among models that can access Superchargers. Volvo Canada said in Oct 2024 that EX30 adapter availability would be announced later and no later Canadian confirmation was readable, so Canadian access is inferred from the US listing."
+          }
+        ]
+      }
+    },
+    "volvo/ex30/2026-single-motor-extended-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 69,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "US EX30 (Single Motor Extended Range RWD and Twin Motor Performance AWD): 69 kWh gross. KBB lists 69 kWh for all four 2026 US trims. Covers the 2025 and 2026 single motor Extended Range RWD."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 64,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: 64 kWh usable for the US NMC pack. Other pages differ: EV Database 65.0, ArenaEV 65.4, OpenEV 66; auto-data/EVKX 64."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: NMC for the US models (Europe entry pack is LFP 51/49 kWh, which our 2026 single-motor variant shows from OpenEV; the Canadian/US Extended Range is the 69 kWh NMC pack: NRCan 420 km matches 261 mi on 69 kWh)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ex30-twin-perf",
+            "low_confidence": true,
+            "notes": "EV Database: 392 V nominal, 400 V architecture (69 kWh NMC pack)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-ex30-twin-perf",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database says preconditioning can start automatically using navigation on the EX30; Volvo says the same for its Google-built-in cars (see EX40 notes). No manual control found, no owner manual openable (volvocars.com 403)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 153,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: up to 153 kW (Volvo US). EV Database also says Volvo claims 153 kW. An InsideEVs test of a 2025 Twin Motor Performance measured about 150 kW at 8% SoC. A Volvo Canada page excerpt shows 175 kW for the larger pack; not used (page not readable)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: onboard charger rated about 11 kW (about 8 h on 240 V). EV Database: 11 kW standard (22 kW optional in Europe)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: charging port initially CCS1 (NACS was expected, but Volvo has since offered a NACS-to-CCS1 adapter instead)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 checker lists the EX30 (2025-2026) as CCS1 with a paid adapter (search excerpt); a Volvo US support page excerpt lists the EX30 among models that can access Superchargers. Volvo Canada said in Oct 2024 that EX30 adapter availability would be announced later and no later Canadian confirmation was readable, so Canadian access is inferred from the US listing."
+          }
+        ]
+      }
+    },
+    "volvo/ex30/2026-twin-performance": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 69,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "US EX30 (Single Motor Extended Range RWD and Twin Motor Performance AWD): 69 kWh gross. KBB lists 69 kWh for all four 2026 US trims. "
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 64,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: 64 kWh usable for the US NMC pack. Other pages differ: EV Database 65.0, ArenaEV 65.4, OpenEV 66; auto-data/EVKX 64."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: NMC for the US models (Europe entry pack is LFP 51/49 kWh, which our 2026 single-motor variant shows from OpenEV; the Canadian/US Extended Range is the 69 kWh NMC pack: NRCan 420 km matches 261 mi on 69 kWh)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ex30-twin-perf",
+            "low_confidence": true,
+            "notes": "EV Database: 392 V nominal, 400 V architecture (69 kWh NMC pack)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-ex30-twin-perf",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database says preconditioning can start automatically using navigation on the EX30; Volvo says the same for its Google-built-in cars (see EX40 notes). No manual control found, no owner manual openable (volvocars.com 403)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 153,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: up to 153 kW (Volvo US). EV Database also says Volvo claims 153 kW. An InsideEVs test of a 2025 Twin Motor Performance measured about 150 kW at 8% SoC. A Volvo Canada page excerpt shows 175 kW for the larger pack; not used (page not readable)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: onboard charger rated about 11 kW (about 8 h on 240 V). EV Database: 11 kW standard (22 kW optional in Europe)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: charging port initially CCS1 (NACS was expected, but Volvo has since offered a NACS-to-CCS1 adapter instead)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 checker lists the EX30 (2025-2026) as CCS1 with a paid adapter (search excerpt); a Volvo US support page excerpt lists the EX30 among models that can access Superchargers. Volvo Canada said in Oct 2024 that EX30 adapter availability would be announced later and no later Canadian confirmation was readable, so Canadian access is inferred from the US listing."
+          }
+        ]
+      }
+    },
+    "volvo/ex30/2026-cross-country": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 69,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "US EX30 (Single Motor Extended Range RWD and Twin Motor Performance AWD): 69 kWh gross. KBB lists 69 kWh for all four 2026 US trims. Cross Country: KBB lists the same 69 kWh pack; DC/AC carried over from the Twin Motor Performance (same hardware, sibling)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 64,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: 64 kWh usable for the US NMC pack. Other pages differ: EV Database 65.0, ArenaEV 65.4, OpenEV 66; auto-data/EVKX 64."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: NMC for the US models (Europe entry pack is LFP 51/49 kWh, which our 2026 single-motor variant shows from OpenEV; the Canadian/US Extended Range is the 69 kWh NMC pack: NRCan 420 km matches 261 mi on 69 kWh)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ex30-twin-perf",
+            "low_confidence": true,
+            "notes": "EV Database: 392 V nominal, 400 V architecture (69 kWh NMC pack)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-evdb-ex30-twin-perf",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database says preconditioning can start automatically using navigation on the EX30; Volvo says the same for its Google-built-in cars (see EX40 notes). No manual control found, no owner manual openable (volvocars.com 403)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 153,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: up to 153 kW (Volvo US). EV Database also says Volvo claims 153 kW. An InsideEVs test of a 2025 Twin Motor Performance measured about 150 kW at 8% SoC. A Volvo Canada page excerpt shows 175 kW for the larger pack; not used (page not readable)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: onboard charger rated about 11 kW (about 8 h on 240 V). EV Database: 11 kW standard (22 kW optional in Europe)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ex30-specs-2025",
+            "low_confidence": true,
+            "notes": "InsideEVs: charging port initially CCS1 (NACS was expected, but Volvo has since offered a NACS-to-CCS1 adapter instead)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 checker lists the EX30 (2025-2026) as CCS1 with a paid adapter (search excerpt); a Volvo US support page excerpt lists the EX30 among models that can access Superchargers. Volvo Canada said in Oct 2024 that EX30 adapter availability would be announced later and no later Canadian confirmation was readable, so Canadian access is inferred from the US listing."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2021-launch-edition": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: Long Range packs 78 kWh gross / 75 kWh usable for 2021-2023 (single) and dual motor 2021-2024; InsideEVs 2024 EPA article confirms 78 kWh for the 2023 single and the 2024 dual/performance pack."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: 75 kWh usable for the 78 kWh Long Range pack (also EV Database Volvo XC40 Recharge 78/75, same CMA pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "Estimated: The 78 kWh Polestar 2 pack is the same CMA 108-cell NMC pack as the Volvo XC40 Recharge 78 kWh (EV Database: 400 V); the Polestar US spec page confirms 400 V for the later 82 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2024-gmaps",
+            "low_confidence": true,
+            "notes": "Estimated: Same hardware/software line as the 2024 manual: the 2024 and 2023 US Polestar 2 manuals describe only the Google Maps navigation trigger (no manual control); the 2021 manual only says preconditioning lengthens charging time. Nothing shows a change for this model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2021-charging",
+            "low_confidence": true,
+            "notes": "Polestar US 2021 manual: rapid charging up to 150 kW. (Wikipedia and later Polestar claims say 155 kW; the 2021 manual says 150.)"
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2021-charging",
+            "low_confidence": true,
+            "notes": "Polestar US 2021 manual: AC max 11 kW (single-phase 48 A)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2021; no port change found across 2021-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2022-long-range-dual-motor": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: Long Range packs 78 kWh gross / 75 kWh usable for 2021-2023 (single) and dual motor 2021-2024; InsideEVs 2024 EPA article confirms 78 kWh for the 2023 single and the 2024 dual/performance pack."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: 75 kWh usable for the 78 kWh Long Range pack (also EV Database Volvo XC40 Recharge 78/75, same CMA pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "Estimated: The 78 kWh Polestar 2 pack is the same CMA 108-cell NMC pack as the Volvo XC40 Recharge 78 kWh (EV Database: 400 V); the Polestar US spec page confirms 400 V for the later 82 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2024-gmaps",
+            "low_confidence": true,
+            "notes": "Estimated: Same line as the 2023/2024 manuals: the 2024 and 2023 US Polestar 2 manuals describe only the Google Maps navigation trigger (no manual control); the 2021 manual only says preconditioning lengthens charging time. Nothing shows a change for this model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2021-charging",
+            "low_confidence": true,
+            "notes": "Estimated: Polestar US 2021 manual states 150 kW for the same 78 kWh pack; Wikipedia gives 155 kW for 2021-2023 so the true peak is 150-155 kW. Same hardware carried to 2022."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2021-charging",
+            "low_confidence": true,
+            "notes": "Estimated: 11 kW per the US 2021 and 2023 Polestar 2 manuals (same onboard charger)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2022; no port change found across 2021-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2022-long-range-single-motor": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: Long Range packs 78 kWh gross / 75 kWh usable for 2021-2023 (single) and dual motor 2021-2024; InsideEVs 2024 EPA article confirms 78 kWh for the 2023 single and the 2024 dual/performance pack."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: 75 kWh usable for the 78 kWh Long Range pack (also EV Database Volvo XC40 Recharge 78/75, same CMA pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "Estimated: The 78 kWh Polestar 2 pack is the same CMA 108-cell NMC pack as the Volvo XC40 Recharge 78 kWh (EV Database: 400 V); the Polestar US spec page confirms 400 V for the later 82 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2024-gmaps",
+            "low_confidence": true,
+            "notes": "Estimated: Same line as the 2023/2024 manuals: the 2024 and 2023 US Polestar 2 manuals describe only the Google Maps navigation trigger (no manual control); the 2021 manual only says preconditioning lengthens charging time. Nothing shows a change for this model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2021-charging",
+            "low_confidence": true,
+            "notes": "Estimated: Polestar US 2021 manual states 150 kW for the same 78 kWh pack; Wikipedia gives 155 kW for 2021-2023 so the true peak is 150-155 kW. Same hardware carried to 2022."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2021-charging",
+            "low_confidence": true,
+            "notes": "Estimated: 11 kW per the US 2021 and 2023 Polestar 2 manuals (same onboard charger)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2022; no port change found across 2021-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2023-dual-motor-performance-pack": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: Long Range packs 78 kWh gross / 75 kWh usable for 2021-2023 (single) and dual motor 2021-2024; InsideEVs 2024 EPA article confirms 78 kWh for the 2023 single and the 2024 dual/performance pack."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: 75 kWh usable for the 78 kWh Long Range pack (also EV Database Volvo XC40 Recharge 78/75, same CMA pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "Estimated: The 78 kWh Polestar 2 pack is the same CMA 108-cell NMC pack as the Volvo XC40 Recharge 78 kWh (EV Database: 400 V); the Polestar US spec page confirms 400 V for the later 82 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2023-charging",
+            "low_confidence": true,
+            "notes": "Polestar 2 manual (US, 2023): preconditioning is triggered by adding a rapid charging station as a destination in Google Maps; no manual control listed."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 155,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-polestar-2024-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs (Polestar US 2024 release): 2023 Single Motor charged at up to 155 kW (35 min 10-80%); Dual Motor up to 155 kW. Wikipedia also 155 kW. Polestar's 2021 manual says 150 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2023-charging",
+            "low_confidence": true,
+            "notes": "Polestar US 2023 manual: vehicle maximum AC output 11 kW."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2023; no port change found across 2021-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2023-dual-motor": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: Long Range packs 78 kWh gross / 75 kWh usable for 2021-2023 (single) and dual motor 2021-2024; InsideEVs 2024 EPA article confirms 78 kWh for the 2023 single and the 2024 dual/performance pack."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: 75 kWh usable for the 78 kWh Long Range pack (also EV Database Volvo XC40 Recharge 78/75, same CMA pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "Estimated: The 78 kWh Polestar 2 pack is the same CMA 108-cell NMC pack as the Volvo XC40 Recharge 78 kWh (EV Database: 400 V); the Polestar US spec page confirms 400 V for the later 82 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2023-charging",
+            "low_confidence": true,
+            "notes": "Polestar 2 manual (US, 2023): preconditioning is triggered by adding a rapid charging station as a destination in Google Maps; no manual control listed."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 155,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-polestar-2024-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs (Polestar US 2024 release): 2023 Single Motor charged at up to 155 kW (35 min 10-80%); Dual Motor up to 155 kW. Wikipedia also 155 kW. Polestar's 2021 manual says 150 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2023-charging",
+            "low_confidence": true,
+            "notes": "Polestar US 2023 manual: vehicle maximum AC output 11 kW."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2023; no port change found across 2021-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2023-single-motor": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: Long Range packs 78 kWh gross / 75 kWh usable for 2021-2023 (single) and dual motor 2021-2024; InsideEVs 2024 EPA article confirms 78 kWh for the 2023 single and the 2024 dual/performance pack."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: 75 kWh usable for the 78 kWh Long Range pack (also EV Database Volvo XC40 Recharge 78/75, same CMA pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "Estimated: The 78 kWh Polestar 2 pack is the same CMA 108-cell NMC pack as the Volvo XC40 Recharge 78 kWh (EV Database: 400 V); the Polestar US spec page confirms 400 V for the later 82 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2023-charging",
+            "low_confidence": true,
+            "notes": "Polestar 2 manual (US, 2023): preconditioning is triggered by adding a rapid charging station as a destination in Google Maps; no manual control listed."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 155,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-polestar-2024-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs (Polestar US 2024 release): 2023 Single Motor charged at up to 155 kW (35 min 10-80%); Dual Motor up to 155 kW. Wikipedia also 155 kW. Polestar's 2021 manual says 150 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2023-charging",
+            "low_confidence": true,
+            "notes": "Polestar US 2023 manual: vehicle maximum AC output 11 kW."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 35,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-polestar-2024-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs (relaying Polestar): 2023 Single Motor 35 min 10-80% at up to 155 kW."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2023; no port change found across 2021-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2024-long-range-dual-motor": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: Long Range packs 78 kWh gross / 75 kWh usable for 2021-2023 (single) and dual motor 2021-2024; InsideEVs 2024 EPA article confirms 78 kWh for the 2023 single and the 2024 dual/performance pack."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia spec table: 75 kWh usable for the 78 kWh Long Range pack (also EV Database Volvo XC40 Recharge 78/75, same CMA pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-xc40-twin-pure-my22",
+            "low_confidence": true,
+            "notes": "Estimated: The 78 kWh Polestar 2 pack is the same CMA 108-cell NMC pack as the Volvo XC40 Recharge 78 kWh (EV Database: 400 V); the Polestar US spec page confirms 400 V for the later 82 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2024-gmaps",
+            "low_confidence": true,
+            "notes": "Polestar 2 manual (US, 2024): \"When charging stations have been added in Google Maps, the battery will be preconditioned to reduce charging time.\" No manual control mentioned."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 155,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-polestar-2024-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs (Polestar US 2024): Dual Motor 78 kWh, up to 155 kW. EV Database (European 2024 dual, 82 kWh pack) differs; North American 2024 dual kept 78 kWh per EPA/Polestar."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2023-charging",
+            "low_confidence": true,
+            "notes": "Estimated: 11 kW per the US 2023 Polestar 2 manual; same onboard charger in 2024."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 34,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-polestar-2024-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs (Polestar US 2024): Dual Motor about 34 min 10-80% at up to 155 kW."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2024; no port change found across 2021-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2024-long-range-single-motor": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "notes": "Polestar US spec page: 82 kWh capacity (gross/usable not split) at 400 V."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 79,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-polestar-2-lr-dual-my24",
+            "low_confidence": true,
+            "notes": "EV Database (European MY24 Polestar 2, same 82 kWh pack): 79.0 kWh usable. Wikipedia: 79 usable / 82 gross for single 2024-25 and dual 2025."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page: 400 V lithium-ion, 82 kWh."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2024-gmaps",
+            "low_confidence": true,
+            "notes": "Polestar 2 manual (US, 2024): \"When charging stations have been added in Google Maps, the battery will be preconditioned to reduce charging time.\" No manual control mentioned."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 205,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-polestar-2024-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs (Polestar US 2024): Single Motor 82 kWh, about 28 min 10-80% at up to 205 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2023-charging",
+            "low_confidence": true,
+            "notes": "Estimated: 11 kW per the US 2023 Polestar 2 manual and the Polestar US spec page for the 82 kWh cars; same onboard charger."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 28,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-polestar-2024-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs (Polestar US 2024): about 28 min 10-80%."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2024; no port change found across 2021-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2025-dual-motor-performance-pack": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "notes": "Polestar US spec page: 82 kWh capacity (gross/usable not split) at 400 V."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 79,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-polestar-2-lr-dual-my24",
+            "low_confidence": true,
+            "notes": "EV Database (European MY24 Polestar 2, same 82 kWh pack): 79.0 kWh usable. Wikipedia: 79 usable / 82 gross for single 2024-25 and dual 2025."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page: 400 V lithium-ion, 82 kWh."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2024-gmaps",
+            "low_confidence": true,
+            "notes": "Estimated: Same line as the 2024 manual: the 2024 and 2023 US Polestar 2 manuals describe only the Google Maps navigation trigger (no manual control); the 2021 manual only says preconditioning lengthens charging time. Nothing shows a change for this model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 205,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page (Dual motor with Performance pack, 82 kWh): up to 205 kW DC, 10-80% in 28 min. Wikipedia: single 205 kW from 2024, dual 205 kW from 2025. OpenEV shows 78/75/150 for these cars, which is stale."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page: AC 11 kW (three-phase 16 A line); North American cars charge single-phase 48 A = 11 kW per the 2023 US manual."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 28,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page: 10-80% in 28 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2025; no port change found across 2021-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2025-dual-motor": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "notes": "Polestar US spec page: 82 kWh capacity (gross/usable not split) at 400 V."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 79,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-polestar-2-lr-dual-my24",
+            "low_confidence": true,
+            "notes": "EV Database (European MY24 Polestar 2, same 82 kWh pack): 79.0 kWh usable. Wikipedia: 79 usable / 82 gross for single 2024-25 and dual 2025."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page: 400 V lithium-ion, 82 kWh."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2024-gmaps",
+            "low_confidence": true,
+            "notes": "Estimated: Same line as the 2024 manual: the 2024 and 2023 US Polestar 2 manuals describe only the Google Maps navigation trigger (no manual control); the 2021 manual only says preconditioning lengthens charging time. Nothing shows a change for this model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 205,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page (Dual motor with Performance pack, 82 kWh): up to 205 kW DC, 10-80% in 28 min. Wikipedia: single 205 kW from 2024, dual 205 kW from 2025. OpenEV shows 78/75/150 for these cars, which is stale."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page: AC 11 kW (three-phase 16 A line); North American cars charge single-phase 48 A = 11 kW per the 2023 US manual."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 28,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page: 10-80% in 28 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2025; no port change found across 2021-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+          }
+        ]
+      }
+    },
+    "polestar/polestar-2/2025-single-motor": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "notes": "Polestar US spec page: 82 kWh capacity (gross/usable not split) at 400 V."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 79,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-polestar-2-lr-dual-my24",
+            "low_confidence": true,
+            "notes": "EV Database (European MY24 Polestar 2, same 82 kWh pack): 79.0 kWh usable. Wikipedia: 79 usable / 82 gross for single 2024-25 and dual 2025."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-polestar-2",
+            "low_confidence": true,
+            "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page: 400 V lithium-ion, 82 kWh."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-polestar-us-manual-2024-gmaps",
+            "low_confidence": true,
+            "notes": "Estimated: Same line as the 2024 manual: the 2024 and 2023 US Polestar 2 manuals describe only the Google Maps navigation trigger (no manual control); the 2021 manual only says preconditioning lengthens charging time. Nothing shows a change for this model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 205,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page (Dual motor with Performance pack, 82 kWh): up to 205 kW DC, 10-80% in 28 min. Wikipedia: single 205 kW from 2024, dual 205 kW from 2025. OpenEV shows 78/75/150 for these cars, which is stale."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page: AC 11 kW (three-phase 16 A line); North American cars charge single-phase 48 A = 11 kW per the 2023 US manual."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 28,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-specs",
+            "low_confidence": true,
+            "notes": "Polestar US spec page: 10-80% in 28 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2025; no port change found across 2021-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-ca-tesla-supercharger-network",
+            "low_confidence": true,
+            "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+            "low_confidence": true,
+            "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+          }
+        ]
+      }
+    }
+  }
+}

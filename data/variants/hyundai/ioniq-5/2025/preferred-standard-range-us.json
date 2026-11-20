@@ -1,0 +1,36 @@
+{
+  "id": "hyundai/ioniq-5/2025/preferred-standard-range-us",
+  "model_id": "hyundai/ioniq-5",
+  "year": 2025,
+  "name": "SE Standard Range RWD",
+  "drivetrain": "rwd",
+  "powertrain_id": "hyundai/ioniq-5/2025-preferred-standard-range",
+  "markets": [
+    "US"
+  ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-hmgma-2025-ioniq-5-xrt",
+      "notes": "NACS port is standard on the 2025 IONIQ 5 (first Hyundai with NACS), with a CCS adapter supplied."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-usa-nacs-adapter-faq",
+      "notes": "native NACS 2025 IONIQ 5 uses Tesla Superchargers directly (125 kW limit at the time).",
+      "low_confidence": true
+    }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": {
+        "US": "SE Standard Range RWD"
+      }
+    }
+  ]
+}

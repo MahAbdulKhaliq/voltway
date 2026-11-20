@@ -8,6 +8,23 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-guideauto-ioniq5-2025-lineup-ca",
+      "notes": "Canada: other 2025 IONIQ 5 models use a CCS port and are offered a NACS adapter.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-faq",
+      "notes": "Hyundai Canada FAQ: model year 2025 and earlier Hyundai EVs can use a NACS adapter sold separately."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

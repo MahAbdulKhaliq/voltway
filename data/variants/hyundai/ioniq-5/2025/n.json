@@ -9,6 +9,23 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-usa-nacs-adapter-faq",
+      "notes": "US: the IONIQ 5 N does not have a native NACS port. Canada: the 2025 N uses a CCS port with an offered NACS adapter (Guide Auto). The 2026 N has NACS (already on file)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-motor-hyundai-adapters-2025",
+      "notes": "Hyundai press relay: the 2025 IONIQ 5 N gets a complimentary CCS-to-NACS adapter (US); Canada: NACS adapter offered (Guide Auto).",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

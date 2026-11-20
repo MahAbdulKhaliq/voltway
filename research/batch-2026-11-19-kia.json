@@ -1,0 +1,4125 @@
+{
+  "sources": [
+    {
+      "id": "src-evdb-ev6-sr-gen1",
+      "type": "community",
+      "title": "EV Database - Kia EV6 Standard Range 2WD (2021-2024)",
+      "url": "https://ev-database.org/imp/car/1480/Kia-EV6-Standard-Range-2WD",
+      "accessed_on": "2026-11-19",
+      "notes": "58.0 kWh nominal, 54.0 kWh usable, NMC, 523 V nominal on 800 V architecture, 175 kW max DC (Kia claims 180 kW, 18 min), 11 kW AC (EU three-phase), CCS rear right. European listing."
+    },
+    {
+      "id": "src-evdb-ev6-lr-gen1",
+      "type": "community",
+      "title": "EV Database - Kia EV6 Long Range AWD (2021-2024)",
+      "url": "https://ev-database.org/imp/car/1482/Kia-EV6-Long-Range-AWD",
+      "accessed_on": "2026-11-19",
+      "notes": "77.4 kWh nominal, 74.0 kWh usable, NMC, 697 V, 800 V architecture, 233 kW max DC (Kia claims 240 kW, 18 min), 11 kW AC. European listing."
+    },
+    {
+      "id": "src-evdb-ev6-sr-2025",
+      "type": "community",
+      "title": "EV Database - Kia EV6 Standard Range 2WD (MY25-27)",
+      "url": "https://ev-database.org/imp/car/3030/Kia-EV6-Standard-Range-2WD",
+      "accessed_on": "2026-11-19",
+      "notes": "63.0 kWh nominal, 60.0 kWh usable, NMC, 800 V architecture, 195 kW max DC (EU), 11 kW AC. European listing; model years 2025-2027."
+    },
+    {
+      "id": "src-evdb-ev6-lr-2025",
+      "type": "community",
+      "title": "EV Database - Kia EV6 Long Range 2WD (MY25-27)",
+      "url": "https://ev-database.org/imp/car/3028/Kia-EV6-Long-Range-2WD",
+      "accessed_on": "2026-11-19",
+      "notes": "84.0 kWh nominal, 80.0 kWh usable, NMC, 800 V architecture, 263 kW max DC (EU claim), 11 kW AC. European listing; model years 2025-2027."
+    },
+    {
+      "id": "src-wikipedia-kia-ev6",
+      "type": "community",
+      "title": "Wikipedia - Kia EV6",
+      "url": "https://en.wikipedia.org/wiki/Kia_EV6",
+      "accessed_on": "2026-11-19",
+      "notes": "Infobox: 58 / 77.4 / 84 kWh packs (84 replaces 77.4 at the 2024 facelift), NCM chemistry, DC 180 kW (58 kWh) and 240 kW (77.4 kWh), 11 kW AC; Georgia-built 2025 cars switch to NACS (port moves to rear driver side)."
+    },
+    {
+      "id": "src-kia-us-ev6-specs-2026-chargetable",
+      "type": "oem",
+      "title": "Kia US - 2026 EV6 specifications and trim comparison (charging table)",
+      "url": "https://www.kia.com/us/en/ev6/specs-compare",
+      "accessed_on": "2026-11-19",
+      "notes": "Read 2026-11-19 (page now shows 2026 EV6): Light 63.0 kWh, Light Long Range / Wind / GT-Line 84.0 kWh; onboard charger 10.9 kW on every trim; DC 10-80 % about 20 min at 350 kW (Kia notes the figure comes from a GT AWD test), 24/29 min at 150 kW, 61/81 min at 50 kW; NACS port on all trims."
+    },
+    {
+      "id": "src-automoblog-2025-ev6",
+      "type": "community",
+      "title": "Automoblog - 2025 Kia EV6 overview: fast charging times",
+      "url": "https://www.automoblog.com/2025-kia-ev6/",
+      "accessed_on": "2026-11-19",
+      "notes": "Kia-sourced charging chart: max DC input 180 kW (Light), 240 kW (Light Long Range, Wind, GT-Line, GT); 10-80 % at 350 kW 20 min (18 min GT); port on left rear, NACS on all trims except the GT."
+    },
+    {
+      "id": "src-electrek-2025-ev6-us-built",
+      "type": "community",
+      "title": "Electrek - US-built 2025 Kia EV6 debuts with more battery, NACS port",
+      "url": "https://electrek.co/2024/11/21/us-built-2025-kia-ev6-debuts-with-more-battery-nacs-port-and-a-fake-gear-shift/",
+      "accessed_on": "2026-11-19",
+      "notes": "2025 EV6 has a native NACS port (moved to rear left) on non-GT trims; GT stays Korea-built (production of all other trims moves to Georgia); 63 kWh base and 84 kWh larger pack, each about 7 kWh more than 2024."
+    },
+    {
+      "id": "src-arenaev-ev6-gt-2025",
+      "type": "community",
+      "title": "ArenaEV - Kia EV6 GT 2025 specs",
+      "url": "https://www.arenaev.com/kia__gt_2025-specs-773.php",
+      "accessed_on": "2026-11-19",
+      "notes": "84 kWh, NCM, 697 V (800 V class), 258 kW peak, CCS port, 11 kW AC."
+    },
+    {
+      "id": "src-electrek-kia-supercharger-2025-04",
+      "type": "community",
+      "title": "Electrek - Kia EVs can now officially charge on Tesla Superchargers (2025-04-24)",
+      "url": "https://electrek.co/2025/04/24/kia-evs-can-now-officially-charge-on-tesla-superchargers/",
+      "accessed_on": "2026-11-19",
+      "notes": "EV6, EV9 and Niro can charge at Tesla Superchargers in North America with the Kia adapter (or a native NACS port); adapter free for 2024/2025 EV9 and 2024 EV6 delivered after 4 Sept 2024, $249 otherwise."
+    },
+    {
+      "id": "src-kia-us-charge-pass-page",
+      "type": "oem",
+      "title": "Kia Owners (US) - Kia Charge Pass / Kia electrify",
+      "url": "https://owners.kia.com/us/en/kia-electrify.html",
+      "accessed_on": "2026-11-19",
+      "notes": "\"Kia vehicles with CCS charging ports may use Tesla Superchargers by using a Kia approved NACS to CCS adapter\"; complimentary adapter for new 2024/2025 EV9 and 2024 EV6 delivered from 4 Sept 2024; Plug and Charge on 2025 EV6, 2026 EV9. Page does not list models by port type."
+    },
+    {
+      "id": "src-kia-manual-ev6-2024-battery-conditioning",
+      "type": "community",
+      "title": "Kia EV6 2024 Owner's Manual (ManualsLib, p.22) - Battery conditioning mode",
+      "url": "https://www.manualslib.com/manual/3313904/Kia-Ev6-2024.html?page=22",
+      "accessed_on": "2026-11-19",
+      "notes": "Relays the 2024 EV6 manual: \"Battery conditioning mode\" is an item in EV Settings (a menu setting), and you can set a DC charging station as the destination in battery conditioning mode to cut charging time; available on vehicles with a battery heater."
+    },
+    {
+      "id": "src-kia-uk-battery-preconditioning",
+      "type": "oem",
+      "title": "Kia UK - What is EV battery pre-conditioning?",
+      "url": "https://www.kia.com/uk/about/news/what-is-ev-battery-preconditioning/",
+      "accessed_on": "2026-11-19",
+      "notes": "Names EV3, EV6 and EV9 among EVs: setting a public charger as destination starts warming/cooling the battery during the drive; can also be started from the infotainment or Kia Connect app with a chosen start time."
+    },
+    {
+      "id": "src-insideevs-ev6-cold-weather-update",
+      "type": "community",
+      "title": "InsideEVs - Kia EV6 software update improves cold-weather charging",
+      "url": "https://insideevs.com/news/617611/kia-ev6-cold-fast-charging-update/",
+      "accessed_on": "2026-11-19",
+      "notes": "Battery pre-conditioning upgrade is standard on 2023 model-year EV6; 2022 EV6 owners can get it at a dealer. Navigation-triggered (fast charger as destination, pack below 21 C, SoC below 24 %). Kia Europe quote; US availability not stated."
+    },
+    {
+      "id": "src-kia-us-ev9-2027-specs",
+      "type": "oem",
+      "title": "Kia US - 2027 EV9 specifications and trim comparison",
+      "url": "https://www.kia.com/us/en/ev9/specs-compare",
+      "accessed_on": "2026-11-19",
+      "notes": "Read 2026-11-19: Light 76.1 kWh, Light Long Range / Wind AWD / Land AWD / GT-Line AWD 99.8 kWh; onboard charger 10.9 kW on all; DC 10-80 % about 20 min (Light) and 24 min (others) at 350 kW; NACS port on all trims."
+    },
+    {
+      "id": "src-insideevs-2024-ev9-epa",
+      "type": "community",
+      "title": "InsideEVs - 2024 Kia EV9 EPA range and efficiency",
+      "url": "https://insideevs.com/news/697983/2024-kia-ev9-epa-range-efficiency/",
+      "accessed_on": "2026-11-19",
+      "notes": "Relays Kia documents: 76.1 kWh (Light RWD SR) recharges up to 236 kW, 99.8 kWh up to 215 kW; 10.9 kW onboard charger for both; 10-80 % about 20 min (76.1) and 24-25 min (99.8) on 350 kW / 800 V."
+    },
+    {
+      "id": "src-kia-manual-mv1-2024-battery-conditioning",
+      "type": "oem",
+      "title": "Kia owner manual (MV1 = EV9, 2024, en_RG) - Battery conditioning mode",
+      "url": "https://ownersmanual.kia.com/full_webhelp/MV1/2024/en_RG/topics/BABJGFIDB7.html",
+      "accessed_on": "2026-11-19",
+      "notes": "Manual switch on the infotainment screen turns Battery Conditioning on/off; setting a fast charger as waypoint/destination heats or cools the battery while driving; remote start from Kia Connect for about 30 min; only on vehicles with a battery heater."
+    },
+    {
+      "id": "src-evdb-e-niro-64",
+      "type": "community",
+      "title": "EV Database - Kia e-Niro 64 kWh (2020-2022)",
+      "url": "https://ev-database.org/car/1338/Kia-e-Niro-64-kWh",
+      "accessed_on": "2026-11-19",
+      "notes": "64.0 kWh usable / 67.5 kWh nominal, NMC622, 360 V nominal, 77 kW max DC, 7.2 kW AC standard (11 kW optional, EU), CCS. European listing."
+    },
+    {
+      "id": "src-insideevs-niro-ev-2019-fast-test",
+      "type": "testing_org",
+      "title": "InsideEVs - Test: Kia Niro EV on a 150 kW fast charger",
+      "url": "https://insideevs.com/reviews/351535/test-kia-niro-ev-150kw-fast-charge-station/",
+      "accessed_on": "2026-11-19",
+      "notes": "Tested 2019 Niro EV peaked about 77 kW (first session) and 78 kW (second), about 21 C outside; Kia's '80 % in 1 hour @ 100 kW EVSE' is the charger rating, not the car. Averaged about 58 kW from 9-80 % in 54 min."
+    },
+    {
+      "id": "src-kia-us-2019-niro-ev-debut",
+      "type": "oem",
+      "title": "Kia US newsroom - All-new 2019 Kia Niro EV makes North American debut",
+      "url": "https://www.kianewscenter.com/News/all-new-2019-kia-niro-ev-crossover-utility-makes-north-american-debut/s/6b5b2491-9f62-4944-8096-266dc2c2088e",
+      "accessed_on": "2026-11-19",
+      "notes": "Page did not load for the fetcher (certificate error); values taken from a search excerpt: 64 kWh lithium-ion polymer battery, 7.2 kW Level 2 charger, CCS standard."
+    },
+    {
+      "id": "src-evdb-niro-ev-2022",
+      "type": "community",
+      "title": "EV Database - Kia Niro EV (2022-2025)",
+      "url": "https://ev-database.org/car/1666/Kia-Niro-EV",
+      "accessed_on": "2026-11-19",
+      "notes": "64.8 kWh usable / 68.0 kWh nominal, 358 V, max DC 94 kW (10-80 % 41 min, 70 kW avg), 11 kW AC, CCS; lists preconditioning \"yes, including automatic preconditioning when using navigation\". Cathode not listed."
+    },
+    {
+      "id": "src-weeklydriver-niro-ev-648",
+      "type": "community",
+      "title": "The Weekly Driver - Kia Niro EV 64.8 kWh battery",
+      "url": "https://theweeklydriver.com/reliability/batteries/kia-niro-ev-648/",
+      "accessed_on": "2026-11-19",
+      "notes": "CATL NCM cells, 358 V nominal, 64.8 kWh, 2023-2025 Niro EV."
+    },
+    {
+      "id": "src-insideevs-2023-niro-ev",
+      "type": "community",
+      "title": "InsideEVs - 2023 Kia Niro EV: more EPA range, new style",
+      "url": "https://insideevs.com/news/658026/2023-kia-niro-ev-epa-range-price/",
+      "accessed_on": "2026-11-19",
+      "notes": "64.8 kWh battery, 11 kW onboard charger, 10-80 % in 43 min on an 85 kW charger (Kia figure; the 85 kW is the charger, not a stated car peak)."
+    },
+    {
+      "id": "src-kia-press-eu-ev6-conditioning",
+      "type": "oem",
+      "title": "Kia press (Europe) - EV6 software update for faster cold-weather charging",
+      "url": "https://www.press-eu.kia.com/hub/95",
+      "accessed_on": "2026-11-19",
+      "notes": "Not opened (redirect to hub); wording taken from a search excerpt: battery conditioning is standard on MY23 EV6, the EV6 GT and the all-new Niro EV, and offered as a retrofit on MY22 EV6."
+    }
+  ],
+  "powertrains": {
+    "kia/ev6/2022-standard-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 58,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 58 kWh pack (EVDB: 58.0 nominal)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 54,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 54.0 kWh usable of 58.0 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 523 V nominal pack on an 800 V architecture (E-GMP)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 180,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 180 kW for the 58 kWh pack (Kia figure). EV Database lists 175 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-sr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same onboard charger family; the Canadian/US 2022-2024 page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-sr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 10-80 % in 18 min (350 kW charger); EVDB tested ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2024-light-standard-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 58,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 58 kWh pack (EVDB: 58.0 nominal)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 54,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 54.0 kWh usable of 58.0 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC cathode."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 523 V nominal pack on an 800 V architecture (E-GMP)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 180,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 180 kW for the 58 kWh pack (Kia figure). EV Database lists 175 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-sr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same onboard charger family; the Canadian/US 2022-2024 page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-sr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 10-80 % in 18 min (350 kW charger); EVDB tested ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2022-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 77.4 kWh pack (EVDB nominal 77.4)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 74.0 kWh usable of 77.4 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 697 V nominal, 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 240 kW for the 77.4 kWh pack (Kia claim). EV Database lists 233 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 18 min on a 350 kW charger; EVDB table ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2022-long-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 77.4 kWh pack (EVDB nominal 77.4)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 74.0 kWh usable of 77.4 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 697 V nominal, 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 240 kW for the 77.4 kWh pack (Kia claim). EV Database lists 233 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 18 min on a 350 kW charger; EVDB table ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2023-gt-line-package-1-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 77.4 kWh pack (EVDB nominal 77.4)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 74.0 kWh usable of 77.4 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 697 V nominal, 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 240 kW for the 77.4 kWh pack (Kia claim). EV Database lists 233 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 18 min on a 350 kW charger; EVDB table ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2023-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 77.4 kWh pack (EVDB nominal 77.4)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 74.0 kWh usable of 77.4 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 697 V nominal, 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 240 kW for the 77.4 kWh pack (Kia claim). EV Database lists 233 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 18 min on a 350 kW charger; EVDB table ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2023-long-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 77.4 kWh pack (EVDB nominal 77.4)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 74.0 kWh usable of 77.4 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 697 V nominal, 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 240 kW for the 77.4 kWh pack (Kia claim). EV Database lists 233 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 18 min on a 350 kW charger; EVDB table ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2024-gt-line-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 77.4 kWh pack (EVDB nominal 77.4)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 74.0 kWh usable of 77.4 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 697 V nominal, 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 240 kW for the 77.4 kWh pack (Kia claim). EV Database lists 233 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 18 min on a 350 kW charger; EVDB table ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2024-land-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 77.4 kWh pack (EVDB nominal 77.4)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 74.0 kWh usable of 77.4 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 697 V nominal, 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 240 kW for the 77.4 kWh pack (Kia claim). EV Database lists 233 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 18 min on a 350 kW charger; EVDB table ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2024-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 77.4 kWh pack (EVDB nominal 77.4)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 74.0 kWh usable of 77.4 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 697 V nominal, 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 240 kW for the 77.4 kWh pack (Kia claim). EV Database lists 233 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 18 min on a 350 kW charger; EVDB table ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2024-long-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 77.4 kWh pack (EVDB nominal 77.4)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 74.0 kWh usable of 77.4 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 697 V nominal, 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 240 kW for the 77.4 kWh pack (Kia claim). EV Database lists 233 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 18 min on a 350 kW charger; EVDB table ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2024-wind-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia infobox: 77.4 kWh pack (EVDB nominal 77.4)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 74.0 kWh usable of 77.4 nominal (EU listing 2021-2024; same pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: 697 V nominal, 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Wikipedia: 240 kW for the 77.4 kWh pack (Kia claim). EV Database lists 233 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claims 18 min on a 350 kW charger; EVDB table ~17 min."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2023-gt-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists the 77.4 kWh pack for the first generation; the GT uses the same E-GMP long-range pack. GT-specific 2023-2024 page not opened."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database usable 74.0 kWh for the 77.4 kWh first-generation EV6 pack; the GT (2022-2024) uses the same pack."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: Same 77.4 kWh pack as the Long Range EV6 (NMC per EV Database)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: E-GMP 800 V (697 V) pack shared with the Long Range EV6."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia gives 240 kW for the 77.4 kWh pack; the GT uses the same pack and DC hardware (Kia quotes the same 18 min 10-80 %)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: Same onboard charger as the Long Range EV6 (EV Database 11 kW EU; Kia NA 10.9 kW)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2023-gt-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists the 77.4 kWh pack for the first generation; the GT uses the same E-GMP long-range pack. GT-specific 2023-2024 page not opened."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database usable 74.0 kWh for the 77.4 kWh first-generation EV6 pack; the GT (2022-2024) uses the same pack."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: Same 77.4 kWh pack as the Long Range EV6 (NMC per EV Database)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: E-GMP 800 V (697 V) pack shared with the Long Range EV6."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia gives 240 kW for the 77.4 kWh pack; the GT uses the same pack and DC hardware (Kia quotes the same 18 min 10-80 %)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: Same onboard charger as the Long Range EV6 (EV Database 11 kW EU; Kia NA 10.9 kW)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2024-gt-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists the 77.4 kWh pack for the first generation; the GT uses the same E-GMP long-range pack. GT-specific 2023-2024 page not opened."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database usable 74.0 kWh for the 77.4 kWh first-generation EV6 pack; the GT (2022-2024) uses the same pack."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: Same 77.4 kWh pack as the Long Range EV6 (NMC per EV Database)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: E-GMP 800 V (697 V) pack shared with the Long Range EV6."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia gives 240 kW for the 77.4 kWh pack; the GT uses the same pack and DC hardware (Kia quotes the same 18 min 10-80 %)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: Same onboard charger as the Long Range EV6 (EV Database 11 kW EU; Kia NA 10.9 kW)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2024-gt": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists the 77.4 kWh pack for the first generation; the GT uses the same E-GMP long-range pack. GT-specific 2023-2024 page not opened."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database usable 74.0 kWh for the 77.4 kWh first-generation EV6 pack; the GT (2022-2024) uses the same pack."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: Same 77.4 kWh pack as the Long Range EV6 (NMC per EV Database)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: E-GMP 800 V (697 V) pack shared with the Long Range EV6."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-kia-ev6",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia gives 240 kW for the 77.4 kWh pack; the GT uses the same pack and DC hardware (Kia quotes the same 18 min 10-80 %)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ev6-lr-gen1",
+            "low_confidence": true,
+            "notes": "Estimated: Same onboard charger as the Long Range EV6 (EV Database 11 kW EU; Kia NA 10.9 kW)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-2025-ev6-us-built",
+            "low_confidence": true,
+            "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2026-light-standard-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 63,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: Light 63.0 kWh. 2027 Light RWD is 63 kWh per Electrek 2027 pricing coverage (search excerpt)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 60,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-2025",
+            "low_confidence": true,
+            "notes": "EV Database (MY25-27): 60.0 kWh usable of 63.0 nominal."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-uk-battery-preconditioning",
+            "low_confidence": true,
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 180,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-automoblog-2025-ev6",
+            "low_confidence": true,
+            "notes": "Automoblog Kia-sourced chart: Light 180 kW max DC input (EVDB EU listing says 195 kW)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: 10.9 kW onboard charger on Light."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 20,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (figure from a GT AWD test)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: NACS port on all trims."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Native NACS port: Tesla Superchargers directly."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2027-light-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 63,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "low_confidence": true,
+            "notes": "Kia US 2026 EV6 page: Light 63.0 kWh. 2027 Light RWD is 63 kWh per Electrek 2027 pricing coverage (search excerpt)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 60,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-2025",
+            "low_confidence": true,
+            "notes": "EV Database (MY25-27): 60.0 kWh usable of 63.0 nominal."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-uk-battery-preconditioning",
+            "low_confidence": true,
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 180,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-automoblog-2025-ev6",
+            "low_confidence": true,
+            "notes": "Automoblog Kia-sourced chart: Light 180 kW max DC input (EVDB EU listing says 195 kW)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "low_confidence": true,
+            "notes": "Estimated: Kia US 2026 EV6 page: 10.9 kW on every trim; the 2027 EV6 keeps the 2026 features."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 20,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "low_confidence": true,
+            "notes": "Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (figure from a GT AWD test)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "estimated",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "low_confidence": true,
+            "notes": "Estimated: Kia US 2026 EV6 page: NACS port on all trims; 2027 carries the 2026 features over."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "estimated",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "low_confidence": true,
+            "notes": "Estimated: Native NACS port: Tesla Superchargers directly (as 2026)."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2026-gt-line-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: 84.0 kWh on Light Long Range, Wind, GT-Line."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database (MY25-27): 80.0 kWh usable of 84.0 nominal (EV Database GT page agrees)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: 800 V architecture (697 V nominal)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-uk-battery-preconditioning",
+            "low_confidence": true,
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-automoblog-2025-ev6",
+            "low_confidence": true,
+            "notes": "Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: 10.9 kW onboard charger."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 20,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (GT AWD test figure)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: NACS port on all trims."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Native NACS port: Tesla Superchargers directly."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2026-light-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: 84.0 kWh on Light Long Range, Wind, GT-Line."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database (MY25-27): 80.0 kWh usable of 84.0 nominal (EV Database GT page agrees)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: 800 V architecture (697 V nominal)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-uk-battery-preconditioning",
+            "low_confidence": true,
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-automoblog-2025-ev6",
+            "low_confidence": true,
+            "notes": "Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: 10.9 kW onboard charger."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 20,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (GT AWD test figure)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: NACS port on all trims."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Native NACS port: Tesla Superchargers directly."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2026-light-long-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: 84.0 kWh on Light Long Range, Wind, GT-Line."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database (MY25-27): 80.0 kWh usable of 84.0 nominal (EV Database GT page agrees)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: 800 V architecture (697 V nominal)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-uk-battery-preconditioning",
+            "low_confidence": true,
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-automoblog-2025-ev6",
+            "low_confidence": true,
+            "notes": "Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: 10.9 kW onboard charger."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 20,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (GT AWD test figure)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Kia US 2026 EV6 page: NACS port on all trims."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "notes": "Native NACS port: Tesla Superchargers directly."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2027-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "low_confidence": true,
+            "notes": "Kia US 2026 EV6 page: 84.0 kWh on Light Long Range, Wind, GT-Line."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database (MY25-27): 80.0 kWh usable of 84.0 nominal (EV Database GT page agrees)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: 800 V architecture (697 V nominal)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-uk-battery-preconditioning",
+            "low_confidence": true,
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-automoblog-2025-ev6",
+            "low_confidence": true,
+            "notes": "Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "low_confidence": true,
+            "notes": "Estimated: Kia US 2026 EV6 page: 10.9 kW on every trim; the 2027 EV6 keeps the 2026 features."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 20,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "low_confidence": true,
+            "notes": "Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (GT AWD test figure)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "estimated",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "low_confidence": true,
+            "notes": "Estimated: Kia US 2026 EV6 page: NACS port on all trims; 2027 carries over."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "estimated",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "low_confidence": true,
+            "notes": "Estimated: Native NACS port: Tesla Superchargers directly."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2025-gt": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-arenaev-ev6-gt-2025",
+            "low_confidence": true,
+            "notes": "ArenaEV: 84 kWh for the 2025 GT (EVDB GT page also 84.0 nominal)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-gt",
+            "low_confidence": true,
+            "notes": "EV Database GT: 80.0 kWh usable (EVDB marks it estimated), 84.0 nominal."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-gt",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-gt",
+            "low_confidence": true,
+            "notes": "EV Database: 697 V, 800 V architecture."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-uk-battery-preconditioning",
+            "low_confidence": true,
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 240,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-automoblog-2025-ev6",
+            "low_confidence": true,
+            "notes": "Automoblog Kia-sourced chart: GT 240 kW, 10-80 % 18 min. (EVDB 263 kW, ArenaEV 258 kW are EU values.)"
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+            "low_confidence": true,
+            "notes": "Estimated: Kia US lists 10.9 kW for every 2026 EV6 trim including the 84 kWh packs; the 2025 GT shares the E-GMP onboard charger (EVDB GT page: 11 kW EU). GT-specific NA page not found."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-automoblog-2025-ev6",
+            "low_confidence": true,
+            "notes": "Automoblog Kia-sourced chart: GT 18 min at 350 kW."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-automoblog-2025-ev6",
+            "low_confidence": true,
+            "notes": "Automoblog: NACS-compatible port on all 2025 trims except the GT, which keeps CCS1. Electrek: GT excluded from the NACS port move (Korea-built)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "CCS1 Kia vehicles use Tesla Superchargers with a Kia-approved adapter."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2025-land-awd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database (MY25-27): 80.0 kWh usable of 84.0 nominal (EV Database GT page agrees)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-uk-battery-preconditioning",
+            "low_confidence": true,
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2025-wind": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-lr-2025",
+            "low_confidence": true,
+            "notes": "EV Database (MY25-27): 80.0 kWh usable of 84.0 nominal (EV Database GT page agrees)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-uk-battery-preconditioning",
+            "low_confidence": true,
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+          }
+        ]
+      }
+    },
+    "kia/ev6/2025-light": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 60,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-2025",
+            "low_confidence": true,
+            "notes": "EV Database (MY25-27): 60.0 kWh usable of 63.0 nominal."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ev6-sr-2025",
+            "low_confidence": true,
+            "notes": "EV Database: NMC."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-uk-battery-preconditioning",
+            "low_confidence": true,
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2024-land-gt-line": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 99.8,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack for Light LR RWD, Wind/Land/GT-Line AWD."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 96,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: 96.0 kWh usable (page marks it estimated); Australian Kia fact sheet also 96."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database NMC for the 99.8 kWh pack."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "2024 EV9 manual (MV1, en_RG copy): manual on/off switch, navigation fast-charger trigger, remote start from Kia Connect. Requires a battery heater (equipment per trim not confirmed)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
+          },
+          {
+            "value": 215,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 10.9 kW for both packs."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: complimentary NACS-to-CCS adapter offered to 2024/2025 EV9 buyers, i.e. CCS port; native NACS starts with the 2026 EV9."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): first NACS Kias in Canada are the 2025 EV6 and 2026 EV9; earlier EV9 are CCS1."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-kia-supercharger-2025-04",
+            "low_confidence": true,
+            "notes": "Electrek: EV9 can charge at Tesla Superchargers with the Kia adapter (April 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters sold at Kia dealers for EV9 owners (April 2025); search excerpt."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2024-light-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 76.1,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 76.1 kWh pack on Light RWD SR."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-761",
+            "low_confidence": true,
+            "notes": "EV Database 76.1 kWh pack: 73.0 kWh usable (EVKX says 75.0 net)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Page says both the 76.1 and 99.8 kWh packs use NMC cells from SK On."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "2024 EV9 manual (MV1, en_RG copy): manual on/off switch, navigation fast-charger trigger, remote start from Kia Connect. Requires a battery heater (equipment per trim not confirmed)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-761",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed 210 kW for the 76.1 kWh pack (EU). Conflicts with 236 kW below and 230-235 kW elsewhere."
+          },
+          {
+            "value": 236,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: the 76.1 kWh pack recharges up to 236 kW (conflicts with the 210 kW EU claim)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 10.9 kW for both packs."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: complimentary NACS-to-CCS adapter offered to 2024/2025 EV9 buyers, i.e. CCS port; native NACS starts with the 2026 EV9."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): first NACS Kias in Canada are the 2025 EV6 and 2026 EV9; earlier EV9 are CCS1."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-kia-supercharger-2025-04",
+            "low_confidence": true,
+            "notes": "Electrek: EV9 can charge at Tesla Superchargers with the Kia adapter (April 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters sold at Kia dealers for EV9 owners (April 2025); search excerpt."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2024-wind-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 99.8,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack for Light LR RWD, Wind/Land/GT-Line AWD."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 96,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: 96.0 kWh usable (page marks it estimated); Australian Kia fact sheet also 96."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database NMC for the 99.8 kWh pack."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "manufacturer",
+            "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "2024 EV9 manual (MV1, en_RG copy): manual on/off switch, navigation fast-charger trigger, remote start from Kia Connect. Requires a battery heater (equipment per trim not confirmed)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
+          },
+          {
+            "value": 215,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 10.9 kW for both packs."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: complimentary NACS-to-CCS adapter offered to 2024/2025 EV9 buyers, i.e. CCS port; native NACS starts with the 2026 EV9."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): first NACS Kias in Canada are the 2025 EV6 and 2026 EV9; earlier EV9 are CCS1."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-kia-supercharger-2025-04",
+            "low_confidence": true,
+            "notes": "Electrek: EV9 can charge at Tesla Superchargers with the Kia adapter (April 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters sold at Kia dealers for EV9 owners (April 2025); search excerpt."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2025-light-long-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 99.8,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack for Light LR RWD, Wind/Land/GT-Line AWD."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 96,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: 96.0 kWh usable (page marks it estimated); Australian Kia fact sheet also 96."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database NMC for the 99.8 kWh pack."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 and 2026 EV9 manuals (MV1) describe the same switch plus navigation trigger; nothing shows a change between 2024 and 2027. Requires a battery heater (per-trim equipment not confirmed)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
+          },
+          {
+            "value": 215,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 10.9 kW for both packs."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: complimentary NACS-to-CCS adapter offered to 2024/2025 EV9 buyers, i.e. CCS port; native NACS starts with the 2026 EV9."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): first NACS Kias in Canada are the 2025 EV6 and 2026 EV9; earlier EV9 are CCS1."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-kia-supercharger-2025-04",
+            "low_confidence": true,
+            "notes": "Electrek: EV9 can charge at Tesla Superchargers with the Kia adapter (April 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters sold at Kia dealers for EV9 owners (April 2025); search excerpt."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2025-light-standard-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 76.1,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 76.1 kWh pack on Light RWD SR."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-761",
+            "low_confidence": true,
+            "notes": "EV Database 76.1 kWh pack: 73.0 kWh usable (EVKX says 75.0 net)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Page says both the 76.1 and 99.8 kWh packs use NMC cells from SK On."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 and 2026 EV9 manuals (MV1) describe the same switch plus navigation trigger; nothing shows a change between 2024 and 2027. Requires a battery heater (per-trim equipment not confirmed)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-761",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed 210 kW for the 76.1 kWh pack (EU). Conflicts with 236 kW below and 230-235 kW elsewhere."
+          },
+          {
+            "value": 236,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: the 76.1 kWh pack recharges up to 236 kW (conflicts with the 210 kW EU claim)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 10.9 kW for both packs."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: complimentary NACS-to-CCS adapter offered to 2024/2025 EV9 buyers, i.e. CCS port; native NACS starts with the 2026 EV9."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): first NACS Kias in Canada are the 2025 EV6 and 2026 EV9; earlier EV9 are CCS1."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-kia-supercharger-2025-04",
+            "low_confidence": true,
+            "notes": "Electrek: EV9 can charge at Tesla Superchargers with the Kia adapter (April 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters sold at Kia dealers for EV9 owners (April 2025); search excerpt."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2026-land-awd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 96,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: 96.0 kWh usable (page marks it estimated); Australian Kia fact sheet also 96."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 10.9 kW for both packs."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2026-light": {
+      "fields": {
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-761",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed 210 kW for the 76.1 kWh pack (EU). Conflicts with 236 kW below."
+          },
+          {
+            "value": 236,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: the 76.1 kWh pack recharges up to 236 kW."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2027-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 99.8,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: 99.8 kWh on Light Long Range, Wind, Land, GT-Line."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 96,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: 96.0 kWh usable (page marks it estimated); Australian Kia fact sheet also 96."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database NMC for the 99.8 kWh pack."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 and 2026 EV9 manuals (MV1) describe the same switch plus navigation trigger; nothing shows a change between 2024 and 2027. Requires a battery heater (per-trim equipment not confirmed)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
+          },
+          {
+            "value": 215,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: 10.9 kW on all trims."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 24,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: about 24 min 10-80 % at 350 kW (CCS); 34 min via NACS."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: NACS port on all trims."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "NACS port on all 2027 trims: Tesla Superchargers directly."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2027-gt-line-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 99.8,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: 99.8 kWh on Light Long Range, Wind, Land, GT-Line."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 96,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: 96.0 kWh usable (page marks it estimated); Australian Kia fact sheet also 96."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database NMC for the 99.8 kWh pack."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 and 2026 EV9 manuals (MV1) describe the same switch plus navigation trigger; nothing shows a change between 2024 and 2027. Requires a battery heater (per-trim equipment not confirmed)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
+          },
+          {
+            "value": 215,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: 10.9 kW on all trims."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 24,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: about 24 min 10-80 % at 350 kW (CCS); 34 min via NACS."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: NACS port on all trims."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "NACS port on all 2027 trims: Tesla Superchargers directly."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2027-light-long-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 99.8,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: 99.8 kWh on Light Long Range, Wind, Land, GT-Line."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 96,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: 96.0 kWh usable (page marks it estimated); Australian Kia fact sheet also 96."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database NMC for the 99.8 kWh pack."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 and 2026 EV9 manuals (MV1) describe the same switch plus navigation trigger; nothing shows a change between 2024 and 2027. Requires a battery heater (per-trim equipment not confirmed)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-998-awd",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
+          },
+          {
+            "value": 215,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: 10.9 kW on all trims."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 24,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: about 24 min 10-80 % at 350 kW (CCS); 34 min via NACS."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: NACS port on all trims."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "NACS port on all 2027 trims: Tesla Superchargers directly."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2027-light-short-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 76.1,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: Light 76.1 kWh."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ev9-761",
+            "low_confidence": true,
+            "notes": "EV Database 76.1 kWh pack: 73.0 kWh usable (EVKX says 75.0 net)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evseekers-ev9-battery",
+            "low_confidence": true,
+            "notes": "Page says both the 76.1 and 99.8 kWh packs use NMC cells from SK On."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: 2024 and 2026 EV9 manuals (MV1) describe the same switch plus navigation trigger; nothing shows a change between 2024 and 2027. Requires a battery heater (per-trim equipment not confirmed)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 210,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-evdb-ev9-761",
+            "low_confidence": true,
+            "notes": "EV Database: Kia claimed 210 kW for the 76.1 kWh pack (EU). Conflicts with 236 kW below and 230-235 kW elsewhere."
+          },
+          {
+            "value": 236,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-2024-ev9-epa",
+            "low_confidence": true,
+            "notes": "InsideEVs relaying Kia documents: the 76.1 kWh pack recharges up to 236 kW (conflicts with the 210 kW EU claim)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: 10.9 kW on all trims."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 20,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: about 20 min 10-80 % at 350 kW (CCS)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "Kia US 2027 EV9 page: NACS port on all trims."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-ev9-2027-specs",
+            "notes": "NACS port on all 2027 trims: Tesla Superchargers directly."
+          }
+        ]
+      }
+    },
+    "kia/niro-ev/2019-niro-ev": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 67.5,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-e-niro-64",
+            "low_confidence": true,
+            "notes": "EV Database: 67.5 kWh nominal; Kia markets the pack as \"64 kWh\" (usable)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 64,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-e-niro-64",
+            "low_confidence": true,
+            "notes": "EV Database: 64.0 kWh usable (EU listing 2020-2022; same 64 kWh pack as the 2019 NA car)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-e-niro-64",
+            "low_confidence": true,
+            "notes": "EV Database: NMC622 cathode."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-evdb-e-niro-64",
+            "low_confidence": true,
+            "notes": "EV Database: 360 V nominal."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "none",
+            "kind": "estimated",
+            "source_id": "src-kia-press-eu-ev6-conditioning",
+            "low_confidence": true,
+            "notes": "Estimated: Kia introduced its navigation-based battery conditioning as standard with the MY23 EV6 and the all-new (second-generation) Niro EV (retrofit for MY22 EV6), so the 2019-2022 first-generation Niro EV predates it; no 2019-2022 Niro EV page I found describes a battery conditioning feature. Source is a search excerpt of the Kia Europe release."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 77,
+            "unit": "kW",
+            "kind": "tested",
+            "source_id": "src-insideevs-niro-ev-2019-fast-test",
+            "low_confidence": true,
+            "notes": "Tested 2019 Niro EV, about 21 C: peaked about 77 kW (78 kW second session). Kia's '100 kW' is the charger rating in its 80 % time; EV Database lists 77 kW too. Kia states no car peak."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.2,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-2019-niro-ev-debut",
+            "low_confidence": true,
+            "notes": "Kia US debut release (search excerpt): 7.2 kW Level 2 charger; EV Database lists 7.2 kW standard for the EU e-Niro. 2020-2022 assumed the same (no onboard charger change found)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-2019-niro-ev-debut",
+            "low_confidence": true,
+            "notes": "Kia US debut release (search excerpt): CCS standard on the first-generation Niro EV."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): earlier Kia EVs including Niro EV have CCS1 ports."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-kia-supercharger-2025-04",
+            "low_confidence": true,
+            "notes": "Electrek: EV6, EV9 and Niro can charge at Tesla Superchargers with an adapter (April 2025; no Niro model-year detail)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters sold at dealers for Niro EV owners (April 2025)."
+          }
+        ]
+      }
+    },
+    "kia/niro-ev/2023-niro-ev": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 68,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-niro-ev-2022",
+            "low_confidence": true,
+            "notes": "EV Database: 68.0 kWh nominal; Kia's published 64.8 kWh is the usable figure per EV Database (Chargeprice shows 68.4)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 64.8,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-niro-ev-2022",
+            "low_confidence": true,
+            "notes": "EV Database: 64.8 kWh usable / 68.0 nominal (2022-2025 listing). Nyland measured 64.3 kWh."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-weeklydriver-niro-ev-648",
+            "low_confidence": true,
+            "notes": "The Weekly Driver: CATL NCM cells, 2023-2025 Niro EV."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-weeklydriver-niro-ev-648",
+            "low_confidence": true,
+            "notes": "358 V nominal (also EV Database)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-evdb-niro-ev-2022",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists preconditioning on the Niro EV including automatic preconditioning when navigating to a charger; Kia states conditioning is standard on the all-new Niro EV (src-kia-press-eu-ev6-conditioning, Europe); the manual on/off switch is described in Kia manuals for sibling EVs (EV6/EV9) but no Niro EV manual page was found. European-market evidence; Kia manuals say a battery heater is required."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 94,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evdb-niro-ev-2022",
+            "low_confidence": true,
+            "notes": "EV Database: max DC 94 kW (EVKX also 94 kW). Kia US quotes 10-80 % in 43 min on an 85 kW charger (not a car peak); CarExpert (AU) 83.8 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-insideevs-2023-niro-ev",
+            "low_confidence": true,
+            "notes": "InsideEVs: 11 kW onboard charger (EV Database also 11 kW); Kia Ireland lists 7.2 kW single-phase / 11 kW three-phase."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): Niro EV is a CCS1 car needing an adapter; Niro EV is on no factory-NACS list."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-kia-supercharger-2025-04",
+            "low_confidence": true,
+            "notes": "Electrek: Niro can charge at Tesla Superchargers with the Kia adapter."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-niro-ev-2026",
+            "low_confidence": true,
+            "notes": "Kia US 2026 Niro EV page: Supercharger access with a NACS adapter (sold separately)."
+          }
+        ]
+      }
+    },
+    "kia/niro-ev/2026-standard": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-niro-ev-648",
+            "low_confidence": true,
+            "notes": "Estimated: The Weekly Driver covers the 2023-2025 Niro EV (CATL NCM, 64.8 kWh); the 2026 Niro EV keeps the same 64.8 kWh pack (Kia Canada / Guide Auto)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-evdb-niro-ev-2022",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database (Niro EV 2022-2025) lists automatic preconditioning with navigation; Kia says conditioning is standard on the second-generation Niro EV. 2026 is the same generation with no change found."
+          }
+        ]
+      }
+    }
+  },
+  "variants": {
+    "kia/ev9/2024/land-awd": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: complimentary NACS-to-CCS adapter offered to 2024/2025 EV9 buyers, i.e. CCS port; native NACS starts with the 2026 EV9."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): first NACS Kias in Canada are the 2025 EV6 and 2026 EV9; earlier EV9 are CCS1."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-kia-supercharger-2025-04",
+            "low_confidence": true,
+            "notes": "Electrek: EV9 can charge at Tesla Superchargers with the Kia adapter (April 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters sold at Kia dealers for EV9 owners (April 2025); search excerpt."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2025/light": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: complimentary NACS-to-CCS adapter offered to 2024/2025 EV9 buyers, i.e. CCS port; native NACS starts with the 2026 EV9."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): first NACS Kias in Canada are the 2025 EV6 and 2026 EV9; earlier EV9 are CCS1."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-kia-supercharger-2025-04",
+            "low_confidence": true,
+            "notes": "Electrek: EV9 can charge at Tesla Superchargers with the Kia adapter (April 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters sold at Kia dealers for EV9 owners (April 2025); search excerpt."
+          }
+        ]
+      }
+    },
+    "kia/ev9/2025/wind": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-us-charge-pass-page",
+            "low_confidence": true,
+            "notes": "Kia US: complimentary NACS-to-CCS adapter offered to 2024/2025 EV9 buyers, i.e. CCS port; native NACS starts with the 2026 EV9."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada guide (search excerpt): first NACS Kias in Canada are the 2025 EV6 and 2026 EV9; earlier EV9 are CCS1."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-kia-supercharger-2025-04",
+            "low_confidence": true,
+            "notes": "Electrek: EV9 can charge at Tesla Superchargers with the Kia adapter (April 2025)."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-kia-ca-nacs-guide-2026",
+            "low_confidence": true,
+            "notes": "Kia Canada: adapters sold at Kia dealers for EV9 owners (April 2025); search excerpt."
+          }
+        ]
+      }
+    }
+  }
+}

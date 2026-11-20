@@ -1,0 +1,20 @@
+{
+  "sources": [],
+  "powertrains": {
+    "hyundai/ioniq-5/2026-n": {
+      "fields": {
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the US 2026 IONIQ 5 page gives 10.9 kW home charging for the 84 kWh car; the N uses the same 84 kWh E-GMP pack and the same family of onboard charger (EV Database lists 11 kW for both the N and the 84 kWh Long Range). Hyundai Canada's N page states no AC figure. A search summary of Hyundai USA's N compare-specs page mentions 10.9 kW Level 2, but the page text could not be read, so it is not cited. An Australian listing gives 10.5 kW for its market."
+          }
+        ]
+      }
+    }
+  },
+  "variants": {}
+}

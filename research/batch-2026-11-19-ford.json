@@ -1,0 +1,3864 @@
+{
+  "sources": [
+    {
+      "id": "src-ford-us-mme-specs-2022",
+      "type": "oem",
+      "title": "Ford Media - 2022 Mustang Mach-E Technical Specifications (PDF)",
+      "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2022/specs/2022-Ford-Mustang-Mach-E-Technical-Specifications.pdf",
+      "accessed_on": "2026-11-19",
+      "notes": "Usable capacity SR 70 / ER 91 kWh; DC up to 115 kW (SR) and 150 kW (ER, CA1, GT); cells SR 288 / ER 376."
+    },
+    {
+      "id": "src-ford-us-mme-specs-2023",
+      "type": "oem",
+      "title": "Ford Media - 2023 Mustang Mach-E Technical Specifications (PDF)",
+      "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2023/specs/2023-Ford-Mustang-Mach-E-Technical-Specifications.pdf",
+      "accessed_on": "2026-11-19",
+      "notes": "Usable SR 72 kWh (108 cells) / ER 91 kWh (376 cells); up to 150 kW DC on every trim."
+    },
+    {
+      "id": "src-ford-us-mme-specs-2025",
+      "type": "oem",
+      "title": "Ford Media - 2025 Mustang Mach-E Technical Specifications (PDF)",
+      "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2025/specs/2025%20Ford-Mustang-Mach-E-Technical-Specifications.pdf",
+      "accessed_on": "2026-11-19",
+      "notes": "Usable SR 73 kWh (108 cells), ER 88 kWh (360 cells), GT 91 kWh (376 cells); up to 150 kW DC; Fast Charging Adapter (NACS) optional."
+    },
+    {
+      "id": "src-ford-us-fl-specs-2023",
+      "type": "oem",
+      "title": "Ford Media - 2023 F-150 Lightning Technical Specifications (PDF)",
+      "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2023/specs/2023-Ford-F-150-Lightning-Technical-Specifications.pdf",
+      "accessed_on": "2026-11-19",
+      "notes": "Usable 98 / 131 kWh; onboard charger 11.3 kW (SR) and 19.2 kW (ER) input; 150 kW DC; lithium-ion pouch; 15-80% 44 / 41 min."
+    },
+    {
+      "id": "src-ford-us-fl-specs-2025",
+      "type": "oem",
+      "title": "Ford Media - 2025 F-150 Lightning Technical Specifications (PDF)",
+      "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2025/specs/2025-Ford-F-150-Lightning-Technical-Specifications.pdf",
+      "accessed_on": "2026-11-19",
+      "notes": "Usable 98 / 123 / 131 kWh; onboard charger 11.3 kW (19.2 kW fleet-only option on 131); 150 kW+ DC; 15-80% 32 / 38 / 38 min."
+    },
+    {
+      "id": "src-insideevs-mme-2022-usable",
+      "type": "community",
+      "title": "InsideEVs - 2022 Ford Mustang Mach-E gets more range (usable capacity change)",
+      "url": "https://insideevs.com/news/555287/2022-ford-mache-more-range/",
+      "accessed_on": "2026-11-19",
+      "notes": "SR 68 to 70 kWh and ER 88 to 91 kWh usable; totals 75.7 and 98.8 kWh. Relays Ford figures."
+    },
+    {
+      "id": "src-insideevs-mme-lfp-2023",
+      "type": "community",
+      "title": "InsideEVs - LFP-powered 2023 Mach-E vs outgoing SR",
+      "url": "https://insideevs.com/news/666041/lfp-2023-ford-mustang-mache-compared/",
+      "accessed_on": "2026-11-19",
+      "notes": "LFP SR 72 kWh, 150 kW, 10-80% 33 min; NCM SR 70 kWh, 115 kW, 38 min; ER 91 kWh NCM 150 kW 45 min. Relays Ford figures."
+    },
+    {
+      "id": "src-insideevs-mme-2024-epa",
+      "type": "community",
+      "title": "InsideEVs - 2024 Mach-E EPA range",
+      "url": "https://insideevs.com/news/722612/2024-ford-mustang-mache-epa-range/",
+      "accessed_on": "2026-11-19",
+      "notes": "2024: SR RWD and AWD LFP 72 kWh; ER, GT, Rally 91 kWh."
+    },
+    {
+      "id": "src-electrek-ford-lfp-2023",
+      "type": "community",
+      "title": "Electrek - Ford announces $3.5B Michigan LFP battery factory with CATL",
+      "url": "https://electrek.co/2023/02/13/ford-announces-3-5b-michigan-lfp-battery-factory-with-chinas-catl-in-2026/",
+      "accessed_on": "2026-11-19",
+      "notes": "Mach-E LFP pack reads 78.21 kWh on 225 Ah at 347.8 V (gross)."
+    },
+    {
+      "id": "src-wikipedia-mach-e",
+      "type": "community",
+      "title": "Wikipedia - Ford Mustang Mach-E",
+      "url": "https://en.wikipedia.org/wiki/Ford_Mustang_Mach-E",
+      "accessed_on": "2026-11-19",
+      "notes": "Packs NMC (LGES) and LFP (CATL from MY2023); onboard AC 11 kW; 2025 US car has native CCS1 port."
+    },
+    {
+      "id": "src-autotrader-ca-mme-1080",
+      "type": "community",
+      "title": "AutoTrader.ca - Ford says Mustang Mach-E charging times are 30% faster now",
+      "url": "https://www.autotrader.ca/editorial/car-news/ford-says-mustang-mach-e-charging-times-are-30-faster-now/",
+      "accessed_on": "2026-11-19",
+      "notes": "Ford claims 10-80% about 38 min (standard battery) and 45 min (extended range), 2021 model."
+    },
+    {
+      "id": "src-ford-ca-precondition",
+      "type": "oem",
+      "title": "Ford Canada - How do I precondition my battery for DC Fast Charging?",
+      "url": "https://www.ford.ca/support/how-tos/electric-vehicles/public-charging/how-do-i-precondition-my-battery-for-dc-fast-charging",
+      "accessed_on": "2026-11-19",
+      "notes": "Preconditioning is triggered by planning a route or choosing a DC fast charger in Connected Navigation / Google Maps / Apple Maps EV Routing; no manual switch described; says Ford electric vehicles include En-Route Preconditioning; Apple Maps only on 2026 Mach-E."
+    },
+    {
+      "id": "src-ford-us-mme-charge",
+      "type": "oem",
+      "title": "Ford - Mustang Mach-E charging (EV expertise)",
+      "url": "https://www.ford.com/electric/ev-news/ev-expertise/mme-charge/",
+      "accessed_on": "2026-11-19",
+      "notes": "With available Connected Navigation you can precondition the battery on the way to the charger."
+    },
+    {
+      "id": "src-ford-ca-supercharger-2024",
+      "type": "oem",
+      "title": "Ford Canada/US From the Road - Ford customers can now charge on Tesla Superchargers in the U.S. and Canada",
+      "url": "https://www.fromtheroad.ford.com/ca/en/articles/2024/ford-customers-can-now-charge-on-tesla-superchargers-in-u-s--and.html",
+      "accessed_on": "2026-11-19",
+      "notes": "F-150 Lightning and Mustang Mach-E customers get Supercharger access in the U.S. and Canada; adapter required; reservations from 29 Feb 2024. Press reports say 2021-2024 model years eligible."
+    },
+    {
+      "id": "src-ford-ca-nav-ev-routing",
+      "type": "oem",
+      "title": "Ford Canada - Connected Navigation EV Routing",
+      "url": "https://www.ford.ca/support/how-tos/electric-vehicles/other-electric-vehicle-information/using-connected-navigation-electric-vehicle-ev-routing",
+      "accessed_on": "2026-11-19",
+      "notes": "Connected Navigation triggers automatic preconditioning near a DC fast charger; 2025 Mach-E and F-150 Lightning have the Supercharger feature from the factory, earlier years via software updates."
+    },
+    {
+      "id": "src-insideevs-mme-carplay-2026",
+      "type": "community",
+      "title": "InsideEVs - Mach-E can now precondition its battery via CarPlay",
+      "url": "https://insideevs.com/news/790597/2026-ford-mustang-mach-e-carplay-precondition/",
+      "accessed_on": "2026-11-19",
+      "notes": "Mach-E has a CCS1 port; no manual preconditioning control described; automatic on route planning."
+    },
+    {
+      "id": "src-batterydesign-fl-er",
+      "type": "community",
+      "title": "Battery Design - 2022 Ford F-150 Lightning ER pack",
+      "url": "https://www.batterydesign.net/ford-f-150-lightning-er/",
+      "accessed_on": "2026-11-19",
+      "notes": "ER pack: NCM9 SK On cells, 349 V nominal, 408 Ah, 142 kWh total. Page notes limited data."
+    },
+    {
+      "id": "src-ford-corp-sk-ncm",
+      "type": "oem",
+      "title": "Ford Corporate - Ford commits to manufacturing batteries (SK Innovation NCM, F-150 Lightning)",
+      "url": "https://corporate.ford.com/articles/electrification/ford-commits-to-manufacturing-batteries/",
+      "accessed_on": "2026-11-19",
+      "notes": "SK Innovation high-nickel NCM cell mass produced in the U.S. for the F-150 Lightning."
+    }
+  ],
+  "powertrains": {
+    "ford/mustang-mach-e/2021-standard-range-rwd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 68,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "2021 launch usable 68 kWh (SR), changed to 70 kWh in 2022 (InsideEVs, relays Ford)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 75.7,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 75.7 kWh (SR pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists NMC packs (LG Energy Solution) for the launch-era Standard and Extended Range."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 115,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: 2022 Ford spec sheet lists up to 115 kW on the Standard Range; the 2021 launch SR carried over (only usable capacity changed 2021 to 2022)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 38,
+            "kind": "manufacturer",
+            "source_id": "src-autotrader-ca-mme-1080",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the standard battery, 2021 model."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2021 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2021-standard-range-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 68,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "2021 launch usable 68 kWh (SR), changed to 70 kWh in 2022 (InsideEVs, relays Ford)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 75.7,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 75.7 kWh (SR pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists NMC packs (LG Energy Solution) for the launch-era Standard and Extended Range."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 115,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: 2022 Ford spec sheet lists up to 115 kW on the Standard Range; the 2021 launch SR carried over (only usable capacity changed 2021 to 2022)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 38,
+            "kind": "manufacturer",
+            "source_id": "src-autotrader-ca-mme-1080",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the standard battery, 2021 model."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2021 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2021-extended-range-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 88,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "2021 launch usable 88 kWh (ER), changed to 91 kWh in 2022 (InsideEVs, relays Ford)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists NMC packs (LG Energy Solution) for the launch-era Standard and Extended Range."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: 2022 Ford spec sheet lists up to 150 kW on Extended Range / CA1 / GT; the 2021 launch cars carried over."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "manufacturer",
+            "source_id": "src-autotrader-ca-mme-1080",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the extended range battery, 2021 model."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2021 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2021-california-route-1": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 88,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "2021 launch usable 88 kWh (ER), changed to 91 kWh in 2022 (InsideEVs, relays Ford)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists NMC packs (LG Energy Solution) for the launch-era Standard and Extended Range."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: 2022 Ford spec sheet lists up to 150 kW on Extended Range / CA1 / GT; the 2021 launch cars carried over."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "manufacturer",
+            "source_id": "src-autotrader-ca-mme-1080",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the extended range battery, 2021 model."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2021 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2021-gt": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 88,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "2021 launch usable 88 kWh (ER), changed to 91 kWh in 2022 (InsideEVs, relays Ford)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists NMC packs (LG Energy Solution) for the launch-era Standard and Extended Range."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: 2022 Ford spec sheet lists up to 150 kW on Extended Range / CA1 / GT; the 2021 launch cars carried over."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2021 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2022-standard-range-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 70,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kWh",
+            "notes": "Ford 2022 spec sheet: SR 70 kWh usable."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 75.7,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 75.7 kWh (SR pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists NMC packs (LG Energy Solution) for the launch-era Standard and Extended Range."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 115,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "notes": "Ford 2022 spec sheet: up to 115 kW DC fast charge on Standard Range."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 38,
+            "kind": "manufacturer",
+            "source_id": "src-autotrader-ca-mme-1080",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the standard battery, 2021 model."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2022 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2022-extended-range-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kWh",
+            "notes": "Ford 2022 spec sheet: ER 91 kWh usable."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists NMC packs (LG Energy Solution) for the launch-era Standard and Extended Range."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "notes": "Ford 2022 spec sheet: up to 150 kW on Extended Range / CA1 / GT."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim ER 10-80% 45 min (InsideEVs 2023, same ER pack)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2022 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2022-california-route-1-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kWh",
+            "notes": "Ford 2022 spec sheet: ER 91 kWh usable."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists NMC packs (LG Energy Solution) for the launch-era Standard and Extended Range."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "notes": "Ford 2022 spec sheet: up to 150 kW on Extended Range / CA1 / GT."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim ER 10-80% 45 min (InsideEVs 2023, same ER pack)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2022 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2022-california-route-1-rwd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kWh",
+            "notes": "Ford 2022 spec sheet: ER 91 kWh usable."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists NMC packs (LG Energy Solution) for the launch-era Standard and Extended Range."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "notes": "Ford 2022 spec sheet: up to 150 kW on Extended Range / CA1 / GT."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim ER 10-80% 45 min (InsideEVs 2023, same ER pack)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2022 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2022-gt": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kWh",
+            "notes": "Ford 2022 spec sheet: ER 91 kWh usable."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists NMC packs (LG Energy Solution) for the launch-era Standard and Extended Range."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "notes": "Ford 2022 spec sheet: up to 150 kW on Extended Range / CA1 / GT."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2022 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2022-gt-performance-edition": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kWh",
+            "notes": "Ford 2022 spec sheet: ER 91 kWh usable."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia lists NMC packs (LG Energy Solution) for the launch-era Standard and Extended Range."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "notes": "Ford 2022 spec sheet: up to 150 kW on Extended Range / CA1 / GT."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2022 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2023-extended-range-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: ER 91 kWh usable."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "InsideEVs: Extended Range packs stay NCM (relays Ford)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim ER 10-80% 45 min (InsideEVs 2023, same ER pack)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2023 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2023-extended-range-rwd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: ER 91 kWh usable."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "InsideEVs: Extended Range packs stay NCM (relays Ford)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim ER 10-80% 45 min (InsideEVs 2023, same ER pack)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2023 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2023-california-route-1-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: ER 91 kWh usable."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "InsideEVs: Extended Range packs stay NCM (relays Ford)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim ER 10-80% 45 min (InsideEVs 2023, same ER pack)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2023 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2023-gt": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: ER 91 kWh usable."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "InsideEVs: Extended Range packs stay NCM (relays Ford)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2023 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2023-gt-performance-edition": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: ER 91 kWh usable."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "InsideEVs: Extended Range packs stay NCM (relays Ford)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2023 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2023-standard-range-rwd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 72,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: SR 72 kWh usable (108 cells)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.21,
+            "kind": "tested",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Pack reading 78.21 kWh (225 Ah at 347.8 V) from the Ford LFP pack in the Electrek report; gross."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "InsideEVs: all 2023 Standard Range cars use LFP (CATL), relays Ford."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 33,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the LFP SR 10-80%."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2023 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2023-standard-range-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 72,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: SR 72 kWh usable (108 cells)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.21,
+            "kind": "tested",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Pack reading 78.21 kWh (225 Ah at 347.8 V) from the Ford LFP pack in the Electrek report; gross."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "InsideEVs: all 2023 Standard Range cars use LFP (CATL), relays Ford."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 33,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the LFP SR 10-80%."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2023 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2024-standard-range-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 72,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2024-epa",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "InsideEVs 2024: SR RWD and AWD LFP 72 kWh."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.21,
+            "kind": "tested",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Pack reading 78.21 kWh (225 Ah at 347.8 V) from the Ford LFP pack in the Electrek report; gross."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "InsideEVs 2023 LFP article and 2024 article: SR is LFP."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Ford 2023 spec sheet lists up to 150 kW for the LFP SR; same pack in 2024 (2025 sheet also says up to 150 kW)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 33,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the LFP SR 10-80%."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2024 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2024-standard-range-rwd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 72,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2024-epa",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "InsideEVs 2024: SR RWD and AWD LFP 72 kWh."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.21,
+            "kind": "tested",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Pack reading 78.21 kWh (225 Ah at 347.8 V) from the Ford LFP pack in the Electrek report; gross."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "InsideEVs 2023 LFP article and 2024 article: SR is LFP."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Ford 2023 spec sheet lists up to 150 kW for the LFP SR; same pack in 2024 (2025 sheet also says up to 150 kW)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 33,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the LFP SR 10-80%."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2024 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2024-extended-range-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2024-epa",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "InsideEVs 2024: ER 91 kWh net (Ford 2023 sheet 91; Ford 2025 sheet lists 88, see report)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "InsideEVs: Extended Range packs stay NCM (relays Ford)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Ford 2023 sheet up to 150 kW on ER; 2025 sheet up to 150 kW; 2024 sits between them."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Estimated: Ford claim 45 min for the ER pack (2021 and 2023 sources)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2024 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2024-extended-range-rwd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2024-epa",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "InsideEVs 2024: ER 91 kWh net (Ford 2023 sheet 91; Ford 2025 sheet lists 88, see report)."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 98.8,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 98.8 kWh (ER pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "InsideEVs: Extended Range packs stay NCM (relays Ford)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2023",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Ford 2023 sheet up to 150 kW on ER; 2025 sheet up to 150 kW; 2024 sits between them."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Estimated: Ford claim 45 min for the ER pack (2021 and 2023 sources)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2024 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2026-gt": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 91,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2025",
+            "unit": "kWh",
+            "notes": "Ford 2025 spec sheet: GT 91 kWh usable (376 cells); InsideEVs 2024 also 91 kWh."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "low_confidence": true,
+            "notes": "Estimated: NMC LGES pack (Wikipedia); the 376-cell ER/GT pack carried from 2021."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2025",
+            "unit": "kW",
+            "notes": "Ford 2025 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2024-2026 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2025-extended-range-rwd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 88,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2025",
+            "unit": "kWh",
+            "notes": "Ford 2025 spec sheet: ER 88 kWh usable (360 cells); Ford Canada 2026 Premium page also lists 88 kWh. Earlier ER was 91 kWh (376 cells)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: ER packs are NCM (InsideEVs 2023, relays Ford); no chemistry change reported for the 2025 360-cell ER."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2025",
+            "unit": "kW",
+            "notes": "Ford 2025 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "estimated",
+            "source_id": "src-autotrader-ca-mme-1080",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Estimated: Ford 45 min claim for the ER pack (2021); the 2025 ER pack differs (88 kWh), so low confidence."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2025 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2025-extended-range-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 88,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2025",
+            "unit": "kWh",
+            "notes": "Ford 2025 spec sheet: ER 88 kWh usable (360 cells); Ford Canada 2026 Premium page also lists 88 kWh. Earlier ER was 91 kWh (376 cells)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: ER packs are NCM (InsideEVs 2023, relays Ford); no chemistry change reported for the 2025 360-cell ER."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2025",
+            "unit": "kW",
+            "notes": "Ford 2025 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "estimated",
+            "source_id": "src-autotrader-ca-mme-1080",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Estimated: Ford 45 min claim for the ER pack (2021); the 2025 ER pack differs (88 kWh), so low confidence."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2025 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2026-extended-range-rwd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 88,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2025",
+            "unit": "kWh",
+            "notes": "Ford 2025 spec sheet: ER 88 kWh usable (360 cells); Ford Canada 2026 Premium page also lists 88 kWh. Earlier ER was 91 kWh (376 cells)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: ER packs are NCM (InsideEVs 2023, relays Ford); no chemistry change reported for the 2025 360-cell ER."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2025",
+            "unit": "kW",
+            "notes": "Ford 2025 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 45,
+            "kind": "estimated",
+            "source_id": "src-autotrader-ca-mme-1080",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Estimated: Ford 45 min claim for the ER pack (2021); the 2025 ER pack differs (88 kWh), so low confidence."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2026 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2025-standard-range-rwd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2025",
+            "unit": "kWh",
+            "notes": "Ford 2025 spec sheet: SR 73 kWh usable (108 cells)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-2024-epa",
+            "low_confidence": true,
+            "notes": "Estimated: SR is LFP from 2023/2024 (InsideEVs); the 2025 SR keeps the 108-cell pack per the Ford sheet."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2025",
+            "unit": "kW",
+            "notes": "Ford 2025 spec sheet: up to 150 kW DC fast charge."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-mach-e",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 33,
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Estimated: Ford 33 min claim for the LFP SR (2023); same cell count in 2025."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-carplay-2026",
+            "low_confidence": true,
+            "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2025 owners implies the same CCS1 port. No port change found across 2021-2026."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2026-standard-range": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-2024-epa",
+            "low_confidence": true,
+            "notes": "Estimated: Standard Range is LFP since 2023/2024 (InsideEVs); the Ford 2025 sheet shows the 108-cell SR pack unchanged."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ]
+      },
+      "variant_fields": {
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2026-standard-range-awd": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-2024-epa",
+            "low_confidence": true,
+            "notes": "Estimated: Standard Range is LFP since 2023/2024 (InsideEVs); the Ford 2025 sheet shows the 108-cell SR pack unchanged."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ]
+      },
+      "variant_fields": {
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2026-extended-range": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Extended Range packs are NCM (InsideEVs 2023, relays Ford); no chemistry change reported."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ]
+      },
+      "variant_fields": {
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2026-extended-range-awd": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Extended Range packs are NCM (InsideEVs 2023, relays Ford); no chemistry change reported."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ]
+      },
+      "variant_fields": {
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2026-rally": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Rally uses the 91 kWh 376-cell ER/GT pack (InsideEVs 2024); NCM."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-precondition",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-electrek-ford-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
+          }
+        ]
+      },
+      "variant_fields": {
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/f-150-lightning/2022-platinum-extended-range": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 131,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: ER 131 kWh usable (2025 sheet also 131)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-ford-corp-sk-ncm",
+            "low_confidence": true,
+            "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-batterydesign-fl-er",
+            "low_confidence": true,
+            "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-nav-ev-routing",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: 150 kW DC fast charge (2025 sheet: 150 kW+). Wikipedia and OpenEV Data list 155 kW, see report."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: ER onboard charger 19.2 kW input (17.6 kW output). The 2025 retail sheet lists 11.3 kW, with 19.2 kW as a fleet-only option."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 142,
+            "kind": "tested",
+            "source_id": "src-batterydesign-fl-er",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Battery Design lists the 2022 ER pack at 349 V x 408 Ah = 142 kWh total (limited data on the page)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Estimated: Ford requires an adapter for Superchargers on the Lightning (all years incl. 2025), so the truck has a CCS1 port; no NACS port change found 2022-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/f-150-lightning/2023-platinum-extended-range": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 131,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: ER 131 kWh usable (2025 sheet also 131)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-ford-corp-sk-ncm",
+            "low_confidence": true,
+            "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-batterydesign-fl-er",
+            "low_confidence": true,
+            "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-nav-ev-routing",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: 150 kW DC fast charge (2025 sheet: 150 kW+). Wikipedia and OpenEV Data list 155 kW, see report."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: ER onboard charger 19.2 kW input (17.6 kW output). The 2025 retail sheet lists 11.3 kW, with 19.2 kW as a fleet-only option."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 142,
+            "kind": "tested",
+            "source_id": "src-batterydesign-fl-er",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Battery Design lists the 2022 ER pack at 349 V x 408 Ah = 142 kWh total (limited data on the page)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Estimated: Ford requires an adapter for Superchargers on the Lightning (all years incl. 2025), so the truck has a CCS1 port; no NACS port change found 2022-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/f-150-lightning/2024-extended-range": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 131,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: ER 131 kWh usable (2025 sheet also 131)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-ford-corp-sk-ncm",
+            "low_confidence": true,
+            "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-batterydesign-fl-er",
+            "low_confidence": true,
+            "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-nav-ev-routing",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: 150 kW DC fast charge (2025 sheet: 150 kW+). Wikipedia and OpenEV Data list 155 kW, see report."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: ER onboard charger 19.2 kW input (17.6 kW output). The 2025 retail sheet lists 11.3 kW, with 19.2 kW as a fleet-only option."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 142,
+            "kind": "tested",
+            "source_id": "src-batterydesign-fl-er",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Battery Design lists the 2022 ER pack at 349 V x 408 Ah = 142 kWh total (limited data on the page)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Estimated: Ford requires an adapter for Superchargers on the Lightning (all years incl. 2025), so the truck has a CCS1 port; no NACS port change found 2022-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/f-150-lightning/2024-pro-extended-range": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 131,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: ER 131 kWh usable (2025 sheet also 131)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-ford-corp-sk-ncm",
+            "low_confidence": true,
+            "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-batterydesign-fl-er",
+            "low_confidence": true,
+            "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-nav-ev-routing",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: 150 kW DC fast charge (2025 sheet: 150 kW+). Wikipedia and OpenEV Data list 155 kW, see report."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: ER onboard charger 19.2 kW input (17.6 kW output). The 2025 retail sheet lists 11.3 kW, with 19.2 kW as a fleet-only option."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 142,
+            "kind": "tested",
+            "source_id": "src-batterydesign-fl-er",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Battery Design lists the 2022 ER pack at 349 V x 408 Ah = 142 kWh total (limited data on the page)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Estimated: Ford requires an adapter for Superchargers on the Lightning (all years incl. 2025), so the truck has a CCS1 port; no NACS port change found 2022-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/f-150-lightning/2024-pro": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 131,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: ER 131 kWh usable (2025 sheet also 131)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-ford-corp-sk-ncm",
+            "low_confidence": true,
+            "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-batterydesign-fl-er",
+            "low_confidence": true,
+            "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-nav-ev-routing",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: 150 kW DC fast charge (2025 sheet: 150 kW+). Wikipedia and OpenEV Data list 155 kW, see report."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: ER onboard charger 19.2 kW input (17.6 kW output). The 2025 retail sheet lists 11.3 kW, with 19.2 kW as a fleet-only option."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 142,
+            "kind": "tested",
+            "source_id": "src-batterydesign-fl-er",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Battery Design lists the 2022 ER pack at 349 V x 408 Ah = 142 kWh total (limited data on the page)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Estimated: Ford requires an adapter for Superchargers on the Lightning (all years incl. 2025), so the truck has a CCS1 port; no NACS port change found 2022-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/f-150-lightning/2025-platinum": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 131,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 spec sheet: ER 131 kWh usable (2025 sheet also 131)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-ford-corp-sk-ncm",
+            "low_confidence": true,
+            "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-batterydesign-fl-er",
+            "low_confidence": true,
+            "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-nav-ev-routing",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: 150 kW DC fast charge (2025 sheet: 150 kW+). Wikipedia and OpenEV Data list 155 kW, see report."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: ER onboard charger 19.2 kW input (17.6 kW output). The 2025 retail sheet lists 11.3 kW, with 19.2 kW as a fleet-only option."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 142,
+            "kind": "tested",
+            "source_id": "src-batterydesign-fl-er",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Battery Design lists the 2022 ER pack at 349 V x 408 Ah = 142 kWh total (limited data on the page)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Estimated: Ford requires an adapter for Superchargers on the Lightning (all years incl. 2025), so the truck has a CCS1 port; no NACS port change found 2022-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/f-150-lightning/2025-standard-range": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 98,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kWh",
+            "notes": "Ford 2023 and 2025 spec sheets: SR 98 kWh usable."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-ford-corp-sk-ncm",
+            "low_confidence": true,
+            "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-batterydesign-fl-er",
+            "low_confidence": true,
+            "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-nav-ev-routing",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: 150 kW DC fast charge (2025 sheet: 150 kW+). Wikipedia and OpenEV Data list 155 kW, see report."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.3,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-fl-specs-2023",
+            "unit": "kW",
+            "notes": "Ford 2023 spec sheet: SR onboard charger 11.3 kW input (10.5 kW output); the 2025 sheet matches."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Estimated: Ford requires an adapter for Superchargers on the Lightning (all years incl. 2025), so the truck has a CCS1 port; no NACS port change found 2022-2025."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/f-150-lightning/2025-extended-range-123-kwh": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-ford-corp-sk-ncm",
+            "low_confidence": true,
+            "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-nav-ev-routing",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-batterydesign-fl-er",
+            "low_confidence": true,
+            "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/f-150-lightning/2025-extended-range-131-kwh": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-ford-corp-sk-ncm",
+            "low_confidence": true,
+            "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-nav-ev-routing",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-batterydesign-fl-er",
+            "low_confidence": true,
+            "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    },
+    "ford/f-150-lightning/2025-pro-extended-range-131-kwh": {
+      "fields": {
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-ford-corp-sk-ncm",
+            "low_confidence": true,
+            "notes": "Estimated: Ford says the SK Innovation high-nickel NCM (Nickel 9) cell is mass produced for the F-150 Lightning; Battery Design lists the ER pack as SK On NCM9 pouch. Applied to all Lightning packs (same cell family and plant)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-ford-ca-nav-ev-routing",
+            "low_confidence": true,
+            "notes": "Estimated: Ford states en-route battery preconditioning is triggered by navigation (Connected Navigation / Google Maps / Apple Maps EV Routing) for its electric vehicles, with no manual control described; the page is lineup-wide, not model-year specific, applied to every model year."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-batterydesign-fl-er",
+            "low_confidence": true,
+            "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-ford-ca-supercharger-2024",
+            "low_confidence": true,
+            "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; press reports 2021-2024 model-year Mach-E / Lightning eligible; 2025 has the feature from the factory). Recorded: via adapter today."
+          }
+        ]
+      }
+    }
+  },
+  "variants": {
+    "ford/mustang-mach-e/2022/standard-range-rwd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 70,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kWh",
+            "notes": "Ford 2022 spec sheet: SR 70 kWh usable, up to 115 kW. The 2022 Standard Range RWD is the NMC pack; this car sits on the shared 2023 LFP powertrain."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 75.7,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 75.7 kWh (SR NMC pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: outgoing NCM SR pack (InsideEVs, relays Ford)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 115,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "notes": "Ford 2022 spec sheet: SR 70 kWh usable, up to 115 kW. The 2022 Standard Range RWD is the NMC pack; this car sits on the shared 2023 LFP powertrain."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 38,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the NCM SR 10-80%."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2023/standard-range-rwd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 70,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Estimated: Canadian 2023 SR RWD range 397 km equals the 2022 NMC rating (LFP cars rate 402 km), so the NMC 70 kWh / 115 kW pack from the 2022 Ford sheet."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 75.7,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 75.7 kWh (SR NMC pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: outgoing NCM SR pack (InsideEVs, relays Ford)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 115,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Canadian 2023 SR RWD range 397 km equals the 2022 NMC rating (LFP cars rate 402 km), so the NMC 70 kWh / 115 kW pack from the 2022 Ford sheet."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 38,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the NCM SR 10-80%."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2023/standard-range-eawd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 70,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Estimated: Canadian 2023 SR eAWD range 360 km equals the 2022 NMC rating (the 370 km car is the LFP), so the NMC 70 kWh / 115 kW pack from the 2022 Ford sheet."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 75.7,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-2022-usable",
+            "unit": "kWh",
+            "low_confidence": true,
+            "notes": "Total 75.7 kWh (SR NMC pack)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "low_confidence": true,
+            "notes": "Estimated: outgoing NCM SR pack (InsideEVs, relays Ford)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 115,
+            "kind": "estimated",
+            "source_id": "src-ford-us-mme-specs-2022",
+            "unit": "kW",
+            "low_confidence": true,
+            "notes": "Estimated: Canadian 2023 SR eAWD range 360 km equals the 2022 NMC rating (the 370 km car is the LFP), so the NMC 70 kWh / 115 kW pack from the 2022 Ford sheet."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 38,
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Ford claim for the NCM SR 10-80%."
+          }
+        ]
+      }
+    },
+    "ford/mustang-mach-e/2025/extended-range-eawd-e": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73,
+            "kind": "manufacturer",
+            "source_id": "src-ford-us-mme-specs-2025",
+            "unit": "kWh",
+            "notes": "Ford 2025 sheet: SR 73 kWh. This variant is \"Standard Range eAWD\" (range 380 km) linked to the Extended Range powertrain."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-2024-epa",
+            "low_confidence": true,
+            "notes": "Estimated: Standard Range is LFP (InsideEVs 2024)."
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 33,
+            "kind": "estimated",
+            "source_id": "src-insideevs-mme-lfp-2023",
+            "unit": "min",
+            "low_confidence": true,
+            "notes": "Estimated: Ford 33 min claim for the LFP SR."
+          }
+        ]
+      }
+    }
+  }
+}

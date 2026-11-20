@@ -32,6 +32,25 @@
         "source_id": "src-weeklydriver-hyundai-egmp-84",
         "notes": "Estimated: page lists the 84 kWh E-GMP pack (2025 IONIQ 5 Long Range/XRT) as SK On NCM 811 pouch; EV Database also says NMC for the 84 kWh IONIQ 5. Hyundai Canada only says lithium-ion."
       }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 80,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-evdb-ioniq5-84-rwd",
+        "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+        "low_confidence": true
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-ioniq5-manual-ne1a-2026",
+        "notes": "Estimated: the US 2026 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). No Canadian manual read.",
+        "low_confidence": true
+      }
     ]
   },
   "ac_max_kw": [
@@ -51,6 +70,16 @@
       "kind": "manufacturer",
       "source_id": "src-hyundai-ca-ioniq-5-2026",
       "notes": "“Approximately 18 minutes” from 10% to 80% on a 350 kW charger (manufacturer claim)."
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 257,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-electrek-ioniq5-2025-first-drive",
+      "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW. Estimated for 2026: same hardware as the 2025 car; no charging change reported.",
+      "low_confidence": true
     }
   ]
 }

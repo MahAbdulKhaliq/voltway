@@ -1,0 +1,2929 @@
+{
+  "sources": [
+    {
+      "id": "src-ioniq5-manual-ne1a-2026",
+      "type": "oem",
+      "title": "Hyundai owner's manual (US, 2026, code NE1a): Setting Electric Vehicle Specialized Functions (Battery Conditioning)",
+      "url": "https://ownersmanual.hyundai.com/full_webhelp/NE1a/2026/en_US/topic_p5j_2xj_t5b.html",
+      "accessed_on": "2026-11-19",
+      "notes": "Page does not name the model; NE1 is the IONIQ 5 platform code (search listing groups it with the 2026 IONIQ 5 manuals). Says Battery Conditioning can be run manually (EV > Battery Conditioning > Active) or automatically when a DC charging station is set as a destination or waypoint."
+    },
+    {
+      "id": "src-ioniq5n-manual-ne1n-2026",
+      "type": "oem",
+      "title": "Hyundai owner's manual (US, 2026, code NE1n, IONIQ 5 N): Setting Electric Vehicle Specialized Functions (Battery Conditioning)",
+      "url": "https://ownersmanual.hyundai.com/full_webhelp/ne1n/2026/en_us/topic_p5j_2xj_t5b.html",
+      "accessed_on": "2026-11-19",
+      "notes": "Same wording as the NE1a page: manual Active option plus automatic when a DC charger is set as destination or waypoint. NE1N is the IONIQ 5 N code."
+    },
+    {
+      "id": "src-ioniq9-manual-mea-2026",
+      "type": "oem",
+      "title": "Hyundai owner's manual (US, 2026, code MEa): Setting Electric Vehicle Specialized Functions (Battery Conditioning)",
+      "url": "https://ownersmanual.hyundai.com/full_webhelp/MEa/2026/en_US/topic_p5j_2xj_t5b.html",
+      "accessed_on": "2026-11-19",
+      "notes": "Page does not name the model; ME is the IONIQ 9 code. Says Battery Conditioning can be run manually (Electric Vehicle > Battery Conditioning > Activate) or automatically when a DC charging station is a destination or waypoint."
+    },
+    {
+      "id": "src-hmg-ioniq5-2023-battery-conditioning",
+      "type": "oem",
+      "title": "Hyundai Motor Group - 2023 IONIQ 5 battery conditioning story",
+      "url": "https://www.hyundaimotorgroup.com/en/story/CONT0000000000047551",
+      "accessed_on": "2026-11-19",
+      "notes": "Says the 2023 IONIQ 5 activates a battery conditioning mode when a fast charging station is set as the navigation destination; no manual option mentioned."
+    },
+    {
+      "id": "src-electrive-ioniq5-preconditioning-2023",
+      "type": "community",
+      "title": "electrive - Hyundai Ioniq 5 battery preconditioning: is it worth the upgrade (2023-03-24)",
+      "url": "https://www.electrive.com/2023/03/24/hyundai-ioniq-5-battery-preconditioning-is-it-worth-the-upgrade/",
+      "accessed_on": "2026-11-19",
+      "notes": "Tester says preconditioning arrived with the 2023 model year, can be applied to older cars by software update, is automatic via navigation and \"cannot be started manually\"."
+    },
+    {
+      "id": "src-carcomplaints-ioniq5-tsb-23-01-017h",
+      "type": "community",
+      "title": "CarComplaints - 2022 Hyundai IONIQ 5 TSB 23-01-017H (battery conditioning for cold DC charging)",
+      "url": "https://www.carcomplaints.com/Hyundai/IONIQ_5/2022/tsbs/tsb-23-01-017h.shtml",
+      "accessed_on": "2026-11-19",
+      "notes": "Service bulletin: after a software update the battery preheats when a DC charger POI is selected in navigation (battery below 68 F / 20 C); no manual switch described. Some late 2022 cars already had it."
+    },
+    {
+      "id": "src-evdb-ioniq5-sr-2wd",
+      "type": "community",
+      "title": "EV Database - Hyundai IONIQ 5 Standard Range 2WD (MY21, 58 kWh)",
+      "url": "https://ev-database.org/car/1476/Hyundai-IONIQ-5-Standard-Range-2WD",
+      "accessed_on": "2026-11-19",
+      "notes": "58.0 kWh nominal, 54.0 kWh usable, NMC pouch, 523 V (800 V architecture), 175 kW DC, 11 kW AC, 10-80% 18 min claimed; preconditioning supported, automatic via navigation. European listing."
+    },
+    {
+      "id": "src-evdb-ioniq5-lr-awd",
+      "type": "community",
+      "title": "EV Database - Hyundai IONIQ 5 Long Range AWD (MY22, 77.4 kWh)",
+      "url": "https://ev-database.org/car/1663/Hyundai-IONIQ-5-Long-Range-AWD",
+      "accessed_on": "2026-11-19",
+      "notes": "77.4 kWh nominal, 74.0 kWh usable, NMC pouch, 697 V (800 V architecture), 233 kW DC, 11 kW AC; Hyundai claims 18 min 10-80%. European listing; preconditioning automatic with navigation."
+    },
+    {
+      "id": "src-evdb-ioniq5-63-rwd",
+      "type": "community",
+      "title": "EV Database - Hyundai IONIQ 5 63 kWh RWD (MY24)",
+      "url": "https://ev-database.org/car/2235/Hyundai-IONIQ-5-63-kWh-RWD",
+      "accessed_on": "2026-11-19",
+      "notes": "63.0 kWh nominal, 60.0 kWh usable, NMC pouch, 520 V (800 V architecture), 195 kW DC listed (other sites say 175-180 kW), 11 kW AC. European listing of the refreshed car."
+    },
+    {
+      "id": "src-evdb-ioniq5-84-rwd",
+      "type": "community",
+      "title": "EV Database - Hyundai IONIQ 5 84 kWh RWD (MY24)",
+      "url": "https://ev-database.org/car/2236/Hyundai-IONIQ-5-84-kWh-RWD",
+      "accessed_on": "2026-11-19",
+      "notes": "84.0 kWh nominal, 80.0 kWh usable, NMC pouch (384 cells), 697 V (800 V architecture), 263 kW DC listed (Hyundai claim 260 kW), 11 kW AC. European listing of the refreshed car."
+    },
+    {
+      "id": "src-evdb-ioniq5-n",
+      "type": "community",
+      "title": "EV Database - Hyundai IONIQ 5 N (MY24)",
+      "url": "https://ev-database.org/car/2044/Hyundai-IONIQ-5-N",
+      "accessed_on": "2026-11-19",
+      "notes": "84.0 kWh nominal, 80.0 kWh usable (estimated by EVDB), NMC, 697 V (800 V architecture), 11 kW AC; preconditioning automatic via navigation."
+    },
+    {
+      "id": "src-wikipedia-ioniq5",
+      "type": "community",
+      "title": "Wikipedia - Hyundai Ioniq 5",
+      "url": "https://en.wikipedia.org/wiki/Hyundai_Ioniq_5",
+      "accessed_on": "2026-11-19",
+      "notes": "Pack table: 58 kWh (175 kW DC, 11 kW AC), 77.4 kWh (233 kW DC, 11 kW AC), 63 and 84 kWh facelift packs, all NMC (SK On), 800 V inverter."
+    },
+    {
+      "id": "src-slashgear-ioniq5-2022-us",
+      "type": "community",
+      "title": "SlashGear - 2022 Hyundai IONIQ 5 US specs revealed",
+      "url": "https://www.slashgear.com/2022-hyundai-ioniq-5-us-specs-revealed-range-free-charging-some-oddities-24674272",
+      "accessed_on": "2026-11-19",
+      "notes": "Relays Hyundai: standard 10.9 kW onboard charger; 10-80% in 18 minutes on a 350 kW charger; US 2022 trims share the 77.4 kWh battery."
+    },
+    {
+      "id": "src-canadadrives-ioniq5-2022",
+      "type": "community",
+      "title": "Canada Drives - 2022 Hyundai Ioniq 5 range and specs",
+      "url": "https://canadadrives.ca/blog/car-guide/2022-hyundai-ioniq5-range-specs",
+      "accessed_on": "2026-11-19",
+      "notes": "Canadian 2022 trims: Essential and Preferred 58 kWh (Preferred inferred), Preferred Long Range and Preferred AWD Long Range 77.4 kWh; 10.9 kW onboard charger; SAE Combo (CCS) port; 350 kW charger 10-80% 17 min 16 s."
+    },
+    {
+      "id": "src-electrek-ioniq5-2025-first-drive",
+      "type": "community",
+      "title": "Electrek - First drive: 2025 Hyundai IONIQ 5 (2025-02-19)",
+      "url": "https://electrek.co/2025/02/19/first-drive-2025-hyundai-ioniq-5-familiar-model-choice-upgrades/",
+      "accessed_on": "2026-11-19",
+      "notes": "US 2025: Standard Range 63 kWh, Long Range 84 kWh; peak 257 kW on a 350 kW CCS charger (233 kW in earlier years); 10-80% 24 min (63 kWh) / ~31 min (84 kWh) on a 135 kW NACS V3, ~20 min on a 250+ kW CCS charger for both; NACS port with free CCS adapter."
+    },
+    {
+      "id": "src-arenaev-ioniq5-63",
+      "type": "community",
+      "title": "ArenaEV - Hyundai Ioniq 5 63 kWh RWD (2024) specs",
+      "url": "https://www.arenaev.com/hyundai__63kwh_rwd_2024-specs-708.php",
+      "accessed_on": "2026-11-19",
+      "notes": "63 kWh nominal, 800 V battery, CCS 180 kW with 10-80% in 18 min, AC 11 kW. European listing; does not say whether 180 kW is a Hyundai claim."
+    },
+    {
+      "id": "src-hyundai-usa-nacs-adapter-faq",
+      "type": "oem",
+      "title": "Hyundai USA owners - NACS adapter FAQs",
+      "url": "https://owners.hyundaiusa.com/us/en/resources/general-information/hyundai-nacs-adapter-faqs",
+      "accessed_on": "2026-11-19",
+      "notes": "Hyundai EVs with native CCS ports get NACS adapters; the 2025 IONIQ 5 is the first Hyundai with a native NACS port (complimentary CCS adapter); the IONIQ 5 N does not have a native NACS port; works at Tesla V3/V4 Superchargers, 125 kW max at the time."
+    },
+    {
+      "id": "src-motor-hyundai-adapters-2025",
+      "type": "community",
+      "title": "Motor.com - Hyundai vehicles gain access to U.S. Tesla Superchargers with complimentary NACS adapters (2025-03)",
+      "url": "https://www.motor.com/2025/03/hyundai-vehicles-gain-access-to-u-s-tesla-superchargers-with-complimentary-nacs-adapters/",
+      "accessed_on": "2026-11-19",
+      "notes": "Hyundai press relay: KONA Electric, IONIQ Electric, IONIQ 5, IONIQ 6 and the 2025 IONIQ 5 N get a complimentary CCS-to-NACS adapter (owners who bought by 2025-01-31); the refreshed 2025 IONIQ 5 already has Supercharger access via its built-in port."
+    },
+    {
+      "id": "src-guideauto-ioniq5-2025-lineup-ca",
+      "type": "community",
+      "title": "Guide Auto - Updated 2025 Hyundai IONIQ 5 lineup to include off-road-focused model (Canada)",
+      "url": "https://guideautoweb.com/en/articles/75598/updated-2025-hyundai-ioniq-5-lineup-to-include-off-road-focused-model",
+      "accessed_on": "2026-11-19",
+      "notes": "Canada 2025: XRT is the first Hyundai in Canada with a NACS port; other 2025 IONIQ 5 models including the N use CCS and will be offered a NACS adapter; 84 kWh battery."
+    },
+    {
+      "id": "src-electrek-hyundai-2027-lineup",
+      "type": "community",
+      "title": "Electrek - Hyundai shaking up 2027 EV lineup: what's changing (2026-11-11)",
+      "url": "https://electrek.co/2026/11/11/hyundai-shaking-up-2027-ev-lineup-whats-changing/",
+      "accessed_on": "2026-11-19",
+      "notes": "2027 IONIQ 5 and IONIQ 9: trim/feature changes only; no change to battery, charging, NACS or DC peak reported."
+    },
+    {
+      "id": "src-ioniq5-manual-ne1a-2025",
+      "type": "oem",
+      "title": "Hyundai owner's manual (US, 2025, code NE1a): Setting Electric Vehicle Specialized Functions (Battery Conditioning)",
+      "url": "https://ownersmanual.hyundai.com/full_webhelp/NE1a/2025/en_US/topic_p5j_2xj_t5b.html",
+      "accessed_on": "2026-11-19",
+      "notes": "Same wording as the 2026 page: manual Active option under EV > Battery Conditioning, and automatic conditioning that considers arrival time when a DC charger is set as destination or waypoint. The page does not name a model or year; the NE1 code is the IONIQ 5 platform code (inference)."
+    }
+  ],
+  "powertrains": {
+    "hyundai/ioniq-5/2022-se-standard-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 58,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives lists the 58 kWh pack for the Essential/Preferred; Hyundai US release (HMGMA) also says Standard Range went from 58.0 to 63.0 kWh. A bare capacity is recorded as gross.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 54,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "European listing of the same 58 kWh E-GMP pack (MY21): 54.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia also lists the 58 kWh pack as NMC.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "EV Database: 523 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 175,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database both list 175 kW peak for the 58 kWh pack (European/global figure; same pack).",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Estimated: Canada Drives states a standard 10.9 kW onboard charger for the Canadian 2022 trims (58 kWh car); for the US SE Standard Range (2022, 2024) the same pack and charger are assumed (SlashGear gives 10.9 kW for the US 77.4 kWh launch car). Applied to Canadian Preferred 2022/2023 directly.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Hyundai USA: legacy Hyundai EVs have native CCS ports (the 2025 IONIQ 5 is the first with a native NACS port)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-motor-hyundai-adapters-2025",
+            "notes": "Hyundai (US) provides a complimentary CCS-to-NACS adapter to eligible IONIQ 5 owners for Tesla Supercharger access (relayed by Motor.com, 2025-03); the Hyundai USA FAQ says native-CCS owners have access to NACS adapters.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2024-se-standard-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 58,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives lists the 58 kWh pack for the Essential/Preferred; Hyundai US release (HMGMA) also says Standard Range went from 58.0 to 63.0 kWh. A bare capacity is recorded as gross.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 54,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "European listing of the same 58 kWh E-GMP pack (MY21): 54.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia also lists the 58 kWh pack as NMC.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "EV Database: 523 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 175,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database both list 175 kW peak for the 58 kWh pack (European/global figure; same pack).",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Estimated: Canada Drives states a standard 10.9 kW onboard charger for the Canadian 2022 trims (58 kWh car); for the US SE Standard Range (2022, 2024) the same pack and charger are assumed (SlashGear gives 10.9 kW for the US 77.4 kWh launch car). Applied to Canadian Preferred 2022/2023 directly.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Hyundai USA: legacy Hyundai EVs have native CCS ports (the 2025 IONIQ 5 is the first with a native NACS port)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-motor-hyundai-adapters-2025",
+            "notes": "Hyundai (US) provides a complimentary CCS-to-NACS adapter to eligible IONIQ 5 owners for Tesla Supercharger access (relayed by Motor.com, 2025-03); the Hyundai USA FAQ says native-CCS owners have access to NACS adapters.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2022-preferred": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 58,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives lists the 58 kWh pack for the Essential/Preferred; Hyundai US release (HMGMA) also says Standard Range went from 58.0 to 63.0 kWh. A bare capacity is recorded as gross.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 54,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "European listing of the same 58 kWh E-GMP pack (MY21): 54.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia also lists the 58 kWh pack as NMC.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "EV Database: 523 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 175,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database both list 175 kW peak for the 58 kWh pack (European/global figure; same pack).",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives (Canadian 2022 trims): \"10.9 kW, standard on all models\". Applied to the 2023 Preferred by carry-over (same hardware). EV Database rounds to 11 kW.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: NACS from model year 2026; model year 2025 and earlier Hyundai EVs use an adapter for NACS (the port itself is inferred to be CCS from that)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately at Tesla Superchargers open to Hyundai drivers."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2023-preferred": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 58,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives lists the 58 kWh pack for the Essential/Preferred; Hyundai US release (HMGMA) also says Standard Range went from 58.0 to 63.0 kWh. A bare capacity is recorded as gross.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 54,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "European listing of the same 58 kWh E-GMP pack (MY21): 54.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia also lists the 58 kWh pack as NMC.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-sr-2wd",
+            "notes": "EV Database: 523 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 175,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database both list 175 kW peak for the 58 kWh pack (European/global figure; same pack).",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives (Canadian 2022 trims): \"10.9 kW, standard on all models\". Applied to the 2023 Preferred by carry-over (same hardware). EV Database rounds to 11 kW.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: NACS from model year 2026; model year 2025 and earlier Hyundai EVs use an adapter for NACS (the port itself is inferred to be CCS from that)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately at Tesla Superchargers open to Hyundai drivers."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2022-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Pack stated as 77.4 kWh (bare capacity recorded as gross); SlashGear relays Hyundai's 77.4 kWh for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "European listing of the same 77.4 kWh pack (MY22): 74.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia lists the 77.4 kWh pack as NMC too.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database list 233 kW peak for the 77.4 kWh pack (European/global figure; Electrek says the 2025 US car's 257 kW is \"up from 233 kW in prior years\").",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "US 2022: standard 10.9 kW onboard charger (Canada Drives says the same for Canada). EV Database rounds to 11 kW.",
+            "low_confidence": true
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "Hyundai: 10-80% in 18 minutes on a 350 kW charger (relayed).",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Hyundai USA: legacy Hyundai EVs have native CCS ports (the 2025 IONIQ 5 is the first with a native NACS port)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-motor-hyundai-adapters-2025",
+            "notes": "Hyundai (US) provides a complimentary CCS-to-NACS adapter to eligible IONIQ 5 owners for Tesla Supercharger access (relayed by Motor.com, 2025-03); the Hyundai USA FAQ says native-CCS owners have access to NACS adapters.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2024-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Pack stated as 77.4 kWh (bare capacity recorded as gross); SlashGear relays Hyundai's 77.4 kWh for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "European listing of the same 77.4 kWh pack (MY22): 74.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia lists the 77.4 kWh pack as NMC too.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database list 233 kW peak for the 77.4 kWh pack (European/global figure; Electrek says the 2025 US car's 257 kW is \"up from 233 kW in prior years\").",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "US 2022: standard 10.9 kW onboard charger (Canada Drives says the same for Canada). EV Database rounds to 11 kW.",
+            "low_confidence": true
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "Hyundai: 10-80% in 18 minutes on a 350 kW charger (relayed).",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Hyundai USA: legacy Hyundai EVs have native CCS ports (the 2025 IONIQ 5 is the first with a native NACS port)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-motor-hyundai-adapters-2025",
+            "notes": "Hyundai (US) provides a complimentary CCS-to-NACS adapter to eligible IONIQ 5 owners for Tesla Supercharger access (relayed by Motor.com, 2025-03); the Hyundai USA FAQ says native-CCS owners have access to NACS adapters.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2022-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Pack stated as 77.4 kWh (bare capacity recorded as gross); SlashGear relays Hyundai's 77.4 kWh for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "European listing of the same 77.4 kWh pack (MY22): 74.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia lists the 77.4 kWh pack as NMC too.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database list 233 kW peak for the 77.4 kWh pack (European/global figure; Electrek says the 2025 US car's 257 kW is \"up from 233 kW in prior years\").",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "US 2022: standard 10.9 kW onboard charger (Canada Drives says the same for Canada). EV Database rounds to 11 kW.",
+            "low_confidence": true
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "Hyundai: 10-80% in 18 minutes on a 350 kW charger (relayed).",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Hyundai USA: legacy Hyundai EVs have native CCS ports (the 2025 IONIQ 5 is the first with a native NACS port)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-motor-hyundai-adapters-2025",
+            "notes": "Hyundai (US) provides a complimentary CCS-to-NACS adapter to eligible IONIQ 5 owners for Tesla Supercharger access (relayed by Motor.com, 2025-03); the Hyundai USA FAQ says native-CCS owners have access to NACS adapters.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2024-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Pack stated as 77.4 kWh (bare capacity recorded as gross); SlashGear relays Hyundai's 77.4 kWh for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "European listing of the same 77.4 kWh pack (MY22): 74.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia lists the 77.4 kWh pack as NMC too.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database list 233 kW peak for the 77.4 kWh pack (European/global figure; Electrek says the 2025 US car's 257 kW is \"up from 233 kW in prior years\").",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "US 2022: standard 10.9 kW onboard charger (Canada Drives says the same for Canada). EV Database rounds to 11 kW.",
+            "low_confidence": true
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "Hyundai: 10-80% in 18 minutes on a 350 kW charger (relayed).",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Hyundai USA: legacy Hyundai EVs have native CCS ports (the 2025 IONIQ 5 is the first with a native NACS port)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-motor-hyundai-adapters-2025",
+            "notes": "Hyundai (US) provides a complimentary CCS-to-NACS adapter to eligible IONIQ 5 owners for Tesla Supercharger access (relayed by Motor.com, 2025-03); the Hyundai USA FAQ says native-CCS owners have access to NACS adapters.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2022-preferred-long-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Pack stated as 77.4 kWh (bare capacity recorded as gross); SlashGear relays Hyundai's 77.4 kWh for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "European listing of the same 77.4 kWh pack (MY22): 74.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia lists the 77.4 kWh pack as NMC too.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database list 233 kW peak for the 77.4 kWh pack (European/global figure; Electrek says the 2025 US car's 257 kW is \"up from 233 kW in prior years\").",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives (Canadian 2022 trims): 10.9 kW onboard charger, standard on all models; SlashGear gives the same for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "Hyundai: 10-80% in 18 minutes on a 350 kW charger (relayed).",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: NACS from model year 2026; model year 2025 and earlier Hyundai EVs use an adapter for NACS (the port itself is inferred to be CCS from that)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately at Tesla Superchargers open to Hyundai drivers."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2023-preferred-long-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Pack stated as 77.4 kWh (bare capacity recorded as gross); SlashGear relays Hyundai's 77.4 kWh for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "European listing of the same 77.4 kWh pack (MY22): 74.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia lists the 77.4 kWh pack as NMC too.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database list 233 kW peak for the 77.4 kWh pack (European/global figure; Electrek says the 2025 US car's 257 kW is \"up from 233 kW in prior years\").",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives (Canadian 2022 trims): 10.9 kW onboard charger, standard on all models; SlashGear gives the same for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "Hyundai: 10-80% in 18 minutes on a 350 kW charger (relayed).",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: NACS from model year 2026; model year 2025 and earlier Hyundai EVs use an adapter for NACS (the port itself is inferred to be CCS from that)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately at Tesla Superchargers open to Hyundai drivers."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2024-preferred-long-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Pack stated as 77.4 kWh (bare capacity recorded as gross); SlashGear relays Hyundai's 77.4 kWh for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "European listing of the same 77.4 kWh pack (MY22): 74.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia lists the 77.4 kWh pack as NMC too.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database list 233 kW peak for the 77.4 kWh pack (European/global figure; Electrek says the 2025 US car's 257 kW is \"up from 233 kW in prior years\").",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives (Canadian 2022 trims): 10.9 kW onboard charger, standard on all models; SlashGear gives the same for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "Hyundai: 10-80% in 18 minutes on a 350 kW charger (relayed).",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: NACS from model year 2026; model year 2025 and earlier Hyundai EVs use an adapter for NACS (the port itself is inferred to be CCS from that)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately at Tesla Superchargers open to Hyundai drivers."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2022-preferred-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Pack stated as 77.4 kWh (bare capacity recorded as gross); SlashGear relays Hyundai's 77.4 kWh for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "European listing of the same 77.4 kWh pack (MY22): 74.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia lists the 77.4 kWh pack as NMC too.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database list 233 kW peak for the 77.4 kWh pack (European/global figure; Electrek says the 2025 US car's 257 kW is \"up from 233 kW in prior years\").",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives (Canadian 2022 trims): 10.9 kW onboard charger, standard on all models; SlashGear gives the same for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "Hyundai: 10-80% in 18 minutes on a 350 kW charger (relayed).",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: NACS from model year 2026; model year 2025 and earlier Hyundai EVs use an adapter for NACS (the port itself is inferred to be CCS from that)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately at Tesla Superchargers open to Hyundai drivers."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2023-preferred-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Pack stated as 77.4 kWh (bare capacity recorded as gross); SlashGear relays Hyundai's 77.4 kWh for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "European listing of the same 77.4 kWh pack (MY22): 74.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia lists the 77.4 kWh pack as NMC too.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database list 233 kW peak for the 77.4 kWh pack (European/global figure; Electrek says the 2025 US car's 257 kW is \"up from 233 kW in prior years\").",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives (Canadian 2022 trims): 10.9 kW onboard charger, standard on all models; SlashGear gives the same for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "Hyundai: 10-80% in 18 minutes on a 350 kW charger (relayed).",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: NACS from model year 2026; model year 2025 and earlier Hyundai EVs use an adapter for NACS (the port itself is inferred to be CCS from that)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately at Tesla Superchargers open to Hyundai drivers."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2024-preferred-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 77.4,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Pack stated as 77.4 kWh (bare capacity recorded as gross); SlashGear relays Hyundai's 77.4 kWh for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 74,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "European listing of the same 77.4 kWh pack (MY22): 74.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: NMC cathode, pouch. Wikipedia lists the 77.4 kWh pack as NMC too.",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-lr-awd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-electrive-ioniq5-preconditioning-2023",
+            "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-wikipedia-ioniq5",
+            "notes": "Wikipedia and EV Database list 233 kW peak for the 77.4 kWh pack (European/global figure; Electrek says the 2025 US car's 257 kW is \"up from 233 kW in prior years\").",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-canadadrives-ioniq5-2022",
+            "notes": "Canada Drives (Canadian 2022 trims): 10.9 kW onboard charger, standard on all models; SlashGear gives the same for the US car.",
+            "low_confidence": true
+          }
+        ],
+        "published_10_80_min": [
+          {
+            "value": 18,
+            "unit": "min",
+            "kind": "manufacturer",
+            "source_id": "src-slashgear-ioniq5-2022-us",
+            "notes": "Hyundai: 10-80% in 18 minutes on a 350 kW charger (relayed).",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: NACS from model year 2026; model year 2025 and earlier Hyundai EVs use an adapter for NACS (the port itself is inferred to be CCS from that)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately at Tesla Superchargers open to Hyundai drivers."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2025-preferred-standard-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 63,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Hyundai release: Standard Range models 58.0 to 63.0 kWh (63.0 kWh for 2025); bare capacity recorded as gross.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 60,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-63-rwd",
+            "notes": "European listing of the same 63 kWh pack (MY24): 60.0 kWh usable (EVKX says 59 net). Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-63-rwd",
+            "notes": "EV Database: NMC cathode, pouch (63 kWh pack).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-63-rwd",
+            "notes": "EV Database: 520 V nominal, 800 V architecture; ArenaEV also says 800 V.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2025",
+            "notes": "Estimated: the US 2025 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). Same wording on the 2026 page.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 180,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-arenaev-ioniq5-63",
+            "notes": "Estimated: no North American page states a peak for the 63 kWh pack. Same pack in Europe: ArenaEV lists 180 kW (CCS, read), EV Database 195 kW (read). Conflicting US evidence: Electrek (US first drive) gives 257 kW and 20 min 10-80% on a 250 kW+ CCS charger without separating the 63 kWh pack (257 kW is the 84 kWh peak). 180 kW (ArenaEV) is recorded; EV Database's 195 kW is higher, so the true peak is uncertain; flag for owner review.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: the US 2026 IONIQ 5 page gives 10.9 kW home charging; EV Database lists the same 11 kW onboard charger for the 63 kWh and 84 kWh cars, so the charger carries over. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2026-se-standard-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 63,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai lists 63.0 kWh for the 2025 Standard Range; 2026 is the same generation with no pack change reported.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 60,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-63-rwd",
+            "notes": "European listing of the same 63 kWh pack (MY24): 60.0 kWh usable (EVKX says 59 net). Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-63-rwd",
+            "notes": "EV Database: NMC cathode, pouch (63 kWh pack).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-63-rwd",
+            "notes": "EV Database: 520 V nominal, 800 V architecture; ArenaEV also says 800 V.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2026",
+            "notes": "Estimated: the US 2026 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). No Canadian manual read.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 180,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-arenaev-ioniq5-63",
+            "notes": "Estimated: no North American page states a peak for the 63 kWh pack. Same pack in Europe: ArenaEV lists 180 kW (CCS, read), EV Database 195 kW (read). Conflicting US evidence: Electrek (US first drive) gives 257 kW and 20 min 10-80% on a 250 kW+ CCS charger without separating the 63 kWh pack (257 kW is the 84 kWh peak). 180 kW (ArenaEV) is recorded; EV Database's 195 kW is higher, so the true peak is uncertain; flag for owner review.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: the US 2026 IONIQ 5 page gives 10.9 kW home charging; EV Database lists the same 11 kW onboard charger for the 63 kWh and 84 kWh cars, so the charger carries over. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai states a built-in NACS port from the 2025 US IONIQ 5; Hyundai Canada FAQ says IONIQ 5 from model year 2026 has NACS; Electrek (2026-11-11) reports no charging changes for 2027. Years compared: 2025-2027.",
+            "low_confidence": true
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "estimated",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Estimated: native-NACS 2025 IONIQ 5 uses Tesla Superchargers directly; same port carried over to 2026.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2027-se-standard-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 63,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai lists 63.0 kWh for the 2025 Standard Range; 2027 is the same generation with no pack change reported.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 60,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-63-rwd",
+            "notes": "European listing of the same 63 kWh pack (MY24): 60.0 kWh usable (EVKX says 59 net). Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-63-rwd",
+            "notes": "EV Database: NMC cathode, pouch (63 kWh pack).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-63-rwd",
+            "notes": "EV Database: 520 V nominal, 800 V architecture; ArenaEV also says 800 V.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2026",
+            "notes": "Estimated: the US 2026 IONIQ 5 owner's manual (NE1a) describes manual plus navigation-automatic Battery Conditioning; the 2027 car is the same 2025-refresh generation (Electrek 2026-11-11 reports no 2027 charging changes). Years compared: 2025, 2026, 2027.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 180,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-arenaev-ioniq5-63",
+            "notes": "Estimated: no North American page states a peak for the 63 kWh pack. Same pack in Europe: ArenaEV lists 180 kW (CCS, read), EV Database 195 kW (read). Conflicting US evidence: Electrek (US first drive) gives 257 kW and 20 min 10-80% on a 250 kW+ CCS charger without separating the 63 kWh pack (257 kW is the 84 kWh peak). 180 kW (ArenaEV) is recorded; EV Database's 195 kW is higher, so the true peak is uncertain; flag for owner review.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: the US 2026 IONIQ 5 page gives 10.9 kW home charging; EV Database lists the same 11 kW onboard charger for the 63 kWh and 84 kWh cars, so the charger carries over. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai states a built-in NACS port from the 2025 US IONIQ 5; Hyundai Canada FAQ says IONIQ 5 from model year 2026 has NACS; Electrek (2026-11-11) reports no charging changes for 2027. Years compared: 2025-2027.",
+            "low_confidence": true
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "estimated",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Estimated: native-NACS 2025 IONIQ 5 uses Tesla Superchargers directly; same port carried over to 2027.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2025-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Hyundai release: Long Range models 77.4 to 84 kWh; XRT linked to the 84 kWh battery; bare capacity recorded as gross.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: NMC cathode, pouch (84 kWh pack); SK On NCM 811 per WeeklyDriver (already on file for 2026).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: US 2026 IONIQ 5 page states 10.9 kW home charging for the 84 kWh car (already on file for 2026); 2025 is the same generation and onboard charger. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2025",
+            "notes": "Estimated: the US 2025 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). Same wording on the 2026 page.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Hyundai: NACS port standard on the 2025 IONIQ 5 (US-built), CCS adapter included."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Hyundai USA FAQ: native-NACS 2025 IONIQ 5 uses Tesla V3/V4 Superchargers directly (125 kW limit at the time).",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2027-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai lists 84 kWh for the 2025 Long Range/XRT; 2027 is the same generation with no pack change reported (Electrek 2026-11-11).",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: NMC cathode, pouch (84 kWh pack); SK On NCM 811 per WeeklyDriver (already on file for 2026).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: US 2026 IONIQ 5 page states 10.9 kW home charging for the 84 kWh car (already on file for 2026); 2027 is the same generation and onboard charger. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2026",
+            "notes": "Estimated: the US 2026 IONIQ 5 owner's manual (NE1a) describes manual plus navigation-automatic Battery Conditioning; the 2027 car is the same 2025-refresh generation (Electrek 2026-11-11 reports no 2027 charging changes). Years compared: 2025, 2026, 2027.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW. Estimated for 2027: same hardware as the 2025 car; no charging change reported.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai states a built-in NACS port from the 2025 US IONIQ 5; Hyundai Canada FAQ says IONIQ 5 from model year 2026 has NACS; Electrek (2026-11-11) reports no charging changes for 2027. Years compared: 2025-2027.",
+            "low_confidence": true
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "estimated",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Estimated: native-NACS 2025 IONIQ 5 uses Tesla Superchargers directly; same port carried over to 2027.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2025-dual-motor-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Hyundai release: Long Range models 77.4 to 84 kWh; XRT linked to the 84 kWh battery; bare capacity recorded as gross.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: NMC cathode, pouch (84 kWh pack); SK On NCM 811 per WeeklyDriver (already on file for 2026).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: US 2026 IONIQ 5 page states 10.9 kW home charging for the 84 kWh car (already on file for 2026); 2025 is the same generation and onboard charger. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2025",
+            "notes": "Estimated: the US 2025 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). Same wording on the 2026 page.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Hyundai: NACS port standard on the 2025 IONIQ 5 (US-built), CCS adapter included."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Hyundai USA FAQ: native-NACS 2025 IONIQ 5 uses Tesla V3/V4 Superchargers directly (125 kW limit at the time).",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2025-limited-dual-motor-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Hyundai release: Long Range models 77.4 to 84 kWh; XRT linked to the 84 kWh battery; bare capacity recorded as gross.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: NMC cathode, pouch (84 kWh pack); SK On NCM 811 per WeeklyDriver (already on file for 2026).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: US 2026 IONIQ 5 page states 10.9 kW home charging for the 84 kWh car (already on file for 2026); 2025 is the same generation and onboard charger. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2025",
+            "notes": "Estimated: the US 2025 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). Same wording on the 2026 page.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Hyundai: NACS port standard on the 2025 IONIQ 5 (US-built), CCS adapter included."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Hyundai USA FAQ: native-NACS 2025 IONIQ 5 uses Tesla V3/V4 Superchargers directly (125 kW limit at the time).",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2027-dual-motor-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai lists 84 kWh for the 2025 Long Range/XRT; 2027 is the same generation with no pack change reported (Electrek 2026-11-11).",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: NMC cathode, pouch (84 kWh pack); SK On NCM 811 per WeeklyDriver (already on file for 2026).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: US 2026 IONIQ 5 page states 10.9 kW home charging for the 84 kWh car (already on file for 2026); 2027 is the same generation and onboard charger. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2026",
+            "notes": "Estimated: the US 2026 IONIQ 5 owner's manual (NE1a) describes manual plus navigation-automatic Battery Conditioning; the 2027 car is the same 2025-refresh generation (Electrek 2026-11-11 reports no 2027 charging changes). Years compared: 2025, 2026, 2027.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW. Estimated for 2027: same hardware as the 2025 car; no charging change reported.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai states a built-in NACS port from the 2025 US IONIQ 5; Hyundai Canada FAQ says IONIQ 5 from model year 2026 has NACS; Electrek (2026-11-11) reports no charging changes for 2027. Years compared: 2025-2027.",
+            "low_confidence": true
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "estimated",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Estimated: native-NACS 2025 IONIQ 5 uses Tesla Superchargers directly; same port carried over to 2027.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2027-limited-dual-motor-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai lists 84 kWh for the 2025 Long Range/XRT; 2027 is the same generation with no pack change reported (Electrek 2026-11-11).",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: NMC cathode, pouch (84 kWh pack); SK On NCM 811 per WeeklyDriver (already on file for 2026).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: US 2026 IONIQ 5 page states 10.9 kW home charging for the 84 kWh car (already on file for 2026); 2027 is the same generation and onboard charger. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2026",
+            "notes": "Estimated: the US 2026 IONIQ 5 owner's manual (NE1a) describes manual plus navigation-automatic Battery Conditioning; the 2027 car is the same 2025-refresh generation (Electrek 2026-11-11 reports no 2027 charging changes). Years compared: 2025, 2026, 2027.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW. Estimated for 2027: same hardware as the 2025 car; no charging change reported.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai states a built-in NACS port from the 2025 US IONIQ 5; Hyundai Canada FAQ says IONIQ 5 from model year 2026 has NACS; Electrek (2026-11-11) reports no charging changes for 2027. Years compared: 2025-2027.",
+            "low_confidence": true
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "estimated",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Estimated: native-NACS 2025 IONIQ 5 uses Tesla Superchargers directly; same port carried over to 2027.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2025-preferred-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Hyundai release: Long Range models 77.4 to 84 kWh; XRT linked to the 84 kWh battery; bare capacity recorded as gross.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: NMC cathode, pouch (84 kWh pack); SK On NCM 811 per WeeklyDriver (already on file for 2026).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: US 2026 IONIQ 5 page states 10.9 kW home charging for the 84 kWh car (already on file for 2026); 2025 is the same generation and onboard charger. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2025",
+            "notes": "Estimated: the US 2025 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). Same wording on the 2026 page.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-guideauto-ioniq5-2025-lineup-ca",
+            "notes": "Canada: other 2025 IONIQ 5 models use a CCS port and are offered a NACS adapter.",
+            "low_confidence": true
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Hyundai Canada FAQ: model year 2025 and earlier Hyundai EVs can use a NACS adapter sold separately."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2025-xrt": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Hyundai release: Long Range models 77.4 to 84 kWh; XRT linked to the 84 kWh battery; bare capacity recorded as gross.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: NMC cathode, pouch (84 kWh pack); SK On NCM 811 per WeeklyDriver (already on file for 2026).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: US 2026 IONIQ 5 page states 10.9 kW home charging for the 84 kWh car (already on file for 2026); 2025 is the same generation and onboard charger. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2025",
+            "notes": "Estimated: the US 2025 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). Same wording on the 2026 page.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-guideauto-ioniq5-2025-lineup-ca",
+            "notes": "Canada: the 2025 XRT is the first Hyundai in Canada with a NACS port.",
+            "low_confidence": true
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "estimated",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "Estimated: Canada 2025 XRT has the NACS port (Guide Auto); Hyundai Canada FAQ confirms Supercharger access through the NACS port for 2026+ and does not name the 2025 XRT; Hyundai USA says the same native-NACS 2025 car uses Tesla V3/V4 Superchargers directly.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2025-xrt-dual-motor-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Hyundai release: Long Range models 77.4 to 84 kWh; XRT linked to the 84 kWh battery; bare capacity recorded as gross.",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: NMC cathode, pouch (84 kWh pack); SK On NCM 811 per WeeklyDriver (already on file for 2026).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: US 2026 IONIQ 5 page states 10.9 kW home charging for the 84 kWh car (already on file for 2026); 2025 is the same generation and onboard charger. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2025",
+            "notes": "Estimated: the US 2025 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). Same wording on the 2026 page.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Hyundai: NACS port standard on the 2025 IONIQ 5 (US-built), CCS adapter included."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Hyundai USA FAQ: native-NACS 2025 IONIQ 5 uses Tesla V3/V4 Superchargers directly (125 kW limit at the time).",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2027-xrt-dual-motor-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 84,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai lists 84 kWh for the 2025 Long Range/XRT; 2027 is the same generation with no pack change reported (Electrek 2026-11-11).",
+            "low_confidence": true
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: NMC cathode, pouch (84 kWh pack); SK On NCM 811 per WeeklyDriver (already on file for 2026).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-ioniq5-2026",
+            "notes": "Estimated: US 2026 IONIQ 5 page states 10.9 kW home charging for the 84 kWh car (already on file for 2026); 2027 is the same generation and onboard charger. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2026",
+            "notes": "Estimated: the US 2026 IONIQ 5 owner's manual (NE1a) describes manual plus navigation-automatic Battery Conditioning; the 2027 car is the same 2025-refresh generation (Electrek 2026-11-11 reports no 2027 charging changes). Years compared: 2025, 2026, 2027.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW. Estimated for 2027: same hardware as the 2025 car; no charging change reported.",
+            "low_confidence": true
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "estimated",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "Estimated: Hyundai states a built-in NACS port from the 2025 US IONIQ 5; Hyundai Canada FAQ says IONIQ 5 from model year 2026 has NACS; Electrek (2026-11-11) reports no charging changes for 2027. Years compared: 2025-2027.",
+            "low_confidence": true
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "estimated",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "Estimated: native-NACS 2025 IONIQ 5 uses Tesla Superchargers directly; same port carried over to 2027.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2026-long-range": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2026",
+            "notes": "Estimated: the US 2026 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). No Canadian manual read.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW. Estimated for 2026: same hardware as the 2025 car; no charging change reported.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2026-long-range-awd": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2026",
+            "notes": "Estimated: the US 2026 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). No Canadian manual read.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW. Estimated for 2026: same hardware as the 2025 car; no charging change reported.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2026-long-range-awd-xrt": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-84-rwd",
+            "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5-manual-ne1a-2026",
+            "notes": "Estimated: the US 2026 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). No Canadian manual read.",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 257,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-electrek-ioniq5-2025-first-drive",
+            "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW. Estimated for 2026: same hardware as the 2025 car; no charging change reported.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2026-n": {
+      "fields": {
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 80,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-ioniq5-n",
+            "notes": "Estimated: EV Database estimates 80.0 kWh usable for the N, equal to its figure for the 84 kWh Long Range (same pack).",
+            "low_confidence": true
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "community",
+            "source_id": "src-evdb-ioniq5-n",
+            "notes": "EV Database: 697 V nominal, 800 V architecture.",
+            "low_confidence": true
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq5n-manual-ne1n-2026",
+            "notes": "Estimated: the US 2026 owner's manual page (code NE1n) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1N being the IONIQ 5 N platform code (inference).",
+            "low_confidence": true
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 238,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-ioniq-5-n-2027",
+            "notes": "Hyundai Canada N page (2027 model year): charge speed 238 kW on a 350 kW DC fast charger. Conflicts: Wikipedia spec table also 238 kW; EV Database 263 kW (Hyundai Europe claims 260 kW for the Long Range); an image-based Hyundai Europe N sheet appeared to say 239 kW but could not be reliably read and is not cited.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-9/2026-awd-performance": {
+      "fields": {
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq9-manual-mea-2026",
+            "notes": "Estimated: the US 2026 owner's manual page (code MEa) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, ME being the IONIQ 9 platform code (inference), and no Canadian manual was read. Applied to all three IONIQ 9 powertrains.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-9/2026-awd": {
+      "fields": {
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq9-manual-mea-2026",
+            "notes": "Estimated: the US 2026 owner's manual page (code MEa) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, ME being the IONIQ 9 platform code (inference), and no Canadian manual was read. Applied to all three IONIQ 9 powertrains.",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-9/2026-standard": {
+      "fields": {
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-ioniq9-manual-mea-2026",
+            "notes": "Estimated: the US 2026 owner's manual page (code MEa) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, ME being the IONIQ 9 platform code (inference), and no Canadian manual was read. Applied to all three IONIQ 9 powertrains.",
+            "low_confidence": true
+          }
+        ]
+      }
+    }
+  },
+  "variants": {
+    "hyundai/ioniq-5/2025/n": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "US: the IONIQ 5 N does not have a native NACS port. Canada: the 2025 N uses a CCS port with an offered NACS adapter (Guide Auto). The 2026 N has NACS (already on file)."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-motor-hyundai-adapters-2025",
+            "notes": "Hyundai press relay: the 2025 IONIQ 5 N gets a complimentary CCS-to-NACS adapter (US); Canada: NACS adapter offered (Guide Auto).",
+            "low_confidence": true
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2025/preferred-standard-range": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-guideauto-ioniq5-2025-lineup-ca",
+            "notes": "2025 non-XRT trims use a CCS port with an offered NACS adapter.",
+            "low_confidence": true
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-ca-faq",
+            "notes": "NACS adapter sold separately for 2025-and-earlier CCS Hyundai EVs."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-5/2025/preferred-standard-range-us": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "manufacturer",
+            "source_id": "src-hmgma-2025-ioniq-5-xrt",
+            "notes": "NACS port is standard on the 2025 IONIQ 5 (first Hyundai with NACS), with a CCS adapter supplied."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "manufacturer",
+            "source_id": "src-hyundai-usa-nacs-adapter-faq",
+            "notes": "native NACS 2025 IONIQ 5 uses Tesla Superchargers directly (125 kW limit at the time).",
+            "low_confidence": true
+          }
+        ]
+      }
+    }
+  }
+}

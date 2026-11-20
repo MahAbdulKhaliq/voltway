@@ -31,6 +31,15 @@
         "low_confidence": true,
         "notes": "Review says 110.3 kWh NMC pack (relayed; NCM/NMC are the same family). Same pack across the three variants."
       }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-ioniq9-manual-mea-2026",
+        "notes": "Estimated: the US 2026 owner's manual page (code MEa) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, ME being the IONIQ 9 platform code (inference), and no Canadian manual was read. Applied to all three IONIQ 9 powertrains.",
+        "low_confidence": true
+      }
     ]
   }
 }

@@ -8,6 +8,23 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-hmgma-2025-ioniq-5-xrt",
+      "notes": "Hyundai: NACS port standard on the 2025 IONIQ 5 (US-built), CCS adapter included."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-usa-nacs-adapter-faq",
+      "notes": "Hyundai USA FAQ: native-NACS 2025 IONIQ 5 uses Tesla V3/V4 Superchargers directly (125 kW limit at the time).",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

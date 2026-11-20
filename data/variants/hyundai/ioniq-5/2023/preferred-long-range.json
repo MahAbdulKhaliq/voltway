@@ -8,6 +8,22 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-faq",
+      "notes": "Hyundai Canada FAQ: NACS from model year 2026; model year 2025 and earlier Hyundai EVs use an adapter for NACS (the port itself is inferred to be CCS from that)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-faq",
+      "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately at Tesla Superchargers open to Hyundai drivers."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

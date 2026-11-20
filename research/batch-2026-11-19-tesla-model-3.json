@@ -1,0 +1,3513 @@
+{
+  "sources": [
+    {
+      "id": "src-evdb-m3-srp-2019",
+      "type": "community",
+      "title": "EV Database: Tesla Model 3 Standard Range Plus (2019-2020)",
+      "url": "https://ev-database.org/car/1177/Tesla-Model-3-Standard-Range-Plus",
+      "accessed_on": "2026-11-19",
+      "notes": "European listing: 53.1 kWh nominal / 49.0 kWh usable, Panasonic 2170C NCA, 96s31p 357 V (400 V architecture), 170 kW max DC. Same Panasonic 2976-cell pack as North America."
+    },
+    {
+      "id": "src-evdb-m3-srp-2021",
+      "type": "community",
+      "title": "EV Database: Tesla Model 3 Standard Range Plus (PANA 2170L), 2021",
+      "url": "https://ev-database.org/car/1485/Tesla-Model-3-Standard-Range-Plus",
+      "accessed_on": "2026-11-19",
+      "notes": "Fremont-built NCA variant sold Feb-Dec 2021: 55.0 kWh nominal / 51.0 kWh usable, Panasonic 2170 cells, DC up to 170 kW."
+    },
+    {
+      "id": "src-evdb-m3-lrawd-2019",
+      "type": "community",
+      "title": "EV Database: Tesla Model 3 Long Range AWD (2019-2020)",
+      "url": "https://ev-database.org/car/1138/Tesla-Model-3-Long-Range-AWD",
+      "accessed_on": "2026-11-19",
+      "notes": "European listing: 78.8 kWh nominal / 73.5 kWh usable (estimate), Panasonic 2170C NCA, 4,416 cells 96s46p, 357 V (400 V architecture), 250 kW max DC."
+    },
+    {
+      "id": "src-evdb-m3-lrawd-2021-pana",
+      "type": "community",
+      "title": "EV Database: Tesla Model 3 Long Range AWD (Panasonic 2170L, May-Dec 2021)",
+      "url": "https://ev-database.org/car/1525/Tesla-Model-3-Long-Range-AWD",
+      "accessed_on": "2026-11-19",
+      "notes": "Panasonic 2170L (variant E3LD): 82.0 kWh nominal / 76.0 kWh usable, NCA, 96s46p, 250 kW max DC. Page notes some markets also got a lower-capacity LG pack."
+    },
+    {
+      "id": "src-evdb-m3-lrawd-2021-lg",
+      "type": "community",
+      "title": "EV Database: Tesla Model 3 Long Range AWD (LG 5L, 2021-2023)",
+      "url": "https://ev-database.org/car/1591/Tesla-Model-3-Long-Range-AWD",
+      "accessed_on": "2026-11-19",
+      "notes": "LG M50 (5L) pack: 78.1 kWh nominal / 75.0 kWh usable (estimate), NMC, 4,416 cells 96s46p, 357 V (400 V architecture), 250 kW max DC."
+    },
+    {
+      "id": "src-evdb-m3-perf-highland-2024",
+      "type": "community",
+      "title": "EV Database: Tesla Model 3 Performance (Highland, Apr 2024-Oct 2025)",
+      "url": "https://ev-database.org/car/2188/Tesla-Model-3-Performance",
+      "accessed_on": "2026-11-19",
+      "notes": "78.1 kWh nominal / 75.0 kWh usable, NMC (LG 5L), 96s46p, 250 kW max DC, 10-80 % 27 min. European listing."
+    },
+    {
+      "id": "src-evdb-m3-lrrwd-highland",
+      "type": "community",
+      "title": "EV Database: Tesla Model 3 Long Range RWD (Highland, Oct 2024-Oct 2025)",
+      "url": "https://ev-database.org/car/3034/Tesla-Model-3-Long-Range-RWD",
+      "accessed_on": "2026-11-19",
+      "notes": "78.1 kWh nominal / 75.0 kWh usable (estimate), NMC (LG 5L), 96s46p, 250 kW max DC. European listing."
+    },
+    {
+      "id": "src-evdb-m3-rwd-lfp-2021",
+      "type": "community",
+      "title": "EV Database: Tesla Model 3 RWD (CATL LFP60), Dec 2021-Oct 2023",
+      "url": "https://ev-database.org/car/1555/Tesla-Model-3-RWD",
+      "accessed_on": "2026-11-19",
+      "notes": "European listing: 60.0 kWh nominal / 57.0 kWh usable (estimates), LFP (CATL), 170 kW max DC (estimate), 11 kW 3-phase AC in Europe."
+    },
+    {
+      "id": "src-evspecs-m3-2018-lrawd",
+      "type": "community",
+      "title": "EV Specifications: 2018 Tesla Model 3 Long Range AWD",
+      "url": "https://www.evspecifications.com/en/model/06625a",
+      "accessed_on": "2026-11-19",
+      "notes": "North American model-year entry: 77.8 kWh total, NCA, 250 kW DC (350 V), 11.5 kW AC (240 V, 48 A). Usable not listed."
+    },
+    {
+      "id": "src-evspecs-m3-2018-midrange",
+      "type": "community",
+      "title": "EV Specifications: 2018 Tesla Model 3 Mid Range RWD (comparison page)",
+      "url": "https://www.evspecifications.com/en/comparison/e6d58f0b",
+      "accessed_on": "2026-11-19",
+      "notes": "North American 2018 Mid Range: 62.5 kWh usable, 65 kWh total, NCA, 200 kW DC, 11.5 kW AC."
+    },
+    {
+      "id": "src-evspecs-m3-2020-2021",
+      "type": "community",
+      "title": "EV Specifications: comparison of 2020 SR+, 2021 SR+ and 2021 Long Range AWD",
+      "url": "https://www.evspecifications.com/en/comparison/4c511790",
+      "accessed_on": "2026-11-19",
+      "notes": "North American entries: 2020 SR+ 52.4 kWh NCA 170 kW; 2021 SR+ 55.4 kWh NCA 170 kW; 2021 Long Range AWD 82.1 kWh NCA 250 kW. Single battery figure per car (gross/net not split); AC shown as 11.5 kW for all (conflicts with Tesla service manual for non-Long-Range packs)."
+    },
+    {
+      "id": "src-evspecs-m3-lfp-rwd-2023",
+      "type": "community",
+      "title": "EV Specifications: comparison 2020 SR+ vs 2023 Model 3 RWD",
+      "url": "https://www.evspecifications.com/en/comparison/5a125281",
+      "accessed_on": "2026-11-19",
+      "notes": "2023 RWD (North America): 62 kWh total, LFP, 170 kW DC, 345 V. AC listed 11.5 kW (conflicts with Tesla service manual)."
+    },
+    {
+      "id": "src-insideevs-m3-highland-specs",
+      "type": "community",
+      "title": "InsideEVs: 2024 Tesla Model 3 Highland range, specs, pricing",
+      "url": "https://insideevs.com/news/704076/2024-tesla-model3-highland-range-specs-pricing/",
+      "accessed_on": "2026-11-19",
+      "notes": "States DC peak 170 kW (RWD) and 250 kW (Long Range AWD), unchanged from the previous model."
+    },
+    {
+      "id": "src-insideevs-m3-standard-2026",
+      "type": "community",
+      "title": "InsideEVs: Tesla Model 3 Standard beats EPA range",
+      "url": "https://insideevs.com/news/783143/tesla-model-3-standard-beats-epa-range/",
+      "accessed_on": "2026-11-19",
+      "notes": "Gives a 225 kW maximum input for the Model 3 Standard (250 kW for the rest of the lineup). No pack size or chemistry on the page."
+    },
+    {
+      "id": "src-arenaev-m3-standard-2025",
+      "type": "community",
+      "title": "ArenaEV: Tesla Model 3 Standard 2025 specs",
+      "url": "https://www.arenaev.com/tesla_model_3_standard_2025-specs-858.php",
+      "accessed_on": "2026-11-19",
+      "notes": "69 kWh total (nominal), LFP, 400 V, 225 kW DC, 11 kW AC (European listing). No usable figure."
+    },
+    {
+      "id": "src-goelectra-m3-standard-2026",
+      "type": "community",
+      "title": "Electra: Tesla Model 3 Standard, price, range, specs 2026",
+      "url": "https://www.go-electra.com/en/newsroom/tesla-model-3-standard-price-range-specs-and-reviews-2026",
+      "accessed_on": "2026-11-19",
+      "notes": "French page: about 64 kWh usable, LFP (CATL), 175 kW DC, 11 kW AC; says Tesla does not disclose exact capacity."
+    },
+    {
+      "id": "src-kbb-m3-2026-specs",
+      "type": "community",
+      "title": "KBB: 2026 Tesla Model 3 specs",
+      "url": "https://www.kbb.com/tesla/model3/2026/specs/",
+      "accessed_on": "2026-11-19",
+      "notes": "US page: Premium 75 kWh, Performance 75 kWh battery capacity (Standard N/A)."
+    },
+    {
+      "id": "src-tesla-m3-service-manual-charging",
+      "type": "oem",
+      "title": "Tesla Model 3 Service Manual (2017-2023): charging rates",
+      "url": "https://service.tesla.com/docs/Model3/ServiceManual/en-us/GUID-25F90D76-9526-44FA-96FB-BB401EC865ED.html",
+      "accessed_on": "2026-11-19",
+      "notes": "States: 240 V outlet max 32 A (about 7.7 kW); \"Model 3 accepts up to 48A when equipped with the Long Range Battery\" (about 11 kW). No per-year or per-trim table."
+    },
+    {
+      "id": "src-wikipedia-model3",
+      "type": "community",
+      "title": "Wikipedia: Tesla Model 3",
+      "url": "https://en.wikipedia.org/wiki/Tesla_Model_3",
+      "accessed_on": "2026-11-19",
+      "notes": "Battery section: Fremont cells are Panasonic NCA, Shanghai cells LG NMC (LFP from CATL in both factories). Specs table: RWD 64 kWh / 170 kW; Premium RWD and Premium AWD 78.1 kWh / 250 kW; infobox AC 7.6 kW (32 A) RWD and 11.5 kW (48 A) Long Range. Table columns partly ambiguous."
+    },
+    {
+      "id": "src-basenor-m3-legacy-charging",
+      "type": "community",
+      "title": "Basenor: Tesla Model 3 legacy charging specs (2017-2023)",
+      "url": "https://www.basenor.com/pages/model-3-legacy-charging-specs",
+      "accessed_on": "2026-11-19",
+      "notes": "RWD (Standard Range reference) 2017-2023: up to 32 A (7.6 kW per Wikipedia); Long Range / Performance up to 48 A (about 11 kW). Does not list SR, SR+ or Mid Range individually."
+    },
+    {
+      "id": "src-cleantechnica-srp-170kw-2019",
+      "type": "community",
+      "title": "CleanTechnica: Model 3 Standard Range Plus now Supercharges at up to 170 kW",
+      "url": "https://cleantechnica.com/2019/11/05/tesla-model-3-standard-range-plus-now-supercharges-at-up-to-170-kw-charts/",
+      "accessed_on": "2026-11-19",
+      "notes": "Software 2019.36.1 raised SR+ peak to 170 kW (previously about 100-105 kW); Long Range 250 kW. Pack size only as forum estimates (about 54.5 kWh usable SR+, 74.5 kWh LR)."
+    },
+    {
+      "id": "src-cleantechnica-sr-softlocked-2019",
+      "type": "community",
+      "title": "CleanTechnica: Standard Range Model 3 delivered with software-locked range and features",
+      "url": "https://cleantechnica.com/2019/05/28/standard-range-tesla-model-3s-for-35400-starting-to-be-delivered-with-software-locked-range-features-should-you-buy/",
+      "accessed_on": "2026-11-19",
+      "notes": "States the 2019 Standard Range is the same physical pack as the Standard Range Plus with range limited in software (220 mi vs 240 mi)."
+    },
+    {
+      "id": "src-notateslaapp-2020-24-6-4",
+      "type": "community",
+      "title": "Not a Tesla App: Update 2020.24.6.4 release notes (On-Route Battery Warmup)",
+      "url": "https://www.notateslaapp.com/software-updates/version/2020.24.6.4/release-notes",
+      "accessed_on": "2026-11-19",
+      "notes": "Release note: vehicle preconditions the battery when navigating to third-party fast chargers in addition to Superchargers; applies to Model S, 3, X and Y. Page does not mention a manual control."
+    },
+    {
+      "id": "src-wikipedia-nacs",
+      "type": "community",
+      "title": "Wikipedia: North American Charging Standard",
+      "url": "https://en.wikipedia.org/wiki/North_American_Charging_Standard",
+      "accessed_on": "2026-11-19",
+      "notes": "Tesla developed its connector for the Model S in 2012 and used it on all later vehicles including the Model 3; the Supercharger network remains compatible with both the original connector and NACS."
+    }
+  ],
+  "powertrains": {
+    "tesla/model-3/2017-long-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.8,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database 2019-2020 Long Range AWD page: 78.8 kWh nominal, Panasonic 2170C NCA, 4,416 cells (96s46p). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2017 car: carried over from the 2019-2020 page; same pack and chassis, charge rate raised later by software. The EPA-filing figure for the launch pack was 80.5 kWh and evspecifications lists 77.8 kWh; sources differ by about 2 kWh."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73.5,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database 2019-2020 Long Range AWD page: 73.5 kWh usable (their estimate; CleanTechnica forum estimate 74.5; Musk's 2017 statement 75). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2017 car: carried over from the 2019-2020 page; same pack and chassis, charge rate raised later by software."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Panasonic 2170C cells, NCA cathode (EV Database; evspecifications 2018 Long Range AWD also lists NCA). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2017 car: carried over from the 2019-2020 page; same pack and chassis, charge rate raised later by software."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, \"400 V architecture\" per EV Database; evspecifications lists 350 V for the 2018 car. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2017 car: carried over from the 2019-2020 page; same pack and chassis, charge rate raised later by software."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2017 car: carried over from the 2019-2020 page; same pack and chassis, charge rate raised later by software.). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evspecs-m3-2018-lrawd",
+            "low_confidence": true,
+            "notes": "Estimated: evspecifications (North American 2018 Long Range AWD): 250 kW DC; EV Database 2019-2020 and CleanTechnica (2019) agree for the Long Range pack on Supercharger V3 (V2 stalls give less). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2017 car: carried over from the 2019-2020 page; same pack and chassis, charge rate raised later by software."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla Model 3 service manual: \"accepts up to 48A when equipped with the Long Range Battery\" (\"about 11 kW\"); 48 A x 240 V = 11.5 kW. evspecifications also lists 11.5 kW for the 2018 Long Range AWD. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2017 car: carried over from the 2019-2020 page; same pack and chassis, charge rate raised later by software."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2018-long-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.8,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database 2019-2020 Long Range AWD page: 78.8 kWh nominal, Panasonic 2170C NCA, 4,416 cells (96s46p). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2018 car: EV Database page covers 2019-2020; evspecifications covers the 2018 AWD. The EPA-filing figure for the launch pack was 80.5 kWh and evspecifications lists 77.8 kWh; sources differ by about 2 kWh."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73.5,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database 2019-2020 Long Range AWD page: 73.5 kWh usable (their estimate; CleanTechnica forum estimate 74.5; Musk's 2017 statement 75). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2018 car: EV Database page covers 2019-2020; evspecifications covers the 2018 AWD."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Panasonic 2170C cells, NCA cathode (EV Database; evspecifications 2018 Long Range AWD also lists NCA). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2018 car: EV Database page covers 2019-2020; evspecifications covers the 2018 AWD."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, \"400 V architecture\" per EV Database; evspecifications lists 350 V for the 2018 car. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2018 car: EV Database page covers 2019-2020; evspecifications covers the 2018 AWD."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2018 car: EV Database page covers 2019-2020; evspecifications covers the 2018 AWD.). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-2018-lrawd",
+            "low_confidence": true,
+            "notes": "evspecifications (North American 2018 Long Range AWD): 250 kW DC; EV Database 2019-2020 and CleanTechnica (2019) agree for the Long Range pack on Supercharger V3 (V2 stalls give less). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2018 car: EV Database page covers 2019-2020; evspecifications covers the 2018 AWD."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla Model 3 service manual: \"accepts up to 48A when equipped with the Long Range Battery\" (\"about 11 kW\"); 48 A x 240 V = 11.5 kW. evspecifications also lists 11.5 kW for the 2018 Long Range AWD. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. 2018 car: EV Database page covers 2019-2020; evspecifications covers the 2018 AWD."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2019-long-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.8,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "EV Database 2019-2020 Long Range AWD page: 78.8 kWh nominal, Panasonic 2170C NCA, 4,416 cells (96s46p). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. The EPA-filing figure for the launch pack was 80.5 kWh and evspecifications lists 77.8 kWh; sources differ by about 2 kWh."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73.5,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "EV Database 2019-2020 Long Range AWD page: 73.5 kWh usable (their estimate; CleanTechnica forum estimate 74.5; Musk's 2017 statement 75). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Panasonic 2170C cells, NCA cathode (EV Database; evspecifications 2018 Long Range AWD also lists NCA). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "357 V nominal, \"400 V architecture\" per EV Database; evspecifications lists 350 V for the 2018 car. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars.). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-2018-lrawd",
+            "low_confidence": true,
+            "notes": "evspecifications (North American 2018 Long Range AWD): 250 kW DC; EV Database 2019-2020 and CleanTechnica (2019) agree for the Long Range pack on Supercharger V3 (V2 stalls give less). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla Model 3 service manual: \"accepts up to 48A when equipped with the Long Range Battery\" (\"about 11 kW\"); 48 A x 240 V = 11.5 kW. evspecifications also lists 11.5 kW for the 2018 Long Range AWD. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2019-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.8,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "EV Database 2019-2020 Long Range AWD page: 78.8 kWh nominal, Panasonic 2170C NCA, 4,416 cells (96s46p). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. The EPA-filing figure for the launch pack was 80.5 kWh and evspecifications lists 77.8 kWh; sources differ by about 2 kWh."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73.5,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "EV Database 2019-2020 Long Range AWD page: 73.5 kWh usable (their estimate; CleanTechnica forum estimate 74.5; Musk's 2017 statement 75). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Panasonic 2170C cells, NCA cathode (EV Database; evspecifications 2018 Long Range AWD also lists NCA). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "357 V nominal, \"400 V architecture\" per EV Database; evspecifications lists 350 V for the 2018 car. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars.). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-2018-lrawd",
+            "low_confidence": true,
+            "notes": "evspecifications (North American 2018 Long Range AWD): 250 kW DC; EV Database 2019-2020 and CleanTechnica (2019) agree for the Long Range pack on Supercharger V3 (V2 stalls give less). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla Model 3 service manual: \"accepts up to 48A when equipped with the Long Range Battery\" (\"about 11 kW\"); 48 A x 240 V = 11.5 kW. evspecifications also lists 11.5 kW for the 2018 Long Range AWD. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2020-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.8,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "EV Database 2019-2020 Long Range AWD page: 78.8 kWh nominal, Panasonic 2170C NCA, 4,416 cells (96s46p). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. The EPA-filing figure for the launch pack was 80.5 kWh and evspecifications lists 77.8 kWh; sources differ by about 2 kWh."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73.5,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "EV Database 2019-2020 Long Range AWD page: 73.5 kWh usable (their estimate; CleanTechnica forum estimate 74.5; Musk's 2017 statement 75). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Panasonic 2170C cells, NCA cathode (EV Database; evspecifications 2018 Long Range AWD also lists NCA). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "357 V nominal, \"400 V architecture\" per EV Database; evspecifications lists 350 V for the 2018 car. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars.). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-2018-lrawd",
+            "low_confidence": true,
+            "notes": "evspecifications (North American 2018 Long Range AWD): 250 kW DC; EV Database 2019-2020 and CleanTechnica (2019) agree for the Long Range pack on Supercharger V3 (V2 stalls give less). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla Model 3 service manual: \"accepts up to 48A when equipped with the Long Range Battery\" (\"about 11 kW\"); 48 A x 240 V = 11.5 kW. evspecifications also lists 11.5 kW for the 2018 Long Range AWD. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2018-performance": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.8,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database 2019-2020 Long Range AWD page: 78.8 kWh nominal, Panasonic 2170C NCA, 4,416 cells (96s46p). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages). The EPA-filing figure for the launch pack was 80.5 kWh and evspecifications lists 77.8 kWh; sources differ by about 2 kWh."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73.5,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database 2019-2020 Long Range AWD page: 73.5 kWh usable (their estimate; CleanTechnica forum estimate 74.5; Musk's 2017 statement 75). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Panasonic 2170C cells, NCA cathode (EV Database; evspecifications 2018 Long Range AWD also lists NCA). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, \"400 V architecture\" per EV Database; evspecifications lists 350 V for the 2018 car. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages).). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evspecs-m3-2018-lrawd",
+            "low_confidence": true,
+            "notes": "Estimated: evspecifications (North American 2018 Long Range AWD): 250 kW DC; EV Database 2019-2020 and CleanTechnica (2019) agree for the Long Range pack on Supercharger V3 (V2 stalls give less). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla Model 3 service manual: \"accepts up to 48A when equipped with the Long Range Battery\" (\"about 11 kW\"); 48 A x 240 V = 11.5 kW. evspecifications also lists 11.5 kW for the 2018 Long Range AWD. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2019-performance": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.8,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database 2019-2020 Long Range AWD page: 78.8 kWh nominal, Panasonic 2170C NCA, 4,416 cells (96s46p). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages). The EPA-filing figure for the launch pack was 80.5 kWh and evspecifications lists 77.8 kWh; sources differ by about 2 kWh."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73.5,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database 2019-2020 Long Range AWD page: 73.5 kWh usable (their estimate; CleanTechnica forum estimate 74.5; Musk's 2017 statement 75). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Panasonic 2170C cells, NCA cathode (EV Database; evspecifications 2018 Long Range AWD also lists NCA). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, \"400 V architecture\" per EV Database; evspecifications lists 350 V for the 2018 car. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages).). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evspecs-m3-2018-lrawd",
+            "low_confidence": true,
+            "notes": "Estimated: evspecifications (North American 2018 Long Range AWD): 250 kW DC; EV Database 2019-2020 and CleanTechnica (2019) agree for the Long Range pack on Supercharger V3 (V2 stalls give less). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla Model 3 service manual: \"accepts up to 48A when equipped with the Long Range Battery\" (\"about 11 kW\"); 48 A x 240 V = 11.5 kW. evspecifications also lists 11.5 kW for the 2018 Long Range AWD. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2020-performance": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.8,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database 2019-2020 Long Range AWD page: 78.8 kWh nominal, Panasonic 2170C NCA, 4,416 cells (96s46p). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages). The EPA-filing figure for the launch pack was 80.5 kWh and evspecifications lists 77.8 kWh; sources differ by about 2 kWh."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 73.5,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database 2019-2020 Long Range AWD page: 73.5 kWh usable (their estimate; CleanTechnica forum estimate 74.5; Musk's 2017 statement 75). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Panasonic 2170C cells, NCA cathode (EV Database; evspecifications 2018 Long Range AWD also lists NCA). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, \"400 V architecture\" per EV Database; evspecifications lists 350 V for the 2018 car. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages).). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evspecs-m3-2018-lrawd",
+            "low_confidence": true,
+            "notes": "Estimated: evspecifications (North American 2018 Long Range AWD): 250 kW DC; EV Database 2019-2020 and CleanTechnica (2019) agree for the Long Range pack on Supercharger V3 (V2 stalls give less). Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla Model 3 service manual: \"accepts up to 48A when equipped with the Long Range Battery\" (\"about 11 kW\"); 48 A x 240 V = 11.5 kW. evspecifications also lists 11.5 kW for the 2018 Long Range AWD. Same 4,416-cell Panasonic pack across 2017-2020 Long Range/Performance cars. Performance uses the same pack as the Long Range AWD (not stated on these pages)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2018-mid-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 65,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-2018-midrange",
+            "low_confidence": true,
+            "notes": "2018 Mid Range (North America): 65 kWh total."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 62.5,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-2018-midrange",
+            "low_confidence": true,
+            "notes": "2018 Mid Range (North America): 62.5 kWh usable."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-2018-midrange",
+            "low_confidence": true,
+            "notes": "Listed as NCA (Panasonic)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Model 3 packs of this era run 350-360 V nominal (EV Database 357 V for the 75 kWh pack; evspecifications 360 V for SR+); Mid Range is a Panasonic 2170 pack of the same family."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2018-2019 Mid Range). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 200,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-2018-midrange",
+            "low_confidence": true,
+            "notes": "evspecifications lists 200 kW DC for the 2018 Mid Range (ArenaEV: 200 kW on Supercharger V3)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-2018-midrange",
+            "low_confidence": true,
+            "notes": "evspecifications lists 11.5 kW AC for the 2018 Mid Range. Tesla gives no per-trim table; its service manual ties 48 A to the Long Range battery, so 11.5 kW is plausible but unconfirmed for this trim."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2019-mid-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 65,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evspecs-m3-2018-midrange",
+            "low_confidence": true,
+            "notes": "Estimated: 2018 Mid Range (North America): 65 kWh total. 2019 carried over from the 2018 page (same trim)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 62.5,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evspecs-m3-2018-midrange",
+            "low_confidence": true,
+            "notes": "Estimated: 2018 Mid Range (North America): 62.5 kWh usable. 2019 carried over from the 2018 page (same trim)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evspecs-m3-2018-midrange",
+            "low_confidence": true,
+            "notes": "Estimated: Listed as NCA (Panasonic). 2019 carried over from the 2018 page (same trim)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Model 3 packs of this era run 350-360 V nominal (EV Database 357 V for the 75 kWh pack; evspecifications 360 V for SR+); Mid Range is a Panasonic 2170 pack of the same family."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2018-2019 Mid Range). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 200,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evspecs-m3-2018-midrange",
+            "low_confidence": true,
+            "notes": "Estimated: evspecifications lists 200 kW DC for the 2018 Mid Range (ArenaEV: 200 kW on Supercharger V3). 2019 carried over from the 2018 page (same trim)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-2018-midrange",
+            "low_confidence": true,
+            "notes": "evspecifications lists 11.5 kW AC for the 2018 Mid Range. Tesla gives no per-trim table; its service manual ties 48 A to the Long Range battery, so 11.5 kW is plausible but unconfirmed for this trim. 2019 carried over from the 2018 page (same trim)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2019-standard-range-plus": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 53.1,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "EV Database 2019-2020 SR+: 53.1 kWh nominal (evspecifications lists 52.4 kWh for the North American 2019/2020 car)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 49,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "EV Database 2019-2020 SR+: 49.0 kWh usable. A 2021 buffer change reportedly unlocked about 3.5 kWh more, and forum estimates are 50-54.5 kWh."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Panasonic 2170C cells, NCA cathode, 2,976 cells (96s31p)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "357 V nominal, 400 V architecture (EV Database)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2019 SR+). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 170,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-cleantechnica-srp-170kw-2019",
+            "low_confidence": true,
+            "notes": "CleanTechnica (2019-11-05): software 2019.36.1 raised the SR+ peak to 170 kW (earlier about 100-105 kW). EV Database and evspecifications also list 170 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.7,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla service manual says 48 A (about 11 kW) applies only with the Long Range battery and that a 240 V outlet gives 32 A (about 7.7 kW); Basenor/Wikipedia give 32 A for the RWD/standard cars. evspecifications and EV Database (EU, 3-phase) list 11 kW, which does not apply to single-phase North America."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2020-standard-range-plus": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 53.1,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "EV Database 2019-2020 SR+: 53.1 kWh nominal (evspecifications lists 52.4 kWh for the North American 2019/2020 car)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 49,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "EV Database 2019-2020 SR+: 49.0 kWh usable. A 2021 buffer change reportedly unlocked about 3.5 kWh more, and forum estimates are 50-54.5 kWh."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Panasonic 2170C cells, NCA cathode, 2,976 cells (96s31p)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "357 V nominal, 400 V architecture (EV Database)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2020 SR+). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 170,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-cleantechnica-srp-170kw-2019",
+            "low_confidence": true,
+            "notes": "CleanTechnica (2019-11-05): software 2019.36.1 raised the SR+ peak to 170 kW (earlier about 100-105 kW). EV Database and evspecifications also list 170 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.7,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla service manual says 48 A (about 11 kW) applies only with the Long Range battery and that a 240 V outlet gives 32 A (about 7.7 kW); Basenor/Wikipedia give 32 A for the RWD/standard cars. evspecifications and EV Database (EU, 3-phase) list 11 kW, which does not apply to single-phase North America."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2019-standard-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 53.1,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Standard Range is the same physical pack as the SR+ with range limited in software (CleanTechnica 2019-05-28). EV Database 2019-2020 SR+: 53.1 kWh nominal (evspecifications lists 52.4 kWh for the North American 2019/2020 car)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 49,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Standard Range is the same physical pack as the SR+ with range limited in software (CleanTechnica 2019-05-28). EV Database 2019-2020 SR+: 49.0 kWh usable. A 2021 buffer change reportedly unlocked about 3.5 kWh more, and forum estimates are 50-54.5 kWh."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Standard Range is the same physical pack as the SR+ with range limited in software (CleanTechnica 2019-05-28). Panasonic 2170C cells, NCA cathode, 2,976 cells (96s31p)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Standard Range is the same physical pack as the SR+ with range limited in software (CleanTechnica 2019-05-28). 357 V nominal, 400 V architecture (EV Database)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2019 SR). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 170,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-cleantechnica-srp-170kw-2019",
+            "low_confidence": true,
+            "notes": "Estimated: CleanTechnica did not know how the 170 kW update applies to the base Standard Range; same pack and hardware as the SR+, so the SR+ figure is carried over. CleanTechnica (2019-11-05): software 2019.36.1 raised the SR+ peak to 170 kW (earlier about 100-105 kW). EV Database and evspecifications also list 170 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.7,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla service manual says 48 A (about 11 kW) applies only with the Long Range battery and that a 240 V outlet gives 32 A (about 7.7 kW); Basenor/Wikipedia give 32 A for the RWD/standard cars. evspecifications and EV Database (EU, 3-phase) list 11 kW, which does not apply to single-phase North America."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2020-standard-range": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 53.1,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Standard Range is the same physical pack as the SR+ with range limited in software (CleanTechnica 2019-05-28). EV Database 2019-2020 SR+: 53.1 kWh nominal (evspecifications lists 52.4 kWh for the North American 2019/2020 car)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 49,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Standard Range is the same physical pack as the SR+ with range limited in software (CleanTechnica 2019-05-28). EV Database 2019-2020 SR+: 49.0 kWh usable. A 2021 buffer change reportedly unlocked about 3.5 kWh more, and forum estimates are 50-54.5 kWh."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Standard Range is the same physical pack as the SR+ with range limited in software (CleanTechnica 2019-05-28). Panasonic 2170C cells, NCA cathode, 2,976 cells (96s31p)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Standard Range is the same physical pack as the SR+ with range limited in software (CleanTechnica 2019-05-28). 357 V nominal, 400 V architecture (EV Database)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2020 SR). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 170,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-cleantechnica-srp-170kw-2019",
+            "low_confidence": true,
+            "notes": "Estimated: CleanTechnica did not know how the 170 kW update applies to the base Standard Range; same pack and hardware as the SR+, so the SR+ figure is carried over. CleanTechnica (2019-11-05): software 2019.36.1 raised the SR+ peak to 170 kW (earlier about 100-105 kW). EV Database and evspecifications also list 170 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.7,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla service manual says 48 A (about 11 kW) applies only with the Long Range battery and that a 240 V outlet gives 32 A (about 7.7 kW); Basenor/Wikipedia give 32 A for the RWD/standard cars. evspecifications and EV Database (EU, 3-phase) list 11 kW, which does not apply to single-phase North America."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2021-standard-range-plus": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 55,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2021",
+            "low_confidence": true,
+            "notes": "EV Database 2021 SR+ (Fremont, Panasonic 2170L NCA): 55.0 kWh nominal (evspecifications lists 55.4 kWh for the 2021 North American car). Assumes the Canadian 2021 SR+ is this Fremont NCA car; a CATL LFP SR+ (52.5 kWh usable) was built in Shanghai for other markets in the same period."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 51,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2021",
+            "low_confidence": true,
+            "notes": "EV Database 2021 SR+ (Fremont, Panasonic 2170L NCA): 51.0 kWh usable."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2021",
+            "low_confidence": true,
+            "notes": "NCA (Panasonic 2170); evspecifications 2021 SR+ also NCA."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Panasonic SR+ pack family is 357 V nominal / 400 V architecture (EV Database 2019-2020 SR+); the 2021 pack is the same 2170 family."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2021 SR+). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 170,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evdb-m3-srp-2021",
+            "low_confidence": true,
+            "notes": "EV Database 2021 SR+: DC up to 170 kW; evspecifications 2021 SR+ 170 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.7,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Estimated: standard (non-Long-Range) battery gets 32 A (about 7.7 kW) per Tesla service manual wording; evspecifications lists 11.5 kW and EV Database 11 kW (3-phase, EU), which do not apply to single-phase North America."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2021-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "EV Database Panasonic 2170L pack: 82.0 kWh nominal; evspecifications 2021 North American LR AWD: 82.1 kWh. Covers the 2021 North American Long Range AWD (Fremont)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 76,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "EV Database Panasonic 2170L pack: 76.0 kWh usable. Covers the 2021 North American Long Range AWD (Fremont)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "NCA (Panasonic); evspecifications 2021 LR AWD NCA; Wikipedia: Fremont cells are Panasonic NCA. Covers the 2021 North American Long Range AWD (Fremont)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "357 V nominal, 400 V architecture. Covers the 2021 North American Long Range AWD (Fremont)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2021 LR AWD). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "250 kW (EV Database; evspecifications 2021 LR AWD 250 kW). Covers the 2021 North American Long Range AWD (Fremont)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla service manual: up to 48 A with the Long Range battery (about 11 kW; 48 A x 240 V = 11.5 kW); Basenor groups 2020-2023 LR and Performance at 48 A. 2021 LR AWD"
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2021-performance": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database Panasonic 2170L pack: 82.0 kWh nominal; evspecifications 2021 North American LR AWD: 82.1 kWh. Performance carries the same pack as the 2021 Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 76,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database Panasonic 2170L pack: 76.0 kWh usable. Performance carries the same pack as the 2021 Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: NCA (Panasonic); evspecifications 2021 LR AWD NCA; Wikipedia: Fremont cells are Panasonic NCA. Performance carries the same pack as the 2021 Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, 400 V architecture. Performance carries the same pack as the 2021 Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2021 Performance). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: 250 kW (EV Database; evspecifications 2021 LR AWD 250 kW). Performance carries the same pack as the 2021 Long Range AWD (not stated on these pages)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla service manual: up to 48 A with the Long Range battery (about 11 kW; 48 A x 240 V = 11.5 kW); Basenor groups 2020-2023 LR and Performance at 48 A. 2021 Performance"
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2022-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database Panasonic 2170L pack: 82.0 kWh nominal; evspecifications 2021 North American LR AWD: 82.1 kWh. Carried over from the 2021 Fremont-built car; NRCan/EPA list the Shanghai imports as separate \"(Import)\" ratings, so this non-import car is taken as Fremont. Years compared 2021 vs 2022: no pack change found."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 76,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database Panasonic 2170L pack: 76.0 kWh usable. Carried over from the 2021 Fremont-built car; NRCan/EPA list the Shanghai imports as separate \"(Import)\" ratings, so this non-import car is taken as Fremont. Years compared 2021 vs 2022: no pack change found."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: NCA (Panasonic); evspecifications 2021 LR AWD NCA; Wikipedia: Fremont cells are Panasonic NCA. Carried over from the 2021 Fremont-built car; NRCan/EPA list the Shanghai imports as separate \"(Import)\" ratings, so this non-import car is taken as Fremont. Years compared 2021 vs 2022: no pack change found."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, 400 V architecture. Carried over from the 2021 Fremont-built car; NRCan/EPA list the Shanghai imports as separate \"(Import)\" ratings, so this non-import car is taken as Fremont. Years compared 2021 vs 2022: no pack change found."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2022 LR AWD). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: 250 kW (EV Database; evspecifications 2021 LR AWD 250 kW). Carried over from the 2021 Fremont-built car; NRCan/EPA list the Shanghai imports as separate \"(Import)\" ratings, so this non-import car is taken as Fremont. Years compared 2021 vs 2022: no pack change found."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla service manual: up to 48 A with the Long Range battery (about 11 kW; 48 A x 240 V = 11.5 kW); Basenor groups 2020-2023 LR and Performance at 48 A. 2022 LR AWD"
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2022-performance": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database Panasonic 2170L pack: 82.0 kWh nominal; evspecifications 2021 North American LR AWD: 82.1 kWh. Carried over from the 2021 Fremont-built LR AWD/Performance; EU 2022-23 Performance cars use the LG 78.1 kWh pack, which does not apply to Fremont cars. Not verified for North America."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 76,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database Panasonic 2170L pack: 76.0 kWh usable. Carried over from the 2021 Fremont-built LR AWD/Performance; EU 2022-23 Performance cars use the LG 78.1 kWh pack, which does not apply to Fremont cars. Not verified for North America."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: NCA (Panasonic); evspecifications 2021 LR AWD NCA; Wikipedia: Fremont cells are Panasonic NCA. Carried over from the 2021 Fremont-built LR AWD/Performance; EU 2022-23 Performance cars use the LG 78.1 kWh pack, which does not apply to Fremont cars. Not verified for North America."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, 400 V architecture. Carried over from the 2021 Fremont-built LR AWD/Performance; EU 2022-23 Performance cars use the LG 78.1 kWh pack, which does not apply to Fremont cars. Not verified for North America."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2022 Performance). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: 250 kW (EV Database; evspecifications 2021 LR AWD 250 kW). Carried over from the 2021 Fremont-built LR AWD/Performance; EU 2022-23 Performance cars use the LG 78.1 kWh pack, which does not apply to Fremont cars. Not verified for North America."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla service manual: up to 48 A with the Long Range battery (about 11 kW; 48 A x 240 V = 11.5 kW); Basenor groups 2020-2023 LR and Performance at 48 A. 2022 Performance"
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2023-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database Panasonic 2170L pack: 82.0 kWh nominal; evspecifications 2021 North American LR AWD: 82.1 kWh. Carried over from the 2021 Fremont-built car (non-import NRCan/EPA rating). Not verified for North America; EU cars of 2022-23 used the LG 78.1 kWh pack."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 76,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database Panasonic 2170L pack: 76.0 kWh usable. Carried over from the 2021 Fremont-built car (non-import NRCan/EPA rating). Not verified for North America; EU cars of 2022-23 used the LG 78.1 kWh pack."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: NCA (Panasonic); evspecifications 2021 LR AWD NCA; Wikipedia: Fremont cells are Panasonic NCA. Carried over from the 2021 Fremont-built car (non-import NRCan/EPA rating). Not verified for North America; EU cars of 2022-23 used the LG 78.1 kWh pack."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, 400 V architecture. Carried over from the 2021 Fremont-built car (non-import NRCan/EPA rating). Not verified for North America; EU cars of 2022-23 used the LG 78.1 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2023 LR AWD). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: 250 kW (EV Database; evspecifications 2021 LR AWD 250 kW). Carried over from the 2021 Fremont-built car (non-import NRCan/EPA rating). Not verified for North America; EU cars of 2022-23 used the LG 78.1 kWh pack."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla service manual: up to 48 A with the Long Range battery (about 11 kW; 48 A x 240 V = 11.5 kW); Basenor groups 2020-2023 LR and Performance at 48 A. 2023 LR AWD"
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2023-performance": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 82,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database Panasonic 2170L pack: 82.0 kWh nominal; evspecifications 2021 North American LR AWD: 82.1 kWh. Carried over from the 2021 Fremont-built LR AWD/Performance. Not verified for North America; EU 2022-23 Performance used the LG 78.1 kWh pack."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 76,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database Panasonic 2170L pack: 76.0 kWh usable. Carried over from the 2021 Fremont-built LR AWD/Performance. Not verified for North America; EU 2022-23 Performance used the LG 78.1 kWh pack."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: NCA (Panasonic); evspecifications 2021 LR AWD NCA; Wikipedia: Fremont cells are Panasonic NCA. Carried over from the 2021 Fremont-built LR AWD/Performance. Not verified for North America; EU 2022-23 Performance used the LG 78.1 kWh pack."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, 400 V architecture. Carried over from the 2021 Fremont-built LR AWD/Performance. Not verified for North America; EU 2022-23 Performance used the LG 78.1 kWh pack."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2023 Performance). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrawd-2021-pana",
+            "low_confidence": true,
+            "notes": "Estimated: 250 kW (EV Database; evspecifications 2021 LR AWD 250 kW). Carried over from the 2021 Fremont-built LR AWD/Performance. Not verified for North America; EU 2022-23 Performance used the LG 78.1 kWh pack."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-tesla-m3-service-manual-charging",
+            "low_confidence": true,
+            "notes": "Tesla service manual: up to 48 A with the Long Range battery (about 11 kW; 48 A x 240 V = 11.5 kW); Basenor groups 2020-2023 LR and Performance at 48 A. 2023 Performance"
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2023-long-range-awd-ca": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.1,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2021-lg",
+            "low_confidence": true,
+            "notes": "78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EV Database LG 5L pack (2021-2023 Shanghai LR AWD); NRCan lists this Canadian car as \"(Import)\", i.e. Shanghai-built."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2021-lg",
+            "low_confidence": true,
+            "notes": "75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EV Database LG 5L pack (2021-2023 Shanghai LR AWD); NRCan lists this Canadian car as \"(Import)\", i.e. Shanghai-built."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2021-lg",
+            "low_confidence": true,
+            "notes": "NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EV Database LG 5L pack (2021-2023 Shanghai LR AWD); NRCan lists this Canadian car as \"(Import)\", i.e. Shanghai-built."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2021-lg",
+            "low_confidence": true,
+            "notes": "357 V nominal, 400 V architecture. EV Database LG 5L pack (2021-2023 Shanghai LR AWD); NRCan lists this Canadian car as \"(Import)\", i.e. Shanghai-built."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2023 CA LR AWD (import)). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrawd-2021-lg",
+            "low_confidence": true,
+            "notes": "250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EV Database LG 5L pack (2021-2023 Shanghai LR AWD); NRCan lists this Canadian car as \"(Import)\", i.e. Shanghai-built."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-model3",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox gives 11.5 kW (48 A) for the Long Range and 7.6 kW (32 A) for RWD; Tesla service manual ties 48 A to the Long Range battery. Tesla does not publish a Highland AC figure (InsideEVs); EV Database lists 11 kW (3-phase, EU)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2024-long-range-awd-ca": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.1,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-perf-highland-2024",
+            "low_confidence": true,
+            "notes": "Estimated: 78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EV Database Highland Performance page (LG 5L, 78.1/75); NRCan lists this car as \"(Import)\" (Shanghai); same pack as the 2021-2023 LG LR AWD, no change shown."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-perf-highland-2024",
+            "low_confidence": true,
+            "notes": "Estimated: 75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EV Database Highland Performance page (LG 5L, 78.1/75); NRCan lists this car as \"(Import)\" (Shanghai); same pack as the 2021-2023 LG LR AWD, no change shown."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-perf-highland-2024",
+            "low_confidence": true,
+            "notes": "Estimated: NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EV Database Highland Performance page (LG 5L, 78.1/75); NRCan lists this car as \"(Import)\" (Shanghai); same pack as the 2021-2023 LG LR AWD, no change shown."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-perf-highland-2024",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, 400 V architecture. EV Database Highland Performance page (LG 5L, 78.1/75); NRCan lists this car as \"(Import)\" (Shanghai); same pack as the 2021-2023 LG LR AWD, no change shown."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2024 CA LR AWD (import)). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-perf-highland-2024",
+            "low_confidence": true,
+            "notes": "Estimated: 250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EV Database Highland Performance page (LG 5L, 78.1/75); NRCan lists this car as \"(Import)\" (Shanghai); same pack as the 2021-2023 LG LR AWD, no change shown."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-model3",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox gives 11.5 kW (48 A) for the Long Range and 7.6 kW (32 A) for RWD; Tesla service manual ties 48 A to the Long Range battery. Tesla does not publish a Highland AC figure (InsideEVs); EV Database lists 11 kW (3-phase, EU)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2024-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.1,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EV Database Highland Long Range pages (78.1/75); Wikipedia lists 78.1 kWh for Premium AWD from both Fremont and Shanghai; KBB (US 2026) 75 kWh."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EV Database Highland Long Range pages (78.1/75); Wikipedia lists 78.1 kWh for Premium AWD from both Fremont and Shanghai; KBB (US 2026) 75 kWh."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EV Database Highland Long Range pages (78.1/75); Wikipedia lists 78.1 kWh for Premium AWD from both Fremont and Shanghai; KBB (US 2026) 75 kWh."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, 400 V architecture. EV Database Highland Long Range pages (78.1/75); Wikipedia lists 78.1 kWh for Premium AWD from both Fremont and Shanghai; KBB (US 2026) 75 kWh."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2024 LR AWD). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EV Database Highland Long Range pages (78.1/75); Wikipedia lists 78.1 kWh for Premium AWD from both Fremont and Shanghai; KBB (US 2026) 75 kWh."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-model3",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox gives 11.5 kW (48 A) for the Long Range and 7.6 kW (32 A) for RWD; Tesla service manual ties 48 A to the Long Range battery. Tesla does not publish a Highland AC figure (InsideEVs); EV Database lists 11 kW (3-phase, EU)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2024-long-range-awd-e": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.1,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EPA lists this US car as \"Long Range AWD-E\"; the meaning of \"-E\" is not stated on the pages read, so the standard Highland LR pack is assumed."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EPA lists this US car as \"Long Range AWD-E\"; the meaning of \"-E\" is not stated on the pages read, so the standard Highland LR pack is assumed."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EPA lists this US car as \"Long Range AWD-E\"; the meaning of \"-E\" is not stated on the pages read, so the standard Highland LR pack is assumed."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, 400 V architecture. EPA lists this US car as \"Long Range AWD-E\"; the meaning of \"-E\" is not stated on the pages read, so the standard Highland LR pack is assumed."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2024 LR AWD-E). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EPA lists this US car as \"Long Range AWD-E\"; the meaning of \"-E\" is not stated on the pages read, so the standard Highland LR pack is assumed."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-model3",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox gives 11.5 kW (48 A) for the Long Range and 7.6 kW (32 A) for RWD; Tesla service manual ties 48 A to the Long Range battery. Tesla does not publish a Highland AC figure (InsideEVs); EV Database lists 11 kW (3-phase, EU)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2025-long-range-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.1,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EV Database Highland Long Range pages (Oct 2024-Oct 2025 window, 78.1/75); NRCan lists the Canadian car as \"AWD-I\" (import)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EV Database Highland Long Range pages (Oct 2024-Oct 2025 window, 78.1/75); NRCan lists the Canadian car as \"AWD-I\" (import)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EV Database Highland Long Range pages (Oct 2024-Oct 2025 window, 78.1/75); NRCan lists the Canadian car as \"AWD-I\" (import)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, 400 V architecture. EV Database Highland Long Range pages (Oct 2024-Oct 2025 window, 78.1/75); NRCan lists the Canadian car as \"AWD-I\" (import)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2025 LR AWD). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EV Database Highland Long Range pages (Oct 2024-Oct 2025 window, 78.1/75); NRCan lists the Canadian car as \"AWD-I\" (import)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-model3",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox gives 11.5 kW (48 A) for the Long Range and 7.6 kW (32 A) for RWD; Tesla service manual ties 48 A to the Long Range battery. Tesla does not publish a Highland AC figure (InsideEVs); EV Database lists 11 kW (3-phase, EU)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2024-long-range-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.1,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EV Database Highland LR RWD page (Oct 2024-Oct 2025)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EV Database Highland LR RWD page (Oct 2024-Oct 2025)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EV Database Highland LR RWD page (Oct 2024-Oct 2025)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "357 V nominal, 400 V architecture. EV Database Highland LR RWD page (Oct 2024-Oct 2025)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2024-2025 LR RWD). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EV Database Highland LR RWD page (Oct 2024-Oct 2025)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-model3",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox gives 11.5 kW (48 A) for the Long Range and 7.6 kW (32 A) for RWD; Tesla service manual ties 48 A to the Long Range battery. Tesla does not publish a Highland AC figure (InsideEVs); EV Database lists 11 kW (3-phase, EU)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2026-performance": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.1,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-perf-highland-2024",
+            "low_confidence": true,
+            "notes": "78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EV Database Highland Performance page covers Apr 2024-Oct 2025 (78.1/75). SPLIT NEEDED: EV Database lists the Oct 2025+ European Performance at 82.0/79.0 kWh (LG 5M, https://ev-database.org/car/3841/Tesla-Model-3-Performance), and the existing OpenEV import on 2026/performance-awd shows 82/79; US KBB (2026) still lists 75 kWh. This powertrain spans 2024-2027 so one value is shown here."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evdb-m3-perf-highland-2024",
+            "low_confidence": true,
+            "notes": "75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EV Database Highland Performance page covers Apr 2024-Oct 2025 (78.1/75). SPLIT NEEDED: EV Database lists the Oct 2025+ European Performance at 82.0/79.0 kWh (LG 5M, https://ev-database.org/car/3841/Tesla-Model-3-Performance), and the existing OpenEV import on 2026/performance-awd shows 82/79; US KBB (2026) still lists 75 kWh. This powertrain spans 2024-2027 so one value is shown here."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "community",
+            "source_id": "src-evdb-m3-perf-highland-2024",
+            "low_confidence": true,
+            "notes": "NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EV Database Highland Performance page covers Apr 2024-Oct 2025 (78.1/75). SPLIT NEEDED: EV Database lists the Oct 2025+ European Performance at 82.0/79.0 kWh (LG 5M, https://ev-database.org/car/3841/Tesla-Model-3-Performance), and the existing OpenEV import on 2026/performance-awd shows 82/79; US KBB (2026) still lists 75 kWh. This powertrain spans 2024-2027 so one value is shown here."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-evdb-m3-perf-highland-2024",
+            "low_confidence": true,
+            "notes": "357 V nominal, 400 V architecture. EV Database Highland Performance page covers Apr 2024-Oct 2025 (78.1/75). SPLIT NEEDED: EV Database lists the Oct 2025+ European Performance at 82.0/79.0 kWh (LG 5M, https://ev-database.org/car/3841/Tesla-Model-3-Performance), and the existing OpenEV import on 2026/performance-awd shows 82/79; US KBB (2026) still lists 75 kWh. This powertrain spans 2024-2027 so one value is shown here."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2024-2027 Performance). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evdb-m3-perf-highland-2024",
+            "low_confidence": true,
+            "notes": "250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EV Database Highland Performance page covers Apr 2024-Oct 2025 (78.1/75). SPLIT NEEDED: EV Database lists the Oct 2025+ European Performance at 82.0/79.0 kWh (LG 5M, https://ev-database.org/car/3841/Tesla-Model-3-Performance), and the existing OpenEV import on 2026/performance-awd shows 82/79; US KBB (2026) still lists 75 kWh. This powertrain spans 2024-2027 so one value is shown here."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-model3",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox gives 11.5 kW (48 A) for the Long Range and 7.6 kW (32 A) for RWD; Tesla service manual ties 48 A to the Long Range battery. Tesla does not publish a Highland AC figure (InsideEVs); EV Database lists 11 kW (3-phase, EU)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2027-premium-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.1,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh; EPA 2027 \"Premium RWD\" taken as the continuing Premium RWD (2026 not compared on a manufacturer page)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh; EPA 2027 \"Premium RWD\" taken as the continuing Premium RWD (2026 not compared on a manufacturer page)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh; EPA 2027 \"Premium RWD\" taken as the continuing Premium RWD (2026 not compared on a manufacturer page)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, 400 V architecture. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh; EPA 2027 \"Premium RWD\" taken as the continuing Premium RWD (2026 not compared on a manufacturer page)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2027 Premium RWD). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh; EPA 2027 \"Premium RWD\" taken as the continuing Premium RWD (2026 not compared on a manufacturer page)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-model3",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox gives 11.5 kW (48 A) for the Long Range and 7.6 kW (32 A) for RWD; Tesla service manual ties 48 A to the Long Range battery. Tesla does not publish a Highland AC figure (InsideEVs); EV Database lists 11 kW (3-phase, EU)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2027-premium-awd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 78.1,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. KBB US 2026 Premium 75 kWh and Wikipedia Premium AWD 78.1 kWh (Fremont and Shanghai); EV Database lists an 82/79 LG 5M Premium AWD for Europe from Dec 2025, which may apply to 2027 US cars too (not shown on the US pages)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 75,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. KBB US 2026 Premium 75 kWh and Wikipedia Premium AWD 78.1 kWh (Fremont and Shanghai); EV Database lists an 82/79 LG 5M Premium AWD for Europe from Dec 2025, which may apply to 2027 US cars too (not shown on the US pages)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. KBB US 2026 Premium 75 kWh and Wikipedia Premium AWD 78.1 kWh (Fremont and Shanghai); EV Database lists an 82/79 LG 5M Premium AWD for Europe from Dec 2025, which may apply to 2027 US cars too (not shown on the US pages)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 357 V nominal, 400 V architecture. KBB US 2026 Premium 75 kWh and Wikipedia Premium AWD 78.1 kWh (Fremont and Shanghai); EV Database lists an 82/79 LG 5M Premium AWD for Europe from Dec 2025, which may apply to 2027 US cars too (not shown on the US pages)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2027 Premium AWD). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 250,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-lrrwd-highland",
+            "low_confidence": true,
+            "notes": "Estimated: 250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). KBB US 2026 Premium 75 kWh and Wikipedia Premium AWD 78.1 kWh (Fremont and Shanghai); EV Database lists an 82/79 LG 5M Premium AWD for Europe from Dec 2025, which may apply to 2027 US cars too (not shown on the US pages)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-model3",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia infobox gives 11.5 kW (48 A) for the Long Range and 7.6 kW (32 A) for RWD; Tesla service manual ties 48 A to the Long Range battery. Tesla does not publish a Highland AC figure (InsideEVs); EV Database lists 11 kW (3-phase, EU)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2022-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 60,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 60.0 kWh nominal, CATL LFP (EV Database 2021-23 RWD; the existing OpenEV import for the 2026 Premium-I also shows 60/57). evspecifications lists 62 kWh for 2023-24, Wikipedia 64 kWh for the current RWD. EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 57,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 57.0 kWh usable (EV Database estimate). EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: LFP (CATL); evspecifications 2023/2024 RWD LFP. EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 400 V architecture (EV Database); evspecifications 345 V nominal. EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2022 RWD). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 170,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 170 kW (EV Database; evspecifications 2023 and 2024 RWD 170 kW; InsideEVs Highland: RWD 170 kW unchanged). EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.7,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-basenor-m3-legacy-charging",
+            "low_confidence": true,
+            "notes": "Estimated: Basenor/Wikipedia: RWD up to 32 A (7.6 kW); Tesla service manual: 48 A only with the Long Range battery. EV Database 11 kW (3-phase, EU) and evspecifications 11.5 kW do not apply to single-phase North America."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2023-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 60,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-lfp-rwd-2023",
+            "low_confidence": true,
+            "notes": "60.0 kWh nominal, CATL LFP (EV Database 2021-23 RWD; the existing OpenEV import for the 2026 Premium-I also shows 60/57). evspecifications lists 62 kWh for 2023-24, Wikipedia 64 kWh for the current RWD. evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 57,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-lfp-rwd-2023",
+            "low_confidence": true,
+            "notes": "57.0 kWh usable (EV Database estimate). evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-lfp-rwd-2023",
+            "low_confidence": true,
+            "notes": "LFP (CATL); evspecifications 2023/2024 RWD LFP. evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-lfp-rwd-2023",
+            "low_confidence": true,
+            "notes": "400 V architecture (EV Database); evspecifications 345 V nominal. evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2023 RWD). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 170,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-evspecs-m3-lfp-rwd-2023",
+            "low_confidence": true,
+            "notes": "170 kW (EV Database; evspecifications 2023 and 2024 RWD 170 kW; InsideEVs Highland: RWD 170 kW unchanged). evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.7,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-basenor-m3-legacy-charging",
+            "low_confidence": true,
+            "notes": "Estimated: Basenor/Wikipedia: RWD up to 32 A (7.6 kW); Tesla service manual: 48 A only with the Long Range battery. EV Database 11 kW (3-phase, EU) and evspecifications 11.5 kW do not apply to single-phase North America."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2024-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 60,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 60.0 kWh nominal, CATL LFP (EV Database 2021-23 RWD; the existing OpenEV import for the 2026 Premium-I also shows 60/57). evspecifications lists 62 kWh for 2023-24, Wikipedia 64 kWh for the current RWD. Carried over from the 2021-2023 LFP RWD (EV Database); Highland RWD keeps the 170 kW peak (InsideEVs)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 57,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 57.0 kWh usable (EV Database estimate). Carried over from the 2021-2023 LFP RWD (EV Database); Highland RWD keeps the 170 kW peak (InsideEVs)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: LFP (CATL); evspecifications 2023/2024 RWD LFP. Carried over from the 2021-2023 LFP RWD (EV Database); Highland RWD keeps the 170 kW peak (InsideEVs)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 400 V architecture (EV Database); evspecifications 345 V nominal. Carried over from the 2021-2023 LFP RWD (EV Database); Highland RWD keeps the 170 kW peak (InsideEVs)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2024 RWD). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 170,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 170 kW (EV Database; evspecifications 2023 and 2024 RWD 170 kW; InsideEVs Highland: RWD 170 kW unchanged). Carried over from the 2021-2023 LFP RWD (EV Database); Highland RWD keeps the 170 kW peak (InsideEVs)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.7,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-basenor-m3-legacy-charging",
+            "low_confidence": true,
+            "notes": "Estimated: Basenor/Wikipedia: RWD up to 32 A (7.6 kW); Tesla service manual: 48 A only with the Long Range battery. EV Database 11 kW (3-phase, EU) and evspecifications 11.5 kW do not apply to single-phase North America."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2024-rwd-ca": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 60,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 60.0 kWh nominal, CATL LFP (EV Database 2021-23 RWD; the existing OpenEV import for the 2026 Premium-I also shows 60/57). evspecifications lists 62 kWh for 2023-24, Wikipedia 64 kWh for the current RWD. NRCan lists this car as \"(Import)\", i.e. Shanghai-built, where the CATL LFP RWD originates; same pack as EV Database LFP60."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 57,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 57.0 kWh usable (EV Database estimate). NRCan lists this car as \"(Import)\", i.e. Shanghai-built, where the CATL LFP RWD originates; same pack as EV Database LFP60."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: LFP (CATL); evspecifications 2023/2024 RWD LFP. NRCan lists this car as \"(Import)\", i.e. Shanghai-built, where the CATL LFP RWD originates; same pack as EV Database LFP60."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 400 V architecture (EV Database); evspecifications 345 V nominal. NRCan lists this car as \"(Import)\", i.e. Shanghai-built, where the CATL LFP RWD originates; same pack as EV Database LFP60."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2024 RWD (import)). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 170,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-rwd-lfp-2021",
+            "low_confidence": true,
+            "notes": "Estimated: 170 kW (EV Database; evspecifications 2023 and 2024 RWD 170 kW; InsideEVs Highland: RWD 170 kW unchanged). NRCan lists this car as \"(Import)\", i.e. Shanghai-built, where the CATL LFP RWD originates; same pack as EV Database LFP60."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.7,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-basenor-m3-legacy-charging",
+            "low_confidence": true,
+            "notes": "Estimated: Basenor/Wikipedia: RWD up to 32 A (7.6 kW); Tesla service manual: 48 A only with the Long Range battery. EV Database 11 kW (3-phase, EU) and evspecifications 11.5 kW do not apply to single-phase North America."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2026-standard": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 69,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-arenaev-m3-standard-2025",
+            "low_confidence": true,
+            "notes": "ArenaEV Model 3 Standard: 69 kWh total (nominal), LFP. Sources conflict: Tesla does not disclose capacity; KBB shows N/A; Electra (France) gives about 64 kWh usable for the EU Standard. 2026 Standard (US)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 64,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-goelectra-m3-standard-2026",
+            "low_confidence": true,
+            "notes": "Estimated: Electra (France) states about 64 kWh usable for the Model 3 Standard (LFP, CATL); ArenaEV's 69 kWh total gives a plausible 93 % usable ratio. The French page covers the European Standard; US pack assumed the same. A Car and Driver figure of 69.5 kWh usable appeared only in a search excerpt (AOL), not opened. 2026 Standard (US)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "community",
+            "source_id": "src-arenaev-m3-standard-2025",
+            "low_confidence": true,
+            "notes": "LFP per ArenaEV and Electra (CATL). 2026 Standard (US)."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "community",
+            "source_id": "src-arenaev-m3-standard-2025",
+            "low_confidence": true,
+            "notes": "ArenaEV lists a 400 V system. 2026 Standard (US)."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2026 Standard (US).). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 225,
+            "unit": "kW",
+            "kind": "community",
+            "source_id": "src-insideevs-m3-standard-2026",
+            "low_confidence": true,
+            "notes": "InsideEVs: 225 kW maximum input for the Standard (250 kW for the rest of the lineup); ArenaEV also 225 kW. Conflict: Electra (France) lists 175 kW and EU listings 170 kW for the European Standard. 2026 Standard (US)."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.7,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-basenor-m3-legacy-charging",
+            "low_confidence": true,
+            "notes": "Estimated: entry RWD cars use 32 A (about 7.7 kW) on single-phase North American supply (Basenor/Wikipedia for the Model 3 RWD; Tesla service manual ties 48 A to the Long Range battery). Not checked for the 2026-27 Standard specifically; European listings say 11 kW (3-phase). 2026 Standard (US)."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2027-rwd": {
+      "fields": {
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 69,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-arenaev-m3-standard-2025",
+            "low_confidence": true,
+            "notes": "Estimated: ArenaEV Model 3 Standard: 69 kWh total (nominal), LFP. Sources conflict: Tesla does not disclose capacity; KBB shows N/A; Electra (France) gives about 64 kWh usable for the EU Standard. 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 64,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-goelectra-m3-standard-2026",
+            "low_confidence": true,
+            "notes": "Estimated: Electra (France) states about 64 kWh usable for the Model 3 Standard (LFP, CATL); ArenaEV's 69 kWh total gives a plausible 93 % usable ratio. The French page covers the European Standard; US pack assumed the same. A Car and Driver figure of 69.5 kWh usable appeared only in a search excerpt (AOL), not opened. 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "lfp",
+            "kind": "estimated",
+            "source_id": "src-arenaev-m3-standard-2025",
+            "low_confidence": true,
+            "notes": "Estimated: LFP per ArenaEV and Electra (CATL). 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-arenaev-m3-standard-2025",
+            "low_confidence": true,
+            "notes": "Estimated: ArenaEV lists a 400 V system. 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+          }
+        ],
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page.). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 225,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-insideevs-m3-standard-2026",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs: 225 kW maximum input for the Standard (250 kW for the rest of the lineup); ArenaEV also 225 kW. Conflict: Electra (France) lists 175 kW and EU listings 170 kW for the European Standard. 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 7.7,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-basenor-m3-legacy-charging",
+            "low_confidence": true,
+            "notes": "Estimated: entry RWD cars use 32 A (about 7.7 kW) on single-phase North American supply (Basenor/Wikipedia for the Model 3 RWD; Tesla service manual ties 48 A to the Long Range battery). Not checked for the 2026-27 Standard specifically; European listings say 11 kW (3-phase). 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+          }
+        ]
+      },
+      "variant_fields": {
+        "charge_port": [
+          {
+            "value": "nacs",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "yes",
+            "kind": "community",
+            "source_id": "src-wikipedia-nacs",
+            "low_confidence": true,
+            "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2026-performance-awd": {
+      "fields": {
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2026 Canadian car). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2026-premium-awd-i": {
+      "fields": {
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2026 Canadian car). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ]
+      }
+    },
+    "tesla/model-3/2026-premium-i": {
+      "fields": {
+        "battery.preconditioning": [
+          {
+            "value": "automatic_with_navigation",
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-2020-24-6-4",
+            "low_confidence": true,
+            "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2026 Canadian car). Page mentions no manual battery-warming control, but it is silent rather than a denial (Tesla's owner's manual pages could not be fetched)."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -8,6 +8,23 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-usa-nacs-adapter-faq",
+      "notes": "Hyundai USA: legacy Hyundai EVs have native CCS ports (the 2025 IONIQ 5 is the first with a native NACS port)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-motor-hyundai-adapters-2025",
+      "notes": "Hyundai (US) provides a complimentary CCS-to-NACS adapter to eligible IONIQ 5 owners for Tesla Supercharger access (relayed by Motor.com, 2025-03); the Hyundai USA FAQ says native-CCS owners have access to NACS adapters.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -6,15 +6,30 @@
   "drivetrain": "rwd",
   "powertrain_id": "hyundai/ioniq-5/2025-preferred-standard-range",
   "markets": [
-    "CA",
-    "US"
+    "CA"
+  ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-guideauto-ioniq5-2025-lineup-ca",
+      "notes": "2025 non-XRT trims use a CCS port with an offered NACS adapter.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-faq",
+      "notes": "NACS adapter sold separately for 2025-and-earlier CCS Hyundai EVs."
+    }
   ],
   "trims": [
     {
       "id": "standard",
       "names": {
-        "CA": "Preferred Standard Range",
-        "US": "SE Standard Range RWD"
+        "CA": "Preferred Standard Range"
       }
     }
   ]

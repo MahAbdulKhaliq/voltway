@@ -41,6 +41,15 @@
         "low_confidence": true,
         "notes": "European listing for the same 110.3 kWh pack: 106.0 kWh usable (other sites say 106.3 or 107). Pack is common to all markets. Conflict: the awd and awd-performance records hold 99.5 kWh (OpenEV) for the same 110.3 kWh pack; not reconciled."
       }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-ioniq9-manual-mea-2026",
+        "notes": "Estimated: the US 2026 owner's manual page (code MEa) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, ME being the IONIQ 9 platform code (inference), and no Canadian manual was read. Applied to all three IONIQ 9 powertrains.",
+        "low_confidence": true
+      }
     ]
   },
   "ac_max_kw": [

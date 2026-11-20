@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-guideauto-ioniq5-2025-lineup-ca",
+      "notes": "Canada: the 2025 XRT is the first Hyundai in Canada with a NACS port.",
+      "low_confidence": true
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-hyundai-ca-faq",
+      "notes": "Estimated: Canada 2025 XRT has the NACS port (Guide Auto); Hyundai Canada FAQ confirms Supercharger access through the NACS port for 2026+ and does not name the 2025 XRT; Hyundai USA says the same native-NACS 2025 car uses Tesla V3/V4 Superchargers directly.",
+      "low_confidence": true
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -5,5 +5,74 @@
   "generation": "first-generation-pre-facelift",
   "years": [
     2024
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 58,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-canadadrives-ioniq5-2022",
+        "notes": "Canada Drives lists the 58 kWh pack for the Essential/Preferred; Hyundai US release (HMGMA) also says Standard Range went from 58.0 to 63.0 kWh. A bare capacity is recorded as gross.",
+        "low_confidence": true
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 54,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-evdb-ioniq5-sr-2wd",
+        "notes": "European listing of the same 58 kWh E-GMP pack (MY21): 54.0 kWh usable. Pack is shared across markets.",
+        "low_confidence": true
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-evdb-ioniq5-sr-2wd",
+        "notes": "EV Database: NMC cathode, pouch. Wikipedia also lists the 58 kWh pack as NMC.",
+        "low_confidence": true
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "community",
+        "source_id": "src-evdb-ioniq5-sr-2wd",
+        "notes": "EV Database: 523 V nominal, 800 V architecture.",
+        "low_confidence": true
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-electrive-ioniq5-preconditioning-2023",
+        "notes": "Estimated: electrive (2023) and Hyundai Motor Group (2023 IONIQ 5) describe automatic navigation-triggered battery conditioning with no manual control; the 2022 service bulletin TSB 23-01-017H adds the same navigation trigger to 2022 cars by software update. Applied to the whole 2022-2024 first generation (same E-GMP hardware); later Hyundai manuals add a manual option, but nothing found says the 2022-2024 cars have it. Caveats: no source was found for 2024 specifically (extended from 2023); electrive says the feature \"arrived with\" the 2023 model year and reached older cars by software update, so a 2022 car without that update may have no battery conditioning.",
+        "low_confidence": true
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 175,
+      "unit": "kW",
+      "kind": "community",
+      "source_id": "src-wikipedia-ioniq5",
+      "notes": "Wikipedia and EV Database both list 175 kW peak for the 58 kWh pack (European/global figure; same pack).",
+      "low_confidence": true
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-canadadrives-ioniq5-2022",
+      "notes": "Estimated: Canada Drives states a standard 10.9 kW onboard charger for the Canadian 2022 trims (58 kWh car); for the US SE Standard Range (2022, 2024) the same pack and charger are assumed (SlashGear gives 10.9 kW for the US 77.4 kWh launch car). Applied to Canadian Preferred 2022/2023 directly.",
+      "low_confidence": true
+    }
   ]
 }

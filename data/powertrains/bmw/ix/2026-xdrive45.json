@@ -42,6 +42,15 @@
         "low_confidence": true,
         "notes": "Estimated: InsideEVs says \"the voltage architecture remains the same\" as the 2025 iX (400 V class, ArenaEV)."
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-gf-adac-ix-xdrive45-2025",
+        "low_confidence": true,
+        "notes": "ADAC manufacturer-data table for the iX xDrive45 (ab 03/25, 94.8 kWh net, DC 175 kW): Nickel-Mangan-Cobalt."
+      }
     ]
   },
   "dc_max_kw": [

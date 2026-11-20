@@ -44,6 +44,15 @@
         "notes": "Estimated: EV Database lists a 400 V architecture for the VF 9 Extended Range (123 kWh usable, search excerpt; page returned 429 when opened); no page opened states the voltage.",
         "low_confidence": true
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-gf-adac-vf9",
+        "low_confidence": true,
+        "notes": "Estimated: ADAC manufacturer-data table for the VF 9 Plus 123 kWh (European car, 06/23-12/24): Nickel-Mangan-Cobalt; same 123 kWh pack in the North American cars (years 2023-2027 compared; the EU sheet names 250 kW DC, North America 150 kW, so charger tuning differs, not the cells)."
+      }
     ]
   },
   "dc_max_kw": [

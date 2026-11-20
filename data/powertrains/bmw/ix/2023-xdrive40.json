@@ -44,6 +44,15 @@
         "low_confidence": true,
         "notes": "Estimated: same hardware as MY2022 (the page read); model years compared 2022 to 2023, nothing shows a change. BMW global: gross 76.6 kWh."
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-gf-adac-ix-xdrive40",
+        "low_confidence": true,
+        "notes": "Estimated: same hardware in another model year (the ADAC page covers 03/24-01/25). ADAC manufacturer-data table for the iX xDrive40 (03/24-01/25): Nickel-Mangan-Cobalt, 76.6 kWh gross, 400 V, the same 76.6 kWh gross as this car. Years 2023-2025 compared."
+      }
     ]
   },
   "dc_max_kw": [

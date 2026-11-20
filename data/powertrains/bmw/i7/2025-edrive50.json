@@ -52,6 +52,15 @@
         "low_confidence": true,
         "notes": "Estimated: lineup-wide feature on BMW Gen5 EVs (BMW US i4 page: navigation-triggered; manual control not addressed); no i7 page names it."
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-gf-adac-i7-m70",
+        "low_confidence": true,
+        "notes": "Estimated: ADAC manufacturer-data table for the i7 M70 xDrive (07/23-06/26): Nickel-Mangan-Cobalt, 105.7 kWh gross / 101.7 net, the same pack figures on file for this eDrive50 (same pack assumed). Years 2023-2026 compared; no pack change before the 2027 Gen6 pack. ADAC's xDrive60 page has no chemistry row."
+      }
     ]
   },
   "dc_max_kw": [

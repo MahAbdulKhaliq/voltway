@@ -43,6 +43,16 @@
         "low_confidence": true,
         "notes": "Estimated: 2027 hardware assumed unchanged from 2026. Wards and InsideEVs: Touring battery sized at 89 kWh (usable/gross not stated; bare capacity recorded as gross)."
       }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 87.5,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-gf-electrek-gravity",
+        "low_confidence": true,
+        "notes": "Estimated: usable from gross. The Touring pack is 89 kWh (Lucid); Electrek gives 121 usable of 123 gross for the Grand Touring (ratio 0.984, same Lucid cell family, different pack and voltage), so 89 x 0.984 = 87.5. Electrek also writes \"89 kWh for the Touring\" without labelling it usable."
+      }
     ]
   },
   "ac_max_kw": [

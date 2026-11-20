@@ -43,6 +43,16 @@
         "low_confidence": true,
         "notes": "Estimated: The 2016 press kit lists a battery heater for cold-weather charging and remote cabin pre-conditioning (cabin only); no navigation- or charger-linked battery warming for DC charging. The heater runs automatically while plugged in, so this is a judgement call. Compared 2012 (optional Cold Zone package) with 2016-2017 (standard)."
       }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 13.5,
+        "unit": "kWh",
+        "kind": "tested",
+        "source_id": "src-w2j-inl-imiev-2012",
+        "low_confidence": true,
+        "notes": "INL 2012 i-MiEV baseline test (text extracted from the energy.gov PDF): total DC energy out of the battery 13.3-13.5 kWh in the constant-speed range-to-empty tests (rated pack 16 kWh, 330 V). Measured energy delivered, so a lower bound of usable."
+      }
     ]
   },
   "ac_max_kw": [

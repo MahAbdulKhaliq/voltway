@@ -43,6 +43,24 @@
         "low_confidence": true,
         "notes": "Motoring File: \"MINI's app-based pre-conditioning improves charging speed and extends battery life\" (app-triggered; no navigation trigger mentioned). Not read on a MINI page; the Cars.com piece mentions only cabin pre-conditioning."
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-gf-adac-countryman-se",
+        "low_confidence": true,
+        "notes": "Estimated: same hardware in another model year (2025-2027 compared). ADAC manufacturer-data table for the Countryman SE ALL4 (03/24-01/26): Nickel-Mangan-Cobalt, 66.5 kWh gross / 64.6 net, matching the 66.5 gross on this car. Wording differs on some other ADAC trim pages (Nickel-Cobalt-Mangan; \"Lithium\" on a JCW page)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-gf-adac-countryman-se",
+        "low_confidence": true,
+        "notes": "Estimated: same hardware in another model year (2025-2027 compared). ADAC manufacturer-data table: Hochvolt-Architektur 400 V."
+      }
     ]
   },
   "dc_max_kw": [

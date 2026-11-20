@@ -44,6 +44,15 @@
         "low_confidence": true,
         "notes": "Estimated: VW's first automatic battery preconditioning arrived with the 2024 ID.4 software (InsideEVs: ID.4/ID.5 built 2020-2024 lacked it, automatic from 2024); the e-Golf (2015-2020) predates it and no e-Golf page describes a battery-warming feature (Wikipedia mentions only a heat pump option and Eco+ mode)."
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-gf-adac-egolf-2014",
+        "low_confidence": true,
+        "notes": "ADAC manufacturer-data table for the 24.2 kWh e-Golf (03/14-10/16, European car): Nickel-Mangan-Cobalt. Same pack sold in the US 2015-2016; chemistry does not vary by market."
+      }
     ]
   },
   "dc_max_kw": [

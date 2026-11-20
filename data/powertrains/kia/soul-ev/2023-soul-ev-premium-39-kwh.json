@@ -35,6 +35,15 @@
         "notes": "ArenaEV: 327 V nominal.",
         "low_confidence": true
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-gf-evspecs-soul-2020",
+        "low_confidence": true,
+        "notes": "Estimated: same hardware in another model year (2020-2023 compared, no pack change found). EVSpecifications.com 2020 Soul EV 39 kWh: battery type NCM (NMC), cathode LiNiCoMnO2, SK Innovation, 39.2 kWh usable, 327 V."
+      }
     ]
   },
   "ac_max_kw": [

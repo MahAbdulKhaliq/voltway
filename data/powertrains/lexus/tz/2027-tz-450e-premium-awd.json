@@ -25,6 +25,24 @@
         "low_confidence": true,
         "notes": "Estimated: InsideEVs: battery preconditioning standard; Lexus release: \"Optimizes battery temperature before charging in cold conditions\", 5G-dependent, subscription. The Lexus TZ page names battery preconditioning but not its trigger; assumed as on the Lexus ES (touchscreen or automatic with a charger as destination), not confirmed."
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-autopian-bz-2026",
+        "low_confidence": true,
+        "notes": "Estimated: platform sibling with the same pack. The 2026 RZ 550e on file has the same 76.96 kWh gross pack and its chemistry rests on the Toyota chief engineer (Autopian): same NMC chemistry and cells as the bZ pack."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-insideevs-bz-charging-limit-2026",
+        "low_confidence": true,
+        "notes": "Estimated: platform sibling with the same pack. The 2026 RZ 550e on file has the same 76.96 kWh gross pack; Toyota chief engineer (InsideEVs): the bZ pack \"still runs on a 400-volt electrical architecture\"."
+      }
     ]
   },
   "ac_max_kw": [

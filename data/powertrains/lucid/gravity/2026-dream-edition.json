@@ -43,6 +43,16 @@
         "low_confidence": true,
         "notes": "Wards: 123 kWh battery (usable not stated); KBB 2026 (Grand Touring, Dream Edition) agrees."
       }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 121,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-gf-electrek-gravity",
+        "low_confidence": true,
+        "notes": "Estimated: the Dream Edition has the same 123 kWh gross pack as the Grand Touring (KBB/Wards on file); Electrek states 121 kWh usable for the Grand Touring (2025-2027 compared)."
+      }
     ]
   },
   "ac_max_kw": [

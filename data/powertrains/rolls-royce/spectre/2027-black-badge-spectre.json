@@ -16,6 +16,24 @@
         "low_confidence": true,
         "notes": "CarExpert: pack \"grown from 102kWh to 112kWh (net)\" (112.4 appears elsewhere)."
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-gf-adac-spectre-series2",
+        "low_confidence": true,
+        "notes": "Estimated: Black Badge shares the Series II pack and charger with the standard Spectre. ADAC manufacturer-data table for the Series II (ab 11/26, 112.5 kWh net): Nickel-Mangan-Cobalt. Other ADAC Spectre pages word the chemistry differently (\"Lithium\")."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-gf-adac-spectre-series2",
+        "low_confidence": true,
+        "notes": "Estimated: Black Badge shares the Series II pack and charger with the standard Spectre. ADAC table: Hochvolt-Architektur 400 V."
+      }
     ]
   },
   "ac_max_kw": [

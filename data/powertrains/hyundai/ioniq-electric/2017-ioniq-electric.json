@@ -44,6 +44,15 @@
         "notes": "ArenaEV: 28 kWh usable (Hyundai states a 28 kWh battery).",
         "low_confidence": true
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-gf-adac-ioniq-28",
+        "low_confidence": true,
+        "notes": "ADAC manufacturer-data table for the 28 kWh Ioniq Elektro (11/16-07/19): Nickel-Mangan-Cobalt; EVSpecifications 2019 (LG Chem, NCM LiNiCoMnO2) agrees. The 2017-2019 North American cars use the same 28 kWh pack (nothing found to show a change)."
+      }
     ]
   },
   "ac_max_kw": [

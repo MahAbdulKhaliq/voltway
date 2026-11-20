@@ -44,6 +44,15 @@
         "notes": "ArenaEV: 40.4 kWh total.",
         "low_confidence": true
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-gf-evspecs-ioniq-38-2020",
+        "low_confidence": true,
+        "notes": "EVSpecifications.com 2020 Ioniq Electric 38.3 kWh: battery type \"NCM622\" (LiNiCoMnO2). Community database, not a Hyundai statement."
+      }
     ]
   },
   "ac_max_kw": [

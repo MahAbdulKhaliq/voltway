@@ -43,6 +43,16 @@
         "low_confidence": true,
         "notes": "Estimated: The 2016 press kit lists a battery heater for cold-weather charging and remote cabin pre-conditioning (cabin only); no navigation- or charger-linked battery warming for DC charging. The heater runs automatically while plugged in, so this is a judgement call. Compared 2012 (optional Cold Zone package) with 2016-2017 (standard)."
       }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 13.5,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-w2j-inl-imiev-2012",
+        "low_confidence": true,
+        "notes": "Estimated: same hardware in another model year. INL measured 13.3-13.5 kWh out of the 2012 car's 16 kWh pack; the 2013+ LEV50N cells keep the same 16 kWh pack per Wikipedia/Mitsubishi (years 2012-2017 compared). Other databases quote 14.5 kWh usable (not opened)."
+      }
     ]
   },
   "ac_max_kw": [

@@ -8,6 +8,23 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-data-2027-eqs-eqs500v4",
+      "notes": "mbusa data sheet: DC connector NACS, AC J1772; MY27 Model Line Updates: dual-plug port with NACS."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-nacs-charging",
+      "low_confidence": true,
+      "notes": "mbusa NACS page: MY27 EVs have a NACS DC inlet; no adapter required at Tesla Superchargers."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

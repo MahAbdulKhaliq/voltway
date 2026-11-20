@@ -5,5 +5,71 @@
   "generation": "first-generation",
   "years": [
     2023
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 108.4,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-mbusa-data-2023-eqs-eqs580x4",
+        "low_confidence": true,
+        "notes": "Estimated: mbusa lists \"battery capacity 108.4 kWh\" without a gross/usable label and no second page labelling this pack was found; read as usable by analogy with the sibling packs whose usable figure is labelled (EQS 107.8, EQE 90.6, EQS 118)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-mb-eqs",
+        "low_confidence": true,
+        "notes": "Estimated: Wikipedia infobox lists NCM 811 for this model (uncited there)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-mb-eqs",
+        "low_confidence": true,
+        "notes": "Estimated: Wikipedia infobox lists a 400 V system for this model (EQS 400V; EQE 400V / 328 V); uncited there."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-mbusa-eqe-eqs-quickstart",
+        "low_confidence": true,
+        "notes": "Estimated: the Mercedes USA EQE/EQS quick-start guide says (per the fact-checker excerpt; the PDF could not be read here) the battery is prepared automatically before the charging station is reached, i.e. a navigation trigger; same system on sedan and SUV. Whether a separate manual battery control exists is unproven either way (the mbusa EV FAQ mentions on-demand preconditioning from the app, possibly cabin only)."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 200,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-data-2023-eqs-eqs580x4",
+      "notes": "mbusa DC charging speed."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 9.6,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-data-2023-eqs-eqs580x4",
+      "notes": "mbusa maximum AC charging speed."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 31,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-data-2023-eqs-eqs580x4",
+      "notes": "mbusa DC charging time 10-80 %."
+    }
   ]
 }

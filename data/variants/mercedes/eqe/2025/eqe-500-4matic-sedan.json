@@ -9,6 +9,23 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-data-2025-eqe-eqe500v4",
+      "notes": "mbusa lists J1772 (AC) and Combined Charging System (DC)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-nacs-charging",
+      "low_confidence": true,
+      "notes": "mbusa NACS page: EQB, EQE, EQS and G 580 with a CCS1 inlet use the Mercedes-approved NACS-to-CCS1 adapter (included from MY26, otherwise sold by dealers). Canada: no Mercedes-Benz Canada page found; the same adapter route is assumed for the CA edition of this car."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

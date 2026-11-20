@@ -8,6 +8,23 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-data-2027-glc-glc400e4",
+      "notes": "mbusa data sheet: DC connector NACS, AC J1772."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-mbusa-nacs-charging",
+      "low_confidence": true,
+      "notes": "Estimated: the mbusa NACS page names the CLA and MY27 EVs (NACS DC inlet, no adapter needed at Superchargers); the GLC is only captioned there, with no Supercharger text."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

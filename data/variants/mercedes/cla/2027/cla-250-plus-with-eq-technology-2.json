@@ -8,6 +8,22 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-data-2027-cla-cla250e",
+      "notes": "mbusa data sheet: DC connector NACS, AC J1772; a CCS1-to-NACS adapter is included."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-nacs-charging",
+      "notes": "mbusa NACS page: CLA has a NACS port; no adapter is required at Tesla Superchargers."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -5,5 +5,68 @@
   "generation": "first-generation",
   "years": [
     2026
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 85,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-mbusa-cla-release",
+        "notes": "Mercedes-Benz USA release: \"85 (usable)\" kWh on both CLA 250+ and CLA 350 4MATIC."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-mbusa-cla-release",
+        "notes": "Mercedes-Benz USA release names Nickel Manganese Cobalt (NMC)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-mbusa-cla-future",
+        "notes": "mbusa: 800-volt electric architecture (a factory 400 V converter from Spring 2026)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "manufacturer",
+        "source_id": "src-mbusa-cla-release",
+        "low_confidence": true,
+        "notes": "Release: heat pump and navigation bring the high-voltage battery to the ideal temperature before DC fast charging. No manual control is mentioned (not proven absent)."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 320,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-data-2026-cla-cla350e4",
+      "notes": "mbusa data sheet: 320 kW peak."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 9.6,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-data-2026-cla-cla350e4",
+      "notes": "mbusa data sheet: AC 9.6 kW (8.75 h 10-100 % on the 2027 sheet)."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 22,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-mbusa-data-2026-cla-cla350e4",
+      "notes": "mbusa data sheet: 22 min (assumes a 500 A charger)."
+    }
   ]
 }

@@ -5,5 +5,74 @@
   "generation": "first-generation",
   "years": [
     2027
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 106,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-jalopnik-amg-gt-4door-2027",
+        "low_confidence": true,
+        "notes": "Jalopnik: \"106 kWh of usable capacity\" on both GT trims (AutoGuide, InsideEVs, KBB give 106 kWh without the label). Mercedes pages not opened."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-jalopnik-amg-gt-4door-2027",
+        "low_confidence": true,
+        "notes": "Jalopnik/InsideEVs: NCMA cathode (nickel cobalt manganese aluminium) with silicon anode; recorded as nmc (the schema enum has no NCMA value, so nmc is coarser than the page)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-jalopnik-amg-gt-4door-2027",
+        "low_confidence": true,
+        "notes": "Jalopnik: 800-volt pack (also charges at 400 V stations)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-mbusa-cla-release",
+        "low_confidence": true,
+        "notes": "Estimated: The 2026 CLA release states navigation-triggered battery pre-heating before DC fast charging; no page was found for this car and Mercedes states no lineup-wide feature for this year, so this is a same-maker guess. Manual control unknown. No AMG GT page mentions it."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 600,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-amg-gt-4door-2027",
+      "low_confidence": true,
+      "notes": "InsideEVs: 600 kW peak; Jalopnik: more than 600 kW. (The GT SUV, a different car, is 710 kW.)"
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-wikipedia-amg-gt-4door",
+      "low_confidence": true,
+      "notes": "Estimated: Wikipedia lists an 11 kW AC onboard charger for the electric GT 4-Door without naming a market; no US page found (Jalopnik, KBB, InsideEVs, AutoGuide, Electrek silent). The US spec could differ: every US Mercedes EV on mbusa lists 9.6 kW. Low confidence."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 11,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-amg-gt-4door-2027",
+      "low_confidence": true,
+      "notes": "AMG claim of about 11 minutes 10-80 % (InsideEVs, AutoGuide)."
+    }
   ]
 }

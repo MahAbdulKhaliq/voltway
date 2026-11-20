@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "j1772",
+      "kind": "estimated",
+      "source_id": "src-wikipedia-mb-b-class-ed",
+      "low_confidence": true,
+      "notes": "Estimated: US-spec AC-only car (no DC port per Wikipedia); J1772 is the US AC inlet."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "manufacturer",
+      "source_id": "src-wikipedia-mb-b-class-ed",
+      "low_confidence": true,
+      "notes": "Wikipedia: Tesla Supercharging was not enabled; no DC inlet."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

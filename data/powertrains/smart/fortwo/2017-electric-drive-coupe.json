@@ -5,5 +5,74 @@
   "generation": "ed4-eq",
   "years": [
     2017
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 17.6,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-smart-electric-drive",
+        "low_confidence": true,
+        "notes": "Estimated: English Wikipedia: 17.6 kWh battery for the 2017 car (label not stated)."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 16.7,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-wikipedia-de-smart-fortwo",
+        "low_confidence": true,
+        "notes": "German Wikipedia table: ED4/EQ 2017-24, 16.7 kWh usable. CONFLICT: English Wikipedia says 17.2 kWh of the total can power the fortwo (16.7 for the forfour, citation needed)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-smart-electric-drive",
+        "low_confidence": true,
+        "notes": "Estimated: GUESS: Wikipedia says \"LG chemistry composing of 96 cells\"; LG Chem cells are NMC but no page says so. Owner decision."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-smart-electric-drive",
+        "low_confidence": true,
+        "notes": "Estimated: GUESS: no page states the pack voltage; the 2017 pack has 96 cells in series (Wikipedia), about 350 V nominal, and the ED2/ED3 packs are assumed the same class. Owner decision."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-gcc-smart-ed2",
+        "low_confidence": true,
+        "notes": "Estimated: Green Cars Compare: no DC fast charging, and no battery-warming feature is described for the smart ED on any page opened."
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "value": 7.2,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-wikipedia-smart-electric-drive",
+      "low_confidence": true,
+      "notes": "English Wikipedia: 2017 US car charge rate 7.2 kW (\"a new 7.2 kW onboard charger was added\", 2.5 h at 240 V). The 22 kW charger is European."
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 0,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-gcc-smart-ed2",
+      "low_confidence": true,
+      "notes": "Estimated: Green Cars Compare (ED2 page): \"does not support DC fast charging\"; other years assumed the same (EPA lists only 240 V charge times; the 2012 optional quick-charge announcement was for Europe)."
+    }
   ]
 }

@@ -3,77 +3,28 @@
   "model_id": "kia/ev9",
   "name": "Land GT-Line",
   "generation": "first-generation",
-  "years": [
-    2024,
-    2025
-  ],
+  "years": [2024, 2025],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 99.8,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-2024-ev9-epa",
-        "low_confidence": true,
-        "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack for Light LR RWD, Wind/Land/GT-Line AWD."
-      }
+      { "value": 99.8, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-2024-ev9-epa", "low_confidence": true, "note_id": "n-fab38ea589" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 96,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-ev9-998-awd",
-        "low_confidence": true,
-        "notes": "EV Database: 96.0 kWh usable (page marks it estimated); Australian Kia fact sheet also 96."
-      }
+      { "value": 96, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ev9-998-awd", "low_confidence": true, "note_id": "n-8b1d8c6b8a" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-evseekers-ev9-battery",
-        "low_confidence": true,
-        "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database NMC for the 99.8 kWh pack."
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-evseekers-ev9-battery", "low_confidence": true, "note_id": "n-e38426af13" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-kia-uk-ev9-specification",
-        "low_confidence": true,
-        "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
-      }
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-kia-uk-ev9-specification", "low_confidence": true, "note_id": "n-bb8d68ba36" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
-        "low_confidence": true,
-        "notes": "2024 EV9 manual (MV1, en_RG copy): manual on/off switch, navigation fast-charger trigger, remote start from Kia Connect. Requires a battery heater (equipment per trim not confirmed)."
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-kia-manual-mv1-2024-battery-conditioning", "low_confidence": true, "note_id": "n-f45b9b3d1f" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 210,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-kia-uk-ev9-specification",
-      "low_confidence": true,
-      "notes": "Kia UK spec page: 10-80 % in 24 min at 210 kW (pack-level, not market-specific). InsideEVs (Kia US documents) says up to 215 kW and measured almost 215 kW; within 2.4 %."
-    }
+    { "value": 210, "unit": "kW", "kind": "manufacturer", "source_id": "src-kia-uk-ev9-specification", "low_confidence": true, "note_id": "n-42aea16fb5" }
   ],
   "ac_max_kw": [
-    {
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-2024-ev9-epa",
-      "low_confidence": true,
-      "notes": "InsideEVs relaying Kia documents: 10.9 kW for both packs."
-    }
+    { "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-2024-ev9-epa", "low_confidence": true, "note_id": "n-96ae456579" }
   ]
 }

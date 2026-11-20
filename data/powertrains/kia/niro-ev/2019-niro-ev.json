@@ -3,79 +3,28 @@
   "model_id": "kia/niro-ev",
   "name": "Niro EV",
   "generation": "first-generation",
-  "years": [
-    2019,
-    2020,
-    2021,
-    2022
-  ],
+  "years": [2019, 2020, 2021, 2022],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 67.5,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-e-niro-64",
-        "low_confidence": true,
-        "notes": "EV Database: 67.5 kWh nominal; Kia markets the pack as \"64 kWh\" (usable)."
-      }
+      { "value": 67.5, "unit": "kWh", "kind": "community", "source_id": "src-evdb-e-niro-64", "low_confidence": true, "notes": "EV Database: 67.5 kWh nominal; Kia markets the pack as \"64 kWh\" (usable)." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 64,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-e-niro-64",
-        "low_confidence": true,
-        "notes": "EV Database: 64.0 kWh usable (EU listing 2020-2022; same 64 kWh pack as the 2019 NA car)."
-      }
+      { "value": 64, "unit": "kWh", "kind": "community", "source_id": "src-evdb-e-niro-64", "low_confidence": true, "notes": "EV Database: 64.0 kWh usable (EU listing 2020-2022; same 64 kWh pack as the 2019 NA car)." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-evdb-e-niro-64",
-        "low_confidence": true,
-        "notes": "EV Database: NMC622 cathode."
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-e-niro-64", "low_confidence": true, "notes": "EV Database: NMC622 cathode." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "community",
-        "source_id": "src-evdb-e-niro-64",
-        "low_confidence": true,
-        "notes": "EV Database: 360 V nominal."
-      }
+      { "value": "400v", "kind": "community", "source_id": "src-evdb-e-niro-64", "low_confidence": true, "notes": "EV Database: 360 V nominal." }
     ],
     "preconditioning": [
-      {
-        "value": "none",
-        "kind": "estimated",
-        "source_id": "src-insideevs-ev6-cold-weather-update",
-        "low_confidence": true,
-        "notes": "Estimated: Weakest value in this batch. Kia added navigation-triggered battery conditioning with the EV6 (launched MY22, upgraded MY23, InsideEVs) and made it standard on the second-generation Niro EV (Kia Europe release, search excerpt); the 2019-2022 first-generation Niro EV predates the EV6 and I found no gen-1 Niro EV manual or Kia page describing battery conditioning for charging. A search snippet says MY19-21 has a PTC battery heater but no manual pre-heat. Silence is not proof; no better-supported value exists."
-      }
+      { "value": "none", "kind": "estimated", "source_id": "src-insideevs-ev6-cold-weather-update", "low_confidence": true, "notes": "Estimated: Weakest value in this batch. Kia added navigation-triggered battery conditioning with the EV6 (launched MY22, upgraded MY23, InsideEVs) and made it standard on the second-generation Niro EV (Kia Europe release, search excerpt); the 2019-2022 first-generation Niro EV predates the EV6 and I found no gen-1 Niro EV manual or Kia page describing battery conditioning for charging. A search snippet says MY19-21 has a PTC battery heater but no manual pre-heat. Silence is not proof; no better-supported value exists." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 77,
-      "unit": "kW",
-      "kind": "tested",
-      "source_id": "src-insideevs-niro-ev-2019-fast-test",
-      "low_confidence": true,
-      "notes": "Tested 2019 Niro EV, about 21 C: peaked about 77 kW (78 kW second session). Kia's '100 kW' is the charger rating in its 80 % time; EV Database lists 77 kW too. Kia states no car peak."
-    }
+    { "value": 77, "unit": "kW", "kind": "tested", "source_id": "src-insideevs-niro-ev-2019-fast-test", "low_confidence": true, "notes": "Tested 2019 Niro EV, about 21 C: peaked about 77 kW (78 kW second session). Kia's '100 kW' is the charger rating in its 80 % time; EV Database lists 77 kW too. Kia states no car peak." }
   ],
   "ac_max_kw": [
-    {
-      "value": 7.2,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-kia-us-2019-niro-ev-debut",
-      "low_confidence": true,
-      "notes": "Kia US debut release (search excerpt): 7.2 kW Level 2 charger; EV Database lists 7.2 kW standard for the EU e-Niro. 2020-2022 assumed the same (no onboard charger change found)."
-    }
+    { "value": 7.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-kia-us-2019-niro-ev-debut", "low_confidence": true, "notes": "Kia US debut release (search excerpt): 7.2 kW Level 2 charger; EV Database lists 7.2 kW standard for the EU e-Niro. 2020-2022 assumed the same (no onboard charger change found)." }
   ]
 }

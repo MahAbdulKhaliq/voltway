@@ -3,76 +3,28 @@
   "model_id": "hyundai/ioniq-electric",
   "name": "Ioniq Electric",
   "generation": "first-generation",
-  "years": [
-    2017
-  ],
+  "years": [2017, 2018, 2019],
   "battery": {
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-arenaev-ioniq-electric-38",
-        "notes": "Estimated: 28 kWh pack of the same car (pack voltage not on its ArenaEV page): the 38.3 kWh pack is 320 V (ArenaEV) and Hyundai-Kia 800 V only arrived with E-GMP (2021).",
-        "low_confidence": true
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-arenaev-ioniq-electric-38", "notes": "Estimated: 28 kWh pack of the same car (pack voltage not on its ArenaEV page): the 38.3 kWh pack is 320 V (ArenaEV) and Hyundai-Kia 800 V only arrived with E-GMP (2021).", "low_confidence": true }
     ],
     "preconditioning": [
-      {
-        "value": "none",
-        "kind": "estimated",
-        "source_id": "src-hmg-ioniq5-2023-battery-conditioning",
-        "notes": "Estimated: no page for the Ioniq Electric describes a battery warming or conditioning feature (Hyundai UK press kit and US 2020 release do not mention one), and Hyundai Motor Group presents navigation-triggered battery conditioning as new with the 2022-2023 IONIQ 5, years after this car. Caveat: Canadian Ioniq Electrics may have had a battery heater (the Kona Electric did); not checked.",
-        "low_confidence": true
-      }
+      { "value": "none", "kind": "estimated", "source_id": "src-hmg-ioniq5-2023-battery-conditioning", "note_id": "n-aaef325ed6", "low_confidence": true }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 30.5,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-arenaev-ioniq-electric-28",
-        "notes": "ArenaEV: 30.5 kWh total (Fastned also lists 30.5 kWh for 2016-2019).",
-        "low_confidence": true
-      }
+      { "value": 30.5, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-ioniq-electric-28", "notes": "ArenaEV: 30.5 kWh total (Fastned also lists 30.5 kWh for 2016-2019).", "low_confidence": true }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 28,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-arenaev-ioniq-electric-28",
-        "notes": "ArenaEV: 28 kWh usable (Hyundai states a 28 kWh battery).",
-        "low_confidence": true
-      }
+      { "value": 28, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-ioniq-electric-28", "notes": "ArenaEV: 28 kWh usable (Hyundai states a 28 kWh battery).", "low_confidence": true }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-gf-adac-ioniq-28",
-        "low_confidence": true,
-        "notes": "ADAC manufacturer-data table for the 28 kWh Ioniq Elektro (11/16-07/19): Nickel-Mangan-Cobalt; EVSpecifications 2019 (LG Chem, NCM LiNiCoMnO2) agrees. The 2017-2019 North American cars use the same 28 kWh pack (nothing found to show a change)."
-      }
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-gf-adac-ioniq-28", "low_confidence": true, "notes": "ADAC manufacturer-data table for the 28 kWh Ioniq Elektro (11/16-07/19): Nickel-Mangan-Cobalt; EVSpecifications 2019 (LG Chem, NCM LiNiCoMnO2) agrees. The 2017-2019 North American cars use the same 28 kWh pack (nothing found to show a change)." }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 6.6,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-cleantechnica-ioniq-electric-2017",
-      "notes": "US 2017 car: 6.6 kW J1772 onboard charger (Wikipedia: 6.6 kW 2016-2019). Canadian figure assumed the same.",
-      "low_confidence": true
-    }
+    { "value": 6.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-cleantechnica-ioniq-electric-2017", "notes": "US 2017 car: 6.6 kW J1772 onboard charger (Wikipedia: 6.6 kW 2016-2019). Canadian figure assumed the same.", "low_confidence": true }
   ],
   "dc_max_kw": [
-    {
-      "value": 70,
-      "unit": "kW",
-      "kind": "tested",
-      "source_id": "src-fastned-hyundai-ioniq",
-      "notes": "Fastned: max charge speed 70 kW for the 30.5 kWh car (ArenaEV also 70 kW). Hyundai says the inlet accepts 100 kW chargers (80 % in about 23 min on a 100 kW charger), which is the charger rating, not the car.",
-      "low_confidence": true
-    }
+    { "value": 70, "unit": "kW", "kind": "tested", "source_id": "src-fastned-hyundai-ioniq", "notes": "Fastned: max charge speed 70 kW for the 30.5 kWh car (ArenaEV also 70 kW). Hyundai says the inlet accepts 100 kW chargers (80 % in about 23 min on a 100 kW charger), which is the charger rating, not the car.", "low_confidence": true }
   ]
 }

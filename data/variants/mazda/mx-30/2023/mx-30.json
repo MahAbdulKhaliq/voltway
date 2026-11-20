@@ -4,44 +4,20 @@
   "year": 2023,
   "name": "MX-30",
   "drivetrain": "fwd",
-  "powertrain_id": "mazda/mx-30/2023-mx-30",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "mazda/mx-30/2022-mx-30",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2j-greencarscompare-mx30",
-      "low_confidence": true,
-      "notes": "Estimated: Green Cars Compare lists CCS Type 1 for the MX-30; North American cars use CCS1; no Mazda North American page opened. Same hardware 2022-2024."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2j-greencarscompare-mx30", "low_confidence": true, "note_id": "n-b74d9565b4" }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "estimated",
-      "source_id": "src-w2j-insideevs-sc-list-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The InsideEVs Supercharger-access list does not include the MX-30 and notes Mazda sells no EV in the US after the MX-30. Canada: nothing found; assumed the same."
-    }
+    { "value": "no", "kind": "estimated", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-97c5b07c76" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "MX-30",
-        "US": "MX-30"
-      },
+      "names": { "CA": "MX-30", "US": "MX-30" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r2w-cc-mx22",
-          "notes": "2022 page; 2023 not checked, low confidence.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-cc-mx22", "notes": "2022 page; 2023 not checked, low confidence.", "low_confidence": true }
       ]
     }
   ]

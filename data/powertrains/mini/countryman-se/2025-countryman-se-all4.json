@@ -3,85 +3,31 @@
   "model_id": "mini/countryman-se",
   "name": "Countryman SE ALL4",
   "generation": "u25",
-  "years": [
-    2025
-  ],
+  "years": [2025],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 66.5,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2-ie-cty",
-        "low_confidence": true,
-        "notes": "InsideEVs: 66.5 kWh gross (BMW global: energy content 66.45 kWh)."
-      }
+      { "value": 66.5, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-ie-cty", "low_confidence": true, "notes": "InsideEVs: 66.5 kWh gross (BMW global: energy content 66.45 kWh)." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 64.7,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2-ie-cty",
-        "low_confidence": true,
-        "notes": "InsideEVs quoting the MINI US spec sheet: 64.7 kWh usable (ArenaEV 64.6). 2025-2027 compared: no US pack change found."
-      }
+      { "value": 64.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-ie-cty", "low_confidence": true, "notes": "InsideEVs quoting the MINI US spec sheet: 64.7 kWh usable (ArenaEV 64.6). 2025-2027 compared: no US pack change found." }
     ],
     "preconditioning": [
-      {
-        "value": "manual_only",
-        "kind": "manufacturer",
-        "source_id": "src-w2-motoring",
-        "low_confidence": true,
-        "notes": "Motoring File: \"MINI's app-based pre-conditioning improves charging speed and extends battery life\" (app-triggered; no navigation trigger mentioned). Not read on a MINI page; the Cars.com piece mentions only cabin pre-conditioning."
-      }
+      { "value": "manual_only", "kind": "manufacturer", "source_id": "src-w2-motoring", "low_confidence": true, "note_id": "n-88c6f868ef" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-gf-adac-countryman-se",
-        "low_confidence": true,
-        "notes": "ADAC manufacturer-data table for the Countryman SE ALL4 (03/24-01/26): Nickel-Mangan-Cobalt, 66.5 kWh gross / 64.6 net, matching the 66.5 gross on this car. Wording differs on some other ADAC trim pages (Nickel-Cobalt-Mangan; \"Lithium\" on a JCW page)."
-      }
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-gf-adac-countryman-se", "low_confidence": true, "notes": "ADAC manufacturer-data table for the Countryman SE ALL4 (03/24-01/26): Nickel-Mangan-Cobalt, 66.5 kWh gross / 64.6 net, matching the 66.5 gross on this car. Wording differs on some other ADAC trim pages (Nickel-Cobalt-Mangan; \"Lithium\" on a JCW page)." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-gf-adac-countryman-se",
-        "low_confidence": true,
-        "notes": "ADAC manufacturer-data table: Hochvolt-Architektur 400 V."
-      }
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-gf-adac-countryman-se", "low_confidence": true, "notes": "ADAC manufacturer-data table: Hochvolt-Architektur 400 V." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 130,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-mini-us",
-      "notes": "MINI USA: fast charging with DC at up to 130 kW."
-    }
+    { "value": 130, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-mini-us", "notes": "MINI USA: fast charging with DC at up to 130 kW." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-motoring",
-      "low_confidence": true,
-      "notes": "Motoring File: onboard AC charger up to 11 kW (ArenaEV lists 22 kW three-phase capability, which the car limits to 11 kW). InsideEVs 9.6 kW is the test charger, not the onboard charger. US/Canada onboard figure not read on a MINI page."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-motoring", "low_confidence": true, "note_id": "n-49d161ff12" }
   ],
   "published_10_80_min": [
-    {
-      "value": 29,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ie-cty",
-      "low_confidence": true,
-      "notes": "InsideEVs: 10-80 % in 29 min according to MINI (MINI US: \"just under 30 minutes\")."
-    }
+    { "value": 29, "unit": "min", "kind": "manufacturer", "source_id": "src-w2-ie-cty", "low_confidence": true, "notes": "InsideEVs: 10-80 % in 29 min according to MINI (MINI US: \"just under 30 minutes\")." }
   ]
 }

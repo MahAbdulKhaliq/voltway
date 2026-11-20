@@ -3,91 +3,30 @@
   "model_id": "tesla/model-y",
   "name": "Performance",
   "generation": "juniper",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 82,
-        "kind": "estimated",
-        "source_id": "src-openev-v1-24-0",
-        "low_confidence": true,
-        "notes": "Estimated: OpenEV Data lists 82 kWh gross for the 2025 Long Range AWD/Performance and the existing 2026 Performance-B record; 2027 US model assumed unchanged (no pack change reported). Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027.",
-        "unit": "kWh"
-      }
+      { "value": 82, "kind": "estimated", "source_id": "src-openev-v1-24-0", "low_confidence": true, "notes": "Estimated: OpenEV Data lists 82 kWh gross for the 2025 Long Range AWD/Performance and the existing 2026 Performance-B record; 2027 US model assumed unchanged (no pack change reported). Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027.", "unit": "kWh" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 79,
-        "kind": "estimated",
-        "source_id": "src-openev-v1-24-0",
-        "low_confidence": true,
-        "notes": "Estimated: OpenEV Data lists 79 kWh net for the same pack in 2025/2026; carried over to 2027. Wikipedia says the Performance Juniper pack is ~82-84 kWh usable (LG 5M), so the Performance figure may be low. Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027.",
-        "unit": "kWh"
-      }
+      { "value": 79, "kind": "estimated", "source_id": "src-openev-v1-24-0", "low_confidence": true, "note_id": "n-c11a827e08", "unit": "kWh" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-openev-v1-24-0",
-        "low_confidence": true,
-        "notes": "Estimated: OpenEV Data: NMC for the 2025/2026 Long Range AWD / Performance; Wikipedia: nickel-based NMC. Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-openev-v1-24-0", "low_confidence": true, "note_id": "n-7f4c099e6b" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-openev-v1-24-0",
-        "low_confidence": true,
-        "notes": "Estimated: OpenEV Data: 400v for the same pack."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-openev-v1-24-0", "low_confidence": true, "note_id": "n-e97904b300" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-teslabs-manual-preconditioning",
-        "low_confidence": true,
-        "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
-      },
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-evdb-model-y-lr-awd-1619",
-        "low_confidence": true,
-        "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-teslabs-manual-preconditioning", "low_confidence": true, "note_id": "n-1fa6db44c3" },
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-model-y-lr-awd-1619", "low_confidence": true, "note_id": "n-42a8c6abf7" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 250,
-      "kind": "estimated",
-      "source_id": "src-openev-v1-24-0",
-      "low_confidence": true,
-      "notes": "Estimated: OpenEV Data 250 kW for the same pack; Wikipedia 250 kW for Premium/Performance. Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027.",
-      "unit": "kW"
-    }
+    { "value": 250, "kind": "estimated", "source_id": "src-openev-v1-24-0", "low_confidence": true, "note_id": "n-05e7520b14", "unit": "kW" }
   ],
   "ac_max_kw": [
-    {
-      "value": 11.5,
-      "kind": "estimated",
-      "source_id": "src-thechargeport-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
-      "unit": "kW"
-    },
-    {
-      "value": 11.5,
-      "kind": "estimated",
-      "source_id": "src-wikipedia-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
-      "unit": "kW"
-    }
+    { "value": 11.5, "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-fec2e18f04", "unit": "kW" },
+    { "value": 11.5, "kind": "estimated", "source_id": "src-wikipedia-tesla-model-y", "low_confidence": true, "note_id": "n-1160ec5905", "unit": "kW" }
   ]
 }

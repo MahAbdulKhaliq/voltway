@@ -4,58 +4,22 @@
   "year": 2024,
   "name": "Electrified GV70 AWD",
   "drivetrain": "awd",
-  "powertrain_id": "genesis/electrified-gv70/2024-electrified-gv70-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "genesis/electrified-gv70/2023-electrified-gv70-prestige-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-us-nacs-lineup",
-      "notes": "Genesis USA: 2023-2025 Genesis EVs have CCS ports (NACS only from 2026).",
-      "low_confidence": true
-    },
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-ca-nacs-2023",
-      "notes": "Genesis Canada: Genesis EVs with CCS ports get Supercharger access via adapter from Q1 2025 (so 2023-2024 cars are CCS).",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-467a78f7ba", "low_confidence": true },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-91e86e1fae", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-genesis-supercharger-2025",
-      "notes": "US: free Genesis NACS-to-CCS adapter for eligible owners (bought or leased by 2025-01-31); about 20,000 Supercharger sites.",
-      "low_confidence": true
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-ca-nacs-2023",
-      "notes": "Canada: Genesis announced Supercharger access via adapter for CCS Genesis EVs from Q1 2025 (names the Electrified GV70).",
-      "low_confidence": true
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-genesis-supercharger-2025", "note_id": "n-9807df9add", "low_confidence": true },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-6b5430454e", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Electrified GV70 AWD",
-        "US": "Electrified GV70 AWD"
-      },
+      "names": { "CA": "Electrified GV70 AWD", "US": "Electrified GV70 AWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-carscom-genesis-electrified-gv70-2024-index",
-          "low_confidence": true,
-          "notes": "Advanced AWD shown; Prestige assumed the same."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-genesis-electrified-gv70-2024-index", "low_confidence": true, "note_id": "n-1115697a2f" }
       ]
     }
   ]

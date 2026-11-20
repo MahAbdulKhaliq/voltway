@@ -4,64 +4,37 @@
   "name": "2",
   "body_type": "sedan",
   "generations": [
-    {
-      "id": "launch",
-      "name": "Launch",
-      "first_year": 2021,
-      "last_year": 2023,
-      "notes": "Launch: Long Range Single and Dual Motor on a 78 kWh gross (75 kWh usable) pack; DC up to ~150-155 kW. Wikipedia gives 155 kW; Polestar materials often say 150 kW. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Polestar_2"
-    },
-    {
-      "id": "2024-update",
-      "name": "2024 update",
-      "first_year": 2024,
-      "last_year": 2027,
-      "notes": "Long Range Single Motor (now RWD) gets an 82 kWh gross (79 kWh usable) pack and 205 kW DC. In North America the Dual Motor kept 78 kWh / 155 kW for 2024 and got 82 kWh / 205 kW for 2025. The NA dual-motor timing makes this a per-variant change: the Single Motor changed in 2024, the Dual Motor in 2025. US end: Wikipedia lists US model years to 2025 and InsideEVs says it was discontinued in the US in 2025, while Autoevolution says it left after MY2026; a US Connected Vehicle Rule decision bars 2027+ US sales. Canada: imports stopped March 2025 (100% tariff on Chinese EVs) and resumed June 2026 with a 2027 model; it is unclear whether Canada had a 2026 model. Production ended Oct 2026; a new-generation Polestar 2 is due in 2027. last_year 2027 reflects the Canadian 2027 model. Confidence: low (researched 2026-11-19, owner review pending). Sources: https://media.polestar.com/releases/445?lang=ww_WW ; https://en.wikipedia.org/wiki/Polestar_2 ; https://www.auto123.com/en/news/polestar-2-production-ends-new-version-2027/74341/ ; https://insideevs.com/news/797786/polestar-2-return-canada/"
-    }
+    { "id": "launch", "name": "Launch", "first_year": 2021, "last_year": 2023, "notes": "Launch: Long Range Single and Dual Motor on a 78 kWh gross (75 kWh usable) pack; DC up to ~150-155 kW. Wikipedia gives 155 kW; Polestar materials often say 150 kW. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Polestar_2" },
+    { "id": "2024-update", "name": "2024 update", "first_year": 2024, "last_year": 2027, "notes": "Long Range Single Motor (now RWD) gets an 82 kWh gross (79 kWh usable) pack and 205 kW DC. In North America the Dual Motor kept 78 kWh / 155 kW for 2024 and got 82 kWh / 205 kW for 2025. The NA dual-motor timing makes this a per-variant change: the Single Motor changed in 2024, the Dual Motor in 2025. US end: Wikipedia lists US model years to 2025 and InsideEVs says it was discontinued in the US in 2025, while Autoevolution says it left after MY2026; a US Connected Vehicle Rule decision bars 2027+ US sales. Canada: imports stopped March 2025 (100% tariff on Chinese EVs) and resumed June 2026 with a 2027 model; it is unclear whether Canada had a 2026 model. Production ended Oct 2026; a new-generation Polestar 2 is due in 2027. last_year 2027 reflects the Canadian 2027 model. Confidence: low (researched 2026-11-19, owner review pending). Sources: https://media.polestar.com/releases/445?lang=ww_WW ; https://en.wikipedia.org/wiki/Polestar_2 ; https://www.auto123.com/en/news/polestar-2-production-ends-new-version-2027/74341/ ; https://insideevs.com/news/797786/polestar-2-return-canada/" }
   ],
   "years": [
     {
       "year": 2021,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "launch"
     },
     {
       "year": 2022,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "launch"
     },
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "launch"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2024-update"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2024-update"
     }

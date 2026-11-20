@@ -4,34 +4,18 @@
   "year": 2025,
   "name": "Nevera",
   "drivetrain": "awd",
-  "powertrain_id": "rimac/nevera/2025-nevera",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "rimac/nevera/2024-nevera",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-rimac-nevera-page",
-      "notes": "Estimated: Rimac lists \"DC Combo\" charging and homologation \"Global\"; US cars use the Combo 1 connector (the repo notes list EPA MY2024-2026). No page names CCS1.",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-rimac-nevera-page", "note_id": "n-bc14b277a4", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "community",
-      "source_id": "src-insideevs-supercharger-list-2026",
-      "notes": "Rimac: Not on the InsideEVs 2026 list of brands with Supercharger access (updated 2026-03-20) and no adapter programme was found; absence from the list, not a statement by the maker.",
-      "low_confidence": true
-    }
+    { "value": "no", "kind": "community", "source_id": "src-insideevs-supercharger-list-2026", "note_id": "n-700b0a2125", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Nevera"
-      }
+      "names": { "US": "Nevera" }
     }
   ]
 }

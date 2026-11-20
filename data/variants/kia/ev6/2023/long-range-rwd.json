@@ -4,58 +4,22 @@
   "year": 2023,
   "name": "Long Range RWD",
   "drivetrain": "rwd",
-  "powertrain_id": "kia/ev6/2023-long-range-rwd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "kia/ev6/2023-gt-line-package-1-long-range-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-nacs-guide-2026",
-      "low_confidence": true,
-      "notes": "Kia Canada guide (search excerpt): factory NACS ports start with the 2025 EV6; earlier Kia EVs have CCS1 ports."
-    },
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-electrek-2025-ev6-us-built",
-      "low_confidence": true,
-      "notes": "Electrek: 2025 EV6 gets a native NACS port (so earlier model years are CCS1)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-e97a9274cf" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-electrek-2025-ev6-us-built", "low_confidence": true, "note_id": "n-7c8cc0d709" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-kia-us-charge-pass-page",
-      "low_confidence": true,
-      "notes": "Kia US: CCS-port Kia vehicles may use Tesla Superchargers with a Kia-approved NACS-to-CCS adapter (access from spring 2025)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-nacs-guide-2026",
-      "low_confidence": true,
-      "notes": "Kia Canada: adapters for EV6/EV9/Niro EV owners sold at Kia dealers (April 2025); search excerpt only."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-page", "low_confidence": true, "note_id": "n-bdc0f55932" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-9b43603c60" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Long Range RWD",
-        "US": "Long Range RWD"
-      },
+      "names": { "CA": "Long Range RWD", "US": "Long Range RWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-kia-ev6-2023-index",
-          "low_confidence": true,
-          "notes": "Light RWD shown; Wind RWD not opened (Wind AWD is 19 in)."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2023-index", "low_confidence": true, "notes": "Light RWD shown; Wind RWD not opened (Wind AWD is 19 in)." }
       ]
     }
   ]

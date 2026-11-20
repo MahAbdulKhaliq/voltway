@@ -5,55 +5,21 @@
   "name": "P6",
   "drivetrain": "rwd",
   "powertrain_id": "volvo/ex60/2027-p6",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kbb-ex60-launch",
-      "low_confidence": true,
-      "notes": "KBB/Motor1: every EX60 has a native NACS port, a first for Volvo."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kbb-ex60-launch", "low_confidence": true, "note_id": "n-7c7134578b" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kbb-ex60-launch",
-      "low_confidence": true,
-      "notes": "Native NACS port: Tesla Superchargers without an adapter (KBB, Motor1, The Charge Port)."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kbb-ex60-launch", "low_confidence": true, "note_id": "n-0495283365" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "P6"
-      },
+      "names": { "US": "P6" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-ex60-gj",
-          "notes": "Range figures assume 20-inch wheels; 20-inch is the smallest size, taken as standard (not stated outright), low confidence.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-r2w-ex60-gj",
-          "notes": "21- and 22-inch wheels can be ordered on the P6 and P10.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": false,
-          "source_id": "src-r2w-ex60-gj",
-          "notes": "22-inch option.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-ex60-gj", "note_id": "n-c69f3a4e56", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r2w-ex60-gj", "note_id": "n-ce6058d687", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-r2w-ex60-gj", "note_id": "n-1c03beb57c", "low_confidence": true }
       ]
     }
   ]

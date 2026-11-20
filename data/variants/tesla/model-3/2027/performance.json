@@ -5,101 +5,39 @@
   "name": "Performance",
   "drivetrain": "awd",
   "powertrain_id": "tesla/model-3/2026-performance",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "unit": "kWh",
-        "value": 82,
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-perf-2026",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists the Oct 2025+ European Performance at 82.0/79.0 kWh (LG 5M NMC, 250 kW, 11 kW AC); the existing OpenEV data for 2026/performance (CA) is identical and the 2027 US range (508.6 km) is above the 2024-25 cars (478 km), which fits the pack change. This car own values override the 2024-25 pack on the shared powertrain."
-      }
+      { "unit": "kWh", "value": 82, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
     ],
     "capacity_usable_kwh": [
-      {
-        "unit": "kWh",
-        "value": 79,
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-perf-2026",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists the Oct 2025+ European Performance at 82.0/79.0 kWh (LG 5M NMC, 250 kW, 11 kW AC); the existing OpenEV data for 2026/performance (CA) is identical and the 2027 US range (508.6 km) is above the 2024-25 cars (478 km), which fits the pack change. This car own values override the 2024-25 pack on the shared powertrain."
-      }
+      { "unit": "kWh", "value": 79, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-perf-2026",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists the Oct 2025+ European Performance at 82.0/79.0 kWh (LG 5M NMC, 250 kW, 11 kW AC); the existing OpenEV data for 2026/performance (CA) is identical and the 2027 US range (508.6 km) is above the 2024-25 cars (478 km), which fits the pack change. This car own values override the 2024-25 pack on the shared powertrain."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-perf-2026",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists the Oct 2025+ European Performance at 82.0/79.0 kWh (LG 5M NMC, 250 kW, 11 kW AC); the existing OpenEV data for 2026/performance (CA) is identical and the 2027 US range (508.6 km) is above the 2024-25 cars (478 km), which fits the pack change. This car own values override the 2024-25 pack on the shared powertrain."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
     ]
   },
   "dc_max_kw": [
-    {
-      "unit": "kW",
-      "value": 250,
-      "kind": "estimated",
-      "source_id": "src-evdb-m3-perf-2026",
-      "low_confidence": true,
-      "notes": "Estimated: EV Database lists the Oct 2025+ European Performance at 82.0/79.0 kWh (LG 5M NMC, 250 kW, 11 kW AC); the existing OpenEV data for 2026/performance (CA) is identical and the 2027 US range (508.6 km) is above the 2024-25 cars (478 km), which fits the pack change. This car own values override the 2024-25 pack on the shared powertrain."
-    }
+    { "unit": "kW", "value": 250, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
   ],
   "ac_max_kw": [
-    {
-      "unit": "kW",
-      "value": 11,
-      "kind": "estimated",
-      "source_id": "src-evdb-m3-perf-2026",
-      "low_confidence": true,
-      "notes": "Estimated: EV Database lists the Oct 2025+ European Performance at 82.0/79.0 kWh (LG 5M NMC, 250 kW, 11 kW AC); the existing OpenEV data for 2026/performance (CA) is identical and the 2027 US range (508.6 km) is above the 2024-25 cars (478 km), which fits the pack change. This car own values override the 2024-25 pack on the shared powertrain."
-    }
+    { "unit": "kW", "value": 11, "kind": "estimated", "source_id": "src-evdb-m3-perf-2026", "low_confidence": true, "note_id": "n-b9d7067e52" }
   ],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
-    }
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-467dd2e649" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-4655b2436d" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Performance"
-      },
+      "names": { "US": "Performance" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-carscom-model-3-2021-performance",
-          "notes": "Performance AWD 20x8.5 (2021 page). Carried over from the 2021 Performance; no source shows a change. 2024 onward is the Highland redesign (a different car); the 20 inch carry rests on the 2021 Performance page of the previous body.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carscom-model-3-2021-performance", "note_id": "n-2ab15d35ec", "low_confidence": true }
       ]
     }
   ]

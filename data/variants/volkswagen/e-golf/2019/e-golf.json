@@ -4,44 +4,20 @@
   "year": 2019,
   "name": "e-Golf",
   "drivetrain": "fwd",
-  "powertrain_id": "volkswagen/e-golf/2019-e-golf",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "volkswagen/e-golf/2017-e-golf",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-cars-egolf-2017",
-      "low_confidence": true,
-      "notes": "Cars.com/Wikipedia: DC fast charging (CCS) $995 option on SE, standard on SEL Premium and Limited Edition. SE cars without the option have J1772 only (counts unknown). Canada not separately sourced."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-cars-egolf-2017", "low_confidence": true, "note_id": "n-8b6502edba" }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "manufacturer",
-      "source_id": "src-w2-vw-ca-nacs-egolf",
-      "low_confidence": true,
-      "notes": "VW Canada: the NACS DC adapter is officially for ID.4 and ID. Buzz and is not compatible with the e-Golf; Electrek (2025-11-12) lists only ID.4 and ID. Buzz. Applied to US and Canada."
-    }
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-vw-ca-nacs-egolf", "low_confidence": true, "note_id": "n-d4c1545c3c" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "e-Golf",
-        "US": "e-Golf"
-      },
+      "names": { "CA": "e-Golf", "US": "e-Golf" },
       "wheels": [
-        {
-          "diameter_in": 16,
-          "is_standard": true,
-          "source_id": "src-cars-volkswagen-egolf-2019-404734",
-          "notes": "e-Golf SE 2019: 16x6.5 read on this Cars.com page (US market). The SEL Premium page for that year also shows 16-inch. Only one trim page was read for this year; other trims not opened.",
-          "low_confidence": true
-        }
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-cars-volkswagen-egolf-2019-404734", "notes": "e-Golf SE 2019: 16x6.5 read on this Cars.com page (US market). The SEL Premium page for that year also shows 16-inch. Only one trim page was read for this year; other trims not opened.", "low_confidence": true }
       ]
     }
   ]

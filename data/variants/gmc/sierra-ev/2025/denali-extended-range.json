@@ -5,43 +5,19 @@
   "name": "Denali Extended Range",
   "drivetrain": "awd",
   "powertrain_id": "gmc/sierra-ev/2025-denali-extended-range",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-gm-silverado-ev-2026-spec-guide",
-      "low_confidence": true,
-      "notes": "Estimated: The GM 2026 Silverado EV spec guide treats the J1772/CCS1 inlet as native with an optional NACS DC adapter; the Sierra EV is the same truck. Model years 2025-2026."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-822d24ebbb" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-auto123-gm-nacs-adapter-2024",
-      "low_confidence": true,
-      "notes": "Estimated: GM announced the NACS adapter for all GM EVs on 2024-09-18, US first and Canada before the end of 2024 (Auto123, ArenaEV); no Canadian page for this exact model was readable (gm.ca, chevrolet.ca, cadillaccanada.ca return 403). Assumed the Canadian car has the same adapter access as the US car. Markets on this powertrain: CA and US; US reads InsideEVs' list."
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-auto123-gm-nacs-adapter-2024", "low_confidence": true, "note_id": "n-d0c7b2442c" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Denali Extended Range",
-        "US": "Denali Extended Range"
-      },
+      "names": { "CA": "Denali Extended Range", "US": "Denali Extended Range" },
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r2gm-insideevs-sierra-2024-specs",
-          "low_confidence": true,
-          "notes": "InsideEVs: regular Denali (from late 2024) 22 in; 24 in was the Edition 1. 2025 Denali Extended Range assumed the regular Denali. Conflict: Jalopnik says the Sierra EV Denali is \"only available with 24-inch wheels\" (that article covers the Max Range test truck); the Extended Range Denali size is not shown on any page opened."
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2gm-insideevs-sierra-2024-specs", "low_confidence": true, "notes": "InsideEVs: regular Denali (from late 2024) 22 in; 24 in was the Edition 1. 2025 Denali Extended Range assumed the regular Denali. Conflict: Jalopnik says the Sierra EV Denali is \"only available with 24-inch wheels\" (that article covers the Max Range test truck); the Extended Range Denali size is not shown on any page opened." }
       ]
     }
   ]

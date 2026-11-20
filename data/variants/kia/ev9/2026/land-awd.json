@@ -5,57 +5,25 @@
   "name": "Land AWD",
   "drivetrain": "awd",
   "powertrain_id": "kia/ev9/2026-land-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev9-2026"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev9-2026"
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2549,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ev9-2026-land-awd",
-      "low_confidence": true,
-      "notes": "Guide Auto lists 2,549 kg (5,620 lb) for the Canadian Land AWD (99.8 kWh; Guide Auto's tyre listing is P255/60R19, while our data lists 20-inch 275/50R20 for this trim)."
-    }
+    { "value": 2549, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev9-2026-land-awd", "low_confidence": true, "notes": "Guide Auto lists 2,549 kg (5,620 lb) for the Canadian Land AWD (99.8 kWh; Guide Auto's tyre listing is P255/60R19, while our data lists 20-inch 275/50R20 for this trim)." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Land AWD",
-        "US": "Land AWD"
-      },
+      "names": { "CA": "Land AWD", "US": "Land AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-kia-ca-ev9-2026"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "tire_size": "275/50R20",
-          "source_id": "src-edwards-kia-ev9-land-2026",
-          "low_confidence": true,
-          "notes": "US dealer spec sheet for Land; Canadian trim mapped by name."
-        }
+        { "diameter_in": 20, "is_standard": true, "tire_size": "275/50R20", "source_id": "src-edwards-kia-ev9-land-2026", "low_confidence": true, "notes": "US dealer spec sheet for Land; Canadian trim mapped by name." }
       ]
     }
   ]

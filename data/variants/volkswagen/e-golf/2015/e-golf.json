@@ -5,41 +5,19 @@
   "name": "e-Golf",
   "drivetrain": "fwd",
   "powertrain_id": "volkswagen/e-golf/2015-e-golf",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-wiki-vw-egolf",
-      "low_confidence": true,
-      "notes": "Estimated: Wikipedia: CCS connector for DC fast charging; DC is tied to the SEL Premium/option trim, so cars without it (e.g. the 2016 SE) have a J1772 inlet only and 3.6 kW AC (trim split not sourced; OWNER: j1772 with dc 0 for those trims?)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-wiki-vw-egolf", "low_confidence": true, "note_id": "n-7a6b7b15af" }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "manufacturer",
-      "source_id": "src-w2-vw-ca-nacs-egolf",
-      "low_confidence": true,
-      "notes": "VW Canada: the NACS DC adapter is officially for ID.4 and ID. Buzz and is not compatible with the e-Golf; Electrek (2025-11-12) lists only ID.4 and ID. Buzz. Applied to US and Canada."
-    }
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-vw-ca-nacs-egolf", "low_confidence": true, "note_id": "n-d4c1545c3c" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "e-Golf"
-      },
+      "names": { "US": "e-Golf" },
       "wheels": [
-        {
-          "diameter_in": 16,
-          "is_standard": true,
-          "source_id": "src-cars-egolf-2015",
-          "notes": "e-Golf (US): e-Golf Limited Edition: 16x6 steel; no options listed on page.",
-          "low_confidence": true
-        }
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-cars-egolf-2015", "notes": "e-Golf (US): e-Golf Limited Edition: 16x6 steel; no options listed on page.", "low_confidence": true }
       ]
     }
   ]

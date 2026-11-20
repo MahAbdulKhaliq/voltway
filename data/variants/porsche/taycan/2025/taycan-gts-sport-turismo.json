@@ -4,55 +4,22 @@
   "year": 2025,
   "name": "Taycan GTS Sport Turismo",
   "drivetrain": "awd",
-  "powertrain_id": "porsche/taycan/2025-taycan-gts-sport-turismo",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "porsche/taycan/2025-taycan-gts",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-porsche-us-supercharger-2025",
-      "notes": "Porsche US/Canada: \"CCS-equipped Taycan\" needs the NACS DC adapter; CCS1 for North America. Native NACS starts with MY2027."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-5905a75adf" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-porsche-us-supercharger-2025",
-      "notes": "US: Porsche NACS DC adapter (included with MY2026, free for MY2025, purchasable for MY2024 and older at $185)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-porsche-ca-supercharger-2025",
-      "notes": "Canada: same programme; adapter free for MY2025 and MY2026, C$250 for MY2024 and older."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-us-supercharger-2025", "note_id": "n-c33be61ae0" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-porsche-ca-supercharger-2025", "note_id": "n-da78e91c76" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Taycan GTS Sport Turismo",
-        "US": "Taycan GTS Sport Turismo"
-      },
+      "names": { "CA": "Taycan GTS Sport Turismo", "US": "Taycan GTS Sport Turismo" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-porsche-taycan-gts-2025-ca",
-          "notes": "Taycan GTS Sport Turismo (CA/US): Taycan GTS: standard 20-inch Turbo S Aero Design wheels.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-porsche-taycan-gts-2025-ca",
-          "notes": "Taycan GTS Sport Turismo (CA/US): Taycan GTS: optional 21-inch RS Spyder Design wheels.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-porsche-taycan-gts-2025-ca", "notes": "Taycan GTS Sport Turismo (CA/US): Taycan GTS: standard 20-inch Turbo S Aero Design wheels.", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-porsche-taycan-gts-2025-ca", "notes": "Taycan GTS Sport Turismo (CA/US): Taycan GTS: optional 21-inch RS Spyder Design wheels.", "low_confidence": true }
       ]
     }
   ]

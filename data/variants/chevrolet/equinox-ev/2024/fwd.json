@@ -5,48 +5,20 @@
   "name": "FWD",
   "drivetrain": "fwd",
   "powertrain_id": "chevrolet/equinox-ev/2024-fwd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-wikipedia-chevrolet-equinox-ev",
-      "low_confidence": true,
-      "notes": "CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2024."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-equinox-ev", "low_confidence": true, "notes": "CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2024." }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-equinox-ev",
-      "low_confidence": true,
-      "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2024: adapter needed. Markets: CA/US."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-equinox-ev", "low_confidence": true, "note_id": "n-13d1cf7d43" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "FWD",
-        "US": "FWD"
-      },
+      "names": { "CA": "FWD", "US": "FWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-equinox-ev-2024-specs",
-          "notes": "LT w/2LT: 19 in, 245/55R19."
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-equinox-ev-2024-specs-453414",
-          "notes": "RS w/2RS: 21 in, 275/40R21."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2024-specs", "notes": "LT w/2LT: 19 in, 245/55R19." },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2024-specs-453414", "notes": "RS w/2RS: 21 in, 275/40R21." }
       ]
     }
   ]

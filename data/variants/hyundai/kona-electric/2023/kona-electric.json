@@ -5,49 +5,20 @@
   "name": "Kona Electric",
   "drivetrain": "fwd",
   "powertrain_id": "hyundai/kona-electric/2019-kona-electric",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-xautoworld-kona-electric-2019",
-      "low_confidence": true,
-      "notes": "SAE Combo (CCS1) port, standard on all North American trims (page relays Hyundai US launch material)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-xautoworld-kona-electric-2019", "low_confidence": true, "note_id": "n-4067c06635" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-us-nacs-giveaway-faq",
-      "notes": "US: KONA Electric (no year given) is on Hyundai free-adapter list."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq-2026-11-16",
-      "low_confidence": true,
-      "notes": "Hyundai Canada FAQ: Hyundai EVs of MY2025 and earlier can use a NACS adapter (available separately)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-727699c0ea" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-0138387563" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Kona Electric",
-        "US": "Kona Electric"
-      },
+      "names": { "CA": "Kona Electric", "US": "Kona Electric" },
       "wheels": [
-        {
-          "diameter_in": 17,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-kona-ev-2023-index",
-          "low_confidence": true,
-          "notes": "Page lists SE, SEL and Limited at 17 x 7 in."
-        }
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-hyundai-kona-ev-2023-index", "low_confidence": true, "notes": "Page lists SE, SEL and Limited at 17 x 7 in." }
       ]
     }
   ]

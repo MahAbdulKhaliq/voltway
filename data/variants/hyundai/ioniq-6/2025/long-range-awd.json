@@ -4,60 +4,24 @@
   "year": 2025,
   "name": "Long Range AWD",
   "drivetrain": "awd",
-  "powertrain_id": "hyundai/ioniq-6/2025-long-range-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "hyundai/ioniq-6/2025-long-range",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "low_confidence": true,
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq",
-      "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier use CCS and need a NACS adapter; IONIQ 6 not named."
-    },
-    {
-      "low_confidence": true,
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-nacs-checker",
-      "notes": "US page: 2025 IONIQ 6 kept CCS1 (model ended with MY2025)."
-    }
+    { "low_confidence": true, "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-69323bce3e" },
+    { "low_confidence": true, "value": "ccs1", "kind": "manufacturer", "source_id": "src-thechargeport-nacs-checker", "note_id": "n-12a901f900" }
   ],
   "supercharger_access": [
-    {
-      "low_confidence": true,
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq",
-      "notes": "Hyundai Canada FAQ: owners of CCS-port 2025-and-earlier Hyundai EVs reach Tesla Superchargers (146 Canadian stations) with a separately available NACS adapter. IONIQ 6 not named. A forum post claims a free Canadian adapter programme from 2026-06-01; not confirmed on a Hyundai page."
-    }
+    { "low_confidence": true, "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-ea1d0f39b4" }
   ],
   "trims": [
     {
       "id": "18-in-wheels",
-      "names": {
-        "CA": "Long Range AWD",
-        "US": "SE Long Range AWD"
-      },
+      "names": { "CA": "Long Range AWD", "US": "SE Long Range AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-auto123-ioniq-6-2025",
-          "low_confidence": true,
-          "notes": "Quick web lookup (rough, not cross-checked). Dealer spec sheet lists a heat pump on RWD and AWD."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-auto123-ioniq-6-2025", "low_confidence": true, "note_id": "n-047f595d93" }
       ],
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-ioniq-6-2025-455680",
-          "low_confidence": true,
-          "notes": "SE AWD 18 in; the trim is named 18-in wheels."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-6-2025-455680", "low_confidence": true, "notes": "SE AWD 18 in; the trim is named 18-in wheels." }
       ]
     }
   ]

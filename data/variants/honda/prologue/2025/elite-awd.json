@@ -4,41 +4,20 @@
   "year": 2025,
   "name": "Elite AWD",
   "drivetrain": "awd",
-  "powertrain_id": "honda/prologue/2025-elite-awd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "honda/prologue/2024-ex-l-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-honda-prologue",
-      "low_confidence": true,
-      "notes": "The Charge Port: CCS1 port; Superchargers need an adapter (2024-2026 model years)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thechargeport-honda-prologue", "low_confidence": true, "note_id": "n-df0ef80d31" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
-      "low_confidence": true,
-      "notes": "US: CCS1 car, Supercharger access with the manufacturer-approved NACS adapter; listed on InsideEVs. Current state for this model year."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-nontesla-supercharger-access-2026", "low_confidence": true, "note_id": "n-da9452f6da" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Elite AWD"
-      },
+      "names": { "US": "Elite AWD" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-hondainfocenter-prologue-2025-specs",
-          "notes": "Elite: 21x9.5, 275/45R21."
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-hondainfocenter-prologue-2025-specs", "note_id": "n-2fefb56154" }
       ]
     }
   ]

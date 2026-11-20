@@ -5,43 +5,19 @@
   "name": "Dual Motor AWD",
   "drivetrain": "awd",
   "powertrain_id": "tesla/cybertruck/2025-dual-motor-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla connector (now NACS / SAE J3400) on every Tesla since the 2012 Model S; Canada and US cars alike (Wikipedia NACS article; EVSpecifications lists \"NACS / Tesla (SAE J3400)\" on Model S Plaid pages)."
-    }
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-64b227cb35" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia NACS article); same in Canada and the US."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-0149985cd2" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Dual Motor AWD",
-        "US": "Dual Motor AWD"
-      },
+      "names": { "CA": "Dual Motor AWD", "US": "Dual Motor AWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-tesla-cybertruck-2026-specs-484475",
-          "notes": "No 2025 Dual Motor page on Cars.com (it lists only Cyberbeast and Long Range); 2026 Dual Motor AWD page: 18x8.5, P285/70HR18.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-tesla-cybertruck-2026-specs-484475", "notes": "No 2025 Dual Motor page on Cars.com (it lists only Cyberbeast and Long Range); 2026 Dual Motor AWD page: 18x8.5, P285/70HR18.", "low_confidence": true }
       ]
     }
   ]

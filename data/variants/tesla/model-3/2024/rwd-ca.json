@@ -5,41 +5,19 @@
   "name": "RWD",
   "drivetrain": "rwd",
   "powertrain_id": "tesla/model-3/2024-rwd-ca",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
-    }
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-467dd2e649" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-4655b2436d" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "RWD"
-      },
+      "names": { "CA": "RWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r2w-carscom-model-3-2024",
-          "notes": "Base-trim wheel on the cars.com page for that era. Cars.com 2024 page shows the RWD trim only; this trim (Canada market) is carried from it.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-carscom-model-3-2024", "note_id": "n-3856896846", "low_confidence": true }
       ]
     }
   ]

@@ -4,28 +4,18 @@
   "name": "CLA with EQ Technology",
   "body_type": "sedan",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "Third generation (C178, MMA)",
-      "first_year": 2026,
-      "notes": "Electric CLA on the MMA platform, 800 V, 85 kWh usable pack, up to 320 kW DC (CLA 250+ and CLA 350 4MATIC). EPA \"(R22)\" is a wheel/tire option. Confidence: medium-high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Mercedes-Benz_CLA"
-    }
+    { "id": "first-generation", "name": "Third generation (C178, MMA)", "first_year": 2026, "notes": "Electric CLA on the MMA platform, 800 V, 85 kWh usable pack, up to 320 kW DC (CLA 250+ and CLA 350 4MATIC). EPA \"(R22)\" is a wheel/tire option. Confidence: medium-high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Mercedes-Benz_CLA" }
   ],
   "years": [
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2027,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "first-generation"
     }

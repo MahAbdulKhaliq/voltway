@@ -3,86 +3,31 @@
   "model_id": "kia/ev6",
   "name": "Standard Range RWD",
   "generation": "first-generation-pre-facelift",
-  "years": [
-    2022
-  ],
+  "years": [2022],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 58,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-wikipedia-kia-ev6",
-        "low_confidence": true,
-        "notes": "Wikipedia infobox: 58 kWh pack (EVDB: 58.0 nominal)."
-      }
+      { "value": 58, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-kia-ev6", "low_confidence": true, "note_id": "n-bcbd0c9ef6" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 54,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-ev6-sr-gen1",
-        "low_confidence": true,
-        "notes": "EV Database: 54.0 kWh usable of 58.0 nominal (EU listing 2021-2024; same pack)."
-      }
+      { "value": 54, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ev6-sr-gen1", "low_confidence": true, "note_id": "n-1eb2e59165" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-evdb-ev6-sr-gen1",
-        "low_confidence": true,
-        "notes": "EV Database: NMC cathode."
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ev6-sr-gen1", "low_confidence": true, "note_id": "n-c06348fa94" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "community",
-        "source_id": "src-evdb-ev6-sr-gen1",
-        "low_confidence": true,
-        "notes": "EV Database: 523 V nominal pack on an 800 V architecture (E-GMP)."
-      }
+      { "value": "800v", "kind": "community", "source_id": "src-evdb-ev6-sr-gen1", "low_confidence": true, "note_id": "n-54d7f016ca" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-insideevs-ev6-cold-weather-update",
-        "low_confidence": true,
-        "notes": "Estimated: What a 2022 owner can get today: Kia says the improved battery conditioning is standard from MY23 and a dealer retrofit for MY22 (InsideEVs, Kia Europe quote; North American availability not stated). Post-retrofit behaviour is taken from the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning: EV Settings switch plus DC-charger-as-destination trigger) and the Kia UK page. The original MY22 software had a more basic navigation pre-conditioning; if the retrofit is not offered in North America the value would be narrower. Battery heater per trim unconfirmed."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-insideevs-ev6-cold-weather-update", "low_confidence": true, "note_id": "n-0bf3f70c5f" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 180,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-wikipedia-kia-ev6",
-      "low_confidence": true,
-      "notes": "Wikipedia: 180 kW for the 58 kWh pack (Kia figure). EV Database lists 175 kW."
-    }
+    { "value": 180, "unit": "kW", "kind": "manufacturer", "source_id": "src-wikipedia-kia-ev6", "low_confidence": true, "note_id": "n-c60d2a81a3" }
   ],
   "ac_max_kw": [
-    {
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-ev6-2022-us-specs",
-      "low_confidence": true,
-      "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
-    }
+    { "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-ev6-2022-us-specs", "low_confidence": true, "note_id": "n-7c4a5aecb6" }
   ],
   "published_10_80_min": [
-    {
-      "value": 18,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-evdb-ev6-sr-gen1",
-      "low_confidence": true,
-      "notes": "EV Database: Kia claims 10-80 % in 18 min (350 kW charger); EVDB tested ~17 min."
-    }
+    { "value": 18, "unit": "min", "kind": "manufacturer", "source_id": "src-evdb-ev6-sr-gen1", "low_confidence": true, "note_id": "n-b4c62e517d" }
   ]
 }

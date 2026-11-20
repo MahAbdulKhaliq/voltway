@@ -5,41 +5,19 @@
   "name": "Performance",
   "drivetrain": "awd",
   "powertrain_id": "tesla/model-y/2024-performance-import",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "estimated",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: Tesla has used its own connector (now NACS) on all its North American cars since 2012, including the Model Y (2020 on). Not read on a Tesla page for this model year."
-    }
+    { "value": "nacs", "kind": "estimated", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-498d0e51b3" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Estimated: Tesla-built cars with the Tesla/NACS inlet can use the Supercharger network; page says every Model Y uses native NACS. Applied to this model year as a lineup-wide fact."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-0fdeb4e6b1" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Performance"
-      },
+      "names": { "CA": "Performance" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r2w-carscom-model-y-2023-performance",
-          "notes": "Performance AWD 21 inch. Carried over from a neighbouring model year on the same body; that year was not opened.",
-          "low_confidence": true
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r2w-carscom-model-y-2023-performance", "note_id": "n-f2e43ac926", "low_confidence": true }
       ]
     }
   ]

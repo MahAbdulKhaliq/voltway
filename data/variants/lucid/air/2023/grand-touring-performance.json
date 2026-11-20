@@ -5,41 +5,19 @@
   "name": "Grand Touring Performance",
   "drivetrain": "awd",
   "powertrain_id": "lucid/air/2023-grand-touring-performance",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-air-charging-guide",
-      "notes": "Lucid: the Air has a J1772 (CCS1) combo port."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "note_id": "n-9227bf3775" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-air-charging-ca",
-      "notes": "Lucid (Canada and US pages): Tesla Superchargers (V3+) with a Lucid-approved NACS-to-CCS1 adapter ($220); access opened 31 July 2025 for every Air (Electrek 2026 Air article)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Grand Touring Performance",
-        "US": "Grand Touring Performance"
-      },
+      "names": { "CA": "Grand Touring Performance", "US": "Grand Touring Performance" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r2w-carscom-lucid-air-2022-gt",
-          "notes": "Carried from the 2022 Grand Touring listing; the 2023 page does not list these trims. Neighbouring years disagree: 2022 Grand Touring 21 inch, 2024 Grand Touring 20 inch; the 2023 size could be either.",
-          "low_confidence": true
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r2w-carscom-lucid-air-2022-gt", "note_id": "n-24e1797f89", "low_confidence": true }
       ]
     }
   ]

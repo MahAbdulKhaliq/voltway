@@ -5,41 +5,19 @@
   "name": "Premium RWD",
   "drivetrain": "rwd",
   "powertrain_id": "tesla/model-y/2026-premium-rwd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "estimated",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: Tesla has used its own connector (now NACS) on all its North American cars since 2012, including the Model Y (2020 on). Not read on a Tesla page for this model year."
-    }
+    { "value": "nacs", "kind": "estimated", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-498d0e51b3" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Estimated: Tesla-built cars with the Tesla/NACS inlet can use the Supercharger network; page says every Model Y uses native NACS. Applied to this model year as a lineup-wide fact."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-0fdeb4e6b1" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Premium RWD"
-      },
+      "names": { "US": "Premium RWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-tslna-model-y-price-canada-2026",
-          "notes": "Estimated: Premium trim 19 inch standard on the Canadian 2026 Premium AWD page (same Juniper hardware, other market); no US page opened. The Canadian page is Premium AWD; mapped to Premium RWD by assumption (the same page lists the RWD at 18 inch).",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-tslna-model-y-price-canada-2026", "notes": "Estimated: Premium trim 19 inch standard on the Canadian 2026 Premium AWD page (same Juniper hardware, other market); no US page opened. The Canadian page is Premium AWD; mapped to Premium RWD by assumption (the same page lists the RWD at 18 inch).", "low_confidence": true }
       ]
     }
   ]

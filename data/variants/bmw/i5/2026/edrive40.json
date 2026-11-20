@@ -5,40 +5,19 @@
   "name": "eDrive40",
   "drivetrain": "rwd",
   "powertrain_id": "bmw/i5/2026-edrive40",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ie-i5nacs",
-      "low_confidence": true,
-      "notes": "US: all i5 built for the US from March 2026 have a NACS port; eDrive40/xDrive40 built before then have CCS1 (they shipped with CCS first). One value recorded for the model year; owner to decide how to show pre-March cars."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-ie-i5nacs", "low_confidence": true, "note_id": "n-5f64ac4827" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-w2-ie-i5nacs",
-      "low_confidence": true,
-      "notes": "US: native NACS port (March 2026 builds on); earlier cars need the CCS adapter."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2-ie-i5nacs", "low_confidence": true, "note_id": "n-313bf043ba" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "eDrive40"
-      },
+      "names": { "US": "eDrive40" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-bmw-i5-2026-specs",
-          "notes": "eDrive40 Sedan: 19 x 8.5 in aluminum, P245/45R19; the M Sport Package (Style 936M) is the same 19 in size."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2026-specs", "note_id": "n-49909c9629" }
       ]
     }
   ]

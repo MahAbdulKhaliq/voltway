@@ -4,46 +4,21 @@
   "year": 2027,
   "name": "60 xDrive",
   "drivetrain": "awd",
-  "powertrain_id": "bmw/i7/2027-60-xdrive",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "bmw/i7/2027-50-xdrive",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2-bmw-i727",
-      "notes": "BMW US: every electrified i7 fitted with an NACS charge port as standard."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-bmw-i727", "note_id": "n-a0f6ffeac0" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-w2-bmw-i727",
-      "low_confidence": true,
-      "notes": "Native NACS port."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2-bmw-i727", "low_confidence": true, "note_id": "n-24bfcfaf1e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "60 xDrive"
-      },
+      "names": { "US": "60 xDrive" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-bmw-i7-2027-specs-488080",
-          "notes": "60 xDrive Sedan: 20 x 9 front / 20 x 10.5 rear aluminum."
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-r3w-cars-com-research-bmw-i7-2027-specs-488080",
-          "notes": "60 xDrive Sedan: M Sport Professional Package includes 21 in star-spoke wheels (Style 908 M)."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i7-2027-specs-488080", "note_id": "n-5f23829808" },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r3w-cars-com-research-bmw-i7-2027-specs-488080", "note_id": "n-d794faa500" }
       ]
     }
   ]

@@ -5,86 +5,34 @@
   "name": "RWD",
   "drivetrain": "rwd",
   "powertrain_id": "cadillac/lyriq/2027-rwd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-electrek-2027-lyriq-nacs",
-      "low_confidence": true,
-      "notes": "Native NACS from model year 2027: GM says all 2027 EVs get native NACS (Electrek, GM spokesperson); 2027 pages for this model state it. US only."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-electrek-2027-lyriq-nacs", "low_confidence": true, "note_id": "n-f7a6277120" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-electrek-2027-lyriq-nacs",
-      "low_confidence": true,
-      "notes": "Native NACS port on 2027 models (see charge_port); Superchargers usable without an adapter (Electrek / The Charge Port). US only."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-electrek-2027-lyriq-nacs", "low_confidence": true, "note_id": "n-684132b59f" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "RWD"
-      },
+      "names": { "US": "RWD" },
       "ac_max_kw": [
-        {
-          "value": 11.5,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-epa-fueleconomy-2026-11",
-          "low_confidence": true,
-          "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
-        }
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-epa-fueleconomy-2026-11", "low_confidence": true, "note_id": "n-cba09055af" }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2027-specs",
-          "notes": "Luxury: 20 in, 265/50R20."
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2027-specs-485166",
-          "notes": "Signature Sport: 22 in, 275/40R22."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2027-specs", "note_id": "n-4e592d3829" },
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2027-specs-485166", "note_id": "n-b825cab7bf" }
       ]
     },
     {
       "id": "19-2-kw-charger",
-      "names": {
-        "US": "RWD (19.2 kW Charger)"
-      },
+      "names": { "US": "RWD (19.2 kW Charger)" },
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-epa-fueleconomy-2026-11",
-          "low_confidence": true,
-          "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-epa-fueleconomy-2026-11", "low_confidence": true, "note_id": "n-9f835e2a7d" }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2027-specs",
-          "notes": "Luxury: 20 in, 265/50R20."
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2027-specs-485166",
-          "notes": "Signature Sport: 22 in, 275/40R22."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2027-specs", "note_id": "n-4e592d3829" },
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2027-specs-485166", "note_id": "n-b825cab7bf" }
       ]
     }
   ]

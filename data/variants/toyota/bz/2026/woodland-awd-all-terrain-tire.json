@@ -4,46 +4,21 @@
   "year": 2026,
   "name": "Woodland AWD (All-Terrain Tire)",
   "drivetrain": "awd",
-  "powertrain_id": "toyota/bz/2026-woodland-awd-all-terrain-tire",
-  "markets": [
-    "CA"
-  ],
+  "powertrain_id": "toyota/bz/2026-woodland-awd",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-woodland-2026"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-woodland-2026" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-r19-toyota-us-bz-onsale-2026",
-      "low_confidence": true,
-      "notes": "Estimated: Woodland has a native NACS port (Toyota Canada Woodland release); Toyota's 2026 release says the Tesla Supercharger network is open to 2026 bZ drivers and the Canadian release says 'Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network'. No Toyota page names the Woodland specifically."
-    },
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-toyota-ca-media-bz-onsale-2026",
-      "low_confidence": true,
-      "notes": "Estimated: Canada. The Woodland has a native NACS port (Toyota Canada releases) and Toyota Canada says 'Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network' (lineup-wide). No Toyota page names this model for Supercharger access."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-c43bf8772c" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-toyota-ca-media-bz-onsale-2026", "low_confidence": true, "note_id": "n-e8e0827b3a" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Woodland AWD (All-Terrain Tire)"
-      },
+      "names": { "CA": "Woodland AWD (All-Terrain Tire)" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r2w-toy-ca-w",
-          "notes": "Canadian Woodland: 18-inch aluminum wheels; the all-terrain tire is the variant, not a wheel size."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-toy-ca-w", "notes": "Canadian Woodland: 18-inch aluminum wheels; the all-terrain tire is the variant, not a wheel size." }
       ]
     }
   ]

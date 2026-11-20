@@ -4,64 +4,37 @@
   "name": "IONIQ Electric",
   "body_type": "hatchback",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation (28 kWh)",
-      "first_year": 2017,
-      "last_year": 2019,
-      "notes": "28 kWh pack, CCS DC fast charging (peak kW to be researched), 6.6 kW onboard AC, EPA 124 mi. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://edmunds.com/hyundai/ioniq-electric/2020/review (search snippet only, page not fetched) ; https://chargedevs.com/newswire/hyundai-releases-details-of-2020-ioniq-electric/"
-    },
-    {
-      "id": "2020-update",
-      "name": "2020 update (38.3 kWh)",
-      "first_year": 2020,
-      "last_year": 2021,
-      "notes": "Pack grows to 38.3 kWh, onboard AC 7.2 kW, EPA 170 mi, motor 134 hp; check whether the DC peak changed at the powertrain step. Ended after 2021. EPA label prefix \"Ioniq Electric\" so the hybrid/PHEV Ioniq could never be caught. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://chargedevs.com/newswire/hyundai-releases-details-of-2020-ioniq-electric/ ; https://insideevs.com/news/353953/new-hyundai-ioniq-electric-price/"
-    }
+    { "id": "first-generation", "name": "First generation (28 kWh)", "first_year": 2017, "last_year": 2019, "notes": "28 kWh pack, CCS DC fast charging (peak kW to be researched), 6.6 kW onboard AC, EPA 124 mi. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://edmunds.com/hyundai/ioniq-electric/2020/review (search snippet only, page not fetched) ; https://chargedevs.com/newswire/hyundai-releases-details-of-2020-ioniq-electric/" },
+    { "id": "2020-update", "name": "2020 update (38.3 kWh)", "first_year": 2020, "last_year": 2021, "notes": "Pack grows to 38.3 kWh, onboard AC 7.2 kW, EPA 170 mi, motor 134 hp; check whether the DC peak changed at the powertrain step. Ended after 2021. EPA label prefix \"Ioniq Electric\" so the hybrid/PHEV Ioniq could never be caught. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://chargedevs.com/newswire/hyundai-releases-details-of-2020-ioniq-electric/ ; https://insideevs.com/news/353953/new-hyundai-ioniq-electric-price/" }
   ],
   "years": [
     {
       "year": 2017,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2018,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2019,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2020,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2020-update"
     },
     {
       "year": 2021,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2020-update"
     }

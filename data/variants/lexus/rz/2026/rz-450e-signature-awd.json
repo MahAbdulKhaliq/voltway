@@ -4,61 +4,23 @@
   "year": 2026,
   "name": "RZ 450e Signature AWD",
   "drivetrain": "awd",
-  "powertrain_id": "lexus/rz/2026-rz-450e-signature-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "lexus/rz/2026-rz-350e-premium",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2026",
-      "notes": "Lexus USA: 2026 RZ adopts the NACS (SAE J3400) port (US)."
-    },
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-ca-charging",
-      "notes": "Lexus Canada: 2026 model BEVs come with the NACS port (Canada)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026", "note_id": "n-0186b26c56" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-charging", "note_id": "n-9d6ff8d15d" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2026-onsale",
-      "notes": "US: more than 25,000 NACS plugs via the Tesla Supercharger Network for 2026 RZ owners."
-    },
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-ca-media-bev-2025",
-      "notes": "Canada: Lexus BEV guests can charge on the Tesla Supercharger Network; 2026 RZ and ES also get Plug & Charge."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-onsale", "note_id": "n-098d7a686d" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-ce9fd9b7fa" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "RZ 450e Signature AWD",
-        "US": "RZ 450e AWD"
-      },
+      "names": { "CA": "RZ 450e Signature AWD", "US": "RZ 450e AWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-lexus-rz-450e-2026-specs-482177",
-          "notes": "US Premium AWD w/18 in standard. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-r3w-lexus-rz-450e-2026-specs-482178",
-          "notes": "US Premium AWD w/20 in option (2026 Premium page shows 18 in only; 20 in option carried from earlier years). Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-lexus-rz-450e-2026-specs-482177", "note_id": "n-eddbcdc725", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r3w-lexus-rz-450e-2026-specs-482178", "notes": "US Premium AWD w/20 in option (2026 Premium page shows 18 in only; 20 in option carried from earlier years). Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).", "low_confidence": true }
       ]
     }
   ]

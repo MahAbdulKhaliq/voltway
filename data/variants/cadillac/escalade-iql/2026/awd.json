@@ -5,177 +5,67 @@
   "name": "AWD",
   "drivetrain": "awd",
   "powertrain_id": "cadillac/escalade-iql/205-kwh-800v",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-autoevolution-gm-2027-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: no page names the IQL port; same CCS1 as the 2026 IQ on the shared platform. IQL is a 2026 model with CCS1 (GM: NACS only from model year 2027). Canadian car assumed the same. Canada: no Canadian page read; assumed the same as the US car (owner check)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-autoevolution-gm-2027-nacs", "low_confidence": true, "notes": "Estimated: no page names the IQL port; same CCS1 as the 2026 IQ on the shared platform. IQL is a 2026 model with CCS1 (GM: NACS only from model year 2027). Canadian car assumed the same. Canada: no Canadian page read; assumed the same as the US car (owner check)." }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-autoevolution-gm-2027-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: GM says every GM EV of model year 2026 or earlier except the Optiq needs the GM NACS adapter (US page, lists Escalade IQ and IQL). Canada: GM sells the same C$310 adapter for its CCS1 EVs (Guide Auto names Lyriq, not the Escalade IQ), so the Canadian car is assumed the same. Model year 2026. Canada: no Canadian page read; assumed the same as the US car (owner check)."
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-autoevolution-gm-2027-nacs", "low_confidence": true, "note_id": "n-ac0d3fde0a" }
   ],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 287,
-      "unit": "Wh/km",
-      "kind": "estimated",
-      "source_id": "src-r2gm-insideevs-escalade-range-test-2025",
-      "low_confidence": true,
-      "notes": "Estimated (B103): the 2025 Escalade IQ's measured 70 mph highway figure (InsideEVs). The IQL is the long-wheelbase IQ on the same 24-module pack and motors, and is heavier, so real use is likely a little higher. No IQL test or rating found."
-    }
+    { "value": 287, "unit": "Wh/km", "kind": "estimated", "source_id": "src-r2gm-insideevs-escalade-range-test-2025", "low_confidence": true, "notes": "Estimated (B103): the 2025 Escalade IQ's measured 70 mph highway figure (InsideEVs). The IQL is the long-wheelbase IQ on the same 24-module pack and motors, and is heavier, so real use is likely a little higher. No IQL test or rating found." }
   ],
   "trims": [
     {
       "id": "luxury",
-      "names": {
-        "CA": "Luxury",
-        "US": "Luxury"
-      },
+      "names": { "CA": "Luxury", "US": "Luxury" },
       "ac_max_kw": [
-        {
-          "value": 11.5,
-          "unit": "kW",
-          "kind": "estimated",
-          "source_id": "src-cars-escalade-iql-2026",
-          "low_confidence": true,
-          "notes": "Estimated: Cars.com says 11.5 kW is standard and 19.2 kW available on the IQL, not per trim; assumed Luxury/Sport carry the standard unit as on the 2026 IQ. IQL: 11.5 kW standard, 19.2 kW available (Cars.com, relaying Cadillac). Which trims get 19.2 kW is not stated; Luxury and Sport assumed 11.5 like the 2026 IQ."
-        }
+        { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-cars-escalade-iql-2026", "low_confidence": true, "notes": "Estimated: Cars.com says 11.5 kW is standard and 19.2 kW available on the IQL, not per trim; assumed Luxury/Sport carry the standard unit as on the 2026 IQ. IQL: 11.5 kW standard, 19.2 kW available (Cars.com, relaying Cadillac). Which trims get 19.2 kW is not stated; Luxury and Sport assumed 11.5 like the 2026 IQ." }
       ],
       "range_km": [
-        {
-          "value": 740,
-          "unit": "km",
-          "kind": "manufacturer",
-          "source_id": "src-cargurus-ca-escalade-iql-2026",
-          "low_confidence": true,
-          "notes": "Cadillac: up to 460 miles (Wards, Cars.com, US) and up to 740 km (CarGurus.ca, Canada). Guide Auto says about 724 km (conflict, not used). Manufacturer estimate, not an EPA/NRCan rating (B97)."
-        }
+        { "value": 740, "unit": "km", "kind": "manufacturer", "source_id": "src-cargurus-ca-escalade-iql-2026", "low_confidence": true, "note_id": "n-3d2d9a9737" }
       ],
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r2gm-cars-escalade-iql-2026",
-          "low_confidence": true
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2gm-cars-escalade-iql-2026", "low_confidence": true }
       ]
     },
     {
       "id": "sport",
-      "names": {
-        "CA": "Sport",
-        "US": "Sport"
-      },
+      "names": { "CA": "Sport", "US": "Sport" },
       "ac_max_kw": [
-        {
-          "value": 11.5,
-          "unit": "kW",
-          "kind": "estimated",
-          "source_id": "src-cars-escalade-iql-2026",
-          "low_confidence": true,
-          "notes": "Estimated: Cars.com says 11.5 kW is standard and 19.2 kW available on the IQL, not per trim; assumed Luxury/Sport carry the standard unit as on the 2026 IQ. IQL: 11.5 kW standard (Cars.com). Sport assumed 11.5 like the 2026 IQ."
-        }
+        { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-cars-escalade-iql-2026", "low_confidence": true, "notes": "Estimated: Cars.com says 11.5 kW is standard and 19.2 kW available on the IQL, not per trim; assumed Luxury/Sport carry the standard unit as on the 2026 IQ. IQL: 11.5 kW standard (Cars.com). Sport assumed 11.5 like the 2026 IQ." }
       ],
       "range_km": [
-        {
-          "value": 740,
-          "unit": "km",
-          "kind": "manufacturer",
-          "source_id": "src-cargurus-ca-escalade-iql-2026",
-          "low_confidence": true,
-          "notes": "Cadillac: up to 460 miles (Wards, Cars.com, US) and up to 740 km (CarGurus.ca, Canada). Guide Auto says about 724 km (conflict, not used). Manufacturer estimate, not an EPA/NRCan rating (B97)."
-        }
+        { "value": 740, "unit": "km", "kind": "manufacturer", "source_id": "src-cargurus-ca-escalade-iql-2026", "low_confidence": true, "note_id": "n-3d2d9a9737" }
       ],
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r2gm-cars-escalade-iql-2026",
-          "low_confidence": true
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2gm-cars-escalade-iql-2026", "low_confidence": true }
       ]
     },
     {
       "id": "premium-luxury",
-      "names": {
-        "CA": "Premium Luxury",
-        "US": "Premium Luxury"
-      },
+      "names": { "CA": "Premium Luxury", "US": "Premium Luxury" },
       "range_km": [
-        {
-          "value": 740,
-          "unit": "km",
-          "kind": "manufacturer",
-          "source_id": "src-cargurus-ca-escalade-iql-2026",
-          "low_confidence": true,
-          "notes": "Cadillac: up to 460 miles (Wards, Cars.com, US) and up to 740 km (CarGurus.ca, Canada). Guide Auto says about 724 km (conflict, not used). Manufacturer estimate, not an EPA/NRCan rating (B97)."
-        }
+        { "value": 740, "unit": "km", "kind": "manufacturer", "source_id": "src-cargurus-ca-escalade-iql-2026", "low_confidence": true, "note_id": "n-3d2d9a9737" }
       ],
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "estimated",
-          "source_id": "src-r2gm-cars-escalade-iql-2026",
-          "low_confidence": true,
-          "notes": "Estimated: Cars.com says the IQL has 11.5 kW standard and 19.2 kW optional; the IQ Premium trims have 19.2 kW (InsideEVs) on the same pack and trim names. Trim mapping is the estimate."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-r2gm-cars-escalade-iql-2026", "low_confidence": true, "note_id": "n-57da41129b" }
       ],
       "wheels": [
-        {
-          "diameter_in": 24,
-          "is_standard": true,
-          "source_id": "src-r2gm-cars-escalade-iql-2026",
-          "low_confidence": true
-        }
+        { "diameter_in": 24, "is_standard": true, "source_id": "src-r2gm-cars-escalade-iql-2026", "low_confidence": true }
       ]
     },
     {
       "id": "premium-sport",
-      "names": {
-        "CA": "Premium Sport",
-        "US": "Premium Sport"
-      },
+      "names": { "CA": "Premium Sport", "US": "Premium Sport" },
       "range_km": [
-        {
-          "value": 740,
-          "unit": "km",
-          "kind": "manufacturer",
-          "source_id": "src-cargurus-ca-escalade-iql-2026",
-          "low_confidence": true,
-          "notes": "Cadillac: up to 460 miles (Wards, Cars.com, US) and up to 740 km (CarGurus.ca, Canada). Guide Auto says about 724 km (conflict, not used). Manufacturer estimate, not an EPA/NRCan rating (B97)."
-        }
+        { "value": 740, "unit": "km", "kind": "manufacturer", "source_id": "src-cargurus-ca-escalade-iql-2026", "low_confidence": true, "note_id": "n-3d2d9a9737" }
       ],
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "estimated",
-          "source_id": "src-r2gm-cars-escalade-iql-2026",
-          "low_confidence": true,
-          "notes": "Estimated: Cars.com says the IQL has 11.5 kW standard and 19.2 kW optional; the IQ Premium trims have 19.2 kW (InsideEVs) on the same pack and trim names. Trim mapping is the estimate."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-r2gm-cars-escalade-iql-2026", "low_confidence": true, "note_id": "n-57da41129b" }
       ],
       "wheels": [
-        {
-          "diameter_in": 24,
-          "is_standard": true,
-          "source_id": "src-r2gm-cars-escalade-iql-2026",
-          "low_confidence": true
-        }
+        { "diameter_in": 24, "is_standard": true, "source_id": "src-r2gm-cars-escalade-iql-2026", "low_confidence": true }
       ]
     }
   ]

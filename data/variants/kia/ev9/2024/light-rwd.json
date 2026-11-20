@@ -5,56 +5,21 @@
   "name": "Light RWD",
   "drivetrain": "rwd",
   "powertrain_id": "kia/ev9/2024-light-rwd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-kia-us-charge-pass-page",
-      "low_confidence": true,
-      "notes": "Kia US: complimentary NACS-to-CCS adapter offered to 2024/2025 EV9 buyers, i.e. CCS port; native NACS starts with the 2026 EV9."
-    },
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-nacs-guide-2026",
-      "low_confidence": true,
-      "notes": "Kia Canada guide (search excerpt): first NACS Kias in Canada are the 2025 EV6 and 2026 EV9; earlier EV9 are CCS1."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-us-charge-pass-page", "low_confidence": true, "note_id": "n-41cc931c47" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-b0224fa442" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-electrek-kia-supercharger-2025-04",
-      "low_confidence": true,
-      "notes": "Electrek: EV9 can charge at Tesla Superchargers with the Kia adapter (April 2025)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-nacs-guide-2026",
-      "low_confidence": true,
-      "notes": "Kia Canada: adapters sold at Kia dealers for EV9 owners (April 2025); search excerpt."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-kia-supercharger-2025-04", "low_confidence": true, "note_id": "n-8d2ebaeb54" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-kia-ca-nacs-guide-2026", "low_confidence": true, "note_id": "n-0b6dfd96cb" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Light RWD",
-        "US": "Light Short Range RWD"
-      },
+      "names": { "CA": "Light RWD", "US": "Light Short Range RWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-kia-ev9-2024-450311",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev9-2024-450311", "low_confidence": true }
       ]
     }
   ]

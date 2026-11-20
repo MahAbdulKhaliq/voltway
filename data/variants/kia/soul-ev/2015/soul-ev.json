@@ -5,43 +5,19 @@
   "name": "Soul EV",
   "drivetrain": "fwd",
   "powertrain_id": "kia/soul-ev/2015-soul-ev",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "chademo",
-      "kind": "community",
-      "source_id": "src-electrek-soul-ev-2018-64kwh",
-      "notes": "Electrek: the 2020 Soul EV moved to CCS, \"previous models used CHAdeMO\" (Wikipedia and Fastned agree). Caveat: some early US trims may have lacked the DC port; not verified.",
-      "low_confidence": true
-    }
+    { "value": "chademo", "kind": "community", "source_id": "src-electrek-soul-ev-2018-64kwh", "note_id": "n-e2bf441b57", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "estimated",
-      "source_id": "src-kia-us-charge-pass-page",
-      "notes": "Estimated: Kia US/Canada Supercharger adapter offers cover CCS-port Kias only; a CHAdeMO car has no adapter route.",
-      "low_confidence": true
-    }
+    { "value": "no", "kind": "estimated", "source_id": "src-kia-us-charge-pass-page", "note_id": "n-3c32da2e12", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Soul EV",
-        "US": "Soul EV"
-      },
+      "names": { "CA": "Soul EV", "US": "Soul EV" },
       "wheels": [
-        {
-          "diameter_in": 16,
-          "is_standard": true,
-          "source_id": "src-carscom-kia-soul-ev-2015-index",
-          "low_confidence": true,
-          "notes": "US page; the Canadian Soul EV assumed the same."
-        }
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-carscom-kia-soul-ev-2015-index", "low_confidence": true, "note_id": "n-8d7164a4f9" }
       ]
     }
   ]

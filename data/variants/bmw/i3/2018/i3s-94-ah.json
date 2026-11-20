@@ -4,44 +4,20 @@
   "year": 2018,
   "name": "i3s 94 Ah",
   "drivetrain": "rwd",
-  "powertrain_id": "bmw/i3/2018-i3s-94-ah",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "bmw/i3/2018-i3-94-ah",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-wiki-i3",
-      "low_confidence": true,
-      "notes": "Wikipedia: CCS Combo 1 (SAE Combo) DC inlet in North America. DC fast charging was optional on early cars (BMW US press: eligible 2014 i3s need the DC Fast Charging option; Wikipedia infobox: standard on US 2015+; BMW US 2017 release lists it as standard on the 94 Ah). Cars without the option have a J1772-only inlet and no DC. The catalogue has one trim per powertrain, so no trim split."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-wiki-i3", "low_confidence": true, "note_id": "n-f6dc8c54ca" }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ca-nacs",
-      "low_confidence": true,
-      "notes": "BMW Canada: Supercharger access for all BEVs except the original i3 (I01). InsideEVs: no access planned for the i3 (US)."
-    }
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-8c05e5ab78" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "i3s 94 Ah",
-        "US": "i3s 94 Ah"
-      },
+      "names": { "CA": "i3s 94 Ah", "US": "i3s 94 Ah" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-bmw-i3s-us",
-          "notes": "i3s 94 Ah (CA/US): i3s: standard 20-inch bicolor double-spoke (launch release for the i3s).",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-bmw-i3s-us", "notes": "i3s 94 Ah (CA/US): i3s: standard 20-inch bicolor double-spoke (launch release for the i3s).", "low_confidence": true }
       ]
     }
   ]

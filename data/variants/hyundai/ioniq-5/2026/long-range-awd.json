@@ -5,58 +5,25 @@
   "name": "Long Range AWD",
   "drivetrain": "awd",
   "powertrain_id": "hyundai/ioniq-5/2026-long-range-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-5-2026",
-      "notes": "NACS charge port; two CCS adapters (AC and DC) included."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026", "note_id": "n-693ec5bad2" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-5-2026",
-      "notes": "Through its NACS port."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026", "note_id": "n-7e053e3948" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2090,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ioniq5-2026-preferred-awd",
-      "low_confidence": true,
-      "notes": "Guide Auto lists 2,090 kg (4,608 lb) for the Canadian Preferred AWD on 19-inch wheels (matches US SE AWD 4,608 lb). The 20-inch (Ultimate Package) trim may weigh more; its figure was not found, so the value is for the 19-inch trim."
-    }
+    { "value": 2090, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ioniq5-2026-preferred-awd", "low_confidence": true, "notes": "Guide Auto lists 2,090 kg (4,608 lb) for the Canadian Preferred AWD on 19-inch wheels (matches US SE AWD 4,608 lb). The 20-inch (Ultimate Package) trim may weigh more; its figure was not found, so the value is for the 19-inch trim." }
   ],
   "trims": [
     {
       "id": "19-in-wheels",
-      "names": {
-        "CA": "Long Range AWD",
-        "US": "Dual Motor AWD"
-      },
+      "names": { "CA": "Long Range AWD", "US": "Dual Motor AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-hyundai-ca-ioniq-5-2026"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026" }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-ioniq-5-2026-474170",
-          "low_confidence": true,
-          "notes": "SEL AWD 19 in; the trim is named 19-in wheels. The Limited AWD 20 in is a separate US variant."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2026-474170", "low_confidence": true, "notes": "SEL AWD 19 in; the trim is named 19-in wheels. The Limited AWD 20 in is a separate US variant." }
       ]
     }
   ]

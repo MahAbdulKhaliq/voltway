@@ -5,99 +5,37 @@
   "name": "Standard Range RWD",
   "drivetrain": "rwd",
   "powertrain_id": "ford/mustang-mach-e/2023-standard-range-rwd",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 70,
-        "kind": "estimated",
-        "source_id": "src-ford-us-mme-specs-2022",
-        "unit": "kWh",
-        "low_confidence": true,
-        "notes": "Estimated: Canadian 2023 SR RWD range 397 km equals the 2022 NMC rating (LFP cars rate 402 km), so the NMC 70 kWh / 115 kW pack from the 2022 Ford sheet."
-      }
+      { "value": 70, "kind": "estimated", "source_id": "src-ford-us-mme-specs-2022", "unit": "kWh", "low_confidence": true, "note_id": "n-4d17143f9c" }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 75.7,
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-mme-2022-usable",
-        "unit": "kWh",
-        "low_confidence": true,
-        "notes": "Total 75.7 kWh (SR NMC pack)."
-      }
+      { "value": 75.7, "kind": "manufacturer", "source_id": "src-insideevs-mme-2022-usable", "unit": "kWh", "low_confidence": true, "note_id": "n-2d5f1c8be5" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-insideevs-mme-lfp-2023",
-        "low_confidence": true,
-        "notes": "Estimated: outgoing NCM SR pack (InsideEVs, relays Ford)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-mme-lfp-2023", "low_confidence": true, "note_id": "n-90d2ac783b" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 115,
-      "kind": "estimated",
-      "source_id": "src-ford-us-mme-specs-2022",
-      "unit": "kW",
-      "low_confidence": true,
-      "notes": "Estimated: Canadian 2023 SR RWD range 397 km equals the 2022 NMC rating (LFP cars rate 402 km), so the NMC 70 kWh / 115 kW pack from the 2022 Ford sheet."
-    }
+    { "value": 115, "kind": "estimated", "source_id": "src-ford-us-mme-specs-2022", "unit": "kW", "low_confidence": true, "note_id": "n-4d17143f9c" }
   ],
   "published_10_80_min": [
-    {
-      "value": 38,
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-mme-lfp-2023",
-      "unit": "min",
-      "low_confidence": true,
-      "notes": "Ford claim for the NCM SR 10-80%."
-    }
+    { "value": 38, "kind": "manufacturer", "source_id": "src-insideevs-mme-lfp-2023", "unit": "min", "low_confidence": true, "note_id": "n-301a0ab752" }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-insideevs-mme-carplay-2026",
-      "low_confidence": true,
-      "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2023 owners implies the same CCS1 port. No port change found across 2021-2026."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-b78113c27b" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-ford-ca-supercharger-2024",
-      "low_confidence": true,
-      "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; the cited Ford page names no model years, so eligibility of this model year is not shown by it; 2025 has the feature from the factory). Recorded: via adapter today."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Standard Range RWD"
-      },
+      "names": { "CA": "Standard Range RWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-ford-us-mme-specs-2023",
-          "notes": "Select (SR): 18 in standard. Source is a US page; Canadian trim assumed the same.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-ford-us-mme-specs-2023",
-          "notes": "Premium (SR): 19 in standard. Source is a US page; Canadian trim assumed the same.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-ford-us-mme-specs-2023", "note_id": "n-baa37194e7", "low_confidence": true },
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-ford-us-mme-specs-2023", "note_id": "n-d8cec56dcf", "low_confidence": true }
       ]
     }
   ]

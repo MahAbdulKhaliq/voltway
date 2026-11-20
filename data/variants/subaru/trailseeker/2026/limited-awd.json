@@ -4,47 +4,21 @@
   "year": 2026,
   "name": "Limited AWD",
   "drivetrain": "awd",
-  "powertrain_id": "subaru/trailseeker/2026-limited-awd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "subaru/trailseeker/2026-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-subaru-us-trailseeker-2026",
-      "notes": "Standard NACS port on the right front fender (US)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2026", "note_id": "n-9d63ebb14b" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-subaru-us-media-solterra-2026",
-      "low_confidence": true,
-      "notes": "Estimated: Subaru US 2026 Solterra release (same NACS lineup): Superchargers open to Subaru EVs; no Subaru page names this car."
-    },
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-w2j-insideevs-sc-list-2026",
-      "low_confidence": true,
-      "notes": "Estimated: InsideEVs list of non-Tesla EVs that can use Superchargers includes the Subaru Trailseeker and Uncharted."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-subaru-us-media-solterra-2026", "low_confidence": true, "note_id": "n-adac4e0ce1" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-fa13fea5e4" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Limited AWD"
-      },
+      "names": { "US": "Limited AWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-sub-trail26",
-          "notes": "Limited: 20-inch aluminum alloy wheels."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-sub-trail26", "notes": "Limited: 20-inch aluminum alloy wheels." }
       ]
     }
   ]

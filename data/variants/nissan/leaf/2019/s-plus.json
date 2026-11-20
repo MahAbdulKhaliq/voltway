@@ -5,42 +5,19 @@
   "name": "S PLUS",
   "drivetrain": "fwd",
   "powertrain_id": "nissan/leaf/2019-s-plus",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "chademo",
-      "kind": "manufacturer",
-      "source_id": "src-nissan-usa-leaf-2019-press-kit",
-      "low_confidence": true,
-      "notes": "Quick charge port (CHAdeMO) per the 2019 press kit."
-    }
+    { "value": "chademo", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2019-press-kit", "low_confidence": true, "note_id": "n-1a75adcbbf" }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "estimated",
-      "source_id": "src-electrek-nissan-supercharger-2024-12",
-      "low_confidence": true,
-      "notes": "Estimated: CHAdeMO port. Nissan's Dec 2024 Supercharger programme covers only the CCS Ariya; Electrek says the Leaf is excluded and uses CHAdeMO. No Nissan adapter exists for the Leaf."
-    }
+    { "value": "no", "kind": "estimated", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b0ca50230f" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "S PLUS",
-        "US": "S PLUS"
-      },
+      "names": { "CA": "S PLUS", "US": "S PLUS" },
       "wheels": [
-        {
-          "diameter_in": 16,
-          "is_standard": true,
-          "source_id": "src-r3w-nissan-leaf-2019-specs-405822",
-          "notes": "S PLUS: 16x6.5 aluminum, P205/55HR16."
-        }
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-r3w-nissan-leaf-2019-specs-405822", "note_id": "n-2ee942e333" }
       ]
     }
   ]

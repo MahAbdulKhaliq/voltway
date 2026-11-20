@@ -5,40 +5,19 @@
   "name": "Bolt",
   "drivetrain": "fwd",
   "powertrain_id": "chevrolet/bolt/2027-bolt",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-automotiveworld-2027-bolt",
-      "low_confidence": true,
-      "notes": "GM: the 2027 Bolt is Chevrolet's first vehicle with a native NACS port."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-automotiveworld-2027-bolt", "low_confidence": true, "notes": "GM: the 2027 Bolt is Chevrolet's first vehicle with a native NACS port." }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-2027-bolt-fast-charging",
-      "low_confidence": true,
-      "notes": "Native NACS; InsideEVs charged a 2027 Bolt at a Tesla Supercharger with a NACS cable; KBB: plugs directly into compatible Superchargers. US."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-insideevs-2027-bolt-fast-charging", "low_confidence": true, "notes": "Native NACS; InsideEVs charged a 2027 Bolt at a Tesla Supercharger with a NACS cable; KBB: plugs directly into compatible Superchargers. US." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Bolt"
-      },
+      "names": { "US": "Bolt" },
       "wheels": [
-        {
-          "diameter_in": 17,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-bolt-2027-specs-481900",
-          "notes": "RS page: 17 in aluminum, 215/50R17; the LT (trim index page) is also 17 in."
-        }
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-r3w-chevrolet-bolt-2027-specs-481900", "notes": "RS page: 17 in aluminum, 215/50R17; the LT (trim index page) is also 17 in." }
       ]
     }
   ]

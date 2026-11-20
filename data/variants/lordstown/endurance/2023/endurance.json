@@ -5,41 +5,19 @@
   "name": "Endurance",
   "drivetrain": "awd",
   "powertrain_id": "lordstown/endurance/2023-endurance",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "community",
-      "source_id": "src-evspecs-lordstown-endurance",
-      "notes": "CCS, front side (EVspecs.org); US-only truck.",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "community", "source_id": "src-evspecs-lordstown-endurance", "notes": "CCS, front side (EVspecs.org); US-only truck.", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "community",
-      "source_id": "src-insideevs-supercharger-list-2026",
-      "notes": "Lordstown: Not on the InsideEVs 2026 list of brands with Supercharger access (updated 2026-03-20) and no adapter programme was found; absence from the list, not a statement by the maker.",
-      "low_confidence": true
-    }
+    { "value": "no", "kind": "community", "source_id": "src-insideevs-supercharger-list-2026", "notes": "Lordstown: Not on the InsideEVs 2026 list of brands with Supercharger access (updated 2026-03-20) and no adapter programme was found; absence from the list, not a statement by the maker.", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Endurance"
-      },
+      "names": { "US": "Endurance" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-endurance-electrek",
-          "notes": "Pre-production spec list gives 20-inch wheels; whether every production truck matches is unconfirmed, low confidence.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-endurance-electrek", "notes": "Pre-production spec list gives 20-inch wheels; whether every production truck matches is unconfirmed, low confidence.", "low_confidence": true }
       ]
     }
   ]

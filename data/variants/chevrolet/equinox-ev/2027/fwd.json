@@ -5,46 +5,20 @@
   "name": "FWD",
   "drivetrain": "fwd",
   "powertrain_id": "chevrolet/equinox-ev/2027-fwd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-equinox-ev",
-      "low_confidence": true,
-      "notes": "Native NACS from model year 2027: GM says all 2027 EVs get native NACS (Electrek, GM spokesperson); 2027 pages for this model state it. US only."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-thechargeport-equinox-ev", "low_confidence": true, "note_id": "n-f7a6277120" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-equinox-ev",
-      "low_confidence": true,
-      "notes": "Native NACS port on 2027 models (see charge_port); Superchargers usable without an adapter (Electrek / The Charge Port). US only."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-thechargeport-equinox-ev", "low_confidence": true, "note_id": "n-684132b59f" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "FWD"
-      },
+      "names": { "US": "FWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-equinox-ev-2027-specs",
-          "notes": "LT / LT1: 19 in, 245/55R19; LT2 not opened."
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-equinox-ev-2027-specs-485855",
-          "notes": "RS: 21 in, 275/40R21."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2027-specs", "note_id": "n-fb9c57e10e" },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2027-specs-485855", "note_id": "n-41fdecc0c6" }
       ]
     }
   ]

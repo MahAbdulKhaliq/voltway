@@ -3,76 +3,28 @@
   "model_id": "kia/soul-ev",
   "name": "Soul EV",
   "generation": "first-generation",
-  "years": [
-    2015
-  ],
+  "years": [2015, 2016, 2017],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 30.5,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-wikipedia-kia-soul-ev",
-        "notes": "Wikipedia: 2016-2017 30.5 kWh gross (2015 same pack, Kia model notes).",
-        "low_confidence": true
-      }
+      { "value": 30.5, "unit": "kWh", "kind": "community", "source_id": "src-wikipedia-kia-soul-ev", "notes": "Wikipedia: 2016-2017 30.5 kWh gross (2015 same pack, Kia model notes).", "low_confidence": true }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 27,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-wikipedia-kia-soul-ev",
-        "notes": "Wikipedia: 27 kWh usable.",
-        "low_confidence": true
-      }
+      { "value": 27, "unit": "kWh", "kind": "community", "source_id": "src-wikipedia-kia-soul-ev", "notes": "Wikipedia: 27 kWh usable.", "low_confidence": true }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-mobilityeng-soul-ev-cells",
-        "notes": "Mobility Engineering Tech (SAE): Soul EV 27 kWh pack (192 cells) uses nickel-rich NCM cathode, per Kia claims. Applied to 2015-2017.",
-        "low_confidence": true
-      }
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-mobilityeng-soul-ev-cells", "notes": "Mobility Engineering Tech (SAE): Soul EV 27 kWh pack (192 cells) uses nickel-rich NCM cathode, per Kia claims. Applied to 2015-2017.", "low_confidence": true }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "community",
-        "source_id": "src-wikipedia-kia-soul-ev",
-        "notes": "Wikipedia: 360 V rated.",
-        "low_confidence": true
-      }
+      { "value": "400v", "kind": "community", "source_id": "src-wikipedia-kia-soul-ev", "notes": "Wikipedia: 360 V rated.", "low_confidence": true }
     ],
     "preconditioning": [
-      {
-        "value": "none",
-        "kind": "estimated",
-        "source_id": "src-insideevs-ev6-cold-weather-update",
-        "notes": "Estimated: no page describes battery warming on the Soul EV; Kia's first battery conditioning arrived with the 2022-2023 EV6 (software update, InsideEVs), years after this car.",
-        "low_confidence": true
-      }
+      { "value": "none", "kind": "estimated", "source_id": "src-insideevs-ev6-cold-weather-update", "note_id": "n-beb21c295c", "low_confidence": true }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 6.6,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-fueleconomy-2015-soul-ev",
-      "notes": "Estimated: no page found states the Soul EV onboard charger kW (Mobility Engineering Tech lists only J1772 L1/L2); fueleconomy.gov: about 4 hours at 240 V for the 27 kWh car implies roughly 6.7 kW. Inference, not an allowed basis: verify. Applied to 2015-2019 (same CHAdeMO-era charger; pack grew in 2018 but no charger change found).",
-      "low_confidence": true
-    }
+    { "value": 6.6, "unit": "kW", "kind": "estimated", "source_id": "src-fueleconomy-2015-soul-ev", "note_id": "n-51ff6b0481", "low_confidence": true }
   ],
   "dc_max_kw": [
-    {
-      "value": 50,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-fastned-kia-soul-ev",
-      "notes": "Fastned network data (method not stated): max charge speed 50 kW CHAdeMO (European 2017-2019 listing, labelled 33 kWh: not the 27/30 kWh North American pack; years 2015-2016 not covered). Conflicts: Electrek says earlier CHAdeMO models topped out around 70 kW; Wikipedia says up to 100 kW.",
-      "low_confidence": true
-    }
+    { "value": 50, "unit": "kW", "kind": "community", "source_id": "src-fastned-kia-soul-ev", "note_id": "n-17d96a88d0", "low_confidence": true }
   ]
 }

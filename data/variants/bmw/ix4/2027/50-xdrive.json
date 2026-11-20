@@ -5,52 +5,21 @@
   "name": "50 xDrive",
   "drivetrain": "awd",
   "powertrain_id": "bmw/ix4/2027-50-xdrive",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "estimated",
-      "source_id": "src-w2-blog-i3",
-      "low_confidence": true,
-      "notes": "Estimated: the iX4 page does not name the port; BMW states a standard NACS port on the iX3, i3, iX5 and i7 (BMWBLOG: \"NACS port is standard equipment across the EV lineup\")."
-    }
+    { "value": "nacs", "kind": "estimated", "source_id": "src-w2-blog-i3", "low_confidence": true, "note_id": "n-7c5f2fd579" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-w2-blog-i3",
-      "low_confidence": true,
-      "notes": "Estimated: NACS port as on the iX3 (BMW US)."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2-blog-i3", "low_confidence": true, "note_id": "n-29fe6b9458" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "50 xDrive"
-      },
+      "names": { "US": "50 xDrive" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-newsroom-bmwgroup-com-americas-the-bmw-ix4",
-          "notes": "iX4 50 xDrive: \"All BMW iX4 models are equipped as standard with the M Sport package, which includes 20-inch M alloy wheels.\""
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-r3w-newsroom-bmwgroup-com-americas-the-bmw-ix4",
-          "notes": "iX4: optional alloy designs \"ranging in size from 20 to 22 inches\" (21 in M star-spoke and M aerodynamic listed)."
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": false,
-          "source_id": "src-r3w-newsroom-bmwgroup-com-americas-the-bmw-ix4",
-          "notes": "iX4: 22 in BMW Individual aerodynamic and M Y-spoke / M aerodynamic designs listed as options."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-newsroom-bmwgroup-com-americas-the-bmw-ix4", "note_id": "n-ff2b3edcbb" },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r3w-newsroom-bmwgroup-com-americas-the-bmw-ix4", "note_id": "n-395884360f" },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-r3w-newsroom-bmwgroup-com-americas-the-bmw-ix4", "note_id": "n-078b97a4c6" }
       ]
     }
   ]

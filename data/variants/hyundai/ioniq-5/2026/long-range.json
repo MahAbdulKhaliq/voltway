@@ -5,58 +5,25 @@
   "name": "Long Range",
   "drivetrain": "rwd",
   "powertrain_id": "hyundai/ioniq-5/2026-long-range",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-5-2026",
-      "notes": "NACS charge port; two CCS adapters (AC and DC) included."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026", "note_id": "n-693ec5bad2" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-5-2026",
-      "notes": "Through its NACS port."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026", "note_id": "n-7e053e3948" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 1985,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ioniq5-2026-preferred-rwd",
-      "low_confidence": true,
-      "notes": "Guide Auto lists 1,985 kg (4,376 lb) for the Canadian Preferred RWD (84.0 kWh); matches the US 2026 SE RWD (4,376 lb). Canadian spec relayed by a car guide, not read on Hyundai Canada."
-    }
+    { "value": 1985, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ioniq5-2026-preferred-rwd", "low_confidence": true, "notes": "Guide Auto lists 1,985 kg (4,376 lb) for the Canadian Preferred RWD (84.0 kWh); matches the US 2026 SE RWD (4,376 lb). Canadian spec relayed by a car guide, not read on Hyundai Canada." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Long Range",
-        "US": "RWD"
-      },
+      "names": { "CA": "Long Range", "US": "RWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-hyundai-ca-ioniq-5-2026"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026" }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-hyundai-ca-ioniq-5-2026",
-          "low_confidence": true,
-          "notes": "Hyundai Canada 2026 page lists 19 in Aero alloy wheels as an exclusive feature; legal note refers to the Preferred Long Range RWD. Per-trim table did not load."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-hyundai-ca-ioniq-5-2026", "low_confidence": true, "notes": "Hyundai Canada 2026 page lists 19 in Aero alloy wheels as an exclusive feature; legal note refers to the Preferred Long Range RWD. Per-trim table did not load." }
       ]
     }
   ]

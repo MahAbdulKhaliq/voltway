@@ -4,46 +4,21 @@
   "year": 2022,
   "name": "Preferred Long Range AWD",
   "drivetrain": "awd",
-  "powertrain_id": "hyundai/ioniq-5/2022-preferred-long-range-awd",
-  "markets": [
-    "CA"
-  ],
+  "powertrain_id": "hyundai/ioniq-5/2022-preferred-long-range",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq",
-      "notes": "Hyundai Canada FAQ: NACS from model year 2026; model year 2025 and earlier Hyundai EVs use an adapter for NACS (the port itself is inferred to be CCS from that)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-2adefeeec1" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq",
-      "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately at Tesla Superchargers open to Hyundai drivers."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-679e7efbb3" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Preferred Long Range AWD"
-      },
+      "names": { "CA": "Preferred Long Range AWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-guideauto-hyundai-ioniq-5-2022-preferred-long-range-awd",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-guideauto-hyundai-ioniq-5-2023-preferred-long-range-awd-with-ultimate-package",
-          "low_confidence": true,
-          "notes": "20 in with the Ultimate Package; read on the 2023 Canadian page (2022 Ultimate Package page not opened)."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-guideauto-hyundai-ioniq-5-2022-preferred-long-range-awd", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-guideauto-hyundai-ioniq-5-2023-preferred-long-range-awd-with-ultimate-package", "low_confidence": true, "notes": "20 in with the Ultimate Package; read on the 2023 Canadian page (2022 Ultimate Package page not opened)." }
       ]
     }
   ]

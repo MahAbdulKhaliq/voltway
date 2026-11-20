@@ -3,43 +3,19 @@
   "model_id": "hyundai/ioniq-9",
   "name": "AWD",
   "generation": "first-generation",
-  "years": [
-    2026
-  ],
+  "years": [2026],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 110.3,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-hyundai-ca-ioniq-9-2026",
-        "notes": "Page says “110.3kWh battery” without saying gross or usable; recorded as gross."
-      }
+      { "value": 110.3, "unit": "kWh", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026", "note_id": "n-88979c946d" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-hyundai-ca-ioniq-9-2026"
-      }
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-electrek-ioniq9-review-2026",
-        "low_confidence": true,
-        "notes": "Review says 110.3 kWh NMC pack (relayed; NCM/NMC are the same family). Same pack across the three variants."
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-electrek-ioniq9-review-2026", "low_confidence": true, "note_id": "n-b50aa10cc8" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-ioniq9-manual-mea-2026",
-        "notes": "Estimated: the US 2026 owner's manual page (code MEa) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, ME being the IONIQ 9 platform code (inference), and no Canadian manual was read. Applied to all three IONIQ 9 powertrains.",
-        "low_confidence": true
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-ioniq9-manual-mea-2026", "note_id": "n-7b456bc745", "low_confidence": true }
     ]
   }
 }

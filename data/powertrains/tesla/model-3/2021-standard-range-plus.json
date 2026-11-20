@@ -3,76 +3,28 @@
   "model_id": "tesla/model-3",
   "name": "Standard Range Plus",
   "generation": "2021-refresh",
-  "years": [
-    2021
-  ],
+  "years": [2021],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 55,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-m3-srp-2021",
-        "low_confidence": true,
-        "notes": "EV Database 2021 SR+ (Fremont, Panasonic 2170L NCA): 55.0 kWh nominal (evspecifications lists 55.4 kWh for the 2021 North American car). Assumes the Canadian 2021 SR+ is this Fremont NCA car; a CATL LFP SR+ (52.5 kWh usable) was built in Shanghai for other markets in the same period."
-      }
+      { "value": 55, "unit": "kWh", "kind": "community", "source_id": "src-evdb-m3-srp-2021", "low_confidence": true, "notes": "EV Database 2021 SR+ (Fremont, Panasonic 2170L NCA): 55.0 kWh nominal (evspecifications lists 55.4 kWh for the 2021 North American car). Assumes the Canadian 2021 SR+ is this Fremont NCA car; a CATL LFP SR+ (52.5 kWh usable) was built in Shanghai for other markets in the same period." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 51,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-m3-srp-2021",
-        "low_confidence": true,
-        "notes": "EV Database 2021 SR+ (Fremont, Panasonic 2170L NCA): 51.0 kWh usable."
-      }
+      { "value": 51, "unit": "kWh", "kind": "community", "source_id": "src-evdb-m3-srp-2021", "low_confidence": true, "notes": "EV Database 2021 SR+ (Fremont, Panasonic 2170L NCA): 51.0 kWh usable." }
     ],
     "chemistry": [
-      {
-        "value": "nca",
-        "kind": "community",
-        "source_id": "src-evdb-m3-srp-2021",
-        "low_confidence": true,
-        "notes": "NCA (Panasonic 2170); evspecifications 2021 SR+ also NCA."
-      }
+      { "value": "nca", "kind": "community", "source_id": "src-evdb-m3-srp-2021", "low_confidence": true, "notes": "NCA (Panasonic 2170); evspecifications 2021 SR+ also NCA." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-srp-2019",
-        "low_confidence": true,
-        "notes": "Estimated: Panasonic SR+ pack family is 357 V nominal / 400 V architecture (EV Database 2019-2020 SR+); the 2021 pack is the same 2170 family."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-m3-srp-2019", "low_confidence": true, "notes": "Estimated: Panasonic SR+ pack family is 357 V nominal / 400 V architecture (EV Database 2019-2020 SR+); the 2021 pack is the same 2170 family." }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-notateslaapp-2020-24-6-4",
-        "low_confidence": true,
-        "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2021 SR+). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-notateslaapp-2020-24-6-4", "low_confidence": true, "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2021 SR+). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 170,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-evdb-m3-srp-2021",
-      "low_confidence": true,
-      "notes": "EV Database 2021 SR+: DC up to 170 kW; evspecifications 2021 SR+ 170 kW."
-    }
+    { "value": 170, "unit": "kW", "kind": "community", "source_id": "src-evdb-m3-srp-2021", "low_confidence": true, "notes": "EV Database 2021 SR+: DC up to 170 kW; evspecifications 2021 SR+ 170 kW." }
   ],
   "ac_max_kw": [
-    {
-      "value": 7.7,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-tesla-m3-service-manual-charging",
-      "low_confidence": true,
-      "notes": "Estimated: standard (non-Long-Range) battery gets 32 A (about 7.7 kW) per Tesla service manual wording; evspecifications lists 11.5 kW and EV Database 11 kW (3-phase, EU), which do not apply to single-phase North America."
-    }
+    { "value": 7.7, "unit": "kW", "kind": "estimated", "source_id": "src-tesla-m3-service-manual-charging", "low_confidence": true, "notes": "Estimated: standard (non-Long-Range) battery gets 32 A (about 7.7 kW) per Tesla service manual wording; evspecifications lists 11.5 kW and EV Database 11 kW (3-phase, EU), which do not apply to single-phase North America." }
   ]
 }

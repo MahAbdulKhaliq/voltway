@@ -5,50 +5,20 @@
   "name": "90",
   "drivetrain": "rwd",
   "powertrain_id": "tesla/model-s/2016-90",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla connector (now NACS / SAE J3400) on every Tesla since the 2012 Model S; Canada and US cars alike (Wikipedia NACS article; EVSpecifications lists \"NACS / Tesla (SAE J3400)\" on Model S Plaid pages)."
-    }
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-64b227cb35" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia NACS article); same in Canada and the US."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-0149985cd2" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "90",
-        "US": "90"
-      },
+      "names": { "CA": "90", "US": "90" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r2w-carscom-model-s-2016",
-          "notes": "19 inch standard.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-r2w-electrek-model-s-wheels-2018",
-          "notes": "Electrek (2018): 21 inch Turbine optional, $4,500 over the 19 inch.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-carscom-model-s-2016", "note_id": "n-12759bfbd4", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r2w-electrek-model-s-wheels-2018", "note_id": "n-0f476034ea", "low_confidence": true }
       ]
     }
   ]

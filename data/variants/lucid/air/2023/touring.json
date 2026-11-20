@@ -5,41 +5,19 @@
   "name": "Touring",
   "drivetrain": "awd",
   "powertrain_id": "lucid/air/2023-touring",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-air-charging-guide",
-      "notes": "Lucid: the Air has a J1772 (CCS1) combo port."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "note_id": "n-9227bf3775" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-air-charging-ca",
-      "notes": "Lucid (Canada and US pages): Tesla Superchargers (V3+) with a Lucid-approved NACS-to-CCS1 adapter ($220); access opened 31 July 2025 for every Air (Electrek 2026 Air article)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Touring",
-        "US": "Touring"
-      },
+      "names": { "CA": "Touring", "US": "Touring" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-carscom-lucid-air-2022-touring",
-          "notes": "Carried from the 2022 Touring listing; the 2023 page does not list Touring wheels. Neighbouring years disagree: 2022 Touring 20 inch, 2024 Touring 19 inch; the 2023 size could be either.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carscom-lucid-air-2022-touring", "notes": "Carried from the 2022 Touring listing; the 2023 page does not list Touring wheels. Neighbouring years disagree: 2022 Touring 20 inch, 2024 Touring 19 inch; the 2023 size could be either.", "low_confidence": true }
       ]
     }
   ]

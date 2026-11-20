@@ -5,41 +5,19 @@
   "name": "Trail Boss Ext Range",
   "drivetrain": "awd",
   "powertrain_id": "chevrolet/silverado-ev/2026-trail-boss-ext-range",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-5a9f4542ec" }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-r3-gcn-gm-2027-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: GCN (GM 2027 NACS announcement) says most 2026 GM EVs keep CCS1 and need the GM NACS adapter, naming only the Optiq and Bolt as NACS-native for 2026; InsideEVs says the 2027 truck moves to native NACS. Model year 2026, US basis; Canadian truck assumed the same (Guide Auto 2024-09-18: GM adapter programme for Canadian Silverado EV owners)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-gcn-gm-2027-nacs", "low_confidence": true, "note_id": "n-c764303e83" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Trail Boss Ext Range (11.5 kW)"
-      },
+      "names": { "CA": "Trail Boss Ext Range (11.5 kW)" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-cars-silverado-471788",
-          "low_confidence": true,
-          "notes": "US Cars.com: Extended Range Trail Boss 18 x 8.5 in aluminum, LT285/75R18; Guide Auto (Canada) also says 18 in with 35 in AT tires."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-cars-silverado-471788", "low_confidence": true, "notes": "US Cars.com: Extended Range Trail Boss 18 x 8.5 in aluminum, LT285/75R18; Guide Auto (Canada) also says 18 in with 35 in AT tires." }
       ]
     }
   ]

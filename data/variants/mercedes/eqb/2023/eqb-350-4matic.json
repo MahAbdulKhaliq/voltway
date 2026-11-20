@@ -5,40 +5,19 @@
   "name": "EQB 350 4MATIC",
   "drivetrain": "awd",
   "powertrain_id": "mercedes/eqb/2023-eqb-350-4matic",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2023-eqb-eqb350w4",
-      "notes": "mbusa lists J1772 (AC) and Combined Charging System (DC)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2023-eqb-eqb350w4", "note_id": "n-e863ab2c59" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "mbusa NACS page: EQB, EQE, EQS and G 580 with a CCS1 inlet use the Mercedes-approved NACS-to-CCS1 adapter (included from MY26, otherwise sold by dealers). Canada: no Mercedes-Benz Canada page found; the same adapter route is assumed for the CA edition of this car."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "EQB 350 4MATIC"
-      },
+      "names": { "CA": "EQB 350 4MATIC" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-eqb-350-2022-specs-428304",
-          "notes": "EQB 350 4MATIC. Carried from the 2022 and 2024 EQB 350 pages (both 19 in), no page for this exact year opened. (US page carried to the Canadian car, no Canadian page opened.)",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqb-350-2022-specs-428304", "notes": "EQB 350 4MATIC. Carried from the 2022 and 2024 EQB 350 pages (both 19 in), no page for this exact year opened. (US page carried to the Canadian car, no Canadian page opened.)", "low_confidence": true }
       ]
     }
   ]

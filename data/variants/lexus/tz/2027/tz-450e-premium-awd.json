@@ -5,46 +5,20 @@
   "name": "TZ 450e Premium AWD",
   "drivetrain": "awd",
   "powertrain_id": "lexus/tz/2027-tz-450e-premium-awd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-tz-2027",
-      "notes": "\"The U.S. model features the North American Charging System (NACS) port.\""
-    },
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-insideevs-tz-2027",
-      "low_confidence": true,
-      "notes": "Native NACS charge port, front right behind a motorized door."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-tz-2027", "note_id": "n-c539d92ccd" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-insideevs-tz-2027", "low_confidence": true, "note_id": "n-aa0883cca0" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-w2j-lexus-us-rz-2026-onsale",
-      "low_confidence": true,
-      "notes": "Estimated: The TZ has a native NACS port (Lexus release); Lexus says Tesla Supercharger access is open to its BEV owners (2026 RZ release; the ES was tested on a Supercharger)."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2j-lexus-us-rz-2026-onsale", "low_confidence": true, "note_id": "n-a962ef0bf2" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "TZ 450e Premium AWD"
-      },
+      "names": { "US": "TZ 450e Premium AWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-lexus-tz-2027-specs-491236",
-          "notes": "TZ 450e Premium AWD: 20 in, P255/55R20."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-lexus-tz-2027-specs-491236", "notes": "TZ 450e Premium AWD: 20 in, P255/55R20." }
       ]
     }
   ]

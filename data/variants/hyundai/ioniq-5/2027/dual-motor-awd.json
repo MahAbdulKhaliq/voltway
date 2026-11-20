@@ -5,48 +5,20 @@
   "name": "Dual Motor AWD",
   "drivetrain": "awd",
   "powertrain_id": "hyundai/ioniq-5/2027-dual-motor-awd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "estimated",
-      "source_id": "src-hmgma-2025-ioniq-5-xrt",
-      "notes": "Estimated: Hyundai states a built-in NACS port from the 2025 US IONIQ 5; Hyundai Canada FAQ says IONIQ 5 from model year 2026 has NACS; Electrek (2026-11-11) reports no charging changes for 2027. Years compared: 2025-2027.",
-      "low_confidence": true
-    }
+    { "value": "nacs", "kind": "estimated", "source_id": "src-hmgma-2025-ioniq-5-xrt", "note_id": "n-b886cad02d", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-hyundai-usa-nacs-adapter-faq",
-      "notes": "Estimated: native-NACS 2025 IONIQ 5 uses Tesla Superchargers directly; same port carried over to 2027.",
-      "low_confidence": true
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-hyundai-usa-nacs-adapter-faq", "note_id": "n-2a10528afb", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Dual Motor AWD"
-      },
+      "names": { "US": "Dual Motor AWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-ioniq-5-2027-489674",
-          "low_confidence": true,
-          "notes": "SE/SEL AWD 19 in"
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-ioniq-5-2027-489677",
-          "low_confidence": true,
-          "notes": "Limited AWD 20 in"
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2027-489674", "low_confidence": true, "note_id": "n-20623b8f9e" },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2027-489677", "low_confidence": true, "note_id": "n-74c7af2a11" }
       ]
     }
   ]

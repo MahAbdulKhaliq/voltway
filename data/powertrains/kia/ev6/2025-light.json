@@ -3,76 +3,28 @@
   "model_id": "kia/ev6",
   "name": "Light",
   "generation": "2025-refresh",
-  "years": [
-    2025
-  ],
+  "years": [2025],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 63,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-2025-ev6-specs",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked). 63 kWh standard-range pack."
-      }
+      { "value": 63, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-2025-ev6-specs", "low_confidence": true, "notes": "Quick web lookup (rough, not cross-checked). 63 kWh standard-range pack." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-2025-ev6-specs",
-        "low_confidence": true,
-        "notes": "Quick web lookup (rough, not cross-checked)."
-      }
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-insideevs-2025-ev6-specs", "low_confidence": true, "note_id": "n-fb631f1b14" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 60,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-ev6-sr-2025",
-        "low_confidence": true,
-        "notes": "EV Database (MY25-27): 60.0 kWh usable of 63.0 nominal."
-      }
+      { "value": 60, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ev6-sr-2025", "low_confidence": true, "note_id": "n-6d93c00a24" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-evdb-ev6-sr-2025",
-        "low_confidence": true,
-        "notes": "EV Database: NMC."
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ev6-sr-2025", "low_confidence": true, "note_id": "n-5ab0a9ede0" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-kia-uk-battery-preconditioning",
-        "low_confidence": true,
-        "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh. Battery-heater equipment on Light is unconfirmed (Kia US shows no heat pump on Light and the manual says conditioning needs a battery heater), so this may not apply to Light."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-kia-uk-battery-preconditioning", "low_confidence": true, "note_id": "n-954750b5e1" }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev6-2025-specs",
-      "low_confidence": true,
-      "notes": "Spec table value; not confirmed per trim."
-    }
+    { "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025-specs", "low_confidence": true, "note_id": "n-a1be065c2c" }
   ],
   "dc_max_kw": [
-    {
-      "value": 180,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-2025-ev6-specs",
-      "low_confidence": true,
-      "notes": "Quick web lookup (rough, not cross-checked). US figure."
-    }
+    { "value": 180, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-2025-ev6-specs", "low_confidence": true, "note_id": "n-5e1af73e64" }
   ]
 }

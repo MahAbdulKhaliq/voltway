@@ -5,55 +5,21 @@
   "name": "eDrive35",
   "drivetrain": "rwd",
   "powertrain_id": "bmw/i4/2023-edrive35",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-lectron-bmw-adapter",
-      "low_confidence": true,
-      "notes": "Estimated: BMW i4 keeps a CCS1 port through 2026 (thinkEV 2026 eDrive40 lists CCS1; Lectron lists the i4 2022-2026 as a CCS-to-NACS adapter car; BMW Canada says native NACS is only on all-new 2026+ models such as iX3/i3). Same port assumed for 2023."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-lectron-bmw-adapter", "low_confidence": true, "note_id": "n-f82013d8b0" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-bmw-canada-nacs-superchargers-2026-04",
-      "low_confidence": true,
-      "notes": "Canada: BMW says all BEVs except original i3/MINI SE become Supercharger-compatible by remote software upgrade and CCS cars use the approved Lectron Vortex Plus NACS-to-CCS adapter (access from 2026-04-08; i4 not named in the text read)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-insideevs-bmw-supercharger-2025",
-      "low_confidence": true,
-      "notes": "Estimated: US access from the week of 2025-12-10 for i4/i5/i7/iX with an adapter; InsideEVs says 2025 cars should work and compatibility varies by model year; Lectron lists i4 2022-2026. Older years assumed to work like 2025 (same CCS hardware)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "low_confidence": true, "note_id": "n-5726dc3848" },
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-bmw-supercharger-2025", "low_confidence": true, "note_id": "n-0c3fdec9eb" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "eDrive35",
-        "US": "eDrive35"
-      },
+      "names": { "CA": "eDrive35", "US": "eDrive35" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2023-specs",
-          "notes": "eDrive35: 18 x 7.5 in aluminum, P225/50R18. (US page; Canadian cars assumed the same.)"
-        },
-        {
-          "diameter_in": 19,
-          "is_standard": false,
-          "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2023-specs",
-          "notes": "eDrive35: optional Dynamic Handling Package upgrades to 19 in bicolor wheels (245/40R19 front, 255/40R19 rear). (US page; Canadian cars assumed the same.)"
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2023-specs", "note_id": "n-911481a78d" },
+        { "diameter_in": 19, "is_standard": false, "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2023-specs", "notes": "eDrive35: optional Dynamic Handling Package upgrades to 19 in bicolor wheels (245/40R19 front, 255/40R19 rear). (US page; Canadian cars assumed the same.)" }
       ]
     }
   ]

@@ -4,40 +4,20 @@
   "year": 2024,
   "name": "Performance Dual-Motor Standard Pack",
   "drivetrain": "awd",
-  "powertrain_id": "rivian/r1s/2024-performance-dual-motor-standard-pack",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "rivian/r1s/2024-dual-motor-standard-pack",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: model years 2022-2025 have a CCS port."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-f742b1d644" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: model years 2022-2025 need a NACS DC adapter to use Tesla Superchargers; the page is the Canadian locale and says North America, so US and Canada."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-0546c7cb96" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Performance Dual-Motor Standard Pack"
-      },
+      "names": { "US": "Performance Dual-Motor Standard Pack" },
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r2w-carb-rivian-2024",
-          "notes": "Only 22 inch is listed for the R1S Performance Dual Standard. Standard inferred: no source states it.",
-          "low_confidence": true
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2w-carb-rivian-2024", "notes": "Only 22 inch is listed for the R1S Performance Dual Standard. Standard inferred: no source states it.", "low_confidence": true }
       ]
     }
   ]

@@ -5,41 +5,19 @@
   "name": "Standard Range Plus",
   "drivetrain": "unknown",
   "powertrain_id": "tesla/model-3/2021-standard-range-plus",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
-    }
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-467dd2e649" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-4655b2436d" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Standard Range Plus"
-      },
+      "names": { "CA": "Standard Range Plus" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r2w-carscom-model-3-2022",
-          "notes": "Base-trim wheel on the cars.com page for that era. Carried over from a neighbouring model year on the same body; that year was not opened.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-carscom-model-3-2022", "note_id": "n-f7b5fedbc5", "low_confidence": true }
       ]
     }
   ]

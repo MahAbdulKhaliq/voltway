@@ -4,51 +4,21 @@
   "year": 2026,
   "name": "S e-tron GT",
   "drivetrain": "awd",
-  "powertrain_id": "audi/e-tron-gt/2026-s-e-tron-gt",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "audi/e-tron-gt/2026-rs-e-tron-gt-performance",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-electrive-audi-nacs",
-      "low_confidence": true,
-      "notes": "electrive/InsideEVs 2025-09-08: Audi EVs lack a NACS port; the e-tron GT is supplied with the Audi NACS DC adapter (CCS1 to NACS). Applied to 2026: same hardware as 2025, no change reported."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-9198582f4b" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-w2-insideevs-audi-porsche-sc",
-      "low_confidence": true,
-      "notes": "InsideEVs/electrive 2025-09-08: e-tron GT gains Supercharger access (US and Canada same date); new 2025 e-tron GT purchases include the NACS adapter."
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-039ae8cd40" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "S e-tron GT",
-        "US": "S e-tron GT"
-      },
+      "names": { "CA": "S e-tron GT", "US": "S e-tron GT" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-audi-setrongt-2025-466799",
-          "notes": "Estimated: 2025 page shows 20-inch standard; 2026 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-cars-audi-setrongt-2025-466799",
-          "notes": "21-inch wheel package option listed on the 2025 page. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-setrongt-2025-466799", "notes": "Estimated: 2025 page shows 20-inch standard; 2026 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-cars-audi-setrongt-2025-466799", "note_id": "n-abf0e33feb", "low_confidence": true }
       ]
     }
   ]

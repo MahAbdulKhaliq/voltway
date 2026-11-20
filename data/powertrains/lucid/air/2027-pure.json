@@ -3,76 +3,28 @@
   "model_id": "lucid/air",
   "name": "Pure",
   "generation": "first-generation",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 84,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-w2-evdb-lucid-air-excerpts",
-        "low_confidence": true,
-        "notes": "Estimated: Lucid 2025 Pure sheet capacity 84 kWh and EV Database 84.0 usable / 88.0 nominal (search excerpt) for the same pack family; Lucid markets 5.0 mi/kWh on 84 kWh. 2027 assumed unchanged."
-      }
+      { "value": 84, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-evdb-lucid-air-excerpts", "low_confidence": true, "notes": "Estimated: Lucid 2025 Pure sheet capacity 84 kWh and EV Database 84.0 usable / 88.0 nominal (search excerpt) for the same pack family; Lucid markets 5.0 mi/kWh on 84 kWh. 2027 assumed unchanged." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-w2-lucid-battery-data",
-        "low_confidence": true,
-        "notes": "Estimated: Lucid battery data (MY26+ packs) gives chemistry ID \"Li MM(NRMC) - C.F\", read as nickel-rich NMC (the page does not decode it)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-1798a55215" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "estimated",
-        "source_id": "src-w2-lucid-air-pure-2025-sheet",
-        "low_confidence": true,
-        "notes": "Estimated: Lucid 2025 Pure sheet gives platform architecture 650V+ (above 600 V, the 800 V class); Evercars says 900V-class for every Air."
-      }
+      { "value": "800v", "kind": "estimated", "source_id": "src-w2-lucid-air-pure-2025-sheet", "low_confidence": true, "note_id": "n-c2f35cd78e" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-w2-lucid-air-charging-guide",
-        "low_confidence": true,
-        "notes": "Lucid: manual Start Preconditioning plus Smart Preconditioning (automatic when routing to a fast charger). Current software state; the page is not year-specific."
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "low_confidence": true, "note_id": "n-5b38ca5f4b" }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 84,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-w2-lucid-air-pure-2025-sheet",
-        "low_confidence": true,
-        "notes": "Estimated: 2025 pack assumed for 2027 (Lucid battery data lists one Pure 16M pack for MY26+). Lucid 2025 Pure sheet: battery capacity 84 kWh (16 module); Lucid says 420 mi from 84 kWh."
-      }
+      { "value": 84, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-lucid-air-pure-2025-sheet", "low_confidence": true, "notes": "Estimated: 2025 pack assumed for 2027 (Lucid battery data lists one Pure 16M pack for MY26+). Lucid 2025 Pure sheet: battery capacity 84 kWh (16 module); Lucid says 420 mi from 84 kWh." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 250,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-evercars-lucid-air-2026",
-      "low_confidence": true,
-      "notes": "Evercars (2026 comparison) and the Wikipedia trim table: Pure peak 250 kW; no Lucid Pure sheet states DC kW."
-    }
+    { "value": 250, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-evercars-lucid-air-2026", "low_confidence": true, "note_id": "n-459e398ce9" }
   ],
   "ac_max_kw": [
-    {
-      "value": 19.2,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-air-charging-ca",
-      "low_confidence": true,
-      "notes": "Lucid Canada charging page: AC charging maximum 19.2 kW; Wikipedia lists 19.2 kW (240 V, 80 A) for every trim."
-    }
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "low_confidence": true, "note_id": "n-560efa3597" }
   ]
 }

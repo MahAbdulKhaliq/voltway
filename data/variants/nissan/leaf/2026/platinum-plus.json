@@ -5,62 +5,25 @@
   "name": "Platinum PLUS",
   "drivetrain": "unknown",
   "powertrain_id": "nissan/leaf/2026-platinum-plus",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. NACS passenger-side fast-charge port; J1772 on driver's side for AC."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-9295dad563" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Native NACS port; article says it unlocks Tesla Superchargers across Canada."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-c07c0722f9" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 1982,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-evspecifications-leaf-platinum-plus-2026",
-      "low_confidence": true,
-      "notes": "EV Specifications: about 4,369.56 lb (1,982 kg); cars.com and iSeeCars show 4,369 lb for US Platinum+ (x0.45359 = 1,982). EV Specifications does not state its source; the cars.com/iSeeCars figures were not opened by the fact-checker."
-    }
+    { "value": 1982, "unit": "kg", "kind": "manufacturer", "source_id": "src-evspecifications-leaf-platinum-plus-2026", "low_confidence": true, "notes": "EV Specifications: about 4,369.56 lb (1,982 kg); cars.com and iSeeCars show 4,369 lb for US Platinum+ (x0.45359 = 1,982). EV Specifications does not state its source; the cars.com/iSeeCars figures were not opened by the fact-checker." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Platinum PLUS",
-        "US": "Platinum+"
-      },
+      "names": { "CA": "Platinum PLUS", "US": "Platinum+" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-driveteslacanada-leaf-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. Article says heat pump standard; not per trim."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-driveteslacanada-leaf-2026", "low_confidence": true, "note_id": "n-e17f94008c" }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-spinelli-nissan-leaf-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. '19-inch wheels' listed for Platinum+."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "notes": "Quick web lookup. '19-inch wheels' listed for Platinum+." }
       ]
     }
   ]

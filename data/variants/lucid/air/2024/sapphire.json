@@ -5,41 +5,19 @@
   "name": "Sapphire",
   "drivetrain": "awd",
   "powertrain_id": "lucid/air/2024-sapphire",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-air-charging-guide",
-      "notes": "Lucid: the Air has a J1772 (CCS1) combo port."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "note_id": "n-9227bf3775" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-air-charging-ca",
-      "notes": "Lucid (Canada and US pages): Tesla Superchargers (V3+) with a Lucid-approved NACS-to-CCS1 adapter ($220); access opened 31 July 2025 for every Air (Electrek 2026 Air article)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Sapphire",
-        "US": "Sapphire"
-      },
+      "names": { "CA": "Sapphire", "US": "Sapphire" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-lucid-air-sapphire-2024-wheels",
-          "notes": "Front 20, rear 21 (staggered 265/35R20, 295/30R21). Read from a PDF whose text the checker could not decode; unverified.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-lucid-air-sapphire-2024-wheels", "notes": "Front 20, rear 21 (staggered 265/35R20, 295/30R21). Read from a PDF whose text the checker could not decode; unverified.", "low_confidence": true }
       ]
     }
   ]

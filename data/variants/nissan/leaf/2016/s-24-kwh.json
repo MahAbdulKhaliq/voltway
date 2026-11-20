@@ -5,42 +5,19 @@
   "name": "S (24 kWh)",
   "drivetrain": "fwd",
   "powertrain_id": "nissan/leaf/2016-s-24-kwh",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "chademo",
-      "kind": "manufacturer",
-      "source_id": "src-nissan-usa-leaf-2016-press-kit",
-      "low_confidence": true,
-      "notes": "Quick charge port (CHAdeMO) per the 2016 press kit. On the S it is optional (Quick Charge Package): a base S without it has only the J1772 AC port."
-    }
+    { "value": "chademo", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2016-press-kit", "low_confidence": true, "notes": "Quick charge port (CHAdeMO) per the 2016 press kit. On the S it is optional (Quick Charge Package): a base S without it has only the J1772 AC port." }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "estimated",
-      "source_id": "src-electrek-nissan-supercharger-2024-12",
-      "low_confidence": true,
-      "notes": "Estimated: CHAdeMO port. Nissan's Dec 2024 Supercharger programme covers only the CCS Ariya; Electrek says the Leaf is excluded and uses CHAdeMO. No Nissan adapter exists for the Leaf."
-    }
+    { "value": "no", "kind": "estimated", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b0ca50230f" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "S (24 kWh)",
-        "US": "S (24 kWh)"
-      },
+      "names": { "CA": "S (24 kWh)", "US": "S (24 kWh)" },
       "wheels": [
-        {
-          "diameter_in": 16,
-          "is_standard": true,
-          "source_id": "src-r2w-cc-leaf2016",
-          "notes": "S trim 16 in."
-        }
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-r2w-cc-leaf2016", "note_id": "n-f91d24f3ca" }
       ]
     }
   ]

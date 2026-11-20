@@ -5,40 +5,19 @@
   "name": "GT",
   "drivetrain": "awd",
   "powertrain_id": "ford/mustang-mach-e/2022-gt",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-insideevs-mme-carplay-2026",
-      "low_confidence": true,
-      "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2022 owners implies the same CCS1 port. No port change found across 2021-2026."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-93d5f84f2e" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-ford-ca-supercharger-2024",
-      "low_confidence": true,
-      "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; the cited Ford page names no model years, so eligibility of this model year is not shown by it; 2025 has the feature from the factory). Recorded: via adapter today."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "GT"
-      },
+      "names": { "US": "GT" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-ford-us-mme-specs-2022",
-          "notes": "GT and GT Performance Edition: 20 in standard."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-ford-us-mme-specs-2022", "note_id": "n-50f075c8d6" }
       ]
     }
   ]

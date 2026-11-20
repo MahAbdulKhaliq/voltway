@@ -5,42 +5,19 @@
   "name": "Cooper SE",
   "drivetrain": "fwd",
   "powertrain_id": "mini/cooper-se/2023-cooper-se",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-wiki-mini",
-      "low_confidence": true,
-      "notes": "Wikipedia: Type 1/CCS Combo 1 in North America."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-wiki-mini", "low_confidence": true, "note_id": "n-1520cd3d88" }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ca-nacs",
-      "low_confidence": true,
-      "notes": "BMW Canada (2026-04-08): Supercharger access for MINI BEVs except the MINI Cooper SE (F56). Conflict: the Oct 2023 BMW NA announcement (via GuideAuto) listed the MINI Cooper SE for access with an adapter; the later, car-specific Canadian exclusion is used. US not stated."
-    }
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-d19c6436e8" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Cooper SE",
-        "US": "Cooper SE"
-      },
+      "names": { "CA": "Cooper SE", "US": "Cooper SE" },
       "wheels": [
-        {
-          "diameter_in": 16,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mini-se-hardtop-2023-specs",
-          "notes": "Cooper SE Signature FWD: 16 x 6.5 in aluminum, P195/55R16; the page lists no optional wheels (2020-22 pages list 17 in options). (US page; Canadian cars assumed the same.)"
-        }
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-r3w-cars-com-research-mini-se-hardtop-2023-specs", "notes": "Cooper SE Signature FWD: 16 x 6.5 in aluminum, P195/55R16; the page lists no optional wheels (2020-22 pages list 17 in options). (US page; Canadian cars assumed the same.)" }
       ]
     }
   ]

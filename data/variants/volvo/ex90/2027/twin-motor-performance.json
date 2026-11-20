@@ -4,49 +4,21 @@
   "year": 2027,
   "name": "Twin Motor Performance",
   "drivetrain": "awd",
-  "powertrain_id": "volvo/ex90/2027-twin-motor-performance",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "volvo/ex90/2027-twin-motor",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port US checker lists EX90 (2025-2027) as CCS1 with an adapter included as standard from model year 2025; Volvo adapter releases (Cision, InsideEVs) cover the EX90, which a native NACS port would not need. No source announces a native NACS EX90 (Volvo first native-NACS car is the EX60)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-8517058905" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-cision-volvo-ca-nacs-2024",
-      "low_confidence": true,
-      "notes": "Volvo Canada release: adapter included with new 2025 EX90/EX40/EC40 and orderable by current Volvo EV owners (CA$310)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-volvo-polestar-nacs-2024",
-      "low_confidence": true,
-      "notes": "US: adapter free with 2025 EX90, $230 for existing owners."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-b60e063996" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-b564dd4260" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Twin Motor Performance"
-      },
+      "names": { "US": "Twin Motor Performance" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-volvo-ex90-2025-specs",
-          "notes": "No 2027 page; carried from 2025/2026 pages.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-volvo-ex90-2025-specs", "note_id": "n-620a26d076", "low_confidence": true }
       ]
     }
   ]

@@ -33,6 +33,7 @@
     "calibrate:highway": "tsx scripts/calibrate-highway.ts",
     "validate": "tsx scripts/validate.ts",
     "data:build": "tsx scripts/build-data.ts",
+    "data:format": "tsx scripts/format-data.ts",
     "prebuild": "npm run validate && npm run data:build",
     "build": "astro build",
     "preview": "astro preview",

@@ -3,76 +3,28 @@
   "model_id": "tesla/model-3",
   "name": "RWD",
   "generation": "2021-refresh",
-  "years": [
-    2023
-  ],
+  "years": [2023],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 60,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evspecs-m3-lfp-rwd-2023",
-        "low_confidence": true,
-        "notes": "60.0 kWh nominal, CATL LFP (EV Database 2021-23 RWD; the existing OpenEV import for the 2026 Premium-I also shows 60/57). evspecifications lists 62 kWh for 2023-24, Wikipedia 64 kWh for the current RWD. evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60."
-      }
+      { "value": 60, "unit": "kWh", "kind": "community", "source_id": "src-evspecs-m3-lfp-rwd-2023", "low_confidence": true, "notes": "60.0 kWh nominal, CATL LFP (EV Database 2021-23 RWD; the existing OpenEV import for the 2026 Premium-I also shows 60/57). evspecifications lists 62 kWh for 2023-24, Wikipedia 64 kWh for the current RWD. evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 57,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evspecs-m3-lfp-rwd-2023",
-        "low_confidence": true,
-        "notes": "57.0 kWh usable (EV Database estimate). evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60."
-      }
+      { "value": 57, "unit": "kWh", "kind": "community", "source_id": "src-evspecs-m3-lfp-rwd-2023", "low_confidence": true, "notes": "57.0 kWh usable (EV Database estimate). evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60." }
     ],
     "chemistry": [
-      {
-        "value": "lfp",
-        "kind": "community",
-        "source_id": "src-evspecs-m3-lfp-rwd-2023",
-        "low_confidence": true,
-        "notes": "LFP (CATL); evspecifications 2023/2024 RWD LFP. evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60."
-      }
+      { "value": "lfp", "kind": "community", "source_id": "src-evspecs-m3-lfp-rwd-2023", "low_confidence": true, "notes": "LFP (CATL); evspecifications 2023/2024 RWD LFP. evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "community",
-        "source_id": "src-evspecs-m3-lfp-rwd-2023",
-        "low_confidence": true,
-        "notes": "400 V architecture (EV Database); evspecifications 345 V nominal. evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60."
-      }
+      { "value": "400v", "kind": "community", "source_id": "src-evspecs-m3-lfp-rwd-2023", "low_confidence": true, "notes": "400 V architecture (EV Database); evspecifications 345 V nominal. evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60." }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-notateslaapp-2020-24-6-4",
-        "low_confidence": true,
-        "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2023 RWD). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-notateslaapp-2020-24-6-4", "low_confidence": true, "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2023 RWD). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 170,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-evspecs-m3-lfp-rwd-2023",
-      "low_confidence": true,
-      "notes": "170 kW (EV Database; evspecifications 2023 and 2024 RWD 170 kW; InsideEVs Highland: RWD 170 kW unchanged). evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60."
-    }
+    { "value": 170, "unit": "kW", "kind": "community", "source_id": "src-evspecs-m3-lfp-rwd-2023", "low_confidence": true, "notes": "170 kW (EV Database; evspecifications 2023 and 2024 RWD 170 kW; InsideEVs Highland: RWD 170 kW unchanged). evspecifications 2023 RWD (North America) shows LFP 170 kW; capacity taken from EV Database LFP60." }
   ],
   "ac_max_kw": [
-    {
-      "value": 7.7,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-wikipedia-model3",
-      "low_confidence": true,
-      "notes": "Estimated: Wikipedia infobox gives 7.6 kW (32 A) for the RWD (Basenor repeats it for 2017-2023 cars); Tesla service manual: 48 A only with the Long Range battery. EV Database 11 kW (3-phase, EU) and evspecifications 11.5 kW do not apply to single-phase North America."
-    }
+    { "value": 7.7, "unit": "kW", "kind": "estimated", "source_id": "src-wikipedia-model3", "low_confidence": true, "note_id": "n-0033adf24b" }
   ]
 }

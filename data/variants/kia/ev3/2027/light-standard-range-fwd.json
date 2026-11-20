@@ -5,40 +5,19 @@
   "name": "Light Standard Range FWD",
   "drivetrain": "fwd",
   "powertrain_id": "kia/ev3/2027-light-standard-range-fwd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kia-us-ev3-2027",
-      "notes": "Kia USA: the EV3 has a built-in NACS charge port.",
-      "low_confidence": true
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-us-ev3-2027", "note_id": "n-cff41cb177", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kia-us-ev3-2027",
-      "notes": "Kia USA: the NACS port gives access to Tesla Superchargers.",
-      "low_confidence": true
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-us-ev3-2027", "note_id": "n-636f62f934", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Light Standard Range FWD"
-      },
+      "names": { "US": "Light Standard Range FWD" },
       "wheels": [
-        {
-          "diameter_in": 17,
-          "is_standard": true,
-          "source_id": "src-carscom-kia-ev3-2027-index",
-          "low_confidence": true
-        }
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-kia-ev3-2027-index", "low_confidence": true }
       ]
     }
   ]

@@ -5,41 +5,19 @@
   "name": "AWD",
   "drivetrain": "awd",
   "powertrain_id": "tesla/model-y/2027-awd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "estimated",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: Tesla has used its own connector (now NACS) on all its North American cars since 2012, including the Model Y (2020 on). Not read on a Tesla page for this model year."
-    }
+    { "value": "nacs", "kind": "estimated", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-498d0e51b3" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Estimated: Tesla-built cars with the Tesla/NACS inlet can use the Supercharger network; page says every Model Y uses native NACS. Applied to this model year as a lineup-wide fact."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-0fdeb4e6b1" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "AWD"
-      },
+      "names": { "US": "AWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r2w-carscom-model-y-2026",
-          "notes": "Estimated: Standard line 18 inch, from the 2026 Model Y RWD page; 2027 not separately opened. Cars.com 2026 page shows RWD only.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-carscom-model-y-2026", "notes": "Estimated: Standard line 18 inch, from the 2026 Model Y RWD page; 2027 not separately opened. Cars.com 2026 page shows RWD only.", "low_confidence": true }
       ]
     }
   ]

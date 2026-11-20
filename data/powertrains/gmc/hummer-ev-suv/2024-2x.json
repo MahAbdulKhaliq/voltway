@@ -3,65 +3,25 @@
   "model_id": "gmc/hummer-ev-suv",
   "name": "2X",
   "generation": "first-generation",
-  "years": [
-    2024
-  ],
+  "years": [2024, 2025],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 170,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-gm-ultium-truck-20",
-        "low_confidence": true,
-        "notes": "Estimated: Wikipedia: 20-module pack \"c. 170 kWh\"; The Weekly Driver lists the same 20-module Ultium pack at 170 kWh as published (no usable/gross split). Years/trims: 2X (EPA \"2M20\", NRCan 20M)."
-      }
+      { "value": 170, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-20", "low_confidence": true, "note_id": "n-e576442c5f" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-gm-ultium-truck-24",
-        "low_confidence": true,
-        "notes": "Estimated: Same GM Ultium NCMA cells as the 24-module pack (Weekly Driver); closest enum nmc."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-24", "low_confidence": true, "note_id": "n-1456b8b703" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "estimated",
-        "source_id": "src-gm-techlink-hummer-ev-ultium",
-        "notes": "Estimated: GM TechLink: ~400 V per layer, layers switched in series for \"800-volt DC fast charging\". Treated as the 800 V class (as the Silverado EV 24- and 20-module records). The 20-module pack is assumed to use the same switching (The Charge Port: \"800V DC charging up to 300 kW\" on the 2X)."
-      }
+      { "value": "800v", "kind": "estimated", "source_id": "src-gm-techlink-hummer-ev-ultium", "note_id": "n-8d3e7112bf" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-chevrolet-battery-preconditioning-guide",
-        "low_confidence": true,
-        "notes": "Estimated: GM's battery-preconditioning guide (chevrolet.com returns 403, search excerpt only): automatic with Google built-in navigation plus a manual Fast Charge Prep in the app; applied lineup-wide to GM Ultium vehicles as for Silverado EV/Equinox EV records. UNVERIFIED on a page for this model. GM TechLink (2022 Hummer) says the apps can precondition the battery for charging; automatic navigation-based preconditioning from the GM guide assumed for the 2024-2025 trucks."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-0a38e924d4" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 300,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-gmc-hummer-ev",
-      "low_confidence": true,
-      "notes": "The Charge Port: \"800V DC charging up to 300 kW\" (Pickup 2X); 300 kW is also the 20-module Silverado EV figure (GM spec guide)."
-    }
+    { "value": 300, "unit": "kW", "kind": "manufacturer", "source_id": "src-thechargeport-gmc-hummer-ev", "low_confidence": true, "note_id": "n-b287dfe54e" }
   ],
   "ac_max_kw": [
-    {
-      "value": 19.2,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-gmc-hummer-ev",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port: home charging up to 19.2 kW (about 80 A); Wikipedia 19.2 kW. No page separates the 2X/20-module AC rating; 19.2 kW assumed (an 11.5 kW standard charger as on the Silverado EV is possible)."
-    }
+    { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-thechargeport-gmc-hummer-ev", "low_confidence": true, "note_id": "n-e387916d96" }
   ]
 }

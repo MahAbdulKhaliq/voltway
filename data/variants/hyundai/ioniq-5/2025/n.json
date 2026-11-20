@@ -5,42 +5,19 @@
   "name": "N",
   "drivetrain": "awd",
   "powertrain_id": "hyundai/ioniq-5/2026-n",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-usa-nacs-adapter-faq",
-      "notes": "US: the IONIQ 5 N does not have a native NACS port. Canada: the 2025 N uses a CCS port with an offered NACS adapter (Guide Auto). The 2026 N has NACS (already on file)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-usa-nacs-adapter-faq", "notes": "US: the IONIQ 5 N does not have a native NACS port. Canada: the 2025 N uses a CCS port with an offered NACS adapter (Guide Auto). The 2026 N has NACS (already on file)." }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-motor-hyundai-adapters-2025",
-      "notes": "Hyundai press relay: the 2025 IONIQ 5 N gets a complimentary CCS-to-NACS adapter (US); Canada: NACS adapter offered (Guide Auto).",
-      "low_confidence": true
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-motor-hyundai-adapters-2025", "notes": "Hyundai press relay: the 2025 IONIQ 5 N gets a complimentary CCS-to-NACS adapter (US); Canada: NACS adapter offered (Guide Auto).", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "N",
-        "US": "N"
-      },
+      "names": { "CA": "N", "US": "N" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-ioniq-5-n-2025-index",
-          "low_confidence": true,
-          "notes": "Cars.com page for the 2025 Ioniq 5 N (US). No Canadian N source was read; Canadian N assumed the same."
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-n-2025-index", "low_confidence": true, "notes": "Cars.com page for the 2025 Ioniq 5 N (US). No Canadian N source was read; Canadian N assumed the same." }
       ]
     }
   ]

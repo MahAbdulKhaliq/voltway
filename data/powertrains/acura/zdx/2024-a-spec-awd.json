@@ -3,76 +3,28 @@
   "model_id": "acura/zdx",
   "name": "A-Spec AWD",
   "generation": "first-generation",
-  "years": [
-    2024
-  ],
+  "years": [2024],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 102,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-wikipedia-acura-zdx",
-        "low_confidence": true,
-        "notes": "Acura: 102 kWh GM Ultium pack on all three trims (same pack as the Lyriq). Bare capacity treated as gross."
-      }
+      { "value": 102, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-acura-zdx", "low_confidence": true, "notes": "Acura: 102 kWh GM Ultium pack on all three trims (same pack as the Lyriq). Bare capacity treated as gross." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 100,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-cadillac-lyriq",
-        "low_confidence": true,
-        "notes": "Estimated: Same 102 kWh Ultium pack as the Cadillac Lyriq, for which Wikipedia lists 102 gross / 100 usable (and Auto-data 100.4 net); ratio applied."
-      }
+      { "value": 100, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-cadillac-lyriq", "low_confidence": true, "notes": "Estimated: Same 102 kWh Ultium pack as the Cadillac Lyriq, for which Wikipedia lists 102 gross / 100 usable (and Auto-data 100.4 net); ratio applied." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-acura-zdx",
-        "low_confidence": true,
-        "notes": "Estimated: Wikipedia: \"102 kWh lithium-ion modular Ultium battery\" (GM NCMA cells; Lyriq-V cells are NMC per EV Database). Closest enum nmc."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-acura-zdx", "low_confidence": true, "notes": "Estimated: Wikipedia: \"102 kWh lithium-ion modular Ultium battery\" (GM NCMA cells; Lyriq-V cells are NMC per EV Database). Closest enum nmc." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-insideevs-equinox-ev-ultium-voltage",
-        "low_confidence": true,
-        "notes": "Estimated: Estimated from the GM Ultium platform: InsideEVs gives the Equinox EV 85 kWh Ultium pack as about 288 V nominal (80S 3P); the ZDX uses the same Ultium modules in a larger 102 kWh pack, 400 V class. No Acura page states the voltage."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-insideevs-equinox-ev-ultium-voltage", "low_confidence": true, "notes": "Estimated: Estimated from the GM Ultium platform: InsideEVs gives the Equinox EV 85 kWh Ultium pack as about 288 V nominal (80S 3P); the ZDX uses the same Ultium modules in a larger 102 kWh pack, 400 V class. No Acura page states the voltage." }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-honda-prologue",
-        "low_confidence": true,
-        "notes": "Estimated: Platform sibling: the Honda Prologue (GM Ultium, Google built-in) preconditions automatically via Google Maps (Wikipedia). No Acura page read for the ZDX; manual control unknown."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-wikipedia-honda-prologue", "low_confidence": true, "notes": "Estimated: Platform sibling: the Honda Prologue (GM Ultium, Google built-in) preconditions automatically via Google Maps (Wikipedia). No Acura page read for the ZDX; manual control unknown." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 190,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-acura-zdx",
-      "low_confidence": true,
-      "notes": "Acura: up to 190 kW; Wikipedia agrees. Same on all trims (Charge Port)."
-    }
+    { "value": 190, "unit": "kW", "kind": "manufacturer", "source_id": "src-thechargeport-acura-zdx", "low_confidence": true, "notes": "Acura: up to 190 kW; Wikipedia agrees. Same on all trims (Charge Port)." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11.5,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-acura-zdx",
-      "low_confidence": true,
-      "notes": "Charge Port: 11.5 kW onboard charger."
-    }
+    { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-thechargeport-acura-zdx", "low_confidence": true, "notes": "Charge Port: 11.5 kW onboard charger." }
   ]
 }

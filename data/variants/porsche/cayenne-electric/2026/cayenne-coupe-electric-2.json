@@ -4,49 +4,21 @@
   "year": 2026,
   "name": "Cayenne Coupe Electric",
   "drivetrain": "awd",
-  "powertrain_id": "porsche/cayenne-electric/2026-cayenne-coupe-electric-2",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "porsche/cayenne-electric/2026-cayenne-coupe-electric",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-porsche-us-cayenne-s",
-      "notes": "US: J3400 (NACS) DC-only port driver-side rear fender, J1772 AC-only port passenger side; CCS DC adapter standard. Canada release does not state ports (assumed the same)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-porsche-us-cayenne-s", "note_id": "n-c729022746" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-porsche-us-cayenne-s",
-      "low_confidence": true,
-      "notes": "Estimated: native NACS DC port; no Porsche page opened states Supercharger access for the Cayenne explicitly (the 2025 programme pages name only Taycan and Macan). Canada Plug & Charge release (Jan 2026) says Cayenne Electric gets Plug & Charge on arrival."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-porsche-us-cayenne-s", "low_confidence": true, "note_id": "n-82701f98d3" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Cayenne Coupe Electric",
-        "US": "Cayenne Coupe Electric"
-      },
+      "names": { "CA": "Cayenne Coupe Electric", "US": "Cayenne Coupe Electric" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-cars-porsche-cayenne-2026-487222",
-          "notes": "Cayenne Electric Coupe AWD 2026: 21-inch (front 21x9.5), read on this Cars.com page."
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-cars-porsche-cayenne-2026-487222",
-          "notes": "Range Setup package lists 20-inch Cayenne Aero wheels on the Cars.com Electric Coupe AWD page. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-cars-porsche-cayenne-2026-487222", "note_id": "n-9e04a8751b" },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-cars-porsche-cayenne-2026-487222", "note_id": "n-70d8160166", "low_confidence": true }
       ]
     }
   ]

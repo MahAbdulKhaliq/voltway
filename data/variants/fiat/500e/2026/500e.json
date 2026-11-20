@@ -4,44 +4,20 @@
   "year": 2026,
   "name": "500e",
   "drivetrain": "fwd",
-  "powertrain_id": "fiat/500e/2026-500e",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "fiat/500e/2024-500e",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "community",
-      "source_id": "src-wikipedia-fiat-500e",
-      "notes": "CCS Combo Type 1 in North America (InsideEVs and EV Specifications agree).",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "community", "source_id": "src-wikipedia-fiat-500e", "note_id": "n-540a726c77", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-electrive-stellantis-supercharger-2026",
-      "notes": "Stellantis (March 2026): Fiat 500e 2024-2026 can use Tesla Superchargers with the Free2move Charge NACS-CCS1 adapter. The reports say \"North America\"; Canada is implied, not separately confirmed. Canada: the reports say \"North America\"; no source confirms Canadian cars are covered.",
-      "low_confidence": true
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-3732d95d70", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "500e",
-        "US": "500e"
-      },
+      "names": { "CA": "500e", "US": "500e" },
       "wheels": [
-        {
-          "diameter_in": 17,
-          "is_standard": true,
-          "source_id": "src-r2w-cc-f25",
-          "notes": "2024 and 2025 both 17 in; 2026 not checked, low confidence.",
-          "low_confidence": true
-        }
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-r2w-cc-f25", "note_id": "n-6ec4f16d3f", "low_confidence": true }
       ]
     }
   ]

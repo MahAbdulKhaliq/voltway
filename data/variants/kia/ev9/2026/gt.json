@@ -5,54 +5,25 @@
   "name": "GT",
   "drivetrain": "awd",
   "powertrain_id": "kia/ev9/2026-gt",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev9-2026"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev9-2026"
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2684,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ev9-2026-gt",
-      "low_confidence": true,
-      "notes": "Guide Auto lists 2,684 kg (5,917 lb) for the Canadian 2026 EV9 GT (99.8 kWh, 21-inch)."
-    }
+    { "value": 2684, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev9-2026-gt", "low_confidence": true, "notes": "Guide Auto lists 2,684 kg (5,917 lb) for the Canadian 2026 EV9 GT (99.8 kWh, 21-inch)." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "GT"
-      },
+      "names": { "CA": "GT" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-kia-ca-ev9-2026"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
       ],
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "tire_size": "285/45R21",
-          "source_id": "src-kia-ca-ev9-gt-release",
-          "notes": "Kia Canada release: 21-inch alloy wheels with 285/45R21 tires on the EV9 GT."
-        }
+        { "diameter_in": 21, "is_standard": true, "tire_size": "285/45R21", "source_id": "src-kia-ca-ev9-gt-release", "notes": "Kia Canada release: 21-inch alloy wheels with 285/45R21 tires on the EV9 GT." }
       ]
     }
   ]

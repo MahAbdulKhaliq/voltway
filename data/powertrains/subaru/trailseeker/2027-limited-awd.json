@@ -3,83 +3,31 @@
   "model_id": "subaru/trailseeker",
   "name": "Limited AWD",
   "generation": "first-generation",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 74.7,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2j-subaru-us-trailseeker-2027",
-        "low_confidence": true,
-        "notes": "Subaru USA 2027 press kit: \"Powered by a 74.7-kWh high-capacity lithium-ion battery\"."
-      }
+      { "value": 74.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2027", "low_confidence": true, "notes": "Subaru USA 2027 press kit: \"Powered by a 74.7-kWh high-capacity lithium-ion battery\"." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 71,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-r19-evdb-bz4x-touring-747",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists 71.0 kWh usable for the 74.7 kWh pack (bZ4X Touring AWD MY26); same pack in the Subaru twin of the bZ/C-HR (Subaru US releases state 74.7 kWh)."
-      }
+      { "value": 71, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "note_id": "n-0642804d32" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-autopian-bz-2026",
-        "low_confidence": true,
-        "notes": "Estimated: Same 74.7 kWh pack as the 2026 bZ (Subaru US release), whose chief engineer says the pack keeps the same NMC chemistry and cells (Autopian)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-bde74a19f9" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-r19-evdb-bz4x-touring-747",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists 391 V for the 74.7 kWh pack; Toyota chief engineer (InsideEVs) says 400-volt architecture; the Subaru twin uses the 74.7 kWh pack."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "note_id": "n-ef8fe61df6" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-w2j-subaru-us-trailseeker-2027",
-        "notes": "Onboard battery-preconditioning system, \"enabled either by navigating to a charging destination or by the driver via touchscreen controls\"."
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2027", "notes": "Onboard battery-preconditioning system, \"enabled either by navigating to a charging destination or by the driver via touchscreen controls\"." }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-w2j-subaru-us-uncharted-2026",
-      "low_confidence": true,
-      "notes": "Estimated: Subaru does not state the Trailseeker onboard charger; the Uncharted release (same platform, Subaru twin of the Toyota bZ Woodland) states 11 kW, as does the Woodland (Toyota Canada)."
-    }
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-w2j-subaru-us-uncharted-2026", "low_confidence": true, "note_id": "n-b9fa804cb1" }
   ],
   "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-subaru-us-trailseeker-2027",
-      "notes": "\"speeds up to 150 kW on a DC-fast charger\"."
-    }
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2027", "notes": "\"speeds up to 150 kW on a DC-fast charger\"." }
   ],
   "published_10_80_min": [
-    {
-      "value": 28,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-subaru-us-trailseeker-2027",
-      "notes": "\"can charge from 10% to 80% in as little as 28 minutes\"."
-    }
+    { "value": 28, "unit": "min", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2027", "notes": "\"can charge from 10% to 80% in as little as 28 minutes\"." }
   ]
 }

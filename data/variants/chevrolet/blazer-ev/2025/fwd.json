@@ -5,56 +5,21 @@
   "name": "FWD",
   "drivetrain": "fwd",
   "powertrain_id": "chevrolet/blazer-ev/2027-fwd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-r3-electrek-blazer-2027-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: Electrek (2026-04-29) says the 2027 Blazer EV replaces \"the CCS connector used on earlier models\", so 2024-2026 are CCS1 (J1772 native inlet); no change found between model years. Model year 2025. Canadian car assumed the same (Guide Auto 2024-09-18: Canadian owners need the GM adapter)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-electrek-blazer-2027-nacs", "low_confidence": true, "note_id": "n-7710550859" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2025: adapter needed. Markets: CA/US."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "community",
-      "source_id": "src-insideevs-blazer-ev-supercharger-2025",
-      "low_confidence": true,
-      "notes": "US press: an InsideEVs author charged a 2025 Blazer EV SS at a Tesla Supercharger in California with the Chevy-approved adapter (2025-05-30). US market, model year 2025: adapter needed."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-cef5d86ca8" },
+    { "value": "via_adapter", "kind": "community", "source_id": "src-insideevs-blazer-ev-supercharger-2025", "low_confidence": true, "note_id": "n-c8f22c3b95" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "FWD",
-        "US": "FWD"
-      },
+      "names": { "CA": "FWD", "US": "FWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-blazer-ev-2025-specs",
-          "notes": "FWD LT: 19 in, 255/60R19."
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-blazer-ev-2025-specs-455774",
-          "notes": "AWD RS page read; FWD RS assumed the same.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2025-specs", "note_id": "n-b639983103" },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2025-specs-455774", "note_id": "n-046d7da3cc", "low_confidence": true }
       ]
     }
   ]

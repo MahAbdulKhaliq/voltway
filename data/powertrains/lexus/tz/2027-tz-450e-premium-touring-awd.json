@@ -3,76 +3,28 @@
   "model_id": "lexus/tz",
   "name": "TZ 450e Premium Touring AWD",
   "generation": "first-generation",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 95.82,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2j-lexus-us-tz-2027",
-        "low_confidence": true,
-        "notes": "Lexus USA lists two packs, 76.96 and 95.82 kWh; TFLcar/InsideEVs: Premium 77 kWh, Premium Touring 96 kWh; gross vs usable not stated."
-      }
+      { "value": 95.82, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-tz-2027", "low_confidence": true, "note_id": "n-3cb446b7b8" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-w2j-insideevs-tz-2027",
-        "low_confidence": true,
-        "notes": "Estimated: InsideEVs: battery preconditioning standard; Lexus release: \"Optimizes battery temperature before charging in cold conditions\", 5G-dependent, subscription. The Lexus TZ page names battery preconditioning but not its trigger; assumed as on the Lexus ES (touchscreen or automatic with a charger as destination), not confirmed."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-w2j-insideevs-tz-2027", "low_confidence": true, "note_id": "n-513b926bc0" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "community",
-        "source_id": "src-r2-autodata-tz-450e-9582",
-        "low_confidence": true,
-        "notes": "Auto-Data.net: battery voltage 385 V for the TZ 450e 95.82 kWh. Toyota press release: 312 cells in this pack vs 104 in the 76.96 kWh pack (400 V class, src-insideevs-bz-charging-limit-2026)."
-      }
+      { "value": "400v", "kind": "community", "source_id": "src-r2-autodata-tz-450e-9582", "low_confidence": true, "notes": "Auto-Data.net: battery voltage 385 V for the TZ 450e 95.82 kWh. Toyota press release: 312 cells in this pack vs 104 in the 76.96 kWh pack (400 V class, src-insideevs-bz-charging-limit-2026)." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-r2-greencars-highlander-ev",
-        "low_confidence": true,
-        "notes": "Estimated: platform sibling with the same pack. Lexus says the TZ 95.82 kWh pack is the Toyota Highlander EV 95.8 kWh pack (Toyota Liberty NC assembly); GreenCars reports LG Energy Solution pouch cells with nickel-manganese-cobalt-aluminum cathode (NMCA, recorded as nmc). Toyota states \"lithium-ion\" only (src-r2-lexus-tz-global-pr)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-r2-greencars-highlander-ev", "low_confidence": true, "notes": "Estimated: platform sibling with the same pack. Lexus says the TZ 95.82 kWh pack is the Toyota Highlander EV 95.8 kWh pack (Toyota Liberty NC assembly); GreenCars reports LG Energy Solution pouch cells with nickel-manganese-cobalt-aluminum cathode (NMCA, recorded as nmc). Toyota states \"lithium-ion\" only (src-r2-lexus-tz-global-pr)." }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-tfl-tz-2027",
-      "low_confidence": true,
-      "notes": "TFLcar: \"All versions of the TZ come with an 11-kW onboard AC charger\" (19 kW optional)."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-tfl-tz-2027", "low_confidence": true, "note_id": "n-6b249a7ece" }
   ],
   "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-insideevs-tz-2027",
-      "low_confidence": true,
-      "notes": "InsideEVs: 150 kW peak for the large battery."
-    }
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-insideevs-tz-2027", "low_confidence": true, "notes": "InsideEVs: 150 kW peak for the large battery." }
   ],
   "published_10_80_min": [
-    {
-      "value": 35,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-insideevs-tz-2027",
-      "low_confidence": true,
-      "notes": "About 35 minutes 10-80% for the large battery, \"per the automaker\"."
-    }
+    { "value": 35, "unit": "min", "kind": "manufacturer", "source_id": "src-w2j-insideevs-tz-2027", "low_confidence": true, "notes": "About 35 minutes 10-80% for the large battery, \"per the automaker\"." }
   ]
 }

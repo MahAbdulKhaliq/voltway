@@ -3,76 +3,28 @@
   "model_id": "lucid/air",
   "name": "Sapphire",
   "generation": "first-generation",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 118,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-w2-insideevs-lucid-118-usable",
-        "low_confidence": true,
-        "notes": "Estimated: the same 22-module 118 kWh pack as the Dream Edition, where Lucid confirmed 118 is both usable and total (InsideEVs); Sapphire sheet 118 kWh."
-      }
+      { "value": 118, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-insideevs-lucid-118-usable", "low_confidence": true, "note_id": "n-508dd00c77" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-w2-lucid-battery-data",
-        "low_confidence": true,
-        "notes": "Estimated: Lucid battery data (MY26+ packs) gives chemistry ID \"Li MM(NRMC) - C.F\", read as nickel-rich NMC (the page does not decode it)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-1798a55215" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "estimated",
-        "source_id": "src-w2-lucid-air-sapphire-2024-sheet",
-        "low_confidence": true,
-        "notes": "Estimated: 2024 hardware assumed for 2027 (Lucid battery data lists a Sapphire 22M pack for MY26+). Lucid 2024 Sapphire sheet: 900V+."
-      }
+      { "value": "800v", "kind": "estimated", "source_id": "src-w2-lucid-air-sapphire-2024-sheet", "low_confidence": true, "notes": "Estimated: 2024 hardware assumed for 2027 (Lucid battery data lists a Sapphire 22M pack for MY26+). Lucid 2024 Sapphire sheet: 900V+." }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-w2-lucid-air-charging-guide",
-        "low_confidence": true,
-        "notes": "Lucid: manual Start Preconditioning plus Smart Preconditioning (automatic when routing to a fast charger). Current software state; the page is not year-specific."
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "low_confidence": true, "note_id": "n-5b38ca5f4b" }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 118,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-w2-lucid-air-sapphire-2024-sheet",
-        "low_confidence": true,
-        "notes": "Estimated: 2024 hardware assumed for 2027 (Lucid battery data lists a Sapphire 22M pack for MY26+). Lucid 2024 Sapphire sheet: 118 kWh (22 module) (via search excerpt)."
-      }
+      { "value": 118, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-lucid-air-sapphire-2024-sheet", "low_confidence": true, "notes": "Estimated: 2024 hardware assumed for 2027 (Lucid battery data lists a Sapphire 22M pack for MY26+). Lucid 2024 Sapphire sheet: 118 kWh (22 module) (via search excerpt)." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 300,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-w2-lucid-air-sapphire-2024-sheet",
-      "low_confidence": true,
-      "notes": "Estimated: 2024 hardware assumed for 2027 (Lucid battery data lists a Sapphire 22M pack for MY26+). Lucid 2024 Sapphire sheet: up to 300 kW."
-    }
+    { "value": 300, "unit": "kW", "kind": "estimated", "source_id": "src-w2-lucid-air-sapphire-2024-sheet", "low_confidence": true, "notes": "Estimated: 2024 hardware assumed for 2027 (Lucid battery data lists a Sapphire 22M pack for MY26+). Lucid 2024 Sapphire sheet: up to 300 kW." }
   ],
   "ac_max_kw": [
-    {
-      "value": 19.2,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-air-charging-ca",
-      "low_confidence": true,
-      "notes": "Lucid Canada charging page: AC charging maximum 19.2 kW; Wikipedia lists 19.2 kW (240 V, 80 A) for every trim."
-    }
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "low_confidence": true, "note_id": "n-560efa3597" }
   ]
 }

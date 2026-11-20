@@ -5,57 +5,25 @@
   "name": "Standard",
   "drivetrain": "fwd",
   "powertrain_id": "toyota/bz/2026-standard",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-2026"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-onsale-2026",
-      "low_confidence": true,
-      "notes": "Toyota Canada release: \"Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network\"; 2026 has a native NACS port. Wording is not model-specific."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-onsale-2026", "low_confidence": true, "note_id": "n-f27bcbd3a3" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 1840,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-bz-xle-fwd-2026",
-      "low_confidence": true,
-      "notes": "Relay of Toyota Canada figure for the XLE FWD (57.7 kWh, matches our variant): 1,840 kg (4,057 lb) listed as Weight. Matches US 4,057 lb for XLE FWD."
-    }
+    { "value": 1840, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideautoweb-bz-xle-fwd-2026", "low_confidence": true, "notes": "Relay of Toyota Canada figure for the XLE FWD (57.7 kWh, matches our variant): 1,840 kg (4,057 lb) listed as Weight. Matches US 4,057 lb for XLE FWD." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "bZ"
-      },
+      "names": { "CA": "bZ" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-toyota-ca-media-bz-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. Page lists \"Heat pump system for both heating and air-conditioning\" for the model without trim qualifier; recorded as standard. Page names no trims; trim coverage unconfirmed."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "low_confidence": true, "note_id": "n-517ae04b32" }
       ],
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-toyota-ca-media-bz-2026",
-          "notes": "XLE: 18-in multi-spoke black/silver alloy with plastic covers. Variant is the XLE FWD (57.7 kWh)."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-toyota-ca-media-bz-2026", "notes": "XLE: 18-in multi-spoke black/silver alloy with plastic covers. Variant is the XLE FWD (57.7 kWh)." }
       ]
     }
   ]

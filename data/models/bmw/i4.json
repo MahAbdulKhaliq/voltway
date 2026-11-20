@@ -4,56 +4,36 @@
   "name": "i4 Gran Coupe",
   "body_type": "sedan",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation (G26)",
-      "first_year": 2022,
-      "notes": "Launch. 83.9 kWh gross / 81.5 kWh usable pack on eDrive40, xDrive40 and M50/M60; smaller 70.2 kWh gross (66 kWh usable) pack on eDrive35. The 2025 facelift (lights, trim) and the 2026 update (silicon-carbide inverters, more range, M50 renamed M60, eDrive35 dropped) kept the same 81 kWh pack. No pack change across 2022-2026, so one generation. The 2026 inverter change may shift efficiency but not the pack; no source says the DC peak changed. eDrive35 (smaller pack) was sold about 2023-2025 in North America. Wikipedia's navbox lists the i4 as discontinued and its infobox ends model years at 2026, but I found no official North American end date, so last_year is left open. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/BMW_i4 ; https://insideevs.com/news/778177/2026-bmw-i4-range-power/ ; https://www.press.bmwgroup.com/usa/article/detail/T0453773EN_US/2026-bmw-i4-update-measures"
-    }
+    { "id": "first-generation", "name": "First generation (G26)", "first_year": 2022, "notes": "Launch. 83.9 kWh gross / 81.5 kWh usable pack on eDrive40, xDrive40 and M50/M60; smaller 70.2 kWh gross (66 kWh usable) pack on eDrive35. The 2025 facelift (lights, trim) and the 2026 update (silicon-carbide inverters, more range, M50 renamed M60, eDrive35 dropped) kept the same 81 kWh pack. No pack change across 2022-2026, so one generation. The 2026 inverter change may shift efficiency but not the pack; no source says the DC peak changed. eDrive35 (smaller pack) was sold about 2023-2025 in North America. Wikipedia's navbox lists the i4 as discontinued and its infobox ends model years at 2026, but I found no official North American end date, so last_year is left open. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/BMW_i4 ; https://insideevs.com/news/778177/2026-bmw-i4-range-power/ ; https://www.press.bmwgroup.com/usa/article/detail/T0453773EN_US/2026-bmw-i4-update-measures" }
   ],
   "years": [
     {
       "year": 2022,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     }

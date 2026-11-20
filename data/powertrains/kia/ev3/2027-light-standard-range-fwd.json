@@ -3,86 +3,31 @@
   "model_id": "kia/ev3",
   "name": "Light Standard Range FWD",
   "generation": "first-generation",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 58.3,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-kia-uk-ev3-spec",
-        "notes": "Kia UK spec page: 58.3 kWh (bare capacity = gross; usable not stated). North America lists the same pack sizes (Electrek, Auto123, Guide Auto).",
-        "low_confidence": true
-      }
+      { "value": 58.3, "unit": "kWh", "kind": "manufacturer", "source_id": "src-kia-uk-ev3-spec", "note_id": "n-4d4029b275", "low_confidence": true }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 54.6,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-evdb-ioniq5-sr-2wd",
-        "notes": "Estimated: no page states EV3/EV4 usable kWh. 58.3 x 54.0/57.7 (the 58 kWh E-GMP pack: 54.0 usable of 57.7 nominal, EV Database); a different cell supplier or pack design is possible. Treat as approximate.",
-        "low_confidence": true
-      }
+      { "value": 54.6, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-ioniq5-sr-2wd", "note_id": "n-6b6d5f9379", "low_confidence": true }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-wikipedia-kia-ev3",
-        "notes": "Wikipedia: the EV3 (and EV4, same E-GMP 58.3/81.4 kWh packs) use NMC lithium-ion packs.",
-        "low_confidence": true
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-wikipedia-kia-ev3", "note_id": "n-1a5fe2b272", "low_confidence": true }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-kia-uk-ev3-spec",
-        "notes": "Kia UK: nominal 369 V (400 V E-GMP, also stated by Guide Auto and InsideEVs).",
-        "low_confidence": true
-      }
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-kia-uk-ev3-spec", "note_id": "n-de31847afe", "low_confidence": true }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-kia-uk-battery-preconditioning",
-        "notes": "Kia UK page names the EV3: setting a public charger as the destination starts warming/cooling the battery on the drive, and it can also be started from the infotainment or Kia Connect app. UK page; no North American page read.",
-        "low_confidence": true
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-kia-uk-battery-preconditioning", "note_id": "n-6c5318b506", "low_confidence": true }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-kia-uk-ev3-spec",
-      "notes": "Kia UK: 11 kW AC (230 V 16 A, European spec). No North American page states the onboard charger; assumed unchanged.",
-      "low_confidence": true
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-kia-uk-ev3-spec", "note_id": "n-1608163f1f", "low_confidence": true }
   ],
   "dc_max_kw": [
-    {
-      "value": 101,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-kia-uk-ev3-spec",
-      "notes": "Kia UK spec: 101 kW DC (page ties it to the 10-80 % time; Fastned lists 100 kW). UK spec; same pack in North America.",
-      "low_confidence": true
-    }
+    { "value": 101, "unit": "kW", "kind": "manufacturer", "source_id": "src-kia-uk-ev3-spec", "note_id": "n-b813c177a7", "low_confidence": true }
   ],
   "published_10_80_min": [
-    {
-      "value": 29,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-electrek-ev3-prices-2026",
-      "notes": "Kia figure: about 29 minutes 10-80 % on a 350 kW charger (relayed; Kia UK says 29 min too).",
-      "low_confidence": true
-    }
+    { "value": 29, "unit": "min", "kind": "manufacturer", "source_id": "src-electrek-ev3-prices-2026", "note_id": "n-785fc447b9", "low_confidence": true }
   ]
 }

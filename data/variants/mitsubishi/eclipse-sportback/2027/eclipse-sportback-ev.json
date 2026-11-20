@@ -5,54 +5,21 @@
   "name": "Eclipse Sportback EV",
   "drivetrain": "fwd",
   "powertrain_id": "mitsubishi/eclipse-sportback/2027-eclipse-sportback-ev",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-mitsubishi-ca-eclipse-2027",
-      "low_confidence": true,
-      "notes": "NACS port (DC) on the passenger side; a separate J1772 port on the driver side handles AC (Canadian release for the same North American car)."
-    },
-    {
-      "value": "nacs",
-      "kind": "community",
-      "source_id": "src-w2j-insideevs-eclipse-2027",
-      "low_confidence": true,
-      "notes": "InsideEVs (US outlet): NACS on the passenger-side fender, J1772 on the driver side; US car."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-mitsubishi-ca-eclipse-2027", "low_confidence": true, "notes": "NACS port (DC) on the passenger side; a separate J1772 port on the driver side handles AC (Canadian release for the same North American car)." },
+    { "value": "nacs", "kind": "community", "source_id": "src-w2j-insideevs-eclipse-2027", "low_confidence": true, "notes": "InsideEVs (US outlet): NACS on the passenger-side fender, J1772 on the driver side; US car." }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-mitsubishi-ca-eclipse-2027",
-      "low_confidence": true,
-      "notes": "\"access to Tesla's Supercharger network\" (Canadian release)."
-    },
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-w2j-insideevs-eclipse-2027",
-      "low_confidence": true,
-      "notes": "InsideEVs: charges at Tesla Superchargers directly."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-mitsubishi-ca-eclipse-2027", "low_confidence": true, "notes": "\"access to Tesla's Supercharger network\" (Canadian release)." },
+    { "value": "yes", "kind": "community", "source_id": "src-w2j-insideevs-eclipse-2027", "low_confidence": true, "notes": "InsideEVs: charges at Tesla Superchargers directly." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Eclipse Sportback EV"
-      },
+      "names": { "US": "Eclipse Sportback EV" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r2w-a123-ecl",
-          "notes": "Standard 18-inch two-tone alloy wheels."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-a123-ecl", "notes": "Standard 18-inch two-tone alloy wheels." }
       ]
     }
   ]

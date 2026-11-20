@@ -2,6 +2,7 @@
 // model year to data/imported/epa/<year>.json (B90). Regenerated on every import; review as git diffs.
 
 import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { formatJson } from './lib/format-json.ts';
 import { join } from 'node:path';
 import { parseCsv } from './lib/csv.ts';
 import { normalizeEpaRows, type EpaRecord } from './lib/epa.ts';
@@ -25,6 +26,6 @@ for (const r of records) byYear.set(r.year, [...(byYear.get(r.year) ?? []), r]);
 mkdirSync(outDir, { recursive: true });
 for (const old of readdirSync(outDir)) rmSync(join(outDir, old));
 for (const [year, list] of [...byYear].sort(([a], [b]) => a - b)) {
-  writeFileSync(join(outDir, `${year}.json`), JSON.stringify({ source: 'epa', source_id: sourceId, year, records: list }, null, 2) + '\n');
+  writeFileSync(join(outDir, `${year}.json`), formatJson({ source: 'epa', source_id: sourceId, year, records: list }, { oneLine: 'records' }));
 }
 console.log(`import:epa: ${records.length} rows → ${byYear.size} files in data/imported/epa/ (source ${sourceId}); per year ${[...byYear].map(([y, l]) => `${y}:${l.length}`).join(' ')}`);

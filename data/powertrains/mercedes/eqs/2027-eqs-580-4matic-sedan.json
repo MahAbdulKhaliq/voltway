@@ -3,72 +3,28 @@
   "model_id": "mercedes/eqs",
   "name": "EQS 580 4MATIC Sedan",
   "generation": "2027-update",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 122,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-mbusa-my27-updates",
-        "low_confidence": true,
-        "notes": "Estimated: Mercedes USA states a \"122-kWh battery\" for the 2027 EQS without saying usable or gross; electrive labels the sister 112 kWh pack \"usable net\", so 122 is read as usable on the same basis. This argument is weak (no page labels 122 usable or gross)."
-      }
+      { "value": 122, "unit": "kWh", "kind": "estimated", "source_id": "src-mbusa-my27-updates", "low_confidence": true, "note_id": "n-672d0b1c22" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-electrive-eqs-2026",
-        "low_confidence": true,
-        "notes": "Estimated: electrive: anodes blend silicon oxide with graphite and cobalt content is reduced (NMC-type cathode); Mercedes calls it \"optimized cell chemistry\". Chemistry not named outright."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-electrive-eqs-2026", "low_confidence": true, "note_id": "n-7fe0dd6346" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-mbusa-eqs-2027-future",
-        "notes": "mbusa 2027 EQS page: 800-volt electric architecture."
-      }
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-mbusa-eqs-2027-future", "note_id": "n-83e3bd1bca" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-mbusa-cla-release",
-        "low_confidence": true,
-        "notes": "Estimated: The 2026 CLA release states navigation-triggered battery pre-heating before DC fast charging; no page was found for this car and Mercedes states no lineup-wide feature for this year, so this is a same-maker guess. Manual control unknown."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-cla-release", "low_confidence": true, "note_id": "n-3c5c3fd44c" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 350,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2027-eqs-eqs580v4",
-      "notes": "mbusa data sheet: 350 kW at 800 V, 175 kW at 400 V. The mbusa 2027 EQS marketing page says up to 430 kW (430 kW is the EQS 580 motor output; Mercedes press and electrive say 350 kW)."
-    }
+    { "value": 350, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-eqs-eqs580v4", "note_id": "n-8eaafd29db" }
   ],
   "ac_max_kw": [
-    {
-      "value": 9.6,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2027-eqs-eqs580v4",
-      "notes": "mbusa data sheet AC charging 9.6 kW."
-    }
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-eqs-eqs580v4", "note_id": "n-12aa537573" }
   ],
   "published_10_80_min": [
-    {
-      "value": 27,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2027-eqs-eqs580v4",
-      "notes": "mbusa data sheet 10-80 % in 27 min."
-    }
+    { "value": 27, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-eqs-eqs580v4", "note_id": "n-826dcf548e" }
   ]
 }

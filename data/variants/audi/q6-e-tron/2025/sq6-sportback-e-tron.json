@@ -4,44 +4,20 @@
   "year": 2025,
   "name": "SQ6 Sportback e-tron",
   "drivetrain": "awd",
-  "powertrain_id": "audi/q6-e-tron/2025-sq6-sportback-e-tron",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "audi/q6-e-tron/2025-q6-e-tron-quattro",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-electrive-audi-nacs",
-      "low_confidence": true,
-      "notes": "electrive/InsideEVs 2025-09-08: Audi EVs lack a NACS port; Q6 e-tron and A6 e-tron are supplied with the Audi NACS DC adapter."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-5d3ec41656" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-insideevs-audi-porsche-sc",
-      "low_confidence": true,
-      "notes": "InsideEVs/electrive 2025-09-08: Q6 e-tron and A6 e-tron gain Supercharger access (US and Canada same date) with the Audi NACS DC adapter, included with new 2025 Q6/A6 Sportback/GT purchases."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-c1cc15655e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "SQ6 Sportback e-tron",
-        "US": "SQ6 Sportback e-tron"
-      },
+      "names": { "CA": "SQ6 Sportback e-tron", "US": "SQ6 Sportback e-tron" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-audi-sq6etron-2025-465468",
-          "notes": "Estimated: 2025 SQ6 e-tron Premium quattro page shows 20x8.5/20x10; 2025 Sportback assumed the same. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-sq6etron-2025-465468", "notes": "Estimated: 2025 SQ6 e-tron Premium quattro page shows 20x8.5/20x10; 2025 Sportback assumed the same. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
       ]
     }
   ]

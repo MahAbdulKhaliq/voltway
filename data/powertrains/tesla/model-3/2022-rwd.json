@@ -3,76 +3,28 @@
   "model_id": "tesla/model-3",
   "name": "RWD",
   "generation": "2021-refresh",
-  "years": [
-    2022
-  ],
+  "years": [2022],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 60,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-rwd-lfp-2021",
-        "low_confidence": true,
-        "notes": "Estimated: 60.0 kWh nominal, CATL LFP (EV Database 2021-23 RWD; the existing OpenEV import for the 2026 Premium-I also shows 60/57). evspecifications lists 62 kWh for 2023-24, Wikipedia 64 kWh for the current RWD. EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America."
-      }
+      { "value": 60, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-rwd-lfp-2021", "low_confidence": true, "notes": "Estimated: 60.0 kWh nominal, CATL LFP (EV Database 2021-23 RWD; the existing OpenEV import for the 2026 Premium-I also shows 60/57). evspecifications lists 62 kWh for 2023-24, Wikipedia 64 kWh for the current RWD. EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 57,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-rwd-lfp-2021",
-        "low_confidence": true,
-        "notes": "Estimated: 57.0 kWh usable (EV Database estimate). EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America."
-      }
+      { "value": 57, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-rwd-lfp-2021", "low_confidence": true, "notes": "Estimated: 57.0 kWh usable (EV Database estimate). EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America." }
     ],
     "chemistry": [
-      {
-        "value": "lfp",
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-rwd-lfp-2021",
-        "low_confidence": true,
-        "notes": "Estimated: LFP (CATL); evspecifications 2023/2024 RWD LFP. EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America."
-      }
+      { "value": "lfp", "kind": "estimated", "source_id": "src-evdb-m3-rwd-lfp-2021", "low_confidence": true, "notes": "Estimated: LFP (CATL); evspecifications 2023/2024 RWD LFP. EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-rwd-lfp-2021",
-        "low_confidence": true,
-        "notes": "Estimated: 400 V architecture (EV Database); evspecifications 345 V nominal. EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-m3-rwd-lfp-2021", "low_confidence": true, "notes": "Estimated: 400 V architecture (EV Database); evspecifications 345 V nominal. EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America." }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-notateslaapp-2020-24-6-4",
-        "low_confidence": true,
-        "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2022 RWD). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-notateslaapp-2020-24-6-4", "low_confidence": true, "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2022 RWD). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 170,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-evdb-m3-rwd-lfp-2021",
-      "low_confidence": true,
-      "notes": "Estimated: 170 kW (EV Database; evspecifications 2023 and 2024 RWD 170 kW; InsideEVs Highland: RWD 170 kW unchanged). EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America."
-    }
+    { "value": 170, "unit": "kW", "kind": "estimated", "source_id": "src-evdb-m3-rwd-lfp-2021", "low_confidence": true, "notes": "Estimated: 170 kW (EV Database; evspecifications 2023 and 2024 RWD 170 kW; InsideEVs Highland: RWD 170 kW unchanged). EV Database page is the European Dec 2021-Oct 2023 RWD; NA 2022 RWD (CA and US) assumed to carry the same CATL LFP pack (model-file note says LFP RWD timing unconfirmed). Not verified for North America." }
   ],
   "ac_max_kw": [
-    {
-      "value": 7.7,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-wikipedia-model3",
-      "low_confidence": true,
-      "notes": "Estimated: Wikipedia infobox gives 7.6 kW (32 A) for the RWD (Basenor repeats it for 2017-2023 cars); Tesla service manual: 48 A only with the Long Range battery. EV Database 11 kW (3-phase, EU) and evspecifications 11.5 kW do not apply to single-phase North America."
-    }
+    { "value": 7.7, "unit": "kW", "kind": "estimated", "source_id": "src-wikipedia-model3", "low_confidence": true, "note_id": "n-0033adf24b" }
   ]
 }

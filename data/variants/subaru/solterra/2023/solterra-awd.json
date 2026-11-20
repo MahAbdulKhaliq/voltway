@@ -4,56 +4,22 @@
   "year": 2023,
   "name": "Solterra AWD",
   "drivetrain": "awd",
-  "powertrain_id": "subaru/solterra/2023-solterra-awd",
-  "markets": [
-    "CA"
-  ],
+  "powertrain_id": "subaru/solterra/2023-limited",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-r19-evspecs-solterra",
-      "low_confidence": true,
-      "notes": "Estimated: EV Specifications lists CCS1 for the North American 2023-25 Solterra; Subaru (Oct 2025) says 2023-2025 owners need a NACS adapter and only the 2026 has a NACS port; Toyota says its 2023-25 twin has a CCS1 port."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r19-evspecs-solterra", "low_confidence": true, "note_id": "n-46f73e1ed9" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-r19-subaru-us-solterra-sc-2025",
-      "low_confidence": true,
-      "notes": "Subaru of America (22 Oct 2025): owners of 2023-2025 Solterra can purchase a Genuine Subaru Accessory Fast Charging Adapter (NACS); all Solterra owners have access to 25,000+ Tesla Superchargers."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-r19-driveteslacanada-solterra-bz4x",
-      "low_confidence": true,
-      "notes": "Drive Tesla Canada: Subaru says all Solterra EV owners can access 25,000+ Superchargers in Canada and the US; 2023-2025 owners will buy the NACS adapter from Subaru dealers."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-sc-2025", "low_confidence": true, "note_id": "n-59bcf36e02" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-r19-driveteslacanada-solterra-bz4x", "low_confidence": true, "note_id": "n-3d7f408c18" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Solterra AWD"
-      },
+      "names": { "CA": "Solterra AWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-subaru-solterra-2023-specs-427542",
-          "notes": "US Premium AWD page: 18x7.5, P235/60VR18; applied to Canada.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-subaru-solterra-2023-specs-427543",
-          "notes": "US Limited AWD: 20 in; applied to Canada.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-subaru-solterra-2023-specs-427542", "notes": "US Premium AWD page: 18x7.5, P235/60VR18; applied to Canada.", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-subaru-solterra-2023-specs-427543", "note_id": "n-6d5385d703", "low_confidence": true }
       ]
     }
   ]

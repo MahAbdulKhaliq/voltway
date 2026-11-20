@@ -3,85 +3,31 @@
   "model_id": "polestar/polestar-2",
   "name": "Dual Motor Performance Pack",
   "generation": "2024-update",
-  "years": [
-    2025
-  ],
+  "years": [2025],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 82,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-polestar-us-specs",
-        "notes": "Polestar US spec page: 82 kWh capacity (gross/usable not split) at 400 V."
-      }
+      { "value": 82, "unit": "kWh", "kind": "manufacturer", "source_id": "src-polestar-us-specs", "note_id": "n-eec17b7d5b" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 79,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-evdb-polestar-2-lr-dual-my24",
-        "low_confidence": true,
-        "notes": "EV Database (European MY24 Polestar 2, same 82 kWh pack): 79.0 kWh usable. Wikipedia: 79 usable / 82 gross for single 2024-25 and dual 2025."
-      }
+      { "value": 79, "unit": "kWh", "kind": "manufacturer", "source_id": "src-evdb-polestar-2-lr-dual-my24", "low_confidence": true, "note_id": "n-d4e1165b24" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-wikipedia-polestar-2",
-        "low_confidence": true,
-        "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
-      }
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-wikipedia-polestar-2", "low_confidence": true, "note_id": "n-cc088d2156" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-polestar-us-specs",
-        "low_confidence": true,
-        "notes": "Polestar US spec page: 400 V lithium-ion, 82 kWh."
-      }
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-polestar-us-specs", "low_confidence": true, "note_id": "n-3c0837f9d3" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-polestar-us-manual-2024-gmaps",
-        "low_confidence": true,
-        "notes": "Estimated: Same line as the 2024 manual: the 2024 and 2023 US Polestar 2 manuals describe only the Google Maps navigation trigger (no manual control); the 2021 manual only says preconditioning lengthens charging time. Nothing shows a change for this model year."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-polestar-us-manual-2024-gmaps", "low_confidence": true, "note_id": "n-40279971b6" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 205,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-us-specs",
-      "low_confidence": true,
-      "notes": "Polestar US spec page (Dual motor with Performance pack, 82 kWh): up to 205 kW DC, 10-80% in 28 min. Wikipedia: single 205 kW from 2024, dual 205 kW from 2025. OpenEV shows 78/75/150 for these cars, which is stale."
-    }
+    { "value": 205, "unit": "kW", "kind": "manufacturer", "source_id": "src-polestar-us-specs", "low_confidence": true, "notes": "Polestar US spec page (Dual motor with Performance pack, 82 kWh): up to 205 kW DC, 10-80% in 28 min. Wikipedia: single 205 kW from 2024, dual 205 kW from 2025. OpenEV shows 78/75/150 for these cars, which is stale." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-us-specs",
-      "low_confidence": true,
-      "notes": "Polestar US spec page: AC 11 kW (three-phase 16 A line); North American cars charge single-phase 48 A = 11 kW per the 2023 US manual."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-polestar-us-specs", "low_confidence": true, "notes": "Polestar US spec page: AC 11 kW (three-phase 16 A line); North American cars charge single-phase 48 A = 11 kW per the 2023 US manual." }
   ],
   "published_10_80_min": [
-    {
-      "value": 28,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-us-specs",
-      "low_confidence": true,
-      "notes": "Polestar US spec page: 10-80% in 28 min."
-    }
+    { "value": 28, "unit": "min", "kind": "manufacturer", "source_id": "src-polestar-us-specs", "low_confidence": true, "notes": "Polestar US spec page: 10-80% in 28 min." }
   ]
 }

@@ -3,76 +3,28 @@
   "model_id": "jaguar/i-pace",
   "name": "EV400",
   "generation": "launch-7kw",
-  "years": [
-    2019
-  ],
+  "years": [2019],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 90,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-jaguar-us-electrifying-performance",
-        "low_confidence": true,
-        "notes": "Jaguar US: pack rated 90 kWh; Jaguar UK page also 90 kWh."
-      }
+      { "value": 90, "unit": "kWh", "kind": "manufacturer", "source_id": "src-jaguar-us-electrifying-performance", "low_confidence": true, "note_id": "n-6bc2b9be17" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 84.7,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-evdb-ipace-1287-excerpt",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database search excerpts (page 429) give 84.7 kWh usable of 90; no Jaguar page opened states usable. Estimated: EV Database search excerpts (page 429) give 84.7 kWh usable of 90; no Jaguar page opened states usable. Estimated: EV Database search excerpts (page 429) give 84.7 kWh usable of 90; no Jaguar page opened states usable. Estimated: EV Database search excerpts (page 429) give 84.7 kWh usable of 90; no Jaguar page opened states usable. Estimated: EV Database search excerpts (page 429) give 84.7 kWh usable of 90; no Jaguar page opened states usable. Estimated: EV Database search excerpts (page 429) give 84.7 kWh usable of 90; no Jaguar page opened states usable. EV Database (search excerpts): 90 kWh nominal / 84.7 usable; Jaguar UK technical data lists total (usable) 90 (84.7) in a search excerpt. Not on the Jaguar page as fetched."
-      }
+      { "value": 84.7, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-ipace-1287-excerpt", "low_confidence": true, "note_id": "n-2796b11f8e" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-jaguar-i-pace",
-        "low_confidence": true,
-        "notes": "Estimated: LG Chem pouch cells (Wikipedia; Jaguar \"pouch cell technology\"); an Autocar piece on the I-Pace concept says nickel-cobalt-manganese chemistry (search excerpt). No Jaguar page opened names the chemistry."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-jaguar-i-pace", "low_confidence": true, "note_id": "n-36d44bff2a" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-evdb-ipace-1287-excerpt",
-        "low_confidence": true,
-        "notes": "Estimated: 432 cells (EV Database, Wikipedia) in a 108s4p layout at about 3.65 V is roughly 390 V nominal, a 400 V-class pack. No page states the voltage."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-ipace-1287-excerpt", "low_confidence": true, "note_id": "n-ccc39761a2" }
     ],
     "preconditioning": [
-      {
-        "value": "manual_only",
-        "kind": "estimated",
-        "source_id": "src-jlr-ipace-launch-precondition",
-        "low_confidence": true,
-        "notes": "Estimated: Jaguar launch material lists battery-and-cabin preconditioning while plugged in (app-started; Wikipedia: Jaguar Remote app can start battery preconditioning); Jaguar US calls it \"preconditioning mode\". No page describes navigation-triggered warming before a DC charger, so recorded as manual only."
-      }
+      { "value": "manual_only", "kind": "estimated", "source_id": "src-jlr-ipace-launch-precondition", "low_confidence": true, "note_id": "n-847793b53b" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 100,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-jlr-ipace-2022-release",
-      "low_confidence": true,
-      "notes": "Jaguar US 2022 release: 100 kW DC charger adds up to 63 miles in 15 minutes; Wikipedia 100 kW. EV Database measures about 104 kW."
-    }
+    { "value": 100, "unit": "kW", "kind": "manufacturer", "source_id": "src-jlr-ipace-2022-release", "low_confidence": true, "note_id": "n-b1f422b228" }
   ],
   "ac_max_kw": [
-    {
-      "value": 7,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-cars-2022-ipace",
-      "low_confidence": true,
-      "notes": "Cars.com (2022 article): the outgoing US car had a 7 kW charger on 230 V; Jaguar UK page also 7 kW."
-    }
+    { "value": 7, "unit": "kW", "kind": "manufacturer", "source_id": "src-cars-2022-ipace", "low_confidence": true, "note_id": "n-b0b9cc5abc" }
   ]
 }

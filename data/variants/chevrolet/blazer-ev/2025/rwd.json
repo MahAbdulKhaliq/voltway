@@ -4,49 +4,21 @@
   "year": 2025,
   "name": "RWD",
   "drivetrain": "rwd",
-  "powertrain_id": "chevrolet/blazer-ev/2025-rwd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "chevrolet/blazer-ev/2025-rs-rwd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-r3-electrek-blazer-2027-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: Electrek (2026-04-29) says the 2027 Blazer EV replaces \"the CCS connector used on earlier models\", so 2024-2026 are CCS1 (J1772 native inlet); no change found between model years. Model year 2025. Canadian car assumed the same (Guide Auto 2024-09-18: Canadian owners need the GM adapter)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-electrek-blazer-2027-nacs", "low_confidence": true, "note_id": "n-7710550859" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Estimated: GM adapter programme covers Blazer EV, Equinox EV, Silverado EV and LYRIQ (Canadian article); US availability assumed. Current state for model year 2025: adapter needed. Markets: US."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "community",
-      "source_id": "src-insideevs-blazer-ev-supercharger-2025",
-      "low_confidence": true,
-      "notes": "US press: an InsideEVs author charged a 2025 Blazer EV SS at a Tesla Supercharger in California with the Chevy-approved adapter (2025-05-30). US market, model year 2025: adapter needed."
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "notes": "Estimated: GM adapter programme covers Blazer EV, Equinox EV, Silverado EV and LYRIQ (Canadian article); US availability assumed. Current state for model year 2025: adapter needed. Markets: US." },
+    { "value": "via_adapter", "kind": "community", "source_id": "src-insideevs-blazer-ev-supercharger-2025", "low_confidence": true, "note_id": "n-c8f22c3b95" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "RWD"
-      },
+      "names": { "US": "RWD" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-blazer-ev-2025-specs-455774",
-          "notes": "RWD RS page not opened; 21 in from the AWD RS page and the 2024 RWD RS page.",
-          "low_confidence": true
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2025-specs-455774", "note_id": "n-f95851e323", "low_confidence": true }
       ]
     }
   ]

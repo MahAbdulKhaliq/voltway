@@ -3,85 +3,31 @@
   "model_id": "audi/a6-e-tron",
   "name": "A6 e-tron quattro",
   "generation": "first-generation",
-  "years": [
-    2025
-  ],
+  "years": [2025],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 100,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2-audi-ppe-charging-release",
-        "low_confidence": true,
-        "notes": "Audi: gross storage capacity 100 kWh (12 modules). US A6/Q6 are all 100 kWh (electrive 2027 table; Electrek: RWD Q6 has the 100 kWh pack, not the 83 kWh pack sold elsewhere)."
-      }
+      { "value": 100, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-audi-ppe-charging-release", "low_confidence": true, "note_id": "n-3f40ac5c84" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 94.9,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2-audi-ppe-charging-release",
-        "low_confidence": true,
-        "notes": "Audi: 94.9 kWh net. Cars.com (US) agrees. Wards/Car and Driver give 94.4 for the US A6."
-      }
+      { "value": 94.9, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-audi-ppe-charging-release", "low_confidence": true, "note_id": "n-13eb9b81d9" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-w2-wiki-audi-a6",
-        "low_confidence": true,
-        "notes": "Wikipedia (A6 e-tron): 100 kWh pack is twelve modules of prismatic NMC811 cells (CATL); the Q6 page lists \"100 kWh 12-Modules NMC CATL\"."
-      }
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-w2-wiki-audi-a6", "low_confidence": true, "note_id": "n-451cc9c12e" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-w2-audi-ppe-charging-release",
-        "notes": "Audi: \"an 800-volt electrical system\" (PPE)."
-      }
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-w2-audi-ppe-charging-release", "note_id": "n-0e99b1800b" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-w2-audi-ppe-charging-release",
-        "low_confidence": true,
-        "notes": "Estimated: Audi's PPE release credits \"the new preconditioned HV battery, and the new predictive thermal management\"; it does not say how it is triggered (Audi route-planner documentation not opened). Recorded as navigation-triggered; no manual control is described."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-w2-audi-ppe-charging-release", "low_confidence": true, "note_id": "n-56c15aa116" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 270,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-auto123-a6-ca",
-      "low_confidence": true,
-      "notes": "Auto123 (Canada, 2025 A6 Sportback e-tron quattro and Ultra e-tron quattro, dual-motor AWD): \"up to 270 kW\", 10-80 % in 21 min."
-    }
+    { "value": 270, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-auto123-a6-ca", "low_confidence": true, "notes": "Auto123 (Canada, 2025 A6 Sportback e-tron quattro and Ultra e-tron quattro, dual-motor AWD): \"up to 270 kW\", 10-80 % in 21 min." }
   ],
   "ac_max_kw": [
-    {
-      "value": 9.6,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-auto123-a6-ca",
-      "low_confidence": true,
-      "notes": "Auto123 (Canada): AC charging up to 9.6 kW on the 2025 A6 Sportback e-tron quattro and Ultra."
-    }
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-auto123-a6-ca", "low_confidence": true, "notes": "Auto123 (Canada): AC charging up to 9.6 kW on the 2025 A6 Sportback e-tron quattro and Ultra." }
   ],
   "published_10_80_min": [
-    {
-      "value": 21,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-w2-electrek-q6-2025-us",
-      "low_confidence": true,
-      "notes": "Audi: 10-80 % in about 21 minutes (best case, 800 V DC charger)."
-    }
+    { "value": 21, "unit": "min", "kind": "manufacturer", "source_id": "src-w2-electrek-q6-2025-us", "low_confidence": true, "note_id": "n-8205973a41" }
   ]
 }

@@ -4,60 +4,26 @@
   "year": 2026,
   "name": "Long Range AWD XRT",
   "drivetrain": "awd",
-  "powertrain_id": "hyundai/ioniq-5/2026-long-range-awd-xrt",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "hyundai/ioniq-5/2026-long-range-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-5-2026",
-      "notes": "NACS charge port; two CCS adapters (AC and DC) included."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026", "note_id": "n-693ec5bad2" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-5-2026",
-      "notes": "Through its NACS port."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026", "note_id": "n-7e053e3948" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2135,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-carfactsheet-ioniq5-2026",
-      "low_confidence": true,
-      "notes": "Converted from 4,707 lb (US XRT, CarFactSheet table attributed to Hyundai; EVSpecifications also gives 2,135 kg; KBB gives 4,720 lb = 2,141 kg). US figure; no Canadian XRT spec page found, assumed the same car (84 kWh, AWD)."
-    }
+    { "value": 2135, "unit": "kg", "kind": "manufacturer", "source_id": "src-carfactsheet-ioniq5-2026", "low_confidence": true, "notes": "Converted from 4,707 lb (US XRT, CarFactSheet table attributed to Hyundai; EVSpecifications also gives 2,135 kg; KBB gives 4,720 lb = 2,141 kg). US figure; no Canadian XRT spec page found, assumed the same car (84 kWh, AWD)." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Long Range AWD XRT",
-        "US": "XRT Dual Motor AWD"
-      },
+      "names": { "CA": "Long Range AWD XRT", "US": "XRT Dual Motor AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-hyundai-ca-ioniq-5-2026"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026" }
       ],
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-hmgma-2025-ioniq-5-xrt",
-          "tire_size": "235/60R18",
-          "low_confidence": true,
-          "notes": "US release for 2025 XRT: unique black 18 in wheels, 235/60R18 all-terrain tires. Canadian XRT assumed identical (same model, year-to-year carryover)."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-hmgma-2025-ioniq-5-xrt", "tire_size": "235/60R18", "low_confidence": true, "notes": "US release for 2025 XRT: unique black 18 in wheels, 235/60R18 all-terrain tires. Canadian XRT assumed identical (same model, year-to-year carryover)." }
       ]
     }
   ]

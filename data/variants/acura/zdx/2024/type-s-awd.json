@@ -4,44 +4,20 @@
   "year": 2024,
   "name": "Type S AWD",
   "drivetrain": "awd",
-  "powertrain_id": "acura/zdx/2024-type-s-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "acura/zdx/2024-a-spec-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-acura-zdx",
-      "low_confidence": true,
-      "notes": "Charge Port: \"The ZDX uses a CCS1 port.\""
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thechargeport-acura-zdx", "low_confidence": true, "note_id": "n-ca26641e93" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
-      "low_confidence": true,
-      "notes": "Estimated: US: listed on InsideEVs as Supercharger-compatible with the Honda/Acura adapter (The Charge Port for ZDX: Acura adapter $225, access since July 2025). Canada: no Honda Canada/Acura Canada page found; assumed the same adapter access for the Canadian car. Current state for this model year."
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-nontesla-supercharger-access-2026", "low_confidence": true, "note_id": "n-0a60d767cb" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Type S AWD",
-        "US": "Type S AWD"
-      },
+      "names": { "CA": "Type S AWD", "US": "Type S AWD" },
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-acura-zdx-2024-specs",
-          "notes": "Type S: 22x9.5, 275/40R22 (Performance Wheel & Tire package keeps 22 in, summer tires). Source is a US page; Canadian trim assumed the same.",
-          "low_confidence": true
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-acura-zdx-2024-specs", "notes": "Type S: 22x9.5, 275/40R22 (Performance Wheel & Tire package keeps 22 in, summer tires). Source is a US page; Canadian trim assumed the same.", "low_confidence": true }
       ]
     }
   ]

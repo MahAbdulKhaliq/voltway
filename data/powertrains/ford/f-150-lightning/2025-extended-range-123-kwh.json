@@ -3,63 +3,25 @@
   "model_id": "ford/f-150-lightning",
   "name": "Extended Range (123 kWh)",
   "generation": "first-generation",
-  "years": [
-    2025
-  ],
+  "years": [2025],
   "battery": {
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-ford-corp-sk-ncm",
-        "low_confidence": true,
-        "notes": "Estimated: ER packs through 2024 are NCM (InsideEVs 2023, relays Ford). The 2025 ER pack changed (360 cells instead of 376, 2025 Ford sheet) but no chemistry change was reported, so NCM is the likely chemistry, not a proven one."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-ford-corp-sk-ncm", "low_confidence": true, "note_id": "n-508e42566c" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-ford-ca-nav-ev-routing",
-        "low_confidence": true,
-        "notes": "Estimated: Ford Canada says its electric vehicles use navigation-triggered battery preconditioning (route planning or choosing a DC fast charger in Connected Navigation, Google Maps or Apple Maps EV Routing). The cited page is silent on any manual control and on model years; I found no manual battery-preconditioning control documented in Ford support pages or owner forums (owners have asked for one since 2021), so automatic_with_navigation is the best fit, not a proven fact."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-ford-ca-nav-ev-routing", "low_confidence": true, "note_id": "n-3f5f651b5c" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-batterydesign-fl-er",
-        "low_confidence": true,
-        "notes": "Estimated: ER pack nominal 349 V (Battery Design) is 400 V class; the SR pack uses the same architecture (Ford quotes the same 150 kW DC for both)."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-batterydesign-fl-er", "low_confidence": true, "note_id": "n-f9d6bfa8f7" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 123,
-        "kind": "manufacturer",
-        "source_id": "src-ford-us-fl-specs-2025",
-        "unit": "kWh",
-        "notes": "Ford 2025 spec sheet: 123 kWh of usable energy."
-      }
+      { "value": 123, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2025", "unit": "kWh", "notes": "Ford 2025 spec sheet: 123 kWh of usable energy." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 150,
-      "kind": "manufacturer",
-      "source_id": "src-ford-us-fl-specs-2025",
-      "unit": "kW",
-      "notes": "Ford 2025 spec sheet: 15-80 % DC fast charge, 150 kW+. OpenEV lists 155 kW (3 % apart)."
-    }
+    { "value": 150, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2025", "unit": "kW", "note_id": "n-6a0fa6e140" }
   ],
   "ac_max_kw": [
-    {
-      "value": 11.3,
-      "kind": "manufacturer",
-      "source_id": "src-ford-us-fl-specs-2025",
-      "unit": "kW",
-      "notes": "Ford 2025 spec sheet: onboard charger 11.3 kW / 10.5 kW (48 A) on every battery; 19.2 kW is a fleet-only option."
-    }
+    { "value": 11.3, "kind": "manufacturer", "source_id": "src-ford-us-fl-specs-2025", "unit": "kW", "note_id": "n-982dfae07a" }
   ]
 }

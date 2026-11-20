@@ -7,6 +7,7 @@
 //        2 = other models with a 2024+ row; 3 = everything else (older and discontinued models).
 
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { formatJson } from './lib/format-json.ts';
 import { dirname, join } from 'node:path';
 import { parseCsv, toCsv } from './lib/csv.ts';
 import { groupRegulatorRows, assignModel, epaMotorKw, recommend, regulatorOption, trimNameKey, type ModelMap, type RegRow, type Proposal } from './lib/catalogue.ts';
@@ -115,11 +116,11 @@ if (apply) {
         if (p.trim_ca && !t.names.CA) t.names.CA = p.trim_ca;
         if (p.trim_us && !t.names.US) t.names.US = p.trim_us;
       }
-      writeFileSync(vFile, JSON.stringify(v, null, 2) + '\n');
+      writeFileSync(vFile, formatJson(v));
       const mFileJ = join(root, 'data/models', `${p.model_id}.json`);
       const mj = load(mFileJ);
       const yj = mj.years.find((x: any) => x.year === Number(year));
-      if (yj) { yj.markets = [...new Set([...yj.markets, ...markets])].sort(); writeFileSync(mFileJ, JSON.stringify(mj, null, 2) + '\n'); }
+      if (yj) { yj.markets = [...new Set([...yj.markets, ...markets])].sort(); writeFileSync(mFileJ, formatJson(mj)); }
       for (const r of group) crosswalk.push({ our_variant_id: p.variant_id, source: r.source, source_key: r.source_key, match_method: 'manual', confirmed: 'true', our_trim_id: t?.id ?? 'standard', notes: `Approved by the owner ${today} (B90 wave ${wave}, joins an existing car).` });
       joined++;
       continue;
@@ -131,23 +132,23 @@ if (apply) {
     if (y) y.markets = [...new Set([...y.markets, ...markets])].sort();
     else m.years.push({ year: Number(year), markets, availability_status: 'production', ...(gen ? { generation: gen } : {}) });
     m.years.sort((a: any, b: any) => a.year - b.year);
-    writeFileSync(mFile, JSON.stringify(m, null, 2) + '\n');
+    writeFileSync(mFile, formatJson(m));
     // Powertrain: an existing one (its years grow) or a new one for this year.
     const ptId = p.powertrain.startsWith('new') ? `${make}/${model}/${year}-${slug}` : p.powertrain;
     const ptFile = join(root, 'data/powertrains', `${ptId}.json`);
     if (existsSync(ptFile)) {
       const pt = load(ptFile);
-      if (!pt.years.includes(Number(year))) { pt.years = [...pt.years, Number(year)].sort(); writeFileSync(ptFile, JSON.stringify(pt, null, 2) + '\n'); }
+      if (!pt.years.includes(Number(year))) { pt.years = [...pt.years, Number(year)].sort(); writeFileSync(ptFile, formatJson(pt)); }
     } else {
       mkdirSync(dirname(ptFile), { recursive: true });
-      writeFileSync(ptFile, JSON.stringify({ id: ptId, model_id: p.model_id, name: p.trim_ca || p.trim_us, ...(gen ? { generation: gen } : {}), years: [Number(year)] }, null, 2) + '\n');
+      writeFileSync(ptFile, formatJson({ id: ptId, model_id: p.model_id, name: p.trim_ca || p.trim_us, ...(gen ? { generation: gen } : {}), years: [Number(year)] }));
     }
     const names: Record<string, string> = {};
     if (p.trim_ca) names.CA = p.trim_ca;
     if (p.trim_us) names.US = p.trim_us;
     const variant = { id: p.variant_id, model_id: p.model_id, year: Number(year), name: p.trim_ca || p.trim_us, drivetrain: p.drivetrain || 'unknown', powertrain_id: ptId, markets, trims: [{ id: 'standard', names }] };
     mkdirSync(dirname(vFile), { recursive: true });
-    writeFileSync(vFile, JSON.stringify(variant, null, 2) + '\n');
+    writeFileSync(vFile, formatJson(variant));
     for (const r of group) crosswalk.push({ our_variant_id: p.variant_id, source: r.source, source_key: r.source_key, match_method: 'manual', confirmed: 'true', our_trim_id: 'standard', notes: `Approved by the owner ${today} (B90 wave ${wave}).` });
     written++;
   }

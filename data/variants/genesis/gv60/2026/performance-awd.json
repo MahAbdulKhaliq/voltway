@@ -4,57 +4,22 @@
   "year": 2026,
   "name": "Performance AWD",
   "drivetrain": "awd",
-  "powertrain_id": "genesis/gv60/2026-performance-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "genesis/gv60/2026-advanced-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-us-nacs-lineup",
-      "notes": "Genesis USA: starting with 2026 models every Genesis EV has a NACS port.",
-      "low_confidence": true
-    },
-    {
-      "value": "nacs",
-      "kind": "estimated",
-      "source_id": "src-genesis-ca-nacs-2023",
-      "notes": "Estimated: Genesis Canada announced exclusively NACS on all new or refreshed Genesis EVs from 2025; the 2026 GV60 is the refreshed car.",
-      "low_confidence": true
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-4f11cd6f71", "low_confidence": true },
+    { "value": "nacs", "kind": "estimated", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-a1012ad0ca", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-us-nacs-lineup",
-      "notes": "Genesis USA: NACS port gives access to more than 36,000 Tesla Superchargers.",
-      "low_confidence": true
-    },
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-genesis-ca-nacs-2023",
-      "notes": "Estimated: Native NACS port on the refreshed car (Genesis Canada announcement).",
-      "low_confidence": true
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-9f95a1ea04", "low_confidence": true },
+    { "value": "yes", "kind": "estimated", "source_id": "src-genesis-ca-nacs-2023", "note_id": "n-126f8e7e97", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Performance AWD",
-        "US": "Performance AWD"
-      },
+      "names": { "CA": "Performance AWD", "US": "Performance AWD" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-carscom-genesis-gv60-2026-481361",
-          "low_confidence": true
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-genesis-gv60-2026-481361", "low_confidence": true }
       ]
     }
   ]

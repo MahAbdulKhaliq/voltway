@@ -3,94 +3,32 @@
   "model_id": "subaru/uncharted",
   "name": "Sport AWD",
   "generation": "first-generation",
-  "years": [
-    2026
-  ],
+  "years": [2026],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 77,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2j-guideauto-uncharted-ca-2026",
-        "low_confidence": true,
-        "notes": "Guide Auto (Canada): the larger pack is 77 kWh (all AWD Sport/GT; FWD Long Range 480 km car also the larger pack); Drive Tesla Canada: Uncharted 77 kWh. Subaru US states 74.7 kWh for all trims (conflict, as on the Solterra)."
-      },
-      {
-        "value": 74.7,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2j-subaru-us-uncharted-2026",
-        "low_confidence": true,
-        "notes": "Subaru USA release: 74.7 kWh on all trims (conflicts with the Canadian 77 kWh)."
-      }
+      { "value": 77, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-guideauto-uncharted-ca-2026", "low_confidence": true, "note_id": "n-f7bd03296c" },
+      { "value": 74.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-uncharted-2026", "low_confidence": true, "note_id": "n-299d195c90" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 71,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-r19-evdb-bz4x-touring-747",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists 71.0 kWh usable for the 74.7 kWh pack (bZ4X Touring AWD MY26); same pack in the Subaru twin of the bZ/C-HR (Subaru US releases state 74.7 kWh). Applies to the US 74.7 kWh pack only; the Canadian 77 kWh pack has no usable figure and this single CA/US record cannot split by market."
-      }
+      { "value": 71, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "notes": "Estimated: EV Database lists 71.0 kWh usable for the 74.7 kWh pack (bZ4X Touring AWD MY26); same pack in the Subaru twin of the bZ/C-HR (Subaru US releases state 74.7 kWh). Applies to the US 74.7 kWh pack only; the Canadian 77 kWh pack has no usable figure and this single CA/US record cannot split by market." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-autopian-bz-2026",
-        "low_confidence": true,
-        "notes": "Estimated: Same 74.7 kWh pack as the 2026 bZ (Subaru US release), whose chief engineer says the pack keeps the same NMC chemistry and cells (Autopian)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-bde74a19f9" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-r19-evdb-bz4x-touring-747",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists 391 V for the 74.7 kWh pack; Toyota chief engineer (InsideEVs) says 400-volt architecture; the Subaru twin uses the 74.7 kWh pack."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "note_id": "n-ef8fe61df6" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-w2j-subaru-us-uncharted-2026",
-        "low_confidence": true,
-        "notes": "Estimated: Uncharted release says the \"battery preconditioning system\" is shared with the 2026 Solterra and Trailseeker; the Trailseeker kit (id 2400) says it starts by navigating to a charger or from the touchscreen. The Uncharted trigger itself is not spelled out."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-w2j-subaru-us-uncharted-2026", "low_confidence": true, "note_id": "n-36e2600ea9" }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-driveteslacanada-subaru-2026",
-      "low_confidence": true,
-      "notes": "Drive Tesla Canada: 11 kW onboard charger."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-driveteslacanada-subaru-2026", "low_confidence": true, "note_id": "n-12e51a2eb7" }
   ],
   "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-guideauto-uncharted-ca-2026",
-      "low_confidence": true,
-      "notes": "\"speeds up to 150 kW\"; 10-80% roughly 30 min."
-    }
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-guideauto-uncharted-ca-2026", "low_confidence": true, "note_id": "n-56182a8fd6" }
   ],
   "published_10_80_min": [
-    {
-      "value": 30,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-guideauto-uncharted-ca-2026",
-      "low_confidence": true,
-      "notes": "About 30 minutes 10-80% (Canada)."
-    }
+    { "value": 30, "unit": "min", "kind": "manufacturer", "source_id": "src-w2j-guideauto-uncharted-ca-2026", "low_confidence": true, "note_id": "n-c5f18b08d7" }
   ]
 }

@@ -4,123 +4,74 @@
   "name": "LEAF",
   "body_type": "crossover",
   "generations": [
-    {
-      "id": "first-generation-30-kwh",
-      "name": "First generation (30 kWh)",
-      "first_year": 2016,
-      "last_year": 2017,
-      "notes": "30 kWh pack, same footprint, on SV/SL for 2016 and all trims for 2017 (2016 S kept 24 kWh). This is a mid-generation pack change, not a new generation; it could also be modelled as a variant within one first generation. The 2017 all-trims 30 kWh claim comes from secondary sources. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://usa.nissannews.com/en-US/releases/release-9c04406501da47ec83c0c3138bf6a5f5-nissan-announces-u-s-pricing-for-2016-leaf ; https://insideevs.com/news/326562/2016-nissan-leaf-107-miles-epa-range-full-specs-pricing/"
-    },
-    {
-      "id": "second-generation",
-      "name": "Second generation (ZE1)",
-      "first_year": 2018,
-      "last_year": 2025,
-      "notes": "All-new body: 40 kWh pack (CHAdeMO ~50 kW); 62 kWh Leaf Plus from 2019 (CHAdeMO up to ~100 kW). The 62 kWh Plus (2019+) is a variant addition, not a line-wide change, so not split. Canada had no S trim for 2025. Same model years in CA and US. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Nissan_Leaf ; https://www.cars.com/articles/2025-nissan-leaf-unchanged-loses-ev-tax-credit-485068/ ; https://rpmweb.ca/actualites-et-chroniques/actualites/nouvelles/la-nissan-leaf-sera-toujours-offerte-en-2025-dans-la-meme-configuration"
-    },
-    {
-      "id": "third-generation",
-      "name": "Third generation (ZE2)",
-      "first_year": 2026,
-      "notes": "All-new crossover on CMF-EV: 52 kWh and 75 kWh liquid-cooled NMC packs; native NACS port (replaces CHAdeMO); DC up to 150 kW. Canada launched with the 75 kWh pack first; the small pack is reported as 52 or 53 kWh depending on source. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Nissan_Leaf ; https://driveteslacanada.ca/news/2026-nissan-leaf-debuts-with-up-to-488-km-range-new-styling-and-nacs-charging/ ; https://electricautonomy.ca/automakers/passenger-electric-vehicles/2025-07-17/2026-nissan-leaf-canada-availability/"
-    }
+    { "id": "first-generation-30-kwh", "name": "First generation (30 kWh)", "first_year": 2016, "last_year": 2017, "notes": "30 kWh pack, same footprint, on SV/SL for 2016 and all trims for 2017 (2016 S kept 24 kWh). This is a mid-generation pack change, not a new generation; it could also be modelled as a variant within one first generation. The 2017 all-trims 30 kWh claim comes from secondary sources. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://usa.nissannews.com/en-US/releases/release-9c04406501da47ec83c0c3138bf6a5f5-nissan-announces-u-s-pricing-for-2016-leaf ; https://insideevs.com/news/326562/2016-nissan-leaf-107-miles-epa-range-full-specs-pricing/" },
+    { "id": "second-generation", "name": "Second generation (ZE1)", "first_year": 2018, "last_year": 2025, "notes": "All-new body: 40 kWh pack (CHAdeMO ~50 kW); 62 kWh Leaf Plus from 2019 (CHAdeMO up to ~100 kW). The 62 kWh Plus (2019+) is a variant addition, not a line-wide change, so not split. Canada had no S trim for 2025. Same model years in CA and US. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Nissan_Leaf ; https://www.cars.com/articles/2025-nissan-leaf-unchanged-loses-ev-tax-credit-485068/ ; https://rpmweb.ca/actualites-et-chroniques/actualites/nouvelles/la-nissan-leaf-sera-toujours-offerte-en-2025-dans-la-meme-configuration" },
+    { "id": "third-generation", "name": "Third generation (ZE2)", "first_year": 2026, "notes": "All-new crossover on CMF-EV: 52 kWh and 75 kWh liquid-cooled NMC packs; native NACS port (replaces CHAdeMO); DC up to 150 kW. Canada launched with the 75 kWh pack first; the small pack is reported as 52 or 53 kWh depending on source. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Nissan_Leaf ; https://driveteslacanada.ca/news/2026-nissan-leaf-debuts-with-up-to-488-km-range-new-styling-and-nacs-charging/ ; https://electricautonomy.ca/automakers/passenger-electric-vehicles/2025-07-17/2026-nissan-leaf-canada-availability/" }
   ],
   "years": [
     {
       "year": 2016,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation-30-kwh"
     },
     {
       "year": 2017,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation-30-kwh"
     },
     {
       "year": 2018,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2019,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2020,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2021,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2022,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2023,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "third-generation"
     }

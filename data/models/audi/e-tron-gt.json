@@ -4,71 +4,43 @@
   "name": "e-tron GT",
   "body_type": "sedan",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation (J1)",
-      "first_year": 2022,
-      "last_year": 2024,
-      "notes": "e-tron GT quattro and RS e-tron GT on Porsche's J1 platform (Taycan sibling): 93.4 kWh gross / 83.7 kWh usable, 270 kW DC, 800 V. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Audi_e-tron_GT"
-    },
-    {
-      "id": "2025-update",
-      "name": "2025 update",
-      "first_year": 2025,
-      "notes": "Refresh shared with the 2025 Taycan: 105 kWh gross / 97 kWh usable pack, up to 320 kW DC. Lineup renamed S e-tron GT and RS e-tron GT performance (EPA base models \"S e-tron\" and \"RS e-tron\"). Confidence: medium-high (Wikipedia has no facelift figures; values from general press coverage of the refresh, to be fact-checked) (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Audi_e-tron_GT"
-    }
+    { "id": "first-generation", "name": "First generation (J1)", "first_year": 2022, "last_year": 2024, "notes": "e-tron GT quattro and RS e-tron GT on Porsche's J1 platform (Taycan sibling): 93.4 kWh gross / 83.7 kWh usable, 270 kW DC, 800 V. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Audi_e-tron_GT" },
+    { "id": "2025-update", "name": "2025 update", "first_year": 2025, "notes": "Refresh shared with the 2025 Taycan: 105 kWh gross / 97 kWh usable pack, up to 320 kW DC. Lineup renamed S e-tron GT and RS e-tron GT performance (EPA base models \"S e-tron\" and \"RS e-tron\"). Confidence: medium-high (Wikipedia has no facelift figures; values from general press coverage of the refresh, to be fact-checked) (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Audi_e-tron_GT" }
   ],
   "years": [
     {
       "year": 2022,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2025-update"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2025-update"
     },
     {
       "year": 2027,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "2025-update"
     }

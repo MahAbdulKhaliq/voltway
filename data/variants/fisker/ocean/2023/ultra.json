@@ -4,42 +4,20 @@
   "year": 2023,
   "name": "Ultra",
   "drivetrain": "unknown",
-  "powertrain_id": "fisker/ocean/2023-ultra",
-  "markets": [
-    "CA"
-  ],
+  "powertrain_id": "fisker/ocean/2023-extreme",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "community",
-      "source_id": "src-evspecs-fisker-ocean-compare",
-      "notes": "CCS1 front left (EVspecs.org, EV Specifications); Wikipedia: J1772/CCS1 for North America.",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "community", "source_id": "src-evspecs-fisker-ocean-compare", "note_id": "n-bc7db26afe", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "community",
-      "source_id": "src-insideevs-supercharger-list-2026",
-      "notes": "Fisker is not on the InsideEVs 2026 list of brands with Supercharger access. Fisker signed a Tesla agreement in Aug 2023 covering \"all current and future Fisker vehicles\" with adapters promised from Q1 2025 (Cars.com excerpt), but Fisker filed for Chapter 11 on 2024-06-17 and no shipped adapter was found, so `no` is the current state as far as known.",
-      "low_confidence": true
-    }
+    { "value": "no", "kind": "community", "source_id": "src-insideevs-supercharger-list-2026", "note_id": "n-fb4c104991", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Ultra"
-      },
+      "names": { "CA": "Ultra" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-fisker-ocean-2023-specs-431106",
-          "notes": "Ultra AWD: 20x7.5, P255/50VR20. US page applied to Canada.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-fisker-ocean-2023-specs-431106", "note_id": "n-1972d6bb63", "low_confidence": true }
       ]
     }
   ]

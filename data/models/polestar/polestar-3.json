@@ -4,29 +4,18 @@
   "name": "3",
   "body_type": "suv",
   "generations": [
-    {
-      "id": "400v",
-      "name": "Launch (400 V)",
-      "first_year": 2025,
-      "notes": "Launch MY2025 on SPA2: 111 kWh gross (~107 usable) pack, 400 V, DC up to 250 kW; Long Range Single (RWD) and Dual Motor. An 800 V update (Dual/Performance 106 kWh at up to 350 kW, rear-motor 92 kWh at 310 kW) launched in Europe in 2026, labelled MY26 or MY27; Polestar said U.S. availability would be announced later. When it reaches North America it should start a new generation, so last_year is left open. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/774327/2026-polestar-3-facelift-battery-charging-specs/ ; https://www.electrive.com/2025/10/01/polestar-3-to-adopt-800-volt-architecture/ ; https://www.cars.com/articles/new-battery-and-motor-enhance-2026-polestar-3-516707"
-    }
+    { "id": "400v", "name": "Launch (400 V)", "first_year": 2025, "notes": "Launch MY2025 on SPA2: 111 kWh gross (~107 usable) pack, 400 V, DC up to 250 kW; Long Range Single (RWD) and Dual Motor. An 800 V update (Dual/Performance 106 kWh at up to 350 kW, rear-motor 92 kWh at 310 kW) launched in Europe in 2026, labelled MY26 or MY27; Polestar said U.S. availability would be announced later. When it reaches North America it should start a new generation, so last_year is left open. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/774327/2026-polestar-3-facelift-battery-charging-specs/ ; https://www.electrive.com/2025/10/01/polestar-3-to-adopt-800-volt-architecture/ ; https://www.cars.com/articles/new-battery-and-motor-enhance-2026-polestar-3-516707" }
   ],
   "years": [
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "400v"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "400v"
     }

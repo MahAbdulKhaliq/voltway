@@ -5,40 +5,19 @@
   "name": "Light Standard Range FWD",
   "drivetrain": "fwd",
   "powertrain_id": "kia/ev4/2026-light-standard-range-fwd",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "community",
-      "source_id": "src-guideauto-ev4-canada",
-      "notes": "Guide Auto (Canada): native NACS connector on the Canadian EV4 (AutoTrader.ca also says NACS).",
-      "low_confidence": true
-    }
+    { "value": "nacs", "kind": "community", "source_id": "src-guideauto-ev4-canada", "note_id": "n-d419abeb03", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-guideauto-ev4-canada",
-      "notes": "Guide Auto (Canada): the native NACS connector gives direct access to Tesla Superchargers (InsideEVs says no adapter needed for the US-spec car).",
-      "low_confidence": true
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-guideauto-ev4-canada", "note_id": "n-9c7d46a7a3", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Light Standard Range FWD"
-      },
+      "names": { "CA": "Light Standard Range FWD" },
       "wheels": [
-        {
-          "diameter_in": 17,
-          "is_standard": true,
-          "source_id": "src-autotrader-ca-kia-ev4-2026",
-          "low_confidence": true
-        }
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-autotrader-ca-kia-ev4-2026", "low_confidence": true }
       ]
     }
   ]

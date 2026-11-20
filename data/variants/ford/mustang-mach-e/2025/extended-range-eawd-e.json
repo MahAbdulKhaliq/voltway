@@ -5,73 +5,30 @@
   "name": "Standard Range eAWD",
   "drivetrain": "awd",
   "powertrain_id": "ford/mustang-mach-e/2025-extended-range-eawd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 73,
-        "kind": "manufacturer",
-        "source_id": "src-ford-us-mme-specs-2025",
-        "unit": "kWh",
-        "notes": "Ford 2025 sheet: SR 73 kWh. This variant is \"Standard Range eAWD\" (range 380 km) linked to the Extended Range powertrain."
-      }
+      { "value": 73, "kind": "manufacturer", "source_id": "src-ford-us-mme-specs-2025", "unit": "kWh", "notes": "Ford 2025 sheet: SR 73 kWh. This variant is \"Standard Range eAWD\" (range 380 km) linked to the Extended Range powertrain." }
     ],
     "chemistry": [
-      {
-        "value": "lfp",
-        "kind": "estimated",
-        "source_id": "src-insideevs-mme-2024-epa",
-        "low_confidence": true,
-        "notes": "Estimated: Standard Range is LFP (InsideEVs 2024)."
-      }
+      { "value": "lfp", "kind": "estimated", "source_id": "src-insideevs-mme-2024-epa", "low_confidence": true, "notes": "Estimated: Standard Range is LFP (InsideEVs 2024)." }
     ]
   },
   "published_10_80_min": [
-    {
-      "value": 33,
-      "kind": "estimated",
-      "source_id": "src-insideevs-mme-lfp-2023",
-      "unit": "min",
-      "low_confidence": true,
-      "notes": "Estimated: Ford 33 min claim for the LFP SR."
-    }
+    { "value": 33, "kind": "estimated", "source_id": "src-insideevs-mme-lfp-2023", "unit": "min", "low_confidence": true, "notes": "Estimated: Ford 33 min claim for the LFP SR." }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-insideevs-mme-carplay-2026",
-      "low_confidence": true,
-      "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2025 owners implies the same CCS1 port. No port change found across 2021-2026."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-6cda6347f7" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-ford-ca-supercharger-2024",
-      "low_confidence": true,
-      "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; the cited Ford page names no model years, so eligibility of this model year is not shown by it; 2025 has the feature from the factory). Recorded: via adapter today."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Standard Range eAWD",
-        "US": "Standard Range eAWD"
-      },
+      "names": { "CA": "Standard Range eAWD", "US": "Standard Range eAWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-ford-us-mme-specs-2025",
-          "notes": "Select and Premium: 19 in standard; other 19 in designs optional. Source is a US page; Canadian trim assumed the same.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-ford-us-mme-specs-2025", "note_id": "n-3a7044e837", "low_confidence": true }
       ]
     }
   ]

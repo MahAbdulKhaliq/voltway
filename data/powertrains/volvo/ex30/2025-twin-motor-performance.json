@@ -3,76 +3,28 @@
   "model_id": "volvo/ex30",
   "name": "Twin Motor Performance",
   "generation": "first-generation",
-  "years": [
-    2025
-  ],
+  "years": [2025],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 69,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-ex30-specs-2025",
-        "low_confidence": true,
-        "notes": "US EX30 (Single Motor Extended Range RWD and Twin Motor Performance AWD): 69 kWh gross. KBB lists 69 kWh for all four 2026 US trims. "
-      }
+      { "value": 69, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-ex30-specs-2025", "low_confidence": true, "note_id": "n-9a5b2f2c2c" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 64,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-ex30-specs-2025",
-        "low_confidence": true,
-        "notes": "InsideEVs: 64 kWh usable for the US NMC pack. Other pages differ: EV Database 65.0, ArenaEV 65.4, OpenEV 66; auto-data/EVKX 64."
-      }
+      { "value": 64, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-ex30-specs-2025", "low_confidence": true, "note_id": "n-d1a97387c4" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-ex30-specs-2025",
-        "low_confidence": true,
-        "notes": "InsideEVs: NMC for the US models (Europe entry pack is LFP 51/49 kWh, which our 2026 single-motor variant shows from OpenEV; the Canadian/US Extended Range is the 69 kWh NMC pack: NRCan 420 km matches 261 mi on 69 kWh)."
-      }
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-insideevs-ex30-specs-2025", "low_confidence": true, "note_id": "n-a5d7d5b665" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-evdb-ex30-twin-perf",
-        "low_confidence": true,
-        "notes": "EV Database: 392 V nominal, 400 V architecture (69 kWh NMC pack)."
-      }
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-evdb-ex30-twin-perf", "low_confidence": true, "note_id": "n-552dc16a0a" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-volvo-ex90-precondition-support-excerpt",
-        "low_confidence": true,
-        "notes": "Estimated: no page found states the EX30 navigation trigger. Volvo support for the EX90 (search excerpt) says preconditioning starts automatically when a DC charger is the navigation destination (and can be started manually in the charging view); an EX30 release note excerpt confirms the EX30 has a battery-preconditioning function; EV Database says only that EX30 preconditioning is available. The EX90 also has a manual start, so manual_and_automatic cannot be excluded for the EX30; closest enum chosen from the Google-built-in family (EX40/Polestar 2 pages show only the navigation trigger)."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-volvo-ex90-precondition-support-excerpt", "low_confidence": true, "note_id": "n-83a2915377" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 153,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-ex30-specs-2025",
-      "low_confidence": true,
-      "notes": "InsideEVs: up to 153 kW (Volvo US). EV Database also says Volvo claims 153 kW. An InsideEVs test of a 2025 Twin Motor Performance measured about 150 kW at 8% SoC. A Volvo Canada page excerpt shows 175 kW for the larger pack; not used (page not readable)."
-    }
+    { "value": 153, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-ex30-specs-2025", "low_confidence": true, "note_id": "n-10f80a3fef" }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-ex30-specs-2025",
-      "low_confidence": true,
-      "notes": "InsideEVs: onboard charger rated about 11 kW (about 8 h on 240 V). EV Database: 11 kW standard (22 kW optional in Europe)."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-ex30-specs-2025", "low_confidence": true, "note_id": "n-18a28b0f62" }
   ]
 }

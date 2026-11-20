@@ -3,83 +3,31 @@
   "model_id": "porsche/taycan",
   "name": "Taycan 4 Performance Battery Plus",
   "generation": "2025-update",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 105,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-porsche-us-taycan-my2027",
-        "notes": "Porsche MY2027 release: Performance Battery Plus (105 kWh) now standard across all variants."
-      }
+      { "value": 105, "unit": "kWh", "kind": "manufacturer", "source_id": "src-porsche-us-taycan-my2027", "notes": "Porsche MY2027 release: Performance Battery Plus (105 kWh) now standard across all variants." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 97,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-insideevs-taycan-2025-specs",
-        "low_confidence": true,
-        "notes": "Estimated: same 105 kWh pack as 2025 (InsideEVs usable 97.0); MY2027 release shows no pack change."
-      }
+      { "value": 97, "unit": "kWh", "kind": "estimated", "source_id": "src-insideevs-taycan-2025-specs", "low_confidence": true, "notes": "Estimated: same 105 kWh pack as 2025 (InsideEVs usable 97.0); MY2027 release shows no pack change." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-porsche-j1-93",
-        "low_confidence": true,
-        "notes": "Estimated: The Weekly Driver lists the 105 kWh pack as NMC 811 (third-party)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-porsche-j1-93", "low_confidence": true, "notes": "Estimated: The Weekly Driver lists the 105 kWh pack as NMC 811 (third-party)." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-porsche-taycan-battery-page",
-        "notes": "Porsche: \"system voltage of 800 volts instead of the usual 400 volts\"."
-      }
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-porsche-taycan-battery-page", "note_id": "n-d66bae151a" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-porsche-taycan-range-planner",
-        "notes": "Estimated: combines two Porsche pages, each covering half: the range-planner page (\"the system also regulates the preconditioning of the battery in good time before the charging stop\") and the Porsche US Charging Planner page (planner preconditions the battery; needs route guidance, no manual trigger; Taycan 2020 to present). Charging Planner regulates battery preconditioning before the charging stop while navigating (Porsche newsroom); Porsche US support page applies it to Taycan 2020 to present. No manual battery-preconditioning button found (a departure timer preconditions battery and cabin for the plug-in case)."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-porsche-taycan-range-planner", "note_id": "n-4c087d5dde" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 320,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-porsche-us-taycan-2025-models",
-      "low_confidence": true,
-      "notes": "Estimated: 105 kWh Plus pack rated up to 320 kW in 2025 (Porsche US); MY2027 release page prints \"320 kWh\" (unit typo) and no change is described."
-    }
+    { "value": 320, "unit": "kW", "kind": "estimated", "source_id": "src-porsche-us-taycan-2025-models", "low_confidence": true, "notes": "Estimated: 105 kWh Plus pack rated up to 320 kW in 2025 (Porsche US); MY2027 release page prints \"320 kWh\" (unit typo) and no change is described." }
   ],
   "published_10_80_min": [
-    {
-      "value": 18,
-      "unit": "min",
-      "kind": "estimated",
-      "source_id": "src-porsche-us-taycan-2025-models",
-      "low_confidence": true,
-      "notes": "Estimated: 18 min 10-80% for the 105 kWh pack in 2025 (Porsche US); not restated for MY2027."
-    }
+    { "value": 18, "unit": "min", "kind": "estimated", "source_id": "src-porsche-us-taycan-2025-models", "low_confidence": true, "notes": "Estimated: 18 min 10-80% for the 105 kWh pack in 2025 (Porsche US); not restated for MY2027." }
   ],
   "ac_max_kw": [
-    {
-      "value": 9.6,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-insideevs-taycan-2025-specs",
-      "low_confidence": true,
-      "notes": "Estimated: 2025 US on-board charger 9.6 kW; MY2027 release does not mention AC. 2025 compared."
-    }
+    { "value": 9.6, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-taycan-2025-specs", "low_confidence": true, "notes": "Estimated: 2025 US on-board charger 9.6 kW; MY2027 release does not mention AC. 2025 compared." }
   ]
 }

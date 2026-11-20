@@ -6,6 +6,7 @@
 //   node scripts/remove-variants.mjs --ids ids.txt --reason "Left out by the owner (B107): no DC fast charging." \
 //     --decided "owner 2026-11-20: left out (no DC fast charging, B107)" [--dry]
 import { existsSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
+import { formatJson } from './lib/format-json.ts';
 import { join } from 'node:path';
 
 const arg = (k) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : undefined; };
@@ -41,7 +42,7 @@ for (const m of models) {
   rec.years = rec.years.filter((y) => years.has(y.year));
   const gens = new Set(rec.years.map((y) => y.generation));
   rec.generations = rec.generations.filter((g) => gens.has(g.id));
-  if (!dry) writeFileSync(f, JSON.stringify(rec, null, 2) + '\n');
+  if (!dry) writeFileSync(f, formatJson(rec));
 }
 const makesKept = new Set(kept.map(({ v }) => v.id.split('/')[0]));
 const makesGone = [...new Set(gone.map(({ v }) => v.id.split('/')[0]))].filter((m) => !makesKept.has(m));

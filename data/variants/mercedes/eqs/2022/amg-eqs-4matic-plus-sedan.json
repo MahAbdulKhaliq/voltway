@@ -5,39 +5,19 @@
   "name": "AMG EQS 4MATIC+ Sedan",
   "drivetrain": "awd",
   "powertrain_id": "mercedes/eqs/2022-amg-eqs-4matic-plus-sedan",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2022-eqs-eqs580v4",
-      "notes": "mbusa lists J1772 (AC) and Combined Charging System (DC). Read on a sibling page."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2022-eqs-eqs580v4", "note_id": "n-6abe2191f4" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "mbusa NACS page: EQB, EQE, EQS and G 580 with a CCS1 inlet use the Mercedes-approved NACS-to-CCS1 adapter (included from MY26, otherwise sold by dealers). Canada: no Mercedes-Benz Canada page found; the same adapter route is assumed for the CA edition of this car."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "AMG EQS 4MATIC+ Sedan"
-      },
+      "names": { "US": "AMG EQS 4MATIC+ Sedan" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-plus-2022-specs-428251",
-          "notes": "AMG EQS 4MATIC+ Sedan: 21 x 10 in aluminum, P275/40R21; no optional wheels listed."
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-plus-2022-specs-428251", "notes": "AMG EQS 4MATIC+ Sedan: 21 x 10 in aluminum, P275/40R21; no optional wheels listed." }
       ]
     }
   ]

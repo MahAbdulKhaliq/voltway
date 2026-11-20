@@ -5,54 +5,21 @@
   "name": "Single Motor Extended Range RWD",
   "drivetrain": "rwd",
   "powertrain_id": "volvo/ex40/2026-single-motor-extended-range-rwd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-volvo-hamilton-ex40-2026-charging",
-      "low_confidence": true,
-      "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2026 US."
-    },
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port 2026 US checker lists EX40 / XC40 Recharge (2021-2025) as CCS1 (adapter needed for Superchargers)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-volvo-hamilton-ex40-2026-charging", "low_confidence": true, "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2026 US." },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-59345ebdf7" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-cision-volvo-ca-nacs-2024",
-      "low_confidence": true,
-      "notes": "Volvo Canada release: owners of fully electric Volvo cars (all existing EVs) can order a NACS-to-CCS1 adapter at authorized retailers (CA$310) and use Tesla Superchargers from Nov 18 2024; the adapter is included with new 2025 EX90/EX40/EC40."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-volvo-polestar-nacs-2024",
-      "low_confidence": true,
-      "notes": "US: adapter ($230) sold to existing Volvo EV owners via retailers; free with 2025 EX90/EX40/EC40."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-ff57fb6760" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-65658f5296" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Single Motor Extended Range RWD"
-      },
+      "names": { "US": "Single Motor Extended Range RWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-volvo-ex40-2026-specs",
-          "notes": "Plus: 19x7.5, P235/50HR19 front, P255/45HR19 rear."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ex40-2026-specs", "notes": "Plus: 19x7.5, P235/50HR19 front, P255/45HR19 rear." }
       ]
     }
   ]

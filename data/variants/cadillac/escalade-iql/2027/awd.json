@@ -5,134 +5,55 @@
   "name": "AWD",
   "drivetrain": "awd",
   "powertrain_id": "cadillac/escalade-iql/205-kwh-800v",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-autoevolution-gm-2027-nacs",
-      "low_confidence": true,
-      "notes": "GM: Escalade IQ and IQL get a native NACS port for model year 2027 (autoevolution; InsideEVs 810603 and TTAC agree). US."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-autoevolution-gm-2027-nacs", "low_confidence": true, "note_id": "n-46d35ff982" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-escalade-iq-2027-nacs",
-      "low_confidence": true,
-      "notes": "Native NACS: Superchargers need no adapter; CCS stalls need a NACS-to-CCS adapter. US."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-insideevs-escalade-iq-2027-nacs", "low_confidence": true, "note_id": "n-b5b7073a22" }
   ],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 287,
-      "unit": "Wh/km",
-      "kind": "estimated",
-      "source_id": "src-r2gm-insideevs-escalade-range-test-2025",
-      "low_confidence": true,
-      "notes": "Estimated (B103): the 2025 Escalade IQ's measured 70 mph highway figure (InsideEVs). Long-wheelbase IQ, same pack and motors, heavier, so likely a little higher. No IQL test or rating found."
-    }
+    { "value": 287, "unit": "Wh/km", "kind": "estimated", "source_id": "src-r2gm-insideevs-escalade-range-test-2025", "low_confidence": true, "notes": "Estimated (B103): the 2025 Escalade IQ's measured 70 mph highway figure (InsideEVs). Long-wheelbase IQ, same pack and motors, heavier, so likely a little higher. No IQL test or rating found." }
   ],
   "trims": [
     {
       "id": "luxury",
-      "names": {
-        "US": "Luxury"
-      },
+      "names": { "US": "Luxury" },
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "estimated",
-          "source_id": "src-insideevs-escalade-iq-2027-nacs",
-          "low_confidence": true,
-          "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-escalade-iq-2027-nacs", "low_confidence": true, "note_id": "n-0bf141187b" }
       ],
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-escalade-iql-2027-specs",
-          "notes": "Luxury: 22 in, LT275/60R22."
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-escalade-iql-2027-specs", "note_id": "n-2d0c872ccd" }
       ]
     },
     {
       "id": "sport",
-      "names": {
-        "US": "Sport"
-      },
+      "names": { "US": "Sport" },
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "estimated",
-          "source_id": "src-insideevs-escalade-iq-2027-nacs",
-          "low_confidence": true,
-          "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-escalade-iq-2027-nacs", "low_confidence": true, "note_id": "n-0bf141187b" }
       ],
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-escalade-iql-2027-specs",
-          "notes": "Sport page not opened; 22 in carried from the IQL Luxury page (Sport is 22 in on the 2027 Escalade IQ).",
-          "low_confidence": true
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-escalade-iql-2027-specs", "notes": "Sport page not opened; 22 in carried from the IQL Luxury page (Sport is 22 in on the 2027 Escalade IQ).", "low_confidence": true }
       ]
     },
     {
       "id": "premium-luxury",
-      "names": {
-        "US": "Premium Luxury"
-      },
+      "names": { "US": "Premium Luxury" },
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "estimated",
-          "source_id": "src-insideevs-escalade-iq-2027-nacs",
-          "low_confidence": true,
-          "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-escalade-iq-2027-nacs", "low_confidence": true, "note_id": "n-0bf141187b" }
       ],
       "wheels": [
-        {
-          "diameter_in": 24,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-escalade-iql-2027-specs-490396",
-          "notes": "Premium Luxury page not opened; 24 in carried from the IQL Premium Sport page (Premium Luxury is 24 in on the IQ).",
-          "low_confidence": true
-        }
+        { "diameter_in": 24, "is_standard": true, "source_id": "src-r3w-cadillac-escalade-iql-2027-specs-490396", "notes": "Premium Luxury page not opened; 24 in carried from the IQL Premium Sport page (Premium Luxury is 24 in on the IQ).", "low_confidence": true }
       ]
     },
     {
       "id": "premium-sport",
-      "names": {
-        "US": "Premium Sport"
-      },
+      "names": { "US": "Premium Sport" },
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "estimated",
-          "source_id": "src-insideevs-escalade-iq-2027-nacs",
-          "low_confidence": true,
-          "notes": "Estimated: InsideEVs and TTAC state 19.2 kW standard on every 2027 Escalade IQ trim and name the IQL only for the NACS port, not for the charger; neither confirms the IQL charger. The IQL is assumed to share the IQ onboard charger. Pack match is disputed (Cars.com says the IQL pack is 5 kWh larger, Wards says shared), so low confidence."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-escalade-iq-2027-nacs", "low_confidence": true, "note_id": "n-0bf141187b" }
       ],
       "wheels": [
-        {
-          "diameter_in": 24,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-escalade-iql-2027-specs-490396",
-          "notes": "Premium Sport: 24 in, LT275/50R24."
-        }
+        { "diameter_in": 24, "is_standard": true, "source_id": "src-r3w-cadillac-escalade-iql-2027-specs-490396", "note_id": "n-fa3ce7b213" }
       ]
     }
   ]

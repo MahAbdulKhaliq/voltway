@@ -3,80 +3,28 @@
   "model_id": "hyundai/kona-electric",
   "name": "Kona Electric",
   "generation": "first-generation",
-  "years": [
-    2019,
-    2020,
-    2021,
-    2022,
-    2023
-  ],
+  "years": [2019, 2020, 2021, 2022, 2023],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 67.5,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-evdb-kona-64-my20-21",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists 67.5 kWh nominal / 64.0 usable for the European 64 kWh Kona (same pack as North America 2019-2023; Weekly Driver gives 3P98S, 356 V). Hyundai NA marketed it as \"64 kWh\"."
-      }
+      { "value": 67.5, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-kona-64-my20-21", "low_confidence": true, "notes": "Estimated: EV Database lists 67.5 kWh nominal / 64.0 usable for the European 64 kWh Kona (same pack as North America 2019-2023; Weekly Driver gives 3P98S, 356 V). Hyundai NA marketed it as \"64 kWh\"." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 64,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-evdb-kona-64-my20-21",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists 64.0 kWh usable (67.5 nominal) for the 64 kWh Kona Electric (MY20-21 page; MY22-23 page the same, src-evdb-kona-64-my22-23). Compared 2019-2023, same generation and pack. The Weekly Driver calls 64 kWh total: conflict."
-      }
+      { "value": 64, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-kona-64-my20-21", "low_confidence": true, "notes": "Estimated: EV Database lists 64.0 kWh usable (67.5 nominal) for the 64 kWh Kona Electric (MY20-21 page; MY22-23 page the same, src-evdb-kona-64-my22-23). Compared 2019-2023, same generation and pack. The Weekly Driver calls 64 kWh total: conflict." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-weeklydriver-pre-egmp-64",
-        "low_confidence": true,
-        "notes": "NCM 622 cathode (LG Chem pouch cells) for the Kona Electric 2019-2023."
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-weeklydriver-pre-egmp-64", "low_confidence": true, "notes": "NCM 622 cathode (LG Chem pouch cells) for the Kona Electric 2019-2023." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "community",
-        "source_id": "src-weeklydriver-pre-egmp-64",
-        "low_confidence": true,
-        "notes": "356 V nominal pack (3P98S): 400 V class."
-      }
+      { "value": "400v", "kind": "community", "source_id": "src-weeklydriver-pre-egmp-64", "low_confidence": true, "notes": "356 V nominal pack (3P98S): 400 V class." }
     ],
     "preconditioning": [
-      {
-        "value": "manual_only",
-        "kind": "estimated",
-        "source_id": "src-electricrevs-kona-thermal-2018",
-        "low_confidence": true,
-        "notes": "Estimated: Electric Revs (Dec 2018, 2019 Kona Electric) says Canadian cars have a 2 kW battery heater and a driver-selected Winter Mode that warms the pack for quicker DC charging (the heater also runs on its own when very cold); no navigation trigger is described. US-market cars have no battery heater (Electric Revs, InsideEVs), so for US cars the real behaviour is closer to none; the field is shared by both markets, so the Canadian behaviour is recorded. EV Database lists preconditioning as not supported for the European MY22-23 car. No owner's manual page found."
-      }
+      { "value": "manual_only", "kind": "estimated", "source_id": "src-electricrevs-kona-thermal-2018", "low_confidence": true, "notes": "Estimated: Electric Revs (Dec 2018, 2019 Kona Electric) says Canadian cars have a 2 kW battery heater and a driver-selected Winter Mode that warms the pack for quicker DC charging (the heater also runs on its own when very cold); no navigation trigger is described. US-market cars have no battery heater (Electric Revs, InsideEVs), so for US cars the real behaviour is closer to none; the field is shared by both markets, so the Canadian behaviour is recorded. EV Database lists preconditioning as not supported for the European MY22-23 car. No owner's manual page found." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 77,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-weeklydriver-pre-egmp-64",
-      "low_confidence": true,
-      "notes": "77 kW peak (Weekly Driver; EV Database also 77 kW for MY20-23). Hyundai US marketed 100 kW DC fast charging (xautoworld relays, 0-80 % about 54 min at 100 kW), which is the charger rating, not the car's peak. Conflict noted."
-    }
+    { "value": 77, "unit": "kW", "kind": "community", "source_id": "src-weeklydriver-pre-egmp-64", "low_confidence": true, "notes": "77 kW peak (Weekly Driver; EV Database also 77 kW for MY20-23). Hyundai US marketed 100 kW DC fast charging (xautoworld relays, 0-80 % about 54 min at 100 kW), which is the charger rating, not the car's peak. Conflict noted." }
   ],
   "ac_max_kw": [
-    {
-      "value": 7.2,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-xautoworld-kona-electric-2019",
-      "low_confidence": true,
-      "notes": "Hyundai US launch material: 7.2 kW Level II onboard charger (also Weekly Driver). European car is 11 kW three-phase; North America 7.2 kW."
-    }
+    { "value": 7.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-xautoworld-kona-electric-2019", "low_confidence": true, "notes": "Hyundai US launch material: 7.2 kW Level II onboard charger (also Weekly Driver). European car is 11 kW three-phase; North America 7.2 kW." }
   ]
 }

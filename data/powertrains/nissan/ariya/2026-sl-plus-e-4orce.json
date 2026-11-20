@@ -3,47 +3,19 @@
   "model_id": "nissan/ariya",
   "name": "SL+ e-4ORCE",
   "generation": "first-generation",
-  "years": [
-    2026
-  ],
+  "years": [2026],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 91,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-nissan-usa-ariya-2023-press-kit",
-        "low_confidence": true,
-        "notes": "Press kit: 91 kWh total (the page's \"total\" is read as gross). The Car Guide (Canada 2026) lists this trim with this pack."
-      }
+      { "value": 91, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-db83e92b19" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-evdb-ariya-87-e4orce-my23-24",
-        "low_confidence": true,
-        "notes": "EV Database: NMC cathode for the 87 kWh pack (Nissan pages say only \"lithium-ion\")."
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ariya-87-e4orce-my23-24", "low_confidence": true, "note_id": "n-863f36f549" }
     ],
     "preconditioning": [
-      {
-        "value": "manual_only",
-        "kind": "estimated",
-        "source_id": "src-nissan-usa-ariya-2023-owner-manual",
-        "low_confidence": true,
-        "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2026 from the 2023/2025 manuals."
-      }
+      { "value": "manual_only", "kind": "estimated", "source_id": "src-nissan-usa-ariya-2023-owner-manual", "low_confidence": true, "note_id": "n-f385a3373c" }
     ]
   },
   "published_10_80_min": [
-    {
-      "value": 40,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-nissan-usa-ariya-2023-press-kit",
-      "low_confidence": true,
-      "notes": "Press kit: 40 min at 130 kW (the FWD table labels it 20-80 %, the e-4ORCE table 10-80 %; Nissan Canada says \"10 % to 80 % in as little as 40 minutes\")."
-    }
+    { "value": 40, "unit": "min", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-73a4681e8a" }
   ]
 }

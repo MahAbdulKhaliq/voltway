@@ -3,86 +3,31 @@
   "model_id": "polestar/polestar-2",
   "name": "Dual Motor",
   "generation": "2024-update",
-  "years": [
-    2025
-  ],
+  "years": [2025],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 82,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-polestar-2",
-        "notes": "Wikipedia: Dual Motor 82/79 kWh gross/usable for 2025; Polestar Canada spec page: Long range Dual motor 82 kWh.",
-        "low_confidence": true
-      }
+      { "value": 82, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-polestar-2", "notes": "Wikipedia: Dual Motor 82/79 kWh gross/usable for 2025; Polestar Canada spec page: Long range Dual motor 82 kWh.", "low_confidence": true }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 79,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-evdb-polestar-2-lr-dual-my24",
-        "low_confidence": true,
-        "notes": "EV Database (European MY24 Polestar 2, same 82 kWh pack): 79.0 kWh usable. Wikipedia: 79 usable / 82 gross for single 2024-25 and dual 2025."
-      }
+      { "value": 79, "unit": "kWh", "kind": "manufacturer", "source_id": "src-evdb-polestar-2-lr-dual-my24", "low_confidence": true, "note_id": "n-d4e1165b24" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-wikipedia-polestar-2",
-        "low_confidence": true,
-        "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
-      }
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-wikipedia-polestar-2", "low_confidence": true, "note_id": "n-cc088d2156" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-polestar-us-specs",
-        "low_confidence": true,
-        "notes": "Estimated: Polestar US spec page (Performance pack car) says 400 V lithium-ion 82 kWh; same pack."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-polestar-us-specs", "low_confidence": true, "note_id": "n-ae0aa2f350" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-polestar-us-manual-2024-gmaps",
-        "low_confidence": true,
-        "notes": "Estimated: Same line as the 2024 manual: the 2024 and 2023 US Polestar 2 manuals describe only the Google Maps navigation trigger (no manual control); the 2021 manual only says preconditioning lengthens charging time. Nothing shows a change for this model year."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-polestar-us-manual-2024-gmaps", "low_confidence": true, "note_id": "n-40279971b6" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 205,
-      "unit": "kW",
-      "kind": "estimated",
-      "low_confidence": true,
-      "source_id": "src-wikipedia-polestar-2",
-      "notes": "Estimated: Wikipedia spec table gives 205 kW for the 2025 Dual Motor (82 kWh); Polestar US/Canada spec pages show 205 kW for the Dual motor (Canada page: Long range Dual motor). Variant not stated individually on a Polestar page for the non-Performance trim in the US. OpenEV 150 kW is stale."
-    }
+    { "value": 205, "unit": "kW", "kind": "estimated", "low_confidence": true, "source_id": "src-wikipedia-polestar-2", "notes": "Estimated: Wikipedia spec table gives 205 kW for the 2025 Dual Motor (82 kWh); Polestar US/Canada spec pages show 205 kW for the Dual motor (Canada page: Long range Dual motor). Variant not stated individually on a Polestar page for the non-Performance trim in the US. OpenEV 150 kW is stale." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-polestar-us-specs",
-      "low_confidence": true,
-      "notes": "Estimated: 11 kW per the Polestar US spec page for the Performance pack car and the 2023 US manual; same onboard charger."
-    }
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-polestar-us-specs", "low_confidence": true, "note_id": "n-6229b24ac9" }
   ],
   "published_10_80_min": [
-    {
-      "value": 28,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-ca-specs",
-      "low_confidence": true,
-      "notes": "Polestar Canada spec page (Long range Dual motor): 28 min 10-80%."
-    }
+    { "value": 28, "unit": "min", "kind": "manufacturer", "source_id": "src-polestar-ca-specs", "low_confidence": true, "notes": "Polestar Canada spec page (Long range Dual motor): 28 min 10-80%." }
   ]
 }

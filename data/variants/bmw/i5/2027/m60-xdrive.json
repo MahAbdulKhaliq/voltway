@@ -4,41 +4,20 @@
   "year": 2027,
   "name": "M60 xDrive",
   "drivetrain": "awd",
-  "powertrain_id": "bmw/i5/2027-m60-xdrive",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "bmw/i5/2027-edrive40",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ie-i5-27",
-      "low_confidence": true,
-      "notes": "InsideEVs: all i5 EVs sold in the US now come with a NACS charge port (2027)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-ie-i5-27", "low_confidence": true, "note_id": "n-2b1371b122" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-w2-ie-i5-27",
-      "low_confidence": true,
-      "notes": "Native NACS port."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2-ie-i5-27", "low_confidence": true, "note_id": "n-24bfcfaf1e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "M60 xDrive"
-      },
+      "names": { "US": "M60 xDrive" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-bmw-i5-2027-specs-487876",
-          "notes": "M60 Sedan: 19 x 8.5 front / 19 x 10 rear aluminum, P245/45R19 and P275/40R19; no optional wheels listed."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2027-specs-487876", "notes": "M60 Sedan: 19 x 8.5 front / 19 x 10 rear aluminum, P245/45R19 and P275/40R19; no optional wheels listed." }
       ]
     }
   ]

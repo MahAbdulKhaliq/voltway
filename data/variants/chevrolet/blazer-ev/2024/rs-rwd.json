@@ -5,41 +5,19 @@
   "name": "RS RWD",
   "drivetrain": "rwd",
   "powertrain_id": "chevrolet/blazer-ev/2024-rs-rwd",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-r3-electrek-blazer-2027-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: Electrek (2026-04-29) says the 2027 Blazer EV replaces \"the CCS connector used on earlier models\", so 2024-2026 are CCS1 (J1772 native inlet); no change found between model years. Model year 2024. Canadian car assumed the same (Guide Auto 2024-09-18: Canadian owners need the GM adapter)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-electrek-blazer-2027-nacs", "low_confidence": true, "note_id": "n-a09f709cdf" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2024: adapter needed. Markets: CA."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-19e45ce735" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "RS RWD"
-      },
+      "names": { "CA": "RS RWD" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-blazer-ev-2024-specs-449794",
-          "notes": "US RWD RS w/2RS page: 21 in, 275/45R21; applied to the Canadian RS RWD.",
-          "low_confidence": true
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2024-specs-449794", "notes": "US RWD RS w/2RS page: 21 in, 275/45R21; applied to the Canadian RS RWD.", "low_confidence": true }
       ]
     }
   ]

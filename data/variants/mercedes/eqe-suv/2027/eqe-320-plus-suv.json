@@ -5,39 +5,19 @@
   "name": "EQE 320+ SUV",
   "drivetrain": "rwd",
   "powertrain_id": "mercedes/eqe-suv/2027-eqe-320-plus-suv",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2027-eqe-eqe320x",
-      "notes": "mbusa lists J1772 (AC) and Combined Charging System (DC)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-eqe-eqe320x", "note_id": "n-e863ab2c59" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "mbusa NACS page: EQB, EQE, EQS and G 580 with a CCS1 inlet use the Mercedes-approved NACS-to-CCS1 adapter (included from MY26, otherwise sold by dealers). Canada: no Mercedes-Benz Canada page found; the same adapter route is assumed for the CA edition of this car."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "EQE 320+ SUV"
-      },
+      "names": { "US": "EQE 320+ SUV" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-eqe-320-plus-2027-specs",
-          "notes": "EQE 320+ SUV: 20 x 8.5 in, P255/45R20."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqe-320-plus-2027-specs", "note_id": "n-ab42bd2f6f" }
       ]
     }
   ]

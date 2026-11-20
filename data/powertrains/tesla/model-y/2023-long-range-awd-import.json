@@ -3,91 +3,30 @@
   "model_id": "tesla/model-y",
   "name": "Long Range AWD",
   "generation": "original",
-  "years": [
-    2023
-  ],
+  "years": [2023],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 78.1,
-        "kind": "estimated",
-        "source_id": "src-evdb-model-y-lr-awd-1619",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database nominal 78.1 kWh for the LG 5L (NMC) Long Range AWD/Performance (European listing). Rated 497 km (LR) / 459 km (Performance) versus 531 / 488 km for the US-built cars (InsideEVs 670342: China-built Long Range officially listed in Canada from 2023); chemistry there stated as unconfirmed, so NMC rests on InsideEVs 587455 (LGES NCM cells for the Shanghai plant). The Performance import is only reported as believed China-built.",
-        "unit": "kWh"
-      }
+      { "value": 78.1, "kind": "estimated", "source_id": "src-evdb-model-y-lr-awd-1619", "low_confidence": true, "note_id": "n-ddf65a3c6d", "unit": "kWh" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 75,
-        "kind": "estimated",
-        "source_id": "src-evdb-model-y-lr-awd-1619",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database useable 75 kWh (itself an estimate) for the same LG pack. Rated 497 km (LR) / 459 km (Performance) versus 531 / 488 km for the US-built cars (InsideEVs 670342: China-built Long Range officially listed in Canada from 2023); chemistry there stated as unconfirmed, so NMC rests on InsideEVs 587455 (LGES NCM cells for the Shanghai plant). The Performance import is only reported as believed China-built.",
-        "unit": "kWh"
-      }
+      { "value": 75, "kind": "estimated", "source_id": "src-evdb-model-y-lr-awd-1619", "low_confidence": true, "note_id": "n-de8d8bac10", "unit": "kWh" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-insideevs-tesla-cell-suppliers",
-        "low_confidence": true,
-        "notes": "Estimated: InsideEVs 587455: LGES 2170 NCM cells are used in China for the Giga Shanghai plant (Berlin and Canada are not mentioned there). Rated 497 km (LR) / 459 km (Performance) versus 531 / 488 km for the US-built cars (InsideEVs 670342: China-built Long Range officially listed in Canada from 2023); chemistry there stated as unconfirmed, so NMC rests on InsideEVs 587455 (LGES NCM cells for the Shanghai plant). The Performance import is only reported as believed China-built."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-tesla-cell-suppliers", "low_confidence": true, "note_id": "n-274625d17e" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-evdb-model-y-lr-awd-1619",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database: 400 V architecture (357 V nominal) for the same pack."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-model-y-lr-awd-1619", "low_confidence": true, "note_id": "n-e77cc7bbe8" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-teslabs-manual-preconditioning",
-        "low_confidence": true,
-        "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
-      },
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-evdb-model-y-lr-awd-1619",
-        "low_confidence": true,
-        "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-teslabs-manual-preconditioning", "low_confidence": true, "note_id": "n-1fa6db44c3" },
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-evdb-model-y-lr-awd-1619", "low_confidence": true, "note_id": "n-42a8c6abf7" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 250,
-      "kind": "estimated",
-      "source_id": "src-evdb-model-y-lr-awd-1619",
-      "low_confidence": true,
-      "notes": "Estimated: EV Database lists 250 kW DC for this LG-cell Long Range AWD/Performance.",
-      "unit": "kW"
-    }
+    { "value": 250, "kind": "estimated", "source_id": "src-evdb-model-y-lr-awd-1619", "low_confidence": true, "note_id": "n-8acf5fceed", "unit": "kW" }
   ],
   "ac_max_kw": [
-    {
-      "value": 11.5,
-      "kind": "estimated",
-      "source_id": "src-thechargeport-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
-      "unit": "kW"
-    },
-    {
-      "value": 11.5,
-      "kind": "estimated",
-      "source_id": "src-wikipedia-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
-      "unit": "kW"
-    }
+    { "value": 11.5, "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-fec2e18f04", "unit": "kW" },
+    { "value": 11.5, "kind": "estimated", "source_id": "src-wikipedia-tesla-model-y", "low_confidence": true, "note_id": "n-1160ec5905", "unit": "kW" }
   ]
 }

@@ -4,45 +4,21 @@
   "year": 2027,
   "name": "Premium",
   "drivetrain": "awd",
-  "powertrain_id": "subaru/solterra/2027-premium",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "subaru/solterra/2027-limited",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-r19-subaru-us-solterra-2027-kit",
-      "notes": "Subaru 2027 kit: all 2027 Solterra models feature a NACS port."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-2027-kit", "note_id": "n-47eddcd08d" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-r19-subaru-us-solterra-2027-kit",
-      "notes": "Subaru 2027 kit: the NACS-port Solterra gives 'access to more than 25,000 charging stations'; the Oct 2025 Subaru release says all Solterra owners have access to 25,000+ Tesla Superchargers."
-    },
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-subaru-us-media-solterra-2026",
-      "notes": "Subaru USA 2026 release: the NACS-port Solterra has access to more than 15,000 Tesla Superchargers; the Oct 2025 release says all Solterra owners have access to 25,000+; 2027 kit: NACS port gives 'access to more than 25,000 charging stations'."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-2027-kit", "note_id": "n-9d0312d99b" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-subaru-us-media-solterra-2026", "note_id": "n-c3b47278ef" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Premium"
-      },
+      "names": { "US": "Premium" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r2w-sub-sol27",
-          "notes": "Premium rides on 18-inch alloy wheels."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-sub-sol27", "notes": "Premium rides on 18-inch alloy wheels." }
       ]
     }
   ]

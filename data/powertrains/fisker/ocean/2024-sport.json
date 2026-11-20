@@ -3,67 +3,25 @@
   "model_id": "fisker/ocean",
   "name": "Sport",
   "generation": "first-generation",
-  "years": [
-    2024
-  ],
+  "years": [2024],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 80,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-wikipedia-fisker-ocean",
-        "notes": "80 kWh gross LFP (Wikipedia, EVspecs.org, EV Specifications).",
-        "low_confidence": true
-      }
+      { "value": 80, "unit": "kWh", "kind": "community", "source_id": "src-wikipedia-fisker-ocean", "notes": "80 kWh gross LFP (Wikipedia, EVspecs.org, EV Specifications).", "low_confidence": true }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 75,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evspecs-fisker-ocean-compare",
-        "notes": "75 kWh usable.",
-        "low_confidence": true
-      }
+      { "value": 75, "unit": "kWh", "kind": "community", "source_id": "src-evspecs-fisker-ocean-compare", "notes": "75 kWh usable.", "low_confidence": true }
     ],
     "chemistry": [
-      {
-        "value": "lfp",
-        "kind": "community",
-        "source_id": "src-evspecifications-fisker-ocean-sport",
-        "notes": "CATL LFP (EV Specifications; Wikipedia agrees).",
-        "low_confidence": true
-      }
+      { "value": "lfp", "kind": "community", "source_id": "src-evspecifications-fisker-ocean-sport", "notes": "CATL LFP (EV Specifications; Wikipedia agrees).", "low_confidence": true }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "community",
-        "source_id": "src-evspecifications-fisker-ocean-sport",
-        "notes": "400 V pack.",
-        "low_confidence": true
-      }
+      { "value": "400v", "kind": "community", "source_id": "src-evspecifications-fisker-ocean-sport", "notes": "400 V pack.", "low_confidence": true }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 200,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-evspecifications-fisker-ocean-sport",
-      "notes": "200 kW DC, 10-80 % about 35 min (EVspecs.org agrees). Wikipedia lists 175 kW for all trims (conflict).",
-      "low_confidence": true
-    }
+    { "value": 200, "unit": "kW", "kind": "community", "source_id": "src-evspecifications-fisker-ocean-sport", "notes": "200 kW DC, 10-80 % about 35 min (EVspecs.org agrees). Wikipedia lists 175 kW for all trims (conflict).", "low_confidence": true }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-evspecifications-fisker-ocean-sport",
-      "notes": "11 kW on-board charger (Wikipedia lists 7.4 kW).",
-      "low_confidence": true
-    }
+    { "value": 11, "unit": "kW", "kind": "community", "source_id": "src-evspecifications-fisker-ocean-sport", "notes": "11 kW on-board charger (Wikipedia lists 7.4 kW).", "low_confidence": true }
   ]
 }

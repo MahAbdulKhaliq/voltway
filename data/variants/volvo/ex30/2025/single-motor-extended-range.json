@@ -5,43 +5,19 @@
   "name": "Single Motor Extended Range",
   "drivetrain": "rwd",
   "powertrain_id": "volvo/ex30/2026-single-motor-extended-range",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port 2026 US checker lists the Volvo EX30 (2025-2026) as CCS1 with an adapter; InsideEVs says early US units use CCS1. For Canada the same car is sold and Volvo Canada promised a NACS adapter (Cision release), which implies CCS1; Motor Illustrated (Canadian review) also says CCS1."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-a9214476f3" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated, OWNER FLAG: US: The Charge Port 2026 checker (search excerpt) lists EX30 as CCS1 with a paid adapter, and a Volvo US support excerpt lists the EX30 among cars that can use Superchargers. Canada: the only Canadian page found (Volvo Canada release, Cision, Oct 2024) says EX30 adapter availability will be announced later; no later Canadian announcement found in repeated searches. Canadian access is therefore an inference from the identical US car."
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-36c27577b8" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Single Motor Extended Range",
-        "US": "Single Motor Extended Range"
-      },
+      "names": { "CA": "Single Motor Extended Range", "US": "Single Motor Extended Range" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-volvo-ex30-2026-specs",
-          "notes": "2026 Core page: 19x8, P245/45VR19; 2025 single-motor page not opened (the 2025 Twin Plus is also 19 in). Plus and Ultra not opened.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ex30-2026-specs", "notes": "2026 Core page: 19x8, P245/45VR19; 2025 single-motor page not opened (the 2025 Twin Plus is also 19 in). Plus and Ultra not opened.", "low_confidence": true }
       ]
     }
   ]

@@ -5,38 +5,19 @@
   "name": "SE",
   "drivetrain": "fwd",
   "powertrain_id": "hyundai/kona-electric/2025-se",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-us-nacs-giveaway-faq",
-      "notes": "Hyundai US free-adapter list includes the KONA Electric as a native-CCS EV; Hyundai says it has not announced a native NACS Kona."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-8517409b92" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-us-nacs-giveaway-faq",
-      "notes": "US: Hyundai free/dealer CCS-to-NACS adapter covers the KONA Electric (no year restriction stated on the giveaway FAQ page)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-2db2b9d23f" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "SE"
-      },
+      "names": { "US": "SE" },
       "wheels": [
-        {
-          "diameter_in": 17,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-kona-ev-2025-index",
-          "low_confidence": true
-        }
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-hyundai-kona-ev-2025-index", "low_confidence": true }
       ]
     }
   ]

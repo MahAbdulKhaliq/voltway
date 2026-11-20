@@ -5,40 +5,19 @@
   "name": "SS",
   "drivetrain": "awd",
   "powertrain_id": "chevrolet/blazer-ev/2027-ss",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-r3-electrek-blazer-2027-nacs",
-      "low_confidence": true,
-      "notes": "Native NACS from model year 2027: Electrek (2026-04-29) says the 2027 Blazer EV gets NACS instead of the CCS connector of earlier models; GM says all 2027 EVs get native NACS (Electrek 2026-08-14). Read via press, not a GM page. US only."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r3-electrek-blazer-2027-nacs", "low_confidence": true, "note_id": "n-ce4d21c800" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-r3-electrek-gm-2027-nacs",
-      "low_confidence": true,
-      "notes": "Electrek 2026-08-14: every 2027 GM EV, Blazer EV included, plugs directly into compatible Tesla Superchargers; some sites stay Tesla-only. US only."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r3-electrek-gm-2027-nacs", "low_confidence": true, "note_id": "n-c9ec08f823" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "SS"
-      },
+      "names": { "US": "SS" },
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-blazer-ev-2027-specs-484980",
-          "notes": "AWD SS: 22 in, 275/40R22."
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2027-specs-484980", "note_id": "n-fa223865ed" }
       ]
     }
   ]

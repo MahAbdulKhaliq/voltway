@@ -4,42 +4,20 @@
   "year": 2025,
   "name": "WT Standard Range",
   "drivetrain": "unknown",
-  "powertrain_id": "chevrolet/silverado-ev/2025-wt-standard-range",
-  "markets": [
-    "CA"
-  ],
+  "powertrain_id": "chevrolet/silverado-ev/2025-work-truck-standard-range",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-gm-silverado-ev-2025-spec-guide",
-      "low_confidence": true,
-      "notes": "CCS1 (J1772 native inlet) through the 2026 model year: GM WT spec guide lists the NACS DC adapter as intended for a J1772 native inlet vehicle (US spec guide, 2025/2026). Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2025."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-8ca55e1703" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2025: adapter needed. Markets: CA."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-40f0c520f6" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "WT Standard Range"
-      },
+      "names": { "CA": "WT Standard Range" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs",
-          "notes": "US Standard Range Work Truck page; applied to the Canadian WT Standard Range.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs", "notes": "US Standard Range Work Truck page; applied to the Canadian WT Standard Range.", "low_confidence": true }
       ]
     }
   ]

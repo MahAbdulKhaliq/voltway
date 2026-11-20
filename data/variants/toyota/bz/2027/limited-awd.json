@@ -4,45 +4,21 @@
   "year": 2027,
   "name": "Limited AWD",
   "drivetrain": "awd",
-  "powertrain_id": "toyota/bz/2026-limited-awd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "toyota/bz/2026-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-r19-toyota-us-bz-onsale-2026",
-      "notes": "Toyota USA: the 2026 bZ has a newly standard NACS inlet (2027 bZ release: NACS port standard)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-0ea9763c03" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-r19-toyota-us-bz-onsale-2026",
-      "notes": "Toyota USA: 'More than 25,000 additional NACS charger plugs available to 2026 bZ drivers through the Tesla Supercharger Network'."
-    },
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-onsale-2026",
-      "notes": "Toyota Canada: 'Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network'; 2026 BEVs have a NACS connector (Canada)."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-3f1c50184a" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-onsale-2026", "note_id": "n-824902a2b8" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Limited AWD"
-      },
+      "names": { "US": "Limited AWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-toyota-bz-2027-specs-486901",
-          "notes": "Limited AWD: 20x7.5 aluminum, P235/50VR20."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-toyota-bz-2027-specs-486901", "note_id": "n-9c51e9dad4" }
       ]
     }
   ]

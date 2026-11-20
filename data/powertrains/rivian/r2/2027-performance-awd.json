@@ -3,94 +3,32 @@
   "model_id": "rivian/r2",
   "name": "Performance AWD",
   "generation": "first-generation",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 94,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-w2-batterydesign-r2-2026",
-        "low_confidence": true,
-        "notes": "Estimated: Battery Design (reverse-engineering blog, not the maker) gives total 94 kWh; 87.9 net cited to Rivian engineers."
-      }
+      { "value": 94, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-batterydesign-r2-2026", "low_confidence": true, "notes": "Estimated: Battery Design (reverse-engineering blog, not the maker) gives total 94 kWh; 87.9 net cited to Rivian engineers." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 87.9,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2-thedrive-r2-launch",
-        "low_confidence": true,
-        "notes": "The Drive: 87.9-kWh pack on Performance, Premium and Standard Long Range; Battery Design: 87.9 net (EPA-certified usable 86.8)."
-      }
+      { "value": 87.9, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-thedrive-r2-launch", "low_confidence": true, "notes": "The Drive: 87.9-kWh pack on Performance, Premium and Standard Long Range; Battery Design: 87.9 net (EPA-certified usable 86.8)." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-w2-batterydesign-r2-2026",
-        "low_confidence": true,
-        "notes": "Estimated: LG 4695 high-nickel NCMA cells (reverse-engineered from EPA data, not stated by Rivian); recorded as nmc, the closest schema value."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-batterydesign-r2-2026", "low_confidence": true, "notes": "Estimated: LG 4695 high-nickel NCMA cells (reverse-engineered from EPA data, not stated by Rivian); recorded as nmc, the closest schema value." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-w2-insideevs-r2-charging-test",
-        "low_confidence": true,
-        "notes": "InsideEVs: Rivian stuck with a 400 V architecture for the R2 (Battery Design: 353 V nominal)."
-      }
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-w2-insideevs-r2-charging-test", "low_confidence": true, "notes": "InsideEVs: Rivian stuck with a 400 V architecture for the R2 (Battery Design: 353 V nominal)." }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-w2-rivian-charging",
-        "low_confidence": true,
-        "notes": "Weak estimate; no R2 trigger described on any page read. Estimated: Rivian charging page says the battery is warmed or cooled for charging and covers the R2; the R1 gets navigation plus manual preconditioning (software 2025.18, InsideEVs); no R2-specific page describing the controls was found."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-w2-rivian-charging", "low_confidence": true, "notes": "Weak estimate; no R2 trigger described on any page read. Estimated: Rivian charging page says the battery is warmed or cooled for charging and covers the R2; the R1 gets navigation plus manual preconditioning (software 2025.18, InsideEVs); no R2-specific page describing the controls was found." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 217,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-w2-electrek-r2-epa",
-      "low_confidence": true,
-      "notes": "Estimated: Electrek reads the EPA certification data as \"seems capable of a peak DC rate of 217kW\"; not a maker statement. Battery Design says 230 kW."
-    },
-    {
-      "value": 229,
-      "unit": "kW",
-      "kind": "tested",
-      "source_id": "src-w2-insideevs-r2-charging-test",
-      "low_confidence": true,
-      "notes": "InsideEVs measured a peak of 229 kW (State of Charge test: 226 kW). Which value is the display default is an owner call."
-    }
+    { "value": 217, "unit": "kW", "kind": "estimated", "source_id": "src-w2-electrek-r2-epa", "low_confidence": true, "notes": "Estimated: Electrek reads the EPA certification data as \"seems capable of a peak DC rate of 217kW\"; not a maker statement. Battery Design says 230 kW." },
+    { "value": 229, "unit": "kW", "kind": "tested", "source_id": "src-w2-insideevs-r2-charging-test", "low_confidence": true, "notes": "InsideEVs measured a peak of 229 kW (State of Charge test: 226 kW). Which value is the display default is an owner call." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-chargedevs-r2",
-      "low_confidence": true,
-      "notes": "Charged EVs: R2 Level 2 charging is rated at 11 kW (11 kW bidirectional). No Rivian R2 spec page found; R1 is 11.5 kW."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-chargedevs-r2", "low_confidence": true, "notes": "Charged EVs: R2 Level 2 charging is rated at 11 kW (11 kW bidirectional). No Rivian R2 spec page found; R1 is 11.5 kW." }
   ],
   "published_10_80_min": [
-    {
-      "value": 29,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-w2-electrek-r2-epa",
-      "low_confidence": true,
-      "notes": "Rivian claim relayed by Electrek: 10-80 % in about 29 min (also The Drive, Battery Design)."
-    }
+    { "value": 29, "unit": "min", "kind": "manufacturer", "source_id": "src-w2-electrek-r2-epa", "low_confidence": true, "notes": "Rivian claim relayed by Electrek: 10-80 % in about 29 min (also The Drive, Battery Design)." }
   ]
 }

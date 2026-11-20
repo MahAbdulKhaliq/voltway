@@ -5,41 +5,19 @@
   "name": "4WT",
   "drivetrain": "unknown",
   "powertrain_id": "chevrolet/silverado-ev/2024-4wt",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-gm-silverado-ev-2025-spec-guide",
-      "low_confidence": true,
-      "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: GM WT spec guide lists the NACS DC adapter as intended for a J1772 native inlet vehicle (US spec guide, 2025/2026). Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2024."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-6d92bdd0b0" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2024: adapter needed. Markets: CA."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-19e45ce735" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "4WT"
-      },
+      "names": { "CA": "4WT" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs-459568",
-          "notes": "Cars.com's 2024 Work Truck pages (433034, 433035) list no wheel data; 18 in from the 2025 Work Truck pages (18x8, LT265/70R18).",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs-459568", "note_id": "n-6922821bac", "low_confidence": true }
       ]
     }
   ]

@@ -3,76 +3,28 @@
   "model_id": "audi/q4-e-tron",
   "name": "Q4 50 e-tron quattro",
   "generation": "2024-update",
-  "years": [
-    2024
-  ],
+  "years": [2024],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 82,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2-insideevs-q4-55-2024",
-        "low_confidence": true,
-        "notes": "Audi US 2024 release: \"82-kilowatt-hour battery (77 kWh of net capacity)\". Wikipedia: Q4 40/45/50 82 gross for 2021-mid 2024; the 2025 Q4 45 uses the same pack (Cars.com)."
-      }
+      { "value": 82, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "note_id": "n-ca25351ebe" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 77,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-w2-insideevs-q4-55-2024",
-        "low_confidence": true,
-        "notes": "Estimated: Audi US 2024 release states 77 kWh net for the 82 kWh pack; Wikipedia gives 82/77 for 2021-mid 2024 Q4 40/45/50; years 2022-2024 compared, pack unchanged."
-      }
+      { "value": 77, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "note_id": "n-1912341577" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-w2-wiki-audi-q4",
-        "low_confidence": true,
-        "notes": "Wikipedia: \"Nickel-Manganese-Cobalt (NMC) battery cells\" (LG Energy Solution, CATL)."
-      }
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-w2-wiki-audi-q4", "low_confidence": true, "note_id": "n-a282204cf6" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-guideauto-id4-2025-pro-awd",
-        "low_confidence": true,
-        "notes": "Estimated: the Q4 e-tron uses the MEB platform and its 82 kWh pack; Guide Auto lists the same-platform VW ID.4 82 kWh pack at 400 V. No Audi page states the Q4 voltage."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-guideauto-id4-2025-pro-awd", "low_confidence": true, "note_id": "n-c418444a3f" }
     ],
     "preconditioning": [
-      {
-        "value": "none",
-        "kind": "estimated",
-        "source_id": "src-insideevs-id4-precond-2026",
-        "low_confidence": true,
-        "notes": "Estimated: platform sibling (MEB): InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning. The Audi US 2024 Q4 55 release introduces route-planner preconditioning with the update, and nothing shows it on the pre-update Q4 (2022-2023, 2024 Q4 40/45/50). Weak: no Audi page states that earlier Q4s lacked it."
-      }
+      { "value": "none", "kind": "estimated", "source_id": "src-insideevs-id4-precond-2026", "low_confidence": true, "note_id": "n-3a022d96fe" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-insideevs-q4-55-2024",
-      "low_confidence": true,
-      "notes": "Audi US 2024 release: new Q4 55 accepts up to 175 kW \"instead of 150 kW previously\" (Q4 50, 2022-2024 pre-update). Wikipedia lists 135 kW for the 2021 European 40/45/50."
-    }
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "note_id": "n-f5a00a9fe4" }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-w2-insideevs-q4-55-2024",
-      "low_confidence": true,
-      "notes": "Estimated: Audi US 2024 update lists an 11 kW onboard charger; Wikipedia lists 11 kW for Q4 40 and up since 2021. Years compared 2022-2024."
-    }
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "note_id": "n-d73909b494" }
   ]
 }

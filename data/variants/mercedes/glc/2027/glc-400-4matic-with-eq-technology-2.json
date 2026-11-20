@@ -4,40 +4,20 @@
   "year": 2027,
   "name": "GLC 400 4MATIC with EQ Technology",
   "drivetrain": "awd",
-  "powertrain_id": "mercedes/glc/2027-glc-400-4matic-with-eq-technology-2",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "mercedes/glc/2027-glc-400-4matic-with-eq-technology",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2027-glc-glc400e4",
-      "notes": "mbusa data sheet: DC connector NACS, AC J1772."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-glc-glc400e4", "note_id": "n-cb80b0cf99" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "Estimated: the mbusa NACS page names the CLA and MY27 EVs (NACS DC inlet, no adapter needed at Superchargers); the GLC is only captioned there, with no Supercharger text."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-3c23166419" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "GLC 400 4MATIC with EQ Technology"
-      },
+      "names": { "US": "GLC 400 4MATIC with EQ Technology" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-glc-400-2027-specs",
-          "notes": "GLC 400 Electric 4MATIC SUV: 20 x 8 front / 20 x 9.5 rear, P235/50R20 and P265/45R20; no optional wheels listed."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-glc-400-2027-specs", "note_id": "n-ed6ca96230" }
       ]
     }
   ]

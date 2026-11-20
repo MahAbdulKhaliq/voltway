@@ -4,54 +4,22 @@
   "year": 2023,
   "name": "Performance Dual-Motor Large Pack",
   "drivetrain": "awd",
-  "powertrain_id": "rivian/r1s/2023-performance-dual-motor-large-pack",
-  "markets": [
-    "CA"
-  ],
+  "powertrain_id": "rivian/r1s/2022-quad-motor-large-pack",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: model years 2022-2025 have a CCS port."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-f742b1d644" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: model years 2022-2025 need a NACS DC adapter to use Tesla Superchargers; the page is the Canadian locale and says North America, so US and Canada."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-0546c7cb96" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Performance Dual-Motor Large Pack"
-      },
+      "names": { "CA": "Performance Dual-Motor Large Pack" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-r2w-carb-rivian-2023",
-          "notes": "20 inch all-terrain option.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r2w-carb-rivian-2023",
-          "notes": "21 inch road wheel; standard flag inferred (21 is the base road size, no allowed source states it). Counter-evidence: CARB 2023 lists the cheapest R1S rows as 'R1S (22 inch wheels)' $81,500 and 'R1S 20 inch All-Terrain' $82,300, so 21 may not be the standard size on every pack.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": false,
-          "source_id": "src-r2w-carb-rivian-2023",
-          "notes": "22 inch option.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-carb-rivian-2023", "note_id": "n-aa28741163", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r2w-carb-rivian-2023", "note_id": "n-f44d8564c8", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-r2w-carb-rivian-2023", "note_id": "n-3fdfcfe75c", "low_confidence": true }
       ]
     }
   ]

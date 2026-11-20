@@ -5,43 +5,19 @@
   "name": "Mid Range",
   "drivetrain": "rwd",
   "powertrain_id": "tesla/model-3/2019-mid-range",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
-    }
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-467dd2e649" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-4655b2436d" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Mid Range",
-        "US": "Mid Range"
-      },
+      "names": { "CA": "Mid Range", "US": "Mid Range" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r2w-thedriven-model-3-lr-wheels-2022",
-          "notes": "The Driven (2022-04-26): the Long Range's 19 inch sport wheels 'used to be standard' until 18 inch aero returned as standard in April 2022. Applied to this year by assumption; the cars.com 2019 page shows only Standard Range RWD (18 inch), so it does not cover this trim. The Driven names the Long Range only; Mid Range assumed the same. No 18 inch option is stated by any opened source.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-thedriven-model-3-lr-wheels-2022", "note_id": "n-0cfed4c94e", "low_confidence": true }
       ]
     }
   ]

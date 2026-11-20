@@ -3,86 +3,31 @@
   "model_id": "volvo/ex90",
   "name": "Twin Motor",
   "generation": "800v",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 106,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-kbb-ex90-2027-specs",
-        "low_confidence": true,
-        "notes": "Estimated: KBB 2027 EX90 specs page lists the same packs as 2026 (92 kWh single, 106 kWh twin/performance); nominal figure per Volvo spec pages (heise gives usable). Other 2027 values carried over from 2026."
-      }
+      { "value": 106, "unit": "kWh", "kind": "estimated", "source_id": "src-kbb-ex90-2027-specs", "low_confidence": true, "note_id": "n-a7dc1ec8eb" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 102,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-heise-ex90-2026",
-        "low_confidence": true,
-        "notes": "Estimated: heise: 2026 EX90 102 kWh usable for the large pack, up to 350 kW. 2027: carry-over from 2026 (KBB 2027 page lists the same packs; The Charge Port lists EX90 2025-2027 together)."
-      }
+      { "value": 102, "unit": "kWh", "kind": "estimated", "source_id": "src-heise-ex90-2026", "low_confidence": true, "notes": "Estimated: heise: 2026 EX90 102 kWh usable for the large pack, up to 350 kW. 2027: carry-over from 2026 (KBB 2027 page lists the same packs; The Charge Port lists EX90 2025-2027 together)." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-volvo-ex90",
-        "low_confidence": true,
-        "notes": "Estimated: Wikipedia: CATL cells on the 2026 800 V packs too (92/106 kWh); the 2025 pack is NMC (Motor1); no source names the 800 V chemistry and nothing shows a change. InsideEVs (EX60) says Volvo packs are high-nickel."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-volvo-ex90", "low_confidence": true, "note_id": "n-ba169f0d27" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "estimated",
-        "source_id": "src-insideevs-ex90-2026-upgrade",
-        "low_confidence": true,
-        "notes": "Estimated: InsideEVs, heise, Electrifying: 2026 EX90 moves to an 800 V architecture. 2027: carry-over from 2026 (KBB 2027 page lists the same packs; The Charge Port lists EX90 2025-2027 together)."
-      }
+      { "value": "800v", "kind": "estimated", "source_id": "src-insideevs-ex90-2026-upgrade", "low_confidence": true, "note_id": "n-2e2e64eae3" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-volvo-ex90-precondition-support-excerpt",
-        "low_confidence": true,
-        "notes": "Estimated: Volvo US EX90 support article, read only as a search excerpt (volvocars.com 403): preconditioning starts automatically when a DC fast charger is the navigation destination and can also be started manually in the charging view. Applied to every EX90 year; nothing shows a change after the 800 V update."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-volvo-ex90-precondition-support-excerpt", "low_confidence": true, "note_id": "n-06d423b606" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 350,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-heise-ex90-2026",
-      "low_confidence": true,
-      "notes": "Estimated: heise: peak 350 kW for the 102 kWh pack (Electrifying: 350 kW top). 2027: carry-over from 2026 (KBB 2027 page lists the same packs; The Charge Port lists EX90 2025-2027 together)."
-    }
+    { "value": 350, "unit": "kW", "kind": "estimated", "source_id": "src-heise-ex90-2026", "low_confidence": true, "notes": "Estimated: heise: peak 350 kW for the 102 kWh pack (Electrifying: 350 kW top). 2027: carry-over from 2026 (KBB 2027 page lists the same packs; The Charge Port lists EX90 2025-2027 together)." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-motor1-ex90-teardown",
-      "low_confidence": true,
-      "notes": "Estimated: the 2025 EX90 onboard charger is 11 kW (Motor1); no 2026-27 page states AC and nothing shows an onboard-charger change with the 800 V update (the EX60 has 19.2 kW, but KBB does not tie that to the EX90)."
-    }
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-motor1-ex90-teardown", "low_confidence": true, "note_id": "n-a6a45d0097" }
   ],
   "published_10_80_min": [
-    {
-      "value": 22,
-      "unit": "min",
-      "kind": "estimated",
-      "source_id": "src-heise-ex90-2026",
-      "low_confidence": true,
-      "notes": "Estimated: heise: 10-80% about 22 minutes under ideal conditions. 2027: carry-over from 2026 (KBB 2027 page lists the same packs; The Charge Port lists EX90 2025-2027 together)."
-    }
+    { "value": 22, "unit": "min", "kind": "estimated", "source_id": "src-heise-ex90-2026", "low_confidence": true, "note_id": "n-7787b83aa9" }
   ]
 }

@@ -3,73 +3,28 @@
   "model_id": "mercedes/eqs-suv",
   "name": "EQS 580 4MATIC SUV",
   "generation": "first-generation",
-  "years": [
-    2024
-  ],
+  "years": [2024],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 118,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-mbusa-data-2024-eqs-eqs580x4",
-        "low_confidence": true,
-        "notes": "mbusa \"battery capacity\" row, read as usable because a second page labels this same pack usable: Edmunds and Green Car Reports (per the fact-checker) describe 118 kWh as usable."
-      }
+      { "value": 118, "unit": "kWh", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqs-eqs580x4", "low_confidence": true, "note_id": "n-a0d2233645" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-mb-eqs",
-        "low_confidence": true,
-        "notes": "Estimated: Wikipedia infobox lists NCM 811 for this model (uncited there)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-98b9a85e51" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-mb-eqs",
-        "low_confidence": true,
-        "notes": "Estimated: Wikipedia infobox lists a 400 V system for this model (EQS 400V; EQE 400V / 328 V); uncited there."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-361488a6e2" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-mbusa-eqe-eqs-quickstart",
-        "low_confidence": true,
-        "notes": "Estimated: the Mercedes USA EQE/EQS quick-start guide says (per the fact-checker excerpt; the PDF could not be read here) the battery is prepared automatically before the charging station is reached, i.e. a navigation trigger; same system on sedan and SUV. Whether a separate manual battery control exists is unproven either way (the mbusa EV FAQ mentions on-demand preconditioning from the app, possibly cabin only)."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-eqe-eqs-quickstart", "low_confidence": true, "note_id": "n-ce3bdffc9d" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 200,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2024-eqs-eqs580x4",
-      "notes": "mbusa DC charging speed."
-    }
+    { "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqs-eqs580x4", "note_id": "n-ef94359a19" }
   ],
   "ac_max_kw": [
-    {
-      "value": 9.6,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2024-eqs-eqs580x4",
-      "notes": "mbusa maximum AC charging speed."
-    }
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqs-eqs580x4", "note_id": "n-6c4fc42729" }
   ],
   "published_10_80_min": [
-    {
-      "value": 31,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2024-eqs-eqs580x4",
-      "notes": "mbusa DC charging time 10-80 %."
-    }
+    { "value": 31, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqs-eqs580x4", "note_id": "n-e94024573d" }
   ]
 }

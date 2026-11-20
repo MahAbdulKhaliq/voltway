@@ -5,53 +5,21 @@
   "name": "Dual-Motor Standard Plus Pack",
   "drivetrain": "awd",
   "powertrain_id": "rivian/r1s/2024-dual-motor-standard-plus-pack",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: model years 2022-2025 have a CCS port."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-f742b1d644" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: model years 2022-2025 need a NACS DC adapter to use Tesla Superchargers; the page is the Canadian locale and says North America, so US and Canada."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-0546c7cb96" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Dual-Motor Standard Plus Pack"
-      },
+      "names": { "US": "Dual-Motor Standard Plus Pack" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-r2w-carb-rivian-2024",
-          "notes": "20 inch all-terrain option (listed as all-terrain / 20 inch).",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r2w-carb-rivian-2024",
-          "notes": "21 inch road wheel; standard flag inferred (21 is the base road size, no allowed source states it).",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": false,
-          "source_id": "src-r2w-carb-rivian-2024",
-          "notes": "22 inch option.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-carb-rivian-2024", "note_id": "n-b3ee9a4048", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r2w-carb-rivian-2024", "note_id": "n-26933e9982", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-r2w-carb-rivian-2024", "note_id": "n-3fdfcfe75c", "low_confidence": true }
       ]
     }
   ]

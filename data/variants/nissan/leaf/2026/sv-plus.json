@@ -5,62 +5,25 @@
   "name": "SV PLUS",
   "drivetrain": "unknown",
   "powertrain_id": "nissan/leaf/2026-sv-plus",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. NACS passenger-side fast-charge port; J1772 on driver's side for AC."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-9295dad563" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-spinelli-nissan-leaf-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Native NACS port; article says it unlocks Tesla Superchargers across Canada."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "note_id": "n-c07c0722f9" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 1919,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-carscom-leaf-sv-plus-2026",
-      "low_confidence": true,
-      "notes": "Converted from 4,231 lb (US SV+ FWD): 4,231 x 0.45359 = 1,919. Matches EV Specifications 1,919 kg. Guide Auto gives a Canadian lineup range of 1,802-1,991 kg."
-    }
+    { "value": 1919, "unit": "kg", "kind": "manufacturer", "source_id": "src-carscom-leaf-sv-plus-2026", "low_confidence": true, "notes": "Converted from 4,231 lb (US SV+ FWD): 4,231 x 0.45359 = 1,919. Matches EV Specifications 1,919 kg. Guide Auto gives a Canadian lineup range of 1,802-1,991 kg." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "SV PLUS",
-        "US": "SV+"
-      },
+      "names": { "CA": "SV PLUS", "US": "SV+" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-driveteslacanada-leaf-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. Article says heat pump standard; not per trim."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-driveteslacanada-leaf-2026", "low_confidence": true, "note_id": "n-e17f94008c" }
       ],
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-spinelli-nissan-leaf-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. '18-inch alloy wheels' listed for SV+."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-spinelli-nissan-leaf-2026", "low_confidence": true, "notes": "Quick web lookup. '18-inch alloy wheels' listed for SV+." }
       ]
     }
   ]

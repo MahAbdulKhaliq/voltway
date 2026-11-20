@@ -4,50 +4,21 @@
   "year": 2025,
   "name": "xDrive40",
   "drivetrain": "awd",
-  "powertrain_id": "bmw/i5/2025-xdrive40",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "bmw/i5/2025-edrive40",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-ie-sc",
-      "low_confidence": true,
-      "notes": "Estimated: BMW i5 uses CCS1 through 2025 (InsideEVs: all current BMW EVs use CCS ports; BMW Canada: native NACS only on all-new 2026+ models)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-69059c5f7e" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ca-nacs",
-      "low_confidence": true,
-      "notes": "Canada: Lectron Vortex Plus NACS-to-CCS adapter plus software update (from 2026-04-08)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ie-sc",
-      "low_confidence": true,
-      "notes": "US: Supercharging with a CCS-to-NACS adapter (Lectron) from the week of 2025-12-10 for i4/i5/i7/iX; 2026 cars need a software update."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "xDrive40",
-        "US": "xDrive40"
-      },
+      "names": { "CA": "xDrive40", "US": "xDrive40" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-bmw-i5-2025-specs-454317",
-          "notes": "xDrive40 Sedan: 19 x 8.5 in aluminum, P245/45R19; the M Sport Package (Style 936M) is the same 19 in size. (US page; Canadian cars assumed the same.)"
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2025-specs-454317", "note_id": "n-00ac4d3378" }
       ]
     }
   ]

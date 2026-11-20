@@ -4,34 +4,18 @@
   "year": 2027,
   "name": "AMG GT 63 4MATIC+ 4-Door Coupe",
   "drivetrain": "awd",
-  "powertrain_id": "mercedes/amg-gt-4-door/2027-amg-gt-63-4matic-plus-4-door-coupe",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "mercedes/amg-gt-4-door/2027-amg-gt-55-4matic-plus-4-door-coupe",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-jalopnik-amg-gt-4door-2027",
-      "low_confidence": true,
-      "notes": "Jalopnik: \"It will come with an NACS port in the U.S.\""
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-jalopnik-amg-gt-4door-2027", "low_confidence": true, "note_id": "n-79441b9094" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "Estimated: US car has a NACS port (Jalopnik); mbusa says NACS-port Mercedes EVs need no adapter at Tesla Superchargers (page does not name the AMG GT; no Canada information, GT 55 / GT 63 are listed for the US only)."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-af9de4010e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "AMG GT 63 4MATIC+ 4-Door Coupe"
-      }
+      "names": { "US": "AMG GT 63 4MATIC+ 4-Door Coupe" }
     }
   ]
 }

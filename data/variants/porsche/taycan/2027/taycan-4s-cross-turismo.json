@@ -4,41 +4,20 @@
   "year": 2027,
   "name": "Taycan 4S Cross Turismo",
   "drivetrain": "awd",
-  "powertrain_id": "porsche/taycan/2027-taycan-4s-cross-turismo",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "porsche/taycan/2027-taycan-4-performance-battery-plus",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-porsche-us-taycan-my2027",
-      "notes": "MY2027: passenger-side DC fast-charging port is NACS native, driver-side AC port stays J1772; CCS adapter included (the Turbo GT with Weissach Package is the exception; not in this list)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-porsche-us-taycan-my2027", "note_id": "n-20c5fd76bf" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-porsche-us-taycan-my2027",
-      "low_confidence": true,
-      "notes": "Estimated: native NACS DC port and Porsche is in the Tesla Supercharger programme (the MY2025 US release covers CCS cars with an adapter; the MY2027 page does not mention Superchargers)."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-porsche-us-taycan-my2027", "low_confidence": true, "note_id": "n-64c5d4aa7f" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Taycan 4S Cross Turismo"
-      },
+      "names": { "US": "Taycan 4S Cross Turismo" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-cars-porsche-taycan-2021-420599",
-          "notes": "Estimated: the 2021 Taycan 4S Cross Turismo AWD page shows 19-inch; the 2027 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-porsche-taycan-2021-420599", "notes": "Estimated: the 2021 Taycan 4S Cross Turismo AWD page shows 19-inch; the 2027 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
       ]
     }
   ]

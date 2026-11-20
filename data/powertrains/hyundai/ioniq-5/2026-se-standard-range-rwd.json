@@ -3,76 +3,28 @@
   "model_id": "hyundai/ioniq-5",
   "name": "SE Standard Range RWD",
   "generation": "2025-refresh",
-  "years": [
-    2026
-  ],
+  "years": [2026],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 63,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-hmgma-2025-ioniq-5-xrt",
-        "notes": "Estimated: Hyundai lists 63.0 kWh for the 2025 Standard Range; 2026 is the same generation with no pack change reported.",
-        "low_confidence": true
-      }
+      { "value": 63, "unit": "kWh", "kind": "estimated", "source_id": "src-hmgma-2025-ioniq-5-xrt", "notes": "Estimated: Hyundai lists 63.0 kWh for the 2025 Standard Range; 2026 is the same generation with no pack change reported.", "low_confidence": true }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 60,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-ioniq5-63-rwd",
-        "notes": "European listing of the same 63 kWh pack (MY24): 60.0 kWh usable (EVKX says 59 net). Pack is shared across markets.",
-        "low_confidence": true
-      }
+      { "value": 60, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ioniq5-63-rwd", "note_id": "n-5a67f7bfa4", "low_confidence": true }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-evdb-ioniq5-63-rwd",
-        "notes": "EV Database: NMC cathode, pouch (63 kWh pack).",
-        "low_confidence": true
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ioniq5-63-rwd", "note_id": "n-4acac9f3fe", "low_confidence": true }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "community",
-        "source_id": "src-evdb-ioniq5-63-rwd",
-        "notes": "EV Database: 520 V nominal, 800 V architecture; ArenaEV also says 800 V.",
-        "low_confidence": true
-      }
+      { "value": "800v", "kind": "community", "source_id": "src-evdb-ioniq5-63-rwd", "note_id": "n-fae77b42d2", "low_confidence": true }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-ioniq5-manual-ne1a-2026",
-        "notes": "Estimated: the US 2026 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). No Canadian manual read.",
-        "low_confidence": true
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-ioniq5-manual-ne1a-2026", "note_id": "n-bf017ffa8d", "low_confidence": true }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 180,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-arenaev-ioniq5-63",
-      "notes": "Estimated: no North American page states a peak for the 63 kWh pack. Same pack in Europe: ArenaEV lists 180 kW (CCS, read), EV Database 195 kW (read). Conflicting US evidence: Electrek (US first drive) gives 257 kW and 20 min 10-80% on a 250 kW+ CCS charger without separating the 63 kWh pack (257 kW is the 84 kWh peak). 180 kW (ArenaEV) is recorded; EV Database's 195 kW is higher, so the true peak is uncertain; flag for owner review.",
-      "low_confidence": true
-    }
+    { "value": 180, "unit": "kW", "kind": "estimated", "source_id": "src-arenaev-ioniq5-63", "note_id": "n-2947f5934e", "low_confidence": true }
   ],
   "ac_max_kw": [
-    {
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-ioniq5-2026",
-      "notes": "Estimated: the US 2026 IONIQ 5 page gives 10.9 kW home charging; EV Database lists the same 11 kW onboard charger for the 63 kWh and 84 kWh cars, so the charger carries over. Source is a US page; no Canadian page states the onboard charger, so Canadian cars on this powertrain (2025-2026) rely on the same carry-over.",
-      "low_confidence": true
-    }
+    { "value": 10.9, "unit": "kW", "kind": "estimated", "source_id": "src-thechargeport-ioniq5-2026", "note_id": "n-2ef1f2c8df", "low_confidence": true }
   ]
 }

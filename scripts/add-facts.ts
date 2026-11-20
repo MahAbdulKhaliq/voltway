@@ -27,6 +27,7 @@
 // The data build picks the default curve; batches never set is_display_default.
 
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { formatJson } from './lib/format-json.ts';
 import { join } from 'node:path';
 import { cpSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -59,7 +60,7 @@ const root = check ? mkdtempSync(join(tmpdir(), 'voltway-check-')) : realRoot;
 if (check) for (const d of ['schema', 'data', 'crosswalk']) cpSync(join(realRoot, d), join(root, d), { recursive: true });
 
 for (const s of spec.sources) {
-  writeFileSync(join(root, 'data/sources', `${s.id}.json`), JSON.stringify(s, null, 2) + '\n');
+  writeFileSync(join(root, 'data/sources', `${s.id}.json`), formatJson(s));
 }
 
 const merge = (existing: unknown, add: Sourced[]): Sourced[] => {
@@ -89,13 +90,13 @@ if (spec.powertrains) {
     const p = JSON.parse(readFileSync(file, 'utf8'));
     for (const [path, values] of Object.entries(patch.fields ?? {})) setPath(p, path, values);
     const { id: _id, model_id, name, generation, years, notes, ...rest } = p;
-    writeFileSync(file, JSON.stringify({ id: p.id, model_id, name, ...(generation ? { generation } : {}), years, ...rest, ...(notes ? { notes } : {}) }, null, 2) + '\n');
+    writeFileSync(file, formatJson({ id: p.id, model_id, name, ...(generation ? { generation } : {}), years, ...rest, ...(notes ? { notes } : {}) }));
     for (const c of patch.curves ?? []) {
       if ('is_display_default' in c) throw new Error(`${id}: curve "${c.id}" sets is_display_default; the build picks the default`);
       const dir = join(root, 'data/curves', id);
       mkdirSync(dir, { recursive: true });
       const { id: curveId, ...cr } = c;
-      writeFileSync(join(dir, `${curveId}.json`), JSON.stringify({ id: curveId, powertrain_id: id, ...cr, is_display_default: false }, null, 2) + '\n');
+      writeFileSync(join(dir, `${curveId}.json`), formatJson({ id: curveId, powertrain_id: id, ...cr, is_display_default: false }));
     }
     if (patch.variant_fields) {
       const vids = byPowertrain.get(id) ?? [];
@@ -133,13 +134,13 @@ for (const [id, patch] of Object.entries(spec.variants)) {
   // Identity first, figures in the middle, trims last.
   const { id: _id, model_id, year, name, drivetrain, carry_over_from, trims, ...rest } = v;
   const ordered = { id: v.id, model_id, year, name, drivetrain, ...(carry_over_from ? { carry_over_from } : {}), ...rest, trims };
-  writeFileSync(file, JSON.stringify(ordered, null, 2) + '\n');
+  writeFileSync(file, formatJson(ordered));
   for (const c of patch.curves ?? []) {
     if ('is_display_default' in c) throw new Error(`${id}: curve "${c.id}" sets is_display_default; the build picks the default`);
     const dir = join(root, 'data/curves', id);
     mkdirSync(dir, { recursive: true });
     const { id: curveId, ...rest } = c;
-    writeFileSync(join(dir, `${curveId}.json`), JSON.stringify({ id: curveId, variant_id: id, ...rest, is_display_default: false }, null, 2) + '\n');
+    writeFileSync(join(dir, `${curveId}.json`), formatJson({ id: curveId, variant_id: id, ...rest, is_display_default: false }));
     if (!check) console.log(`curve ${id}/${curveId}`);
   }
   if (!check) console.log(`updated ${id}`);

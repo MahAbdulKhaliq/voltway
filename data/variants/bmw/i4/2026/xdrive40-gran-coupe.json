@@ -4,44 +4,20 @@
   "year": 2026,
   "name": "xDrive40",
   "drivetrain": "awd",
-  "powertrain_id": "bmw/i4/2026-xdrive40-gran-coupe",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "bmw/i4/2026-edrive40-gran-coupe",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thinkev-bmw-i4-2026",
-      "low_confidence": true,
-      "notes": "Estimated: thinkEV's 2026 i4 page states CCS1 in the eDrive40 spec table (it gives only range figures for the other trims); same model, generation and year, and BMW's 2026 native-NACS list (BMWBlog, BMW Canada) does not include the i4."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thinkev-bmw-i4-2026", "low_confidence": true, "notes": "Estimated: thinkEV's 2026 i4 page states CCS1 in the eDrive40 spec table (it gives only range figures for the other trims); same model, generation and year, and BMW's 2026 native-NACS list (BMWBlog, BMW Canada) does not include the i4." }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-bmw-canada-nacs-superchargers-2026-04",
-      "low_confidence": true,
-      "notes": "BMW Canada (2026-04-08): CCS-port BMW BEVs get Supercharger access via RSU and the approved Lectron adapter. i4 listed by BMWBlog for the US (2025-12-10)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "low_confidence": true, "notes": "BMW Canada (2026-04-08): CCS-port BMW BEVs get Supercharger access via RSU and the approved Lectron adapter. i4 listed by BMWBlog for the US (2025-12-10)." }
   ],
   "trims": [
     {
       "id": "18-in-wheels",
-      "names": {
-        "CA": "xDrive40",
-        "US": "xDrive40"
-      },
+      "names": { "CA": "xDrive40", "US": "xDrive40" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2025-specs-460991",
-          "notes": "xDrive40. Carried from the 2025 xDrive40 page (2026 xDrive40 page not opened; 2026 eDrive40 is unchanged at 18 in), no page for this exact year opened. (US page; Canadian cars assumed the same.)",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2025-specs-460991", "notes": "xDrive40. Carried from the 2025 xDrive40 page (2026 xDrive40 page not opened; 2026 eDrive40 is unchanged at 18 in), no page for this exact year opened. (US page; Canadian cars assumed the same.)", "low_confidence": true }
       ]
     }
   ]

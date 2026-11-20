@@ -4,53 +4,31 @@
   "name": "IONIQ 6",
   "body_type": "sedan",
   "generations": [
-    {
-      "id": "first-generation-pre-facelift",
-      "name": "First generation",
-      "first_year": 2023,
-      "last_year": 2025,
-      "notes": "Launch on E-GMP (800 V). 53 kWh Standard Range (US only) and 77.4 kWh Long Range; DC peak ~233 kW. Neither country got a 2026 standard Ioniq 6. Canada never had the 53 kWh Standard Range. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Ioniq_6 ; https://insideevs.com/news/789015/hyundai-ioniq-6-dead/ ; https://www.auto123.com/en/news/hyundai-no-ioniq-6-2026-model-year-canada/73707/"
-    },
-    {
-      "id": "facelift",
-      "name": "Facelift (incl. Ioniq 6 N)",
-      "first_year": 2026,
-      "notes": "Facelift with 63/84 kWh packs globally. In North America: the Ioniq 6 N (84 kWh, 800 V, native NACS) and, in Canada only, the refreshed standard Ioniq 6 from MY2027. first_year 2026 is the Canadian Ioniq 6 N; the US N is MY2027 and the Canadian standard car is MY2027. I found no source confirming the Canadian 2027 standard car's pack size (84 kWh is likely from the global facelift but unverified). The US does not get the facelifted standard car. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Ioniq_6 ; https://electrek.co/2026/11/11/hyundai-shaking-up-2027-ev-lineup-whats-changing/ ; https://www.auto123.com/en/news/hyundai-no-ioniq-6-2026-model-year-canada/73707/"
-    }
+    { "id": "first-generation-pre-facelift", "name": "First generation", "first_year": 2023, "last_year": 2025, "notes": "Launch on E-GMP (800 V). 53 kWh Standard Range (US only) and 77.4 kWh Long Range; DC peak ~233 kW. Neither country got a 2026 standard Ioniq 6. Canada never had the 53 kWh Standard Range. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Ioniq_6 ; https://insideevs.com/news/789015/hyundai-ioniq-6-dead/ ; https://www.auto123.com/en/news/hyundai-no-ioniq-6-2026-model-year-canada/73707/" },
+    { "id": "facelift", "name": "Facelift (incl. Ioniq 6 N)", "first_year": 2026, "notes": "Facelift with 63/84 kWh packs globally. In North America: the Ioniq 6 N (84 kWh, 800 V, native NACS) and, in Canada only, the refreshed standard Ioniq 6 from MY2027. first_year 2026 is the Canadian Ioniq 6 N; the US N is MY2027 and the Canadian standard car is MY2027. I found no source confirming the Canadian 2027 standard car's pack size (84 kWh is likely from the global facelift but unverified). The US does not get the facelifted standard car. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Ioniq_6 ; https://electrek.co/2026/11/11/hyundai-shaking-up-2027-ev-lineup-whats-changing/ ; https://www.auto123.com/en/news/hyundai-no-ioniq-6-2026-model-year-canada/73707/" }
   ],
   "years": [
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation-pre-facelift"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation-pre-facelift"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation-pre-facelift"
     },
     {
       "year": 2027,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "facelift"
     }

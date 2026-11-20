@@ -4,40 +4,20 @@
   "year": 2027,
   "name": "Light Long Range RWD",
   "drivetrain": "rwd",
-  "powertrain_id": "kia/ev9/2027-light-long-range-rwd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "kia/ev9/2027-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kia-us-ev9-2027-specs",
-      "notes": "Kia US 2027 EV9 page: NACS port on all trims."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-specs", "note_id": "n-3b6c0a711d" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kia-us-ev9-2027-specs",
-      "notes": "NACS port on all 2027 trims: Tesla Superchargers directly."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-us-ev9-2027-specs", "note_id": "n-2af31e08db" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Light Long Range RWD"
-      },
+      "names": { "US": "Light Long Range RWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-kia-ev9-2027-index",
-          "low_confidence": true,
-          "notes": "Light Short Range shown; Light Long Range not opened."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev9-2027-index", "low_confidence": true, "note_id": "n-775d442653" }
       ]
     }
   ]

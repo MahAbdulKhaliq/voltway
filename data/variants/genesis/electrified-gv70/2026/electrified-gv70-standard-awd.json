@@ -4,42 +4,20 @@
   "year": 2026,
   "name": "Electrified GV70 Standard AWD",
   "drivetrain": "awd",
-  "powertrain_id": "genesis/electrified-gv70/2026-electrified-gv70-standard-awd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "genesis/electrified-gv70/2026-electrified-gv70-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-us-nacs-lineup",
-      "notes": "Genesis USA: starting with 2026 models every Genesis EV has a NACS port.",
-      "low_confidence": true
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-4f11cd6f71", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-us-nacs-lineup",
-      "notes": "Genesis USA: the NACS port gives access to more than 36,000 Tesla Superchargers.",
-      "low_confidence": true
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-f8483eeff6", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Electrified GV70 Standard AWD"
-      },
+      "names": { "US": "Electrified GV70 Standard AWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-genesis-electrified-gv70-2026-index",
-          "low_confidence": true,
-          "notes": "19\" AWD trim: 19 x 8 in, P235/55VR19."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-genesis-electrified-gv70-2026-index", "low_confidence": true, "notes": "19\" AWD trim: 19 x 8 in, P235/55VR19." }
       ]
     }
   ]

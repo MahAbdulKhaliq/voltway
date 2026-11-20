@@ -4,42 +4,20 @@
   "year": 2027,
   "name": "Scat Pack AWD",
   "drivetrain": "awd",
-  "powertrain_id": "dodge/charger-daytona/2027-scat-pack-awd-2",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "dodge/charger-daytona/2027-scat-pack-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-electrive-stellantis-supercharger-2026",
-      "notes": "electrive: the 2027 Dodge Charger Daytona will feature a standard NACS charging port (first Stellantis model). Electrek words it as the \"2027 Charger EV\".",
-      "low_confidence": true
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-ba58595cc0", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-electrive-stellantis-supercharger-2026",
-      "notes": "Native NACS port, needs no adapter (electrive).",
-      "low_confidence": true
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-3e8b0c4255", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Scat Pack AWD"
-      },
+      "names": { "US": "Scat Pack AWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-cc-ch26",
-          "notes": "2026 page; 2027 not checked, low confidence.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-cc-ch26", "note_id": "n-ee3d0f1a0c", "low_confidence": true }
       ]
     }
   ]

@@ -4,46 +4,30 @@
   "name": "Blazer EV",
   "body_type": "suv",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation",
-      "first_year": 2024,
-      "notes": "Launch on GM Ultium. 85 kWh pack (FWD and most AWD trims) and 102 kWh pack (RS RWD and SS). The 102 kWh RWD peaks at about 190 kW DC; Wikipedia lists 150-195 kW across the line. No line-wide pack change found by model year, so one generation. The RWD 102 kWh variant was dropped for 2026 (Wikipedia cites Car and Driver). GM says all 2027 GM EVs get native NACS ports (port change only). Check per-trim pack/kW by year from the data, since DC peak differs by pack, not by year. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Chevrolet_Blazer_EV ; https://www.cars.com/research/chevrolet-blazer_ev-2025"
-    }
+    { "id": "first-generation", "name": "First generation", "first_year": 2024, "notes": "Launch on GM Ultium. 85 kWh pack (FWD and most AWD trims) and 102 kWh pack (RS RWD and SS). The 102 kWh RWD peaks at about 190 kW DC; Wikipedia lists 150-195 kW across the line. No line-wide pack change found by model year, so one generation. The RWD 102 kWh variant was dropped for 2026 (Wikipedia cites Car and Driver). GM says all 2027 GM EVs get native NACS ports (port change only). Check per-trim pack/kW by year from the data, since DC peak differs by pack, not by year. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Chevrolet_Blazer_EV ; https://www.cars.com/research/chevrolet-blazer_ev-2025" }
   ],
   "years": [
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2027,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "first-generation"
     }

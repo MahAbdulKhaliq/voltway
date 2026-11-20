@@ -5,43 +5,19 @@
   "name": "California Route 1",
   "drivetrain": "rwd",
   "powertrain_id": "ford/mustang-mach-e/2021-california-route-1",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-insideevs-mme-carplay-2026",
-      "low_confidence": true,
-      "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2021 owners implies the same CCS1 port. No port change found across 2021-2026."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-72f879c710" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-ford-ca-supercharger-2024",
-      "low_confidence": true,
-      "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; the cited Ford page names no model years, so eligibility of this model year is not shown by it; 2025 has the feature from the factory). Recorded: via adapter today."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "California Route 1",
-        "US": "California Route 1 RWD"
-      },
+      "names": { "CA": "California Route 1", "US": "California Route 1 RWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-ford-us-mme-specs-2021",
-          "notes": "California Route 1: 18 in standard. Source is a US page; Canadian trim assumed the same.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-ford-us-mme-specs-2021", "note_id": "n-975eb402f1", "low_confidence": true }
       ]
     }
   ]

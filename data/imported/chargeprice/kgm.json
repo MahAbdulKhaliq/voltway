@@ -3,51 +3,6 @@
   "source_id": "src-chargeprice-archive-2025-04",
   "make": "kgm",
   "records": [
-    {
-      "source_key": "fec6bdda-9859-4fc6-9943-e242c6fc9f0d",
-      "year": 2024,
-      "make": "KGM",
-      "model": "Torres EVX",
-      "capacity_usable_kwh": [
-        {
-          "value": 72,
-          "unit": "kWh",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "dc_max_kw": [
-        {
-          "value": 120,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "ac_max_kw": [
-        {
-          "value": 11,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "nominal_voltage_class": [
-        {
-          "value": "400v",
-          "kind": "manufacturer",
-          "source_id": "src-chargeprice-archive-2025-04",
-          "low_confidence": true,
-          "notes": "The Chargeprice archive does not cite a source for its specs."
-        }
-      ],
-      "curve_skipped": "generic_shape"
-    }
+    { "source_key": "fec6bdda-9859-4fc6-9943-e242c6fc9f0d", "year": 2024, "make": "KGM", "model": "Torres EVX", "capacity_usable_kwh": [{ "value": 72, "unit": "kWh", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "dc_max_kw": [{ "value": 120, "unit": "kW", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "ac_max_kw": [{ "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "nominal_voltage_class": [{ "value": "400v", "kind": "manufacturer", "source_id": "src-chargeprice-archive-2025-04", "low_confidence": true, "notes": "The Chargeprice archive does not cite a source for its specs." }], "curve_skipped": "generic_shape" }
   ]
 }

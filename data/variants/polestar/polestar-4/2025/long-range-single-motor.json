@@ -4,58 +4,22 @@
   "year": 2025,
   "name": "Long Range Single Motor",
   "drivetrain": "rwd",
-  "powertrain_id": "polestar/polestar-4/2025-long-range-single-motor",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "polestar/polestar-4/2025-long-range-dual-motor",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port US checker lists Polestar 4 (2025-2026) as CCS1 with a paid adapter; Polestar US/CA pages say the car is compatible with the NACS adapter."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-41a585944a" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-us-nacs-adapter-page",
-      "low_confidence": true,
-      "notes": "Polestar US: Polestar 4 is compatible with the NACS adapter."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-ca-nacs-adapter-page",
-      "low_confidence": true,
-      "notes": "Polestar Canada: same statement."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-us-nacs-adapter-page", "low_confidence": true, "note_id": "n-063a3a8846" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-ca-nacs-adapter-page", "low_confidence": true, "note_id": "n-98f001b913" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Long Range Single Motor",
-        "US": "Long Range Single Motor"
-      },
+      "names": { "CA": "Long Range Single Motor", "US": "Long Range Single Motor" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-ps4-us",
-          "notes": "20-inch Aero standard; page not model-year specific.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-r2w-ps4-us",
-          "notes": "21-inch Sport single option.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-ps4-us", "note_id": "n-14d186c99c", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r2w-ps4-us", "note_id": "n-05caeb3807", "low_confidence": true }
       ]
     }
   ]

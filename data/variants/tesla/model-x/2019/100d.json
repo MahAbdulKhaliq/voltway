@@ -5,43 +5,19 @@
   "name": "100D",
   "drivetrain": "awd",
   "powertrain_id": "tesla/model-x/2019-100d",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla connector (now NACS / SAE J3400) on every Tesla since the 2012 Model S; Canada and US cars alike (Wikipedia NACS article; EVSpecifications lists \"NACS / Tesla (SAE J3400)\" on Model S Plaid pages)."
-    }
+    { "value": "nacs", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-64b227cb35" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia NACS article); same in Canada and the US."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-0149985cd2" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "100D",
-        "US": "100D"
-      },
+      "names": { "CA": "100D", "US": "100D" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-carscom-model-x-2020",
-          "notes": "20 inch aluminum standard. Carried over from a neighbouring model year on the same body; that year was not opened.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carscom-model-x-2020", "note_id": "n-4f523eff7a", "low_confidence": true }
       ]
     }
   ]

@@ -3,86 +3,31 @@
   "model_id": "kia/ev6",
   "name": "Light RWD",
   "generation": "2025-refresh",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 63,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-kia-us-ev6-specs-2026-chargetable",
-        "low_confidence": true,
-        "notes": "Kia US 2026 EV6 page: Light 63.0 kWh. 2027 Light RWD is 63 kWh per Electrek 2027 pricing coverage (search excerpt)."
-      }
+      { "value": 63, "unit": "kWh", "kind": "manufacturer", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "low_confidence": true, "note_id": "n-4f7e5866be" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 60,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-ev6-sr-2025",
-        "low_confidence": true,
-        "notes": "EV Database (MY25-27): 60.0 kWh usable of 63.0 nominal."
-      }
+      { "value": 60, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ev6-sr-2025", "low_confidence": true, "note_id": "n-6d93c00a24" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-evdb-ev6-sr-2025",
-        "low_confidence": true,
-        "notes": "EV Database: NMC."
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-ev6-sr-2025", "low_confidence": true, "note_id": "n-5ab0a9ede0" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "community",
-        "source_id": "src-evdb-ev6-sr-2025",
-        "low_confidence": true,
-        "notes": "EV Database: 800 V architecture."
-      }
+      { "value": "800v", "kind": "community", "source_id": "src-evdb-ev6-sr-2025", "low_confidence": true, "note_id": "n-065e85d96e" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-kia-uk-battery-preconditioning",
-        "low_confidence": true,
-        "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh. Battery-heater equipment on Light is unconfirmed (Kia US shows no heat pump on Light and the manual says conditioning needs a battery heater), so this may not apply to Light."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-kia-uk-battery-preconditioning", "low_confidence": true, "note_id": "n-954750b5e1" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 180,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-automoblog-2025-ev6",
-      "low_confidence": true,
-      "notes": "Estimated: Kia chart relayed by Automoblog is for the 2025 EV6 (Light 180 kW, other 84 kWh trims 240 kW); the 2026/2027 car has the same pack and charger. Automoblog Kia-sourced chart: Light 180 kW max DC input (EVDB EU listing says 195 kW)."
-    }
+    { "value": 180, "unit": "kW", "kind": "estimated", "source_id": "src-automoblog-2025-ev6", "low_confidence": true, "note_id": "n-5cf561eca1" }
   ],
   "ac_max_kw": [
-    {
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-kia-us-ev6-specs-2026-chargetable",
-      "low_confidence": true,
-      "notes": "Estimated: Kia US 2026 EV6 page: 10.9 kW on every trim; the 2027 EV6 keeps the 2026 features."
-    }
+    { "value": 10.9, "unit": "kW", "kind": "estimated", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "low_confidence": true, "note_id": "n-18ec35e720" }
   ],
   "published_10_80_min": [
-    {
-      "value": 20,
-      "unit": "min",
-      "kind": "estimated",
-      "source_id": "src-kia-us-ev6-specs-2026-chargetable",
-      "low_confidence": true,
-      "notes": "Estimated: from the Kia US 2026 EV6 page; 2027 carries the same hardware. Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (figure from a GT AWD test)."
-    }
+    { "value": 20, "unit": "min", "kind": "estimated", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "low_confidence": true, "notes": "Estimated: from the Kia US 2026 EV6 page; 2027 carries the same hardware. Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (figure from a GT AWD test)." }
   ]
 }

@@ -5,60 +5,23 @@
   "name": "Twin Performance",
   "drivetrain": "awd",
   "powertrain_id": "volvo/ex30/2026-twin-performance",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 245,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-insideevs-nyland-ex30-twin-2024",
-      "low_confidence": true,
-      "notes": "Test: 75 mph (120 km/h) steady, 14 C (57 F), 20-inch wheels, battery-side (Nyland's registered consumption; page does not say explicitly) | Bjorn Nyland, 2024 EX30 Twin Motor Performance, 69 kWh gross (page says 64 kWh usable; our data says 66 kWh usable, same 69 kWh gross NMC pack). Page states 245 Wh/km (394 Wh/mile, 2.5 mi/kWh), range 267 km. Cool weather, so a mild-weather figure would be lower. Video ID L2aS-a81nIc not confirmed."
-    }
+    { "value": 245, "unit": "Wh/km", "kind": "tested", "source_id": "src-insideevs-nyland-ex30-twin-2024", "low_confidence": true, "notes": "Test: 75 mph (120 km/h) steady, 14 C (57 F), 20-inch wheels, battery-side (Nyland's registered consumption; page does not say explicitly) | Bjorn Nyland, 2024 EX30 Twin Motor Performance, 69 kWh gross (page says 64 kWh usable; our data says 66 kWh usable, same 69 kWh gross NMC pack). Page states 245 Wh/km (394 Wh/mile, 2.5 mi/kWh), range 267 km. Cool weather, so a mild-weather figure would be lower. Video ID L2aS-a81nIc not confirmed." }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-motorillustrated-ex30-2026",
-      "low_confidence": true,
-      "notes": "Canadian review of the 2026 EX30 says CCS1 charge port."
-    },
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port 2026 US checker lists the Volvo EX30 (2025-2026) as CCS1 with an adapter; InsideEVs says early US units use CCS1. For Canada the same car is sold and Volvo Canada promised a NACS adapter (Cision release), which implies CCS1; Motor Illustrated (Canadian review) also says CCS1."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-motorillustrated-ex30-2026", "low_confidence": true, "note_id": "n-6213b58f0d" },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-a9214476f3" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated, OWNER FLAG: US: The Charge Port 2026 checker (search excerpt) lists EX30 as CCS1 with a paid adapter, and a Volvo US support excerpt lists the EX30 among cars that can use Superchargers. Canada: the only Canadian page found (Volvo Canada release, Cision, Oct 2024) says EX30 adapter availability will be announced later; no later Canadian announcement found in repeated searches. Canadian access is therefore an inference from the identical US car."
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-36c27577b8" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Twin Performance",
-        "US": "Twin Motor Performance"
-      },
+      "names": { "CA": "Twin Performance", "US": "Twin Motor Performance" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-volvo-ex30-2025-specs",
-          "notes": "2025 Twin Motor AWD Plus: 19x8, P245/45VR19; no 2026 twin page opened.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ex30-2025-specs", "notes": "2025 Twin Motor AWD Plus: 19x8, P245/45VR19; no 2026 twin page opened.", "low_confidence": true }
       ]
     }
   ]

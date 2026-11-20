@@ -3,75 +3,28 @@
   "model_id": "hyundai/ioniq-5",
   "name": "Long Range AWD",
   "generation": "2025-refresh",
-  "years": [
-    2026
-  ],
+  "years": [2026],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 84,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-hyundai-ca-ioniq-5-2026",
-        "notes": "Hyundai Canada states 84.0 kWh for the Preferred Long Range RWD only; assumed to be the same Long Range pack.",
-        "low_confidence": true
-      }
+      { "value": 84, "unit": "kWh", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-5-2026", "notes": "Hyundai Canada states 84.0 kWh for the Preferred Long Range RWD only; assumed to be the same Long Range pack.", "low_confidence": true }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-hyundai-au-ioniq-5-2026-spec",
-        "notes": "Battery voltage 697 V (Australian-market sheet; same pack)."
-      }
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-hyundai-au-ioniq-5-2026-spec", "note_id": "n-2e3939720b" }
     ],
     "chemistry": [
-      {
-        "low_confidence": true,
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-hyundai-egmp-84",
-        "notes": "Estimated: page lists the 84 kWh E-GMP pack (2025 IONIQ 5 Long Range/XRT) as SK On NCM 811 pouch; EV Database also says NMC for the 84 kWh IONIQ 5. Hyundai Canada only says lithium-ion."
-      }
+      { "low_confidence": true, "value": "nmc", "kind": "estimated", "source_id": "src-weeklydriver-hyundai-egmp-84", "note_id": "n-4fcd4da0d8" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 80,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-ioniq5-84-rwd",
-        "notes": "European listing of the same 84 kWh pack (MY24): 80.0 kWh usable. Pack is shared across markets.",
-        "low_confidence": true
-      }
+      { "value": 80, "unit": "kWh", "kind": "community", "source_id": "src-evdb-ioniq5-84-rwd", "note_id": "n-2beb6294e5", "low_confidence": true }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-ioniq5-manual-ne1a-2026",
-        "notes": "Estimated: the US 2026 owner's manual page (code NE1a) describes manual plus navigation-automatic Battery Conditioning; the page does not name the model, NE1 being the IONIQ 5 platform code (inference). No Canadian manual read.",
-        "low_confidence": true
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-ioniq5-manual-ne1a-2026", "note_id": "n-bf017ffa8d", "low_confidence": true }
     ]
   },
   "ac_max_kw": [
-    {
-      "low_confidence": true,
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-ioniq5-2026",
-      "notes": "US page: home charging up to 10.9 kW. Hyundai Canada page does not state it. EV Database lists 11 kW for the European car."
-    }
+    { "low_confidence": true, "value": 10.9, "unit": "kW", "kind": "manufacturer", "source_id": "src-thechargeport-ioniq5-2026", "note_id": "n-2a30015373" }
   ],
   "dc_max_kw": [
-    {
-      "value": 257,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-electrek-ioniq5-2025-first-drive",
-      "notes": "US 2025 first drive relays a \"peak rate of 257 kW\" on a 350 kW CCS charger (Hyundai US figure; Wikipedia infobox also 257). Conflicts: EV Database 263 kW (Hyundai Europe claims 260 kW), Wikipedia spec table 238 kW, Car and Driver measured about 258 kW. Estimated for 2026: same hardware as the 2025 car; no charging change reported.",
-      "low_confidence": true
-    }
+    { "value": 257, "unit": "kW", "kind": "estimated", "source_id": "src-electrek-ioniq5-2025-first-drive", "note_id": "n-795dcfa772", "low_confidence": true }
   ]
 }

@@ -4,41 +4,20 @@
   "year": 2022,
   "name": "Dream Edition Range",
   "drivetrain": "awd",
-  "powertrain_id": "lucid/air/2022-dream-edition-range",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "lucid/air/2022-dream-edition-performance",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-air-charging-guide",
-      "notes": "Lucid: the Air has a J1772 (CCS1) combo port."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-guide", "note_id": "n-9227bf3775" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-air-charging-ca",
-      "notes": "Lucid (Canada and US pages): Tesla Superchargers (V3+) with a Lucid-approved NACS-to-CCS1 adapter ($220); access opened 31 July 2025 for every Air (Electrek 2026 Air article)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Dream Edition Range",
-        "US": "Dream Edition Range"
-      },
+      "names": { "CA": "Dream Edition Range", "US": "Dream Edition Range" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r2w-carscom-lucid-air-2022-dream",
-          "notes": "Forged 21 inch front and rear."
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r2w-carscom-lucid-air-2022-dream", "note_id": "n-c58f065a57" }
       ]
     }
   ]

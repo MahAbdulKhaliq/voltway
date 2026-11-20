@@ -5,58 +5,25 @@
   "name": "Standard",
   "drivetrain": "rwd",
   "powertrain_id": "hyundai/ioniq-9/2026-standard",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-9-2026",
-      "notes": "NACS port; AC and DC CCS adapters included."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026", "note_id": "n-571a38fa77" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-9-2026"
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2502,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ioniq9-2026-essential-rwd",
-      "low_confidence": true,
-      "notes": "Guide Auto lists 2,502 kg (5,516 lb) for the Canadian Essential RWD (110.3 kWh). US S RWD is 5,507 lb (2,498 kg, KBB), consistent."
-    }
+    { "value": 2502, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ioniq9-2026-essential-rwd", "low_confidence": true, "notes": "Guide Auto lists 2,502 kg (5,516 lb) for the Canadian Essential RWD (110.3 kWh). US S RWD is 5,507 lb (2,498 kg, KBB), consistent." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "IONIQ 9",
-        "US": "RWD"
-      },
+      "names": { "CA": "IONIQ 9", "US": "RWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-hyundai-ca-ioniq-9-2026"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "tire_size": "255/60R19",
-          "source_id": "src-evspecs-ioniq9-rwd-s",
-          "low_confidence": true,
-          "notes": "US RWD S listing (the only RWD trim); Canadian Standard assumed to be the same trim, not confirmed on a Canadian page."
-        }
+        { "diameter_in": 19, "is_standard": true, "tire_size": "255/60R19", "source_id": "src-evspecs-ioniq9-rwd-s", "low_confidence": true, "notes": "US RWD S listing (the only RWD trim); Canadian Standard assumed to be the same trim, not confirmed on a Canadian page." }
       ]
     }
   ]

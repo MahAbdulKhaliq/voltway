@@ -3,66 +3,25 @@
   "model_id": "rivian/r1t",
   "name": "Dual-Motor Standard Plus Pack",
   "generation": "gen-1",
-  "years": [
-    2024
-  ],
+  "years": [2024],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 121,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2-gcr-standard-pack-2024",
-        "low_confidence": true,
-        "notes": "Green Car Reports relaying Rivian: Standard+ 121 kWh usable (ArenaEV and InsideEVs list 121 as total/rated; conflict)."
-      }
+      { "value": 121, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-gcr-standard-pack-2024", "low_confidence": true, "note_id": "n-5f760f9c21" }
     ],
     "chemistry": [
-      {
-        "value": "nca",
-        "kind": "manufacturer",
-        "source_id": "src-w2-gcr-standard-pack-2024",
-        "low_confidence": true,
-        "notes": "Green Car Reports: both Standard packs use NCA (InsideEVs says NMC for Standard+; conflict)."
-      }
+      { "value": "nca", "kind": "manufacturer", "source_id": "src-w2-gcr-standard-pack-2024", "low_confidence": true, "note_id": "n-9b32f66250" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-w2-insideevs-r1-210kw",
-        "low_confidence": true,
-        "notes": "EPA filing relayed by InsideEVs: pack voltage 216-459 V, the 400 V class."
-      }
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-w2-insideevs-r1-210kw", "low_confidence": true, "note_id": "n-beb33484e5" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-w2-insideevs-rivian-precond-2025-18",
-        "low_confidence": true,
-        "notes": "Navigation-triggered battery preconditioning plus manual battery preconditioning (no longer forced to use navigation) added by software 2025.18 for Gen 1 and Gen 2 (current state for owners). Before 2025.18 it was navigation-only."
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-insideevs-rivian-precond-2025-18", "low_confidence": true, "note_id": "n-83e0633659" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 200,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-arenaev-r1s-standardplus-2024",
-      "low_confidence": true,
-      "notes": "ArenaEV (2024 R1S Dual Motor Standard+): CCS 200 kW max; spec-site figure."
-    }
+    { "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-arenaev-r1s-standardplus-2024", "low_confidence": true, "note_id": "n-6186034250" }
   ],
   "ac_max_kw": [
-    {
-      "value": 11.5,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-insideevs-r1-210kw",
-      "low_confidence": true,
-      "notes": "InsideEVs quoting the EPA filing for the Gen 1 R1: 11.5 kW onboard charger. Wikipedia lists 11.52 kW (240 V, 48 A)."
-    }
+    { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-insideevs-r1-210kw", "low_confidence": true, "note_id": "n-060810420f" }
   ]
 }

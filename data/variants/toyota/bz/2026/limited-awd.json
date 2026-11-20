@@ -4,71 +4,28 @@
   "year": 2026,
   "name": "Limited AWD",
   "drivetrain": "awd",
-  "powertrain_id": "toyota/bz/2026-limited-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "toyota/bz/2026-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-2026"
-    },
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-r19-toyota-us-bz-onsale-2026",
-      "notes": "Toyota USA: the 2026 bZ has a newly standard NACS inlet (2027 bZ release: NACS port standard)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-0ea9763c03" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-r19-toyota-us-bz-onsale-2026",
-      "notes": "Toyota USA: 'More than 25,000 additional NACS charger plugs available to 2026 bZ drivers through the Tesla Supercharger Network'."
-    },
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-onsale-2026",
-      "notes": "Toyota Canada: 'Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network'; 2026 BEVs have a NACS connector (Canada)."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-3f1c50184a" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-onsale-2026", "note_id": "n-824902a2b8" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2025,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-granvilletoyota-bz-2026",
-      "low_confidence": true,
-      "notes": "Converted from 4,464 lb (x0.45359 = 2,024.8): Canadian dealer page relaying Toyota Canada, Limited AWD. Fact-check: a search excerpt of the Toyota Canada sheet also shows 2024.84 (4464). The Car Guide page gives 2,065 kg (4,553 lb) and is treated as the outlier."
-    }
+    { "value": 2025, "unit": "kg", "kind": "manufacturer", "source_id": "src-granvilletoyota-bz-2026", "low_confidence": true, "notes": "Converted from 4,464 lb (x0.45359 = 2,024.8): Canadian dealer page relaying Toyota Canada, Limited AWD. Fact-check: a search excerpt of the Toyota Canada sheet also shows 2024.84 (4464). The Car Guide page gives 2,065 kg (4,553 lb) and is treated as the outlier." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Limited AWD",
-        "US": "Limited AWD"
-      },
+      "names": { "CA": "Limited AWD", "US": "Limited AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-toyota-ca-media-bz-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. Page lists \"Heat pump system for both heating and air-conditioning\" for the model without trim qualifier; recorded as standard. Page names no trims; trim coverage unconfirmed."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "low_confidence": true, "note_id": "n-517ae04b32" }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-toyota-ca-media-bz-2026",
-          "notes": "Limited AWD: 20-inch black multi-spoke alloy wheels."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-toyota-ca-media-bz-2026", "notes": "Limited AWD: 20-inch black multi-spoke alloy wheels." }
       ]
     }
   ]

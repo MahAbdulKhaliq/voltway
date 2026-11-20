@@ -30,6 +30,7 @@ Re-run `npx tsx scripts/add-facts.ts <batch> --check` after each fix.
 
 ## 5. Apply and verify
 1. `npx tsx scripts/add-facts.ts <batch>` for each batch (no `--check`).
+   Then `npx tsx scripts/dedupe-notes.ts` (repeated notes go to `data/notes.json`, B111) and `npx tsx scripts/merge-powertrains.ts` (a new per-year powertrain identical to an existing one is merged).
 2. `npm run validate`, `npx vitest run`, `npm run gaps` (note the before/after counts), `npm run build`.
 3. Open one changed car on the dev server (`preview_start` "voltway-dev", `/charging?car=<variant id>`): the new values show with source badges; a new curve shows in the curve picker ("Estimated (sibling car, same battery)" for borrowed ones).
 4. Add a dated progress line under checklist 1.6 in `docs/plan/CHECKLIST.md` with the new gap counts and what stays open.

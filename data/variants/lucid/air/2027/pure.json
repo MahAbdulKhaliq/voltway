@@ -5,47 +5,20 @@
   "name": "Pure",
   "drivetrain": "rwd",
   "powertrain_id": "lucid/air/2027-pure",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-lucid-air-charging-guide",
-      "low_confidence": true,
-      "notes": "Estimated: no 2027 Air NACS port announcement found (Lucid 2027 Air page silent); 2022-2026 are CCS1. Lucid: the Air has a J1772 (CCS1) combo port."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-lucid-air-charging-guide", "low_confidence": true, "note_id": "n-3a16ff8e52" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-air-charging-ca",
-      "notes": "Lucid (Canada and US pages): Tesla Superchargers (V3+) with a Lucid-approved NACS-to-CCS1 adapter ($220); access opened 31 July 2025 for every Air (Electrek 2026 Air article)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-lucid-air-charging-ca", "note_id": "n-adc8000015" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Pure"
-      },
+      "names": { "US": "Pure" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r2w-lucid-air-pure-page",
-          "notes": "Aero Range 19 inch standard. From the current Lucid page (2026-27 lineup).",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-r2w-lucid-air-pure-page",
-          "notes": "20 inch Aero Lite Stealth optional.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-lucid-air-pure-page", "note_id": "n-922612d664", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-lucid-air-pure-page", "note_id": "n-1db8f792b0", "low_confidence": true }
       ]
     }
   ]

@@ -3,86 +3,31 @@
   "model_id": "genesis/gv60",
   "name": "Advanced AWD",
   "generation": "first-generation",
-  "years": [
-    2023
-  ],
+  "years": [2023],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 77.4,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-weeklydriver-egmp-774",
-        "notes": "Weekly Driver pack page lists the 2023 GV60 at 77.4 kWh total.",
-        "low_confidence": true
-      }
+      { "value": 77.4, "unit": "kWh", "kind": "community", "source_id": "src-weeklydriver-egmp-774", "notes": "Weekly Driver pack page lists the 2023 GV60 at 77.4 kWh total.", "low_confidence": true }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 74,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-weeklydriver-egmp-774",
-        "notes": "74 kWh usable on the 77.4 kWh pack (ArenaEV lists 77.4 usable / 82.5 total for the GV60; not used).",
-        "low_confidence": true
-      }
+      { "value": 74, "unit": "kWh", "kind": "community", "source_id": "src-weeklydriver-egmp-774", "notes": "74 kWh usable on the 77.4 kWh pack (ArenaEV lists 77.4 usable / 82.5 total for the GV60; not used).", "low_confidence": true }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-weeklydriver-egmp-774",
-        "notes": "NCM 811.",
-        "low_confidence": true
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-weeklydriver-egmp-774", "notes": "NCM 811.", "low_confidence": true }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "community",
-        "source_id": "src-weeklydriver-egmp-774",
-        "notes": "697 V nominal; ArenaEV \"697V (800V type)\".",
-        "low_confidence": true
-      }
+      { "value": "800v", "kind": "community", "source_id": "src-weeklydriver-egmp-774", "notes": "697 V nominal; ArenaEV \"697V (800V type)\".", "low_confidence": true }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-genesis-de-gv60-performance",
-        "notes": "Estimated: Genesis (Germany) GV60 page: Battery Conditioning System activates automatically when a fast charger is the route destination, or can be activated manually. The page is undated and not a US/Canada page. Same model in another model year (2023-2025 cars; years compared 2023-2027), no change found.",
-        "low_confidence": true
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-genesis-de-gv60-performance", "note_id": "n-5939d19d00", "low_confidence": true }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-weeklydriver-egmp-774",
-      "notes": "11 kW AC (pack page; Hyundai US gives 10.9 kW for the same hardware on the Ioniq 5; ArenaEV 7 or 11 kW options in Europe).",
-      "low_confidence": true
-    }
+    { "value": 11, "unit": "kW", "kind": "community", "source_id": "src-weeklydriver-egmp-774", "notes": "11 kW AC (pack page; Hyundai US gives 10.9 kW for the same hardware on the Ioniq 5; ArenaEV 7 or 11 kW options in Europe).", "low_confidence": true }
   ],
   "dc_max_kw": [
-    {
-      "value": 233,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-weeklydriver-egmp-774",
-      "notes": "233 kW peak DC (Fastned GV60 77.4: 230 kW; ArenaEV 240 kW).",
-      "low_confidence": true
-    }
+    { "value": 233, "unit": "kW", "kind": "community", "source_id": "src-weeklydriver-egmp-774", "notes": "233 kW peak DC (Fastned GV60 77.4: 230 kW; ArenaEV 240 kW).", "low_confidence": true }
   ],
   "published_10_80_min": [
-    {
-      "value": 18,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-arenaev-genesis-gv60",
-      "notes": "ArenaEV relays Genesis: 10-80 % in 18 min (350 kW charger).",
-      "low_confidence": true
-    }
+    { "value": 18, "unit": "min", "kind": "manufacturer", "source_id": "src-arenaev-genesis-gv60", "note_id": "n-0faf0a6e4d", "low_confidence": true }
   ]
 }

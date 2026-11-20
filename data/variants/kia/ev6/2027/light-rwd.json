@@ -5,40 +5,19 @@
   "name": "Light RWD",
   "drivetrain": "rwd",
   "powertrain_id": "kia/ev6/2027-light-rwd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "estimated",
-      "source_id": "src-kia-us-ev6-specs-2026-chargetable",
-      "low_confidence": true,
-      "notes": "Estimated: Kia US 2026 EV6 page: NACS port on all trims; 2027 carries the 2026 features over."
-    }
+    { "value": "nacs", "kind": "estimated", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "low_confidence": true, "notes": "Estimated: Kia US 2026 EV6 page: NACS port on all trims; 2027 carries the 2026 features over." }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-kia-us-ev6-specs-2026-chargetable",
-      "low_confidence": true,
-      "notes": "Estimated: Native NACS port: Tesla Superchargers directly (as 2026)."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "low_confidence": true, "notes": "Estimated: Native NACS port: Tesla Superchargers directly (as 2026)." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Light RWD"
-      },
+      "names": { "US": "Light RWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-kia-ev6-2027-index",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2027-index", "low_confidence": true }
       ]
     }
   ]

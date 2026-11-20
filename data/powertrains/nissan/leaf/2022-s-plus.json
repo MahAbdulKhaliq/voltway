@@ -3,77 +3,28 @@
   "model_id": "nissan/leaf",
   "name": "S PLUS",
   "generation": "second-generation",
-  "years": [
-    2021,
-    2022
-  ],
+  "years": [2021, 2022],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 59,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evdb-leaf-eplus-62-my23-25",
-        "low_confidence": true,
-        "notes": "EV Database: 59 kWh usable of 62 kWh nominal (MY19-22 and MY23-25 pages agree); Wikipedia also says 59 kWh usable. Nissan USA marketing calls the 2023+ pack \"60 kWh\"."
-      }
+      { "value": 59, "unit": "kWh", "kind": "community", "source_id": "src-evdb-leaf-eplus-62-my23-25", "low_confidence": true, "note_id": "n-24a68de40d" }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 62,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-nissan-usa-leaf-2019-press-kit",
-        "low_confidence": true,
-        "notes": "Press kit says \"62 kWh\" laminated lithium-ion (bare capacity, taken as gross)."
-      }
+      { "value": 62, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2019-press-kit", "low_confidence": true, "note_id": "n-50b9ca5704" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-evdb-leaf-eplus-62-my23-25",
-        "low_confidence": true,
-        "notes": "EV Database: NMC532 cathode, 288 cells."
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-evdb-leaf-eplus-62-my23-25", "low_confidence": true, "note_id": "n-2dc53c6187" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "community",
-        "source_id": "src-evdb-leaf-eplus-62-my23-25",
-        "low_confidence": true,
-        "notes": "EV Database: 400 V architecture, nominal about 350 V (96S)."
-      }
+      { "value": "400v", "kind": "community", "source_id": "src-evdb-leaf-eplus-62-my23-25", "low_confidence": true, "note_id": "n-4ef16f1812" }
     ],
     "preconditioning": [
-      {
-        "value": "none",
-        "kind": "estimated",
-        "source_id": "src-evdb-leaf-eplus-62-my23-25",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database states battery preconditioning is not supported (or \"No\") for this pack. Nissan US press kits (2012, 2013, 2014, 2016, 2017, 2018, 2019, 2024) describe only remote cabin heating/cooling (NissanConnect EV) and, in 2012-2014, a cold-weather battery heater that warms the pack while charging; none describes a navigation or manual battery-warming-before-charging feature. Nissan's navigation-linked battery heater first appears on the third-generation LEAF."
-      }
+      { "value": "none", "kind": "estimated", "source_id": "src-evdb-leaf-eplus-62-my23-25", "low_confidence": true, "note_id": "n-795b60a38e" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 100,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-nissan-usa-leaf-2019-press-kit",
-      "low_confidence": true,
-      "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". EV Database lists max DC 46 kW (10-80 % average 44 kW) for this pack and the 2019 kit itself gives 80 % in 45 min, so 100 kW is a brief peak at best. OWNER FLAG: Nissan figure kept as manufacturer. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change). Nissan Canada 2024 press kit also lists 100 kW for the SV PLUS."
-    }
+    { "value": 100, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2019-press-kit", "low_confidence": true, "note_id": "n-43174e5f3b" }
   ],
   "ac_max_kw": [
-    {
-      "value": 6.6,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-nissan-usa-leaf-2024-press-kit",
-      "low_confidence": true,
-      "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2022 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
-    }
+    { "value": 6.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2024-press-kit", "low_confidence": true, "note_id": "n-9c7ac3c71e" }
   ]
 }

@@ -5,41 +5,19 @@
   "name": "Work Truck Max Range",
   "drivetrain": "awd",
   "powertrain_id": "chevrolet/silverado-ev/2027-work-truck-max-range",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-r3-insideevs-silverado-2027-nacs",
-      "low_confidence": true,
-      "notes": "InsideEVs: all 2027 Silverado EV models come from the factory with a native NACS port. Also GM says all 2027 EVs get native NACS (Electrek 2026-08-14). US only."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r3-insideevs-silverado-2027-nacs", "low_confidence": true, "note_id": "n-037e4ba4e5" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-r3-insideevs-silverado-2027-nacs",
-      "low_confidence": true,
-      "notes": "InsideEVs: the native NACS port lets the 2027 Silverado EV use Tesla Superchargers and other NACS chargers without an adapter. Electrek 2026-08-14 adds that some Supercharger sites stay Tesla-only. US only."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r3-insideevs-silverado-2027-nacs", "low_confidence": true, "note_id": "n-39157c93bf" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Work Truck Max Range"
-      },
+      "names": { "US": "Work Truck Max Range" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-silverado-ev-2026-specs-471783",
-          "notes": "No 2027 page on Cars.com; 18 in carried from the 2026 Work Truck pages.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2026-specs-471783", "note_id": "n-6859aec2ba", "low_confidence": true }
       ]
     }
   ]

@@ -9,6 +9,7 @@
 // (with the moved years) whose model_id moves too; defaults to every row of the moved years.
 // Model-year entries move when every variant of that year moves; otherwise the year is copied.
 import { existsSync, mkdirSync, readdirSync, readFileSync, renameSync, rmdirSync, statSync, writeFileSync } from 'node:fs';
+import { formatJson } from './lib/format-json.ts';
 import { dirname, join } from 'node:path';
 
 const arg = (k) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : undefined; };
@@ -19,7 +20,7 @@ if (!from || !to || !name) throw new Error('need --from, --to, --name, --variant
 
 const walk = (d) => (existsSync(d) ? readdirSync(d).flatMap((e) => { const p = join(d, e); return statSync(p).isDirectory() ? walk(p) : [p]; }) : []);
 const readJ = (f) => JSON.parse(readFileSync(f, 'utf8'));
-const writeJ = (f, o) => { if (!dry) { mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, JSON.stringify(o, null, 2) + '\n'); } };
+const writeJ = (f, o) => { if (!dry) { mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, formatJson(o)); } };
 const move = (a, b) => { if (!dry) { mkdirSync(dirname(b), { recursive: true }); renameSync(a, b); } };
 
 // 1. Which variants and powertrains move.

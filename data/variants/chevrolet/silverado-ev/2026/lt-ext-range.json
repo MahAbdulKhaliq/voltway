@@ -5,74 +5,32 @@
   "name": "LT Ext Range",
   "drivetrain": "awd",
   "powertrain_id": "chevrolet/silverado-ev/2026-lt-ext-range",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-5a9f4542ec" }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-r3-gcn-gm-2027-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: GCN (GM 2027 NACS announcement) says most 2026 GM EVs keep CCS1 and need the GM NACS adapter, naming only the Optiq and Bolt as NACS-native for 2026; InsideEVs says the 2027 truck moves to native NACS. Model year 2026, US basis; Canadian truck assumed the same (Guide Auto 2024-09-18: GM adapter programme for Canadian Silverado EV owners)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-gcn-gm-2027-nacs", "low_confidence": true, "note_id": "n-c764303e83" }
   ],
   "trims": [
     {
       "id": "11-5-kw-charger",
-      "names": {
-        "CA": "LT Ext Range (11.5 kW Charger)"
-      },
+      "names": { "CA": "LT Ext Range (11.5 kW Charger)" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-cars-silverado-471786",
-          "low_confidence": true,
-          "notes": "US Cars.com: Extended Range LT 18 x 8.5 in aluminum (applied to both charger trims)."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-cars-silverado-471786", "low_confidence": true, "note_id": "n-723db73c86" }
       ],
       "ac_max_kw": [
-        {
-          "value": 11.5,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
-        }
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-01bfb276ed" }
       ]
     },
     {
       "id": "19-2-kw-charger",
-      "names": {
-        "CA": "LT Ext Range (19.2 kW Charger)"
-      },
+      "names": { "CA": "LT Ext Range (19.2 kW Charger)" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-cars-silverado-471786",
-          "low_confidence": true,
-          "notes": "US Cars.com: Extended Range LT 18 x 8.5 in aluminum (applied to both charger trims)."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-cars-silverado-471786", "low_confidence": true, "note_id": "n-723db73c86" }
       ],
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-fcbda3cf86" }
       ]
     }
   ]

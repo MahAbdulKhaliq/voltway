@@ -5,42 +5,19 @@
   "name": "Spark EV",
   "drivetrain": "fwd",
   "powertrain_id": "chevrolet/spark-ev/2015-spark-ev",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-wikipedia-chevrolet-spark-ev",
-      "low_confidence": true,
-      "notes": "Wikipedia: optional CCS Combo 1 inlet, first car in the US with CCS; cars without the option have J1772 only. Canada: limited fleet sales from 2014, port not stated."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-spark-ev", "low_confidence": true, "note_id": "n-ec218612ae" }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
-      "low_confidence": true,
-      "notes": "InsideEVs: the Spark EV \"cannot be recharged at Tesla Superchargers\" and is not in the GM adapter programme."
-    }
+    { "value": "no", "kind": "manufacturer", "source_id": "src-insideevs-nontesla-supercharger-access-2026", "low_confidence": true, "note_id": "n-07e807e1e0" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Spark EV",
-        "US": "Spark EV"
-      },
+      "names": { "CA": "Spark EV", "US": "Spark EV" },
       "wheels": [
-        {
-          "diameter_in": 15,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-spark-ev-2015-specs",
-          "notes": "LT w/1SA: 15 in."
-        }
+        { "diameter_in": 15, "is_standard": true, "source_id": "src-r3w-chevrolet-spark-ev-2015-specs", "note_id": "n-c6abe4d20b" }
       ]
     }
   ]

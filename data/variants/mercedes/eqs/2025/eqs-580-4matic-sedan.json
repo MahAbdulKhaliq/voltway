@@ -4,42 +4,20 @@
   "year": 2025,
   "name": "EQS 580 4MATIC Sedan",
   "drivetrain": "awd",
-  "powertrain_id": "mercedes/eqs/2025-eqs-580-4matic-sedan",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "mercedes/eqs/2025-eqs-450-4matic-sedan",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2025-eqs-eqs450v",
-      "notes": "mbusa lists J1772 (AC) and Combined Charging System (DC). Read on a sibling page."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-eqs-eqs450v", "note_id": "n-6abe2191f4" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "mbusa NACS page: EQB, EQE, EQS and G 580 with a CCS1 inlet use the Mercedes-approved NACS-to-CCS1 adapter (included from MY26, otherwise sold by dealers). Canada: no Mercedes-Benz Canada page found; the same adapter route is assumed for the CA edition of this car."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "EQS 580 4MATIC Sedan",
-        "US": "EQS 580 4MATIC Sedan"
-      },
+      "names": { "CA": "EQS 580 4MATIC Sedan", "US": "EQS 580 4MATIC Sedan" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-580-2025-specs",
-          "notes": "EQS 580 4MATIC Sedan: 21 x 9.5 in aluminum, P265/40R21. (US page; Canadian cars assumed the same.)"
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-580-2025-specs", "note_id": "n-159c8914c4" }
       ]
     }
   ]

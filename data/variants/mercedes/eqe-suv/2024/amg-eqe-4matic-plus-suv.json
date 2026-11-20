@@ -5,41 +5,19 @@
   "name": "AMG EQE 4MATIC+ SUV",
   "drivetrain": "awd",
   "powertrain_id": "mercedes/eqe-suv/2024-amg-eqe-4matic-plus-suv",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2025-eqe-amgeqex4",
-      "notes": "mbusa lists J1772 (AC) and Combined Charging System (DC). Read on a sibling page."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-eqe-amgeqex4", "note_id": "n-6abe2191f4" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "mbusa NACS page: EQB, EQE, EQS and G 580 with a CCS1 inlet use the Mercedes-approved NACS-to-CCS1 adapter (included from MY26, otherwise sold by dealers). Canada: no Mercedes-Benz Canada page found; the same adapter route is assumed for the CA edition of this car."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "AMG EQE 4MATIC+ SUV",
-        "US": "AMG EQE 4MATIC+ SUV"
-      },
+      "names": { "CA": "AMG EQE 4MATIC+ SUV", "US": "AMG EQE 4MATIC+ SUV" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-amg-eqe-2024-specs-447120",
-          "notes": "AMG EQE 4MATIC+ SUV: 21 x 9.5 in aluminum, P275/40R21. (US page; Canadian cars assumed the same.)"
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-amg-eqe-2024-specs-447120", "notes": "AMG EQE 4MATIC+ SUV: 21 x 9.5 in aluminum, P275/40R21. (US page; Canadian cars assumed the same.)" }
       ]
     }
   ]

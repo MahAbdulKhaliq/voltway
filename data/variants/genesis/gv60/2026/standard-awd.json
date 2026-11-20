@@ -4,41 +4,20 @@
   "year": 2026,
   "name": "Standard AWD",
   "drivetrain": "awd",
-  "powertrain_id": "genesis/gv60/2026-standard-awd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "genesis/gv60/2026-advanced-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-us-nacs-lineup",
-      "notes": "Genesis USA: starting with 2026 models every Genesis EV has a NACS port.",
-      "low_confidence": true
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-4f11cd6f71", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-us-nacs-lineup",
-      "notes": "Genesis USA: NACS port gives access to more than 36,000 Tesla Superchargers.",
-      "low_confidence": true
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-9f95a1ea04", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Standard AWD"
-      },
+      "names": { "US": "Standard AWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-genesis-gv60-2026-481359",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-genesis-gv60-2026-481359", "low_confidence": true }
       ]
     }
   ]

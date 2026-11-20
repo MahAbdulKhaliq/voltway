@@ -5,40 +5,19 @@
   "name": "EQE 350+ Sedan",
   "drivetrain": "rwd",
   "powertrain_id": "mercedes/eqe/2025-eqe-350-plus-sedan",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2025-eqe-eqe350v",
-      "notes": "mbusa lists J1772 (AC) and Combined Charging System (DC)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-eqe-eqe350v", "note_id": "n-e863ab2c59" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "mbusa NACS page: EQB, EQE, EQS and G 580 with a CCS1 inlet use the Mercedes-approved NACS-to-CCS1 adapter (included from MY26, otherwise sold by dealers). Canada: no Mercedes-Benz Canada page found; the same adapter route is assumed for the CA edition of this car."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "EQE 350+ Sedan"
-      },
+      "names": { "US": "EQE 350+ Sedan" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-eqe350plus-2025",
-          "notes": "EQE 350+ Sedan (US): EQE 350+ Sedan (US): 20x9; no options listed.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-eqe350plus-2025", "notes": "EQE 350+ Sedan (US): EQE 350+ Sedan (US): 20x9; no options listed.", "low_confidence": true }
       ]
     }
   ]

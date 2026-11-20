@@ -4,58 +4,22 @@
   "year": 2026,
   "name": "Premium AWD-B",
   "drivetrain": "awd",
-  "powertrain_id": "tesla/model-y/2026-premium-awd-b",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "tesla/model-y/2026-long-range-awd-b",
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-thechargeport-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-8e40ff5dd6" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Premium AWD-B",
-        "US": "Premium AWD"
-      },
+      "names": { "CA": "Premium AWD-B", "US": "Premium AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "community",
-          "source_id": "src-thechargeport-tesla-model-y",
-          "low_confidence": true,
-          "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
-        },
-        {
-          "value": "standard",
-          "kind": "community",
-          "low_confidence": true,
-          "source_id": "src-evdb-model-y-premium-awd-juniper",
-          "notes": "EV Database Model Y Premium AWD (Juniper) lists HP Standard Equipment Yes (European, Berlin-built listing)."
-        }
+        { "value": "standard", "kind": "community", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-aa0ad78d2e" },
+        { "value": "standard", "kind": "community", "low_confidence": true, "source_id": "src-evdb-model-y-premium-awd-juniper", "notes": "EV Database Model Y Premium AWD (Juniper) lists HP Standard Equipment Yes (European, Berlin-built listing)." }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-tslna-model-y-price-canada-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. Canadian page, Premium AWD."
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-tslna-model-y-price-canada-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. +$2,600 option."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-tslna-model-y-price-canada-2026", "low_confidence": true, "notes": "Quick web lookup. Canadian page, Premium AWD." },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-tslna-model-y-price-canada-2026", "low_confidence": true, "notes": "Quick web lookup. +$2,600 option." }
       ]
     }
   ]

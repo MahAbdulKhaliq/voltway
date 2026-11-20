@@ -5,48 +5,20 @@
   "name": "Dual-Motor Standard Pack",
   "drivetrain": "awd",
   "powertrain_id": "rivian/r1t/2026-dual-motor-standard-pack",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: \"All 2026+ Rivian vehicles have a built-in NACS charge port\" (CCS1 adapter for CCS stations)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-81d2002905" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: 2026+ NACS port charges at Tesla Superchargers (over 21,000 sites in North America)."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-2b61353dba" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Dual-Motor Standard Pack",
-        "US": "Dual-Motor Standard Pack"
-      },
+      "names": { "CA": "Dual-Motor Standard Pack", "US": "Dual-Motor Standard Pack" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-r2w-carb-rivian-2026",
-          "notes": "20 inch road configuration (CARB) plus all-terrain 20. KBB says the 2026 R1T standard wheel was 22 inch: conflicting, so the standard flag is on 22.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r2w-kbb-rivian-r1t-2027-tires",
-          "notes": "22 inch option. KBB: 2026 R1T standard 22 inch. SlashGear's 2025 'entry-level 20 inch' differs; CARB states neither.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-carb-rivian-2026", "note_id": "n-f74f5b7e31", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2w-kbb-rivian-r1t-2027-tires", "note_id": "n-978ae4a554", "low_confidence": true }
       ]
     }
   ]

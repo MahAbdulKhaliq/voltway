@@ -4,82 +4,49 @@
   "name": "Bolt EV",
   "body_type": "hatchback",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation (60 kWh)",
-      "first_year": 2017,
-      "last_year": 2019,
-      "notes": "Launch hatchback on GM's BEV2 platform: 60 kWh LG Chem NMC pack, optional CCS DC fast charging (about 55 kW peak), 7.2 kW onboard AC. EPA range 238 mi. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Chevrolet_Bolt ; https://insideevs.com/news/366750/2020-chevrolet-bolt-ev-259-miles-range/"
-    },
-    {
-      "id": "2020-update",
-      "name": "2020 battery update (65-66 kWh)",
-      "first_year": 2020,
-      "last_year": 2023,
-      "notes": "For 2020 GM changed the cell chemistry: 66 kWh gross (later quoted as 65 kWh), EPA range 259 mi; same charging hardware (about 55 kW DC). The 2022 refresh (new body and interior, shared with the Bolt EUV launch) kept this pack and charger, so 2020-2023 is one charging generation. Production ended December 2023. Note the 2017-2022 cars got LG replacement packs under the 2021 battery recall (powertrain-level detail, not a generation). Confidence: high (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/366750/2020-chevrolet-bolt-ev-259-miles-range/ ; https://www.autoblog.com/news/2020-chevrolet-bolt-first-drive ; https://insideevs.com/news/490154/technical-comparison-new-chevrolet-bolt-ev-euv/"
-    }
+    { "id": "first-generation", "name": "First generation (60 kWh)", "first_year": 2017, "last_year": 2019, "notes": "Launch hatchback on GM's BEV2 platform: 60 kWh LG Chem NMC pack, optional CCS DC fast charging (about 55 kW peak), 7.2 kW onboard AC. EPA range 238 mi. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Chevrolet_Bolt ; https://insideevs.com/news/366750/2020-chevrolet-bolt-ev-259-miles-range/" },
+    { "id": "2020-update", "name": "2020 battery update (65-66 kWh)", "first_year": 2020, "last_year": 2023, "notes": "For 2020 GM changed the cell chemistry: 66 kWh gross (later quoted as 65 kWh), EPA range 259 mi; same charging hardware (about 55 kW DC). The 2022 refresh (new body and interior, shared with the Bolt EUV launch) kept this pack and charger, so 2020-2023 is one charging generation. Production ended December 2023. Note the 2017-2022 cars got LG replacement packs under the 2021 battery recall (powertrain-level detail, not a generation). Confidence: high (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/366750/2020-chevrolet-bolt-ev-259-miles-range/ ; https://www.autoblog.com/news/2020-chevrolet-bolt-first-drive ; https://insideevs.com/news/490154/technical-comparison-new-chevrolet-bolt-ev-euv/" }
   ],
   "years": [
     {
       "year": 2017,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2018,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2019,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2020,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2020-update"
     },
     {
       "year": 2021,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2020-update"
     },
     {
       "year": 2022,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2020-update"
     },
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2020-update"
     }

@@ -3,97 +3,33 @@
   "model_id": "toyota/bz",
   "name": "Standard",
   "generation": "bz-2026-refresh",
-  "years": [
-    2026
-  ],
+  "years": [2026],
   "battery": {
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-toyota-ca-media-bz-2026",
-        "notes": "Page: can be started manually or automatically by setting a fast-charging station as the navigation destination."
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "note_id": "n-cd7d98683b" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-bz-charging-limit-2026",
-        "low_confidence": true,
-        "notes": "Toyota chief engineer (via InsideEVs): bZ \"still runs on a 400-volt electrical architecture\". Autopian gives the 57.7 kWh pack as 288.6 V."
-      }
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-insideevs-bz-charging-limit-2026", "low_confidence": true, "notes": "Toyota chief engineer (via InsideEVs): bZ \"still runs on a 400-volt electrical architecture\". Autopian gives the 57.7 kWh pack as 288.6 V." }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 57.7,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-toyota-ca-media-bz-2026",
-        "notes": "Toyota Canada: \"A 57.7-kWh battery will also be available on a XLE FWD model\" (total, usable not stated). US release says the same."
-      }
+      { "value": 57.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "notes": "Toyota Canada: \"A 57.7-kWh battery will also be available on a XLE FWD model\" (total, usable not stated). US release says the same." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 54,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-r19-evdb-bz4x-fwd-577",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists 54.0 kWh usable for the 57.7 kWh bZ4X FWD pack (European MY25 listing of the same pack). Toyota states only total capacity."
-      }
+      { "value": 54, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-fwd-577", "low_confidence": true, "note_id": "n-c7d64b4a52" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-r19-evdb-bz4x-fwd-577",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists an NMC cathode for the 57.7 kWh pack (European MY25 listing of the same pack); 288.6 V from 78 cells = 3.7 V per cell, NMC class (Autopian, Toyota UK press pack). No manufacturer page states the chemistry of this pack, and EVKX reportedly shows LFP on one page (unverified; EVKX is blocked and was not read)."
-      },
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-greencars-bz-2026",
-        "low_confidence": true,
-        "notes": "Estimated: GreenCars relays Toyota's chief engineer: 'no change to the cell chemistry' (nickel-manganese-cobalt cathodes) for the 2026 bZ, whose lineup includes the 57.7 kWh XLE FWD; not stated for the 57.7 kWh pack specifically."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-fwd-577", "low_confidence": true, "note_id": "n-05e026f100" },
+      { "value": "nmc", "kind": "estimated", "source_id": "src-greencars-bz-2026", "low_confidence": true, "note_id": "n-fa854f9016" }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-2026",
-      "notes": "11 kW on-board AC charger. Page says \"across all trims\"."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "note_id": "n-8f31f0af0a" }
   ],
   "published_10_80_min": [
-    {
-      "value": 30,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-2026",
-      "notes": "\"around 30 minutes\" under ideal DC fast-charging conditions; model-level claim, not per trim."
-    }
+    { "value": 30, "unit": "min", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "note_id": "n-9c02a37f76" }
   ],
   "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-r19-evdb-bz4x-fwd-577",
-      "low_confidence": true,
-      "notes": "Estimated: EV Database lists 150 kW DC maximum for the 57.7 kWh pack (European MY25 listing of the same pack); no Toyota page states a peak for this pack."
-    },
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-insideevs-bz-charging-limit-2026",
-      "low_confidence": true,
-      "notes": "Estimated: No page states a peak for the 57.7 kWh pack; InsideEVs relays Toyota's chief engineer that the bZ is 'capped at 150 kilowatts' and EV Database lists 150 kW for the 57.7 kWh pack (European listing)."
-    }
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-fwd-577", "low_confidence": true, "note_id": "n-139a99d188" },
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-bz-charging-limit-2026", "low_confidence": true, "note_id": "n-3fd9df2e62" }
   ]
 }

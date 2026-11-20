@@ -3,76 +3,28 @@
   "model_id": "chevrolet/silverado-ev",
   "name": "3WT",
   "generation": "first-generation",
-  "years": [
-    2024
-  ],
+  "years": [2024],
   "battery": {
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-chevrolet-battery-preconditioning-guide",
-        "low_confidence": true,
-        "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-chevrolet-battery-preconditioning-guide", "low_confidence": true, "note_id": "n-1f3c6b363a" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 170,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-gm-ultium-truck-20",
-        "low_confidence": true,
-        "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide). Pack mapping for the 2024 trim: The Weekly Driver 20-module page lists \"2024 WT (3WT)\" on this pack. Also matches the NRCan range."
-      }
+      { "value": 170, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-gm-ultium-truck-20", "low_confidence": true, "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide). Pack mapping for the 2024 trim: The Weekly Driver 20-module page lists \"2024 WT (3WT)\" on this pack. Also matches the NRCan range." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-insideevs-silverado-battery",
-        "low_confidence": true,
-        "notes": "Estimated: InsideEVs describes the Silverado EV pack as NMC pouch cells (24-module pack); thinkEV lists NMC for 2026; same Ultium cells in all pack sizes."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-silverado-battery", "low_confidence": true, "note_id": "n-60bfa013c8" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "estimated",
-        "source_id": "src-gm-silverado-ev-2025-spec-guide",
-        "low_confidence": true,
-        "notes": "Estimated: \"800v\" follows the class already stored for the Silverado EV Extended Range records. GM's guide gives 670 V (a charging voltage) for the 20-module pack and 800 V for the Max Range; The Weekly Driver gives 290 V nominal for the 20-module pack. OWNER FLAG: the class is a judgement (charging voltage vs nominal voltage); kept 800v to match the existing records."
-      }
+      { "value": "800v", "kind": "estimated", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-ddaa2e8bd2" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 300,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-gm-silverado-ev-2025-spec-guide",
-      "low_confidence": true,
-      "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack. The Weekly Driver 20-module page also gives 300 kW. The existing 350 kW on some 2026 Extended Range records is the Max Range figure."
-    }
+    { "value": 300, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-b41d40b9f5" }
   ],
   "ac_max_kw": [
-    {
-      "value": 19.2,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-gm-silverado-ev-2026-spec-guide",
-      "low_confidence": true,
-      "notes": "Estimated: GM 2026 guide: \"19.2 kW module on 5WT and 8WT\" (5WT = Extended Range WT); the 2025 guide lists \"AC Offboarding Power (5WT, 8WT) 10.2 kW with 19.2 kW module\". 2024 3WT is the 20-module Extended Range pack per The Weekly Driver (lists \"2024 WT and 3WT\" on that pack); same charger hardware assumed for 2024."
-    }
+    { "value": 19.2, "unit": "kW", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "notes": "Estimated: GM 2026 guide: \"19.2 kW module on 5WT and 8WT\" (5WT = Extended Range WT); the 2025 guide lists \"AC Offboarding Power (5WT, 8WT) 10.2 kW with 19.2 kW module\". 2024 3WT is the 20-module Extended Range pack per The Weekly Driver (lists \"2024 WT and 3WT\" on that pack); same charger hardware assumed for 2024." }
   ],
   "published_10_80_min": [
-    {
-      "value": 42,
-      "unit": "min",
-      "kind": "estimated",
-      "source_id": "src-gm-silverado-ev-2025-spec-guide",
-      "low_confidence": true,
-      "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. Low-80% time to charge 42 min and 111 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
-    }
+    { "value": 42, "unit": "min", "kind": "estimated", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-cb9e28a92a" }
   ]
 }

@@ -5,47 +5,20 @@
   "name": "eDrive40",
   "drivetrain": "rwd",
   "powertrain_id": "bmw/i5/2025-edrive40",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-ie-sc",
-      "low_confidence": true,
-      "notes": "Estimated: BMW i5 uses CCS1 through 2025 (InsideEVs: all current BMW EVs use CCS ports; BMW Canada: native NACS only on all-new 2026+ models)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-69059c5f7e" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ca-nacs",
-      "low_confidence": true,
-      "notes": "Canada: Lectron Vortex Plus NACS-to-CCS adapter plus software update (from 2026-04-08)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ie-sc",
-      "low_confidence": true,
-      "notes": "US: Supercharging with a CCS-to-NACS adapter (Lectron) from the week of 2025-12-10 for i4/i5/i7/iX; 2026 cars need a software update."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "eDrive40"
-      },
+      "names": { "US": "eDrive40" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-bmw-i5-2025-specs",
-          "notes": "eDrive40 Sedan: 19 x 8.5 in aluminum, P245/45R19; the M Sport Package (Style 936M) is the same 19 in size."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2025-specs", "note_id": "n-49909c9629" }
       ]
     }
   ]

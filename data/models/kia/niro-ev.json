@@ -4,91 +4,55 @@
   "name": "Niro EV",
   "body_type": "crossover",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation",
-      "first_year": 2019,
-      "last_year": 2022,
-      "notes": "Launch: 64 kWh pack in North America; DC up to ~77 kW. Wikipedia gives no North American model years for the EV; 2019-2022 is from general knowledge (US launch as a 2019 model) and should be checked against fueleconomy.gov. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Kia_Niro"
-    },
-    {
-      "id": "second-generation",
-      "name": "Second generation",
-      "first_year": 2023,
-      "last_year": 2026,
-      "notes": "All-new body: 64.8 kWh pack, DC up to ~94 kW, 11 kW AC. last_year 2026 in both CA and US, from press reports (Kia executives to the Korea Herald; Kia Canada confirmation reported Oct 2026). No formal Kia North America end-of-production notice found. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Kia_Niro ; https://insideevs.com/news/789628/kia-niro-ev-dead/ ; https://driveteslacanada.ca/news/kia-niro-leaving-canada-2026/ ; https://cars.com/articles/hyundai-pauses-kona-electric-for-2026-kia-discontinues-niro-phev-521230/"
-    }
+    { "id": "first-generation", "name": "First generation", "first_year": 2019, "last_year": 2022, "notes": "Launch: 64 kWh pack in North America; DC up to ~77 kW. Wikipedia gives no North American model years for the EV; 2019-2022 is from general knowledge (US launch as a 2019 model) and should be checked against fueleconomy.gov. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Kia_Niro" },
+    { "id": "second-generation", "name": "Second generation", "first_year": 2023, "last_year": 2026, "notes": "All-new body: 64.8 kWh pack, DC up to ~94 kW, 11 kW AC. last_year 2026 in both CA and US, from press reports (Kia executives to the Korea Herald; Kia Canada confirmation reported Oct 2026). No formal Kia North America end-of-production notice found. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Kia_Niro ; https://insideevs.com/news/789628/kia-niro-ev-dead/ ; https://driveteslacanada.ca/news/kia-niro-leaving-canada-2026/ ; https://cars.com/articles/hyundai-pauses-kona-electric-for-2026-kia-discontinues-niro-phev-521230/" }
   ],
   "years": [
     {
       "year": 2019,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2020,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2021,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2022,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     }

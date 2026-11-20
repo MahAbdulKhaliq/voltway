@@ -4,41 +4,20 @@
   "year": 2025,
   "name": "Folgore",
   "drivetrain": "awd",
-  "powertrain_id": "maserati/grancabrio-folgore/2025-folgore",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "maserati/grancabrio-folgore/2024-folgore",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port US checker lists GranTurismo / GranCabrio Folgore (2024-2026) as CCS1."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-68974cb7a8" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port US checker lists GranTurismo / GranCabrio Folgore (2024-2026) with a paid adapter; its FAQ gives the Stellantis Maserati adapter at $255 via the Mopar eStore (Grecale row)."
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-8310e94625" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Folgore"
-      },
+      "names": { "US": "Folgore" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-maserati-grancabrio-folgore-2025-specs",
-          "notes": "GranCabrio Folgore: front 20 x 9.5 in (P265/35R20), rear 21 x 10.5 in (P295/30R21); front diameter recorded."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-maserati-grancabrio-folgore-2025-specs", "notes": "GranCabrio Folgore: front 20 x 9.5 in (P265/35R20), rear 21 x 10.5 in (P295/30R21); front diameter recorded." }
       ]
     }
   ]

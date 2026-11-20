@@ -5,48 +5,20 @@
   "name": "Platinum+ e-4ORCE",
   "drivetrain": "awd",
   "powertrain_id": "nissan/ariya/2026-platinum-plus-e-4orce",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-nissan-usa-ariya-2023-press-kit",
-      "low_confidence": true,
-      "notes": "Press kit: CCS charge port standard (US car); Canadian cars use the same port (adapter needed for Superchargers per Nissan Canada coverage)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-7d53206d11" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-electrek-nissan-supercharger-2024-12",
-      "low_confidence": true,
-      "notes": "Nissan Ariya Supercharger access from 2024-12-10 via a Nissan CCS-to-NACS adapter ($235 US, per Electrek and Nissan). Canada: adapter at $309.99 (The Car Guide names the 2025 Ariya; 2026 had \"no technological updates\" so assumed the same). The refreshed 2027 Canadian car is reported to get a native NACS port; not applicable here."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b96c0ca63a" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Platinum+ e-4ORCE"
-      },
+      "names": { "US": "Platinum+ e-4ORCE" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r2w-cc-ar23",
-          "notes": "Base Platinum+ e-4ORCE assumed to share the Engage 19-inch wheel (page shows Engage only).",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-r2w-cars-ariya25",
-          "notes": "20-inch wheels optional on Platinum+ e-4ORCE (Cars.com 2025 article; range drops to 257 mi). 2025 source applied to 2023: same trim, low confidence. The 20 in shows in the Cars.com trim name only (\"w/20\\\" Wheels\"). US page; the Canadian package assumed the same.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-cc-ar23", "note_id": "n-b69ae88e51", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-cars-ariya25", "notes": "20-inch wheels optional on Platinum+ e-4ORCE (Cars.com 2025 article; range drops to 257 mi). 2025 source applied to 2023: same trim, low confidence. The 20 in shows in the Cars.com trim name only (\"w/20\\\" Wheels\"). US page; the Canadian package assumed the same.", "low_confidence": true }
       ]
     }
   ]

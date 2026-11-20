@@ -3,84 +3,29 @@
   "model_id": "bmw/i7",
   "name": "M70 xDrive",
   "generation": "first-generation",
-  "years": [
-    2026
-  ],
+  "years": [2026],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 101.7,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-w2-bmw-i7",
-        "low_confidence": true,
-        "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. BMW release (M70): \"the battery provides 101.7 kWh of usable energy\"; InsideEVs US xDrive60 same; eDrive50/M70 share the pack. 2023-2026 compared: no change named."
-      }
+      { "value": 101.7, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-bmw-i7", "low_confidence": true, "note_id": "n-0e24aefedc" }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 107.8,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-w2-ie-i7",
-        "low_confidence": true,
-        "notes": "Estimated: same hardware as MY2023 (the page read); model years compared 2023 to 2026, nothing shows a change. InsideEVs US: 107.8 total."
-      },
-      {
-        "value": 105.7,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-w2-a-i7",
-        "low_confidence": true,
-        "notes": "Estimated: same hardware as MY2023 (the page read); model years compared 2023 to 2026, nothing shows a change. ArenaEV: 105.7 total (most listings)."
-      }
+      { "value": 107.8, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-ie-i7", "low_confidence": true, "note_id": "n-8a61b84af0" },
+      { "value": 105.7, "unit": "kWh", "kind": "estimated", "source_id": "src-w2-a-i7", "low_confidence": true, "note_id": "n-49165d2581" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-w2-a-i7",
-        "low_confidence": true,
-        "notes": "Estimated: same hardware as MY2023 (the page read); model years compared 2023 to 2026, nothing shows a change. ArenaEV i7 page: 376 V nominal, \"400V type\" (BMW i7 pages do not state voltage)."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-w2-a-i7", "low_confidence": true, "note_id": "n-799b96c6e8" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-w2-bmw-i4",
-        "low_confidence": true,
-        "notes": "Estimated: lineup-wide feature on BMW Gen5 EVs (BMW US i4 page: navigation-triggered; manual control not addressed); no i7 page names it."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-w2-bmw-i4", "low_confidence": true, "note_id": "n-4455cf1632" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-gf-adac-i7-m70",
-        "low_confidence": true,
-        "notes": "ADAC manufacturer-data table for the i7 M70 xDrive (07/23-06/26): Nickel-Mangan-Cobalt, 105.7 kWh gross / 101.7 net, the same pack figures on file for this car. Years 2023-2026 compared; no pack change before the 2027 Gen6 pack. ADAC's xDrive60 page has no chemistry row."
-      }
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-gf-adac-i7-m70", "low_confidence": true, "note_id": "n-178d4fc993" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 195,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-w2-bmw-i7",
-      "low_confidence": true,
-      "notes": "Estimated: same hardware as MY2024 (the page read); model years compared 2024 to 2026, nothing shows a change. BMW release: DC up to 195 kW (InsideEVs: same as the iX)."
-    }
+    { "value": 195, "unit": "kW", "kind": "estimated", "source_id": "src-w2-bmw-i7", "low_confidence": true, "note_id": "n-732edfe16c" }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-w2-ie-i7",
-      "low_confidence": true,
-      "notes": "Estimated: same hardware as MY2023 (the page read); model years compared 2023 to 2026, nothing shows a change. InsideEVs (US): AC up to 11 kW from a 48 A station (ArenaEV 11 kW). BMW global M70 release says 22 kW as standard (Europe)."
-    }
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-w2-ie-i7", "low_confidence": true, "note_id": "n-101cdf7625" }
   ]
 }

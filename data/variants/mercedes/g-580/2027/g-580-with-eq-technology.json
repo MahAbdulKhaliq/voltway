@@ -5,40 +5,19 @@
   "name": "G 580 with EQ Technology",
   "drivetrain": "awd",
   "powertrain_id": "mercedes/g-580/2027-g-580-with-eq-technology",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2027-g-g580w4e",
-      "notes": "mbusa lists the DC connector as NACS."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-g-g580w4e", "notes": "mbusa lists the DC connector as NACS." }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "mbusa NACS page: MY27 EVs have a NACS DC inlet and need no adapter at Tesla Superchargers (the G 580 itself is not named on that page)."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "notes": "mbusa NACS page: MY27 EVs have a NACS DC inlet and need no adapter at Tesla Superchargers (the G 580 itself is not named on that page)." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "G 580 with EQ Technology"
-      },
+      "names": { "US": "G 580 with EQ Technology" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-g-class-2026-specs-479858",
-          "notes": "G 580 with EQ Technology. Carried from the 2026 (and 2025) G 580e pages (20 in); the 2027 Cars.com G-Class page names no G 580e wheel sizes, no page for this exact year opened.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-g-class-2026-specs-479858", "notes": "G 580 with EQ Technology. Carried from the 2026 (and 2025) G 580e pages (20 in); the 2027 Cars.com G-Class page names no G 580e wheel sizes, no page for this exact year opened.", "low_confidence": true }
       ]
     }
   ]

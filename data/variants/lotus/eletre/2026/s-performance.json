@@ -4,40 +4,18 @@
   "year": 2026,
   "name": "S Performance",
   "drivetrain": "unknown",
-  "powertrain_id": "lotus/eletre/2026-s-performance",
-  "markets": [
-    "CA"
-  ],
+  "powertrain_id": "lotus/eletre/2026-r-long-range",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-autopian-eletre-canada",
-      "low_confidence": true,
-      "notes": "Estimated: The Autopian review of the Canadian car says the port is \"of the CCS variety rather than the Tesla-style NACS port\" (CCS1 in North America). Review, not a Lotus statement."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-autopian-eletre-canada", "low_confidence": true, "note_id": "n-8fdcc3c039" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "S Performance"
-      },
+      "names": { "CA": "S Performance" },
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r2w-eletre-ce",
-          "notes": "Australian spec page: S and R 22-inch (Eletre base 20-inch); Automotive World also gives 22-inch as the standard forged wheel outside Europe. Canadian market not confirmed, low confidence.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 23,
-          "is_standard": false,
-          "source_id": "src-r2w-eletre-lotusca",
-          "notes": "Lotus Canada Eletre specifications page shows a 23-inch forged wheel on the featured configuration; whether it is an option on these trims is not stated.",
-          "low_confidence": true
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2w-eletre-ce", "note_id": "n-5853c05297", "low_confidence": true },
+        { "diameter_in": 23, "is_standard": false, "source_id": "src-r2w-eletre-lotusca", "note_id": "n-6f374cddda", "low_confidence": true }
       ]
     }
   ]

@@ -10,6 +10,7 @@
 // Safe to re-run: variants that already have powertrain_id are skipped.
 
 import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmdirSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
+import { formatJson } from './lib/format-json.ts';
 import { dirname, join } from 'node:path';
 import { parseCsv, toCsv } from './lib/csv.ts';
 
@@ -24,7 +25,7 @@ const listJson = (dir: string): string[] => {
   return out.sort();
 };
 const load = (f: string) => JSON.parse(readFileSync(f, 'utf8'));
-const save = (f: string, x: unknown) => { mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, JSON.stringify(x, null, 2) + '\n'); };
+const save = (f: string, x: unknown) => { mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, formatJson(x)); };
 
 const models = new Map<string, any>(listJson(join(root, 'data/models')).map((f) => { const m = load(f); return [m.id, m]; }));
 const cwFile = join(root, 'crosswalk/crosswalk.csv');

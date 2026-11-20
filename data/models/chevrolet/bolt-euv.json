@@ -4,30 +4,18 @@
   "name": "Bolt EUV",
   "body_type": "crossover",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation",
-      "first_year": 2022,
-      "last_year": 2023,
-      "notes": "Longer crossover sibling of the 2022 Bolt EV refresh, same 65 kWh pack and about 55 kW DC peak, 11 kW onboard AC standard. Sold 2022-2023 only. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/490154/technical-comparison-new-chevrolet-bolt-ev-euv/ ; https://en.wikipedia.org/wiki/Chevrolet_Bolt"
-    }
+    { "id": "first-generation", "name": "First generation", "first_year": 2022, "last_year": 2023, "notes": "Longer crossover sibling of the 2022 Bolt EV refresh, same 65 kWh pack and about 55 kW DC peak, 11 kW onboard AC standard. Sold 2022-2023 only. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/490154/technical-comparison-new-chevrolet-bolt-ev-euv/ ; https://en.wikipedia.org/wiki/Chevrolet_Bolt" }
   ],
   "years": [
     {
       "year": 2022,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     }

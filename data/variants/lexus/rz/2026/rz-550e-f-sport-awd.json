@@ -5,52 +5,21 @@
   "name": "RZ 550e F SPORT AWD",
   "drivetrain": "awd",
   "powertrain_id": "lexus/rz/2026-rz-550e-f-sport-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2026",
-      "notes": "Lexus USA: 2026 RZ adopts the NACS (SAE J3400) port (US)."
-    },
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-ca-charging",
-      "notes": "Lexus Canada: 2026 model BEVs come with the NACS port (Canada)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026", "note_id": "n-0186b26c56" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-charging", "note_id": "n-9d6ff8d15d" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2026-onsale",
-      "notes": "US: more than 25,000 NACS plugs via the Tesla Supercharger Network for 2026 RZ owners."
-    },
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-ca-media-bev-2025",
-      "notes": "Canada: Lexus BEV guests can charge on the Tesla Supercharger Network; 2026 RZ and ES also get Plug & Charge."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-onsale", "note_id": "n-098d7a686d" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-ce9fd9b7fa" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "RZ 550e F SPORT AWD",
-        "US": "RZ 550e F SPORT AWD"
-      },
+      "names": { "CA": "RZ 550e F SPORT AWD", "US": "RZ 550e F SPORT AWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-lex-rz26",
-          "notes": "F SPORT has 20-inch wheels with aero covers."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-lex-rz26", "notes": "F SPORT has 20-inch wheels with aero covers." }
       ]
     }
   ]

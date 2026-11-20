@@ -4,28 +4,18 @@
   "name": "IONIQ 9",
   "body_type": "suv",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation",
-      "first_year": 2026,
-      "notes": "Launch on E-GMP: 110.3 kWh NCM pack; 10-80% in about 24 min on a 350 kW charger. Wikipedia gives no vehicle DC peak kW and does not mention the port; the Ioniq 9 is understood to ship with NACS in North America but I did not verify that here. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Ioniq_9 ; https://electrek.co/2026/11/11/hyundai-shaking-up-2027-ev-lineup-whats-changing/"
-    }
+    { "id": "first-generation", "name": "First generation", "first_year": 2026, "notes": "Launch on E-GMP: 110.3 kWh NCM pack; 10-80% in about 24 min on a 350 kW charger. Wikipedia gives no vehicle DC peak kW and does not mention the port; the Ioniq 9 is understood to ship with NACS in North America but I did not verify that here. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Ioniq_9 ; https://electrek.co/2026/11/11/hyundai-shaking-up-2027-ev-lineup-whats-changing/" }
   ],
   "years": [
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2027,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "first-generation"
     }

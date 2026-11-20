@@ -4,73 +4,33 @@
   "year": 2026,
   "name": "Elevation Extended Range",
   "drivetrain": "unknown",
-  "powertrain_id": "gmc/sierra-ev/2026-elevation-extended-range",
-  "markets": [
-    "CA"
-  ],
+  "powertrain_id": "gmc/sierra-ev/2026-denali-extended-range",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-gm-silverado-ev-2026-spec-guide",
-      "low_confidence": true,
-      "notes": "Estimated: The GM 2026 Silverado EV spec guide treats the J1772/CCS1 inlet as native with an optional NACS DC adapter; the Sierra EV is the same truck. Model years 2025-2026."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-gm-silverado-ev-2026-spec-guide", "low_confidence": true, "note_id": "n-822d24ebbb" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-auto123-gm-nacs-adapter-2024",
-      "low_confidence": true,
-      "notes": "Estimated: GM announced the NACS adapter for all GM EVs on 2024-09-18, US first and Canada before the end of 2024 (Auto123, ArenaEV); no Canadian page for this exact model was readable (gm.ca, chevrolet.ca, cadillaccanada.ca return 403). Assumed the Canadian car has the same adapter access as the US car. Canada only."
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-auto123-gm-nacs-adapter-2024", "low_confidence": true, "note_id": "n-62db48d8d8" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Elevation Extended Range"
-      },
+      "names": { "CA": "Elevation Extended Range" },
       "ac_max_kw": [
-        {
-          "value": 11.5,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
-        }
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-905f0b47e5" }
       ],
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-gmc-sierra-ev-2026-specs-471578",
-          "notes": "Extended Range Elevation: 18x8.5 aluminum, LT265/70R18."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-gmc-sierra-ev-2026-specs-471578", "note_id": "n-d29ab1f6f9" }
       ]
     },
     {
       "id": "19-2-kw-charger",
-      "names": {
-        "CA": "Elevation Extended Range (19.2 kW Charger)"
-      },
+      "names": { "CA": "Elevation Extended Range (19.2 kW Charger)" },
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-a135dcb7c0" }
       ],
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-gmc-sierra-ev-2026-specs-471578",
-          "notes": "Extended Range Elevation: 18x8.5 aluminum, LT265/70R18."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-gmc-sierra-ev-2026-specs-471578", "note_id": "n-d29ab1f6f9" }
       ]
     }
   ]

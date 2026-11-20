@@ -14,6 +14,7 @@ import { estimateCurve } from '../../src/lib/estimated-curve.ts';
 import { checkCurve } from './curve-check.ts';
 import { planCarFrom } from '../../src/lib/trip-car.ts';
 import { MVP_FIELDS, type CarDetail, type CurveOut, type Field, type IndexEntry, type Source, type SourcedValue, type TrimOut } from '../../src/lib/types.ts';
+import { loadNotes, resolveNotes } from './notes.ts';
 
 // ---------- reading ----------
 function listJson(dir: string): string[] {
@@ -29,7 +30,9 @@ function listJson(dir: string): string[] {
   walk(dir);
   return out.sort();
 }
-const load = (f: string) => JSON.parse(readFileSync(f, 'utf8'));
+// B111: shared notes are swapped back in as each file loads (set per build in buildCars).
+let NOTES: Record<string, string> = {};
+const load = (f: string) => resolveNotes(JSON.parse(readFileSync(f, 'utf8')), NOTES);
 
 // ---------- precedence ----------
 type Group = 'rated' | 'spec' | 'fact' | 'curve' | 'other';
@@ -239,6 +242,7 @@ export function fillCurbWeights(cars: CarDetail[], sources: Map<string, Source>)
 }
 
 export function buildCars(root: string): BuildResult {
+  NOTES = loadNotes(root);
   const sources = new Map<string, Source>(listJson(join(root, 'data/sources')).map((f) => { const s = load(f); return [s.id, s]; }));
   const makes = new Map<string, any>(listJson(join(root, 'data/makes')).map((f) => { const m = load(f); return [m.id, m]; }));
   const models = new Map<string, any>(listJson(join(root, 'data/models')).map((f) => { const m = load(f); return [m.id, m]; }));

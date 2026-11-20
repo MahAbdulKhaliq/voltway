@@ -4,48 +4,21 @@
   "year": 2027,
   "name": "Taycan GTS",
   "drivetrain": "awd",
-  "powertrain_id": "porsche/taycan/2027-taycan-gts",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "porsche/taycan/2027-taycan-4-performance-battery-plus",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-porsche-us-taycan-my2027",
-      "notes": "MY2027: passenger-side DC fast-charging port is NACS native, driver-side AC port stays J1772; CCS adapter included (the Turbo GT with Weissach Package is the exception; not in this list)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-porsche-us-taycan-my2027", "note_id": "n-20c5fd76bf" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-porsche-us-taycan-my2027",
-      "low_confidence": true,
-      "notes": "Estimated: native NACS DC port and Porsche is in the Tesla Supercharger programme (the MY2025 US release covers CCS cars with an adapter; the MY2027 page does not mention Superchargers)."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-porsche-us-taycan-my2027", "low_confidence": true, "note_id": "n-64c5d4aa7f" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Taycan GTS"
-      },
+      "names": { "US": "Taycan GTS" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-porsche-taycan-2026-475670",
-          "notes": "Estimated: the 2026 Taycan GTS AWD page shows 20-inch; the 2027 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-porsche-taycan-2025-us",
-          "notes": "Porsche US newsroom: 21-inch RS Spyder Design optional on the GTS (2025 model-year release); carried to other years.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-porsche-taycan-2026-475670", "notes": "Estimated: the 2026 Taycan GTS AWD page shows 20-inch; the 2027 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-porsche-taycan-2025-us", "note_id": "n-1dbf97bddc", "low_confidence": true }
       ]
     }
   ]

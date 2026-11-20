@@ -5,49 +5,20 @@
   "name": "SS AWD",
   "drivetrain": "awd",
   "powertrain_id": "chevrolet/blazer-ev/2026-ss-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
-    },
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-insideevs-blazer-ev-supercharger-2025",
-      "low_confidence": true,
-      "notes": "Estimated: same CCS1 car and GM adapter programme as the 2025 Blazer EV tested by InsideEVs (US). Model year 2026."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-7afe377ec7" },
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-blazer-ev-supercharger-2025", "low_confidence": true, "note_id": "n-3849b1e559" }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-r3-gcn-gm-2027-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: GCN (GM 2027 NACS announcement) says most 2026 GM EVs keep CCS1 and need the GM NACS adapter, naming only the Optiq and Bolt as NACS-native for 2026; Blazer EV is not one of them. Model year 2026. Canadian car assumed the same (Guide Auto 2024-09-18: Canadian owners need the GM adapter)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-r3-gcn-gm-2027-nacs", "low_confidence": true, "note_id": "n-55eb8e4292" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "SS AWD",
-        "US": "SS"
-      },
+      "names": { "CA": "SS AWD", "US": "SS" },
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs-473490",
-          "notes": "AWD SS: 22 in, 275/40R22."
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-chevrolet-blazer-ev-2026-specs-473490", "note_id": "n-fa223865ed" }
       ]
     }
   ]

@@ -5,75 +5,32 @@
   "name": "LT Extended Range",
   "drivetrain": "unknown",
   "powertrain_id": "chevrolet/silverado-ev/2025-lt-extended-range",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-gm-silverado-ev-2025-spec-guide",
-      "low_confidence": true,
-      "notes": "CCS1 (J1772 native inlet) through the 2026 model year: GM WT spec guide lists the NACS DC adapter as intended for a J1772 native inlet vehicle (US spec guide, 2025/2026). Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2025."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-8ca55e1703" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-gm-silverado-ev-2025-spec-guide",
-      "low_confidence": true,
-      "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2025: adapter needed. Markets: CA/US."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-7e7a9fb01f" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "LT Extended Range",
-        "US": "Extended Range"
-      },
+      "names": { "CA": "LT Extended Range", "US": "Extended Range" },
       "ac_max_kw": [
-        {
-          "value": 11.5,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
-        }
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-905f0b47e5" }
       ],
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs-459571",
-          "notes": "Extended Range LT: 18x8.5 aluminum, LT265/70R18."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs-459571", "note_id": "n-114cb19a32" }
       ]
     },
     {
       "id": "19-2-kw-charger",
-      "names": {
-        "CA": "LT Extended Range (19.2 kW Charger)",
-        "US": "LT Extended Range (19.2 kW Charger)"
-      },
+      "names": { "CA": "LT Extended Range (19.2 kW Charger)", "US": "LT Extended Range (19.2 kW Charger)" },
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-a135dcb7c0" }
       ],
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs-459571",
-          "notes": "Extended Range LT: 18x8.5 aluminum, LT265/70R18."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs-459571", "note_id": "n-114cb19a32" }
       ]
     }
   ]

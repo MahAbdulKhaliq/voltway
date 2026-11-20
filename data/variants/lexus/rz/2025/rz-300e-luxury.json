@@ -4,45 +4,21 @@
   "year": 2025,
   "name": "RZ 300e Luxury",
   "drivetrain": "fwd",
-  "powertrain_id": "lexus/rz/2025-rz-300e-luxury",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "lexus/rz/2024-rz-300e-luxury",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2024",
-      "notes": "Lexus USA 2024 RZ 300e: CCS1 socket (US)."
-    },
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2025",
-      "notes": "Lexus USA 2025 RZ: all models CCS1."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2024", "note_id": "n-19b4fe6b76" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2025", "note_id": "n-c93108e10c" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2026-onsale",
-      "notes": "US: MY2023-25 RZ need a CCS to J3400 adapter for Tesla Superchargers; complimentary adapter via dealer."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-onsale", "note_id": "n-8591cce88b" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "RZ 300e Luxury"
-      },
+      "names": { "US": "RZ 300e Luxury" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-lex-rz25",
-          "notes": "Lexus: Luxury outfitted with 20-inch wheels."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-lex-rz25", "note_id": "n-24178ec186" }
       ]
     }
   ]

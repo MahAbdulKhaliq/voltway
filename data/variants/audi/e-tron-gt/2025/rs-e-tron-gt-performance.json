@@ -5,49 +5,20 @@
   "name": "RS e-tron GT performance",
   "drivetrain": "awd",
   "powertrain_id": "audi/e-tron-gt/2025-rs-e-tron-gt-performance",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-electrive-audi-nacs",
-      "low_confidence": true,
-      "notes": "electrive/InsideEVs 2025-09-08: Audi EVs lack a NACS port; the e-tron GT is supplied with the Audi NACS DC adapter (CCS1 to NACS)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-6ab5822d2f" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-insideevs-audi-porsche-sc",
-      "low_confidence": true,
-      "notes": "InsideEVs/electrive 2025-09-08: e-tron GT gains Supercharger access (US and Canada same date); new 2025 e-tron GT purchases include the NACS adapter."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-039ae8cd40" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "RS e-tron GT performance",
-        "US": "RS e-tron GT performance"
-      },
+      "names": { "CA": "RS e-tron GT performance", "US": "RS e-tron GT performance" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-audi-rsetrongt-2025-467477",
-          "notes": "RS e-tron GT performance quattro 2025: 20x9/20x11 read on this Cars.com page."
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-cars-audi-setrongt-2025-466799",
-          "notes": "21-inch wheel package ($2,000) listed on the 2025 S e-tron GT Prestige quattro page; assumed also offered on the RS performance (not read on an RS page).",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-rsetrongt-2025-467477", "notes": "RS e-tron GT performance quattro 2025: 20x9/20x11 read on this Cars.com page." },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-cars-audi-setrongt-2025-466799", "note_id": "n-a2cf7f7352", "low_confidence": true }
       ]
     }
   ]

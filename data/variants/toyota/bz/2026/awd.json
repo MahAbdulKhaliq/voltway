@@ -5,65 +5,26 @@
   "name": "AWD",
   "drivetrain": "awd",
   "powertrain_id": "toyota/bz/2026-awd",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-2026"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-onsale-2026",
-      "low_confidence": true,
-      "notes": "Toyota Canada release: \"Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network\"; 2026 has a native NACS port. Wording is not model-specific."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-onsale-2026", "low_confidence": true, "note_id": "n-f27bcbd3a3" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2025,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-bz-xle-awd-2026",
-      "low_confidence": true,
-      "notes": "Canadian XLE AWD: 2,025 kg (4,464 lb) listed as Weight. A dealer spec site lists 4,376 lb for all AWD trims (US-style figure); a Toyota Canada summary excerpt also read about 2,025 kg."
-    }
+    { "value": 2025, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideautoweb-bz-xle-awd-2026", "low_confidence": true, "notes": "Canadian XLE AWD: 2,025 kg (4,464 lb) listed as Weight. A dealer spec site lists 4,376 lb for all AWD trims (US-style figure); a Toyota Canada summary excerpt also read about 2,025 kg." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "AWD"
-      },
+      "names": { "CA": "AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-toyota-ca-media-bz-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. Page lists \"Heat pump system for both heating and air-conditioning\" for the model without trim qualifier; recorded as standard. Page names no trims; trim coverage unconfirmed."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-toyota-ca-media-bz-2026", "low_confidence": true, "note_id": "n-517ae04b32" }
       ],
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-toyota-bz-2026-specs-475995",
-          "notes": "US XLE AWD: 18x7.5, P235/60VR18; applied to the Canadian AWD.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-toyota-bz-2026-specs-475998",
-          "notes": "US Limited AWD: 20x7.5, P235/50VR20; applied to the Canadian AWD.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-toyota-bz-2026-specs-475995", "notes": "US XLE AWD: 18x7.5, P235/60VR18; applied to the Canadian AWD.", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-toyota-bz-2026-specs-475998", "notes": "US Limited AWD: 20x7.5, P235/50VR20; applied to the Canadian AWD.", "low_confidence": true }
       ]
     }
   ]

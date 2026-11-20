@@ -4,42 +4,20 @@
   "year": 2026,
   "name": "Plus Performance",
   "drivetrain": "unknown",
-  "powertrain_id": "vinfast/vf-8/2026-plus-performance",
-  "markets": [
-    "CA"
-  ],
+  "powertrain_id": "vinfast/vf-8/2023-eco",
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "community",
-      "source_id": "src-evspecs-vinfast-vf8-compare",
-      "notes": "CCS front left on the VF 8 (EVspecs.org); North American cars use CCS1; VinFast US charging page mentions SAE J1772 for home charging.",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "community", "source_id": "src-evspecs-vinfast-vf8-compare", "note_id": "n-d928dde95e", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "community",
-      "source_id": "src-insideevs-supercharger-list-2026",
-      "notes": "VinFast: Not on the InsideEVs 2026 list of brands with Supercharger access (updated 2026-03-20) and no adapter programme was found; absence from the list, not a statement by the maker.",
-      "low_confidence": true
-    }
+    { "value": "no", "kind": "community", "source_id": "src-insideevs-supercharger-list-2026", "note_id": "n-924a37894c", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Plus Performance"
-      },
+      "names": { "CA": "Plus Performance" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-vinfast-vf-8-2025-specs-469190",
-          "notes": "No 2026 page opened; 20 in on the 2025 and 2027 Plus pages.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-vinfast-vf-8-2025-specs-469190", "note_id": "n-9ac4ed0860", "low_confidence": true }
       ]
     }
   ]

@@ -4,42 +4,20 @@
   "year": 2025,
   "name": "Performance Dual-Motor Large Plus Pack",
   "drivetrain": "awd",
-  "powertrain_id": "rivian/r1t/2025-performance-dual-motor-large-plus-pack-2",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "rivian/r1t/2025-dual-motor-large-plus-pack",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: model years 2022-2025 have a CCS port."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-f742b1d644" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: model years 2022-2025 need a NACS DC adapter to use Tesla Superchargers; the page is the Canadian locale and says North America, so US and Canada."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-0546c7cb96" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Performance Dual-Motor Large Plus Pack",
-        "US": "Performance Dual-Motor Large Plus Pack"
-      },
+      "names": { "CA": "Performance Dual-Motor Large Plus Pack", "US": "Performance Dual-Motor Large Plus Pack" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-slashgear-rivian-r1-2025",
-          "notes": "Second-generation entry wheel is 20 inch (SlashGear); CARB lists 20 and 22 inch road configurations, plus 20 inch all-terrain. Standard inferred: SlashGear says 'entry-level', not 'standard'. KBB says the 2026 R1T standard was 22 inch and CARB states neither, so the standard size is unresolved. CARB 2025 lists the Dual Large Plus pack in 20 inch only (22 inch dropped).",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-slashgear-rivian-r1-2025", "note_id": "n-b04de6c225", "low_confidence": true }
       ]
     }
   ]

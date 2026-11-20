@@ -3,76 +3,28 @@
   "model_id": "vinfast/vf-9",
   "name": "Plus",
   "generation": "first-generation",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 130,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-evspecs-vinfast-vf9-compare",
-        "notes": "Extended-range pack 130 kWh gross (EVspecs.org).",
-        "low_confidence": true
-      }
+      { "value": 130, "unit": "kWh", "kind": "community", "source_id": "src-evspecs-vinfast-vf9-compare", "note_id": "n-8891dd3ddc", "low_confidence": true }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 123,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-vinfast-us-vf9-spec-my27",
-        "notes": "VinFast US MY27 spec sheet: 123 kWh usable. 2024-2025 North American cars assumed the same (EVspecs/Wikipedia); a 92 kWh pack exists in other markets.",
-        "low_confidence": false
-      }
+      { "value": 123, "unit": "kWh", "kind": "manufacturer", "source_id": "src-vinfast-us-vf9-spec-my27", "note_id": "n-c1156870da", "low_confidence": false }
     ],
     "preconditioning": [
-      {
-        "value": "none",
-        "kind": "estimated",
-        "source_id": "src-vinfast-us-charging-page",
-        "notes": "Estimated: VinFast US charging page describes only app cabin pre-heat/pre-cool; the MY27 VF 9 spec sheet lists a High Voltage Battery Heater (automatic, not a user feature). No battery-preconditioning-for-charging feature found. Owner manual not found. No owner's manual or maker statement found; owner decision requested.",
-        "low_confidence": true
-      }
+      { "value": "none", "kind": "estimated", "source_id": "src-vinfast-us-charging-page", "note_id": "n-9b3c6fd0e5", "low_confidence": true }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-evdatabase-vf8-vf9-400v",
-        "notes": "Estimated: EV Database lists a 400 V architecture for the VF 9 Extended Range (123 kWh usable, search excerpt; page returned 429 when opened); no page opened states the voltage.",
-        "low_confidence": true
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdatabase-vf8-vf9-400v", "note_id": "n-76f14a86c8", "low_confidence": true }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-gf-adac-vf9",
-        "low_confidence": true,
-        "notes": "Estimated: ADAC manufacturer-data table for the VF 9 Plus 123 kWh (European car, 06/23-12/24): Nickel-Mangan-Cobalt; same 123 kWh pack in the North American cars (years 2023-2027 compared; the EU sheet names 250 kW DC, North America 150 kW, so charger tuning differs, not the cells)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-gf-adac-vf9", "low_confidence": true, "note_id": "n-7744799e2d" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-evspecs-vinfast-vf9-compare",
-      "notes": "150 kW DC (EVspecs.org); VinFast states 10-70 % in 35 min. VinFast US sheet gives only 10-70 % in 35 min; EVspecs.org labels 150 kW \"DC Fast Charging\", not \"max\" (one review says up to 160 kW).",
-      "low_confidence": true
-    }
+    { "value": 150, "unit": "kW", "kind": "community", "source_id": "src-evspecs-vinfast-vf9-compare", "note_id": "n-ce044b16c2", "low_confidence": true }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-evspecs-vinfast-vf9-compare",
-      "notes": "11 kW on-board charger (EVspecs.org).",
-      "low_confidence": true
-    }
+    { "value": 11, "unit": "kW", "kind": "community", "source_id": "src-evspecs-vinfast-vf9-compare", "note_id": "n-3625b0b706", "low_confidence": true }
   ]
 }

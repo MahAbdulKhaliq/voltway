@@ -5,93 +5,35 @@
   "name": "AWD",
   "drivetrain": "awd",
   "powertrain_id": "cadillac/lyriq/2026-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-lyriq-2027",
-      "low_confidence": true,
-      "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-5a9f4542ec" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-lyriq-2027", "low_confidence": true, "note_id": "n-0c4fb58f29" }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-lyriq",
-      "low_confidence": true,
-      "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-lyriq", "low_confidence": true, "note_id": "n-5924c04119" }
   ],
   "trims": [
     {
       "id": "11-5-kw-charger",
-      "names": {
-        "CA": "AWD (11.5 kW Charger)",
-        "US": "AWD"
-      },
+      "names": { "CA": "AWD (11.5 kW Charger)", "US": "AWD" },
       "ac_max_kw": [
-        {
-          "value": 11.5,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
-        }
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-01bfb276ed" }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2026-specs",
-          "notes": "Luxury: 20 in, 265/50R20."
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2026-specs-468077",
-          "notes": "Signature Sport: 22 in, 275/40R22 (also the optional accent packages on Luxury)."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2026-specs", "note_id": "n-4e592d3829" },
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2026-specs-468077", "note_id": "n-658465ab23" }
       ]
     },
     {
       "id": "19-2-kw-charger",
-      "names": {
-        "CA": "AWD (19.2 kW Charger)"
-      },
+      "names": { "CA": "AWD (19.2 kW Charger)" },
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. NRCan 2026 rows name both charger versions."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-fcbda3cf86" }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2026-specs",
-          "notes": "Luxury: 20 in, 265/50R20."
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2026-specs-468077",
-          "notes": "Signature Sport: 22 in, 275/40R22 (also the optional accent packages on Luxury)."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2026-specs", "note_id": "n-4e592d3829" },
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2026-specs-468077", "note_id": "n-658465ab23" }
       ]
     }
   ]

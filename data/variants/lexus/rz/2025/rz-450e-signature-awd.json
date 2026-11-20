@@ -4,61 +4,23 @@
   "year": 2025,
   "name": "RZ 450e Signature AWD",
   "drivetrain": "awd",
-  "powertrain_id": "lexus/rz/2025-rz-450e-signature-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "lexus/rz/2023-rz-450e-luxury-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2023",
-      "notes": "Lexus USA 2023 RZ 450e: CCS1 socket on all models (US)."
-    },
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-ca-charging",
-      "notes": "Lexus Canada: CCS1 on 2023-2025 Lexus BEVs (Canada)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2023", "note_id": "n-d62508a568" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-charging", "note_id": "n-2c08fb9ccc" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2026-onsale",
-      "notes": "US: MY2023-25 RZ need a CCS to J3400 adapter for Tesla Superchargers; complimentary adapter via dealer from Nov 2025."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-ca-media-bev-2025",
-      "notes": "Canada: MY2023-25 need a CCS1 to J3400 adapter (Lexus Canada release, Nov 2025)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-onsale", "note_id": "n-e252e1353b" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-ea19cb0f49" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "RZ 450e Signature AWD",
-        "US": "RZ 450e Premium AWD"
-      },
+      "names": { "CA": "RZ 450e Signature AWD", "US": "RZ 450e Premium AWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-lexus-rz-450e-2025-specs-466576",
-          "notes": "US Premium AWD w/18 in standard. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-r3w-lexus-rz-450e-2025-specs-466576",
-          "notes": "US Premium AWD w/20 in option. Per data/variants: Signature = US Premium (18 in standard, 20 in option), Luxury = US Luxury (20 in only).",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-lexus-rz-450e-2025-specs-466576", "note_id": "n-eddbcdc725", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r3w-lexus-rz-450e-2025-specs-466576", "note_id": "n-d5faa67342", "low_confidence": true }
       ]
     }
   ]

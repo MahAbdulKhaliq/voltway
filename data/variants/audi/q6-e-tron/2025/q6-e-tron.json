@@ -5,48 +5,20 @@
   "name": "Q6 e-tron",
   "drivetrain": "rwd",
   "powertrain_id": "audi/q6-e-tron/2025-q6-e-tron",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-electrive-audi-nacs",
-      "low_confidence": true,
-      "notes": "electrive/InsideEVs 2025-09-08: Audi EVs lack a NACS port; Q6 e-tron and A6 e-tron are supplied with the Audi NACS DC adapter."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-5d3ec41656" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-insideevs-audi-porsche-sc",
-      "low_confidence": true,
-      "notes": "InsideEVs/electrive 2025-09-08: Q6 e-tron and A6 e-tron gain Supercharger access (US and Canada same date) with the Audi NACS DC adapter, included with new 2025 Q6/A6 Sportback/GT purchases."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-c1cc15655e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Q6 e-tron"
-      },
+      "names": { "US": "Q6 e-tron" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-cars-audi-q6etron-2025-465464",
-          "notes": "Q6 e-tron 2025: 19x8/19x9 read on this Cars.com page. Page is for the Prestige RWD / quattro of the same year; this ultra/RWD edition shares the body and was not read separately.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-cars-audi-q6etron-2025-465464",
-          "notes": "20-inch Wheel Package ($1,000) option on the same Cars.com page. Page is for the Prestige RWD / quattro of the same year; this ultra/RWD edition shares the body and was not read separately.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-audi-q6etron-2025-465464", "note_id": "n-c3228ed86d", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-cars-audi-q6etron-2025-465464", "note_id": "n-4c063aa2c6", "low_confidence": true }
       ]
     }
   ]

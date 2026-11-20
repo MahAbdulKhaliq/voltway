@@ -5,39 +5,19 @@
   "name": "Preferred",
   "drivetrain": "rwd",
   "powertrain_id": "hyundai/ioniq-5/2022-preferred",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq",
-      "notes": "Hyundai Canada FAQ: NACS from model year 2026; model year 2025 and earlier Hyundai EVs use an adapter for NACS (the port itself is inferred to be CCS from that)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-2adefeeec1" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq",
-      "notes": "Hyundai Canada FAQ: Hyundai EVs of model year 2025 and earlier can use a NACS adapter sold separately at Tesla Superchargers open to Hyundai drivers."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "note_id": "n-679e7efbb3" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Preferred"
-      },
+      "names": { "CA": "Preferred" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-guideauto-hyundai-ioniq-5-2022-preferred-long-range-awd",
-          "low_confidence": true,
-          "notes": "Page is for the Preferred Long Range AWD; the 2023 Preferred Standard Range RWD page shows 19 in."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-guideauto-hyundai-ioniq-5-2022-preferred-long-range-awd", "low_confidence": true, "notes": "Page is for the Preferred Long Range AWD; the 2023 Preferred Standard Range RWD page shows 19 in." }
       ]
     }
   ]

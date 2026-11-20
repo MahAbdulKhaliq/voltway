@@ -4,42 +4,20 @@
   "year": 2027,
   "name": "Folgore",
   "drivetrain": "awd",
-  "powertrain_id": "maserati/grecale-folgore/2027-folgore",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "maserati/grecale-folgore/2026-folgore",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port US checker lists Grecale Folgore (2025-2027) as CCS1."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-4b2babab0d" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port US checker: Grecale Folgore (2025-2027) paid adapter; FAQ: Maserati adapter $255 MSRP via the Mopar eStore."
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-adf23c4e53" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Folgore"
-      },
+      "names": { "US": "Folgore" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-maserati-grecale-folgore-2026-specs",
-          "notes": "Grecale Folgore AWD: front 20 x 9 in (P255/45R20), rear 20 x 10.5 in (P295/40R20). Carried from the 2026 page, no page for this exact year opened. Conflict: the EPA row in the merged data lists 19 in as standard (20 and 21 in options) for the US car; the Cars.com page lists 20 in front/rear.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-maserati-grecale-folgore-2026-specs", "notes": "Grecale Folgore AWD: front 20 x 9 in (P255/45R20), rear 20 x 10.5 in (P295/40R20). Carried from the 2026 page, no page for this exact year opened. Conflict: the EPA row in the merged data lists 19 in as standard (20 and 21 in options) for the US car; the Cars.com page lists 20 in front/rear.", "low_confidence": true }
       ]
     }
   ]

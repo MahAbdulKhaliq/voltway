@@ -3,76 +3,28 @@
   "model_id": "lucid/gravity",
   "name": "Grand Touring",
   "generation": "first-generation",
-  "years": [
-    2025
-  ],
+  "years": [2025, 2026],
   "battery": {
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-w2-lucid-battery-data",
-        "low_confidence": true,
-        "notes": "Estimated: Lucid's battery data page lists its Air packs (MY26+) as nickel-rich NMC; no Gravity page names its chemistry; same maker and 2170-class cells assumed."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-1856386b99" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-w2-wards-gravity-2025",
-        "low_confidence": true,
-        "notes": "Wards: 926 V platform, up to 400 kW on 1000 V chargers (900 V class recorded as 800v)."
-      }
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-w2-wards-gravity-2025", "low_confidence": true, "note_id": "n-2fd94aa524" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-w2-lucid-gravity-charging",
-        "low_confidence": true,
-        "notes": "Lucid: Smart Preconditioning (automatic when routing to a fast charger) and a manual Precondition Battery button."
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "low_confidence": true, "note_id": "n-6fe2eec92b" }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 123,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2-wards-gravity-2025",
-        "low_confidence": true,
-        "notes": "Wards: 123 kWh battery (usable not stated); KBB 2026 (Grand Touring, Dream Edition) agrees."
-      }
+      { "value": 123, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-wards-gravity-2025", "low_confidence": true, "note_id": "n-f7bfcbeb5d" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 121,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-gf-electrek-gravity",
-        "low_confidence": true,
-        "notes": "Electrek review: \"a 924 V battery pack with 121 kWh of usable capacity for the Grand Touring\". Presented as a spec by Electrek but not a Lucid page (Lucid spec sheet not found); other sites show 123 kWh as gross. Ratio 121/123 = 0.984."
-      }
+      { "value": 121, "unit": "kWh", "kind": "community", "source_id": "src-gf-electrek-gravity", "low_confidence": true, "note_id": "n-e613e1bbd6" }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 19.2,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-gravity-charging",
-      "low_confidence": true,
-      "notes": "Lucid: AC up to 19.2 kW (80 A)."
-    }
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "low_confidence": true, "note_id": "n-292d80aa59" }
   ],
   "dc_max_kw": [
-    {
-      "value": 400,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-wards-gravity-2025",
-      "low_confidence": true,
-      "notes": "Wards: up to 400 kW on 1000 V chargers (225 kW sustained at 500 V); Lucid page: 200 miles in 10.5 min at 400 kW."
-    }
+    { "value": 400, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-wards-gravity-2025", "low_confidence": true, "notes": "Wards: up to 400 kW on 1000 V chargers (225 kW sustained at 500 V); Lucid page: 200 miles in 10.5 min at 400 kW." }
   ]
 }

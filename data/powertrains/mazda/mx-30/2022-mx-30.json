@@ -3,84 +3,29 @@
   "model_id": "mazda/mx-30",
   "name": "MX-30",
   "generation": "first-generation",
-  "years": [
-    2022
-  ],
+  "years": [2022, 2023, 2024],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 35.5,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2j-wikipedia-mx30",
-        "low_confidence": true,
-        "notes": "35.5 kWh prismatic lithium ion (Mazda figure, relayed)."
-      }
+      { "value": 35.5, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-wikipedia-mx30", "low_confidence": true, "notes": "35.5 kWh prismatic lithium ion (Mazda figure, relayed)." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 30,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-w2j-greencarscompare-mx30",
-        "low_confidence": true,
-        "notes": "Green Cars Compare: \"The 35.5 kWh battery (30 kWh usable)\" (spec site, not attributed to Mazda)."
-      },
-      {
-        "value": 31,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-w2j-arenaev-mx30",
-        "low_confidence": true,
-        "notes": "ArenaEV (European car): 31 kWh usable. Sources disagree by 1 kWh."
-      }
+      { "value": 30, "unit": "kWh", "kind": "community", "source_id": "src-w2j-greencarscompare-mx30", "low_confidence": true, "notes": "Green Cars Compare: \"The 35.5 kWh battery (30 kWh usable)\" (spec site, not attributed to Mazda)." },
+      { "value": 31, "unit": "kWh", "kind": "community", "source_id": "src-w2j-arenaev-mx30", "low_confidence": true, "notes": "ArenaEV (European car): 31 kWh usable. Sources disagree by 1 kWh." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "community",
-        "source_id": "src-w2j-greencarscompare-mx30",
-        "low_confidence": true,
-        "notes": "\"400 V architecture\" per Green Cars Compare; ArenaEV lists 355 V (class 400v)."
-      }
+      { "value": "400v", "kind": "community", "source_id": "src-w2j-greencarscompare-mx30", "low_confidence": true, "notes": "\"400 V architecture\" per Green Cars Compare; ArenaEV lists 355 V (class 400v)." }
     ],
     "preconditioning": [
-      {
-        "value": "none",
-        "kind": "estimated",
-        "source_id": "src-w2j-insideevs-mx30-dc",
-        "low_confidence": true,
-        "notes": "Estimated: No Mazda page found describing a battery-warming or charge-preconditioning feature; the InsideEVs/Fastned DC tests show a plain curve with no preconditioning mentioned. Compared 2022-2024: no change found."
-      }
+      { "value": "none", "kind": "estimated", "source_id": "src-w2j-insideevs-mx30-dc", "low_confidence": true, "notes": "Estimated: No Mazda page found describing a battery-warming or charge-preconditioning feature; the InsideEVs/Fastned DC tests show a plain curve with no preconditioning mentioned. Compared 2022-2024: no change found." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-gf-adac-mx30-2020",
-        "low_confidence": true,
-        "notes": "Estimated: ADAC manufacturer-data table for the European MX-30 (09/20-04/22, 35.5 kWh gross) lists Nickel-Mangan-Cobalt; same 35.5 kWh pack in the 2022-2024 North American cars (2020-2022 ADAC page compared with the 2022-2024 NA cars)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-gf-adac-mx30-2020", "low_confidence": true, "notes": "Estimated: ADAC manufacturer-data table for the European MX-30 (09/20-04/22, 35.5 kWh gross) lists Nickel-Mangan-Cobalt; same 35.5 kWh pack in the 2022-2024 North American cars (2020-2022 ADAC page compared with the 2022-2024 NA cars)." }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 6.6,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-wikipedia-mx30",
-      "low_confidence": true,
-      "notes": "\"6.6 kW AC (1 phase, 230V, 29A)\" (Wikipedia; Green Cars Compare also 6.6 kW)."
-    }
+    { "value": 6.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-wikipedia-mx30", "low_confidence": true, "notes": "\"6.6 kW AC (1 phase, 230V, 29A)\" (Wikipedia; Green Cars Compare also 6.6 kW)." }
   ],
   "dc_max_kw": [
-    {
-      "value": 40,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-w2j-fastned-mx30",
-      "low_confidence": true,
-      "notes": "Fastned: MX-30 2020-2023 max charge speed 40 kW; Wikipedia: 40 kW; InsideEVs measured about 37 kW. Fastned lists 55 kW for the 2023+ European car; North American 2023-2024 cars not confirmed either way. Conflict: the Mazda USA 2021 release reportedly says DC 50 kW (about 36 min to 80%) but I could not find that page; the Green Cars Compare generic line that the USA version has no DC fast charging is contradicted by the car having a CCS1 DC inlet."
-    }
+    { "value": 40, "unit": "kW", "kind": "community", "source_id": "src-w2j-fastned-mx30", "low_confidence": true, "notes": "Fastned: MX-30 2020-2023 max charge speed 40 kW; Wikipedia: 40 kW; InsideEVs measured about 37 kW. Fastned lists 55 kW for the 2023+ European car; North American 2023-2024 cars not confirmed either way. Conflict: the Mazda USA 2021 release reportedly says DC 50 kW (about 36 min to 80%) but I could not find that page; the Green Cars Compare generic line that the USA version has no DC fast charging is contradicted by the car having a CCS1 DC inlet." }
   ]
 }

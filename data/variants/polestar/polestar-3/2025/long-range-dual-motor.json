@@ -5,64 +5,22 @@
   "name": "Long Range Dual Motor",
   "drivetrain": "awd",
   "powertrain_id": "polestar/polestar-3/2025-long-range-dual-motor",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port US checker lists Polestar 3 (2025-2026) as CCS1 with a paid adapter; Polestar US page lists a Type 1 AC cable and says the car is compatible with the NACS adapter, which a native NACS port would not need. Canada: Polestar Canada page also names the NACS adapter."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-95808f81e1" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-us-nacs-adapter-page",
-      "low_confidence": true,
-      "notes": "Polestar US: \"Polestar 2, Polestar 3 and Polestar 4 vehicles are compatible with the NACS adapter\" (bought at a Service Point; $230 per InsideEVs)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-ca-nacs-adapter-page",
-      "low_confidence": true,
-      "notes": "Polestar Canada: same statement for Polestar 2, 3 and 4."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-us-nacs-adapter-page", "low_confidence": true, "note_id": "n-de5dd5d63b" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-ca-nacs-adapter-page", "low_confidence": true, "note_id": "n-616aab9b8a" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Long Range Dual Motor",
-        "US": "Long Range Dual Motor"
-      },
+      "names": { "CA": "Long Range Dual Motor", "US": "Long Range Dual Motor" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-ps3-us",
-          "notes": "20-inch Aero standard; page not model-year specific.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-r2w-ps3-us",
-          "notes": "21-inch Pro / Plus wheels optional.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": false,
-          "source_id": "src-r2w-ps3-us",
-          "notes": "22-inch Sport (requires Pro pack) optional.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-ps3-us", "note_id": "n-14d186c99c", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r2w-ps3-us", "note_id": "n-3ba580d0af", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-r2w-ps3-us", "note_id": "n-b1bf8ccae9", "low_confidence": true }
       ]
     }
   ]

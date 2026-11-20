@@ -3,82 +3,31 @@
   "model_id": "subaru/solterra",
   "name": "Limited",
   "generation": "2026-refresh",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 74.7,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-r19-subaru-us-solterra-2027-kit",
-        "notes": "Subaru: 'a 74.7-kWh lithium-ion battery' shared across the 2027 lineup."
-      }
+      { "value": 74.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-2027-kit", "notes": "Subaru: 'a 74.7-kWh lithium-ion battery' shared across the 2027 lineup." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 71,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-r19-evdb-bz4x-touring-747",
-        "low_confidence": true,
-        "notes": "Estimated: Same 74.7 kWh pack as the 2026 bZ; EV Database lists 71.0 kWh usable for it. Subaru states only total capacity."
-      }
+      { "value": 71, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "notes": "Estimated: Same 74.7 kWh pack as the 2026 bZ; EV Database lists 71.0 kWh usable for it. Subaru states only total capacity." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-autopian-bz-2026",
-        "low_confidence": true,
-        "notes": "Estimated: Same 74.7 kWh pack as the 2026 bZ; chief engineer: the 74.7 kWh pack 'retains the same chemistry and cells' (NMC)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "notes": "Estimated: Same 74.7 kWh pack as the 2026 bZ; chief engineer: the 74.7 kWh pack 'retains the same chemistry and cells' (NMC)." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-solterra-nacs-test-2026",
-        "low_confidence": true,
-        "notes": "InsideEVs: 2026 Solterra has a '400-volt architecture' (2027 is carried over)."
-      }
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-insideevs-solterra-nacs-test-2026", "low_confidence": true, "notes": "InsideEVs: 2026 Solterra has a '400-volt architecture' (2027 is carried over)." }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-r19-subaru-us-solterra-2027-kit",
-        "low_confidence": true,
-        "notes": "Estimated: combines two Subaru sources. The 2027 press kit states a battery preconditioning system with 'improved battery preconditioning'; the navigation-destination or driver-started trigger comes from Subaru's 2026 release (src-subaru-us-media-solterra-2026), and the 2027 car is described as carried over."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-r19-subaru-us-solterra-2027-kit", "low_confidence": true, "notes": "Estimated: combines two Subaru sources. The 2027 press kit states a battery preconditioning system with 'improved battery preconditioning'; the navigation-destination or driver-started trigger comes from Subaru's 2026 release (src-subaru-us-media-solterra-2026), and the 2027 car is described as carried over." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-r19-subaru-us-solterra-2027-kit",
-      "notes": "Subaru 2027 kit: fast-charging speeds up to 150 kW (estimated rate)."
-    }
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-2027-kit", "notes": "Subaru 2027 kit: fast-charging speeds up to 150 kW (estimated rate)." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-r19-subaru-us-solterra-2027-kit",
-      "notes": "Subaru 2027 kit: 'uprated 11kW onboard charger'."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-2027-kit", "notes": "Subaru 2027 kit: 'uprated 11kW onboard charger'." }
   ],
   "published_10_80_min": [
-    {
-      "value": 28,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-r19-subaru-us-solterra-2027-kit",
-      "notes": "Subaru 2027 kit: 'Charging from 10% to 80% in about 28 minutes'."
-    }
+    { "value": 28, "unit": "min", "kind": "manufacturer", "source_id": "src-r19-subaru-us-solterra-2027-kit", "notes": "Subaru 2027 kit: 'Charging from 10% to 80% in about 28 minutes'." }
   ]
 }

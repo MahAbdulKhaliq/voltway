@@ -5,42 +5,19 @@
   "name": "Pro",
   "drivetrain": "rwd",
   "powertrain_id": "volkswagen/id-4/2022-pro",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-vw-launch-2021-conceptcarz",
-      "low_confidence": true,
-      "notes": "Estimated: VW 2021 launch release (ConceptCarz): CCS socket; thinkEV Canada 2026 lists CCS1; VW sells an adapter for Supercharger use through MY2026 (vw.com), so no native NACS port found for any ID.4 year."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-vw-launch-2021-conceptcarz", "low_confidence": true, "note_id": "n-ed39cfbd74" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-vw-ca-nacs-adapter",
-      "low_confidence": true,
-      "notes": "VW Canada: NACS DC adapter officially available for the ID.4 (US and Canada); Electrek: access from 2025-11-18 for ID.4 owners with a $200 (CAD 304) adapter; MY2026+ VW EVs include it; vw.com 2026 page: adapter sold separately. No model years excluded."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-vw-ca-nacs-adapter", "low_confidence": true, "note_id": "n-6cc68ef979" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Pro",
-        "US": "Pro"
-      },
+      "names": { "CA": "Pro", "US": "Pro" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-cars-volkswagen-id4-2022-426753",
-          "notes": "ID.4 Pro RWD 2022: 19-inch read on this Cars.com page."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2022-426753", "notes": "ID.4 Pro RWD 2022: 19-inch read on this Cars.com page." }
       ]
     }
   ]

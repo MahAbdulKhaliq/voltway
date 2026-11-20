@@ -4,40 +4,20 @@
   "year": 2026,
   "name": "Light Long Range RWD",
   "drivetrain": "rwd",
-  "powertrain_id": "kia/ev6/2026-light-long-range-rwd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "kia/ev6/2026-gt-line-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kia-us-ev6-specs-2026-chargetable",
-      "notes": "Kia US 2026 EV6 page: NACS port on all trims."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "note_id": "n-0dfb734595" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kia-us-ev6-specs-2026-chargetable",
-      "notes": "Native NACS port: Tesla Superchargers directly."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "note_id": "n-ea498851bc" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Light Long Range RWD"
-      },
+      "names": { "US": "Light Long Range RWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-kia-ev6-2026-index",
-          "low_confidence": true,
-          "notes": "Light RWD shown; the other Light trims not opened."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2026-index", "low_confidence": true, "note_id": "n-7f86bec70f" }
       ]
     }
   ]

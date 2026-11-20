@@ -4,44 +4,20 @@
   "year": 2022,
   "name": "e-tron Sportback 55 quattro",
   "drivetrain": "awd",
-  "powertrain_id": "audi/e-tron/2022-e-tron-sportback-55-quattro",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "audi/e-tron/2021-e-tron-55-quattro",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-chargepapa-q8-port",
-      "low_confidence": true,
-      "notes": "Estimated: ChargePapa: 2023-2024 Q8 e-tron has a CCS1 inlet; Wikipedia describes J1772 AC for the 2019 e-tron; no NACS-inlet e-tron before the Q8 transition years is reported, and Audi says its EVs lack a NACS port (InsideEVs 2025)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-chargepapa-q8-port", "low_confidence": true, "note_id": "n-191815a17b" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-w2-insideevs-audi-porsche-sc",
-      "low_confidence": true,
-      "notes": "Estimated: InsideEVs 2025-09-08: all Audi EVs except the Q4 e-tron are compatible with Tesla Superchargers (Canada on the same date), with an adapter because Audi EVs lack a NACS port. The e-tron is not named, and electrive says the Audi adapter is only supplied with new 2025 Q6, A6 and GT and is not yet sold to existing owners (no timeline), so a 2019-2023 owner cannot buy an Audi adapter today. OWNER: via_adapter or no?"
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-331f04b34d" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "e-tron Sportback 55 quattro",
-        "US": "e-tron Sportback 55 quattro"
-      },
+      "names": { "CA": "e-tron Sportback 55 quattro", "US": "e-tron Sportback 55 quattro" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-audi-etronsportback-2021-416326",
-          "notes": "Estimated: 2021 e-tron Sportback Premium quattro page shows 20-inch; 2022 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-etronsportback-2021-416326", "notes": "Estimated: 2021 e-tron Sportback Premium quattro page shows 20-inch; 2022 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
       ]
     }
   ]

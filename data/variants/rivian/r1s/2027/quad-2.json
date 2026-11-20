@@ -4,47 +4,21 @@
   "year": 2027,
   "name": "Quad",
   "drivetrain": "awd",
-  "powertrain_id": "rivian/r1s/2027-quad-2",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "rivian/r1s/2027-performance",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: \"All 2026+ Rivian vehicles have a built-in NACS charge port\" (CCS1 adapter for CCS stations)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-81d2002905" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: 2026+ NACS port charges at Tesla Superchargers (over 21,000 sites in North America)."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-2b61353dba" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Quad"
-      },
+      "names": { "US": "Quad" },
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r2w-carb-rivian-2027",
-          "notes": "Quad listed in 22 and 22 UHP road configurations. Standard inferred.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-r2w-carb-rivian-2027",
-          "notes": "20 inch all-terrain configuration.",
-          "low_confidence": true
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2w-carb-rivian-2027", "note_id": "n-bc8e242203", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-carb-rivian-2027", "note_id": "n-44ec866847", "low_confidence": true }
       ]
     }
   ]

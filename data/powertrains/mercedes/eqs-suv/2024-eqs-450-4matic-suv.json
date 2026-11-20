@@ -3,76 +3,28 @@
   "model_id": "mercedes/eqs-suv",
   "name": "EQS 450 4MATIC SUV",
   "generation": "first-generation",
-  "years": [
-    2024
-  ],
+  "years": [2024],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 118,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-mbusa-data-2024-eqs-eqs450x",
-        "low_confidence": true,
-        "notes": "Estimated: mbusa lists \"battery capacity 118 kWh\" without a gross/usable label and no second page labelling this pack was found; read as usable by analogy with the sibling packs whose usable figure is labelled (EQS 107.8, EQE 90.6, EQS 118). Read on the 2024 EQS450X page (no page opened for this exact trim/year); same pack and charger on the sibling trim."
-      }
+      { "value": 118, "unit": "kWh", "kind": "estimated", "source_id": "src-mbusa-data-2024-eqs-eqs450x", "low_confidence": true, "notes": "Estimated: mbusa lists \"battery capacity 118 kWh\" without a gross/usable label and no second page labelling this pack was found; read as usable by analogy with the sibling packs whose usable figure is labelled (EQS 107.8, EQE 90.6, EQS 118). Read on the 2024 EQS450X page (no page opened for this exact trim/year); same pack and charger on the sibling trim." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-mb-eqs",
-        "low_confidence": true,
-        "notes": "Estimated: Wikipedia infobox lists NCM 811 for this model (uncited there)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-98b9a85e51" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-mb-eqs",
-        "low_confidence": true,
-        "notes": "Estimated: Wikipedia infobox lists a 400 V system for this model (EQS 400V; EQE 400V / 328 V); uncited there."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-mb-eqs", "low_confidence": true, "note_id": "n-361488a6e2" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-mbusa-eqe-eqs-quickstart",
-        "low_confidence": true,
-        "notes": "Estimated: the Mercedes USA EQE/EQS quick-start guide says (per the fact-checker excerpt; the PDF could not be read here) the battery is prepared automatically before the charging station is reached, i.e. a navigation trigger; same system on sedan and SUV. Whether a separate manual battery control exists is unproven either way (the mbusa EV FAQ mentions on-demand preconditioning from the app, possibly cabin only)."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-eqe-eqs-quickstart", "low_confidence": true, "note_id": "n-ce3bdffc9d" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 200,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-mbusa-data-2024-eqs-eqs450x",
-      "low_confidence": true,
-      "notes": "Estimated: sibling page lists 200 kW for the same pack and charger (2024 EQS450X); this car's own page was not opened."
-    }
+    { "value": 200, "unit": "kW", "kind": "estimated", "source_id": "src-mbusa-data-2024-eqs-eqs450x", "low_confidence": true, "notes": "Estimated: sibling page lists 200 kW for the same pack and charger (2024 EQS450X); this car's own page was not opened." }
   ],
   "ac_max_kw": [
-    {
-      "value": 9.6,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-mbusa-data-2024-eqs-eqs450x",
-      "low_confidence": true,
-      "notes": "Estimated: sibling page lists 9.6 kW AC."
-    }
+    { "value": 9.6, "unit": "kW", "kind": "estimated", "source_id": "src-mbusa-data-2024-eqs-eqs450x", "low_confidence": true, "note_id": "n-e24d436212" }
   ],
   "published_10_80_min": [
-    {
-      "value": 31,
-      "unit": "min",
-      "kind": "estimated",
-      "source_id": "src-mbusa-data-2024-eqs-eqs450x",
-      "low_confidence": true,
-      "notes": "Estimated: sibling page lists 31 min 10-80 % for the same pack."
-    }
+    { "value": 31, "unit": "min", "kind": "estimated", "source_id": "src-mbusa-data-2024-eqs-eqs450x", "low_confidence": true, "note_id": "n-7ad5c73214" }
   ]
 }

@@ -4,43 +4,20 @@
   "year": 2025,
   "name": "SQ8 e-tron",
   "drivetrain": "awd",
-  "powertrain_id": "audi/e-tron/2025-sq8-e-tron",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "audi/e-tron/2024-q8-e-tron-quattro",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-electrive-audi-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: electrive 2025-09-08 / InsideEVs: Audi's EVs lack a NACS port and need an adapter; no source shows a NACS Q8 for MY2025 (ChargePapa is ambiguous on later years)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-8948908d4d" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-w2-insideevs-audi-porsche-sc",
-      "low_confidence": true,
-      "notes": "Estimated: InsideEVs 2025-09-08: all Audi EVs except the Q4 e-tron are compatible with Tesla Superchargers (Canada on the same date) with an adapter; the Q8 is not named, and electrive says the Audi adapter is only supplied with new 2025 Q6, A6 and GT and is not yet sold to existing owners. OWNER: via_adapter or no?"
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-e4cbdc323b" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "SQ8 e-tron",
-        "US": "SQ8 e-tron"
-      },
+      "names": { "CA": "SQ8 e-tron", "US": "SQ8 e-tron" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-audi-sq8etron-2025-459560",
-          "notes": "SQ8 e-tron Prestige quattro 2025: 20x10 read on this Cars.com page."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-sq8etron-2025-459560", "notes": "SQ8 e-tron Prestige quattro 2025: 20x10 read on this Cars.com page." }
       ]
     }
   ]

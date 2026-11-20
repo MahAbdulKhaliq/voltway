@@ -5,41 +5,19 @@
   "name": "Kona Electric",
   "drivetrain": "fwd",
   "powertrain_id": "hyundai/kona-electric/2024-kona-electric",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq-2026-11-16",
-      "low_confidence": true,
-      "notes": "Hyundai Canada FAQ names the 2026 KONA Electric as a CCS-port EV; MY2025-and-earlier Hyundai EVs use an adapter for NACS."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-68dca58074" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq-2026-11-16",
-      "low_confidence": true,
-      "notes": "Hyundai Canada FAQ: CCS Hyundai EVs of MY2025 and earlier, and the 2026 KONA Electric, can use a NACS adapter (available separately)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-67cd717b6c" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Kona Electric"
-      },
+      "names": { "CA": "Kona Electric" },
       "wheels": [
-        {
-          "diameter_in": 17,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-kona-ev-2024-index",
-          "low_confidence": true,
-          "notes": "US SE shown (17 x 7 in); Canadian trim assumed the same."
-        }
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-hyundai-kona-ev-2024-index", "low_confidence": true, "notes": "US SE shown (17 x 7 in); Canadian trim assumed the same." }
       ]
     }
   ]

@@ -5,65 +5,24 @@
   "name": "AWD",
   "drivetrain": "awd",
   "powertrain_id": "toyota/c-hr/2026-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-c-hr-2026"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-c-hr-2026" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2000,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-chr-xse-awd-2026",
-      "low_confidence": true,
-      "notes": "Canadian XSE AWD: 2,000 kg (4,409 lb) listed as Weight; applied to both 18- and 20-inch trims as the source gives one XSE AWD figure. US AWD SE 4,322 lb / XSE 4,366 lb differ. The cited page is the XSE AWD (20-inch) trim; the 18-inch SE AWD weight was not checked (US data suggests about 1 % lighter)."
-    }
+    { "value": 2000, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideautoweb-chr-xse-awd-2026", "low_confidence": true, "notes": "Canadian XSE AWD: 2,000 kg (4,409 lb) listed as Weight; applied to both 18- and 20-inch trims as the source gives one XSE AWD figure. US AWD SE 4,322 lb / XSE 4,366 lb differ. The cited page is the XSE AWD (20-inch) trim; the 18-inch SE AWD weight was not checked (US data suggests about 1 % lighter)." }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-r19-toyota-us-bz-onsale-2026",
-      "low_confidence": true,
-      "notes": "Estimated: C-HR has a native NACS port (Toyota USA and Canada C-HR releases) and Toyota says Toyota BEV drivers can use the Tesla Supercharger network (Toyota Canada: 'Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network'; Toyota USA for the 2026 bZ). No Toyota page names the C-HR for Supercharger access."
-    },
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-toyota-ca-media-bz-onsale-2026",
-      "low_confidence": true,
-      "notes": "Estimated: Canada. The C-HR has a native NACS port (Toyota Canada releases) and Toyota Canada says 'Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network' (lineup-wide). No Toyota page names this model for Supercharger access."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-9e907ae515" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-toyota-ca-media-bz-onsale-2026", "low_confidence": true, "note_id": "n-1973eac99a" }
   ],
   "trims": [
     {
       "id": "18-in-wheels",
-      "names": {
-        "CA": "AWD",
-        "US": "SE"
-      },
+      "names": { "CA": "AWD", "US": "SE" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r2w-toy-chr26",
-          "notes": "SE: 18-in. wheels (US). This variant is the SE; the XSE has 20-in. wheels. Canadian trim AWD; size from the US SE page.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-r2w-toy-chr26",
-          "notes": "XSE carries 20-inch gunmetal wheels (listed as the larger size on this model). Canadian trim AWD; size from the US SE page.",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-toy-chr26", "notes": "SE: 18-in. wheels (US). This variant is the SE; the XSE has 20-in. wheels. Canadian trim AWD; size from the US SE page.", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-toy-chr26", "notes": "XSE carries 20-inch gunmetal wheels (listed as the larger size on this model). Canadian trim AWD; size from the US SE page.", "low_confidence": true }
       ]
     }
   ]

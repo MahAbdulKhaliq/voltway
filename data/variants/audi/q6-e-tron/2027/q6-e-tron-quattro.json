@@ -5,46 +5,20 @@
   "name": "Q6 e-tron quattro",
   "drivetrain": "awd",
   "powertrain_id": "audi/q6-e-tron/2027-q6-e-tron-quattro",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-electrive-audi-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: 2025 Q6/A6 are CCS1 (Audi EVs lack a NACS port, 2025-09-08); no source for MY2027 shows a native NACS inlet (Wards/InsideEVs/electrive 2027 pages do not mention it)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-80c03df249" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-insideevs-audi-porsche-sc",
-      "low_confidence": true,
-      "notes": "InsideEVs/electrive 2025-09-08: Q6 e-tron and A6 e-tron gain Supercharger access (US and Canada same date) with the Audi NACS DC adapter, included with new 2025 Q6/A6 Sportback/GT purchases."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-c1cc15655e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Q6 e-tron quattro"
-      },
+      "names": { "US": "Q6 e-tron quattro" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-cars-audi-q6etron-2027-483042",
-          "notes": "Q6 e-tron 2027: 19x8/19x9 read on this Cars.com page."
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-cars-audi-q6etron-2027-483042",
-          "notes": "20-inch Wheel Package ($1,000) option on the same Cars.com page."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-audi-q6etron-2027-483042", "notes": "Q6 e-tron 2027: 19x8/19x9 read on this Cars.com page." },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-cars-audi-q6etron-2027-483042", "note_id": "n-4fcf8a8ad7" }
       ]
     }
   ]

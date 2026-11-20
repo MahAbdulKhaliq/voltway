@@ -5,42 +5,19 @@
   "name": "RWD",
   "drivetrain": "rwd",
   "powertrain_id": "cadillac/lyriq/2023-rwd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-lyriq",
-      "low_confidence": true,
-      "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2023."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-lyriq", "low_confidence": true, "note_id": "n-84fd8d0a0d" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-lyriq-2027",
-      "low_confidence": true,
-      "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2023: adapter needed. Markets: CA/US."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-lyriq-2027", "low_confidence": true, "note_id": "n-26dc7267b5" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "RWD",
-        "US": "RWD"
-      },
+      "names": { "CA": "RWD", "US": "RWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2023-specs-424225",
-          "notes": "RWD 4dr Luxury: 20 in aluminum, P265/50R20."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2023-specs-424225", "notes": "RWD 4dr Luxury: 20 in aluminum, P265/50R20." }
       ]
     }
   ]

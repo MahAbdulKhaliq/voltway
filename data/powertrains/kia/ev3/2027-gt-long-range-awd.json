@@ -3,86 +3,31 @@
   "model_id": "kia/ev3",
   "name": "GT Long Range AWD",
   "generation": "first-generation",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 81.4,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-kia-uk-ev3-spec",
-        "notes": "Kia UK spec page: 81.4 kWh (bare capacity = gross; usable not stated). North America lists the same pack sizes (Electrek, Auto123, Guide Auto).",
-        "low_confidence": true
-      }
+      { "value": 81.4, "unit": "kWh", "kind": "manufacturer", "source_id": "src-kia-uk-ev3-spec", "note_id": "n-efd5fba1a4", "low_confidence": true }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 77.8,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-evdb-ioniq5-lr-awd",
-        "notes": "Estimated: no page states EV3/EV4 usable kWh. 81.4 x 74.0/77.4 (the 77.4 kWh E-GMP pack, EV Database 74.0 usable). Treat as approximate.",
-        "low_confidence": true
-      }
+      { "value": 77.8, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-ioniq5-lr-awd", "note_id": "n-89fa201273", "low_confidence": true }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-wikipedia-kia-ev3",
-        "notes": "Wikipedia: the EV3 (and EV4, same E-GMP 58.3/81.4 kWh packs) use NMC lithium-ion packs.",
-        "low_confidence": true
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-wikipedia-kia-ev3", "note_id": "n-1a5fe2b272", "low_confidence": true }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-kia-uk-ev3-spec",
-        "notes": "Kia UK: nominal 343 V (400 V E-GMP, also stated by Guide Auto and InsideEVs).",
-        "low_confidence": true
-      }
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-kia-uk-ev3-spec", "note_id": "n-b36e729c56", "low_confidence": true }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-kia-uk-battery-preconditioning",
-        "notes": "Kia UK page names the EV3: setting a public charger as the destination starts warming/cooling the battery on the drive, and it can also be started from the infotainment or Kia Connect app. UK page; no North American page read.",
-        "low_confidence": true
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-kia-uk-battery-preconditioning", "note_id": "n-6c5318b506", "low_confidence": true }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-kia-uk-ev3-spec",
-      "notes": "Kia UK: 11 kW AC (230 V 16 A, European spec). No North American page states the onboard charger; assumed unchanged.",
-      "low_confidence": true
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-kia-uk-ev3-spec", "note_id": "n-1608163f1f", "low_confidence": true }
   ],
   "dc_max_kw": [
-    {
-      "value": 128,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-kia-uk-ev3-spec",
-      "notes": "Kia UK spec: 128 kW DC (page ties it to the 10-80 % time; Fastned lists 135 kW). UK spec; same pack in North America.",
-      "low_confidence": true
-    }
+    { "value": 128, "unit": "kW", "kind": "manufacturer", "source_id": "src-kia-uk-ev3-spec", "note_id": "n-bff8b6af23", "low_confidence": true }
   ],
   "published_10_80_min": [
-    {
-      "value": 31,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-electrek-ev3-prices-2026",
-      "notes": "Kia figure: about 31 minutes 10-80 % on a 350 kW charger (relayed; Kia UK says 31 min too).",
-      "low_confidence": true
-    }
+    { "value": 31, "unit": "min", "kind": "manufacturer", "source_id": "src-electrek-ev3-prices-2026", "note_id": "n-cda39a943b", "low_confidence": true }
   ]
 }

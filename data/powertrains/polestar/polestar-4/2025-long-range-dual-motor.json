@@ -3,86 +3,31 @@
   "model_id": "polestar/polestar-4",
   "name": "Long Range Dual Motor",
   "generation": "first-generation",
-  "years": [
-    2025
-  ],
+  "years": [2025],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 100,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-polestar-us-p4-specs",
-        "low_confidence": true,
-        "notes": "Polestar US page: 100 kWh capacity, cell-to-pack, 110 cells (gross not labelled; EV Database lists 94 usable of 100). Polestar US/CA pages show one set of figures for Rear motor and Dual motor."
-      }
+      { "value": 100, "unit": "kWh", "kind": "manufacturer", "source_id": "src-polestar-us-p4-specs", "low_confidence": true, "note_id": "n-164cace7ab" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 94,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-evdb-polestar4-lr-dual-excerpt",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database: 94.0 kWh usable (read from search excerpts; page 429). Polestar pages do not state usable. Wikipedia (opened) also gives NMC and 400 V."
-      }
+      { "value": 94, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-polestar4-lr-dual-excerpt", "low_confidence": true, "note_id": "n-e2fe81ee63" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-evdb-polestar4-lr-dual-excerpt",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database excerpt: NCM811 cathode, CATL Qilin cell-to-pack. Not named on Polestar pages. Wikipedia (opened) also gives NMC and 400 V."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-polestar4-lr-dual-excerpt", "low_confidence": true, "note_id": "n-18ea07342c" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "manufacturer",
-        "source_id": "src-polestar-us-p4-specs",
-        "low_confidence": true,
-        "notes": "Polestar US page: 400-V battery."
-      }
+      { "value": "400v", "kind": "manufacturer", "source_id": "src-polestar-us-p4-specs", "low_confidence": true, "note_id": "n-4e5469903c" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-polestar-us-manual-p4-2025-precond",
-        "notes": "Estimated: US owner manual says \"Battery preconditioning automatically starts when a DC fast charging station is set in the built-in navigation app\"; no manual control is mentioned, but the manual silence does not prove there is none.",
-        "low_confidence": true
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-polestar-us-manual-p4-2025-precond", "note_id": "n-2fbcdb07ef", "low_confidence": true }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 200,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-us-p4-specs",
-      "low_confidence": true,
-      "notes": "Polestar US page: DC up to 200 kW. Canada page identical. Polestar US/CA pages show one set of figures for Rear motor and Dual motor."
-    }
+    { "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-polestar-us-p4-specs", "low_confidence": true, "note_id": "n-6cea8e1f3b" }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-us-p4-specs",
-      "low_confidence": true,
-      "notes": "Polestar US page: AC 11 kW; Canada page the same. (UK listings give 22 kW; not this market.)"
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-polestar-us-p4-specs", "low_confidence": true, "note_id": "n-fabb2b61ac" }
   ],
   "published_10_80_min": [
-    {
-      "value": 30,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-us-p4-specs",
-      "low_confidence": true,
-      "notes": "Polestar US page: 10-80% in 30 minutes."
-    }
+    { "value": 30, "unit": "min", "kind": "manufacturer", "source_id": "src-polestar-us-p4-specs", "low_confidence": true, "note_id": "n-b7a8cc0a4b" }
   ]
 }

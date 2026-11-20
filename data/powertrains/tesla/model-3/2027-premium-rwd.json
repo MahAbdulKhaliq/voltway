@@ -3,76 +3,28 @@
   "model_id": "tesla/model-3",
   "name": "Premium RWD",
   "generation": "highland",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 78.1,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-lrrwd-highland",
-        "low_confidence": true,
-        "notes": "Estimated: 78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh. The 2027 Premium RWD range (584 km) equals the NMC Long Range RWD (584 km), not the LFP Premium-I (463 km; OpenEV 60/57 LFP, a Canadian import), so the NMC pack is chosen; not confirmed on a manufacturer page."
-      }
+      { "value": 78.1, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-lrrwd-highland", "low_confidence": true, "notes": "Estimated: 78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh. The 2027 Premium RWD range (584 km) equals the NMC Long Range RWD (584 km), not the LFP Premium-I (463 km; OpenEV 60/57 LFP, a Canadian import), so the NMC pack is chosen; not confirmed on a manufacturer page." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 75,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-lrrwd-highland",
-        "low_confidence": true,
-        "notes": "Estimated: 75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh. The 2027 Premium RWD range (584 km) equals the NMC Long Range RWD (584 km), not the LFP Premium-I (463 km; OpenEV 60/57 LFP, a Canadian import), so the NMC pack is chosen; not confirmed on a manufacturer page."
-      }
+      { "value": 75, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-m3-lrrwd-highland", "low_confidence": true, "notes": "Estimated: 75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh. The 2027 Premium RWD range (584 km) equals the NMC Long Range RWD (584 km), not the LFP Premium-I (463 km; OpenEV 60/57 LFP, a Canadian import), so the NMC pack is chosen; not confirmed on a manufacturer page." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-lrrwd-highland",
-        "low_confidence": true,
-        "notes": "Estimated: NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh. The 2027 Premium RWD range (584 km) equals the NMC Long Range RWD (584 km), not the LFP Premium-I (463 km; OpenEV 60/57 LFP, a Canadian import), so the NMC pack is chosen; not confirmed on a manufacturer page."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-m3-lrrwd-highland", "low_confidence": true, "notes": "Estimated: NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh. The 2027 Premium RWD range (584 km) equals the NMC Long Range RWD (584 km), not the LFP Premium-I (463 km; OpenEV 60/57 LFP, a Canadian import), so the NMC pack is chosen; not confirmed on a manufacturer page." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-evdb-m3-lrrwd-highland",
-        "low_confidence": true,
-        "notes": "Estimated: 357 V nominal, 400 V architecture. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh. The 2027 Premium RWD range (584 km) equals the NMC Long Range RWD (584 km), not the LFP Premium-I (463 km; OpenEV 60/57 LFP, a Canadian import), so the NMC pack is chosen; not confirmed on a manufacturer page."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-m3-lrrwd-highland", "low_confidence": true, "notes": "Estimated: 357 V nominal, 400 V architecture. EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh. The 2027 Premium RWD range (584 km) equals the NMC Long Range RWD (584 km), not the LFP Premium-I (463 km; OpenEV 60/57 LFP, a Canadian import), so the NMC pack is chosen; not confirmed on a manufacturer page." }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-notateslaapp-2020-24-6-4",
-        "low_confidence": true,
-        "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2027 Premium RWD). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-notateslaapp-2020-24-6-4", "low_confidence": true, "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2027 Premium RWD). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 250,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-evdb-m3-lrrwd-highland",
-      "low_confidence": true,
-      "notes": "Estimated: 250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh. The 2027 Premium RWD range (584 km) equals the NMC Long Range RWD (584 km), not the LFP Premium-I (463 km; OpenEV 60/57 LFP, a Canadian import), so the NMC pack is chosen; not confirmed on a manufacturer page."
-    }
+    { "value": 250, "unit": "kW", "kind": "estimated", "source_id": "src-evdb-m3-lrrwd-highland", "low_confidence": true, "notes": "Estimated: 250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EV Database Highland LR RWD (78.1/75) and KBB US 2026 Premium 75 kWh. The 2027 Premium RWD range (584 km) equals the NMC Long Range RWD (584 km), not the LFP Premium-I (463 km; OpenEV 60/57 LFP, a Canadian import), so the NMC pack is chosen; not confirmed on a manufacturer page." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-evdb-m3-lrrwd-highland",
-      "low_confidence": true,
-      "notes": "Estimated: EV Database lists 11 kW AC for the Highland Long Range/Performance (EU, 3-phase) and the existing OpenEV data on the 2026 Canadian cars also shows 11 kW; Wikipedia infobox says 11.5 kW (48 A) for Long Range; Tesla does not publish a Highland AC figure (InsideEVs)."
-    }
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-evdb-m3-lrrwd-highland", "low_confidence": true, "note_id": "n-8c98745583" }
   ]
 }

@@ -6,6 +6,7 @@ import { join, relative, sep } from 'node:path';
 import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 import { parseCsv } from './csv.ts';
+import { loadNotes, resolveNotes } from './notes.ts';
 import { regulatorOption } from './catalogue.ts';
 import { COUNTRIES } from './countries.ts';
 import { MIN_POPULATION_FOR, PROVINCE_CODES, US_STATES, type GeoCountry } from './geonames.ts';
@@ -103,11 +104,12 @@ export function validateRepo(root: string): ValidationResult {
   const errors: string[] = [];
   const v = loadValidators(join(root, 'schema'));
   const dataDir = join(root, 'data');
+  const notes = loadNotes(root); // B111: shared notes, swapped back in before the schema check
 
   const read = (dir: string, rel: string): unknown => {
     const file = `data/${dir}/${rel}`;
     try {
-      return JSON.parse(readFileSync(join(dataDir, dir, rel), 'utf8'));
+      return resolveNotes(JSON.parse(readFileSync(join(dataDir, dir, rel), 'utf8')), notes, (id) => errors.push(`${file}: note_id ${id} is not in data/notes.json`));
     } catch (e) {
       errors.push(`${file}: not valid JSON (${(e as Error).message})`);
       return undefined;

@@ -5,43 +5,19 @@
   "name": "Performance AWD",
   "drivetrain": "awd",
   "powertrain_id": "tesla/model-3/2026-performance-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-thinkev-tesla-model-3-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Source lists a NACS port for the 2026 Model 3; Supercharger access follows from that."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-thinkev-tesla-model-3-2026", "low_confidence": true, "note_id": "n-56a0dc357e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Performance AWD",
-        "US": "Performance"
-      },
+      "names": { "CA": "Performance AWD", "US": "Performance" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "community",
-          "low_confidence": true,
-          "source_id": "src-evdb-model-3-performance-highland",
-          "notes": "EV Database Performance (Highland) lists heat pump standard equipment (European listing; same model generation as the Canadian Shanghai-built car)."
-        }
+        { "value": "standard", "kind": "community", "low_confidence": true, "source_id": "src-evdb-model-3-performance-highland", "notes": "EV Database Performance (Highland) lists heat pump standard equipment (European listing; same model generation as the Canadian Shanghai-built car)." }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-driveteslacanada-model-3-performance-tires",
-          "low_confidence": true,
-          "notes": "US report: Model 3 Performance comes standard with 20-inch Warp wheels. Canadian Performance assumed the same (same trim name); not confirmed."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-driveteslacanada-model-3-performance-tires", "low_confidence": true, "note_id": "n-947605a69c" }
       ]
     }
   ]

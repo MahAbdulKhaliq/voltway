@@ -4,49 +4,21 @@
   "year": 2024,
   "name": "Q8 Sportback e-tron ultra quattro",
   "drivetrain": "awd",
-  "powertrain_id": "audi/e-tron/2024-q8-sportback-e-tron-ultra-quattro",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "audi/e-tron/2024-q8-e-tron-quattro",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-chargepapa-q8-port",
-      "low_confidence": true,
-      "notes": "ChargePapa: 2023-2024 Q8 e-tron has CCS1 (J1772 AC, CCS1 DC)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-chargepapa-q8-port", "low_confidence": true, "note_id": "n-d4acde9e3a" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-w2-insideevs-audi-porsche-sc",
-      "low_confidence": true,
-      "notes": "Estimated: InsideEVs 2025-09-08: all Audi EVs except the Q4 e-tron are compatible with Tesla Superchargers (Canada on the same date) with an adapter; the Q8 is not named, and electrive says the Audi adapter is only supplied with new 2025 Q6, A6 and GT and is not yet sold to existing owners. OWNER: via_adapter or no?"
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-e4cbdc323b" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Q8 Sportback e-tron ultra quattro"
-      },
+      "names": { "US": "Q8 Sportback e-tron ultra quattro" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-audi-q8etron-2024-437884",
-          "notes": "Estimated: Q8 Sportback e-tron, sibling body style; the 2024 Q8 e-tron Premium quattro page shows 20-inch. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-cars-audi-q8etron-2024-437886",
-          "notes": "21-inch wheels in the Launch Edition and Black Optic options on the Q8 e-tron Prestige quattro 2024 page; assumed the same on the Sportback.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-q8etron-2024-437884", "note_id": "n-d798dfbcd0", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-cars-audi-q8etron-2024-437886", "note_id": "n-dec600f82e", "low_confidence": true }
       ]
     }
   ]

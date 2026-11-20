@@ -3,55 +3,19 @@
   "powertrain_id": "ford/mustang-mach-e/2021-extended-range-eawd",
   "kind": "tested",
   "source_id": "src-insideevs-mache-dc-fast-charge-test-2021",
-  "conditions": {
-    "preconditioned": "unknown",
-    "measured_at": "unknown"
-  },
+  "conditions": { "preconditioned": "unknown", "measured_at": "unknown" },
   "points": [
-    {
-      "soc_percent": 5,
-      "power_kw": 145
-    },
-    {
-      "soc_percent": 10,
-      "power_kw": 106
-    },
-    {
-      "soc_percent": 20,
-      "power_kw": 107
-    },
-    {
-      "soc_percent": 30,
-      "power_kw": 106
-    },
-    {
-      "soc_percent": 40,
-      "power_kw": 97
-    },
-    {
-      "soc_percent": 50,
-      "power_kw": 78
-    },
-    {
-      "soc_percent": 60,
-      "power_kw": 79
-    },
-    {
-      "soc_percent": 70,
-      "power_kw": 80
-    },
-    {
-      "soc_percent": 80,
-      "power_kw": 74
-    },
-    {
-      "soc_percent": 90,
-      "power_kw": 12
-    },
-    {
-      "soc_percent": 100,
-      "power_kw": 2
-    }
+    { "soc_percent": 5, "power_kw": 145 },
+    { "soc_percent": 10, "power_kw": 106 },
+    { "soc_percent": 20, "power_kw": 107 },
+    { "soc_percent": 30, "power_kw": 106 },
+    { "soc_percent": 40, "power_kw": 97 },
+    { "soc_percent": 50, "power_kw": 78 },
+    { "soc_percent": 60, "power_kw": 79 },
+    { "soc_percent": 70, "power_kw": 80 },
+    { "soc_percent": 80, "power_kw": 74 },
+    { "soc_percent": 90, "power_kw": 12 },
+    { "soc_percent": 100, "power_kw": 2 }
   ],
   "notes": "2021 Launch Edition AWD ER on initial firmware (88 kWh usable pack, same 98.8 kWh gross NMC pack as the 2021 GT and California Route 1). Peak in this table is 145 kW at 5 %; the separate InsideEVs analysis of a second 2021 session saw 159 kW at the very start. Second source agrees on shape: 106-107 kW at 11-27 %, 95-97 kW at 31-37 %, 76-80 kW at 40-77 %, ~12 kW above 80 %.Test started near 0 % SoC on an Electrify America charger (rating not stated).",
   "is_display_default": false

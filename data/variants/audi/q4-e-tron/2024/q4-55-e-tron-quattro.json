@@ -5,57 +5,21 @@
   "name": "Q4 55 e-tron quattro",
   "drivetrain": "awd",
   "powertrain_id": "audi/q4-e-tron/2024-q4-55-e-tron-quattro",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-electrive-audi-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: Audi says the Q4 e-tron cannot use its NACS DC adapter, and Audi EVs lack a NACS port (electrive, InsideEVs 2025-09-08); no NACS Q4 is reported for 2022-2026."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-38cbbe8453" }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "manufacturer",
-      "source_id": "src-w2-electrive-audi-nacs",
-      "low_confidence": true,
-      "notes": "Audi (quoted by electrive 2025-09-08): \"The Audi Q4 e-tron cannot currently use the Audi NACS DC charging adapter or the Tesla NACS Partner Supercharger network\"; InsideEVs: Q4 excluded, no timeline. No later announcement found (not found, not confirmed absent)."
-    }
+    { "value": "no", "kind": "manufacturer", "source_id": "src-w2-electrive-audi-nacs", "low_confidence": true, "note_id": "n-52c7b05743" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Q4 55 e-tron quattro",
-        "US": "Q4 55 e-tron quattro"
-      },
+      "names": { "CA": "Q4 55 e-tron quattro", "US": "Q4 55 e-tron quattro" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-cars-audi-q4etron-2024-452313",
-          "notes": "Estimated: 2024 Q4 e-tron Prestige 55 quattro page shows 19-inch standard; 2024 q4-55-e-tron-quattro assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-cars-audi-q4etron-2024-452313",
-          "notes": "20-inch Black Optic Package option on the 2024 page. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-cars-audi-q4etron-2024-452313",
-          "notes": "21-inch Wheel Package option on the 2024 page. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-audi-q4etron-2024-452313", "notes": "Estimated: 2024 Q4 e-tron Prestige 55 quattro page shows 19-inch standard; 2024 q4-55-e-tron-quattro assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-cars-audi-q4etron-2024-452313", "note_id": "n-9bf1bf4a92", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-cars-audi-q4etron-2024-452313", "note_id": "n-c8a719bf25", "low_confidence": true }
       ]
     }
   ]

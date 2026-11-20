@@ -5,55 +5,23 @@
   "name": "Standard",
   "drivetrain": "fwd",
   "powertrain_id": "toyota/c-hr/2026-standard",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-c-hr-2026"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-toyota-ca-media-c-hr-2026" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 1900,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-chr-se-fwd-2026",
-      "low_confidence": true,
-      "notes": "Canadian SE FWD: 1,900 kg (4,189 lb) listed as Weight (matches Toyota Canada summary excerpt 1900 (4188.8)). US lists only AWD (SE 4,322 lb)."
-    }
+    { "value": 1900, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideautoweb-chr-se-fwd-2026", "low_confidence": true, "notes": "Canadian SE FWD: 1,900 kg (4,189 lb) listed as Weight (matches Toyota Canada summary excerpt 1900 (4188.8)). US lists only AWD (SE 4,322 lb)." }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-r19-toyota-us-bz-onsale-2026",
-      "low_confidence": true,
-      "notes": "Estimated: C-HR has a native NACS port (Toyota USA and Canada C-HR releases) and Toyota says Toyota BEV drivers can use the Tesla Supercharger network (Toyota Canada: 'Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network'; Toyota USA for the 2026 bZ). No Toyota page names the C-HR for Supercharger access."
-    },
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-toyota-ca-media-bz-onsale-2026",
-      "low_confidence": true,
-      "notes": "Estimated: Canada. The C-HR has a native NACS port (Toyota Canada releases) and Toyota Canada says 'Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network' (lineup-wide). No Toyota page names this model for Supercharger access."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-r19-toyota-us-bz-onsale-2026", "low_confidence": true, "note_id": "n-9e907ae515" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-toyota-ca-media-bz-onsale-2026", "low_confidence": true, "note_id": "n-1973eac99a" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "C-HR"
-      },
+      "names": { "CA": "C-HR" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-toyota-ca-media-c-hr-2026",
-          "notes": "SE (FWD): 18-in wheels with black alloy inserts."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-toyota-ca-media-c-hr-2026", "notes": "SE (FWD): 18-in wheels with black alloy inserts." }
       ]
     }
   ]

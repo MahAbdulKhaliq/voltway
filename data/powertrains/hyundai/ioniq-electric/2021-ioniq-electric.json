@@ -3,76 +3,28 @@
   "model_id": "hyundai/ioniq-electric",
   "name": "Ioniq Electric",
   "generation": "2020-update",
-  "years": [
-    2021
-  ],
+  "years": [2021],
   "battery": {
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "community",
-        "source_id": "src-arenaev-ioniq-electric-38",
-        "notes": "ArenaEV: 320 V nominal (38.3 kWh car).",
-        "low_confidence": true
-      }
+      { "value": "400v", "kind": "community", "source_id": "src-arenaev-ioniq-electric-38", "note_id": "n-d8658778e2", "low_confidence": true }
     ],
     "preconditioning": [
-      {
-        "value": "none",
-        "kind": "estimated",
-        "source_id": "src-hmg-ioniq5-2023-battery-conditioning",
-        "notes": "Estimated: no page for the Ioniq Electric describes a battery warming or conditioning feature (Hyundai UK press kit and US 2020 release do not mention one), and Hyundai Motor Group presents navigation-triggered battery conditioning as new with the 2022-2023 IONIQ 5, years after this car. Caveat: Canadian Ioniq Electrics may have had a battery heater (the Kona Electric did); not checked.",
-        "low_confidence": true
-      }
+      { "value": "none", "kind": "estimated", "source_id": "src-hmg-ioniq5-2023-battery-conditioning", "note_id": "n-aaef325ed6", "low_confidence": true }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 38.3,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-arenaev-ioniq-electric-38",
-        "notes": "ArenaEV: 38.3 kWh usable.",
-        "low_confidence": true
-      }
+      { "value": 38.3, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-ioniq-electric-38", "note_id": "n-db454f122b", "low_confidence": true }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 40.4,
-        "unit": "kWh",
-        "kind": "community",
-        "source_id": "src-arenaev-ioniq-electric-38",
-        "notes": "ArenaEV: 40.4 kWh total.",
-        "low_confidence": true
-      }
+      { "value": 40.4, "unit": "kWh", "kind": "community", "source_id": "src-arenaev-ioniq-electric-38", "note_id": "n-2fd3ae6989", "low_confidence": true }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-gf-evspecs-ioniq-38-2020",
-        "low_confidence": true,
-        "notes": "Estimated: same 38.3 kWh (40.4 gross) pack as 2020, which EVSpecifications lists as NCM622; 2020 and 2021 compared, no pack change found."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-gf-evspecs-ioniq-38-2020", "low_confidence": true, "notes": "Estimated: same 38.3 kWh (40.4 gross) pack as 2020, which EVSpecifications lists as NCM622; 2020 and 2021 compared, no pack change found." }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 7.2,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-us-ioniq-electric-2020",
-      "notes": "Hyundai US 2020 release: 7.2 kW onboard charger (up from 6.6). Canadian figure assumed the same.",
-      "low_confidence": true
-    }
+    { "value": 7.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-hyundai-us-ioniq-electric-2020", "note_id": "n-0bdb237fd8", "low_confidence": true }
   ],
   "dc_max_kw": [
-    {
-      "value": 50,
-      "unit": "kW",
-      "kind": "tested",
-      "source_id": "src-insideevs-ioniq-electric-2020-dc",
-      "notes": "InsideEVs: peak fell to \"just under 50 kW\" (about 40-45 kW to 50 %, Fastned data), recorded as 50; Fastned lists 45 kW; Wikipedia says the car accepts only a 50 kW fast charge. Hyundai's 54 min to 80 % is on a 100 kW station.",
-      "low_confidence": true
-    }
+    { "value": 50, "unit": "kW", "kind": "tested", "source_id": "src-insideevs-ioniq-electric-2020-dc", "note_id": "n-46d184e12d", "low_confidence": true }
   ]
 }

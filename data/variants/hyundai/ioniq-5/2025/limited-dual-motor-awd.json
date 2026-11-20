@@ -4,40 +4,20 @@
   "year": 2025,
   "name": "Limited Dual Motor AWD",
   "drivetrain": "awd",
-  "powertrain_id": "hyundai/ioniq-5/2025-limited-dual-motor-awd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "hyundai/ioniq-5/2025-dual-motor-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-hmgma-2025-ioniq-5-xrt",
-      "notes": "Hyundai: NACS port standard on the 2025 IONIQ 5 (US-built), CCS adapter included."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-hmgma-2025-ioniq-5-xrt", "note_id": "n-681109c8eb" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-usa-nacs-adapter-faq",
-      "notes": "Hyundai USA FAQ: native-NACS 2025 IONIQ 5 uses Tesla V3/V4 Superchargers directly (125 kW limit at the time).",
-      "low_confidence": true
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-usa-nacs-adapter-faq", "note_id": "n-f2f24a3971", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Limited Dual Motor AWD"
-      },
+      "names": { "US": "Limited Dual Motor AWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-ioniq-5-2025-471572",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2025-471572", "low_confidence": true }
       ]
     }
   ]

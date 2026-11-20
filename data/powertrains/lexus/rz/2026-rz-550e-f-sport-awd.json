@@ -3,74 +3,28 @@
   "model_id": "lexus/rz",
   "name": "RZ 550e F SPORT AWD",
   "generation": "2026-update",
-  "years": [
-    2026
-  ],
+  "years": [2026],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 76.96,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2j-lexus-us-rz-2026",
-        "low_confidence": true,
-        "notes": "Lexus USA 2026 RZ release lists 76.96 (printed as \"kW\"; Cars.com reads kWh); gross vs usable not stated."
-      }
+      { "value": 76.96, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026", "low_confidence": true, "notes": "Lexus USA 2026 RZ release lists 76.96 (printed as \"kW\"; Cars.com reads kWh); gross vs usable not stated." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-autopian-bz-2026",
-        "low_confidence": true,
-        "notes": "Estimated: Toyota chief engineer (Autopian): the 74.7 kWh pack keeps the same NMC chemistry and cells; Cars.com says the RZ 350e/450e carries the same 74.7 kWh as its Toyota and Subaru counterparts; the 550e pack is 76.96 kWh of the same TNGA-K family."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-72b819a360" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-insideevs-bz-charging-limit-2026",
-        "low_confidence": true,
-        "notes": "Estimated: Toyota chief engineer (InsideEVs): the 74.7 kWh bZ \"still runs on a 400-volt electrical architecture\"; the RZ shares that pack."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-insideevs-bz-charging-limit-2026", "low_confidence": true, "note_id": "n-f8b321d9fb" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-w2j-lexus-us-es-2026",
-        "low_confidence": true,
-        "notes": "Estimated: Lexus ES release (2026, same maker and TNGA-K lineup): Battery Preconditioning from the touchscreen or automatically with a charger as destination; Motor1 confirms the 2026 RZ gains preconditioning. No RZ page describes the trigger."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-w2j-lexus-us-es-2026", "low_confidence": true, "note_id": "n-ce31f5a18a" }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2026",
-      "notes": "Lexus USA: 11-kW on-board AC charger, up from 7 kW."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026", "note_id": "n-c15b4727cc" }
   ],
   "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-insideevs-bz-charging-limit-2026",
-      "low_confidence": true,
-      "notes": "Estimated: Lexus gives no peak kW for the RZ; the 74.7 kWh bZ sibling is capped at 150 kW per Toyota chief engineer (InsideEVs); Lexus 10-80% in about 30 min is consistent. No page differentiates the 2026 trims."
-    }
+    { "value": 150, "unit": "kW", "kind": "estimated", "source_id": "src-insideevs-bz-charging-limit-2026", "low_confidence": true, "note_id": "n-3931a12b8f" }
   ],
   "published_10_80_min": [
-    {
-      "value": 30,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2026-five",
-      "notes": "\"around 30 minutes\" 10-80% under ideal conditions; model-level claim."
-    }
+    { "value": 30, "unit": "min", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-five", "note_id": "n-8ad93aaf25" }
   ]
 }

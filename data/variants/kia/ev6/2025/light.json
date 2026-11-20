@@ -5,59 +5,25 @@
   "name": "Light",
   "drivetrain": "rwd",
   "powertrain_id": "kia/ev6/2025-light",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev6-2025"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev6-2025"
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev6-2025" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 1875,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ev6-2025-light-rwd",
-      "low_confidence": true,
-      "notes": "Guide Auto lists 1,875 kg (4,134 lb) for the Canadian Light RWD (62.9 kWh); US Light is 4,132 lb (KBB). Page label may read \"Weight\"; presumed curb weight."
-    }
+    { "value": 1875, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev6-2025-light-rwd", "low_confidence": true, "notes": "Guide Auto lists 1,875 kg (4,134 lb) for the Canadian Light RWD (62.9 kWh); US Light is 4,132 lb (KBB). Page label may read \"Weight\"; presumed curb weight." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Light",
-        "US": "Light"
-      },
+      "names": { "CA": "Light", "US": "Light" },
       "heat_pump": [
-        {
-          "low_confidence": true,
-          "value": "none",
-          "kind": "manufacturer",
-          "source_id": "src-kia-us-ev6-2026-specs",
-          "notes": "Kia US page lists the range-preserving heat pump as \"Not available\" on the 63 kWh Light; Canadian equivalence not confirmed."
-        }
+        { "low_confidence": true, "value": "none", "kind": "manufacturer", "source_id": "src-kia-us-ev6-2026-specs", "notes": "Kia US page lists the range-preserving heat pump as \"Not available\" on the 63 kWh Light; Canadian equivalence not confirmed." }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-kia-us-ev6-2026-specs",
-          "tire_size": "235/55R19",
-          "low_confidence": true,
-          "notes": "Kia US page: Light 19 in dark gray alloy standard."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-kia-us-ev6-2026-specs", "tire_size": "235/55R19", "low_confidence": true, "notes": "Kia US page: Light 19 in dark gray alloy standard." }
       ]
     }
   ]

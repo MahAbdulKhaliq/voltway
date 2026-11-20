@@ -3,76 +3,28 @@
   "model_id": "cadillac/lyriq",
   "name": "RWD",
   "generation": "first-generation",
-  "years": [
-    2025
-  ],
+  "years": [2025],
   "battery": {
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-cadillac-dc-fast-charging-support",
-        "low_confidence": true,
-        "notes": "Estimated: Cadillac's DC fast-charging support page (cadillac.com returns 403; a search excerpt was seen earlier but the checker could not reproduce it) is said to describe automatic preconditioning when routing to a DC fast charger with built-in Google navigation, and a manual Fast Charge Prep in the app. UNVERIFIED: not read on a page for this model year; assumed for all LYRIQ years on the same Ultium software."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-cadillac-dc-fast-charging-support", "low_confidence": true, "note_id": "n-65ba504840" }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 102,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-kbb-lyriq-2026-specs",
-        "low_confidence": true,
-        "notes": "KBB lists battery capacity 102.00 kWh for all 2026 Lyriq trims (relaying Cadillac's 102 kWh). A bare capacity is treated as gross. Wikipedia says every LYRIQ and LYRIQ-V uses the same 102 kWh pack (2023-2027)."
-      }
+      { "value": 102, "unit": "kWh", "kind": "manufacturer", "source_id": "src-kbb-lyriq-2026-specs", "low_confidence": true, "note_id": "n-b0f8dc4226" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 100,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-cadillac-lyriq",
-        "low_confidence": true,
-        "notes": "Estimated: Wikipedia: 102 kWh gross, 100 kWh usable; Auto-data gives net 100.4 kWh. Same 102 kWh pack across LYRIQ years and trims (years on this powertrain: 2025)."
-      }
+      { "value": 100, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-cadillac-lyriq", "low_confidence": true, "notes": "Estimated: Wikipedia: 102 kWh gross, 100 kWh usable; Auto-data gives net 100.4 kWh. Same 102 kWh pack across LYRIQ years and trims (years on this powertrain: 2025)." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-evdb-lyriq-v",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists the LYRIQ-V cells as GM Ultium 140Ah NMC pouch (GM calls them NCMA, closest enum nmc); same Ultium cells across all LYRIQ trims and years."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-lyriq-v", "low_confidence": true, "note_id": "n-4e8cf34fe2" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-r3-greencars-lyriq",
-        "low_confidence": true,
-        "notes": "Estimated: GreenCarsCompare states the Lyriq is built on a 400 V architecture (aggregator, no model-year split); same 102 kWh pack across 2023-2027 (Wikipedia and Electrek show no pack change)."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-r3-greencars-lyriq", "low_confidence": true, "note_id": "n-d663592ce5" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 190,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-r3-greencars-lyriq",
-      "low_confidence": true,
-      "notes": "Estimated: GreenCarsCompare gives 190 kW DC for the Lyriq; InsideEVs (2023, Cadillac figure) and Electrek (2027) both state 190 kW, same pack and charger hardware 2023-2027 with no change found. Model year 2025."
-    }
+    { "value": 190, "unit": "kW", "kind": "estimated", "source_id": "src-r3-greencars-lyriq", "low_confidence": true, "notes": "Estimated: GreenCarsCompare gives 190 kW DC for the Lyriq; InsideEVs (2023, Cadillac figure) and Electrek (2027) both state 190 kW, same pack and charger hardware 2023-2027 with no change found. Model year 2025." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11.5,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-r3-greencars-lyriq",
-      "low_confidence": true,
-      "notes": "Estimated: GreenCarsCompare: 11.5 kW AC standard, 19.2 kW optional (powertrain records the standard charger; 19.2 kW is captured per trim where NRCan/EPA name it). Aggregator figure, not attributed to Cadillac."
-    }
+    { "value": 11.5, "unit": "kW", "kind": "estimated", "source_id": "src-r3-greencars-lyriq", "low_confidence": true, "note_id": "n-d60d5a4fc8" }
   ]
 }

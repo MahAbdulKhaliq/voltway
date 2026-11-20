@@ -4,46 +4,25 @@
   "name": "bZ4X",
   "body_type": "suv",
   "generations": [
-    {
-      "id": "bz4x-launch",
-      "name": "bZ4X launch",
-      "first_year": 2023,
-      "last_year": 2023,
-      "notes": "Launch as bZ4X: FWD 71.4 kWh (DC up to 150 kW); AWD 72.8 kWh CATL pack (DC up to 100 kW, about an hour to 80%). Same in CA and US. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Toyota_bZ4X ; https://insideevs.com/news/585939/toyota-bz4x-awd-fast-charging-curve/"
-    },
-    {
-      "id": "bz4x-2024-charging-update",
-      "name": "bZ4X 2024 charging update",
-      "first_year": 2024,
-      "last_year": 2025,
-      "notes": "Same packs. A battery thermal upgrade (water-to-water heat exchanger, heating valve) speeds up cold-weather DC charging; reviews report the AWD peak raised from 100 to 150 kW. Toyota's US release describes the thermal hardware but gives no new peak kW; the 150 kW AWD figure comes from reviews. Carscoops initially reported the US might not get the change. Keep this split only if 2024-2025 curves really differ from 2023. Confidence: low (researched 2026-11-19, owner review pending). Sources: https://guideautoweb.com/en/articles/73202/2024-toyota-bz4x-loses-base-model-improves-cold-weather-charging ; https://evpulse.com/reviews/2024-toyota-bz4x-awd-limited-review-significantly-improved-still-hard-to-recommend"
-    }
+    { "id": "bz4x-launch", "name": "bZ4X launch", "first_year": 2023, "last_year": 2023, "notes": "Launch as bZ4X: FWD 71.4 kWh (DC up to 150 kW); AWD 72.8 kWh CATL pack (DC up to 100 kW, about an hour to 80%). Same in CA and US. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Toyota_bZ4X ; https://insideevs.com/news/585939/toyota-bz4x-awd-fast-charging-curve/" },
+    { "id": "bz4x-2024-charging-update", "name": "bZ4X 2024 charging update", "first_year": 2024, "last_year": 2025, "notes": "Same packs. A battery thermal upgrade (water-to-water heat exchanger, heating valve) speeds up cold-weather DC charging; reviews report the AWD peak raised from 100 to 150 kW. Toyota's US release describes the thermal hardware but gives no new peak kW; the 150 kW AWD figure comes from reviews. Carscoops initially reported the US might not get the change. Keep this split only if 2024-2025 curves really differ from 2023. Confidence: low (researched 2026-11-19, owner review pending). Sources: https://guideautoweb.com/en/articles/73202/2024-toyota-bz4x-loses-base-model-improves-cold-weather-charging ; https://evpulse.com/reviews/2024-toyota-bz4x-awd-limited-review-significantly-improved-still-hard-to-recommend" }
   ],
   "years": [
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "bz4x-launch"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "bz4x-2024-charging-update"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "bz4x-2024-charging-update"
     }

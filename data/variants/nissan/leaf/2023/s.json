@@ -5,41 +5,19 @@
   "name": "S",
   "drivetrain": "fwd",
   "powertrain_id": "nissan/leaf/2023-s",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "chademo",
-      "kind": "manufacturer",
-      "source_id": "src-nissan-usa-leaf-2024-press-kit",
-      "low_confidence": true,
-      "notes": "Quick charge port (CHAdeMO) per the 2024 press kit. The kit is for model year 2024; this powertrain is 2023 (same hardware assumed, nothing found that changed charging)."
-    }
+    { "value": "chademo", "kind": "manufacturer", "source_id": "src-nissan-usa-leaf-2024-press-kit", "low_confidence": true, "note_id": "n-a58a73bd09" }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "estimated",
-      "source_id": "src-electrek-nissan-supercharger-2024-12",
-      "low_confidence": true,
-      "notes": "Estimated: CHAdeMO port. Nissan's Dec 2024 Supercharger programme covers only the CCS Ariya; Electrek says the Leaf is excluded and uses CHAdeMO. No Nissan adapter exists for the Leaf."
-    }
+    { "value": "no", "kind": "estimated", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b0ca50230f" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "S"
-      },
+      "names": { "US": "S" },
       "wheels": [
-        {
-          "diameter_in": 16,
-          "is_standard": true,
-          "source_id": "src-r2w-cc-leaf2022",
-          "notes": "Neighbouring years of the Leaf S are 16 in; this year not checked, low confidence.",
-          "low_confidence": true
-        }
+        { "diameter_in": 16, "is_standard": true, "source_id": "src-r2w-cc-leaf2022", "note_id": "n-265b616662", "low_confidence": true }
       ]
     }
   ]

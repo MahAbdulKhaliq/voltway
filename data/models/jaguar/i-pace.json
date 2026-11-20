@@ -4,71 +4,43 @@
   "name": "I-PACE",
   "body_type": "crossover",
   "generations": [
-    {
-      "id": "launch-7kw",
-      "name": "Launch (7 kW AC)",
-      "first_year": 2019,
-      "last_year": 2020,
-      "notes": "90 kWh LG Chem pack, 100 kW DC (CCS1), 7 kW single-phase on-board charger. North American deliveries from Oct 2018 (MY2019). A Dec 2019 software update raised EPA range from 234 to 246 mi, which can change curves within this entry. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Jaguar_I-Pace ; https://www.cars.com/articles/2022-jaguar-i-pace-436736"
-    },
-    {
-      "id": "update-11kw",
-      "name": "Update (11 kW AC)",
-      "first_year": 2021,
-      "last_year": 2024,
-      "notes": "Same 90 kWh pack and 100 kW DC; on-board charger raised to 11 kW, new Pivi Pro infotainment. Europe got it for MY2021 (from Jun 2020); the US skipped MY2021 and got it for MY2022 (Engadget, Cars.com), although EPA lists a MY2021 \"EV400\" rating. NRCan has no MY2021 row. Production ended in 2024. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://www.engadget.com/jaguar-2022-i-pace-ev-154517094.html ; https://www.cars.com/articles/2022-jaguar-i-pace-436736 ; https://insideevs.com/news/430211/2021-jaguar-i-pace-improved/"
-    }
+    { "id": "launch-7kw", "name": "Launch (7 kW AC)", "first_year": 2019, "last_year": 2020, "notes": "90 kWh LG Chem pack, 100 kW DC (CCS1), 7 kW single-phase on-board charger. North American deliveries from Oct 2018 (MY2019). A Dec 2019 software update raised EPA range from 234 to 246 mi, which can change curves within this entry. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Jaguar_I-Pace ; https://www.cars.com/articles/2022-jaguar-i-pace-436736" },
+    { "id": "update-11kw", "name": "Update (11 kW AC)", "first_year": 2021, "last_year": 2024, "notes": "Same 90 kWh pack and 100 kW DC; on-board charger raised to 11 kW, new Pivi Pro infotainment. Europe got it for MY2021 (from Jun 2020); the US skipped MY2021 and got it for MY2022 (Engadget, Cars.com), although EPA lists a MY2021 \"EV400\" rating. NRCan has no MY2021 row. Production ended in 2024. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://www.engadget.com/jaguar-2022-i-pace-ev-154517094.html ; https://www.cars.com/articles/2022-jaguar-i-pace-436736 ; https://insideevs.com/news/430211/2021-jaguar-i-pace-improved/" }
   ],
   "years": [
     {
       "year": 2019,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "launch-7kw"
     },
     {
       "year": 2020,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "launch-7kw"
     },
     {
       "year": 2021,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "update-11kw"
     },
     {
       "year": 2022,
-      "markets": [
-        "CA"
-      ],
+      "markets": ["CA"],
       "availability_status": "production",
       "generation": "update-11kw"
     },
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "update-11kw"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "update-11kw"
     }

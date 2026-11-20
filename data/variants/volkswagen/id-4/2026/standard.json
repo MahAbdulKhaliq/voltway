@@ -5,43 +5,19 @@
   "name": "Standard",
   "drivetrain": "awd",
   "powertrain_id": "volkswagen/id-4/2026-standard",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-thinkev-vw-id4-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian listing says CCS1."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thinkev-vw-id4-2026", "low_confidence": true, "note_id": "n-8116822cd3" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-vw-ca-nacs-adapter",
-      "low_confidence": true,
-      "notes": "VW Canada: NACS DC adapter officially available for the ID.4 (US and Canada); Electrek: access from 2025-11-18 for ID.4 owners with a $200 (CAD 304) adapter; MY2026+ VW EVs include it; vw.com 2026 page: adapter sold separately. No model years excluded."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-vw-ca-nacs-adapter", "low_confidence": true, "note_id": "n-6cc68ef979" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "ID.4",
-        "US": "Pro AWD"
-      },
+      "names": { "CA": "ID.4", "US": "Pro AWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-cars-volkswagen-id4-2023-430895",
-          "notes": "Estimated: 2023 Standard RWD page shows 19x8; 2026 standard assumed the same. Carried from another model year or trim, not read for this exact trim and year.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-cars-volkswagen-id4-2023-430895", "notes": "Estimated: 2023 Standard RWD page shows 19x8; 2026 standard assumed the same. Carried from another model year or trim, not read for this exact trim and year.", "low_confidence": true }
       ]
     }
   ]

@@ -5,41 +5,19 @@
   "name": "EQS 450 4MATIC Sedan",
   "drivetrain": "awd",
   "powertrain_id": "mercedes/eqs/2026-eqs-450-4matic-sedan",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2026-eqs-eqs450v",
-      "notes": "mbusa lists J1772 (AC) and Combined Charging System (DC). Read on a sibling page."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2026-eqs-eqs450v", "note_id": "n-6abe2191f4" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "mbusa NACS page: EQB, EQE, EQS and G 580 with a CCS1 inlet use the Mercedes-approved NACS-to-CCS1 adapter (included from MY26, otherwise sold by dealers). Canada: no Mercedes-Benz Canada page found; the same adapter route is assumed for the CA edition of this car."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "EQS 450 4MATIC Sedan",
-        "US": "EQS 450 4MATIC Sedan"
-      },
+      "names": { "CA": "EQS 450 4MATIC Sedan", "US": "EQS 450 4MATIC Sedan" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-2026-specs-474666",
-          "notes": "EQS 450 4MATIC Sedan: 20 x 8.5 in aluminum, P255/45R20. (US page; Canadian cars assumed the same.)"
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-2026-specs-474666", "note_id": "n-8952841ef4" }
       ]
     }
   ]

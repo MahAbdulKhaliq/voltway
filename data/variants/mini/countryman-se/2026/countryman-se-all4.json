@@ -5,48 +5,20 @@
   "name": "Countryman SE ALL4",
   "drivetrain": "awd",
   "powertrain_id": "mini/countryman-se/2026-countryman-se-all4",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-ca-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: BMW Canada says native NACS only on all-new 2026+ models; the Countryman SE is assumed to keep the Combo 1 port as the Cooper SE F56 (Wikipedia). No page read names the port."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-846b9901d1" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ca-nacs",
-      "low_confidence": true,
-      "notes": "BMW Canada: MINI BEVs get Supercharger access with a software update and the Lectron adapter (Canada). US assumed the same."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-3de4a68db7" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Countryman SE ALL4",
-        "US": "Countryman SE ALL4"
-      },
+      "names": { "CA": "Countryman SE ALL4", "US": "Countryman SE ALL4" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mini-countryman-2026-specs-481928",
-          "notes": "Countryman SE ALL4: 18 x 7.5 in aluminum, P225/55R18. (US page; Canadian cars assumed the same.)"
-        },
-        {
-          "diameter_in": 19,
-          "is_standard": false,
-          "source_id": "src-r3w-cars-com-research-mini-countryman-2026-specs-481928",
-          "notes": "Countryman SE ALL4: John Cooper Works Style package ($750) lists 19 x 8 in wheels, 245/45R19 all-season. (US page; Canadian cars assumed the same.)"
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-mini-countryman-2026-specs-481928", "note_id": "n-172fb42cca" },
+        { "diameter_in": 19, "is_standard": false, "source_id": "src-r3w-cars-com-research-mini-countryman-2026-specs-481928", "notes": "Countryman SE ALL4: John Cooper Works Style package ($750) lists 19 x 8 in wheels, 245/45R19 all-season. (US page; Canadian cars assumed the same.)" }
       ]
     }
   ]

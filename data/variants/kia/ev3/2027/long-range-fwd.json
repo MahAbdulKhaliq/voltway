@@ -4,49 +4,21 @@
   "year": 2027,
   "name": "Long Range FWD",
   "drivetrain": "fwd",
-  "powertrain_id": "kia/ev3/2027-long-range-fwd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "kia/ev3/2027-gt-long-range-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kia-us-ev3-2027",
-      "notes": "Kia USA: the EV3 has a built-in NACS charge port.",
-      "low_confidence": true
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-us-ev3-2027", "note_id": "n-cff41cb177", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kia-us-ev3-2027",
-      "notes": "Kia USA: the NACS port gives access to Tesla Superchargers.",
-      "low_confidence": true
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-us-ev3-2027", "note_id": "n-636f62f934", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Long Range FWD"
-      },
+      "names": { "US": "Long Range FWD" },
       "wheels": [
-        {
-          "diameter_in": 17,
-          "is_standard": true,
-          "source_id": "src-carscom-kia-ev3-2027-490020",
-          "low_confidence": true,
-          "notes": "Wind FWD 17 in"
-        },
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-kia-ev3-2027-490021",
-          "low_confidence": true,
-          "notes": "Land FWD 19 in"
-        }
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-kia-ev3-2027-490020", "low_confidence": true, "notes": "Wind FWD 17 in" },
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev3-2027-490021", "low_confidence": true, "notes": "Land FWD 19 in" }
       ]
     }
   ]

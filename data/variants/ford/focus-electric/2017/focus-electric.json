@@ -5,43 +5,19 @@
   "name": "Focus Electric",
   "drivetrain": "fwd",
   "powertrain_id": "ford/focus-electric/2017-focus-electric",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-greencarreports-2017-focus-electric",
-      "notes": "Green Car Reports: 2017 Focus Electric offers DC fast charging as standard over the CCS connector (US article). Canada not separately checked; the 2017 CA car is the same hardware.",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-greencarreports-2017-focus-electric", "note_id": "n-96b3ffda1e", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "community",
-      "source_id": "src-insideevs-supercharger-list-2026",
-      "notes": "InsideEVs 2026 list explicitly excludes the Ford Focus Electric (Ford adapters cover E-Transit, Mustang Mach-E, F-150 Lightning only).",
-      "low_confidence": true
-    }
+    { "value": "no", "kind": "community", "source_id": "src-insideevs-supercharger-list-2026", "note_id": "n-7066c9c00a", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Focus Electric",
-        "US": "Focus Electric"
-      },
+      "names": { "CA": "Focus Electric", "US": "Focus Electric" },
       "wheels": [
-        {
-          "diameter_in": 17,
-          "is_standard": true,
-          "source_id": "src-carscom-focus-electric-2017",
-          "notes": "Only trim: 17 in aluminum wheels, P225/50R17 (Cars.com 2017 page). Source is a US page; Canadian trim assumed the same.",
-          "low_confidence": true
-        }
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-carscom-focus-electric-2017", "notes": "Only trim: 17 in aluminum wheels, P225/50R17 (Cars.com 2017 page). Source is a US page; Canadian trim assumed the same.", "low_confidence": true }
       ]
     }
   ]

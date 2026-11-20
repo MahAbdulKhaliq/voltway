@@ -4,62 +4,37 @@
   "name": "EQS SUV",
   "body_type": "suv",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation (X296)",
-      "first_year": 2023,
-      "last_year": 2024,
-      "notes": "Launch on EVA2, 400 V: 120 kWh gross / 107.8 kWh usable (108.4 quoted in the US), 200 kW DC. Mercedes-Maybach EQS 680 SUV (from MY2024) is a variant on the same pack. EPA files the SUV under base \"EQS\" with \"(SUV)\"; this model lists every SUV label. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Mercedes-Benz_EQS_SUV"
-    },
-    {
-      "id": "2025-update",
-      "name": "2025 update (118 kWh pack)",
-      "first_year": 2025,
-      "notes": "118 kWh usable pack on all trims (KBB, Edmunds, CarGurus for MY2025), DC 200 kW. MY2026 renames 450 4MATIC to EQS 400 and 580 to EQS 550 and drops the 450+. Whether the Maybach got the 118 kWh pack for 2025 is not confirmed. Confidence: medium-high (researched 2026-11-19, owner review pending). Sources: https://www.kbb.com/mercedes-benz/mercedes-eq-eqs-suv/2025/specs ; https://www.mbusa.com/content/mb-vehicles-data/en_us/models/2027/eqs/eqs550x4.html"
-    }
+    { "id": "first-generation", "name": "First generation (X296)", "first_year": 2023, "last_year": 2024, "notes": "Launch on EVA2, 400 V: 120 kWh gross / 107.8 kWh usable (108.4 quoted in the US), 200 kW DC. Mercedes-Maybach EQS 680 SUV (from MY2024) is a variant on the same pack. EPA files the SUV under base \"EQS\" with \"(SUV)\"; this model lists every SUV label. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Mercedes-Benz_EQS_SUV" },
+    { "id": "2025-update", "name": "2025 update (118 kWh pack)", "first_year": 2025, "notes": "118 kWh usable pack on all trims (KBB, Edmunds, CarGurus for MY2025), DC 200 kW. MY2026 renames 450 4MATIC to EQS 400 and 580 to EQS 550 and drops the 450+. Whether the Maybach got the 118 kWh pack for 2025 is not confirmed. Confidence: medium-high (researched 2026-11-19, owner review pending). Sources: https://www.kbb.com/mercedes-benz/mercedes-eq-eqs-suv/2025/specs ; https://www.mbusa.com/content/mb-vehicles-data/en_us/models/2027/eqs/eqs550x4.html" }
   ],
   "years": [
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2025-update"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "2025-update"
     },
     {
       "year": 2027,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "2025-update"
     }

@@ -5,38 +5,19 @@
   "name": "SE Standard Range RWD",
   "drivetrain": "rwd",
   "powertrain_id": "hyundai/ioniq-6/2025-se-standard-range-rwd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-us-nacs-giveaway-faq",
-      "notes": "Hyundai US lists the IONIQ 6 (22MY-25MY) among EVs with native CCS ports eligible for the CCS-to-NACS adapter."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-3c1a54c87f" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-us-nacs-giveaway-faq",
-      "notes": "Free adapter (retail date on or before 2025-01-31, offer ended 2025-05-30) and dealer-sold adapter afterwards: an owner can use Tesla Superchargers through the CCS-to-NACS adapter."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-c92b50d089" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "SE Standard Range RWD"
-      },
+      "names": { "US": "SE Standard Range RWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-ioniq-6-2025-index",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-6-2025-index", "low_confidence": true }
       ]
     }
   ]

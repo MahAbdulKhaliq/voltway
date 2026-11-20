@@ -5,63 +5,27 @@
   "name": "SL e-4ORCE",
   "drivetrain": "awd",
   "powertrain_id": "nissan/ariya/2026-sl-e-4orce",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 63,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-guideauto-ariya-2026-canada",
-        "low_confidence": true,
-        "notes": "The Car Guide (Canada 2026): this trim has the 63 kWh pack; Nissan Canada specs page: 63 kWh and 87 kWh usable. "
-      }
+      { "value": 63, "unit": "kWh", "kind": "manufacturer", "source_id": "src-guideauto-ariya-2026-canada", "low_confidence": true, "note_id": "n-d2d10c9fb0" }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 66,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-nissan-ca-ariya-specs",
-        "low_confidence": true,
-        "notes": "Nissan Canada specs: 66 kWh pack (usable 63). The existing OpenEV gross value of 63 kWh equals the usable figure."
-      }
+      { "value": 66, "unit": "kWh", "kind": "manufacturer", "source_id": "src-nissan-ca-ariya-specs", "low_confidence": true, "note_id": "n-29e7a8382d" }
     ]
   },
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-electrek-nissan-supercharger-2024-12",
-      "low_confidence": true,
-      "notes": "Nissan Ariya Supercharger access from 2024-12-10 via a Nissan CCS-to-NACS adapter ($235 US, per Electrek and Nissan). Canada: adapter at $309.99 (The Car Guide names the 2025 Ariya; 2026 had \"no technological updates\" so assumed the same). The refreshed 2027 Canadian car is reported to get a native NACS port; not applicable here."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b96c0ca63a" }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-nissan-usa-ariya-2023-press-kit",
-      "low_confidence": true,
-      "notes": "2023 US press kit: CCS port. The Canadian 2026 Ariya had \"no cosmetic revisions or technological updates\" (The Car Guide, src-guideauto-ariya-2026-canada), and Nissan reports a native NACS port only for the refreshed 2027 Ariya (autoevolution, 2027 Canada article), so the 2026 car keeps CCS1 and uses the Nissan adapter for Superchargers (via_adapter). The Nissan Canada specs page lists \"Quick charge port-NACS\" plus a $317 adapter kit, which looks like the 2027 car."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-21dd660e1c" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "SL e-4ORCE"
-      },
+      "names": { "CA": "SL e-4ORCE" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r2w-nis-ca-ariya",
-          "notes": "Nissan Canada Ariya specs page lists 19-inch alloy wheels with aero covers (and 20-inch alloy wheels, trim mapping not readable); 19-inch taken as standard, low confidence.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-nis-ca-ariya", "note_id": "n-971f728785", "low_confidence": true }
       ]
     }
   ]

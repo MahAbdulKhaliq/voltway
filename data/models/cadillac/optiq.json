@@ -4,36 +4,24 @@
   "name": "Optiq",
   "body_type": "suv",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation",
-      "first_year": 2025,
-      "notes": "Compact Ultium crossover: 85 kWh pack. 2025 launched late in the model year as dual-motor AWD only; 2026 added RWD, more power and a native NACS port (port change only). Onboard charger 11.5 or 19.2 kW is a regulator option. One generation. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://www.cars.com/articles/2026-cadillac-optiq-gains-power-rwd-model-and-nacs-port-512041 ; https://www.cargurus.com/Cars/articles/2025-cadillac-optiq-pricing-specs-release-date"
-    }
+    { "id": "first-generation", "name": "First generation", "first_year": 2025, "notes": "Compact Ultium crossover: 85 kWh pack. 2025 launched late in the model year as dual-motor AWD only; 2026 added RWD, more power and a native NACS port (port change only). Onboard charger 11.5 or 19.2 kW is a regulator option. One generation. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://www.cars.com/articles/2026-cadillac-optiq-gains-power-rwd-model-and-nacs-port-512041 ; https://www.cargurus.com/Cars/articles/2025-cadillac-optiq-pricing-specs-release-date" }
   ],
   "years": [
     {
       "year": 2025,
-      "markets": [
-        "CA"
-      ],
+      "markets": ["CA"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2027,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "first-generation"
     }

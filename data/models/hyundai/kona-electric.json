@@ -4,89 +4,55 @@
   "name": "Kona Electric",
   "body_type": "crossover",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation (OS)",
-      "first_year": 2019,
-      "last_year": 2023,
-      "notes": "Launch: 64 kWh pack in North America (39.2 kWh pack sold elsewhere). The 2022 facelift changed styling only. first_year 2019 is from general knowledge of the North American launch (late 2018 as a 2019 model) and was not confirmed on a cited page; Wikipedia's 2018 date is for the gas Kona. The 2023 Kona Electric was sold in both the US (final first-gen year, 258 mi EPA, limited states) and Canada. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Kona_Electric ; https://hyundaicanada.com/showroom/2023/kona-electric ; https://insideevs.com/news/686388/2024-hyundai-kona-electric-debuts/"
-    },
-    {
-      "id": "second-generation",
-      "name": "Second generation (SX2)",
-      "first_year": 2024,
-      "notes": "All-new body. Standard Range ~48.6 kWh and Long Range ~64.8 kWh packs (Wikipedia also gives 48.4/65.4); DC ~74 kW (SR) and ~102 kW (LR) per an ADAC figure. Canada has a 2026 model (single Preferred trim, Long Range pack); the US skipped 2026. Pack sizes differ between Hyundai Canada (64.8 kWh) and press (65.4 kWh). DC peaks are European (ADAC) figures, not North American. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Kona_Electric ; https://cars.com/articles/hyundai-pauses-kona-electric-for-2026-kia-discontinues-niro-phev-521230/ ; https://www.hyundaicanada.com/en/showroom/2026/kona-electric"
-    }
+    { "id": "first-generation", "name": "First generation (OS)", "first_year": 2019, "last_year": 2023, "notes": "Launch: 64 kWh pack in North America (39.2 kWh pack sold elsewhere). The 2022 facelift changed styling only. first_year 2019 is from general knowledge of the North American launch (late 2018 as a 2019 model) and was not confirmed on a cited page; Wikipedia's 2018 date is for the gas Kona. The 2023 Kona Electric was sold in both the US (final first-gen year, 258 mi EPA, limited states) and Canada. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Kona_Electric ; https://hyundaicanada.com/showroom/2023/kona-electric ; https://insideevs.com/news/686388/2024-hyundai-kona-electric-debuts/" },
+    { "id": "second-generation", "name": "Second generation (SX2)", "first_year": 2024, "notes": "All-new body. Standard Range ~48.6 kWh and Long Range ~64.8 kWh packs (Wikipedia also gives 48.4/65.4); DC ~74 kW (SR) and ~102 kW (LR) per an ADAC figure. Canada has a 2026 model (single Preferred trim, Long Range pack); the US skipped 2026. Pack sizes differ between Hyundai Canada (64.8 kWh) and press (65.4 kWh). DC peaks are European (ADAC) figures, not North American. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Hyundai_Kona_Electric ; https://cars.com/articles/hyundai-pauses-kona-electric-for-2026-kia-discontinues-niro-phev-521230/ ; https://www.hyundaicanada.com/en/showroom/2026/kona-electric" }
   ],
   "years": [
     {
       "year": 2019,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2020,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2021,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2022,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA"
-      ],
+      "markets": ["CA"],
       "availability_status": "production",
       "generation": "second-generation"
     }

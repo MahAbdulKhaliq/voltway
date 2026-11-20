@@ -4,46 +4,30 @@
   "name": "Equinox EV",
   "body_type": "suv",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation",
-      "first_year": 2024,
-      "notes": "Launch on GM Ultium: 85 kWh pack, DC up to 150 kW. From 2025 every trim uses the larger pack (the planned smaller-battery 1LT was never built). The 2027 change is the charge port only (NACS), so not split. Canada and US share the powertrain; Wikipedia gives only sales numbers for Canada. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Chevrolet_Equinox_EV"
-    }
+    { "id": "first-generation", "name": "First generation", "first_year": 2024, "notes": "Launch on GM Ultium: 85 kWh pack, DC up to 150 kW. From 2025 every trim uses the larger pack (the planned smaller-battery 1LT was never built). The 2027 change is the charge port only (NACS), so not split. Canada and US share the powertrain; Wikipedia gives only sales numbers for Canada. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Chevrolet_Equinox_EV" }
   ],
   "years": [
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2027,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "first-generation"
     }

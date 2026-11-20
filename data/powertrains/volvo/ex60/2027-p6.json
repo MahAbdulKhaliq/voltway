@@ -3,66 +3,25 @@
   "model_id": "volvo/ex60",
   "name": "P6",
   "generation": "first-generation",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 80,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-ex60-battery",
-        "low_confidence": true,
-        "notes": "InsideEVs: smaller EX60 packs are 80 and 91 kWh usable (P12 117 gross / 112 usable); KBB/Motor1 give 80 kWh for this US trim."
-      }
+      { "value": 80, "unit": "kWh", "kind": "manufacturer", "source_id": "src-insideevs-ex60-battery", "low_confidence": true, "notes": "InsideEVs: smaller EX60 packs are 80 and 91 kWh usable (P12 117 gross / 112 usable); KBB/Motor1 give 80 kWh for this US trim." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-insideevs-ex60-battery",
-        "low_confidence": true,
-        "notes": "Estimated: InsideEVs says \"high-nickel battery chemistry\" (Sunwoda cells for the 80 and 91 kWh packs; CATL for 112), which is the NMC family; no page says NMC for the smaller packs."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-insideevs-ex60-battery", "low_confidence": true, "note_id": "n-cd756196d9" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-kbb-ex60-launch",
-        "low_confidence": true,
-        "notes": "KBB: 800-V architecture (shared with 2026 EX90)."
-      }
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-kbb-ex60-launch", "low_confidence": true, "note_id": "n-7b8a29cc66" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-volvo-ex90-precondition-support-excerpt",
-        "low_confidence": true,
-        "notes": "Estimated: Volvo EX90 support article (search excerpt; volvocars.com 403) describes navigation-triggered preconditioning and a manual start in the charging view; the same article id exists on the EX60 support site (not opened). Value follows that basis."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-volvo-ex90-precondition-support-excerpt", "low_confidence": true, "note_id": "n-ea6ee6dff1" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 320,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "The Charge Port (relaying Volvo): P6 peaks at 320 kW. Motor1 lists 350 kW."
-    }
+    { "value": 320, "unit": "kW", "kind": "manufacturer", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "notes": "The Charge Port (relaying Volvo): P6 peaks at 320 kW. Motor1 lists 350 kW." }
   ],
   "ac_max_kw": [
-    {
-      "value": 19.2,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-kbb-ex60-launch",
-      "low_confidence": true,
-      "notes": "KBB: 19.2 kW onboard charger."
-    }
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-kbb-ex60-launch", "low_confidence": true, "note_id": "n-ad040554ef" }
   ]
 }

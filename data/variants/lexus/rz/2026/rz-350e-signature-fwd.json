@@ -4,54 +4,22 @@
   "year": 2026,
   "name": "RZ 350e Signature FWD",
   "drivetrain": "fwd",
-  "powertrain_id": "lexus/rz/2026-rz-350e-signature-fwd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "lexus/rz/2026-rz-350e-premium",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2026",
-      "notes": "Lexus USA: 2026 RZ adopts the NACS (SAE J3400) port (US)."
-    },
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-ca-charging",
-      "notes": "Lexus Canada: 2026 model BEVs come with the NACS port (Canada)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026", "note_id": "n-0186b26c56" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-charging", "note_id": "n-9d6ff8d15d" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-rz-2026-onsale",
-      "notes": "US: more than 25,000 NACS plugs via the Tesla Supercharger Network for 2026 RZ owners."
-    },
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-ca-media-bev-2025",
-      "notes": "Canada: Lexus BEV guests can charge on the Tesla Supercharger Network; 2026 RZ and ES also get Plug & Charge."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-rz-2026-onsale", "note_id": "n-098d7a686d" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-ce9fd9b7fa" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "RZ 350e Signature FWD",
-        "US": "RZ 350e"
-      },
+      "names": { "CA": "RZ 350e Signature FWD", "US": "RZ 350e" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-lexus-rz-350e-2026-specs-482181",
-          "notes": "US RZ 350e Premium FWD: 18x7.5 front, 18x8 rear, P235/60VR18 / P255/55VR18; Canadian Signature trim name assumed to match. (350e not affected by the Luxury/Signature remap.)",
-          "low_confidence": true
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-lexus-rz-350e-2026-specs-482181", "notes": "US RZ 350e Premium FWD: 18x7.5 front, 18x8 rear, P235/60VR18 / P255/55VR18; Canadian Signature trim name assumed to match. (350e not affected by the Luxury/Signature remap.)", "low_confidence": true }
       ]
     }
   ]

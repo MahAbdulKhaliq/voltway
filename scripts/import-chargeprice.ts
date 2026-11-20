@@ -4,6 +4,7 @@
 // curves Chargeprice itself flags as defaults are counted there and marked `curve_skipped` in the import JSON.
 
 import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { formatJson } from './lib/format-json.ts';
 import { join } from 'node:path';
 import { makeSlug, normalizeChargeprice, type ChargepriceRecord, type ChargepriceVehicle } from './lib/chargeprice.ts';
 
@@ -34,7 +35,7 @@ const all: ChargepriceRecord[] = [];
 for (const [make, list] of [...byMake].sort(([a], [b]) => a.localeCompare(b))) {
   list.sort((a, b) => a.make.localeCompare(b.make) || a.model.localeCompare(b.model) || a.year - b.year || a.source_key.localeCompare(b.source_key));
   all.push(...list);
-  writeFileSync(join(outDir, `${make}.json`), JSON.stringify({ source: 'chargeprice', source_id: sourceId, make, records: list }, null, 2) + '\n');
+  writeFileSync(join(outDir, `${make}.json`), formatJson({ source: 'chargeprice', source_id: sourceId, make, records: list }, { oneLine: 'records' }));
 }
 
 const count = (r: ChargepriceRecord['curve_skipped']) => all.filter((x) => x.curve_skipped === r).length;

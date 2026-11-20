@@ -4,55 +4,36 @@
   "name": "LYRIQ",
   "body_type": "suv",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation",
-      "first_year": 2023,
-      "notes": "Launch on GM Ultium: 102 kWh gross (about 100 kWh usable) pack, DC up to 190 kW. The pack is unchanged through 2027, including the 2026 Lyriq-V. 2027 is a port change only (CCS1 to NACS), with the same 102 kWh pack, so it is not split. Canada and US use the same powertrains; Wikipedia gives no Canada-specific differences. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Cadillac_Lyriq ; https://gmauthority.com/blog/2026/04/2027-cadillac-lyriq-getting-nacs-charge-port/amp/"
-    }
+    { "id": "first-generation", "name": "First generation", "first_year": 2023, "notes": "Launch on GM Ultium: 102 kWh gross (about 100 kWh usable) pack, DC up to 190 kW. The pack is unchanged through 2027, including the 2026 Lyriq-V. 2027 is a port change only (CCS1 to NACS), with the same 102 kWh pack, so it is not split. Canada and US use the same powertrains; Wikipedia gives no Canada-specific differences. Confidence: high (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Cadillac_Lyriq ; https://gmauthority.com/blog/2026/04/2027-cadillac-lyriq-getting-nacs-charge-port/amp/" }
   ],
   "years": [
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2027,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "first-generation"
     }

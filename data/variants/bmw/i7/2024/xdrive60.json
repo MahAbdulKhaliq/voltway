@@ -4,51 +4,21 @@
   "year": 2024,
   "name": "xDrive60",
   "drivetrain": "awd",
-  "powertrain_id": "bmw/i7/2024-xdrive60",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "bmw/i7/2024-m70-xdrive",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-ie-sc",
-      "low_confidence": true,
-      "notes": "Estimated: BMW i7 uses CCS1 through 2026 (InsideEVs; BMW Canada: native NACS only on all-new 2026+ models). 2027 is the switch (BMW US). No page checked for a mid-2026 i7 NACS switch like the i5's."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-50672eade4" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ca-nacs",
-      "low_confidence": true,
-      "notes": "Canada: Lectron Vortex Plus NACS-to-CCS adapter plus software update (from 2026-04-08)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ie-sc",
-      "low_confidence": true,
-      "notes": "US: Supercharging with a CCS-to-NACS adapter (Lectron) from the week of 2025-12-10 for i4/i5/i7/iX; 2026 cars need a software update."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "xDrive60",
-        "US": "xDrive60"
-      },
+      "names": { "CA": "xDrive60", "US": "xDrive60" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-bmw-i7-2024-specs-443976",
-          "notes": "xDrive60 Sedan: 20 x 9 front / 20 x 10.5 rear aluminum, P255/45R20 and P285/40R20; M Sport Package (Style 907M) is the same 20 in size. US sizes from the Cars.com US page. Canada differs: NRCan rows in the merged data give 19 in standard (20 and 21 in options) for the Canadian car; Canadian sizes are not entered here (NRCan page not opened by me).",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i7-2024-specs-443976", "note_id": "n-cbaf5e5668", "low_confidence": true }
       ]
     }
   ]

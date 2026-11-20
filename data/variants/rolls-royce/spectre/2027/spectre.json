@@ -5,46 +5,20 @@
   "name": "Spectre",
   "drivetrain": "awd",
   "powertrain_id": "rolls-royce/spectre/2027-spectre",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2-blog-sp2",
-      "low_confidence": true,
-      "notes": "BMWBLOG: \"native NACS port, eliminating the need for an adapter\" on the Series II."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-blog-sp2", "low_confidence": true, "note_id": "n-92fe6c65fd" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-w2-blog-sp2",
-      "low_confidence": true,
-      "notes": "Estimated: native NACS port; no Rolls-Royce page states Supercharger access."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2-blog-sp2", "low_confidence": true, "note_id": "n-ba64ea98e2" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Spectre"
-      },
+      "names": { "US": "Spectre" },
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2027-specs",
-          "notes": "Spectre: 22 x 8.5 front / 22 x 9.5 rear forged aluminum."
-        },
-        {
-          "diameter_in": 23,
-          "is_standard": false,
-          "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2027-specs",
-          "notes": "Spectre: Spectre Enhancement Package includes 23 in polished wheels."
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2027-specs", "notes": "Spectre: 22 x 8.5 front / 22 x 9.5 rear forged aluminum." },
+        { "diameter_in": 23, "is_standard": false, "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2027-specs", "notes": "Spectre: Spectre Enhancement Package includes 23 in polished wheels." }
       ]
     }
   ]

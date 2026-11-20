@@ -181,6 +181,7 @@ Decisions from the waves 2–3 review, recorded in gaps-and-questions.md:
 - **B108** Cars.com and KBB may be cited for wheel sizes (owner, 2026-11-20).
 - **B109** Auto-Data.net stays as a source (owner, 2026-11-20).
 - **B110** Cars page shows every model year by default; My car labels read "<year> <make> <model> <variant>"; Polestar models are named 2, 3 and 4 (owner, 2026-11-20).
+- **B111** Simpler data storage (owner, 2026-11-20): identical powertrains merged across years (1,290 → 692, `crosswalk/powertrain-merges.csv`); one figure per line and one imported rating per line (`scripts/lib/format-json.ts`, `npm run data:format`); unused sources deleted and research batches kept out of git; repeated notes stored once in `data/notes.json` (`note_id`, `scripts/dedupe-notes.ts`). Built car data identical before and after.
 
 Research runs as background ev-data-researcher batches (wheels by make group, GM charger options, B97 trucks and consumption, B96 gaps), each fact-checked before it is applied. Data changes stay local until the owner reviews them.
 

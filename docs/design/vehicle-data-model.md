@@ -58,6 +58,9 @@ Every important figure is stored as a **sourced value**, not a bare number:
 | `kind` | **What sort of number it is** (see below) | `rated_epa` |
 | `source_id` | Points to a record in the **sources** table | `src-fueleconomy-2024` |
 | `notes` | Optional context | "Rated with 19-inch wheels" |
+| `note_id` | Instead of `notes`: points to a shared note in `data/notes.json` (B111) | `n-0033adf24b` |
+
+*Storage (B111, owner 2026-11-20):* a note that two or more values repeat word for word is stored once in `data/notes.json` and each value carries `note_id` instead of `notes`; the build and the validator swap the text back in, so the built data and the site always see `notes`. `npx tsx scripts/dedupe-notes.ts` moves new repeats after a research round. Data files use the repo layout in `scripts/lib/format-json.ts` (one figure per line; imported rating files one record per line); `npm run data:format` reapplies it. A powertrain covers every year its pack, charging hardware and curves stayed the same: identical per-year records were merged (`scripts/merge-powertrains.ts`, old ids in `crosswalk/powertrain-merges.csv`).
 
 ### Kinds of value
 | `kind` | Meaning | Badge shown to the user |

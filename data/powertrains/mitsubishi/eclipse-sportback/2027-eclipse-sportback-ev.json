@@ -3,74 +3,28 @@
   "model_id": "mitsubishi/eclipse-sportback",
   "name": "Eclipse Sportback EV",
   "generation": "first-generation",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 75.1,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-nissan-global-leaf-press-kit-2026",
-        "low_confidence": true,
-        "notes": "Estimated: The Eclipse Sportback is the rebadged third-generation Nissan Leaf with \"the same 75 kWh battery pack\" (InsideEVs); the Nissan global press kit lists 75.1 kWh usable for the Leaf 75 kWh pack (the bare \"75 kWh\" may itself be usable, so no gross is recorded)."
-      }
+      { "value": 75.1, "unit": "kWh", "kind": "estimated", "source_id": "src-nissan-global-leaf-press-kit-2026", "low_confidence": true, "notes": "Estimated: The Eclipse Sportback is the rebadged third-generation Nissan Leaf with \"the same 75 kWh battery pack\" (InsideEVs); the Nissan global press kit lists 75.1 kWh usable for the Leaf 75 kWh pack (the bare \"75 kWh\" may itself be usable, so no gross is recorded)." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-evdb-leaf-75-my26",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists an NMC cathode for the Nissan Leaf 75 kWh pack the Eclipse Sportback shares (InsideEVs)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-evdb-leaf-75-my26", "low_confidence": true, "notes": "Estimated: EV Database lists an NMC cathode for the Nissan Leaf 75 kWh pack the Eclipse Sportback shares (InsideEVs)." }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-evdb-leaf-75-my26",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database lists a 400 V architecture for the Leaf 75 kWh pack the Eclipse Sportback shares."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-leaf-75-my26", "low_confidence": true, "notes": "Estimated: EV Database lists a 400 V architecture for the Leaf 75 kWh pack the Eclipse Sportback shares." }
     ],
     "preconditioning": [
-      {
-        "value": "manual_only",
-        "kind": "estimated",
-        "source_id": "src-nissan-ca-leaf-2026-press-kit",
-        "low_confidence": true,
-        "notes": "Estimated: Leaf sibling: Nissan Canada 2026 kit has a manual battery heater on all grades (navigation trigger only on some); no Mitsubishi page mentions preconditioning, so the lowest common feature is assumed."
-      }
+      { "value": "manual_only", "kind": "estimated", "source_id": "src-nissan-ca-leaf-2026-press-kit", "low_confidence": true, "notes": "Estimated: Leaf sibling: Nissan Canada 2026 kit has a manual battery heater on all grades (navigation trigger only on some); no Mitsubishi page mentions preconditioning, so the lowest common feature is assumed." }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 7.2,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-nissan-ca-leaf-2026-press-kit",
-      "low_confidence": true,
-      "notes": "Estimated: Leaf sibling on the same platform: Nissan Canada 2026 kit gives a 7.2 kW onboard charger; Mitsubishi states no AC kW (J1772 port, Level 1/2)."
-    }
+    { "value": 7.2, "unit": "kW", "kind": "estimated", "source_id": "src-nissan-ca-leaf-2026-press-kit", "low_confidence": true, "notes": "Estimated: Leaf sibling on the same platform: Nissan Canada 2026 kit gives a 7.2 kW onboard charger; Mitsubishi states no AC kW (J1772 port, Level 1/2)." }
   ],
   "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-mitsubishi-ca-eclipse-2027",
-      "notes": "\"up to 150 kW\" at NACS/Tesla Superchargers."
-    }
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2j-mitsubishi-ca-eclipse-2027", "notes": "\"up to 150 kW\" at NACS/Tesla Superchargers." }
   ],
   "published_10_80_min": [
-    {
-      "value": 35,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-mitsubishi-ca-eclipse-2027",
-      "notes": "About 35 minutes 10-80% under optimal conditions."
-    }
+    { "value": 35, "unit": "min", "kind": "manufacturer", "source_id": "src-w2j-mitsubishi-ca-eclipse-2027", "notes": "About 35 minutes 10-80% under optimal conditions." }
   ]
 }

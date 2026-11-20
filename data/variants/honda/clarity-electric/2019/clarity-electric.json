@@ -4,41 +4,20 @@
   "year": 2019,
   "name": "Clarity Electric",
   "drivetrain": "fwd",
-  "powertrain_id": "honda/clarity-electric/2019-clarity-electric",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "honda/clarity-electric/2017-clarity-electric",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-wikipedia-honda-clarity-electric",
-      "low_confidence": true,
-      "notes": "Wikipedia: US Clarity Electric has a CCS Type 1 combo port for DC; Honda: DC fast charging with SAE CCS."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-wikipedia-honda-clarity-electric", "low_confidence": true, "note_id": "n-de4b20cf22" }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "estimated",
-      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
-      "low_confidence": true,
-      "notes": "Estimated: Not on InsideEVs' list of non-Tesla EVs with Supercharger access; Honda's Supercharger access programme covers the Prologue and later. US only."
-    }
+    { "value": "no", "kind": "estimated", "source_id": "src-insideevs-nontesla-supercharger-access-2026", "low_confidence": true, "note_id": "n-d80990beed" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Clarity Electric"
-      },
+      "names": { "US": "Clarity Electric" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-hondainfocenter-clarity-electric-2019",
-          "notes": "18-inch aluminum alloy, 235/45R18."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-hondainfocenter-clarity-electric-2019", "note_id": "n-0e16f09813" }
       ]
     }
   ]

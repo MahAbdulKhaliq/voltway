@@ -5,43 +5,19 @@
   "name": "EV400",
   "drivetrain": "awd",
   "powertrain_id": "jaguar/i-pace/2023-ev400",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port US checker: I-PACE (2019-2024) CCS1, paid adapter; InsideEVs (Aug 2025): CCS1 port. Same port assumed on Canadian cars (no source shows otherwise)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-a05c1cd34f" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-insideevs-jaguar-supercharger-2025",
-      "low_confidence": true,
-      "notes": "Estimated: US owners can use Tesla Superchargers with a NACS-to-CCS1 adapter since Aug 2025 (InsideEVs); Jaguar had no approved adapter yet. Canada: the 2023 Jaguar release promised access in the United States, Canada and Mexico and adapters for I-PACE drivers once available (src-jlr-tesla-deal-2023); no Canadian go-live page found, so Canada is by analogy with the US."
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-jaguar-supercharger-2025", "low_confidence": true, "note_id": "n-44a27f28d7" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "EV400",
-        "US": "EV400"
-      },
+      "names": { "CA": "EV400", "US": "EV400" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-cc-ip24",
-          "notes": "2022 and 2024 pages both 20 in; 2023 not checked, low confidence.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-cc-ip24", "notes": "2022 and 2024 pages both 20 in; 2023 not checked, low confidence.", "low_confidence": true }
       ]
     }
   ]

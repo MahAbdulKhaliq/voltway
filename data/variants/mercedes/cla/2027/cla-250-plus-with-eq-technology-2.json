@@ -4,39 +4,20 @@
   "year": 2027,
   "name": "CLA 250+ with EQ Technology",
   "drivetrain": "rwd",
-  "powertrain_id": "mercedes/cla/2027-cla-250-plus-with-eq-technology-2",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "mercedes/cla/2027-cla-250-plus-with-eq-technology",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2027-cla-cla250e",
-      "notes": "mbusa data sheet: DC connector NACS, AC J1772; a CCS1-to-NACS adapter is included."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-mbusa-data-2027-cla-cla250e", "note_id": "n-fc571cb0ad" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "notes": "mbusa NACS page: CLA has a NACS port; no adapter is required at Tesla Superchargers."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "note_id": "n-d92074b3ac" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "CLA 250+ with EQ Technology"
-      },
+      "names": { "US": "CLA 250+ with EQ Technology" },
       "wheels": [
-        {
-          "diameter_in": 17,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-cla-250-plus-2027-specs",
-          "notes": "CLA 250+ Electric RWD: 17 x 7 front / 17 x 8 rear, P205/55R17 and P225/50R17."
-        }
+        { "diameter_in": 17, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-cla-250-plus-2027-specs", "note_id": "n-7e5ac8d543" }
       ]
     }
   ]

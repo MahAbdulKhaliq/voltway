@@ -4,40 +4,20 @@
   "year": 2024,
   "name": "SE Standard Range RWD",
   "drivetrain": "rwd",
-  "powertrain_id": "hyundai/ioniq-5/2024-se-standard-range-rwd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "hyundai/ioniq-5/2022-se-standard-range-rwd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-usa-nacs-adapter-faq",
-      "notes": "Hyundai USA: legacy Hyundai EVs have native CCS ports (the 2025 IONIQ 5 is the first with a native NACS port)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-usa-nacs-adapter-faq", "note_id": "n-6f11b52462" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-motor-hyundai-adapters-2025",
-      "notes": "Hyundai (US) provides a complimentary CCS-to-NACS adapter to eligible IONIQ 5 owners for Tesla Supercharger access (relayed by Motor.com, 2025-03); the Hyundai USA FAQ says native-CCS owners have access to NACS adapters.",
-      "low_confidence": true
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-motor-hyundai-adapters-2025", "note_id": "n-6bc417806d", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "SE Standard Range RWD"
-      },
+      "names": { "US": "SE Standard Range RWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-ioniq-5-2024-445172",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-5-2024-445172", "low_confidence": true }
       ]
     }
   ]

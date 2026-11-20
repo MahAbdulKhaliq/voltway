@@ -5,41 +5,19 @@
   "name": "Advanced AWD",
   "drivetrain": "awd",
   "powertrain_id": "genesis/gv60/2027-advanced-awd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-us-nacs-lineup",
-      "notes": "Genesis USA: starting with 2026 models every Genesis EV has a NACS port.",
-      "low_confidence": true
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-4f11cd6f71", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-us-nacs-lineup",
-      "notes": "Genesis USA: NACS port gives access to more than 36,000 Tesla Superchargers.",
-      "low_confidence": true
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-genesis-us-nacs-lineup", "note_id": "n-9f95a1ea04", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Advanced AWD"
-      },
+      "names": { "US": "Advanced AWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-carscom-genesis-gv60-2027-487301",
-          "low_confidence": true,
-          "notes": "The 2027 Cars.com page has no \"Advanced\" row; the 20 in AWD trim is named \"Prestige 20\\\" AWD\" there. Mapped Advanced AWD to it as the 20 in AWD trim (the Advanced and Prestige trims both ran 20 in)."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-carscom-genesis-gv60-2027-487301", "low_confidence": true, "notes": "The 2027 Cars.com page has no \"Advanced\" row; the 20 in AWD trim is named \"Prestige 20\\\" AWD\" there. Mapped Advanced AWD to it as the 20 in AWD trim (the Advanced and Prestige trims both ran 20 in)." }
       ]
     }
   ]

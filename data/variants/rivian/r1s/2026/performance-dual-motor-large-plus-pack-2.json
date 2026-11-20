@@ -4,42 +4,20 @@
   "year": 2026,
   "name": "Performance Dual-Motor Large Plus Pack",
   "drivetrain": "awd",
-  "powertrain_id": "rivian/r1s/2026-performance-dual-motor-large-plus-pack-2",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "rivian/r1s/2026-dual-motor-large-plus-pack",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: \"All 2026+ Rivian vehicles have a built-in NACS charge port\" (CCS1 adapter for CCS stations)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-81d2002905" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: 2026+ NACS port charges at Tesla Superchargers (over 21,000 sites in North America)."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-2b61353dba" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Performance Dual-Motor Large Plus Pack",
-        "US": "Performance Dual-Motor Large Plus Pack"
-      },
+      "names": { "CA": "Performance Dual-Motor Large Plus Pack", "US": "Performance Dual-Motor Large Plus Pack" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r2w-carb-rivian-2026",
-          "notes": "CARB 2026 lists the R1S Dual Large Plus pack in 20 inch only. Standard inferred: no source states it.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r2w-carb-rivian-2026", "note_id": "n-798c1d5f00", "low_confidence": true }
       ]
     }
   ]

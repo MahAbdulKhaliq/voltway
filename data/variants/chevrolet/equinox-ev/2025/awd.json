@@ -5,87 +5,34 @@
   "name": "AWD",
   "drivetrain": "awd",
   "powertrain_id": "chevrolet/equinox-ev/2026-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-wikipedia-chevrolet-equinox-ev",
-      "low_confidence": true,
-      "notes": "CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2025."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-equinox-ev", "low_confidence": true, "note_id": "n-f7598db224" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-equinox-ev",
-      "low_confidence": true,
-      "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2025: adapter needed. Markets: CA/US."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-equinox-ev", "low_confidence": true, "note_id": "n-7e7a9fb01f" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "AWD",
-        "US": "AWD"
-      },
+      "names": { "CA": "AWD", "US": "AWD" },
       "ac_max_kw": [
-        {
-          "value": 11.5,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option."
-        }
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-905f0b47e5" }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-equinox-ev-2025-specs",
-          "notes": "LT / LT1: 19 in, 245/55R19; LT2 not opened."
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-equinox-ev-2025-specs-461657",
-          "notes": "RS: 21 in, 275/40R21."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2025-specs", "note_id": "n-fb9c57e10e" },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2025-specs-461657", "note_id": "n-41fdecc0c6" }
       ]
     },
     {
       "id": "19-2-kw-charger",
-      "names": {
-        "CA": "AWD (19.2 kW Charger)",
-        "US": "AWD (19.2 kW Charger)"
-      },
+      "names": { "CA": "AWD (19.2 kW Charger)", "US": "AWD (19.2 kW Charger)" },
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-a135dcb7c0" }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-equinox-ev-2025-specs",
-          "notes": "LT / LT1: 19 in, 245/55R19; LT2 not opened."
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-equinox-ev-2025-specs-461657",
-          "notes": "RS: 21 in, 275/40R21."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2025-specs", "note_id": "n-fb9c57e10e" },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2025-specs-461657", "note_id": "n-41fdecc0c6" }
       ]
     }
   ]

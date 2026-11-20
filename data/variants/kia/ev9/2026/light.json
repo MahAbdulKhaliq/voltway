@@ -5,50 +5,22 @@
   "name": "Light",
   "drivetrain": "rwd",
   "powertrain_id": "kia/ev9/2026-light",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev9-2026"
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-kia-ca-ev9-2026"
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-kia-ca-ev9-2026" }
   ],
   "curb_weight_kg": [
-    {
-      "value": 2310,
-      "unit": "kg",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ev9-2026-light-rwd",
-      "low_confidence": true,
-      "notes": "Guide Auto lists 2,310 kg (5,093 lb) for the Canadian Light RWD (76.1 kWh)."
-    }
+    { "value": 2310, "unit": "kg", "kind": "manufacturer", "source_id": "src-guideauto-ev9-2026-light-rwd", "low_confidence": true, "notes": "Guide Auto lists 2,310 kg (5,093 lb) for the Canadian Light RWD (76.1 kWh)." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Light",
-        "US": "Light Standard Range"
-      },
+      "names": { "CA": "Light", "US": "Light Standard Range" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "tire_size": "255/60R19",
-          "source_id": "src-edwards-kia-ev9-light-2026",
-          "low_confidence": true,
-          "notes": "US dealer spec sheet for the 2026 Light."
-        }
+        { "diameter_in": 19, "is_standard": true, "tire_size": "255/60R19", "source_id": "src-edwards-kia-ev9-light-2026", "low_confidence": true, "notes": "US dealer spec sheet for the 2026 Light." }
       ]
     }
   ]

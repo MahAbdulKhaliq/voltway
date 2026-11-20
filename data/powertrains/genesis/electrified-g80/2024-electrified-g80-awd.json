@@ -3,86 +3,31 @@
   "model_id": "genesis/electrified-g80",
   "name": "Electrified G80 AWD",
   "generation": "first-generation",
-  "years": [
-    2024
-  ],
+  "years": [2024, 2025],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 87.2,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-cars-genesis-g80-2023",
-        "notes": "Estimated: same 87.2 kWh pack as the 2023 car; years compared 2023-2025, nothing found that changes the pack before the 94.5 kWh facelift (2026+; UK/Germany release 2025-05, Genesis DE page now lists 94.5 kWh).",
-        "low_confidence": true
-      }
+      { "value": 87.2, "unit": "kWh", "kind": "estimated", "source_id": "src-cars-genesis-g80-2023", "notes": "Estimated: same 87.2 kWh pack as the 2023 car; years compared 2023-2025, nothing found that changes the pack before the 94.5 kWh facelift (2026+; UK/Germany release 2025-05, Genesis DE page now lists 94.5 kWh).", "low_confidence": true }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 83.4,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-weeklydriver-egmp-774",
-        "notes": "Estimated: EV Database G80 page 1703 (a search excerpt says 82.5 kWh usable) returned HTTP 429 again and could not be opened, so the ratio estimate stays. No page states the G80 usable capacity (EV Database 82.5 and EVKX 80.1 not opened or blocked). Gross 87.2 x 74/77.4 (E-GMP 77.4 kWh pack: 74 kWh usable, Weekly Driver); the InsideEVs teardown (src-insideevs-genesis-g80-pack-teardown) compares the G80 modules with E-GMP modules, so the same cell is likely. Platform is not E-GMP, so treat as approximate.",
-        "low_confidence": true
-      }
+      { "value": 83.4, "unit": "kWh", "kind": "estimated", "source_id": "src-weeklydriver-egmp-774", "note_id": "n-fc60394e9e", "low_confidence": true }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "manufacturer",
-        "source_id": "src-genesis-au-g80-charging",
-        "notes": "Genesis Australia: \"Maximum 800V charging\"; InsideEVs and Cars.com also describe 800 V charging for the US car.",
-        "low_confidence": true
-      }
+      { "value": "800v", "kind": "manufacturer", "source_id": "src-genesis-au-g80-charging", "note_id": "n-de4ff95b29", "low_confidence": true }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-genesis-au-g80-electric",
-        "notes": "Genesis Australia G80 page: Battery Conditioning Mode activates when a fast-charging station is set as the destination and can also be turned on manually. The page describes the current 94.5 kWh car; no page for the 2023-2025 car found, assumed the same mode.",
-        "low_confidence": true
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-genesis-au-g80-electric", "note_id": "n-d5b029cc1d", "low_confidence": true }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-r2-koreatimes-g80-sk",
-        "low_confidence": true,
-        "notes": "Korea Times (2021): G80 EV carries the SK 87.2 kWh pack, \"SK Innovation's NCM811 batteries\" (industry official, not Genesis). Corroborated for the later 94.5 kWh pack by the Genesis Korea notice (src-genesis-kr-battery-notice: SK On, pouch, NCM). Applies to the 87.2 kWh pack of the 2023-2025 US/CA cars."
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-r2-koreatimes-g80-sk", "low_confidence": true, "note_id": "n-8c2b0b22ef" }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 10.9,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-cars-genesis-g80-2023",
-      "notes": "Cars.com review (US): home charging at 10.9 kW (48 A, 0-100 % in about 7 h 22 min), US. Genesis Australia says 11 kW standard.",
-      "low_confidence": true
-    }
+    { "value": 10.9, "unit": "kW", "kind": "community", "source_id": "src-cars-genesis-g80-2023", "note_id": "n-88a15da8e0", "low_confidence": true }
   ],
   "dc_max_kw": [
-    {
-      "value": 187,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-cars-genesis-g80-2023",
-      "notes": "Cars.com/InsideEVs reviews: the car accepts a maximum of 187 kW (a 350 kW charger is needed for the 22 min claim). ArenaEV lists 240 kW (not used).",
-      "low_confidence": true
-    }
+    { "value": 187, "unit": "kW", "kind": "community", "source_id": "src-cars-genesis-g80-2023", "note_id": "n-bd820c2824", "low_confidence": true }
   ],
   "published_10_80_min": [
-    {
-      "value": 22,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-genesis-au-g80-charging",
-      "notes": "Genesis: 10-80 % in 22 minutes under optimal conditions (350 kW charger).",
-      "low_confidence": true
-    }
+    { "value": 22, "unit": "min", "kind": "manufacturer", "source_id": "src-genesis-au-g80-charging", "note_id": "n-82c686f347", "low_confidence": true }
   ]
 }

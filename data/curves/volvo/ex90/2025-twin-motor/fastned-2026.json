@@ -4,92 +4,28 @@
   "kind": "tested",
   "source_id": "src-fastned-volvo-ex90-111kwh-2026",
   "points": [
-    {
-      "soc_percent": 7,
-      "power_kw": 233.1
-    },
-    {
-      "soc_percent": 10,
-      "power_kw": 234.4
-    },
-    {
-      "soc_percent": 13,
-      "power_kw": 235.5
-    },
-    {
-      "soc_percent": 15,
-      "power_kw": 231.4
-    },
-    {
-      "soc_percent": 20,
-      "power_kw": 233.7
-    },
-    {
-      "soc_percent": 25,
-      "power_kw": 227.8
-    },
-    {
-      "soc_percent": 30,
-      "power_kw": 194.3
-    },
-    {
-      "soc_percent": 35,
-      "power_kw": 184.9
-    },
-    {
-      "soc_percent": 40,
-      "power_kw": 154.2
-    },
-    {
-      "soc_percent": 45,
-      "power_kw": 156.3
-    },
-    {
-      "soc_percent": 50,
-      "power_kw": 151.7
-    },
-    {
-      "soc_percent": 55,
-      "power_kw": 147.3
-    },
-    {
-      "soc_percent": 60,
-      "power_kw": 136.1
-    },
-    {
-      "soc_percent": 65,
-      "power_kw": 134.1
-    },
-    {
-      "soc_percent": 70,
-      "power_kw": 125.3
-    },
-    {
-      "soc_percent": 75,
-      "power_kw": 113
-    },
-    {
-      "soc_percent": 80,
-      "power_kw": 88.2
-    },
-    {
-      "soc_percent": 85,
-      "power_kw": 70.2
-    },
-    {
-      "soc_percent": 90,
-      "power_kw": 57.9
-    },
-    {
-      "soc_percent": 94,
-      "power_kw": 50.9
-    }
+    { "soc_percent": 7, "power_kw": 233.1 },
+    { "soc_percent": 10, "power_kw": 234.4 },
+    { "soc_percent": 13, "power_kw": 235.5 },
+    { "soc_percent": 15, "power_kw": 231.4 },
+    { "soc_percent": 20, "power_kw": 233.7 },
+    { "soc_percent": 25, "power_kw": 227.8 },
+    { "soc_percent": 30, "power_kw": 194.3 },
+    { "soc_percent": 35, "power_kw": 184.9 },
+    { "soc_percent": 40, "power_kw": 154.2 },
+    { "soc_percent": 45, "power_kw": 156.3 },
+    { "soc_percent": 50, "power_kw": 151.7 },
+    { "soc_percent": 55, "power_kw": 147.3 },
+    { "soc_percent": 60, "power_kw": 136.1 },
+    { "soc_percent": 65, "power_kw": 134.1 },
+    { "soc_percent": 70, "power_kw": 125.3 },
+    { "soc_percent": 75, "power_kw": 113 },
+    { "soc_percent": 80, "power_kw": 88.2 },
+    { "soc_percent": 85, "power_kw": 70.2 },
+    { "soc_percent": 90, "power_kw": 57.9 },
+    { "soc_percent": 94, "power_kw": 50.9 }
   ],
-  "conditions": {
-    "preconditioned": "unknown",
-    "battery_temp_c": 30,
-    "charger_kw": 400
-  },
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 400 },
   "notes": "Fastned graph for the 400 V EX90 111 kWh pack, 7-94 % SoC, battery near 30 C. Numbers are identical to the Fastned Polestar 3 111 kWh graph (shared pack and hardware, so one series under both models). Peak 235.5 kW at 13 %, 152 kW at 50 %, 88 kW at 80 %. Covers the 2025 400 V EX90 only; the 2026+ 800 V EX90 is a different pack and has no curve. One series shown on both the Fastned Polestar 3 and EX90 pages, so not two independent measurements.",
   "low_confidence": true,
   "is_display_default": false

@@ -5,57 +5,21 @@
   "name": "Twin Motor",
   "drivetrain": "awd",
   "powertrain_id": "volvo/ec40/2024-twin-motor",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port US checker lists EC40 (C40 Recharge) 2022-2024 and 2025-2026 as CCS1. Volvo sells a NACS-to-CCS1 adapter for all its EVs (Cision, InsideEVs), which a native NACS port would not need. Canada: same car, same adapter release."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-273418125a" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-cision-volvo-ca-nacs-2024",
-      "low_confidence": true,
-      "notes": "Volvo Canada release: owners of current fully electric Volvo cars can order a NACS adapter (CA$310) from Nov 18 2024; included with new 2025 EX90/EX40/EC40."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-volvo-polestar-nacs-2024",
-      "low_confidence": true,
-      "notes": "US: $230 adapter via retailers for existing Volvo EV owners; free with 2025 EX90/EX40/EC40."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-cision-volvo-ca-nacs-2024", "low_confidence": true, "note_id": "n-eaa51df48d" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-volvo-polestar-nacs-2024", "low_confidence": true, "note_id": "n-e5aef72387" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Twin Motor",
-        "US": "Twin Motor"
-      },
+      "names": { "CA": "Twin Motor", "US": "Twin Motor" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-volvo-ec40-2025-specs-457196",
-          "notes": "Twin AWD Core: 19x7.5, P235/50HR19 front, P255/45HR19 rear. Carried from the 2025 page.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-volvo-ec40-2025-specs-457198",
-          "notes": "Twin AWD Ultra: 20x7.5, P235/45HR20 front, P255/40HR20 rear. Carried from the 2025 page.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-volvo-ec40-2025-specs-457196", "note_id": "n-4ffb55c515", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-volvo-ec40-2025-specs-457198", "note_id": "n-6b31108a07", "low_confidence": true }
       ]
     }
   ]

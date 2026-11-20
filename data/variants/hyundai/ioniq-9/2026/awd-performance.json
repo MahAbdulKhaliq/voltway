@@ -4,47 +4,23 @@
   "year": 2026,
   "name": "AWD Performance",
   "drivetrain": "awd",
-  "powertrain_id": "hyundai/ioniq-9/2026-awd-performance",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "hyundai/ioniq-9/2026-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-9-2026",
-      "notes": "NACS port; AC and DC CCS adapters included."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026", "note_id": "n-571a38fa77" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-ioniq-9-2026"
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "AWD Performance",
-        "US": "Performance AWD"
-      },
+      "names": { "CA": "AWD Performance", "US": "Performance AWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-hyundai-ca-ioniq-9-2026"
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-hyundai-ca-ioniq-9-2026" }
       ],
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-ioniq-9-2026-473082",
-          "low_confidence": true
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-9-2026-473082", "low_confidence": true }
       ]
     }
   ]

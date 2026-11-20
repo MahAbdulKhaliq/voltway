@@ -4,47 +4,21 @@
   "year": 2027,
   "name": "Premium AWD",
   "drivetrain": "awd",
-  "powertrain_id": "subaru/trailseeker/2027-premium-awd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "subaru/trailseeker/2027-limited-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-subaru-us-trailseeker-2027",
-      "notes": "Standard NACS charge port (US, 2027)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-subaru-us-trailseeker-2027", "note_id": "n-be513a9322" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-subaru-us-media-solterra-2026",
-      "low_confidence": true,
-      "notes": "Estimated: Subaru US 2026 Solterra release (same NACS lineup): Superchargers open to Subaru EVs; no Subaru page names this car."
-    },
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-w2j-insideevs-sc-list-2026",
-      "low_confidence": true,
-      "notes": "Estimated: InsideEVs list of non-Tesla EVs that can use Superchargers includes the Subaru Trailseeker and Uncharted."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-subaru-us-media-solterra-2026", "low_confidence": true, "note_id": "n-adac4e0ce1" },
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-fa13fea5e4" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Premium AWD"
-      },
+      "names": { "US": "Premium AWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-subaru-trailseeker-2027-specs-488367",
-          "notes": "Premium AWD: 18x7.5 aluminum, P235/60VR18."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-subaru-trailseeker-2027-specs-488367", "notes": "Premium AWD: 18x7.5 aluminum, P235/60VR18." }
       ]
     }
   ]

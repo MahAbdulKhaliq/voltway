@@ -4,71 +4,43 @@
   "name": "R1S",
   "body_type": "suv",
   "generations": [
-    {
-      "id": "gen-1",
-      "name": "Gen 1 (2022-2024)",
-      "first_year": 2022,
-      "last_year": 2024,
-      "notes": "Launch on 2170 cells: Standard (~105 kWh), Large (~128.9 kWh usable) and Max (~141.5 kWh) packs, Dual and Quad motor; CCS1 port; DC peak about 200-220 kW (general knowledge, not checked on a cited page). Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/722131/second-gen-rivian-r1-debut/"
-    },
-    {
-      "id": "gen-2",
-      "name": "Gen 2 (2025 on)",
-      "first_year": 2025,
-      "notes": "Second-generation R1 unveiled June 6, 2024 as MY2025: new electrical architecture and motors; Standard pack becomes LFP (~92.5 kWh usable), Large ~109.4 kWh usable (53G cells), Max ~141.5 kWh; Dual, Tri and Quad motor. Whether a native NACS port arrives on R1 in a later year was not checked. Confidence: high for the boundary, medium for pack figures (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/722131/second-gen-rivian-r1-debut/ ; https://stories.rivian.com/meet-the-new-r1 ; https://www.greencarreports.com/news/1143421_2025-rivian-r1t-r1s-ev-lfp-review"
-    }
+    { "id": "gen-1", "name": "Gen 1 (2022-2024)", "first_year": 2022, "last_year": 2024, "notes": "Launch on 2170 cells: Standard (~105 kWh), Large (~128.9 kWh usable) and Max (~141.5 kWh) packs, Dual and Quad motor; CCS1 port; DC peak about 200-220 kW (general knowledge, not checked on a cited page). Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/722131/second-gen-rivian-r1-debut/" },
+    { "id": "gen-2", "name": "Gen 2 (2025 on)", "first_year": 2025, "notes": "Second-generation R1 unveiled June 6, 2024 as MY2025: new electrical architecture and motors; Standard pack becomes LFP (~92.5 kWh usable), Large ~109.4 kWh usable (53G cells), Max ~141.5 kWh; Dual, Tri and Quad motor. Whether a native NACS port arrives on R1 in a later year was not checked. Confidence: high for the boundary, medium for pack figures (researched 2026-11-19, owner review pending). Sources: https://insideevs.com/news/722131/second-gen-rivian-r1-debut/ ; https://stories.rivian.com/meet-the-new-r1 ; https://www.greencarreports.com/news/1143421_2025-rivian-r1t-r1s-ev-lfp-review" }
   ],
   "years": [
     {
       "year": 2022,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "gen-1"
     },
     {
       "year": 2023,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "gen-1"
     },
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "gen-1"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "gen-2"
     },
     {
       "year": 2026,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "gen-2"
     },
     {
       "year": 2027,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "gen-2"
     }

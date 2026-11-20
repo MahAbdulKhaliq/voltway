@@ -4,63 +4,23 @@
   "year": 2024,
   "name": "Preferred Long Range AWD",
   "drivetrain": "awd",
-  "powertrain_id": "hyundai/ioniq-6/2024-preferred-long-range-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "hyundai/ioniq-6/2024-preferred-long-range",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-us-nacs-giveaway-faq",
-      "notes": "Hyundai US lists the IONIQ 6 (22MY-25MY) among EVs with native CCS ports eligible for the CCS-to-NACS adapter."
-    },
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq-2026-11-16",
-      "low_confidence": true,
-      "notes": "Hyundai Canada FAQ: only the 2026+ IONIQ 5 and IONIQ 9 have a NACS port; other Hyundai EVs of MY2025 and earlier (and 2026 KONA Electric) have CCS and use an adapter. CCS1 inferred for the IONIQ 6 (not named on the page)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-3c1a54c87f" },
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-f7b4248b98" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-us-nacs-giveaway-faq",
-      "notes": "Free adapter (retail date on or before 2025-01-31, offer ended 2025-05-30) and dealer-sold adapter afterwards: an owner can use Tesla Superchargers through the CCS-to-NACS adapter."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq-2026-11-16",
-      "low_confidence": true,
-      "notes": "Hyundai Canada FAQ: Hyundai EVs of MY2025 and earlier can use a NACS adapter (available separately; separate Hyundai Canada free-adapter offer until 2026-12-31 for eligible models)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-us-nacs-giveaway-faq", "note_id": "n-c92b50d089" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq-2026-11-16", "low_confidence": true, "note_id": "n-6fd81b4869" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Preferred Long Range AWD",
-        "US": "SE Long Range AWD"
-      },
+      "names": { "CA": "Preferred Long Range AWD", "US": "SE Long Range AWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-ioniq-6-2024-445826",
-          "low_confidence": true,
-          "notes": "US SE AWD 18 in; Canadian 2023 Preferred AWD is also 18 in (Guide Auto), 2024 Canadian page not found."
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-guideauto-hyundai-ioniq-6-2023-preferred-awd-with-ultimate-package",
-          "low_confidence": true,
-          "notes": "With Ultimate Package (2023 Canadian page); 2024 not read."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-6-2024-445826", "low_confidence": true, "notes": "US SE AWD 18 in; Canadian 2023 Preferred AWD is also 18 in (Guide Auto), 2024 Canadian page not found." },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-guideauto-hyundai-ioniq-6-2023-preferred-awd-with-ultimate-package", "low_confidence": true, "notes": "With Ultimate Package (2023 Canadian page); 2024 not read." }
       ]
     }
   ]

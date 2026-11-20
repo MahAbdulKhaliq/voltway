@@ -3,74 +3,26 @@
   "model_id": "bmw/i4",
   "name": "eDrive35",
   "generation": "first-generation",
-  "years": [
-    2024
-  ],
+  "years": [2024, 2025],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 66,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-bmw-ca-i4-edrive35-2023",
-        "low_confidence": true,
-        "notes": "Estimated: BMW Canada release: 66 kWh net within 70.2 kWh gross. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
-      },
-      {
-        "value": 67,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-bmw-us-i4-edrive35-2023",
-        "low_confidence": true,
-        "notes": "Estimated: BMW US release: 67 kWh net usable (Canadian release says 66). Conflict between the two BMW releases; EV Database 67.1. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
-      }
+      { "value": 66, "unit": "kWh", "kind": "estimated", "source_id": "src-bmw-ca-i4-edrive35-2023", "low_confidence": true, "notes": "Estimated: BMW Canada release: 66 kWh net within 70.2 kWh gross. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)." },
+      { "value": 67, "unit": "kWh", "kind": "estimated", "source_id": "src-bmw-us-i4-edrive35-2023", "low_confidence": true, "notes": "Estimated: BMW US release: 67 kWh net usable (Canadian release says 66). Conflict between the two BMW releases; EV Database 67.1. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-autodata-i4-edrive35",
-        "low_confidence": true,
-        "notes": "Estimated: auto-data.net lists Li-NMC for the 70.2 kWh eDrive35; BMW states NMC-811 for the larger i4 pack (same G26 generation, same Gen5 cell family). BMW pages for the eDrive35 do not state chemistry."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autodata-i4-edrive35", "low_confidence": true, "note_id": "n-1a4621dd67" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-autodata-i4-edrive35",
-        "low_confidence": true,
-        "notes": "Estimated: auto-data.net lists 400 V for the eDrive35 pack (EV Database nominal 353 V, still 400 V class)."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-autodata-i4-edrive35", "low_confidence": true, "note_id": "n-817daa8cf6" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-bmw-us-i4-2022",
-        "low_confidence": true,
-        "notes": "Estimated: BMW US 2022 release describes navigation-triggered automatic battery pre-conditioning for the i4 eDrive40/M50 (83.9 kWh pack, a different pack). No page states it for the eDrive35; carried over as a software feature of the same G26 i4 and iDrive navigation, not a pack figure."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-bmw-us-i4-2022", "low_confidence": true, "note_id": "n-df92313855" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 180,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-bmw-ca-i4-edrive35-2023",
-      "low_confidence": true,
-      "notes": "Estimated: BMW releases: up to 180 kW. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
-    }
+    { "value": 180, "unit": "kW", "kind": "estimated", "source_id": "src-bmw-ca-i4-edrive35-2023", "low_confidence": true, "notes": "Estimated: BMW releases: up to 180 kW. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "estimated",
-      "source_id": "src-bmw-ca-i4-edrive35-2023",
-      "low_confidence": true,
-      "notes": "Estimated: BMW Canada release: 11 kW AC. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
-    }
+    { "value": 11, "unit": "kW", "kind": "estimated", "source_id": "src-bmw-ca-i4-edrive35-2023", "low_confidence": true, "notes": "Estimated: BMW Canada release: 11 kW AC. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)." }
   ]
 }

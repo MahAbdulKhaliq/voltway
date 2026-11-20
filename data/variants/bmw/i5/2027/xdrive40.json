@@ -4,41 +4,20 @@
   "year": 2027,
   "name": "xDrive40",
   "drivetrain": "awd",
-  "powertrain_id": "bmw/i5/2027-xdrive40",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "bmw/i5/2027-edrive40",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ie-i5-27",
-      "low_confidence": true,
-      "notes": "InsideEVs: all i5 EVs sold in the US now come with a NACS charge port (2027)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-ie-i5-27", "low_confidence": true, "note_id": "n-2b1371b122" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-w2-ie-i5-27",
-      "low_confidence": true,
-      "notes": "Native NACS port."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2-ie-i5-27", "low_confidence": true, "note_id": "n-24bfcfaf1e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "xDrive40"
-      },
+      "names": { "US": "xDrive40" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-bmw-i5-2027-specs-485396",
-          "notes": "xDrive40 Sedan: 19 x 8.5 in aluminum, P245/45R19; the M Sport Package (Style 936M) is the same 19 in size."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2027-specs-485396", "notes": "xDrive40 Sedan: 19 x 8.5 in aluminum, P245/45R19; the M Sport Package (Style 936M) is the same 19 in size." }
       ]
     }
   ]

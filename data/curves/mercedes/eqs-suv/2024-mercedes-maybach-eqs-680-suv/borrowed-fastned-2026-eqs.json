@@ -3,106 +3,33 @@
   "powertrain_id": "mercedes/eqs-suv/2024-mercedes-maybach-eqs-680-suv",
   "kind": "estimated",
   "low_confidence": true,
-  "based_on": {
-    "variant_id": "mercedes/eqs/2022/amg-eqs-4matic-plus-sedan",
-    "reason": "Same pack family as mercedes/eqs/2022-amg-eqs-4matic-plus-sedan: Mercedes-Benz EQS 107,8 kWh (2021-2024) (Fastned 464, 120 kWh gross, peak 208 kW). Fastned's EQS SUV listing (662) is byte-identical to its EQS sedan 107.8 kWh listing (464), so it is not an independent SUV measurement. The 118 kWh SUV ids are a different pack and get no curve."
-  },
+  "based_on": { "variant_id": "mercedes/eqs/2022/amg-eqs-4matic-plus-sedan", "reason": "Same pack family as mercedes/eqs/2022-amg-eqs-4matic-plus-sedan: Mercedes-Benz EQS 107,8 kWh (2021-2024) (Fastned 464, 120 kWh gross, peak 208 kW). Fastned's EQS SUV listing (662) is byte-identical to its EQS sedan 107.8 kWh listing (464), so it is not an independent SUV measurement. The 118 kWh SUV ids are a different pack and get no curve." },
   "source_id": "src-w2g-fastned-464",
   "points": [
-    {
-      "soc_percent": 3,
-      "power_kw": 167.1
-    },
-    {
-      "soc_percent": 5,
-      "power_kw": 176.2
-    },
-    {
-      "soc_percent": 10,
-      "power_kw": 201.2
-    },
-    {
-      "soc_percent": 15,
-      "power_kw": 203.4
-    },
-    {
-      "soc_percent": 20,
-      "power_kw": 205
-    },
-    {
-      "soc_percent": 25,
-      "power_kw": 205.7
-    },
-    {
-      "soc_percent": 30,
-      "power_kw": 207.4
-    },
-    {
-      "soc_percent": 33,
-      "power_kw": 207.7
-    },
-    {
-      "soc_percent": 35,
-      "power_kw": 202.5
-    },
-    {
-      "soc_percent": 40,
-      "power_kw": 189.3
-    },
-    {
-      "soc_percent": 45,
-      "power_kw": 181.5
-    },
-    {
-      "soc_percent": 50,
-      "power_kw": 171
-    },
-    {
-      "soc_percent": 55,
-      "power_kw": 162.7
-    },
-    {
-      "soc_percent": 60,
-      "power_kw": 155.1
-    },
-    {
-      "soc_percent": 65,
-      "power_kw": 142.2
-    },
-    {
-      "soc_percent": 70,
-      "power_kw": 133.5
-    },
-    {
-      "soc_percent": 75,
-      "power_kw": 124.4
-    },
-    {
-      "soc_percent": 80,
-      "power_kw": 118.1
-    },
-    {
-      "soc_percent": 85,
-      "power_kw": 100.1
-    },
-    {
-      "soc_percent": 90,
-      "power_kw": 75.2
-    },
-    {
-      "soc_percent": 95,
-      "power_kw": 43.4
-    },
-    {
-      "soc_percent": 96,
-      "power_kw": 33.5
-    }
+    { "soc_percent": 3, "power_kw": 167.1 },
+    { "soc_percent": 5, "power_kw": 176.2 },
+    { "soc_percent": 10, "power_kw": 201.2 },
+    { "soc_percent": 15, "power_kw": 203.4 },
+    { "soc_percent": 20, "power_kw": 205 },
+    { "soc_percent": 25, "power_kw": 205.7 },
+    { "soc_percent": 30, "power_kw": 207.4 },
+    { "soc_percent": 33, "power_kw": 207.7 },
+    { "soc_percent": 35, "power_kw": 202.5 },
+    { "soc_percent": 40, "power_kw": 189.3 },
+    { "soc_percent": 45, "power_kw": 181.5 },
+    { "soc_percent": 50, "power_kw": 171 },
+    { "soc_percent": 55, "power_kw": 162.7 },
+    { "soc_percent": 60, "power_kw": 155.1 },
+    { "soc_percent": 65, "power_kw": 142.2 },
+    { "soc_percent": 70, "power_kw": 133.5 },
+    { "soc_percent": 75, "power_kw": 124.4 },
+    { "soc_percent": 80, "power_kw": 118.1 },
+    { "soc_percent": 85, "power_kw": 100.1 },
+    { "soc_percent": 90, "power_kw": 75.2 },
+    { "soc_percent": 95, "power_kw": 43.4 },
+    { "soc_percent": 96, "power_kw": 33.5 }
   ],
-  "conditions": {
-    "preconditioned": "unknown",
-    "battery_temp_c": 30,
-    "charger_kw": 300
-  },
-  "notes": "Borrowed (estimated) from the Mercedes-Benz EQS 107,8 kWh (2021-2024) curve: Mercedes-Benz EQS 107,8 kWh (2021-2024) (Fastned 464, 120 kWh gross, peak 208 kW). Body, weight and software differ, so the real curve may differ; no measurement of this model was found.",
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 300 },
+  "note_id": "n-3dce67a4f2",
   "is_display_default": false
 }

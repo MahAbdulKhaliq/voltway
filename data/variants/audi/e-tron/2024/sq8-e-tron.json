@@ -4,43 +4,20 @@
   "year": 2024,
   "name": "SQ8 e-tron",
   "drivetrain": "awd",
-  "powertrain_id": "audi/e-tron/2024-sq8-e-tron",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "audi/e-tron/2024-q8-e-tron-quattro",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-chargepapa-q8-port",
-      "low_confidence": true,
-      "notes": "ChargePapa: 2023-2024 Q8 e-tron has CCS1 (J1772 AC, CCS1 DC)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-chargepapa-q8-port", "low_confidence": true, "note_id": "n-d4acde9e3a" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-w2-insideevs-audi-porsche-sc",
-      "low_confidence": true,
-      "notes": "Estimated: InsideEVs 2025-09-08: all Audi EVs except the Q4 e-tron are compatible with Tesla Superchargers (Canada on the same date) with an adapter; the Q8 is not named, and electrive says the Audi adapter is only supplied with new 2025 Q6, A6 and GT and is not yet sold to existing owners. OWNER: via_adapter or no?"
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-w2-insideevs-audi-porsche-sc", "low_confidence": true, "note_id": "n-e4cbdc323b" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "SQ8 e-tron",
-        "US": "SQ8 e-tron"
-      },
+      "names": { "CA": "SQ8 e-tron", "US": "SQ8 e-tron" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-audi-sq8etron-2024-445866",
-          "notes": "SQ8 e-tron Prestige quattro 2024: 20x10 read on this Cars.com page."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-audi-sq8etron-2024-445866", "notes": "SQ8 e-tron Prestige quattro 2024: 20x10 read on this Cars.com page." }
       ]
     }
   ]

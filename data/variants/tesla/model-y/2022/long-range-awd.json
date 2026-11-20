@@ -4,44 +4,20 @@
   "year": 2022,
   "name": "Long Range AWD",
   "drivetrain": "awd",
-  "powertrain_id": "tesla/model-y/2022-long-range-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "tesla/model-y/2021-long-range-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "estimated",
-      "source_id": "src-wikipedia-nacs",
-      "low_confidence": true,
-      "notes": "Estimated: Tesla has used its own connector (now NACS) on all its North American cars since 2012, including the Model Y (2020 on). Not read on a Tesla page for this model year."
-    }
+    { "value": "nacs", "kind": "estimated", "source_id": "src-wikipedia-nacs", "low_confidence": true, "note_id": "n-498d0e51b3" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Estimated: Tesla-built cars with the Tesla/NACS inlet can use the Supercharger network; page says every Model Y uses native NACS. Applied to this model year as a lineup-wide fact."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-0fdeb4e6b1" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Long Range AWD",
-        "US": "Long Range AWD"
-      },
+      "names": { "CA": "Long Range AWD", "US": "Long Range AWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r2w-carscom-model-y-2021",
-          "notes": "Model Y 19x9.5 (2021 Standard Range page). Carried over from a neighbouring model year on the same body; that year was not opened.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-carscom-model-y-2021", "note_id": "n-30f8aab34b", "low_confidence": true }
       ]
     }
   ]

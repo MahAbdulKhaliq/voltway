@@ -4,68 +4,24 @@
   "year": 2026,
   "name": "ES 500e Luxury+ AWD",
   "drivetrain": "awd",
-  "powertrain_id": "lexus/es/2026-es-500e-luxury-plus-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "lexus/es/2026-es-350e-luxury-plus",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-us-es-2026",
-      "notes": "NACS J3400-style port, power-operated door; CCS-to-NACS adapter in the box (US)."
-    },
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-ca-charging",
-      "notes": "Lexus Canada: 2026 model BEVs come with the NACS port (Canada)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-us-es-2026", "note_id": "n-9e9cebb0f4" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-charging", "note_id": "n-9d6ff8d15d" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "tested",
-      "source_id": "src-w2j-insideevs-es-350e-2026",
-      "notes": "US: 10-80% in 28 min at a V4 Tesla Supercharger (InsideEVs test)."
-    },
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-insideevs-sc-list-2026",
-      "low_confidence": true,
-      "notes": "Listed among non-Tesla EVs that can use Tesla Superchargers."
-    },
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-lexus-ca-media-bev-2025",
-      "notes": "Canada: Lexus BEV guests can charge on the Tesla Supercharger Network; 2026 ES gets Plug & Charge."
-    }
+    { "value": "yes", "kind": "tested", "source_id": "src-w2j-insideevs-es-350e-2026", "note_id": "n-a36478e516" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-insideevs-sc-list-2026", "low_confidence": true, "note_id": "n-8fc44901e5" },
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-w2j-lexus-ca-media-bev-2025", "note_id": "n-c86dab899b" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "ES 500e Luxury+ AWD",
-        "US": "ES 500e Luxury AWD"
-      },
+      "names": { "CA": "ES 500e Luxury+ AWD", "US": "ES 500e Luxury AWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r2w-lex-es26",
-          "notes": "Every ES comes standard with 19-inch wheels.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-r2w-lex-es26",
-          "notes": "21-inch wheels available (Wheel & Tire Package). The Canadian Luxury+ trim includes 21-inch wheels (Lexus Canada pricing release). Fact-check: the cited US page calls 21 in an optional package; Lexus Canada pricing release not cited, so recorded as optional.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-lex-es26", "note_id": "n-f355766bd9", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-r2w-lex-es26", "note_id": "n-995d15adde", "low_confidence": true }
       ]
     }
   ]

@@ -5,40 +5,19 @@
   "name": "Work Truck Standard Range",
   "drivetrain": "awd",
   "powertrain_id": "chevrolet/silverado-ev/2025-work-truck-standard-range",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-gm-silverado-ev-2025-spec-guide",
-      "low_confidence": true,
-      "notes": "CCS1 (J1772 native inlet) through the 2026 model year: GM WT spec guide lists the NACS DC adapter as intended for a J1772 native inlet vehicle (US spec guide, 2025/2026). Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2025."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "note_id": "n-8ca55e1703" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-gm-silverado-ev-2025-spec-guide",
-      "low_confidence": true,
-      "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2025: adapter needed. Markets: US."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-gm-silverado-ev-2025-spec-guide", "low_confidence": true, "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2025: adapter needed. Markets: US." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Work Truck Standard Range"
-      },
+      "names": { "US": "Work Truck Standard Range" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs",
-          "notes": "Standard Range Work Truck: 18x8 steel, LT265/70R18."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-chevrolet-silverado-ev-2025-specs", "note_id": "n-78173487bc" }
       ]
     }
   ]

@@ -4,42 +4,20 @@
   "year": 2024,
   "name": "Venture+ FWD",
   "drivetrain": "fwd",
-  "powertrain_id": "nissan/ariya/2024-venture-plus-fwd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "nissan/ariya/2024-evolve-plus-fwd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-nissan-usa-ariya-2023-press-kit",
-      "low_confidence": true,
-      "notes": "Press kit: CCS charge port standard (US car); Canadian cars use the same port (adapter needed for Superchargers per Nissan Canada coverage)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-nissan-usa-ariya-2023-press-kit", "low_confidence": true, "note_id": "n-7d53206d11" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-electrek-nissan-supercharger-2024-12",
-      "low_confidence": true,
-      "notes": "Nissan Ariya Supercharger access from 2024-12-10 via a Nissan CCS-to-NACS adapter ($235 US, per Electrek and Nissan). Canada: adapter at $309.99 (The Car Guide names the 2025 Ariya; 2026 had \"no technological updates\" so assumed the same). The refreshed 2027 Canadian car is reported to get a native NACS port; not applicable here."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrek-nissan-supercharger-2024-12", "low_confidence": true, "note_id": "n-b96c0ca63a" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Venture+ FWD"
-      },
+      "names": { "US": "Venture+ FWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r2w-cc-ar24",
-          "notes": "Page shows only the Engage FWD (19 in); this trim assumed the same (the only other listed option is the Platinum+ w/20 in wheels).",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r2w-cc-ar24", "note_id": "n-3a80885ec9", "low_confidence": true }
       ]
     }
   ]

@@ -5,41 +5,19 @@
   "name": "EQB 300 4MATIC",
   "drivetrain": "awd",
   "powertrain_id": "mercedes/eqb/2025-eqb-300-4matic",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2025-eqb-eqb300w4",
-      "notes": "mbusa lists J1772 (AC) and Combined Charging System (DC)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-eqb-eqb300w4", "note_id": "n-e863ab2c59" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "mbusa NACS page: EQB, EQE, EQS and G 580 with a CCS1 inlet use the Mercedes-approved NACS-to-CCS1 adapter (included from MY26, otherwise sold by dealers). Canada: no Mercedes-Benz Canada page found; the same adapter route is assumed for the CA edition of this car."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "EQB 300 4MATIC",
-        "US": "EQB 300 4MATIC"
-      },
+      "names": { "CA": "EQB 300 4MATIC", "US": "EQB 300 4MATIC" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-eqb-300-2025-specs",
-          "notes": "EQB 300 4MATIC: 18 x 7.5 in aluminum, P235/55R18. (US page; Canadian cars assumed the same.)"
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqb-300-2025-specs", "note_id": "n-868c13366d" }
       ]
     }
   ]

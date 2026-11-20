@@ -4,43 +4,20 @@
   "year": 2025,
   "name": "Scat Pack AWD",
   "drivetrain": "awd",
-  "powertrain_id": "dodge/charger-daytona/2025-scat-pack-awd-2",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "dodge/charger-daytona/2024-r-t-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "community",
-      "source_id": "src-electrive-stellantis-supercharger-2026",
-      "notes": "electrive: the Charger Daytona 2024-2026 needs the Free2move Charge NACS-CCS1 adapter for Superchargers, which implies a CCS1 inlet; MoparInsiders plugged the adapter into the \"CCS charging port\" of a 2025 Scat Pack. (The Mopar 2026 handbook J1772-inlet sentence could not be read here, so it is not cited.)",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "community", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-f166c4e6e1", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-electrive-stellantis-supercharger-2026",
-      "notes": "Stellantis (March 2026): Charger Daytona 2024-2026 can use Tesla Superchargers with the Free2move Charge NACS-CCS1 adapter. Reports say \"North America\"; Canada implied, not separately confirmed. Canada: the reports say \"North America\"; no source confirms Canadian cars are covered.",
-      "low_confidence": true
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-e716098e7b", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Scat Pack AWD",
-        "US": "Scat Pack AWD"
-      },
+      "names": { "CA": "Scat Pack AWD", "US": "Scat Pack AWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-dodge-charger-daytona-2025-specs-469467",
-          "notes": "Scat Pack AWD: 20x11 front, 20x11.5 rear. Carbon & Suede Package: black 20 in wheels of the same size."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-dodge-charger-daytona-2025-specs-469467", "note_id": "n-09d02463a3" }
       ]
     }
   ]

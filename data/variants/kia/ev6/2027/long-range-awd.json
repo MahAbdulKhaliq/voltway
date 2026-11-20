@@ -5,41 +5,19 @@
   "name": "Long Range AWD",
   "drivetrain": "awd",
   "powertrain_id": "kia/ev6/2027-long-range-awd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "estimated",
-      "source_id": "src-kia-us-ev6-specs-2026-chargetable",
-      "low_confidence": true,
-      "notes": "Estimated: Kia US 2026 EV6 page: NACS port on all trims; 2027 carries over."
-    }
+    { "value": "nacs", "kind": "estimated", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "low_confidence": true, "notes": "Estimated: Kia US 2026 EV6 page: NACS port on all trims; 2027 carries over." }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-kia-us-ev6-specs-2026-chargetable",
-      "low_confidence": true,
-      "notes": "Estimated: Native NACS port: Tesla Superchargers directly."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-kia-us-ev6-specs-2026-chargetable", "low_confidence": true, "notes": "Estimated: Native NACS port: Tesla Superchargers directly." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Long Range AWD"
-      },
+      "names": { "US": "Long Range AWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-kia-ev6-2027-492151",
-          "low_confidence": true,
-          "notes": "Wind AWD 19 in; Light Long Range AWD not opened."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-kia-ev6-2027-492151", "low_confidence": true, "notes": "Wind AWD 19 in; Light Long Range AWD not opened." }
       ]
     }
   ]

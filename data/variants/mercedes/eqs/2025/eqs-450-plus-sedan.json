@@ -5,39 +5,19 @@
   "name": "EQS 450+ Sedan",
   "drivetrain": "rwd",
   "powertrain_id": "mercedes/eqs/2025-eqs-450-plus-sedan",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2025-eqs-eqs450v",
-      "notes": "mbusa lists J1772 (AC) and Combined Charging System (DC)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-eqs-eqs450v", "note_id": "n-e863ab2c59" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "mbusa NACS page: EQB, EQE, EQS and G 580 with a CCS1 inlet use the Mercedes-approved NACS-to-CCS1 adapter (included from MY26, otherwise sold by dealers). Canada: no Mercedes-Benz Canada page found; the same adapter route is assumed for the CA edition of this car."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "EQS 450+ Sedan"
-      },
+      "names": { "US": "EQS 450+ Sedan" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-plus-2025-specs",
-          "notes": "EQS 450+ Sedan: 20 x 8.5 in aluminum, P255/45R20."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-plus-2025-specs", "note_id": "n-8c8f259b49" }
       ]
     }
   ]

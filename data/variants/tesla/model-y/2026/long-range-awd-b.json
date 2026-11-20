@@ -5,65 +5,24 @@
   "name": "Long Range AWD-B",
   "drivetrain": "awd",
   "powertrain_id": "tesla/model-y/2026-long-range-awd-b",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-thechargeport-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-8e40ff5dd6" }
   ],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 168,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-insideevs-oosr-modely-juniper-2025",
-      "low_confidence": true,
-      "notes": "Test: 70 mph (113 km/h) steady, temperature not stated, 20-30 mph winds, wheel size not stated, battery-side (car display, Out of Spec Reviews method; page does not say explicitly) | Out of Spec Reviews, 2025 Model Y Long Range AWD (Juniper), 298 miles. Page says 'around 3.7 miles per kWh': one rounded figure given for both the old and new Long Range AWD together, and the page does not state the pack: 1000 / (3.7 x 1.609344) = 168 Wh/km. Other figures seen, not recorded: tparts.com relays 275 Wh/mi (171 Wh/km) for the same test; Bjorn Nyland Juniper Premium AWD 20.1 kWh/100 km at 120 km/h but only 12 C (autonomiacocheselectricos.es, no video link); AutoReview.nl LR AWD 20.04 kWh/100 km at 130 km/h, 19 C, 14.75 kWh/100 km at 100 km/h."
-    }
+    { "value": 168, "unit": "Wh/km", "kind": "tested", "source_id": "src-insideevs-oosr-modely-juniper-2025", "low_confidence": true, "notes": "Test: 70 mph (113 km/h) steady, temperature not stated, 20-30 mph winds, wheel size not stated, battery-side (car display, Out of Spec Reviews method; page does not say explicitly) | Out of Spec Reviews, 2025 Model Y Long Range AWD (Juniper), 298 miles. Page says 'around 3.7 miles per kWh': one rounded figure given for both the old and new Long Range AWD together, and the page does not state the pack: 1000 / (3.7 x 1.609344) = 168 Wh/km. Other figures seen, not recorded: tparts.com relays 275 Wh/mi (171 Wh/km) for the same test; Bjorn Nyland Juniper Premium AWD 20.1 kWh/100 km at 120 km/h but only 12 C (autonomiacocheselectricos.es, no video link); AutoReview.nl LR AWD 20.04 kWh/100 km at 130 km/h, 19 C, 14.75 kWh/100 km at 100 km/h." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Long Range AWD-B"
-      },
+      "names": { "CA": "Long Range AWD-B" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "community",
-          "source_id": "src-thechargeport-tesla-model-y",
-          "low_confidence": true,
-          "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
-        },
-        {
-          "value": "standard",
-          "kind": "estimated",
-          "low_confidence": true,
-          "source_id": "src-evdb-model-y-premium-awd-juniper",
-          "notes": "Estimated: EV Database lists heat pump as standard equipment on the Model Y Premium AWD (Juniper, Berlin); same model and generation carries it over. Not confirmed for this exact variant."
-        }
+        { "value": "standard", "kind": "community", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-aa0ad78d2e" },
+        { "value": "standard", "kind": "estimated", "low_confidence": true, "source_id": "src-evdb-model-y-premium-awd-juniper", "note_id": "n-048f09177f" }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-tslna-model-y-price-canada-2026",
-          "low_confidence": true,
-          "notes": "Canadian Premium AWD: 19-inch standard, 20-inch +$2,600. Mapped to Long Range AWD-B by content (same 542 km NRCan range, same pack and weight as Premium AWD-B); trim naming not confirmed."
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-tslna-model-y-price-canada-2026",
-          "low_confidence": true,
-          "notes": "20-inch option +$2,600 on Premium AWD; mapping as above."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-tslna-model-y-price-canada-2026", "low_confidence": true, "notes": "Canadian Premium AWD: 19-inch standard, 20-inch +$2,600. Mapped to Long Range AWD-B by content (same 542 km NRCan range, same pack and weight as Premium AWD-B); trim naming not confirmed." },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-tslna-model-y-price-canada-2026", "low_confidence": true, "notes": "20-inch option +$2,600 on Premium AWD; mapping as above." }
       ]
     }
   ]

@@ -3,86 +3,31 @@
   "model_id": "audi/q4-e-tron",
   "name": "Q4 55 e-tron quattro",
   "generation": "2024-update",
-  "years": [
-    2024
-  ],
+  "years": [2024],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 82,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2-insideevs-q4-55-2024",
-        "low_confidence": true,
-        "notes": "Audi US 2024 release: \"82-kilowatt-hour battery (77 kWh of net capacity)\". Wikipedia: Q4 40/45/50 82 gross for 2021-mid 2024; the 2025 Q4 45 uses the same pack (Cars.com)."
-      }
+      { "value": 82, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "note_id": "n-ca25351ebe" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 77,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2-insideevs-q4-55-2024",
-        "low_confidence": true,
-        "notes": "Audi US 2024 release: 77 kWh net. Same 82/77 pack in 2022-2026 (Wikipedia)."
-      }
+      { "value": 77, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "notes": "Audi US 2024 release: 77 kWh net. Same 82/77 pack in 2022-2026 (Wikipedia)." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-w2-wiki-audi-q4",
-        "low_confidence": true,
-        "notes": "Wikipedia: \"Nickel-Manganese-Cobalt (NMC) battery cells\" (LG Energy Solution, CATL)."
-      }
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-w2-wiki-audi-q4", "low_confidence": true, "note_id": "n-a282204cf6" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-guideauto-id4-2025-pro-awd",
-        "low_confidence": true,
-        "notes": "Estimated: the Q4 e-tron uses the MEB platform and its 82 kWh pack; Guide Auto lists the same-platform VW ID.4 82 kWh pack at 400 V. No Audi page states the Q4 voltage."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-guideauto-id4-2025-pro-awd", "low_confidence": true, "note_id": "n-c418444a3f" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "manufacturer",
-        "source_id": "src-w2-insideevs-q4-55-2024",
-        "low_confidence": true,
-        "notes": "Audi US 2024 release (via InsideEVs): the route planner prioritises DC fast chargers and will thermally precondition the battery before charging. A manual control is not described (low confidence)."
-      }
+      { "value": "automatic_with_navigation", "kind": "manufacturer", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "notes": "Audi US 2024 release (via InsideEVs): the route planner prioritises DC fast chargers and will thermally precondition the battery before charging. A manual control is not described (low confidence)." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 175,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-insideevs-q4-55-2024",
-      "low_confidence": true,
-      "notes": "Audi US 2024 release: Q4 55 e-tron up to 175 kW, 10-80 % in 28 min."
-    }
+    { "value": 175, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "notes": "Audi US 2024 release: Q4 55 e-tron up to 175 kW, 10-80 % in 28 min." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-insideevs-q4-55-2024",
-      "low_confidence": true,
-      "notes": "Audi US 2024 release (via InsideEVs): 11 kW onboard charger, full recharge overnight (up to 12 h)."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "notes": "Audi US 2024 release (via InsideEVs): 11 kW onboard charger, full recharge overnight (up to 12 h)." }
   ],
   "published_10_80_min": [
-    {
-      "value": 28,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-w2-insideevs-q4-55-2024",
-      "low_confidence": true,
-      "notes": "Audi US: 10-80 % in 28 minutes (82 kWh pack, 175 kW)."
-    }
+    { "value": 28, "unit": "min", "kind": "manufacturer", "source_id": "src-w2-insideevs-q4-55-2024", "low_confidence": true, "note_id": "n-28b3fb59d6" }
   ]
 }

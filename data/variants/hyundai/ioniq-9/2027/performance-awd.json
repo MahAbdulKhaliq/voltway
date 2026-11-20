@@ -5,41 +5,19 @@
   "name": "Performance AWD",
   "drivetrain": "awd",
   "powertrain_id": "hyundai/ioniq-9/2027-performance-awd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "community",
-      "source_id": "src-cargurus-ioniq-9-2027",
-      "notes": "CarGurus (US, 2027 Ioniq 9): standard NACS port. Other trims assumed the same (carryover, src-electrek-hyundai-2027-carryover).",
-      "low_confidence": true
-    }
+    { "value": "nacs", "kind": "community", "source_id": "src-cargurus-ioniq-9-2027", "note_id": "n-94d4cde516", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-cargurus-ioniq-9-2027",
-      "notes": "CarGurus (US, 2027 Ioniq 9): the NACS port gives access to the Tesla Supercharger network.",
-      "low_confidence": true
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-cargurus-ioniq-9-2027", "note_id": "n-c2dec915c2", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Performance AWD"
-      },
+      "names": { "US": "Performance AWD" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-carscom-hyundai-ioniq-9-2026-473082",
-          "low_confidence": true,
-          "notes": "2026 page; the 2027 Cars.com page lists no trims, carried over, nothing seen to change."
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-carscom-hyundai-ioniq-9-2026-473082", "low_confidence": true, "notes": "2026 page; the 2027 Cars.com page lists no trims, carried over, nothing seen to change." }
       ]
     }
   ]

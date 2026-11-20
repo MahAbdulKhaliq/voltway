@@ -4,85 +4,26 @@
   "kind": "tested",
   "source_id": "src-fastned-vehicle-curves-2026",
   "points": [
-    {
-      "soc_percent": 10,
-      "power_kw": 71.4
-    },
-    {
-      "soc_percent": 15,
-      "power_kw": 73.9
-    },
-    {
-      "soc_percent": 20,
-      "power_kw": 74.6
-    },
-    {
-      "soc_percent": 25,
-      "power_kw": 75.2
-    },
-    {
-      "soc_percent": 30,
-      "power_kw": 75.7
-    },
-    {
-      "soc_percent": 35,
-      "power_kw": 76.2
-    },
-    {
-      "soc_percent": 40,
-      "power_kw": 76.7
-    },
-    {
-      "soc_percent": 45,
-      "power_kw": 70.4
-    },
-    {
-      "soc_percent": 50,
-      "power_kw": 70.9
-    },
-    {
-      "soc_percent": 55,
-      "power_kw": 57.2
-    },
-    {
-      "soc_percent": 60,
-      "power_kw": 57.3
-    },
-    {
-      "soc_percent": 65,
-      "power_kw": 58
-    },
-    {
-      "soc_percent": 70,
-      "power_kw": 58.7
-    },
-    {
-      "soc_percent": 75,
-      "power_kw": 37.4
-    },
-    {
-      "soc_percent": 80,
-      "power_kw": 25.4
-    },
-    {
-      "soc_percent": 85,
-      "power_kw": 25.9
-    },
-    {
-      "soc_percent": 90,
-      "power_kw": 22
-    },
-    {
-      "soc_percent": 95,
-      "power_kw": 10
-    }
+    { "soc_percent": 10, "power_kw": 71.4 },
+    { "soc_percent": 15, "power_kw": 73.9 },
+    { "soc_percent": 20, "power_kw": 74.6 },
+    { "soc_percent": 25, "power_kw": 75.2 },
+    { "soc_percent": 30, "power_kw": 75.7 },
+    { "soc_percent": 35, "power_kw": 76.2 },
+    { "soc_percent": 40, "power_kw": 76.7 },
+    { "soc_percent": 45, "power_kw": 70.4 },
+    { "soc_percent": 50, "power_kw": 70.9 },
+    { "soc_percent": 55, "power_kw": 57.2 },
+    { "soc_percent": 60, "power_kw": 57.3 },
+    { "soc_percent": 65, "power_kw": 58 },
+    { "soc_percent": 70, "power_kw": 58.7 },
+    { "soc_percent": 75, "power_kw": 37.4 },
+    { "soc_percent": 80, "power_kw": 25.4 },
+    { "soc_percent": 85, "power_kw": 25.9 },
+    { "soc_percent": 90, "power_kw": 22 },
+    { "soc_percent": 95, "power_kw": 10 }
   ],
-  "conditions": {
-    "preconditioned": "unknown",
-    "battery_temp_c": 30,
-    "charger_kw": 150,
-    "measured_at": "unknown"
-  },
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 150, "measured_at": "unknown" },
   "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 64 kWh e-Niro 2018-2022, the same series as Fastned shows for the 64 kWh Kona. Applied to US/Canada 2019-2022 Niro EV (same 64 kWh pack, 77 kW). Second source: InsideEVs 2019 Niro EV test saw 25 kW by 80 %.",
   "is_display_default": false
 }

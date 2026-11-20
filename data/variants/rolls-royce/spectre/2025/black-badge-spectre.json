@@ -5,43 +5,19 @@
   "name": "Black Badge Spectre",
   "drivetrain": "awd",
   "powertrain_id": "rolls-royce/spectre/2025-black-badge-spectre",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-a-sp",
-      "low_confidence": true,
-      "notes": "Estimated: ArenaEV and evspecs.org list CCS; US/Canada cars assumed CCS1 (Combo 1); no Rolls-Royce NA page read."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-a-sp", "low_confidence": true, "note_id": "n-9b7d72701b" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-guide",
-      "low_confidence": true,
-      "notes": "GuideAuto relaying the Oct 2023 BMW NA announcement: CCS-equipped MINI Cooper SE and Rolls-Royce Spectre get Supercharger access (early 2025) with an adapter. Not re-confirmed on a Rolls-Royce page."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-guide", "low_confidence": true, "note_id": "n-52a83f73d3" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Black Badge Spectre",
-        "US": "Black Badge Spectre"
-      },
+      "names": { "CA": "Black Badge Spectre", "US": "Black Badge Spectre" },
       "wheels": [
-        {
-          "diameter_in": 23,
-          "is_standard": true,
-          "source_id": "src-cars-spectre-bb-2025",
-          "notes": "Black Badge Spectre (CA/US): Black Badge Spectre: 23-inch forged standard; no option listed.",
-          "low_confidence": true
-        }
+        { "diameter_in": 23, "is_standard": true, "source_id": "src-cars-spectre-bb-2025", "note_id": "n-0c59b51415", "low_confidence": true }
       ]
     }
   ]

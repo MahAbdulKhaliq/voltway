@@ -5,39 +5,19 @@
   "name": "EQS 450+ SUV",
   "drivetrain": "rwd",
   "powertrain_id": "mercedes/eqs-suv/2025-eqs-450-plus-suv",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2025-eqs-eqs450x",
-      "notes": "mbusa lists J1772 (AC) and Combined Charging System (DC)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-eqs-eqs450x", "note_id": "n-e863ab2c59" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-nacs-charging",
-      "low_confidence": true,
-      "notes": "mbusa NACS page: EQB, EQE, EQS and G 580 with a CCS1 inlet use the Mercedes-approved NACS-to-CCS1 adapter (included from MY26, otherwise sold by dealers). Canada: no Mercedes-Benz Canada page found; the same adapter route is assumed for the CA edition of this car."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-mbusa-nacs-charging", "low_confidence": true, "note_id": "n-6dff558c2e" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "EQS 450+ SUV"
-      },
+      "names": { "US": "EQS 450+ SUV" },
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-plus-2025-specs-458283",
-          "notes": "EQS 450+ SUV: 21 x 9.5 in, P275/45R21."
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cars-com-research-mercedes-benz-eqs-450-plus-2025-specs-458283", "notes": "EQS 450+ SUV: 21 x 9.5 in, P275/45R21." }
       ]
     }
   ]

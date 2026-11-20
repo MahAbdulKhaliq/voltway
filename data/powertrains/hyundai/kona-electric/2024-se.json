@@ -3,66 +3,25 @@
   "model_id": "hyundai/kona-electric",
   "name": "SE",
   "generation": "second-generation",
-  "years": [
-    2024
-  ],
+  "years": [2024],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 46.1,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-evdb-kona-48",
-        "low_confidence": true,
-        "notes": "Estimated: no page gives usable for the North American 48.6 kWh pack (Hyundai US \"battery system capacity\"; evspecs NA 269 V), treated as gross. Ratio from the same-generation European pack (different voltage, so only the ratio is used): 48.4/51.0 = 0.949 (EVDB); 48.6 x 0.949 = 46.1."
-      }
+      { "value": 46.1, "unit": "kWh", "kind": "estimated", "source_id": "src-evdb-kona-48", "low_confidence": true, "note_id": "n-3800bfdea9" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "community",
-        "source_id": "src-evspecs-kona-2024-na",
-        "low_confidence": true,
-        "notes": "NCM (NMC) for the 2024 North American Kona Electric SE 48.6 kWh (evspecs)."
-      }
+      { "value": "nmc", "kind": "community", "source_id": "src-evspecs-kona-2024-na", "low_confidence": true, "note_id": "n-6f5beaafbc" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "community",
-        "source_id": "src-weeklydriver-kona-648",
-        "low_confidence": true,
-        "notes": "The 48.6 kWh pack is 269 V nominal (evspecs NA) with 400 V charging architecture (Weekly Driver); class 400v."
-      }
+      { "value": "400v", "kind": "community", "source_id": "src-weeklydriver-kona-648", "low_confidence": true, "note_id": "n-1784ba56f7" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "estimated",
-        "source_id": "src-hyundai-om-kona-sx2-2025-us",
-        "low_confidence": true,
-        "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Estimated: 2025 manual carried to this model year/market (same generation)."
-      }
+      { "value": "automatic_and_manual", "kind": "estimated", "source_id": "src-hyundai-om-kona-sx2-2025-us", "low_confidence": true, "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Estimated: 2025 manual carried to this model year/market (same generation)." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 100,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-evspecs-kona-2024-na",
-      "low_confidence": true,
-      "notes": "North American 2024 Kona Electric SE 48.6 kWh: DC max 100 kW (evspecs NA; Weekly Driver also 100 kW). The European 48 kWh pack is listed at 75 kW (EVDB; Wikipedia/ADAC 74): conflict, the North American source is used. Low confidence."
-    }
+    { "value": 100, "unit": "kW", "kind": "community", "source_id": "src-evspecs-kona-2024-na", "low_confidence": true, "note_id": "n-161946f8e5" }
   ],
   "ac_max_kw": [
-    {
-      "value": 10.8,
-      "unit": "kW",
-      "kind": "community",
-      "source_id": "src-evspecs-kona-2024-na",
-      "low_confidence": true,
-      "notes": "North American 2024 Kona Electric SE: 10.8 kW onboard charger (evspecs); autoevolution says 11 kW for the US car."
-    }
+    { "value": 10.8, "unit": "kW", "kind": "community", "source_id": "src-evspecs-kona-2024-na", "low_confidence": true, "note_id": "n-f3ff492a9f" }
   ]
 }

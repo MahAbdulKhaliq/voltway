@@ -5,74 +5,27 @@
   "name": "Standard",
   "drivetrain": "fwd",
   "powertrain_id": "chevrolet/equinox-ev/2026-standard",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-guideautoweb-gm-nacs-adapter",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-equinox-ev",
-      "low_confidence": true,
-      "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-guideautoweb-gm-nacs-adapter", "low_confidence": true, "note_id": "n-5a9f4542ec" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-equinox-ev", "low_confidence": true, "note_id": "n-0c4fb58f29" }
   ],
   "consumption_highway_wh_per_km": [
-    {
-      "value": 185,
-      "unit": "Wh/km",
-      "kind": "tested",
-      "source_id": "src-insideevs-equinox-ev-range-test-2024",
-      "low_confidence": true,
-      "notes": "Test: 70 mph (113 km/h) steady, mid-80s F (~29 C), climate 70 F low fan, wheel size not stated, battery-side (car display) | 2024 Equinox EV FWD 2RS (same generation and 85 kWh pack as our 2026 FWD). Car reported 90.2 kWh used over 303 mi (3.4 mi/kWh): 90.2 kWh / 303 mi = 297.7 Wh/mi / 1.609344 = 185 Wh/km. Hot weather with A/C load. Other tests seen: Consumer Reports AWD 304 mi at 70 mph (no energy figure, paywalled)."
-    }
+    { "value": 185, "unit": "Wh/km", "kind": "tested", "source_id": "src-insideevs-equinox-ev-range-test-2024", "low_confidence": true, "notes": "Test: 70 mph (113 km/h) steady, mid-80s F (~29 C), climate 70 F low fan, wheel size not stated, battery-side (car display) | 2024 Equinox EV FWD 2RS (same generation and 85 kWh pack as our 2026 FWD). Car reported 90.2 kWh used over 303 mi (3.4 mi/kWh): 90.2 kWh / 303 mi = 297.7 Wh/mi / 1.609344 = 185 Wh/km. Hot weather with A/C load. Other tests seen: Consumer Reports AWD 304 mi at 70 mph (no energy figure, paywalled)." }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-wikipedia-chevrolet-equinox-ev",
-      "low_confidence": true,
-      "notes": "CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-wikipedia-chevrolet-equinox-ev", "low_confidence": true, "note_id": "n-eb3ab4b451" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Equinox EV",
-        "US": "FWD"
-      },
+      "names": { "CA": "Equinox EV", "US": "FWD" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "manufacturer",
-          "source_id": "src-chevrolet-equinox-ev",
-          "low_confidence": true,
-          "notes": "Quick web lookup (rough, not cross-checked)."
-        }
+        { "value": "standard", "kind": "manufacturer", "source_id": "src-chevrolet-equinox-ev", "low_confidence": true, "note_id": "n-fb631f1b14" }
       ],
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-equinox-ev-2026-specs",
-          "notes": "LT / LT1: 19 in, 245/55R19; LT2 not opened."
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-chevrolet-equinox-ev-2026-specs-478456",
-          "notes": "RS: 21 in, 275/40R21."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2026-specs", "note_id": "n-fb9c57e10e" },
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-chevrolet-equinox-ev-2026-specs-478456", "note_id": "n-41fdecc0c6" }
       ]
     }
   ]

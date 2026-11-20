@@ -3,73 +3,28 @@
   "model_id": "mercedes/g-580",
   "name": "G 580 with EQ Technology",
   "generation": "first-generation",
-  "years": [
-    2025
-  ],
+  "years": [2025],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 116,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-mbusa-data-2025-g-g580w4e",
-        "low_confidence": true,
-        "notes": "mbusa \"battery capacity\" row, read as usable because a second page labels this same pack usable: the Mercedes release and auto-data.net (per the fact-checker) list 116 kWh net/usable."
-      }
+      { "value": 116, "unit": "kWh", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-g-g580w4e", "low_confidence": true, "note_id": "n-9c9ffcfdcc" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-mbusa-data-2025-g-g580w4e",
-        "low_confidence": true,
-        "notes": "Estimated: GUESS: no page found names the cathode of this pack (auto-data and auto-motor-und-sport say only lithium-ion; the EV Database EQB excerpt says no data). nmc is the maker-wide norm (EQS/EQE NCM 811, CLA/GLC NMC) but EQB (MFA2) and G 580 (216-cell 116 kWh pack) are different packs. Owner decision needed."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-mbusa-data-2025-g-g580w4e", "low_confidence": true, "note_id": "n-b0f6ade31a" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-mbusa-data-2025-g-g580w4e",
-        "low_confidence": true,
-        "notes": "Estimated: No page states the G 580 pack voltage; its 200 kW peak and 116 kWh pack look like the 400 V EQS-class pack, and Mercedes introduced 800 V only with the 2026 CLA / 2027 EQS. Weak; owner decision needed."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-mbusa-data-2025-g-g580w4e", "low_confidence": true, "note_id": "n-2308f9037c" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-mbusa-cla-release",
-        "low_confidence": true,
-        "notes": "Estimated: no page found for this car (EQB / G 580); the 2026 CLA release states navigation-triggered battery pre-heating and Mercedes states no lineup-wide feature for this model year, so this is a guess from the same maker. Manual control unknown."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-cla-release", "low_confidence": true, "note_id": "n-7d4974290b" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 200,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2025-g-g580w4e",
-      "notes": "mbusa DC charging speed."
-    }
+    { "value": 200, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-g-g580w4e", "note_id": "n-ef94359a19" }
   ],
   "ac_max_kw": [
-    {
-      "value": 9.6,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2025-g-g580w4e",
-      "notes": "mbusa maximum AC charging speed."
-    }
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-g-g580w4e", "note_id": "n-6c4fc42729" }
   ],
   "published_10_80_min": [
-    {
-      "value": 32,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2025-g-g580w4e",
-      "notes": "mbusa DC charging time 10-80 %."
-    }
+    { "value": 32, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2025-g-g580w4e", "note_id": "n-e94024573d" }
   ]
 }

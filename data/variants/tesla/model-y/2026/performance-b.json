@@ -4,51 +4,21 @@
   "year": 2026,
   "name": "Performance-B",
   "drivetrain": "awd",
-  "powertrain_id": "tesla/model-y/2026-performance-b",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "tesla/model-y/2026-long-range-awd-b",
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "community",
-      "source_id": "src-thechargeport-tesla-model-y",
-      "low_confidence": true,
-      "notes": "Quick web lookup. Source says every Model Y uses a native NACS port; Supercharger access follows from that."
-    }
+    { "value": "yes", "kind": "community", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-8e40ff5dd6" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Performance-B",
-        "US": "Performance"
-      },
+      "names": { "CA": "Performance-B", "US": "Performance" },
       "heat_pump": [
-        {
-          "value": "standard",
-          "kind": "community",
-          "source_id": "src-thechargeport-tesla-model-y",
-          "low_confidence": true,
-          "notes": "Quick web lookup. 2027 US-oriented page says the Model Y heat pump is standard; 2026 Canadian model assumed the same."
-        },
-        {
-          "value": "standard",
-          "kind": "estimated",
-          "low_confidence": true,
-          "source_id": "src-evdb-model-y-premium-awd-juniper",
-          "notes": "Estimated: EV Database lists heat pump as standard equipment on the Model Y Premium AWD (Juniper, Berlin); same model and generation carries it over. Not confirmed for this exact variant."
-        }
+        { "value": "standard", "kind": "community", "source_id": "src-thechargeport-tesla-model-y", "low_confidence": true, "note_id": "n-aa0ad78d2e" },
+        { "value": "standard", "kind": "estimated", "low_confidence": true, "source_id": "src-evdb-model-y-premium-awd-juniper", "note_id": "n-048f09177f" }
       ],
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-tslna-model-y-price-canada-2026",
-          "low_confidence": true,
-          "notes": "Quick web lookup. Canadian page lists Performance 21 in Arachnid 2.0 standard; variant mapping assumed from trim name."
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-tslna-model-y-price-canada-2026", "low_confidence": true, "notes": "Quick web lookup. Canadian page lists Performance 21 in Arachnid 2.0 standard; variant mapping assumed from trim name." }
       ]
     }
   ]

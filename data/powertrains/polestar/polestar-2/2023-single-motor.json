@@ -3,86 +3,31 @@
   "model_id": "polestar/polestar-2",
   "name": "Single Motor",
   "generation": "launch",
-  "years": [
-    2023
-  ],
+  "years": [2023],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 78,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-wikipedia-polestar-2",
-        "low_confidence": true,
-        "notes": "Wikipedia spec table: Long Range packs 78 kWh gross / 75 kWh usable for 2021-2023 (single) and dual motor 2021-2024; InsideEVs 2024 EPA article confirms 78 kWh for the 2023 single and the 2024 dual/performance pack."
-      }
+      { "value": 78, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-polestar-2", "low_confidence": true, "note_id": "n-905cade3d1" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 75,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-wikipedia-polestar-2",
-        "low_confidence": true,
-        "notes": "Wikipedia spec table: 75 kWh usable for the 78 kWh Long Range pack (also EV Database Volvo XC40 Recharge 78/75, same CMA pack)."
-      }
+      { "value": 75, "unit": "kWh", "kind": "manufacturer", "source_id": "src-wikipedia-polestar-2", "low_confidence": true, "note_id": "n-181d3b150d" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "manufacturer",
-        "source_id": "src-wikipedia-polestar-2",
-        "low_confidence": true,
-        "notes": "Wikipedia: NMC for all Polestar 2 packs (EV Database also NMC)."
-      }
+      { "value": "nmc", "kind": "manufacturer", "source_id": "src-wikipedia-polestar-2", "low_confidence": true, "note_id": "n-cc088d2156" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-evdb-xc40-twin-pure-my22",
-        "low_confidence": true,
-        "notes": "Estimated: The 78 kWh Polestar 2 pack is the same CMA 108-cell NMC pack as the Volvo XC40 Recharge 78 kWh (EV Database: 400 V); the Polestar US spec page confirms 400 V for the later 82 kWh pack."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-evdb-xc40-twin-pure-my22", "low_confidence": true, "note_id": "n-f981eaa930" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-polestar-us-manual-2023-charging",
-        "low_confidence": true,
-        "notes": "Estimated: Polestar 2 manual (US, 2023): preconditioning is triggered by adding a rapid charging station as a destination in Google Maps; no manual control listed. The manual says \"selecting preconditioning\" can affect charging time, so a manual option is not ruled out; the only trigger described is navigation, so automatic_with_navigation is the closest enum."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-polestar-us-manual-2023-charging", "low_confidence": true, "note_id": "n-699c3ade12" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 155,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-polestar-2024-epa",
-      "low_confidence": true,
-      "notes": "InsideEVs (Polestar US 2024 release): 2023 Single Motor charged at up to 155 kW (35 min 10-80%); Dual Motor up to 155 kW. Wikipedia also 155 kW. Polestar's 2021 manual says 150 kW."
-    }
+    { "value": 155, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-polestar-2024-epa", "low_confidence": true, "notes": "InsideEVs (Polestar US 2024 release): 2023 Single Motor charged at up to 155 kW (35 min 10-80%); Dual Motor up to 155 kW. Wikipedia also 155 kW. Polestar's 2021 manual says 150 kW." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-us-manual-2023-charging",
-      "low_confidence": true,
-      "notes": "Polestar US 2023 manual: vehicle maximum AC output 11 kW."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-polestar-us-manual-2023-charging", "low_confidence": true, "note_id": "n-b79a31791a" }
   ],
   "published_10_80_min": [
-    {
-      "value": 35,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-polestar-2024-epa",
-      "low_confidence": true,
-      "notes": "InsideEVs (relaying Polestar): 2023 Single Motor 35 min 10-80% at up to 155 kW."
-    }
+    { "value": 35, "unit": "min", "kind": "manufacturer", "source_id": "src-insideevs-polestar-2024-epa", "low_confidence": true, "notes": "InsideEVs (relaying Polestar): 2023 Single Motor 35 min 10-80% at up to 155 kW." }
   ]
 }

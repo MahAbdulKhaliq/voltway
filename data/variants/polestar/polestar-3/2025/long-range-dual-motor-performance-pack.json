@@ -4,51 +4,21 @@
   "year": 2025,
   "name": "Long Range Dual Motor Performance Pack",
   "drivetrain": "awd",
-  "powertrain_id": "polestar/polestar-3/2025-long-range-dual-motor-performance-pack",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "polestar/polestar-3/2025-long-range-dual-motor",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-nacs-checker-2026",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port US checker lists Polestar 3 (2025-2026) as CCS1 with a paid adapter; Polestar US page lists a Type 1 AC cable and says the car is compatible with the NACS adapter, which a native NACS port would not need. Canada: Polestar Canada page also names the NACS adapter."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-nacs-checker-2026", "low_confidence": true, "note_id": "n-95808f81e1" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-us-nacs-adapter-page",
-      "low_confidence": true,
-      "notes": "Polestar US: \"Polestar 2, Polestar 3 and Polestar 4 vehicles are compatible with the NACS adapter\" (bought at a Service Point; $230 per InsideEVs)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-polestar-ca-nacs-adapter-page",
-      "low_confidence": true,
-      "notes": "Polestar Canada: same statement for Polestar 2, 3 and 4."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-us-nacs-adapter-page", "low_confidence": true, "note_id": "n-de5dd5d63b" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-polestar-ca-nacs-adapter-page", "low_confidence": true, "note_id": "n-616aab9b8a" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Long Range Dual Motor Performance Pack",
-        "US": "Long Range Dual Motor Performance Pack"
-      },
+      "names": { "CA": "Long Range Dual Motor Performance Pack", "US": "Long Range Dual Motor Performance Pack" },
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r2w-ps3-us",
-          "notes": "22-inch Performance forged wheels come with the Performance pack; page not model-year specific.",
-          "low_confidence": true
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2w-ps3-us", "note_id": "n-6c2e89c1e1", "low_confidence": true }
       ]
     }
   ]

@@ -4,43 +4,20 @@
   "year": 2026,
   "name": "AWD",
   "drivetrain": "awd",
-  "powertrain_id": "jeep/wagoneer-s/2026-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "jeep/wagoneer-s/2024-awd",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "community",
-      "source_id": "src-electrive-stellantis-supercharger-2026",
-      "notes": "electrive names the \"Free2move Charge NACS-CCS1 DC Adapter\" for the Wagoneer S, which implies a CCS1 inlet; InsideEVs (review) says the car has no NACS plug but does not name the port standard.",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "community", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-0a10fd51e3", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-electrive-stellantis-supercharger-2026",
-      "notes": "Estimated: electrive lists Wagoneer S 2024-2025 (Electrek says 2026 model years qualify); the 2026 car is the same hardware with a CCS port, so the adapter works the same. Canada implied, not confirmed. Canada: the reports say \"North America\"; no source confirms Canadian cars are covered.",
-      "low_confidence": true
-    }
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-98d87c2e58", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "AWD",
-        "US": "AWD"
-      },
+      "names": { "CA": "AWD", "US": "AWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-jeep-wagoneer-s-2026-specs-482381",
-          "notes": "Limited 4xe 4x4: 20x8.5, P235/50TR20; the Obsidian Package adds gloss-black 20 in wheels."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-jeep-wagoneer-s-2026-specs-482381", "note_id": "n-29d6ea7d0b" }
       ]
     }
   ]

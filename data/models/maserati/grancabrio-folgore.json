@@ -4,35 +4,24 @@
   "name": "GranCabrio Folgore",
   "body_type": "coupe",
   "generations": [
-    {
-      "id": "second-generation",
-      "name": "Second-generation GranCabrio",
-      "first_year": 2024,
-      "notes": "Convertible version of the GranTurismo Folgore (added 2024): same 92.5 kWh, 800 V pack, 270 kW DC, 22 kW AC; likely one shared powertrain with the GranTurismo Folgore. The schema has no convertible body type, so \"coupe\" is used. EPA MY2024-2026; no NRCan row. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Maserati_GranTurismo"
-    }
+    { "id": "second-generation", "name": "Second-generation GranCabrio", "first_year": 2024, "notes": "Convertible version of the GranTurismo Folgore (added 2024): same 92.5 kWh, 800 V pack, 270 kW DC, 22 kW AC; likely one shared powertrain with the GranTurismo Folgore. The schema has no convertible body type, so \"coupe\" is used. EPA MY2024-2026; no NRCan row. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/Maserati_GranTurismo" }
   ],
   "years": [
     {
       "year": 2024,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2025,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "second-generation"
     },
     {
       "year": 2026,
-      "markets": [
-        "US"
-      ],
+      "markets": ["US"],
       "availability_status": "production",
       "generation": "second-generation"
     }

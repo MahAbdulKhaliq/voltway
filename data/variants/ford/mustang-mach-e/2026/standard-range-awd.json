@@ -4,44 +4,20 @@
   "year": 2026,
   "name": "Standard Range AWD",
   "drivetrain": "awd",
-  "powertrain_id": "ford/mustang-mach-e/2026-standard-range-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "ford/mustang-mach-e/2026-standard-range",
+  "markets": ["CA", "US"],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-ford-ca-supercharger-2024",
-      "low_confidence": true,
-      "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; the cited Ford page names no model years, so eligibility of this model year is not shown by it; 2025 has the feature from the factory). Recorded: via adapter today."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
   ],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-insideevs-mme-carplay-2026",
-      "low_confidence": true,
-      "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2024-2026 owners implies the same CCS1 port. No port change found across 2021-2026."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-414c61eb68" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Standard Range AWD",
-        "US": "Standard Range eAWD"
-      },
+      "names": { "CA": "Standard Range AWD", "US": "Standard Range eAWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-ford-ca-mache-premium-2026",
-          "notes": "Premium: 19 in aluminum standard (Ford Canada 2026 Premium page); Ford 2025 sheet gives 19 in for Select and Premium. 2026 Select not read separately. Source is a US page; Canadian trim assumed the same.",
-          "low_confidence": true
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-ford-ca-mache-premium-2026", "note_id": "n-931605b391", "low_confidence": true }
       ]
     }
   ]

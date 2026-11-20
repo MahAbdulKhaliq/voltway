@@ -5,88 +5,34 @@
   "name": "RWD",
   "drivetrain": "rwd",
   "powertrain_id": "cadillac/lyriq/2024-rwd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-lyriq",
-      "low_confidence": true,
-      "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2024."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-thechargeport-lyriq", "low_confidence": true, "note_id": "n-a272ef025b" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-lyriq-2027",
-      "low_confidence": true,
-      "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2024: adapter needed. Markets: CA/US."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-thechargeport-lyriq-2027", "low_confidence": true, "note_id": "n-13d1cf7d43" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "RWD"
-      },
+      "names": { "CA": "RWD" },
       "ac_max_kw": [
-        {
-          "value": 11.5,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(11.5 kW Charger)\" with a matching 240 V charge time. Standard charger; the 19.2 kW version is a separate option. Basis: NRCan 2024 lists both labels; EPA 2024 has one unlabelled row at the 19.2 kW time, so in the US the 19.2 kW trim is the one EPA rates (see new_trims)."
-        }
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "note_id": "n-d7d9a0ef3b" }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2024-specs-433251",
-          "notes": "Tech, Luxury w/1SD and Sport w/1SF pages: 20 in, 265/50R20."
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2024-specs-433255",
-          "notes": "Sport w/1SK page: 22 in, 275/40R22 (top 2024 trims; which other trims have 22 in not confirmed).",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2024-specs-433251", "note_id": "n-7bd8b54cda" },
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2024-specs-433255", "note_id": "n-8b890e5d8c", "low_confidence": true }
       ]
     },
     {
       "id": "19-2-kw-charger",
-      "names": {
-        "CA": "RWD (19.2 kW Charger)",
-        "US": "RWD (19.2 kW Charger)"
-      },
+      "names": { "CA": "RWD (19.2 kW Charger)", "US": "RWD (19.2 kW Charger)" },
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-nrcan-bev-2026-09",
-          "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. US: EPA 2024 single row 6.5 h matches this charger (11.5 kW would take about 10.7 h)."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-nrcan-bev-2026-09", "notes": "NRCan lists this car as \"(19.2 kW Charger)\" with a matching 240 V charge time. US: EPA 2024 single row 6.5 h matches this charger (11.5 kW would take about 10.7 h)." }
       ],
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2024-specs-433251",
-          "notes": "Tech, Luxury w/1SD and Sport w/1SF pages: 20 in, 265/50R20."
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-lyriq-2024-specs-433255",
-          "notes": "Sport w/1SK page: 22 in, 275/40R22 (top 2024 trims; which other trims have 22 in not confirmed).",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2024-specs-433251", "note_id": "n-7bd8b54cda" },
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r3w-cadillac-lyriq-2024-specs-433255", "note_id": "n-8b890e5d8c", "low_confidence": true }
       ]
     }
   ]

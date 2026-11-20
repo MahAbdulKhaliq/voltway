@@ -4,57 +4,22 @@
   "year": 2026,
   "name": "xDrive40",
   "drivetrain": "awd",
-  "powertrain_id": "bmw/i5/2026-xdrive40",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "bmw/i5/2026-edrive40",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ie-i5nacs",
-      "low_confidence": true,
-      "notes": "US: all i5 built for the US from March 2026 have a NACS port; eDrive40/xDrive40 built before then have CCS1 (they shipped with CCS first). One value recorded for the model year; owner to decide how to show pre-March cars."
-    },
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-ca-nacs",
-      "low_confidence": true,
-      "notes": "Canada (estimated): BMW Canada says built-in NACS is only on all-new 2026+ models (iX3, i3); no Canadian i5 page found, CCS1 assumed. Unproven."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-w2-ie-i5nacs", "low_confidence": true, "note_id": "n-5f64ac4827" },
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-8ad5e49e4e" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-w2-ie-i5nacs",
-      "low_confidence": true,
-      "notes": "US: native NACS port (March 2026 builds on); earlier cars need the CCS adapter."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ca-nacs",
-      "low_confidence": true,
-      "notes": "Canada: Lectron Vortex Plus adapter plus software update (from 2026-04-08) for CCS cars."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-w2-ie-i5nacs", "low_confidence": true, "note_id": "n-313bf043ba" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-932632354f" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "xDrive40",
-        "US": "xDrive40"
-      },
+      "names": { "CA": "xDrive40", "US": "xDrive40" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-bmw-i5-2026-specs-470575",
-          "notes": "xDrive40 Sedan: 19 x 8.5 in aluminum, P245/45R19; the M Sport Package (Style 936M) is the same 19 in size. (US page; Canadian cars assumed the same.)"
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i5-2026-specs-470575", "note_id": "n-00ac4d3378" }
       ]
     }
   ]

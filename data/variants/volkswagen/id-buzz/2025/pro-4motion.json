@@ -5,42 +5,19 @@
   "name": "Pro 4MOTION",
   "drivetrain": "awd",
   "powertrain_id": "volkswagen/id-buzz/2025-pro-4motion",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-vw-us-id-buzz",
-      "low_confidence": true,
-      "notes": "vw.com: a Volkswagen-approved NACS DC adapter is sold separately for Tesla Superchargers, so the car has a CCS1 DC inlet (VW Canada says the same)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-vw-us-id-buzz", "low_confidence": true, "notes": "vw.com: a Volkswagen-approved NACS DC adapter is sold separately for Tesla Superchargers, so the car has a CCS1 DC inlet (VW Canada says the same)." }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-vw-ca-nacs-adapter",
-      "low_confidence": true,
-      "notes": "VW Canada: NACS DC adapter officially available for ID.4 and ID. Buzz, unlocking Tesla NACS partner Superchargers across Canada and the US; Electrek 2025-11-12: access from 2025-11-18, $200 (CAD 304) adapter, MY2026+ include it."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-vw-ca-nacs-adapter", "low_confidence": true, "notes": "VW Canada: NACS DC adapter officially available for ID.4 and ID. Buzz, unlocking Tesla NACS partner Superchargers across Canada and the US; Electrek 2025-11-12: access from 2025-11-18, $200 (CAD 304) adapter, MY2026+ include it." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Pro 4MOTION",
-        "US": "4MOTION"
-      },
+      "names": { "CA": "Pro 4MOTION", "US": "4MOTION" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-cars-volkswagen-idbuzz-2025-469213",
-          "notes": "ID. Buzz Pro S Plus 4MOTION 2025: 20x8 read on this Cars.com page (trim shown: Pro S Plus 4MOTION)."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-cars-volkswagen-idbuzz-2025-469213", "notes": "ID. Buzz Pro S Plus 4MOTION 2025: 20x8 read on this Cars.com page (trim shown: Pro S Plus 4MOTION)." }
       ]
     }
   ]

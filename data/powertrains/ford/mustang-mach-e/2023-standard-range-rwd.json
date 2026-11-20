@@ -3,85 +3,31 @@
   "model_id": "ford/mustang-mach-e",
   "name": "Standard Range RWD",
   "generation": "usable-capacity-unlock",
-  "years": [
-    2022,
-    2023
-  ],
+  "years": [2022, 2023],
   "battery": {
     "capacity_usable_kwh": [
-      {
-        "value": 72,
-        "kind": "manufacturer",
-        "source_id": "src-ford-us-mme-specs-2023",
-        "unit": "kWh",
-        "notes": "Ford 2023 spec sheet: SR 72 kWh usable (108 cells)."
-      }
+      { "value": 72, "kind": "manufacturer", "source_id": "src-ford-us-mme-specs-2023", "unit": "kWh", "note_id": "n-bc947408aa" }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 78.21,
-        "kind": "manufacturer",
-        "source_id": "src-electrek-ford-lfp-2023",
-        "unit": "kWh",
-        "low_confidence": true,
-        "notes": "Electrek read 78.21 kWh (225 Ah at 347.8 V) from the pack shown at Ford's presentation; a manufacturer figure relayed by press, not an independent test."
-      }
+      { "value": 78.21, "kind": "manufacturer", "source_id": "src-electrek-ford-lfp-2023", "unit": "kWh", "low_confidence": true, "note_id": "n-e85fd8482e" }
     ],
     "chemistry": [
-      {
-        "value": "lfp",
-        "kind": "manufacturer",
-        "source_id": "src-insideevs-mme-lfp-2023",
-        "low_confidence": true,
-        "notes": "InsideEVs: all 2023 Standard Range cars use LFP (CATL), relays Ford."
-      }
+      { "value": "lfp", "kind": "manufacturer", "source_id": "src-insideevs-mme-lfp-2023", "low_confidence": true, "note_id": "n-2438897d15" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-electrek-ford-lfp-2023",
-        "low_confidence": true,
-        "notes": "Estimated: Mach-E LFP pack reads 347.8 V nominal (Electrek); the NMC packs share the same architecture, so 400 V class. Class inferred from the figure."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-electrek-ford-lfp-2023", "low_confidence": true, "note_id": "n-0e768d8164" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-ford-ca-precondition",
-        "low_confidence": true,
-        "notes": "Estimated: Ford Canada says its electric vehicles use navigation-triggered battery preconditioning (route planning or choosing a DC fast charger in Connected Navigation, Google Maps or Apple Maps EV Routing). The cited page is silent on any manual control and on model years; I found no manual battery-preconditioning control documented in Ford support pages or owner forums (owners have asked for one since 2021), so automatic_with_navigation is the best fit, not a proven fact. Cars from 2021 and 2022 may predate the navigation trigger (the Ford Canada navigation page says earlier model years received it by software update), so the value for this model year is unconfirmed."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-ford-ca-precondition", "low_confidence": true, "note_id": "n-09a7a762e0" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 150,
-      "kind": "manufacturer",
-      "source_id": "src-ford-us-mme-specs-2023",
-      "unit": "kW",
-      "notes": "Ford 2023 spec sheet: up to 150 kW DC fast charge."
-    }
+    { "value": 150, "kind": "manufacturer", "source_id": "src-ford-us-mme-specs-2023", "unit": "kW", "note_id": "n-717c1c7cf7" }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "kind": "estimated",
-      "source_id": "src-wikipedia-mach-e",
-      "unit": "kW",
-      "low_confidence": true,
-      "notes": "Estimated: Wikipedia infobox lists 11 kW onboard AC for the Mach-E (Ford owners cite 10.5 kW output / 11.3-11.5 kW at 48 A); no onboard-charger change found 2021-2026. Wikipedia does not name a market, so the Canadian car is unproven."
-    }
+    { "value": 11, "kind": "estimated", "source_id": "src-wikipedia-mach-e", "unit": "kW", "low_confidence": true, "note_id": "n-6d63d05bc5" }
   ],
   "published_10_80_min": [
-    {
-      "value": 33,
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-mme-lfp-2023",
-      "unit": "min",
-      "low_confidence": true,
-      "notes": "Ford claim for the LFP SR 10-80%."
-    }
+    { "value": 33, "kind": "manufacturer", "source_id": "src-insideevs-mme-lfp-2023", "unit": "min", "low_confidence": true, "note_id": "n-9172b61030" }
   ]
 }

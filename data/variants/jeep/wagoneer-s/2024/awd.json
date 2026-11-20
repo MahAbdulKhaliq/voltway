@@ -5,42 +5,19 @@
   "name": "AWD",
   "drivetrain": "awd",
   "powertrain_id": "jeep/wagoneer-s/2024-awd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "community",
-      "source_id": "src-electrive-stellantis-supercharger-2026",
-      "notes": "electrive names the \"Free2move Charge NACS-CCS1 DC Adapter\" for the Wagoneer S, which implies a CCS1 inlet; InsideEVs (review) says the car has no NACS plug but does not name the port standard.",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "community", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-0a10fd51e3", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-electrive-stellantis-supercharger-2026",
-      "notes": "Stellantis (March 2026): Wagoneer S 2024-2025 can use Tesla Superchargers with the Free2move Charge NACS-CCS1 adapter. Reports say \"North America\"; Canada implied, not separately confirmed. Canada: the reports say \"North America\"; no source confirms Canadian cars are covered.",
-      "low_confidence": true
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "note_id": "n-4f5621d246", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "AWD",
-        "US": "AWD"
-      },
+      "names": { "CA": "AWD", "US": "AWD" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-r3w-jeep-wagoneer-s-2024-specs-457514",
-          "notes": "Launch Edition AWD: 20x8.5, P235/50TR20."
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-r3w-jeep-wagoneer-s-2024-specs-457514", "note_id": "n-2dec2f3dd2" }
       ]
     }
   ]

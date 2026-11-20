@@ -3,82 +3,31 @@
   "model_id": "mercedes/eqb",
   "name": "EQB 300 4MATIC",
   "generation": "first-generation",
-  "years": [
-    2024
-  ],
+  "years": [2024],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 70.5,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-mbusa-data-2024-eqb-eqb300w4",
-        "notes": "mbusa lists 70.5 kWh battery capacity (2022 EQB 300 page says 70.7, apparently a typo; EQB 350 page of the same year says 70.5)."
-      }
+      { "value": 70.5, "unit": "kWh", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqb-eqb300w4", "note_id": "n-6d893c3cea" }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 66.5,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-mb-eqb",
-        "low_confidence": true,
-        "notes": "Estimated: Wikipedia lists the EQB battery as 66.5 kWh (no gross/usable label) while mbusa lists 70.5 kWh for the same pack, so 66.5 is taken as the usable figure; the 70.5 gross / 66.5 usable split is widely listed (ev-database, Auto Express) but no page stating it could be opened. The 2022 EQB 300 sheet says 70.7, most likely a typo."
-      }
+      { "value": 66.5, "unit": "kWh", "kind": "estimated", "source_id": "src-wikipedia-mb-eqb", "low_confidence": true, "note_id": "n-7deda96492" }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-mb-eqb",
-        "low_confidence": true,
-        "notes": "Estimated: GUESS: no page found names the cathode of this pack (auto-data and auto-motor-und-sport say only lithium-ion; the EV Database EQB excerpt says no data). nmc is the maker-wide norm (EQS/EQE NCM 811, CLA/GLC NMC) but EQB (MFA2) and G 580 (216-cell 116 kWh pack) are different packs. Owner decision needed."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-wikipedia-mb-eqb", "low_confidence": true, "note_id": "n-b0f6ade31a" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-wikipedia-mb-eqb",
-        "low_confidence": true,
-        "notes": "Estimated: EV Database excerpt (seen by the fact-checker; page not opened here, HTTP 429) gives the EQB as 400 V architecture, 367 V nominal. Weak; owner decision needed."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-wikipedia-mb-eqb", "low_confidence": true, "note_id": "n-44400b9a83" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_with_navigation",
-        "kind": "estimated",
-        "source_id": "src-mbusa-cla-release",
-        "low_confidence": true,
-        "notes": "Estimated: no page found for this car (EQB / G 580); the 2026 CLA release states navigation-triggered battery pre-heating and Mercedes states no lineup-wide feature for this model year, so this is a guess from the same maker. Manual control unknown."
-      }
+      { "value": "automatic_with_navigation", "kind": "estimated", "source_id": "src-mbusa-cla-release", "low_confidence": true, "note_id": "n-7d4974290b" }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 100,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2024-eqb-eqb300w4",
-      "notes": "mbusa DC charging speed."
-    }
+    { "value": 100, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqb-eqb300w4", "note_id": "n-ef94359a19" }
   ],
   "ac_max_kw": [
-    {
-      "value": 9.6,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2024-eqb-eqb300w4",
-      "notes": "mbusa maximum AC charging speed."
-    }
+    { "value": 9.6, "unit": "kW", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqb-eqb300w4", "note_id": "n-6c4fc42729" }
   ],
   "published_10_80_min": [
-    {
-      "value": 32,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-mbusa-data-2024-eqb-eqb300w4",
-      "notes": "mbusa DC charging time 10-80 %."
-    }
+    { "value": 32, "unit": "min", "kind": "manufacturer", "source_id": "src-mbusa-data-2024-eqb-eqb300w4", "note_id": "n-e94024573d" }
   ]
 }

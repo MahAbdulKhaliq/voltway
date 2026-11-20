@@ -5,43 +5,19 @@
   "name": "Standard Range eAWD",
   "drivetrain": "awd",
   "powertrain_id": "ford/mustang-mach-e/2024-standard-range-eawd",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-insideevs-mme-carplay-2026",
-      "low_confidence": true,
-      "notes": "Estimated: the 2026 Mach-E has a CCS1 port (InsideEVs) and Ford sells a NACS adapter (2025 spec sheet); the Supercharger adapter programme for 2024 owners implies the same CCS1 port. No port change found across 2021-2026."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-insideevs-mme-carplay-2026", "low_confidence": true, "note_id": "n-bb3e12752d" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-ford-ca-supercharger-2024",
-      "low_confidence": true,
-      "notes": "Ford: adapter gives Tesla Supercharger access in the U.S. and Canada (programme from 29 Feb 2024; the cited Ford page names no model years, so eligibility of this model year is not shown by it; 2025 has the feature from the factory). Recorded: via adapter today."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-ford-ca-supercharger-2024", "low_confidence": true, "note_id": "n-65668d34cb" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Standard Range eAWD",
-        "US": "Standard Range eAWD"
-      },
+      "names": { "CA": "Standard Range eAWD", "US": "Standard Range eAWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-carscom-mache-2024-select",
-          "low_confidence": true,
-          "notes": "Select: 19 in standard (Cars.com 2024 Select page). Source is a US page; Canadian trim assumed the same."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-carscom-mache-2024-select", "low_confidence": true, "note_id": "n-2a2a65f6d0" }
       ]
     }
   ]

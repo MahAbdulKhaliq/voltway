@@ -5,71 +5,23 @@
   "name": "xDrive60",
   "drivetrain": "awd",
   "powertrain_id": "bmw/ix/2026-xdrive60",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-ie-sc",
-      "low_confidence": true,
-      "notes": "Estimated: BMW iX keeps CCS1 (InsideEVs: all current BMW EVs use CCS ports); 2026 iX assumed unchanged (no page for a 2026 NACS iX found; the i5 switched mid-2026)."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-e6c4e1a732" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ca-nacs",
-      "low_confidence": true,
-      "notes": "Canada: Lectron Vortex Plus NACS-to-CCS adapter plus software update (from 2026-04-08)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ie-sc",
-      "low_confidence": true,
-      "notes": "US: Supercharging with a CCS-to-NACS adapter (Lectron) from the week of 2025-12-10 for i4/i5/i7/iX; 2026 cars need a software update."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "xDrive60",
-        "US": "xDrive60"
-      },
+      "names": { "CA": "xDrive60", "US": "xDrive60" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-bmw-ix-2026-us",
-          "notes": "xDrive60 (CA/US): iX xdrive60: 20-inch standard.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-bmw-ix-2026-us",
-          "notes": "xDrive60 (CA/US): iX xdrive60: 21-inch M alloy with M Sport Package.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 22,
-          "is_standard": false,
-          "source_id": "src-bmw-ix-2026-us",
-          "notes": "xDrive60 (CA/US): iX xdrive60: 22-inch M alloy with M Sport Package.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 23,
-          "is_standard": false,
-          "source_id": "src-bmw-ix-2026-us",
-          "notes": "xDrive60 (CA/US): iX xdrive60: 23-inch BMW Individual V-spoke as M Sport Package enhancement.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-bmw-ix-2026-us", "notes": "xDrive60 (CA/US): iX xdrive60: 20-inch standard.", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-bmw-ix-2026-us", "notes": "xDrive60 (CA/US): iX xdrive60: 21-inch M alloy with M Sport Package.", "low_confidence": true },
+        { "diameter_in": 22, "is_standard": false, "source_id": "src-bmw-ix-2026-us", "notes": "xDrive60 (CA/US): iX xdrive60: 22-inch M alloy with M Sport Package.", "low_confidence": true },
+        { "diameter_in": 23, "is_standard": false, "source_id": "src-bmw-ix-2026-us", "notes": "xDrive60 (CA/US): iX xdrive60: 23-inch BMW Individual V-spoke as M Sport Package enhancement.", "low_confidence": true }
       ]
     }
   ]

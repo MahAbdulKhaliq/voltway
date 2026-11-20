@@ -4,77 +4,33 @@
   "year": 2027,
   "name": "Optiq-V AWD",
   "drivetrain": "awd",
-  "powertrain_id": "cadillac/optiq-v/2027-optiq-v-awd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "cadillac/optiq-v/2026-optiq-v-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-cadillac-optiq",
-      "low_confidence": true,
-      "notes": "Estimated: The Charge Port Optiq page describes the Optiq and Optiq-V trims as \"native NACS\" (no year split stated); the 2026 car uses CCS1 (Wikipedia). Model-year 2027."
-    }
+    { "value": "nacs", "kind": "estimated", "source_id": "src-thechargeport-cadillac-optiq", "low_confidence": true, "note_id": "n-6530f8dc3a" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "estimated",
-      "source_id": "src-thechargeport-cadillac-optiq",
-      "low_confidence": true,
-      "notes": "Estimated: Native NACS port on the 2027 model year charges at Tesla Superchargers without an adapter (The Charge Port pages for Vistiq/Optiq/Equinox EV; Sierra EV inferred from the port estimate). US."
-    }
+    { "value": "yes", "kind": "estimated", "source_id": "src-thechargeport-cadillac-optiq", "low_confidence": true, "note_id": "n-3d05143027" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "Optiq-V AWD"
-      },
+      "names": { "US": "Optiq-V AWD" },
       "ac_max_kw": [
-        {
-          "value": 11.5,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-epa-fueleconomy-2026-11",
-          "low_confidence": true,
-          "notes": "EPA vehicles.csv lists this car as \"(11 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM). Standard charger; the 19.2 kW version is a separate option."
-        }
+        { "value": 11.5, "unit": "kW", "kind": "manufacturer", "source_id": "src-epa-fueleconomy-2026-11", "low_confidence": true, "note_id": "n-cba09055af" }
       ],
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-optiq-2026-specs-473179",
-          "notes": "Carried from the 2026 OPTIQ-V page (2027 page not opened).",
-          "low_confidence": true
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cadillac-optiq-2026-specs-473179", "note_id": "n-db2002f378", "low_confidence": true }
       ]
     },
     {
       "id": "19-2-kw-charger",
-      "names": {
-        "US": "Optiq-V AWD (19.2 kW Charger)"
-      },
+      "names": { "US": "Optiq-V AWD (19.2 kW Charger)" },
       "ac_max_kw": [
-        {
-          "value": 19.2,
-          "unit": "kW",
-          "kind": "manufacturer",
-          "source_id": "src-epa-fueleconomy-2026-11",
-          "low_confidence": true,
-          "notes": "EPA vehicles.csv lists this car as \"(19 kW Charger)\" (rounded label; 11.5/19.2 kW from the NRCan labels and GM)."
-        }
+        { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-epa-fueleconomy-2026-11", "low_confidence": true, "note_id": "n-9f835e2a7d" }
       ],
       "wheels": [
-        {
-          "diameter_in": 21,
-          "is_standard": true,
-          "source_id": "src-r3w-cadillac-optiq-2026-specs-473179",
-          "notes": "Carried from the 2026 OPTIQ-V page (2027 page not opened).",
-          "low_confidence": true
-        }
+        { "diameter_in": 21, "is_standard": true, "source_id": "src-r3w-cadillac-optiq-2026-specs-473179", "note_id": "n-db2002f378", "low_confidence": true }
       ]
     }
   ]

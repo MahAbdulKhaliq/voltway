@@ -5,42 +5,19 @@
   "name": "Moab",
   "drivetrain": "awd",
   "powertrain_id": "jeep/recon/2026-moab",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-electrek-jeep-recon-2025",
-      "notes": "Electrek: launches with CCS; Stellantis plans NACS starting 2026 (electrive names the 2027 Charger as the first native NACS model, so the 2026 Recon is CCS1).",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-electrek-jeep-recon-2025", "notes": "Electrek: launches with CCS; Stellantis plans NACS starting 2026 (electrive names the 2027 Charger as the first native NACS model, so the 2026 Recon is CCS1).", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-electrive-stellantis-supercharger-2026",
-      "notes": "Stellantis (March 2026): the 2026 Recon is included with the Free2move Charge NACS-CCS1 adapter. Canada implied, not separately confirmed. Canada: the reports say \"North America\"; no source confirms Canadian cars are covered.",
-      "low_confidence": true
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-electrive-stellantis-supercharger-2026", "notes": "Stellantis (March 2026): the 2026 Recon is included with the Free2move Charge NACS-CCS1 adapter. Canada implied, not separately confirmed. Canada: the reports say \"North America\"; no source confirms Canadian cars are covered.", "low_confidence": true }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Moab",
-        "US": "Moab"
-      },
+      "names": { "CA": "Moab", "US": "Moab" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r2w-cc-recon",
-          "notes": "Moab 4xe 18 x 8.5."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-cc-recon", "notes": "Moab 4xe 18 x 8.5." }
       ]
     }
   ]

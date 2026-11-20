@@ -5,40 +5,19 @@
   "name": "Preferred Standard Range",
   "drivetrain": "rwd",
   "powertrain_id": "hyundai/ioniq-5/2025-preferred-standard-range",
-  "markets": [
-    "CA"
-  ],
+  "markets": ["CA"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-guideauto-ioniq5-2025-lineup-ca",
-      "notes": "2025 non-XRT trims use a CCS port with an offered NACS adapter.",
-      "low_confidence": true
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-guideauto-ioniq5-2025-lineup-ca", "notes": "2025 non-XRT trims use a CCS port with an offered NACS adapter.", "low_confidence": true }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-hyundai-ca-faq",
-      "notes": "NACS adapter sold separately for 2025-and-earlier CCS Hyundai EVs."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-hyundai-ca-faq", "notes": "NACS adapter sold separately for 2025-and-earlier CCS Hyundai EVs." }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Preferred Standard Range"
-      },
+      "names": { "CA": "Preferred Standard Range" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-guideauto-hyundai-ioniq-5-2023-preferred-standard-range-rwd",
-          "low_confidence": true,
-          "notes": "Carried from the 2023 Canadian Preferred Standard Range RWD page; 2025 not read directly."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-guideauto-hyundai-ioniq-5-2023-preferred-standard-range-rwd", "low_confidence": true, "notes": "Carried from the 2023 Canadian Preferred Standard Range RWD page; 2025 not read directly." }
       ]
     }
   ]

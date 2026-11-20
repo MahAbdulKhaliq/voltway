@@ -4,56 +4,22 @@
   "year": 2024,
   "name": "M50",
   "drivetrain": "awd",
-  "powertrain_id": "bmw/i4/2024-m50",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "bmw/i4/2023-edrive40",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-lectron-bmw-adapter",
-      "low_confidence": true,
-      "notes": "Estimated: BMW i4 keeps a CCS1 port through 2026 (thinkEV 2026 eDrive40 lists CCS1; Lectron lists the i4 2022-2026 as a CCS-to-NACS adapter car; BMW Canada says native NACS is only on all-new 2026+ models such as iX3/i3). Same port assumed for 2024."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-lectron-bmw-adapter", "low_confidence": true, "note_id": "n-902c11f323" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-bmw-canada-nacs-superchargers-2026-04",
-      "low_confidence": true,
-      "notes": "Canada: BMW says all BEVs except original i3/MINI SE become Supercharger-compatible by remote software upgrade and CCS cars use the approved Lectron Vortex Plus NACS-to-CCS adapter (access from 2026-04-08; i4 not named in the text read)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "estimated",
-      "source_id": "src-insideevs-bmw-supercharger-2025",
-      "low_confidence": true,
-      "notes": "Estimated: US access from the week of 2025-12-10 for i4/i5/i7/iX with an adapter; InsideEVs says 2025 cars should work and compatibility varies by model year; Lectron lists i4 2022-2026. Older years assumed to work like 2025 (same CCS hardware)."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-bmw-canada-nacs-superchargers-2026-04", "low_confidence": true, "note_id": "n-5726dc3848" },
+    { "value": "via_adapter", "kind": "estimated", "source_id": "src-insideevs-bmw-supercharger-2025", "low_confidence": true, "note_id": "n-0c3fdec9eb" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "M50",
-        "US": "M50 xDrive"
-      },
+      "names": { "CA": "M50", "US": "M50 xDrive" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2024-specs-443767",
-          "notes": "M50: 19 x 8.5 front / 19 x 9 rear aluminum, P245/40R19 and P255/40R19. (US page; Canadian cars assumed the same.)"
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2024-specs-443767",
-          "notes": "M50: Cooling & High Performance Tire Package includes 20 in M bicolor wheels (Style 868M), 20 x 8.5 front / 20 x 10 rear. (US page; Canadian cars assumed the same.)"
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2024-specs-443767", "notes": "M50: 19 x 8.5 front / 19 x 9 rear aluminum, P245/40R19 and P255/40R19. (US page; Canadian cars assumed the same.)" },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2024-specs-443767", "notes": "M50: Cooling & High Performance Tire Package includes 20 in M bicolor wheels (Style 868M), 20 x 8.5 front / 20 x 10 rear. (US page; Canadian cars assumed the same.)" }
       ]
     }
   ]

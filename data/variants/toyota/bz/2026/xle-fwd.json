@@ -5,38 +5,19 @@
   "name": "XLE FWD",
   "drivetrain": "fwd",
   "powertrain_id": "toyota/bz/2026-xle-fwd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-r19-toyota-us-bz-onsale-2026",
-      "notes": "Toyota USA: the 2026 bZ has a newly standard NACS inlet (2027 bZ release: NACS port standard)."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-0ea9763c03" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-r19-toyota-us-bz-onsale-2026",
-      "notes": "Toyota USA: 'More than 25,000 additional NACS charger plugs available to 2026 bZ drivers through the Tesla Supercharger Network'."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-3f1c50184a" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "XLE FWD"
-      },
+      "names": { "US": "XLE FWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r2w-toy-bz26",
-          "notes": "Toyota newsroom 2026 bZ XLE: 18-in. wheels ()."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r2w-toy-bz26", "note_id": "n-9cc41e34e6" }
       ]
     }
   ]

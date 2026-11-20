@@ -4,41 +4,20 @@
   "year": 2024,
   "name": "FWD",
   "drivetrain": "fwd",
-  "powertrain_id": "honda/prologue/2024-fwd",
-  "markets": [
-    "US"
-  ],
+  "powertrain_id": "honda/prologue/2024-ex-l-awd",
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-thechargeport-honda-prologue",
-      "low_confidence": true,
-      "notes": "The Charge Port: CCS1 port; Superchargers need an adapter (2024-2026 model years)."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-thechargeport-honda-prologue", "low_confidence": true, "note_id": "n-df0ef80d31" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-nontesla-supercharger-access-2026",
-      "low_confidence": true,
-      "notes": "US: CCS1 car, Supercharger access with the manufacturer-approved NACS adapter; listed on InsideEVs. Current state for this model year."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-insideevs-nontesla-supercharger-access-2026", "low_confidence": true, "note_id": "n-da9452f6da" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "FWD"
-      },
+      "names": { "US": "FWD" },
       "wheels": [
-        {
-          "diameter_in": 19,
-          "is_standard": true,
-          "source_id": "src-honda-prologue-2024-us-specs",
-          "notes": "EX and Touring FWD: 19x8.5, 255/60R19."
-        }
+        { "diameter_in": 19, "is_standard": true, "source_id": "src-honda-prologue-2024-us-specs", "note_id": "n-53177c1f76" }
       ]
     }
   ]

@@ -5,44 +5,20 @@
   "name": "XLE AWD",
   "drivetrain": "awd",
   "powertrain_id": "toyota/bz/2027-xle-awd",
-  "markets": [
-    "US"
-  ],
+  "markets": ["US"],
   "charge_port": [
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-r19-toyota-us-bz-onsale-2026",
-      "notes": "Toyota USA: the 2026 bZ has a newly standard NACS inlet (2027 bZ release: NACS port standard)."
-    },
-    {
-      "value": "nacs",
-      "kind": "manufacturer",
-      "source_id": "src-r19-toyota-us-bz-2027",
-      "notes": "Toyota USA 2027 bZ release: the bZ has a NACS port."
-    }
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-0ea9763c03" },
+    { "value": "nacs", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-2027", "note_id": "n-0e28ed7e6b" }
   ],
   "supercharger_access": [
-    {
-      "value": "yes",
-      "kind": "manufacturer",
-      "source_id": "src-r19-toyota-us-bz-onsale-2026",
-      "notes": "Toyota USA: 'More than 25,000 additional NACS charger plugs available to 2026 bZ drivers through the Tesla Supercharger Network'."
-    }
+    { "value": "yes", "kind": "manufacturer", "source_id": "src-r19-toyota-us-bz-onsale-2026", "note_id": "n-3f1c50184a" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "US": "XLE AWD"
-      },
+      "names": { "US": "XLE AWD" },
       "wheels": [
-        {
-          "diameter_in": 18,
-          "is_standard": true,
-          "source_id": "src-r3w-toyota-bz-2027-specs-486898",
-          "notes": "XLE AWD: 18x7.5 aluminum, P235/60VR18."
-        }
+        { "diameter_in": 18, "is_standard": true, "source_id": "src-r3w-toyota-bz-2027-specs-486898", "notes": "XLE AWD: 18x7.5 aluminum, P235/60VR18." }
       ]
     }
   ]

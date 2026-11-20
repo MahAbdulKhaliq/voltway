@@ -5,64 +5,22 @@
   "name": "xDrive60",
   "drivetrain": "awd",
   "powertrain_id": "bmw/i7/2023-xdrive60",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "estimated",
-      "source_id": "src-w2-ie-sc",
-      "low_confidence": true,
-      "notes": "Estimated: BMW i7 uses CCS1 through 2026 (InsideEVs; BMW Canada: native NACS only on all-new 2026+ models). 2027 is the switch (BMW US). No page checked for a mid-2026 i7 NACS switch like the i5's."
-    }
+    { "value": "ccs1", "kind": "estimated", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-50672eade4" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ca-nacs",
-      "low_confidence": true,
-      "notes": "Canada: Lectron Vortex Plus NACS-to-CCS adapter plus software update (from 2026-04-08)."
-    },
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-ie-sc",
-      "low_confidence": true,
-      "notes": "US: Supercharging with a CCS-to-NACS adapter (Lectron) from the week of 2025-12-10 for i4/i5/i7/iX; 2026 cars need a software update."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ca-nacs", "low_confidence": true, "note_id": "n-831b8cc289" },
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-ie-sc", "low_confidence": true, "note_id": "n-9712631f5c" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "xDrive60",
-        "US": "xDrive60"
-      },
+      "names": { "CA": "xDrive60", "US": "xDrive60" },
       "wheels": [
-        {
-          "diameter_in": 20,
-          "is_standard": true,
-          "source_id": "src-bmw-7-series-2023-us",
-          "notes": "xDrive60 (CA/US): i7 xDrive60: 20-inch Aerodynamic standard.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 19,
-          "is_standard": false,
-          "source_id": "src-bmw-7-series-2023-us",
-          "notes": "xDrive60 (CA/US): i7 xDrive60: 19-inch aerodynamic wheels, no-cost option.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 21,
-          "is_standard": false,
-          "source_id": "src-bmw-7-series-2023-us",
-          "notes": "xDrive60 (CA/US): i7 xDrive60: 21-inch optional upgrade.",
-          "low_confidence": true
-        }
+        { "diameter_in": 20, "is_standard": true, "source_id": "src-bmw-7-series-2023-us", "notes": "xDrive60 (CA/US): i7 xDrive60: 20-inch Aerodynamic standard.", "low_confidence": true },
+        { "diameter_in": 19, "is_standard": false, "source_id": "src-bmw-7-series-2023-us", "notes": "xDrive60 (CA/US): i7 xDrive60: 19-inch aerodynamic wheels, no-cost option.", "low_confidence": true },
+        { "diameter_in": 21, "is_standard": false, "source_id": "src-bmw-7-series-2023-us", "notes": "xDrive60 (CA/US): i7 xDrive60: 21-inch optional upgrade.", "low_confidence": true }
       ]
     }
   ]

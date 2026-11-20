@@ -3,76 +3,28 @@
   "model_id": "lucid/gravity",
   "name": "Touring",
   "generation": "first-generation",
-  "years": [
-    2026
-  ],
+  "years": [2026],
   "battery": {
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-w2-lucid-battery-data",
-        "low_confidence": true,
-        "notes": "Estimated: Lucid's battery data page lists its Air packs (MY26+) as nickel-rich NMC; no Gravity page names its chemistry; same maker and 2170-class cells assumed."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-w2-lucid-battery-data", "low_confidence": true, "note_id": "n-1856386b99" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "800v",
-        "kind": "estimated",
-        "source_id": "src-w2-insideevs-gravity-touring",
-        "low_confidence": true,
-        "notes": "Estimated: InsideEVs rates the Touring pack at 700V+ (above 600 V, the 800 V class); Grand Touring is 926 V (Wards)."
-      }
+      { "value": "800v", "kind": "estimated", "source_id": "src-w2-insideevs-gravity-touring", "low_confidence": true, "note_id": "n-f253a0fa2c" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-w2-lucid-gravity-charging",
-        "low_confidence": true,
-        "notes": "Lucid: Smart Preconditioning (automatic when routing to a fast charger) and a manual Precondition Battery button."
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "low_confidence": true, "note_id": "n-6fe2eec92b" }
     ],
     "capacity_gross_kwh": [
-      {
-        "value": 89,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-w2-wards-gravity-touring",
-        "low_confidence": true,
-        "notes": "Wards and InsideEVs: Touring battery sized at 89 kWh (usable/gross not stated; bare capacity recorded as gross)."
-      }
+      { "value": 89, "unit": "kWh", "kind": "manufacturer", "source_id": "src-w2-wards-gravity-touring", "low_confidence": true, "notes": "Wards and InsideEVs: Touring battery sized at 89 kWh (usable/gross not stated; bare capacity recorded as gross)." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 87.5,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-gf-electrek-gravity",
-        "low_confidence": true,
-        "notes": "Estimated: usable from gross. The Touring pack is 89 kWh (Lucid); Electrek gives 121 usable of 123 gross for the Grand Touring (ratio 0.984, same Lucid cell family, different pack and voltage), so 89 x 0.984 = 87.5. Electrek also writes \"89 kWh for the Touring\" without labelling it usable."
-      }
+      { "value": 87.5, "unit": "kWh", "kind": "estimated", "source_id": "src-gf-electrek-gravity", "low_confidence": true, "note_id": "n-9334680a78" }
     ]
   },
   "ac_max_kw": [
-    {
-      "value": 19.2,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-lucid-gravity-charging",
-      "low_confidence": true,
-      "notes": "Lucid: AC up to 19.2 kW (80 A)."
-    }
+    { "value": 19.2, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-lucid-gravity-charging", "low_confidence": true, "note_id": "n-292d80aa59" }
   ],
   "dc_max_kw": [
-    {
-      "value": 300,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-w2-wards-gravity-touring",
-      "low_confidence": true,
-      "notes": "Wards: maximum DC fast-charge rate 300 kW; InsideEVs: up to 300 kW on 1,000 V stalls, 225 kW on 500 V Superchargers."
-    }
+    { "value": 300, "unit": "kW", "kind": "manufacturer", "source_id": "src-w2-wards-gravity-touring", "low_confidence": true, "notes": "Wards: maximum DC fast-charge rate 300 kW; InsideEVs: up to 300 kW on 1,000 V stalls, 225 kW on 500 V Superchargers." }
   ]
 }

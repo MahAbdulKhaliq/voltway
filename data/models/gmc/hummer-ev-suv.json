@@ -4,29 +4,18 @@
   "name": "Hummer EV SUV",
   "body_type": "suv",
   "generations": [
-    {
-      "id": "first-generation",
-      "name": "First generation",
-      "first_year": 2024,
-      "notes": "SUV body of the Hummer EV, production from January 2023 as a 2024 model. 20-module Ultium pack (about 170 kWh) on 2024-2025 2X/3X; GM says the 24-module pack and more power arrive for 2026. Up to about 300-350 kW DC, 19.2 kW onboard AC from 2024 SUVs. One generation so far; pack choices are powertrain-level. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/GMC_Hummer_EV ; https://gmauthority.com/blog/2024/09/here-are-the-2025-gmc-hummer-ev-suv-towing-capacities/amp ; https://news.gm.com/home.detail.html/Pages/news/us/en/2025/may/0515-2026-GMC-HUMMER-EV-capable-advanced-supertruck.html"
-    }
+    { "id": "first-generation", "name": "First generation", "first_year": 2024, "notes": "SUV body of the Hummer EV, production from January 2023 as a 2024 model. 20-module Ultium pack (about 170 kWh) on 2024-2025 2X/3X; GM says the 24-module pack and more power arrive for 2026. Up to about 300-350 kW DC, 19.2 kW onboard AC from 2024 SUVs. One generation so far; pack choices are powertrain-level. Confidence: medium (researched 2026-11-19, owner review pending). Sources: https://en.wikipedia.org/wiki/GMC_Hummer_EV ; https://gmauthority.com/blog/2024/09/here-are-the-2025-gmc-hummer-ev-suv-towing-capacities/amp ; https://news.gm.com/home.detail.html/Pages/news/us/en/2025/may/0515-2026-GMC-HUMMER-EV-capable-advanced-supertruck.html" }
   ],
   "years": [
     {
       "year": 2024,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     },
     {
       "year": 2025,
-      "markets": [
-        "CA",
-        "US"
-      ],
+      "markets": ["CA", "US"],
       "availability_status": "production",
       "generation": "first-generation"
     }

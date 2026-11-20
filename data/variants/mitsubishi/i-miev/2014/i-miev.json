@@ -4,51 +4,21 @@
   "year": 2014,
   "name": "i-MiEV",
   "drivetrain": "rwd",
-  "powertrain_id": "mitsubishi/i-miev/2014-i-miev",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "mitsubishi/i-miev/2013-i-miev",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "chademo",
-      "kind": "manufacturer",
-      "source_id": "src-w2j-theautochannel-imiev-2016",
-      "low_confidence": true,
-      "notes": "DC quick-charge port (CHAdeMO protocol) standard (2016 press kit); owner thread: single trim with CHAdeMO standard 2014-2017."
-    },
-    {
-      "value": "chademo",
-      "kind": "community",
-      "source_id": "src-w2j-myimiev-chademo",
-      "low_confidence": true,
-      "notes": "2014, 2016, 2017: all North American cars came with CHAdeMO."
-    }
+    { "value": "chademo", "kind": "manufacturer", "source_id": "src-w2j-theautochannel-imiev-2016", "low_confidence": true, "note_id": "n-5bee1f33ef" },
+    { "value": "chademo", "kind": "community", "source_id": "src-w2j-myimiev-chademo", "low_confidence": true, "note_id": "n-80901bf3e4" }
   ],
   "supercharger_access": [
-    {
-      "value": "no",
-      "kind": "estimated",
-      "source_id": "src-w2j-wikipedia-imiev",
-      "low_confidence": true,
-      "notes": "Estimated: CHAdeMO is the only DC port (Wikipedia) and Tesla Superchargers use NACS; no Mitsubishi adapter programme found for the i-MiEV."
-    }
+    { "value": "no", "kind": "estimated", "source_id": "src-w2j-wikipedia-imiev", "low_confidence": true, "note_id": "n-a92bf7a2ae" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "i-MiEV",
-        "US": "i-MiEV"
-      },
+      "names": { "CA": "i-MiEV", "US": "i-MiEV" },
       "wheels": [
-        {
-          "diameter_in": 15,
-          "is_standard": true,
-          "source_id": "src-r2w-cc-imiev12",
-          "notes": "2012 page; 2014 not checked, low confidence.",
-          "low_confidence": true
-        }
+        { "diameter_in": 15, "is_standard": true, "source_id": "src-r2w-cc-imiev12", "notes": "2012 page; 2014 not checked, low confidence.", "low_confidence": true }
       ]
     }
   ]

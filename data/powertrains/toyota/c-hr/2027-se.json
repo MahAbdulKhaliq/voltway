@@ -3,82 +3,31 @@
   "model_id": "toyota/c-hr",
   "name": "SE",
   "generation": "bev-first-generation",
-  "years": [
-    2027
-  ],
+  "years": [2027],
   "battery": {
     "capacity_gross_kwh": [
-      {
-        "value": 74.7,
-        "unit": "kWh",
-        "kind": "manufacturer",
-        "source_id": "src-r19-toyota-us-chr-2027",
-        "notes": "Toyota USA 2027 C-HR release: 'total capacity of 74.7 kWh' (unchanged from 2026)."
-      }
+      { "value": 74.7, "unit": "kWh", "kind": "manufacturer", "source_id": "src-r19-toyota-us-chr-2027", "notes": "Toyota USA 2027 C-HR release: 'total capacity of 74.7 kWh' (unchanged from 2026)." }
     ],
     "capacity_usable_kwh": [
-      {
-        "value": 71,
-        "unit": "kWh",
-        "kind": "estimated",
-        "source_id": "src-r19-evdb-bz4x-touring-747",
-        "low_confidence": true,
-        "notes": "Estimated: C-HR uses the same 74.7 kWh pack as the bZ (Toyota USA C-HR release: 74.7 kWh); EV Database lists 71.0 kWh usable for the 74.7 kWh bZ4X pack. Canada quotes 77 kWh total for the C-HR (probably the same pack, not usable)."
-      }
+      { "value": 71, "unit": "kWh", "kind": "estimated", "source_id": "src-r19-evdb-bz4x-touring-747", "low_confidence": true, "notes": "Estimated: C-HR uses the same 74.7 kWh pack as the bZ (Toyota USA C-HR release: 74.7 kWh); EV Database lists 71.0 kWh usable for the 74.7 kWh bZ4X pack. Canada quotes 77 kWh total for the C-HR (probably the same pack, not usable)." }
     ],
     "chemistry": [
-      {
-        "value": "nmc",
-        "kind": "estimated",
-        "source_id": "src-autopian-bz-2026",
-        "low_confidence": true,
-        "notes": "Estimated: C-HR BEV shares the bZ's 74.7 kWh pack (Toyota USA C-HR release); chief engineer: the larger bZ pack 'retains the same chemistry and cells' (NMC)."
-      }
+      { "value": "nmc", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-f7763673aa" }
     ],
     "nominal_voltage_class": [
-      {
-        "value": "400v",
-        "kind": "estimated",
-        "source_id": "src-autopian-bz-2026",
-        "low_confidence": true,
-        "notes": "Estimated: Shares the bZ's 74.7 kWh pack, 391 V nominal per Autopian; the bZ is a 400 V architecture (InsideEVs)."
-      }
+      { "value": "400v", "kind": "estimated", "source_id": "src-autopian-bz-2026", "low_confidence": true, "note_id": "n-4adb98a9dc" }
     ],
     "preconditioning": [
-      {
-        "value": "automatic_and_manual",
-        "kind": "manufacturer",
-        "source_id": "src-r19-toyota-us-chr-2027",
-        "notes": "Toyota USA: preconditioning can be turned on manually in system settings or automatically when a fast-charging station is the navigation destination (automatic needs Drive Connect)."
-      }
+      { "value": "automatic_and_manual", "kind": "manufacturer", "source_id": "src-r19-toyota-us-chr-2027", "notes": "Toyota USA: preconditioning can be turned on manually in system settings or automatically when a fast-charging station is the navigation destination (automatic needs Drive Connect)." }
     ]
   },
   "dc_max_kw": [
-    {
-      "value": 150,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-insideevs-chr-review-2026",
-      "low_confidence": true,
-      "notes": "InsideEVs states the C-HR charges at a 150 kW maximum (Toyota figure); same as the 2026 C-HR powertrain record. Toyota's 2027 release says the car is unchanged."
-    }
+    { "value": 150, "unit": "kW", "kind": "manufacturer", "source_id": "src-insideevs-chr-review-2026", "low_confidence": true, "notes": "InsideEVs states the C-HR charges at a 150 kW maximum (Toyota figure); same as the 2026 C-HR powertrain record. Toyota's 2027 release says the car is unchanged." }
   ],
   "ac_max_kw": [
-    {
-      "value": 11,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-r19-toyota-us-chr-2027",
-      "notes": "Toyota USA 2027 C-HR release: 11 kW on-board charger."
-    }
+    { "value": 11, "unit": "kW", "kind": "manufacturer", "source_id": "src-r19-toyota-us-chr-2027", "notes": "Toyota USA 2027 C-HR release: 11 kW on-board charger." }
   ],
   "published_10_80_min": [
-    {
-      "value": 30,
-      "unit": "min",
-      "kind": "manufacturer",
-      "source_id": "src-r19-toyota-us-chr-2027",
-      "notes": "Toyota USA: about 30 minutes 10-80% under ideal conditions."
-    }
+    { "value": 30, "unit": "min", "kind": "manufacturer", "source_id": "src-r19-toyota-us-chr-2027", "notes": "Toyota USA: about 30 minutes 10-80% under ideal conditions." }
   ]
 }

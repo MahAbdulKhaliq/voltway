@@ -4,49 +4,21 @@
   "year": 2025,
   "name": "Tri-Motor Max Pack",
   "drivetrain": "awd",
-  "powertrain_id": "rivian/r1t/2025-tri-motor-max-pack",
-  "markets": [
-    "CA",
-    "US"
-  ],
+  "powertrain_id": "rivian/r1t/2025-dual-motor-max-pack",
+  "markets": ["CA", "US"],
   "charge_port": [
-    {
-      "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: model years 2022-2025 have a CCS port."
-    }
+    { "value": "ccs1", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-f742b1d644" }
   ],
   "supercharger_access": [
-    {
-      "value": "via_adapter",
-      "kind": "manufacturer",
-      "source_id": "src-w2-rivian-charging",
-      "notes": "Rivian: model years 2022-2025 need a NACS DC adapter to use Tesla Superchargers; the page is the Canadian locale and says North America, so US and Canada."
-    }
+    { "value": "via_adapter", "kind": "manufacturer", "source_id": "src-w2-rivian-charging", "note_id": "n-0546c7cb96" }
   ],
   "trims": [
     {
       "id": "standard",
-      "names": {
-        "CA": "Tri-Motor Max Pack",
-        "US": "Tri-Motor Max Pack"
-      },
+      "names": { "CA": "Tri-Motor Max Pack", "US": "Tri-Motor Max Pack" },
       "wheels": [
-        {
-          "diameter_in": 22,
-          "is_standard": true,
-          "source_id": "src-r2w-carb-rivian-2025",
-          "notes": "Road configuration listed in 22 inch only; standard flag inferred.",
-          "low_confidence": true
-        },
-        {
-          "diameter_in": 20,
-          "is_standard": false,
-          "source_id": "src-r2w-carb-rivian-2025",
-          "notes": "20 inch all-terrain configuration.",
-          "low_confidence": true
-        }
+        { "diameter_in": 22, "is_standard": true, "source_id": "src-r2w-carb-rivian-2025", "note_id": "n-4c9451692c", "low_confidence": true },
+        { "diameter_in": 20, "is_standard": false, "source_id": "src-r2w-carb-rivian-2025", "note_id": "n-44ec866847", "low_confidence": true }
       ]
     }
   ]

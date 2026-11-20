@@ -133,8 +133,11 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
   useEffect(() => {
     setTempUnitState(currentTempUnit());
     const on = (e: Event) => setTempUnitState((e as CustomEvent<TempUnit>).detail === 'F' ? 'F' : 'C');
+    // With no °C/°F saved, the temperature follows km/mi (B116), so a distance switch can change it too.
+    const onUnits = () => setTempUnitState(currentTempUnit());
     window.addEventListener(TEMP_UNIT_EVENT, on);
-    return () => window.removeEventListener(TEMP_UNIT_EVENT, on);
+    window.addEventListener('voltway:units', onUnits);
+    return () => { window.removeEventListener(TEMP_UNIT_EVENT, on); window.removeEventListener('voltway:units', onUnits); };
   }, []);
   const tempIn = useRef<HTMLInputElement>(null);
   const [tempText, setTempText] = useState('');
@@ -216,7 +219,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
   const fold = (k: 'route', title: string, summary: string) => {
     const open = routeOpen;
     return (
-      <button type="button" className="tp-fold" aria-expanded={open} aria-controls={`tp-fold-${k}`}
+      <button type="button" className="tp-fold" aria-expanded={open} aria-controls={open ? `tp-fold-${k}` : undefined}
         onClick={() => setRouteOpen((o) => !o)}>
         <span className="tp-fold-text">
           <span className="route-car-plugs-title">{title}</span>

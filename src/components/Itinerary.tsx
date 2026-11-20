@@ -240,6 +240,10 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             <div>
               <p className="ti-head"><strong>{to.label}</strong></p>
               <p className="ti-soc">{plan.arriveSoc >= 0 ? t('trip.arriveWith', { soc: pct(plan.arriveSoc) }) : t('trip.arriveEmpty')}</p>
+              {/* B123 (QA 2026-11-20): reachable but under Arrive at %, because no charger ahead can top up. */}
+              {plan.reachable && plan.arriveSoc >= 0 && Math.round(plan.arriveSoc) < plan.arriveTarget && (
+                <p className="ti-soc muted small">{t('trip.arriveUnder', { target: pct(plan.arriveTarget) })}</p>
+              )}
             </div>
           </li>
         </ol>

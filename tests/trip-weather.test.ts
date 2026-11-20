@@ -71,6 +71,12 @@ describe('planTrip: Arrive at %', () => {
     expect(high.stops[0].departSoc).toBeGreaterThan(TRIP.chargeToSoc);
     expect(high.arriveSoc).toBeGreaterThanOrEqual(40);
   });
+  it('a high target out of reach of one charge does not fill to 100 % before another stop (QA 2026-11-20)', () => {
+    const p = planTrip({ route: routeOf(500), durationMin: 300, car, stations: [150, 280, 420].map((km, i) => station(km, i)), arriveSoc: 50 });
+    expect(p.arriveSoc).toBeGreaterThanOrEqual(50);
+    const last = p.stops.length - 1;
+    for (const s of p.stops.slice(0, last)) expect(s.departSoc).toBeLessThanOrEqual(TRIP.chargeToSoc);
+  });
   it('needs no stop when the target is the threshold', () => {
     const p = planTrip({ ...input, arriveSoc: 15 });
     expect(p.stops).toHaveLength(0);

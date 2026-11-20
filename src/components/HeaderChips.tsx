@@ -213,7 +213,7 @@ export default function HeaderChips() {
                 <button type="button" role="menuitem" className="chip-plugs-fold" aria-expanded={plugsOpen} aria-controls="mycar-plugs-list"
                   onClick={(e) => { e.stopPropagation(); setPlugsOpen((o) => !o); }}>
                   <span className="chip-plugs-fold-text">
-                    <span id="mycar-plugs-label" className="chip-plugs-label">{t('mycar.plugs')}</span>
+                    <span id="mycar-plugs-label" className="chip-plugs-label">{t('mycar.plugsMenu')}</span>
                     {!plugsOpen && plugsOn && <span className="chip-plugs-sum">{plugsOn.length ? plugsOn.map((p) => t(`value.${p}` as MessageKey)).join(', ') : t('route.plugsNoneShort')}</span>}
                   </span>
                   <span className="acc-chev" aria-hidden="true" />

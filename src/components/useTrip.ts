@@ -136,7 +136,7 @@ export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promis
     const fitted = Boolean(myCar?.heatPump);
     const effect = adjustedWhPerKm(planCar.car.energy.whPerKm, {
       tempC: trip.tempC, heatPump: hpRaw, heatPumpFitted: fitted, chemistry: chem,
-      wheelIn: myCar?.wheelIn ?? null, ratedWheelIn: ratedWheelFor(detail.trims, trim), wheelEffect,
+      wheelIn: myCar?.wheelIn ?? standardIn, ratedWheelIn: ratedWheelFor(detail.trims, trim), wheelEffect,
     });
     const kind = heatPumpKind(hpRaw);
     return { effect, wheelIn: myCar?.wheelIn ?? standardIn, wheelsChanged: myCar?.wheelIn !== undefined, heatPump: kind, heatPumpFitted: kind === 'optional' && fitted };
@@ -144,7 +144,7 @@ export function useTrip(myCar: MyCar | null, corridor: ((route: Route) => Promis
   const tripCar = useMemo(() => {
     if (!planCar?.ok) return null;
     if (!trip.weather || !weatherInfo) return planCar.car;
-    return { ...planCar.car, energy: { ...planCar.car.energy, whPerKm: weatherInfo.effect.whPerKm, weatherAdjusted: true } };
+    return { ...planCar.car, energy: { ...planCar.car.energy, whPerKm: weatherInfo.effect.whPerKm, weatherAdjusted: weatherInfo.effect.factor !== 1 } };
   }, [planCar, trip.weather, weatherInfo]);
   const carUpdated = useMemo(() => (detail ? detail.sources.map((s) => s.accessed_on).filter(Boolean).sort().at(-1) ?? null : null), [detail]);
 

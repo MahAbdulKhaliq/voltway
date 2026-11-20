@@ -803,6 +803,9 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
   // B124 (owner 2026-11-20): phones moved the filters out of the sheet into a Chargers fold under
   // Stations in view; it starts closed (panelOpen starts false on phones).
   const filtersOpen = panelOpen;
+  const panelOpenRef = useRef(panelOpen);
+  panelOpenRef.current = panelOpen;
+  const panelBeforeTrip = useRef(panelOpen);
   // Phones (B71; owner 2026-11-20: two rows, was three): the list box is two rows tall and scrolls
   // through the rest, so it never covers much of the map.
   const listBox = useRef<HTMLDivElement>(null);
@@ -855,6 +858,8 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
     placeRef.current = null;
     setPlace(null);
     setSelected(null);
+    // QA 2026-11-20: remember the filters fold so closing the trip puts it back (B124: closed on phones).
+    panelBeforeTrip.current = panelOpenRef.current;
     morph(() => {
       setRouteMode(true);
       setPanelOpen(true);
@@ -873,6 +878,7 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
       // Phones: back to the plain map with the sheet small (route mode had opened the panel).
       if (sheet.phone) sheet.setSnap('peek');
       setRouteMode(false);
+      setPanelOpen(panelBeforeTrip.current);
       setSelected(null);
       setWhereKey((k) => k + 1); // focus back to the "Where to?" box (not on touch screens)
     }, 'back', 'left');

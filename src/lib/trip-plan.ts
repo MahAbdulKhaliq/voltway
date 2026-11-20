@@ -215,7 +215,11 @@ export function planTrip(input: PlanInput): TripPlan {
     if (next.chosen && next.pick !== 'earlier') return target;
     const beyond = candidates.filter((x) => x.alongKm > next.hitKm).sort((a, b) => a.alongKm - b.alongKm)[0];
     const toKm = beyond ? beyond.alongKm : route.totalKm;
-    const need = (beyond ? threshold : arriveAt) + socDrop(car.energy, kwhAt(toKm) - kwhAt(c.alongKm)) + back + (beyond ? flatDrop(beyond.offKm) : 0);
+    const drive = socDrop(car.energy, kwhAt(toKm) - kwhAt(c.alongKm)) + back + (beyond ? flatDrop(beyond.offKm) : 0);
+    let need = (beyond ? threshold : arriveAt) + drive;
+    // A high Arrive at % that one charge here can't reach: charge as for the threshold (as before
+    // B123) and let a later charger top up, rather than filling to 100 % and stopping again anyway.
+    if (!beyond && need > 100 && next.chosen) need = threshold + drive;
     return Math.min(100, Math.max(target, Math.ceil(need)));
   };
 

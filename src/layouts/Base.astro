@@ -259,12 +259,13 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
         if (!nav.open || nav.classList.contains('closing')) return;
         nav.classList.add('closing');
         if (getComputedStyle(nav).animationName === 'none') { nav.classList.remove('closing'); nav.close(); return; }
-        nav.addEventListener('animationend', () => { nav.classList.remove('closing'); nav.close(); }, { once: true });
       };
+      // Only the menu's own slide-out ends it (not the logo's jolt inside it); a close another way clears it.
+      nav.addEventListener('animationend', (e) => { if (e.target === nav && nav.classList.contains('closing')) { nav.classList.remove('closing'); nav.close(); } });
       nav.querySelector('.close-btn')!.addEventListener('click', closeNav);
       nav.addEventListener('click', (e) => { if (e.target === nav) closeNav(); }); // backdrop
       nav.addEventListener('cancel', (e) => { e.preventDefault(); closeNav(); }); // Escape
-      nav.addEventListener('close', () => menuBtn.focus());
+      nav.addEventListener('close', () => { nav.classList.remove('closing'); menuBtn.focus(); });
 
       // B128 (owner 2026-11-20): while the menu button shows (under 900 px), the header's mark and name
       // aren't a link (the side menu's are); a tap plays the hover jolt instead.

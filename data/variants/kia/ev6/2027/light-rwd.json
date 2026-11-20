@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "estimated",
+      "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+      "low_confidence": true,
+      "notes": "Estimated: Kia US 2026 EV6 page: NACS port on all trims; 2027 carries the 2026 features over."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+      "low_confidence": true,
+      "notes": "Estimated: Native NACS port: Tesla Superchargers directly (as 2026)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

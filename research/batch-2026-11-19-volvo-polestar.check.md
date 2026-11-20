@@ -94,3 +94,11 @@ Over 5 % from same-kind values: EX40 2026 Twin gross 82 vs OpenEV 78 (5 %) and u
 14. **Overrides on apply:** make sure the stale OpenEV values listed under "OpenEV imports to override" do not remain as a conflict beside the new values.
 
 No required fields are left empty.
+
+## Applied by the researcher (2026-11-19)
+Item 1 skipped (main session sets drivetrains). Items 2-12 applied to the batch JSON; --check OK.
+- EX40 2025 single gross re-sourced to Green Car Reports; 2025 Twin gross to InsideEVs (GCR 78 kWh conflict in notes).
+- EX40 2026 dc_max_kw (single, Standard, Twin) now estimated (carried from 2025; Hamilton 200 kW conflict noted); 2026 single and Standard gross estimated (476 km basis).
+- EX40 ac_max_kw now estimated from NRCan/EPA 8 h at 240 V (src-nrcan-bev-2026-09) plus Volvo CA excerpt; no North American page states it directly.
+- EX30 port estimated (thechargeport); Supercharger access stays estimated, no Canadian source found (owner flag); preconditioning stays estimated, no page states the EX30 trigger (EX90 excerpt used, honest note).
+- Polestar 2: 2023 dual/perf-pack 155 kW estimated; 2022 DC/AC now manufacturer from the 2022 manual; 2023/2024 preconditioning estimated; 2025 single/dual values estimated with InsideEVs/Wikipedia/Canada page sources. thechargeport added for ports (item 13).

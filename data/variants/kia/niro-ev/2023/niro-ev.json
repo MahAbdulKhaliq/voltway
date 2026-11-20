@@ -9,6 +9,31 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-nacs-guide-2026",
+      "low_confidence": true,
+      "notes": "Kia Canada guide (search excerpt): Niro EV is a CCS1 car needing an adapter; Niro EV is on no factory-NACS list."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-electrek-kia-supercharger-2025-04",
+      "low_confidence": true,
+      "notes": "Electrek: Niro can charge at Tesla Superchargers with the Kia adapter."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-kia-us-niro-ev-2026",
+      "low_confidence": true,
+      "notes": "Kia US 2026 Niro EV page: Supercharger access with a NACS adapter (sold separately)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

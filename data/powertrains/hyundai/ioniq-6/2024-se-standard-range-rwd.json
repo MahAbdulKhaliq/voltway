@@ -5,5 +5,91 @@
   "generation": "first-generation-pre-facelift",
   "years": [
     2024
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 53,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-evdb-ioniq6-sr",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database lists 53.0 kWh nominal for the IONIQ 6 Standard Range (MY23-25, Europe); Hyundai Europe press kit also gives 53 kWh. Treated as gross; same pack as the US SE Standard Range."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 50,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-evdb-ioniq6-sr",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database lists 50.0 kWh usable for the 53 kWh European IONIQ 6 Standard Range (MY23-25), same pack. (evspecs.org shows 58/53 and GreenCarsCompare 54 usable: conflict, not used.)"
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-ioniq6-sr",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database lists NMC cathode for the 53 kWh European IONIQ 6."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "estimated",
+        "source_id": "src-hyundai-ww-ioniq6-la-2022",
+        "low_confidence": true,
+        "notes": "Estimated: Hyundai describes the IONIQ 6 as 800 V (both packs, Hyundai Europe press kit); EVDB lists 480 V nominal for this smaller pack, so class rests on the maker's architecture statement, not the pack voltage."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-hyundai-ww-ioniq6-la-2022",
+        "low_confidence": true,
+        "notes": "Estimated: Hyundai US launch release for the 2023 IONIQ 6 (77.4 kWh) states a battery heater that starts when a charging stop is entered in navigation and can be warmed manually via the app; the CE1 (IONIQ 6) 2024 US manual states a manual Battery Conditioning Mode and automatic operation when the battery is cold or the scheduled climate is on (it does not itself state the DC-destination trigger, does not name the model, and says the function needs a battery heater). A battery heater on the Standard Range is not shown on any page; assumed because the same model and charging system carry the feature across packs."
+      },
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-hyundai-om-ce1-2024-us",
+        "low_confidence": true,
+        "notes": "Estimated: companion to the value from src-hyundai-ww-ioniq6-la-2022 (manual control from this CE1 US owner's manual page)."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evdb-ioniq6-sr",
+      "low_confidence": true,
+      "notes": "Estimated: EV Database lists max DC 150 kW via CCS for the 53 kWh European IONIQ 6 Standard Range (MY23-25); Hyundai states only 18 min on 350 kW. Same pack."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-hyundai-ww-ioniq6-la-2022",
+      "low_confidence": true,
+      "notes": "Estimated: 10.9 kW onboard charger stated for the 2023 US IONIQ 6 (77.4 kWh); EVDB lists 11 kW for the Standard Range too. Same car and charger across packs assumed."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 18,
+      "unit": "min",
+      "kind": "estimated",
+      "source_id": "src-evdb-ioniq6-sr",
+      "low_confidence": true,
+      "notes": "Estimated: EV Database lists 18 min 10-80 % for the 53 kWh Standard Range (about 120 kW average, European car); Hyundai only states 18 min for the IONIQ 6 on a 350 kW charger (77.4 kWh pack release)."
+    }
   ]
 }

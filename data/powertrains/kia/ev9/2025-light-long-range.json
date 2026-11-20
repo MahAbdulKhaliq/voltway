@@ -5,5 +5,74 @@
   "generation": "first-generation",
   "years": [
     2025
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 99.8,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-2024-ev9-epa",
+        "low_confidence": true,
+        "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack for Light LR RWD, Wind/Land/GT-Line AWD."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 96,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-evdb-ev9-998-awd",
+        "low_confidence": true,
+        "notes": "EV Database: 96.0 kWh usable (page marks it estimated); Australian Kia fact sheet also 96."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-evseekers-ev9-battery",
+        "low_confidence": true,
+        "notes": "Both EV9 packs NMC (SK On) per EV Seekers; EV Database NMC for the 99.8 kWh pack."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-kia-uk-ev9-specification",
+        "low_confidence": true,
+        "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
+        "low_confidence": true,
+        "notes": "Estimated: 2024 and 2026 EV9 manuals (MV1) describe the same switch plus navigation trigger; nothing shows a change between 2024 and 2027. Requires a battery heater (per-trim equipment not confirmed)."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 210,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-kia-uk-ev9-specification",
+      "low_confidence": true,
+      "notes": "Kia UK spec page: 10-80 % in 24 min at 210 kW (pack-level, not market-specific). InsideEVs (Kia US documents) says up to 215 kW and measured almost 215 kW; within 2.4 %."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-2024-ev9-epa",
+      "low_confidence": true,
+      "notes": "InsideEVs relaying Kia documents: 10.9 kW for both packs."
+    }
   ]
 }

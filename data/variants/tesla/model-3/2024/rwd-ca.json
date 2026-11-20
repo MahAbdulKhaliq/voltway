@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "community",
+      "source_id": "src-wikipedia-nacs",
+      "low_confidence": true,
+      "notes": "Tesla's own connector (now NACS / SAE J3400) is used on all Tesla vehicles including the Model 3 (Wikipedia). Canadian and US cars alike."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "community",
+      "source_id": "src-wikipedia-nacs",
+      "low_confidence": true,
+      "notes": "Tesla's own Supercharger network, built for this connector (Wikipedia)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

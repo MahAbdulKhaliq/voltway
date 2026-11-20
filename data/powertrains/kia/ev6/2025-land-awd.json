@@ -34,6 +34,25 @@
         "source_id": "src-evdb-ev6-gt",
         "notes": "Estimated: EV Database lists NMC cathode for the 84 kWh EV6 GT (same 84 kWh / 697 V pack as Wind and Land); The Weekly Driver lists the 2025 EV6 Long Range under the SK On NCM 811 pouch pack."
       }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 80,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-evdb-ev6-lr-2025",
+        "low_confidence": true,
+        "notes": "EV Database (MY25-27): 80.0 kWh usable of 84.0 nominal (EV Database GT page agrees)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-kia-uk-battery-preconditioning",
+        "low_confidence": true,
+        "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+      }
     ]
   },
   "ac_max_kw": [

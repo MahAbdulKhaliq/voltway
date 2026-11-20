@@ -5,5 +5,74 @@
   "generation": "highland",
   "years": [
     2024
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 78.1,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-evdb-m3-lrrwd-highland",
+        "low_confidence": true,
+        "notes": "Estimated: 78.1 kWh nominal, LG 5L NMC (EV Database); Wikipedia lists 78.1 kWh for Premium RWD/AWD. EPA lists this US car as \"Long Range AWD-E\"; the meaning of \"-E\" is not stated on the pages read, so the standard Highland LR pack is assumed."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 75,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-evdb-m3-lrrwd-highland",
+        "low_confidence": true,
+        "notes": "Estimated: 75.0 kWh usable (EV Database estimate); KBB US 2026 Premium/Performance also 75 kWh. EPA lists this US car as \"Long Range AWD-E\"; the meaning of \"-E\" is not stated on the pages read, so the standard Highland LR pack is assumed."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-m3-lrrwd-highland",
+        "low_confidence": true,
+        "notes": "Estimated: NMC (LG 5L cells) per EV Database; Wikipedia: Shanghai cells are LG NMC. A Fremont-built car could carry Panasonic NCA cells instead; not verified. EPA lists this US car as \"Long Range AWD-E\"; the meaning of \"-E\" is not stated on the pages read, so the standard Highland LR pack is assumed."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-evdb-m3-lrrwd-highland",
+        "low_confidence": true,
+        "notes": "Estimated: 357 V nominal, 400 V architecture. EPA lists this US car as \"Long Range AWD-E\"; the meaning of \"-E\" is not stated on the pages read, so the standard Highland LR pack is assumed."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-notateslaapp-2020-24-6-4",
+        "low_confidence": true,
+        "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2024 LR AWD-E). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 250,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evdb-m3-lrrwd-highland",
+      "low_confidence": true,
+      "notes": "Estimated: 250 kW (EV Database; InsideEVs Highland article: Long Range AWD 250 kW, unchanged from before; Wikipedia Premium RWD 250 kW). EPA lists this US car as \"Long Range AWD-E\"; the meaning of \"-E\" is not stated on the pages read, so the standard Highland LR pack is assumed."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evdb-m3-lrrwd-highland",
+      "low_confidence": true,
+      "notes": "Estimated: EV Database lists 11 kW AC for the Highland Long Range/Performance (EU, 3-phase) and the existing OpenEV data on the 2026 Canadian cars also shows 11 kW; Wikipedia infobox says 11.5 kW (48 A) for Long Range; Tesla does not publish a Highland AC figure (InsideEVs)."
+    }
   ]
 }

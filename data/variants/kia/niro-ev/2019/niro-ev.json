@@ -9,6 +9,38 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-kia-us-2019-niro-ev-debut",
+      "low_confidence": true,
+      "notes": "Kia US debut release (search excerpt): CCS standard on the first-generation Niro EV."
+    },
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-nacs-guide-2026",
+      "low_confidence": true,
+      "notes": "Kia Canada guide (search excerpt): earlier Kia EVs including Niro EV have CCS1 ports."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-electrek-kia-supercharger-2025-04",
+      "low_confidence": true,
+      "notes": "Electrek: EV6, EV9 and Niro can charge at Tesla Superchargers with an adapter (April 2025; no Niro model-year detail)."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-kia-ca-nacs-guide-2026",
+      "low_confidence": true,
+      "notes": "Kia Canada: adapters sold at dealers for Niro EV owners (April 2025)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

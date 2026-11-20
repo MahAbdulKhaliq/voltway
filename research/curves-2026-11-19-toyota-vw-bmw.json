@@ -1,0 +1,2734 @@
+{
+  "sources": [
+    {
+      "id": "src-r19c-fastned-bz4x",
+      "type": "testing_org",
+      "title": "Fastned: Toyota bZ4X 75 kWh (2022-2025) charge curve",
+      "url": "https://www.fastnedcharging.com/en/brands-overview/toyota?model=bZ4X",
+      "accessed_on": "2026-11-19",
+      "notes": "Curve data embedded in the page (id 573); max charge speed 150 kW, class 300; battery about 30 C."
+    },
+    {
+      "id": "src-r19c-fastned-id4",
+      "type": "testing_org",
+      "title": "Fastned: Volkswagen ID.4 77 kWh charge curve",
+      "url": "https://www.fastnedcharging.com/en/brands-overview/volkswagen?model=ID.4",
+      "accessed_on": "2026-11-19",
+      "notes": "Curve data embedded in the page (id 233, max charge speed 175 kW); the GTX 77 kWh listing (id 616, 180 kW) carries the same data."
+    },
+    {
+      "id": "src-r19c-fastned-i4",
+      "type": "testing_org",
+      "title": "Fastned: BMW i4 83.9 kWh (2021+) charge curve",
+      "url": "https://www.fastnedcharging.com/en/brands-overview/bmw?model=i4",
+      "accessed_on": "2026-11-19",
+      "notes": "Curve data embedded in the page (id 466); max charge speed 200 kW, class 300; battery about 30 C."
+    },
+    {
+      "id": "src-r19c-insideevs-bz4x-awd-2022",
+      "type": "testing_org",
+      "title": "InsideEVs: Toyota bZ4X AWD fast charging test (Out of Spec Reviews data), 2022",
+      "url": "https://insideevs.com/news/585939/toyota-bz4x-awd-fast-charging-curve/",
+      "accessed_on": "2026-11-19",
+      "notes": "2022 Limited AWD 72.8 kWh at Electrify America: 88 kW peak at 16 %, 51 kW at 50 %, 18 kW at 80 %, 7 kW at 90 %. Chart is an image; points are those stated in the text."
+    }
+  ],
+  "powertrains": {
+    "toyota/bz/2023-xle-fwd": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-bz4x",
+          "points": [
+            {
+              "soc_percent": 9,
+              "power_kw": 143.4
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 144
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 144.2
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 145.2
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 147.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 141.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 125.5
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 113.7
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 101.1
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 90.4
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 80.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 69.3
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 58.6
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 53.2
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 46
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 38.8
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 29.4
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Toyota bZ4X \"75 kWh (2022-2025)\" (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned labels the pack 75 kWh (marketing size); the 150 kW rating and 147 kW peak match the 71.4 kWh, 150 kW FWD hardware (generation A). Starts at 9 % SoC in the source. The shape (peak about 147 kW at 25 %, 90 kW at 50 %, 39 kW at 80 %) is a 400 V NMC taper. Cars.com measured a much weaker 52 kW peak at Electrify America with a US FWD XLE (cold/unknown conditions; single test), so US winter results can be far lower."
+        }
+      ]
+    },
+    "toyota/bz/2024-le-fwd": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-bz4x",
+          "points": [
+            {
+              "soc_percent": 9,
+              "power_kw": 143.4
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 144
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 144.2
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 145.2
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 147.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 141.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 125.5
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 113.7
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 101.1
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 90.4
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 80.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 69.3
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 58.6
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 53.2
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 46
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 38.8
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 29.4
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Toyota bZ4X \"75 kWh (2022-2025)\" (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned labels the pack 75 kWh (marketing size); the 150 kW rating and 147 kW peak match the 71.4 kWh, 150 kW FWD hardware (generation A). Starts at 9 % SoC in the source. The shape (peak about 147 kW at 25 %, 90 kW at 50 %, 39 kW at 80 %) is a 400 V NMC taper. Cars.com measured a much weaker 52 kW peak at Electrify America with a US FWD XLE (cold/unknown conditions; single test), so US winter results can be far lower."
+        }
+      ]
+    },
+    "toyota/bz/2024-limited-fwd": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-bz4x",
+          "points": [
+            {
+              "soc_percent": 9,
+              "power_kw": 143.4
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 144
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 144.2
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 145.2
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 147.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 141.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 125.5
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 113.7
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 101.1
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 90.4
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 80.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 69.3
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 58.6
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 53.2
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 46
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 38.8
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 29.4
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Toyota bZ4X \"75 kWh (2022-2025)\" (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned labels the pack 75 kWh (marketing size); the 150 kW rating and 147 kW peak match the 71.4 kWh, 150 kW FWD hardware (generation A). Starts at 9 % SoC in the source. The shape (peak about 147 kW at 25 %, 90 kW at 50 %, 39 kW at 80 %) is a 400 V NMC taper. Cars.com measured a much weaker 52 kW peak at Electrify America with a US FWD XLE (cold/unknown conditions; single test), so US winter results can be far lower."
+        }
+      ]
+    },
+    "toyota/bz/2024-xle-fwd": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-bz4x",
+          "points": [
+            {
+              "soc_percent": 9,
+              "power_kw": 143.4
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 144
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 144.2
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 145.2
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 147.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 141.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 125.5
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 113.7
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 101.1
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 90.4
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 80.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 69.3
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 58.6
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 53.2
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 46
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 38.8
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 29.4
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Toyota bZ4X \"75 kWh (2022-2025)\" (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned labels the pack 75 kWh (marketing size); the 150 kW rating and 147 kW peak match the 71.4 kWh, 150 kW FWD hardware (generation A). Starts at 9 % SoC in the source. The shape (peak about 147 kW at 25 %, 90 kW at 50 %, 39 kW at 80 %) is a 400 V NMC taper. Cars.com measured a much weaker 52 kW peak at Electrify America with a US FWD XLE (cold/unknown conditions; single test), so US winter results can be far lower."
+        }
+      ]
+    },
+    "toyota/bz/2025-le": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-bz4x",
+          "points": [
+            {
+              "soc_percent": 9,
+              "power_kw": 143.4
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 144
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 144.2
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 145.2
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 147.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 141.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 125.5
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 113.7
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 101.1
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 90.4
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 80.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 69.3
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 58.6
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 53.2
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 46
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 38.8
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 29.4
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Toyota bZ4X \"75 kWh (2022-2025)\" (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned labels the pack 75 kWh (marketing size); the 150 kW rating and 147 kW peak match the 71.4 kWh, 150 kW FWD hardware (generation A). Starts at 9 % SoC in the source. The shape (peak about 147 kW at 25 %, 90 kW at 50 %, 39 kW at 80 %) is a 400 V NMC taper. Cars.com measured a much weaker 52 kW peak at Electrify America with a US FWD XLE (cold/unknown conditions; single test), so US winter results can be far lower."
+        }
+      ]
+    },
+    "toyota/bz/2025-limited-fwd": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-bz4x",
+          "points": [
+            {
+              "soc_percent": 9,
+              "power_kw": 143.4
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 144
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 144.2
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 145.2
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 147.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 141.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 125.5
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 113.7
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 101.1
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 90.4
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 80.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 69.3
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 58.6
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 53.2
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 46
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 38.8
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 29.4
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Toyota bZ4X \"75 kWh (2022-2025)\" (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned labels the pack 75 kWh (marketing size); the 150 kW rating and 147 kW peak match the 71.4 kWh, 150 kW FWD hardware (generation A). Starts at 9 % SoC in the source. The shape (peak about 147 kW at 25 %, 90 kW at 50 %, 39 kW at 80 %) is a 400 V NMC taper. Cars.com measured a much weaker 52 kW peak at Electrify America with a US FWD XLE (cold/unknown conditions; single test), so US winter results can be far lower."
+        }
+      ]
+    },
+    "toyota/bz/2025-xle-fwd": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-bz4x",
+          "points": [
+            {
+              "soc_percent": 9,
+              "power_kw": 143.4
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 144
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 144.2
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 145.2
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 147.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 141.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 125.5
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 113.7
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 101.1
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 90.4
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 80.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 69.3
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 58.6
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 53.2
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 46
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 38.8
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 29.4
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Toyota bZ4X \"75 kWh (2022-2025)\" (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned labels the pack 75 kWh (marketing size); the 150 kW rating and 147 kW peak match the 71.4 kWh, 150 kW FWD hardware (generation A). Starts at 9 % SoC in the source. The shape (peak about 147 kW at 25 %, 90 kW at 50 %, 39 kW at 80 %) is a 400 V NMC taper. Cars.com measured a much weaker 52 kW peak at Electrify America with a US FWD XLE (cold/unknown conditions; single test), so US winter results can be far lower."
+        }
+      ]
+    },
+    "toyota/bz/2023-limited-awd": {
+      "curves": [
+        {
+          "id": "insideevs-outofspec-2022",
+          "kind": "tested",
+          "low_confidence": true,
+          "source_id": "src-r19c-insideevs-bz4x-awd-2022",
+          "points": [
+            {
+              "soc_percent": 1,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 7,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 88
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 51
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 18
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 7
+            },
+            {
+              "soc_percent": 94,
+              "power_kw": 1
+            },
+            {
+              "soc_percent": 99,
+              "power_kw": 1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "charger_kw": 150,
+            "measured_at": "unknown"
+          },
+          "notes": "Out of Spec Reviews test of a 2022 bZ4X Limited AWD (72.8 kWh) at Electrify America, as reported in InsideEVs text: about 86-87 kW at start, 88 kW peak at 16 %, 51 kW at 50 % (25 min), 18 kW at 80 % (62 min), 7 kW at 90 %, about 1 kW from 94 % up (99 % after 264 min); 61 kWh delivered. Only these points are stated (the chart is an image), so there are 30 % SoC gaps between 16-50-80 % and the line between them is a straight join; low_confidence for that reason. Peak 88 kW is below the 100 kW rating of the pre-2024 AWD (generation B). Charger rating 150 kW is an assumption for an Electrify America stall (not stated; the car cannot use more). Ambient not stated. Same hardware as the 2023 Solterra (assumed: same platform, pack and 100 kW limit)."
+        }
+      ]
+    },
+    "toyota/bz/2023-xle": {
+      "curves": [
+        {
+          "id": "insideevs-outofspec-2022",
+          "kind": "tested",
+          "low_confidence": true,
+          "source_id": "src-r19c-insideevs-bz4x-awd-2022",
+          "points": [
+            {
+              "soc_percent": 1,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 7,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 88
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 51
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 18
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 7
+            },
+            {
+              "soc_percent": 94,
+              "power_kw": 1
+            },
+            {
+              "soc_percent": 99,
+              "power_kw": 1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "charger_kw": 150,
+            "measured_at": "unknown"
+          },
+          "notes": "Out of Spec Reviews test of a 2022 bZ4X Limited AWD (72.8 kWh) at Electrify America, as reported in InsideEVs text: about 86-87 kW at start, 88 kW peak at 16 %, 51 kW at 50 % (25 min), 18 kW at 80 % (62 min), 7 kW at 90 %, about 1 kW from 94 % up (99 % after 264 min); 61 kWh delivered. Only these points are stated (the chart is an image), so there are 30 % SoC gaps between 16-50-80 % and the line between them is a straight join; low_confidence for that reason. Peak 88 kW is below the 100 kW rating of the pre-2024 AWD (generation B). Charger rating 150 kW is an assumption for an Electrify America stall (not stated; the car cannot use more). Ambient not stated. Same hardware as the 2023 Solterra (assumed: same platform, pack and 100 kW limit)."
+        }
+      ]
+    },
+    "subaru/solterra/2023-limited": {
+      "curves": [
+        {
+          "id": "insideevs-outofspec-2022",
+          "kind": "tested",
+          "low_confidence": true,
+          "source_id": "src-r19c-insideevs-bz4x-awd-2022",
+          "points": [
+            {
+              "soc_percent": 1,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 7,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 88
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 51
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 18
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 7
+            },
+            {
+              "soc_percent": 94,
+              "power_kw": 1
+            },
+            {
+              "soc_percent": 99,
+              "power_kw": 1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "charger_kw": 150,
+            "measured_at": "unknown"
+          },
+          "notes": "Out of Spec Reviews test of a 2022 bZ4X Limited AWD (72.8 kWh) at Electrify America, as reported in InsideEVs text: about 86-87 kW at start, 88 kW peak at 16 %, 51 kW at 50 % (25 min), 18 kW at 80 % (62 min), 7 kW at 90 %, about 1 kW from 94 % up (99 % after 264 min); 61 kWh delivered. Only these points are stated (the chart is an image), so there are 30 % SoC gaps between 16-50-80 % and the line between them is a straight join; low_confidence for that reason. Peak 88 kW is below the 100 kW rating of the pre-2024 AWD (generation B). Charger rating 150 kW is an assumption for an Electrify America stall (not stated; the car cannot use more). Ambient not stated. Same hardware as the 2023 Solterra (assumed: same platform, pack and 100 kW limit)."
+        }
+      ]
+    },
+    "subaru/solterra/2023-premium": {
+      "curves": [
+        {
+          "id": "insideevs-outofspec-2022",
+          "kind": "tested",
+          "low_confidence": true,
+          "source_id": "src-r19c-insideevs-bz4x-awd-2022",
+          "points": [
+            {
+              "soc_percent": 1,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 7,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 88
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 51
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 18
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 7
+            },
+            {
+              "soc_percent": 94,
+              "power_kw": 1
+            },
+            {
+              "soc_percent": 99,
+              "power_kw": 1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "charger_kw": 150,
+            "measured_at": "unknown"
+          },
+          "notes": "Out of Spec Reviews test of a 2022 bZ4X Limited AWD (72.8 kWh) at Electrify America, as reported in InsideEVs text: about 86-87 kW at start, 88 kW peak at 16 %, 51 kW at 50 % (25 min), 18 kW at 80 % (62 min), 7 kW at 90 %, about 1 kW from 94 % up (99 % after 264 min); 61 kWh delivered. Only these points are stated (the chart is an image), so there are 30 % SoC gaps between 16-50-80 % and the line between them is a straight join; low_confidence for that reason. Peak 88 kW is below the 100 kW rating of the pre-2024 AWD (generation B). Charger rating 150 kW is an assumption for an Electrify America stall (not stated; the car cannot use more). Ambient not stated. Same hardware as the 2023 Solterra (assumed: same platform, pack and 100 kW limit)."
+        }
+      ]
+    },
+    "subaru/solterra/2023-solterra-awd": {
+      "curves": [
+        {
+          "id": "insideevs-outofspec-2022",
+          "kind": "tested",
+          "low_confidence": true,
+          "source_id": "src-r19c-insideevs-bz4x-awd-2022",
+          "points": [
+            {
+              "soc_percent": 1,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 7,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 88
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 51
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 18
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 7
+            },
+            {
+              "soc_percent": 94,
+              "power_kw": 1
+            },
+            {
+              "soc_percent": 99,
+              "power_kw": 1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "charger_kw": 150,
+            "measured_at": "unknown"
+          },
+          "notes": "Out of Spec Reviews test of a 2022 bZ4X Limited AWD (72.8 kWh) at Electrify America, as reported in InsideEVs text: about 86-87 kW at start, 88 kW peak at 16 %, 51 kW at 50 % (25 min), 18 kW at 80 % (62 min), 7 kW at 90 %, about 1 kW from 94 % up (99 % after 264 min); 61 kWh delivered. Only these points are stated (the chart is an image), so there are 30 % SoC gaps between 16-50-80 % and the line between them is a straight join; low_confidence for that reason. Peak 88 kW is below the 100 kW rating of the pre-2024 AWD (generation B). Charger rating 150 kW is an assumption for an Electrify America stall (not stated; the car cannot use more). Ambient not stated. Same hardware as the 2023 Solterra (assumed: same platform, pack and 100 kW limit)."
+        }
+      ]
+    },
+    "bmw/i4/2022-edrive40": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-i4",
+          "points": [
+            {
+              "soc_percent": 4,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 203.9
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 207.9
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 181
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 168.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 163.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 144.4
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 124.7
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 107.2
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 95.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 81.5
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 72.8
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 66.6
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 56.6
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 57.5
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 47
+            },
+            {
+              "soc_percent": 95,
+              "power_kw": 41.2
+            },
+            {
+              "soc_percent": 98,
+              "power_kw": 39.1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the BMW i4 \"83,9 kWh (2021+)\" (200 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Peak 207.9 kW at 16 % is 4 % above the 200 kW rating (within the 5 % linter tolerance); the stepped 198.9 kW start and step drops at 17, 21, 26, 38 and 42 % are real features of the BMW curve, not smoothing. Source range 4-98 %. Same shape as the evkx.net table values seen in search excerpts (about 205 kW at 15-18 %, 107 kW near 50 %, 70 kW near 80 %), which is an independent-looking but possibly derived source and is only a sanity check. Applied to eDrive40, xDrive40, M50 (same 83.9 kWh pack, 200 kW rating in the spec batch)."
+        }
+      ]
+    },
+    "bmw/i4/2022-m50": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-i4",
+          "points": [
+            {
+              "soc_percent": 4,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 203.9
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 207.9
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 181
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 168.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 163.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 144.4
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 124.7
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 107.2
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 95.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 81.5
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 72.8
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 66.6
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 56.6
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 57.5
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 47
+            },
+            {
+              "soc_percent": 95,
+              "power_kw": 41.2
+            },
+            {
+              "soc_percent": 98,
+              "power_kw": 39.1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the BMW i4 \"83,9 kWh (2021+)\" (200 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Peak 207.9 kW at 16 % is 4 % above the 200 kW rating (within the 5 % linter tolerance); the stepped 198.9 kW start and step drops at 17, 21, 26, 38 and 42 % are real features of the BMW curve, not smoothing. Source range 4-98 %. Same shape as the evkx.net table values seen in search excerpts (about 205 kW at 15-18 %, 107 kW near 50 %, 70 kW near 80 %), which is an independent-looking but possibly derived source and is only a sanity check. Applied to eDrive40, xDrive40, M50 (same 83.9 kWh pack, 200 kW rating in the spec batch)."
+        }
+      ]
+    },
+    "bmw/i4/2023-edrive40": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-i4",
+          "points": [
+            {
+              "soc_percent": 4,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 203.9
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 207.9
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 181
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 168.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 163.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 144.4
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 124.7
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 107.2
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 95.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 81.5
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 72.8
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 66.6
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 56.6
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 57.5
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 47
+            },
+            {
+              "soc_percent": 95,
+              "power_kw": 41.2
+            },
+            {
+              "soc_percent": 98,
+              "power_kw": 39.1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the BMW i4 \"83,9 kWh (2021+)\" (200 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Peak 207.9 kW at 16 % is 4 % above the 200 kW rating (within the 5 % linter tolerance); the stepped 198.9 kW start and step drops at 17, 21, 26, 38 and 42 % are real features of the BMW curve, not smoothing. Source range 4-98 %. Same shape as the evkx.net table values seen in search excerpts (about 205 kW at 15-18 %, 107 kW near 50 %, 70 kW near 80 %), which is an independent-looking but possibly derived source and is only a sanity check. Applied to eDrive40, xDrive40, M50 (same 83.9 kWh pack, 200 kW rating in the spec batch)."
+        }
+      ]
+    },
+    "bmw/i4/2023-m50": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-i4",
+          "points": [
+            {
+              "soc_percent": 4,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 203.9
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 207.9
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 181
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 168.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 163.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 144.4
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 124.7
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 107.2
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 95.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 81.5
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 72.8
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 66.6
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 56.6
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 57.5
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 47
+            },
+            {
+              "soc_percent": 95,
+              "power_kw": 41.2
+            },
+            {
+              "soc_percent": 98,
+              "power_kw": 39.1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the BMW i4 \"83,9 kWh (2021+)\" (200 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Peak 207.9 kW at 16 % is 4 % above the 200 kW rating (within the 5 % linter tolerance); the stepped 198.9 kW start and step drops at 17, 21, 26, 38 and 42 % are real features of the BMW curve, not smoothing. Source range 4-98 %. Same shape as the evkx.net table values seen in search excerpts (about 205 kW at 15-18 %, 107 kW near 50 %, 70 kW near 80 %), which is an independent-looking but possibly derived source and is only a sanity check. Applied to eDrive40, xDrive40, M50 (same 83.9 kWh pack, 200 kW rating in the spec batch)."
+        }
+      ]
+    },
+    "bmw/i4/2024-edrive40": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-i4",
+          "points": [
+            {
+              "soc_percent": 4,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 203.9
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 207.9
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 181
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 168.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 163.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 144.4
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 124.7
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 107.2
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 95.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 81.5
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 72.8
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 66.6
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 56.6
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 57.5
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 47
+            },
+            {
+              "soc_percent": 95,
+              "power_kw": 41.2
+            },
+            {
+              "soc_percent": 98,
+              "power_kw": 39.1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the BMW i4 \"83,9 kWh (2021+)\" (200 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Peak 207.9 kW at 16 % is 4 % above the 200 kW rating (within the 5 % linter tolerance); the stepped 198.9 kW start and step drops at 17, 21, 26, 38 and 42 % are real features of the BMW curve, not smoothing. Source range 4-98 %. Same shape as the evkx.net table values seen in search excerpts (about 205 kW at 15-18 %, 107 kW near 50 %, 70 kW near 80 %), which is an independent-looking but possibly derived source and is only a sanity check. Applied to eDrive40, xDrive40, M50 (same 83.9 kWh pack, 200 kW rating in the spec batch)."
+        }
+      ]
+    },
+    "bmw/i4/2024-m50": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-i4",
+          "points": [
+            {
+              "soc_percent": 4,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 203.9
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 207.9
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 181
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 168.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 163.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 144.4
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 124.7
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 107.2
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 95.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 81.5
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 72.8
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 66.6
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 56.6
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 57.5
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 47
+            },
+            {
+              "soc_percent": 95,
+              "power_kw": 41.2
+            },
+            {
+              "soc_percent": 98,
+              "power_kw": 39.1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the BMW i4 \"83,9 kWh (2021+)\" (200 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Peak 207.9 kW at 16 % is 4 % above the 200 kW rating (within the 5 % linter tolerance); the stepped 198.9 kW start and step drops at 17, 21, 26, 38 and 42 % are real features of the BMW curve, not smoothing. Source range 4-98 %. Same shape as the evkx.net table values seen in search excerpts (about 205 kW at 15-18 %, 107 kW near 50 %, 70 kW near 80 %), which is an independent-looking but possibly derived source and is only a sanity check. Applied to eDrive40, xDrive40, M50 (same 83.9 kWh pack, 200 kW rating in the spec batch)."
+        }
+      ]
+    },
+    "bmw/i4/2024-xdrive40": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-i4",
+          "points": [
+            {
+              "soc_percent": 4,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 203.9
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 207.9
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 181
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 168.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 163.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 144.4
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 124.7
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 107.2
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 95.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 81.5
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 72.8
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 66.6
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 56.6
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 57.5
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 47
+            },
+            {
+              "soc_percent": 95,
+              "power_kw": 41.2
+            },
+            {
+              "soc_percent": 98,
+              "power_kw": 39.1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the BMW i4 \"83,9 kWh (2021+)\" (200 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Peak 207.9 kW at 16 % is 4 % above the 200 kW rating (within the 5 % linter tolerance); the stepped 198.9 kW start and step drops at 17, 21, 26, 38 and 42 % are real features of the BMW curve, not smoothing. Source range 4-98 %. Same shape as the evkx.net table values seen in search excerpts (about 205 kW at 15-18 %, 107 kW near 50 %, 70 kW near 80 %), which is an independent-looking but possibly derived source and is only a sanity check. Applied to eDrive40, xDrive40, M50 (same 83.9 kWh pack, 200 kW rating in the spec batch)."
+        }
+      ]
+    },
+    "bmw/i4/2025-edrive40": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-i4",
+          "points": [
+            {
+              "soc_percent": 4,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 203.9
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 207.9
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 181
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 168.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 163.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 144.4
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 124.7
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 107.2
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 95.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 81.5
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 72.8
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 66.6
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 56.6
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 57.5
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 47
+            },
+            {
+              "soc_percent": 95,
+              "power_kw": 41.2
+            },
+            {
+              "soc_percent": 98,
+              "power_kw": 39.1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the BMW i4 \"83,9 kWh (2021+)\" (200 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Peak 207.9 kW at 16 % is 4 % above the 200 kW rating (within the 5 % linter tolerance); the stepped 198.9 kW start and step drops at 17, 21, 26, 38 and 42 % are real features of the BMW curve, not smoothing. Source range 4-98 %. Same shape as the evkx.net table values seen in search excerpts (about 205 kW at 15-18 %, 107 kW near 50 %, 70 kW near 80 %), which is an independent-looking but possibly derived source and is only a sanity check. Applied to eDrive40, xDrive40, M50 (same 83.9 kWh pack, 200 kW rating in the spec batch)."
+        }
+      ]
+    },
+    "bmw/i4/2025-m50-xdrive": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-i4",
+          "points": [
+            {
+              "soc_percent": 4,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 203.9
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 207.9
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 181
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 168.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 163.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 144.4
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 124.7
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 107.2
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 95.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 81.5
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 72.8
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 66.6
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 56.6
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 57.5
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 47
+            },
+            {
+              "soc_percent": 95,
+              "power_kw": 41.2
+            },
+            {
+              "soc_percent": 98,
+              "power_kw": 39.1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the BMW i4 \"83,9 kWh (2021+)\" (200 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Peak 207.9 kW at 16 % is 4 % above the 200 kW rating (within the 5 % linter tolerance); the stepped 198.9 kW start and step drops at 17, 21, 26, 38 and 42 % are real features of the BMW curve, not smoothing. Source range 4-98 %. Same shape as the evkx.net table values seen in search excerpts (about 205 kW at 15-18 %, 107 kW near 50 %, 70 kW near 80 %), which is an independent-looking but possibly derived source and is only a sanity check. Applied to eDrive40, xDrive40, M50 (same 83.9 kWh pack, 200 kW rating in the spec batch)."
+        }
+      ]
+    },
+    "bmw/i4/2025-xdrive40": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-i4",
+          "points": [
+            {
+              "soc_percent": 4,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 203.9
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 207
+            },
+            {
+              "soc_percent": 16,
+              "power_kw": 207.9
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 198.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 181
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 168.6
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 163.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 144.4
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 124.7
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 107.2
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 95.2
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 87
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 81.5
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 72.8
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 66.6
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 56.6
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 57.5
+            },
+            {
+              "soc_percent": 90,
+              "power_kw": 47
+            },
+            {
+              "soc_percent": 95,
+              "power_kw": 41.2
+            },
+            {
+              "soc_percent": 98,
+              "power_kw": 39.1
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the BMW i4 \"83,9 kWh (2021+)\" (200 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Peak 207.9 kW at 16 % is 4 % above the 200 kW rating (within the 5 % linter tolerance); the stepped 198.9 kW start and step drops at 17, 21, 26, 38 and 42 % are real features of the BMW curve, not smoothing. Source range 4-98 %. Same shape as the evkx.net table values seen in search excerpts (about 205 kW at 15-18 %, 107 kW near 50 %, 70 kW near 80 %), which is an independent-looking but possibly derived source and is only a sanity check. Applied to eDrive40, xDrive40, M50 (same 83.9 kWh pack, 200 kW rating in the spec batch)."
+        }
+      ]
+    },
+    "volkswagen/id-4/2024-pro-awd": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-id4",
+          "points": [
+            {
+              "soc_percent": 3,
+              "power_kw": 165
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 165.8
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 175
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 174.8
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 178.8
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 174.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 150.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 136.1
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 127.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 117
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 108.4
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 100.6
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 93.5
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 76.9
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 69
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 68
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 69.2
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 59
+            },
+            {
+              "soc_percent": 89,
+              "power_kw": 45.9
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Volkswagen ID.4 \"77 kWh\" (175 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned shows the identical chart for the \"GTX 77 kWh\" (180 kW) listing, so it is one shared 77 kWh, 175-180 kW curve rather than a per-trim measurement. Peak 178.8 kW is 2.2 % above the 175 kW rating. Applied only to the 2024+ 175 kW powertrains; the 2023 Pro (170 kW rating) would exceed the 5 % ceiling by 0.3 kW so it is left out. Source range 3-89 %."
+        }
+      ]
+    },
+    "volkswagen/id-4/2024-pro-s": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-id4",
+          "points": [
+            {
+              "soc_percent": 3,
+              "power_kw": 165
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 165.8
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 175
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 174.8
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 178.8
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 174.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 150.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 136.1
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 127.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 117
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 108.4
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 100.6
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 93.5
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 76.9
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 69
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 68
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 69.2
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 59
+            },
+            {
+              "soc_percent": 89,
+              "power_kw": 45.9
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Volkswagen ID.4 \"77 kWh\" (175 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned shows the identical chart for the \"GTX 77 kWh\" (180 kW) listing, so it is one shared 77 kWh, 175-180 kW curve rather than a per-trim measurement. Peak 178.8 kW is 2.2 % above the 175 kW rating. Applied only to the 2024+ 175 kW powertrains; the 2023 Pro (170 kW rating) would exceed the 5 % ceiling by 0.3 kW so it is left out. Source range 3-89 %."
+        }
+      ]
+    },
+    "volkswagen/id-4/2024-pro": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-id4",
+          "points": [
+            {
+              "soc_percent": 3,
+              "power_kw": 165
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 165.8
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 175
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 174.8
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 178.8
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 174.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 150.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 136.1
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 127.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 117
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 108.4
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 100.6
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 93.5
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 76.9
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 69
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 68
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 69.2
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 59
+            },
+            {
+              "soc_percent": 89,
+              "power_kw": 45.9
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Volkswagen ID.4 \"77 kWh\" (175 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned shows the identical chart for the \"GTX 77 kWh\" (180 kW) listing, so it is one shared 77 kWh, 175-180 kW curve rather than a per-trim measurement. Peak 178.8 kW is 2.2 % above the 175 kW rating. Applied only to the 2024+ 175 kW powertrains; the 2023 Pro (170 kW rating) would exceed the 5 % ceiling by 0.3 kW so it is left out. Source range 3-89 %."
+        }
+      ]
+    },
+    "volkswagen/id-4/2025-pro-awd": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-id4",
+          "points": [
+            {
+              "soc_percent": 3,
+              "power_kw": 165
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 165.8
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 175
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 174.8
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 178.8
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 174.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 150.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 136.1
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 127.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 117
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 108.4
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 100.6
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 93.5
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 76.9
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 69
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 68
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 69.2
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 59
+            },
+            {
+              "soc_percent": 89,
+              "power_kw": 45.9
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Volkswagen ID.4 \"77 kWh\" (175 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned shows the identical chart for the \"GTX 77 kWh\" (180 kW) listing, so it is one shared 77 kWh, 175-180 kW curve rather than a per-trim measurement. Peak 178.8 kW is 2.2 % above the 175 kW rating. Applied only to the 2024+ 175 kW powertrains; the 2023 Pro (170 kW rating) would exceed the 5 % ceiling by 0.3 kW so it is left out. Source range 3-89 %."
+        }
+      ]
+    },
+    "volkswagen/id-4/2025-pro-s-awd": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-id4",
+          "points": [
+            {
+              "soc_percent": 3,
+              "power_kw": 165
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 165.8
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 175
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 174.8
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 178.8
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 174.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 150.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 136.1
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 127.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 117
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 108.4
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 100.6
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 93.5
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 76.9
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 69
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 68
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 69.2
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 59
+            },
+            {
+              "soc_percent": 89,
+              "power_kw": 45.9
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Volkswagen ID.4 \"77 kWh\" (175 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned shows the identical chart for the \"GTX 77 kWh\" (180 kW) listing, so it is one shared 77 kWh, 175-180 kW curve rather than a per-trim measurement. Peak 178.8 kW is 2.2 % above the 175 kW rating. Applied only to the 2024+ 175 kW powertrains; the 2023 Pro (170 kW rating) would exceed the 5 % ceiling by 0.3 kW so it is left out. Source range 3-89 %."
+        }
+      ]
+    },
+    "volkswagen/id-4/2025-pro-s": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-id4",
+          "points": [
+            {
+              "soc_percent": 3,
+              "power_kw": 165
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 165.8
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 175
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 174.8
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 178.8
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 174.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 150.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 136.1
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 127.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 117
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 108.4
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 100.6
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 93.5
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 76.9
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 69
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 68
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 69.2
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 59
+            },
+            {
+              "soc_percent": 89,
+              "power_kw": 45.9
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Volkswagen ID.4 \"77 kWh\" (175 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned shows the identical chart for the \"GTX 77 kWh\" (180 kW) listing, so it is one shared 77 kWh, 175-180 kW curve rather than a per-trim measurement. Peak 178.8 kW is 2.2 % above the 175 kW rating. Applied only to the 2024+ 175 kW powertrains; the 2023 Pro (170 kW rating) would exceed the 5 % ceiling by 0.3 kW so it is left out. Source range 3-89 %."
+        }
+      ]
+    },
+    "volkswagen/id-4/2025-pro": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-id4",
+          "points": [
+            {
+              "soc_percent": 3,
+              "power_kw": 165
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 165.8
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 175
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 174.8
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 178.8
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 174.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 150.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 136.1
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 127.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 117
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 108.4
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 100.6
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 93.5
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 76.9
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 69
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 68
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 69.2
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 59
+            },
+            {
+              "soc_percent": 89,
+              "power_kw": 45.9
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Volkswagen ID.4 \"77 kWh\" (175 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned shows the identical chart for the \"GTX 77 kWh\" (180 kW) listing, so it is one shared 77 kWh, 175-180 kW curve rather than a per-trim measurement. Peak 178.8 kW is 2.2 % above the 175 kW rating. Applied only to the 2024+ 175 kW powertrains; the 2023 Pro (170 kW rating) would exceed the 5 % ceiling by 0.3 kW so it is left out. Source range 3-89 %."
+        }
+      ]
+    },
+    "volkswagen/id-4/2026-pro-rwd": {
+      "curves": [
+        {
+          "id": "fastned-2026",
+          "kind": "tested",
+          "source_id": "src-r19c-fastned-id4",
+          "points": [
+            {
+              "soc_percent": 3,
+              "power_kw": 165
+            },
+            {
+              "soc_percent": 5,
+              "power_kw": 165.8
+            },
+            {
+              "soc_percent": 10,
+              "power_kw": 175
+            },
+            {
+              "soc_percent": 15,
+              "power_kw": 174.8
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 178.8
+            },
+            {
+              "soc_percent": 20,
+              "power_kw": 174.9
+            },
+            {
+              "soc_percent": 25,
+              "power_kw": 150.1
+            },
+            {
+              "soc_percent": 30,
+              "power_kw": 136.1
+            },
+            {
+              "soc_percent": 35,
+              "power_kw": 127.3
+            },
+            {
+              "soc_percent": 40,
+              "power_kw": 117
+            },
+            {
+              "soc_percent": 45,
+              "power_kw": 108.4
+            },
+            {
+              "soc_percent": 50,
+              "power_kw": 100.6
+            },
+            {
+              "soc_percent": 55,
+              "power_kw": 93.5
+            },
+            {
+              "soc_percent": 60,
+              "power_kw": 86
+            },
+            {
+              "soc_percent": 65,
+              "power_kw": 76.9
+            },
+            {
+              "soc_percent": 70,
+              "power_kw": 69
+            },
+            {
+              "soc_percent": 75,
+              "power_kw": 68
+            },
+            {
+              "soc_percent": 80,
+              "power_kw": 69.2
+            },
+            {
+              "soc_percent": 85,
+              "power_kw": 59
+            },
+            {
+              "soc_percent": 89,
+              "power_kw": 45.9
+            }
+          ],
+          "conditions": {
+            "preconditioned": "unknown",
+            "battery_temp_c": 30,
+            "charger_kw": 300,
+            "measured_at": "unknown"
+          },
+          "notes": "Fastned's published charge curve for the Volkswagen ID.4 \"77 kWh\" (175 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned shows the identical chart for the \"GTX 77 kWh\" (180 kW) listing, so it is one shared 77 kWh, 175-180 kW curve rather than a per-trim measurement. Peak 178.8 kW is 2.2 % above the 175 kW rating. Applied only to the 2024+ 175 kW powertrains; the 2023 Pro (170 kW rating) would exceed the 5 % ceiling by 0.3 kW so it is left out. Source range 3-89 %."
+        }
+      ]
+    }
+  }
+}

@@ -191,6 +191,30 @@
       "url": "https://www.press-eu.kia.com/hub/95",
       "accessed_on": "2026-11-19",
       "notes": "Not opened (redirect to hub); wording taken from a search excerpt: battery conditioning is standard on MY23 EV6, the EV6 GT and the all-new Niro EV, and offered as a retrofit on MY22 EV6."
+    },
+    {
+      "id": "src-kia-uk-ev9-specification",
+      "type": "oem",
+      "title": "Kia UK - The Kia EV9 specification",
+      "url": "https://eu-www.kia.com/uk/new-cars/ev9/specification",
+      "accessed_on": "2026-11-19",
+      "notes": "99.8 kWh pack (552 V nominal, 456 cells); 800-volt E-GMP system; 10-80 % in 24 min at 210 kW (needs an 800 V charger delivering at least 210 kW); onboard charger kW not stated. UK page; pack and DC peak do not vary by market."
+    },
+    {
+      "id": "src-insideevs-ev6-2022-us-specs",
+      "type": "community",
+      "title": "InsideEVs - 2022 Kia EV6 US specs compared",
+      "url": "https://insideevs.com/news/565543/kia-ev6-comparison-battery-range/",
+      "accessed_on": "2026-11-19",
+      "notes": "Relays Kia US specs for the 2022 EV6: 10.9 kW onboard charger on both the 58 kWh and 77.4 kWh packs; DC up to 180 kW (58 kWh) and 240 kW (77.4 kWh); 10-80 % under 18 min on an 800 V charger; usable/gross not stated."
+    },
+    {
+      "id": "src-nhtsa-kia-tsb-ccs1-adapter",
+      "type": "regulatory",
+      "title": "NHTSA - Kia TSB MC-11027857-0002 (CCS1-to-NACS adapter)",
+      "url": "https://static.nhtsa.gov/odi/tsbs/2026/MC-11027857-0002.pdf",
+      "accessed_on": "2026-11-19",
+      "notes": "PDF text not readable by the fetcher; per search excerpt the bulletin covers certain 2025-2026MY EV6 and 2026MY EV9 equipped with CCS1 charging ports. Does not name the GT in the excerpt."
     }
   ],
   "powertrains": {
@@ -238,9 +262,9 @@
           {
             "value": "automatic_and_manual",
             "kind": "estimated",
-            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "source_id": "src-insideevs-ev6-cold-weather-update",
             "low_confidence": true,
-            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+            "notes": "Estimated: What a 2022 owner can get today: Kia says the improved battery conditioning is standard from MY23 and a dealer retrofit for MY22 (InsideEVs, Kia Europe quote; North American availability not stated). Post-retrofit behaviour is taken from the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning: EV Settings switch plus DC-charger-as-destination trigger) and the Kia UK page. The original MY22 software had a more basic navigation pre-conditioning; if the retrofit is not offered in North America the value would be narrower. Battery heater per trim unconfirmed."
           }
         ],
         "dc_max_kw": [
@@ -257,10 +281,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-sr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same onboard charger family; the Canadian/US 2022-2024 page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -372,10 +396,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-sr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same onboard charger family; the Canadian/US 2022-2024 page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -468,9 +492,9 @@
           {
             "value": "automatic_and_manual",
             "kind": "estimated",
-            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "source_id": "src-insideevs-ev6-cold-weather-update",
             "low_confidence": true,
-            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+            "notes": "Estimated: What a 2022 owner can get today: Kia says the improved battery conditioning is standard from MY23 and a dealer retrofit for MY22 (InsideEVs, Kia Europe quote; North American availability not stated). Post-retrofit behaviour is taken from the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning: EV Settings switch plus DC-charger-as-destination trigger) and the Kia UK page. The original MY22 software had a more basic navigation pre-conditioning; if the retrofit is not offered in North America the value would be narrower. Battery heater per trim unconfirmed."
           }
         ],
         "dc_max_kw": [
@@ -487,10 +511,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -583,9 +607,9 @@
           {
             "value": "automatic_and_manual",
             "kind": "estimated",
-            "source_id": "src-kia-manual-ev6-2024-battery-conditioning",
+            "source_id": "src-insideevs-ev6-cold-weather-update",
             "low_confidence": true,
-            "notes": "Estimated: 2024 EV6 manual (via ManualsLib) shows a Battery conditioning mode setting in EV Settings plus the DC-charger-as-destination trigger; Kia says the feature is standard from MY23 and was a retrofit for MY22 (src-insideevs-ev6-cold-weather-update, Europe). Compared model years 2022-2024; same first-generation hardware. The manual says it needs a battery heater; not confirmed per Canadian/US trim."
+            "notes": "Estimated: What a 2022 owner can get today: Kia says the improved battery conditioning is standard from MY23 and a dealer retrofit for MY22 (InsideEVs, Kia Europe quote; North American availability not stated). Post-retrofit behaviour is taken from the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning: EV Settings switch plus DC-charger-as-destination trigger) and the Kia UK page. The original MY22 software had a more basic navigation pre-conditioning; if the retrofit is not offered in North America the value would be narrower. Battery heater per trim unconfirmed."
           }
         ],
         "dc_max_kw": [
@@ -602,10 +626,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -717,10 +741,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -832,10 +856,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -947,10 +971,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -1062,10 +1086,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -1177,10 +1201,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -1292,10 +1316,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -1407,10 +1431,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -1522,10 +1546,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "kind": "manufacturer",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW (EU, three-phase 16 A) for this pack; North American Kia pages state 10.9 kW for the E-GMP charger (Kia US 2026 EV6 page). Same charger family; the 2022-2024 NA page was not read."
+            "notes": "InsideEVs relaying Kia US specs: 10.9 kW onboard charger on both 2022 packs (58 and 77.4 kWh). EV Database 11 kW is the EU figure."
           }
         ],
         "published_10_80_min": [
@@ -1638,9 +1662,9 @@
             "value": 10.9,
             "unit": "kW",
             "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: Same onboard charger as the Long Range EV6 (EV Database 11 kW EU; Kia NA 10.9 kW)."
+            "notes": "Estimated: InsideEVs relaying Kia US specs gives 10.9 kW for the 2022 58 and 77.4 kWh EV6 packs; the GT uses the same 77.4 kWh pack and charger (no GT-specific page)."
           }
         ]
       },
@@ -1743,9 +1767,9 @@
             "value": 10.9,
             "unit": "kW",
             "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: Same onboard charger as the Long Range EV6 (EV Database 11 kW EU; Kia NA 10.9 kW)."
+            "notes": "Estimated: InsideEVs relaying Kia US specs gives 10.9 kW for the 2022 58 and 77.4 kWh EV6 packs; the GT uses the same 77.4 kWh pack and charger (no GT-specific page)."
           }
         ]
       },
@@ -1848,9 +1872,9 @@
             "value": 10.9,
             "unit": "kW",
             "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: Same onboard charger as the Long Range EV6 (EV Database 11 kW EU; Kia NA 10.9 kW)."
+            "notes": "Estimated: InsideEVs relaying Kia US specs gives 10.9 kW for the 2022 58 and 77.4 kWh EV6 packs; the GT uses the same 77.4 kWh pack and charger (no GT-specific page)."
           }
         ]
       },
@@ -1953,9 +1977,9 @@
             "value": 10.9,
             "unit": "kW",
             "kind": "estimated",
-            "source_id": "src-evdb-ev6-lr-gen1",
+            "source_id": "src-insideevs-ev6-2022-us-specs",
             "low_confidence": true,
-            "notes": "Estimated: Same onboard charger as the Long Range EV6 (EV Database 11 kW EU; Kia NA 10.9 kW)."
+            "notes": "Estimated: InsideEVs relaying Kia US specs gives 10.9 kW for the 2022 58 and 77.4 kWh EV6 packs; the GT uses the same 77.4 kWh pack and charger (no GT-specific page)."
           }
         ]
       },
@@ -2039,17 +2063,17 @@
             "kind": "estimated",
             "source_id": "src-kia-uk-battery-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh. Battery-heater equipment on Light is unconfirmed (Kia US shows no heat pump on Light and the manual says conditioning needs a battery heater), so this may not apply to Light."
           }
         ],
         "dc_max_kw": [
           {
             "value": 180,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-automoblog-2025-ev6",
             "low_confidence": true,
-            "notes": "Automoblog Kia-sourced chart: Light 180 kW max DC input (EVDB EU listing says 195 kW)."
+            "notes": "Estimated: Kia chart relayed by Automoblog is for the 2025 EV6 (Light 180 kW, other 84 kWh trims 240 kW); the 2026/2027 car has the same pack and charger. Automoblog Kia-sourced chart: Light 180 kW max DC input (EVDB EU listing says 195 kW)."
           }
         ],
         "ac_max_kw": [
@@ -2136,17 +2160,17 @@
             "kind": "estimated",
             "source_id": "src-kia-uk-battery-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh. Battery-heater equipment on Light is unconfirmed (Kia US shows no heat pump on Light and the manual says conditioning needs a battery heater), so this may not apply to Light."
           }
         ],
         "dc_max_kw": [
           {
             "value": 180,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-automoblog-2025-ev6",
             "low_confidence": true,
-            "notes": "Automoblog Kia-sourced chart: Light 180 kW max DC input (EVDB EU listing says 195 kW)."
+            "notes": "Estimated: Kia chart relayed by Automoblog is for the 2025 EV6 (Light 180 kW, other 84 kWh trims 240 kW); the 2026/2027 car has the same pack and charger. Automoblog Kia-sourced chart: Light 180 kW max DC input (EVDB EU listing says 195 kW)."
           }
         ],
         "ac_max_kw": [
@@ -2163,10 +2187,10 @@
           {
             "value": 20,
             "unit": "min",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-kia-us-ev6-specs-2026-chargetable",
             "low_confidence": true,
-            "notes": "Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (figure from a GT AWD test)."
+            "notes": "Estimated: from the Kia US 2026 EV6 page; 2027 carries the same hardware. Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (figure from a GT AWD test)."
           }
         ]
       },
@@ -2243,10 +2267,10 @@
           {
             "value": 240,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-automoblog-2025-ev6",
             "low_confidence": true,
-            "notes": "Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
+            "notes": "Estimated: Kia chart relayed by Automoblog is for the 2025 EV6 (Light 180 kW, other 84 kWh trims 240 kW); the 2026/2027 car has the same pack and charger. Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
           }
         ],
         "ac_max_kw": [
@@ -2339,10 +2363,10 @@
           {
             "value": 240,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-automoblog-2025-ev6",
             "low_confidence": true,
-            "notes": "Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
+            "notes": "Estimated: Kia chart relayed by Automoblog is for the 2025 EV6 (Light 180 kW, other 84 kWh trims 240 kW); the 2026/2027 car has the same pack and charger. Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
           }
         ],
         "ac_max_kw": [
@@ -2435,10 +2459,10 @@
           {
             "value": 240,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-automoblog-2025-ev6",
             "low_confidence": true,
-            "notes": "Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
+            "notes": "Estimated: Kia chart relayed by Automoblog is for the 2025 EV6 (Light 180 kW, other 84 kWh trims 240 kW); the 2026/2027 car has the same pack and charger. Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
           }
         ],
         "ac_max_kw": [
@@ -2532,10 +2556,10 @@
           {
             "value": 240,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-automoblog-2025-ev6",
             "low_confidence": true,
-            "notes": "Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
+            "notes": "Estimated: Kia chart relayed by Automoblog is for the 2025 EV6 (Light 180 kW, other 84 kWh trims 240 kW); the 2026/2027 car has the same pack and charger. Automoblog Kia-sourced chart: 240 kW max DC input for the 84 kWh trims (EV Database 263 kW and ArenaEV 258 kW are EU claims)."
           }
         ],
         "ac_max_kw": [
@@ -2552,10 +2576,10 @@
           {
             "value": 20,
             "unit": "min",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-kia-us-ev6-specs-2026-chargetable",
             "low_confidence": true,
-            "notes": "Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (GT AWD test figure)."
+            "notes": "Estimated: from the Kia US 2026 EV6 page; 2027 carries the same hardware. Kia US 2026 EV6: about 20 min 10-80 % at 350 kW (GT AWD test figure)."
           }
         ]
       },
@@ -2668,6 +2692,13 @@
             "source_id": "src-automoblog-2025-ev6",
             "low_confidence": true,
             "notes": "Automoblog: NACS-compatible port on all 2025 trims except the GT, which keeps CCS1. Electrek: GT excluded from the NACS port move (Korea-built)."
+          },
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-nhtsa-kia-tsb-ccs1-adapter",
+            "low_confidence": true,
+            "notes": "NHTSA/Kia TSB (search excerpt): certain 2025-2026MY EV6 have CCS1 ports; with the press statements that only the GT keeps CCS, this is the GT. No Kia US GT page naming the port was found."
           }
         ],
         "supercharger_access": [
@@ -2754,7 +2785,7 @@
             "kind": "estimated",
             "source_id": "src-kia-uk-battery-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+            "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh. Battery-heater equipment on Light is unconfirmed (Kia US shows no heat pump on Light and the manual says conditioning needs a battery heater), so this may not apply to Light."
           }
         ]
       }
@@ -2794,9 +2825,9 @@
           {
             "value": "800v",
             "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+            "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
           }
         ],
         "battery.preconditioning": [
@@ -2813,17 +2844,9 @@
             "value": 210,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-evdb-ev9-998-awd",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
-          },
-          {
-            "value": 215,
-            "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
-            "low_confidence": true,
-            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+            "notes": "Kia UK spec page: 10-80 % in 24 min at 210 kW (pack-level, not market-specific). InsideEVs (Kia US documents) says up to 215 kW and measured almost 215 kW; within 2.4 %."
           }
         ],
         "ac_max_kw": [
@@ -2907,9 +2930,9 @@
           {
             "value": "800v",
             "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+            "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
           }
         ],
         "battery.preconditioning": [
@@ -2918,25 +2941,17 @@
             "kind": "manufacturer",
             "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
             "low_confidence": true,
-            "notes": "2024 EV9 manual (MV1, en_RG copy): manual on/off switch, navigation fast-charger trigger, remote start from Kia Connect. Requires a battery heater (equipment per trim not confirmed)."
+            "notes": "2024 EV9 manual (MV1, en_RG copy): manual on/off switch, navigation fast-charger trigger, remote start from Kia Connect. Requires a battery heater (equipment per trim not confirmed). Battery-heater equipment on Light is unconfirmed (Kia US shows no heat pump on Light and the manual says conditioning needs a battery heater), so this may not apply to Light."
           }
         ],
         "dc_max_kw": [
-          {
-            "value": 210,
-            "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-evdb-ev9-761",
-            "low_confidence": true,
-            "notes": "EV Database: Kia claimed 210 kW for the 76.1 kWh pack (EU). Conflicts with 236 kW below and 230-235 kW elsewhere."
-          },
           {
             "value": 236,
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-insideevs-2024-ev9-epa",
             "low_confidence": true,
-            "notes": "InsideEVs relaying Kia documents: the 76.1 kWh pack recharges up to 236 kW (conflicts with the 210 kW EU claim)."
+            "notes": "InsideEVs relaying Kia US EPA documents: the 76.1 kWh pack recharges up to 236 kW. EV Database lists 210 kW for this pack, which looks copied from the 99.8 kWh page. No Kia page states it."
           }
         ],
         "ac_max_kw": [
@@ -3020,9 +3035,9 @@
           {
             "value": "800v",
             "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+            "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
           }
         ],
         "battery.preconditioning": [
@@ -3039,17 +3054,9 @@
             "value": 210,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-evdb-ev9-998-awd",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
-          },
-          {
-            "value": 215,
-            "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
-            "low_confidence": true,
-            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+            "notes": "Kia UK spec page: 10-80 % in 24 min at 210 kW (pack-level, not market-specific). InsideEVs (Kia US documents) says up to 215 kW and measured almost 215 kW; within 2.4 %."
           }
         ],
         "ac_max_kw": [
@@ -3133,9 +3140,9 @@
           {
             "value": "800v",
             "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+            "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
           }
         ],
         "battery.preconditioning": [
@@ -3152,17 +3159,9 @@
             "value": 210,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-evdb-ev9-998-awd",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
-          },
-          {
-            "value": 215,
-            "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
-            "low_confidence": true,
-            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+            "notes": "Kia UK spec page: 10-80 % in 24 min at 210 kW (pack-level, not market-specific). InsideEVs (Kia US documents) says up to 215 kW and measured almost 215 kW; within 2.4 %."
           }
         ],
         "ac_max_kw": [
@@ -3246,9 +3245,9 @@
           {
             "value": "800v",
             "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+            "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
           }
         ],
         "battery.preconditioning": [
@@ -3257,25 +3256,17 @@
             "kind": "estimated",
             "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
             "low_confidence": true,
-            "notes": "Estimated: 2024 and 2026 EV9 manuals (MV1) describe the same switch plus navigation trigger; nothing shows a change between 2024 and 2027. Requires a battery heater (per-trim equipment not confirmed)."
+            "notes": "Estimated: 2024 and 2026 EV9 manuals (MV1) describe the same switch plus navigation trigger; nothing shows a change between 2024 and 2027. Requires a battery heater (per-trim equipment not confirmed). Battery-heater equipment on Light is unconfirmed (Kia US shows no heat pump on Light and the manual says conditioning needs a battery heater), so this may not apply to Light."
           }
         ],
         "dc_max_kw": [
-          {
-            "value": 210,
-            "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-evdb-ev9-761",
-            "low_confidence": true,
-            "notes": "EV Database: Kia claimed 210 kW for the 76.1 kWh pack (EU). Conflicts with 236 kW below and 230-235 kW elsewhere."
-          },
           {
             "value": 236,
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-insideevs-2024-ev9-epa",
             "low_confidence": true,
-            "notes": "InsideEVs relaying Kia documents: the 76.1 kWh pack recharges up to 236 kW (conflicts with the 210 kW EU claim)."
+            "notes": "InsideEVs relaying Kia US EPA documents: the 76.1 kWh pack recharges up to 236 kW. EV Database lists 210 kW for this pack, which looks copied from the 99.8 kWh page. No Kia page states it."
           }
         ],
         "ac_max_kw": [
@@ -3352,20 +3343,12 @@
       "fields": {
         "dc_max_kw": [
           {
-            "value": 210,
-            "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-evdb-ev9-761",
-            "low_confidence": true,
-            "notes": "EV Database: Kia claimed 210 kW for the 76.1 kWh pack (EU). Conflicts with 236 kW below."
-          },
-          {
             "value": 236,
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-insideevs-2024-ev9-epa",
             "low_confidence": true,
-            "notes": "InsideEVs relaying Kia documents: the 76.1 kWh pack recharges up to 236 kW."
+            "notes": "InsideEVs relaying Kia US EPA documents: the 76.1 kWh pack recharges up to 236 kW. EV Database lists 210 kW for this pack, which looks copied from the 99.8 kWh page. No Kia page states it."
           }
         ]
       }
@@ -3404,9 +3387,9 @@
           {
             "value": "800v",
             "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+            "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
           }
         ],
         "battery.preconditioning": [
@@ -3423,17 +3406,9 @@
             "value": 210,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-evdb-ev9-998-awd",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
-          },
-          {
-            "value": 215,
-            "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
-            "low_confidence": true,
-            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+            "notes": "Kia UK spec page: 10-80 % in 24 min at 210 kW (pack-level, not market-specific). InsideEVs (Kia US documents) says up to 215 kW and measured almost 215 kW; within 2.4 %."
           }
         ],
         "ac_max_kw": [
@@ -3508,9 +3483,9 @@
           {
             "value": "800v",
             "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+            "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
           }
         ],
         "battery.preconditioning": [
@@ -3527,17 +3502,9 @@
             "value": 210,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-evdb-ev9-998-awd",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
-          },
-          {
-            "value": 215,
-            "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
-            "low_confidence": true,
-            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+            "notes": "Kia UK spec page: 10-80 % in 24 min at 210 kW (pack-level, not market-specific). InsideEVs (Kia US documents) says up to 215 kW and measured almost 215 kW; within 2.4 %."
           }
         ],
         "ac_max_kw": [
@@ -3612,9 +3579,9 @@
           {
             "value": "800v",
             "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+            "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
           }
         ],
         "battery.preconditioning": [
@@ -3631,17 +3598,9 @@
             "value": 210,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-evdb-ev9-998-awd",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "EV Database: Kia claimed max 210 kW for the 99.8 kWh pack."
-          },
-          {
-            "value": 215,
-            "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
-            "low_confidence": true,
-            "notes": "InsideEVs relaying Kia documents: 99.8 kWh pack up to 215 kW (conflicts with 210 kW; InsideEVs measured 216 kW on a GT-Line)."
+            "notes": "Kia UK spec page: 10-80 % in 24 min at 210 kW (pack-level, not market-specific). InsideEVs (Kia US documents) says up to 215 kW and measured almost 215 kW; within 2.4 %."
           }
         ],
         "ac_max_kw": [
@@ -3716,9 +3675,9 @@
           {
             "value": "800v",
             "kind": "manufacturer",
-            "source_id": "src-insideevs-2024-ev9-epa",
+            "source_id": "src-kia-uk-ev9-specification",
             "low_confidence": true,
-            "notes": "E-GMP 800 V (InsideEVs: 350 kW / 800 V charger figures)."
+            "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
           }
         ],
         "battery.preconditioning": [
@@ -3727,25 +3686,17 @@
             "kind": "estimated",
             "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
             "low_confidence": true,
-            "notes": "Estimated: 2024 and 2026 EV9 manuals (MV1) describe the same switch plus navigation trigger; nothing shows a change between 2024 and 2027. Requires a battery heater (per-trim equipment not confirmed)."
+            "notes": "Estimated: 2024 and 2026 EV9 manuals (MV1) describe the same switch plus navigation trigger; nothing shows a change between 2024 and 2027. Requires a battery heater (per-trim equipment not confirmed). Battery-heater equipment on Light is unconfirmed (Kia US shows no heat pump on Light and the manual says conditioning needs a battery heater), so this may not apply to Light."
           }
         ],
         "dc_max_kw": [
-          {
-            "value": 210,
-            "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-evdb-ev9-761",
-            "low_confidence": true,
-            "notes": "EV Database: Kia claimed 210 kW for the 76.1 kWh pack (EU). Conflicts with 236 kW below and 230-235 kW elsewhere."
-          },
           {
             "value": 236,
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-insideevs-2024-ev9-epa",
             "low_confidence": true,
-            "notes": "InsideEVs relaying Kia documents: the 76.1 kWh pack recharges up to 236 kW (conflicts with the 210 kW EU claim)."
+            "notes": "InsideEVs relaying Kia US EPA documents: the 76.1 kWh pack recharges up to 236 kW. EV Database lists 210 kW for this pack, which looks copied from the 99.8 kWh page. No Kia page states it."
           }
         ],
         "ac_max_kw": [
@@ -3830,9 +3781,9 @@
           {
             "value": "none",
             "kind": "estimated",
-            "source_id": "src-kia-press-eu-ev6-conditioning",
+            "source_id": "src-insideevs-ev6-cold-weather-update",
             "low_confidence": true,
-            "notes": "Estimated: Kia introduced its navigation-based battery conditioning as standard with the MY23 EV6 and the all-new (second-generation) Niro EV (retrofit for MY22 EV6), so the 2019-2022 first-generation Niro EV predates it; no 2019-2022 Niro EV page I found describes a battery conditioning feature. Source is a search excerpt of the Kia Europe release."
+            "notes": "Estimated: Weakest value in this batch. Kia added navigation-triggered battery conditioning with the EV6 (launched MY22, upgraded MY23, InsideEVs) and made it standard on the second-generation Niro EV (Kia Europe release, search excerpt); the 2019-2022 first-generation Niro EV predates the EV6 and I found no gen-1 Niro EV manual or Kia page describing battery conditioning for charging. A search snippet says MY19-21 has a PTC battery heater but no manual pre-heat. Silence is not proof; no better-supported value exists."
           }
         ],
         "dc_max_kw": [
@@ -3900,7 +3851,7 @@
             "kind": "community",
             "source_id": "src-evdb-niro-ev-2022",
             "low_confidence": true,
-            "notes": "EV Database: 68.0 kWh nominal; Kia's published 64.8 kWh is the usable figure per EV Database (Chargeprice shows 68.4)."
+            "notes": "EV Database: 68.0 kWh nominal; Kia's published 64.8 kWh is the usable figure per EV Database (Chargeprice shows 68.4). Kia states only \"64.8 kWh\" without gross/usable; EV Database and EVKX read it as usable (68.0 gross), and Nyland measured 64.3 kWh usable, which supports 64.8 usable. The existing Chargeprice 68.4 usable is not supported."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -3933,21 +3884,29 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-niro-ev-2022",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists preconditioning on the Niro EV including automatic preconditioning when navigating to a charger; Kia states conditioning is standard on the all-new Niro EV (src-kia-press-eu-ev6-conditioning, Europe); the manual on/off switch is described in Kia manuals for sibling EVs (EV6/EV9) but no Niro EV manual page was found. European-market evidence; Kia manuals say a battery heater is required."
+            "notes": "Estimated: EV Database (Niro EV 2022-2025) lists automatic preconditioning when using navigation; Kia says conditioning is standard on the second-generation Niro EV (Europe). No Niro EV manual page showing a manual switch was found, so only the navigation trigger is recorded."
           }
         ],
         "dc_max_kw": [
+          {
+            "value": 85,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-insideevs-2023-niro-ev",
+            "low_confidence": true,
+            "notes": "Estimated: Kia gives no car peak; its 10-80 % in 43 min is on an 85 kW charger, Kia Ireland lists 43 min at both 100 and 300 kW, and CarExpert AU (search excerpt) lists 83.8 kW, so the car is limited near 85 kW. EV Database/EVKX list 94 kW (modelled); the Chargeprice import shows 80 kW."
+          },
           {
             "value": 94,
             "unit": "kW",
             "kind": "community",
             "source_id": "src-evdb-niro-ev-2022",
             "low_confidence": true,
-            "notes": "EV Database: max DC 94 kW (EVKX also 94 kW). Kia US quotes 10-80 % in 43 min on an 85 kW charger (not a car peak); CarExpert (AU) 83.8 kW."
+            "notes": "EV Database: max DC 94 kW (EVKX also 94 kW); probably above what the car sustains, see the 85 kW entry."
           }
         ],
         "ac_max_kw": [
@@ -4002,11 +3961,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-niro-ev-2022",
             "low_confidence": true,
-            "notes": "Estimated: EV Database (Niro EV 2022-2025) lists automatic preconditioning with navigation; Kia says conditioning is standard on the second-generation Niro EV. 2026 is the same generation with no change found."
+            "notes": "Estimated: EV Database (Niro EV 2022-2025) lists automatic preconditioning when using navigation; Kia says conditioning is standard on the second-generation Niro EV (Europe). No Niro EV manual page showing a manual switch was found, so only the navigation trigger is recorded. 2026 is the same generation; no change found."
           }
         ]
       }

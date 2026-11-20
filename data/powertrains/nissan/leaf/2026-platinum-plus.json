@@ -16,6 +16,33 @@
         "low_confidence": true,
         "notes": "Nissan global press kit spec table: 75.1 kWh usable for the 75 kWh LEAF pack. US press kit lists 75 kWh for Platinum+ as well; Canadian Platinum+ assumed identical."
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-evdb-leaf-75-my26",
+        "low_confidence": true,
+        "notes": "EV Database lists an NMC cathode for the 75 kWh 2026 LEAF (Wikipedia names the pack as AESC NMC). Pack is shared by S+, SV+ and Platinum+."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "community",
+        "source_id": "src-evdb-leaf-75-my26",
+        "low_confidence": true,
+        "notes": "EV Database gives a 400 V architecture for the 75 kWh pack (nominal voltage not stated)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-nissan-malta-leaf-ze2-2025-battery-heater",
+        "low_confidence": true,
+        "notes": "Estimated: the third-generation (ZE2) LEAF owner manual (European edition) describes a battery heater with AUTO (warms the battery during navigation route guidance to a fast charger) and a manual ON setting, and Nissan's global release describes navigation-linked battery thermal conditioning on applicable grades. Nissan USA/Canada pages show a battery heater and Intelligent Route Planner but do not describe the trigger; assumed the same hardware and software (same generation). The navigation trigger may be limited to higher grades (\"applicable grades\"). Nissan Canada 2026 kit confirms the manual battery heater on all grades and Google Maps route charging stops on SV+ and PLATINUM+."
+      }
     ]
   },
   "dc_max_kw": [
@@ -36,6 +63,15 @@
       "source_id": "src-spinelli-nissan-leaf-2026",
       "low_confidence": true,
       "notes": "Quick web lookup. Model-wide figure; pack/trim not stated on the page."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 7.2,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-nissan-ca-leaf-2026-press-kit",
+      "notes": "Nissan Canada 2026 press kit: 7.2 kW onboard charger on S+, SV+, PLATINUM+ (US spec table agrees). The 2027 kit gives 11 kW to the 2027 S+ and up; Nissan Canada's specs page mentions 11 kW for that reason."
     }
   ]
 }

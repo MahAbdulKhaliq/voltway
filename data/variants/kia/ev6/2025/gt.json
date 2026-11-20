@@ -8,6 +8,31 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-automoblog-2025-ev6",
+      "low_confidence": true,
+      "notes": "Automoblog: NACS-compatible port on all 2025 trims except the GT, which keeps CCS1. Electrek: GT excluded from the NACS port move (Korea-built)."
+    },
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-nhtsa-kia-tsb-ccs1-adapter",
+      "low_confidence": true,
+      "notes": "NHTSA/Kia TSB (search excerpt): certain 2025-2026MY EV6 have CCS1 ports; with the press statements that only the GT keeps CCS, this is the GT. No Kia US GT page naming the port was found."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-kia-us-charge-pass-page",
+      "low_confidence": true,
+      "notes": "CCS1 Kia vehicles use Tesla Superchargers with a Kia-approved adapter."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

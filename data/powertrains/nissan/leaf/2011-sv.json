@@ -5,5 +5,74 @@
   "generation": "first-generation-24-kwh",
   "years": [
     2011
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 21.4,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-wikipedia-leaf-first-gen",
+        "low_confidence": true,
+        "notes": "Wikipedia: assessed usable 21.381 kWh of 24.15 kWh nominal (EV Database shows 22 kWh, estimated)."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 24,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-nissan-usa-leaf-2012-press-kit",
+        "low_confidence": true,
+        "notes": "Press kit says \"24 kWh\" laminated lithium-ion (bare capacity, taken as gross)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "other",
+        "kind": "estimated",
+        "source_id": "src-doe-2013-leaf-battery-sheet",
+        "low_confidence": true,
+        "notes": "Estimated: DOE/INL sheet for the 2013 Leaf (specs supplied by Nissan): AESC lithium manganese oxide (LMO) cathode, carbon anode. \"other\" = LMO (no LMO enum value). UNPROVEN carry-over: the DOE sheet is for a 2013 car; no page found showing whether the 2011-12 and 2014-16 24 kWh cells kept the same cathode. EV Database lists NMC for these years, which conflicts."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-doe-2013-leaf-battery-sheet",
+        "low_confidence": true,
+        "notes": "DOE/INL sheet: nominal system voltage 364.8 V (96S), 2013 car; same pack in other 24 kWh years. Classed 400v (sub-400 V pack)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-evdb-leaf-24-my11-13",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database states battery preconditioning is not supported (or \"No\") for this pack. Nissan US press kits (2012, 2013, 2014, 2016, 2017, 2018, 2019, 2024) describe only remote cabin heating/cooling (NissanConnect EV) and, in 2012-2014, a cold-weather battery heater that warms the pack while charging; none describes a navigation or manual battery-warming-before-charging feature. Nissan's navigation-linked battery heater first appears on the third-generation LEAF."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 0,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-nissan-ca-leaf-2011-press-kit",
+      "low_confidence": true,
+      "notes": "Quick charge port \"-\" on the SV (US 2012 kit, Canada 2011 and 2012 sheets): no DC charging on this trim."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 3.3,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-nissan-usa-leaf-2012-press-kit",
+      "low_confidence": true,
+      "notes": "2012 US press kit: 3.3 kW onboard charger. The kit is for model year 2012; this powertrain is 2011 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2011 kit: 3.3 kW."
+    }
   ]
 }

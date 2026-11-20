@@ -1,0 +1,15 @@
+our_variant_id,source_key,batch,reason,date
+volvo/ex30/2026/single-motor-extended-range,volvo:ex30:2025:ex30,volvo-polestar,"OpenEV pack/DC wrong (78/69/150 vs 82/79/205; EX30 51/49 LFP vs 69/64 NMC)",2026-11-19
+volvo/ex40/2026/standard,volvo:ex40:2025:ex40,volvo-polestar,"OpenEV pack/DC wrong (78/69/150 vs 82/79/205; EX30 51/49 LFP vs 69/64 NMC)",2026-11-19
+volvo/ex40/2026/twin,volvo:ex40:2025:ex40_twin_motor,volvo-polestar,"OpenEV pack/DC wrong (78/69/150 vs 82/79/205; EX30 51/49 LFP vs 69/64 NMC)",2026-11-19
+polestar/polestar-2/2025/dual-motor,polestar:polestar_2:2024:polestar_2,volvo-polestar,"OpenEV pack/DC wrong (78/69/150 vs 82/79/205; EX30 51/49 LFP vs 69/64 NMC)",2026-11-19
+polestar/polestar-2/2025/dual-motor-performance-pack,polestar:polestar_2:2025:polestar_2_long_range_dual_motor,volvo-polestar,"OpenEV pack/DC wrong (78/69/150 vs 82/79/205; EX30 51/49 LFP vs 69/64 NMC)",2026-11-19
+polestar/polestar-2/2025/single-motor,polestar:polestar_2:2025:polestar_2_long_range_single_motor,volvo-polestar,"OpenEV pack/DC wrong (78/69/150 vs 82/79/205; EX30 51/49 LFP vs 69/64 NMC)",2026-11-19
+volkswagen/id-4/2026/standard,volkswagen:id_4:2025:id_4_gtx,bmw-vw,"Linked to EU ID.4 GTX; DC 135 vs 175",2026-11-19
+volkswagen/id-4/2026/awd,volkswagen:id_4:2025:id_4_gtx,bmw-vw,"Linked to EU ID.4 GTX; DC 135 vs 175",2026-11-19
+nissan/ariya/2026/platinum-plus-e-4orce,nissan:ariya:2025:ariya_awd,nissan,"OpenEV 63 kWh usable=gross on 87 kWh cars; gross wrong on all; AC 7.4 vs 7.2",2026-11-19
+nissan/ariya/2026/sl-e-4orce,nissan:ariya:2025:ariya_awd,nissan,"OpenEV 63 kWh usable=gross on 87 kWh cars; gross wrong on all; AC 7.4 vs 7.2",2026-11-19
+nissan/ariya/2026/sl-plus,nissan:ariya:2025:ariya,nissan,"OpenEV 63 kWh usable=gross on 87 kWh cars; gross wrong on all; AC 7.4 vs 7.2",2026-11-19
+nissan/ariya/2026/sl-plus-e-4orce,nissan:ariya:2025:ariya_awd,nissan,"OpenEV 63 kWh usable=gross on 87 kWh cars; gross wrong on all; AC 7.4 vs 7.2",2026-11-19
+nissan/ariya/2026/sv,nissan:ariya:2025:ariya,nissan,"OpenEV 63 kWh usable=gross on 87 kWh cars; gross wrong on all; AC 7.4 vs 7.2",2026-11-19
+kia/niro-ev/2026/standard,bc318a9b-d468-c4f5-17d2-09ad143e453a,kia,"Chargeprice usable 68.4 is gross-sized; DC 80 stale",2026-11-19

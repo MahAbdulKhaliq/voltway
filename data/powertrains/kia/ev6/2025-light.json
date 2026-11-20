@@ -25,6 +25,34 @@
         "low_confidence": true,
         "notes": "Quick web lookup (rough, not cross-checked)."
       }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 60,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-evdb-ev6-sr-2025",
+        "low_confidence": true,
+        "notes": "EV Database (MY25-27): 60.0 kWh usable of 63.0 nominal."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-evdb-ev6-sr-2025",
+        "low_confidence": true,
+        "notes": "EV Database: NMC."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-kia-uk-battery-preconditioning",
+        "low_confidence": true,
+        "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh. Battery-heater equipment on Light is unconfirmed (Kia US shows no heat pump on Light and the manual says conditioning needs a battery heater), so this may not apply to Light."
+      }
     ]
   },
   "ac_max_kw": [

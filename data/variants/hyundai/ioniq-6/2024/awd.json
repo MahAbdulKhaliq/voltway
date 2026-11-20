@@ -8,6 +8,22 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-us-nacs-giveaway-faq",
+      "notes": "Hyundai US lists the IONIQ 6 (22MY-25MY) among EVs with native CCS ports eligible for the CCS-to-NACS adapter."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-us-nacs-giveaway-faq",
+      "notes": "Free adapter (retail date on or before 2025-01-31, offer ended 2025-05-30) and dealer-sold adapter afterwards: an owner can use Tesla Superchargers through the CCS-to-NACS adapter."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

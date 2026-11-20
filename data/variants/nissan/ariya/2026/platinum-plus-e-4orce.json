@@ -8,6 +8,46 @@
   "markets": [
     "CA"
   ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 87,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-guideauto-ariya-2026-canada",
+        "low_confidence": true,
+        "notes": "The Car Guide (Canada 2026): this trim has the 87 kWh pack; Nissan Canada specs page: 63 kWh and 87 kWh usable. The existing OpenEV value (63 kWh) looks stale for this trim."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 91,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-nissan-ca-ariya-specs",
+        "low_confidence": true,
+        "notes": "Nissan Canada specs: 91 kWh pack (usable 87). The existing OpenEV gross value of 63 kWh equals the usable figure."
+      }
+    ]
+  },
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-nissan-usa-ariya-2023-press-kit",
+      "low_confidence": true,
+      "notes": "2023 US press kit: CCS port. The Canadian 2026 Ariya had \"no cosmetic revisions or technological updates\" (The Car Guide, src-guideauto-ariya-2026-canada), and Nissan reports a native NACS port only for the refreshed 2027 Ariya (autoevolution, 2027 Canada article), so the 2026 car keeps CCS1 and uses the Nissan adapter for Superchargers (via_adapter). The Nissan Canada specs page lists \"Quick charge port-NACS\" plus a $317 adapter kit, which looks like the 2027 car."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-electrek-nissan-supercharger-2024-12",
+      "low_confidence": true,
+      "notes": "Nissan Ariya Supercharger access from 2024-12-10 via a Nissan CCS-to-NACS adapter ($235 US, per Electrek and Nissan). Canada: adapter at $309.99 (The Car Guide names the 2025 Ariya; 2026 had \"no technological updates\" so assumed the same). The refreshed 2027 Canadian car is reported to get a native NACS port; not applicable here."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

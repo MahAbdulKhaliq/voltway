@@ -18,6 +18,15 @@
       "notes": "Quick web lookup. Canadian listing says CCS1."
     }
   ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-vw-ca-nacs-adapter",
+      "low_confidence": true,
+      "notes": "VW Canada: NACS DC adapter officially available for the ID.4 (US and Canada); Electrek: access from 2025-11-18 for ID.4 owners with a $200 (CAD 304) adapter; MY2026+ VW EVs include it; vw.com 2026 page: adapter sold separately. No model years excluded."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

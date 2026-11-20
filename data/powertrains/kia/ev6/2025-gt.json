@@ -5,5 +5,84 @@
   "generation": "2025-refresh",
   "years": [
     2025
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 84,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-arenaev-ev6-gt-2025",
+        "low_confidence": true,
+        "notes": "ArenaEV: 84 kWh for the 2025 GT (EVDB GT page also 84.0 nominal)."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 80,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-evdb-ev6-gt",
+        "low_confidence": true,
+        "notes": "EV Database GT: 80.0 kWh usable (EVDB marks it estimated), 84.0 nominal."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-evdb-ev6-gt",
+        "low_confidence": true,
+        "notes": "EV Database: NMC."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "community",
+        "source_id": "src-evdb-ev6-gt",
+        "low_confidence": true,
+        "notes": "EV Database: 697 V, 800 V architecture."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-kia-uk-battery-preconditioning",
+        "low_confidence": true,
+        "notes": "Estimated: Kia UK page names the EV6: navigation trigger (charger as destination) plus manual start from infotainment/Kia Connect app. UK page, not NA; the 2024 EV6 manual (src-kia-manual-ev6-2024-battery-conditioning) shows the same setting; nothing shows a change at the 2025 refresh."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 240,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-automoblog-2025-ev6",
+      "low_confidence": true,
+      "notes": "Automoblog Kia-sourced chart: GT 240 kW, 10-80 % 18 min. (EVDB 263 kW, ArenaEV 258 kW are EU values.)"
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-kia-us-ev6-specs-2026-chargetable",
+      "low_confidence": true,
+      "notes": "Estimated: Kia US lists 10.9 kW for every 2026 EV6 trim including the 84 kWh packs; the 2025 GT shares the E-GMP onboard charger (EVDB GT page: 11 kW EU). GT-specific NA page not found."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 18,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-automoblog-2025-ev6",
+      "low_confidence": true,
+      "notes": "Automoblog Kia-sourced chart: GT 18 min at 350 kW."
+    }
   ]
 }

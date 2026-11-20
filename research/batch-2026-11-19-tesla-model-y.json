@@ -78,7 +78,7 @@
       "title": "InsideEVs - What Batteries Are Tesla Using In Its Electric Cars?",
       "url": "https://insideevs.com/news/587455/batteries-tesla-using-electric-cars/",
       "accessed_on": "2026-11-19",
-      "notes": "Panasonic 2170 NCA cells for Model 3/Y from California; LGES 2170 NCM for Shanghai- and Berlin-built Model Y; CATL LFP for entry-level cars; Texas 4680 chemistry undisclosed."
+      "notes": "Panasonic 2170 NCA cells for Model 3/Y from California; LGES 2170 NCM used in China, mainly for the Tesla Giga Shanghai plant (Berlin and Canada are not mentioned); CATL LFP for entry-level cars; Texas 4680 chemistry undisclosed."
     },
     {
       "id": "src-teslabs-manual-preconditioning",
@@ -119,6 +119,64 @@
       "url": "https://notateslaapp.com/news/4390/tesla-launches-6-seat-model-y-long-wheelbase-in-the-us",
       "accessed_on": "2026-11-19",
       "notes": "US Model Y L (Premium AWD Launch Series): 83 kWh pack (gross/usable not stated), 250 kW peak Supercharging, EPA 325 mi (19 in)."
+    },
+    {
+      "id": "src-evdb-m3-srp-2019",
+      "type": "community",
+      "title": "EV Database: Tesla Model 3 Standard Range Plus (2019-2020)",
+      "url": "https://ev-database.org/car/1177/Tesla-Model-3-Standard-Range-Plus",
+      "accessed_on": "2026-11-19",
+      "notes": "European listing: 53.1 kWh nominal / 49.0 kWh usable, Panasonic 2170C NCA, 96s31p 357 V (400 V architecture), 170 kW max DC. Same Panasonic 2976-cell pack as North America."
+    },
+    {
+      "id": "src-evdb-m3-lrawd-2021-pana",
+      "type": "community",
+      "title": "EV Database: Tesla Model 3 Long Range AWD (Panasonic 2170L, May-Dec 2021)",
+      "url": "https://ev-database.org/car/1525/Tesla-Model-3-Long-Range-AWD",
+      "accessed_on": "2026-11-19",
+      "notes": "Panasonic 2170L (variant E3LD): 82.0 kWh nominal / 76.0 kWh usable, NCA, 96s46p, 250 kW max DC. Page notes some markets also got a lower-capacity LG pack."
+    },
+    {
+      "id": "src-tesla-m3-service-manual-charging",
+      "type": "oem",
+      "title": "Tesla Model 3 Service Manual (2017-2023): charging rates",
+      "url": "https://service.tesla.com/docs/Model3/ServiceManual/en-us/GUID-25F90D76-9526-44FA-96FB-BB401EC865ED.html",
+      "accessed_on": "2026-11-19",
+      "notes": "States: 240 V outlet max 32 A (about 7.7 kW); \"Model 3 accepts up to 48A when equipped with the Long Range Battery\" (about 11 kW). No per-year or per-trim table."
+    },
+    {
+      "id": "src-cleantechnica-srp-170kw-2019",
+      "type": "community",
+      "title": "CleanTechnica: Model 3 Standard Range Plus now Supercharges at up to 170 kW",
+      "url": "https://cleantechnica.com/2019/11/05/tesla-model-3-standard-range-plus-now-supercharges-at-up-to-170-kw-charts/",
+      "accessed_on": "2026-11-19",
+      "notes": "Software 2019.36.1 raised SR+ peak to 170 kW (previously about 100-105 kW); Long Range 250 kW. Pack size only as forum estimates (about 54.5 kWh usable SR+, 74.5 kWh LR)."
+    },
+    {
+      "id": "src-thechargeport-tesla-model-y",
+      "type": "community",
+      "title": "The Charge Port – Tesla Model Y",
+      "url": "https://thechargeport.com/ev/tesla-model-y",
+      "accessed_on": "2026-11-15",
+      "notes": "US-oriented guide: says the Model Y has a standard heat pump (not per trim); native NACS."
+    },
+    {
+      "id": "src-openev-v1-24-0",
+      "type": "dataset",
+      "title": "OpenEV Data v1.24.0 (2025-12-30)",
+      "url": "https://github.com/open-ev-data/open-ev-data-dataset/releases/tag/v1.24.0",
+      "license": "CDLA-Permissive-2.0",
+      "attribution": "Contains data from OpenEV Data (https://github.com/open-ev-data/open-ev-data-dataset), licensed under the Community Data License Agreement – Permissive, Version 2.0.",
+      "accessed_on": "2026-11-15",
+      "notes": "Community-maintained spec dataset. Values from it are 'manufacturer via OpenEV Data' in the precedence order (vehicle-data-model.md §7). Each imported record keeps its upstream source links. Raw copy in sources/openev/."
+    },
+    {
+      "id": "src-notebookcheck-model-y-premium-rwd-2026",
+      "type": "community",
+      "title": "Notebookcheck - New Model Y with the longest range priced $4,000 less than the AWD trim",
+      "url": "https://www.notebookcheck.net/New-Model-Y-with-the-longest-range-priced-4-000-less-than-the-AWD-trim.1011343.0.html",
+      "accessed_on": "2026-11-19",
+      "notes": "US Premium RWD (357 mi): \"has the same battery size as its AWD sibling but weighs less\"; previous RWD had a smaller LFP battery. No kWh given."
     }
   ],
   "powertrains": {
@@ -126,11 +184,11 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
-            "value": 78.1,
+            "value": 82,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists nominal 78.1 kWh for the 2022-2025 Long Range AWD (European, LG-cell). Tesla publishes no pack size; the North American Fremont (Panasonic) pack is assumed the same 75 kWh-class pack (ArenaEV 82/75 for the LR AWD 2021-2025 too).",
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025, and the Model 3 Panasonic 2170L pack is 82.0 nominal (EV Database 1525, src-evdb-m3-lrawd-2021-pana). Not a Fremont-specific Model Y page. Model 3 sibling batch records the same Panasonic 2170L pack at 82 / 76 (EV Database 1525); Model Y usable 75 per EV Database/ArenaEV. ArenaEV covers 2021-2025; 2020 assumed the same pack.",
             "unit": "kWh"
           }
         ],
@@ -184,9 +242,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: all Model Y versions charge on AC up to 11.5 kW (North American 48 A single-phase); European listings say 11 kW.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -196,14 +262,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -232,11 +298,11 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
-            "value": 78.1,
+            "value": 82,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists nominal 78.1 kWh for the 2022-2025 Long Range AWD (European, LG-cell). Tesla publishes no pack size; the North American Fremont (Panasonic) pack is assumed the same 75 kWh-class pack (ArenaEV 82/75 for the LR AWD 2021-2025 too).",
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025, and the Model 3 Panasonic 2170L pack is 82.0 nominal (EV Database 1525, src-evdb-m3-lrawd-2021-pana). Not a Fremont-specific Model Y page. Model 3 sibling batch records the same Panasonic 2170L pack at 82 / 76 (EV Database 1525); Model Y usable 75 per EV Database/ArenaEV. ArenaEV covers 2021-2025; 2020 assumed the same pack.",
             "unit": "kWh"
           }
         ],
@@ -290,9 +356,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: all Model Y versions charge on AC up to 11.5 kW (North American 48 A single-phase); European listings say 11 kW.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -302,14 +376,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -338,11 +412,11 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
-            "value": 78.1,
+            "value": 82,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists nominal 78.1 kWh for the 2022-2025 Long Range AWD (European, LG-cell). Tesla publishes no pack size; the North American Fremont (Panasonic) pack is assumed the same 75 kWh-class pack (ArenaEV 82/75 for the LR AWD 2021-2025 too).",
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025, and the Model 3 Panasonic 2170L pack is 82.0 nominal (EV Database 1525, src-evdb-m3-lrawd-2021-pana). Not a Fremont-specific Model Y page. Model 3 sibling batch records the same Panasonic 2170L pack at 82 / 76 (EV Database 1525); Model Y usable 75 per EV Database/ArenaEV. ArenaEV covers 2021-2025; 2020 assumed the same pack.",
             "unit": "kWh"
           }
         ],
@@ -396,9 +470,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: all Model Y versions charge on AC up to 11.5 kW (North American 48 A single-phase); European listings say 11 kW.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -408,14 +490,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -444,11 +526,11 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
-            "value": 78.1,
+            "value": 82,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists nominal 78.1 kWh for the 2022-2025 Long Range AWD (European, LG-cell). Tesla publishes no pack size; the North American Fremont (Panasonic) pack is assumed the same 75 kWh-class pack (ArenaEV 82/75 for the LR AWD 2021-2025 too).",
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025, and the Model 3 Panasonic 2170L pack is 82.0 nominal (EV Database 1525, src-evdb-m3-lrawd-2021-pana). Not a Fremont-specific Model Y page. Model 3 sibling batch records the same Panasonic 2170L pack at 82 / 76 (EV Database 1525); Model Y usable 75 per EV Database/ArenaEV. ArenaEV covers 2021-2025; 2020 assumed the same pack.",
             "unit": "kWh"
           }
         ],
@@ -502,9 +584,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: all Model Y versions charge on AC up to 11.5 kW (North American 48 A single-phase); European listings say 11 kW.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -514,14 +604,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-performance-1183",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -550,11 +640,11 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
-            "value": 78.1,
+            "value": 82,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists nominal 78.1 kWh for the 2022-2025 Long Range AWD (European, LG-cell). Tesla publishes no pack size; the North American Fremont (Panasonic) pack is assumed the same 75 kWh-class pack (ArenaEV 82/75 for the LR AWD 2021-2025 too).",
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025, and the Model 3 Panasonic 2170L pack is 82.0 nominal (EV Database 1525, src-evdb-m3-lrawd-2021-pana). Not a Fremont-specific Model Y page. Model 3 sibling batch records the same Panasonic 2170L pack at 82 / 76 (EV Database 1525); Model Y usable 75 per EV Database/ArenaEV. ArenaEV covers 2021-2025; 2020 assumed the same pack.",
             "unit": "kWh"
           }
         ],
@@ -608,9 +698,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: all Model Y versions charge on AC up to 11.5 kW (North American 48 A single-phase); European listings say 11 kW.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -620,14 +718,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-performance-1183",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -656,11 +754,11 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
-            "value": 78.1,
+            "value": 82,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists nominal 78.1 kWh for the 2022-2025 Long Range AWD (European, LG-cell). Tesla publishes no pack size; the North American Fremont (Panasonic) pack is assumed the same 75 kWh-class pack (ArenaEV 82/75 for the LR AWD 2021-2025 too).",
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025, and the Model 3 Panasonic 2170L pack is 82.0 nominal (EV Database 1525, src-evdb-m3-lrawd-2021-pana). Not a Fremont-specific Model Y page. Model 3 sibling batch records the same Panasonic 2170L pack at 82 / 76 (EV Database 1525); Model Y usable 75 per EV Database/ArenaEV. ArenaEV covers 2021-2025; 2020 assumed the same pack.",
             "unit": "kWh"
           }
         ],
@@ -714,9 +812,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: all Model Y versions charge on AC up to 11.5 kW (North American 48 A single-phase); European listings say 11 kW.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -726,14 +832,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-performance-1183",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -762,11 +868,11 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
-            "value": 78.1,
+            "value": 82,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists nominal 78.1 kWh for the 2022-2025 Long Range AWD (European, LG-cell). Tesla publishes no pack size; the North American Fremont (Panasonic) pack is assumed the same 75 kWh-class pack (ArenaEV 82/75 for the LR AWD 2021-2025 too).",
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025, and the Model 3 Panasonic 2170L pack is 82.0 nominal (EV Database 1525, src-evdb-m3-lrawd-2021-pana). Not a Fremont-specific Model Y page. Model 3 sibling batch records the same Panasonic 2170L pack at 82 / 76 (EV Database 1525); Model Y usable 75 per EV Database/ArenaEV. ArenaEV covers 2021-2025; 2020 assumed the same pack.",
             "unit": "kWh"
           }
         ],
@@ -820,9 +926,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: all Model Y versions charge on AC up to 11.5 kW (North American 48 A single-phase); European listings say 11 kW.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -832,14 +946,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-performance-1183",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -868,21 +982,29 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
+            "value": 53.1,
+            "kind": "estimated",
+            "source_id": "src-evdb-m3-srp-2019",
+            "low_confidence": true,
+            "notes": "Estimated: Sibling basis: the 2021 Model Y Standard Range pack is the 2,976-cell Panasonic 21700 NCA pack of the Model 3 Standard Range Plus (evspecifications page for the Model Y SR lists 2,976 cells, 21700, NCA, 360 V); EV Database gives that pack as 53.1 nominal / 49.0 usable. Pack match is inferred from cell count and chemistry only.",
+            "unit": "kWh"
+          },
+          {
             "value": 52.4,
             "kind": "estimated",
             "source_id": "src-evspecs-2021-model-y-sr",
             "low_confidence": true,
-            "notes": "Estimated: EVSpecifications lists 52.4 kWh (gross/net not stated) for the 2021 Standard Range RWD; page contradicts itself (\"not released\") so treated as a rough figure.",
+            "notes": "Estimated: evspecifications.com says 52.4 kWh \"without explicit clarification whether gross or net\" and also \"not released to the market\"; page unreliable.",
             "unit": "kWh"
           }
         ],
         "battery.capacity_usable_kwh": [
           {
-            "value": 50.3,
+            "value": 49,
             "kind": "estimated",
-            "source_id": "src-evspecs-2021-model-y-sr",
+            "source_id": "src-evdb-m3-srp-2019",
             "low_confidence": true,
-            "notes": "Estimated: 52.4 kWh x 0.96 (the 75/78.1 usable-to-nominal ratio of EV Database for the Model Y LR/Performance). Rough.",
+            "notes": "Estimated: Sibling basis: EV Database 49.0 kWh usable for the 2,976-cell Panasonic NCA pack of the Model 3 Standard Range Plus; the Model Y SR (same cell count per evspecifications) assumed to carry the same pack. A 2021 buffer change reportedly unlocked more; not applied.",
             "unit": "kWh"
           }
         ],
@@ -910,17 +1032,17 @@
             "kind": "estimated",
             "source_id": "src-evspecs-2021-model-y-sr",
             "low_confidence": true,
-            "notes": "Estimated: EVSpecifications states 170 kW DC; not confirmed elsewhere.",
+            "notes": "Estimated: evspecifications states 170 kW DC for the Model Y SR; same pack as the Model 3 SR+, which charges at up to 170 kW (CleanTechnica 2019, src-cleantechnica-srp-170kw-2019).",
             "unit": "kW"
           }
         ],
         "ac_max_kw": [
           {
-            "value": 11.5,
+            "value": 7.7,
             "kind": "estimated",
-            "source_id": "src-evspecs-2021-model-y-sr",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: EVSpecifications states 11.5 kW AC (matches Wikipedia 11.5 kW for NA Model Y).",
+            "notes": "Estimated: Thechargeport: Standard RWD and AWD are at the 7.7 kW end of the 7.7-11.5 kW range (North America). Wikipedia says up to 11.5 kW on all variants, ArenaEV/EV Database list 11 kW (EU), so sources conflict; Tesla Model 3 service manual says 48 A only with the Long Range battery. evspecifications lists 11.5 kW for this car; the Model 3 sibling batch uses 7.7 kW (service manual: 48 A only with the Long Range battery).",
             "unit": "kW"
           }
         ],
@@ -930,14 +1052,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -970,7 +1092,7 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: EV Database nominal 78.1 kWh for the LG-cell (NMC) Model Y Long Range AWD/Performance built outside California. InsideEVs: Canadian-market cars from 2023 are China-built; no Canadian pack page found.",
+            "notes": "Estimated: EV Database nominal 78.1 kWh for the LG 5L (NMC) Long Range AWD/Performance (European listing). Rated 497 km (LR) / 459 km (Performance) versus 531 / 488 km for the US-built cars (InsideEVs 670342: China-built Long Range officially listed in Canada from 2023); chemistry there stated as unconfirmed, so NMC rests on InsideEVs 587455 (LGES NCM cells for the Shanghai plant). The Performance import is only reported as believed China-built.",
             "unit": "kWh"
           }
         ],
@@ -980,7 +1102,7 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: EV Database useable 75 kWh (itself an estimate) for the same LG-cell pack; Canadian China-built car assumed the same.",
+            "notes": "Estimated: EV Database useable 75 kWh (itself an estimate) for the same LG pack. Rated 497 km (LR) / 459 km (Performance) versus 531 / 488 km for the US-built cars (InsideEVs 670342: China-built Long Range officially listed in Canada from 2023); chemistry there stated as unconfirmed, so NMC rests on InsideEVs 587455 (LGES NCM cells for the Shanghai plant). The Performance import is only reported as believed China-built.",
             "unit": "kWh"
           }
         ],
@@ -990,7 +1112,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-tesla-cell-suppliers",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: LGES 2170 NCM cells for Shanghai- and Berlin-built Model Y."
+            "notes": "Estimated: InsideEVs 587455: LGES 2170 NCM cells are used in China for the Giga Shanghai plant (Berlin and Canada are not mentioned there). Rated 497 km (LR) / 459 km (Performance) versus 531 / 488 km for the US-built cars (InsideEVs 670342: China-built Long Range officially listed in Canada from 2023); chemistry there stated as unconfirmed, so NMC rests on InsideEVs 587455 (LGES NCM cells for the Shanghai plant). The Performance import is only reported as believed China-built."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -1014,11 +1136,19 @@
         ],
         "ac_max_kw": [
           {
-            "value": 11,
+            "value": 11.5,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW AC for this build.",
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -1028,14 +1158,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -1064,11 +1194,19 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
-            "value": 78.1,
-            "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: EV Database nominal 78.1 kWh for the LG-cell (NMC) Model Y Long Range AWD/Performance built outside California. InsideEVs: Canadian-market cars from 2023 are China-built; no Canadian pack page found.",
+            "notes": "OpenEV Data 2024/2025: gross 82 kWh (relayed from tesla.com/modely per its record); ArenaEV 82 total agrees."
+          },
+          {
+            "value": 82,
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
+            "low_confidence": true,
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025.",
             "unit": "kWh"
           }
         ],
@@ -1076,47 +1214,55 @@
           {
             "value": 75,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database useable 75 kWh (itself an estimate) for the same LG-cell pack; Canadian China-built car assumed the same.",
+            "notes": "Estimated: ArenaEV 82 total / 75 usable and EV Database 75 usable (both for 2021-2025) and the Model 3 Panasonic pack (82/76) agree on about 75; OpenEV Data lists 79 net, the odd one out, so it is not used here. One pack is given to every id of the same rated hardware (2024 LR AWD plain, -ca and -i rate 496-498 km at 178 Wh/km; 2023/2024 Performance ids rate 459 km at 192 Wh/km) because the sources do not show a build or market difference between them.",
             "unit": "kWh"
           }
         ],
         "battery.chemistry": [
           {
-            "value": "nmc",
+            "value": "nca",
             "kind": "estimated",
             "source_id": "src-insideevs-tesla-cell-suppliers",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: LGES 2170 NCM cells for Shanghai- and Berlin-built Model Y."
+            "notes": "Estimated: InsideEVs: Panasonic 2170 cells (NCA) for California-built Model 3/Y; one chemistry across the Fremont line. OpenEV Data lists these cars as nmc (Panasonic), so naming conflicts. Build site of the -ca and -i ids is not shown by any page, so they follow the same line."
           }
         ],
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database: 400 V architecture (357 V nominal) for the same pack."
+            "notes": "Estimated: ArenaEV lists a 360 V (400 V-type) pack for the same Model Y LR AWD; OpenEV Data also 400v."
           }
         ],
         "dc_max_kw": [
           {
             "value": 250,
-            "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 250 kW DC for this LG-cell Long Range AWD/Performance.",
-            "unit": "kW"
+            "notes": "OpenEV Data 2024/2025: 250 kW; ArenaEV and EV Database agree."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 11,
+            "value": 11.5,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW AC for this build.",
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -1126,14 +1272,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -1162,11 +1308,19 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
-            "value": 78.1,
-            "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: EV Database nominal 78.1 kWh for the LG-cell (NMC) Model Y Long Range AWD/Performance built outside California. InsideEVs: Canadian-market cars from 2023 are China-built; no Canadian pack page found.",
+            "notes": "OpenEV Data 2024/2025: gross 82 kWh (relayed from tesla.com/modely per its record); ArenaEV 82 total agrees."
+          },
+          {
+            "value": 82,
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
+            "low_confidence": true,
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025.",
             "unit": "kWh"
           }
         ],
@@ -1174,47 +1328,55 @@
           {
             "value": 75,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database useable 75 kWh (itself an estimate) for the same LG-cell pack; Canadian China-built car assumed the same.",
+            "notes": "Estimated: ArenaEV 82 total / 75 usable and EV Database 75 usable (both for 2021-2025) and the Model 3 Panasonic pack (82/76) agree on about 75; OpenEV Data lists 79 net, the odd one out, so it is not used here. One pack is given to every id of the same rated hardware (2024 LR AWD plain, -ca and -i rate 496-498 km at 178 Wh/km; 2023/2024 Performance ids rate 459 km at 192 Wh/km) because the sources do not show a build or market difference between them.",
             "unit": "kWh"
           }
         ],
         "battery.chemistry": [
           {
-            "value": "nmc",
+            "value": "nca",
             "kind": "estimated",
             "source_id": "src-insideevs-tesla-cell-suppliers",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: LGES 2170 NCM cells for Shanghai- and Berlin-built Model Y."
+            "notes": "Estimated: InsideEVs: Panasonic 2170 cells (NCA) for California-built Model 3/Y; one chemistry across the Fremont line. OpenEV Data lists these cars as nmc (Panasonic), so naming conflicts. Build site of the -ca and -i ids is not shown by any page, so they follow the same line."
           }
         ],
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database: 400 V architecture (357 V nominal) for the same pack."
+            "notes": "Estimated: ArenaEV lists a 360 V (400 V-type) pack for the same Model Y LR AWD; OpenEV Data also 400v."
           }
         ],
         "dc_max_kw": [
           {
             "value": 250,
-            "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 250 kW DC for this LG-cell Long Range AWD/Performance.",
-            "unit": "kW"
+            "notes": "OpenEV Data 2024/2025: 250 kW; ArenaEV and EV Database agree."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 11,
+            "value": 11.5,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-lr-awd-1619",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW AC for this build.",
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -1224,14 +1386,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -1260,11 +1422,19 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
-            "value": 78.1,
-            "kind": "estimated",
-            "source_id": "src-evdb-model-y-performance-1183",
+            "value": 82,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: EV Database nominal 78.1 kWh for the LG-cell (NMC) Model Y Long Range AWD/Performance built outside California. InsideEVs: Canadian-market cars from 2023 are China-built; no Canadian pack page found.",
+            "notes": "OpenEV Data 2024/2025: gross 82 kWh (relayed from tesla.com/modely per its record); ArenaEV 82 total agrees."
+          },
+          {
+            "value": 82,
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
+            "low_confidence": true,
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025.",
             "unit": "kWh"
           }
         ],
@@ -1272,47 +1442,55 @@
           {
             "value": 75,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-performance-1183",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database useable 75 kWh (itself an estimate) for the same LG-cell pack; Canadian China-built car assumed the same.",
+            "notes": "Estimated: ArenaEV 82 total / 75 usable and EV Database 75 usable (both for 2021-2025) and the Model 3 Panasonic pack (82/76) agree on about 75; OpenEV Data lists 79 net, the odd one out, so it is not used here. One pack is given to every id of the same rated hardware (2024 LR AWD plain, -ca and -i rate 496-498 km at 178 Wh/km; 2023/2024 Performance ids rate 459 km at 192 Wh/km) because the sources do not show a build or market difference between them.",
             "unit": "kWh"
           }
         ],
         "battery.chemistry": [
           {
-            "value": "nmc",
+            "value": "nca",
             "kind": "estimated",
             "source_id": "src-insideevs-tesla-cell-suppliers",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: LGES 2170 NCM cells for Shanghai- and Berlin-built Model Y."
+            "notes": "Estimated: InsideEVs: Panasonic 2170 cells (NCA) for California-built Model 3/Y; one chemistry across the Fremont line. OpenEV Data lists these cars as nmc (Panasonic), so naming conflicts. Build site of the -ca and -i ids is not shown by any page, so they follow the same line."
           }
         ],
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-performance-1183",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database: 400 V architecture (357 V nominal) for the same pack."
+            "notes": "Estimated: ArenaEV lists a 360 V (400 V-type) pack for the same Model Y LR AWD; OpenEV Data also 400v."
           }
         ],
         "dc_max_kw": [
           {
             "value": 250,
-            "kind": "estimated",
-            "source_id": "src-evdb-model-y-performance-1183",
+            "unit": "kW",
+            "kind": "manufacturer",
+            "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 250 kW DC for this LG-cell Long Range AWD/Performance.",
-            "unit": "kW"
+            "notes": "OpenEV Data 2024/2025: 250 kW; ArenaEV and EV Database agree."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 11,
+            "value": 11.5,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-performance-1183",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW AC for this build.",
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -1322,14 +1500,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-performance-1183",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -1362,7 +1540,7 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-performance-1183",
             "low_confidence": true,
-            "notes": "Estimated: EV Database nominal 78.1 kWh for the LG-cell (NMC) Model Y Long Range AWD/Performance built outside California. InsideEVs: Canadian-market cars from 2023 are China-built; no Canadian pack page found.",
+            "notes": "Estimated: EV Database nominal 78.1 kWh for the LG 5L (NMC) Long Range AWD/Performance (European listing). Rated 497 km (LR) / 459 km (Performance) versus 531 / 488 km for the US-built cars (InsideEVs 670342: China-built Long Range officially listed in Canada from 2023); chemistry there stated as unconfirmed, so NMC rests on InsideEVs 587455 (LGES NCM cells for the Shanghai plant). The Performance import is only reported as believed China-built.",
             "unit": "kWh"
           }
         ],
@@ -1372,7 +1550,7 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-performance-1183",
             "low_confidence": true,
-            "notes": "Estimated: EV Database useable 75 kWh (itself an estimate) for the same LG-cell pack; Canadian China-built car assumed the same.",
+            "notes": "Estimated: EV Database useable 75 kWh (itself an estimate) for the same LG pack. Rated 497 km (LR) / 459 km (Performance) versus 531 / 488 km for the US-built cars (InsideEVs 670342: China-built Long Range officially listed in Canada from 2023); chemistry there stated as unconfirmed, so NMC rests on InsideEVs 587455 (LGES NCM cells for the Shanghai plant). The Performance import is only reported as believed China-built.",
             "unit": "kWh"
           }
         ],
@@ -1382,7 +1560,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-tesla-cell-suppliers",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: LGES 2170 NCM cells for Shanghai- and Berlin-built Model Y."
+            "notes": "Estimated: InsideEVs 587455: LGES 2170 NCM cells are used in China for the Giga Shanghai plant (Berlin and Canada are not mentioned there). Rated 497 km (LR) / 459 km (Performance) versus 531 / 488 km for the US-built cars (InsideEVs 670342: China-built Long Range officially listed in Canada from 2023); chemistry there stated as unconfirmed, so NMC rests on InsideEVs 587455 (LGES NCM cells for the Shanghai plant). The Performance import is only reported as believed China-built."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -1406,11 +1584,19 @@
         ],
         "ac_max_kw": [
           {
-            "value": 11,
+            "value": 11.5,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-performance-1183",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW AC for this build.",
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
+            "source_id": "src-wikipedia-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -1420,14 +1606,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-performance-1183",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -1504,11 +1690,11 @@
         ],
         "ac_max_kw": [
           {
-            "value": 11,
+            "value": 7.7,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-rwd-catl-1743",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW AC (3-phase; 7.4 kW single-phase) for this pack.",
+            "notes": "Estimated: Thechargeport: Standard RWD and AWD are at the 7.7 kW end of the 7.7-11.5 kW range (North America). Wikipedia says up to 11.5 kW on all variants, ArenaEV/EV Database list 11 kW (EU), so sources conflict; Tesla Model 3 service manual says 48 A only with the Long Range battery. EV Database lists 11 kW (EU 3-phase, usually 7.4 kW in practice) for the CATL pack; North American single-phase assumed 7.7 kW.",
             "unit": "kW"
           }
         ],
@@ -1518,14 +1704,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-rwd-catl-1743",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -1602,11 +1788,11 @@
         ],
         "ac_max_kw": [
           {
-            "value": 11,
+            "value": 7.7,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-rwd-catl-1743",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 11 kW AC (3-phase; 7.4 kW single-phase) for this pack.",
+            "notes": "Estimated: Thechargeport: Standard RWD and AWD are at the 7.7 kW end of the 7.7-11.5 kW range (North America). Wikipedia says up to 11.5 kW on all variants, ArenaEV/EV Database list 11 kW (EU), so sources conflict; Tesla Model 3 service manual says 48 A only with the Long Range battery. EV Database lists 11 kW (EU 3-phase, usually 7.4 kW in practice) for the CATL pack; North American single-phase assumed 7.7 kW.",
             "unit": "kW"
           }
         ],
@@ -1616,14 +1802,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-rwd-catl-1743",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -1653,66 +1839,74 @@
         "battery.capacity_gross_kwh": [
           {
             "value": 82,
+            "unit": "kWh",
             "kind": "manufacturer",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "unit": "kWh",
-            "notes": "OpenEV Data 2024/2025 Long Range AWD: Panasonic, gross 82 kWh."
+            "notes": "OpenEV Data 2024/2025: gross 82 kWh (relayed from tesla.com/modely per its record); ArenaEV 82 total agrees."
+          },
+          {
+            "value": 82,
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
+            "low_confidence": true,
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025.",
+            "unit": "kWh"
           }
         ],
         "battery.capacity_usable_kwh": [
           {
-            "value": 79,
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": 75,
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "unit": "kWh",
-            "notes": "OpenEV Data 2024/2025: net 79 kWh. EV Database/ArenaEV list 75 kWh usable for the earlier packs, so this may be a different sizing basis, not a pack change."
+            "notes": "Estimated: ArenaEV 82 total / 75 usable and EV Database 75 usable (both for 2021-2025) and the Model 3 Panasonic pack (82/76) agree on about 75; OpenEV Data lists 79 net, the odd one out, so it is not used here. One pack is given to every id of the same rated hardware (2024 LR AWD plain, -ca and -i rate 496-498 km at 178 Wh/km; 2023/2024 Performance ids rate 459 km at 192 Wh/km) because the sources do not show a build or market difference between them.",
+            "unit": "kWh"
           }
         ],
         "battery.chemistry": [
           {
-            "value": "nmc",
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-insideevs-tesla-cell-suppliers",
             "low_confidence": true,
-            "notes": "OpenEV Data lists Panasonic NMC; InsideEVs calls Panasonic 2170 cells NCA, so chemistry naming conflicts."
+            "notes": "Estimated: InsideEVs: Panasonic 2170 cells (NCA) for California-built Model 3/Y; one chemistry across the Fremont line. OpenEV Data lists these cars as nmc (Panasonic), so naming conflicts. Build site of the -ca and -i ids is not shown by any page, so they follow the same line."
           }
         ],
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "OpenEV Data: 400v"
+            "notes": "Estimated: ArenaEV lists a 360 V (400 V-type) pack for the same Model Y LR AWD; OpenEV Data also 400v."
           }
         ],
         "dc_max_kw": [
           {
             "value": 250,
+            "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "unit": "kW",
-            "notes": "OpenEV Data 2024/2025: 250 kW"
+            "notes": "OpenEV Data 2024/2025: 250 kW; ArenaEV and EV Database agree."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 11,
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": 11.5,
+            "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "unit": "kW",
-            "notes": "OpenEV Data 2024/2025: 11 kW (Wikipedia: 11.5 kW for NA)."
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
           },
           {
             "value": 11.5,
             "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: all Model Y up to 11.5 kW AC.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -1722,14 +1916,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -1759,66 +1953,74 @@
         "battery.capacity_gross_kwh": [
           {
             "value": 82,
+            "unit": "kWh",
             "kind": "manufacturer",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "unit": "kWh",
-            "notes": "OpenEV Data 2024/2025 Long Range AWD: Panasonic, gross 82 kWh."
+            "notes": "OpenEV Data 2024/2025: gross 82 kWh (relayed from tesla.com/modely per its record); ArenaEV 82 total agrees."
+          },
+          {
+            "value": 82,
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
+            "low_confidence": true,
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025.",
+            "unit": "kWh"
           }
         ],
         "battery.capacity_usable_kwh": [
           {
-            "value": 79,
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": 75,
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "unit": "kWh",
-            "notes": "OpenEV Data 2024/2025: net 79 kWh. EV Database/ArenaEV list 75 kWh usable for the earlier packs, so this may be a different sizing basis, not a pack change."
+            "notes": "Estimated: ArenaEV 82 total / 75 usable and EV Database 75 usable (both for 2021-2025) and the Model 3 Panasonic pack (82/76) agree on about 75; OpenEV Data lists 79 net, the odd one out, so it is not used here. One pack is given to every id of the same rated hardware (2024 LR AWD plain, -ca and -i rate 496-498 km at 178 Wh/km; 2023/2024 Performance ids rate 459 km at 192 Wh/km) because the sources do not show a build or market difference between them.",
+            "unit": "kWh"
           }
         ],
         "battery.chemistry": [
           {
-            "value": "nmc",
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-insideevs-tesla-cell-suppliers",
             "low_confidence": true,
-            "notes": "OpenEV Data lists Panasonic NMC; InsideEVs calls Panasonic 2170 cells NCA, so chemistry naming conflicts."
+            "notes": "Estimated: InsideEVs: Panasonic 2170 cells (NCA) for California-built Model 3/Y; one chemistry across the Fremont line. OpenEV Data lists these cars as nmc (Panasonic), so naming conflicts. Build site of the -ca and -i ids is not shown by any page, so they follow the same line."
           }
         ],
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "OpenEV Data: 400v"
+            "notes": "Estimated: ArenaEV lists a 360 V (400 V-type) pack for the same Model Y LR AWD; OpenEV Data also 400v."
           }
         ],
         "dc_max_kw": [
           {
             "value": 250,
+            "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "unit": "kW",
-            "notes": "OpenEV Data 2024/2025: 250 kW"
+            "notes": "OpenEV Data 2024/2025: 250 kW; ArenaEV and EV Database agree."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 11,
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": 11.5,
+            "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "unit": "kW",
-            "notes": "OpenEV Data 2024/2025: 11 kW (Wikipedia: 11.5 kW for NA)."
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
           },
           {
             "value": 11.5,
             "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: all Model Y up to 11.5 kW AC.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -1828,14 +2030,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -1865,66 +2067,74 @@
         "battery.capacity_gross_kwh": [
           {
             "value": 82,
+            "unit": "kWh",
             "kind": "manufacturer",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "unit": "kWh",
-            "notes": "OpenEV Data 2024/2025 Performance: Panasonic, gross 82 kWh."
+            "notes": "OpenEV Data 2024/2025: gross 82 kWh (relayed from tesla.com/modely per its record); ArenaEV 82 total agrees."
+          },
+          {
+            "value": 82,
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
+            "low_confidence": true,
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025.",
+            "unit": "kWh"
           }
         ],
         "battery.capacity_usable_kwh": [
           {
-            "value": 79,
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": 75,
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "unit": "kWh",
-            "notes": "OpenEV Data 2024/2025: net 79 kWh. EV Database/ArenaEV list 75 kWh usable for the earlier packs, so this may be a different sizing basis, not a pack change."
+            "notes": "Estimated: ArenaEV 82 total / 75 usable and EV Database 75 usable (both for 2021-2025) and the Model 3 Panasonic pack (82/76) agree on about 75; OpenEV Data lists 79 net, the odd one out, so it is not used here. One pack is given to every id of the same rated hardware (2024 LR AWD plain, -ca and -i rate 496-498 km at 178 Wh/km; 2023/2024 Performance ids rate 459 km at 192 Wh/km) because the sources do not show a build or market difference between them.",
+            "unit": "kWh"
           }
         ],
         "battery.chemistry": [
           {
-            "value": "nmc",
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-insideevs-tesla-cell-suppliers",
             "low_confidence": true,
-            "notes": "OpenEV Data lists Panasonic NMC; InsideEVs calls Panasonic 2170 cells NCA, so chemistry naming conflicts."
+            "notes": "Estimated: InsideEVs: Panasonic 2170 cells (NCA) for California-built Model 3/Y; one chemistry across the Fremont line. OpenEV Data lists these cars as nmc (Panasonic), so naming conflicts. Build site of the -ca and -i ids is not shown by any page, so they follow the same line."
           }
         ],
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "OpenEV Data: 400v"
+            "notes": "Estimated: ArenaEV lists a 360 V (400 V-type) pack for the same Model Y LR AWD; OpenEV Data also 400v."
           }
         ],
         "dc_max_kw": [
           {
             "value": 250,
+            "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "unit": "kW",
-            "notes": "OpenEV Data 2024/2025: 250 kW"
+            "notes": "OpenEV Data 2024/2025: 250 kW; ArenaEV and EV Database agree."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 11,
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": 11.5,
+            "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "unit": "kW",
-            "notes": "OpenEV Data 2024/2025: 11 kW (Wikipedia: 11.5 kW for NA)."
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
           },
           {
             "value": 11.5,
             "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: all Model Y up to 11.5 kW AC.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -1934,14 +2144,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -1971,66 +2181,74 @@
         "battery.capacity_gross_kwh": [
           {
             "value": 82,
+            "unit": "kWh",
             "kind": "manufacturer",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "unit": "kWh",
-            "notes": "OpenEV Data 2024/2025 Performance: Panasonic, gross 82 kWh."
+            "notes": "OpenEV Data 2024/2025: gross 82 kWh (relayed from tesla.com/modely per its record); ArenaEV 82 total agrees."
+          },
+          {
+            "value": 82,
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
+            "low_confidence": true,
+            "notes": "Estimated: ArenaEV \"82 kWh total\" for the Model Y LR AWD 2021-2025.",
+            "unit": "kWh"
           }
         ],
         "battery.capacity_usable_kwh": [
           {
-            "value": 79,
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": 75,
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "unit": "kWh",
-            "notes": "OpenEV Data 2024/2025: net 79 kWh. EV Database/ArenaEV list 75 kWh usable for the earlier packs, so this may be a different sizing basis, not a pack change."
+            "notes": "Estimated: ArenaEV 82 total / 75 usable and EV Database 75 usable (both for 2021-2025) and the Model 3 Panasonic pack (82/76) agree on about 75; OpenEV Data lists 79 net, the odd one out, so it is not used here. One pack is given to every id of the same rated hardware (2024 LR AWD plain, -ca and -i rate 496-498 km at 178 Wh/km; 2023/2024 Performance ids rate 459 km at 192 Wh/km) because the sources do not show a build or market difference between them.",
+            "unit": "kWh"
           }
         ],
         "battery.chemistry": [
           {
-            "value": "nmc",
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": "nca",
+            "kind": "estimated",
+            "source_id": "src-insideevs-tesla-cell-suppliers",
             "low_confidence": true,
-            "notes": "OpenEV Data lists Panasonic NMC; InsideEVs calls Panasonic 2170 cells NCA, so chemistry naming conflicts."
+            "notes": "Estimated: InsideEVs: Panasonic 2170 cells (NCA) for California-built Model 3/Y; one chemistry across the Fremont line. OpenEV Data lists these cars as nmc (Panasonic), so naming conflicts. Build site of the -ca and -i ids is not shown by any page, so they follow the same line."
           }
         ],
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "kind": "estimated",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "OpenEV Data: 400v"
+            "notes": "Estimated: ArenaEV lists a 360 V (400 V-type) pack for the same Model Y LR AWD; OpenEV Data also 400v."
           }
         ],
         "dc_max_kw": [
           {
             "value": 250,
+            "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "unit": "kW",
-            "notes": "OpenEV Data 2024/2025: 250 kW"
+            "notes": "OpenEV Data 2024/2025: 250 kW; ArenaEV and EV Database agree."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 11,
-            "kind": "manufacturer",
-            "source_id": "src-openev-v1-24-0",
+            "value": 11.5,
+            "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "unit": "kW",
-            "notes": "OpenEV Data 2024/2025: 11 kW (Wikipedia: 11.5 kW for NA)."
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
           },
           {
             "value": 11.5,
             "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: all Model Y up to 11.5 kW AC.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -2040,14 +2258,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -2076,11 +2294,11 @@
       "fields": {
         "battery.capacity_gross_kwh": [
           {
-            "value": 78.1,
+            "value": 82,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-premium-rwd-lg5l-3363",
+            "source_id": "src-notebookcheck-model-y-premium-rwd-2026",
             "low_confidence": true,
-            "notes": "Estimated: EV Database nominal 78.1 kWh for the Premium RWD (formerly Long Range RWD), NMC; ArenaEV also lists 78.1 kWh total for the LR RWD 2025.",
+            "notes": "Estimated: Gross 82 kWh like the Long Range AWD (ArenaEV). No page found for the US 2024 Long Range RWD pack (EV Database 3363 is the European 2025-26 Premium RWD, not used). Basis: Notebookcheck (src-notebookcheck-model-y-premium-rwd-2026) says the US RWD of the Juniper range \"has the same battery size as its AWD sibling\"; carried from the 82/75 pack of the same-line Long Range AWD. OpenEV Data lists an LFP 78/75 170 kW pack for the 2024/2025 Long Range RWD, which conflicts and is not used.",
             "unit": "kWh"
           }
         ],
@@ -2088,37 +2306,37 @@
           {
             "value": 75,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-premium-rwd-lg5l-3363",
+            "source_id": "src-notebookcheck-model-y-premium-rwd-2026",
             "low_confidence": true,
-            "notes": "Estimated: EV Database useable 75 kWh (estimate) for the same pack.",
+            "notes": "Estimated: Usable 75 kWh like the Long Range AWD (ArenaEV, EV Database). No page found for the US 2024 Long Range RWD pack (EV Database 3363 is the European 2025-26 Premium RWD, not used). Basis: Notebookcheck (src-notebookcheck-model-y-premium-rwd-2026) says the US RWD of the Juniper range \"has the same battery size as its AWD sibling\"; carried from the 82/75 pack of the same-line Long Range AWD. OpenEV Data lists an LFP 78/75 170 kW pack for the 2024/2025 Long Range RWD, which conflicts and is not used.",
             "unit": "kWh"
           }
         ],
         "battery.chemistry": [
           {
-            "value": "nmc",
+            "value": "nca",
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-premium-rwd-lg5l-3363",
+            "source_id": "src-insideevs-tesla-cell-suppliers",
             "low_confidence": true,
-            "notes": "Estimated: EV Database: NMC cathode (LG 5L). OpenEV Data lists a 78/75 kWh LFP 170 kW pack for the 2024/2025 Long Range RWD; sources conflict."
+            "notes": "Estimated: Same Fremont/Panasonic line as the Long Range AWD (InsideEVs: NCA). No page found for the US 2024 Long Range RWD pack (EV Database 3363 is the European 2025-26 Premium RWD, not used). Basis: Notebookcheck (src-notebookcheck-model-y-premium-rwd-2026) says the US RWD of the Juniper range \"has the same battery size as its AWD sibling\"; carried from the 82/75 pack of the same-line Long Range AWD. OpenEV Data lists an LFP 78/75 170 kW pack for the 2024/2025 Long Range RWD, which conflicts and is not used."
           }
         ],
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-premium-rwd-lg5l-3363",
+            "source_id": "src-arenaev-model-y-lr-awd-82kwh",
             "low_confidence": true,
-            "notes": "Estimated: EV Database: 400 V (96s46p LG 5L)."
+            "notes": "Estimated: Same pack family as the Long Range AWD (360 V, 400 V type)."
           }
         ],
         "dc_max_kw": [
           {
             "value": 250,
             "kind": "estimated",
-            "source_id": "src-evdb-model-y-premium-rwd-lg5l-3363",
+            "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: EV Database 250 kW; ArenaEV 250 kW for the LR RWD 2025.",
+            "notes": "Estimated: Wikipedia: up to 250 kW DC (225 kW on Standard); thechargeport 250 kW for Premium trims; the 2024-25 Long Range RWD is not a Standard LFP car per the same-battery-as-AWD statement.",
             "unit": "kW"
           }
         ],
@@ -2126,9 +2344,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia 11.5 kW AC for NA Model Y; EV Database lists 11 kW for the European listing.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -2138,14 +2364,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-premium-rwd-lg5l-3363",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -2178,14 +2404,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       }
@@ -2198,14 +2424,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       }
@@ -2218,14 +2444,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       }
@@ -2238,14 +2464,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       }
@@ -2258,14 +2484,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       }
@@ -2278,14 +2504,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-rwd-juniper-3103",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       }
@@ -2298,14 +2524,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-rwd-juniper-3103",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       }
@@ -2362,11 +2588,11 @@
         ],
         "ac_max_kw": [
           {
-            "value": 11.5,
+            "value": 7.7,
             "kind": "estimated",
-            "source_id": "src-wikipedia-tesla-model-y",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia 11.5 kW AC for the Model Y (NA); ArenaEV lists 11 kW.",
+            "notes": "Estimated: Thechargeport: Standard RWD and AWD are at the 7.7 kW end of the 7.7-11.5 kW range (North America). Wikipedia says up to 11.5 kW on all variants, ArenaEV/EV Database list 11 kW (EU), so sources conflict; Tesla Model 3 service manual says 48 A only with the Long Range battery. ArenaEV lists 11 kW (Type 2).",
             "unit": "kW"
           }
         ],
@@ -2376,14 +2602,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-rwd-juniper-3103",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -2460,11 +2686,11 @@
         ],
         "ac_max_kw": [
           {
-            "value": 11.5,
+            "value": 7.7,
             "kind": "estimated",
-            "source_id": "src-wikipedia-tesla-model-y",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia 11.5 kW AC for the Model Y (NA); ArenaEV lists 11 kW.",
+            "notes": "Estimated: Thechargeport: Standard RWD and AWD are at the 7.7 kW end of the 7.7-11.5 kW range (North America). Wikipedia says up to 11.5 kW on all variants, ArenaEV/EV Database list 11 kW (EU), so sources conflict; Tesla Model 3 service manual says 48 A only with the Long Range battery. ArenaEV lists 11 kW (Type 2).",
             "unit": "kW"
           }
         ],
@@ -2474,14 +2700,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-rwd-juniper-3103",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -2558,11 +2784,11 @@
         ],
         "ac_max_kw": [
           {
-            "value": 11.5,
+            "value": 7.7,
             "kind": "estimated",
-            "source_id": "src-wikipedia-tesla-model-y",
+            "source_id": "src-thechargeport-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia 11.5 kW AC for the Model Y (NA); ArenaEV lists 11 kW.",
+            "notes": "Estimated: Thechargeport: Standard RWD and AWD are at the 7.7 kW end of the 7.7-11.5 kW range (North America). Wikipedia says up to 11.5 kW on all variants, ArenaEV/EV Database list 11 kW (EU), so sources conflict; Tesla Model 3 service manual says 48 A only with the Long Range battery. ArenaEV lists 11 kW (Type 2).",
             "unit": "kW"
           }
         ],
@@ -2572,14 +2798,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-rwd-juniper-3103",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -2612,7 +2838,15 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
             "low_confidence": true,
-            "notes": "Estimated: EV Database nominal 79 kWh for the Premium RWD (Tesla 4680, 2026, European listing); US Premium RWD assumed the same.",
+            "notes": "Estimated: EV Database nominal 79 kWh for the Premium RWD (Tesla 4680, 2026, European listing); US Premium RWD assumed the same. Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict.",
+            "unit": "kWh"
+          },
+          {
+            "value": 82,
+            "kind": "estimated",
+            "source_id": "src-notebookcheck-model-y-premium-rwd-2026",
+            "low_confidence": true,
+            "notes": "Estimated: Same battery size as the Premium AWD (82 gross per OpenEV Data record of the Premium AWD-B), per Notebookcheck.",
             "unit": "kWh"
           }
         ],
@@ -2622,7 +2856,15 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
             "low_confidence": true,
-            "notes": "Estimated: EV Database useable 74 kWh for the 4680 Premium RWD (European listing).",
+            "notes": "Estimated: EV Database useable 74 kWh for the 4680 Premium RWD (European listing). Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict.",
+            "unit": "kWh"
+          },
+          {
+            "value": 79,
+            "kind": "estimated",
+            "source_id": "src-notebookcheck-model-y-premium-rwd-2026",
+            "low_confidence": true,
+            "notes": "Estimated: Same battery size as the Premium AWD (79 net per OpenEV Data record of the Premium AWD-B), per Notebookcheck.",
             "unit": "kWh"
           }
         ],
@@ -2632,7 +2874,7 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
             "low_confidence": true,
-            "notes": "Estimated: EV Database: NMC cathode, 4680 cells."
+            "notes": "Estimated: EV Database: NMC cathode, 4680 cells. Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -2650,7 +2892,7 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
             "low_confidence": true,
-            "notes": "Estimated: EV Database 250 kW DC.",
+            "notes": "Estimated: EV Database 250 kW DC. Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict.",
             "unit": "kW"
           }
         ],
@@ -2658,9 +2900,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia 11.5 kW AC for the NA Model Y; EV Database lists 11 kW (European).",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -2670,14 +2920,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -2710,7 +2960,15 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
             "low_confidence": true,
-            "notes": "Estimated: EV Database nominal 79 kWh for the Premium RWD (Tesla 4680, 2026, European listing); US Premium RWD assumed the same.",
+            "notes": "Estimated: EV Database nominal 79 kWh for the Premium RWD (Tesla 4680, 2026, European listing); US Premium RWD assumed the same. Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict. 2027 assumed unchanged from 2026 (no change reported).",
+            "unit": "kWh"
+          },
+          {
+            "value": 82,
+            "kind": "estimated",
+            "source_id": "src-notebookcheck-model-y-premium-rwd-2026",
+            "low_confidence": true,
+            "notes": "Estimated: Same battery size as the Premium AWD (82 gross per OpenEV Data record of the Premium AWD-B), per Notebookcheck.",
             "unit": "kWh"
           }
         ],
@@ -2720,7 +2978,15 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
             "low_confidence": true,
-            "notes": "Estimated: EV Database useable 74 kWh for the 4680 Premium RWD (European listing).",
+            "notes": "Estimated: EV Database useable 74 kWh for the 4680 Premium RWD (European listing). Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict. 2027 assumed unchanged from 2026 (no change reported).",
+            "unit": "kWh"
+          },
+          {
+            "value": 79,
+            "kind": "estimated",
+            "source_id": "src-notebookcheck-model-y-premium-rwd-2026",
+            "low_confidence": true,
+            "notes": "Estimated: Same battery size as the Premium AWD (79 net per OpenEV Data record of the Premium AWD-B), per Notebookcheck.",
             "unit": "kWh"
           }
         ],
@@ -2730,7 +2996,7 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
             "low_confidence": true,
-            "notes": "Estimated: EV Database: NMC cathode, 4680 cells."
+            "notes": "Estimated: EV Database: NMC cathode, 4680 cells. Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict. 2027 assumed unchanged from 2026 (no change reported)."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -2748,7 +3014,7 @@
             "kind": "estimated",
             "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
             "low_confidence": true,
-            "notes": "Estimated: EV Database 250 kW DC.",
+            "notes": "Estimated: EV Database 250 kW DC. Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict. 2027 assumed unchanged from 2026 (no change reported).",
             "unit": "kW"
           }
         ],
@@ -2756,9 +3022,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia 11.5 kW AC for the NA Model Y; EV Database lists 11 kW (European).",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -2768,14 +3042,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -2808,7 +3082,7 @@
             "kind": "estimated",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: OpenEV Data lists 82 kWh gross for the 2025 Long Range AWD/Performance and the existing 2026 Performance-B record; 2027 US model assumed unchanged (no pack change reported).",
+            "notes": "Estimated: OpenEV Data lists 82 kWh gross for the 2025 Long Range AWD/Performance and the existing 2026 Performance-B record; 2027 US model assumed unchanged (no pack change reported). Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027.",
             "unit": "kWh"
           }
         ],
@@ -2818,7 +3092,7 @@
             "kind": "estimated",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: OpenEV Data lists 79 kWh net for the same pack in 2025/2026; carried over to 2027. Wikipedia says the Performance Juniper pack is ~82-84 kWh usable (LG 5M), so the Performance figure may be low.",
+            "notes": "Estimated: OpenEV Data lists 79 kWh net for the same pack in 2025/2026; carried over to 2027. Wikipedia says the Performance Juniper pack is ~82-84 kWh usable (LG 5M), so the Performance figure may be low. Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027.",
             "unit": "kWh"
           }
         ],
@@ -2828,7 +3102,7 @@
             "kind": "estimated",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: OpenEV Data: NMC for the 2025/2026 Long Range AWD / Performance; Wikipedia: nickel-based NMC."
+            "notes": "Estimated: OpenEV Data: NMC for the 2025/2026 Long Range AWD / Performance; Wikipedia: nickel-based NMC. Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -2846,7 +3120,7 @@
             "kind": "estimated",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: OpenEV Data 250 kW for the same pack; Wikipedia 250 kW for Premium/Performance.",
+            "notes": "Estimated: OpenEV Data 250 kW for the same pack; Wikipedia 250 kW for Premium/Performance. Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027.",
             "unit": "kW"
           }
         ],
@@ -2854,9 +3128,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia 11.5 kW AC for the NA Model Y; OpenEV lists 11 kW.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -2866,14 +3148,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -2906,7 +3188,7 @@
             "kind": "estimated",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: OpenEV Data lists 82 kWh gross for the 2025 Long Range AWD/Performance and the existing 2026 Premium AWD-B record; 2027 US model assumed unchanged (no pack change reported).",
+            "notes": "Estimated: OpenEV Data lists 82 kWh gross for the 2025 Long Range AWD/Performance and the existing 2026 Premium AWD-B record; 2027 US model assumed unchanged (no pack change reported). Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027.",
             "unit": "kWh"
           }
         ],
@@ -2916,7 +3198,7 @@
             "kind": "estimated",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: OpenEV Data lists 79 kWh net for the same pack in 2025/2026; carried over to 2027. Wikipedia says the Performance Juniper pack is ~82-84 kWh usable (LG 5M), so the Performance figure may be low.",
+            "notes": "Estimated: OpenEV Data lists 79 kWh net for the same pack in 2025/2026; carried over to 2027. Wikipedia says the Performance Juniper pack is ~82-84 kWh usable (LG 5M), so the Performance figure may be low. Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027.",
             "unit": "kWh"
           }
         ],
@@ -2926,7 +3208,7 @@
             "kind": "estimated",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: OpenEV Data: NMC for the 2025/2026 Long Range AWD / Performance; Wikipedia: nickel-based NMC."
+            "notes": "Estimated: OpenEV Data: NMC for the 2025/2026 Long Range AWD / Performance; Wikipedia: nickel-based NMC. Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -2944,7 +3226,7 @@
             "kind": "estimated",
             "source_id": "src-openev-v1-24-0",
             "low_confidence": true,
-            "notes": "Estimated: OpenEV Data 250 kW for the same pack; Wikipedia 250 kW for Premium/Performance.",
+            "notes": "Estimated: OpenEV Data 250 kW for the same pack; Wikipedia 250 kW for Premium/Performance. Unproven for 2027: no 2027-specific pack page found; carried over because no pack change was reported between 2026 and 2027.",
             "unit": "kW"
           }
         ],
@@ -2952,9 +3234,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia 11.5 kW AC for the NA Model Y; OpenEV lists 11 kW.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -2964,14 +3254,14 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           }
         ]
       },
@@ -3000,11 +3290,11 @@
       "fields": {
         "battery.capacity_usable_kwh": [
           {
-            "value": 83,
+            "value": 79,
             "kind": "estimated",
-            "source_id": "src-notateslaapp-model-y-l-us",
+            "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Not a Tesla App: US Model Y L has an 83 kWh pack (gross/usable not stated; Wikipedia gives AU/NZ L 88.2 gross / ~84 usable). Taken as usable, low confidence.",
+            "notes": "Estimated: 83 kWh gross x 0.95 (the AU/NZ Model Y L is 88.2 gross / about 84 usable on Wikipedia, ratio 0.95). Ratio from the sibling L pack, not the US car.",
             "unit": "kWh"
           }
         ],
@@ -3014,7 +3304,7 @@
             "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia: Model Y L uses NCM cells (China and AU/NZ listings); US pack chemistry not stated."
+            "notes": "Estimated: Wikipedia: Model Y L uses NCM cells (China and AU/NZ listings); US pack chemistry not stated. Unproven for the US car: Wikipedia cites NCM for China/AU-NZ builds only."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -3040,9 +3330,17 @@
           {
             "value": 11.5,
             "kind": "estimated",
+            "source_id": "src-thechargeport-tesla-model-y",
+            "low_confidence": true,
+            "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+            "unit": "kW"
+          },
+          {
+            "value": 11.5,
+            "kind": "estimated",
             "source_id": "src-wikipedia-tesla-model-y",
             "low_confidence": true,
-            "notes": "Estimated: Wikipedia 11.5 kW AC for the NA Model Y.",
+            "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
             "unit": "kW"
           }
         ],
@@ -3052,14 +3350,24 @@
             "kind": "estimated",
             "source_id": "src-teslabs-manual-preconditioning",
             "low_confidence": true,
-            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years."
+            "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
           },
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-evdb-model-y-lr-awd-1619",
             "low_confidence": true,
-            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement."
+            "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 83,
+            "kind": "estimated",
+            "source_id": "src-notateslaapp-model-y-l-us",
+            "low_confidence": true,
+            "notes": "Estimated: Not a Tesla App: \"83 kWh pack\" for the US Model Y L, gross or usable unstated; a bare pack figure is treated as gross (the China pack of 88 kWh is Wikipedia's 88.2 gross).",
+            "unit": "kWh"
           }
         ]
       },

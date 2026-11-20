@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-lectron-bmw-adapter",
+      "low_confidence": true,
+      "notes": "Estimated: BMW i4 keeps a CCS1 port through 2026 (thinkEV 2026 eDrive40 lists CCS1; Lectron lists the i4 2022-2026 as a CCS-to-NACS adapter car; BMW Canada says native NACS is only on all-new 2026+ models such as iX3/i3). Same port assumed for 2025."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-bmw-canada-nacs-superchargers-2026-04",
+      "low_confidence": true,
+      "notes": "Canada: BMW says all BEVs except original i3/MINI SE become Supercharger-compatible by remote software upgrade and CCS cars use the approved Lectron Vortex Plus NACS-to-CCS adapter (access from 2026-04-08; i4 not named in the text read)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

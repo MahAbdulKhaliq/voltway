@@ -54,7 +54,7 @@
       "title": "BMW i4 eDrive35 (EV Database, 2025-2026 listing)",
       "url": "https://ev-database.org/car/3204/BMW-i4-eDrive35",
       "accessed_on": "2026-11-19",
-      "notes": "Lists 67.1 kWh usable / 70.3 nominal, 180 kW DC, 11 kW AC for the July 2025 on eDrive35; says it succeeds the eDrive35 sold June 2024 to July 2025 with the same charging figures."
+      "notes": "Lists 67.1 kWh usable / 70.3 nominal, 180 kW DC, 11 kW AC for the July 2025 on the eDrive35; says it succeeds the eDrive35 sold June 2024 to July 2025 (same acceleration, similar consumption; the page does not say the charging figures are unchanged)."
     },
     {
       "id": "src-insideevs-bmw-supercharger-2025",
@@ -78,7 +78,7 @@
       "title": "BMW Canada further improves EV convenience in Canada with Shell Recharge integration and access to NACS-format Superchargers (2026-04-08)",
       "url": "https://newsroom.bmwgroup.com/americas/en-ca/bmw-canada-further-improves-ev-convenience-in-canada-with-shell-recharge-integration-and-access-to-nacs-format-superchargers",
       "accessed_on": "2026-11-19",
-      "notes": "Re-read 2026-11-19: all BEV models become Supercharger-compatible once software prerequisites are met (except original i3 and MINI Cooper SE F56); existing CCS-port cars must use the approved Lectron Vortex Plus NACS-to-CCS adapter. The i4 is not named in the text."
+      "notes": "Re-read 2026-11-19: all BEV models become Supercharger-compatible once software prerequisites are met (except original i3 and MINI Cooper SE F56); existing CCS-port cars must use the approved Lectron Vortex Plus NACS-to-CCS adapter. The i4 is not named in the text. All-new BMW models in Canada starting in 2026 (iX3, i3) get a built-in NACS port; only those."
     },
     {
       "id": "src-vw-launch-2021-conceptcarz",
@@ -254,10 +254,10 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "manufacturer",
             "source_id": "src-bmw-us-i4-2022",
-            "notes": "Navigation to a fast charger triggers anticipatory pre-conditioning of the battery; pre-conditioning can also be started/scheduled from iDrive or the My BMW app (the page names interior and battery pre-conditioning)."
+            "notes": "Page: when navigation routes to a fast charger, anticipatory thermal management will automatically pre-condition the battery beforehand. No manual battery control found (the iDrive/My BMW app pre-conditioning passage is cabin preheating)."
           }
         ],
         "dc_max_kw": [
@@ -352,10 +352,10 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "manufacturer",
             "source_id": "src-bmw-us-i4-2022",
-            "notes": "Navigation to a fast charger triggers anticipatory pre-conditioning of the battery; pre-conditioning can also be started/scheduled from iDrive or the My BMW app (the page names interior and battery pre-conditioning)."
+            "notes": "Page: when navigation routes to a fast charger, anticipatory thermal management will automatically pre-condition the battery beforehand. No manual battery control found (the iDrive/My BMW app pre-conditioning passage is cabin preheating)."
           }
         ],
         "dc_max_kw": [
@@ -446,11 +446,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: 2022 release: navigation-triggered battery pre-conditioning plus iDrive/My BMW app control. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+            "notes": "Estimated: 2022 release: navigation-triggered automatic battery pre-conditioning; no manual battery control found. Same G26 i4 83.9 kWh pack compared 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
           }
         ],
         "dc_max_kw": [
@@ -534,11 +534,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: 2022 release: navigation-triggered battery pre-conditioning plus iDrive/My BMW app control. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+            "notes": "Estimated: 2022 release: navigation-triggered automatic battery pre-conditioning; no manual battery control found. Same G26 i4 83.9 kWh pack compared 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
           }
         ],
         "dc_max_kw": [
@@ -622,11 +622,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: 2022 release: navigation-triggered battery pre-conditioning plus iDrive/My BMW app control. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+            "notes": "Estimated: 2022 release: navigation-triggered automatic battery pre-conditioning; no manual battery control found. Same G26 i4 83.9 kWh pack compared 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
           }
         ],
         "dc_max_kw": [
@@ -710,11 +710,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: 2022 release: navigation-triggered battery pre-conditioning plus iDrive/My BMW app control. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+            "notes": "Estimated: 2022 release: navigation-triggered automatic battery pre-conditioning; no manual battery control found. Same G26 i4 83.9 kWh pack compared 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
           }
         ],
         "dc_max_kw": [
@@ -798,11 +798,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: 2022 release: navigation-triggered battery pre-conditioning plus iDrive/My BMW app control. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+            "notes": "Estimated: 2022 release: navigation-triggered automatic battery pre-conditioning; no manual battery control found. Same G26 i4 83.9 kWh pack compared 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
           }
         ],
         "dc_max_kw": [
@@ -886,11 +886,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: 2022 release: navigation-triggered battery pre-conditioning plus iDrive/My BMW app control. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+            "notes": "Estimated: 2022 release: navigation-triggered automatic battery pre-conditioning; no manual battery control found. Same G26 i4 83.9 kWh pack compared 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
           }
         ],
         "dc_max_kw": [
@@ -974,11 +974,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: 2022 release: navigation-triggered battery pre-conditioning plus iDrive/My BMW app control. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+            "notes": "Estimated: 2022 release: navigation-triggered automatic battery pre-conditioning; no manual battery control found. Same G26 i4 83.9 kWh pack compared 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
           }
         ],
         "dc_max_kw": [
@@ -1062,11 +1062,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: 2022 release: navigation-triggered battery pre-conditioning plus iDrive/My BMW app control. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+            "notes": "Estimated: 2022 release: navigation-triggered automatic battery pre-conditioning; no manual battery control found. Same G26 i4 83.9 kWh pack compared 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
           }
         ],
         "dc_max_kw": [
@@ -1158,11 +1158,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: BMW US 2022 release for eDrive40/M50 describes navigation-triggered battery pre-conditioning plus app/iDrive control; same G26 platform and thermal management, no eDrive35-specific statement found."
+            "notes": "Estimated: BMW US 2022 release describes navigation-triggered automatic battery pre-conditioning for the i4 eDrive40/M50 (83.9 kWh pack, a different pack). No page states it for the eDrive35; carried over as a software feature of the same G26 i4 and iDrive navigation, not a pack figure."
           }
         ],
         "dc_max_kw": [
@@ -1233,7 +1233,7 @@
             "kind": "estimated",
             "source_id": "src-bmw-ca-i4-edrive35-2023",
             "low_confidence": true,
-            "notes": "Estimated: BMW Canada release: 66 kWh net within 70.2 kWh gross. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists the same 180 kW / 11 kW for the later eDrive35)."
+            "notes": "Estimated: BMW Canada release: 66 kWh net within 70.2 kWh gross. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
           },
           {
             "value": 67,
@@ -1241,7 +1241,7 @@
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-edrive35-2023",
             "low_confidence": true,
-            "notes": "Estimated: BMW US release: 67 kWh net usable (Canadian release says 66). Conflict between the two BMW releases; EV Database 67.1. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists the same 180 kW / 11 kW for the later eDrive35)."
+            "notes": "Estimated: BMW US release: 67 kWh net usable (Canadian release says 66). Conflict between the two BMW releases; EV Database 67.1. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
           }
         ],
         "battery.chemistry": [
@@ -1264,11 +1264,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: BMW US 2022 release for eDrive40/M50 describes navigation-triggered battery pre-conditioning plus app/iDrive control; same G26 platform and thermal management, no eDrive35-specific statement found."
+            "notes": "Estimated: BMW US 2022 release describes navigation-triggered automatic battery pre-conditioning for the i4 eDrive40/M50 (83.9 kWh pack, a different pack). No page states it for the eDrive35; carried over as a software feature of the same G26 i4 and iDrive navigation, not a pack figure."
           }
         ],
         "dc_max_kw": [
@@ -1278,7 +1278,7 @@
             "kind": "estimated",
             "source_id": "src-bmw-ca-i4-edrive35-2023",
             "low_confidence": true,
-            "notes": "Estimated: BMW releases: up to 180 kW. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists the same 180 kW / 11 kW for the later eDrive35)."
+            "notes": "Estimated: BMW releases: up to 180 kW. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
           }
         ],
         "ac_max_kw": [
@@ -1288,7 +1288,7 @@
             "kind": "estimated",
             "source_id": "src-bmw-ca-i4-edrive35-2023",
             "low_confidence": true,
-            "notes": "Estimated: BMW Canada release: 11 kW AC. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists the same 180 kW / 11 kW for the later eDrive35)."
+            "notes": "Estimated: BMW Canada release: 11 kW AC. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
           }
         ]
       },
@@ -1329,7 +1329,7 @@
             "kind": "estimated",
             "source_id": "src-bmw-ca-i4-edrive35-2023",
             "low_confidence": true,
-            "notes": "Estimated: BMW Canada release: 66 kWh net within 70.2 kWh gross. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists the same 180 kW / 11 kW for the later eDrive35)."
+            "notes": "Estimated: BMW Canada release: 66 kWh net within 70.2 kWh gross. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
           },
           {
             "value": 67,
@@ -1337,7 +1337,7 @@
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-edrive35-2023",
             "low_confidence": true,
-            "notes": "Estimated: BMW US release: 67 kWh net usable (Canadian release says 66). Conflict between the two BMW releases; EV Database 67.1. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists the same 180 kW / 11 kW for the later eDrive35)."
+            "notes": "Estimated: BMW US release: 67 kWh net usable (Canadian release says 66). Conflict between the two BMW releases; EV Database 67.1. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
           }
         ],
         "battery.chemistry": [
@@ -1360,11 +1360,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: BMW US 2022 release for eDrive40/M50 describes navigation-triggered battery pre-conditioning plus app/iDrive control; same G26 platform and thermal management, no eDrive35-specific statement found."
+            "notes": "Estimated: BMW US 2022 release describes navigation-triggered automatic battery pre-conditioning for the i4 eDrive40/M50 (83.9 kWh pack, a different pack). No page states it for the eDrive35; carried over as a software feature of the same G26 i4 and iDrive navigation, not a pack figure."
           }
         ],
         "dc_max_kw": [
@@ -1374,7 +1374,7 @@
             "kind": "estimated",
             "source_id": "src-bmw-ca-i4-edrive35-2023",
             "low_confidence": true,
-            "notes": "Estimated: BMW releases: up to 180 kW. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists the same 180 kW / 11 kW for the later eDrive35)."
+            "notes": "Estimated: BMW releases: up to 180 kW. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
           }
         ],
         "ac_max_kw": [
@@ -1384,7 +1384,7 @@
             "kind": "estimated",
             "source_id": "src-bmw-ca-i4-edrive35-2023",
             "low_confidence": true,
-            "notes": "Estimated: BMW Canada release: 11 kW AC. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists the same 180 kW / 11 kW for the later eDrive35)."
+            "notes": "Estimated: BMW Canada release: 11 kW AC. Carried over from the 2023 eDrive35 (same 70.2 kWh pack, no pack or charging change found; EV Database lists 180 kW / 11 kW for the July 2025+ eDrive35, which supports but does not prove the carry-over)."
           }
         ]
       },
@@ -1413,11 +1413,11 @@
       "fields": {
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: BMW US 2022 release for the same G26 i4 describes navigation-triggered battery pre-conditioning plus iDrive/My BMW app control; the 2026 update release (SiC inverters, M50 renamed M60) names no change to thermal management or charging."
+            "notes": "Estimated: BMW US 2022 release for the same G26 i4 describes navigation-triggered automatic battery pre-conditioning (no manual battery control found); the 2026 update release (SiC inverters, M50 renamed M60) names no change to thermal management or charging."
           }
         ]
       },
@@ -1427,11 +1427,11 @@
       "fields": {
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: BMW US 2022 release for the same G26 i4 describes navigation-triggered battery pre-conditioning plus iDrive/My BMW app control; the 2026 update release (SiC inverters, M50 renamed M60) names no change to thermal management or charging."
+            "notes": "Estimated: BMW US 2022 release for the same G26 i4 describes navigation-triggered automatic battery pre-conditioning (no manual battery control found); the 2026 update release (SiC inverters, M50 renamed M60) names no change to thermal management or charging."
           }
         ]
       },
@@ -1441,11 +1441,11 @@
       "fields": {
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "automatic_with_navigation",
             "kind": "estimated",
             "source_id": "src-bmw-us-i4-2022",
             "low_confidence": true,
-            "notes": "Estimated: BMW US 2022 release for the same G26 i4 describes navigation-triggered battery pre-conditioning plus iDrive/My BMW app control; the 2026 update release (SiC inverters, M50 renamed M60) names no change to thermal management or charging."
+            "notes": "Estimated: BMW US 2022 release for the same G26 i4 describes navigation-triggered automatic battery pre-conditioning (no manual battery control found); the 2026 update release (SiC inverters, M50 renamed M60) names no change to thermal management or charging."
           }
         ]
       },
@@ -1457,10 +1457,10 @@
           {
             "value": 77,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-slashgear-id4-2023",
             "low_confidence": true,
-            "notes": "82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear; Wikipedia agrees)."
+            "notes": "Estimated: 82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear 2023 first drive; Wikipedia table gives 82/77 for 2021-22 too). Same 82 kWh pack carried to MY2021 (cell supplier LG in 2021-22 vs SK On from 2023)."
           }
         ],
         "battery.chemistry": [
@@ -1487,7 +1487,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -1538,10 +1538,10 @@
           {
             "value": 77,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-slashgear-id4-2023",
             "low_confidence": true,
-            "notes": "82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear; Wikipedia agrees)."
+            "notes": "Estimated: 82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear 2023 first drive; Wikipedia table gives 82/77 for 2021-22 too). Same 82 kWh pack carried to MY2021 (cell supplier LG in 2021-22 vs SK On from 2023)."
           }
         ],
         "battery.chemistry": [
@@ -1568,7 +1568,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -1619,10 +1619,10 @@
           {
             "value": 77,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-slashgear-id4-2023",
             "low_confidence": true,
-            "notes": "82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear; Wikipedia agrees)."
+            "notes": "Estimated: 82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear 2023 first drive; Wikipedia table gives 82/77 for 2021-22 too). Same 82 kWh pack carried to MY2021 (cell supplier LG in 2021-22 vs SK On from 2023)."
           }
         ],
         "battery.chemistry": [
@@ -1649,7 +1649,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -1700,10 +1700,10 @@
           {
             "value": 77,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-slashgear-id4-2023",
             "low_confidence": true,
-            "notes": "82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear; Wikipedia agrees)."
+            "notes": "Estimated: 82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear 2023 first drive; Wikipedia table gives 82/77 for 2021-22 too). Same 82 kWh pack carried to MY2021 (cell supplier LG in 2021-22 vs SK On from 2023)."
           }
         ],
         "battery.chemistry": [
@@ -1730,7 +1730,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -1781,10 +1781,10 @@
           {
             "value": 77,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-slashgear-id4-2023",
             "low_confidence": true,
-            "notes": "82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear; Wikipedia agrees)."
+            "notes": "Estimated: 82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear 2023 first drive; Wikipedia table gives 82/77 for 2021-22 too). Same 82 kWh pack carried to MY2022 (cell supplier LG in 2021-22 vs SK On from 2023)."
           }
         ],
         "battery.chemistry": [
@@ -1811,7 +1811,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -1862,10 +1862,10 @@
           {
             "value": 77,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-slashgear-id4-2023",
             "low_confidence": true,
-            "notes": "82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear; Wikipedia agrees)."
+            "notes": "Estimated: 82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear 2023 first drive; Wikipedia table gives 82/77 for 2021-22 too). Same 82 kWh pack carried to MY2022 (cell supplier LG in 2021-22 vs SK On from 2023)."
           }
         ],
         "battery.chemistry": [
@@ -1892,7 +1892,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -1943,10 +1943,10 @@
           {
             "value": 77,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-slashgear-id4-2023",
             "low_confidence": true,
-            "notes": "82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear; Wikipedia agrees)."
+            "notes": "Estimated: 82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear 2023 first drive; Wikipedia table gives 82/77 for 2021-22 too). Same 82 kWh pack carried to MY2022 (cell supplier LG in 2021-22 vs SK On from 2023)."
           }
         ],
         "battery.chemistry": [
@@ -1973,7 +1973,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -2024,10 +2024,10 @@
           {
             "value": 77,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-slashgear-id4-2023",
             "low_confidence": true,
-            "notes": "82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear; Wikipedia agrees)."
+            "notes": "Estimated: 82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear 2023 first drive; Wikipedia table gives 82/77 for 2021-22 too). Same 82 kWh pack carried to MY2022 (cell supplier LG in 2021-22 vs SK On from 2023)."
           }
         ],
         "battery.chemistry": [
@@ -2054,7 +2054,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -2135,7 +2135,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -2145,7 +2145,7 @@
             "kind": "manufacturer",
             "source_id": "src-insideevs-id4-2023-us",
             "low_confidence": true,
-            "notes": "InsideEVs/SlashGear: 2023 Pro and AWD Pro up to 170 kW (SK On pack). Wikipedia says some 2023 RWD cars carry an LG pack limited to 135 kW; that split is not modelled here."
+            "notes": "InsideEVs/SlashGear: 2023 Pro and AWD Pro up to 170 kW (SK On pack). Wikipedia says some 2023 RWD cars carry an LG pack limited to 135 kW; that split is not modelled here. Wikipedia also lists 2023 AWD at 175 kW. Pro S and Pro S AWD rest on SlashGear pack-level wording (InsideEVs names only Pro and AWD Pro). RWD cars with LG cells may be 135 kW."
           }
         ],
         "ac_max_kw": [
@@ -2216,7 +2216,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -2226,7 +2226,7 @@
             "kind": "manufacturer",
             "source_id": "src-insideevs-id4-2023-us",
             "low_confidence": true,
-            "notes": "InsideEVs/SlashGear: 2023 Pro and AWD Pro up to 170 kW (SK On pack). Wikipedia says some 2023 RWD cars carry an LG pack limited to 135 kW; that split is not modelled here."
+            "notes": "InsideEVs/SlashGear: 2023 Pro and AWD Pro up to 170 kW (SK On pack). Wikipedia says some 2023 RWD cars carry an LG pack limited to 135 kW; that split is not modelled here. Wikipedia also lists 2023 AWD at 175 kW. Pro S and Pro S AWD rest on SlashGear pack-level wording (InsideEVs names only Pro and AWD Pro). RWD cars with LG cells may be 135 kW."
           }
         ],
         "ac_max_kw": [
@@ -2297,7 +2297,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -2307,7 +2307,7 @@
             "kind": "manufacturer",
             "source_id": "src-insideevs-id4-2023-us",
             "low_confidence": true,
-            "notes": "InsideEVs/SlashGear: 2023 Pro and AWD Pro up to 170 kW (SK On pack). Wikipedia says some 2023 RWD cars carry an LG pack limited to 135 kW; that split is not modelled here."
+            "notes": "InsideEVs/SlashGear: 2023 Pro and AWD Pro up to 170 kW (SK On pack). Wikipedia says some 2023 RWD cars carry an LG pack limited to 135 kW; that split is not modelled here. Wikipedia also lists 2023 AWD at 175 kW. Pro S and Pro S AWD rest on SlashGear pack-level wording (InsideEVs names only Pro and AWD Pro). RWD cars with LG cells may be 135 kW."
           }
         ],
         "ac_max_kw": [
@@ -2378,7 +2378,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -2388,7 +2388,7 @@
             "kind": "manufacturer",
             "source_id": "src-insideevs-id4-2023-us",
             "low_confidence": true,
-            "notes": "InsideEVs/SlashGear: 2023 Pro and AWD Pro up to 170 kW (SK On pack). Wikipedia says some 2023 RWD cars carry an LG pack limited to 135 kW; that split is not modelled here."
+            "notes": "InsideEVs/SlashGear: 2023 Pro and AWD Pro up to 170 kW (SK On pack). Wikipedia says some 2023 RWD cars carry an LG pack limited to 135 kW; that split is not modelled here. Wikipedia also lists 2023 AWD at 175 kW. Pro S and Pro S AWD rest on SlashGear pack-level wording (InsideEVs names only Pro and AWD Pro). RWD cars with LG cells may be 135 kW."
           }
         ],
         "ac_max_kw": [
@@ -2441,7 +2441,7 @@
             "kind": "estimated",
             "source_id": "src-wikipedia-id4",
             "low_confidence": true,
-            "notes": "Estimated: thinkEV (Canada) lists NMC for the 82 kWh ID.4; the 62 kWh pack uses the same MEB 24-cell module, 9 modules versus 12 (Wikipedia), so the same cell family is assumed. No page states the 62 kWh chemistry directly."
+            "notes": "Estimated, weak guess (OWNER FLAG): no page found states the 62 kWh pack chemistry (The Weekly Driver and Guide Auto say only lithium-ion; one EV Database listing for a later 58 kWh usable ID.4 shows LFP). nmc is assumed because thinkEV lists NMC for the 82 kWh MEB pack and Wikipedia says both packs use 24-cell modules; this is a different pack, so verify before trusting."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -2459,7 +2459,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -2522,7 +2522,7 @@
             "kind": "estimated",
             "source_id": "src-wikipedia-id4",
             "low_confidence": true,
-            "notes": "Estimated: thinkEV (Canada) lists NMC for the 82 kWh ID.4; the 62 kWh pack uses the same MEB 24-cell module, 9 modules versus 12 (Wikipedia), so the same cell family is assumed. No page states the 62 kWh chemistry directly."
+            "notes": "Estimated, weak guess (OWNER FLAG): no page found states the 62 kWh pack chemistry (The Weekly Driver and Guide Auto say only lithium-ion; one EV Database listing for a later 58 kWh usable ID.4 shows LFP). nmc is assumed because thinkEV lists NMC for the 82 kWh MEB pack and Wikipedia says both packs use 24-cell modules; this is a different pack, so verify before trusting."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -2540,7 +2540,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-id4-precond-2026",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced; no NA-specific page found."
+            "notes": "Estimated: InsideEVs says ID.4/ID.5 built 2020-2024 had no battery preconditioning (automatic only from 2024); software 3.9.1 (electrive: built before Oct 2023, needs 3.7+) adds only a manual button and no page says it reached US/Canadian cars; if it did, this car would be manual_only. Late-2023 builds may differ. European-sourced (InsideEVs/electrive name no market); a second look at VW US/Canada pages, US press and software-update coverage found no North American statement. Low confidence; owner to accept or verify."
           }
         ],
         "dc_max_kw": [
@@ -2621,7 +2621,7 @@
             "kind": "manufacturer",
             "source_id": "src-vw-us-cold-weather",
             "low_confidence": true,
-            "notes": "VW US: Battery Optimization for \"most 2024 and newer\" VW EVs (screens labelled 2024 ID.4 Pro S); manual toggle in Charging Settings and automatic preheating when routing to a DC fast charger. VW Canada says the same."
+            "notes": "VW US: Battery Optimization for \"most 2024 and newer\" VW EVs (screens labelled 2024 ID.4 Pro S); manual toggle in Charging Settings and automatic preheating when routing to a DC fast charger. VW Canada says the same. InsideEVs/electrive suggest some cars built before Oct 2023 lacked it, so early-build 2024 NA cars may differ."
           }
         ],
         "dc_max_kw": [
@@ -2702,7 +2702,7 @@
             "kind": "manufacturer",
             "source_id": "src-vw-us-cold-weather",
             "low_confidence": true,
-            "notes": "VW US: Battery Optimization for \"most 2024 and newer\" VW EVs (screens labelled 2024 ID.4 Pro S); manual toggle in Charging Settings and automatic preheating when routing to a DC fast charger. VW Canada says the same."
+            "notes": "VW US: Battery Optimization for \"most 2024 and newer\" VW EVs (screens labelled 2024 ID.4 Pro S); manual toggle in Charging Settings and automatic preheating when routing to a DC fast charger. VW Canada says the same. InsideEVs/electrive suggest some cars built before Oct 2023 lacked it, so early-build 2024 NA cars may differ."
           }
         ],
         "dc_max_kw": [
@@ -2783,7 +2783,7 @@
             "kind": "manufacturer",
             "source_id": "src-vw-us-cold-weather",
             "low_confidence": true,
-            "notes": "VW US: Battery Optimization for \"most 2024 and newer\" VW EVs (screens labelled 2024 ID.4 Pro S); manual toggle in Charging Settings and automatic preheating when routing to a DC fast charger. VW Canada says the same."
+            "notes": "VW US: Battery Optimization for \"most 2024 and newer\" VW EVs (screens labelled 2024 ID.4 Pro S); manual toggle in Charging Settings and automatic preheating when routing to a DC fast charger. VW Canada says the same. InsideEVs/electrive suggest some cars built before Oct 2023 lacked it, so early-build 2024 NA cars may differ."
           }
         ],
         "dc_max_kw": [
@@ -3243,6 +3243,16 @@
             "low_confidence": true,
             "notes": "Estimated: lineup-wide VW statement \"most 2024 and newer VW EVs\" (screens from a 2024 ID.4 Pro S) carried to MY2026 (same 2024-update software generation per model notes)."
           }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 175,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-cars-id4-2024",
+            "low_confidence": true,
+            "notes": "Estimated: same 82 kWh pack as 2024-2026 Pro (Cars.com 2024: 175 kW on Pro/Pro S/Pro S Plus, RWD or AWD; Wikipedia 175 kW from 2024). Conflict: the existing 135 kW (OpenEV; thinkEV Canada 2026 also says 135) looks like the pre-2024 figure."
+          }
         ]
       },
       "variant_fields": {
@@ -3276,6 +3286,16 @@
             "low_confidence": true,
             "notes": "Estimated: lineup-wide VW statement \"most 2024 and newer VW EVs\" (screens from a 2024 ID.4 Pro S) carried to MY2026 (same 2024-update software generation per model notes)."
           }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 175,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-cars-id4-2024",
+            "low_confidence": true,
+            "notes": "Estimated: same 82 kWh pack as 2024-2026 Pro (Cars.com 2024: 175 kW on Pro/Pro S/Pro S Plus, RWD or AWD; Wikipedia 175 kW from 2024). Conflict: the existing 135 kW (OpenEV; thinkEV Canada 2026 also says 135) looks like the pre-2024 figure."
+          }
         ]
       },
       "variant_fields": {
@@ -3308,7 +3328,7 @@
             "kind": "estimated",
             "source_id": "src-wikipedia-id4",
             "low_confidence": true,
-            "notes": "Estimated: thinkEV (Canada) lists NMC for the 82 kWh ID.4; the 62 kWh pack uses the same MEB 24-cell module, 9 modules versus 12 (Wikipedia), so the same cell family is assumed. No page states the 62 kWh chemistry directly."
+            "notes": "Estimated, weak guess (OWNER FLAG): no page found states the 62 kWh pack chemistry (The Weekly Driver and Guide Auto say only lithium-ion; one EV Database listing for a later 58 kWh usable ID.4 shows LFP). nmc is assumed because thinkEV lists NMC for the 82 kWh MEB pack and Wikipedia says both packs use 24-cell modules; this is a different pack, so verify before trusting."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -3326,7 +3346,7 @@
             "kind": "manufacturer",
             "source_id": "src-vw-us-cold-weather",
             "low_confidence": true,
-            "notes": "VW US: Battery Optimization for \"most 2024 and newer\" VW EVs (screens labelled 2024 ID.4 Pro S); manual toggle in Charging Settings and automatic preheating when routing to a DC fast charger. VW Canada says the same."
+            "notes": "VW US: Battery Optimization for \"most 2024 and newer\" VW EVs (screens labelled 2024 ID.4 Pro S); manual toggle in Charging Settings and automatic preheating when routing to a DC fast charger. VW Canada says the same. InsideEVs/electrive suggest some cars built before Oct 2023 lacked it, so early-build 2024 NA cars may differ."
           }
         ],
         "dc_max_kw": [
@@ -3389,7 +3409,7 @@
             "kind": "estimated",
             "source_id": "src-wikipedia-id4",
             "low_confidence": true,
-            "notes": "Estimated: thinkEV (Canada) lists NMC for the 82 kWh ID.4; the 62 kWh pack uses the same MEB 24-cell module, 9 modules versus 12 (Wikipedia), so the same cell family is assumed. No page states the 62 kWh chemistry directly."
+            "notes": "Estimated, weak guess (OWNER FLAG): no page found states the 62 kWh pack chemistry (The Weekly Driver and Guide Auto say only lithium-ion; one EV Database listing for a later 58 kWh usable ID.4 shows LFP). nmc is assumed because thinkEV lists NMC for the 82 kWh MEB pack and Wikipedia says both packs use 24-cell modules; this is a different pack, so verify before trusting."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -3470,7 +3490,7 @@
             "kind": "estimated",
             "source_id": "src-wikipedia-id4",
             "low_confidence": true,
-            "notes": "Estimated: thinkEV (Canada) lists NMC for the 82 kWh ID.4; the 62 kWh pack uses the same MEB 24-cell module, 9 modules versus 12 (Wikipedia), so the same cell family is assumed. No page states the 62 kWh chemistry directly."
+            "notes": "Estimated, weak guess (OWNER FLAG): no page found states the 62 kWh pack chemistry (The Weekly Driver and Guide Auto say only lithium-ion; one EV Database listing for a later 58 kWh usable ID.4 shows LFP). nmc is assumed because thinkEV lists NMC for the 82 kWh MEB pack and Wikipedia says both packs use 24-cell modules; this is a different pack, so verify before trusting."
           }
         ],
         "battery.nominal_voltage_class": [

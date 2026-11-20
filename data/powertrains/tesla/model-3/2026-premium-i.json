@@ -5,5 +5,16 @@
   "generation": "highland",
   "years": [
     2026
-  ]
+  ],
+  "battery": {
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-notateslaapp-2020-24-6-4",
+        "low_confidence": true,
+        "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2026 Canadian car). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented."
+      }
+    ]
+  }
 }

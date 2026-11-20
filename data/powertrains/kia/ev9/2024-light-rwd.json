@@ -5,5 +5,74 @@
   "generation": "first-generation",
   "years": [
     2024
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 76.1,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-2024-ev9-epa",
+        "low_confidence": true,
+        "notes": "InsideEVs relaying Kia documents: 76.1 kWh pack on Light RWD SR."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 73,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-evdb-ev9-761",
+        "low_confidence": true,
+        "notes": "EV Database 76.1 kWh pack: 73.0 kWh usable (EVKX says 75.0 net)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-evseekers-ev9-battery",
+        "low_confidence": true,
+        "notes": "Page says both the 76.1 and 99.8 kWh packs use NMC cells from SK On."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-kia-uk-ev9-specification",
+        "low_confidence": true,
+        "notes": "Kia UK spec page: EV9 uses the 800-volt E-GMP system (needs an 800 V charger for max speed)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-kia-manual-mv1-2024-battery-conditioning",
+        "low_confidence": true,
+        "notes": "2024 EV9 manual (MV1, en_RG copy): manual on/off switch, navigation fast-charger trigger, remote start from Kia Connect. Requires a battery heater (equipment per trim not confirmed). Battery-heater equipment on Light is unconfirmed (Kia US shows no heat pump on Light and the manual says conditioning needs a battery heater), so this may not apply to Light."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 236,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-2024-ev9-epa",
+      "low_confidence": true,
+      "notes": "InsideEVs relaying Kia US EPA documents: the 76.1 kWh pack recharges up to 236 kW. EV Database lists 210 kW for this pack, which looks copied from the 99.8 kWh page. No Kia page states it."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-2024-ev9-epa",
+      "low_confidence": true,
+      "notes": "InsideEVs relaying Kia documents: 10.9 kW for both packs."
+    }
   ]
 }

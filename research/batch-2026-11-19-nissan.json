@@ -62,7 +62,7 @@
       "title": "Nissan USA newsroom: 2024 LEAF press kit",
       "url": "https://usa.nissannews.com/releases/2024-nissan-leaf-press-kit",
       "accessed_on": "2026-11-19",
-      "notes": "2024 LEAF US press kit: S 40 kWh, SV PLUS \"60 kWh\" (marketing figure for the 62 kWh pack); 6.6 kW onboard charger (6.0 out); high-output quick charge port standard on both trims; 10-80 % about 40 min (S) / 60 min (SV PLUS); no battery preconditioning described."
+      "notes": "2024 LEAF US press kit: S 40 kWh, SV PLUS \"60 kWh\" (marketing figure for the 62 kWh pack); 6.6 kW onboard charger (6.0 out); high-output quick charge port standard on both trims; 80 % in about 40 min (S) / 60 min (SV PLUS), start state of charge not stated; no battery preconditioning described."
     },
     {
       "id": "src-doe-2013-leaf-battery-sheet",
@@ -110,7 +110,7 @@
       "title": "EV Database: Nissan LEAF 40 kWh (MY18-22)",
       "url": "https://ev-database.org/car/1106/Nissan-LEAF-40-kWh",
       "accessed_on": "2026-11-19",
-      "notes": "Nominal 40 kWh, usable 39 kWh, NMC532, nominal 350 V (400 V architecture), CHAdeMO, DC max 46 kW (Nissan claim 50 kW), AC 3.6 kW standard (EU), battery preconditioning not supported."
+      "notes": "Nominal 40 kWh, usable 39 kWh, NMC532, nominal 350 V (400 V architecture), CHAdeMO, DC max 46 kW (page also cites a Nissan claim of 50 kW), AC 3.6 kW standard (EU), battery preconditioning not supported."
     },
     {
       "id": "src-evdb-leaf-eplus-62-my23-25",
@@ -118,7 +118,7 @@
       "title": "EV Database: Nissan LEAF e+ 62 kWh (MY23-25)",
       "url": "https://ev-database.org/car/1657/Nissan-LEAF-eplus-62-kWh",
       "accessed_on": "2026-11-19",
-      "notes": "Nominal 62 kWh, usable 59 kWh, NMC532, nominal 350 V, CHAdeMO, DC max 46 kW measured, AC 6.6 kW, battery preconditioning: No. MY19-22 page lists the same figures."
+      "notes": "Nominal 62 kWh, usable 59 kWh, NMC532, nominal 350 V, CHAdeMO, listed max 46 kW (10-80 % average 44 kW; page does not say measured), AC 6.6 kW, battery preconditioning: No. MY19-22 page lists the same figures."
     },
     {
       "id": "src-electrek-nissan-supercharger-2024-12",
@@ -198,7 +198,7 @@
       "title": "Nissan Canada: ARIYA specs",
       "url": "https://www.nissan.ca/vehicles/electric-cars/ariya/specs.html",
       "accessed_on": "2026-11-19",
-      "notes": "66 kWh (63 usable) and 91 kWh (87 usable) liquid-cooled Li-ion; 7.2 kW onboard charger; 50 / 130 kW DC; lists \"Quick charge port-NACS\" under Mechanical AND a dealer-installed NACS Adapter Kit ($317), so the current page may describe the refreshed 2027 car; trims not mapped to packs. Nissan Canada says 35 min (63) / 40 min (87) 10-80 %."
+      "notes": "66 kWh (63 usable) and 91 kWh (87 usable) liquid-cooled Li-ion; 7.2 kW onboard charger; 50 / 130 kW DC; lists \"Quick charge port-NACS\" under Mechanical AND a dealer-installed NACS Adapter Kit ($317), so the current page may describe the refreshed 2027 car; trims not mapped to packs. The 10-80 % times were not visible when fetched (a search extract said 35 / 40 min)."
     },
     {
       "id": "src-guideauto-ariya-2026-canada",
@@ -231,6 +231,70 @@
       "url": "https://ev-database.org/car/3689/Nissan-Ariya-63kWh",
       "accessed_on": "2026-11-19",
       "notes": "66 kWh nominal / 63 kWh usable, NMC cathode, nominal 352 V, CCS, DC max 130 kW (European 2026 car)."
+    },
+    {
+      "id": "src-nissan-ca-leaf-2011-press-kit",
+      "type": "oem",
+      "title": "Nissan Canada newsroom: 2011 Nissan LEAF press kit",
+      "url": "https://canada.nissannews.com/en-CA/releases/ca-2011-nissan-leaf-press-kit",
+      "accessed_on": "2026-11-19",
+      "notes": "Canada 2011: SV quick charge port \"-\" (SL optional), 3.3 kW onboard charger (fact-checker read; not re-read by the researcher)."
+    },
+    {
+      "id": "src-nissan-ca-leaf-2012-specs",
+      "type": "oem",
+      "title": "Nissan Canada newsroom: 2012 Nissan LEAF specifications",
+      "url": "https://canada.nissannews.com/en-CA/releases/2012-nissan-leaf-specifications-3",
+      "accessed_on": "2026-11-19",
+      "notes": "Canada 2012: 3.3 kW onboard charger; SV quick charge port \"-\" (fact-checker read; search extract also shows 3.3 kW)."
+    },
+    {
+      "id": "src-nissan-ca-leaf-2013-specs",
+      "type": "oem",
+      "title": "Nissan Canada newsroom: 2013 Nissan LEAF specifications",
+      "url": "https://canada.nissannews.com/en-CA/releases/2013-nissan-leaf-specifications?lang=fr-CA",
+      "accessed_on": "2026-11-19",
+      "notes": "Canada 2013: 6.6 kW onboard charger (6.0 kW output) on S, SV and SL; quick charge port standard on SV and SL, \"-\" on S; 24 kWh, 192 cells. Differs from the US 2013 kit (S 3.6 kW, port optional)."
+    },
+    {
+      "id": "src-nissan-ca-leaf-2014-specs",
+      "type": "oem",
+      "title": "Nissan Canada newsroom: 2014 Nissan LEAF specifications",
+      "url": "https://canada.nissannews.com/en-CA/releases/2014-nissan-leaf-specifications?lang=en-CA",
+      "accessed_on": "2026-11-19",
+      "notes": "Canada 2014: 6.6 kW onboard charger (6.0 kW output) on all trims; quick charge port standard on SV and SL, \"-\" on S; 24 kWh, 192 cells."
+    },
+    {
+      "id": "src-nissan-ca-leaf-2017-pricing",
+      "type": "oem",
+      "title": "Nissan Canada newsroom: Nissan announces Canadian pricing for 2017 LEAF",
+      "url": "https://canada.nissannews.com/en-CA/releases/nissan-announces-canadian-pricing-for-2017-leaf",
+      "accessed_on": "2026-11-19",
+      "notes": "Canada 2017: S, SV and SL all have the 30 kWh battery and a 6.6 kW onboard charger; 80 % in about 30 min from the low-battery warning (search extract)."
+    },
+    {
+      "id": "src-nissan-ca-leaf-2018-pricing",
+      "type": "oem",
+      "title": "Nissan Canada newsroom: 2018 Nissan LEAF Canadian pricing",
+      "url": "https://canada.nissannews.com/en-CA/releases/2018-nissan-leaf-canadian-pricing",
+      "accessed_on": "2026-11-19",
+      "notes": "Canada 2018: standard equipment list includes the quick charge port (search extract; trims not itemised)."
+    },
+    {
+      "id": "src-nissan-ca-leaf-2024-press-kit",
+      "type": "oem",
+      "title": "Nissan Canada newsroom: 2024 Nissan LEAF press kit",
+      "url": "https://canada.nissannews.com/en-CA/releases/2024-nissan-leaf-press-kit",
+      "accessed_on": "2026-11-19",
+      "notes": "Canada 2024: SV 40 kWh, quick charge port 50 kW, 80 % in 40 min; SV PLUS (\"60 kWh\" marketing figure) 100 kW, 45 min (overview) / 60 min (spec sheet); 6.6 kW onboard charger (6.0 kW output); no battery heater or preconditioning mentioned."
+    },
+    {
+      "id": "src-nissan-ca-leaf-2026-press-kit",
+      "type": "oem",
+      "title": "Nissan Canada newsroom: 2026 Nissan LEAF press kit",
+      "url": "https://canada.nissannews.com/en-CA/releases/2026-nissan-leaf-press-kit",
+      "accessed_on": "2026-11-19",
+      "notes": "Canada 2026: 7.2 kW onboard charger on S+, SV+, PLATINUM+; NACS standard; battery heater standard, release says the driver \"can engage the heater to warm the battery before charging in cold weather\" (manual); Google Maps charging-stop planner only on the 14.3-inch-screen grades (SV+, PLATINUM+); S+ has no Google built-in."
     }
   ],
   "powertrains": {
@@ -262,7 +326,7 @@
             "kind": "estimated",
             "source_id": "src-doe-2013-leaf-battery-sheet",
             "low_confidence": true,
-            "notes": "Estimated: DOE/INL sheet for the 2013 Leaf (specs supplied by Nissan): AESC lithium manganese oxide (LMO) cathode, carbon anode. \"other\" = LMO (no LMO enum value). Same 24 kWh pack carried over (2011-2016 S); not checked for cathode tweaks between years. EV Database lists NMC for these years, which conflicts."
+            "notes": "Estimated: DOE/INL sheet for the 2013 Leaf (specs supplied by Nissan): AESC lithium manganese oxide (LMO) cathode, carbon anode. \"other\" = LMO (no LMO enum value). UNPROVEN carry-over: the DOE sheet is for a 2013 car; no page found showing whether the 2011-12 and 2014-16 24 kWh cells kept the same cathode. EV Database lists NMC for these years, which conflicts."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -279,9 +343,9 @@
             "value": 0,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-nissan-usa-leaf-2012-press-kit",
+            "source_id": "src-nissan-ca-leaf-2011-press-kit",
             "low_confidence": true,
-            "notes": "The 2012 US press kit lists the quick charge port as standard on SL only and \"-\" for SV: this trim has no DC port, so DC peak is 0 kW. 2011 SV assumed the same (2011 DC port was an SL-only option)."
+            "notes": "Quick charge port \"-\" on the SV (US 2012 kit, Canada 2011 and 2012 sheets): no DC charging on this trim."
           }
         ],
         "ac_max_kw": [
@@ -291,7 +355,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2012-press-kit",
             "low_confidence": true,
-            "notes": "2012 US press kit: 3.3 kW onboard charger. The kit is for model year 2012; this powertrain is 2011 (same hardware assumed, nothing found that changed charging)."
+            "notes": "2012 US press kit: 3.3 kW onboard charger. The kit is for model year 2012; this powertrain is 2011 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2011 kit: 3.3 kW."
           }
         ],
         "battery.preconditioning": [
@@ -311,7 +375,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2012-press-kit",
             "low_confidence": true,
-            "notes": "SV has no quick charge port (SL only); AC port is J1772. 2011 SV assumed the same. The kit is for model year 2012; this powertrain is 2011 (same hardware assumed, nothing found that changed charging)."
+            "notes": "US 2012 kit: SV quick charge port \"-\". Canada 2011 and 2012 sheets also show SV \"-\" (src-nissan-ca-leaf-2011-press-kit, src-nissan-ca-leaf-2012-specs). 2011 US SV assumed the same."
           }
         ],
         "supercharger_access": [
@@ -352,7 +416,7 @@
             "kind": "estimated",
             "source_id": "src-doe-2013-leaf-battery-sheet",
             "low_confidence": true,
-            "notes": "Estimated: DOE/INL sheet for the 2013 Leaf (specs supplied by Nissan): AESC lithium manganese oxide (LMO) cathode, carbon anode. \"other\" = LMO (no LMO enum value). Same 24 kWh pack carried over (2011-2016 S); not checked for cathode tweaks between years. EV Database lists NMC for these years, which conflicts."
+            "notes": "Estimated: DOE/INL sheet for the 2013 Leaf (specs supplied by Nissan): AESC lithium manganese oxide (LMO) cathode, carbon anode. \"other\" = LMO (no LMO enum value). UNPROVEN carry-over: the DOE sheet is for a 2013 car; no page found showing whether the 2011-12 and 2014-16 24 kWh cells kept the same cathode. EV Database lists NMC for these years, which conflicts."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -369,8 +433,8 @@
             "value": 0,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-nissan-usa-leaf-2012-press-kit",
-            "notes": "The 2012 US press kit lists the quick charge port as standard on SL only and \"-\" for SV: this trim has no DC port, so DC peak is 0 kW. 2011 SV assumed the same (2011 DC port was an SL-only option)."
+            "source_id": "src-nissan-ca-leaf-2012-specs",
+            "notes": "Quick charge port \"-\" on the SV (US 2012 kit, Canada 2011 and 2012 sheets): no DC charging on this trim."
           }
         ],
         "ac_max_kw": [
@@ -378,8 +442,8 @@
             "value": 3.3,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-nissan-usa-leaf-2012-press-kit",
-            "notes": "2012 US press kit: 3.3 kW onboard charger."
+            "source_id": "src-nissan-ca-leaf-2012-specs",
+            "notes": "Nissan Canada 2012 specs: 3.3 kW."
           }
         ],
         "battery.preconditioning": [
@@ -398,7 +462,7 @@
             "value": "j1772",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2012-press-kit",
-            "notes": "SV has no quick charge port (SL only); AC port is J1772. 2011 SV assumed the same."
+            "notes": "US 2012 kit: SV quick charge port \"-\". Canada 2011 and 2012 sheets also show SV \"-\" (src-nissan-ca-leaf-2011-press-kit, src-nissan-ca-leaf-2012-specs)."
           }
         ],
         "supercharger_access": [
@@ -452,21 +516,20 @@
         ],
         "dc_max_kw": [
           {
-            "value": 50,
+            "value": 0,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-24-my14-17",
-            "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2013-specs",
+            "notes": "No quick charge port on the Canadian S (see charge_port). A US S with the optional Quick Charge Package has CHAdeMO (EV Database 46 kW)."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 3.6,
+            "value": 6.6,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-nissan-usa-leaf-2013-press-kit",
-            "notes": "2013 US press kit: S 3.6 kW standard (3.3 kW output); 6.6 kW only with the optional Charge/Quick Charge package."
+            "source_id": "src-nissan-ca-leaf-2013-specs",
+            "notes": "Nissan Canada 2013 specs: 6.6 kW (6.0 kW output) on S, SV, SL. The US 2013 kit lists 3.6 kW for the S (6.6 optional); the Canadian value is used because the site is Canadian."
           }
         ],
         "battery.preconditioning": [
@@ -482,11 +545,10 @@
       "variant_fields": {
         "charge_port": [
           {
-            "value": "chademo",
+            "value": "j1772",
             "kind": "manufacturer",
-            "source_id": "src-nissan-usa-leaf-2013-press-kit",
-            "low_confidence": true,
-            "notes": "Quick charge port (CHAdeMO) per the 2013 press kit. On the S it is optional (Quick Charge Package): a base S without it has only the J1772 AC port."
+            "source_id": "src-nissan-ca-leaf-2013-specs",
+            "notes": "Nissan Canada 2013 sheet: quick charge port \"-\" on the S (standard on SV and SL). In the US the port is an option on the S (US kits), so a US S with the Quick Charge Package has CHAdeMO; the Canadian reading is used. 2015 assumed the same as 2014."
           }
         ],
         "supercharger_access": [
@@ -527,7 +589,7 @@
             "kind": "estimated",
             "source_id": "src-doe-2013-leaf-battery-sheet",
             "low_confidence": true,
-            "notes": "Estimated: DOE/INL sheet for the 2013 Leaf (specs supplied by Nissan): AESC lithium manganese oxide (LMO) cathode, carbon anode. \"other\" = LMO (no LMO enum value). Same 24 kWh pack carried over (2011-2016 S); not checked for cathode tweaks between years. EV Database lists NMC for these years, which conflicts."
+            "notes": "Estimated: DOE/INL sheet for the 2013 Leaf (specs supplied by Nissan): AESC lithium manganese oxide (LMO) cathode, carbon anode. \"other\" = LMO (no LMO enum value). UNPROVEN carry-over: the DOE sheet is for a 2013 car; no page found showing whether the 2011-12 and 2014-16 24 kWh cells kept the same cathode. EV Database lists NMC for these years, which conflicts."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -541,21 +603,22 @@
         ],
         "dc_max_kw": [
           {
-            "value": 50,
+            "value": 0,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-24-my14-17",
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2014-specs",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "No quick charge port on the Canadian S (see charge_port). A US S with the optional Quick Charge Package has CHAdeMO (EV Database 46 kW)."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 3.6,
+            "value": 6.6,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-nissan-usa-leaf-2014-press-kit",
-            "notes": "2014 US press kit: S 3.6 kW standard (3.3 kW output); 6.6 kW only with the optional Charge/Quick Charge package."
+            "source_id": "src-nissan-ca-leaf-2014-specs",
+            "low_confidence": true,
+            "notes": "Nissan Canada 2014 specs: 6.6 kW (6.0 kW output) on all trims (US 2014 S: 3.6 kW). Canadian value used; 2015 assumed the same."
           }
         ],
         "battery.preconditioning": [
@@ -571,11 +634,11 @@
       "variant_fields": {
         "charge_port": [
           {
-            "value": "chademo",
+            "value": "j1772",
             "kind": "manufacturer",
-            "source_id": "src-nissan-usa-leaf-2014-press-kit",
+            "source_id": "src-nissan-ca-leaf-2014-specs",
             "low_confidence": true,
-            "notes": "Quick charge port (CHAdeMO) per the 2014 press kit. On the S it is optional (Quick Charge Package): a base S without it has only the J1772 AC port."
+            "notes": "Nissan Canada 2014 sheet: quick charge port \"-\" on the S (standard on SV and SL). In the US the port is an option on the S (US kits), so a US S with the Quick Charge Package has CHAdeMO; the Canadian reading is used. 2015 assumed the same as 2014."
           }
         ],
         "supercharger_access": [
@@ -616,7 +679,7 @@
             "kind": "estimated",
             "source_id": "src-doe-2013-leaf-battery-sheet",
             "low_confidence": true,
-            "notes": "Estimated: DOE/INL sheet for the 2013 Leaf (specs supplied by Nissan): AESC lithium manganese oxide (LMO) cathode, carbon anode. \"other\" = LMO (no LMO enum value). Same 24 kWh pack carried over (2011-2016 S); not checked for cathode tweaks between years. EV Database lists NMC for these years, which conflicts."
+            "notes": "Estimated: DOE/INL sheet for the 2013 Leaf (specs supplied by Nissan): AESC lithium manganese oxide (LMO) cathode, carbon anode. \"other\" = LMO (no LMO enum value). UNPROVEN carry-over: the DOE sheet is for a 2013 car; no page found showing whether the 2011-12 and 2014-16 24 kWh cells kept the same cathode. EV Database lists NMC for these years, which conflicts."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -630,21 +693,22 @@
         ],
         "dc_max_kw": [
           {
-            "value": 50,
+            "value": 46,
             "unit": "kW",
             "kind": "community",
             "source_id": "src-evdb-leaf-24-my14-17",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "EV Database (24 kWh, MY14-17): max DC 46 kW (10-80 % average 34 kW). No Nissan page states a kW figure for this pack; the 50 kW CHAdeMO claim appears only on the 40 kWh page."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 3.6,
+            "value": 6.6,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-nissan-usa-leaf-2016-press-kit",
-            "notes": "2016 US press kit: S 3.6 kW standard (3.3 kW output); 6.6 kW only with the optional Charge/Quick Charge package."
+            "kind": "estimated",
+            "source_id": "src-nissan-ca-leaf-2017-pricing",
+            "low_confidence": true,
+            "notes": "Estimated: no Canadian 2016 page found; the Canada 2014 and 2017 sheets both list 6.6 kW on all trims (US 2016 S: 3.6 kW), so assumed for the 2016 S."
           }
         ],
         "battery.preconditioning": [
@@ -719,12 +783,12 @@
         ],
         "dc_max_kw": [
           {
-            "value": 50,
+            "value": 47,
             "unit": "kW",
             "kind": "community",
             "source_id": "src-evdb-leaf-30-my15-17",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "EV Database (30 kWh, MY15-17): max DC 47 kW (10-80 % average 45 kW). No Nissan page states a kW figure for this pack."
           }
         ],
         "ac_max_kw": [
@@ -733,7 +797,7 @@
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2016-press-kit",
-            "notes": "2016 US press kit: SV 6.6 kW standard (6.0 kW output)."
+            "notes": "2016 US press kit: SV 6.6 kW standard (6.0 kW output). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output)."
           }
         ],
         "battery.preconditioning": [
@@ -808,21 +872,22 @@
         ],
         "dc_max_kw": [
           {
-            "value": 50,
+            "value": 47,
             "unit": "kW",
             "kind": "community",
             "source_id": "src-evdb-leaf-30-my15-17",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "EV Database (30 kWh, MY15-17): max DC 47 kW (10-80 % average 45 kW). No Nissan page states a kW figure for this pack."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 3.6,
+            "value": 6.6,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-nissan-usa-leaf-2017-press-kit",
-            "notes": "2017 US press kit: S 3.6 kW standard (3.3 kW output); 6.6 kW only with the optional Charge/Quick Charge package."
+            "source_id": "src-nissan-ca-leaf-2017-pricing",
+            "low_confidence": true,
+            "notes": "Nissan Canada 2017 pricing release: 6.6 kW onboard charger on all trims (US S: 3.6 kW). Canadian value used."
           }
         ],
         "battery.preconditioning": [
@@ -900,10 +965,10 @@
           {
             "value": 50,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-40-my18-22",
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "Nissan Canada 2024 press kit: LEAF SV (40 kWh) quick charge port 50 kW. Applied to 2018 (same pack and CHAdeMO hardware; nothing found that changed)."
           }
         ],
         "ac_max_kw": [
@@ -912,7 +977,7 @@
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2018-press-kit",
-            "notes": "2018 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims."
+            "notes": "2018 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
           }
         ],
         "battery.preconditioning": [
@@ -932,7 +997,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2018-press-kit",
             "low_confidence": true,
-            "notes": "Quick charge port (CHAdeMO) per the 2018 press kit. On the S it is optional (Quick Charge Package): a base S without it has only the J1772 AC port."
+            "notes": "Quick charge port (CHAdeMO) per the 2018 press kit. On the S it is optional (Quick Charge Package): a base S without it has only the J1772 AC port. Canada 2018 pricing release lists the quick charge port in standard equipment (trims not itemised; src-nissan-ca-leaf-2018-pricing)."
           }
         ],
         "supercharger_access": [
@@ -991,7 +1056,7 @@
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2019-press-kit",
-            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". Independent tests (EV Database) measure about 46 kW sustained-peak on CHAdeMO for this pack, so 100 kW is a brief peak at best."
+            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". EV Database lists max DC 46 kW (10-80 % average 44 kW) for this pack and the 2019 kit itself gives 80 % in 45 min, so 100 kW is a brief peak at best. OWNER FLAG: Nissan figure kept as manufacturer. Nissan Canada 2024 press kit also lists 100 kW for the SV PLUS."
           }
         ],
         "ac_max_kw": [
@@ -1000,7 +1065,7 @@
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2019-press-kit",
-            "notes": "2019 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims."
+            "notes": "2019 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
           }
         ],
         "battery.preconditioning": [
@@ -1077,10 +1142,10 @@
           {
             "value": 50,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-40-my18-22",
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "Nissan Canada 2024 press kit: LEAF SV (40 kWh) quick charge port 50 kW. Applied to 2019 (same pack and CHAdeMO hardware; nothing found that changed)."
           }
         ],
         "ac_max_kw": [
@@ -1089,7 +1154,7 @@
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2019-press-kit",
-            "notes": "2019 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims."
+            "notes": "2019 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output)."
           }
         ],
         "battery.preconditioning": [
@@ -1168,7 +1233,7 @@
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2019-press-kit",
-            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". Independent tests (EV Database) measure about 46 kW sustained-peak on CHAdeMO for this pack, so 100 kW is a brief peak at best."
+            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". EV Database lists max DC 46 kW (10-80 % average 44 kW) for this pack and the 2019 kit itself gives 80 % in 45 min, so 100 kW is a brief peak at best. OWNER FLAG: Nissan figure kept as manufacturer. Nissan Canada 2024 press kit also lists 100 kW for the SV PLUS."
           }
         ],
         "ac_max_kw": [
@@ -1177,7 +1242,7 @@
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2019-press-kit",
-            "notes": "2019 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims."
+            "notes": "2019 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
           }
         ],
         "battery.preconditioning": [
@@ -1254,10 +1319,10 @@
           {
             "value": 50,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-40-my18-22",
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "Nissan Canada 2024 press kit: LEAF SV (40 kWh) quick charge port 50 kW. Applied to 2019 (same pack and CHAdeMO hardware; nothing found that changed)."
           }
         ],
         "ac_max_kw": [
@@ -1266,7 +1331,7 @@
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2019-press-kit",
-            "notes": "2019 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims."
+            "notes": "2019 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
           }
         ],
         "battery.preconditioning": [
@@ -1347,7 +1412,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2019-press-kit",
             "low_confidence": true,
-            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". Independent tests (EV Database) measure about 46 kW sustained-peak on CHAdeMO for this pack, so 100 kW is a brief peak at best. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change)."
+            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". EV Database lists max DC 46 kW (10-80 % average 44 kW) for this pack and the 2019 kit itself gives 80 % in 45 min, so 100 kW is a brief peak at best. OWNER FLAG: Nissan figure kept as manufacturer. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change). Nissan Canada 2024 press kit also lists 100 kW for the SV PLUS."
           }
         ],
         "ac_max_kw": [
@@ -1357,7 +1422,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2022 (same hardware assumed, nothing found that changed charging)."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2022 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
           }
         ],
         "battery.preconditioning": [
@@ -1435,10 +1500,10 @@
           {
             "value": 50,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-40-my18-22",
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "Nissan Canada 2024 press kit: LEAF SV (40 kWh) quick charge port 50 kW. Applied to 2022 (same pack and CHAdeMO hardware; nothing found that changed)."
           }
         ],
         "ac_max_kw": [
@@ -1448,7 +1513,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2022 (same hardware assumed, nothing found that changed charging)."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2022 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output)."
           }
         ],
         "battery.preconditioning": [
@@ -1529,7 +1594,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2019-press-kit",
             "low_confidence": true,
-            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". Independent tests (EV Database) measure about 46 kW sustained-peak on CHAdeMO for this pack, so 100 kW is a brief peak at best. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change)."
+            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". EV Database lists max DC 46 kW (10-80 % average 44 kW) for this pack and the 2019 kit itself gives 80 % in 45 min, so 100 kW is a brief peak at best. OWNER FLAG: Nissan figure kept as manufacturer. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change). Nissan Canada 2024 press kit also lists 100 kW for the SV PLUS."
           }
         ],
         "ac_max_kw": [
@@ -1539,7 +1604,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2022 (same hardware assumed, nothing found that changed charging)."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2022 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
           }
         ],
         "battery.preconditioning": [
@@ -1617,10 +1682,10 @@
           {
             "value": 50,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-40-my18-22",
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "Nissan Canada 2024 press kit: LEAF SV (40 kWh) quick charge port 50 kW. Applied to 2022 (same pack and CHAdeMO hardware; nothing found that changed)."
           }
         ],
         "ac_max_kw": [
@@ -1630,7 +1695,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2022 (same hardware assumed, nothing found that changed charging)."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2022 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
           }
         ],
         "battery.preconditioning": [
@@ -1708,10 +1773,10 @@
           {
             "value": 50,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-40-my18-22",
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "Nissan Canada 2024 press kit: LEAF SV (40 kWh) quick charge port 50 kW. Applied to 2023 (same pack and CHAdeMO hardware; nothing found that changed)."
           }
         ],
         "ac_max_kw": [
@@ -1721,7 +1786,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2023 (same hardware assumed, nothing found that changed charging)."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2023 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output)."
           }
         ],
         "battery.preconditioning": [
@@ -1771,10 +1836,10 @@
           {
             "value": 62,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "community",
             "source_id": "src-evdb-leaf-eplus-62-my23-25",
             "low_confidence": true,
-            "notes": "Press kit says \"62 kWh\" laminated lithium-ion (bare capacity, taken as gross). Source here is EV Database (nominal 62 kWh) because the 2024 US kit prints \"60 kWh\"."
+            "notes": "EV Database: nominal 62 kWh (MY23-25). The 2024 US and Canadian press kits print \"60 kWh\" for the SV PLUS (marketing figure)."
           }
         ],
         "battery.chemistry": [
@@ -1802,7 +1867,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2019-press-kit",
             "low_confidence": true,
-            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". Independent tests (EV Database) measure about 46 kW sustained-peak on CHAdeMO for this pack, so 100 kW is a brief peak at best. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change)."
+            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". EV Database lists max DC 46 kW (10-80 % average 44 kW) for this pack and the 2019 kit itself gives 80 % in 45 min, so 100 kW is a brief peak at best. OWNER FLAG: Nissan figure kept as manufacturer. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change)."
           }
         ],
         "ac_max_kw": [
@@ -1812,7 +1877,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2023 (same hardware assumed, nothing found that changed charging)."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2023 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output)."
           }
         ],
         "battery.preconditioning": [
@@ -1890,10 +1955,10 @@
           {
             "value": 50,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-40-my18-22",
-            "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2024-press-kit",
+            "low_confidence": false,
+            "notes": "Nissan Canada 2024 press kit: LEAF SV (40 kWh) quick charge port 50 kW."
           }
         ],
         "ac_max_kw": [
@@ -1902,7 +1967,7 @@
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output)."
           }
         ],
         "battery.preconditioning": [
@@ -1952,10 +2017,10 @@
           {
             "value": 62,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "community",
             "source_id": "src-evdb-leaf-eplus-62-my23-25",
             "low_confidence": true,
-            "notes": "Press kit says \"62 kWh\" laminated lithium-ion (bare capacity, taken as gross). Source here is EV Database (nominal 62 kWh) because the 2024 US kit prints \"60 kWh\"."
+            "notes": "EV Database: nominal 62 kWh (MY23-25). The 2024 US and Canadian press kits print \"60 kWh\" for the SV PLUS (marketing figure)."
           }
         ],
         "battery.chemistry": [
@@ -1983,7 +2048,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2019-press-kit",
             "low_confidence": true,
-            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". Independent tests (EV Database) measure about 46 kW sustained-peak on CHAdeMO for this pack, so 100 kW is a brief peak at best. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change)."
+            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". EV Database lists max DC 46 kW (10-80 % average 44 kW) for this pack and the 2019 kit itself gives 80 % in 45 min, so 100 kW is a brief peak at best. OWNER FLAG: Nissan figure kept as manufacturer. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change). Nissan Canada 2024 press kit also lists 100 kW for the SV PLUS."
           }
         ],
         "ac_max_kw": [
@@ -1992,7 +2057,7 @@
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
           }
         ],
         "battery.preconditioning": [
@@ -2070,10 +2135,10 @@
           {
             "value": 50,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-40-my18-22",
-            "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2024-press-kit",
+            "low_confidence": false,
+            "notes": "Nissan Canada 2024 press kit: LEAF SV (40 kWh) quick charge port 50 kW."
           }
         ],
         "ac_max_kw": [
@@ -2082,7 +2147,7 @@
             "unit": "kW",
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
           }
         ],
         "battery.preconditioning": [
@@ -2160,10 +2225,10 @@
           {
             "value": 50,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-40-my18-22",
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "Nissan Canada 2024 press kit: LEAF SV (40 kWh) quick charge port 50 kW. Applied to 2025 (same pack and CHAdeMO hardware; nothing found that changed)."
           }
         ],
         "ac_max_kw": [
@@ -2173,7 +2238,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2025 (same hardware assumed, nothing found that changed charging)."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2025 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output)."
           }
         ],
         "battery.preconditioning": [
@@ -2223,10 +2288,10 @@
           {
             "value": 62,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "community",
             "source_id": "src-evdb-leaf-eplus-62-my23-25",
             "low_confidence": true,
-            "notes": "Press kit says \"62 kWh\" laminated lithium-ion (bare capacity, taken as gross). Source here is EV Database (nominal 62 kWh) because the 2024 US kit prints \"60 kWh\"."
+            "notes": "EV Database: nominal 62 kWh (MY23-25). The 2024 US and Canadian press kits print \"60 kWh\" for the SV PLUS (marketing figure)."
           }
         ],
         "battery.chemistry": [
@@ -2254,7 +2319,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2019-press-kit",
             "low_confidence": true,
-            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". Independent tests (EV Database) measure about 46 kW sustained-peak on CHAdeMO for this pack, so 100 kW is a brief peak at best. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change)."
+            "notes": "2019 US press kit: LEAF PLUS has a \"standard new 100kW capacity quick charging system\". EV Database lists max DC 46 kW (10-80 % average 44 kW) for this pack and the 2019 kit itself gives 80 % in 45 min, so 100 kW is a brief peak at best. OWNER FLAG: Nissan figure kept as manufacturer. 2019 kit applied to this later year of the same pack (EV Database MY19-22 and MY23-25 pages show no change). Nissan Canada 2024 press kit also lists 100 kW for the SV PLUS."
           }
         ],
         "ac_max_kw": [
@@ -2264,7 +2329,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2025 (same hardware assumed, nothing found that changed charging)."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2025 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
           }
         ],
         "battery.preconditioning": [
@@ -2342,10 +2407,10 @@
           {
             "value": 50,
             "unit": "kW",
-            "kind": "community",
-            "source_id": "src-evdb-leaf-40-my18-22",
+            "kind": "manufacturer",
+            "source_id": "src-nissan-ca-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "CHAdeMO class 50 kW: EV Database notes Nissan's claimed 50 kW (40 kWh page) while measuring 46-47 kW peak; no US Nissan page states the kW for this pack (kits give only \"80 % in about 30-40 min\"). Rated value used for the nominal peak."
+            "notes": "Nissan Canada 2024 press kit: LEAF SV (40 kWh) quick charge port 50 kW. Applied to 2025 (same pack and CHAdeMO hardware; nothing found that changed)."
           }
         ],
         "ac_max_kw": [
@@ -2355,7 +2420,7 @@
             "kind": "manufacturer",
             "source_id": "src-nissan-usa-leaf-2024-press-kit",
             "low_confidence": true,
-            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2025 (same hardware assumed, nothing found that changed charging)."
+            "notes": "2024 US press kit: 6.6 kW onboard charger (6.0 kW output) listed for all trims. The kit is for model year 2024; this powertrain is 2025 (same hardware assumed, nothing found that changed charging). Convention: the onboard-charger rating as Nissan prints it for that year (3.3 kW in the 2011-12 sheets; 3.6 kW rating / 3.3 kW output on later US S sheets; 6.6 kW rating / 6.0 kW output). Canada 2019 and 2024 sheets list 6.6 kW (6.0 kW output) too."
           }
         ],
         "battery.preconditioning": [
@@ -2414,9 +2479,8 @@
             "value": 7.2,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-electrek-leaf-2026-specs",
-            "low_confidence": true,
-            "notes": "Electrek spec table (relaying Nissan USA): 7.2 kW onboard charger on S+/SV+/Platinum+. Nissan Canada lists \"7 kW and 11 kW\" without mapping them to trims; EV Database shows 11 kW for the European three-phase car. Taken as 7.2 kW for the North American cars."
+            "source_id": "src-nissan-ca-leaf-2026-press-kit",
+            "notes": "Nissan Canada 2026 press kit: 7.2 kW onboard charger on S+, SV+, PLATINUM+ (US spec table agrees). The 2027 kit gives 11 kW to the 2027 S+ and up; Nissan Canada's specs page mentions 11 kW for that reason."
           }
         ],
         "battery.preconditioning": [
@@ -2425,7 +2489,7 @@
             "kind": "estimated",
             "source_id": "src-nissan-malta-leaf-ze2-2025-battery-heater",
             "low_confidence": true,
-            "notes": "Estimated: the third-generation (ZE2) LEAF owner manual (European edition) describes a battery heater with AUTO (warms the battery during navigation route guidance to a fast charger) and a manual ON setting, and Nissan's global release describes navigation-linked battery thermal conditioning on applicable grades. Nissan USA/Canada pages show a battery heater and Intelligent Route Planner but do not describe the trigger; assumed the same hardware and software (same generation). The navigation trigger may be limited to higher grades (\"applicable grades\")."
+            "notes": "Estimated: the third-generation (ZE2) LEAF owner manual (European edition) describes a battery heater with AUTO (warms the battery during navigation route guidance to a fast charger) and a manual ON setting, and Nissan's global release describes navigation-linked battery thermal conditioning on applicable grades. Nissan USA/Canada pages show a battery heater and Intelligent Route Planner but do not describe the trigger; assumed the same hardware and software (same generation). The navigation trigger may be limited to higher grades (\"applicable grades\"). Nissan Canada 2026 kit confirms the manual battery heater on all grades and Google Maps route charging stops on SV+ and PLATINUM+."
           }
         ]
       }
@@ -2455,18 +2519,17 @@
             "value": 7.2,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-electrek-leaf-2026-specs",
-            "low_confidence": true,
-            "notes": "Electrek spec table (relaying Nissan USA): 7.2 kW onboard charger on S+/SV+/Platinum+. Nissan Canada lists \"7 kW and 11 kW\" without mapping them to trims; EV Database shows 11 kW for the European three-phase car. Taken as 7.2 kW for the North American cars."
+            "source_id": "src-nissan-ca-leaf-2026-press-kit",
+            "notes": "Nissan Canada 2026 press kit: 7.2 kW onboard charger on S+, SV+, PLATINUM+ (US spec table agrees). The 2027 kit gives 11 kW to the 2027 S+ and up; Nissan Canada's specs page mentions 11 kW for that reason."
           }
         ],
         "battery.preconditioning": [
           {
-            "value": "automatic_and_manual",
+            "value": "manual_only",
             "kind": "estimated",
-            "source_id": "src-nissan-malta-leaf-ze2-2025-battery-heater",
+            "source_id": "src-nissan-ca-leaf-2026-press-kit",
             "low_confidence": true,
-            "notes": "Estimated: the third-generation (ZE2) LEAF owner manual (European edition) describes a battery heater with AUTO (warms the battery during navigation route guidance to a fast charger) and a manual ON setting, and Nissan's global release describes navigation-linked battery thermal conditioning on applicable grades. Nissan USA/Canada pages show a battery heater and Intelligent Route Planner but do not describe the trigger; assumed the same hardware and software (same generation). The navigation trigger may be limited to higher grades (\"applicable grades\")."
+            "notes": "Estimated: Nissan Canada 2026 kit says the driver \"can engage the heater to warm the battery before charging in cold weather\" (manual battery heater, standard on all grades) while the Google Maps charging-stop planner is only on the SV+ and PLATINUM+ screens (S+ has no Google built-in), so no navigation trigger is assumed for the S+. The European third-generation manual has an AUTO mode tied to navigation route guidance (src-nissan-malta-leaf-ze2-2025-battery-heater)."
           }
         ]
       }
@@ -2496,9 +2559,8 @@
             "value": 7.2,
             "unit": "kW",
             "kind": "manufacturer",
-            "source_id": "src-electrek-leaf-2026-specs",
-            "low_confidence": true,
-            "notes": "Electrek spec table (relaying Nissan USA): 7.2 kW onboard charger on S+/SV+/Platinum+. Nissan Canada lists \"7 kW and 11 kW\" without mapping them to trims; EV Database shows 11 kW for the European three-phase car. Taken as 7.2 kW for the North American cars."
+            "source_id": "src-nissan-ca-leaf-2026-press-kit",
+            "notes": "Nissan Canada 2026 press kit: 7.2 kW onboard charger on S+, SV+, PLATINUM+ (US spec table agrees). The 2027 kit gives 11 kW to the 2027 S+ and up; Nissan Canada's specs page mentions 11 kW for that reason."
           }
         ],
         "battery.preconditioning": [
@@ -2507,7 +2569,7 @@
             "kind": "estimated",
             "source_id": "src-nissan-malta-leaf-ze2-2025-battery-heater",
             "low_confidence": true,
-            "notes": "Estimated: the third-generation (ZE2) LEAF owner manual (European edition) describes a battery heater with AUTO (warms the battery during navigation route guidance to a fast charger) and a manual ON setting, and Nissan's global release describes navigation-linked battery thermal conditioning on applicable grades. Nissan USA/Canada pages show a battery heater and Intelligent Route Planner but do not describe the trigger; assumed the same hardware and software (same generation). The navigation trigger may be limited to higher grades (\"applicable grades\")."
+            "notes": "Estimated: the third-generation (ZE2) LEAF owner manual (European edition) describes a battery heater with AUTO (warms the battery during navigation route guidance to a fast charger) and a manual ON setting, and Nissan's global release describes navigation-linked battery thermal conditioning on applicable grades. Nissan USA/Canada pages show a battery heater and Intelligent Route Planner but do not describe the trigger; assumed the same hardware and software (same generation). The navigation trigger may be limited to higher grades (\"applicable grades\"). Nissan Canada 2026 kit confirms the manual battery heater on all grades and Google Maps route charging stops on SV+ and PLATINUM+."
           }
         ]
       }
@@ -2581,9 +2643,10 @@
         "battery.preconditioning": [
           {
             "value": "manual_only",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
-            "notes": "Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "low_confidence": true,
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live."
           }
         ]
       },
@@ -2663,22 +2726,13 @@
             "notes": "Press kit: 7.2 kW onboard charger (Nissan Canada specs page also 7.2 kW). "
           }
         ],
-        "published_10_80_min": [
-          {
-            "value": 35,
-            "unit": "min",
-            "kind": "manufacturer",
-            "source_id": "src-nissan-usa-ariya-2023-press-kit",
-            "low_confidence": true,
-            "notes": "Press kit: 35 min at 130 kW (the FWD table labels it 20-80 %, the e-4ORCE table 10-80 %; Nissan Canada says \"10 % to 80 % in as little as 35 minutes\")."
-          }
-        ],
         "battery.preconditioning": [
           {
             "value": "manual_only",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
-            "notes": "Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "low_confidence": true,
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live."
           }
         ]
       },
@@ -2771,9 +2825,10 @@
         "battery.preconditioning": [
           {
             "value": "manual_only",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
-            "notes": "Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "low_confidence": true,
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live."
           }
         ]
       },
@@ -2853,22 +2908,13 @@
             "notes": "Press kit: 7.2 kW onboard charger (Nissan Canada specs page also 7.2 kW). "
           }
         ],
-        "published_10_80_min": [
-          {
-            "value": 40,
-            "unit": "min",
-            "kind": "manufacturer",
-            "source_id": "src-nissan-usa-ariya-2023-press-kit",
-            "low_confidence": true,
-            "notes": "Press kit: 40 min at 130 kW (the FWD table labels it 20-80 %, the e-4ORCE table 10-80 %; Nissan Canada says \"10 % to 80 % in as little as 40 minutes\")."
-          }
-        ],
         "battery.preconditioning": [
           {
             "value": "manual_only",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
-            "notes": "Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "low_confidence": true,
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live."
           }
         ]
       },
@@ -2968,7 +3014,7 @@
             "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
             "low_confidence": true,
-            "notes": "Estimated: Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. The 2023 and 2025 US manuals carry identical text, so 2026 is assumed the same. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2026 from the 2023/2025 manuals."
           }
         ]
       },
@@ -3049,22 +3095,13 @@
             "notes": "Press kit: 7.2 kW onboard charger (Nissan Canada specs page also 7.2 kW). "
           }
         ],
-        "published_10_80_min": [
-          {
-            "value": 40,
-            "unit": "min",
-            "kind": "manufacturer",
-            "source_id": "src-nissan-usa-ariya-2023-press-kit",
-            "low_confidence": true,
-            "notes": "Press kit: 40 min at 130 kW (the FWD table labels it 20-80 %, the e-4ORCE table 10-80 %; Nissan Canada says \"10 % to 80 % in as little as 40 minutes\")."
-          }
-        ],
         "battery.preconditioning": [
           {
             "value": "manual_only",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
-            "notes": "Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "low_confidence": true,
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live."
           }
         ]
       },
@@ -3148,23 +3185,13 @@
             "notes": "Press kit: 7.2 kW onboard charger (Nissan Canada specs page also 7.2 kW). "
           }
         ],
-        "published_10_80_min": [
-          {
-            "value": 35,
-            "unit": "min",
-            "kind": "manufacturer",
-            "source_id": "src-nissan-usa-ariya-2023-press-kit",
-            "low_confidence": true,
-            "notes": "Press kit: 35 min at 130 kW (the FWD table labels it 20-80 %, the e-4ORCE table 10-80 %; Nissan Canada says \"10 % to 80 % in as little as 35 minutes\")."
-          }
-        ],
         "battery.preconditioning": [
           {
             "value": "manual_only",
             "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
             "low_confidence": true,
-            "notes": "Estimated: Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. The 2023 and 2025 US manuals carry identical text, so 2024 is assumed the same. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2024 from the 2023/2025 manuals."
           }
         ]
       },
@@ -3265,7 +3292,7 @@
             "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
             "low_confidence": true,
-            "notes": "Estimated: Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. The 2023 and 2025 US manuals carry identical text, so 2024 is assumed the same. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2024 from the 2023/2025 manuals."
           }
         ]
       },
@@ -3366,7 +3393,7 @@
             "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
             "low_confidence": true,
-            "notes": "Estimated: Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. The 2023 and 2025 US manuals carry identical text, so 2024 is assumed the same. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2024 from the 2023/2025 manuals."
           }
         ]
       },
@@ -3467,7 +3494,7 @@
             "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
             "low_confidence": true,
-            "notes": "Estimated: Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. The 2023 and 2025 US manuals carry identical text, so 2024 is assumed the same. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2024 from the 2023/2025 manuals."
           }
         ]
       },
@@ -3552,23 +3579,13 @@
             "notes": "Press kit: 7.2 kW onboard charger (Nissan Canada specs page also 7.2 kW). "
           }
         ],
-        "published_10_80_min": [
-          {
-            "value": 40,
-            "unit": "min",
-            "kind": "manufacturer",
-            "source_id": "src-nissan-usa-ariya-2023-press-kit",
-            "low_confidence": true,
-            "notes": "Press kit: 40 min at 130 kW (the FWD table labels it 20-80 %, the e-4ORCE table 10-80 %; Nissan Canada says \"10 % to 80 % in as little as 40 minutes\")."
-          }
-        ],
         "battery.preconditioning": [
           {
             "value": "manual_only",
             "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
             "low_confidence": true,
-            "notes": "Estimated: Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. The 2023 and 2025 US manuals carry identical text, so 2024 is assumed the same. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2024 from the 2023/2025 manuals."
           }
         ]
       },
@@ -3653,23 +3670,13 @@
             "notes": "Press kit: 7.2 kW onboard charger (Nissan Canada specs page also 7.2 kW). "
           }
         ],
-        "published_10_80_min": [
-          {
-            "value": 40,
-            "unit": "min",
-            "kind": "manufacturer",
-            "source_id": "src-nissan-usa-ariya-2023-press-kit",
-            "low_confidence": true,
-            "notes": "Press kit: 40 min at 130 kW (the FWD table labels it 20-80 %, the e-4ORCE table 10-80 %; Nissan Canada says \"10 % to 80 % in as little as 40 minutes\")."
-          }
-        ],
         "battery.preconditioning": [
           {
             "value": "manual_only",
             "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
             "low_confidence": true,
-            "notes": "Estimated: Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. The 2023 and 2025 US manuals carry identical text, so 2024 is assumed the same. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2024 from the 2023/2025 manuals."
           }
         ]
       },
@@ -3754,22 +3761,13 @@
             "notes": "Press kit: 7.2 kW onboard charger (Nissan Canada specs page also 7.2 kW). "
           }
         ],
-        "published_10_80_min": [
-          {
-            "value": 35,
-            "unit": "min",
-            "kind": "manufacturer",
-            "source_id": "src-nissan-usa-ariya-2023-press-kit",
-            "low_confidence": true,
-            "notes": "Press kit: 35 min at 130 kW (the FWD table labels it 20-80 %, the e-4ORCE table 10-80 %; Nissan Canada says \"10 % to 80 % in as little as 35 minutes\")."
-          }
-        ],
         "battery.preconditioning": [
           {
             "value": "manual_only",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2025-owner-manual",
-            "notes": "Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "low_confidence": true,
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live."
           }
         ]
       },
@@ -3867,9 +3865,10 @@
         "battery.preconditioning": [
           {
             "value": "manual_only",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2025-owner-manual",
-            "notes": "Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "low_confidence": true,
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live."
           }
         ]
       },
@@ -3967,9 +3966,10 @@
         "battery.preconditioning": [
           {
             "value": "manual_only",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2025-owner-manual",
-            "notes": "Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "low_confidence": true,
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live."
           }
         ]
       },
@@ -4067,9 +4067,10 @@
         "battery.preconditioning": [
           {
             "value": "manual_only",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2025-owner-manual",
-            "notes": "Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "low_confidence": true,
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live."
           }
         ]
       },
@@ -4167,9 +4168,10 @@
         "battery.preconditioning": [
           {
             "value": "manual_only",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2025-owner-manual",
-            "notes": "Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "low_confidence": true,
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live."
           }
         ]
       },
@@ -4254,22 +4256,13 @@
             "notes": "Press kit: 7.2 kW onboard charger (Nissan Canada specs page also 7.2 kW). "
           }
         ],
-        "published_10_80_min": [
-          {
-            "value": 40,
-            "unit": "min",
-            "kind": "manufacturer",
-            "source_id": "src-nissan-usa-ariya-2023-press-kit",
-            "low_confidence": true,
-            "notes": "Press kit: 40 min at 130 kW (the FWD table labels it 20-80 %, the e-4ORCE table 10-80 %; Nissan Canada says \"10 % to 80 % in as little as 40 minutes\")."
-          }
-        ],
         "battery.preconditioning": [
           {
             "value": "manual_only",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2025-owner-manual",
-            "notes": "Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "low_confidence": true,
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live."
           }
         ]
       },
@@ -4331,7 +4324,7 @@
             "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
             "low_confidence": true,
-            "notes": "Estimated: Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. The 2023 and 2025 US manuals carry identical text, so 2026 is assumed the same. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2026 from the 2023/2025 manuals."
           }
         ]
       },
@@ -4384,7 +4377,7 @@
             "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
             "low_confidence": true,
-            "notes": "Estimated: Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. The 2023 and 2025 US manuals carry identical text, so 2026 is assumed the same. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2026 from the 2023/2025 manuals."
           }
         ]
       },
@@ -4421,23 +4414,13 @@
             "notes": "EV Database: NMC cathode for the 87 kWh pack (Nissan pages say only \"lithium-ion\")."
           }
         ],
-        "published_10_80_min": [
-          {
-            "value": 40,
-            "unit": "min",
-            "kind": "manufacturer",
-            "source_id": "src-nissan-usa-ariya-2023-press-kit",
-            "low_confidence": true,
-            "notes": "Press kit: 40 min at 130 kW (the FWD table labels it 20-80 %, the e-4ORCE table 10-80 %; Nissan Canada says \"10 % to 80 % in as little as 40 minutes\")."
-          }
-        ],
         "battery.preconditioning": [
           {
             "value": "manual_only",
             "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
             "low_confidence": true,
-            "notes": "Estimated: Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. The 2023 and 2025 US manuals carry identical text, so 2026 is assumed the same. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2026 from the 2023/2025 manuals."
           }
         ]
       },
@@ -4474,23 +4457,13 @@
             "notes": "EV Database: NMC cathode for the 63 kWh pack (Nissan pages say only \"lithium-ion\")."
           }
         ],
-        "published_10_80_min": [
-          {
-            "value": 35,
-            "unit": "min",
-            "kind": "manufacturer",
-            "source_id": "src-nissan-usa-ariya-2023-press-kit",
-            "low_confidence": true,
-            "notes": "Press kit: 35 min at 130 kW (the FWD table labels it 20-80 %, the e-4ORCE table 10-80 %; Nissan Canada says \"10 % to 80 % in as little as 35 minutes\")."
-          }
-        ],
         "battery.preconditioning": [
           {
             "value": "manual_only",
             "kind": "estimated",
             "source_id": "src-nissan-usa-ariya-2023-owner-manual",
             "low_confidence": true,
-            "notes": "Estimated: Owner's manual: battery warms automatically only when cold during quick charging; otherwise a manual \"Battery Heater\" setting (Home > Settings > EV) is switched ON 30-60 min before arriving; no navigation trigger described. The 2023 and 2025 US manuals carry identical text, so 2026 is assumed the same. EV Database says the European 2026 Ariya has automatic navigation preconditioning; not applicable to North American 2023-2025 cars."
+            "notes": "Estimated: the US owner's manual (2023 and 2025 carry the same text) describes a manual \"Battery Heater\" setting (Home > Settings > EV), switched ON 30-60 min before a quick charger, plus an automatic warmer when cold during quick charging; it describes no navigation trigger, and EV Database (MY23-24 Ariya 87 kWh, https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh-Performance) says preconditioning is possible but not automatic via navigation. A manual that is silent on navigation does not prove there is none. EV Database lists the European MY26 Ariya as automatic via navigation: conflict, not applied to North American cars. Quote the manual text again before this goes live. Applied to 2026 from the 2023/2025 manuals."
           }
         ]
       },

@@ -9,6 +9,38 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-polestar-ca-tesla-supercharger-network",
+      "low_confidence": true,
+      "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2023; no port change found across 2021-2025."
+    },
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-nacs-checker-2026",
+      "low_confidence": true,
+      "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-polestar-ca-tesla-supercharger-network",
+      "low_confidence": true,
+      "notes": "Polestar Canada: Polestar 2 is compatible with the NACS adapter (ordered via a Polestar Service Point)."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-volvo-polestar-nacs-2024",
+      "low_confidence": true,
+      "notes": "US: Polestar 2 owners can order the NACS adapter ($230) through Service Points (Polestar official quoted by InsideEVs)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

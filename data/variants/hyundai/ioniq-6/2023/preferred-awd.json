@@ -8,6 +8,24 @@
   "markets": [
     "CA"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-faq-2026-11-16",
+      "low_confidence": true,
+      "notes": "Hyundai Canada FAQ: only the 2026+ IONIQ 5 and IONIQ 9 have a NACS port; other Hyundai EVs of MY2025 and earlier (and 2026 KONA Electric) have CCS and use an adapter. CCS1 inferred for the IONIQ 6 (not named on the page)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ca-faq-2026-11-16",
+      "low_confidence": true,
+      "notes": "Hyundai Canada FAQ: Hyundai EVs of MY2025 and earlier can use a NACS adapter (available separately; separate Hyundai Canada free-adapter offer until 2026-12-31 for eligible models)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

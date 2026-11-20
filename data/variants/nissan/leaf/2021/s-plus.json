@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "chademo",
+      "kind": "manufacturer",
+      "source_id": "src-nissan-usa-leaf-2024-press-kit",
+      "low_confidence": true,
+      "notes": "Quick charge port (CHAdeMO) per the 2024 press kit. The kit is for model year 2024; this powertrain is 2022 (same hardware assumed, nothing found that changed charging)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "estimated",
+      "source_id": "src-electrek-nissan-supercharger-2024-12",
+      "low_confidence": true,
+      "notes": "Estimated: CHAdeMO port. Nissan's Dec 2024 Supercharger programme covers only the CCS Ariya; Electrek says the Leaf is excluded and uses CHAdeMO. No Nissan adapter exists for the Leaf."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

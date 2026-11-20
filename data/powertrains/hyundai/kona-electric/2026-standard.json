@@ -15,6 +15,24 @@
         "source_id": "src-hyundai-ca-kona-electric-2026",
         "notes": "Page says “64.8 kWh high-voltage battery” without saying gross or usable; recorded as gross."
       }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "community",
+        "source_id": "src-evspecs-kona-2024-na",
+        "low_confidence": true,
+        "notes": "NCM (NMC) for the 2024 North American 64.8 kWh Kona Electric; same pack on the Canadian 2026 car (64.8 kWh per Hyundai Canada)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-hyundai-om-kona-sx2-2025-us",
+        "low_confidence": true,
+        "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Estimated: 2025 manual carried to this model year/market (same generation). Hyundai Canada 2026 page only says the battery pre-warms while plugged in; navigation trigger and manual control taken from the US SX2EV manual, same generation."
+      }
     ]
   },
   "published_10_80_min": [

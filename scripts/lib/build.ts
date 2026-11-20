@@ -414,7 +414,8 @@ export function buildCars(root: string): BuildResult {
       ...importedCurves,
     ];
     const dc = fields.dc_max_kw?.value;
-    if (dc && typeof dc.value === 'number') {
+    // dc_max_kw 0 means no DC port (e.g. Leaf 2011–12 SV): no template curve and no DC figures.
+    if (dc && typeof dc.value === 'number' && dc.value > 0) {
       curves.push(estimateCurve({
         dcMaxKw: dc.value,
         chemistry: (fields.chemistry?.value.value as string) ?? null,

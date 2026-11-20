@@ -5,5 +5,64 @@
   "generation": "first-generation",
   "years": [
     2025
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 81.5,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-bmw-ca-i4-2022",
+        "low_confidence": true,
+        "notes": "Estimated: BMW Canada 2022 release gives 81.5 kWh net (US release 81.1). Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-bmw-us-i4-2022",
+        "low_confidence": true,
+        "notes": "Estimated: BMW US 2022 release: NMC-811 cells. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-bmw-us-i4-2022",
+        "low_confidence": true,
+        "notes": "Estimated: Nominal 398.5 V per the 2022 spec table. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-bmw-us-i4-2022",
+        "low_confidence": true,
+        "notes": "Estimated: 2022 release: navigation-triggered automatic battery pre-conditioning; no manual battery control found. Same G26 i4 83.9 kWh pack compared 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 200,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-bmw-us-i4-2022",
+      "low_confidence": true,
+      "notes": "Estimated: 2022 release states up to 200 kW. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change. Conflict: thinkEV (2026), BMW Thailand 2025 spec sheet and EV Database list 205 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-bmw-us-i4-2022",
+      "low_confidence": true,
+      "notes": "Estimated: 2022 release: 11 kW single-phase. Same G26 i4 83.9 kWh pack (eDrive40/xDrive40/M50 share it per BMW) compared from 2022 to 2025; the 2025 facelift and 2026 update releases name no pack, charger or charging-software change."
+    }
   ]
 }

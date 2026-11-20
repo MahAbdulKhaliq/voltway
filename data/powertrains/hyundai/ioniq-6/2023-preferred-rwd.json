@@ -5,5 +5,71 @@
   "generation": "first-generation-pre-facelift",
   "years": [
     2023
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 74,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-evdb-ioniq6-lr-2wd",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database lists 74.0 kWh usable (itself an estimate) for the 77.4 kWh European IONIQ 6 Long Range (MY23-25), same pack and generation. Compared 2023-2025 (pre-facelift first generation, same E-GMP 77.4 kWh pack/charger; Hyundai US 2023 launch release, EVDB MY23-25 entry, Hyundai US 2024/2025 manuals)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-ioniq6-lr-2wd",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database lists an NMC cathode for the same 77.4 kWh pack (European MY23-25)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-hyundai-ww-ioniq6-la-2022",
+        "notes": "Hyundai: 800 V architecture; EVDB lists 697 V nominal for the pack. Class read from the 800 V architecture claim (page cites 350 kW charging)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-hyundai-ww-ioniq6-la-2022",
+        "notes": "Hyundai LA press release for the US-spec 2023 car: battery heater starts automatically when a charging stop is entered in navigation, or manually via the MyHyundai app while plugged in. (Green Car Reports at launch said no in-car manual button; the app control counts as the manual control.)"
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 233,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evdb-ioniq6-lr-2wd",
+      "low_confidence": true,
+      "notes": "Estimated: EV Database lists max DC 233 kW for the European 77.4 kWh IONIQ 6 (MY23-25); Wikipedia infobox also 233 kW. Hyundai itself only states 18 min on a 350 kW charger. Same pack, same generation."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-auto123-ioniq-6-2025",
+      "low_confidence": true,
+      "notes": "Estimated: Canadian site auto123 lists 10.9 kW for the 2025 Canadian IONIQ 6 Preferred (Long Range); carried to the 2023 Canadian car, same generation and pack (US 2023 launch release also 10.9 kW)."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 18,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-hyundai-ww-ioniq6-la-2022",
+      "notes": "About 18 minutes from 10 to 80 % on a 350 kW charger at optimal battery temperature (Hyundai US launch release)."
+    }
   ]
 }

@@ -96,3 +96,14 @@ I read every cited page except Wikipedia's lines after character 100,000 and the
 - **No unknowns (item 14).** I merged the batch with the repo data for every variant in `research/powertrain-gaps.json`. All 8 required fields are present for every variant. Gaps remain only in quality (items 2, 4).
 - **Fit with existing data (11).** No batch value differs by over 5 % from existing same-kind values, except ID.4 `dc_max_kw` 135 against 175 on the 2026 cars (item 2).
 - **Curves.** The batch contains no curves.
+
+## Applied by the researcher (2026-11-19)
+1. All 16 i4 `battery.preconditioning` -> `automatic_with_navigation` (2022 eDrive40/M50 stay `manufacturer`, the rest `estimated`); "iDrive / My BMW app" wording removed (cabin preheating). eDrive35 note now says the 83.9 kWh-pack page is carried over as a software feature, no eDrive35 page.
+2. `2026-standard` and `2026-awd` get `dc_max_kw` 175 kW estimated (Cars.com 2024 82 kWh RWD/AWD; Wikipedia), with the 135 kW OpenEV/thinkEV conflict noted.
+3. 2023 Pro-family 170 kW notes now record Wikipedia's 175 kW (AWD), LG RWD 135 kW, and that Pro S rests on SlashGear's pack-level wording.
+4. 62 kWh chemistry: searched again (Weekly Driver, Guide Auto: "lithium-ion" only; no page states NMC/LFP). Kept `nmc` as `estimated`, low confidence, note rewritten as a weak guess (OWNER FLAG). All five 62 kWh powertrains carry it in the batch.
+5. 2021-23 preconditioning `none`: searched VW US/CA pages, US press and software-update coverage; no North American source found. Kept `estimated`, note names the European basis. 2024 note adds the early-build caveat.
+6. 2021-22 usable 77 relabelled `estimated` (2023 SlashGear page, same pack; Wikipedia 82/77 for 2021-22). 2023 stays `manufacturer`.
+7. eDrive35 notes: EV Database misquote removed (source note and value notes).
+8. Native-NACS sentence restored in `src-bmw-canada-nacs-superchargers-2026-04`.
+`--check` passes.

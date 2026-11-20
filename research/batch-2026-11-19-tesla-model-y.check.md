@@ -112,3 +112,16 @@ All required fields are filled for every full powertrain. For `2027-l`, `battery
 - Estimated kind: values stated for the exact car on a spec site (ArenaEV 69 / 225 for the Standard AWD) are labelled `estimated`. That is conservative and acceptable.
 - Existing-data fit: 2023 Performance-CA 78.1/75 vs OpenEV 2026 Performance-B 82/79 differ by 5.0-5.3 %.
 - Not read: tesla.com pages (403, not worked around).
+
+## Applied by the researcher (2026-11-19)
+All changes made in `batch-2026-11-19-tesla-model-y.json`; `--check` OK.
+1. Fremont 2020-23 (7 ids with Model Y Fremont basis): gross now 82 (ArenaEV 82 total + Model 3 Panasonic 82.0), LG 78.1 dropped; usable stays 75 (note: Model 3 sibling 76); chemistry nca.
+2. One pack for same-rated hardware: 2024/2025 LR AWD and Performance, 2024 LR AWD -ca and -i, 2023 Performance-CA all get 82 gross / 75 usable / nca / 250 kW (ArenaEV + EV Database + Model 3 sibling agree; OpenEV 79 usable is the outlier and dropped; OpenEV 82 gross, 250 kW, 400v kept). Only the two explicitly China-built ids (2023-long-range-awd-import, 2024-performance-import) stay LG 78.1/75 nmc, with notes that the InsideEVs pages give China-built only for the 2023 LR and nothing for Berlin/Canada.
+3. 2024-long-range-rwd: EU Premium RWD page and the uncited ArenaEV note removed. Carried from the same-line LR AWD (82/75/nca/250) on Notebookcheck's "same battery size as its AWD sibling"; OpenEV LFP conflict stated in notes.
+4. 2027-l: 83 is now gross; usable 79 by the Wikipedia AU/NZ L ratio (84/88.2).
+5. Chemistry: Fremont/Panasonic = nca everywhere; LG China = nmc; Berlin/Canada wording removed from the InsideEVs source note.
+6. AC: EU 11 kW removed. Long-range/Performance/imports/Premium/L 11.5 (thechargeport + Wikipedia); LFP RWD 2023-rwd, 2024-rwd-ca, 2021-standard-range, 2026-standard-awd, 2027-awd, 2027-rwd 7.7 (thechargeport, conflicts noted).
+7. 2021-standard-range: gross 53.1 / usable 49.0 from the Model 3 SR+ 2,976-cell sibling (EV Database 1177), evspecifications 52.4 kept as a second gross with its gross-or-net caveat; DC 170; AC 7.7.
+8. Premium RWD 4680 and 2027 carry-overs: unproven points written into notes; Premium RWD also gets 82/79 (Notebookcheck same-battery-as-AWD) side by side with EV Database 79/74.
+9. Preconditioning notes: scheduled precondition and the dissenting Teslabs comment added; value unchanged.
+10. Sources added: Model 3 batch records (src-evdb-m3-srp-2019, src-evdb-m3-lrawd-2021-pana, src-tesla-m3-service-manual-charging, src-cleantechnica-srp-170kw-2019), existing src-thechargeport-tesla-model-y and src-openev-v1-24-0, new src-notebookcheck-model-y-premium-rwd-2026.

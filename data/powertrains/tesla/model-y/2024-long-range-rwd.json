@@ -6,5 +6,89 @@
   "years": [
     2024,
     2025
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 82,
+        "kind": "estimated",
+        "source_id": "src-notebookcheck-model-y-premium-rwd-2026",
+        "low_confidence": true,
+        "notes": "Estimated: Gross 82 kWh like the Long Range AWD (ArenaEV). No page found for the US 2024 Long Range RWD pack (EV Database 3363 is the European 2025-26 Premium RWD, not used). Basis: Notebookcheck (src-notebookcheck-model-y-premium-rwd-2026) says the US RWD of the Juniper range \"has the same battery size as its AWD sibling\"; carried from the 82/75 pack of the same-line Long Range AWD. OpenEV Data lists an LFP 78/75 170 kW pack for the 2024/2025 Long Range RWD, which conflicts and is not used.",
+        "unit": "kWh"
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 75,
+        "kind": "estimated",
+        "source_id": "src-notebookcheck-model-y-premium-rwd-2026",
+        "low_confidence": true,
+        "notes": "Estimated: Usable 75 kWh like the Long Range AWD (ArenaEV, EV Database). No page found for the US 2024 Long Range RWD pack (EV Database 3363 is the European 2025-26 Premium RWD, not used). Basis: Notebookcheck (src-notebookcheck-model-y-premium-rwd-2026) says the US RWD of the Juniper range \"has the same battery size as its AWD sibling\"; carried from the 82/75 pack of the same-line Long Range AWD. OpenEV Data lists an LFP 78/75 170 kW pack for the 2024/2025 Long Range RWD, which conflicts and is not used.",
+        "unit": "kWh"
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nca",
+        "kind": "estimated",
+        "source_id": "src-insideevs-tesla-cell-suppliers",
+        "low_confidence": true,
+        "notes": "Estimated: Same Fremont/Panasonic line as the Long Range AWD (InsideEVs: NCA). No page found for the US 2024 Long Range RWD pack (EV Database 3363 is the European 2025-26 Premium RWD, not used). Basis: Notebookcheck (src-notebookcheck-model-y-premium-rwd-2026) says the US RWD of the Juniper range \"has the same battery size as its AWD sibling\"; carried from the 82/75 pack of the same-line Long Range AWD. OpenEV Data lists an LFP 78/75 170 kW pack for the 2024/2025 Long Range RWD, which conflicts and is not used."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-arenaev-model-y-lr-awd-82kwh",
+        "low_confidence": true,
+        "notes": "Estimated: Same pack family as the Long Range AWD (360 V, 400 V type)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-teslabs-manual-preconditioning",
+        "low_confidence": true,
+        "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
+      },
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-evdb-model-y-premium-rwd-lg5l-3363",
+        "low_confidence": true,
+        "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 250,
+      "kind": "estimated",
+      "source_id": "src-wikipedia-tesla-model-y",
+      "low_confidence": true,
+      "notes": "Estimated: Wikipedia: up to 250 kW DC (225 kW on Standard); thechargeport 250 kW for Premium trims; the 2024-25 Long Range RWD is not a Standard LFP car per the same-battery-as-AWD statement.",
+      "unit": "kW"
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "kind": "estimated",
+      "source_id": "src-thechargeport-tesla-model-y",
+      "low_confidence": true,
+      "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+      "unit": "kW"
+    },
+    {
+      "value": 11.5,
+      "kind": "estimated",
+      "source_id": "src-wikipedia-tesla-model-y",
+      "low_confidence": true,
+      "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
+      "unit": "kW"
+    }
   ]
 }

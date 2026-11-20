@@ -5,5 +5,74 @@
   "generation": "original-2017",
   "years": [
     2019
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 65,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-evspecs-m3-2018-midrange",
+        "low_confidence": true,
+        "notes": "Estimated: 2018 Mid Range (North America): 65 kWh total. 2019 carried over from the 2018 page (same trim)."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 62.5,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-evspecs-m3-2018-midrange",
+        "low_confidence": true,
+        "notes": "Estimated: 2018 Mid Range (North America): 62.5 kWh usable. 2019 carried over from the 2018 page (same trim)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nca",
+        "kind": "estimated",
+        "source_id": "src-evspecs-m3-2018-midrange",
+        "low_confidence": true,
+        "notes": "Estimated: Listed as NCA (Panasonic). 2019 carried over from the 2018 page (same trim)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-evdb-m3-lrawd-2019",
+        "low_confidence": true,
+        "notes": "Estimated: Model 3 packs of this era run 350-360 V nominal (EV Database 357 V for the 75 kWh pack; evspecifications 360 V for SR+); Mid Range is a Panasonic 2170 pack of the same family."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-notateslaapp-2020-24-6-4",
+        "low_confidence": true,
+        "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2018-2019 Mid Range). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 200,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evspecs-m3-2018-midrange",
+      "low_confidence": true,
+      "notes": "Estimated: evspecifications lists 200 kW DC for the 2018 Mid Range (ArenaEV: 200 kW on Supercharger V3). 2019 carried over from the 2018 page (same trim)."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 7.7,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-tesla-m3-service-manual-charging",
+      "low_confidence": true,
+      "notes": "Estimated: Tesla service manual ties 48 A (11.5 kW) to the Long Range battery and gives 32 A (about 7.7 kW) otherwise; the Mid Range is not the Long Range battery, so the same basis as the other non-LR packs is used. evspecifications lists 11.5 kW for the 2018 Mid Range but its figures for this car (1.44/5.76/9.6/11.5 kW) do not settle the onboard-charger rating. 2019 carried over from the 2018 page (same trim)."
+    }
   ]
 }

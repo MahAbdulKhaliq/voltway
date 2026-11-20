@@ -5,5 +5,105 @@
   "generation": "juniper",
   "years": [
     2027
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 79,
+        "kind": "estimated",
+        "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database nominal 79 kWh for the Premium RWD (Tesla 4680, 2026, European listing); US Premium RWD assumed the same. Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict. 2027 assumed unchanged from 2026 (no change reported).",
+        "unit": "kWh"
+      },
+      {
+        "value": 82,
+        "kind": "estimated",
+        "source_id": "src-notebookcheck-model-y-premium-rwd-2026",
+        "low_confidence": true,
+        "notes": "Estimated: Same battery size as the Premium AWD (82 gross per OpenEV Data record of the Premium AWD-B), per Notebookcheck.",
+        "unit": "kWh"
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 74,
+        "kind": "estimated",
+        "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database useable 74 kWh for the 4680 Premium RWD (European listing). Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict. 2027 assumed unchanged from 2026 (no change reported).",
+        "unit": "kWh"
+      },
+      {
+        "value": 79,
+        "kind": "estimated",
+        "source_id": "src-notebookcheck-model-y-premium-rwd-2026",
+        "low_confidence": true,
+        "notes": "Estimated: Same battery size as the Premium AWD (79 net per OpenEV Data record of the Premium AWD-B), per Notebookcheck.",
+        "unit": "kWh"
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database: NMC cathode, 4680 cells. Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict. 2027 assumed unchanged from 2026 (no change reported)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database: 400 V architecture."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-teslabs-manual-preconditioning",
+        "low_confidence": true,
+        "notes": "Estimated: Teslabs (2025-01) says no manual battery-preconditioning control exists, only navigating to a charger; EV Database listings say the battery is warmed automatically when navigating to a charger. Tesla manuals were not fetchable (403). Navigation preconditioning is an over-the-air software feature across Tesla models; Teslabs gives no model years. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
+      },
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
+        "low_confidence": true,
+        "notes": "Estimated: Listing for the same model family says preconditioning is possible and starts automatically when navigating to a charger. Combined with the Teslabs no-manual-control statement. Tesla manuals were not readable (403). A Scheduled Precondition and Charge setting exists (seen in search excerpts of the Model Y manual), and one June 2025 Teslabs comment (Model 3) says the app can start battery warming with a Supercharger selected; no Tesla page shows a dedicated manual battery-preconditioning control, so automatic_with_navigation is kept."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 250,
+      "kind": "estimated",
+      "source_id": "src-evdb-model-y-premium-rwd-4680-3595",
+      "low_confidence": true,
+      "notes": "Estimated: EV Database 250 kW DC. Unproven: this is a European listing (\"available since April 2026\"); no US page shows the US Premium RWD pack, and InsideEVs says 4680 chemistry is undisclosed (NMC is EV Database's label). Notebookcheck says the RWD has the same battery size as its AWD sibling (82/79 in the existing AWD records), so sources conflict. 2027 assumed unchanged from 2026 (no change reported).",
+      "unit": "kW"
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "kind": "estimated",
+      "source_id": "src-thechargeport-tesla-model-y",
+      "low_confidence": true,
+      "notes": "Estimated: Thechargeport puts the non-Standard Model Y trims at the 11.5 kW end of the 7.7-11.5 kW range (North America); Wikipedia: up to 11.5 kW AC on all variants. EU listings quote 11 kW 3-phase, not used.",
+      "unit": "kW"
+    },
+    {
+      "value": 11.5,
+      "kind": "estimated",
+      "source_id": "src-wikipedia-tesla-model-y",
+      "low_confidence": true,
+      "notes": "Estimated: Wikipedia: all Model Y variants support up to 11.5 kW AC.",
+      "unit": "kW"
+    }
   ]
 }

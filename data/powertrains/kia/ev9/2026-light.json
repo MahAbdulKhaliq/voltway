@@ -74,5 +74,15 @@
       "source_id": "src-kia-ca-ev9-2026",
       "notes": "Light RWD, “as little as 20 minutes” on a 350 kW charger."
     }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 236,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-2024-ev9-epa",
+      "low_confidence": true,
+      "notes": "InsideEVs relaying Kia US EPA documents: the 76.1 kWh pack recharges up to 236 kW. EV Database lists 210 kW for this pack, which looks copied from the 99.8 kWh page. No Kia page states it."
+    }
   ]
 }

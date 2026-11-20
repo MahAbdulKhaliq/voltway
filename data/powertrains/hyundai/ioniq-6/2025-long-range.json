@@ -54,5 +54,15 @@
       "low_confidence": true,
       "notes": "Quick web lookup (rough, not cross-checked)."
     }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 233,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evdb-ioniq6-lr-2wd",
+      "low_confidence": true,
+      "notes": "Estimated: one figure for the 77.4 kWh pack across 2023-2025: EV Database lists max DC 233 kW (MY23-25; the Wikipedia infobox also says 233 kW). The repo also holds 220 kW from OpenEV (low confidence, 5.9 % lower, no stated basis); EVDB also notes Hyundai claims 18 min at up to 240 kW. Hyundai itself gives only 18 min on a 350 kW charger."
+    }
   ]
 }

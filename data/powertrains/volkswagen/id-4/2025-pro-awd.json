@@ -5,5 +5,64 @@
   "generation": "2024-update",
   "years": [
     2025
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 77,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-slashgear-id4-2023",
+        "low_confidence": true,
+        "notes": "Estimated: 82 kWh gross pack has 77 kWh usable (VW figure relayed by SlashGear; Wikipedia agrees). Same 82 kWh pack compared 2021 to 2026 (nothing shows a change)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-thinkev-vw-id4-2026",
+        "low_confidence": true,
+        "notes": "Estimated: thinkEV Canada 2026 ID.4 page lists NMC for the 82 kWh pack; same 82 kWh MEB pack on all model years (cell supplier changed LG to SK On in 2023; both assumed NMC, not stated by a page)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-guideauto-id4-2025-pro-awd",
+        "low_confidence": true,
+        "notes": "Estimated: Guide Auto lists the 2025 Pro AWD 82 kWh pack at 400 V (MEB). Same pack all model years."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-vw-us-cold-weather",
+        "low_confidence": true,
+        "notes": "Estimated: lineup-wide VW statement \"most 2024 and newer VW EVs\" (screens from a 2024 ID.4 Pro S) carried to MY2025 (same 2024-update software generation per model notes)."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 175,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-cars-id4-2024",
+      "low_confidence": true,
+      "notes": "Estimated: Cars.com 2024 US: 82 kWh versions 175 kW (up from 170), 10-80% about 30 min; Wikipedia 175 kW from 2024; vw.com 2026 page claims about 28 min. Same hardware compared 2024 to 2026. Conflict: thinkEV Canada 2026 page lists 135 kW for the ID.4 range, which looks like the pre-2024 figure."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-slashgear-id4-2023",
+      "low_confidence": true,
+      "notes": "Estimated: 11 kW onboard charger (VW 2021 launch release relayed by ConceptCarz; SlashGear 2023: 11 kW on both packs; vw.com 2026 page: up to 11 kW home charging). Same charger compared 2021 to 2026 (nothing shows a change)."
+    }
   ]
 }

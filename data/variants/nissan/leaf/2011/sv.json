@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "j1772",
+      "kind": "manufacturer",
+      "source_id": "src-nissan-usa-leaf-2012-press-kit",
+      "low_confidence": true,
+      "notes": "US 2012 kit: SV quick charge port \"-\". Canada 2011 and 2012 sheets also show SV \"-\" (src-nissan-ca-leaf-2011-press-kit, src-nissan-ca-leaf-2012-specs). 2011 US SV assumed the same."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "estimated",
+      "source_id": "src-electrek-nissan-supercharger-2024-12",
+      "low_confidence": true,
+      "notes": "Estimated: no DC port at all on this trim, so no Supercharger charging."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

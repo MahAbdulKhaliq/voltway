@@ -159,6 +159,14 @@
       "url": "https://ownersmanual.hyundai.com/full_webhelp/SX2EV/2025/en_US/topic_p5j_2xj_t5b.html",
       "accessed_on": "2026-11-19",
       "notes": "Page does not name the model; assumed to be the Kona Electric (SX2) manual from its code. Battery Conditioning operates automatically when a DC charging station is set as destination or waypoint, and can be activated manually from the infotainment menu."
+    },
+    {
+      "id": "src-electricrevs-kona-thermal-2018",
+      "type": "community",
+      "title": "Electric Revs - Exclusive details on Hyundai's new battery thermal management design (2018-12-20)",
+      "url": "https://electricrevs.com/2018/12/20/exclusive-details-on-hyundais-new-battery-thermal-management-design/",
+      "accessed_on": "2026-11-19",
+      "notes": "2019 Kona Electric: Canadian cars have a 2 kW battery heater and heat pump, US cars no battery heater; Winter Mode warms the pack for quicker DC charging. Also InsideEVs https://insideevs.com/news/341712/hyundai-kona-electric-thermal-management-system-explained/ (US cars lack active battery heating)."
     }
   ],
   "powertrains": {
@@ -553,9 +561,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-hyundai-ww-ioniq6-la-2022",
-            "notes": "US-spec 2023 IONIQ 6 standard 10.9 kW onboard charger (EV Database lists 11 kW for the European car). Applied to the Canadian cars and later years: nothing found that shows a different charger."
+            "kind": "estimated",
+            "source_id": "src-auto123-ioniq-6-2025",
+            "low_confidence": true,
+            "notes": "Estimated: Canadian site auto123 lists 10.9 kW for the 2025 Canadian IONIQ 6 Preferred (Long Range); carried to the 2023 Canadian car, same generation and pack (US 2023 launch release also 10.9 kW)."
           }
         ],
         "published_10_80_min": [
@@ -640,9 +649,10 @@
           {
             "value": 10.9,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-hyundai-ww-ioniq6-la-2022",
-            "notes": "US-spec 2023 IONIQ 6 standard 10.9 kW onboard charger (EV Database lists 11 kW for the European car). Applied to the Canadian cars and later years: nothing found that shows a different charger."
+            "kind": "estimated",
+            "source_id": "src-auto123-ioniq-6-2025",
+            "low_confidence": true,
+            "notes": "Estimated: Canadian site auto123 lists 10.9 kW for the 2025 Canadian IONIQ 6 Preferred (Long Range); carried to the 2023 Canadian car, same generation and pack (US 2023 launch release also 10.9 kW)."
           }
         ],
         "published_10_80_min": [
@@ -708,10 +718,17 @@
         "battery.preconditioning": [
           {
             "value": "automatic_and_manual",
-            "kind": "manufacturer",
+            "kind": "estimated",
+            "source_id": "src-hyundai-ww-ioniq6-la-2022",
+            "low_confidence": true,
+            "notes": "Estimated: navigation trigger (battery heater starts when a charging stop is entered in navigation) from the Hyundai US launch release for the 2023 IONIQ 6; manual control from the CE1 (IONIQ 6) 2024 US owner's manual (src-hyundai-om-ce1-2024-us: Battery Conditioning Mode switch in EV Settings; that page does not itself state that a destination starts the mode and does not name the model). Combined across years, same generation and hardware."
+          },
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
             "source_id": "src-hyundai-om-ce1-2024-us",
             "low_confidence": true,
-            "notes": "US CE1 (IONIQ 6) owner's manual 2024: Battery Conditioning when a DC station is set as destination plus manual activation from EV Settings. Page does not name the model (code CE1 = IONIQ 6), so low confidence."
+            "notes": "Estimated: companion to the value from src-hyundai-ww-ioniq6-la-2022 (navigation trigger from the 2023 release, manual control from this 2024 CE1 manual page)."
           }
         ],
         "dc_max_kw": [
@@ -794,10 +811,17 @@
         "battery.preconditioning": [
           {
             "value": "automatic_and_manual",
-            "kind": "manufacturer",
+            "kind": "estimated",
+            "source_id": "src-hyundai-ww-ioniq6-la-2022",
+            "low_confidence": true,
+            "notes": "Estimated: navigation trigger (battery heater starts when a charging stop is entered in navigation) from the Hyundai US launch release for the 2023 IONIQ 6; manual control from the CE1 (IONIQ 6) 2024 US owner's manual (src-hyundai-om-ce1-2024-us: Battery Conditioning Mode switch in EV Settings; that page does not itself state that a destination starts the mode and does not name the model). Combined across years, same generation and hardware."
+          },
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
             "source_id": "src-hyundai-om-ce1-2024-us",
             "low_confidence": true,
-            "notes": "US CE1 (IONIQ 6) owner's manual 2024: Battery Conditioning when a DC station is set as destination plus manual activation from EV Settings. Page does not name the model (code CE1 = IONIQ 6), so low confidence."
+            "notes": "Estimated: companion to the value from src-hyundai-ww-ioniq6-la-2022 (navigation trigger from the 2023 release, manual control from this 2024 CE1 manual page)."
           }
         ],
         "dc_max_kw": [
@@ -880,10 +904,17 @@
         "battery.preconditioning": [
           {
             "value": "automatic_and_manual",
-            "kind": "manufacturer",
+            "kind": "estimated",
+            "source_id": "src-hyundai-ww-ioniq6-la-2022",
+            "low_confidence": true,
+            "notes": "Estimated: navigation trigger (battery heater starts when a charging stop is entered in navigation) from the Hyundai US launch release for the 2023 IONIQ 6; manual control from the CE1 (IONIQ 6) 2024 US owner's manual (src-hyundai-om-ce1-2024-us: Battery Conditioning Mode switch in EV Settings; that page does not itself state that a destination starts the mode and does not name the model). Combined across years, same generation and hardware."
+          },
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
             "source_id": "src-hyundai-om-ce1-2024-us",
             "low_confidence": true,
-            "notes": "US CE1 (IONIQ 6) owner's manual 2024: Battery Conditioning when a DC station is set as destination plus manual activation from EV Settings. Page does not name the model (code CE1 = IONIQ 6), so low confidence."
+            "notes": "Estimated: companion to the value from src-hyundai-ww-ioniq6-la-2022 (navigation trigger from the 2023 release, manual control from this 2024 CE1 manual page)."
           }
         ],
         "dc_max_kw": [
@@ -903,6 +934,14 @@
             "kind": "manufacturer",
             "source_id": "src-hyundai-ww-ioniq6-la-2022",
             "notes": "US-spec 2023 IONIQ 6 standard 10.9 kW onboard charger (EV Database lists 11 kW for the European car). Applied to the Canadian cars and later years: nothing found that shows a different charger."
+          },
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-auto123-ioniq-6-2025",
+            "low_confidence": true,
+            "notes": "Estimated: Canadian site auto123 lists 10.9 kW for the 2025 Canadian IONIQ 6 Preferred (Long Range); carried to the 2024 Canadian car, same generation and pack (US 2023 launch release also 10.9 kW)."
           }
         ],
         "published_10_80_min": [
@@ -980,10 +1019,17 @@
         "battery.preconditioning": [
           {
             "value": "automatic_and_manual",
-            "kind": "manufacturer",
+            "kind": "estimated",
+            "source_id": "src-hyundai-ww-ioniq6-la-2022",
+            "low_confidence": true,
+            "notes": "Estimated: navigation trigger (battery heater starts when a charging stop is entered in navigation) from the Hyundai US launch release for the 2023 IONIQ 6; manual control from the CE1 (IONIQ 6) 2024 US owner's manual (src-hyundai-om-ce1-2024-us: Battery Conditioning Mode switch in EV Settings; that page does not itself state that a destination starts the mode and does not name the model). Combined across years, same generation and hardware."
+          },
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
             "source_id": "src-hyundai-om-ce1-2024-us",
             "low_confidence": true,
-            "notes": "US CE1 (IONIQ 6) owner's manual 2024: Battery Conditioning when a DC station is set as destination plus manual activation from EV Settings. Page does not name the model (code CE1 = IONIQ 6), so low confidence."
+            "notes": "Estimated: companion to the value from src-hyundai-ww-ioniq6-la-2022 (navigation trigger from the 2023 release, manual control from this 2024 CE1 manual page)."
           }
         ],
         "dc_max_kw": [
@@ -1003,6 +1049,14 @@
             "kind": "manufacturer",
             "source_id": "src-hyundai-ww-ioniq6-la-2022",
             "notes": "US-spec 2023 IONIQ 6 standard 10.9 kW onboard charger (EV Database lists 11 kW for the European car). Applied to the Canadian cars and later years: nothing found that shows a different charger."
+          },
+          {
+            "value": 10.9,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-auto123-ioniq-6-2025",
+            "low_confidence": true,
+            "notes": "Estimated: Canadian site auto123 lists 10.9 kW for the 2025 Canadian IONIQ 6 Preferred (Long Range); carried to the 2024 Canadian car, same generation and pack (US 2023 launch release also 10.9 kW)."
           }
         ],
         "published_10_80_min": [
@@ -1054,10 +1108,10 @@
           {
             "value": 53,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-evdb-ioniq6-sr",
             "low_confidence": true,
-            "notes": "53 kWh is the maker-stated pack size (also Hyundai Europe press kit); EVDB lists 53.0 nominal. Treated as gross."
+            "notes": "Estimated: EV Database lists 53.0 kWh nominal for the IONIQ 6 Standard Range (MY23-25, Europe); Hyundai Europe press kit also gives 53 kWh. Treated as gross; same pack as the US SE Standard Range."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1091,10 +1145,17 @@
         "battery.preconditioning": [
           {
             "value": "automatic_and_manual",
-            "kind": "manufacturer",
+            "kind": "estimated",
+            "source_id": "src-hyundai-ww-ioniq6-la-2022",
+            "low_confidence": true,
+            "notes": "Estimated: Hyundai US launch release for the 2023 IONIQ 6 (77.4 kWh) states a battery heater that starts when a charging stop is entered in navigation and can be warmed manually via the app; the CE1 (IONIQ 6) 2024 US manual states a manual Battery Conditioning Mode and automatic operation when the battery is cold or the scheduled climate is on (it does not itself state the DC-destination trigger, does not name the model, and says the function needs a battery heater). A battery heater on the Standard Range is not shown on any page; assumed because the same model and charging system carry the feature across packs."
+          },
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
             "source_id": "src-hyundai-om-ce1-2024-us",
             "low_confidence": true,
-            "notes": "US CE1 (IONIQ 6) owner's manual 2024: navigation trigger plus manual Battery Conditioning Mode. Page does not name the model (CE1 = IONIQ 6); same feature for both packs assumed. Low confidence."
+            "notes": "Estimated: companion to the value from src-hyundai-ww-ioniq6-la-2022 (manual control from this CE1 US owner's manual page)."
           }
         ],
         "dc_max_kw": [
@@ -1121,10 +1182,10 @@
           {
             "value": 18,
             "unit": "min",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-evdb-ioniq6-sr",
             "low_confidence": true,
-            "notes": "EV Database lists 18 min 10-80 % for the Standard Range (about 120 kW average); Hyundai claims 18 min for the IONIQ 6 on a 350 kW charger."
+            "notes": "Estimated: EV Database lists 18 min 10-80 % for the 53 kWh Standard Range (about 120 kW average, European car); Hyundai only states 18 min for the IONIQ 6 on a 350 kW charger (77.4 kWh pack release)."
           }
         ]
       },
@@ -1153,10 +1214,10 @@
           {
             "value": 53,
             "unit": "kWh",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-evdb-ioniq6-sr",
             "low_confidence": true,
-            "notes": "53 kWh is the maker-stated pack size (also Hyundai Europe press kit); EVDB lists 53.0 nominal. Treated as gross."
+            "notes": "Estimated: EV Database lists 53.0 kWh nominal for the IONIQ 6 Standard Range (MY23-25, Europe); Hyundai Europe press kit also gives 53 kWh. Treated as gross; same pack as the US SE Standard Range."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1190,10 +1251,17 @@
         "battery.preconditioning": [
           {
             "value": "automatic_and_manual",
-            "kind": "manufacturer",
+            "kind": "estimated",
+            "source_id": "src-hyundai-ww-ioniq6-la-2022",
+            "low_confidence": true,
+            "notes": "Estimated: Hyundai US launch release for the 2023 IONIQ 6 (77.4 kWh) states a battery heater that starts when a charging stop is entered in navigation and can be warmed manually via the app; the CE1 (IONIQ 6) 2025 US manual states a manual Battery Conditioning Mode and automatic operation when the battery is cold or the scheduled climate is on (it does not itself state the DC-destination trigger, does not name the model, and says the function needs a battery heater). A battery heater on the Standard Range is not shown on any page; assumed because the same model and charging system carry the feature across packs."
+          },
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
             "source_id": "src-hyundai-om-ce1-2025-us",
             "low_confidence": true,
-            "notes": "US CE1 (IONIQ 6) owner's manual 2025: navigation trigger plus manual Battery Conditioning Mode. Page does not name the model (CE1 = IONIQ 6); same feature for both packs assumed. Low confidence."
+            "notes": "Estimated: companion to the value from src-hyundai-ww-ioniq6-la-2022 (manual control from this CE1 US owner's manual page)."
           }
         ],
         "dc_max_kw": [
@@ -1220,10 +1288,10 @@
           {
             "value": 18,
             "unit": "min",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-evdb-ioniq6-sr",
             "low_confidence": true,
-            "notes": "EV Database lists 18 min 10-80 % for the Standard Range (about 120 kW average); Hyundai claims 18 min for the IONIQ 6 on a 350 kW charger."
+            "notes": "Estimated: EV Database lists 18 min 10-80 % for the 53 kWh Standard Range (about 120 kW average, European car); Hyundai only states 18 min for the IONIQ 6 on a 350 kW charger (77.4 kWh pack release)."
           }
         ]
       },
@@ -1290,9 +1358,16 @@
           {
             "value": "automatic_and_manual",
             "kind": "estimated",
+            "source_id": "src-hyundai-ww-ioniq6-la-2022",
+            "low_confidence": true,
+            "notes": "Estimated: the standard IONIQ 6 (same model and platform) has the navigation-triggered battery heater (this US launch release) plus a manual Battery Conditioning Mode (CE1 manual, src-hyundai-om-ce1-2025-us); carried to the N as the same model family. Hyundai UK says the N has an upgraded coolant heater and thermal management (src-hyundai-uk-ioniq6-n-range-charging); its \"preconditions the battery\" line may describe the N track battery mode, which is not counted here. No N-specific manual found."
+          },
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
             "source_id": "src-hyundai-om-ce1-2025-us",
             "low_confidence": true,
-            "notes": "Estimated: IONIQ 6 (CE1) manual describes navigation trigger plus manual Battery Conditioning; Hyundai UK says the IONIQ 6 N preconditions the battery with an upgraded coolant heater (src-hyundai-uk-ioniq6-n-range-charging). Same platform and feature set assumed; no N-specific US manual found."
+            "notes": "Estimated: companion to the value from src-hyundai-ww-ioniq6-la-2022 (manual control from the CE1 2025 US manual)."
           }
         ],
         "dc_max_kw": [
@@ -1307,12 +1382,12 @@
         ],
         "ac_max_kw": [
           {
-            "value": 10.5,
+            "value": 10.9,
             "unit": "kW",
             "kind": "estimated",
-            "source_id": "src-carexpert-ioniq6-n-2027",
+            "source_id": "src-hyundai-ww-ioniq6-la-2022",
             "low_confidence": true,
-            "notes": "Estimated: CarExpert (Australian N) lists up to 10.5 kW from the onboard charger; the standard IONIQ 6 is 10.9 kW (US) / 11 kW (EVDB). Not confirmed for the US N."
+            "notes": "Estimated: the US IONIQ 6 (same model) has a 10.9 kW onboard charger (US launch release); Hyundai says the N has an enhanced ICCU but gives no kW. CarExpert (Australian N) says up to 10.5 kW, EVDB 11 kW (all within 5 %). No US N figure found."
           }
         ],
         "published_10_80_min": [
@@ -1339,10 +1414,10 @@
         "supercharger_access": [
           {
             "value": "yes",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-electrek-hyundai-2027-lineup",
             "low_confidence": true,
-            "notes": "Native NACS port on the 2027 N, so Tesla Superchargers are usable directly."
+            "notes": "Estimated: native NACS port on the 2027 N (Electrek); Electrek does not state Supercharger access, which is inferred from the port."
           }
         ]
       }
@@ -1389,11 +1464,11 @@
         ],
         "battery.preconditioning": [
           {
-            "value": "none",
+            "value": "manual_only",
             "kind": "estimated",
-            "source_id": "src-evdb-kona-64-my22-23",
+            "source_id": "src-electricrevs-kona-thermal-2018",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists battery preconditioning as not supported for the 64 kWh Kona Electric (MY22-23); the car predates Hyundai's battery-conditioning feature, which arrived with the E-GMP cars (IONIQ 5/6). No NA owner's manual page found for this car."
+            "notes": "Estimated: Electric Revs (Dec 2018, 2019 Kona Electric) says Canadian cars have a 2 kW battery heater and a driver-selected Winter Mode that warms the pack for quicker DC charging (the heater also runs on its own when very cold); no navigation trigger is described. US-market cars have no battery heater (Electric Revs, InsideEVs), so for US cars the real behaviour is closer to none; the field is shared by both markets, so the Canadian behaviour is recorded. EV Database lists preconditioning as not supported for the European MY22-23 car. No owner's manual page found."
           }
         ],
         "dc_max_kw": [
@@ -1421,10 +1496,10 @@
         "charge_port": [
           {
             "value": "ccs1",
-            "kind": "community",
+            "kind": "manufacturer",
             "source_id": "src-xautoworld-kona-electric-2019",
             "low_confidence": true,
-            "notes": "SAE Combo (CCS1) port, standard on all North American trims."
+            "notes": "SAE Combo (CCS1) port, standard on all North American trims (page relays Hyundai US launch material)."
           }
         ],
         "supercharger_access": [
@@ -1448,12 +1523,12 @@
       "fields": {
         "battery.capacity_usable_kwh": [
           {
-            "value": 65.4,
+            "value": 61.9,
             "unit": "kWh",
             "kind": "estimated",
             "source_id": "src-evdb-kona-65",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 65.4 kWh usable (68.5 nominal) and Hyundai UK states a 65.4 kWh long-range battery for the same-generation Kona Electric (MY24-25, Europe). North American label is 64.8 kWh (Hyundai Canada/US); whether 64.8 is net or gross for the same pack is not stated. Conflict flagged."
+            "notes": "Estimated: no page gives usable for the North American pack. Hyundai US calls 64.8 kWh the \"battery system capacity\" and Hyundai Canada says 64.8 kWh (src-hyundai-ca-kona-electric-2026); treated as gross. The same-generation European pack (different voltage, so only its ratio is used) has usable/nominal 65.4/68.5 = 0.955 (EVDB); 64.8 x 0.955 = 61.9. The repo also holds 58 (OpenEV, low confidence) for the 2026 Canadian car, 6 % lower: unreconciled."
           }
         ],
         "battery.chemistry": [
@@ -1477,10 +1552,10 @@
         "battery.preconditioning": [
           {
             "value": "automatic_and_manual",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-hyundai-om-kona-sx2-2025-us",
             "low_confidence": true,
-            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Carried to 2024 from the 2025 manual; Hyundai UK page also states navigation preconditioning for the Kona Electric."
+            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Estimated: 2025 manual carried to this model year/market (same generation). Hyundai UK page also states navigation preconditioning for the Kona Electric."
           }
         ],
         "dc_max_kw": [
@@ -1529,12 +1604,12 @@
       "fields": {
         "battery.capacity_usable_kwh": [
           {
-            "value": 65.4,
+            "value": 61.9,
             "unit": "kWh",
             "kind": "estimated",
             "source_id": "src-evdb-kona-65",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 65.4 kWh usable (68.5 nominal) and Hyundai UK states a 65.4 kWh long-range battery for the same-generation Kona Electric (MY24-25, Europe). North American label is 64.8 kWh (Hyundai Canada/US); whether 64.8 is net or gross for the same pack is not stated. Conflict flagged."
+            "notes": "Estimated: no page gives usable for the North American pack. Hyundai US calls 64.8 kWh the \"battery system capacity\" and Hyundai Canada says 64.8 kWh (src-hyundai-ca-kona-electric-2026); treated as gross. The same-generation European pack (different voltage, so only its ratio is used) has usable/nominal 65.4/68.5 = 0.955 (EVDB); 64.8 x 0.955 = 61.9. The repo also holds 58 (OpenEV, low confidence) for the 2026 Canadian car, 6 % lower: unreconciled."
           }
         ],
         "battery.chemistry": [
@@ -1558,10 +1633,10 @@
         "battery.preconditioning": [
           {
             "value": "automatic_and_manual",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-hyundai-om-kona-sx2-2025-us",
             "low_confidence": true,
-            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Carried to 2024 from the 2025 manual; Hyundai UK page also states navigation preconditioning for the Kona Electric."
+            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Estimated: 2025 manual carried to this model year/market (same generation). Hyundai UK page also states navigation preconditioning for the Kona Electric."
           }
         ],
         "dc_max_kw": [
@@ -1608,12 +1683,12 @@
       "fields": {
         "battery.capacity_usable_kwh": [
           {
-            "value": 65.4,
+            "value": 61.9,
             "unit": "kWh",
             "kind": "estimated",
             "source_id": "src-evdb-kona-65",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 65.4 kWh usable (68.5 nominal) and Hyundai UK states a 65.4 kWh long-range battery for the same-generation Kona Electric (MY24-25, Europe). North American label is 64.8 kWh (Hyundai Canada/US); whether 64.8 is net or gross for the same pack is not stated. Conflict flagged."
+            "notes": "Estimated: no page gives usable for the North American pack. Hyundai US calls 64.8 kWh the \"battery system capacity\" and Hyundai Canada says 64.8 kWh (src-hyundai-ca-kona-electric-2026); treated as gross. The same-generation European pack (different voltage, so only its ratio is used) has usable/nominal 65.4/68.5 = 0.955 (EVDB); 64.8 x 0.955 = 61.9. The repo also holds 58 (OpenEV, low confidence) for the 2026 Canadian car, 6 % lower: unreconciled."
           }
         ],
         "battery.chemistry": [
@@ -1640,7 +1715,7 @@
             "kind": "manufacturer",
             "source_id": "src-hyundai-om-kona-sx2-2025-us",
             "low_confidence": true,
-            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Carried to 2025 from the 2025 manual; Hyundai UK page also states navigation preconditioning for the Kona Electric."
+            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Hyundai UK page also states navigation preconditioning for the Kona Electric."
           }
         ],
         "dc_max_kw": [
@@ -1687,12 +1762,12 @@
       "fields": {
         "battery.capacity_usable_kwh": [
           {
-            "value": 65.4,
+            "value": 61.9,
             "unit": "kWh",
             "kind": "estimated",
             "source_id": "src-evdb-kona-65",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 65.4 kWh usable (68.5 nominal) and Hyundai UK states a 65.4 kWh long-range battery for the same-generation Kona Electric (MY24-25, Europe). North American label is 64.8 kWh (Hyundai Canada/US); whether 64.8 is net or gross for the same pack is not stated. Conflict flagged."
+            "notes": "Estimated: no page gives usable for the North American pack. Hyundai US calls 64.8 kWh the \"battery system capacity\" and Hyundai Canada says 64.8 kWh (src-hyundai-ca-kona-electric-2026); treated as gross. The same-generation European pack (different voltage, so only its ratio is used) has usable/nominal 65.4/68.5 = 0.955 (EVDB); 64.8 x 0.955 = 61.9. The repo also holds 58 (OpenEV, low confidence) for the 2026 Canadian car, 6 % lower: unreconciled."
           }
         ],
         "battery.chemistry": [
@@ -1719,7 +1794,7 @@
             "kind": "manufacturer",
             "source_id": "src-hyundai-om-kona-sx2-2025-us",
             "low_confidence": true,
-            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Carried to 2025 from the 2025 manual; Hyundai UK page also states navigation preconditioning for the Kona Electric."
+            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Hyundai UK page also states navigation preconditioning for the Kona Electric."
           }
         ],
         "dc_max_kw": [
@@ -1780,12 +1855,12 @@
       "fields": {
         "battery.capacity_usable_kwh": [
           {
-            "value": 48.4,
+            "value": 46.1,
             "unit": "kWh",
             "kind": "estimated",
             "source_id": "src-evdb-kona-48",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 48.4 kWh usable (51.0 nominal) for the same-generation European Kona Electric 48 kWh (MY24-25); North America labels it 48.6 kWh. Conflict flagged."
+            "notes": "Estimated: no page gives usable for the North American 48.6 kWh pack (Hyundai US \"battery system capacity\"; evspecs NA 269 V), treated as gross. Ratio from the same-generation European pack (different voltage, so only the ratio is used): 48.4/51.0 = 0.949 (EVDB); 48.6 x 0.949 = 46.1."
           }
         ],
         "battery.chemistry": [
@@ -1809,20 +1884,20 @@
         "battery.preconditioning": [
           {
             "value": "automatic_and_manual",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-hyundai-om-kona-sx2-2025-us",
             "low_confidence": true,
-            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence."
+            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Estimated: 2025 manual carried to this model year/market (same generation)."
           }
         ],
         "dc_max_kw": [
           {
-            "value": 75,
+            "value": 100,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-kona-48",
+            "kind": "community",
+            "source_id": "src-evspecs-kona-2024-na",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists max DC 75 kW for the 48 kWh Kona (Europe, same generation); Wikipedia/ADAC 74 kW. evspecs (NA) and Weekly Driver list 100 kW for this pack: conflict, 75 kept because 43 min 10-80 % fits it."
+            "notes": "North American 2024 Kona Electric SE 48.6 kWh: DC max 100 kW (evspecs NA; Weekly Driver also 100 kW). The European 48 kWh pack is listed at 75 kW (EVDB; Wikipedia/ADAC 74): conflict, the North American source is used. Low confidence."
           }
         ],
         "ac_max_kw": [
@@ -1859,12 +1934,12 @@
       "fields": {
         "battery.capacity_usable_kwh": [
           {
-            "value": 48.4,
+            "value": 46.1,
             "unit": "kWh",
             "kind": "estimated",
             "source_id": "src-evdb-kona-48",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists 48.4 kWh usable (51.0 nominal) for the same-generation European Kona Electric 48 kWh (MY24-25); North America labels it 48.6 kWh. Conflict flagged."
+            "notes": "Estimated: no page gives usable for the North American 48.6 kWh pack (Hyundai US \"battery system capacity\"; evspecs NA 269 V), treated as gross. Ratio from the same-generation European pack (different voltage, so only the ratio is used): 48.4/51.0 = 0.949 (EVDB); 48.6 x 0.949 = 46.1."
           }
         ],
         "battery.chemistry": [
@@ -1896,12 +1971,12 @@
         ],
         "dc_max_kw": [
           {
-            "value": 75,
+            "value": 100,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-evdb-kona-48",
+            "kind": "community",
+            "source_id": "src-evspecs-kona-2024-na",
             "low_confidence": true,
-            "notes": "Estimated: EV Database lists max DC 75 kW for the 48 kWh Kona (Europe, same generation); Wikipedia/ADAC 74 kW. evspecs (NA) and Weekly Driver list 100 kW for this pack: conflict, 75 kept because 43 min 10-80 % fits it."
+            "notes": "North American 2024 Kona Electric SE 48.6 kWh: DC max 100 kW (evspecs NA; Weekly Driver also 100 kW). The European 48 kWh pack is listed at 75 kW (EVDB; Wikipedia/ADAC 74): conflict, the North American source is used. Low confidence."
           }
         ],
         "ac_max_kw": [
@@ -1948,10 +2023,38 @@
         "battery.preconditioning": [
           {
             "value": "automatic_and_manual",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-hyundai-om-kona-sx2-2025-us",
             "low_confidence": true,
-            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Hyundai Canada 2026 page only says the battery pre-warms while plugged in; navigation trigger and manual control taken from the US SX2EV manual, same generation."
+            "notes": "Hyundai 2025 US SX2EV manual page: automatic when a DC charging station is set as destination or waypoint, plus manual \"Activate\" from the infotainment menu. Page does not name the model (SX2EV = Kona Electric), so low confidence. Estimated: 2025 manual carried to this model year/market (same generation). Hyundai Canada 2026 page only says the battery pre-warms while plugged in; navigation trigger and manual control taken from the US SX2EV manual, same generation."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-6/2025-long-range": {
+      "fields": {
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ioniq6-lr-2wd",
+            "low_confidence": true,
+            "notes": "Estimated: one figure for the 77.4 kWh pack across 2023-2025: EV Database lists max DC 233 kW (MY23-25; the Wikipedia infobox also says 233 kW). The repo also holds 220 kW from OpenEV (low confidence, 5.9 % lower, no stated basis); EVDB also notes Hyundai claims 18 min at up to 240 kW. Hyundai itself gives only 18 min on a 350 kW charger."
+          }
+        ]
+      }
+    },
+    "hyundai/ioniq-6/2025-long-range-awd": {
+      "fields": {
+        "dc_max_kw": [
+          {
+            "value": 233,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evdb-ioniq6-lr-2wd",
+            "low_confidence": true,
+            "notes": "Estimated: one figure for the 77.4 kWh pack across 2023-2025: EV Database lists max DC 233 kW (MY23-25; the Wikipedia infobox also says 233 kW). The repo also holds 220 kW from OpenEV (low confidence, 5.9 % lower, no stated basis); EVDB also notes Hyundai claims 18 min at up to 240 kW. Hyundai itself gives only 18 min on a 350 kW charger."
           }
         ]
       }

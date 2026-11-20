@@ -191,6 +191,38 @@
       "url": "https://ev-database.org/car/1819/Polestar-2-Long-Range-Dual-Motor",
       "accessed_on": "2026-11-19",
       "notes": "European 2024 page: 82 kWh nominal / 79 usable, NMC, 400 V, Polestar-claimed 205 kW, AC 11 kW, preconditioning automatic via navigation. (European 2024 dual had 82 kWh; US 2024 dual kept 78 kWh.)"
+    },
+    {
+      "id": "src-polestar-us-manual-2022-charging",
+      "type": "oem",
+      "title": "Polestar US - Polestar 2 2022 manual: Charging time",
+      "url": "https://www.polestar.com/us/manual/polestar-2/2022/article/88c8206d7df00acac0a801512bfd5131/",
+      "accessed_on": "2026-11-19",
+      "notes": "Read by the fact-checker: up to 150 kW DC (about 35 min) and AC max 11 kW for the 2022 Polestar 2."
+    },
+    {
+      "id": "src-volvo-au-ex30-release-notes-excerpt",
+      "type": "oem",
+      "title": "Volvo Cars - EX30 software release notes",
+      "url": "https://www.volvocars.com/au/support/car/ex30/software-release-notes",
+      "accessed_on": "2026-11-19",
+      "notes": "Read only as a search excerpt: an EX30 release note says the battery-preconditioning notification was updated to clarify that the battery temperature is being optimised for fast charging. Does not state the trigger."
+    },
+    {
+      "id": "src-volvo-ex90-precondition-support-excerpt",
+      "type": "oem",
+      "title": "Volvo Cars US - EX90 support: battery preconditioning",
+      "url": "https://www.volvocars.com/us/support/car/ex90/article/d6cfcf50d422fa2ac0a8cc37796a4b5f-43fe9deac2059070c0a8b04a4f623753-8664b2fa77a7e089c0a8296870d1a409/",
+      "accessed_on": "2026-11-19",
+      "notes": "Read only as a search excerpt (EX90, not EX30): preconditioning starts automatically when a DC fast charger is set as the navigation destination, and can also be started manually in the charging view."
+    },
+    {
+      "id": "src-polestar-ca-specs",
+      "type": "oem",
+      "title": "Polestar Canada - Polestar 2 specifications (Long range Dual motor)",
+      "url": "https://www.polestar.com/en-ca/polestar-2/specifications/",
+      "accessed_on": "2026-11-19",
+      "notes": "82 kWh, up to 205 kW DC, 10-80% in 28 min, AC 11 kW (three-phase line looks Europe-derived)."
     }
   ],
   "powertrains": {
@@ -257,10 +289,10 @@
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "kind": "estimated",
+            "source_id": "src-nrcan-bev-2026-09",
             "low_confidence": true,
-            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW; North American single-phase 48 A = 11 kW. EV Database lists 11 kW for the XC40 Recharge Twin as well."
+            "notes": "Estimated: NRCan and EPA both rate the 2025-2026 EX40 at 8 h on 240 V (NRCan row EX40 / EX40 Twin, recharge time 8 h), which fits an 11 kW onboard charger for a 79-82 kWh pack. Volvo Canada support (EX40 charging time, read only as a search excerpt, page 403) says the highest AC output is 11 kW, and EV Database lists 11 kW (European 3-phase). Older model years carried over (same CMA charger); no North American page opened states it directly."
           }
         ]
       },
@@ -272,6 +304,13 @@
             "source_id": "src-volvo-hamilton-ex40-2026-charging",
             "low_confidence": true,
             "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2021-2022 P8."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists EX40 / XC40 Recharge (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -355,10 +394,10 @@
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "kind": "estimated",
+            "source_id": "src-nrcan-bev-2026-09",
             "low_confidence": true,
-            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW; North American single-phase 48 A = 11 kW. EV Database lists 11 kW for the XC40 Recharge Twin as well."
+            "notes": "Estimated: NRCan and EPA both rate the 2025-2026 EX40 at 8 h on 240 V (NRCan row EX40 / EX40 Twin, recharge time 8 h), which fits an 11 kW onboard charger for a 79-82 kWh pack. Volvo Canada support (EX40 charging time, read only as a search excerpt, page 403) says the highest AC output is 11 kW, and EV Database lists 11 kW (European 3-phase). Older model years carried over (same CMA charger); no North American page opened states it directly."
           }
         ]
       },
@@ -370,6 +409,13 @@
             "source_id": "src-volvo-hamilton-ex40-2026-charging",
             "low_confidence": true,
             "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2022 P8 Twin eAWD (US)."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists EX40 / XC40 Recharge (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -453,10 +499,10 @@
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "kind": "estimated",
+            "source_id": "src-nrcan-bev-2026-09",
             "low_confidence": true,
-            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW; North American single-phase 48 A = 11 kW. EV Database lists 11 kW for the XC40 Recharge Twin as well."
+            "notes": "Estimated: NRCan and EPA both rate the 2025-2026 EX40 at 8 h on 240 V (NRCan row EX40 / EX40 Twin, recharge time 8 h), which fits an 11 kW onboard charger for a 79-82 kWh pack. Volvo Canada support (EX40 charging time, read only as a search excerpt, page 403) says the highest AC output is 11 kW, and EV Database lists 11 kW (European 3-phase). Older model years carried over (same CMA charger); no North American page opened states it directly."
           }
         ]
       },
@@ -468,6 +514,13 @@
             "source_id": "src-volvo-hamilton-ex40-2026-charging",
             "low_confidence": true,
             "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2023 Twin."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists EX40 / XC40 Recharge (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -551,10 +604,10 @@
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "kind": "estimated",
+            "source_id": "src-nrcan-bev-2026-09",
             "low_confidence": true,
-            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW; North American single-phase 48 A = 11 kW. EV Database lists 11 kW for the XC40 Recharge Twin as well."
+            "notes": "Estimated: NRCan and EPA both rate the 2025-2026 EX40 at 8 h on 240 V (NRCan row EX40 / EX40 Twin, recharge time 8 h), which fits an 11 kW onboard charger for a 79-82 kWh pack. Volvo Canada support (EX40 charging time, read only as a search excerpt, page 403) says the highest AC output is 11 kW, and EV Database lists 11 kW (European 3-phase). Older model years carried over (same CMA charger); no North American page opened states it directly."
           }
         ]
       },
@@ -566,6 +619,13 @@
             "source_id": "src-volvo-hamilton-ex40-2026-charging",
             "low_confidence": true,
             "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2024 Twin."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists EX40 / XC40 Recharge (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -639,10 +699,10 @@
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "kind": "estimated",
+            "source_id": "src-nrcan-bev-2026-09",
             "low_confidence": true,
-            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+            "notes": "Estimated: NRCan and EPA both rate the 2025-2026 EX40 at 8 h on 240 V (NRCan row EX40 / EX40 Twin, recharge time 8 h), which fits an 11 kW onboard charger for a 79-82 kWh pack. Volvo Canada support (EX40 charging time, read only as a search excerpt, page 403) says the highest AC output is 11 kW, and EV Database lists 11 kW (European 3-phase). Older model years carried over (same CMA charger); no North American page opened states it directly."
           }
         ],
         "dc_max_kw": [
@@ -674,6 +734,13 @@
             "source_id": "src-volvo-hamilton-ex40-2026-charging",
             "low_confidence": true,
             "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2024 RWD."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists EX40 / XC40 Recharge (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -701,9 +768,9 @@
             "value": 82,
             "unit": "kWh",
             "kind": "manufacturer",
-            "source_id": "src-kbb-ex40-2026-specs",
+            "source_id": "src-gcr-ex40-2025",
             "low_confidence": true,
-            "notes": "KBB: 82 kWh battery on the 2026 EX40; US 2025 pricing release (via InsideEVs) puts the Twin on 82 kWh; the single motor has been on the 82 kWh pack since 2024."
+            "notes": "Green Car Reports: 2025 EX40 single-motor models have the 82 kWh pack (also Volvo US 2024 release copy: RWD single motor 82 kWh; InsideEVs 2025 text says single keeps 78 kWh, which looks like an error)."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -747,10 +814,10 @@
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "kind": "estimated",
+            "source_id": "src-nrcan-bev-2026-09",
             "low_confidence": true,
-            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+            "notes": "Estimated: NRCan and EPA both rate the 2025-2026 EX40 at 8 h on 240 V (NRCan row EX40 / EX40 Twin, recharge time 8 h), which fits an 11 kW onboard charger for a 79-82 kWh pack. Volvo Canada support (EX40 charging time, read only as a search excerpt, page 403) says the highest AC output is 11 kW, and EV Database lists 11 kW (European 3-phase). Older model years carried over (same CMA charger); no North American page opened states it directly."
           }
         ],
         "dc_max_kw": [
@@ -772,6 +839,13 @@
             "source_id": "src-volvo-hamilton-ex40-2026-charging",
             "low_confidence": true,
             "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists EX40 / XC40 Recharge (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -799,9 +873,9 @@
             "value": 82,
             "unit": "kWh",
             "kind": "manufacturer",
-            "source_id": "src-kbb-ex40-2026-specs",
+            "source_id": "src-insideevs-ex40-2025-rename",
             "low_confidence": true,
-            "notes": "KBB: 82 kWh battery on the 2026 EX40; US 2025 pricing release (via InsideEVs) puts the Twin on 82 kWh; the single motor has been on the 82 kWh pack since 2024."
+            "notes": "InsideEVs (Volvo US 2025 release): Twin Motor versions get the 82 kWh pack, up from 78. CONFLICT: Green Car Reports says the 2025 dual-motor keeps 78 kWh. 82 is supported by the rated range rise (254 to 260 mi) and KBB 82 kWh for the 2026 Twin."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -845,10 +919,10 @@
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "kind": "estimated",
+            "source_id": "src-nrcan-bev-2026-09",
             "low_confidence": true,
-            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+            "notes": "Estimated: NRCan and EPA both rate the 2025-2026 EX40 at 8 h on 240 V (NRCan row EX40 / EX40 Twin, recharge time 8 h), which fits an 11 kW onboard charger for a 79-82 kWh pack. Volvo Canada support (EX40 charging time, read only as a search excerpt, page 403) says the highest AC output is 11 kW, and EV Database lists 11 kW (European 3-phase). Older model years carried over (same CMA charger); no North American page opened states it directly."
           }
         ],
         "dc_max_kw": [
@@ -870,6 +944,13 @@
             "source_id": "src-volvo-hamilton-ex40-2026-charging",
             "low_confidence": true,
             "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2025 Twin."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists EX40 / XC40 Recharge (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -896,10 +977,10 @@
           {
             "value": 82,
             "unit": "kWh",
-            "kind": "manufacturer",
-            "source_id": "src-kbb-ex40-2026-specs",
+            "kind": "estimated",
+            "source_id": "src-gcr-ex40-2025",
             "low_confidence": true,
-            "notes": "KBB: 82 kWh battery on the 2026 EX40; US 2025 pricing release (via InsideEVs) puts the Twin on 82 kWh; the single motor has been on the 82 kWh pack since 2024."
+            "notes": "Estimated: Green Car Reports and the Volvo US 2024 release give 82 kWh for the single-motor EX40 in 2024-2025; carried to 2026. Basis for the Canadian Standard: NRCan/EPA rate it 476 km (296 mi), identical to the 2025 single motor, so same pack."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -943,20 +1024,20 @@
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "kind": "estimated",
+            "source_id": "src-nrcan-bev-2026-09",
             "low_confidence": true,
-            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+            "notes": "Estimated: NRCan and EPA both rate the 2025-2026 EX40 at 8 h on 240 V (NRCan row EX40 / EX40 Twin, recharge time 8 h), which fits an 11 kW onboard charger for a 79-82 kWh pack. Volvo Canada support (EX40 charging time, read only as a search excerpt, page 403) says the highest AC output is 11 kW, and EV Database lists 11 kW (European 3-phase). Older model years carried over (same CMA charger); no North American page opened states it directly."
           }
         ],
         "dc_max_kw": [
           {
             "value": 205,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-insideevs-ex40-2025-rename",
             "low_confidence": true,
-            "notes": "Volvo US 2025 release as relayed by InsideEVs and Green Car Reports: DC fast-charging peak up from 200 kW to 205 kW for the 2025 EX40 (Volvo Hamilton, a Canadian dealer, says up to 200 kW for the 2026 Twin). EV Database tests 207 kW."
+            "notes": "Estimated: the Volvo US 2025 release (via InsideEVs/Green Car Reports) states 205 kW for the 2025 EX40; carried to 2026 (same 82 kWh pack, nothing shows a change). CONFLICT: Volvo Hamilton (Canadian dealer, 2026 Twin) says up to 200 kW; EV Database tested 207 kW."
           }
         ]
       },
@@ -968,6 +1049,13 @@
             "source_id": "src-volvo-hamilton-ex40-2026-charging",
             "low_confidence": true,
             "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2026 US."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists EX40 / XC40 Recharge (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -994,10 +1082,10 @@
           {
             "value": 82,
             "unit": "kWh",
-            "kind": "manufacturer",
-            "source_id": "src-kbb-ex40-2026-specs",
+            "kind": "estimated",
+            "source_id": "src-gcr-ex40-2025",
             "low_confidence": true,
-            "notes": "KBB: 82 kWh battery on the 2026 EX40; US 2025 pricing release (via InsideEVs) puts the Twin on 82 kWh; the single motor has been on the 82 kWh pack since 2024."
+            "notes": "Estimated: Green Car Reports and the Volvo US 2024 release give 82 kWh for the single-motor EX40 in 2024-2025; carried to 2026. Basis for the Canadian Standard: NRCan/EPA rate it 476 km (296 mi), identical to the 2025 single motor, so same pack."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1041,20 +1129,20 @@
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "kind": "estimated",
+            "source_id": "src-nrcan-bev-2026-09",
             "low_confidence": true,
-            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+            "notes": "Estimated: NRCan and EPA both rate the 2025-2026 EX40 at 8 h on 240 V (NRCan row EX40 / EX40 Twin, recharge time 8 h), which fits an 11 kW onboard charger for a 79-82 kWh pack. Volvo Canada support (EX40 charging time, read only as a search excerpt, page 403) says the highest AC output is 11 kW, and EV Database lists 11 kW (European 3-phase). Older model years carried over (same CMA charger); no North American page opened states it directly."
           }
         ],
         "dc_max_kw": [
           {
             "value": 205,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-insideevs-ex40-2025-rename",
             "low_confidence": true,
-            "notes": "Volvo US 2025 release as relayed by InsideEVs and Green Car Reports: DC fast-charging peak up from 200 kW to 205 kW for the 2025 EX40 (Volvo Hamilton, a Canadian dealer, says up to 200 kW for the 2026 Twin). EV Database tests 207 kW."
+            "notes": "Estimated: the Volvo US 2025 release (via InsideEVs/Green Car Reports) states 205 kW for the 2025 EX40; carried to 2026 (same 82 kWh pack, nothing shows a change). CONFLICT: Volvo Hamilton (Canadian dealer, 2026 Twin) says up to 200 kW; EV Database tested 207 kW."
           }
         ]
       },
@@ -1066,6 +1154,13 @@
             "source_id": "src-volvo-hamilton-ex40-2026-charging",
             "low_confidence": true,
             "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2026 Canada Standard."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists EX40 / XC40 Recharge (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -1139,20 +1234,20 @@
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-volvo-ca-ex40-charging-time-excerpt",
+            "kind": "estimated",
+            "source_id": "src-nrcan-bev-2026-09",
             "low_confidence": true,
-            "notes": "Volvo Canada support (EX40 page, search excerpt): highest AC output 11 kW. EV Database also lists 11 kW for the EX40."
+            "notes": "Estimated: NRCan and EPA both rate the 2025-2026 EX40 at 8 h on 240 V (NRCan row EX40 / EX40 Twin, recharge time 8 h), which fits an 11 kW onboard charger for a 79-82 kWh pack. Volvo Canada support (EX40 charging time, read only as a search excerpt, page 403) says the highest AC output is 11 kW, and EV Database lists 11 kW (European 3-phase). Older model years carried over (same CMA charger); no North American page opened states it directly."
           }
         ],
         "dc_max_kw": [
           {
             "value": 205,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-insideevs-ex40-2025-rename",
             "low_confidence": true,
-            "notes": "Volvo US 2025 release as relayed by InsideEVs and Green Car Reports: DC fast-charging peak up from 200 kW to 205 kW for the 2025 EX40 (Volvo Hamilton, a Canadian dealer, says up to 200 kW for the 2026 Twin). EV Database tests 207 kW."
+            "notes": "Estimated: the Volvo US 2025 release (via InsideEVs/Green Car Reports) states 205 kW for the 2025 EX40; carried to 2026 (same 82 kWh pack, nothing shows a change). CONFLICT: Volvo Hamilton (Canadian dealer, 2026 Twin) says up to 200 kW; EV Database tested 207 kW."
           }
         ]
       },
@@ -1164,6 +1259,13 @@
             "source_id": "src-volvo-hamilton-ex40-2026-charging",
             "low_confidence": true,
             "notes": "Estimated: North American EX40/XC40 Recharge use CCS1 (the 2026 EX40 is confirmed CCS by a Canadian Volvo dealer article, and Volvo sells a NACS-to-CCS1 adapter for all its EVs, which would be pointless with a native NACS port). Nothing shows a port change between 2021 and 2026 (no native NACS on any Volvo EV before the EX60). Applies to 2026 Twin."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists EX40 / XC40 Recharge (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -1228,9 +1330,9 @@
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
-            "source_id": "src-evdb-ex30-twin-perf",
+            "source_id": "src-volvo-ex90-precondition-support-excerpt",
             "low_confidence": true,
-            "notes": "Estimated: EV Database says preconditioning can start automatically using navigation on the EX30; Volvo says the same for its Google-built-in cars (see EX40 notes). No manual control found, no owner manual openable (volvocars.com 403)."
+            "notes": "Estimated: no page found states the EX30 navigation trigger. Volvo support for the EX90 (search excerpt) says preconditioning starts automatically when a DC charger is the navigation destination (and can be started manually in the charging view); an EX30 release note excerpt confirms the EX30 has a battery-preconditioning function; EV Database says only that EX30 preconditioning is available. The EX90 also has a manual start, so manual_and_automatic cannot be excluded for the EX30; closest enum chosen from the Google-built-in family (EX40/Polestar 2 pages show only the navigation trigger)."
           }
         ],
         "dc_max_kw": [
@@ -1258,10 +1360,10 @@
         "charge_port": [
           {
             "value": "ccs1",
-            "kind": "manufacturer",
-            "source_id": "src-insideevs-ex30-specs-2025",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
             "low_confidence": true,
-            "notes": "InsideEVs: charging port initially CCS1 (NACS was expected, but Volvo has since offered a NACS-to-CCS1 adapter instead)."
+            "notes": "Estimated: The Charge Port 2026 US checker lists the Volvo EX30 (2025-2026) as CCS1 with an adapter; InsideEVs says early US units use CCS1. For Canada the same car is sold and Volvo Canada promised a NACS adapter (Cision release), which implies CCS1; Motor Illustrated (Canadian review) also says CCS1."
           }
         ],
         "supercharger_access": [
@@ -1270,7 +1372,7 @@
             "kind": "estimated",
             "source_id": "src-thechargeport-nacs-checker-2026",
             "low_confidence": true,
-            "notes": "Estimated: The Charge Port 2026 checker lists the EX30 (2025-2026) as CCS1 with a paid adapter (search excerpt); a Volvo US support page excerpt lists the EX30 among models that can access Superchargers. Volvo Canada said in Oct 2024 that EX30 adapter availability would be announced later and no later Canadian confirmation was readable, so Canadian access is inferred from the US listing."
+            "notes": "Estimated, OWNER FLAG: US: The Charge Port 2026 checker (search excerpt) lists EX30 as CCS1 with a paid adapter, and a Volvo US support excerpt lists the EX30 among cars that can use Superchargers. Canada: the only Canadian page found (Volvo Canada release, Cision, Oct 2024) says EX30 adapter availability will be announced later; no later Canadian announcement found in repeated searches. Canadian access is therefore an inference from the identical US car."
           }
         ]
       }
@@ -1319,9 +1421,9 @@
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
-            "source_id": "src-evdb-ex30-twin-perf",
+            "source_id": "src-volvo-ex90-precondition-support-excerpt",
             "low_confidence": true,
-            "notes": "Estimated: EV Database says preconditioning can start automatically using navigation on the EX30; Volvo says the same for its Google-built-in cars (see EX40 notes). No manual control found, no owner manual openable (volvocars.com 403)."
+            "notes": "Estimated: no page found states the EX30 navigation trigger. Volvo support for the EX90 (search excerpt) says preconditioning starts automatically when a DC charger is the navigation destination (and can be started manually in the charging view); an EX30 release note excerpt confirms the EX30 has a battery-preconditioning function; EV Database says only that EX30 preconditioning is available. The EX90 also has a manual start, so manual_and_automatic cannot be excluded for the EX30; closest enum chosen from the Google-built-in family (EX40/Polestar 2 pages show only the navigation trigger)."
           }
         ],
         "dc_max_kw": [
@@ -1349,10 +1451,10 @@
         "charge_port": [
           {
             "value": "ccs1",
-            "kind": "manufacturer",
-            "source_id": "src-insideevs-ex30-specs-2025",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
             "low_confidence": true,
-            "notes": "InsideEVs: charging port initially CCS1 (NACS was expected, but Volvo has since offered a NACS-to-CCS1 adapter instead)."
+            "notes": "Estimated: The Charge Port 2026 US checker lists the Volvo EX30 (2025-2026) as CCS1 with an adapter; InsideEVs says early US units use CCS1. For Canada the same car is sold and Volvo Canada promised a NACS adapter (Cision release), which implies CCS1; Motor Illustrated (Canadian review) also says CCS1."
           }
         ],
         "supercharger_access": [
@@ -1361,7 +1463,7 @@
             "kind": "estimated",
             "source_id": "src-thechargeport-nacs-checker-2026",
             "low_confidence": true,
-            "notes": "Estimated: The Charge Port 2026 checker lists the EX30 (2025-2026) as CCS1 with a paid adapter (search excerpt); a Volvo US support page excerpt lists the EX30 among models that can access Superchargers. Volvo Canada said in Oct 2024 that EX30 adapter availability would be announced later and no later Canadian confirmation was readable, so Canadian access is inferred from the US listing."
+            "notes": "Estimated, OWNER FLAG: US: The Charge Port 2026 checker (search excerpt) lists EX30 as CCS1 with a paid adapter, and a Volvo US support excerpt lists the EX30 among cars that can use Superchargers. Canada: the only Canadian page found (Volvo Canada release, Cision, Oct 2024) says EX30 adapter availability will be announced later; no later Canadian announcement found in repeated searches. Canadian access is therefore an inference from the identical US car."
           }
         ]
       }
@@ -1410,9 +1512,9 @@
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
-            "source_id": "src-evdb-ex30-twin-perf",
+            "source_id": "src-volvo-ex90-precondition-support-excerpt",
             "low_confidence": true,
-            "notes": "Estimated: EV Database says preconditioning can start automatically using navigation on the EX30; Volvo says the same for its Google-built-in cars (see EX40 notes). No manual control found, no owner manual openable (volvocars.com 403)."
+            "notes": "Estimated: no page found states the EX30 navigation trigger. Volvo support for the EX90 (search excerpt) says preconditioning starts automatically when a DC charger is the navigation destination (and can be started manually in the charging view); an EX30 release note excerpt confirms the EX30 has a battery-preconditioning function; EV Database says only that EX30 preconditioning is available. The EX90 also has a manual start, so manual_and_automatic cannot be excluded for the EX30; closest enum chosen from the Google-built-in family (EX40/Polestar 2 pages show only the navigation trigger)."
           }
         ],
         "dc_max_kw": [
@@ -1440,10 +1542,10 @@
         "charge_port": [
           {
             "value": "ccs1",
-            "kind": "manufacturer",
-            "source_id": "src-insideevs-ex30-specs-2025",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
             "low_confidence": true,
-            "notes": "InsideEVs: charging port initially CCS1 (NACS was expected, but Volvo has since offered a NACS-to-CCS1 adapter instead)."
+            "notes": "Estimated: The Charge Port 2026 US checker lists the Volvo EX30 (2025-2026) as CCS1 with an adapter; InsideEVs says early US units use CCS1. For Canada the same car is sold and Volvo Canada promised a NACS adapter (Cision release), which implies CCS1; Motor Illustrated (Canadian review) also says CCS1."
           }
         ],
         "supercharger_access": [
@@ -1452,7 +1554,7 @@
             "kind": "estimated",
             "source_id": "src-thechargeport-nacs-checker-2026",
             "low_confidence": true,
-            "notes": "Estimated: The Charge Port 2026 checker lists the EX30 (2025-2026) as CCS1 with a paid adapter (search excerpt); a Volvo US support page excerpt lists the EX30 among models that can access Superchargers. Volvo Canada said in Oct 2024 that EX30 adapter availability would be announced later and no later Canadian confirmation was readable, so Canadian access is inferred from the US listing."
+            "notes": "Estimated, OWNER FLAG: US: The Charge Port 2026 checker (search excerpt) lists EX30 as CCS1 with a paid adapter, and a Volvo US support excerpt lists the EX30 among cars that can use Superchargers. Canada: the only Canadian page found (Volvo Canada release, Cision, Oct 2024) says EX30 adapter availability will be announced later; no later Canadian announcement found in repeated searches. Canadian access is therefore an inference from the identical US car."
           }
         ]
       }
@@ -1501,9 +1603,9 @@
           {
             "value": "automatic_with_navigation",
             "kind": "estimated",
-            "source_id": "src-evdb-ex30-twin-perf",
+            "source_id": "src-volvo-ex90-precondition-support-excerpt",
             "low_confidence": true,
-            "notes": "Estimated: EV Database says preconditioning can start automatically using navigation on the EX30; Volvo says the same for its Google-built-in cars (see EX40 notes). No manual control found, no owner manual openable (volvocars.com 403)."
+            "notes": "Estimated: no page found states the EX30 navigation trigger. Volvo support for the EX90 (search excerpt) says preconditioning starts automatically when a DC charger is the navigation destination (and can be started manually in the charging view); an EX30 release note excerpt confirms the EX30 has a battery-preconditioning function; EV Database says only that EX30 preconditioning is available. The EX90 also has a manual start, so manual_and_automatic cannot be excluded for the EX30; closest enum chosen from the Google-built-in family (EX40/Polestar 2 pages show only the navigation trigger)."
           }
         ],
         "dc_max_kw": [
@@ -1531,10 +1633,10 @@
         "charge_port": [
           {
             "value": "ccs1",
-            "kind": "manufacturer",
-            "source_id": "src-insideevs-ex30-specs-2025",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
             "low_confidence": true,
-            "notes": "InsideEVs: charging port initially CCS1 (NACS was expected, but Volvo has since offered a NACS-to-CCS1 adapter instead)."
+            "notes": "Estimated: The Charge Port 2026 US checker lists the Volvo EX30 (2025-2026) as CCS1 with an adapter; InsideEVs says early US units use CCS1. For Canada the same car is sold and Volvo Canada promised a NACS adapter (Cision release), which implies CCS1; Motor Illustrated (Canadian review) also says CCS1."
           }
         ],
         "supercharger_access": [
@@ -1543,7 +1645,7 @@
             "kind": "estimated",
             "source_id": "src-thechargeport-nacs-checker-2026",
             "low_confidence": true,
-            "notes": "Estimated: The Charge Port 2026 checker lists the EX30 (2025-2026) as CCS1 with a paid adapter (search excerpt); a Volvo US support page excerpt lists the EX30 among models that can access Superchargers. Volvo Canada said in Oct 2024 that EX30 adapter availability would be announced later and no later Canadian confirmation was readable, so Canadian access is inferred from the US listing."
+            "notes": "Estimated, OWNER FLAG: US: The Charge Port 2026 checker (search excerpt) lists EX30 as CCS1 with a paid adapter, and a Volvo US support excerpt lists the EX30 among cars that can use Superchargers. Canada: the only Canadian page found (Volvo Canada release, Cision, Oct 2024) says EX30 adapter availability will be announced later; no later Canadian announcement found in repeated searches. Canadian access is therefore an inference from the identical US car."
           }
         ]
       }
@@ -1626,6 +1728,13 @@
             "source_id": "src-polestar-ca-tesla-supercharger-network",
             "low_confidence": true,
             "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2021; no port change found across 2021-2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -1699,20 +1808,20 @@
           {
             "value": 150,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-polestar-us-manual-2021-charging",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2022-charging",
             "low_confidence": true,
-            "notes": "Estimated: Polestar US 2021 manual states 150 kW for the same 78 kWh pack; Wikipedia gives 155 kW for 2021-2023 so the true peak is 150-155 kW. Same hardware carried to 2022."
+            "notes": "Polestar US 2022 manual (read by the fact-checker): up to 150 kW DC, about 35 min. (Wikipedia gives 155 kW.)"
           }
         ],
         "ac_max_kw": [
           {
             "value": 11,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-polestar-us-manual-2021-charging",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2022-charging",
             "low_confidence": true,
-            "notes": "Estimated: 11 kW per the US 2021 and 2023 Polestar 2 manuals (same onboard charger)."
+            "notes": "Polestar US 2022 manual: AC max 11 kW."
           }
         ]
       },
@@ -1724,6 +1833,13 @@
             "source_id": "src-polestar-ca-tesla-supercharger-network",
             "low_confidence": true,
             "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2022; no port change found across 2021-2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -1797,20 +1913,20 @@
           {
             "value": 150,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-polestar-us-manual-2021-charging",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2022-charging",
             "low_confidence": true,
-            "notes": "Estimated: Polestar US 2021 manual states 150 kW for the same 78 kWh pack; Wikipedia gives 155 kW for 2021-2023 so the true peak is 150-155 kW. Same hardware carried to 2022."
+            "notes": "Polestar US 2022 manual (read by the fact-checker): up to 150 kW DC, about 35 min. (Wikipedia gives 155 kW.)"
           }
         ],
         "ac_max_kw": [
           {
             "value": 11,
             "unit": "kW",
-            "kind": "estimated",
-            "source_id": "src-polestar-us-manual-2021-charging",
+            "kind": "manufacturer",
+            "source_id": "src-polestar-us-manual-2022-charging",
             "low_confidence": true,
-            "notes": "Estimated: 11 kW per the US 2021 and 2023 Polestar 2 manuals (same onboard charger)."
+            "notes": "Polestar US 2022 manual: AC max 11 kW."
           }
         ]
       },
@@ -1822,6 +1938,13 @@
             "source_id": "src-polestar-ca-tesla-supercharger-network",
             "low_confidence": true,
             "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2022; no port change found across 2021-2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -1885,20 +2008,20 @@
         "battery.preconditioning": [
           {
             "value": "automatic_with_navigation",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-polestar-us-manual-2023-charging",
             "low_confidence": true,
-            "notes": "Polestar 2 manual (US, 2023): preconditioning is triggered by adding a rapid charging station as a destination in Google Maps; no manual control listed."
+            "notes": "Estimated: Polestar 2 manual (US, 2023): preconditioning is triggered by adding a rapid charging station as a destination in Google Maps; no manual control listed. The manual says \"selecting preconditioning\" can affect charging time, so a manual option is not ruled out; the only trigger described is navigation, so automatic_with_navigation is the closest enum."
           }
         ],
         "dc_max_kw": [
           {
             "value": 155,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-insideevs-polestar-2024-epa",
             "low_confidence": true,
-            "notes": "InsideEVs (Polestar US 2024 release): 2023 Single Motor charged at up to 155 kW (35 min 10-80%); Dual Motor up to 155 kW. Wikipedia also 155 kW. Polestar's 2021 manual says 150 kW."
+            "notes": "Estimated: InsideEVs (Polestar US 2024 release) states 155 kW for the 2023 Single Motor and the 2024 Dual Motor; the 2023 dual has the same 78 kWh pack and charger. The 2022 US manual says 150 kW; the 2024 manual says 155 kW."
           }
         ],
         "ac_max_kw": [
@@ -1920,6 +2043,13 @@
             "source_id": "src-polestar-ca-tesla-supercharger-network",
             "low_confidence": true,
             "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2023; no port change found across 2021-2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -1983,20 +2113,20 @@
         "battery.preconditioning": [
           {
             "value": "automatic_with_navigation",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-polestar-us-manual-2023-charging",
             "low_confidence": true,
-            "notes": "Polestar 2 manual (US, 2023): preconditioning is triggered by adding a rapid charging station as a destination in Google Maps; no manual control listed."
+            "notes": "Estimated: Polestar 2 manual (US, 2023): preconditioning is triggered by adding a rapid charging station as a destination in Google Maps; no manual control listed. The manual says \"selecting preconditioning\" can affect charging time, so a manual option is not ruled out; the only trigger described is navigation, so automatic_with_navigation is the closest enum."
           }
         ],
         "dc_max_kw": [
           {
             "value": 155,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-insideevs-polestar-2024-epa",
             "low_confidence": true,
-            "notes": "InsideEVs (Polestar US 2024 release): 2023 Single Motor charged at up to 155 kW (35 min 10-80%); Dual Motor up to 155 kW. Wikipedia also 155 kW. Polestar's 2021 manual says 150 kW."
+            "notes": "Estimated: InsideEVs (Polestar US 2024 release) states 155 kW for the 2023 Single Motor and the 2024 Dual Motor; the 2023 dual has the same 78 kWh pack and charger. The 2022 US manual says 150 kW; the 2024 manual says 155 kW."
           }
         ],
         "ac_max_kw": [
@@ -2018,6 +2148,13 @@
             "source_id": "src-polestar-ca-tesla-supercharger-network",
             "low_confidence": true,
             "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2023; no port change found across 2021-2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -2081,10 +2218,10 @@
         "battery.preconditioning": [
           {
             "value": "automatic_with_navigation",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-polestar-us-manual-2023-charging",
             "low_confidence": true,
-            "notes": "Polestar 2 manual (US, 2023): preconditioning is triggered by adding a rapid charging station as a destination in Google Maps; no manual control listed."
+            "notes": "Estimated: Polestar 2 manual (US, 2023): preconditioning is triggered by adding a rapid charging station as a destination in Google Maps; no manual control listed. The manual says \"selecting preconditioning\" can affect charging time, so a manual option is not ruled out; the only trigger described is navigation, so automatic_with_navigation is the closest enum."
           }
         ],
         "dc_max_kw": [
@@ -2126,6 +2263,13 @@
             "source_id": "src-polestar-ca-tesla-supercharger-network",
             "low_confidence": true,
             "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2023; no port change found across 2021-2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -2189,10 +2333,10 @@
         "battery.preconditioning": [
           {
             "value": "automatic_with_navigation",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-polestar-us-manual-2024-gmaps",
             "low_confidence": true,
-            "notes": "Polestar 2 manual (US, 2024): \"When charging stations have been added in Google Maps, the battery will be preconditioned to reduce charging time.\" No manual control mentioned."
+            "notes": "Estimated: Polestar 2 manual (US, 2024): \"When charging stations have been added in Google Maps, the battery will be preconditioned to reduce charging time.\" No manual control mentioned. The manual describes only the navigation trigger but does not state there is no manual control (the 2023 manual refers to \"selecting preconditioning\"), so the closest enum is used."
           }
         ],
         "dc_max_kw": [
@@ -2234,6 +2378,13 @@
             "source_id": "src-polestar-ca-tesla-supercharger-network",
             "low_confidence": true,
             "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2024; no port change found across 2021-2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -2296,10 +2447,10 @@
         "battery.preconditioning": [
           {
             "value": "automatic_with_navigation",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-polestar-us-manual-2024-gmaps",
             "low_confidence": true,
-            "notes": "Polestar 2 manual (US, 2024): \"When charging stations have been added in Google Maps, the battery will be preconditioned to reduce charging time.\" No manual control mentioned."
+            "notes": "Estimated: Polestar 2 manual (US, 2024): \"When charging stations have been added in Google Maps, the battery will be preconditioned to reduce charging time.\" No manual control mentioned. The manual describes only the navigation trigger but does not state there is no manual control (the 2023 manual refers to \"selecting preconditioning\"), so the closest enum is used."
           }
         ],
         "dc_max_kw": [
@@ -2341,6 +2492,13 @@
             "source_id": "src-polestar-ca-tesla-supercharger-network",
             "low_confidence": true,
             "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2024; no port change found across 2021-2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -2448,6 +2606,13 @@
             "source_id": "src-polestar-ca-tesla-supercharger-network",
             "low_confidence": true,
             "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2025; no port change found across 2021-2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -2474,9 +2639,10 @@
           {
             "value": 82,
             "unit": "kWh",
-            "kind": "manufacturer",
-            "source_id": "src-polestar-us-specs",
-            "notes": "Polestar US spec page: 82 kWh capacity (gross/usable not split) at 400 V."
+            "kind": "estimated",
+            "source_id": "src-wikipedia-polestar-2",
+            "notes": "Wikipedia: Dual Motor 82/79 kWh gross/usable for 2025; Polestar Canada spec page: Long range Dual motor 82 kWh.",
+            "low_confidence": true
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2501,10 +2667,10 @@
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-polestar-us-specs",
             "low_confidence": true,
-            "notes": "Polestar US spec page: 400 V lithium-ion, 82 kWh."
+            "notes": "Estimated: Polestar US spec page (Performance pack car) says 400 V lithium-ion 82 kWh; same pack."
           }
         ],
         "battery.preconditioning": [
@@ -2520,20 +2686,20 @@
           {
             "value": 205,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-polestar-us-specs",
+            "kind": "estimated",
             "low_confidence": true,
-            "notes": "Polestar US spec page (Dual motor with Performance pack, 82 kWh): up to 205 kW DC, 10-80% in 28 min. Wikipedia: single 205 kW from 2024, dual 205 kW from 2025. OpenEV shows 78/75/150 for these cars, which is stale."
+            "source_id": "src-wikipedia-polestar-2",
+            "notes": "Estimated: Wikipedia spec table gives 205 kW for the 2025 Dual Motor (82 kWh); Polestar US/Canada spec pages show 205 kW for the Dual motor (Canada page: Long range Dual motor). Variant not stated individually on a Polestar page for the non-Performance trim in the US. OpenEV 150 kW is stale."
           }
         ],
         "ac_max_kw": [
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-polestar-us-specs",
             "low_confidence": true,
-            "notes": "Polestar US spec page: AC 11 kW (three-phase 16 A line); North American cars charge single-phase 48 A = 11 kW per the 2023 US manual."
+            "notes": "Estimated: 11 kW per the Polestar US spec page for the Performance pack car and the 2023 US manual; same onboard charger."
           }
         ],
         "published_10_80_min": [
@@ -2541,9 +2707,9 @@
             "value": 28,
             "unit": "min",
             "kind": "manufacturer",
-            "source_id": "src-polestar-us-specs",
+            "source_id": "src-polestar-ca-specs",
             "low_confidence": true,
-            "notes": "Polestar US spec page: 10-80% in 28 min."
+            "notes": "Polestar Canada spec page (Long range Dual motor): 28 min 10-80%."
           }
         ]
       },
@@ -2555,6 +2721,13 @@
             "source_id": "src-polestar-ca-tesla-supercharger-network",
             "low_confidence": true,
             "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2025; no port change found across 2021-2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [
@@ -2581,9 +2754,10 @@
           {
             "value": 82,
             "unit": "kWh",
-            "kind": "manufacturer",
-            "source_id": "src-polestar-us-specs",
-            "notes": "Polestar US spec page: 82 kWh capacity (gross/usable not split) at 400 V."
+            "kind": "estimated",
+            "source_id": "src-insideevs-polestar-2024-epa",
+            "notes": "Estimated: InsideEVs (Polestar US 2024) gives 82 kWh for the Single Motor; carried to 2025. Polestar US spec page shows 82 kWh for the Performance pack car.",
+            "low_confidence": true
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2608,10 +2782,10 @@
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-polestar-us-specs",
             "low_confidence": true,
-            "notes": "Polestar US spec page: 400 V lithium-ion, 82 kWh."
+            "notes": "Estimated: Polestar US spec page (Performance pack car) says 400 V lithium-ion 82 kWh; same pack."
           }
         ],
         "battery.preconditioning": [
@@ -2627,20 +2801,20 @@
           {
             "value": 205,
             "unit": "kW",
-            "kind": "manufacturer",
-            "source_id": "src-polestar-us-specs",
+            "kind": "estimated",
             "low_confidence": true,
-            "notes": "Polestar US spec page (Dual motor with Performance pack, 82 kWh): up to 205 kW DC, 10-80% in 28 min. Wikipedia: single 205 kW from 2024, dual 205 kW from 2025. OpenEV shows 78/75/150 for these cars, which is stale."
+            "source_id": "src-insideevs-polestar-2024-epa",
+            "notes": "Estimated: InsideEVs (Polestar US 2024) states 205 kW, 28 min, 82 kWh for the 2024 Single Motor; carried to 2025 (same pack and charger). Polestar US spec page (Dual with Performance pack, 205 kW) agrees. OpenEV 150 kW is stale."
           }
         ],
         "ac_max_kw": [
           {
             "value": 11,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-polestar-us-specs",
             "low_confidence": true,
-            "notes": "Polestar US spec page: AC 11 kW (three-phase 16 A line); North American cars charge single-phase 48 A = 11 kW per the 2023 US manual."
+            "notes": "Estimated: 11 kW per the Polestar US spec page for the Performance pack car and the 2023 US manual; same onboard charger."
           }
         ],
         "published_10_80_min": [
@@ -2648,9 +2822,9 @@
             "value": 28,
             "unit": "min",
             "kind": "manufacturer",
-            "source_id": "src-polestar-us-specs",
+            "source_id": "src-insideevs-polestar-2024-epa",
             "low_confidence": true,
-            "notes": "Polestar US spec page: 10-80% in 28 min."
+            "notes": "InsideEVs (Polestar US 2024): Single Motor 28 min 10-80%; same pack in 2025."
           }
         ]
       },
@@ -2662,6 +2836,13 @@
             "source_id": "src-polestar-ca-tesla-supercharger-network",
             "low_confidence": true,
             "notes": "Estimated: North American Polestar 2 has a CCS1 port: Polestar Canada sells a NACS-to-CCS1 adapter for the Polestar 2 and the US checker lists Polestar as a paid adapter, so there is no native NACS port. Applies to 2025; no port change found across 2021-2025."
+          },
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-nacs-checker-2026",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port 2026 US checker lists Polestar 2 (2021-2025) as CCS1 (adapter needed for Superchargers)."
           }
         ],
         "supercharger_access": [

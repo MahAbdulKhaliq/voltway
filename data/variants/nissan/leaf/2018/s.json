@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "chademo",
+      "kind": "manufacturer",
+      "source_id": "src-nissan-usa-leaf-2018-press-kit",
+      "low_confidence": true,
+      "notes": "Quick charge port (CHAdeMO) per the 2018 press kit. On the S it is optional (Quick Charge Package): a base S without it has only the J1772 AC port. Canada 2018 pricing release lists the quick charge port in standard equipment (trims not itemised; src-nissan-ca-leaf-2018-pricing)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "no",
+      "kind": "estimated",
+      "source_id": "src-electrek-nissan-supercharger-2024-12",
+      "low_confidence": true,
+      "notes": "Estimated: CHAdeMO port. Nissan's Dec 2024 Supercharger programme covers only the CCS Ariya; Electrek says the Leaf is excluded and uses CHAdeMO. No Nissan adapter exists for the Leaf."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

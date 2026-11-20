@@ -84,3 +84,15 @@ All sources have specific URLs and `accessed_on`; types sensible (EVDB and Wikip
 
 ## Rule 14 (no unknowns)
 No required field is empty for any covered powertrain. Fields where the value is carried only as a low-confidence estimate are listed above (Ariya preconditioning; 24 kWh chemistry; Leaf supercharger).
+
+## Applied by the researcher (2026-11-19)
+- 1, 2: Leaf 24 kWh S (2013-s, 2014-s, 2016-s-24-kwh) DC peak now 46 kW and 30 kWh (2016-sv-30-kwh, 2017-s) 47 kW, kind community, citing the EV Database pages that state them. 40 kWh now 50 kW kind manufacturer from the Nissan Canada 2024 kit (SV 50 kW).
+- 3: all 22 Ariya preconditioning values are now `estimated`, low confidence, naming the manual and EV Database 1305, with the MY26 EV Database conflict noted; manual still to be re-read before publishing.
+- 4: Ariya FWD published_10_80_min dropped (kept only on e-4ORCE powertrains).
+- 5: 24 kWh chemistry for years other than 2013 kept as `other`, estimated, note says carry-over is UNPROVEN.
+- 6: 62 kWh DC peak 100 kW kept (manufacturer); note reworded (EV Database lists, does not measure, 46 kW); owner flag.
+- 7: 2023-2025 SV PLUS gross 62 now kind community, note fixed. 8: 2026 S+ preconditioning now manual_only (estimated; Canada 2026 kit: manual battery heater, no Google navigation on S+); SV+/Platinum+ stay automatic_and_manual (estimated). 9: 2024 kit source note fixed.
+- 10: Canada 2011/2012 sources added; 2011-sv and 2012-sv port, DC and AC cite them.
+- 11: AC convention stated in notes (rating as Nissan prints it that year).
+- 12: Canadian sources found and used: 2013 and 2014 sheets (S: 6.6 kW AC and NO quick charge port in Canada; so 2013-s and 2014-s now ac 6.6, j1772, dc 0, differing from US), 2017 pricing (6.6 kW all trims; 2016 S estimated), 2018 pricing (quick charge port standard), 2024 kit (50/100 kW), 2026 kit (7.2 kW). Other Canadian years remain US-kit-based, low confidence.
+- `--check` OK (491 variants, 205 sources).

@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "estimated",
+      "source_id": "src-wikipedia-nacs",
+      "low_confidence": true,
+      "notes": "Estimated: Tesla has used its own connector (now NACS) on all its North American cars since 2012, including the Model Y (2020 on). Not read on a Tesla page for this model year."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-tesla-model-y",
+      "low_confidence": true,
+      "notes": "Estimated: Tesla-built cars with the Tesla/NACS inlet can use the Supercharger network; page says every Model Y uses native NACS. Applied to this model year as a lineup-wide fact."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

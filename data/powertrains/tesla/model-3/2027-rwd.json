@@ -5,5 +5,74 @@
   "generation": "highland",
   "years": [
     2027
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 69,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-arenaev-m3-standard-2025",
+        "low_confidence": true,
+        "notes": "Estimated: ArenaEV Model 3 Standard: 69 kWh total (nominal), LFP. Sources conflict: Tesla does not disclose capacity; KBB shows N/A; Electra (France) gives about 64 kWh usable for the EU Standard. 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 64,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-goelectra-m3-standard-2026",
+        "low_confidence": true,
+        "notes": "Estimated: Electra (France) states about 64 kWh usable for the Model 3 Standard (LFP, CATL); ArenaEV's 69 kWh total gives a plausible 93 % usable ratio. The French page covers the European Standard (US pack assumed the same). A Car and Driver figure of 69.5 kWh usable appeared only in a search excerpt (AOL), not opened. 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "lfp",
+        "kind": "estimated",
+        "source_id": "src-arenaev-m3-standard-2025",
+        "low_confidence": true,
+        "notes": "Estimated: LFP per ArenaEV and Electra (CATL). 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-arenaev-m3-standard-2025",
+        "low_confidence": true,
+        "notes": "Estimated: ArenaEV lists a 400 V system. 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_with_navigation",
+        "kind": "estimated",
+        "source_id": "src-notateslaapp-2020-24-6-4",
+        "low_confidence": true,
+        "notes": "Estimated: Tesla's release note (2020.24.6.4, Model S/3/X/Y) says the car preconditions its battery when navigating to a fast charger; this is a software feature delivered to the whole Model 3 line (2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page.). Page mentions no manual battery-warming control. A manual control was neither found nor ruled out: Tesla's owner's manual pages were blocked (403) and scheduled-departure preconditioning in search excerpts is cabin-oriented."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 225,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-insideevs-m3-standard-2026",
+      "low_confidence": true,
+      "notes": "Estimated: InsideEVs: 225 kW maximum input for the Standard (250 kW for the rest of the lineup); ArenaEV also 225 kW. Conflict: Electra (France) lists 175 kW and EU listings 170 kW for the European Standard. 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-arenaev-m3-standard-2025",
+      "low_confidence": true,
+      "notes": "Estimated: ArenaEV lists 11 kW AC for the Model 3 Standard (European listing) and the existing OpenEV data for the 2026 Canadian Premium-I (same LFP RWD family) shows 11 kW. Older RWD cars were 7.6 kW (32 A, Wikipedia/Basenor, 2017-2023), so a lower North American single-phase limit is possible. 2027 RWD (US): EPA \"RWD\" taken as the Standard renamed for 2027; not confirmed on a manufacturer page."
+    }
   ]
 }

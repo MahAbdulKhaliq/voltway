@@ -44,6 +44,16 @@
         "low_confidence": true,
         "notes": "Manual switch plus conditioning timed to a fast charger set as waypoint/destination (MV1 2026 manual; MV1 is the EV9 per the en_US specs page). Cited page is the UK copy; the en_US copy of this page was not found. Manual says the feature applies only to vehicles with a battery heater."
       }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 96,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-evdb-ev9-998-awd",
+        "low_confidence": true,
+        "notes": "EV Database: 96.0 kWh usable (page marks it estimated); Australian Kia fact sheet also 96."
+      }
     ]
   },
   "dc_max_kw": [
@@ -54,6 +64,16 @@
       "source_id": "src-evdb-ev9-998-awd",
       "low_confidence": true,
       "notes": "EV Database: Kia claimed maximum 210 kW for the 99.8 kWh pack; Edwards GT-Line US sheet also says 210 max DC. InsideEVs measured 216 kW. Replaces an unsourced 240 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 10.9,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-2024-ev9-epa",
+      "low_confidence": true,
+      "notes": "InsideEVs relaying Kia documents: 10.9 kW for both packs."
     }
   ]
 }

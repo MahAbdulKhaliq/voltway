@@ -124,13 +124,13 @@ export function CarSettingsPanel({ mine, onDone }: PanelProps) {
         {variantText && <p className="dlg-sub">{variantText}</p>}
       </header>
       {/* The car's page, as a row action like the trip panel's Change car (design-language §8 rows). */}
-      <a href={carHref(mine.carId, trimId)} className="dlg-row">
+      <a href={carHref(mine.carId, trimId)} className="dlg-row" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 19V5M4 19h16M7 15l4-6 3 3 5-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
-        <span>{t('mycar.curveLink')}</span>
+        <span>{t('mycar.curveLink')} <span className="sr-only">{t('link.newTab')}</span></span>
         <svg className="dlg-row-go" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          <path d="M8 16L16 8M9 8h7v7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
       </a>
       {!car ? (

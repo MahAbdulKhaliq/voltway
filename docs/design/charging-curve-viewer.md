@@ -64,7 +64,7 @@ Add up across the window:
 **Decision:** in v1, **no loss factor in the time calculation.** The curve's kW is treated as the power going into the battery, and energy is labeled "**added to battery**".
 
 - **Why:** it keeps the maths transparent and in line with how most published curves are presented. Losses mostly affect **energy drawn from the charger**, which matters for **cost**, and cost is out of scope for v1. *(Superseded by B19: cost is in v1.)*
-- **Added 2026-11-15 (B19):** cost is in v1 after all: price per kWh input (default C$0.45), cost = energy added ÷ 0.92 × price, with the drawn kWh and the assumed losses shown.
+- **Added 2026-11-15 (B19):** cost is in v1 after all: price per kWh input (default C$0.45; *B99, 2026-11-20: plain $0.45, no currency or country*), cost = energy added ÷ 0.92 × price, with the drawn kWh and the assumed losses shown.
 - **Originally:** when cost is added, show "drawn from charger ≈ added ÷ efficiency" with a stated assumption, for example ~90–95% for DC. That figure is an assumption to check then.
 - **Note for imports:** when a source says whether its curve was measured at the charger or the battery, record it in the curve's `conditions`.
 

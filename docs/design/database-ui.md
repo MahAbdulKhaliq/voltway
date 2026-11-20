@@ -197,7 +197,7 @@ The data model gives every figure a *kind* and a source. On screen:
 | Distance | **km** | mi |
 | Efficiency | **kWh/100 km** (what NRCan uses) | Wh/km, mi/kWh |
 | Power, energy | kW, kWh | n/a |
-| Currency | CAD | *later*, with prices |
+| Currency | ~~CAD~~ plain $, no currency code (B99, 2026-11-20) | *later*, with prices |
 
 **Language (U5) ✅:** English for v1, but **all on-screen text is kept separate from the code** (labels, badges, notes), so French can be added later as translation work. Québec is Canada's largest EV market, so French is a likely early addition.
 

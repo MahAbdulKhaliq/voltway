@@ -12,14 +12,13 @@ import type { TripEnd } from '../lib/place-search.ts';
 import { gapDetails, hoursMinutes, pct, showDate, stopsText } from '../lib/trip-format.ts';
 import { NEAR_KM, type TripPlan } from '../lib/trip-plan.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
-import { COVERAGE, TRIP } from '../config.ts';
-import { chargeCost, chargePrice, PRICE_EVENT } from '../lib/price.ts';
+import { TRIP } from '../config.ts';
+import { chargeCost, chargePrice, money, PRICE_EVENT } from '../lib/price.ts';
 import { rowsOnLeg, type BorderRow } from '../lib/border-rows.ts';
 import { Accordion } from './react/Accordion.tsx';
 import { SpeedMark } from './SpeedIcon.tsx';
 import { speedTier } from '../lib/map-icons.ts';
 
-const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', currency: COVERAGE.currency });
 
 interface Props {
   plan: TripPlan;

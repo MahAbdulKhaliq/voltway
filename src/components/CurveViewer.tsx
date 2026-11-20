@@ -10,17 +10,16 @@ import { CanvasRenderer } from 'echarts/renderers';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { calculateCharge, displayMinutes, measuredSpan, powerAt } from '../lib/charging.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
-import { chargePrice, PRICE_EVENT, setChargePrice } from '../lib/price.ts';
+import { chargePrice, money, PRICE_EVENT, setChargePrice } from '../lib/price.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CurveOut } from '../lib/types.ts';
 import { SourceRef } from './react/Badge.tsx';
-import { COST, COVERAGE } from '../config.ts';
+import { COST } from '../config.ts';
 import { setUnit as switchUnit } from '../scripts/units-client.ts';
 import { mapLink } from '../lib/map-filter.ts';
 import type { Plug } from '../lib/power-bands.ts';
 import { curveChoices, curveYear } from '../lib/curve-choice.ts';
 
-const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', currency: COVERAGE.currency });
 
 echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, MarkPointComponent, MarkAreaComponent, CanvasRenderer]);
 
@@ -472,7 +471,7 @@ export default function CurveViewer({
           </div>
         </div>
         <label title={t('viewer.priceHelp')}>
-          <span>{t('viewer.price', { currency: COVERAGE.currency })}</span>
+          <span>{t('viewer.price')}</span>
           <input
             type="number" inputMode="decimal" min={0} max={5} step={0.01}
             value={settings.price}

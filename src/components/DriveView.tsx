@@ -13,11 +13,9 @@ import { nextTarget, tickReached, toTarget, type Fix } from '../lib/drive.ts';
 import { directionsUrls, WHOLE_TRIP_MAX, wholeTripUrls } from '../lib/nav-links.ts';
 import { pct } from '../lib/trip-format.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
-import { chargeCost, chargePrice, PRICE_EVENT } from '../lib/price.ts';
-import { COVERAGE } from '../config.ts';
+import { chargeCost, chargePrice, money, PRICE_EVENT } from '../lib/price.ts';
 
-const money = new Intl.NumberFormat(COVERAGE.moneyLocale, { style: 'currency', currency: COVERAGE.currency });
-const clock = new Intl.DateTimeFormat(COVERAGE.moneyLocale, { hour: 'numeric', minute: '2-digit' });
+const clock = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit' });
 
 type Locating = 'waiting' | 'on' | 'off';
 

@@ -243,6 +243,17 @@ const kwText = (kw: number) => kw.toLocaleString('en-CA', { maximumFractionDigit
 /** One stop as a short tick label ("0", "3.6", "Max") and as spoken text ("3.6 kW", "No limit"). */
 const stopLabel = (kw: number) => (Number.isFinite(kw) ? kwText(kw) : t('map.power.maxStop'));
 const stopSpoken = (kw: number) => (Number.isFinite(kw) ? t('map.power.kw', { kw: kwText(kw) }) : t('map.power.noLimit'));
+/** A level's power range in words ("Any power", "50 kW and up", "50–150 kW"). */
+const powerWords = (level: ChargerLevel, value: PowerRange) => {
+  const w = rangeWords(level, value);
+  return w.key === 'any'
+    ? t('map.power.any')
+    : w.key === 'upTo'
+      ? t('map.power.upTo', { max: kwText(w.max) })
+      : w.key === 'from'
+        ? t('map.power.from', { min: kwText(w.min) })
+        : t('map.power.between', { min: kwText(w.min), max: kwText(w.max) });
+};
 
 /**
  * Two-handle kW slider for one level (charger-map §4, B35): two native range inputs over one rail,
@@ -263,15 +274,7 @@ function PowerSlider({
   const stops = POWER_STOPS[level];
   const last = stops.length - 1;
   const [lo, hi] = value;
-  const w = rangeWords(level, value);
-  const words =
-    w.key === 'any'
-      ? t('map.power.any')
-      : w.key === 'upTo'
-        ? t('map.power.upTo', { max: kwText(w.max) })
-        : w.key === 'from'
-          ? t('map.power.from', { min: kwText(w.min) })
-          : t('map.power.between', { min: kwText(w.min), max: kwText(w.max) });
+  const words = powerWords(level, value);
   const pct = (i: number) => `${(i / last) * 100}%`;
   const wordsId = `power-words-l${level}`;
   return (
@@ -793,11 +796,12 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
   const updatedUs = meta?.sources?.find((x) => x.source_id === 'src-afdc-us')?.fetched_at.slice(0, 10) ?? null;
   const usTrip = routeData?.countries?.length === 1 && routeData.countries[0] === 'us';
   // B59: on phones the panel is a draggable bottom sheet over a full-height map.
-  // B89 (owner, replaces the B59 follow-up): the Chargers filters are always open in the sheet;
-  // dragging it only changes its height.
+  // B89: dragging the sheet only changes its height. B124: the sheet holds "Where to?" only.
   const sheet = useMapSheet();
   setSnapRef.current = sheet.setSnap;
-  const filtersOpen = panelOpen || sheet.phone;
+  // B124 (owner 2026-11-20): phones moved the filters out of the sheet into a Chargers fold under
+  // Stations in view; it starts closed (panelOpen starts false on phones).
+  const filtersOpen = panelOpen;
   // Phones (B71; owner 2026-11-20: two rows, was three): the list box is two rows tall and scrolls
   // through the rest, so it never covers much of the map.
   const listBox = useRef<HTMLDivElement>(null);
@@ -808,6 +812,7 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
     el.style.maxHeight = last ? `${Math.ceil(last.getBoundingClientRect().bottom - el.getBoundingClientRect().top + el.scrollTop) + 6}px` : '';
   }, [list, listOpen, sheet.phone, you, T.unit]);
   const { setSnap } = sheet;
+  const sheetOn = sheet.phone && routeMode;
   // B89 round 4: the trip at peek shows its vital lines only: nothing scrolls, the car card can't
   // be used, and lowering the sheet brings the trip back to its top.
   const routePeek = sheet.phone && routeMode && sheet.snap === 'peek' && !sheet.dragging;
@@ -1092,13 +1097,89 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
   const levelLabel: Record<ChargerLevel, MessageKey> = { 3: 'map.level3', 2: 'map.level2' };
   /** Plugs the map is showing now (ticked, and not ruled out by the car filter). */
   const plugsOn = PLUGS.filter((p) => filters.plugs[p]).length;
+  // Owner 2026-11-20 (B124): one box of filters, in the left panel on wide screens and in the
+  // Chargers fold under Stations in view on phones.
+  const filtersBox = (
+          <div id="map-filters" className={`map-filters fold${filtersOpen ? '' : ' shut'}`}>
+            <div className="map-filters-body">
+            <fieldset>
+              <legend>{t('map.levelPower')}</legend>
+              {LEVELS.map((lv) => (
+                <div key={lv} className="level-group">
+                  <label className="check level">
+                    <input type="checkbox" checked={filters.levels[lv]} onChange={() => toggle('levels', lv)} />
+                    <PinIcon level={lv} />
+                    <span>{t(levelLabel[lv])}</span>
+                  </label>
+                  {filters.levels[lv] && (
+                    <PowerSlider
+                      level={lv}
+                      levelName={t(levelLabel[lv])}
+                      value={filters.power[lv]}
+                      onChange={(r) => setFilters((f) => ({ ...f, power: { ...f.power, [lv]: r } }))}
+                    />
+                  )}
+                </div>
+              ))}
+            </fieldset>
+  
+            <div className="plugs-group">
+              <button
+                type="button"
+                className="plugs-toggle"
+                aria-expanded={plugsOpen}
+                aria-controls="map-plugs"
+                onClick={() => setPlugsOpen((o) => !o)}
+              >
+                <span>{t('map.plugs')}</span>
+                <span className="plugs-summary small muted">
+                  {plugsOn === PLUGS.length ? t('map.plugs.all') : t('map.plugs.some', { n: plugsOn, total: PLUGS.length })}
+                </span>
+                <svg className="chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </button>
+            <div className={`fold${plugsOpen ? '' : ' shut'}`}><div>
+            <fieldset id="map-plugs">
+              <legend className="sr-only">{t('map.plugs')}</legend>
+              <ul className="plugs">
+                {PLUGS.map((p) => {
+                  return (
+                    <li key={p}>
+                      <label className="check">
+                        <input type="checkbox" checked={filters.plugs[p]} onChange={() => toggle('plugs', p)} />
+                        <PlugIcon plug={p} />
+                        <span>{t(`value.${p}` as MessageKey)}</span>
+                      </label>
+                    </li>
+                  );
+                })}
+              </ul>
+            </fieldset>
+            </div></div>
+            </div>
+            </div>
+          </div>
+  );
+  // B124: the closed Chargers fold's summary line: levels on · plugs.
+  const levelsOn = LEVELS.filter((lv) => filters.levels[lv]);
+  const filtersSum = levelsOn.length === 0
+    ? t('map.filters.sumNone')
+    : t('map.filters.sum', {
+      // Owner 2026-11-20: a narrowed power range shows next to its level ("Level 3 (50 kW and up)").
+      levels: levelsOn.map((lv) => {
+        const name = t(lv === 3 ? 'map.filters.sumL3' : 'map.filters.sumL2');
+        return rangeWords(lv, filters.power[lv]).key === 'any' ? name : t('map.filters.sumRange', { level: name, range: powerWords(lv, filters.power[lv]) });
+      }).join(', '),
+      plugs: plugsOn === PLUGS.length ? t('map.filters.plugsAll') : t('map.filters.plugsSome', { n: plugsOn, total: PLUGS.length }),
+    });
 
   return (
     <div className="charger-map" ref={sheet.rootRef}>
       <div ref={box} className="map-canvas" role="region" aria-label={t('map.label')} />
 
-      <div className={`map-panel${routeMode ? ' route' : ''}${sheet.phone && !routeMode && sheet.snap === 'peek' && !sheet.dragging ? ' peeked' : ''}${routePeek ? ' route-peek' : ''}`} ref={sheet.panelRef} style={sheet.panelStyle} {...sheet.panelProps}>
-        {sheet.phone && (
+      {/* B126 (owner 2026-11-20): outside a trip the phone sheet is a fixed "Where to?" bar: no
+          handle, no dragging, and typing doesn't raise it. A trip keeps the draggable sheet. */}
+      <div className={`map-panel${routeMode ? ' route' : ''}${sheet.phone && !routeMode ? ' where-bar' : ''}${routePeek ? ' route-peek' : ''}`} ref={sheet.panelRef} style={sheetOn ? sheet.panelStyle : undefined} {...(sheetOn ? sheet.panelProps : {})}>
+        {sheetOn && (
           <button type="button" className="sheet-handle" {...sheet.handleProps}
             aria-label={t('map.sheet.handle', { size: t(`map.sheet.${sheet.snap}` as MessageKey) })}>
             <span aria-hidden="true" />
@@ -1151,14 +1232,7 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
             </p>
           )}
         </div>
-        {sheet.phone ? (
-          <h2 className="map-panel-toggle map-panel-head">
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-            </svg>
-            <span>{t('map.filters')}</span>
-          </h2>
-        ) : (
+        {!sheet.phone && (<>
         <button
           type="button"
           className="map-panel-toggle"
@@ -1169,68 +1243,14 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
           </svg>
-          <span>{t('map.filters')}</span>
+          {/* Owner 2026-11-20: closed, the toggle says what's on, as on phones. */}
+          <span className="map-chargers-text">
+            <span>{t('map.filters')}</span>
+            {!panelOpen && <span className="map-chargers-sum">{filtersSum}</span>}
+          </span>
         </button>
-        )}
-
-        <div id="map-filters" className={`map-filters fold${filtersOpen ? '' : ' shut'}`}>
-          <div className="map-filters-body">
-          <fieldset>
-            <legend>{t('map.levelPower')}</legend>
-            {LEVELS.map((lv) => (
-              <div key={lv} className="level-group">
-                <label className="check level">
-                  <input type="checkbox" checked={filters.levels[lv]} onChange={() => toggle('levels', lv)} />
-                  <PinIcon level={lv} />
-                  <span>{t(levelLabel[lv])}</span>
-                </label>
-                {filters.levels[lv] && (
-                  <PowerSlider
-                    level={lv}
-                    levelName={t(levelLabel[lv])}
-                    value={filters.power[lv]}
-                    onChange={(r) => setFilters((f) => ({ ...f, power: { ...f.power, [lv]: r } }))}
-                  />
-                )}
-              </div>
-            ))}
-          </fieldset>
-
-          <div className="plugs-group">
-            <button
-              type="button"
-              className="plugs-toggle"
-              aria-expanded={plugsOpen}
-              aria-controls="map-plugs"
-              onClick={() => setPlugsOpen((o) => !o)}
-            >
-              <span>{t('map.plugs')}</span>
-              <span className="plugs-summary small muted">
-                {plugsOn === PLUGS.length ? t('map.plugs.all') : t('map.plugs.some', { n: plugsOn, total: PLUGS.length })}
-              </span>
-              <svg className="chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </button>
-          <div className={`fold${plugsOpen ? '' : ' shut'}`}><div>
-          <fieldset id="map-plugs">
-            <legend className="sr-only">{t('map.plugs')}</legend>
-            <ul className="plugs">
-              {PLUGS.map((p) => {
-                return (
-                  <li key={p}>
-                    <label className="check">
-                      <input type="checkbox" checked={filters.plugs[p]} onChange={() => toggle('plugs', p)} />
-                      <PlugIcon plug={p} />
-                      <span>{t(`value.${p}` as MessageKey)}</span>
-                    </label>
-                  </li>
-                );
-              })}
-            </ul>
-          </fieldset>
-          </div></div>
-          </div>
-          </div>
-        </div>
+        {filtersBox}
+        </>)}
 
         <p className="map-count small" role="status" aria-live="polite">
           {failed
@@ -1316,6 +1336,7 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
       </div>
 
 
+      <div className="map-left">
       {!routeMode && !station && (
         <section className={`map-inview${listOpen ? ' open' : ''}`} aria-label={t('map.list.toggle')}>
           <button
@@ -1393,6 +1414,23 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
           onRouteHere={selectedStop === null ? () => enterRoute({ to: stationEnd(station) }) : undefined}
         />
       )}
+
+      {sheet.phone && !routeMode && (
+        <section className={`map-chargers${panelOpen ? ' open' : ''}`} aria-labelledby="map-chargers-name">
+          <button type="button" className="map-chargers-toggle" aria-expanded={panelOpen} aria-controls="map-filters" onClick={() => setPanelOpen((o) => !o)}>
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+            </svg>
+            <span className="map-chargers-text">
+              <span id="map-chargers-name" className="map-chargers-name">{t('map.filters')}</span>
+              {!panelOpen && <span className="map-chargers-sum">{filtersSum}</span>}
+            </span>
+            <span className="acc-chev" aria-hidden="true"></span>
+          </button>
+          {filtersBox}
+        </section>
+      )}
+      </div>
 
       {mapStatus === 'ready' && (locate === 'busy' || autoLocating) && (
         <p className="map-status map-status-loading map-status-locate" role="status">

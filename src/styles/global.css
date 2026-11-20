@@ -239,13 +239,26 @@ main.fill { flex: 1; min-height: 0; position: relative; }
 
 /* Map filter panel: top left on desktop; full width under the header on phones. */
 .map-panel { position: absolute; top: 12px; left: 12px; z-index: 3; width: 280px; max-height: calc(100% - 24px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+/* B125 (owner 2026-11-20): above phone widths the header pill (top right) never runs into the
+   left panel. Wide screens: the pill stops short of the panel and the car name shortens. Narrower
+   screens, where both can't share the top row: the panel starts under the pill. */
+@media (min-width: 1000px) and (min-height: 481px), (min-width: 1000px) and (pointer: fine) {
+  body.fill-page:has(.map-panel) .site-header { max-width: calc(100% - 24px - 280px - 12px); }
+}
+@media (min-width: 1100px) and (min-height: 481px), (min-width: 1100px) and (pointer: fine) {
+  body.fill-page:has(.map-panel.route) .site-header { max-width: calc(100% - 24px - 380px - 12px); }
+}
+@media (min-width: 641px) and (max-width: 999.98px) and (min-height: 481px), (min-width: 641px) and (max-width: 999.98px) and (pointer: fine) {
+  .charger-map .map-panel { top: 72px; max-height: calc(100% - 84px); }
+}
+/* The trip panel is wider (380 px), so it moves under the pill up to 1100 px. */
+@media (min-width: 641px) and (max-width: 1099.98px) and (min-height: 481px), (min-width: 641px) and (max-width: 1099.98px) and (pointer: fine) {
+  .charger-map .map-panel.route { top: 72px; max-height: calc(100% - 84px); }
+}
 .map-panel-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 12px; background: none; border: 0; color: inherit; font: inherit; font-weight: 600; cursor: pointer; text-align: left; border-radius: var(--radius); }
-/* B89 phones: at the small height the sheet shows only the handle and "Where to?" (no glimpse of
-   the filters, nothing to scroll); they appear as soon as it is dragged or stepped up. */
-.map-panel.peeked { overflow: hidden; }
-.map-panel.peeked > :not(.sheet-handle):not(.map-where) { display: none; }
-/* B89 phones: the filters are always open, so the toggle is a plain heading. */
-.map-panel-head { margin: 0; cursor: default; font-size: inherit; }
+/* The Chargers summary line (B124), on phones and wide screens. */
+.map-chargers-text { display: grid; flex: 1; min-width: 0; }
+.map-chargers-sum { font-family: var(--font, inherit); font-size: 0.8rem; font-weight: 400; color: var(--muted); text-wrap: pretty; }
 .map-panel-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .map-filters { min-height: 0; }
 .map-filters > .map-filters-body { overflow-y: auto; padding: 0 12px 4px; border-top: 1px solid var(--border); }
@@ -297,6 +310,7 @@ html[data-motion="off"] .plugs-toggle .chev { transition: none; }
 /* Stations in view (B34): wide screens only for now (TD-P11). */
 /* Stations in view (B62): a switch on the right with the count of stations on screen; switched on,
    the list opens under it, in the place a station's details use (they get a Back button to it). */
+.map-left { display: contents; }
 .map-inview { position: absolute; top: 72px; right: 12px; z-index: 4; width: 340px; max-height: calc(100% - 72px - 196px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
 .map-inview:not(.open), .map-inview:not(.open) .map-inview-toggle { width: auto; border-radius: 23px; }
 .map-inview-toggle { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 8px 12px; background: none; border: 0; border-radius: var(--radius); color: inherit; font: inherit; font-weight: 600; text-align: left; cursor: pointer; }
@@ -555,7 +569,12 @@ html[data-motion="off"] .map-btn-label { transition: none; }
   /* ^ It ends above the credits ⓘ, which rides on the sheet's top edge. */
   .map-corner .map-locate-msg { order: 4; }
   /* Place suggestions grow the sheet instead of being clipped inside it. */
-  .map-panel .tp-field .cp-suggest { position: static; margin: 0; }
+  .map-panel.route .tp-field .cp-suggest { position: static; margin: 0; }
+  /* B126 (owner 2026-11-20): outside a trip the sheet is a fixed "Where to?" bar; its place
+     suggestions open upward over the map instead of growing the bar. */
+  .map-panel.where-bar { overflow: visible; }
+  .map-panel.where-bar .map-where { padding-top: 10px; }
+  .map-panel.where-bar .map-where .cp-suggest { top: auto; bottom: calc(100% + 6px); margin: 0; max-height: min(50dvh, 320px); overflow-y: auto; overscroll-behavior: contain; }
   /* B70: a station's details open in the same box as Stations in view, top left, above the folded
      sheet, so they never compete with "Where to?". */
   /* Owner 2026-11-20: the details keep the Stations in view pill's width (15rem), not half the screen. */
@@ -577,6 +596,27 @@ html[data-motion="off"] .map-btn-label { transition: none; }
   .map-list li button { gap: 0; }
   .map-list-away { display: block; }
   .map-inview.open .map-inview-toggle { border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
+  /* B124 (owner 2026-11-20): a top-left column holds Stations in view (or a station's details) and,
+     under it, the Chargers filters fold. The column stops above the sheet; the open filters scroll
+     inside it, so both stay usable when Stations in view is open too. */
+  .map-left { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; position: absolute; top: 64px; left: 8px; z-index: 4; width: 15rem; max-width: calc(100% - 72px); max-height: calc(100% - 64px - var(--sheet-px, 0px) - 44px); pointer-events: none; }
+  .map-left > * { pointer-events: auto; }
+  .map-left .map-inview, .map-left .map-inview:not(.open), .map-left .station-panel { position: relative; top: auto; left: auto; right: auto; bottom: auto; max-width: 100%; flex: 0 1 auto; min-height: 0; }
+  .map-left .map-inview, .map-left .map-inview:not(.open), .map-left .station-panel { width: 100%; }
+  .map-left .map-inview.open { max-height: none; }
+  .map-left .station-panel { max-height: 18rem; }
+  .map-chargers { display: flex; flex-direction: column; flex: 0 1 auto; min-height: 0; width: 100%; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 23px; box-shadow: var(--shadow); }
+  .map-chargers.open { border-radius: var(--radius); }
+  .map-chargers-toggle { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 6px 8px 6px 12px; background: none; border: 0; border-radius: inherit; color: inherit; font: inherit; text-align: left; cursor: pointer; flex: none; }
+  .map-chargers-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .map-chargers-text { display: grid; flex: 1; min-width: 0; }
+  .map-chargers-name { font-family: var(--display); font-weight: 600; }
+  .map-chargers-toggle .acc-chev { flex: none; transform: scale(0.8); background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+  .map-chargers-toggle[aria-expanded=true] .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+  .map-chargers-toggle[aria-expanded=true] .acc-chev::before { border-color: var(--accent); }
+  .map-chargers .map-filters { display: flex; flex-direction: column; min-height: 0; flex: 0 1 auto; }
+  .map-chargers .map-filters > .map-filters-body { overflow-y: auto; overscroll-behavior: contain; min-height: 0; }
+  .map-chargers .map-filters.shut { display: none; }
 
 }
 

@@ -844,6 +844,9 @@ Run `npx vitest run tests/price.test.ts`, then open `/compare?cars=kia/ev3/2027/
 | 10i | Saved and shared | Reload: switch, temperature and Arrive at kept; the share link carries arrive= and temp=, and opening it restores them. |
 | 10j | Hint | Closed card line ends "· mild weather" (off) or "· −10 °C" (on). Results footer: "Cold out? Adjust in Trip settings" opens the card at the temperature field. |
 | 10k | Edge cases | Car with no heat pump data: line says not known, the no-heat-pump curve is used. Car with unknown wheels: wheels factor 1. Temperature out of range (−40, 60): clamped like the Charging page, with its note. |
+| 10l | Phone Chargers fold (B124) | 375 px: sheet has only "Where to?"; "Chargers" fold under Stations in view, closed, summary "Level 3 · all plugs". Turn on Stations in view, open Chargers, turn on Level 2 and open Plugs: the filters scroll, the column ends above the sheet and the ⓘ. Open a station: Chargers sits under its details (details ≤ 18rem). Plan a trip: no fold. 1280 px: filters still in the left panel. Narrow Level 3 to 100 kW and up: the summary reads "Level 3 (100 kW and up), …"; at 1280 the closed Chargers toggle shows the same line. |
+| 10m | Header vs panel (B125) | Widths 700, 800, 999, 1000, 1050, 1099, 1100, 1280 with a long car name, map and trip: the pill never overlaps the left panel; below 1000 (trip: 1100) the panel starts under the pill; the car name always shows some text. |
+| 10n | Fixed Where to bar (B126) | 375 px: no handle on the bar, it can't be dragged; type a place: suggestions open upward over the map and the bar keeps its height; pick one: the near-place line shows. Plan a trip: the sheet has its handle and drags as before. |
 
 ## Phase 10 results
 

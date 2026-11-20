@@ -1,0 +1,872 @@
+{
+ "sources": [
+  {
+   "id": "src-w23-fastned-lucid-2026",
+   "type": "testing_org",
+   "title": "Fastned: Lucid Air 112 kWh (2023+) and Lucid Gravity 123 kWh (2026+) charge curves",
+   "url": "https://www.fastnedcharging.com/en/brands-overview/lucid",
+   "accessed_on": "2026-11-20",
+   "notes": "Fastned vehicle pages (model=Air, model=Gravity). Per-percent kW series embedded in the page, measured on Fastned's European network (300-class graph for the Air, 400-class for the Gravity), battery about 30 C. The Air 88 kWh (2024+) and Gravity 89 kWh (2026+) entries have no graph. Same Fastned terms note as src-fastned-tesla-curves-2026 (no reuse clause found; robots allows; owner to confirm)."
+  },
+  {
+   "id": "src-w23-insideevs-gravity-touring-2025",
+   "type": "testing_org",
+   "title": "InsideEVs: The Lucid Gravity Touring is here. Here's how fast it charges from 0% to 100%",
+   "url": "https://insideevs.com/news/780601/lucid-gravity-touring-charging-test/",
+   "accessed_on": "2026-11-20",
+   "notes": "Published 2025-12-02. Table of power by SoC (0-90 %) with elapsed minutes, 300 kW-capable DC charger, battery preconditioned, 89 kWh rated Gravity Touring. Ambient temperature and test date not stated."
+  }
+ ],
+ "powertrains": {
+  "lucid/air/2022-grand-touring": {
+   "curves": [
+    {
+     "id": "fastned-2026-112kwh",
+     "kind": "tested",
+     "source_id": "src-w23-fastned-lucid-2026",
+     "points": [
+      {
+       "soc_percent": 2,
+       "power_kw": 305.6
+      },
+      {
+       "soc_percent": 5,
+       "power_kw": 286
+      },
+      {
+       "soc_percent": 10,
+       "power_kw": 252.9
+      },
+      {
+       "soc_percent": 15,
+       "power_kw": 241.1
+      },
+      {
+       "soc_percent": 20,
+       "power_kw": 231.8
+      },
+      {
+       "soc_percent": 25,
+       "power_kw": 224.3
+      },
+      {
+       "soc_percent": 30,
+       "power_kw": 216.5
+      },
+      {
+       "soc_percent": 35,
+       "power_kw": 212.9
+      },
+      {
+       "soc_percent": 40,
+       "power_kw": 203.8
+      },
+      {
+       "soc_percent": 45,
+       "power_kw": 193.5
+      },
+      {
+       "soc_percent": 50,
+       "power_kw": 180.1
+      },
+      {
+       "soc_percent": 55,
+       "power_kw": 166.1
+      },
+      {
+       "soc_percent": 60,
+       "power_kw": 154.8
+      },
+      {
+       "soc_percent": 65,
+       "power_kw": 144.6
+      },
+      {
+       "soc_percent": 70,
+       "power_kw": 135.3
+      },
+      {
+       "soc_percent": 75,
+       "power_kw": 112.4
+      },
+      {
+       "soc_percent": 80,
+       "power_kw": 94.3
+      },
+      {
+       "soc_percent": 85,
+       "power_kw": 89.5
+      },
+      {
+       "soc_percent": 90,
+       "power_kw": 87.6
+      },
+      {
+       "soc_percent": 95,
+       "power_kw": 66.8
+      }
+     ],
+     "conditions": {
+      "preconditioned": "unknown",
+      "battery_temp_c": 30,
+      "charger_kw": 300
+     },
+     "low_confidence": true,
+     "notes": "Fastned \"Lucid Air 112 kWh (2023+)\" curve, 2-95 %, European network, battery near 30 C, peak 305.6 kW at 2 % (1.9 % over the 300 kW rating). Pack 112 kWh matches these Grand Touring ids. InsideEVs 2024 GT test (Moloughney, EA 350 kW) peaked at 319 kW and held >200 kW above 40 %; Fastned holds 203 kW at 40 %, so the shape agrees. The 2025-27 Grand Touring ids list 117 kWh in the spec data and are not covered; the 118 kWh Dream/Sapphire have their own curve. Covered range 2-95 %; outside it the viewer holds the end values, so 0-2 % and 95-100 % are not measured. Fastned labels this entry \"2023+\", so the 2022 Grand Touring is an assumption (same 112 kWh pack, software unproven). Spec-data oddities: 2023-grand-touring-performance lists gross 112 / usable 109.1 and 2024-grand-touring lists gross 111 / usable 112, so the \"112 kWh\" pack match is approximate for those two ids."
+    }
+   ]
+  },
+  "lucid/air/2023-grand-touring": {
+   "curves": [
+    {
+     "id": "fastned-2026-112kwh",
+     "kind": "tested",
+     "source_id": "src-w23-fastned-lucid-2026",
+     "points": [
+      {
+       "soc_percent": 2,
+       "power_kw": 305.6
+      },
+      {
+       "soc_percent": 5,
+       "power_kw": 286
+      },
+      {
+       "soc_percent": 10,
+       "power_kw": 252.9
+      },
+      {
+       "soc_percent": 15,
+       "power_kw": 241.1
+      },
+      {
+       "soc_percent": 20,
+       "power_kw": 231.8
+      },
+      {
+       "soc_percent": 25,
+       "power_kw": 224.3
+      },
+      {
+       "soc_percent": 30,
+       "power_kw": 216.5
+      },
+      {
+       "soc_percent": 35,
+       "power_kw": 212.9
+      },
+      {
+       "soc_percent": 40,
+       "power_kw": 203.8
+      },
+      {
+       "soc_percent": 45,
+       "power_kw": 193.5
+      },
+      {
+       "soc_percent": 50,
+       "power_kw": 180.1
+      },
+      {
+       "soc_percent": 55,
+       "power_kw": 166.1
+      },
+      {
+       "soc_percent": 60,
+       "power_kw": 154.8
+      },
+      {
+       "soc_percent": 65,
+       "power_kw": 144.6
+      },
+      {
+       "soc_percent": 70,
+       "power_kw": 135.3
+      },
+      {
+       "soc_percent": 75,
+       "power_kw": 112.4
+      },
+      {
+       "soc_percent": 80,
+       "power_kw": 94.3
+      },
+      {
+       "soc_percent": 85,
+       "power_kw": 89.5
+      },
+      {
+       "soc_percent": 90,
+       "power_kw": 87.6
+      },
+      {
+       "soc_percent": 95,
+       "power_kw": 66.8
+      }
+     ],
+     "conditions": {
+      "preconditioned": "unknown",
+      "battery_temp_c": 30,
+      "charger_kw": 300
+     },
+     "low_confidence": true,
+     "notes": "Fastned \"Lucid Air 112 kWh (2023+)\" curve, 2-95 %, European network, battery near 30 C, peak 305.6 kW at 2 % (1.9 % over the 300 kW rating). Pack 112 kWh matches these Grand Touring ids. InsideEVs 2024 GT test (Moloughney, EA 350 kW) peaked at 319 kW and held >200 kW above 40 %; Fastned holds 203 kW at 40 %, so the shape agrees. The 2025-27 Grand Touring ids list 117 kWh in the spec data and are not covered; the 118 kWh Dream/Sapphire have their own curve. Covered range 2-95 %; outside it the viewer holds the end values, so 0-2 % and 95-100 % are not measured. Fastned labels this entry \"2023+\", so the 2022 Grand Touring is an assumption (same 112 kWh pack, software unproven). Spec-data oddities: 2023-grand-touring-performance lists gross 112 / usable 109.1 and 2024-grand-touring lists gross 111 / usable 112, so the \"112 kWh\" pack match is approximate for those two ids."
+    }
+   ]
+  },
+  "lucid/air/2023-grand-touring-performance": {
+   "curves": [
+    {
+     "id": "fastned-2026-112kwh",
+     "kind": "tested",
+     "source_id": "src-w23-fastned-lucid-2026",
+     "points": [
+      {
+       "soc_percent": 2,
+       "power_kw": 305.6
+      },
+      {
+       "soc_percent": 5,
+       "power_kw": 286
+      },
+      {
+       "soc_percent": 10,
+       "power_kw": 252.9
+      },
+      {
+       "soc_percent": 15,
+       "power_kw": 241.1
+      },
+      {
+       "soc_percent": 20,
+       "power_kw": 231.8
+      },
+      {
+       "soc_percent": 25,
+       "power_kw": 224.3
+      },
+      {
+       "soc_percent": 30,
+       "power_kw": 216.5
+      },
+      {
+       "soc_percent": 35,
+       "power_kw": 212.9
+      },
+      {
+       "soc_percent": 40,
+       "power_kw": 203.8
+      },
+      {
+       "soc_percent": 45,
+       "power_kw": 193.5
+      },
+      {
+       "soc_percent": 50,
+       "power_kw": 180.1
+      },
+      {
+       "soc_percent": 55,
+       "power_kw": 166.1
+      },
+      {
+       "soc_percent": 60,
+       "power_kw": 154.8
+      },
+      {
+       "soc_percent": 65,
+       "power_kw": 144.6
+      },
+      {
+       "soc_percent": 70,
+       "power_kw": 135.3
+      },
+      {
+       "soc_percent": 75,
+       "power_kw": 112.4
+      },
+      {
+       "soc_percent": 80,
+       "power_kw": 94.3
+      },
+      {
+       "soc_percent": 85,
+       "power_kw": 89.5
+      },
+      {
+       "soc_percent": 90,
+       "power_kw": 87.6
+      },
+      {
+       "soc_percent": 95,
+       "power_kw": 66.8
+      }
+     ],
+     "conditions": {
+      "preconditioned": "unknown",
+      "battery_temp_c": 30,
+      "charger_kw": 300
+     },
+     "low_confidence": true,
+     "notes": "Fastned \"Lucid Air 112 kWh (2023+)\" curve, 2-95 %, European network, battery near 30 C, peak 305.6 kW at 2 % (1.9 % over the 300 kW rating). Pack 112 kWh matches these Grand Touring ids. InsideEVs 2024 GT test (Moloughney, EA 350 kW) peaked at 319 kW and held >200 kW above 40 %; Fastned holds 203 kW at 40 %, so the shape agrees. The 2025-27 Grand Touring ids list 117 kWh in the spec data and are not covered; the 118 kWh Dream/Sapphire have their own curve. Covered range 2-95 %; outside it the viewer holds the end values, so 0-2 % and 95-100 % are not measured. Fastned labels this entry \"2023+\", so the 2022 Grand Touring is an assumption (same 112 kWh pack, software unproven). Spec-data oddities: 2023-grand-touring-performance lists gross 112 / usable 109.1 and 2024-grand-touring lists gross 111 / usable 112, so the \"112 kWh\" pack match is approximate for those two ids."
+    }
+   ]
+  },
+  "lucid/air/2024-grand-touring": {
+   "curves": [
+    {
+     "id": "fastned-2026-112kwh",
+     "kind": "tested",
+     "source_id": "src-w23-fastned-lucid-2026",
+     "points": [
+      {
+       "soc_percent": 2,
+       "power_kw": 305.6
+      },
+      {
+       "soc_percent": 5,
+       "power_kw": 286
+      },
+      {
+       "soc_percent": 10,
+       "power_kw": 252.9
+      },
+      {
+       "soc_percent": 15,
+       "power_kw": 241.1
+      },
+      {
+       "soc_percent": 20,
+       "power_kw": 231.8
+      },
+      {
+       "soc_percent": 25,
+       "power_kw": 224.3
+      },
+      {
+       "soc_percent": 30,
+       "power_kw": 216.5
+      },
+      {
+       "soc_percent": 35,
+       "power_kw": 212.9
+      },
+      {
+       "soc_percent": 40,
+       "power_kw": 203.8
+      },
+      {
+       "soc_percent": 45,
+       "power_kw": 193.5
+      },
+      {
+       "soc_percent": 50,
+       "power_kw": 180.1
+      },
+      {
+       "soc_percent": 55,
+       "power_kw": 166.1
+      },
+      {
+       "soc_percent": 60,
+       "power_kw": 154.8
+      },
+      {
+       "soc_percent": 65,
+       "power_kw": 144.6
+      },
+      {
+       "soc_percent": 70,
+       "power_kw": 135.3
+      },
+      {
+       "soc_percent": 75,
+       "power_kw": 112.4
+      },
+      {
+       "soc_percent": 80,
+       "power_kw": 94.3
+      },
+      {
+       "soc_percent": 85,
+       "power_kw": 89.5
+      },
+      {
+       "soc_percent": 90,
+       "power_kw": 87.6
+      },
+      {
+       "soc_percent": 95,
+       "power_kw": 66.8
+      }
+     ],
+     "conditions": {
+      "preconditioned": "unknown",
+      "battery_temp_c": 30,
+      "charger_kw": 300
+     },
+     "low_confidence": true,
+     "notes": "Fastned \"Lucid Air 112 kWh (2023+)\" curve, 2-95 %, European network, battery near 30 C, peak 305.6 kW at 2 % (1.9 % over the 300 kW rating). Pack 112 kWh matches these Grand Touring ids. InsideEVs 2024 GT test (Moloughney, EA 350 kW) peaked at 319 kW and held >200 kW above 40 %; Fastned holds 203 kW at 40 %, so the shape agrees. The 2025-27 Grand Touring ids list 117 kWh in the spec data and are not covered; the 118 kWh Dream/Sapphire have their own curve. Covered range 2-95 %; outside it the viewer holds the end values, so 0-2 % and 95-100 % are not measured. Fastned labels this entry \"2023+\", so the 2022 Grand Touring is an assumption (same 112 kWh pack, software unproven). Spec-data oddities: 2023-grand-touring-performance lists gross 112 / usable 109.1 and 2024-grand-touring lists gross 111 / usable 112, so the \"112 kWh\" pack match is approximate for those two ids."
+    }
+   ]
+  },
+  "lucid/gravity/2025-grand-touring": {
+   "curves": [
+    {
+     "id": "fastned-2026-123kwh",
+     "kind": "tested",
+     "source_id": "src-w23-fastned-lucid-2026",
+     "points": [
+      {
+       "soc_percent": 12,
+       "power_kw": 405.6
+      },
+      {
+       "soc_percent": 15,
+       "power_kw": 374.2
+      },
+      {
+       "soc_percent": 20,
+       "power_kw": 336.9
+      },
+      {
+       "soc_percent": 25,
+       "power_kw": 305.9
+      },
+      {
+       "soc_percent": 30,
+       "power_kw": 280
+      },
+      {
+       "soc_percent": 35,
+       "power_kw": 256.9
+      },
+      {
+       "soc_percent": 40,
+       "power_kw": 255.4
+      },
+      {
+       "soc_percent": 45,
+       "power_kw": 242.5
+      },
+      {
+       "soc_percent": 50,
+       "power_kw": 224.6
+      },
+      {
+       "soc_percent": 55,
+       "power_kw": 202.3
+      },
+      {
+       "soc_percent": 60,
+       "power_kw": 179
+      },
+      {
+       "soc_percent": 65,
+       "power_kw": 161.6
+      },
+      {
+       "soc_percent": 70,
+       "power_kw": 156.5
+      },
+      {
+       "soc_percent": 75,
+       "power_kw": 137.4
+      },
+      {
+       "soc_percent": 80,
+       "power_kw": 103.3
+      },
+      {
+       "soc_percent": 85,
+       "power_kw": 84.5
+      },
+      {
+       "soc_percent": 87,
+       "power_kw": 77.3
+      }
+     ],
+     "conditions": {
+      "preconditioned": "unknown",
+      "battery_temp_c": 30,
+      "charger_kw": 400
+     },
+     "low_confidence": true,
+     "notes": "Fastned \"Gravity 123 kWh (2026+)\" curve, 400 kW class, 12-87 % only, peak 405.6 kW at 12 % (1.4 % over the 400 kW rating). Conflicts with InsideEVs (Moloughney, 2025, EVgo 350 kW, depleted start): peak 375 kW, over 300 kW until almost 40 % and over 200 kW to nearly 50 %, whereas Fastned is under 300 kW from 26 % and 255 kW at 40 %. The same car on a 250 kW Tesla Supercharger (400 V) peaked ~210-220 kW and held 200+ kW to 42 %. Treat the Fastned curve as conservative above 25 %. Covered range 12-87 % only: 0-12 % and 87-100 % are not measured (the viewer holds the end values, which would show ~405 kW at 0 % and ~77 kW at 100 %). Fastned labels this entry \"2026+\", so the 2025 Grand Touring is an assumption. Only the 123 kWh gross pack is known (usable unknown), and the Dream Edition has different motors from the Grand Touring; the Fastned page does not distinguish them. No second source agrees with the shape."
+    }
+   ]
+  },
+  "lucid/gravity/2026-dream-edition": {
+   "curves": [
+    {
+     "id": "fastned-2026-123kwh",
+     "kind": "tested",
+     "source_id": "src-w23-fastned-lucid-2026",
+     "points": [
+      {
+       "soc_percent": 12,
+       "power_kw": 405.6
+      },
+      {
+       "soc_percent": 15,
+       "power_kw": 374.2
+      },
+      {
+       "soc_percent": 20,
+       "power_kw": 336.9
+      },
+      {
+       "soc_percent": 25,
+       "power_kw": 305.9
+      },
+      {
+       "soc_percent": 30,
+       "power_kw": 280
+      },
+      {
+       "soc_percent": 35,
+       "power_kw": 256.9
+      },
+      {
+       "soc_percent": 40,
+       "power_kw": 255.4
+      },
+      {
+       "soc_percent": 45,
+       "power_kw": 242.5
+      },
+      {
+       "soc_percent": 50,
+       "power_kw": 224.6
+      },
+      {
+       "soc_percent": 55,
+       "power_kw": 202.3
+      },
+      {
+       "soc_percent": 60,
+       "power_kw": 179
+      },
+      {
+       "soc_percent": 65,
+       "power_kw": 161.6
+      },
+      {
+       "soc_percent": 70,
+       "power_kw": 156.5
+      },
+      {
+       "soc_percent": 75,
+       "power_kw": 137.4
+      },
+      {
+       "soc_percent": 80,
+       "power_kw": 103.3
+      },
+      {
+       "soc_percent": 85,
+       "power_kw": 84.5
+      },
+      {
+       "soc_percent": 87,
+       "power_kw": 77.3
+      }
+     ],
+     "conditions": {
+      "preconditioned": "unknown",
+      "battery_temp_c": 30,
+      "charger_kw": 400
+     },
+     "low_confidence": true,
+     "notes": "Fastned \"Gravity 123 kWh (2026+)\" curve, 400 kW class, 12-87 % only, peak 405.6 kW at 12 % (1.4 % over the 400 kW rating). Conflicts with InsideEVs (Moloughney, 2025, EVgo 350 kW, depleted start): peak 375 kW, over 300 kW until almost 40 % and over 200 kW to nearly 50 %, whereas Fastned is under 300 kW from 26 % and 255 kW at 40 %. The same car on a 250 kW Tesla Supercharger (400 V) peaked ~210-220 kW and held 200+ kW to 42 %. Treat the Fastned curve as conservative above 25 %. Covered range 12-87 % only: 0-12 % and 87-100 % are not measured (the viewer holds the end values, which would show ~405 kW at 0 % and ~77 kW at 100 %). Fastned labels this entry \"2026+\", so the 2025 Grand Touring is an assumption. Only the 123 kWh gross pack is known (usable unknown), and the Dream Edition has different motors from the Grand Touring; the Fastned page does not distinguish them. No second source agrees with the shape."
+    }
+   ]
+  },
+  "lucid/gravity/2026-grand-touring": {
+   "curves": [
+    {
+     "id": "fastned-2026-123kwh",
+     "kind": "tested",
+     "source_id": "src-w23-fastned-lucid-2026",
+     "points": [
+      {
+       "soc_percent": 12,
+       "power_kw": 405.6
+      },
+      {
+       "soc_percent": 15,
+       "power_kw": 374.2
+      },
+      {
+       "soc_percent": 20,
+       "power_kw": 336.9
+      },
+      {
+       "soc_percent": 25,
+       "power_kw": 305.9
+      },
+      {
+       "soc_percent": 30,
+       "power_kw": 280
+      },
+      {
+       "soc_percent": 35,
+       "power_kw": 256.9
+      },
+      {
+       "soc_percent": 40,
+       "power_kw": 255.4
+      },
+      {
+       "soc_percent": 45,
+       "power_kw": 242.5
+      },
+      {
+       "soc_percent": 50,
+       "power_kw": 224.6
+      },
+      {
+       "soc_percent": 55,
+       "power_kw": 202.3
+      },
+      {
+       "soc_percent": 60,
+       "power_kw": 179
+      },
+      {
+       "soc_percent": 65,
+       "power_kw": 161.6
+      },
+      {
+       "soc_percent": 70,
+       "power_kw": 156.5
+      },
+      {
+       "soc_percent": 75,
+       "power_kw": 137.4
+      },
+      {
+       "soc_percent": 80,
+       "power_kw": 103.3
+      },
+      {
+       "soc_percent": 85,
+       "power_kw": 84.5
+      },
+      {
+       "soc_percent": 87,
+       "power_kw": 77.3
+      }
+     ],
+     "conditions": {
+      "preconditioned": "unknown",
+      "battery_temp_c": 30,
+      "charger_kw": 400
+     },
+     "low_confidence": true,
+     "notes": "Fastned \"Gravity 123 kWh (2026+)\" curve, 400 kW class, 12-87 % only, peak 405.6 kW at 12 % (1.4 % over the 400 kW rating). Conflicts with InsideEVs (Moloughney, 2025, EVgo 350 kW, depleted start): peak 375 kW, over 300 kW until almost 40 % and over 200 kW to nearly 50 %, whereas Fastned is under 300 kW from 26 % and 255 kW at 40 %. The same car on a 250 kW Tesla Supercharger (400 V) peaked ~210-220 kW and held 200+ kW to 42 %. Treat the Fastned curve as conservative above 25 %. Covered range 12-87 % only: 0-12 % and 87-100 % are not measured (the viewer holds the end values, which would show ~405 kW at 0 % and ~77 kW at 100 %). Fastned labels this entry \"2026+\", so the 2025 Grand Touring is an assumption. Only the 123 kWh gross pack is known (usable unknown), and the Dream Edition has different motors from the Grand Touring; the Fastned page does not distinguish them. No second source agrees with the shape."
+    }
+   ]
+  },
+  "lucid/gravity/2027-grand-touring": {
+   "curves": [
+    {
+     "id": "fastned-2026-123kwh",
+     "kind": "tested",
+     "source_id": "src-w23-fastned-lucid-2026",
+     "points": [
+      {
+       "soc_percent": 12,
+       "power_kw": 405.6
+      },
+      {
+       "soc_percent": 15,
+       "power_kw": 374.2
+      },
+      {
+       "soc_percent": 20,
+       "power_kw": 336.9
+      },
+      {
+       "soc_percent": 25,
+       "power_kw": 305.9
+      },
+      {
+       "soc_percent": 30,
+       "power_kw": 280
+      },
+      {
+       "soc_percent": 35,
+       "power_kw": 256.9
+      },
+      {
+       "soc_percent": 40,
+       "power_kw": 255.4
+      },
+      {
+       "soc_percent": 45,
+       "power_kw": 242.5
+      },
+      {
+       "soc_percent": 50,
+       "power_kw": 224.6
+      },
+      {
+       "soc_percent": 55,
+       "power_kw": 202.3
+      },
+      {
+       "soc_percent": 60,
+       "power_kw": 179
+      },
+      {
+       "soc_percent": 65,
+       "power_kw": 161.6
+      },
+      {
+       "soc_percent": 70,
+       "power_kw": 156.5
+      },
+      {
+       "soc_percent": 75,
+       "power_kw": 137.4
+      },
+      {
+       "soc_percent": 80,
+       "power_kw": 103.3
+      },
+      {
+       "soc_percent": 85,
+       "power_kw": 84.5
+      },
+      {
+       "soc_percent": 87,
+       "power_kw": 77.3
+      }
+     ],
+     "conditions": {
+      "preconditioned": "unknown",
+      "battery_temp_c": 30,
+      "charger_kw": 400
+     },
+     "low_confidence": true,
+     "notes": "Fastned \"Gravity 123 kWh (2026+)\" curve, 400 kW class, 12-87 % only, peak 405.6 kW at 12 % (1.4 % over the 400 kW rating). Conflicts with InsideEVs (Moloughney, 2025, EVgo 350 kW, depleted start): peak 375 kW, over 300 kW until almost 40 % and over 200 kW to nearly 50 %, whereas Fastned is under 300 kW from 26 % and 255 kW at 40 %. The same car on a 250 kW Tesla Supercharger (400 V) peaked ~210-220 kW and held 200+ kW to 42 %. Treat the Fastned curve as conservative above 25 %. Covered range 12-87 % only: 0-12 % and 87-100 % are not measured (the viewer holds the end values, which would show ~405 kW at 0 % and ~77 kW at 100 %). Fastned labels this entry \"2026+\", so the 2025 Grand Touring is an assumption. Only the 123 kWh gross pack is known (usable unknown), and the Dream Edition has different motors from the Grand Touring; the Fastned page does not distinguish them. No second source agrees with the shape."
+    }
+   ]
+  },
+  "lucid/gravity/2026-touring": {
+   "curves": [
+    {
+     "id": "insideevs-2025-touring",
+     "kind": "tested",
+     "source_id": "src-w23-insideevs-gravity-touring-2025",
+     "low_confidence": true,
+     "points": [
+      {
+       "soc_percent": 0,
+       "power_kw": 310
+      },
+      {
+       "soc_percent": 10,
+       "power_kw": 305
+      },
+      {
+       "soc_percent": 20,
+       "power_kw": 280
+      },
+      {
+       "soc_percent": 30,
+       "power_kw": 250
+      },
+      {
+       "soc_percent": 40,
+       "power_kw": 215
+      },
+      {
+       "soc_percent": 50,
+       "power_kw": 180
+      },
+      {
+       "soc_percent": 60,
+       "power_kw": 140
+      },
+      {
+       "soc_percent": 70,
+       "power_kw": 113
+      },
+      {
+       "soc_percent": 80,
+       "power_kw": 80
+      },
+      {
+       "soc_percent": 90,
+       "power_kw": 50
+      }
+     ],
+     "conditions": {
+      "preconditioned": "yes",
+      "charger_kw": 300
+     },
+     "notes": "InsideEVs Dec 2025 test of the 89 kWh (rated) Gravity Touring, battery preconditioned, charger able to deliver 300 kW; 10 points 0-90 % read from the published table (25 min to 80 %, 34 min to 90 %). 310 kW at 0 % is 3 % above the 300 kW rating (within the 5 % rule). Ambient temperature and test date not stated. No independent second measurement (Fastned has no graph for this pack)."
+    }
+   ]
+  },
+  "lucid/gravity/2027-touring": {
+   "curves": [
+    {
+     "id": "insideevs-2025-touring",
+     "kind": "tested",
+     "source_id": "src-w23-insideevs-gravity-touring-2025",
+     "low_confidence": true,
+     "points": [
+      {
+       "soc_percent": 0,
+       "power_kw": 310
+      },
+      {
+       "soc_percent": 10,
+       "power_kw": 305
+      },
+      {
+       "soc_percent": 20,
+       "power_kw": 280
+      },
+      {
+       "soc_percent": 30,
+       "power_kw": 250
+      },
+      {
+       "soc_percent": 40,
+       "power_kw": 215
+      },
+      {
+       "soc_percent": 50,
+       "power_kw": 180
+      },
+      {
+       "soc_percent": 60,
+       "power_kw": 140
+      },
+      {
+       "soc_percent": 70,
+       "power_kw": 113
+      },
+      {
+       "soc_percent": 80,
+       "power_kw": 80
+      },
+      {
+       "soc_percent": 90,
+       "power_kw": 50
+      }
+     ],
+     "conditions": {
+      "preconditioned": "yes",
+      "charger_kw": 300
+     },
+     "notes": "InsideEVs Dec 2025 test of the 89 kWh (rated) Gravity Touring, battery preconditioned, charger able to deliver 300 kW; 10 points 0-90 % read from the published table (25 min to 80 %, 34 min to 90 %). 310 kW at 0 % is 3 % above the 300 kW rating (within the 5 % rule). Ambient temperature and test date not stated. No independent second measurement (Fastned has no graph for this pack)."
+    }
+   ]
+  }
+ }
+}

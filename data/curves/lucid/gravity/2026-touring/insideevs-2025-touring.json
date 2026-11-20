@@ -1,0 +1,55 @@
+{
+  "id": "insideevs-2025-touring",
+  "powertrain_id": "lucid/gravity/2026-touring",
+  "kind": "tested",
+  "source_id": "src-w23-insideevs-gravity-touring-2025",
+  "low_confidence": true,
+  "points": [
+    {
+      "soc_percent": 0,
+      "power_kw": 310
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 305
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 280
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 250
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 215
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 180
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 140
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 113
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 80
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 50
+    }
+  ],
+  "conditions": {
+    "preconditioned": "yes",
+    "charger_kw": 300
+  },
+  "notes": "InsideEVs Dec 2025 test of the 89 kWh (rated) Gravity Touring, battery preconditioned, charger able to deliver 300 kW; 10 points 0-90 % read from the published table (25 min to 80 %, 34 min to 90 %). 310 kW at 0 % is 3 % above the 300 kW rating (within the 5 % rule). Ambient temperature and test date not stated. No independent second measurement (Fastned has no graph for this pack).",
+  "is_display_default": false
+}

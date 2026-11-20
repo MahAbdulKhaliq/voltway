@@ -1,0 +1,84 @@
+{
+  "id": "fastned-2026-123kwh",
+  "powertrain_id": "lucid/gravity/2025-grand-touring",
+  "kind": "tested",
+  "source_id": "src-w23-fastned-lucid-2026",
+  "points": [
+    {
+      "soc_percent": 12,
+      "power_kw": 405.6
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 374.2
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 336.9
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 305.9
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 280
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 256.9
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 255.4
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 242.5
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 224.6
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 202.3
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 179
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 161.6
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 156.5
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 137.4
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 103.3
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 84.5
+    },
+    {
+      "soc_percent": 87,
+      "power_kw": 77.3
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 400
+  },
+  "low_confidence": true,
+  "notes": "Fastned \"Gravity 123 kWh (2026+)\" curve, 400 kW class, 12-87 % only, peak 405.6 kW at 12 % (1.4 % over the 400 kW rating). Conflicts with InsideEVs (Moloughney, 2025, EVgo 350 kW, depleted start): peak 375 kW, over 300 kW until almost 40 % and over 200 kW to nearly 50 %, whereas Fastned is under 300 kW from 26 % and 255 kW at 40 %. The same car on a 250 kW Tesla Supercharger (400 V) peaked ~210-220 kW and held 200+ kW to 42 %. Treat the Fastned curve as conservative above 25 %. Covered range 12-87 % only: 0-12 % and 87-100 % are not measured (the viewer holds the end values, which would show ~405 kW at 0 % and ~77 kW at 100 %). Fastned labels this entry \"2026+\", so the 2025 Grand Touring is an assumption. Only the 123 kWh gross pack is known (usable unknown), and the Dream Edition has different motors from the Grand Touring; the Fastned page does not distinguish them. No second source agrees with the shape.",
+  "is_display_default": false
+}

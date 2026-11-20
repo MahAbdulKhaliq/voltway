@@ -1,0 +1,96 @@
+{
+  "id": "fastned-2026-112kwh",
+  "powertrain_id": "lucid/air/2023-grand-touring-performance",
+  "kind": "tested",
+  "source_id": "src-w23-fastned-lucid-2026",
+  "points": [
+    {
+      "soc_percent": 2,
+      "power_kw": 305.6
+    },
+    {
+      "soc_percent": 5,
+      "power_kw": 286
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 252.9
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 241.1
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 231.8
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 224.3
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 216.5
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 212.9
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 203.8
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 193.5
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 180.1
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 166.1
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 154.8
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 144.6
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 135.3
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 112.4
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 94.3
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 89.5
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 87.6
+    },
+    {
+      "soc_percent": 95,
+      "power_kw": 66.8
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 300
+  },
+  "low_confidence": true,
+  "notes": "Fastned \"Lucid Air 112 kWh (2023+)\" curve, 2-95 %, European network, battery near 30 C, peak 305.6 kW at 2 % (1.9 % over the 300 kW rating). Pack 112 kWh matches these Grand Touring ids. InsideEVs 2024 GT test (Moloughney, EA 350 kW) peaked at 319 kW and held >200 kW above 40 %; Fastned holds 203 kW at 40 %, so the shape agrees. The 2025-27 Grand Touring ids list 117 kWh in the spec data and are not covered; the 118 kWh Dream/Sapphire have their own curve. Covered range 2-95 %; outside it the viewer holds the end values, so 0-2 % and 95-100 % are not measured. Fastned labels this entry \"2023+\", so the 2022 Grand Touring is an assumption (same 112 kWh pack, software unproven). Spec-data oddities: 2023-grand-touring-performance lists gross 112 / usable 109.1 and 2024-grand-touring lists gross 111 / usable 112, so the \"112 kWh\" pack match is approximate for those two ids.",
+  "is_display_default": false
+}

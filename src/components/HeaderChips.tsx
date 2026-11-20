@@ -13,7 +13,7 @@ import { getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
 import CarPicker from './CarPicker.tsx';
 import { carChipParts, carLabel, carModel, LABEL_VERSION } from '../lib/car-label.ts';
 import type { IndexEntry } from '../lib/types.ts';
-import { DC_PLUGS, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
+import { DC_PLUGS, carMapInfo, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
 import type { MessageKey } from '../i18n/t.ts';
 
 const carHref = (id: string, trim: string | null) =>
@@ -31,7 +31,7 @@ export default function HeaderChips() {
   const [carsFailed, setCarsFailed] = useState(false);
   const [picking, setPicking] = useState(false);
   // The car's own port (for the default plug switches), read from its car file when the menu opens.
-  const [port, setPort] = useState<{ carId: string; port: string | null } | null>(null);
+  const [port, setPort] = useState<{ carId: string; port: string | null; adapter?: string | null } | null>(null);
   const focusPlugs = useRef(false);
   // The car chip shows the longest of its three names that fits (B71): model, + year, + trim.
   const carText = useRef<HTMLSpanElement>(null);
@@ -111,14 +111,14 @@ export default function HeaderChips() {
     fetch(`/data/cars/${carId}.json`)
       .then((r) => (r.ok ? r.json() : null))
       .then((file) => {
-        const v = file?.fields?.charge_port?.value?.value;
-        if (live) setPort({ carId, port: typeof v === 'string' ? v : null });
+        const info = carMapInfo(file);
+        if (live) setPort({ carId, port: info.port, adapter: info.adapter });
       })
       .catch(() => live && setPort({ carId, port: null }));
     return () => { live = false; };
   }, [open, mine, port]);
   const plugsOn: DcPlug[] | null = mine
-    ? mine.plugs ?? (port?.carId === mine.carId ? defaultDcPlugs(port.port) : null)
+    ? mine.plugs ?? (port?.carId === mine.carId ? defaultDcPlugs(port.port, port.adapter) : null)
     : null;
   // "Change plugs" asked for the switches before they were ready: focus the first one now.
   useEffect(() => {

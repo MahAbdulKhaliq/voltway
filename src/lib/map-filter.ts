@@ -75,9 +75,20 @@ export type DcPlug = 'nacs' | 'ccs1' | 'chademo';
 export const DC_PLUGS: readonly DcPlug[] = ['nacs', 'ccs1', 'chademo'];
 export const isDcPlug = (x: unknown): x is DcPlug => typeof x === 'string' && (DC_PLUGS as readonly string[]).includes(x);
 
-/** The default toggles: only the car's own DC plug (no adapters assumed). */
-export function defaultDcPlugs(port: unknown): DcPlug[] {
-  return isDcPlug(port) ? [port] : [];
+/** The DC plug an adapter that comes in the box adds (B115): "NACS → CCS1" lets a CCS1 car use
+ *  NACS, "CCS1 → NACS" lets a NACS car use CCS1. Adapters sold or free on request add nothing. */
+export function inBoxAdapterPlug(adapter: unknown): DcPlug | null {
+  if (adapter === 'nacs_to_ccs1') return 'nacs';
+  if (adapter === 'ccs1_to_nacs') return 'ccs1';
+  return null;
+}
+
+/** The default toggles: the car's own DC plug, plus the plug of an adapter that comes in the box
+ *  (B115, 2026-11-20; before, B55: own plug only). */
+export function defaultDcPlugs(port: unknown, adapter?: unknown): DcPlug[] {
+  if (!isDcPlug(port)) return [];
+  const extra = inBoxAdapterPlug(adapter);
+  return DC_PLUGS.filter((p) => p === port || p === extra);
 }
 
 /** The plug rule from the toggles. J1772 (Level 2) always counts: CCS1 and CHAdeMO inlets take
@@ -316,6 +327,8 @@ export interface CarMapInfo {
   access: string | null;
   /** The car's charge port as the data gives it (null when unknown). */
   port: string | null;
+  /** The adapters_included value (B112), null when the data has none. */
+  adapter: string | null;
   rule: CarPlugRule | null;
 }
 
@@ -327,19 +340,21 @@ export function carMapInfo(file: unknown): CarMapInfo {
   const val = (k: string) => c.fields?.[k]?.value?.value;
   const access = val('supercharger_access');
   const port = val('charge_port');
+  const adapter = val('adapters_included');
   return {
     isTesla: c.make?.id === 'tesla',
     access: typeof access === 'string' ? access : null,
     port: typeof port === 'string' ? port : null,
+    adapter: typeof adapter === 'string' ? adapter : null,
     rule: carPlugs(val('charge_port'), access),
   };
 }
 
-/** The plug rule in force for My car (B55): its saved toggles, or the default from its port.
+/** The plug rule in force for My car (B55): its saved toggles, or the default from its port and in-box adapter (B115).
  *  null when neither says anything (port unknown and nothing switched on). */
 export function myCarRule(info: CarMapInfo | null, plugs: readonly DcPlug[] | undefined): CarPlugRule | null {
   if (!info) return null;
-  const on = plugs ?? defaultDcPlugs(info.port);
+  const on = plugs ?? defaultDcPlugs(info.port, info.adapter);
   if (!plugs && !info.rule) return null;
   return plugRule(on, info.access);
 }

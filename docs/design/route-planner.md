@@ -224,6 +224,8 @@ Total: 545 km · 6 h 10 min driving · 2 stops · 58 min charging
 
 **B133 (owner, 2026-11-20):** on phones, typing in the trip's From / To fields no longer raises the sheet (B89 made it rise to full). While a text field has focus the sheet keeps its height, and the suggestions float over the map just above the sheet (like "Where to?", B126), so the sheet's content never grows; the "pick from the suggestions" hint waits until the field is left. Dragging or tapping the handle still moves the sheet.
 
+**B136 (owner, 2026-11-20):** B133's floating suggestions are undone: on a phone the keyboard pushes the page up, so a list above the sheet ended up half off screen. The From / To suggestions open inside the sheet again (the sheet still keeps its height while a field has focus, and the field scrolls to the top of the sheet's body), and on phones a place field shows at most **3** suggestions so the list stays small. Wider screens keep 8.
+
 **B69 (2026-11-17):** only the trip body scrolls under a fixed header; closing the trip draws the line back and returns the map to the view from before the trip.
 
 **B62 (2026-11-17):** the browser keeps the battery settings and the last 5 destinations (Previous destinations on the map), never where a trip started. The trip form opens with From empty (or the browser location when already allowed).

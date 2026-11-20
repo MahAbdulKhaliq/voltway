@@ -40,7 +40,16 @@
       "names": {
         "CA": "xDrive60",
         "US": "xDrive60"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-cars-com-research-bmw-i7-2026-specs-478987",
+          "notes": "xDrive60 Sedan: 20 x 9 front / 20 x 10.5 rear aluminum, P255/45R20 and P285/40R20; M Sport Package (Style 907M) is the same 20 in size. US sizes from the Cars.com US page. Canada differs: NRCan rows in the merged data give 19 in standard (20 and 21 in options) for the Canadian car; Canadian sizes are not entered here (NRCan page not opened by me).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

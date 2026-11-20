@@ -40,7 +40,21 @@
       "names": {
         "CA": "xDrive40",
         "US": "xDrive40"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2025-specs-460991",
+          "notes": "xDrive40: 18 x 7.5 in aluminum, P225/50R18. (US page; Canadian cars assumed the same.)"
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": false,
+          "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2025-specs-460991",
+          "notes": "xDrive40: M Sport Package includes 19 in M Aero wheels (Style 996M). (US page; Canadian cars assumed the same.)"
+        }
+      ]
     }
   ]
 }

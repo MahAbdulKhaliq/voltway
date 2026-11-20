@@ -33,7 +33,21 @@
       "names": {
         "CA": "Countryman SE ALL4",
         "US": "Countryman SE ALL4"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-cars-com-research-mini-countryman-2026-specs-481928",
+          "notes": "Countryman SE ALL4: 18 x 7.5 in aluminum, P225/55R18. (US page; Canadian cars assumed the same.)"
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": false,
+          "source_id": "src-r3w-cars-com-research-mini-countryman-2026-specs-481928",
+          "notes": "Countryman SE ALL4: John Cooper Works Style package ($750) lists 19 x 8 in wheels, 245/45R19 all-season. (US page; Canadian cars assumed the same.)"
+        }
+      ]
     }
   ]
 }

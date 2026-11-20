@@ -40,7 +40,21 @@
       "names": {
         "CA": "M50",
         "US": "M50 xDrive"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2024-specs-443767",
+          "notes": "M50: 19 x 8.5 front / 19 x 9 rear aluminum, P245/40R19 and P255/40R19. (US page; Canadian cars assumed the same.)"
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2024-specs-443767",
+          "notes": "M50: Cooling & High Performance Tire Package includes 20 in M bicolor wheels (Style 868M), 20 x 8.5 front / 20 x 10 rear. (US page; Canadian cars assumed the same.)"
+        }
+      ]
     }
   ]
 }

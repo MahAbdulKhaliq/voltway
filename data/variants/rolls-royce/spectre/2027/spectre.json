@@ -31,7 +31,21 @@
       "id": "standard",
       "names": {
         "US": "Spectre"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2027-specs",
+          "notes": "Spectre: 22 x 8.5 front / 22 x 9.5 rear forged aluminum."
+        },
+        {
+          "diameter_in": 23,
+          "is_standard": false,
+          "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2027-specs",
+          "notes": "Spectre: Spectre Enhancement Package includes 23 in polished wheels."
+        }
+      ]
     }
   ]
 }

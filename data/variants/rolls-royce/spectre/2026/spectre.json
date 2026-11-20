@@ -33,7 +33,21 @@
       "names": {
         "CA": "Spectre",
         "US": "Spectre"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2026-specs",
+          "notes": "Spectre: 22 x 8.5 front / 22 x 9.5 rear forged aluminum, P255/45R22 and P285/40R22. (US page; Canadian cars assumed the same.)"
+        },
+        {
+          "diameter_in": 23,
+          "is_standard": false,
+          "source_id": "src-r3w-cars-com-research-rolls-royce-spectre-2026-specs",
+          "notes": "Spectre: Spectre Enhancement Package includes 23 in Wing Spoke Part Polished wheels. (US page; Canadian cars assumed the same.)"
+        }
+      ]
     }
   ]
 }

@@ -40,7 +40,21 @@
       "names": {
         "CA": "eDrive35",
         "US": "eDrive35"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-cars-com-research-bmw-i4-gran-coupe-2024-specs",
+          "notes": "eDrive35: 18 x 7.5 in aluminum, P225/50R18. (US page; Canadian cars assumed the same.)"
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": false,
+          "source_id": "src-r3w-bmwblog-com-2023-12-18-2024-bmw-i4-epa-range-with-different-wheel-options",
+          "notes": "eDrive35: 19 in wheels offered as a step up (BMWBlog, 2024 EPA range by wheel option). (US page; Canadian cars assumed the same.)"
+        }
+      ]
     }
   ]
 }

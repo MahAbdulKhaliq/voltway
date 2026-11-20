@@ -31,7 +31,23 @@
       "id": "standard",
       "names": {
         "US": "EV400"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-cars-com-research-jaguar-i-pace-2020-specs",
+          "notes": "I-PACE S: 18 x 7.5 in aluminum (2020 S page). Carried from the 2020 S page; Cars.com has no 2021 I-PACE page, no page for this exact year opened.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-cars-com-research-jaguar-i-pace-2022-specs",
+          "notes": "I-PACE SE and HSE: 20 x 8 in (2019 SE/HSE and 2022 HSE pages agree). Carried from the 2019 and 2022 pages, no page for this exact year opened.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

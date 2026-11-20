@@ -40,7 +40,16 @@
       "names": {
         "CA": "M70 xDrive",
         "US": "M70 xDrive"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 21,
+          "is_standard": true,
+          "source_id": "src-r3w-cars-com-research-bmw-i7-2024-specs-443978",
+          "notes": "M70 Sedan: 21 x 9 front / 21 x 10.5 rear aluminum, P255/40R21 and P285/35R21; no optional wheels listed. US sizes from the Cars.com US page. Canada differs: NRCan rows in the merged data give 20 in standard (21 in option) for the Canadian car; Canadian sizes are not entered here (NRCan page not opened by me).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

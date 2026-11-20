@@ -38,7 +38,16 @@
       "id": "standard",
       "names": {
         "CA": "xDrive40"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-r3w-guideautoweb-com-en-makes-bmw-ix-2023-specifications-xdrive40",
+          "notes": "xDrive40 (Canada): P235/60R20 tires on both axles, so 20 in wheels; Guide Auto gives no wheel-diameter line. The Cars.com 2023 US xDrive50 (same 20 in) is consistent.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

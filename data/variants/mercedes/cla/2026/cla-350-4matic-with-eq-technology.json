@@ -32,7 +32,21 @@
       "names": {
         "CA": "CLA 350 4MATIC with EQ Technology",
         "US": "CLA 350 4MATIC with EQ Technology"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 18,
+          "is_standard": true,
+          "source_id": "src-r3w-cars-com-research-mercedes-benz-cla-350-2026-specs",
+          "notes": "CLA 350 4MATIC: 18 x 7.5 front / 18 x 9 rear aluminum, P225/45R18 and P255/40R18. (US page; Canadian cars assumed the same.)"
+        },
+        {
+          "diameter_in": 19,
+          "is_standard": false,
+          "source_id": "src-r3w-cars-com-research-mercedes-benz-cla-350-2026-specs",
+          "notes": "CLA 350 4MATIC: the Launch Edition package ($10,500) includes 19 in AMG multispoke wheels, 225/40R19 front / 255/35R19 rear. (US page; Canadian cars assumed the same.)"
+        }
+      ]
     }
   ]
 }

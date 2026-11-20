@@ -162,6 +162,8 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
             <ChangeLink className="small" label={t('trip.costChange')} onClick={() => window.dispatchEvent(new CustomEvent('voltway:settings', { detail: 'price' }))} />
           </p>
         )}
+        {/* B123; owner 2026-11-20 (B131): the weather the plan used sits under the cost. */}
+        {weatherHint}
         <p className="small muted ti-car">{carLine}</p>
         {/* B72: hand the trip to Google Maps or Apple Maps, stop by stop. */}
         <button type="button" className="btn primary ti-drive" onClick={onDrive}>
@@ -273,8 +275,6 @@ export default function Itinerary({ plan, from, to, unit, selected, onOpenStop, 
           </div>
         </Accordion>
       </div>
-      {/* B123: the weather the plan used, and the way to Trip settings. */}
-      {weatherHint}
       {/* Last (owner, B67): the reminder that all of this is an estimate. Always visible, phones included. */}
       <p className="small muted ti-disclaimer">{t('trip.disclaimer')}</p>
     </div>

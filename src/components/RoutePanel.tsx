@@ -3,6 +3,7 @@
 // while a route is open; Close route goes back to the plain map. After a plan the form folds into
 // a one-line summary with Edit, so the itinerary gets the room.
 
+import { PlanIcon, RouteIcon } from './ButtonIcons.tsx';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { openCarPicker } from '../lib/car-label.ts';
@@ -498,10 +499,10 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
             {/* B68: with the same ends the plan is already current (battery changes re-plan by
                 themselves), so the one button goes back to it. */}
             {current ? (
-              <button type="button" className="btn primary" onClick={() => morph(() => setEditing(false), 'forward', 'left')}>{t('route.showPlan')}</button>
+              <button type="button" className="btn primary btn-with-icon" onClick={() => morph(() => setEditing(false), 'forward', 'left')}><PlanIcon />{t('route.showPlan')}</button>
             ) : (
-              <button type="submit" className="btn primary" disabled={!T.canPlan} aria-busy={status === 'planning'}>
-                {status === 'planning' ? <><span className="road-loader" aria-hidden="true"><span /></span>{t('trip.planning')}</> : t('route.plan')}
+              <button type="submit" className="btn primary btn-with-icon" disabled={!T.canPlan} aria-busy={status === 'planning'}>
+                {status === 'planning' ? <><span className="road-loader" aria-hidden="true"><span /></span>{t('trip.planning')}</> : <><RouteIcon />{t('route.plan')}</>}
               </button>
             )}
           </div>
@@ -567,9 +568,8 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
                   ? t('trip.hintOn', { temp: fmtTemp(trip.tempC, tempUnit), wheels: t('trip.wheels', { size: T.weatherInfo.wheelIn }) })
                   : t('trip.hintOnNoWheels', { temp: fmtTemp(trip.tempC, tempUnit) }))
                 : t('trip.hintCold')}{' '}
-              {trip.weather
-                ? <ChangeLink label={t('trip.hintChange')} onClick={() => openCardAt('weather', true)} />
-                : <button type="button" className="link-btn" onClick={() => openCardAt('weather', true)}>{t('trip.hintAdjust')}</button>}
+              {/* Owner 2026-11-20 (B131): "Change ›" like the other trip links, on or off. */}
+              <ChangeLink label={t('trip.hintChange')} onClick={() => openCardAt('weather', true)} />
             </p>
           }
           shareNote={T.shareUrl ? (

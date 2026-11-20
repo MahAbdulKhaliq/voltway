@@ -10,6 +10,7 @@
 // source with setData, so clusters always count only what the filters let through.
 // A theme change swaps the base style, which drops our layers; 'style.load' adds them back.
 
+import { RouteIcon } from './ButtonIcons.tsx';
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import maplibregl, { type GeoJSONSource } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -1215,8 +1216,8 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
             search={placeSearch}
             onChange={pickPlace}
             extra={
-              <button type="button" ref={routeBtnRef} className="btn small primary map-route-btn" onClick={() => enterRoute(place ? { to: place } : {})}>
-                {t('route.open')}
+              <button type="button" ref={routeBtnRef} className="btn small primary map-route-btn btn-with-icon" onClick={() => enterRoute(place ? { to: place } : {})}>
+                <RouteIcon />{t('route.open')}
               </button>
             }
           />

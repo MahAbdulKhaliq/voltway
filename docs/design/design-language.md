@@ -220,6 +220,10 @@ Every prompt dialog (Car settings, Change car / Pick your car, Add a car to comp
 
 Open points for the owner: grouping the assumption controls, a shorter estimate notice, the phone order, and the first-load car picker (from the first B83 review). Compare (B85): whether a time race should draw the fastest car with the longest bar instead (owner to decide).
 
+### Button icons (B130, owner 2026-11-20)
+
+- A small line icon (text colour, 16–18 px, 6 px gap) sits before the text of: the map's **Plan** and the trip's **Plan trip** (a route ending in a pin), **Return to plan** (an itinerary list), and Drive mode's **Google Maps** (a map pin) and **Apple Maps** (a folded map). The two map icons are generic shapes that hint at each app, not the companies' logos (trademarks). Icons live in .
+
 ### Logo (B118, owner 2026-11-20)
 
 - The mark is the owner's artwork: a dark V whose right arm is a road (yellow edge lines and dashes) that turns into a yellow bolt. It replaces the B55 yellow tile.

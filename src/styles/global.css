@@ -457,7 +457,7 @@ html[data-motion="off"] .link-go svg { transition: none; }
 .tp-plugs > span { display: inline-flex; align-items: center; gap: 8px; }
 .tp-weather p { margin: 0; }
 .tp-temp { display: grid; gap: 4px; max-width: 9rem; margin-bottom: 4px; }
-.ti-weather { margin: 12px 0 0; }
+.ti-weather { margin: 2px 0 0; }
 .route-soc { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
 /* Plugs used: the map filter's plug drawings, one per row, faint dividers (§3 rows). */
 .route-car-plugs-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
@@ -644,6 +644,9 @@ html[data-motion="off"] .map-btn-label { transition: none; }
 html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplibregl-ctrl-bottom-right, html[data-motion="off"] .charger-map .maplibregl-ctrl-bottom-left { transition: none !important; }
 
 /* Shared buttons (Phase 1b) */
+/* B130: a button with a small icon before its text. */
+.btn-with-icon { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.btn-icon { flex: none; }
 .btn { font: inherit; font-size: 0.9rem; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
 .btn.small { font-size: 0.8rem; padding: 4px 10px; }
 .btn:hover:not(:disabled) { background: var(--surface-2); }

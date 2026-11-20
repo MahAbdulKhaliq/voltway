@@ -91,7 +91,7 @@ Curve settings (SoC window, charger power) can be included in the link too (*lat
 *(B86, owner 2026-11-19: each filter category is a collapsible section showing its choices as pills when closed; sections start closed unless in use, and open/closed is remembered. Owner review 2026-11-19: choices are a checkbox list, and each section has its own Clear while its filter is set. The page uses the content-page design language with animated "Live reflow" results; see `design-language.md`.)*
 | Filter | Type | Default |
 |--------|------|---------|
-| **Sold in Canada** | toggle | **On** |
+| **Sold in** | checklist: Canada, United States | none ticked (all) · *B98, 2026-11-20: replaces the "Sold in Canada" toggle* |
 | Model year | range | Current and previous year |
 | Make | multi-select | All |
 | Body type | multi-select | All |
@@ -137,7 +137,7 @@ One page per **model year**, with a **variant selector** (and an optional trim s
 ### Data notices
 - **Estimated curve:** a short banner in the curve section, saying no measured curve is available yet.
 - **Sources differ:** a small icon on the figure (§7).
-- **Not sold in Canada:** a banner when browsing with the Canada filter off.
+- ~~**Not sold in Canada:** a banner when browsing with the Canada filter off.~~ *Removed (B98, 2026-11-20): markets never limit or flag a car.*
 
 ---
 

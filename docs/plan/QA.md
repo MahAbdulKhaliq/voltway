@@ -478,6 +478,7 @@ Read `docs/plan/DESIGN-5.md` and B72–B74 in `docs/design/gaps-and-questions.md
 | QD7 | Drive appears only with a planned trip | Form, errors and no-car states have no Drive button | 0-stop trip: the next target is the destination |
 | QD8 | Next stop panel | Name, distance, arrive ~time, planned charge and cost; km/mi switch | Estimated curve shows ~ |
 | QD9 | Navigate links | Read each link: Google `…/maps/dir/?api=1&destination=lat,lng&travelmode=driving&dir_action=navigate`; Apple `maps.apple.com/directions?destination=lat,lng&mode=driving` (+ avoid) | Only coordinates in the URLs |
+| QD9b | Market-neutral screens (B98, 9.15b) | `/charging?car=chevrolet/bolt/2027/bolt` opens the 2027 Bolt with no "not sold in Canada" banner; no "Coverage: Canada" note in the Charging intro or "Currently covers EVs sold in Canada" in the footer; Cars page: "Sold in" checklist, Canada only → no US-only cars, United States only → no CA-only cars, none → all | An old saved Cars state with `canadaOnly` loads without error and shows all markets |
 | QD10 | Whole-trip limits | 2-stop trip: both whole-trip buttons; 5 stops: Apple only; 10 stops (Toronto → Halifax): neither until stops are reached | Waypoint order matches the plan |
 | QD11 | Progress from location | Stub positions near stop 1, then 2 km past it along the route: ticked, next moves on | Position > 5 km off the route ticks nothing; Mark as reached / Not reached yet |
 | QD12 | Foreground only | With Drive open, hide the page: the watch stops; show it: it resumes | Leaving Drive stops it |

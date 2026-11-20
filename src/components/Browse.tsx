@@ -9,7 +9,6 @@
 
 import { useEffect, useMemo, useRef, useState, type ReactNode, Fragment } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
-import { COVERAGE } from '../config.ts';
 import {
   activeCount, DEFAULT_DIR, defaultFilters, matches, optionsFor, readState, SORTS, sortCars,
   type BrowseFilters, type BrowseState, type SortKey,
@@ -75,6 +74,9 @@ function Ticker({ value, render }: { value: number; render: (n: number) => strin
   }, [value]);
   return <>{render(shown)}</>;
 }
+
+/** B98: the markets the Cars page can filter by (none ticked = all). */
+const MARKETS = ['CA', 'US'];
 
 export default function Browse({ index }: Props) {
   const [state, setState] = useState<BrowseState>(() => readState(null, index));
@@ -256,13 +258,15 @@ export default function Browse({ index }: Props) {
   const dcWords = f.minDcKw > 0 ? t('browse.atLeast', { value: t('fmt.kw', { value: f.minDcKw }) }) : t('browse.off');
   const timeWords = f.max1080Min > 0 ? t('browse.atMost', { value: t('fmt.min', { value: f.max1080Min }) }) : t('browse.off');
   const bodyText = (v: string) => t(`body.${v}` as MessageKey);
+  const marketText = (v: string) => t(`market.name.${v}` as MessageKey);
 
   const panel = (
     <div className="bf-body">
       <div className="bf-switches">
-        {sw(f.canadaOnly, t('browse.f.market', { market: COVERAGE.market }), () => setF({ canadaOnly: !f.canadaOnly }))}
         {sw(f.measuredOnly, t('browse.f.measured'), () => setF({ measuredOnly: !f.measuredOnly }), t('browse.f.measuredHelp'))}
       </div>
+      {section('markets', t('browse.f.markets'), f.markets.length > 0, f.markets.map(marketText),
+        checks(t('browse.f.markets'), MARKETS, f.markets, (v, on) => setF({ markets: on ? [...f.markets, v] : f.markets.filter((x) => x !== v) }), marketText), { markets: [] })}
       {section('years', t('browse.f.years'), !same(f.years, d.years), years.filter((y) => f.years.includes(y)).map(String),
         checks(t('browse.f.years'), years.map(String), f.years.map(String), (v, on) => setF({ years: on ? [...f.years, Number(v)] : f.years.filter((x) => x !== Number(v)) }), (v) => v), { years: d.years })}
       {section('range', t('browse.f.minRange'), f.minRangeKm > 0, f.minRangeKm > 0 ? [rangeWords] : [],

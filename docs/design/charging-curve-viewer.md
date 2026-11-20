@@ -29,7 +29,7 @@ Phase 1, step 3 of [roadmap.md](roadmap.md). How the app shows charging curves a
 
 | Input | Default | Options | |
 |-------|---------|---------|-|
-| **Vehicle** | The car picked on first load (saved in the browser) | Make → model → year → variant. Filter: sold in Canada (on by default) | MVP |
+| **Vehicle** | The car picked on first load (saved in the browser) | Make → model → year → variant. Every car is listed whatever its markets (B98, 2026-11-20; was "filter: sold in Canada, on by default") | MVP |
 | **Curve** | The variant's default curve (§7 of the data model) | A dropdown when the variant has more than one: "Tested (source, date)", "Estimated" | MVP |
 | **Start → end SoC** | **10% → 80%** | Two sliders, 0–100% in 1% steps | MVP |
 | **Charger power** | **"No limit"** (shows the car's own curve) | Presets matching the map's bands: **50 · 100 · 150 · 250 · 350 kW**, or a custom figure | MVP |

@@ -4,7 +4,6 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
-import { COVERAGE } from '../config.ts';
 import { displayMinutes } from '../lib/charging.ts';
 import { getItem, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
@@ -35,7 +34,7 @@ export function trimLabel(trim: string, variant: string): string {
 }
 
 export default function CarExplorer({ index, wheelEffect }: Props) {
-  const cars = useMemo(() => index.filter((e) => e.sold_in_canada), [index]);
+  const cars = index; // B98: every car, whatever its markets
   const [carId, setCarId] = useState<string | null>(null);
   const [trimId, setTrimId] = useState<string | null>(null);
   const [car, setCar] = useState<CarDetail | null>(null);
@@ -326,7 +325,6 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
             </div>
             {compareNote === 'full' && <p className="banner small" role="status">{t('browse.compareFull')}</p>}
           </header>
-          {!car.sold_in_canada && <p className="banner">{t('car.notInMarket', { market: COVERAGE.market, regulator: COVERAGE.regulatorShort })}</p>}
 
           <section aria-labelledby="curve">
             <h2 id="curve">{t('car.curve')}</h2>

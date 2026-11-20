@@ -10,7 +10,7 @@ export type View = 'cards' | 'table';
 export type HeatPumpFilter = 'any' | 'standard' | 'available';
 
 export interface BrowseFilters {
-  canadaOnly: boolean;
+  markets: string[];        // B98: CA / US; empty = all
   years: number[];          // empty = all
   makes: string[];          // empty = all (same for every list below)
   bodies: string[];
@@ -39,7 +39,7 @@ export function defaultYears(index: IndexEntry[]): number[] {
 
 export function defaultFilters(index: IndexEntry[]): BrowseFilters {
   return {
-    canadaOnly: true, years: defaultYears(index), makes: [], bodies: [], drivetrains: [], ports: [], voltages: [], chemistries: [],
+    markets: [], years: defaultYears(index), makes: [], bodies: [], drivetrains: [], ports: [], voltages: [], chemistries: [],
     heatPump: 'any', minRangeKm: 0, minDcKw: 0, max1080Min: 0, measuredOnly: false,
   };
 }
@@ -65,14 +65,14 @@ export function readState(saved: unknown, index: IndexEntry[]): BrowseState {
   if (o.view === 'cards' || o.view === 'table') s.view = o.view;
   const f = o.filters as Record<string, unknown> | undefined;
   if (f && typeof f === 'object') {
-    for (const k of ['canadaOnly', 'measuredOnly'] as const) if (typeof f[k] === 'boolean') s.filters[k] = f[k] as boolean;
+    for (const k of ['measuredOnly'] as const) if (typeof f[k] === 'boolean') s.filters[k] = f[k] as boolean;
     for (const k of ['minRangeKm', 'minDcKw', 'max1080Min'] as const) {
       const n = f[k];
       if (typeof n === 'number' && Number.isFinite(n) && n >= 0) s.filters[k] = n;
     }
     if (f.heatPump === 'any' || f.heatPump === 'standard' || f.heatPump === 'available') s.filters.heatPump = f.heatPump;
     if (Array.isArray(f.years) && f.years.every((y) => Number.isInteger(y))) s.filters.years = f.years as number[];
-    for (const k of ['makes', 'bodies', 'drivetrains', 'ports', 'voltages', 'chemistries'] as const) {
+    for (const k of ['markets', 'makes', 'bodies', 'drivetrains', 'ports', 'voltages', 'chemistries'] as const) {
       const v = f[k];
       if (Array.isArray(v) && v.every((x) => typeof x === 'string')) s.filters[k] = v as string[];
     }
@@ -84,7 +84,7 @@ const inList = (list: string[], v: string | null) => list.length === 0 || (v !==
 
 /** True when the car passes every filter. An unknown figure fails a min/max filter only while it is set. */
 export function matches(e: IndexEntry, f: BrowseFilters): boolean {
-  if (f.canadaOnly && !e.sold_in_canada) return false;
+  if (f.markets.length && !e.markets.some((m) => f.markets.includes(m))) return false;
   if (f.years.length && !f.years.includes(e.year)) return false;
   if (!inList(f.makes, e.make) || !inList(f.bodies, e.body_type) || !inList(f.drivetrains, e.drivetrain)) return false;
   if (!inList(f.ports, e.charge_port) || !inList(f.voltages, e.voltage_class) || !inList(f.chemistries, e.chemistry)) return false;

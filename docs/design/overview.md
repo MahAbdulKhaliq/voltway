@@ -49,7 +49,7 @@ Each phase ships on its own. The header gains **Map** as it's built; the trip pl
 
 ### Screens
 - **First load:** "Which EV do you drive, or want to?" (search or step-by-step pickers), or skip with "Just browsing".
-- **Browse:** cards or a sortable table. Filters include sold in Canada (on by default), port, 400V/800V, heat pump, 10–80% time and "tested curves only".
+- **Browse:** cards or a sortable table. Filters include Sold in (Canada / United States, B98), port, 400V/800V, heat pump, 10–80% time and "tested curves only".
 - **Car page:** key figure tiles, the curve viewer, specs, trims, sources.
 - **Compare:** up to 4 cars, curves overlaid, side-by-side specs with best values highlighted.
 - **Source badges** on every figure, which open to show other sources and "sources differ" flags.

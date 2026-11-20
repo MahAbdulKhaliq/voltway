@@ -5,5 +5,74 @@
   "generation": "first-generation",
   "years": [
     2025
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 84,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-w2-evdb-lucid-air-excerpts",
+        "low_confidence": true,
+        "notes": "Estimated: Lucid 2025 Pure sheet capacity 84 kWh and EV Database 84.0 usable / 88.0 nominal (search excerpt) for the same pack family; Lucid markets 5.0 mi/kWh on 84 kWh. "
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-w2-lucid-battery-data",
+        "low_confidence": true,
+        "notes": "Estimated: same 2170 NMC cell family; Lucid battery data lists the MY26+ packs as \"Li MM(NRMC)\"; no pre-2026 page names the chemistry."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "estimated",
+        "source_id": "src-w2-lucid-air-pure-2025-sheet",
+        "low_confidence": true,
+        "notes": "Estimated: Lucid 2025 Pure sheet gives platform architecture 650V+ (above 600 V, the 800 V class); Evercars says 900V-class for every Air."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-w2-lucid-air-charging-guide",
+        "low_confidence": true,
+        "notes": "Lucid: manual Start Preconditioning plus Smart Preconditioning (automatic when routing to a fast charger). Current software state; the page is not year-specific."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 84,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-lucid-air-pure-2025-sheet",
+        "low_confidence": true,
+        "notes": "Lucid 2025 Pure sheet: battery capacity 84 kWh (16 module); Lucid says 420 mi from 84 kWh."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 250,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-evercars-lucid-air-2026",
+      "low_confidence": true,
+      "notes": "Evercars (2026 comparison) and the Wikipedia trim table: Pure peak 250 kW; no Lucid Pure sheet states DC kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 19.2,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-lucid-air-charging-ca",
+      "low_confidence": true,
+      "notes": "Lucid Canada charging page: AC charging maximum 19.2 kW; Wikipedia lists 19.2 kW (240 V, 80 A) for every trim."
+    }
   ]
 }

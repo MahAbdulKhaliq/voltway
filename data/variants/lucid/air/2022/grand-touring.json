@@ -9,6 +9,22 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-w2-lucid-air-charging-guide",
+      "notes": "Lucid: the Air has a J1772 (CCS1) combo port."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-w2-lucid-air-charging-ca",
+      "notes": "Lucid (Canada and US pages): Tesla Superchargers (V3+) with a Lucid-approved NACS-to-CCS1 adapter ($220); access opened 31 July 2025 for every Air (Electrek 2026 Air article)."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

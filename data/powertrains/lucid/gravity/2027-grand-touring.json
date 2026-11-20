@@ -5,5 +5,64 @@
   "generation": "first-generation",
   "years": [
     2027
+  ],
+  "battery": {
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-w2-lucid-battery-data",
+        "low_confidence": true,
+        "notes": "Estimated: Lucid's battery data page lists its Air packs (MY26+) as nickel-rich NMC; no Gravity page names its chemistry; same maker and 2170-class cells assumed."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "800v",
+        "kind": "manufacturer",
+        "source_id": "src-w2-wards-gravity-2025",
+        "low_confidence": true,
+        "notes": "Wards: 926 V platform, up to 400 kW on 1000 V chargers (900 V class recorded as 800v)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-w2-lucid-gravity-charging",
+        "low_confidence": true,
+        "notes": "Lucid: Smart Preconditioning (automatic when routing to a fast charger) and a manual Precondition Battery button."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 123,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-w2-wards-gravity-2025",
+        "low_confidence": true,
+        "notes": "Estimated: 2027 hardware assumed unchanged from 2025-26. Wards: 123 kWh battery (usable not stated); KBB 2026 (Grand Touring, Dream Edition) agrees."
+      }
+    ]
+  },
+  "ac_max_kw": [
+    {
+      "value": 19.2,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-lucid-gravity-charging",
+      "low_confidence": true,
+      "notes": "Lucid: AC up to 19.2 kW (80 A)."
+    }
+  ],
+  "dc_max_kw": [
+    {
+      "value": 400,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-w2-wards-gravity-2025",
+      "low_confidence": true,
+      "notes": "Estimated: 2027 hardware assumed unchanged from 2025-26. Wards: up to 400 kW on 1000 V chargers (225 kW sustained at 500 V); Lucid page: 200 miles in 10.5 min at 400 kW."
+    }
   ]
 }

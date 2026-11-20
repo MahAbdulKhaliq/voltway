@@ -5,5 +5,74 @@
   "generation": "gen-1",
   "years": [
     2024
+  ],
+  "battery": {
+    "capacity_usable_kwh": [
+      {
+        "value": 142,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-wikipedia-r1t",
+        "low_confidence": true,
+        "notes": "Wikipedia R1T: the Max pack was later revised to 142 kWh usable (Gen 2 Max 141.5 in Green Car Reports)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nca",
+        "kind": "manufacturer",
+        "source_id": "src-w2-autoevolution-r1-packs-2025",
+        "low_confidence": true,
+        "notes": "autoevolution: Max pack uses Samsung 53G NCA cells."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-w2-insideevs-r1-210kw",
+        "low_confidence": true,
+        "notes": "EPA filing relayed by InsideEVs: pack voltage 216-459 V, the 400 V class."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-w2-insideevs-rivian-precond-2025-18",
+        "low_confidence": true,
+        "notes": "Navigation-triggered battery preconditioning plus manual battery preconditioning (no longer forced to use navigation) added by software 2025.18 for Gen 1 and Gen 2 (current state for owners). Before 2025.18 it was navigation-only."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 149,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-w2-insideevs-r1-gen2-debut",
+        "low_confidence": true,
+        "notes": "InsideEVs: Gen 1 Max pack rated 149 kWh."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 210,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-w2-driveteslacanada-r1-epa",
+      "low_confidence": true,
+      "notes": "Estimated: the EPA test documents state a peak of 210 kW for both the R1T and R1S without naming a pack (Drive Tesla Canada, InsideEVs); no Max-specific rating found. Max tests peaked 207-221 kW. Owner call: lineup-wide EPA figure applied to the Max pack."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-w2-insideevs-r1-210kw",
+      "low_confidence": true,
+      "notes": "InsideEVs quoting the EPA filing for the Gen 1 R1: 11.5 kW onboard charger. Wikipedia lists 11.52 kW (240 V, 48 A)."
+    }
   ]
 }

@@ -25,7 +25,62 @@
         "source_id": "src-thinkev-blazer-ev-2026",
         "low_confidence": true,
         "notes": "Quick web lookup (rough, not cross-checked)."
+      },
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-lyriq-v",
+        "low_confidence": true,
+        "notes": "Estimated: Ultium 140Ah NMC pouch cells (EV Database, Lyriq-V); same Ultium cells in the Blazer EV 102 kWh pack (GM NCMA, closest enum nmc)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-chevrolet-battery-preconditioning-guide",
+        "low_confidence": true,
+        "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 100,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-cadillac-lyriq",
+        "low_confidence": true,
+        "notes": "Estimated: no page states usable for the Blazer EV 102 kWh pack. The Lyriq uses a 102 kWh gross / 100 kWh usable Ultium pack (Wikipedia; Auto-data 100.4), the same 102 kWh capacity and cells as the Blazer 102 kWh pack (InsideEVs Blazer table); ratio carried over."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-evcs-2027-lyriq-nacs",
+        "low_confidence": true,
+        "notes": "Estimated: the 102 kWh Ultium pack in the Lyriq is a 400-volt class pack (EVChargingStations); the Blazer EV 102 kWh pack is the same capacity and 190 kW peak. The Blazer 85 kWh pack is about 288 V nominal (InsideEVs)."
       }
     ]
-  }
+  },
+  "dc_max_kw": [
+    {
+      "value": 190,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-insideevs-blazer-ev-epa-2024",
+      "low_confidence": true,
+      "notes": "Estimated: InsideEVs table (GM figures): RS RWD 102 kWh = 190 kW; up to 190 kW in GM launch material; EVChargingStations (2027 article): 102 kWh pack 190 kW (2026 SS). SS shares the 102 kWh pack. Years: 2025/2026."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-insideevs-blazer-ev-epa-2024",
+      "low_confidence": true,
+      "notes": "Estimated: InsideEVs: 11.5 kW for the Blazer EV; Wikipedia 11.5 kW. Enel X Way (reseller) lists an optional 19.2 kW on RS RWD and SS and GMAuthority shows 11.5 / 19 kW in one column; Recharged says 11.5 kW on all trims; no NRCan 19.2 kW Blazer. Recorded 11.5 kW; the conflict is unresolved."
+    }
+  ]
 }

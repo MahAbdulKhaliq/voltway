@@ -13,3 +13,13 @@ nissan/ariya/2026/sl-plus,nissan:ariya:2025:ariya,nissan,"OpenEV 63 kWh usable=g
 nissan/ariya/2026/sl-plus-e-4orce,nissan:ariya:2025:ariya_awd,nissan,"OpenEV 63 kWh usable=gross on 87 kWh cars; gross wrong on all; AC 7.4 vs 7.2",2026-11-19
 nissan/ariya/2026/sv,nissan:ariya:2025:ariya,nissan,"OpenEV 63 kWh usable=gross on 87 kWh cars; gross wrong on all; AC 7.4 vs 7.2",2026-11-19
 kia/niro-ev/2026/standard,bc318a9b-d468-c4f5-17d2-09ad143e453a,kia,"Chargeprice usable 68.4 is gross-sized; DC 80 stale",2026-11-19
+cadillac/lyriq/2026/standard,cadillac:lyriq:2025:lyriq,gm,"OpenEV Lyriq 2026: port nacs (CCS1 through 2026), usable 95/gross 100.4 vs 100/102",2026-11-19
+cadillac/lyriq/2026/awd,cadillac:lyriq:2025:lyriq_awd,gm,"OpenEV Lyriq 2026: port nacs (CCS1 through 2026), usable 95/gross 100.4 vs 100/102",2026-11-19
+cadillac/lyriq/2026/v,cadillac:lyriq:2025:lyriq_awd,gm,"OpenEV Lyriq 2026: port nacs (CCS1 through 2026), usable 95/gross 100.4 vs 100/102",2026-11-19
+chevrolet/blazer-ev/2026/lt-rs-awd,chevrolet:blazer_ev:2025:blazer_ev,gm,"OpenEV Blazer 2026 LT/RS AWD: usable 97, DC 195 (85 kWh pack is 150 kW)",2026-11-19
+chevrolet/silverado-ev/2026-lt-ext-range,(removed powertrain value) dc_max_kw=350 src-gm-silverado-ev-2026-spec,gm,"Wrong figure (GM fact-check)",2026-11-19
+chevrolet/silverado-ev/2026-trail-boss-ext-range,(removed powertrain value) dc_max_kw=350 src-gm-silverado-ev-2026-spec,gm,"Wrong figure (GM fact-check)",2026-11-19
+chevrolet/silverado-ev/2026-wt-ext-range,(removed powertrain value) dc_max_kw=350 src-gm-silverado-ev-2026-spec,gm,"Wrong figure (GM fact-check)",2026-11-19
+chevrolet/blazer-ev/2026-standard,(removed powertrain value) battery.capacity_usable_kwh=80 src-weeklydriver-gm-ultium-85,gm,"Wrong figure (GM fact-check)",2026-11-19
+chevrolet/blazer-ev/2026-standard,(removed powertrain value) dc_max_kw=190 src-thinkev-blazer-ev-2026,gm,"Wrong figure (GM fact-check)",2026-11-19
+chevrolet/blazer-ev/2026-lt-rs-awd,(removed powertrain value) dc_max_kw=190 src-thinkev-blazer-ev-2026,gm,"Wrong figure (GM fact-check)",2026-11-19

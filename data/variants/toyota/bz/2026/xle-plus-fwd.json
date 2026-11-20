@@ -8,6 +8,22 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-r19-toyota-us-bz-onsale-2026",
+      "notes": "Toyota USA: the 2026 bZ has a newly standard NACS inlet (2027 bZ release: NACS port standard)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-r19-toyota-us-bz-onsale-2026",
+      "notes": "Toyota USA: 'More than 25,000 additional NACS charger plugs available to 2026 bZ drivers through the Tesla Supercharger Network'."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

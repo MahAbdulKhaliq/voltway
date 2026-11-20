@@ -3,10 +3,18 @@
     {
       "id": "src-fastned-tesla-curves-2026",
       "type": "testing_org",
-      "title": "Fastned: Tesla charge curves (Model 3 Long Range 2019-2023, Standard Range 2020-2023, Model Y Long Range 2022-2025)",
+      "title": "Fastned: Tesla Model 3 charge curves (Long Range 2019-2023, Standard Range 2020-2023)",
       "url": "https://www.fastnedcharging.com/en/brands-overview/tesla",
       "accessed_on": "2026-11-19",
-      "notes": "Fastned publishes per-car charge curves measured on its own European CCS2 network (300 kW chargers); the numbers are embedded in the page (kW at each whole SoC %). Page says curves show behaviour with a battery at about 30 C; colder/warmer packs charge slower. CCS2, not Tesla Supercharger, so peak can be capped below the car's Supercharger peak. No reuse terms found on the site (robots.txt allows crawling; terms-conditions cover customers/app only); owner to confirm."
+      "notes": "Fastned publishes per-car charge curves measured on its own European CCS2 network (300 kW chargers); the numbers are embedded in the page (kW at each whole SoC %). Page says curves show behaviour with a battery at about 30 C; colder/warmer packs charge slower. CCS2, not Tesla Supercharger, so the peak is capped below the car's Supercharger peak. Fastned Terms of Use (en-gb terms-conditions) are readable and have no clause on reuse of site data; robots.txt allows crawling; no licence for the charge graphs either way, so the owner confirms."
+    },
+    {
+      "id": "src-fastned-tesla-model-y-2026",
+      "type": "testing_org",
+      "title": "Fastned: Tesla Model Y Long Range (2022 - 2025) charge curve",
+      "url": "https://www.fastnedcharging.com/en/brands-overview/tesla?model=Model%20Y",
+      "accessed_on": "2026-11-19",
+      "notes": "Same Fastned Tesla page family, Model Y filter. Curve measured on Fastned's European CCS2 network, battery about 30 C, chargeSpeed 250 kW, graph class 300 kW. Terms as for src-fastned-tesla-curves-2026 (no reuse clause in the readable Terms of Use). The \"Long Range (2025+)\" entry carries identical numbers (checked all 82 points), so it adds no second measurement. The Model Y \"Standard Range\" entries (2022-2025, 2025+) have no graph."
     }
   ],
   "powertrains": {
@@ -42,6 +50,10 @@
               "power_kw": 194.1
             },
             {
+              "soc_percent": 38,
+              "power_kw": 195.1
+            },
+            {
               "soc_percent": 40,
               "power_kw": 192.5
             },
@@ -91,8 +103,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, CCS2 300 kW charger, battery around 30 C. Measured on the CCS2 port, so the plateau is capped near 195 kW (InsideEVs reports the same Fastned 2020 LR AWD at 195 kW peak / 128 kW 20-80% average); a North American Supercharger session reaches ~250 kW early (Bjorn Nyland 2019 LR AWD: 250 kW peak, 128 kW 20-80% average via InsideEVs, which agrees on the average). Curve starts at 11 % SoC and ends at 90 %. Applies to the 2017-2020 Panasonic NCA hardware; software/charger differences move the early plateau.",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 11-90 % SoC, peak 195.1 kW at 38 %. EU CCS2; NA Supercharger early peak ~250 kW, so the early plateau is understated by up to ~25 % for a North American car (InsideEVs, 2021 LR AWD on a V3 Supercharger: 249-250 kW peak, 94-106 kW 20-80 % average; Fastned curve time-weighted 20-80 % average about 126 kW, InsideEVs quotes 128 kW for the Fastned 2019-20 LR AWD at 195 kW peak). Applies to the 78.8 kWh Panasonic NCA Long Range/Performance cars; the Performance sharing this pack and software is assumed, not sourced. Fastned's label starts at 2019: the 2017-2018 cars had earlier charging software, so the match is unproven.",
+          "low_confidence": true
         }
       ]
     },
@@ -128,6 +140,10 @@
               "power_kw": 194.1
             },
             {
+              "soc_percent": 38,
+              "power_kw": 195.1
+            },
+            {
               "soc_percent": 40,
               "power_kw": 192.5
             },
@@ -177,8 +193,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, CCS2 300 kW charger, battery around 30 C. Measured on the CCS2 port, so the plateau is capped near 195 kW (InsideEVs reports the same Fastned 2020 LR AWD at 195 kW peak / 128 kW 20-80% average); a North American Supercharger session reaches ~250 kW early (Bjorn Nyland 2019 LR AWD: 250 kW peak, 128 kW 20-80% average via InsideEVs, which agrees on the average). Curve starts at 11 % SoC and ends at 90 %. Applies to the 2017-2020 Panasonic NCA hardware; software/charger differences move the early plateau.",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 11-90 % SoC, peak 195.1 kW at 38 %. EU CCS2; NA Supercharger early peak ~250 kW, so the early plateau is understated by up to ~25 % for a North American car (InsideEVs, 2021 LR AWD on a V3 Supercharger: 249-250 kW peak, 94-106 kW 20-80 % average; Fastned curve time-weighted 20-80 % average about 126 kW, InsideEVs quotes 128 kW for the Fastned 2019-20 LR AWD at 195 kW peak). Applies to the 78.8 kWh Panasonic NCA Long Range/Performance cars; the Performance sharing this pack and software is assumed, not sourced. Fastned's label starts at 2019: the 2017-2018 cars had earlier charging software, so the match is unproven.",
+          "low_confidence": true
         }
       ]
     },
@@ -214,6 +230,10 @@
               "power_kw": 194.1
             },
             {
+              "soc_percent": 38,
+              "power_kw": 195.1
+            },
+            {
               "soc_percent": 40,
               "power_kw": 192.5
             },
@@ -263,8 +283,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, CCS2 300 kW charger, battery around 30 C. Measured on the CCS2 port, so the plateau is capped near 195 kW (InsideEVs reports the same Fastned 2020 LR AWD at 195 kW peak / 128 kW 20-80% average); a North American Supercharger session reaches ~250 kW early (Bjorn Nyland 2019 LR AWD: 250 kW peak, 128 kW 20-80% average via InsideEVs, which agrees on the average). Curve starts at 11 % SoC and ends at 90 %. Applies to the 2017-2020 Panasonic NCA hardware; software/charger differences move the early plateau.",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 11-90 % SoC, peak 195.1 kW at 38 %. EU CCS2; NA Supercharger early peak ~250 kW, so the early plateau is understated by up to ~25 % for a North American car (InsideEVs, 2021 LR AWD on a V3 Supercharger: 249-250 kW peak, 94-106 kW 20-80 % average; Fastned curve time-weighted 20-80 % average about 126 kW, InsideEVs quotes 128 kW for the Fastned 2019-20 LR AWD at 195 kW peak). Applies to the 78.8 kWh Panasonic NCA Long Range/Performance cars; the Performance sharing this pack and software is assumed, not sourced.",
+          "low_confidence": true
         }
       ]
     },
@@ -300,6 +320,10 @@
               "power_kw": 194.1
             },
             {
+              "soc_percent": 38,
+              "power_kw": 195.1
+            },
+            {
               "soc_percent": 40,
               "power_kw": 192.5
             },
@@ -349,8 +373,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, CCS2 300 kW charger, battery around 30 C. Measured on the CCS2 port, so the plateau is capped near 195 kW (InsideEVs reports the same Fastned 2020 LR AWD at 195 kW peak / 128 kW 20-80% average); a North American Supercharger session reaches ~250 kW early (Bjorn Nyland 2019 LR AWD: 250 kW peak, 128 kW 20-80% average via InsideEVs, which agrees on the average). Curve starts at 11 % SoC and ends at 90 %. Applies to the 2017-2020 Panasonic NCA hardware; software/charger differences move the early plateau.",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 11-90 % SoC, peak 195.1 kW at 38 %. EU CCS2; NA Supercharger early peak ~250 kW, so the early plateau is understated by up to ~25 % for a North American car (InsideEVs, 2021 LR AWD on a V3 Supercharger: 249-250 kW peak, 94-106 kW 20-80 % average; Fastned curve time-weighted 20-80 % average about 126 kW, InsideEVs quotes 128 kW for the Fastned 2019-20 LR AWD at 195 kW peak). Applies to the 78.8 kWh Panasonic NCA Long Range/Performance cars; the Performance sharing this pack and software is assumed, not sourced.",
+          "low_confidence": true
         }
       ]
     },
@@ -386,6 +410,10 @@
               "power_kw": 194.1
             },
             {
+              "soc_percent": 38,
+              "power_kw": 195.1
+            },
+            {
               "soc_percent": 40,
               "power_kw": 192.5
             },
@@ -435,8 +463,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, CCS2 300 kW charger, battery around 30 C. Measured on the CCS2 port, so the plateau is capped near 195 kW (InsideEVs reports the same Fastned 2020 LR AWD at 195 kW peak / 128 kW 20-80% average); a North American Supercharger session reaches ~250 kW early (Bjorn Nyland 2019 LR AWD: 250 kW peak, 128 kW 20-80% average via InsideEVs, which agrees on the average). Curve starts at 11 % SoC and ends at 90 %. Applies to the 2017-2020 Panasonic NCA hardware; software/charger differences move the early plateau.",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 11-90 % SoC, peak 195.1 kW at 38 %. EU CCS2; NA Supercharger early peak ~250 kW, so the early plateau is understated by up to ~25 % for a North American car (InsideEVs, 2021 LR AWD on a V3 Supercharger: 249-250 kW peak, 94-106 kW 20-80 % average; Fastned curve time-weighted 20-80 % average about 126 kW, InsideEVs quotes 128 kW for the Fastned 2019-20 LR AWD at 195 kW peak). Applies to the 78.8 kWh Panasonic NCA Long Range/Performance cars; the Performance sharing this pack and software is assumed, not sourced.",
+          "low_confidence": true
         }
       ]
     },
@@ -472,6 +500,10 @@
               "power_kw": 194.1
             },
             {
+              "soc_percent": 38,
+              "power_kw": 195.1
+            },
+            {
               "soc_percent": 40,
               "power_kw": 192.5
             },
@@ -521,8 +553,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, CCS2 300 kW charger, battery around 30 C. Measured on the CCS2 port, so the plateau is capped near 195 kW (InsideEVs reports the same Fastned 2020 LR AWD at 195 kW peak / 128 kW 20-80% average); a North American Supercharger session reaches ~250 kW early (Bjorn Nyland 2019 LR AWD: 250 kW peak, 128 kW 20-80% average via InsideEVs, which agrees on the average). Curve starts at 11 % SoC and ends at 90 %. Applies to the 2017-2020 Panasonic NCA hardware; software/charger differences move the early plateau.",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 11-90 % SoC, peak 195.1 kW at 38 %. EU CCS2; NA Supercharger early peak ~250 kW, so the early plateau is understated by up to ~25 % for a North American car (InsideEVs, 2021 LR AWD on a V3 Supercharger: 249-250 kW peak, 94-106 kW 20-80 % average; Fastned curve time-weighted 20-80 % average about 126 kW, InsideEVs quotes 128 kW for the Fastned 2019-20 LR AWD at 195 kW peak). Applies to the 78.8 kWh Panasonic NCA Long Range/Performance cars; the Performance sharing this pack and software is assumed, not sourced. Fastned's label starts at 2019: the 2017-2018 cars had earlier charging software, so the match is unproven.",
+          "low_confidence": true
         }
       ]
     },
@@ -558,6 +590,10 @@
               "power_kw": 194.1
             },
             {
+              "soc_percent": 38,
+              "power_kw": 195.1
+            },
+            {
               "soc_percent": 40,
               "power_kw": 192.5
             },
@@ -607,8 +643,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, CCS2 300 kW charger, battery around 30 C. Measured on the CCS2 port, so the plateau is capped near 195 kW (InsideEVs reports the same Fastned 2020 LR AWD at 195 kW peak / 128 kW 20-80% average); a North American Supercharger session reaches ~250 kW early (Bjorn Nyland 2019 LR AWD: 250 kW peak, 128 kW 20-80% average via InsideEVs, which agrees on the average). Curve starts at 11 % SoC and ends at 90 %. Applies to the 2017-2020 Panasonic NCA hardware; software/charger differences move the early plateau.",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 11-90 % SoC, peak 195.1 kW at 38 %. EU CCS2; NA Supercharger early peak ~250 kW, so the early plateau is understated by up to ~25 % for a North American car (InsideEVs, 2021 LR AWD on a V3 Supercharger: 249-250 kW peak, 94-106 kW 20-80 % average; Fastned curve time-weighted 20-80 % average about 126 kW, InsideEVs quotes 128 kW for the Fastned 2019-20 LR AWD at 195 kW peak). Applies to the 78.8 kWh Panasonic NCA Long Range/Performance cars; the Performance sharing this pack and software is assumed, not sourced.",
+          "low_confidence": true
         }
       ]
     },
@@ -644,6 +680,10 @@
               "power_kw": 194.1
             },
             {
+              "soc_percent": 38,
+              "power_kw": 195.1
+            },
+            {
               "soc_percent": 40,
               "power_kw": 192.5
             },
@@ -693,8 +733,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, CCS2 300 kW charger, battery around 30 C. Measured on the CCS2 port, so the plateau is capped near 195 kW (InsideEVs reports the same Fastned 2020 LR AWD at 195 kW peak / 128 kW 20-80% average); a North American Supercharger session reaches ~250 kW early (Bjorn Nyland 2019 LR AWD: 250 kW peak, 128 kW 20-80% average via InsideEVs, which agrees on the average). Curve starts at 11 % SoC and ends at 90 %. Applies to the 2017-2020 Panasonic NCA hardware; software/charger differences move the early plateau.",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Long Range (2019 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 11-90 % SoC, peak 195.1 kW at 38 %. EU CCS2; NA Supercharger early peak ~250 kW, so the early plateau is understated by up to ~25 % for a North American car (InsideEVs, 2021 LR AWD on a V3 Supercharger: 249-250 kW peak, 94-106 kW 20-80 % average; Fastned curve time-weighted 20-80 % average about 126 kW, InsideEVs quotes 128 kW for the Fastned 2019-20 LR AWD at 195 kW peak). Applies to the 78.8 kWh Panasonic NCA Long Range/Performance cars; the Performance sharing this pack and software is assumed, not sourced.",
+          "low_confidence": true
         }
       ]
     },
@@ -779,8 +819,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Standard Range (2020 - 2023)\" curve, CCS2 300 kW, battery around 30 C, 10-90 % SoC. Matches InsideEVs summary of Fastned data for the 2020 SR+ (170 kW peak, 82 kW 20-80% average). Used only for the 2019-2020 49 kWh NCA cars: Bjorn Nyland measured the 2021 SR+ (51 kWh) slower (159 kW peak, 64 kW average).",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Standard Range (2020 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 10-90 % SoC, 170 kW max. EU CCS2; NA Supercharger early peak ~250 kW (the SR+ is capped lower, 170 kW max; InsideEVs quotes 170 kW peak / 82 kW 20-80 % average for Fastned's 2020 SR+, the curve gives about 81 kW time-weighted). Fastned's label spans 2020-2023, so it may include the 2021-23 cars: Bjorn Nyland measured the 2021 SR+ (55 kWh) slower (159 kW peak, 64 kW 20-80 % average), so that car is not given this curve. The 2019 cars are outside the label and the plain Standard Range (45 kWh usable) pack is not documented; match to these 53 kWh NCA cars is unproven.",
+          "low_confidence": true
         }
       ]
     },
@@ -865,8 +905,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Standard Range (2020 - 2023)\" curve, CCS2 300 kW, battery around 30 C, 10-90 % SoC. Matches InsideEVs summary of Fastned data for the 2020 SR+ (170 kW peak, 82 kW 20-80% average). Used only for the 2019-2020 49 kWh NCA cars: Bjorn Nyland measured the 2021 SR+ (51 kWh) slower (159 kW peak, 64 kW average).",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Standard Range (2020 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 10-90 % SoC, 170 kW max. EU CCS2; NA Supercharger early peak ~250 kW (the SR+ is capped lower, 170 kW max; InsideEVs quotes 170 kW peak / 82 kW 20-80 % average for Fastned's 2020 SR+, the curve gives about 81 kW time-weighted). Fastned's label spans 2020-2023, so it may include the 2021-23 cars: Bjorn Nyland measured the 2021 SR+ (55 kWh) slower (159 kW peak, 64 kW 20-80 % average), so that car is not given this curve. The 2019 cars are outside the label and the plain Standard Range (45 kWh usable) pack is not documented; match to these 53 kWh NCA cars is unproven.",
+          "low_confidence": true
         }
       ]
     },
@@ -951,8 +991,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Standard Range (2020 - 2023)\" curve, CCS2 300 kW, battery around 30 C, 10-90 % SoC. Matches InsideEVs summary of Fastned data for the 2020 SR+ (170 kW peak, 82 kW 20-80% average). Used only for the 2019-2020 49 kWh NCA cars: Bjorn Nyland measured the 2021 SR+ (51 kWh) slower (159 kW peak, 64 kW average).",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Standard Range (2020 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 10-90 % SoC, 170 kW max. EU CCS2; NA Supercharger early peak ~250 kW (the SR+ is capped lower, 170 kW max; InsideEVs quotes 170 kW peak / 82 kW 20-80 % average for Fastned's 2020 SR+, the curve gives about 81 kW time-weighted). Fastned's label spans 2020-2023, so it may include the 2021-23 cars: Bjorn Nyland measured the 2021 SR+ (55 kWh) slower (159 kW peak, 64 kW 20-80 % average), so that car is not given this curve. The 2019 cars are outside the label and the plain Standard Range (45 kWh usable) pack is not documented; match to these 53 kWh NCA cars is unproven.",
+          "low_confidence": true
         }
       ]
     },
@@ -1037,8 +1077,8 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model 3 Standard Range (2020 - 2023)\" curve, CCS2 300 kW, battery around 30 C, 10-90 % SoC. Matches InsideEVs summary of Fastned data for the 2020 SR+ (170 kW peak, 82 kW 20-80% average). Used only for the 2019-2020 49 kWh NCA cars: Bjorn Nyland measured the 2021 SR+ (51 kWh) slower (159 kW peak, 64 kW average).",
-          "low_confidence": false
+          "notes": "Fastned \"Model 3 Standard Range (2020 - 2023)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 10-90 % SoC, 170 kW max. EU CCS2; NA Supercharger early peak ~250 kW (the SR+ is capped lower, 170 kW max; InsideEVs quotes 170 kW peak / 82 kW 20-80 % average for Fastned's 2020 SR+, the curve gives about 81 kW time-weighted). Fastned's label spans 2020-2023, so it may include the 2021-23 cars: Bjorn Nyland measured the 2021 SR+ (55 kWh) slower (159 kW peak, 64 kW 20-80 % average), so that car is not given this curve. The 2019 cars are outside the label and the plain Standard Range (45 kWh usable) pack is not documented; match to these 53 kWh NCA cars is unproven.",
+          "low_confidence": true
         }
       ]
     },
@@ -1047,7 +1087,7 @@
         {
           "id": "fastned-2026-my-lr",
           "kind": "tested",
-          "source_id": "src-fastned-tesla-curves-2026",
+          "source_id": "src-fastned-tesla-model-y-2026",
           "points": [
             {
               "soc_percent": 8,
@@ -1127,97 +1167,7 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model Y Long Range (2022 - 2025)\" curve, CCS2 300 kW, battery around 30 C, 8-90 % SoC, peak 250 kW claimed vs 219 kW at the first logged point. Fastned does not state the pack (European cars); put only on the LG-cell Canadian China-built Long Range/Performance ids as a best match, so the pack match is unconfirmed.",
-          "low_confidence": true
-        }
-      ]
-    },
-    "tesla/model-y/2024-long-range-awd-i": {
-      "curves": [
-        {
-          "id": "fastned-2026-my-lr",
-          "kind": "tested",
-          "source_id": "src-fastned-tesla-curves-2026",
-          "points": [
-            {
-              "soc_percent": 8,
-              "power_kw": 230.75
-            },
-            {
-              "soc_percent": 10,
-              "power_kw": 219.32
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 195.29
-            },
-            {
-              "soc_percent": 20,
-              "power_kw": 181.7
-            },
-            {
-              "soc_percent": 25,
-              "power_kw": 173.51
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 163.79
-            },
-            {
-              "soc_percent": 35,
-              "power_kw": 145.7
-            },
-            {
-              "soc_percent": 40,
-              "power_kw": 131.53
-            },
-            {
-              "soc_percent": 45,
-              "power_kw": 117.52
-            },
-            {
-              "soc_percent": 50,
-              "power_kw": 105.09
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 93.29
-            },
-            {
-              "soc_percent": 60,
-              "power_kw": 83.2
-            },
-            {
-              "soc_percent": 65,
-              "power_kw": 77.95
-            },
-            {
-              "soc_percent": 70,
-              "power_kw": 72.73
-            },
-            {
-              "soc_percent": 75,
-              "power_kw": 65.89
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 48.42
-            },
-            {
-              "soc_percent": 85,
-              "power_kw": 43.9
-            },
-            {
-              "soc_percent": 90,
-              "power_kw": 34.3
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "battery_temp_c": 30,
-            "charger_kw": 300
-          },
-          "notes": "Fastned \"Model Y Long Range (2022 - 2025)\" curve, CCS2 300 kW, battery around 30 C, 8-90 % SoC, peak 250 kW claimed vs 219 kW at the first logged point. Fastned does not state the pack (European cars); put only on the LG-cell Canadian China-built Long Range/Performance ids as a best match, so the pack match is unconfirmed.",
+          "notes": "Fastned \"Model Y Long Range (2022 - 2025)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 8-90 % SoC, peak 230.75 kW at 8 % (page chargeSpeed 250 kW). EU CCS2; NA Supercharger early peak ~250 kW. Pack unknown: Fastned does not state the cell or pack for this entry, so the match to these Canadian-market ids is unconfirmed; the two ids carry different packs in the spec data (2023 import 78.1 kWh NMC; 2024 CA 82 kWh NCA). No second source for this curve.",
           "low_confidence": true
         }
       ]
@@ -1227,7 +1177,7 @@
         {
           "id": "fastned-2026-my-lr",
           "kind": "tested",
-          "source_id": "src-fastned-tesla-curves-2026",
+          "source_id": "src-fastned-tesla-model-y-2026",
           "points": [
             {
               "soc_percent": 8,
@@ -1307,187 +1257,7 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned \"Model Y Long Range (2022 - 2025)\" curve, CCS2 300 kW, battery around 30 C, 8-90 % SoC, peak 250 kW claimed vs 219 kW at the first logged point. Fastned does not state the pack (European cars); put only on the LG-cell Canadian China-built Long Range/Performance ids as a best match, so the pack match is unconfirmed.",
-          "low_confidence": true
-        }
-      ]
-    },
-    "tesla/model-y/2023-performance-ca": {
-      "curves": [
-        {
-          "id": "fastned-2026-my-lr",
-          "kind": "tested",
-          "source_id": "src-fastned-tesla-curves-2026",
-          "points": [
-            {
-              "soc_percent": 8,
-              "power_kw": 230.75
-            },
-            {
-              "soc_percent": 10,
-              "power_kw": 219.32
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 195.29
-            },
-            {
-              "soc_percent": 20,
-              "power_kw": 181.7
-            },
-            {
-              "soc_percent": 25,
-              "power_kw": 173.51
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 163.79
-            },
-            {
-              "soc_percent": 35,
-              "power_kw": 145.7
-            },
-            {
-              "soc_percent": 40,
-              "power_kw": 131.53
-            },
-            {
-              "soc_percent": 45,
-              "power_kw": 117.52
-            },
-            {
-              "soc_percent": 50,
-              "power_kw": 105.09
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 93.29
-            },
-            {
-              "soc_percent": 60,
-              "power_kw": 83.2
-            },
-            {
-              "soc_percent": 65,
-              "power_kw": 77.95
-            },
-            {
-              "soc_percent": 70,
-              "power_kw": 72.73
-            },
-            {
-              "soc_percent": 75,
-              "power_kw": 65.89
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 48.42
-            },
-            {
-              "soc_percent": 85,
-              "power_kw": 43.9
-            },
-            {
-              "soc_percent": 90,
-              "power_kw": 34.3
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "battery_temp_c": 30,
-            "charger_kw": 300
-          },
-          "notes": "Fastned \"Model Y Long Range (2022 - 2025)\" curve, CCS2 300 kW, battery around 30 C, 8-90 % SoC, peak 250 kW claimed vs 219 kW at the first logged point. Fastned does not state the pack (European cars); put only on the LG-cell Canadian China-built Long Range/Performance ids as a best match, so the pack match is unconfirmed.",
-          "low_confidence": true
-        }
-      ]
-    },
-    "tesla/model-y/2024-performance-import": {
-      "curves": [
-        {
-          "id": "fastned-2026-my-lr",
-          "kind": "tested",
-          "source_id": "src-fastned-tesla-curves-2026",
-          "points": [
-            {
-              "soc_percent": 8,
-              "power_kw": 230.75
-            },
-            {
-              "soc_percent": 10,
-              "power_kw": 219.32
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 195.29
-            },
-            {
-              "soc_percent": 20,
-              "power_kw": 181.7
-            },
-            {
-              "soc_percent": 25,
-              "power_kw": 173.51
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 163.79
-            },
-            {
-              "soc_percent": 35,
-              "power_kw": 145.7
-            },
-            {
-              "soc_percent": 40,
-              "power_kw": 131.53
-            },
-            {
-              "soc_percent": 45,
-              "power_kw": 117.52
-            },
-            {
-              "soc_percent": 50,
-              "power_kw": 105.09
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 93.29
-            },
-            {
-              "soc_percent": 60,
-              "power_kw": 83.2
-            },
-            {
-              "soc_percent": 65,
-              "power_kw": 77.95
-            },
-            {
-              "soc_percent": 70,
-              "power_kw": 72.73
-            },
-            {
-              "soc_percent": 75,
-              "power_kw": 65.89
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 48.42
-            },
-            {
-              "soc_percent": 85,
-              "power_kw": 43.9
-            },
-            {
-              "soc_percent": 90,
-              "power_kw": 34.3
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "battery_temp_c": 30,
-            "charger_kw": 300
-          },
-          "notes": "Fastned \"Model Y Long Range (2022 - 2025)\" curve, CCS2 300 kW, battery around 30 C, 8-90 % SoC, peak 250 kW claimed vs 219 kW at the first logged point. Fastned does not state the pack (European cars); put only on the LG-cell Canadian China-built Long Range/Performance ids as a best match, so the pack match is unconfirmed.",
+          "notes": "Fastned \"Model Y Long Range (2022 - 2025)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 8-90 % SoC, peak 230.75 kW at 8 % (page chargeSpeed 250 kW). EU CCS2; NA Supercharger early peak ~250 kW. Pack unknown: Fastned does not state the cell or pack for this entry, so the match to these Canadian-market ids is unconfirmed; the two ids carry different packs in the spec data (2023 import 78.1 kWh NMC; 2024 CA 82 kWh NCA). No second source for this curve.",
           "low_confidence": true
         }
       ]

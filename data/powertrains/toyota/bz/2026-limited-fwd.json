@@ -5,5 +5,94 @@
   "generation": "bz-2026-refresh",
   "years": [
     2026
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 74.7,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-r19-pressroom-toyota-bz-2026-read",
+        "notes": "Toyota USA: 74.7 kWh on XLE FWD Plus, XLE AWD, Limited FWD and Limited AWD (total capacity)."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 71,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-r19-evdb-bz4x-touring-747",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database lists 71.0 kWh usable for the 74.7 kWh pack (bZ4X Touring AWD MY26, European listing of the same 74.7 kWh pack). Toyota US/Canada state only total capacity."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "manufacturer",
+        "source_id": "src-greencars-bz-2026",
+        "low_confidence": true,
+        "notes": "GreenCars relays Toyota's chief engineer: 'no change to the cell chemistry' for the 2026 bZ, i.e. nickel-manganese-cobalt cathodes; the 74.7 kWh pack is shared by both drive types. Relayed by press."
+      },
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-autopian-bz-2026",
+        "low_confidence": true,
+        "notes": "Estimated: Autopian quotes the chief engineer that the larger pack 'retains the same chemistry and cells as the previous version'; the previous packs were NMC (same article). Autopian never writes 'NMC' for the 74.7 kWh pack itself."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-autopian-bz-2026",
+        "low_confidence": true,
+        "notes": "Autopian: pack voltage rose from 355 V to 391 V; InsideEVs: bZ 'still runs on a 400-volt electrical architecture'."
+      },
+      {
+        "value": "400v",
+        "kind": "manufacturer",
+        "source_id": "src-insideevs-bz-charging-limit-2026",
+        "low_confidence": true,
+        "notes": "InsideEVs relays Toyota's chief engineer: the bZ 'still runs on a 400-volt electrical architecture'."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "manufacturer",
+        "source_id": "src-r19-pressroom-toyota-bz-2026-read",
+        "notes": "Toyota USA: battery preconditioning standard on all models, activated manually or automatically when a fast-charging station is the navigation destination."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-insideevs-bz-charging-limit-2026",
+      "low_confidence": true,
+      "notes": "InsideEVs relays Toyota: bZ 'still capped at 150 kilowatts'; GreenCars: charging 'will now peak at 150 kilowatts'. Model-level, not stated per pack."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-r19-pressroom-toyota-bz-2026-read",
+      "notes": "Toyota USA: 11 kW on-board charger, up from 7 kW on the prior model."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 30,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-r19-pressroom-toyota-bz-2026-read",
+      "notes": "Toyota USA: around 30 minutes 10-80% under ideal conditions (model-level)."
+    }
   ]
 }

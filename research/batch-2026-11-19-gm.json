@@ -119,6 +119,46 @@
       "url": "https://cadillac.com/support/vehicle/engines-power/ev-charging/dc-fast-charging",
       "accessed_on": "2026-11-19",
       "notes": "Page returned 403 to the fetcher; read only as a search excerpt: routing to a DC fast charger with Google built-in navigation automatically preconditions the battery; the Charging app also offers a manual Start Fast Charge Prep."
+    },
+    {
+      "id": "src-weeklydriver-gm-ultium-truck-14",
+      "type": "community",
+      "title": "The Weekly Driver: GM Ultium 14-module truck battery (Silverado EV Standard Range)",
+      "url": "https://theweeklydriver.com/reliability/batteries/gm-ultium-truck-14/",
+      "accessed_on": "2026-11-19",
+      "notes": "119 kWh \"as published\" (GM does not say usable or total), 470 V nominal (EPA filing, 2026), 220 kW peak, 14 modules, Silverado EV WT and LT 2026."
+    },
+    {
+      "id": "src-weeklydriver-gm-ultium-truck-20",
+      "type": "community",
+      "title": "The Weekly Driver: GM Ultium 20-module truck battery (Silverado EV Extended Range)",
+      "url": "https://theweeklydriver.com/reliability/batteries/gm-ultium-truck-20/",
+      "accessed_on": "2026-11-19",
+      "notes": "170 kWh \"as published\" (usable or total not stated), 290 V nominal, 300 kW peak, NCMA, 20 modules; lists 2024 WT (3WT), 2025 Extended Range and 2026 WT/LT/Trail Boss Extended Range."
+    },
+    {
+      "id": "src-weeklydriver-gm-ultium-truck-24",
+      "type": "community",
+      "title": "The Weekly Driver: GM Ultium 24-module truck battery (Silverado EV Max Range)",
+      "url": "https://theweeklydriver.com/reliability/batteries/gm-ultium-truck-24/",
+      "accessed_on": "2026-11-19",
+      "notes": "205 kWh \"as published\" (usable or total not stated; GM 2024 filing 215 kWh), 350 V nominal, 350 kW peak, NCMA, 24 modules; lists 2024 RST First Edition and WT 4WT, 2025 and 2026 Max Range."
+    },
+    {
+      "id": "src-autodata-equinox-ev-89",
+      "type": "community",
+      "title": "Auto-data: Chevrolet Equinox EV 89 kWh (213 hp) 2024",
+      "url": "https://www.auto-data.net/en/chevrolet-equinox-ev-89-kwh-213hp-52038",
+      "accessed_on": "2026-11-19",
+      "notes": "Battery 89 kWh gross, 85 kWh net, Li-NMC. Charging page is behind a login."
+    },
+    {
+      "id": "src-insideevs-blazer-ev-supercharger-2025",
+      "type": "community",
+      "title": "InsideEVs: 2025 Chevy Blazer EV SS charging at a Tesla Supercharger (US, 2025-05-30)",
+      "url": "https://insideevs.com/news/761292/chevy-blazer-ev-tesla-supercharger/",
+      "accessed_on": "2026-11-19",
+      "notes": "US author charged a 2025 Blazer EV SS at a Tesla Supercharger in Grass Valley, California, using the Chevy-approved adapter, started from the app."
     }
   ],
   "powertrains": {
@@ -130,7 +170,7 @@
             "kind": "estimated",
             "source_id": "src-cadillac-dc-fast-charging-support",
             "low_confidence": true,
-            "notes": "Estimated: Cadillac's support page (read as a search excerpt, page 403s) says routing to a DC fast charger with built-in Google navigation automatically preconditions the battery, and the Charging app has a manual Start Fast Charge Prep. Both halves are stated for the LYRIQ line, not for this exact model year; assumed to apply to all LYRIQ years (2023-2027) on the same Ultium pack and Google-built-in software."
+            "notes": "Estimated: Cadillac's DC fast-charging support page (cadillac.com returns 403; a search excerpt was seen earlier but the checker could not reproduce it) is said to describe automatic preconditioning when routing to a DC fast charger with built-in Google navigation, and a manual Fast Charge Prep in the app. UNVERIFIED: not read on a page for this model year; assumed for all LYRIQ years on the same Ultium software."
           }
         ],
         "battery.capacity_gross_kwh": [
@@ -156,10 +196,10 @@
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-evcs-2027-lyriq-nacs",
             "low_confidence": true,
-            "notes": "EVChargingStations (2027 page): 102 kWh pack shared by all LYRIQ versions, 400-volt class; same pack carried across years (2023/2024/2025/2026/2027)."
+            "notes": "Estimated: \"400-volt class\" is the EVChargingStations article's phrase, not attributed to Cadillac. EVChargingStations (2027 page): 102 kWh pack shared by all LYRIQ versions, 400-volt class; same pack carried across years (2023/2024/2025/2026/2027)."
           }
         ],
         "dc_max_kw": [
@@ -176,10 +216,19 @@
           {
             "value": 11.5,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-evcs-2027-lyriq-nacs",
             "low_confidence": true,
-            "notes": "11.5 kW onboard charger is standard; a 19.2 kW charger is optional (about $1,480, higher trims, AWD per Cadillac's spec page); NRCan lists both Charger variants for the 2024-2026 Canadian LYRIQ, LYRIQ AWD and LYRIQ-V, captured per trim. Powertrain value is the standard charger. A Cadillac LYRIQ-V page was also read as listing 19.2 kW, which conflicts with a Cadillac-page excerpt saying the V uses 11.5 kW."
+            "notes": "Estimated: EVChargingStations states the 11.5 kW standard onboard charger without attributing it to Cadillac. 11.5 kW onboard charger is standard; a 19.2 kW charger is optional (about $1,480, higher trims, AWD per Cadillac's spec page); NRCan lists both Charger variants for the 2024-2026 Canadian LYRIQ, LYRIQ AWD and LYRIQ-V, captured per trim. Powertrain value is the standard charger. A Cadillac LYRIQ-V page was also read as listing 19.2 kW, which conflicts with a Cadillac-page excerpt saying the V uses 11.5 kW."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-lyriq-v",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists the LYRIQ-V cells as GM Ultium 140Ah NMC pouch (GM calls them NCMA, closest enum nmc); same Ultium cells across all LYRIQ trims and years."
           }
         ]
       }
@@ -192,7 +241,7 @@
             "kind": "estimated",
             "source_id": "src-cadillac-dc-fast-charging-support",
             "low_confidence": true,
-            "notes": "Estimated: Cadillac's support page (read as a search excerpt, page 403s) says routing to a DC fast charger with built-in Google navigation automatically preconditions the battery, and the Charging app has a manual Start Fast Charge Prep. Both halves are stated for the LYRIQ line, not for this exact model year; assumed to apply to all LYRIQ years (2023-2027) on the same Ultium pack and Google-built-in software."
+            "notes": "Estimated: Cadillac's DC fast-charging support page (cadillac.com returns 403; a search excerpt was seen earlier but the checker could not reproduce it) is said to describe automatic preconditioning when routing to a DC fast charger with built-in Google navigation, and a manual Fast Charge Prep in the app. UNVERIFIED: not read on a page for this model year; assumed for all LYRIQ years on the same Ultium software."
           }
         ],
         "battery.capacity_gross_kwh": [
@@ -209,7 +258,7 @@
           {
             "value": 100,
             "unit": "kWh",
-            "kind": "community",
+            "kind": "estimated",
             "source_id": "src-wikipedia-cadillac-lyriq",
             "low_confidence": true,
             "notes": "Estimated: Wikipedia: 102 kWh gross, 100 kWh usable; Auto-data gives net 100.4 kWh. Same 102 kWh pack across LYRIQ years and trims (years on this powertrain: 2023)."
@@ -263,7 +312,7 @@
             "kind": "estimated",
             "source_id": "src-cadillac-dc-fast-charging-support",
             "low_confidence": true,
-            "notes": "Estimated: Cadillac's support page (read as a search excerpt, page 403s) says routing to a DC fast charger with built-in Google navigation automatically preconditions the battery, and the Charging app has a manual Start Fast Charge Prep. Both halves are stated for the LYRIQ line, not for this exact model year; assumed to apply to all LYRIQ years (2023-2027) on the same Ultium pack and Google-built-in software."
+            "notes": "Estimated: Cadillac's DC fast-charging support page (cadillac.com returns 403; a search excerpt was seen earlier but the checker could not reproduce it) is said to describe automatic preconditioning when routing to a DC fast charger with built-in Google navigation, and a manual Fast Charge Prep in the app. UNVERIFIED: not read on a page for this model year; assumed for all LYRIQ years on the same Ultium software."
           }
         ],
         "battery.capacity_gross_kwh": [
@@ -280,7 +329,7 @@
           {
             "value": 100,
             "unit": "kWh",
-            "kind": "community",
+            "kind": "estimated",
             "source_id": "src-wikipedia-cadillac-lyriq",
             "low_confidence": true,
             "notes": "Estimated: Wikipedia: 102 kWh gross, 100 kWh usable; Auto-data gives net 100.4 kWh. Same 102 kWh pack across LYRIQ years and trims (years on this powertrain: 2024)."
@@ -334,7 +383,7 @@
             "kind": "estimated",
             "source_id": "src-cadillac-dc-fast-charging-support",
             "low_confidence": true,
-            "notes": "Estimated: Cadillac's support page (read as a search excerpt, page 403s) says routing to a DC fast charger with built-in Google navigation automatically preconditions the battery, and the Charging app has a manual Start Fast Charge Prep. Both halves are stated for the LYRIQ line, not for this exact model year; assumed to apply to all LYRIQ years (2023-2027) on the same Ultium pack and Google-built-in software."
+            "notes": "Estimated: Cadillac's DC fast-charging support page (cadillac.com returns 403; a search excerpt was seen earlier but the checker could not reproduce it) is said to describe automatic preconditioning when routing to a DC fast charger with built-in Google navigation, and a manual Fast Charge Prep in the app. UNVERIFIED: not read on a page for this model year; assumed for all LYRIQ years on the same Ultium software."
           }
         ],
         "battery.capacity_gross_kwh": [
@@ -351,7 +400,7 @@
           {
             "value": 100,
             "unit": "kWh",
-            "kind": "community",
+            "kind": "estimated",
             "source_id": "src-wikipedia-cadillac-lyriq",
             "low_confidence": true,
             "notes": "Estimated: Wikipedia: 102 kWh gross, 100 kWh usable; Auto-data gives net 100.4 kWh. Same 102 kWh pack across LYRIQ years and trims (years on this powertrain: 2025)."
@@ -405,53 +454,7 @@
             "kind": "estimated",
             "source_id": "src-cadillac-dc-fast-charging-support",
             "low_confidence": true,
-            "notes": "Estimated: Cadillac's support page (read as a search excerpt, page 403s) says routing to a DC fast charger with built-in Google navigation automatically preconditions the battery, and the Charging app has a manual Start Fast Charge Prep. Both halves are stated for the LYRIQ line, not for this exact model year; assumed to apply to all LYRIQ years (2023-2027) on the same Ultium pack and Google-built-in software."
-          }
-        ],
-        "battery.capacity_gross_kwh": [
-          {
-            "value": 102,
-            "unit": "kWh",
-            "kind": "manufacturer",
-            "source_id": "src-kbb-lyriq-2026-specs",
-            "low_confidence": true,
-            "notes": "KBB lists battery capacity 102.00 kWh for all 2026 Lyriq trims (relaying Cadillac's 102 kWh). A bare capacity is treated as gross. Wikipedia and EVChargingStations say every LYRIQ and LYRIQ-V uses the same 102 kWh pack (2023-2027)."
-          }
-        ]
-      }
-    },
-    "cadillac/lyriq/2026-v": {
-      "fields": {
-        "battery.preconditioning": [
-          {
-            "value": "automatic_and_manual",
-            "kind": "estimated",
-            "source_id": "src-cadillac-dc-fast-charging-support",
-            "low_confidence": true,
-            "notes": "Estimated: Cadillac's support page (read as a search excerpt, page 403s) says routing to a DC fast charger with built-in Google navigation automatically preconditions the battery, and the Charging app has a manual Start Fast Charge Prep. Both halves are stated for the LYRIQ line, not for this exact model year; assumed to apply to all LYRIQ years (2023-2027) on the same Ultium pack and Google-built-in software."
-          }
-        ],
-        "battery.capacity_gross_kwh": [
-          {
-            "value": 102,
-            "unit": "kWh",
-            "kind": "manufacturer",
-            "source_id": "src-kbb-lyriq-2026-specs",
-            "low_confidence": true,
-            "notes": "KBB lists battery capacity 102.00 kWh for all 2026 Lyriq trims (relaying Cadillac's 102 kWh). A bare capacity is treated as gross. Wikipedia and EVChargingStations say every LYRIQ and LYRIQ-V uses the same 102 kWh pack (2023-2027)."
-          }
-        ]
-      }
-    },
-    "cadillac/lyriq/2027-lyriq-v": {
-      "fields": {
-        "battery.preconditioning": [
-          {
-            "value": "automatic_and_manual",
-            "kind": "estimated",
-            "source_id": "src-cadillac-dc-fast-charging-support",
-            "low_confidence": true,
-            "notes": "Estimated: Cadillac's support page (read as a search excerpt, page 403s) says routing to a DC fast charger with built-in Google navigation automatically preconditions the battery, and the Charging app has a manual Start Fast Charge Prep. Both halves are stated for the LYRIQ line, not for this exact model year; assumed to apply to all LYRIQ years (2023-2027) on the same Ultium pack and Google-built-in software."
+            "notes": "Estimated: Cadillac's DC fast-charging support page (cadillac.com returns 403; a search excerpt was seen earlier but the checker could not reproduce it) is said to describe automatic preconditioning when routing to a DC fast charger with built-in Google navigation, and a manual Fast Charge Prep in the app. UNVERIFIED: not read on a page for this model year; assumed for all LYRIQ years on the same Ultium software."
           }
         ],
         "battery.capacity_gross_kwh": [
@@ -468,7 +471,7 @@
           {
             "value": 100,
             "unit": "kWh",
-            "kind": "community",
+            "kind": "estimated",
             "source_id": "src-wikipedia-cadillac-lyriq",
             "low_confidence": true,
             "notes": "Estimated: Wikipedia: 102 kWh gross, 100 kWh usable; Auto-data gives net 100.4 kWh. Same 102 kWh pack across LYRIQ years and trims (years on this powertrain: 2027)."
@@ -509,12 +512,12 @@
             "kind": "estimated",
             "source_id": "src-evcs-2027-lyriq-nacs",
             "low_confidence": true,
-            "notes": "Estimated: 11.5 kW onboard charger is standard; a 19.2 kW charger is optional (about $1,480, higher trims, AWD per Cadillac's spec page); NRCan lists both Charger variants for the 2024-2026 Canadian LYRIQ, LYRIQ AWD and LYRIQ-V, captured per trim. Powertrain value is the standard charger. A Cadillac LYRIQ-V page was also read as listing 19.2 kW, which conflicts with a Cadillac-page excerpt saying the V uses 11.5 kW."
+            "notes": "Estimated: 11.5 kW onboard charger is standard; a 19.2 kW charger is optional (about $1,480, higher trims, AWD per Cadillac's spec page); NRCan lists both Charger variants for the 2024-2026 Canadian LYRIQ, LYRIQ AWD and LYRIQ-V, captured per trim. Powertrain value is the standard charger. A Cadillac LYRIQ-V page was also read as listing 19.2 kW, which conflicts with a Cadillac-page excerpt saying the V uses 11.5 kW. NRCan lists both 11.5 kW and 19.2 kW chargers for this 2026 model; powertrain value is the standard 11.5 kW."
           }
         ]
       }
     },
-    "cadillac/lyriq/2027-rwd": {
+    "cadillac/lyriq/2026-v": {
       "fields": {
         "battery.preconditioning": [
           {
@@ -522,7 +525,7 @@
             "kind": "estimated",
             "source_id": "src-cadillac-dc-fast-charging-support",
             "low_confidence": true,
-            "notes": "Estimated: Cadillac's support page (read as a search excerpt, page 403s) says routing to a DC fast charger with built-in Google navigation automatically preconditions the battery, and the Charging app has a manual Start Fast Charge Prep. Both halves are stated for the LYRIQ line, not for this exact model year; assumed to apply to all LYRIQ years (2023-2027) on the same Ultium pack and Google-built-in software."
+            "notes": "Estimated: Cadillac's DC fast-charging support page (cadillac.com returns 403; a search excerpt was seen earlier but the checker could not reproduce it) is said to describe automatic preconditioning when routing to a DC fast charger with built-in Google navigation, and a manual Fast Charge Prep in the app. UNVERIFIED: not read on a page for this model year; assumed for all LYRIQ years on the same Ultium software."
           }
         ],
         "battery.capacity_gross_kwh": [
@@ -539,7 +542,149 @@
           {
             "value": 100,
             "unit": "kWh",
-            "kind": "community",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-cadillac-lyriq",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia: 102 kWh gross, 100 kWh usable; Auto-data gives net 100.4 kWh. Same 102 kWh pack across LYRIQ years and trims (years on this powertrain: 2027)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-lyriq-v",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists the LYRIQ-V cells as GM Ultium 140Ah NMC pouch (GM calls them NCMA, closest enum nmc); same Ultium cells across all LYRIQ trims and years."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evcs-2027-lyriq-nacs",
+            "low_confidence": true,
+            "notes": "Estimated: EVChargingStations (2027 page): 102 kWh pack shared by all LYRIQ versions, 400-volt class; same pack carried across years (2027)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 190,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evcs-2027-lyriq-nacs",
+            "low_confidence": true,
+            "notes": "Estimated: Cadillac's stated max charge speed 190 kW (2026 model year per EVChargingStations; Wikipedia gives 190 kW for the model; Electrek repeats it for 2027). Same pack and charger hardware 2023-2027; no change found. Years on this powertrain: 2027."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evcs-2027-lyriq-nacs",
+            "low_confidence": true,
+            "notes": "Estimated: 11.5 kW onboard charger is standard; a 19.2 kW charger is optional (about $1,480, higher trims, AWD per Cadillac's spec page); NRCan lists both Charger variants for the 2024-2026 Canadian LYRIQ, LYRIQ AWD and LYRIQ-V, captured per trim. Powertrain value is the standard charger. A Cadillac LYRIQ-V page was also read as listing 19.2 kW, which conflicts with a Cadillac-page excerpt saying the V uses 11.5 kW. NRCan lists both 11.5 kW and 19.2 kW chargers for this 2026 model; powertrain value is the standard 11.5 kW."
+          }
+        ]
+      }
+    },
+    "cadillac/lyriq/2027-lyriq-v": {
+      "fields": {
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-cadillac-dc-fast-charging-support",
+            "low_confidence": true,
+            "notes": "Estimated: Cadillac's DC fast-charging support page (cadillac.com returns 403; a search excerpt was seen earlier but the checker could not reproduce it) is said to describe automatic preconditioning when routing to a DC fast charger with built-in Google navigation, and a manual Fast Charge Prep in the app. UNVERIFIED: not read on a page for this model year; assumed for all LYRIQ years on the same Ultium software."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 102,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kbb-lyriq-2026-specs",
+            "low_confidence": true,
+            "notes": "KBB lists battery capacity 102.00 kWh for all 2026 Lyriq trims (relaying Cadillac's 102 kWh). A bare capacity is treated as gross. Wikipedia and EVChargingStations say every LYRIQ and LYRIQ-V uses the same 102 kWh pack (2023-2027)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 100,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-cadillac-lyriq",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia: 102 kWh gross, 100 kWh usable; Auto-data gives net 100.4 kWh. Same 102 kWh pack across LYRIQ years and trims (years on this powertrain: 2027)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-lyriq-v",
+            "low_confidence": true,
+            "notes": "Estimated: EV Database lists the LYRIQ-V cells as GM Ultium 140Ah NMC pouch (GM calls them NCMA, closest enum nmc); same Ultium cells across all LYRIQ trims and years."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-evcs-2027-lyriq-nacs",
+            "low_confidence": true,
+            "notes": "Estimated: EVChargingStations (2027 page): 102 kWh pack shared by all LYRIQ versions, 400-volt class; same pack carried across years (2027)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 190,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-evcs-2027-lyriq-nacs",
+            "low_confidence": true,
+            "notes": "Estimated: Cadillac's stated max charge speed 190 kW (2026 model year per EVChargingStations; Wikipedia gives 190 kW for the model; Electrek repeats it for 2027). Same pack and charger hardware 2023-2027; no change found. Years on this powertrain: 2027."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-lyriq-2027",
+            "low_confidence": true,
+            "notes": "Estimated: The Charge Port says 19.2 kW is \"standard on the Lyriq-V Premium AWD\"; Wikipedia also lists 19.2 kW for the LYRIQ-V. Conflicts with a Cadillac page excerpt that gave 11.5 kW for the V (unreadable, 403). 2026-v stays at 11.5 kW because NRCan lists both 11.5 and 19.2 kW chargers for the 2026 LYRIQ-V (captured per trim)."
+          }
+        ]
+      }
+    },
+    "cadillac/lyriq/2027-rwd": {
+      "fields": {
+        "battery.preconditioning": [
+          {
+            "value": "automatic_and_manual",
+            "kind": "estimated",
+            "source_id": "src-cadillac-dc-fast-charging-support",
+            "low_confidence": true,
+            "notes": "Estimated: Cadillac's DC fast-charging support page (cadillac.com returns 403; a search excerpt was seen earlier but the checker could not reproduce it) is said to describe automatic preconditioning when routing to a DC fast charger with built-in Google navigation, and a manual Fast Charge Prep in the app. UNVERIFIED: not read on a page for this model year; assumed for all LYRIQ years on the same Ultium software."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 102,
+            "unit": "kWh",
+            "kind": "manufacturer",
+            "source_id": "src-kbb-lyriq-2026-specs",
+            "low_confidence": true,
+            "notes": "KBB lists battery capacity 102.00 kWh for all 2026 Lyriq trims (relaying Cadillac's 102 kWh). A bare capacity is treated as gross. Wikipedia and EVChargingStations say every LYRIQ and LYRIQ-V uses the same 102 kWh pack (2023-2027)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 100,
+            "unit": "kWh",
+            "kind": "estimated",
             "source_id": "src-wikipedia-cadillac-lyriq",
             "low_confidence": true,
             "notes": "Estimated: Wikipedia: 102 kWh gross, 100 kWh usable; Auto-data gives net 100.4 kWh. Same 102 kWh pack across LYRIQ years and trims (years on this powertrain: 2027)."
@@ -593,7 +738,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -601,9 +746,9 @@
             "value": 85,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "source_id": "src-autodata-equinox-ev-89",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: reported (stated) usable capacity 85 kWh, 89.0 kWh calculated at nominal voltage; its range test logged 90.2 kWh used, so true usable may be nearer 90. The Blazer EV LT/RS FWD/AWD use the same 10-module 85 kWh pack as the Equinox EV (The Weekly Driver; InsideEVs Blazer table). Differs from the earlier 80 kWh estimate on blazer-ev/2026-standard (OpenEV Equinox figure)."
+            "notes": "Estimated: the Blazer EV 85 kWh pack is the same 10-module Ultium pack as the Equinox EV (The Weekly Driver). Usable 85 / gross 89 from Auto-data and InsideEVs for the Equinox pack; the Blazer bare \"85 kWh\" is read as usable. Not read for the Blazer itself. OWNER FLAG: existing Blazer records hold 85 as gross and 80 as usable."
           }
         ],
         "battery.chemistry": [
@@ -643,6 +788,16 @@
             "low_confidence": true,
             "notes": "InsideEVs table lists 11.5 kW for LT/RS eAWD; Wikipedia 11.5 kW; The Charge Port 2027 up to 11.5 kW. A reseller (Enel X Way) and GMAuthority suggest an optional 19.2 kW on RS RWD/SS; Recharged and the 2026 RS AWD window sticker say 11.5 kW for all; NRCan lists no 19.2 kW Blazer."
           }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 89,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Estimated: gross 89 kWh for the same pack as the Equinox EV (Auto-data; InsideEVs calculated 89.0 kWh). Existing Blazer records hold 85 as gross."
+          }
         ]
       }
     },
@@ -654,7 +809,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -715,7 +870,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -776,7 +931,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -784,9 +939,9 @@
             "value": 85,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "source_id": "src-autodata-equinox-ev-89",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: reported (stated) usable capacity 85 kWh, 89.0 kWh calculated at nominal voltage; its range test logged 90.2 kWh used, so true usable may be nearer 90. The Blazer EV LT/RS FWD/AWD use the same 10-module 85 kWh pack as the Equinox EV (The Weekly Driver; InsideEVs Blazer table). Differs from the earlier 80 kWh estimate on blazer-ev/2026-standard (OpenEV Equinox figure)."
+            "notes": "Estimated: the Blazer EV 85 kWh pack is the same 10-module Ultium pack as the Equinox EV (The Weekly Driver). Usable 85 / gross 89 from Auto-data and InsideEVs for the Equinox pack; the Blazer bare \"85 kWh\" is read as usable. Not read for the Blazer itself. OWNER FLAG: existing Blazer records hold 85 as gross and 80 as usable."
           }
         ],
         "battery.chemistry": [
@@ -826,6 +981,16 @@
             "low_confidence": true,
             "notes": "Estimated: InsideEVs table lists 11.5 kW for LT/RS eAWD; Wikipedia 11.5 kW; The Charge Port 2027 up to 11.5 kW. A reseller (Enel X Way) and GMAuthority suggest an optional 19.2 kW on RS RWD/SS; Recharged and the 2026 RS AWD window sticker say 11.5 kW for all; NRCan lists no 19.2 kW Blazer."
           }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 89,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Estimated: gross 89 kWh for the same pack as the Equinox EV (Auto-data; InsideEVs calculated 89.0 kWh). Existing Blazer records hold 85 as gross."
+          }
         ]
       }
     },
@@ -837,7 +1002,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -845,9 +1010,9 @@
             "value": 85,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "source_id": "src-autodata-equinox-ev-89",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: reported (stated) usable capacity 85 kWh, 89.0 kWh calculated at nominal voltage; its range test logged 90.2 kWh used, so true usable may be nearer 90. The Blazer EV LT/RS FWD/AWD use the same 10-module 85 kWh pack as the Equinox EV (The Weekly Driver; InsideEVs Blazer table). Differs from the earlier 80 kWh estimate on blazer-ev/2026-standard (OpenEV Equinox figure)."
+            "notes": "Estimated: the Blazer EV 85 kWh pack is the same 10-module Ultium pack as the Equinox EV (The Weekly Driver). Usable 85 / gross 89 from Auto-data and InsideEVs for the Equinox pack; the Blazer bare \"85 kWh\" is read as usable. Not read for the Blazer itself. OWNER FLAG: existing Blazer records hold 85 as gross and 80 as usable."
           }
         ],
         "battery.chemistry": [
@@ -887,6 +1052,16 @@
             "low_confidence": true,
             "notes": "Estimated: InsideEVs table lists 11.5 kW for LT/RS eAWD; Wikipedia 11.5 kW; The Charge Port 2027 up to 11.5 kW. A reseller (Enel X Way) and GMAuthority suggest an optional 19.2 kW on RS RWD/SS; Recharged and the 2026 RS AWD window sticker say 11.5 kW for all; NRCan lists no 19.2 kW Blazer."
           }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 89,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Estimated: gross 89 kWh for the same pack as the Equinox EV (Auto-data; InsideEVs calculated 89.0 kWh). Existing Blazer records hold 85 as gross."
+          }
         ]
       }
     },
@@ -898,7 +1073,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -959,7 +1134,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1020,7 +1195,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1061,6 +1236,15 @@
             "low_confidence": true,
             "notes": "Estimated: InsideEVs: 11.5 kW for the Blazer EV; Wikipedia 11.5 kW. Enel X Way (reseller) lists an optional 19.2 kW on RS RWD and SS and GMAuthority shows 11.5 / 19 kW in one column; Recharged says 11.5 kW on all trims; no NRCan 19.2 kW Blazer. Recorded 11.5 kW; the conflict is unresolved."
           }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-evdb-lyriq-v",
+            "low_confidence": true,
+            "notes": "Estimated: Ultium 140Ah NMC pouch cells (EV Database, Lyriq-V); same Ultium cells in the Blazer EV 102 kWh pack (GM NCMA, closest enum nmc)."
+          }
         ]
       }
     },
@@ -1072,7 +1256,65 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 85,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Estimated: the Blazer EV 85 kWh pack is the same 10-module Ultium pack as the Equinox EV (The Weekly Driver). Usable 85 / gross 89 from Auto-data and InsideEVs for the Equinox pack; the Blazer bare \"85 kWh\" is read as usable. Not read for the Blazer itself. OWNER FLAG: existing Blazer records hold 85 as gross and 80 as usable."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-gm-ultium-85",
+            "low_confidence": true,
+            "notes": "Estimated: The Weekly Driver lists NCMA (NMC family with aluminium) for the 85 kWh 10-module Ultium pack; closest enum nmc."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "low_confidence": true,
+            "notes": "Estimated: same 85 kWh 10-module pack as the Equinox EV. InsideEVs: about 288 V nominal (80S 3P), more like a 300 V system, so 400 V class (not 800 V)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-insideevs-blazer-ev-epa-2024",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs Blazer table (GM figures): LT/RS 85 kWh = 150 kW; EVChargingStations 2027 article: 85 kWh 150 kW (2026 lineup). Years on this powertrain: 2025."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-insideevs-blazer-ev-epa-2024",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs table lists 11.5 kW for LT/RS eAWD; Wikipedia 11.5 kW; The Charge Port 2027 up to 11.5 kW. A reseller (Enel X Way) and GMAuthority suggest an optional 19.2 kW on RS RWD/SS; Recharged and the 2026 RS AWD window sticker say 11.5 kW for all; NRCan lists no 19.2 kW Blazer."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 89,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Estimated: gross 89 kWh for the same pack as the Equinox EV (Auto-data; InsideEVs calculated 89.0 kWh). Existing Blazer records hold 85 as gross."
           }
         ]
       }
@@ -1085,7 +1327,65 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 85,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Estimated: the Blazer EV 85 kWh pack is the same 10-module Ultium pack as the Equinox EV (The Weekly Driver). Usable 85 / gross 89 from Auto-data and InsideEVs for the Equinox pack; the Blazer bare \"85 kWh\" is read as usable. Not read for the Blazer itself. OWNER FLAG: existing Blazer records hold 85 as gross and 80 as usable."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-gm-ultium-85",
+            "low_confidence": true,
+            "notes": "Estimated: The Weekly Driver lists NCMA (NMC family with aluminium) for the 85 kWh 10-module Ultium pack; closest enum nmc."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "low_confidence": true,
+            "notes": "Estimated: same 85 kWh 10-module pack as the Equinox EV. InsideEVs: about 288 V nominal (80S 3P), more like a 300 V system, so 400 V class (not 800 V)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-insideevs-blazer-ev-epa-2024",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs Blazer table (GM figures): LT/RS 85 kWh = 150 kW; EVChargingStations 2027 article: 85 kWh 150 kW (2026 lineup). Years on this powertrain: 2025."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-insideevs-blazer-ev-epa-2024",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs table lists 11.5 kW for LT/RS eAWD; Wikipedia 11.5 kW; The Charge Port 2027 up to 11.5 kW. A reseller (Enel X Way) and GMAuthority suggest an optional 19.2 kW on RS RWD/SS; Recharged and the 2026 RS AWD window sticker say 11.5 kW for all; NRCan lists no 19.2 kW Blazer."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 89,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Estimated: gross 89 kWh for the same pack as the Equinox EV (Auto-data; InsideEVs calculated 89.0 kWh). Existing Blazer records hold 85 as gross."
           }
         ]
       }
@@ -1098,7 +1398,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1106,9 +1406,9 @@
             "value": 85,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "source_id": "src-autodata-equinox-ev-89",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: reported (stated) usable capacity 85 kWh, 89.0 kWh calculated at nominal voltage; its range test logged 90.2 kWh used, so true usable may be nearer 90. The Blazer EV LT/RS FWD/AWD use the same 10-module 85 kWh pack as the Equinox EV (The Weekly Driver; InsideEVs Blazer table). Differs from the earlier 80 kWh estimate on blazer-ev/2026-standard (OpenEV Equinox figure)."
+            "notes": "Estimated: the Blazer EV 85 kWh pack is the same 10-module Ultium pack as the Equinox EV (The Weekly Driver). Usable 85 / gross 89 from Auto-data and InsideEVs for the Equinox pack; the Blazer bare \"85 kWh\" is read as usable. Not read for the Blazer itself. OWNER FLAG: existing Blazer records hold 85 as gross and 80 as usable."
           }
         ],
         "battery.chemistry": [
@@ -1148,6 +1448,16 @@
             "low_confidence": true,
             "notes": "Estimated: InsideEVs table lists 11.5 kW for LT/RS eAWD; Wikipedia 11.5 kW; The Charge Port 2027 up to 11.5 kW. A reseller (Enel X Way) and GMAuthority suggest an optional 19.2 kW on RS RWD/SS; Recharged and the 2026 RS AWD window sticker say 11.5 kW for all; NRCan lists no 19.2 kW Blazer."
           }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 89,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Estimated: gross 89 kWh for the same pack as the Equinox EV (Auto-data; InsideEVs calculated 89.0 kWh). Existing Blazer records hold 85 as gross."
+          }
         ]
       }
     },
@@ -1159,7 +1469,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1220,17 +1530,17 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
           {
             "value": 85,
             "unit": "kWh",
-            "kind": "manufacturer",
-            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "kind": "community",
+            "source_id": "src-autodata-equinox-ev-89",
             "low_confidence": true,
-            "notes": "InsideEVs: reported (stated) usable capacity 85 kWh, 89.0 kWh calculated at nominal voltage; its range test logged 90.2 kWh used, so true usable may be nearer 90. Same 85 kWh 10-module pack in all Equinox EV years (KBB 2026 and The Charge Port 2027 list 85 kWh). Years: 2024."
+            "notes": "Usable 85 kWh / gross 89 kWh. Auto-data (Equinox EV 2024): \"89 kWh gross, 85 kWh net\"; InsideEVs: calculated pack 89.0 kWh vs reported usable 85 kWh; so the bare \"85 kWh\" in listings (KBB, existing Chevrolet record) is read as usable. Conflicts with existing records that hold 85 as GROSS (OWNER FLAG)."
           }
         ],
         "battery.chemistry": [
@@ -1245,20 +1555,20 @@
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-insideevs-equinox-ev-ultium-voltage",
             "low_confidence": true,
-            "notes": "InsideEVs: about 288 V nominal (80S 3P), more like a 300 V system, so 400 V class (not 800 V)."
+            "notes": "Estimated: InsideEVs gives a calculated nominal pack voltage of 288 V (author-derived, not attributed to GM), a 400 V-class pack. InsideEVs: about 288 V nominal (80S 3P), more like a 300 V system, so 400 V class (not 800 V)."
           }
         ],
         "dc_max_kw": [
           {
             "value": 150,
             "unit": "kW",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-insideevs-equinox-ev-ultium-voltage",
             "low_confidence": true,
-            "notes": "InsideEVs and The Charge Port (2026 specs): 150 kW peak; same pack and hardware 2024-2027 (Wikipedia, KBB). Years on this powertrain: 2024."
+            "notes": "Estimated: InsideEVs says the Equinox EV \"maxes out at 150kW\" (not attributed to GM); The Charge Port also records a 150 kW peak in the 2026 specifications (src-thechargeport-equinox-ev). InsideEVs and The Charge Port (2026 specs): 150 kW peak; same pack and hardware 2024-2027 (Wikipedia, KBB). Years on this powertrain: 2024."
           }
         ],
         "ac_max_kw": [
@@ -1275,10 +1585,20 @@
           {
             "value": 42,
             "unit": "min",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-thechargeport-equinox-ev",
             "low_confidence": true,
-            "notes": "The Charge Port (2027 page) says the 2026 specs listed about 42 min for 10-80 % (Recharged also reports Chevy's site saying 42 min); InsideEVs said GM had not published a 10-80 % time at launch. Model-level claim."
+            "notes": "Estimated: The Charge Port gives about 42 minutes for the 2026 specs; carried to this year because the pack and charger are unchanged. The Charge Port (2027 page) says the 2026 specs listed about 42 min for 10-80 % (Recharged also reports Chevy's site saying 42 min); InsideEVs said GM had not published a 10-80 % time at launch. Model-level claim."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 89,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Auto-data: 89 kWh gross (InsideEVs calculated 89.0 kWh). Existing records hold 85 kWh as gross (bare listing figure); see the usable note."
           }
         ]
       }
@@ -1291,7 +1611,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1299,9 +1619,9 @@
             "value": 85,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "source_id": "src-autodata-equinox-ev-89",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: reported (stated) usable capacity 85 kWh, 89.0 kWh calculated at nominal voltage; its range test logged 90.2 kWh used, so true usable may be nearer 90. Same 85 kWh 10-module pack in all Equinox EV years (KBB 2026 and The Charge Port 2027 list 85 kWh). Years: 2025/2026/2027."
+            "notes": "Estimated: same 85 kWh pack as the 2024 FWD (2024-2027 compared; no change found). Usable 85 kWh / gross 89 kWh. Auto-data (Equinox EV 2024): \"89 kWh gross, 85 kWh net\"; InsideEVs: calculated pack 89.0 kWh vs reported usable 85 kWh; so the bare \"85 kWh\" in listings (KBB, existing Chevrolet record) is read as usable. Conflicts with existing records that hold 85 as GROSS (OWNER FLAG)."
           }
         ],
         "battery.nominal_voltage_class": [
@@ -1332,6 +1652,35 @@
             "low_confidence": true,
             "notes": "The Charge Port (2027 page) says the 2026 specs listed about 42 min for 10-80 % (Recharged also reports Chevy's site saying 42 min); InsideEVs said GM had not published a 10-80 % time at launch. Model-level claim."
           }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-gm-ultium-85",
+            "low_confidence": true,
+            "notes": "Estimated: The Weekly Driver lists NCMA (NMC family with aluminium) for the 85 kWh 10-module Ultium pack; closest enum nmc."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs and The Charge Port (2026 specs): 150 kW peak; same pack and hardware 2024-2027 (Wikipedia, KBB). Years on this powertrain: 2025."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 89,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Auto-data: 89 kWh gross (InsideEVs calculated 89.0 kWh). Existing records hold 85 kWh as gross (bare listing figure); see the usable note."
+          }
         ]
       }
     },
@@ -1343,7 +1692,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1351,9 +1700,9 @@
             "value": 85,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "source_id": "src-autodata-equinox-ev-89",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: reported (stated) usable capacity 85 kWh, 89.0 kWh calculated at nominal voltage; its range test logged 90.2 kWh used, so true usable may be nearer 90. Same 85 kWh 10-module pack in all Equinox EV years (KBB 2026 and The Charge Port 2027 list 85 kWh). Years: 2025."
+            "notes": "Estimated: same 85 kWh pack as the 2024 FWD (2024-2027 compared; no change found). Usable 85 kWh / gross 89 kWh. Auto-data (Equinox EV 2024): \"89 kWh gross, 85 kWh net\"; InsideEVs: calculated pack 89.0 kWh vs reported usable 85 kWh; so the bare \"85 kWh\" in listings (KBB, existing Chevrolet record) is read as usable. Conflicts with existing records that hold 85 as GROSS (OWNER FLAG)."
           }
         ],
         "battery.chemistry": [
@@ -1398,10 +1747,20 @@
           {
             "value": 42,
             "unit": "min",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-thechargeport-equinox-ev",
             "low_confidence": true,
-            "notes": "The Charge Port (2027 page) says the 2026 specs listed about 42 min for 10-80 % (Recharged also reports Chevy's site saying 42 min); InsideEVs said GM had not published a 10-80 % time at launch. Model-level claim."
+            "notes": "Estimated: The Charge Port gives about 42 minutes for the 2026 specs; carried to this year because the pack and charger are unchanged. The Charge Port (2027 page) says the 2026 specs listed about 42 min for 10-80 % (Recharged also reports Chevy's site saying 42 min); InsideEVs said GM had not published a 10-80 % time at launch. Model-level claim."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 89,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Auto-data: 89 kWh gross (InsideEVs calculated 89.0 kWh). Existing records hold 85 kWh as gross (bare listing figure); see the usable note."
           }
         ]
       }
@@ -1414,7 +1773,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "published_10_80_min": [
@@ -1425,6 +1784,64 @@
             "source_id": "src-thechargeport-equinox-ev",
             "low_confidence": true,
             "notes": "The Charge Port (2027 page) says the 2026 specs listed about 42 min for 10-80 % (Recharged also reports Chevy's site saying 42 min); InsideEVs said GM had not published a 10-80 % time at launch. Model-level claim."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 85,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Estimated: same 85 kWh pack as the 2024 FWD (2024-2027 compared; no change found). Usable 85 kWh / gross 89 kWh. Auto-data (Equinox EV 2024): \"89 kWh gross, 85 kWh net\"; InsideEVs: calculated pack 89.0 kWh vs reported usable 85 kWh; so the bare \"85 kWh\" in listings (KBB, existing Chevrolet record) is read as usable. Conflicts with existing records that hold 85 as GROSS (OWNER FLAG)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-gm-ultium-85",
+            "low_confidence": true,
+            "notes": "Estimated: The Weekly Driver lists NCMA (NMC family with aluminium) for the 85 kWh 10-module Ultium pack; closest enum nmc."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs: about 288 V nominal (80S 3P), more like a 300 V system, so 400 V class (not 800 V)."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 150,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs and The Charge Port (2026 specs): 150 kW peak; same pack and hardware 2024-2027 (Wikipedia, KBB). Years on this powertrain: 2025."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 11.5,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-wikipedia-chevrolet-equinox-ev",
+            "low_confidence": true,
+            "notes": "Estimated: Wikipedia: 11.5 kW AC, 19.2 kW on the 3RS; The Charge Port 2027: 11.5 kW; NRCan lists Equinox EV AWD (19.2 kW Charger) variants, captured per trim. Powertrain value is the standard 11.5 kW."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 89,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Auto-data: 89 kWh gross (InsideEVs calculated 89.0 kWh). Existing records hold 85 kWh as gross (bare listing figure); see the usable note."
           }
         ]
       }
@@ -1437,7 +1854,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1445,9 +1862,9 @@
             "value": 85,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+            "source_id": "src-autodata-equinox-ev-89",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: reported (stated) usable capacity 85 kWh, 89.0 kWh calculated at nominal voltage; its range test logged 90.2 kWh used, so true usable may be nearer 90. Same 85 kWh 10-module pack in all Equinox EV years (KBB 2026 and The Charge Port 2027 list 85 kWh). Years: 2027."
+            "notes": "Estimated: same 85 kWh pack as the 2024 FWD (2024-2027 compared; no change found). Usable 85 kWh / gross 89 kWh. Auto-data (Equinox EV 2024): \"89 kWh gross, 85 kWh net\"; InsideEVs: calculated pack 89.0 kWh vs reported usable 85 kWh; so the bare \"85 kWh\" in listings (KBB, existing Chevrolet record) is read as usable. Conflicts with existing records that hold 85 as GROSS (OWNER FLAG)."
           }
         ],
         "battery.chemistry": [
@@ -1492,10 +1909,20 @@
           {
             "value": 42,
             "unit": "min",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-thechargeport-equinox-ev",
             "low_confidence": true,
-            "notes": "The Charge Port (2027 page) says the 2026 specs listed about 42 min for 10-80 % (Recharged also reports Chevy's site saying 42 min); InsideEVs said GM had not published a 10-80 % time at launch. Model-level claim."
+            "notes": "Estimated: The Charge Port gives about 42 minutes for the 2026 specs; carried to this year because the pack and charger are unchanged. Chevrolet's 2027 page instead claims 'up to 80 miles' in 10 min and publishes no 10-80 time. The Charge Port (2027 page) says the 2026 specs listed about 42 min for 10-80 % (Recharged also reports Chevy's site saying 42 min); InsideEVs said GM had not published a 10-80 % time at launch. Model-level claim."
+          }
+        ],
+        "battery.capacity_gross_kwh": [
+          {
+            "value": 89,
+            "unit": "kWh",
+            "kind": "community",
+            "source_id": "src-autodata-equinox-ev-89",
+            "low_confidence": true,
+            "notes": "Auto-data: 89 kWh gross (InsideEVs calculated 89.0 kWh). Existing records hold 85 kWh as gross (bare listing figure); see the usable note."
           }
         ]
       }
@@ -1508,7 +1935,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1516,9 +1943,9 @@
             "value": 170,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-20",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 20 modules per the GM spec guide, so 204 x 20/24 = 170. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2024."
+            "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide). Pack mapping for the 2024 trim: The Weekly Driver 20-module page lists \"2024 WT (3WT)\" on this pack. Also matches the NRCan range."
           }
         ],
         "battery.chemistry": [
@@ -1536,7 +1963,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. Charges at 670 V (670 V, classed 800v: a series-connected 20-module pack of the 800 V-capable Silverado architecture, above the 400 V class)."
+            "notes": "Estimated: \"800v\" follows the class already stored for the Silverado EV Extended Range records. GM's guide gives 670 V (a charging voltage) for the 20-module pack and 800 V for the Max Range; The Weekly Driver gives 290 V nominal for the 20-module pack. OWNER FLAG: the class is a judgement (charging voltage vs nominal voltage); kept 800v to match the existing records."
           }
         ],
         "dc_max_kw": [
@@ -1546,17 +1973,17 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack."
+            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack. The Weekly Driver 20-module page also gives 300 kW. The existing 350 kW on some 2026 Extended Range records is the Max Range figure."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 11.5,
+            "value": 19.2,
             "unit": "kW",
             "kind": "estimated",
-            "source_id": "src-gm-silverado-ev-2025-spec-guide",
+            "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 11.5 kW is the base module; 19.2 kW is an option (K20 / XKT package) or standard on the 2026 WT (NRCan lists both Charger variants of the Canadian Ext Range trims, captured per trim). Powertrain value is the base 11.5 kW."
+            "notes": "Estimated: GM 2026 guide: \"19.2 kW module on 5WT and 8WT\" (5WT = Extended Range WT); the 2025 guide lists \"AC Offboarding Power (5WT, 8WT) 10.2 kW with 19.2 kW module\". 2024 3WT is the 20-module Extended Range pack per The Weekly Driver (lists \"2024 WT and 3WT\" on that pack); same charger hardware assumed for 2024."
           }
         ],
         "published_10_80_min": [
@@ -1579,7 +2006,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1589,7 +2016,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-silverado-battery",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 24 modules per the GM spec guide, so 204 x 24/24 = 204. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2024."
+            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 24 modules per the GM spec guide, so 204 x 24/24 = 204. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2024. Pack mapping for the 2024 trim: The Weekly Driver 24-module page lists \"2024: RST First Edition and WT 4WT\" on this pack. Also matches the NRCan range. The Weekly Driver 24-module page gives 205 kWh \"as published\" (usable or total not stated)."
           }
         ],
         "battery.chemistry": [
@@ -1650,7 +2077,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1658,9 +2085,9 @@
             "value": 170,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-20",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 20 modules per the GM spec guide, so 204 x 20/24 = 170. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2025."
+            "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide)."
           }
         ],
         "battery.chemistry": [
@@ -1678,7 +2105,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. Charges at 670 V (670 V, classed 800v: a series-connected 20-module pack of the 800 V-capable Silverado architecture, above the 400 V class)."
+            "notes": "Estimated: \"800v\" follows the class already stored for the Silverado EV Extended Range records. GM's guide gives 670 V (a charging voltage) for the 20-module pack and 800 V for the Max Range; The Weekly Driver gives 290 V nominal for the 20-module pack. OWNER FLAG: the class is a judgement (charging voltage vs nominal voltage); kept 800v to match the existing records."
           }
         ],
         "dc_max_kw": [
@@ -1688,7 +2115,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack."
+            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack. The Weekly Driver 20-module page also gives 300 kW. The existing 350 kW on some 2026 Extended Range records is the Max Range figure."
           }
         ],
         "ac_max_kw": [
@@ -1698,7 +2125,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 11.5 kW is the base module; 19.2 kW is an option (K20 / XKT package) or standard on the 2026 WT (NRCan lists both Charger variants of the Canadian Ext Range trims, captured per trim). Powertrain value is the base 11.5 kW."
+            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 11.5 kW is the base module; 19.2 kW is an option (K20 / XKT package) or standard on the 2026 WT (NRCan lists both Charger variants of the Canadian Ext Range trims, captured per trim). Powertrain value is the base 11.5 kW. LT/RST charger hardware is not covered by the WT guide: NRCan lists both 11.5 kW and 19.2 kW chargers per trim (captured per trim); powertrain value is the 11.5 kW charger. The 2025 guide row for the charging module is partly unreadable (glyph-encoded font)."
           }
         ],
         "published_10_80_min": [
@@ -1721,7 +2148,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1729,9 +2156,9 @@
             "value": 170,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-20",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 20 modules per the GM spec guide, so 204 x 20/24 = 170. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2025."
+            "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide)."
           }
         ],
         "battery.chemistry": [
@@ -1749,7 +2176,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. Charges at 670 V (670 V, classed 800v: a series-connected 20-module pack of the 800 V-capable Silverado architecture, above the 400 V class)."
+            "notes": "Estimated: \"800v\" follows the class already stored for the Silverado EV Extended Range records. GM's guide gives 670 V (a charging voltage) for the 20-module pack and 800 V for the Max Range; The Weekly Driver gives 290 V nominal for the 20-module pack. OWNER FLAG: the class is a judgement (charging voltage vs nominal voltage); kept 800v to match the existing records."
           }
         ],
         "dc_max_kw": [
@@ -1759,7 +2186,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack."
+            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack. The Weekly Driver 20-module page also gives 300 kW. The existing 350 kW on some 2026 Extended Range records is the Max Range figure."
           }
         ],
         "ac_max_kw": [
@@ -1769,7 +2196,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 11.5 kW is the base module; 19.2 kW is an option (K20 / XKT package) or standard on the 2026 WT (NRCan lists both Charger variants of the Canadian Ext Range trims, captured per trim). Powertrain value is the base 11.5 kW."
+            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 11.5 kW is the base module; 19.2 kW is an option (K20 / XKT package) or standard on the 2026 WT (NRCan lists both Charger variants of the Canadian Ext Range trims, captured per trim). Powertrain value is the base 11.5 kW. LT/RST charger hardware is not covered by the WT guide: NRCan lists both 11.5 kW and 19.2 kW chargers per trim (captured per trim); powertrain value is the 11.5 kW charger. The 2025 guide row for the charging module is partly unreadable (glyph-encoded font)."
           }
         ],
         "published_10_80_min": [
@@ -1792,7 +2219,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1800,9 +2227,9 @@
             "value": 119,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 14 modules per the GM spec guide, so 204 x 14/24 = 119. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2025."
+            "notes": "Estimated: The Weekly Driver lists the Standard Range pack as 119 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure. Scaled check: 204 kWh x 14/24 modules = 119 kWh (module counts from the GM 2026 Silverado EV guide: 14 / 20 / 24 modules)."
           }
         ],
         "battery.chemistry": [
@@ -1817,10 +2244,10 @@
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
-            "kind": "manufacturer",
-            "source_id": "src-gm-silverado-ev-2025-spec-guide",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
             "low_confidence": true,
-            "notes": "GM 2025 WT spec guide lists the Standard Range (14 MOD) pack. Charges at 475 V (475 V, classed 400v)."
+            "notes": "Estimated: GM's 2026 specification guide gives 475 V for the 14-module Standard Range pack, which is a charging voltage rather than a nominal one; The Weekly Driver (EPA filing) gives 470 V nominal. Either way a 400 V-class pack, not the 800 V split-pack charging of the Max Range."
           }
         ],
         "dc_max_kw": [
@@ -1850,7 +2277,7 @@
             "kind": "manufacturer",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2025 WT spec guide lists the Standard Range (14 MOD) pack. Low-80% time to charge 40 min and 74 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
+            "notes": "GM 2025 WT spec guide lists the Standard Range (14 MOD) pack. Low-80% time to charge 40 min and 74 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi). The guide row is labelled \"Low-80% time to charge\", not 10-80 %; paired with \"74 miles\" in the text layer."
           }
         ]
       }
@@ -1863,7 +2290,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1871,9 +2298,9 @@
             "value": 170,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-20",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 20 modules per the GM spec guide, so 204 x 20/24 = 170. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2025."
+            "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide)."
           }
         ],
         "battery.chemistry": [
@@ -1888,10 +2315,10 @@
         "battery.nominal_voltage_class": [
           {
             "value": "800v",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. Charges at 670 V (670 V, classed 800v: a series-connected 20-module pack of the 800 V-capable Silverado architecture, above the 400 V class)."
+            "notes": "Estimated: \"800v\" follows the class already stored for the Silverado EV Extended Range records. GM's guide gives 670 V (a charging voltage) for the 20-module pack and 800 V for the Max Range; The Weekly Driver gives 290 V nominal for the 20-module pack. OWNER FLAG: the class is a judgement (charging voltage vs nominal voltage); kept 800v to match the existing records."
           }
         ],
         "dc_max_kw": [
@@ -1901,17 +2328,17 @@
             "kind": "manufacturer",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack."
+            "notes": "GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack. The Weekly Driver 20-module page also gives 300 kW. The existing 350 kW on some 2026 Extended Range records is the Max Range figure."
           }
         ],
         "ac_max_kw": [
           {
-            "value": 11.5,
+            "value": 19.2,
             "unit": "kW",
             "kind": "estimated",
-            "source_id": "src-gm-silverado-ev-2025-spec-guide",
+            "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. 11.5 kW is the base module; 19.2 kW is an option (K20 / XKT package) or standard on the 2026 WT (NRCan lists both Charger variants of the Canadian Ext Range trims, captured per trim). Powertrain value is the base 11.5 kW. The 2025 guide text for the charging-module row was not readable; 19.2 kW is standard on 5WT/8WT or via the XKT package, so the 11.5 kW base is an estimate."
+            "notes": "Estimated: GM 2026 guide: \"19.2 kW module on 5WT and 8WT\" (5WT = Extended Range WT); the 2025 guide lists \"AC Offboarding Power (5WT, 8WT) 10.2 kW with 19.2 kW module\". Same WT Extended Range hardware as the 2026 guide (2025 and 2026 compared)."
           }
         ],
         "published_10_80_min": [
@@ -1921,7 +2348,7 @@
             "kind": "manufacturer",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. Low-80% time to charge 42 min and 111 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
+            "notes": "GM 2025 WT spec guide lists the Extended Range (20 MOD) pack. Low-80% time to charge 42 min and 111 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi). The guide row is labelled \"Low-80% time to charge\", not 10-80 %."
           }
         ]
       }
@@ -1934,7 +2361,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "published_10_80_min": [
@@ -1945,6 +2372,54 @@
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
             "notes": "GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. Low-80% time to charge 46 min and 124 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 204,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-insideevs-silverado-battery",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 24 modules per the GM spec guide, so 204 x 24/24 = 204. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2026. The Weekly Driver 24-module page gives 205 kWh \"as published\" (usable or total not stated)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-silverado-battery",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs describes the Silverado EV pack as NMC pouch cells (24-module pack); thinkEV lists NMC for 2026; same Ultium cells in all pack sizes."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "estimated",
+            "source_id": "src-gm-silverado-ev-2026-spec-guide",
+            "low_confidence": true,
+            "notes": "Estimated: same Max Range 24-module pack as the other Max Range Silverado EVs. GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. Charges at 800 V."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 350,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-gm-silverado-ev-2026-spec-guide",
+            "low_confidence": true,
+            "notes": "Estimated: same Max Range 24-module pack as the other Max Range Silverado EVs. GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. 800 V up to 350 kW."
+          }
+        ],
+        "ac_max_kw": [
+          {
+            "value": 19.2,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-gm-silverado-ev-2026-spec-guide",
+            "low_confidence": true,
+            "notes": "Estimated: same Max Range 24-module pack as the other Max Range Silverado EVs. GM 2026 WT spec guide lists the Maximum Range (24 MOD) pack. 19.2 kW module on Maximum Range."
           }
         ]
       }
@@ -1957,7 +2432,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -1965,9 +2440,9 @@
             "value": 119,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 14 modules per the GM spec guide, so 204 x 14/24 = 119. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2025."
+            "notes": "Estimated: The Weekly Driver lists the Standard Range pack as 119 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure. Scaled check: 204 kWh x 14/24 modules = 119 kWh (module counts from the GM 2026 Silverado EV guide: 14 / 20 / 24 modules)."
           }
         ],
         "battery.chemistry": [
@@ -1982,10 +2457,10 @@
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
-            "kind": "manufacturer",
-            "source_id": "src-gm-silverado-ev-2025-spec-guide",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
             "low_confidence": true,
-            "notes": "GM 2025 WT spec guide lists the Standard Range (14 MOD) pack. Charges at 475 V (475 V, classed 400v)."
+            "notes": "Estimated: GM's 2026 specification guide gives 475 V for the 14-module Standard Range pack, which is a charging voltage rather than a nominal one; The Weekly Driver (EPA filing) gives 470 V nominal. Either way a 400 V-class pack, not the 800 V split-pack charging of the Max Range."
           }
         ],
         "dc_max_kw": [
@@ -2015,7 +2490,7 @@
             "kind": "manufacturer",
             "source_id": "src-gm-silverado-ev-2025-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2025 WT spec guide lists the Standard Range (14 MOD) pack. Low-80% time to charge 40 min and 74 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
+            "notes": "GM 2025 WT spec guide lists the Standard Range (14 MOD) pack. Low-80% time to charge 40 min and 74 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi). The guide row is labelled \"Low-80% time to charge\", not 10-80 %; paired with \"74 miles\" in the text layer."
           }
         ]
       }
@@ -2028,7 +2503,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2036,9 +2511,9 @@
             "value": 170,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-20",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 20 modules per the GM spec guide, so 204 x 20/24 = 170. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2026."
+            "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide)."
           }
         ],
         "battery.chemistry": [
@@ -2053,10 +2528,10 @@
         "battery.nominal_voltage_class": [
           {
             "value": "800v",
-            "kind": "manufacturer",
+            "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. Charges at 670 V (670 V, classed 800v: a series-connected 20-module pack of the 800 V-capable Silverado architecture, above the 400 V class)."
+            "notes": "Estimated: \"800v\" follows the class already stored for the Silverado EV Extended Range records. GM's guide gives 670 V (a charging voltage) for the 20-module pack and 800 V for the Max Range; The Weekly Driver gives 290 V nominal for the 20-module pack. OWNER FLAG: the class is a judgement (charging voltage vs nominal voltage); kept 800v to match the existing records."
           }
         ],
         "dc_max_kw": [
@@ -2066,7 +2541,7 @@
             "kind": "manufacturer",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack."
+            "notes": "GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack. The Weekly Driver 20-module page also gives 300 kW. The existing 350 kW on some 2026 Extended Range records is the Max Range figure."
           }
         ],
         "ac_max_kw": [
@@ -2086,7 +2561,7 @@
             "kind": "manufacturer",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. Low-80% time to charge 42 min and 111 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
+            "notes": "GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. Low-80% time to charge 42 min and 111 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi). The guide row is labelled \"Low-80% time to charge\", not 10-80 %."
           }
         ]
       }
@@ -2099,7 +2574,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2107,9 +2582,9 @@
             "value": 170,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-20",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 20 modules per the GM spec guide, so 204 x 20/24 = 170. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2026/2027."
+            "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide)."
           }
         ],
         "battery.chemistry": [
@@ -2127,7 +2602,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. Charges at 670 V (670 V, classed 800v: a series-connected 20-module pack of the 800 V-capable Silverado architecture, above the 400 V class)."
+            "notes": "Estimated: \"800v\" follows the class already stored for the Silverado EV Extended Range records. GM's guide gives 670 V (a charging voltage) for the 20-module pack and 800 V for the Max Range; The Weekly Driver gives 290 V nominal for the 20-module pack. OWNER FLAG: the class is a judgement (charging voltage vs nominal voltage); kept 800v to match the existing records."
           }
         ],
         "dc_max_kw": [
@@ -2137,7 +2612,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack."
+            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack. The Weekly Driver 20-module page also gives 300 kW. The existing 350 kW on some 2026 Extended Range records is the Max Range figure."
           }
         ],
         "ac_max_kw": [
@@ -2147,7 +2622,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 11.5 kW is the base module; 19.2 kW is an option (K20 / XKT package) or standard on the 2026 WT (NRCan lists both Charger variants of the Canadian Ext Range trims, captured per trim). Powertrain value is the base 11.5 kW."
+            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 11.5 kW is the base module; 19.2 kW is an option (K20 / XKT package) or standard on the 2026 WT (NRCan lists both Charger variants of the Canadian Ext Range trims, captured per trim). Powertrain value is the base 11.5 kW. LT/RST charger hardware is not covered by the WT guide: NRCan lists both 11.5 kW and 19.2 kW chargers per trim (captured per trim); powertrain value is the 11.5 kW charger. The 2025 guide row for the charging module is partly unreadable (glyph-encoded font)."
           }
         ],
         "published_10_80_min": [
@@ -2170,7 +2645,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2178,9 +2653,9 @@
             "value": 170,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-20",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 20 modules per the GM spec guide, so 204 x 20/24 = 170. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2026."
+            "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide)."
           }
         ],
         "dc_max_kw": [
@@ -2190,7 +2665,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack."
+            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack. The Weekly Driver 20-module page also gives 300 kW. The existing 350 kW on some 2026 Extended Range records is the Max Range figure."
           }
         ],
         "ac_max_kw": [
@@ -2200,7 +2675,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 11.5 kW is the base module; 19.2 kW is an option (K20 / XKT package) or standard on the 2026 WT (NRCan lists both Charger variants of the Canadian Ext Range trims, captured per trim). Powertrain value is the base 11.5 kW."
+            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 11.5 kW is the base module; 19.2 kW is an option (K20 / XKT package) or standard on the 2026 WT (NRCan lists both Charger variants of the Canadian Ext Range trims, captured per trim). Powertrain value is the base 11.5 kW. LT/RST charger hardware is not covered by the WT guide: NRCan lists both 11.5 kW and 19.2 kW chargers per trim (captured per trim); powertrain value is the 11.5 kW charger. The 2025 guide row for the charging module is partly unreadable (glyph-encoded font)."
           }
         ],
         "published_10_80_min": [
@@ -2211,6 +2686,24 @@
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
             "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. Low-80% time to charge 42 min and 111 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-silverado-battery",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs describes the Silverado EV pack as NMC pouch cells (24-module pack); thinkEV lists NMC for 2026; same Ultium cells in all pack sizes."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "estimated",
+            "source_id": "src-gm-silverado-ev-2026-spec-guide",
+            "low_confidence": true,
+            "notes": "Estimated: \"800v\" follows the class already stored for the Silverado EV Extended Range records. GM's guide gives 670 V (a charging voltage) for the 20-module pack and 800 V for the Max Range; The Weekly Driver gives 290 V nominal for the 20-module pack. OWNER FLAG: the class is a judgement (charging voltage vs nominal voltage); kept 800v to match the existing records."
           }
         ]
       }
@@ -2223,7 +2716,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "ac_max_kw": [
@@ -2245,6 +2738,44 @@
             "low_confidence": true,
             "notes": "Estimated: GM 2026 WT spec guide lists the Standard Range (14 MOD) pack. Low-80% time to charge 40 min and 74 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
           }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 119,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
+            "low_confidence": true,
+            "notes": "Estimated: The Weekly Driver lists the Standard Range pack as 119 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure. Scaled check: 204 kWh x 14/24 modules = 119 kWh (module counts from the GM 2026 Silverado EV guide: 14 / 20 / 24 modules)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-silverado-battery",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs describes the Silverado EV pack as NMC pouch cells (24-module pack); thinkEV lists NMC for 2026; same Ultium cells in all pack sizes."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
+            "low_confidence": true,
+            "notes": "Estimated: GM's 2026 specification guide gives 475 V for the 14-module Standard Range pack, which is a charging voltage rather than a nominal one; The Weekly Driver (EPA filing) gives 470 V nominal. Either way a 400 V-class pack, not the 800 V split-pack charging of the Max Range."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 220,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-gm-silverado-ev-2026-spec-guide",
+            "low_confidence": true,
+            "notes": "Estimated: same Standard Range 14-module pack (119 kWh, 220 kW) as the Work Truck on the 2026 GM guide; LT carries the same pack per The Weekly Driver (Standard Range offered only on WT and LT). GM 2026 WT spec guide lists the Standard Range (14 MOD) pack. 475 V up to 220 kW."
+          }
         ]
       }
     },
@@ -2256,7 +2787,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2266,7 +2797,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-silverado-battery",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 24 modules per the GM spec guide, so 204 x 24/24 = 204. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2026."
+            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 24 modules per the GM spec guide, so 204 x 24/24 = 204. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2026. The Weekly Driver 24-module page gives 205 kWh \"as published\" (usable or total not stated)."
           }
         ],
         "battery.chemistry": [
@@ -2327,7 +2858,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2335,9 +2866,9 @@
             "value": 119,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 14 modules per the GM spec guide, so 204 x 14/24 = 119. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2026."
+            "notes": "Estimated: The Weekly Driver lists the Standard Range pack as 119 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure. Scaled check: 204 kWh x 14/24 modules = 119 kWh (module counts from the GM 2026 Silverado EV guide: 14 / 20 / 24 modules)."
           }
         ],
         "battery.chemistry": [
@@ -2352,10 +2883,10 @@
         "battery.nominal_voltage_class": [
           {
             "value": "400v",
-            "kind": "manufacturer",
-            "source_id": "src-gm-silverado-ev-2026-spec-guide",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
             "low_confidence": true,
-            "notes": "GM 2026 WT spec guide lists the Standard Range (14 MOD) pack. Charges at 475 V (475 V, classed 400v)."
+            "notes": "Estimated: GM's 2026 specification guide gives 475 V for the 14-module Standard Range pack, which is a charging voltage rather than a nominal one; The Weekly Driver (EPA filing) gives 470 V nominal. Either way a 400 V-class pack, not the 800 V split-pack charging of the Max Range."
           }
         ],
         "dc_max_kw": [
@@ -2385,7 +2916,7 @@
             "kind": "manufacturer",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2026 WT spec guide lists the Standard Range (14 MOD) pack. Low-80% time to charge 40 min and 74 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
+            "notes": "GM 2026 WT spec guide lists the Standard Range (14 MOD) pack. Low-80% time to charge 40 min and 74 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi). The guide row is labelled \"Low-80% time to charge\", not 10-80 %; paired with \"74 miles\" in the text layer."
           }
         ]
       }
@@ -2398,7 +2929,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2406,9 +2937,9 @@
             "value": 170,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-20",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 20 modules per the GM spec guide, so 204 x 20/24 = 170. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2026."
+            "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide)."
           }
         ],
         "dc_max_kw": [
@@ -2418,7 +2949,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack."
+            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack. The Weekly Driver 20-module page also gives 300 kW. The existing 350 kW on some 2026 Extended Range records is the Max Range figure."
           }
         ],
         "ac_max_kw": [
@@ -2427,7 +2958,7 @@
             "unit": "kW",
             "kind": "rated_nrcan",
             "source_id": "src-nrcan-bev-2026-09",
-            "notes": "NRCan model name: Silverado EV Trail Boss Ext Range (11.5 kW)."
+            "notes": "NRCan model name: Silverado EV Trail Boss Ext Range (11.5 kW). LT/RST charger hardware is not covered by the WT guide: NRCan lists both 11.5 kW and 19.2 kW chargers per trim (captured per trim); powertrain value is the 11.5 kW charger. The 2025 guide row for the charging module is partly unreadable (glyph-encoded font)."
           }
         ],
         "published_10_80_min": [
@@ -2438,6 +2969,24 @@
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
             "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. Low-80% time to charge 42 min and 111 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-silverado-battery",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs describes the Silverado EV pack as NMC pouch cells (24-module pack); thinkEV lists NMC for 2026; same Ultium cells in all pack sizes."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "estimated",
+            "source_id": "src-gm-silverado-ev-2026-spec-guide",
+            "low_confidence": true,
+            "notes": "Estimated: \"800v\" follows the class already stored for the Silverado EV Extended Range records. GM's guide gives 670 V (a charging voltage) for the 20-module pack and 800 V for the Max Range; The Weekly Driver gives 290 V nominal for the 20-module pack. OWNER FLAG: the class is a judgement (charging voltage vs nominal voltage); kept 800v to match the existing records."
           }
         ]
       }
@@ -2450,7 +2999,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2458,9 +3007,9 @@
             "value": 170,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-20",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 20 modules per the GM spec guide, so 204 x 20/24 = 170. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2026."
+            "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide)."
           }
         ],
         "dc_max_kw": [
@@ -2470,7 +3019,7 @@
             "kind": "manufacturer",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack."
+            "notes": "GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack. The Weekly Driver 20-module page also gives 300 kW. The existing 350 kW on some 2026 Extended Range records is the Max Range figure."
           }
         ],
         "ac_max_kw": [
@@ -2490,7 +3039,25 @@
             "kind": "manufacturer",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. Low-80% time to charge 42 min and 111 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
+            "notes": "GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. Low-80% time to charge 42 min and 111 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi). The guide row is labelled \"Low-80% time to charge\", not 10-80 %."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-silverado-battery",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs describes the Silverado EV pack as NMC pouch cells (24-module pack); thinkEV lists NMC for 2026; same Ultium cells in all pack sizes."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "800v",
+            "kind": "estimated",
+            "source_id": "src-gm-silverado-ev-2026-spec-guide",
+            "low_confidence": true,
+            "notes": "Estimated: \"800v\" follows the class already stored for the Silverado EV Extended Range records. GM's guide gives 670 V (a charging voltage) for the 20-module pack and 800 V for the Max Range; The Weekly Driver gives 290 V nominal for the 20-module pack. OWNER FLAG: the class is a judgement (charging voltage vs nominal voltage); kept 800v to match the existing records."
           }
         ]
       }
@@ -2503,7 +3070,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "ac_max_kw": [
@@ -2523,7 +3090,45 @@
             "kind": "manufacturer",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "GM 2026 WT spec guide lists the Standard Range (14 MOD) pack. Low-80% time to charge 40 min and 74 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi)."
+            "notes": "GM 2026 WT spec guide lists the Standard Range (14 MOD) pack. Low-80% time to charge 40 min and 74 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi). The guide row is labelled \"Low-80% time to charge\", not 10-80 %; paired with \"74 miles\" in the text layer."
+          }
+        ],
+        "battery.capacity_usable_kwh": [
+          {
+            "value": 119,
+            "unit": "kWh",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
+            "low_confidence": true,
+            "notes": "Estimated: The Weekly Driver lists the Standard Range pack as 119 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure. Scaled check: 204 kWh x 14/24 modules = 119 kWh (module counts from the GM 2026 Silverado EV guide: 14 / 20 / 24 modules)."
+          }
+        ],
+        "battery.chemistry": [
+          {
+            "value": "nmc",
+            "kind": "estimated",
+            "source_id": "src-insideevs-silverado-battery",
+            "low_confidence": true,
+            "notes": "Estimated: InsideEVs describes the Silverado EV pack as NMC pouch cells (24-module pack); thinkEV lists NMC for 2026; same Ultium cells in all pack sizes."
+          }
+        ],
+        "battery.nominal_voltage_class": [
+          {
+            "value": "400v",
+            "kind": "estimated",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
+            "low_confidence": true,
+            "notes": "Estimated: GM's 2026 specification guide gives 475 V for the 14-module Standard Range pack, which is a charging voltage rather than a nominal one; The Weekly Driver (EPA filing) gives 470 V nominal. Either way a 400 V-class pack, not the 800 V split-pack charging of the Max Range."
+          }
+        ],
+        "dc_max_kw": [
+          {
+            "value": 220,
+            "unit": "kW",
+            "kind": "estimated",
+            "source_id": "src-gm-silverado-ev-2026-spec-guide",
+            "low_confidence": true,
+            "notes": "Estimated: same Standard Range 14-module pack (119 kWh, 220 kW) as the Work Truck on the 2026 GM guide; LT carries the same pack per The Weekly Driver (Standard Range offered only on WT and LT). GM 2026 WT spec guide lists the Standard Range (14 MOD) pack. 475 V up to 220 kW."
           }
         ]
       }
@@ -2536,7 +3141,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2544,9 +3149,9 @@
             "value": 170,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-20",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 20 modules per the GM spec guide, so 204 x 20/24 = 170. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2027."
+            "notes": "Estimated: The Weekly Driver lists the Extended Range pack as 170 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure (Green Cars Compare, search snippet only, lists 173 kWh usable). Scaled check: 204 kWh x 20/24 modules = 170 kWh (module counts from the GM 2026 Silverado EV guide)."
           }
         ],
         "battery.chemistry": [
@@ -2564,7 +3169,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. Charges at 670 V (670 V, classed 800v: a series-connected 20-module pack of the 800 V-capable Silverado architecture, above the 400 V class)."
+            "notes": "Estimated: \"800v\" follows the class already stored for the Silverado EV Extended Range records. GM's guide gives 670 V (a charging voltage) for the 20-module pack and 800 V for the Max Range; The Weekly Driver gives 290 V nominal for the 20-module pack. OWNER FLAG: the class is a judgement (charging voltage vs nominal voltage); kept 800v to match the existing records."
           }
         ],
         "dc_max_kw": [
@@ -2574,7 +3179,7 @@
             "kind": "estimated",
             "source_id": "src-gm-silverado-ev-2026-spec-guide",
             "low_confidence": true,
-            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack."
+            "notes": "Estimated: GM 2026 WT spec guide lists the Extended Range (20 MOD) pack. 670 V up to 300 kW. Several existing Extended Range records say 350 kW (the Max pack's value); this is the GM figure for the 20-module pack. The Weekly Driver 20-module page also gives 300 kW. The existing 350 kW on some 2026 Extended Range records is the Max Range figure."
           }
         ],
         "ac_max_kw": [
@@ -2607,7 +3212,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2617,7 +3222,7 @@
             "kind": "estimated",
             "source_id": "src-insideevs-silverado-battery",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 24 modules per the GM spec guide, so 204 x 24/24 = 204. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2027."
+            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 24 modules per the GM spec guide, so 204 x 24/24 = 204. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2027. The Weekly Driver 24-module page gives 205 kWh \"as published\" (usable or total not stated)."
           }
         ],
         "battery.chemistry": [
@@ -2678,7 +3283,7 @@
             "kind": "estimated",
             "source_id": "src-chevrolet-battery-preconditioning-guide",
             "low_confidence": true,
-            "notes": "Estimated: Chevrolet's battery-preconditioning guide (read as a search excerpt, page 403s) says vehicles with Google built-in automatically precondition when you route to a charging station in Google Maps (set in the Charging App) and offer a manual Fast Charge Prep. Applied as a lineup-wide Chevrolet EV feature to this Ultium model and year; not read in this car's owner's manual."
+            "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
           }
         ],
         "battery.capacity_usable_kwh": [
@@ -2686,9 +3291,9 @@
             "value": 119,
             "unit": "kWh",
             "kind": "estimated",
-            "source_id": "src-insideevs-silverado-battery",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
             "low_confidence": true,
-            "notes": "Estimated: InsideEVs: 204 kWh usable (reported) for the 24-module pack; 14 modules per the GM spec guide, so 204 x 14/24 = 119. Third-party tables also list 119 / 170 / 205. Years on this powertrain: 2027."
+            "notes": "Estimated: The Weekly Driver lists the Standard Range pack as 119 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure. Scaled check: 204 kWh x 14/24 modules = 119 kWh (module counts from the GM 2026 Silverado EV guide: 14 / 20 / 24 modules)."
           }
         ],
         "battery.chemistry": [
@@ -2704,9 +3309,9 @@
           {
             "value": "400v",
             "kind": "estimated",
-            "source_id": "src-gm-silverado-ev-2026-spec-guide",
+            "source_id": "src-weeklydriver-gm-ultium-truck-14",
             "low_confidence": true,
-            "notes": "Estimated: GM 2026 WT spec guide lists the Standard Range (14 MOD) pack. Charges at 475 V (475 V, classed 400v)."
+            "notes": "Estimated: GM's 2026 specification guide gives 475 V for the 14-module Standard Range pack, which is a charging voltage rather than a nominal one; The Weekly Driver (EPA filing) gives 470 V nominal. Either way a 400 V-class pack, not the 800 V split-pack charging of the Max Range."
           }
         ],
         "dc_max_kw": [
@@ -2959,6 +3564,13 @@
             "source_id": "src-guideautoweb-gm-nacs-adapter",
             "low_confidence": true,
             "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2024: adapter needed. Markets: CA/US."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "estimated",
+            "source_id": "src-insideevs-blazer-ev-supercharger-2025",
+            "low_confidence": true,
+            "notes": "Estimated: same CCS1 car and same GM adapter programme as the 2025 Blazer EV SS tested by InsideEVs (US); no 2024-specific page read. US market, model year 2024: adapter needed."
           }
         ]
       }
@@ -3003,6 +3615,13 @@
             "source_id": "src-guideautoweb-gm-nacs-adapter",
             "low_confidence": true,
             "notes": "Estimated: GM adapter programme covers Blazer EV, Equinox EV, Silverado EV and LYRIQ (Canadian article); US availability assumed. Current state for model year 2024: adapter needed. Markets: US."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "estimated",
+            "source_id": "src-insideevs-blazer-ev-supercharger-2025",
+            "low_confidence": true,
+            "notes": "Estimated: same CCS1 car and same GM adapter programme as the 2025 Blazer EV SS tested by InsideEVs (US); no 2024-specific page read. US market, model year 2024: adapter needed."
           }
         ]
       }
@@ -3025,6 +3644,13 @@
             "source_id": "src-guideautoweb-gm-nacs-adapter",
             "low_confidence": true,
             "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2025: adapter needed. Markets: CA/US."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "community",
+            "source_id": "src-insideevs-blazer-ev-supercharger-2025",
+            "low_confidence": true,
+            "notes": "US press: an InsideEVs author charged a 2025 Blazer EV SS at a Tesla Supercharger in California with the Chevy-approved adapter (2025-05-30). US market, model year 2025: adapter needed."
           }
         ]
       }
@@ -3047,6 +3673,13 @@
             "source_id": "src-guideautoweb-gm-nacs-adapter",
             "low_confidence": true,
             "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2025: adapter needed. Markets: CA/US."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "community",
+            "source_id": "src-insideevs-blazer-ev-supercharger-2025",
+            "low_confidence": true,
+            "notes": "US press: an InsideEVs author charged a 2025 Blazer EV SS at a Tesla Supercharger in California with the Chevy-approved adapter (2025-05-30). US market, model year 2025: adapter needed."
           }
         ]
       }
@@ -3113,6 +3746,13 @@
             "source_id": "src-guideautoweb-gm-nacs-adapter",
             "low_confidence": true,
             "notes": "Estimated: GM adapter programme covers Blazer EV, Equinox EV, Silverado EV and LYRIQ (Canadian article); US availability assumed. Current state for model year 2025: adapter needed. Markets: US."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "community",
+            "source_id": "src-insideevs-blazer-ev-supercharger-2025",
+            "low_confidence": true,
+            "notes": "US press: an InsideEVs author charged a 2025 Blazer EV SS at a Tesla Supercharger in California with the Chevy-approved adapter (2025-05-30). US market, model year 2025: adapter needed."
           }
         ]
       }
@@ -3135,6 +3775,13 @@
             "source_id": "src-guideautoweb-gm-nacs-adapter",
             "low_confidence": true,
             "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2025: adapter needed. Markets: CA/US."
+          },
+          {
+            "value": "via_adapter",
+            "kind": "community",
+            "source_id": "src-insideevs-blazer-ev-supercharger-2025",
+            "low_confidence": true,
+            "notes": "US press: an InsideEVs author charged a 2025 Blazer EV SS at a Tesla Supercharger in California with the Chevy-approved adapter (2025-05-30). US market, model year 2025: adapter needed."
           }
         ]
       }
@@ -3641,6 +4288,203 @@
             "source_id": "src-evcs-2027-silverado",
             "low_confidence": true,
             "notes": "Native NACS port on 2027 models (see charge_port); Superchargers usable without an adapter (Electrek / The Charge Port / EVChargingStations). US only."
+          }
+        ]
+      }
+    },
+    "cadillac/lyriq/2026/awd": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-lyriq",
+            "low_confidence": true,
+            "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-lyriq-2027",
+            "low_confidence": true,
+            "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ]
+      }
+    },
+    "cadillac/lyriq/2026/standard": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-lyriq",
+            "low_confidence": true,
+            "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-lyriq-2027",
+            "low_confidence": true,
+            "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ]
+      }
+    },
+    "cadillac/lyriq/2026/v": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-thechargeport-lyriq",
+            "low_confidence": true,
+            "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-lyriq-2027",
+            "low_confidence": true,
+            "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ]
+      }
+    },
+    "chevrolet/blazer-ev/2026/ss-awd": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-evchargingstations-2027-blazer-ev-nacs",
+            "low_confidence": true,
+            "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-guideautoweb-gm-nacs-adapter",
+            "low_confidence": true,
+            "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          },
+          {
+            "value": "via_adapter",
+            "kind": "estimated",
+            "source_id": "src-insideevs-blazer-ev-supercharger-2025",
+            "low_confidence": true,
+            "notes": "Estimated: same CCS1 car and GM adapter programme as the 2025 Blazer EV tested by InsideEVs (US). Model year 2026."
+          }
+        ]
+      }
+    },
+    "chevrolet/blazer-ev/2026/lt-rs-awd": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-evchargingstations-2027-blazer-ev-nacs",
+            "low_confidence": true,
+            "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-guideautoweb-gm-nacs-adapter",
+            "low_confidence": true,
+            "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          },
+          {
+            "value": "via_adapter",
+            "kind": "estimated",
+            "source_id": "src-insideevs-blazer-ev-supercharger-2025",
+            "low_confidence": true,
+            "notes": "Estimated: same CCS1 car and GM adapter programme as the 2025 Blazer EV tested by InsideEVs (US). Model year 2026."
+          }
+        ]
+      }
+    },
+    "chevrolet/blazer-ev/2026/standard": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "estimated",
+            "source_id": "src-evchargingstations-2027-blazer-ev-nacs",
+            "low_confidence": true,
+            "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-guideautoweb-gm-nacs-adapter",
+            "low_confidence": true,
+            "notes": "Canadian article (2024-09-18): Canadian Blazer EV, Equinox EV, Silverado EV and LYRIQ owners can buy the GM NACS adapter for Tesla Superchargers. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          },
+          {
+            "value": "via_adapter",
+            "kind": "estimated",
+            "source_id": "src-insideevs-blazer-ev-supercharger-2025",
+            "low_confidence": true,
+            "notes": "Estimated: same CCS1 car and GM adapter programme as the 2025 Blazer EV tested by InsideEVs (US). Model year 2026."
+          }
+        ]
+      }
+    },
+    "chevrolet/equinox-ev/2026/awd": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-chevrolet-equinox-ev",
+            "low_confidence": true,
+            "notes": "CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-equinox-ev",
+            "low_confidence": true,
+            "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ]
+      }
+    },
+    "chevrolet/equinox-ev/2026/standard": {
+      "fields": {
+        "charge_port": [
+          {
+            "value": "ccs1",
+            "kind": "manufacturer",
+            "source_id": "src-wikipedia-chevrolet-equinox-ev",
+            "low_confidence": true,
+            "notes": "CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
+          }
+        ],
+        "supercharger_access": [
+          {
+            "value": "via_adapter",
+            "kind": "manufacturer",
+            "source_id": "src-thechargeport-equinox-ev",
+            "low_confidence": true,
+            "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
           }
         ]
       }

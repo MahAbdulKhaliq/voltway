@@ -1,0 +1,27 @@
+{
+  "id": "evercars-2026",
+  "powertrain_id": "hyundai/ioniq-9/2026-awd-performance",
+  "kind": "community",
+  "source_id": "src-evercars-ioniq9-charge-test",
+  "low_confidence": true,
+  "points": [
+    {
+      "soc_percent": 10,
+      "power_kw": 211
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 235
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 124
+    }
+  ],
+  "conditions": {
+    "preconditioned": "no",
+    "charger_kw": 400
+  },
+  "notes": "Sparse (3 points) EverTV test of a 2026 IONIQ 9, trim not stated; shape between points is a straight-line assumption. Peak 235 kW at 60%. Car did not allow preconditioning. Electrek measured a lower peak (~215 kW) on a different charger; InsideEVs relays 243 kW with no SoC points. Timer started at 10% after arriving at 5%. Applied to all three 2026 trims (same 110.3 kWh 800 V pack). Electrek (Calligraphy) saw ~215 kW peak and 197.75 kW at 60 %; InsideEVs relays 243 kW (The Ioniq Guy, 350 kW Electrify America); Torque News 218 kW peak on a 16-80 % Electrify Canada session; none give SoC points.",
+  "is_display_default": false
+}

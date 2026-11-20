@@ -6,7 +6,7 @@
       "title": "Fastned - Polestar 2 78 kWh (2020-2023) charge graph",
       "url": "https://www.fastnedcharging.com/en-gb/brands-overview/polestar?model=2",
       "accessed_on": "2026-11-19",
-      "notes": "Charge graph data embedded in the Fastned vehicle page (150+ kW charger class); per-percent values 7-93 %. Fastned says curves assume a battery near 30 C. Page carries no reuse terms; terms-of-use page not readable (404). Same graph data is on the Fastned Volvo XC40 Recharge 78 kWh (2020-2023) and C40 Recharge 78 kWh pages."
+      "notes": "Charge graph data embedded in the Fastned vehicle page (150+ kW charger class); per-percent values 7-93 %. Fastned says curves assume a battery near 30 C. Page carries no reuse terms; Fastned Terms of Use (en-gb terms-conditions) are readable and contain no clause on reuse of site data; the UK Open Data / API Fair Use policy covers only UK charge point and tariff data, not vehicle charge graphs, so no licence for the graphs exists either way (owner confirms). Same graph data is on the Fastned Volvo XC40 Recharge 78 kWh (2020-2023) and C40 Recharge 78 kWh pages."
     },
     {
       "id": "src-fastned-volvo-xc40-78kwh",
@@ -14,7 +14,7 @@
       "title": "Fastned - Volvo XC40 Recharge 78 kWh (2020-2023) charge graph",
       "url": "https://www.fastnedcharging.com/en/brands-overview/volvo?model=XC40%20Recharge",
       "accessed_on": "2026-11-19",
-      "notes": "Fastned XC40 Recharge 78 kWh (2020-2023) vehicle page, 150+ kW charger class graph; values identical to the Polestar 2 78 kWh page (same pack and hardware)."
+      "notes": "Fastned XC40 Recharge 78 kWh (2020-2023) vehicle page, 150+ kW charger class graph; values identical to the Polestar 2 78 kWh page (same pack and hardware). Terms: Fastned Terms of Use are readable (en-gb terms-conditions) and have no reuse clause; the UK Open Data policy covers UK station data only."
     },
     {
       "id": "src-fastned-polestar2-82kwh",
@@ -22,7 +22,7 @@
       "title": "Fastned - Polestar 2 82 kWh (2023+) charge graph",
       "url": "https://www.fastnedcharging.com/en-gb/brands-overview/polestar?model=2",
       "accessed_on": "2026-11-19",
-      "notes": "Charge graph data embedded in the Fastned vehicle page (400 kW charger class, 206 kW max); per-percent values 6-100 %. Fastned says curves assume a battery near 30 C. Fastned has no graph for the Volvo EX40/XC40 82 kWh pages (chargeGraph empty)."
+      "notes": "Charge graph data embedded in the Fastned vehicle page (400 kW charger class, 206 kW max); per-percent values 6-100 %. Fastned says curves assume a battery near 30 C. Fastned has no graph for the Volvo EX40/XC40 82 kWh pages (chargeGraph empty). Terms: Fastned Terms of Use are readable (en-gb terms-conditions) and have no reuse clause; the UK Open Data policy covers UK station data only."
     },
     {
       "id": "src-fastned-volvo-ex30-69kwh",
@@ -30,7 +30,7 @@
       "title": "Fastned - Volvo EX30 69 kWh (2024+) charge graph",
       "url": "https://www.fastnedcharging.com/en/brands-overview/volvo?model=EX30",
       "accessed_on": "2026-11-19",
-      "notes": "Charge graph data embedded in the Fastned vehicle page (300 kW charger class, 160 kW max); per-percent values 10-89 %. Identical graph on the EX30 Cross Country 69 kWh (2025+) page. Fastned says curves assume a battery near 30 C."
+      "notes": "Charge graph data embedded in the Fastned vehicle page (300 kW charger class, 160 kW max); per-percent values 10-89 %. Identical graph on the EX30 Cross Country 69 kWh (2025+) page. Fastned says curves assume a battery near 30 C. Terms: Fastned Terms of Use are readable (en-gb terms-conditions) and have no reuse clause; the UK Open Data policy covers UK station data only."
     }
   ],
   "powertrains": {
@@ -765,7 +765,8 @@
             "battery_temp_c": 30,
             "charger_kw": 150
           },
-          "notes": "Fastned graph for the 78 kWh / 400 V NMC Polestar 2 (2020-2023), 150+ kW charger class, battery assumed near 30 C. Values are stepped (whole kW), which suggests an averaged or smoothed series. Peak about 151 kW held 9-17 %, then steps down to 60 kW at 80 %. The 2023-24 cars (155 kW rating) and the 2024 dual (still 78 kWh) are assumed to share it: Fastned dates it 2020-2023 only. Early software (2020-21) charged slower per InsideEVs and Nyland (99-133 kW peak before OTA); this is the post-update curve. Second-source check: the InsideEVs/Teslarati OTA test (150 kW to about 35 %, about 70 kW near 75-80 %) agrees in rough shape. Same graph on the Fastned XC40 78 kWh page."
+          "notes": "Fastned graph for the 78 kWh / 400 V NMC Polestar 2 (2020-2023), 150+ kW charger class, battery assumed near 30 C. Values are stepped (whole kW), which suggests an averaged or smoothed series. Peak about 151 kW held 9-17 %, then steps down to 60 kW at 80 %. The 2023-24 cars (155 kW rating) and the 2024 dual (still 78 kWh) are assumed to share it: Fastned dates it 2020-2023 only. Early software (2020-21) charged slower per InsideEVs and Nyland (99-133 kW peak before OTA); this is the post-update curve. Second-source check: the InsideEVs/Teslarati OTA test (150 kW to about 35 %, about 70 kW near 75-80 %) agrees in rough shape. Same graph on the Fastned XC40 78 kWh page. Fastned dates this graph 2020-2023; the 2024 car (155 kW rating, up from 150 kW) may charge differently, so the match to 2024 is unproven (low confidence).",
+          "low_confidence": true
         }
       ]
     },
@@ -1185,7 +1186,8 @@
             "battery_temp_c": 30,
             "charger_kw": 150
           },
-          "notes": "Fastned graph for the Volvo XC40 Recharge 78 kWh / 400 V NMC (2020-2023), 150+ kW charger class, battery assumed near 30 C; identical to the Polestar 2 78 kWh graph. Stepped whole-kW values. Fastned dates it 2020-2023; the 2024 Twin (US/Canada, still 78 kWh, 150 kW) is assumed to share it. Peak about 151 kW at 9-17 %, 60 kW at 80 %."
+          "notes": "Fastned graph for the Volvo XC40 Recharge 78 kWh / 400 V NMC (2020-2023), 150+ kW charger class, battery assumed near 30 C; identical to the Polestar 2 78 kWh graph. Stepped whole-kW values. Fastned dates it 2020-2023; the 2024 Twin (US/Canada, still 78 kWh, 150 kW) is assumed to share it. Peak about 151 kW at 9-17 %, 60 kW at 80 %. Fastned dates this graph 2020-2023; the 2024 car (155 kW rating, up from 150 kW) may charge differently, so the match to 2024 is unproven (low confidence).",
+          "low_confidence": true
         }
       ]
     },
@@ -1211,6 +1213,14 @@
             {
               "soc_percent": 15,
               "power_kw": 199.5
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 184.19
+            },
+            {
+              "soc_percent": 22,
+              "power_kw": 180.33
             },
             {
               "soc_percent": 25,
@@ -1318,6 +1328,14 @@
               "power_kw": 199.5
             },
             {
+              "soc_percent": 18,
+              "power_kw": 184.19
+            },
+            {
+              "soc_percent": 22,
+              "power_kw": 180.33
+            },
+            {
               "soc_percent": 25,
               "power_kw": 163.8
             },
@@ -1421,6 +1439,14 @@
             {
               "soc_percent": 15,
               "power_kw": 199.5
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 184.19
+            },
+            {
+              "soc_percent": 22,
+              "power_kw": 180.33
             },
             {
               "soc_percent": 25,
@@ -1528,6 +1554,14 @@
               "power_kw": 199.5
             },
             {
+              "soc_percent": 18,
+              "power_kw": 184.19
+            },
+            {
+              "soc_percent": 22,
+              "power_kw": 180.33
+            },
+            {
               "soc_percent": 25,
               "power_kw": 163.8
             },
@@ -1613,7 +1647,7 @@
       "curves": [
         {
           "id": "fastned-polestar2-82kwh-2026",
-          "kind": "tested",
+          "kind": "estimated",
           "source_id": "src-fastned-polestar2-82kwh",
           "points": [
             {
@@ -1631,6 +1665,14 @@
             {
               "soc_percent": 15,
               "power_kw": 199.5
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 184.19
+            },
+            {
+              "soc_percent": 22,
+              "power_kw": 180.33
             },
             {
               "soc_percent": 25,
@@ -1710,8 +1752,12 @@
             "battery_temp_c": 30,
             "charger_kw": 400
           },
-          "notes": "Fastned graph for the Polestar 2 82 kWh (2023+) NMC 400 V pack, 400 kW charger class (206 kW max), battery assumed near 30 C, 6-100 %. Peak 206.8 kW at 12 %, about 127 kW at 50 %, drops to 60 kW at 73 % and 44 kW at 80 %. MEASURED ON THE POLESTAR 2, not the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (empty chargeGraph), so the curve is borrowed from the Polestar 2 82 kWh pack that the spec batch treats as the same 82 kWh / 400 V / 200-205 kW hardware. Volvo may use different software limits; replace when an EX40 test is found.",
-          "low_confidence": true
+          "notes": "Partly estimated, not measured on the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (2023 - 2024) page (empty chargeGraph). The points are the Fastned Polestar 2 82 kWh (2023+) curve (400 kW charger class, 206 kW max, battery near 30 C, 6-100 %; peak 206.8 kW at 12 %, about 127 kW at 50 %, 60 kW at 73 %, 44 kW at 80 %). Volvo may use different software limits; replace when an EX40 test is found.",
+          "low_confidence": true,
+          "based_on": {
+            "variant_id": "polestar/polestar-2/2025/dual-motor",
+            "reason": "Borrowed from the Fastned-measured Polestar 2 82 kWh (2023+) curve: both packs are 82 kWh gross / 79 kWh usable, NMC, 400 V (108s1p), and the 206.8 kW peak is within 5 % of the EX40 200-205 kW DC rating (EV Database lists a tested 207 kW on the EX40, consistent). Several EX40 and Polestar spec figures here are themselves estimated (82 kWh gross, 205 kW DC on four EX40 ids), and the motors and charging software are not shown to be shared, so the match is partly unproven and the curve figures are partly estimated."
+          }
         }
       ]
     },
@@ -1719,7 +1765,7 @@
       "curves": [
         {
           "id": "fastned-polestar2-82kwh-2026",
-          "kind": "tested",
+          "kind": "estimated",
           "source_id": "src-fastned-polestar2-82kwh",
           "points": [
             {
@@ -1737,6 +1783,14 @@
             {
               "soc_percent": 15,
               "power_kw": 199.5
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 184.19
+            },
+            {
+              "soc_percent": 22,
+              "power_kw": 180.33
             },
             {
               "soc_percent": 25,
@@ -1816,8 +1870,12 @@
             "battery_temp_c": 30,
             "charger_kw": 400
           },
-          "notes": "Fastned graph for the Polestar 2 82 kWh (2023+) NMC 400 V pack, 400 kW charger class (206 kW max), battery assumed near 30 C, 6-100 %. Peak 206.8 kW at 12 %, about 127 kW at 50 %, drops to 60 kW at 73 % and 44 kW at 80 %. MEASURED ON THE POLESTAR 2, not the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (empty chargeGraph), so the curve is borrowed from the Polestar 2 82 kWh pack that the spec batch treats as the same 82 kWh / 400 V / 200-205 kW hardware. Volvo may use different software limits; replace when an EX40 test is found.",
-          "low_confidence": true
+          "notes": "Partly estimated, not measured on the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (2023 - 2024) page (empty chargeGraph). The points are the Fastned Polestar 2 82 kWh (2023+) curve (400 kW charger class, 206 kW max, battery near 30 C, 6-100 %; peak 206.8 kW at 12 %, about 127 kW at 50 %, 60 kW at 73 %, 44 kW at 80 %). Volvo may use different software limits; replace when an EX40 test is found.",
+          "low_confidence": true,
+          "based_on": {
+            "variant_id": "polestar/polestar-2/2025/dual-motor",
+            "reason": "Borrowed from the Fastned-measured Polestar 2 82 kWh (2023+) curve: both packs are 82 kWh gross / 79 kWh usable, NMC, 400 V (108s1p), and the 206.8 kW peak is within 5 % of the EX40 200-205 kW DC rating (EV Database lists a tested 207 kW on the EX40, consistent). Several EX40 and Polestar spec figures here are themselves estimated (82 kWh gross, 205 kW DC on four EX40 ids), and the motors and charging software are not shown to be shared, so the match is partly unproven and the curve figures are partly estimated."
+          }
         }
       ]
     },
@@ -1825,7 +1883,7 @@
       "curves": [
         {
           "id": "fastned-polestar2-82kwh-2026",
-          "kind": "tested",
+          "kind": "estimated",
           "source_id": "src-fastned-polestar2-82kwh",
           "points": [
             {
@@ -1843,6 +1901,14 @@
             {
               "soc_percent": 15,
               "power_kw": 199.5
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 184.19
+            },
+            {
+              "soc_percent": 22,
+              "power_kw": 180.33
             },
             {
               "soc_percent": 25,
@@ -1922,8 +1988,12 @@
             "battery_temp_c": 30,
             "charger_kw": 400
           },
-          "notes": "Fastned graph for the Polestar 2 82 kWh (2023+) NMC 400 V pack, 400 kW charger class (206 kW max), battery assumed near 30 C, 6-100 %. Peak 206.8 kW at 12 %, about 127 kW at 50 %, drops to 60 kW at 73 % and 44 kW at 80 %. MEASURED ON THE POLESTAR 2, not the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (empty chargeGraph), so the curve is borrowed from the Polestar 2 82 kWh pack that the spec batch treats as the same 82 kWh / 400 V / 200-205 kW hardware. Volvo may use different software limits; replace when an EX40 test is found.",
-          "low_confidence": true
+          "notes": "Partly estimated, not measured on the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (2023 - 2024) page (empty chargeGraph). The points are the Fastned Polestar 2 82 kWh (2023+) curve (400 kW charger class, 206 kW max, battery near 30 C, 6-100 %; peak 206.8 kW at 12 %, about 127 kW at 50 %, 60 kW at 73 %, 44 kW at 80 %). Volvo may use different software limits; replace when an EX40 test is found.",
+          "low_confidence": true,
+          "based_on": {
+            "variant_id": "polestar/polestar-2/2025/dual-motor",
+            "reason": "Borrowed from the Fastned-measured Polestar 2 82 kWh (2023+) curve: both packs are 82 kWh gross / 79 kWh usable, NMC, 400 V (108s1p), and the 206.8 kW peak is within 5 % of the EX40 200-205 kW DC rating (EV Database lists a tested 207 kW on the EX40, consistent). Several EX40 and Polestar spec figures here are themselves estimated (82 kWh gross, 205 kW DC on four EX40 ids), and the motors and charging software are not shown to be shared, so the match is partly unproven and the curve figures are partly estimated."
+          }
         }
       ]
     },
@@ -1931,7 +2001,7 @@
       "curves": [
         {
           "id": "fastned-polestar2-82kwh-2026",
-          "kind": "tested",
+          "kind": "estimated",
           "source_id": "src-fastned-polestar2-82kwh",
           "points": [
             {
@@ -1949,6 +2019,14 @@
             {
               "soc_percent": 15,
               "power_kw": 199.5
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 184.19
+            },
+            {
+              "soc_percent": 22,
+              "power_kw": 180.33
             },
             {
               "soc_percent": 25,
@@ -2028,8 +2106,12 @@
             "battery_temp_c": 30,
             "charger_kw": 400
           },
-          "notes": "Fastned graph for the Polestar 2 82 kWh (2023+) NMC 400 V pack, 400 kW charger class (206 kW max), battery assumed near 30 C, 6-100 %. Peak 206.8 kW at 12 %, about 127 kW at 50 %, drops to 60 kW at 73 % and 44 kW at 80 %. MEASURED ON THE POLESTAR 2, not the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (empty chargeGraph), so the curve is borrowed from the Polestar 2 82 kWh pack that the spec batch treats as the same 82 kWh / 400 V / 200-205 kW hardware. Volvo may use different software limits; replace when an EX40 test is found.",
-          "low_confidence": true
+          "notes": "Partly estimated, not measured on the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (2023 - 2024) page (empty chargeGraph). The points are the Fastned Polestar 2 82 kWh (2023+) curve (400 kW charger class, 206 kW max, battery near 30 C, 6-100 %; peak 206.8 kW at 12 %, about 127 kW at 50 %, 60 kW at 73 %, 44 kW at 80 %). Volvo may use different software limits; replace when an EX40 test is found.",
+          "low_confidence": true,
+          "based_on": {
+            "variant_id": "polestar/polestar-2/2025/dual-motor",
+            "reason": "Borrowed from the Fastned-measured Polestar 2 82 kWh (2023+) curve: both packs are 82 kWh gross / 79 kWh usable, NMC, 400 V (108s1p), and the 206.8 kW peak is within 5 % of the EX40 200-205 kW DC rating (EV Database lists a tested 207 kW on the EX40, consistent). Several EX40 and Polestar spec figures here are themselves estimated (82 kWh gross, 205 kW DC on four EX40 ids), and the motors and charging software are not shown to be shared, so the match is partly unproven and the curve figures are partly estimated."
+          }
         }
       ]
     },
@@ -2037,7 +2119,7 @@
       "curves": [
         {
           "id": "fastned-polestar2-82kwh-2026",
-          "kind": "tested",
+          "kind": "estimated",
           "source_id": "src-fastned-polestar2-82kwh",
           "points": [
             {
@@ -2055,6 +2137,14 @@
             {
               "soc_percent": 15,
               "power_kw": 199.5
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 184.19
+            },
+            {
+              "soc_percent": 22,
+              "power_kw": 180.33
             },
             {
               "soc_percent": 25,
@@ -2134,8 +2224,12 @@
             "battery_temp_c": 30,
             "charger_kw": 400
           },
-          "notes": "Fastned graph for the Polestar 2 82 kWh (2023+) NMC 400 V pack, 400 kW charger class (206 kW max), battery assumed near 30 C, 6-100 %. Peak 206.8 kW at 12 %, about 127 kW at 50 %, drops to 60 kW at 73 % and 44 kW at 80 %. MEASURED ON THE POLESTAR 2, not the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (empty chargeGraph), so the curve is borrowed from the Polestar 2 82 kWh pack that the spec batch treats as the same 82 kWh / 400 V / 200-205 kW hardware. Volvo may use different software limits; replace when an EX40 test is found.",
-          "low_confidence": true
+          "notes": "Partly estimated, not measured on the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (2023 - 2024) page (empty chargeGraph). The points are the Fastned Polestar 2 82 kWh (2023+) curve (400 kW charger class, 206 kW max, battery near 30 C, 6-100 %; peak 206.8 kW at 12 %, about 127 kW at 50 %, 60 kW at 73 %, 44 kW at 80 %). Volvo may use different software limits; replace when an EX40 test is found.",
+          "low_confidence": true,
+          "based_on": {
+            "variant_id": "polestar/polestar-2/2025/dual-motor",
+            "reason": "Borrowed from the Fastned-measured Polestar 2 82 kWh (2023+) curve: both packs are 82 kWh gross / 79 kWh usable, NMC, 400 V (108s1p), and the 206.8 kW peak is within 5 % of the EX40 200-205 kW DC rating (EV Database lists a tested 207 kW on the EX40, consistent). Several EX40 and Polestar spec figures here are themselves estimated (82 kWh gross, 205 kW DC on four EX40 ids), and the motors and charging software are not shown to be shared, so the match is partly unproven and the curve figures are partly estimated."
+          }
         }
       ]
     },
@@ -2143,7 +2237,7 @@
       "curves": [
         {
           "id": "fastned-polestar2-82kwh-2026",
-          "kind": "tested",
+          "kind": "estimated",
           "source_id": "src-fastned-polestar2-82kwh",
           "points": [
             {
@@ -2161,6 +2255,14 @@
             {
               "soc_percent": 15,
               "power_kw": 199.5
+            },
+            {
+              "soc_percent": 18,
+              "power_kw": 184.19
+            },
+            {
+              "soc_percent": 22,
+              "power_kw": 180.33
             },
             {
               "soc_percent": 25,
@@ -2240,8 +2342,12 @@
             "battery_temp_c": 30,
             "charger_kw": 400
           },
-          "notes": "Fastned graph for the Polestar 2 82 kWh (2023+) NMC 400 V pack, 400 kW charger class (206 kW max), battery assumed near 30 C, 6-100 %. Peak 206.8 kW at 12 %, about 127 kW at 50 %, drops to 60 kW at 73 % and 44 kW at 80 %. MEASURED ON THE POLESTAR 2, not the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (empty chargeGraph), so the curve is borrowed from the Polestar 2 82 kWh pack that the spec batch treats as the same 82 kWh / 400 V / 200-205 kW hardware. Volvo may use different software limits; replace when an EX40 test is found.",
-          "low_confidence": true
+          "notes": "Partly estimated, not measured on the Volvo: Fastned has no graph for the Volvo EX40/XC40 82 kWh (2023 - 2024) page (empty chargeGraph). The points are the Fastned Polestar 2 82 kWh (2023+) curve (400 kW charger class, 206 kW max, battery near 30 C, 6-100 %; peak 206.8 kW at 12 %, about 127 kW at 50 %, 60 kW at 73 %, 44 kW at 80 %). Volvo may use different software limits; replace when an EX40 test is found.",
+          "low_confidence": true,
+          "based_on": {
+            "variant_id": "polestar/polestar-2/2025/dual-motor",
+            "reason": "Borrowed from the Fastned-measured Polestar 2 82 kWh (2023+) curve: both packs are 82 kWh gross / 79 kWh usable, NMC, 400 V (108s1p), and the 206.8 kW peak is within 5 % of the EX40 200-205 kW DC rating (EV Database lists a tested 207 kW on the EX40, consistent). Several EX40 and Polestar spec figures here are themselves estimated (82 kWh gross, 205 kW DC on four EX40 ids), and the motors and charging software are not shown to be shared, so the match is partly unproven and the curve figures are partly estimated."
+          }
         }
       ]
     },
@@ -2330,7 +2436,7 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned graph for the EX30 69 kWh (2024+), 300 kW charger class, battery assumed near 30 C, 10-89 % only (no data outside that range). Peak 158.7 kW at 29 %, about 101 kW at 50 %, 61 kW at 80 %. Peak is 3.7 % above the 153 kW rating. Identical graph on the Fastned EX30 Cross Country page. Rough second-source check: the InsideEVs 2025 US EX30 test (about 150 kW at 8 %, 130 kW at 30 %, 120 kW at 40 %, 67 kW at 70 %, 45 kW at 80 %, cold start at 3 % SoC) has the same overall shape but is lower after 40 %; six points, not used as a curve."
+          "notes": "Fastned graph for the EX30 69 kWh (2024+), 300 kW charger class, battery assumed near 30 C, 10-89 % only (no data outside that range). Peak 158.7 kW at 29 %, about 101 kW at 50 %, 61 kW at 80 %. Peak is 3.7 % above the 153 kW rating. Identical graph on the Fastned EX30 Cross Country page. Rough second-source check: the InsideEVs 2025 US EX30 test (about 150 kW at 8 %, 130 kW at 30 %, 120 kW at 40 %, 67 kW at 70 %, 45 kW at 80 %, cold start at 3 % SoC) has the same overall shape but is lower after 40 %; six points, not used as a curve. The same Fastned page lists a 160 kW max for the EX30 while the spec data gives 153 kW, so the 153 kW rating may be conservative (two ratings exist). The Fastned data covers 10-89 % SoC only; nothing is recorded below 10 % or above 89 %."
         }
       ]
     },
@@ -2419,7 +2525,7 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned graph for the EX30 69 kWh (2024+), 300 kW charger class, battery assumed near 30 C, 10-89 % only (no data outside that range). Peak 158.7 kW at 29 %, about 101 kW at 50 %, 61 kW at 80 %. Peak is 3.7 % above the 153 kW rating. Identical graph on the Fastned EX30 Cross Country page. Rough second-source check: the InsideEVs 2025 US EX30 test (about 150 kW at 8 %, 130 kW at 30 %, 120 kW at 40 %, 67 kW at 70 %, 45 kW at 80 %, cold start at 3 % SoC) has the same overall shape but is lower after 40 %; six points, not used as a curve."
+          "notes": "Fastned graph for the EX30 69 kWh (2024+), 300 kW charger class, battery assumed near 30 C, 10-89 % only (no data outside that range). Peak 158.7 kW at 29 %, about 101 kW at 50 %, 61 kW at 80 %. Peak is 3.7 % above the 153 kW rating. Identical graph on the Fastned EX30 Cross Country page. Rough second-source check: the InsideEVs 2025 US EX30 test (about 150 kW at 8 %, 130 kW at 30 %, 120 kW at 40 %, 67 kW at 70 %, 45 kW at 80 %, cold start at 3 % SoC) has the same overall shape but is lower after 40 %; six points, not used as a curve. The same Fastned page lists a 160 kW max for the EX30 while the spec data gives 153 kW, so the 153 kW rating may be conservative (two ratings exist). The Fastned data covers 10-89 % SoC only; nothing is recorded below 10 % or above 89 %."
         }
       ]
     },
@@ -2508,7 +2614,7 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned graph for the EX30 69 kWh (2024+), 300 kW charger class, battery assumed near 30 C, 10-89 % only (no data outside that range). Peak 158.7 kW at 29 %, about 101 kW at 50 %, 61 kW at 80 %. Peak is 3.7 % above the 153 kW rating. Identical graph on the Fastned EX30 Cross Country page. Rough second-source check: the InsideEVs 2025 US EX30 test (about 150 kW at 8 %, 130 kW at 30 %, 120 kW at 40 %, 67 kW at 70 %, 45 kW at 80 %, cold start at 3 % SoC) has the same overall shape but is lower after 40 %; six points, not used as a curve."
+          "notes": "Fastned graph for the EX30 69 kWh (2024+), 300 kW charger class, battery assumed near 30 C, 10-89 % only (no data outside that range). Peak 158.7 kW at 29 %, about 101 kW at 50 %, 61 kW at 80 %. Peak is 3.7 % above the 153 kW rating. Identical graph on the Fastned EX30 Cross Country page. Rough second-source check: the InsideEVs 2025 US EX30 test (about 150 kW at 8 %, 130 kW at 30 %, 120 kW at 40 %, 67 kW at 70 %, 45 kW at 80 %, cold start at 3 % SoC) has the same overall shape but is lower after 40 %; six points, not used as a curve. The same Fastned page lists a 160 kW max for the EX30 while the spec data gives 153 kW, so the 153 kW rating may be conservative (two ratings exist). The Fastned data covers 10-89 % SoC only; nothing is recorded below 10 % or above 89 %."
         }
       ]
     },
@@ -2597,7 +2703,7 @@
             "battery_temp_c": 30,
             "charger_kw": 300
           },
-          "notes": "Fastned graph for the EX30 69 kWh (2024+), 300 kW charger class, battery assumed near 30 C, 10-89 % only (no data outside that range). Peak 158.7 kW at 29 %, about 101 kW at 50 %, 61 kW at 80 %. Peak is 3.7 % above the 153 kW rating. Identical graph on the Fastned EX30 Cross Country page. Rough second-source check: the InsideEVs 2025 US EX30 test (about 150 kW at 8 %, 130 kW at 30 %, 120 kW at 40 %, 67 kW at 70 %, 45 kW at 80 %, cold start at 3 % SoC) has the same overall shape but is lower after 40 %; six points, not used as a curve."
+          "notes": "Fastned graph for the EX30 69 kWh (2024+), 300 kW charger class, battery assumed near 30 C, 10-89 % only (no data outside that range). Peak 158.7 kW at 29 %, about 101 kW at 50 %, 61 kW at 80 %. Peak is 3.7 % above the 153 kW rating. Identical graph on the Fastned EX30 Cross Country page. Rough second-source check: the InsideEVs 2025 US EX30 test (about 150 kW at 8 %, 130 kW at 30 %, 120 kW at 40 %, 67 kW at 70 %, 45 kW at 80 %, cold start at 3 % SoC) has the same overall shape but is lower after 40 %; six points, not used as a curve. The same Fastned page lists a 160 kW max for the EX30 while the spec data gives 153 kW, so the 153 kW rating may be conservative (two ratings exist). The Fastned data covers 10-89 % SoC only; nothing is recorded below 10 % or above 89 %."
         }
       ]
     }

@@ -1,0 +1,8 @@
+{
+  "id": "src-fastned-vehicle-curves-2026",
+  "type": "dataset",
+  "title": "Fastned: EV brand overview pages with per-vehicle charge curves (Nissan, Hyundai, Kia)",
+  "url": "https://www.fastnedcharging.com/en/brands-overview/nissan",
+  "accessed_on": "2026-11-19",
+  "notes": "Each vehicle section embeds a per-percent kW series (JSON in the chart element); read from the public page HTML (Hyundai https://www.fastnedcharging.com/en/brands-overview/hyundai, Kia .../kia). Fastned: the chart shows charging behaviour with the battery in optimal conditions (around 30 °C). The Fastned terms page (customer charging terms) was checked and has no clause on reuse of the curve data; EV Database also credits data made available by Fastned. Not independently verified method. Series are on the model pages: nissan?model=Leaf, nissan?model=ARIYA, hyundai?model=KONA%20Electric, hyundai?model=Kona, kia?model=Niro%20EV, kia?model=e-Niro (fastnedcharging.com/en/brands-overview/...)."
+}

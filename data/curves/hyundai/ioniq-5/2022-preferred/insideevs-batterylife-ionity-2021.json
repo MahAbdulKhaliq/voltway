@@ -1,0 +1,35 @@
+{
+  "id": "insideevs-batterylife-ionity-2021",
+  "powertrain_id": "hyundai/ioniq-5/2022-preferred",
+  "kind": "tested",
+  "source_id": "src-insideevs-ioniq5-58kwh-ionity-2021",
+  "low_confidence": true,
+  "points": [
+    {
+      "soc_percent": 7,
+      "power_kw": 177
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 177
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 140
+    },
+    {
+      "soc_percent": 57,
+      "power_kw": 140
+    },
+    {
+      "soc_percent": 86,
+      "power_kw": 50
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "ambient_temp_c": 16
+  },
+  "notes": "2021 Ioniq 5 AWD with the 58 kWh pack on IONITY (rated power not stated). Values from the article text: ~177 kW peak from about 7 % to 45 %, a drop below 145 kW from 45 to 57 % (~140 kW), a temporary dip near 60 %, then a decline to ~50 kW at 86 %; 20-80 % average 144 kW. Sparse (5 points); stated peak is 1 % above the 175 kW dc_max. Battery temperature not reported.",
+  "is_display_default": false
+}

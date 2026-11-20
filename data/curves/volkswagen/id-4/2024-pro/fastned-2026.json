@@ -1,0 +1,96 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "volkswagen/id-4/2024-pro",
+  "kind": "tested",
+  "source_id": "src-r19c-fastned-id4",
+  "points": [
+    {
+      "soc_percent": 3,
+      "power_kw": 165
+    },
+    {
+      "soc_percent": 5,
+      "power_kw": 165.8
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 175
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 174.8
+    },
+    {
+      "soc_percent": 18,
+      "power_kw": 178.8
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 174.9
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 150.1
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 136.1
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 127.3
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 117
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 108.4
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 100.6
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 93.5
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 86
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 76.9
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 69
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 68
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 69.2
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 59
+    },
+    {
+      "soc_percent": 89,
+      "power_kw": 45.9
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 300,
+    "measured_at": "unknown"
+  },
+  "notes": "Fastned's published charge curve for the Volkswagen ID.4 \"77 kWh\" (175 kW) (read from the page's embedded chart data, one value per % SoC; every 5 % kept plus the peak). Fastned states curves show the car with the battery in optimal condition (about 30 °C) on its 300 kW-class chargers; cold or hot batteries charge slower. European market car. Fastned shows the identical chart for the \"GTX 77 kWh\" (180 kW) listing, so it is one shared 77 kWh, 175-180 kW curve rather than a per-trim measurement. Peak 178.8 kW is 2.2 % above the 175 kW rating. Applied only to the 2024+ 175 kW powertrains; the 2023 Pro (170 kW rating) would exceed the 5 % ceiling by 0.3 kW so it is left out. Source range 3-89 %. Fastned lists identical data for the ID.4 77 kWh and the GTX, so the measured car is unknown; only weak second source (Cars.com ~30 min 10-80, curve integrates to 31.4 min).",
+  "is_display_default": false
+}

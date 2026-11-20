@@ -15,6 +15,14 @@
         "source_id": "src-thinkev-blazer-ev-2026",
         "low_confidence": true,
         "notes": "Quick web lookup (rough, not cross-checked)."
+      },
+      {
+        "value": 89,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-autodata-equinox-ev-89",
+        "low_confidence": true,
+        "notes": "Estimated: gross 89 kWh for the same pack as the Equinox EV (Auto-data; InsideEVs calculated 89.0 kWh). Existing Blazer records hold 85 as gross."
       }
     ],
     "chemistry": [
@@ -24,16 +32,23 @@
         "source_id": "src-thinkev-blazer-ev-2026",
         "low_confidence": true,
         "notes": "Quick web lookup (rough, not cross-checked)."
+      },
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-gm-ultium-85",
+        "low_confidence": true,
+        "notes": "Estimated: The Weekly Driver lists NCMA (NMC family with aluminium) for the 85 kWh 10-module Ultium pack; closest enum nmc."
       }
     ],
     "capacity_usable_kwh": [
       {
-        "value": 80,
+        "value": 85,
         "unit": "kWh",
         "kind": "estimated",
-        "source_id": "src-weeklydriver-gm-ultium-85",
+        "source_id": "src-autodata-equinox-ev-89",
         "low_confidence": true,
-        "notes": "Estimated: no page gives usable kWh for the Blazer EV. The 85 kWh 10-module Ultium pack is the same one in the Equinox EV (The Weekly Driver lists both), and the Equinox record (OpenEV) has 80 kWh usable."
+        "notes": "Estimated: the Blazer EV 85 kWh pack is the same 10-module Ultium pack as the Equinox EV (The Weekly Driver). Usable 85 / gross 89 from Auto-data and InsideEVs for the Equinox pack; the Blazer bare \"85 kWh\" is read as usable. Not read for the Blazer itself. OWNER FLAG: existing Blazer records hold 85 as gross and 80 as usable."
       }
     ],
     "nominal_voltage_class": [
@@ -43,6 +58,22 @@
         "source_id": "src-weeklydriver-gm-ultium-85",
         "low_confidence": true,
         "notes": "Estimated: same 85 kWh 10-module Ultium pack as the Equinox EV (nominal 336 V per The Weekly Driver, 288 V per EVChargingStations; either way a 400 V-class pack, as stored for the Equinox)."
+      },
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+        "low_confidence": true,
+        "notes": "Estimated: same 85 kWh 10-module pack as the Equinox EV. InsideEVs: about 288 V nominal (80S 3P), more like a 300 V system, so 400 V class (not 800 V)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-chevrolet-battery-preconditioning-guide",
+        "low_confidence": true,
+        "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
       }
     ]
   },
@@ -54,17 +85,17 @@
       "source_id": "src-coughlin-2026-blazer-ev-rs-awd",
       "low_confidence": true,
       "notes": "Estimated: the page is a 2026 RS AWD window sticker (11.5 kW onboard charging module). Other sources say every Blazer EV configuration has the 11.5 kW module; no 19.2 kW option found."
+    },
+    {
+      "value": 11.5,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-insideevs-blazer-ev-epa-2024",
+      "low_confidence": true,
+      "notes": "Estimated: InsideEVs table lists 11.5 kW for LT/RS eAWD; Wikipedia 11.5 kW; The Charge Port 2027 up to 11.5 kW. A reseller (Enel X Way) and GMAuthority suggest an optional 19.2 kW on RS RWD/SS; Recharged and the 2026 RS AWD window sticker say 11.5 kW for all; NRCan lists no 19.2 kW Blazer."
     }
   ],
   "dc_max_kw": [
-    {
-      "value": 190,
-      "unit": "kW",
-      "kind": "manufacturer",
-      "source_id": "src-thinkev-blazer-ev-2026",
-      "low_confidence": true,
-      "notes": "Quick web lookup (rough, not cross-checked). Canadian listing; not confirmed by Chevrolet."
-    },
     {
       "value": 150,
       "unit": "kW",
@@ -72,6 +103,14 @@
       "source_id": "src-jimellis-blazer-ev-2026-dcfc",
       "low_confidence": true,
       "notes": "US dealer page: LT and RS (85 kWh) up to 150 kW; 190 kW is the 102 kWh SS. Same wording on a 2026 RS AWD window sticker (src-coughlin-2026-blazer-ev-rs-awd) and in EVChargingStations (2027 article). Conflicts with the 190 kW already stored from thinkEV (which says 102 kWh for all trims; likely wrong for the 85 kWh pack)."
+    },
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-insideevs-blazer-ev-epa-2024",
+      "low_confidence": true,
+      "notes": "Estimated: InsideEVs Blazer table (GM figures): LT/RS 85 kWh = 150 kW; EVChargingStations 2027 article: 85 kWh 150 kW (2026 lineup). Years on this powertrain: 2025."
     }
   ]
 }

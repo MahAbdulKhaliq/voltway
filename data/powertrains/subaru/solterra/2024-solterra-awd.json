@@ -5,5 +5,83 @@
   "generation": "2024-charging-update",
   "years": [
     2024
+  ],
+  "battery": {
+    "capacity_gross_kwh": [
+      {
+        "value": 72.8,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-r19-insideevs-solterra-2023",
+        "low_confidence": true,
+        "notes": "InsideEVs: Solterra 72.8 kWh total capacity; EV Specifications: 72.8 kWh (205 Ah). Twin of the bZ4X AWD pack."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 65.3,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-r19-evdb-bz4x-awd-1565",
+        "low_confidence": true,
+        "notes": "Estimated: usable from gross by the same-generation ratio. EV Database lists 64.0 kWh usable for the 71.4 kWh bZ4X pack of the same generation, CATL cells (64/71.4 = 0.896); applied to this car's 72.8 kWh pack = 65.3 kWh. No page states usable for the 72.8 kWh pack. The earlier 61 kWh figure (Out of Spec, 2022 Limited AWD, 0-99% charger-delivered energy, InsideEVs 585939) is charger-side energy from an uncertain start state, not a usable-capacity statement, and is not used. EV Database's own AWD page lists the pack as 71.4 kWh, which conflicts with the 72.8 kWh from InsideEVs, Autopian and EV Pulse. Solterra is the bZ4X AWD twin with the same 72.8 kWh pack (InsideEVs, EV Specifications)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-autopian-bz-2026",
+        "low_confidence": true,
+        "notes": "Estimated: Solterra shares the bZ4X AWD pack: 96 cells at 355.2 V (EV Specifications) = NMC-class 3.7 V cells; Autopian: both bZ4X packs are NMC."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-r19-evspecs-solterra",
+        "low_confidence": true,
+        "notes": "Estimated: 355.2 V nominal, 96 cells (EV Specifications)."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "none",
+        "kind": "estimated",
+        "source_id": "src-subaru-us-media-solterra-2026",
+        "low_confidence": true,
+        "notes": "Estimated: Subaru's 2026 release presents the preconditioning system as 'newly added' for 2026; Subaru's 2024 and 2025 releases mention only an upgraded battery conditioning system for cold-weather charging, with no preconditioning control or navigation trigger. Weakest for 2024-25."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-insideevs-bz-charging-limit-2026",
+      "low_confidence": true,
+      "notes": "Estimated: Toyota raised the twin bZ4X AWD from 100 to 150 kW for model year 2024 (InsideEVs, EV Pulse) with the same pack and the same battery thermal upgrade Subaru describes for the 2024 Solterra; Subaru's 10-80% in 'as little as 35 minutes' (2025 press kit) is not reachable at a 100 kW cap. EV Specifications shows 150 kW for 2025 but 100 kW for 2024; Subaru states no peak kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 7,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-r19-pressroom-toyota-bz-2026-read",
+      "low_confidence": true,
+      "notes": "Estimated: platform sibling. Toyota USA's 2026 bZ release says the new 11 kW charger is 'up from 7-kW' on the prior model; the Solterra is the bZ4X twin with the same pack and charger hardware, and Subaru's 2027 kit calls its 11 kW charger 'uprated'. EV Specifications lists 6.7 / 7 kW for the Solterra itself. Conflicting figures: 6.6 kW (InsideEVs/Out of Spec 2022 US Limited AWD test; InsideEVs 2023 Solterra article; EV Database 2022-24 bZ4X), 6.7 / 7 kW (EV Specifications, Solterra), 7.6 kW (EV Pulse, 2024 AWD Limited review). Toyota is the only manufacturer statement and says 7. The earlier 'manufacturer' label on 6.6 was wrong: the cited InsideEVs 2023 article is not a Subaru statement and covers only 2023. Owner decision: use Toyota's figure."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 35,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-r19-subaru-us-solterra-2025-kit",
+      "notes": "Subaru: battery 'can charge from 10% to 80% in as little as 35 minutes' (2025 press kit; the 2024 update says the same)."
+    }
   ]
 }

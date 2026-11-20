@@ -80,7 +80,7 @@ chevrolet/equinox-ev/2026/awd,openev,chevrolet:equinox_ev:2025:equinox_ev,automa
 chevrolet/blazer-ev/2026/standard,nrcan,2026 · Chevrolet · Blazer EV,automatic,true,standard,Approved by the owner 2026-11-15 (B8).
 chevrolet/blazer-ev/2026/standard,nrcan,"2026 · Chevrolet · Blazer EV (22"" Wheels)",automatic,true,22-in-wheels,Approved by the owner 2026-11-15 (B8).
 chevrolet/blazer-ev/2026/lt-rs-awd,nrcan,2026 · Chevrolet · Blazer EV LT/RS AWD,automatic,true,standard,Approved by the owner 2026-11-15 (B8).
-chevrolet/blazer-ev/2026/lt-rs-awd,openev,chevrolet:blazer_ev:2025:blazer_ev,automatic,true,,Approved by the owner 2026-11-15 (B8). Suggested because: name 75% similar; drivetrain awd matches; motor power 255 kW ≈ 247 kW; 1 model year older
+chevrolet/blazer-ev/2026/lt-rs-awd,openev,chevrolet:blazer_ev:2025:blazer_ev,automatic,false,,Approved by the owner 2026-11-15 (B8). Suggested because: name 75% similar; drivetrain awd matches; motor power 255 kW ≈ 247 kW; 1 model year older
 chevrolet/blazer-ev/2026/ss-awd,nrcan,2026 · Chevrolet · Blazer EV SS AWD,automatic,true,standard,Approved by the owner 2026-11-15 (B8).
 chevrolet/blazer-ev/2026/ss-awd,openev,chevrolet:blazer_ev:2025:blazer_ev_ss,automatic,true,,Approved by the owner 2026-11-15 (B8). Suggested because: name 86% similar; drivetrain awd matches; 1 model year older
 chevrolet/silverado-ev/2026/lt-ext-range,nrcan,2026 · Chevrolet · Silverado EV LT Ext Range (11.5 kW Charger),automatic,true,11-5-kw-charger,Approved by the owner 2026-11-15 (B8).
@@ -177,13 +177,13 @@ polestar/polestar-2/2025/single-motor,openev,polestar:polestar_2:2025:polestar_2
 polestar/polestar-2/2025/single-motor,chargeprice,6b218147-f5a4-2612-9a1a-054556ff6849,automatic,true,,Approved by the owner 2026-11-15 (B8). Suggested because: name 75% similar; all NRCan name words present; drivetrain rwd matches; 3 model years older
 cadillac/lyriq/2026/standard,nrcan,2026 · Cadillac · LYRIQ (11.5 kW Charger),automatic,true,11-5-kw-charger,Approved by the owner 2026-11-15 (B8).
 cadillac/lyriq/2026/standard,nrcan,2026 · Cadillac · LYRIQ (19.2 kW Charger),automatic,true,19-2-kw-charger,Approved by the owner 2026-11-15 (B8).
-cadillac/lyriq/2026/standard,openev,cadillac:lyriq:2025:lyriq,automatic,true,,"Approved by the owner 2026-11-15 (B8). Suggested because: name 40% similar; candidate rwd, NRCan row not marked AWD; motor power 257 kW ≈ 255 kW; 1 model year older"
+cadillac/lyriq/2026/standard,openev,cadillac:lyriq:2025:lyriq,automatic,false,,"Approved by the owner 2026-11-15 (B8). Suggested because: name 40% similar; candidate rwd, NRCan row not marked AWD; motor power 257 kW ≈ 255 kW; 1 model year older"
 cadillac/lyriq/2026/awd,nrcan,2026 · Cadillac · LYRIQ AWD (11.5 kW Charger),automatic,true,11-5-kw-charger,Approved by the owner 2026-11-15 (B8).
 cadillac/lyriq/2026/awd,nrcan,2026 · Cadillac · LYRIQ AWD (19.2 kW Charger),automatic,true,19-2-kw-charger,Approved by the owner 2026-11-15 (B8).
-cadillac/lyriq/2026/awd,openev,cadillac:lyriq:2025:lyriq_awd,automatic,true,,Approved by the owner 2026-11-15 (B8). Suggested because: name 33% similar; drivetrain awd matches; motor power 380 kW ≈ 375 kW; 1 model year older
+cadillac/lyriq/2026/awd,openev,cadillac:lyriq:2025:lyriq_awd,automatic,false,,Approved by the owner 2026-11-15 (B8). Suggested because: name 33% similar; drivetrain awd matches; motor power 380 kW ≈ 375 kW; 1 model year older
 cadillac/lyriq/2026/v,nrcan,2026 · Cadillac · LYRIQ-V (11.5 kW Charger),automatic,true,11-5-kw-charger,Approved by the owner 2026-11-15 (B8).
 cadillac/lyriq/2026/v,nrcan,2026 · Cadillac · LYRIQ-V (19.2 kW Charger),automatic,true,19-2-kw-charger,Approved by the owner 2026-11-15 (B8).
-cadillac/lyriq/2026/v,openev,cadillac:lyriq:2025:lyriq_awd,automatic,true,,"Approved by the owner 2026-11-15 (B8). Suggested because: name 33% similar; candidate is AWD; NRCan row not marked, but power matches; motor power 380 kW ≈ 375 kW; 1 model year older"
+cadillac/lyriq/2026/v,openev,cadillac:lyriq:2025:lyriq_awd,automatic,false,,"Approved by the owner 2026-11-15 (B8). Suggested because: name 33% similar; candidate is AWD; NRCan row not marked, but power matches; motor power 380 kW ≈ 375 kW; 1 model year older"
 bmw/i4/2026/edrive40-gran-coupe,nrcan,"2026 · BMW · i4 eDrive40 Gran Coupe (18"" Wheels)",automatic,true,18-in-wheels,Approved by the owner 2026-11-15 (B8).
 bmw/i4/2026/edrive40-gran-coupe,nrcan,"2026 · BMW · i4 eDrive40 Gran Coupe (19"" Wheels)",automatic,true,18-in-wheels,Approved by the owner 2026-11-15 (B8).
 bmw/i4/2026/edrive40-gran-coupe,openev,bmw:i4:2025:i4,automatic,true,,Approved by the owner 2026-11-15 (B8). Suggested because: name 67% similar; drivetrain rwd matches; motor power 250 kW ≈ 250 kW; 1 model year older

@@ -337,3 +337,18 @@ File: `research/curves-2026-11-19-tesla.json` (passes `add-facts --check`).
 - **Fact-check fixes applied (2026-11-19):** IONIQ 6 77.4 kWh DC unified at 233 (also set on the 2025 powertrains); Kona gen 2 usable now ratio-estimated from NA gross (61.9 / 46.1), SE DC 100 (evspecs NA); Kona gen 1 preconditioning `manual_only` (Canadian heater + Winter Mode, Electric Revs; US cars have no heater); manual-based preconditioning labelled `estimated`; IONIQ 6 N AC 10.9 estimated, Supercharger access estimated. Details in research/batch-2026-11-19-ioniq6-kona.check.md.
 - 2026-11-19 (fact-check fixes): see `research/batch-2026-11-19-nissan.check.md`, "Applied by the researcher". Canada differs from the US for the 2013-2014 Leaf S (6.6 kW AC, no quick charge port); Canadian values used. Nissan Canada newsroom (canada.nissannews.com) has per-year Leaf spec sheets and kits.
 - Tesla Model 3 batch fixes applied 2026-11-19 after fact-check (see research/batch-2026-11-19-tesla-model-3.check.md): Mid Range AC 7.7, SR usable 45, 2026/2027 Performance per-car 82/79, 2027 Premium AWD 82/79, Standard/2024 RWD AC 11, Performance AC estimated, 2023 LR AWD doubt noted.
+
+## 2026-11-19 curve revisions (Tesla, Volvo/Polestar)
+Both batches revised to their fact-checks (see the "Applied by the researcher" sections in the .check.md files). Tesla: all curves low_confidence (EU CCS2 vs NA Supercharger), Model Y gets its own source URL and "pack unknown", dropped from three ids; no new Tesla generation found (Fastned graphs null/identical, InsideEVs text has under 8 points, evercars 6). Volvo/Polestar: EX40 82 kWh curves now `estimated` with based_on a Polestar 2 82 kWh variant; 18 %/22 % points added; 2024 78 kWh ids low_confidence.
+
+## 2026-11-19 - Toyota/Subaru batch revision after fact-check (research/batch-2026-11-19-toyota-subaru.json, --check OK, not applied)
+- 72.8 kWh pack (bZ 2023-25 AWD, Solterra 2023-25): no page states usable (auto-data, ArenaEV, Subaru UK FAQ list gross only; FleetNews 403). Recorded 65.3 kWh `estimated` from the 64/71.4 ratio. The Out of Spec 61 kWh (charger-side) is below it: keep low_confidence.
+- AC 2023-25 recorded as 7 kW `estimated` from Toyota's "up from 7-kW" (2026 release); sources also say 6.6, 6.7, 7.6.
+- EV Database pages 1564/1565 rate-limit (HTTP 429) after a few fetches; 1564 value read from a snippet only.
+- 2027 bZ release (pressroom.toyota.com/everyday-electric-confidence-returns-for-2027-with-toyota-bz/) states the pack split and NACS but not Supercharger access or 11 kW. 2027 C-HR release does not name Superchargers.
+
+## 2026-11-19: GM batch revised after fact-check (research/batch-2026-11-19-gm.json, --check OK, not applied)
+- Silverado: 19.2 kW AC on WT 5WT/8WT (3WT, 2025 WT Ext), Standard 400v and 119/170 usable are `estimated`, citing Weekly Driver 14/20/24-module pages (theweeklydriver.com/reliability/batteries/gm-ultium-truck-14|20|24/: 119 / 170 / 205 kWh "as published", 470 / 290 / 350 V nominal; GM does not say usable or total). GM's "Low-80%" row label noted on the published times.
+- Equinox/Blazer 85 kWh: Auto-data (auto-data.net/en/chevrolet-equinox-ev-89-kwh-213hp-52038) says 89 gross / 85 net; InsideEVs calc 89.0 vs reported usable 85. Read as usable 85, gross 89. Blocked/not opened: evkx.net, Autoblog (403), chevrolet.com.
+- Blazer US Supercharger: InsideEVs 2025-05-30 article (2025 Blazer EV SS charged at a Tesla Supercharger with the Chevy adapter, US).
+- Preconditioning remains UNVERIFIED on all 45 (Chevrolet/Cadillac pages 403).

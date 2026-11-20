@@ -5,5 +5,74 @@
   "generation": "first-generation",
   "years": [
     2027
+  ],
+  "battery": {
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-cadillac-dc-fast-charging-support",
+        "low_confidence": true,
+        "notes": "Estimated: Cadillac's DC fast-charging support page (cadillac.com returns 403; a search excerpt was seen earlier but the checker could not reproduce it) is said to describe automatic preconditioning when routing to a DC fast charger with built-in Google navigation, and a manual Fast Charge Prep in the app. UNVERIFIED: not read on a page for this model year; assumed for all LYRIQ years on the same Ultium software."
+      }
+    ],
+    "capacity_gross_kwh": [
+      {
+        "value": 102,
+        "unit": "kWh",
+        "kind": "manufacturer",
+        "source_id": "src-kbb-lyriq-2026-specs",
+        "low_confidence": true,
+        "notes": "KBB lists battery capacity 102.00 kWh for all 2026 Lyriq trims (relaying Cadillac's 102 kWh). A bare capacity is treated as gross. Wikipedia and EVChargingStations say every LYRIQ and LYRIQ-V uses the same 102 kWh pack (2023-2027)."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 100,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-wikipedia-cadillac-lyriq",
+        "low_confidence": true,
+        "notes": "Estimated: Wikipedia: 102 kWh gross, 100 kWh usable; Auto-data gives net 100.4 kWh. Same 102 kWh pack across LYRIQ years and trims (years on this powertrain: 2027)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-evdb-lyriq-v",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database lists the LYRIQ-V cells as GM Ultium 140Ah NMC pouch (GM calls them NCMA, closest enum nmc); same Ultium cells across all LYRIQ trims and years."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-evcs-2027-lyriq-nacs",
+        "low_confidence": true,
+        "notes": "Estimated: EVChargingStations (2027 page): 102 kWh pack shared by all LYRIQ versions, 400-volt class; same pack carried across years (2027)."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 190,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evcs-2027-lyriq-nacs",
+      "low_confidence": true,
+      "notes": "Estimated: Cadillac's stated max charge speed 190 kW (2026 model year per EVChargingStations; Wikipedia gives 190 kW for the model; Electrek repeats it for 2027). Same pack and charger hardware 2023-2027; no change found. Years on this powertrain: 2027."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-evcs-2027-lyriq-nacs",
+      "low_confidence": true,
+      "notes": "Estimated: 11.5 kW onboard charger is standard; a 19.2 kW charger is optional (about $1,480, higher trims, AWD per Cadillac's spec page); NRCan lists both Charger variants for the 2024-2026 Canadian LYRIQ, LYRIQ AWD and LYRIQ-V, captured per trim. Powertrain value is the standard charger. A Cadillac LYRIQ-V page was also read as listing 19.2 kW, which conflicts with a Cadillac-page excerpt saying the V uses 11.5 kW."
+    }
   ]
 }

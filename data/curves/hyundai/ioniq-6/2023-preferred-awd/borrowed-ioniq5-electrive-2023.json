@@ -1,0 +1,31 @@
+{
+  "id": "borrowed-ioniq5-electrive-2023",
+  "powertrain_id": "hyundai/ioniq-6/2023-preferred-awd",
+  "kind": "estimated",
+  "source_id": "src-electrive-ioniq5-preconditioning-2023",
+  "low_confidence": true,
+  "points": [
+    {
+      "soc_percent": 19,
+      "power_kw": 113
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 224
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 224
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 125
+    }
+  ],
+  "notes": "Borrowed from the Ioniq 5 77.4 kWh electrive 2023 test (see that curve). Not measured on an Ioniq 6; its taper may differ because of different thermal management.",
+  "based_on": {
+    "variant_id": "hyundai/ioniq-5/2023/preferred-long-range-awd",
+    "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak (estimated, EV Database) as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found. IONIQ 6 pack and DC peak figures are estimates, so the match is unproven."
+  },
+  "is_display_default": false
+}

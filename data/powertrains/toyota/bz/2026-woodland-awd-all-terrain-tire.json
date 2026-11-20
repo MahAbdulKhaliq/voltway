@@ -41,6 +41,16 @@
         "low_confidence": true,
         "notes": "Estimated: the source covers the 2026 bZ's 74.7 kWh pack, not the Woodland by name; Woodland uses the same 74.7 kWh pack (Toyota Canada Woodland release). Autopian (chief engineer interview): \"The larger pack retains the same chemistry and cells as the previous version\" (NMC). GreenCars: \"still has nickel-manganese-cobalt cathodes\". Relayed by press."
       }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 71,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-r19-evdb-bz4x-touring-747",
+        "low_confidence": true,
+        "notes": "Estimated: EV Database lists 71.0 kWh usable for the 74.7 kWh pack (bZ4X Touring AWD MY26, European listing of the same 74.7 kWh pack). Toyota US/Canada state only total capacity. The 71 kWh is for the 74.7 kWh pack; Toyota Canada / Subaru Canada state 77 kWh total for this car (same-pack assumption unproven), so 71 may be about 3% low if the pack really is 77 kWh."
+      }
     ]
   },
   "ac_max_kw": [

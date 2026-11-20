@@ -1,0 +1,93 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "nissan/leaf/2017-s",
+  "kind": "tested",
+  "source_id": "src-fastned-vehicle-curves-2026",
+  "points": [
+    {
+      "soc_percent": 6,
+      "power_kw": 41.8
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 42.5
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 43
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 43.3
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 43.8
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 44
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 44.4
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 44.6
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 44.9
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 45.3
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 45.7
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 46
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 46.4
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 46.7
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 47
+    },
+    {
+      "soc_percent": 79,
+      "power_kw": 47.3
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 47.2
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 41.1
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 29.3
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 50,
+    "measured_at": "unknown"
+  },
+  "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 30 kWh Leaf 2015-2018. Unusual shape: power rises from 42 kW to 47 kW by 80 % and falls only after 80 %; no second source found, so treat the shape as unconfirmed.",
+  "low_confidence": true,
+  "is_display_default": false
+}

@@ -1,0 +1,103 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "volvo/ex40/2023-twin",
+  "kind": "tested",
+  "source_id": "src-fastned-volvo-xc40-78kwh",
+  "points": [
+    {
+      "soc_percent": 7,
+      "power_kw": 142
+    },
+    {
+      "soc_percent": 9,
+      "power_kw": 151
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 151
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 151
+    },
+    {
+      "soc_percent": 17,
+      "power_kw": 151
+    },
+    {
+      "soc_percent": 18,
+      "power_kw": 135
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 130
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 130
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 134
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 130
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 120
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 100
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 91
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 90
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 72
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 71
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 71
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 70
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 60
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 30
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 16
+    },
+    {
+      "soc_percent": 93,
+      "power_kw": 16
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 150
+  },
+  "notes": "Fastned graph for the Volvo XC40 Recharge 78 kWh / 400 V NMC (2020-2023), 150+ kW charger class, battery assumed near 30 C; identical to the Polestar 2 78 kWh graph. Stepped whole-kW values. Fastned dates it 2020-2023; the 2024 Twin (US/Canada, still 78 kWh, 150 kW) is assumed to share it. Peak about 151 kW at 9-17 %, 60 kW at 80 %.",
+  "is_display_default": false
+}

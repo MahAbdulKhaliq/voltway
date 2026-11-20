@@ -77,3 +77,11 @@ The batch jumps 15 % (199.5) to 25 % (163.8). The page shows about 184 kW at 18 
 
 ## No unknowns (item 14)
 Batch covers 25 powertrains (7 + 4 + 4 + 6 + 4) with a curve each, so no powertrain in it lacks a curve. Not part of this batch (stated in NOTES): the Fastned 51 kWh EX30 and the EX40 single motor 70 kWh. Fastned has no graph for these, so any powertrain on those packs remains without a curve (check `research/powertrain-gaps.json`).
+
+## Applied by the researcher (2026-11-19)
+- Six EX40 82 kWh curves: `kind: estimated`, `based_on.variant_id: polestar/polestar-2/2025/dual-motor`, `low_confidence: true`; reason and notes state the figures are partly estimated and some spec figures on both sides are estimated.
+- 18 % (184.19) and 22 % (180.33) added to all ten 82 kWh curves (Polestar 4 + EX40 6), values re-read from the Fastned page (24 points).
+- `low_confidence: true` and a "Fastned dates this graph 2020-2023" note on `polestar/polestar-2/2024-long-range-dual-motor` and `volvo/ex40/2024-twin`.
+- EX30 notes: Fastned lists 160 kW max vs spec 153 kW; data covers 10-89 % only.
+- Source notes: Terms of Use readable, no reuse clause; UK Open Data policy covers UK station data only. Source `type` left as `community` (owner decides; curve kind still `tested` on measured curves).
+- `npx tsx scripts/add-facts.ts research/curves-2026-11-19-volvo-polestar.json --check`: OK.

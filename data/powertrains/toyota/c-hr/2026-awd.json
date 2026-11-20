@@ -31,6 +31,34 @@
         "low_confidence": true,
         "notes": "Toyota USA release: 74.7 kWh total capacity. Conflicts with Toyota Canada 77 kWh (probably the same pack stated differently)."
       }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 71,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-r19-evdb-bz4x-touring-747",
+        "low_confidence": true,
+        "notes": "Estimated: C-HR uses the same 74.7 kWh pack as the bZ (Toyota USA C-HR release: 74.7 kWh); EV Database lists 71.0 kWh usable for the 74.7 kWh bZ4X pack. Canada quotes 77 kWh total for the C-HR (probably the same pack, not usable). The 71 kWh is for the 74.7 kWh pack; Toyota Canada / Subaru Canada state 77 kWh total for this car (same-pack assumption unproven), so 71 may be about 3% low if the pack really is 77 kWh."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-autopian-bz-2026",
+        "low_confidence": true,
+        "notes": "Estimated: C-HR BEV shares the bZ's 74.7 kWh pack (Toyota USA C-HR release); chief engineer: the larger bZ pack 'retains the same chemistry and cells' (NMC)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-autopian-bz-2026",
+        "low_confidence": true,
+        "notes": "Estimated: Shares the bZ's 74.7 kWh pack, 391 V nominal per Autopian; the bZ is a 400 V architecture (InsideEVs)."
+      }
     ]
   },
   "ac_max_kw": [

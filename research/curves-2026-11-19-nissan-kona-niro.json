@@ -6,222 +6,10 @@
       "title": "Fastned: EV brand overview pages with per-vehicle charge curves (Nissan, Hyundai, Kia)",
       "url": "https://www.fastnedcharging.com/en/brands-overview/nissan",
       "accessed_on": "2026-11-19",
-      "notes": "Each vehicle section embeds a per-percent kW series (JSON in the chart element); read from the public page HTML (Hyundai https://www.fastnedcharging.com/en/brands-overview/hyundai, Kia .../kia). Fastned: the chart shows charging behaviour with the battery in optimal conditions (around 30 °C). The Fastned terms page (customer charging terms) was checked and has no clause on reuse of the curve data; EV Database also credits data made available by Fastned. Not independently verified method."
+      "notes": "Each vehicle section embeds a per-percent kW series (JSON in the chart element); read from the public page HTML (Hyundai https://www.fastnedcharging.com/en/brands-overview/hyundai, Kia .../kia). Fastned: the chart shows charging behaviour with the battery in optimal conditions (around 30 °C). The Fastned terms page (customer charging terms) was checked and has no clause on reuse of the curve data; EV Database also credits data made available by Fastned. Not independently verified method. Series are on the model pages: nissan?model=Leaf, nissan?model=ARIYA, hyundai?model=KONA%20Electric, hyundai?model=Kona, kia?model=Niro%20EV, kia?model=e-Niro (fastnedcharging.com/en/brands-overview/...)."
     }
   ],
   "powertrains": {
-    "nissan/leaf/2013-s": {
-      "curves": [
-        {
-          "id": "fastned-2026",
-          "kind": "tested",
-          "source_id": "src-fastned-vehicle-curves-2026",
-          "points": [
-            {
-              "soc_percent": 1,
-              "power_kw": 40.4
-            },
-            {
-              "soc_percent": 5,
-              "power_kw": 43.3
-            },
-            {
-              "soc_percent": 10,
-              "power_kw": 45.2
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 45.8
-            },
-            {
-              "soc_percent": 20,
-              "power_kw": 46.2
-            },
-            {
-              "soc_percent": 21,
-              "power_kw": 46.4
-            },
-            {
-              "soc_percent": 25,
-              "power_kw": 43.7
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 40.1
-            },
-            {
-              "soc_percent": 35,
-              "power_kw": 39.2
-            },
-            {
-              "soc_percent": 40,
-              "power_kw": 36.8
-            },
-            {
-              "soc_percent": 45,
-              "power_kw": 36.2
-            },
-            {
-              "soc_percent": 50,
-              "power_kw": 34.4
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 33.4
-            },
-            {
-              "soc_percent": 60,
-              "power_kw": 31.4
-            },
-            {
-              "soc_percent": 65,
-              "power_kw": 29.8
-            },
-            {
-              "soc_percent": 70,
-              "power_kw": 27.7
-            },
-            {
-              "soc_percent": 75,
-              "power_kw": 25.3
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 21.4
-            },
-            {
-              "soc_percent": 85,
-              "power_kw": 17.8
-            },
-            {
-              "soc_percent": 90,
-              "power_kw": 13.8
-            },
-            {
-              "soc_percent": 95,
-              "power_kw": 9.5
-            },
-            {
-              "soc_percent": 97,
-              "power_kw": 7.8
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "battery_temp_c": 30,
-            "charger_kw": 50,
-            "measured_at": "unknown"
-          },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 24 kWh Leaf 2011-2018 (air-cooled, CHAdeMO 50 kW). Starts at 1 % and runs to the end of the series."
-        }
-      ]
-    },
-    "nissan/leaf/2014-s": {
-      "curves": [
-        {
-          "id": "fastned-2026",
-          "kind": "tested",
-          "source_id": "src-fastned-vehicle-curves-2026",
-          "points": [
-            {
-              "soc_percent": 1,
-              "power_kw": 40.4
-            },
-            {
-              "soc_percent": 5,
-              "power_kw": 43.3
-            },
-            {
-              "soc_percent": 10,
-              "power_kw": 45.2
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 45.8
-            },
-            {
-              "soc_percent": 20,
-              "power_kw": 46.2
-            },
-            {
-              "soc_percent": 21,
-              "power_kw": 46.4
-            },
-            {
-              "soc_percent": 25,
-              "power_kw": 43.7
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 40.1
-            },
-            {
-              "soc_percent": 35,
-              "power_kw": 39.2
-            },
-            {
-              "soc_percent": 40,
-              "power_kw": 36.8
-            },
-            {
-              "soc_percent": 45,
-              "power_kw": 36.2
-            },
-            {
-              "soc_percent": 50,
-              "power_kw": 34.4
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 33.4
-            },
-            {
-              "soc_percent": 60,
-              "power_kw": 31.4
-            },
-            {
-              "soc_percent": 65,
-              "power_kw": 29.8
-            },
-            {
-              "soc_percent": 70,
-              "power_kw": 27.7
-            },
-            {
-              "soc_percent": 75,
-              "power_kw": 25.3
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 21.4
-            },
-            {
-              "soc_percent": 85,
-              "power_kw": 17.8
-            },
-            {
-              "soc_percent": 90,
-              "power_kw": 13.8
-            },
-            {
-              "soc_percent": 95,
-              "power_kw": 9.5
-            },
-            {
-              "soc_percent": 97,
-              "power_kw": 7.8
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "battery_temp_c": 30,
-            "charger_kw": 50,
-            "measured_at": "unknown"
-          },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 24 kWh Leaf 2011-2018 (air-cooled, CHAdeMO 50 kW). Starts at 1 % and runs to the end of the series."
-        }
-      ]
-    },
     "nissan/leaf/2016-s-24-kwh": {
       "curves": [
         {
@@ -418,7 +206,8 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 30 kWh Leaf 2015-2018. Unusual shape: power rises from 42 kW to 47 kW by 80 % and falls only after 80 %; no second source found, so treat the shape as unconfirmed."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 30 kWh Leaf 2015-2018. Unusual shape: power rises from 42 kW to 47 kW by 80 % and falls only after 80 %; no second source found, so treat the shape as unconfirmed.",
+          "low_confidence": true
         }
       ]
     },
@@ -512,7 +301,8 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 30 kWh Leaf 2015-2018. Unusual shape: power rises from 42 kW to 47 kW by 80 % and falls only after 80 %; no second source found, so treat the shape as unconfirmed."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 30 kWh Leaf 2015-2018. Unusual shape: power rises from 42 kW to 47 kW by 80 % and falls only after 80 %; no second source found, so treat the shape as unconfirmed.",
+          "low_confidence": true
         }
       ]
     },
@@ -602,7 +392,7 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate)."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate). Peak 45.6 kW is 8.8 % under the 50 kW rating (B95 5 % rule not met); EverTV agrees (47 kW peak). Fastned labels this 2018-2024; 2025 carried over."
         }
       ]
     },
@@ -692,7 +482,7 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate)."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate). Peak 45.6 kW is 8.8 % under the 50 kW rating (B95 5 % rule not met); EverTV agrees (47 kW peak). Fastned labels this 2018-2024; 2025 carried over."
         }
       ]
     },
@@ -782,7 +572,7 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate)."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate). Peak 45.6 kW is 8.8 % under the 50 kW rating (B95 5 % rule not met); EverTV agrees (47 kW peak). Fastned labels this 2018-2024; 2025 carried over."
         }
       ]
     },
@@ -872,7 +662,7 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate)."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate). Peak 45.6 kW is 8.8 % under the 50 kW rating (B95 5 % rule not met); EverTV agrees (47 kW peak). Fastned labels this 2018-2024; 2025 carried over."
         }
       ]
     },
@@ -962,7 +752,7 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate)."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate). Peak 45.6 kW is 8.8 % under the 50 kW rating (B95 5 % rule not met); EverTV agrees (47 kW peak). Fastned labels this 2018-2024; 2025 carried over."
         }
       ]
     },
@@ -1052,7 +842,7 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate)."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate). Peak 45.6 kW is 8.8 % under the 50 kW rating (B95 5 % rule not met); EverTV agrees (47 kW peak). Fastned labels this 2018-2024; 2025 carried over."
         }
       ]
     },
@@ -1142,7 +932,7 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate)."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate). Peak 45.6 kW is 8.8 % under the 50 kW rating (B95 5 % rule not met); EverTV agrees (47 kW peak). Fastned labels this 2018-2024; 2025 carried over."
         }
       ]
     },
@@ -1232,7 +1022,7 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate)."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate). Peak 45.6 kW is 8.8 % under the 50 kW rating (B95 5 % rule not met); EverTV agrees (47 kW peak). Fastned labels this 2018-2024; 2025 carried over."
         }
       ]
     },
@@ -1322,7 +1112,7 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate)."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate). Peak 45.6 kW is 8.8 % under the 50 kW rating (B95 5 % rule not met); EverTV agrees (47 kW peak). Fastned labels this 2018-2024; 2025 carried over."
         }
       ]
     },
@@ -1412,7 +1202,7 @@
             "charger_kw": 50,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate)."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate). Peak 45.6 kW is 8.8 % under the 50 kW rating (B95 5 % rule not met); EverTV agrees (47 kW peak). Fastned labels this 2018-2024; 2025 carried over."
         }
       ]
     },
@@ -1494,7 +1284,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -1576,7 +1366,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -1658,7 +1448,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -1740,7 +1530,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -1822,7 +1612,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -1904,7 +1694,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -1986,7 +1776,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -2068,7 +1858,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -2150,7 +1940,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -2232,7 +2022,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -2314,7 +2104,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -2396,7 +2186,7 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out."
         }
       ]
     },
@@ -2478,7 +2268,8 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out. 2026 reuse: same-generation hardware assumed, match unproven.",
+          "low_confidence": true
         }
       ]
     },
@@ -2560,7 +2351,8 @@
             "charger_kw": 400,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Cross-check: State Of Charge (Tom Moloughney) 2025 ARIYA Platinum+ e-4ORCE test on an EVgo 325 kW charger via evchargingstations.com reports a 130 kW peak held from about 3 % to 56 %, 10-80 % in 31.5 min (110 kW average), consistent in shape with the 130 kW plateau, ~95 kW at 60 % and 56 kW at 80 % here (Fastned 10-80 % average is lower); that source gives no point table."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 87 kWh ARIYA (2022+). The series starts at 7 % with 144-149 kW for 7-15 % before stepping down to 129-131 kW at 16 %; the 7-15 % section is left out here because it is above the 130 kW Nissan peak (the linter allows 5 % over) and nothing else supports it. Recorded series therefore begins at 16 %. Fastned's own series peaks at 148.7 kW at 15 %, above Nissan's 130 kW rating, so points below 16 % are left out. 2026 reuse: same-generation hardware assumed, match unproven.",
+          "low_confidence": true
         }
       ]
     },
@@ -2752,7 +2544,8 @@
             "charger_kw": 300,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 65 kWh KONA Electric (2023+), data 8-100 %. Power rises from 94 to 105 kW to 61 %, then steps down to 80 kW, 49 kW and 41 kW (unusually, it peaks late); one source only. Applied to the 2026 Standard on the match of the 64.8 kWh pack figure (Hyundai Canada). The 48 kWh SE pack (2024-se, 2025-se) is not covered."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 65 kWh KONA Electric (2023+), data 8-100 %. Power rises from 94 to 105 kW to 61 %, then steps down to 80 kW, 49 kW and 41 kW (unusually, it peaks late); one source only. Applied to the 2026 Standard on the match of the 64.8 kWh pack figure (Hyundai Canada). The 48 kWh SE pack (2024-se, 2025-se) is not covered.",
+          "low_confidence": true
         }
       ]
     },
@@ -2854,7 +2647,8 @@
             "charger_kw": 300,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 65 kWh KONA Electric (2023+), data 8-100 %. Power rises from 94 to 105 kW to 61 %, then steps down to 80 kW, 49 kW and 41 kW (unusually, it peaks late); one source only. Applied to the 2026 Standard on the match of the 64.8 kWh pack figure (Hyundai Canada). The 48 kWh SE pack (2024-se, 2025-se) is not covered."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 65 kWh KONA Electric (2023+), data 8-100 %. Power rises from 94 to 105 kW to 61 %, then steps down to 80 kW, 49 kW and 41 kW (unusually, it peaks late); one source only. Applied to the 2026 Standard on the match of the 64.8 kWh pack figure (Hyundai Canada). The 48 kWh SE pack (2024-se, 2025-se) is not covered.",
+          "low_confidence": true
         }
       ]
     },
@@ -2956,7 +2750,8 @@
             "charger_kw": 300,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 65 kWh KONA Electric (2023+), data 8-100 %. Power rises from 94 to 105 kW to 61 %, then steps down to 80 kW, 49 kW and 41 kW (unusually, it peaks late); one source only. Applied to the 2026 Standard on the match of the 64.8 kWh pack figure (Hyundai Canada). The 48 kWh SE pack (2024-se, 2025-se) is not covered."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 65 kWh KONA Electric (2023+), data 8-100 %. Power rises from 94 to 105 kW to 61 %, then steps down to 80 kW, 49 kW and 41 kW (unusually, it peaks late); one source only. Applied to the 2026 Standard on the match of the 64.8 kWh pack figure (Hyundai Canada). The 48 kWh SE pack (2024-se, 2025-se) is not covered.",
+          "low_confidence": true
         }
       ]
     },
@@ -3058,7 +2853,8 @@
             "charger_kw": 300,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 65 kWh KONA Electric (2023+), data 8-100 %. Power rises from 94 to 105 kW to 61 %, then steps down to 80 kW, 49 kW and 41 kW (unusually, it peaks late); one source only. Applied to the 2026 Standard on the match of the 64.8 kWh pack figure (Hyundai Canada). The 48 kWh SE pack (2024-se, 2025-se) is not covered."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 65 kWh KONA Electric (2023+), data 8-100 %. Power rises from 94 to 105 kW to 61 %, then steps down to 80 kW, 49 kW and 41 kW (unusually, it peaks late); one source only. Applied to the 2026 Standard on the match of the 64.8 kWh pack figure (Hyundai Canada). The 48 kWh SE pack (2024-se, 2025-se) is not covered.",
+          "low_confidence": true
         }
       ]
     },
@@ -3160,7 +2956,8 @@
             "charger_kw": 300,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 65 kWh KONA Electric (2023+), data 8-100 %. Power rises from 94 to 105 kW to 61 %, then steps down to 80 kW, 49 kW and 41 kW (unusually, it peaks late); one source only. Applied to the 2026 Standard on the match of the 64.8 kWh pack figure (Hyundai Canada). The 48 kWh SE pack (2024-se, 2025-se) is not covered."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 65 kWh KONA Electric (2023+), data 8-100 %. Power rises from 94 to 105 kW to 61 %, then steps down to 80 kW, 49 kW and 41 kW (unusually, it peaks late); one source only. Applied to the 2026 Standard on the match of the 64.8 kWh pack figure (Hyundai Canada). The 48 kWh SE pack (2024-se, 2025-se) is not covered. 2026 reuse: same-generation hardware assumed, match unproven.",
+          "low_confidence": true
         }
       ]
     },
@@ -3446,7 +3243,8 @@
             "charger_kw": 300,
             "measured_at": "unknown"
           },
-          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 64 kWh Niro EV (2022+), the second generation (64.8 kWh). Data 7-91 %; 80-84 kW to 29 %, 77-78 kW to 44 %, 64 kW to 58 %, 58-60 kW to 70 %, 45 kW to 82 %, then 26 kW. Applied to the 2026 Standard on the assumption that the pack is unchanged. Peak (84 kW) is below the 94 kW in the pending spec batch."
+          "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page for the 64 kWh Niro EV (2022+), the second generation (64.8 kWh). Data 7-91 %; 80-84 kW to 29 %, 77-78 kW to 44 %, 64 kW to 58 %, 58-60 kW to 70 %, 45 kW to 82 %, then 26 kW. Applied to the 2026 Standard on the assumption that the pack is unchanged. Peak (84 kW) is below the 94 kW in the pending spec batch. 2026 reuse: same-generation hardware assumed, match unproven.",
+          "low_confidence": true
         }
       ]
     }

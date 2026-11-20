@@ -1,0 +1,31 @@
+{
+  "id": "electrive-2023",
+  "powertrain_id": "hyundai/ioniq-5/2024-preferred-long-range-awd",
+  "kind": "tested",
+  "source_id": "src-electrive-ioniq5-preconditioning-2023",
+  "low_confidence": true,
+  "points": [
+    {
+      "soc_percent": 19,
+      "power_kw": 113
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 224
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 224
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 125
+    }
+  ],
+  "conditions": {
+    "preconditioned": "yes",
+    "charger_kw": 300
+  },
+  "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %). Measured on a MY2023 car; 2022 cars match only with the charging software update; 2024 carried over unproven.",
+  "is_display_default": false
+}

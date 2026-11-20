@@ -17,6 +17,14 @@
         "source_id": "src-chevrolet-equinox-ev",
         "low_confidence": true,
         "notes": "Quick web lookup (rough, not cross-checked). “85 kWh battery pack”; gross or usable not stated."
+      },
+      {
+        "value": 89,
+        "unit": "kWh",
+        "kind": "community",
+        "source_id": "src-autodata-equinox-ev-89",
+        "low_confidence": true,
+        "notes": "Auto-data: 89 kWh gross (InsideEVs calculated 89.0 kWh). Existing records hold 85 kWh as gross (bare listing figure); see the usable note."
       }
     ],
     "chemistry": [
@@ -25,7 +33,35 @@
         "kind": "estimated",
         "source_id": "src-weeklydriver-gm-ultium-85",
         "low_confidence": true,
-        "notes": "Estimated: The Weekly Driver (spec site, no GM citation) says the 85 kWh Ultium pack is NCMA; nmc is the nearest value. Page lists the 85 kWh Ultium pack used in the Equinox EV (FWD and AWD) as NCMA; recorded as nmc."
+        "notes": "Estimated: The Weekly Driver lists NCMA (NMC family with aluminium) for the 85 kWh 10-module Ultium pack; closest enum nmc."
+      }
+    ],
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-chevrolet-battery-preconditioning-guide",
+        "low_confidence": true,
+        "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 85,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-autodata-equinox-ev-89",
+        "low_confidence": true,
+        "notes": "Estimated: same 85 kWh pack as the 2024 FWD (2024-2027 compared; no change found). Usable 85 kWh / gross 89 kWh. Auto-data (Equinox EV 2024): \"89 kWh gross, 85 kWh net\"; InsideEVs: calculated pack 89.0 kWh vs reported usable 85 kWh; so the bare \"85 kWh\" in listings (KBB, existing Chevrolet record) is read as usable. Conflicts with existing records that hold 85 as GROSS (OWNER FLAG)."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+        "low_confidence": true,
+        "notes": "Estimated: InsideEVs: about 288 V nominal (80S 3P), more like a 300 V system, so 400 V class (not 800 V)."
       }
     ]
   },
@@ -37,6 +73,34 @@
       "source_id": "src-chevrolet-equinox-ev",
       "low_confidence": true,
       "notes": "Quick web lookup (rough, not cross-checked)."
+    },
+    {
+      "value": 150,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-insideevs-equinox-ev-ultium-voltage",
+      "low_confidence": true,
+      "notes": "Estimated: InsideEVs and The Charge Port (2026 specs): 150 kW peak; same pack and hardware 2024-2027 (Wikipedia, KBB). Years on this powertrain: 2025."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "unit": "kW",
+      "kind": "estimated",
+      "source_id": "src-wikipedia-chevrolet-equinox-ev",
+      "low_confidence": true,
+      "notes": "Estimated: Wikipedia: 11.5 kW AC, 19.2 kW on the 3RS; The Charge Port 2027: 11.5 kW; NRCan lists Equinox EV AWD (19.2 kW Charger) variants, captured per trim. Powertrain value is the standard 11.5 kW."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 42,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-equinox-ev",
+      "low_confidence": true,
+      "notes": "The Charge Port (2027 page) says the 2026 specs listed about 42 min for 10-80 % (Recharged also reports Chevy's site saying 42 min); InsideEVs said GM had not published a 10-80 % time at launch. Model-level claim."
     }
   ]
 }

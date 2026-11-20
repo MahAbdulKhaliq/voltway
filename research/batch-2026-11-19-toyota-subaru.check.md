@@ -126,3 +126,19 @@ I did not apply anything and did not edit the batch, `data/` or `crosswalk/`.
 - No curves in this batch, so rules 8, 9 and 13 do not apply.
 - Wheels and heat pump are out of scope for this round (researcher file line 24).
 - 2025 North America preconditioning could not be confirmed on any page.
+
+## Applied by the researcher (2026-11-19, revision)
+
+`add-facts --check` passes (491 variants, 363 sources after applying). Scratch script: `gen-toyota.cjs` (scratchpad). `crosswalk/` untouched.
+
+- Change 1 (crosswalk Ah mapping swap): not changed, owner's decision. Batch keeps Toyota's trim-to-pack assignment (XLE FWD 57.7, XLE FWD Plus 74.7).
+- Change 2 (usable of the 72.8 kWh pack, 9 bZ AWD + 8 Solterra): 61 dropped. Searched for a usable figure (auto-data, ArenaEV, Subaru UK FAQ, FleetNews 403, search): none states usable for 72.8. Now 65.3 kWh `estimated`, low_confidence, basis 64/71.4 ratio (EV Database 1565) x 72.8. Note records that the Out of Spec 61 kWh charger-side figure is below it (uncertain start state).
+- Change 3 (FWD usable 64): now cites new source `src-r19-evdb-bz4x-fwd-1564` (page returned 429; value from snippet, said so in the source note) plus the AWD page 1565 as supporting cite.
+- Change 4 (AC): all 2023-25 bZ and Solterra now 7 kW `estimated` citing Toyota's 2026 release ("up from 7-kW"); 6.6 / 6.7 / 7.6 conflicts in the notes; Solterra "manufacturer 6.6" mislabel removed.
+- Change 5: Toyota Canada source added for 2026-limited-awd (manufacturer), both Woodland and C-HR 2026-awd / 2026-standard (estimated).
+- Change 6: 74.7 kWh chemistry now cites GreenCars (manufacturer, relayed) plus Autopian as `estimated`; InsideEVs added to the 400 V entries. 57.7 kWh chemistry cites EV Database 3133 and GreenCars as `estimated`; 57.7 DC peak cites EV Database 3133 first.
+- Change 7: the 77 kWh caveat added to usable notes on 7 Canada-listed powertrains.
+- Change 8: Solterra 2027 preconditioning relabelled `estimated`, both sources named.
+- Change 9: "select models only" quote and "Toyota Canada FAQ 28 min" removed; 2027 bZ release (`src-r19-toyota-us-bz-2027`) cited on the four 2027 powertrains (gross, port, 10-80); Subaru 2027 kit cited first for the 2027 Solterra Supercharger entry; EV Pulse source now used (2024 AWD dc_max).
+- Change 10: preconditioning `none` notes now name the Subaru "uprated battery conditioning system" and EV Pulse battery-heating valve as counter-evidence.
+- C-HR rows (`2026-awd`, `2026-standard`, `2027-se`): all required fields are covered by the batch plus existing data (usable, chemistry, voltage, Supercharger access added; 2027-se has the full set). Remaining weaker points: usable 71 for the Canadian 77 kWh listing; Supercharger access estimated (no Toyota page names the C-HR; the 2027 C-HR release mentions only "thousands of public high-speed charging stations").

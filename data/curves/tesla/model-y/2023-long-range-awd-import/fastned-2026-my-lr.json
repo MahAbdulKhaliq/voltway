@@ -1,0 +1,88 @@
+{
+  "id": "fastned-2026-my-lr",
+  "powertrain_id": "tesla/model-y/2023-long-range-awd-import",
+  "kind": "tested",
+  "source_id": "src-fastned-tesla-model-y-2026",
+  "points": [
+    {
+      "soc_percent": 8,
+      "power_kw": 230.75
+    },
+    {
+      "soc_percent": 10,
+      "power_kw": 219.32
+    },
+    {
+      "soc_percent": 15,
+      "power_kw": 195.29
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 181.7
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 173.51
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 163.79
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 145.7
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 131.53
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 117.52
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 105.09
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 93.29
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 83.2
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 77.95
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 72.73
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 65.89
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 48.42
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 43.9
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 34.3
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 300
+  },
+  "notes": "Fastned \"Model Y Long Range (2022 - 2025)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 8-90 % SoC, peak 230.75 kW at 8 % (page chargeSpeed 250 kW). EU CCS2; NA Supercharger early peak ~250 kW. Pack unknown: Fastned does not state the cell or pack for this entry, so the match to these Canadian-market ids is unconfirmed; the two ids carry different packs in the spec data (2023 import 78.1 kWh NMC; 2024 CA 82 kWh NCA). No second source for this curve.",
+  "low_confidence": true,
+  "is_display_default": false
+}

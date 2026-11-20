@@ -1,0 +1,88 @@
+{
+  "id": "fastned-2026",
+  "powertrain_id": "nissan/leaf/2023-s",
+  "kind": "tested",
+  "source_id": "src-fastned-vehicle-curves-2026",
+  "points": [
+    {
+      "soc_percent": 17,
+      "power_kw": 42.2
+    },
+    {
+      "soc_percent": 20,
+      "power_kw": 43.1
+    },
+    {
+      "soc_percent": 25,
+      "power_kw": 43.6
+    },
+    {
+      "soc_percent": 30,
+      "power_kw": 43.7
+    },
+    {
+      "soc_percent": 35,
+      "power_kw": 44.2
+    },
+    {
+      "soc_percent": 40,
+      "power_kw": 44.5
+    },
+    {
+      "soc_percent": 45,
+      "power_kw": 44.7
+    },
+    {
+      "soc_percent": 50,
+      "power_kw": 44.8
+    },
+    {
+      "soc_percent": 55,
+      "power_kw": 45.4
+    },
+    {
+      "soc_percent": 57,
+      "power_kw": 45.6
+    },
+    {
+      "soc_percent": 60,
+      "power_kw": 45.6
+    },
+    {
+      "soc_percent": 65,
+      "power_kw": 36.5
+    },
+    {
+      "soc_percent": 70,
+      "power_kw": 32.8
+    },
+    {
+      "soc_percent": 75,
+      "power_kw": 29.9
+    },
+    {
+      "soc_percent": 80,
+      "power_kw": 26
+    },
+    {
+      "soc_percent": 85,
+      "power_kw": 23.2
+    },
+    {
+      "soc_percent": 90,
+      "power_kw": 20.2
+    },
+    {
+      "soc_percent": 92,
+      "power_kw": 19.1
+    }
+  ],
+  "conditions": {
+    "preconditioned": "unknown",
+    "battery_temp_c": 30,
+    "charger_kw": 50,
+    "measured_at": "unknown"
+  },
+  "notes": "Fastned vehicle page chart data (the page embeds a per-percent kW series); Fastned says the curve shows the car on its network with the battery in optimal conditions (around 30 °C), and a colder or warmer battery can charge much slower. Sampled every 5 % plus the first, last and peak points. Fastned does not state the session count, ambient temperature or preconditioning. Fastned page covers the 40 kWh Leaf 2018-2024; applied to 2025 as no change to the pack or charging hardware is known. Second source: EverTV (evercars.com) 2018-2025 Leaf S CHAdeMO test (mild weather, no preconditioning) reports about 45 kW at the start (under 10 %) with a 47 kW peak near 16 %, 45 kW held to the mid-50s, 35 kW at 65 % and 25 kW at 80 %, 10-80 % in 37 min 38 s; this agrees with the Fastned shape (45.6 kW at 60 %, 36.5 at 65 %, 26 at 80 %). Leaf throttles hard when the pack is hot: repeated fast charges are slower (rapidgate). Peak 45.6 kW is 8.8 % under the 50 kW rating (B95 5 % rule not met); EverTV agrees (47 kW peak). Fastned labels this 2018-2024; 2025 carried over.",
+  "is_display_default": false
+}

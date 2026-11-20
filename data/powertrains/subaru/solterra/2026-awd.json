@@ -40,6 +40,25 @@
         "low_confidence": true,
         "notes": "InsideEVs: 2026 Solterra has a \"400-volt architecture\"."
       }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 71,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-r19-evdb-bz4x-touring-747",
+        "low_confidence": true,
+        "notes": "Estimated: Solterra 2026 uses the same 74.7 kWh pack as the 2026 bZ (Subaru USA release: 74.7 kWh; Subaru Canada quotes 77.0 kWh total); EV Database lists 71.0 kWh usable for that pack. The 71 kWh is for the 74.7 kWh pack; Toyota Canada / Subaru Canada state 77 kWh total for this car (same-pack assumption unproven), so 71 may be about 3% low if the pack really is 77 kWh."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-autopian-bz-2026",
+        "low_confidence": true,
+        "notes": "Estimated: Same 74.7 kWh pack as the 2026 bZ (Subaru USA release); chief engineer: the 74.7 kWh pack 'retains the same chemistry and cells' (NMC)."
+      }
     ]
   },
   "ac_max_kw": [

@@ -8,6 +8,23 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-r19-toyota-us-chr-2027",
+      "notes": "Toyota USA: the C-HR comes with a NACS port that supports Level 3 DC fast charging."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-r19-toyota-us-bz-onsale-2026",
+      "low_confidence": true,
+      "notes": "Estimated: C-HR has a native NACS port (Toyota USA and Canada C-HR releases) and Toyota says Toyota BEV drivers can use the Tesla Supercharger network (Toyota Canada: 'Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network'; Toyota USA for the 2026 bZ). No Toyota page names the C-HR for Supercharger access."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

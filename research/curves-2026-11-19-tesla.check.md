@@ -80,3 +80,12 @@ Not covered by this batch: Model 3 2018/2019 Mid Range, Model 3 2021–23 LR AWD
 - **P3 charging index:** not checked here; verify which Teslas it covers.
 - **Fastned Model Y page:** the Standard Range (2022–2025) entry, which I saw exists on the page, is another candidate for the LFP/RWD cars. It has a chart, so confirm the data is present before use.
 - Not usable: evkx.net (blocked, partly modelled).
+
+## Applied by the researcher (2026-11-19)
+- Model Y curve now cites its own source `src-fastned-tesla-model-y-2026` (`...tesla?model=Model%20Y`, "Long Range (2022 - 2025)"); the Model 3 source title/notes cover Model 3 only and state the Terms of Use are readable with no reuse clause.
+- `low_confidence: true` on every Tesla curve (2017-18 LR/Performance, 2019-20 LR/Performance, 2019-20 SR/SR+ and Model Y); notes carry "EU CCS2; NA Supercharger early peak ~250 kW" and the market (EU/CCS2) (the conditions schema has no market field).
+- LR curve: added the 38 % / 195.1 kW peak point (18 points). SR notes rewritten to match the Fastned label (2020 - 2023), the 2019 cars outside it, and the 2021 SR+ excluded.
+- Model Y note rewritten to "pack unknown"; curve removed from `2023-performance-ca`, `2024-performance-import`, `2024-long-range-awd-i`. Remaining ids: `2023-long-range-awd-import` (78.1 kWh NMC) and `2024-long-range-awd-ca` (82 kWh NCA): different packs in the spec data, kept as instructed, flagged to the owner.
+- Powertrain data rebuilt (`npm run data:build`): generation matches rechecked (LR ids 78.8 kWh NCA 250 kW; SR ids 53.1 kWh NCA 170 kW). 2021+ 82 kWh LR/Performance, LFP and 2024+ NMC 78.1 cars are different packs and get no curve.
+- Missing generations: Fastned has no new data (Model Y Standard Range 2022-25 and 2025+ graph null; "2023+" Model 3 and "2025+" Model Y LR entries are byte-identical copies). InsideEVs articles (343256, 356710, 361594, 427836, 503311, 506520, 519382) give averages and 3-4 milestones, charts are images; evercars 2026 Model Y RWD has 6 prose points. None reach 8 points, none used.
+- `npx tsx scripts/add-facts.ts research/curves-2026-11-19-tesla.json --check`: OK.

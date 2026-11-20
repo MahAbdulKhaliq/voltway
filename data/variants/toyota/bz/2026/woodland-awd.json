@@ -13,7 +13,25 @@
     {
       "value": "nacs",
       "kind": "manufacturer",
-      "source_id": "src-toyota-ca-media-bz-woodland-2026"
+      "source_id": "src-toyota-ca-media-bz-woodland-2026",
+      "low_confidence": true,
+      "notes": "Toyota Canada Woodland release: NACS port (same model sold in the US)."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-r19-toyota-us-bz-onsale-2026",
+      "low_confidence": true,
+      "notes": "Estimated: Woodland has a native NACS port (Toyota Canada Woodland release); Toyota's 2026 release says the Tesla Supercharger network is open to 2026 bZ drivers and the Canadian release says 'Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network'. No Toyota page names the Woodland specifically."
+    },
+    {
+      "value": "yes",
+      "kind": "estimated",
+      "source_id": "src-toyota-ca-media-bz-onsale-2026",
+      "low_confidence": true,
+      "notes": "Estimated: Canada. The Woodland has a native NACS port (Toyota Canada releases) and Toyota Canada says 'Toyota BEV drivers are now able to enjoy charging through the Tesla Supercharger Network' (lineup-wide). No Toyota page names this model for Supercharger access."
     }
   ],
   "trims": [

@@ -39,10 +39,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -57,53 +53,9 @@
           ],
           "conditions": {
             "preconditioned": "yes",
-            "ambient_temp_c": 4,
             "charger_kw": 300
           },
-          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %)."
-        },
-        {
-          "id": "insideevs-batterylife-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ioniq5-batterylife-korea-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 10,
-              "power_kw": 115
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 187
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 220
-            },
-            {
-              "soc_percent": 51,
-              "power_kw": 225
-            },
-            {
-              "soc_percent": 53,
-              "power_kw": 120
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 170
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 130
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "ambient_temp_c": 19,
-            "battery_temp_c": 15,
-            "charger_kw": 350
-          },
-          "notes": "Launch-era (2021) Ioniq 5 AWD, 800 V charger in Seoul (350 kW per Hyundai demo, not stated by the tester), 10-80 % session. Values read from the article text: ~115 kW at 10 %, 187 kW at 14-15 %, ~220 kW at 29-30 %, >225 kW around 51 %, a dip to ~120 kW at 52-54 %, recovery to ~170 kW, ~130 kW at 79-80 %. The 55 % point is the article reading of \"after 54 %\". Sparse (7). Peak 225 kW matches the electrive test 224 kW plateau."
+          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %). Measured on a MY2023 car; 2022 cars match only with the charging software update; 2024 carried over unproven."
         }
       ]
     },
@@ -120,10 +72,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -138,53 +86,9 @@
           ],
           "conditions": {
             "preconditioned": "yes",
-            "ambient_temp_c": 4,
             "charger_kw": 300
           },
-          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %)."
-        },
-        {
-          "id": "insideevs-batterylife-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ioniq5-batterylife-korea-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 10,
-              "power_kw": 115
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 187
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 220
-            },
-            {
-              "soc_percent": 51,
-              "power_kw": 225
-            },
-            {
-              "soc_percent": 53,
-              "power_kw": 120
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 170
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 130
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "ambient_temp_c": 19,
-            "battery_temp_c": 15,
-            "charger_kw": 350
-          },
-          "notes": "Launch-era (2021) Ioniq 5 AWD, 800 V charger in Seoul (350 kW per Hyundai demo, not stated by the tester), 10-80 % session. Values read from the article text: ~115 kW at 10 %, 187 kW at 14-15 %, ~220 kW at 29-30 %, >225 kW around 51 %, a dip to ~120 kW at 52-54 %, recovery to ~170 kW, ~130 kW at 79-80 %. The 55 % point is the article reading of \"after 54 %\". Sparse (7). Peak 225 kW matches the electrive test 224 kW plateau."
+          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %). Measured on a MY2023 car; 2022 cars match only with the charging software update; 2024 carried over unproven."
         }
       ]
     },
@@ -201,10 +105,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -219,53 +119,9 @@
           ],
           "conditions": {
             "preconditioned": "yes",
-            "ambient_temp_c": 4,
             "charger_kw": 300
           },
-          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %)."
-        },
-        {
-          "id": "insideevs-batterylife-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ioniq5-batterylife-korea-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 10,
-              "power_kw": 115
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 187
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 220
-            },
-            {
-              "soc_percent": 51,
-              "power_kw": 225
-            },
-            {
-              "soc_percent": 53,
-              "power_kw": 120
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 170
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 130
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "ambient_temp_c": 19,
-            "battery_temp_c": 15,
-            "charger_kw": 350
-          },
-          "notes": "Launch-era (2021) Ioniq 5 AWD, 800 V charger in Seoul (350 kW per Hyundai demo, not stated by the tester), 10-80 % session. Values read from the article text: ~115 kW at 10 %, 187 kW at 14-15 %, ~220 kW at 29-30 %, >225 kW around 51 %, a dip to ~120 kW at 52-54 %, recovery to ~170 kW, ~130 kW at 79-80 %. The 55 % point is the article reading of \"after 54 %\". Sparse (7). Peak 225 kW matches the electrive test 224 kW plateau."
+          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %). Measured on a MY2023 car; 2022 cars match only with the charging software update; 2024 carried over unproven."
         }
       ]
     },
@@ -282,10 +138,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -300,53 +152,9 @@
           ],
           "conditions": {
             "preconditioned": "yes",
-            "ambient_temp_c": 4,
             "charger_kw": 300
           },
-          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %)."
-        },
-        {
-          "id": "insideevs-batterylife-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ioniq5-batterylife-korea-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 10,
-              "power_kw": 115
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 187
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 220
-            },
-            {
-              "soc_percent": 51,
-              "power_kw": 225
-            },
-            {
-              "soc_percent": 53,
-              "power_kw": 120
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 170
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 130
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "ambient_temp_c": 19,
-            "battery_temp_c": 15,
-            "charger_kw": 350
-          },
-          "notes": "Launch-era (2021) Ioniq 5 AWD, 800 V charger in Seoul (350 kW per Hyundai demo, not stated by the tester), 10-80 % session. Values read from the article text: ~115 kW at 10 %, 187 kW at 14-15 %, ~220 kW at 29-30 %, >225 kW around 51 %, a dip to ~120 kW at 52-54 %, recovery to ~170 kW, ~130 kW at 79-80 %. The 55 % point is the article reading of \"after 54 %\". Sparse (7). Peak 225 kW matches the electrive test 224 kW plateau."
+          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %). Measured on a MY2023 car; 2022 cars match only with the charging software update; 2024 carried over unproven."
         }
       ]
     },
@@ -363,10 +171,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -381,53 +185,9 @@
           ],
           "conditions": {
             "preconditioned": "yes",
-            "ambient_temp_c": 4,
             "charger_kw": 300
           },
           "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %)."
-        },
-        {
-          "id": "insideevs-batterylife-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ioniq5-batterylife-korea-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 10,
-              "power_kw": 115
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 187
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 220
-            },
-            {
-              "soc_percent": 51,
-              "power_kw": 225
-            },
-            {
-              "soc_percent": 53,
-              "power_kw": 120
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 170
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 130
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "ambient_temp_c": 19,
-            "battery_temp_c": 15,
-            "charger_kw": 350
-          },
-          "notes": "Launch-era (2021) Ioniq 5 AWD, 800 V charger in Seoul (350 kW per Hyundai demo, not stated by the tester), 10-80 % session. Values read from the article text: ~115 kW at 10 %, 187 kW at 14-15 %, ~220 kW at 29-30 %, >225 kW around 51 %, a dip to ~120 kW at 52-54 %, recovery to ~170 kW, ~130 kW at 79-80 %. The 55 % point is the article reading of \"after 54 %\". Sparse (7). Peak 225 kW matches the electrive test 224 kW plateau."
         }
       ]
     },
@@ -444,10 +204,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -462,53 +218,9 @@
           ],
           "conditions": {
             "preconditioned": "yes",
-            "ambient_temp_c": 4,
             "charger_kw": 300
           },
           "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %)."
-        },
-        {
-          "id": "insideevs-batterylife-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ioniq5-batterylife-korea-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 10,
-              "power_kw": 115
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 187
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 220
-            },
-            {
-              "soc_percent": 51,
-              "power_kw": 225
-            },
-            {
-              "soc_percent": 53,
-              "power_kw": 120
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 170
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 130
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "ambient_temp_c": 19,
-            "battery_temp_c": 15,
-            "charger_kw": 350
-          },
-          "notes": "Launch-era (2021) Ioniq 5 AWD, 800 V charger in Seoul (350 kW per Hyundai demo, not stated by the tester), 10-80 % session. Values read from the article text: ~115 kW at 10 %, 187 kW at 14-15 %, ~220 kW at 29-30 %, >225 kW around 51 %, a dip to ~120 kW at 52-54 %, recovery to ~170 kW, ~130 kW at 79-80 %. The 55 % point is the article reading of \"after 54 %\". Sparse (7). Peak 225 kW matches the electrive test 224 kW plateau."
         }
       ]
     },
@@ -525,10 +237,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -543,53 +251,9 @@
           ],
           "conditions": {
             "preconditioned": "yes",
-            "ambient_temp_c": 4,
             "charger_kw": 300
           },
-          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %)."
-        },
-        {
-          "id": "insideevs-batterylife-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ioniq5-batterylife-korea-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 10,
-              "power_kw": 115
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 187
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 220
-            },
-            {
-              "soc_percent": 51,
-              "power_kw": 225
-            },
-            {
-              "soc_percent": 53,
-              "power_kw": 120
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 170
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 130
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "ambient_temp_c": 19,
-            "battery_temp_c": 15,
-            "charger_kw": 350
-          },
-          "notes": "Launch-era (2021) Ioniq 5 AWD, 800 V charger in Seoul (350 kW per Hyundai demo, not stated by the tester), 10-80 % session. Values read from the article text: ~115 kW at 10 %, 187 kW at 14-15 %, ~220 kW at 29-30 %, >225 kW around 51 %, a dip to ~120 kW at 52-54 %, recovery to ~170 kW, ~130 kW at 79-80 %. The 55 % point is the article reading of \"after 54 %\". Sparse (7). Peak 225 kW matches the electrive test 224 kW plateau."
+          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %). Measured on a MY2023 car; 2022 cars match only with the charging software update; 2024 carried over unproven."
         }
       ]
     },
@@ -606,10 +270,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -624,53 +284,9 @@
           ],
           "conditions": {
             "preconditioned": "yes",
-            "ambient_temp_c": 4,
             "charger_kw": 300
           },
-          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %)."
-        },
-        {
-          "id": "insideevs-batterylife-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ioniq5-batterylife-korea-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 10,
-              "power_kw": 115
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 187
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 220
-            },
-            {
-              "soc_percent": 51,
-              "power_kw": 225
-            },
-            {
-              "soc_percent": 53,
-              "power_kw": 120
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 170
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 130
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "ambient_temp_c": 19,
-            "battery_temp_c": 15,
-            "charger_kw": 350
-          },
-          "notes": "Launch-era (2021) Ioniq 5 AWD, 800 V charger in Seoul (350 kW per Hyundai demo, not stated by the tester), 10-80 % session. Values read from the article text: ~115 kW at 10 %, 187 kW at 14-15 %, ~220 kW at 29-30 %, >225 kW around 51 %, a dip to ~120 kW at 52-54 %, recovery to ~170 kW, ~130 kW at 79-80 %. The 55 % point is the article reading of \"after 54 %\". Sparse (7). Peak 225 kW matches the electrive test 224 kW plateau."
+          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %). Measured on a MY2023 car; 2022 cars match only with the charging software update; 2024 carried over unproven."
         }
       ]
     },
@@ -687,10 +303,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -705,53 +317,9 @@
           ],
           "conditions": {
             "preconditioned": "yes",
-            "ambient_temp_c": 4,
             "charger_kw": 300
           },
-          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %)."
-        },
-        {
-          "id": "insideevs-batterylife-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ioniq5-batterylife-korea-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 10,
-              "power_kw": 115
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 187
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 220
-            },
-            {
-              "soc_percent": 51,
-              "power_kw": 225
-            },
-            {
-              "soc_percent": 53,
-              "power_kw": 120
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 170
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 130
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "ambient_temp_c": 19,
-            "battery_temp_c": 15,
-            "charger_kw": 350
-          },
-          "notes": "Launch-era (2021) Ioniq 5 AWD, 800 V charger in Seoul (350 kW per Hyundai demo, not stated by the tester), 10-80 % session. Values read from the article text: ~115 kW at 10 %, 187 kW at 14-15 %, ~220 kW at 29-30 %, >225 kW around 51 %, a dip to ~120 kW at 52-54 %, recovery to ~170 kW, ~130 kW at 79-80 %. The 55 % point is the article reading of \"after 54 %\". Sparse (7). Peak 225 kW matches the electrive test 224 kW plateau."
+          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %). Measured on a MY2023 car; 2022 cars match only with the charging software update; 2024 carried over unproven."
         }
       ]
     },
@@ -768,10 +336,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -786,53 +350,9 @@
           ],
           "conditions": {
             "preconditioned": "yes",
-            "ambient_temp_c": 4,
             "charger_kw": 300
           },
-          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %)."
-        },
-        {
-          "id": "insideevs-batterylife-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ioniq5-batterylife-korea-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 10,
-              "power_kw": 115
-            },
-            {
-              "soc_percent": 15,
-              "power_kw": 187
-            },
-            {
-              "soc_percent": 30,
-              "power_kw": 220
-            },
-            {
-              "soc_percent": 51,
-              "power_kw": 225
-            },
-            {
-              "soc_percent": 53,
-              "power_kw": 120
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 170
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 130
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "ambient_temp_c": 19,
-            "battery_temp_c": 15,
-            "charger_kw": 350
-          },
-          "notes": "Launch-era (2021) Ioniq 5 AWD, 800 V charger in Seoul (350 kW per Hyundai demo, not stated by the tester), 10-80 % session. Values read from the article text: ~115 kW at 10 %, 187 kW at 14-15 %, ~220 kW at 29-30 %, >225 kW around 51 %, a dip to ~120 kW at 52-54 %, recovery to ~170 kW, ~130 kW at 79-80 %. The 55 % point is the article reading of \"after 54 %\". Sparse (7). Peak 225 kW matches the electrive test 224 kW plateau."
+          "notes": "2023 model year Ioniq 5 AWD 77.4 kWh, preconditioned via navigation, Alpitronic HYC300 (EnBW Lauenau, winter 2023, single-digit temperatures; 4 C is the ambient stated at the outbound stop). Session started at 19 %. Text values only (113 kW at 19 %, ~195 kW plateau, 224 kW from 40 % held to 55 %, 125 kW at 80 %); the 25 % point is where the ~195 kW stage begins, an approximate reading. Sparse (5 points). Software from 2023 changed the curve above 80 % per the article, so older 2022 cars may differ. Shape agrees with InsideEVs/Battery Life (peak plateau ~225 kW to about 50 %). Measured on a MY2023 car; 2022 cars match only with the charging software update; 2024 carried over unproven."
         }
       ]
     },
@@ -847,10 +367,6 @@
             {
               "soc_percent": 19,
               "power_kw": 113
-            },
-            {
-              "soc_percent": 25,
-              "power_kw": 195
             },
             {
               "soc_percent": 40,
@@ -868,7 +384,7 @@
           "notes": "Borrowed from the Ioniq 5 77.4 kWh electrive 2023 test (see that curve). Not measured on an Ioniq 6; its taper may differ because of different thermal management.",
           "based_on": {
             "variant_id": "hyundai/ioniq-5/2023/preferred-long-range-awd",
-            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found."
+            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak (estimated, EV Database) as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found. IONIQ 6 pack and DC peak figures are estimates, so the match is unproven."
           }
         }
       ]
@@ -886,10 +402,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -905,7 +417,7 @@
           "notes": "Borrowed from the Ioniq 5 77.4 kWh electrive 2023 test (see that curve). Not measured on an Ioniq 6; its taper may differ because of different thermal management.",
           "based_on": {
             "variant_id": "hyundai/ioniq-5/2023/preferred-long-range-awd",
-            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found."
+            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak (estimated, EV Database) as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found. IONIQ 6 pack and DC peak figures are estimates, so the match is unproven."
           }
         }
       ]
@@ -923,10 +435,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -942,7 +450,7 @@
           "notes": "Borrowed from the Ioniq 5 77.4 kWh electrive 2023 test (see that curve). Not measured on an Ioniq 6; its taper may differ because of different thermal management.",
           "based_on": {
             "variant_id": "hyundai/ioniq-5/2023/preferred-long-range-awd",
-            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found."
+            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak (estimated, EV Database) as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found. IONIQ 6 pack and DC peak figures are estimates, so the match is unproven."
           }
         }
       ]
@@ -960,10 +468,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -979,7 +483,7 @@
           "notes": "Borrowed from the Ioniq 5 77.4 kWh electrive 2023 test (see that curve). Not measured on an Ioniq 6; its taper may differ because of different thermal management.",
           "based_on": {
             "variant_id": "hyundai/ioniq-5/2023/preferred-long-range-awd",
-            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found."
+            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak (estimated, EV Database) as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found. IONIQ 6 pack and DC peak figures are estimates, so the match is unproven."
           }
         }
       ]
@@ -997,10 +501,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -1016,7 +516,7 @@
           "notes": "Borrowed from the Ioniq 5 77.4 kWh electrive 2023 test (see that curve). Not measured on an Ioniq 6; its taper may differ because of different thermal management.",
           "based_on": {
             "variant_id": "hyundai/ioniq-5/2023/preferred-long-range-awd",
-            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found."
+            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak (estimated, EV Database) as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found. IONIQ 6 pack and DC peak figures are estimates, so the match is unproven."
           }
         }
       ]
@@ -1034,10 +534,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -1053,7 +549,7 @@
           "notes": "Borrowed from the Ioniq 5 77.4 kWh electrive 2023 test (see that curve). Not measured on an Ioniq 6; its taper may differ because of different thermal management.",
           "based_on": {
             "variant_id": "hyundai/ioniq-5/2023/preferred-long-range-awd",
-            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found."
+            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak (estimated, EV Database) as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found. IONIQ 6 pack and DC peak figures are estimates, so the match is unproven."
           }
         }
       ]
@@ -1071,10 +567,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -1090,7 +582,7 @@
           "notes": "Borrowed from the Ioniq 5 77.4 kWh electrive 2023 test (see that curve). Not measured on an Ioniq 6; its taper may differ because of different thermal management.",
           "based_on": {
             "variant_id": "hyundai/ioniq-5/2023/preferred-long-range-awd",
-            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found."
+            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak (estimated, EV Database) as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found. IONIQ 6 pack and DC peak figures are estimates, so the match is unproven."
           }
         }
       ]
@@ -1108,10 +600,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -1127,7 +615,7 @@
           "notes": "Borrowed from the Ioniq 5 77.4 kWh electrive 2023 test (see that curve). Not measured on an Ioniq 6; its taper may differ because of different thermal management.",
           "based_on": {
             "variant_id": "hyundai/ioniq-5/2023/preferred-long-range-awd",
-            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found."
+            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak (estimated, EV Database) as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found. IONIQ 6 pack and DC peak figures are estimates, so the match is unproven."
           }
         }
       ]
@@ -1145,10 +633,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -1164,7 +648,7 @@
           "notes": "Borrowed from the Ioniq 5 77.4 kWh electrive 2023 test (see that curve). Not measured on an Ioniq 6; its taper may differ because of different thermal management.",
           "based_on": {
             "variant_id": "hyundai/ioniq-5/2023/preferred-long-range-awd",
-            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found."
+            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak (estimated, EV Database) as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found. IONIQ 6 pack and DC peak figures are estimates, so the match is unproven."
           }
         }
       ]
@@ -1182,10 +666,6 @@
               "power_kw": 113
             },
             {
-              "soc_percent": 25,
-              "power_kw": 195
-            },
-            {
               "soc_percent": 40,
               "power_kw": 224
             },
@@ -1201,7 +681,7 @@
           "notes": "Borrowed from the Ioniq 5 77.4 kWh electrive 2023 test (see that curve). Not measured on an Ioniq 6; its taper may differ because of different thermal management.",
           "based_on": {
             "variant_id": "hyundai/ioniq-5/2023/preferred-long-range-awd",
-            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found."
+            "reason": "Same E-GMP 77.4 kWh (74 usable) 800 V NMC pack and 233 kW DC peak (estimated, EV Database) as the 2023 Ioniq 5 Long Range; the Ioniq 6 shares the charging hardware. No Ioniq 6 measured curve with usable numbers was found. IONIQ 6 pack and DC peak figures are estimates, so the match is unproven."
           }
         }
       ]
@@ -1428,790 +908,6 @@
         }
       ]
     },
-    "kia/ev6/2022-long-range-awd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2022-long-range-rwd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2023-gt-line-package-1-long-range-awd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2023-long-range-awd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2023-long-range-rwd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2024-gt-line-long-range-awd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2024-land-awd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2024-long-range-awd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2024-long-range-rwd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2024-wind-rwd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2023-gt-awd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2023-gt-long-range-awd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2024-gt-long-range-awd": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
-    "kia/ev6/2024-gt": {
-      "curves": [
-        {
-          "id": "oosr-prototype-2021",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev6-prototype-oosr-2021",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 2,
-              "power_kw": 205
-            },
-            {
-              "soc_percent": 46,
-              "power_kw": 233
-            },
-            {
-              "soc_percent": 47,
-              "power_kw": 186
-            },
-            {
-              "soc_percent": 58,
-              "power_kw": 116
-            },
-            {
-              "soc_percent": 63,
-              "power_kw": 30
-            },
-            {
-              "soc_percent": 66,
-              "power_kw": 191
-            },
-            {
-              "soc_percent": 78,
-              "power_kw": 62
-            },
-            {
-              "soc_percent": 82,
-              "power_kw": 6
-            },
-            {
-              "soc_percent": 92,
-              "power_kw": 50
-            },
-            {
-              "soc_percent": 98,
-              "power_kw": 20
-            }
-          ],
-          "conditions": {
-            "preconditioned": "yes"
-          },
-          "notes": "Out of Spec Reviews 0-100 % test of a PRE-PRODUCTION EV6 AWD prototype (77.4 kWh) in Germany on IONITY, preconditioned, as analysed by InsideEVs. Plateau ~233 kW (234 peak) to ~46 %, then a volatile taper with a dip to ~30 kW at 63 %, brief recovery to ~190 kW at 66 %, ~6 kW held at 82 % for about 4 minutes. The article calls the curve quirky; production software may differ, so treat the mid-curve dips as prototype behaviour. Text values only (the 2 % point is \">200 kW\", entered as 205). Ambient not stated. Peak 233 kW is below the 240 kW dc_max. A production EV6 in Nyland 1000 km test reached over 230 kW (InsideEVs, 6 C), agreeing on the peak."
-        }
-      ]
-    },
     "kia/ev9/2024-land-gt-line": {
       "curves": [
         {
@@ -2298,7 +994,7 @@
             "preconditioned": "unknown",
             "charger_kw": 350
           },
-          "notes": "Tested on a 2024 EV9 GT-Line AWD, 99.8 kWh pack, carried over to 2026 (same pack; 2026 changes the port to NACS, no pack change found). Points read from article text, not a table. Conditions: Electrify America 350 kW, Northern California; temperature not stated. First point is about 200 kW almost immediately (test started near 18%). Session was interrupted once and restarted. Applied to every EV9 on the 99.8 kWh 800 V pack (2024-2027): same pack and DC hardware; 2026+ changes the port to NACS only. InsideEVs states a ~215 kW peak; other reports of the same pack give up to ~234 kW, so peak varies with charger."
+          "notes": "Tested on a 2024 EV9 GT-Line AWD, 99.8 kWh pack, carried over to 2026 (same pack; 2026 changes the port to NACS, no pack change found). Points read from article text, not a table. Conditions: Electrify America 350 kW, Northern California; temperature not stated. First point is about 200 kW almost immediately (test started near 18%). Session was interrupted once and restarted. Applied to every EV9 on the 99.8 kWh 800 V pack (2024-2027): same pack and DC hardware; 2026+ changes the port to NACS only. InsideEVs states a ~215 kW peak; other reports of the same pack give up to ~234 kW, so peak varies with charger. Measured on a 2024 GT-Line AWD; match to this powertrain (2027 NACS change / single motor) unproven."
         }
       ]
     },
@@ -2388,7 +1084,7 @@
             "preconditioned": "unknown",
             "charger_kw": 350
           },
-          "notes": "Tested on a 2024 EV9 GT-Line AWD, 99.8 kWh pack, carried over to 2026 (same pack; 2026 changes the port to NACS, no pack change found). Points read from article text, not a table. Conditions: Electrify America 350 kW, Northern California; temperature not stated. First point is about 200 kW almost immediately (test started near 18%). Session was interrupted once and restarted. Applied to every EV9 on the 99.8 kWh 800 V pack (2024-2027): same pack and DC hardware; 2026+ changes the port to NACS only. InsideEVs states a ~215 kW peak; other reports of the same pack give up to ~234 kW, so peak varies with charger."
+          "notes": "Tested on a 2024 EV9 GT-Line AWD, 99.8 kWh pack, carried over to 2026 (same pack; 2026 changes the port to NACS, no pack change found). Points read from article text, not a table. Conditions: Electrify America 350 kW, Northern California; temperature not stated. First point is about 200 kW almost immediately (test started near 18%). Session was interrupted once and restarted. Applied to every EV9 on the 99.8 kWh 800 V pack (2024-2027): same pack and DC hardware; 2026+ changes the port to NACS only. InsideEVs states a ~215 kW peak; other reports of the same pack give up to ~234 kW, so peak varies with charger. Measured on a 2024 GT-Line AWD; match to this powertrain (2027 NACS change / single motor) unproven."
         }
       ]
     },
@@ -2433,7 +1129,7 @@
             "preconditioned": "unknown",
             "charger_kw": 350
           },
-          "notes": "Tested on a 2024 EV9 GT-Line AWD, 99.8 kWh pack, carried over to 2026 (same pack; 2026 changes the port to NACS, no pack change found). Points read from article text, not a table. Conditions: Electrify America 350 kW, Northern California; temperature not stated. First point is about 200 kW almost immediately (test started near 18%). Session was interrupted once and restarted. Applied to every EV9 on the 99.8 kWh 800 V pack (2024-2027): same pack and DC hardware; 2026+ changes the port to NACS only. InsideEVs states a ~215 kW peak; other reports of the same pack give up to ~234 kW, so peak varies with charger."
+          "notes": "Tested on a 2024 EV9 GT-Line AWD, 99.8 kWh pack, carried over to 2026 (same pack; 2026 changes the port to NACS, no pack change found). Points read from article text, not a table. Conditions: Electrify America 350 kW, Northern California; temperature not stated. First point is about 200 kW almost immediately (test started near 18%). Session was interrupted once and restarted. Applied to every EV9 on the 99.8 kWh 800 V pack (2024-2027): same pack and DC hardware; 2026+ changes the port to NACS only. InsideEVs states a ~215 kW peak; other reports of the same pack give up to ~234 kW, so peak varies with charger. Measured on a 2024 GT-Line AWD; match to this powertrain (2027 NACS change / single motor) unproven."
         }
       ]
     },
@@ -2478,97 +1174,7 @@
             "preconditioned": "unknown",
             "charger_kw": 350
           },
-          "notes": "Tested on a 2024 EV9 GT-Line AWD, 99.8 kWh pack, carried over to 2026 (same pack; 2026 changes the port to NACS, no pack change found). Points read from article text, not a table. Conditions: Electrify America 350 kW, Northern California; temperature not stated. First point is about 200 kW almost immediately (test started near 18%). Session was interrupted once and restarted. Applied to every EV9 on the 99.8 kWh 800 V pack (2024-2027): same pack and DC hardware; 2026+ changes the port to NACS only. InsideEVs states a ~215 kW peak; other reports of the same pack give up to ~234 kW, so peak varies with charger."
-        }
-      ]
-    },
-    "kia/ev9/2026-land-awd": {
-      "curves": [
-        {
-          "id": "insideevs-2024",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev9-fast-charging-test",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 18,
-              "power_kw": 200
-            },
-            {
-              "soc_percent": 40,
-              "power_kw": 207
-            },
-            {
-              "soc_percent": 44,
-              "power_kw": 209
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 216
-            },
-            {
-              "soc_percent": 60,
-              "power_kw": 201
-            },
-            {
-              "soc_percent": 70,
-              "power_kw": 180
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 103
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "charger_kw": 350
-          },
-          "notes": "Tested on a 2024 EV9 GT-Line AWD, 99.8 kWh pack, carried over to 2026 (same pack; 2026 changes the port to NACS, no pack change found). Points read from article text, not a table. Conditions: Electrify America 350 kW, Northern California; temperature not stated. First point is about 200 kW almost immediately (test started near 18%). Session was interrupted once and restarted. Applied to every EV9 on the 99.8 kWh 800 V pack (2024-2027): same pack and DC hardware; 2026+ changes the port to NACS only. InsideEVs states a ~215 kW peak; other reports of the same pack give up to ~234 kW, so peak varies with charger."
-        }
-      ]
-    },
-    "kia/ev9/2026-wind": {
-      "curves": [
-        {
-          "id": "insideevs-2024",
-          "kind": "tested",
-          "source_id": "src-insideevs-ev9-fast-charging-test",
-          "low_confidence": true,
-          "points": [
-            {
-              "soc_percent": 18,
-              "power_kw": 200
-            },
-            {
-              "soc_percent": 40,
-              "power_kw": 207
-            },
-            {
-              "soc_percent": 44,
-              "power_kw": 209
-            },
-            {
-              "soc_percent": 55,
-              "power_kw": 216
-            },
-            {
-              "soc_percent": 60,
-              "power_kw": 201
-            },
-            {
-              "soc_percent": 70,
-              "power_kw": 180
-            },
-            {
-              "soc_percent": 80,
-              "power_kw": 103
-            }
-          ],
-          "conditions": {
-            "preconditioned": "unknown",
-            "charger_kw": 350
-          },
-          "notes": "Tested on a 2024 EV9 GT-Line AWD, 99.8 kWh pack, carried over to 2026 (same pack; 2026 changes the port to NACS, no pack change found). Points read from article text, not a table. Conditions: Electrify America 350 kW, Northern California; temperature not stated. First point is about 200 kW almost immediately (test started near 18%). Session was interrupted once and restarted. Applied to every EV9 on the 99.8 kWh 800 V pack (2024-2027): same pack and DC hardware; 2026+ changes the port to NACS only. InsideEVs states a ~215 kW peak; other reports of the same pack give up to ~234 kW, so peak varies with charger."
+          "notes": "Tested on a 2024 EV9 GT-Line AWD, 99.8 kWh pack, carried over to 2026 (same pack; 2026 changes the port to NACS, no pack change found). Points read from article text, not a table. Conditions: Electrify America 350 kW, Northern California; temperature not stated. First point is about 200 kW almost immediately (test started near 18%). Session was interrupted once and restarted. Applied to every EV9 on the 99.8 kWh 800 V pack (2024-2027): same pack and DC hardware; 2026+ changes the port to NACS only. InsideEVs states a ~215 kW peak; other reports of the same pack give up to ~234 kW, so peak varies with charger. Measured on a 2024 GT-Line AWD; match to this powertrain (2027 NACS change / single motor) unproven."
         }
       ]
     },

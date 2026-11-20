@@ -16,15 +16,22 @@
       "source_id": "src-guideautoweb-gm-nacs-adapter",
       "low_confidence": true,
       "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-lyriq-2027",
+      "low_confidence": true,
+      "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
     }
   ],
   "charge_port": [
     {
       "value": "ccs1",
-      "kind": "manufacturer",
+      "kind": "estimated",
       "source_id": "src-thechargeport-lyriq",
       "low_confidence": true,
-      "notes": "Page: the 2026 car kept its CCS1 port (US). thinkEV (Canada) says the 2027 LYRIQ trades the CCS connector on current models for NACS; EVChargingStations says earlier years used CCS1. Conflicts with OpenEV (nacs, probably 2027 data). No Canadian GM page read."
+      "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
     }
   ],
   "consumption_highway_wh_per_km": [

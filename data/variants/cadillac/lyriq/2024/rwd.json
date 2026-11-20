@@ -9,6 +9,24 @@
     "CA",
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-lyriq",
+      "low_confidence": true,
+      "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2024."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-lyriq-2027",
+      "low_confidence": true,
+      "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2024: adapter needed. Markets: CA/US."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

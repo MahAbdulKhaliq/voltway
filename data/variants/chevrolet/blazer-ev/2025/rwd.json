@@ -8,6 +8,31 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-evchargingstations-2027-blazer-ev-nacs",
+      "low_confidence": true,
+      "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2025."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "estimated",
+      "source_id": "src-guideautoweb-gm-nacs-adapter",
+      "low_confidence": true,
+      "notes": "Estimated: GM adapter programme covers Blazer EV, Equinox EV, Silverado EV and LYRIQ (Canadian article); US availability assumed. Current state for model year 2025: adapter needed. Markets: US."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "community",
+      "source_id": "src-insideevs-blazer-ev-supercharger-2025",
+      "low_confidence": true,
+      "notes": "US press: an InsideEVs author charged a 2025 Blazer EV SS at a Tesla Supercharger in California with the Chevy-approved adapter (2025-05-30). US market, model year 2025: adapter needed."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

@@ -8,6 +8,24 @@
   "markets": [
     "US"
   ],
+  "charge_port": [
+    {
+      "value": "nacs",
+      "kind": "manufacturer",
+      "source_id": "src-electrek-2027-lyriq-nacs",
+      "low_confidence": true,
+      "notes": "Native NACS from model year 2027: GM says all 2027 EVs get native NACS (Electrek, GM spokesperson); 2027 pages for this model state it. US only."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "yes",
+      "kind": "manufacturer",
+      "source_id": "src-electrek-2027-lyriq-nacs",
+      "low_confidence": true,
+      "notes": "Native NACS port on 2027 models (see charge_port); Superchargers usable without an adapter (Electrek / The Charge Port / EVChargingStations). US only."
+    }
+  ],
   "trims": [
     {
       "id": "standard",

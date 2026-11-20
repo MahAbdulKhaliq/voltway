@@ -5,5 +5,74 @@
   "generation": "first-generation",
   "years": [
     2025
+  ],
+  "battery": {
+    "preconditioning": [
+      {
+        "value": "automatic_and_manual",
+        "kind": "estimated",
+        "source_id": "src-chevrolet-battery-preconditioning-guide",
+        "low_confidence": true,
+        "notes": "Estimated: Chevrolet's battery-preconditioning quick-start guide and Charging App help text (chevrolet.com returns 403, so read only as a search excerpt) describe the car automatically preconditioning the battery when you route to a DC fast charger in Google Maps, and a manual Start under Next charge. Not read on a page for this exact model year; applied to this model line on the same Ultium software. UNVERIFIED, weakest for 2023-2024 cars."
+      }
+    ],
+    "capacity_usable_kwh": [
+      {
+        "value": 119,
+        "unit": "kWh",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-gm-ultium-truck-14",
+        "low_confidence": true,
+        "notes": "Estimated: The Weekly Driver lists the Standard Range pack as 119 kWh \"as published\"; GM does not say whether this is usable or total, so it may be a gross figure. Scaled check: 204 kWh x 14/24 modules = 119 kWh (module counts from the GM 2026 Silverado EV guide: 14 / 20 / 24 modules)."
+      }
+    ],
+    "chemistry": [
+      {
+        "value": "nmc",
+        "kind": "estimated",
+        "source_id": "src-insideevs-silverado-battery",
+        "low_confidence": true,
+        "notes": "Estimated: InsideEVs describes the Silverado EV pack as NMC pouch cells (24-module pack); thinkEV lists NMC for 2026; same Ultium cells in all pack sizes."
+      }
+    ],
+    "nominal_voltage_class": [
+      {
+        "value": "400v",
+        "kind": "estimated",
+        "source_id": "src-weeklydriver-gm-ultium-truck-14",
+        "low_confidence": true,
+        "notes": "Estimated: GM's 2026 specification guide gives 475 V for the 14-module Standard Range pack, which is a charging voltage rather than a nominal one; The Weekly Driver (EPA filing) gives 470 V nominal. Either way a 400 V-class pack, not the 800 V split-pack charging of the Max Range."
+      }
+    ]
+  },
+  "dc_max_kw": [
+    {
+      "value": 220,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-gm-silverado-ev-2025-spec-guide",
+      "low_confidence": true,
+      "notes": "GM 2025 WT spec guide lists the Standard Range (14 MOD) pack. 475 V up to 220 kW."
+    }
+  ],
+  "ac_max_kw": [
+    {
+      "value": 11.5,
+      "unit": "kW",
+      "kind": "manufacturer",
+      "source_id": "src-gm-silverado-ev-2025-spec-guide",
+      "low_confidence": true,
+      "notes": "GM 2025 WT spec guide lists the Standard Range (14 MOD) pack. Charging module 11.5 kW high-voltage on Standard Range."
+    }
+  ],
+  "published_10_80_min": [
+    {
+      "value": 40,
+      "unit": "min",
+      "kind": "manufacturer",
+      "source_id": "src-gm-silverado-ev-2025-spec-guide",
+      "low_confidence": true,
+      "notes": "GM 2025 WT spec guide lists the Standard Range (14 MOD) pack. Low-80% time to charge 40 min and 74 miles added in 10 min; column mapping to this pack inferred from the page layout (4WT 74 mi, 5WT 111 mi, 8WT 124 mi). The guide row is labelled \"Low-80% time to charge\", not 10-80 %; paired with \"74 miles\" in the text layer."
+    }
   ]
 }

@@ -23,7 +23,7 @@
         "kind": "manufacturer",
         "source_id": "src-kbb-lyriq-2026-specs",
         "low_confidence": true,
-        "notes": "KBB lists battery capacity 102.00 kWh for all 2026 Lyriq trims (relaying Cadillac's 102 kWh). A bare capacity is treated as gross. Wikipedia and EVChargingStations say every LYRIQ and LYRIQ-V uses the same 102 kWh pack (2023-2027)."
+        "notes": "KBB lists battery capacity 102.00 kWh for all 2026 Lyriq trims (relaying Cadillac's 102 kWh). A bare capacity is treated as gross. Wikipedia says every LYRIQ and LYRIQ-V uses the same 102 kWh pack (2023-2027)."
       }
     ],
     "capacity_usable_kwh": [
@@ -49,9 +49,9 @@
       {
         "value": "400v",
         "kind": "estimated",
-        "source_id": "src-evcs-2027-lyriq-nacs",
+        "source_id": "src-r3-greencars-lyriq",
         "low_confidence": true,
-        "notes": "Estimated: EVChargingStations (2027 page): 102 kWh pack shared by all LYRIQ versions, 400-volt class; same pack carried across years (2025)."
+        "notes": "Estimated: GreenCarsCompare states the Lyriq is built on a 400 V architecture (aggregator, no model-year split); same 102 kWh pack across 2023-2027 (Wikipedia and Electrek show no pack change)."
       }
     ]
   },
@@ -60,9 +60,9 @@
       "value": 190,
       "unit": "kW",
       "kind": "estimated",
-      "source_id": "src-evcs-2027-lyriq-nacs",
+      "source_id": "src-r3-greencars-lyriq",
       "low_confidence": true,
-      "notes": "Estimated: Cadillac's stated max charge speed 190 kW (2026 model year per EVChargingStations; Wikipedia gives 190 kW for the model; Electrek repeats it for 2027). Same pack and charger hardware 2023-2027; no change found. Years on this powertrain: 2025."
+      "notes": "Estimated: GreenCarsCompare gives 190 kW DC for the Lyriq; InsideEVs (2023, Cadillac figure) and Electrek (2027) both state 190 kW, same pack and charger hardware 2023-2027 with no change found. Model year 2025."
     }
   ],
   "ac_max_kw": [
@@ -70,9 +70,9 @@
       "value": 11.5,
       "unit": "kW",
       "kind": "estimated",
-      "source_id": "src-evcs-2027-lyriq-nacs",
+      "source_id": "src-r3-greencars-lyriq",
       "low_confidence": true,
-      "notes": "Estimated: 11.5 kW onboard charger is standard; a 19.2 kW charger is optional (about $1,480, higher trims, AWD per Cadillac's spec page); NRCan lists both Charger variants for the 2024-2026 Canadian LYRIQ, LYRIQ AWD and LYRIQ-V, captured per trim. Powertrain value is the standard charger. A Cadillac LYRIQ-V page was also read as listing 19.2 kW, which conflicts with a Cadillac-page excerpt saying the V uses 11.5 kW."
+      "notes": "Estimated: GreenCarsCompare: 11.5 kW AC standard, 19.2 kW optional (powertrain records the standard charger; 19.2 kW is captured per trim where NRCan/EPA name it). Aggregator figure, not attributed to Cadillac."
     }
   ]
 }

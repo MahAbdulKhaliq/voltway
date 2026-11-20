@@ -29,9 +29,9 @@
     {
       "value": "ccs1",
       "kind": "estimated",
-      "source_id": "src-evchargingstations-2027-blazer-ev-nacs",
+      "source_id": "src-r3-gcn-gm-2027-nacs",
       "low_confidence": true,
-      "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
+      "notes": "Estimated: GCN (GM 2027 NACS announcement) says most 2026 GM EVs keep CCS1 and need the GM NACS adapter, naming only the Optiq and Bolt as NACS-native for 2026; Blazer EV is not one of them. Model year 2026. Canadian car assumed the same (Guide Auto 2024-09-18: Canadian owners need the GM adapter)."
     }
   ],
   "trims": [

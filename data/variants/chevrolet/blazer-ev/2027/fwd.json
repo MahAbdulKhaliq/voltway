@@ -12,18 +12,18 @@
     {
       "value": "nacs",
       "kind": "manufacturer",
-      "source_id": "src-evchargingstations-2027-blazer-ev-nacs",
+      "source_id": "src-r3-electrek-blazer-2027-nacs",
       "low_confidence": true,
-      "notes": "Native NACS from model year 2027: GM says all 2027 EVs get native NACS (Electrek, GM spokesperson); 2027 pages for this model state it. US only."
+      "notes": "Native NACS from model year 2027: Electrek (2026-04-29) says the 2027 Blazer EV gets NACS instead of the CCS connector of earlier models; GM says all 2027 EVs get native NACS (Electrek 2026-08-14). Read via press, not a GM page. US only."
     }
   ],
   "supercharger_access": [
     {
       "value": "yes",
       "kind": "manufacturer",
-      "source_id": "src-evchargingstations-2027-blazer-ev-nacs",
+      "source_id": "src-r3-electrek-gm-2027-nacs",
       "low_confidence": true,
-      "notes": "Native NACS port on 2027 models (see charge_port); Superchargers usable without an adapter (Electrek / The Charge Port / EVChargingStations). US only."
+      "notes": "Electrek 2026-08-14: every 2027 GM EV, Blazer EV included, plugs directly into compatible Tesla Superchargers; some sites stay Tesla-only. US only."
     }
   ],
   "trims": [

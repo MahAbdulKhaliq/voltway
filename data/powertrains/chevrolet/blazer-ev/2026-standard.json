@@ -57,7 +57,7 @@
         "kind": "estimated",
         "source_id": "src-weeklydriver-gm-ultium-85",
         "low_confidence": true,
-        "notes": "Estimated: same 85 kWh 10-module Ultium pack as the Equinox EV (nominal 336 V per The Weekly Driver, 288 V per EVChargingStations; either way a 400 V-class pack, as stored for the Equinox)."
+        "notes": "Estimated: same 85 kWh 10-module Ultium pack as the Equinox EV (nominal 336 V per The Weekly Driver; either way a 400 V-class pack, as stored for the Equinox)."
       },
       {
         "value": "400v",
@@ -102,7 +102,7 @@
       "kind": "manufacturer",
       "source_id": "src-jimellis-blazer-ev-2026-dcfc",
       "low_confidence": true,
-      "notes": "US dealer page: LT and RS (85 kWh) up to 150 kW; 190 kW is the 102 kWh SS. Same wording on a 2026 RS AWD window sticker (src-coughlin-2026-blazer-ev-rs-awd) and in EVChargingStations (2027 article). Conflicts with the 190 kW already stored from thinkEV (which says 102 kWh for all trims; likely wrong for the 85 kWh pack)."
+      "notes": "US dealer page: LT and RS (85 kWh) up to 150 kW; 190 kW is the 102 kWh SS. Same wording on a 2026 RS AWD window sticker (src-coughlin-2026-blazer-ev-rs-awd). Conflicts with the 190 kW already stored from thinkEV (which says 102 kWh for all trims; likely wrong for the 85 kWh pack)."
     },
     {
       "value": 150,
@@ -110,7 +110,7 @@
       "kind": "estimated",
       "source_id": "src-insideevs-blazer-ev-epa-2024",
       "low_confidence": true,
-      "notes": "Estimated: InsideEVs Blazer table (GM figures): LT/RS 85 kWh = 150 kW; EVChargingStations 2027 article: 85 kWh 150 kW (2026 lineup). Years on this powertrain: 2025."
+      "notes": "Estimated: InsideEVs Blazer table (GM figures): LT/RS 85 kWh = 150 kW. Years on this powertrain: 2025."
     }
   ]
 }

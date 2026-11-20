@@ -39,9 +39,9 @@
       {
         "value": "400v",
         "kind": "estimated",
-        "source_id": "src-evcs-2027-lyriq-nacs",
+        "source_id": "src-r3-greencars-lyriq",
         "low_confidence": true,
-        "notes": "Estimated: the 102 kWh Ultium pack in the Lyriq is a 400-volt class pack (EVChargingStations); the Blazer EV 102 kWh pack is the same capacity and 190 kW peak. The Blazer 85 kWh pack is about 288 V nominal (InsideEVs)."
+        "notes": "Estimated: Platform sibling with the same pack: GreenCarsCompare says the Lyriq (102 kWh Ultium) is a 400 V architecture; the Blazer EV RS RWD/SS 102 kWh pack has the same capacity and 190 kW peak (InsideEVs, GM figures; src-insideevs-blazer-ev-epa-2024). The Blazer 85 kWh pack is about 288 V nominal (InsideEVs). Motors, module count and onboard charger were not compared."
       }
     ]
   },
@@ -52,7 +52,7 @@
       "kind": "manufacturer",
       "source_id": "src-insideevs-blazer-ev-epa-2024",
       "low_confidence": true,
-      "notes": "InsideEVs table (GM figures): RS RWD 102 kWh = 190 kW; up to 190 kW in GM launch material; EVChargingStations (2027 article): 102 kWh pack 190 kW (2026 SS). Years: 2024."
+      "notes": "InsideEVs table (GM figures): RS RWD 102 kWh = 190 kW; up to 190 kW in GM launch material. Years: 2024."
     }
   ],
   "ac_max_kw": [

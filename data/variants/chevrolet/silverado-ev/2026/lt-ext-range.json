@@ -20,10 +20,10 @@
   "charge_port": [
     {
       "value": "ccs1",
-      "kind": "manufacturer",
-      "source_id": "src-evcs-2027-silverado",
+      "kind": "estimated",
+      "source_id": "src-r3-gcn-gm-2027-nacs",
       "low_confidence": true,
-      "notes": "Article: 2027 gets NACS instead of the CCS1 used in the 2024-2026 model years. US site; Canadian 2026 truck assumed the same (GM Canada adapter programme for Silverado EV implies CCS1)."
+      "notes": "Estimated: GCN (GM 2027 NACS announcement) says most 2026 GM EVs keep CCS1 and need the GM NACS adapter, naming only the Optiq and Bolt as NACS-native for 2026; InsideEVs says the 2027 truck moves to native NACS. Model year 2026, US basis; Canadian truck assumed the same (Guide Auto 2024-09-18: GM adapter programme for Canadian Silverado EV owners)."
     }
   ],
   "trims": [

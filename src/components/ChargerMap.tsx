@@ -797,14 +797,14 @@ export default function ChargerMap({ cars = [] }: { cars?: IndexEntry[] }) {
   const sheet = useMapSheet();
   setSnapRef.current = sheet.setSnap;
   const filtersOpen = panelOpen || sheet.phone;
-  // Phones (B71): the list box is three rows tall and scrolls through the rest, so it never
-  // covers much of the map.
+  // Phones (B71; owner 2026-11-20: two rows, was three): the list box is two rows tall and scrolls
+  // through the rest, so it never covers much of the map.
   const listBox = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     const el = listBox.current;
     if (!el) return;
-    const third = sheet.phone ? el.querySelectorAll('li')[2] : undefined;
-    el.style.maxHeight = third ? `${Math.ceil(third.getBoundingClientRect().bottom - el.getBoundingClientRect().top + el.scrollTop) + 6}px` : '';
+    const last = sheet.phone ? el.querySelectorAll('li')[1] : undefined;
+    el.style.maxHeight = last ? `${Math.ceil(last.getBoundingClientRect().bottom - el.getBoundingClientRect().top + el.scrollTop) + 6}px` : '';
   }, [list, listOpen, sheet.phone, you, T.unit]);
   const { setSnap } = sheet;
   // B89 round 4: the trip at peek shows its vital lines only: nothing scrolls, the car card can't

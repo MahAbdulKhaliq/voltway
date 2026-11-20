@@ -218,4 +218,4 @@ Phase 1's rule is "a person approves every change". That doesn't work for thousa
 
 **B69 (2026-11-17):** Stations in view rows read power · place, plus distance from you once Locate me has found you; on phones the list drops under its switch (not a sheet), with long names cut off with "…".
 
-**B70–B71 (2026-11-17):** on phones each Stations in view row reads name / power · place (no "up to") / distance; long lines slide, wait, fade and restart. The list box is three rows tall and scrolls through the rest. A station's details open in the same box; their one button is back (opened from the list) or close (opened from the map).
+**B70–B71 (2026-11-17):** on phones each Stations in view row reads name / power · place (no "up to") / distance; long lines slide, wait, fade and restart. The list box is three rows tall and scrolls through the rest. A station's details open in the same box; their one button is back (opened from the list) or close (opened from the map). *(B121, owner 2026-11-20: two rows tall; the box keeps the switch's width (15rem) when it opens, and station details are the same width; long names scroll.)*

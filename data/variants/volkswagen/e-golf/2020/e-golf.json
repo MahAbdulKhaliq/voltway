@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "CA": "e-Golf"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 16,
+          "is_standard": true,
+          "source_id": "src-cars-volkswagen-egolf-2019-404734",
+          "notes": "Estimated: 2020 Canadian e-Golf; the 2019 US e-Golf SE and SEL Premium pages both show 16x6.5. No Canadian page read. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

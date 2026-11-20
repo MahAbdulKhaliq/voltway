@@ -647,6 +647,22 @@
    "url": "https://www.cars.com/research/volkswagen-id_buzz-2025/specs/469213/",
    "accessed_on": "2026-11-20",
    "notes": "Cars.com spec page for the ID. Buzz Pro S Plus 4MOTION trim only; wheel size read on this page."
+  },
+  {
+   "id": "src-porsche-macan-press-kit-design",
+   "type": "oem",
+   "title": "Porsche Newsroom: Macan press kit, design and aerodynamics",
+   "url": "https://newsroom.porsche.com/en/press-kits/the-new-porsche-macan/Design-und-Aerodynamik.html",
+   "accessed_on": "2026-11-20",
+   "notes": "All Macan models standard 20-inch; up to 22-inch optional; 21-inch off-road design wheels. Not trim-specific."
+  },
+  {
+   "id": "src-porsche-taycan-2025-us",
+   "type": "oem",
+   "title": "Porsche Newsroom US: Porsche expands the second Taycan generation",
+   "url": "https://newsroom.porsche.com/en_US/2024/products/porsche-expands-second-Taycan-generation-37836.html",
+   "accessed_on": "2026-11-20",
+   "notes": "Taycan GTS: 20-inch standard, 21-inch RS Spyder Design optional."
   }
  ],
  "variants": {
@@ -701,6 +717,13 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-cayenne-2026-483285",
        "notes": "Cayenne Electric AWD 2026: 21-inch (front 21x9.5), read on this Cars.com page."
+      },
+      {
+       "diameter_in": 20,
+       "is_standard": false,
+       "source_id": "src-cars-porsche-cayenne-2026-483285",
+       "notes": "Range Setup package lists 20-inch Cayenne Aero wheels on the Cars.com 2026 Cayenne Electric Coupe AWD page; assumed the same on the non-coupe.",
+       "low_confidence": true
       }
      ]
     }
@@ -715,6 +738,13 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-cayenne-2026-483285",
        "notes": "Cayenne Electric AWD 2026: 21-inch (front 21x9.5), read on this Cars.com page."
+      },
+      {
+       "diameter_in": 20,
+       "is_standard": false,
+       "source_id": "src-cars-porsche-cayenne-2026-483285",
+       "notes": "Range Setup package lists 20-inch Cayenne Aero wheels on the Cars.com 2026 Cayenne Electric Coupe AWD page; assumed the same on the non-coupe.",
+       "low_confidence": true
       }
      ]
     }
@@ -794,6 +824,13 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-cayenne-2026-483286",
        "notes": "Cayenne Turbo Electric AWD 2026: 21-inch (front 21x9.5), read on this Cars.com page."
+      },
+      {
+       "diameter_in": 20,
+       "is_standard": false,
+       "source_id": "src-cars-porsche-cayenne-2026-483286",
+       "notes": "Range Setup package lists 20-inch Cayenne Aero wheels on the Cars.com 2026 Cayenne Electric Coupe AWD page; assumed the same on the non-coupe.",
+       "low_confidence": true
       }
      ]
     }
@@ -808,6 +845,20 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-macan-2026-481061",
        "notes": "Macan Electric 4 AWD 2026: 20-inch, read on this Cars.com page."
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: off-road design package adds 21-inch wheels; not trim-specific (launch Macan).",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 22,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: up to 22-inch wheels, staggered fitment, optional; not trim-specific (launch Macan).",
+       "low_confidence": true
       }
      ]
     }
@@ -822,6 +873,20 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-macan-2026-481062",
        "notes": "Macan Electric 4S AWD 2026: 20-inch, read on this Cars.com page."
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: off-road design package adds 21-inch wheels; not trim-specific (launch Macan).",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 22,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: up to 22-inch wheels, staggered fitment, optional; not trim-specific (launch Macan).",
+       "low_confidence": true
       }
      ]
     }
@@ -836,6 +901,20 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-macan-2026-481064",
        "notes": "Macan Electric RWD 2026: 20-inch, read on this Cars.com page."
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: off-road design package adds 21-inch wheels; not trim-specific (launch Macan).",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 22,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: up to 22-inch wheels, staggered fitment, optional; not trim-specific (launch Macan).",
+       "low_confidence": true
       }
      ]
     }
@@ -850,6 +929,13 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-macan-2026-482888",
        "notes": "Macan Electric GTS AWD 2026: 21-inch, read on this Cars.com page."
+      },
+      {
+       "diameter_in": 22,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: up to 22-inch wheels, staggered fitment, optional; not trim-specific (launch Macan).",
+       "low_confidence": true
       }
      ]
     }
@@ -864,6 +950,20 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-macan-2026-481063",
        "notes": "Macan Electric Turbo AWD 2026: 20-inch, read on this Cars.com page. Page shows 20-inch for the Turbo; Porsche press kit (not trim-specific) says larger sizes are optional."
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: off-road design package adds 21-inch wheels; not trim-specific (launch Macan).",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 22,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: up to 22-inch wheels, staggered fitment, optional; not trim-specific (launch Macan).",
+       "low_confidence": true
       }
      ]
     }
@@ -878,6 +978,20 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-macan-2026-481061",
        "notes": "Estimated: 2026 Macan Electric 4 AWD page shows 20-inch; the 2027 Macan Electric RWD page (https://www.cars.com/research/porsche-macan-2027/specs/489385/) shows 20-inch, so 2027 is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: off-road design package adds 21-inch wheels; not trim-specific (launch Macan).",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 22,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: up to 22-inch wheels, staggered fitment, optional; not trim-specific (launch Macan).",
        "low_confidence": true
       }
      ]
@@ -894,6 +1008,20 @@
        "source_id": "src-cars-porsche-macan-2026-481062",
        "notes": "Estimated: 2026 Macan Electric 4S AWD page shows 20-inch; the 2027 Macan Electric RWD page (https://www.cars.com/research/porsche-macan-2027/specs/489385/) shows 20-inch, so 2027 is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
        "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: off-road design package adds 21-inch wheels; not trim-specific (launch Macan).",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 22,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: up to 22-inch wheels, staggered fitment, optional; not trim-specific (launch Macan).",
+       "low_confidence": true
       }
      ]
     }
@@ -906,8 +1034,22 @@
       {
        "diameter_in": 20,
        "is_standard": true,
-       "source_id": "src-cars-porsche-macan-2026-481064",
-       "notes": "Estimated: 2026 Macan Electric RWD page shows 20-inch; the 2027 Macan Electric RWD page (https://www.cars.com/research/porsche-macan-2027/specs/489385/) shows 20-inch, so 2027 is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "source_id": "src-cars-porsche-macan-2027-489385",
+       "notes": "Macan Electric RWD 2027: 20-inch (front 20x7.5, rear 20x10) read on this Cars.com page.",
+       "low_confidence": false
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: off-road design package adds 21-inch wheels; not trim-specific (launch Macan).",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 22,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: up to 22-inch wheels, staggered fitment, optional; not trim-specific (launch Macan).",
        "low_confidence": true
       }
      ]
@@ -924,6 +1066,13 @@
        "source_id": "src-cars-porsche-macan-2026-482888",
        "notes": "Estimated: 2026 Macan Electric GTS AWD page shows 21-inch; the 2027 Macan Electric RWD page (https://www.cars.com/research/porsche-macan-2027/specs/489385/) shows 20-inch, so 2027 is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
        "low_confidence": true
+      },
+      {
+       "diameter_in": 22,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: up to 22-inch wheels, staggered fitment, optional; not trim-specific (launch Macan).",
+       "low_confidence": true
       }
      ]
     }
@@ -938,6 +1087,20 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-macan-2026-481063",
        "notes": "Estimated: 2026 Macan Electric Turbo AWD page shows 20-inch; the 2027 Macan Electric RWD page (https://www.cars.com/research/porsche-macan-2027/specs/489385/) shows 20-inch, so 2027 is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: off-road design package adds 21-inch wheels; not trim-specific (launch Macan).",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 22,
+       "is_standard": false,
+       "source_id": "src-porsche-macan-press-kit-design",
+       "notes": "Press kit: up to 22-inch wheels, staggered fitment, optional; not trim-specific (launch Macan).",
        "low_confidence": true
       }
      ]
@@ -1098,7 +1261,8 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2021-420601",
-       "notes": "Taycan Turbo S Cross Turismo AWD 2021: 20-inch, read on this Cars.com page; applies to CA and US."
+       "notes": "Taycan Turbo S Cross Turismo AWD 2021: 20-inch, read on this Cars.com page; applies to CA and US. Conflict: Cars.com (US) shows 20 in; Porsche configurators for other markets list 21-inch Aero Design as standard, as on the sedan (per fact-check; not opened by me, no North American page found stating 21). 20 kept as standard for the US.",
+       "low_confidence": true
       }
      ]
     }
@@ -1232,6 +1396,13 @@
        "source_id": "src-cars-porsche-taycan-2024-444253",
        "notes": "Estimated: the 2024 Taycan GTS Sport Turismo AWD page shows 20-inch; the 2022 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
        "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-taycan-2025-us",
+       "notes": "Porsche US newsroom: 21-inch RS Spyder Design optional on the GTS (2025 model-year release); carried to other years.",
+       "low_confidence": true
       }
      ]
     }
@@ -1246,6 +1417,13 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2022-426770",
        "notes": "Taycan GTS AWD 2022: 20-inch, read on this Cars.com page; applies to CA and US."
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-taycan-2025-us",
+       "notes": "Porsche US newsroom: 21-inch RS Spyder Design optional on the GTS (2025 model-year release); carried to other years.",
+       "low_confidence": true
       }
      ]
     }
@@ -1274,7 +1452,7 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2021-420601",
-       "notes": "Estimated: the 2021 Taycan Turbo S Cross Turismo AWD page shows 20-inch; the 2022 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "notes": "Estimated: the 2021 Taycan Turbo S Cross Turismo AWD page shows 20-inch; the 2022 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year. Conflict: Cars.com (US) shows 20 in; Porsche configurators for other markets list 21-inch Aero Design as standard, as on the sedan (per fact-check; not opened by me, no North American page found stating 21). 20 kept as standard for the US.",
        "low_confidence": true
       }
      ]
@@ -1410,6 +1588,13 @@
        "source_id": "src-cars-porsche-taycan-2024-444253",
        "notes": "Estimated: the 2024 Taycan GTS Sport Turismo AWD page shows 20-inch; the 2023 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
        "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-taycan-2025-us",
+       "notes": "Porsche US newsroom: 21-inch RS Spyder Design optional on the GTS (2025 model-year release); carried to other years.",
+       "low_confidence": true
       }
      ]
     }
@@ -1424,6 +1609,13 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2022-426770",
        "notes": "Estimated: the 2022 Taycan GTS AWD page shows 20-inch; the 2023 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-taycan-2025-us",
+       "notes": "Porsche US newsroom: 21-inch RS Spyder Design optional on the GTS (2025 model-year release); carried to other years.",
        "low_confidence": true
       }
      ]
@@ -1453,7 +1645,7 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2021-420601",
-       "notes": "Estimated: the 2021 Taycan Turbo S Cross Turismo AWD page shows 20-inch; the 2023 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "notes": "Estimated: the 2021 Taycan Turbo S Cross Turismo AWD page shows 20-inch; the 2023 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year. Conflict: Cars.com (US) shows 20 in; Porsche configurators for other markets list 21-inch Aero Design as standard, as on the sedan (per fact-check; not opened by me, no North American page found stating 21). 20 kept as standard for the US.",
        "low_confidence": true
       }
      ]
@@ -1584,6 +1776,13 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2024-444253",
        "notes": "Taycan GTS Sport Turismo AWD 2024: 20-inch, read on this Cars.com page; applies to CA and US."
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-taycan-2025-us",
+       "notes": "Porsche US newsroom: 21-inch RS Spyder Design optional on the GTS (2025 model-year release); carried to other years.",
+       "low_confidence": true
       }
      ]
     }
@@ -1598,6 +1797,13 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2024-444598",
        "notes": "Taycan GTS AWD 2024: 20-inch, read on this Cars.com page; applies to CA and US."
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-taycan-2025-us",
+       "notes": "Porsche US newsroom: 21-inch RS Spyder Design optional on the GTS (2025 model-year release); carried to other years.",
+       "low_confidence": true
       }
      ]
     }
@@ -1626,7 +1832,7 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2021-420601",
-       "notes": "Estimated: the 2021 Taycan Turbo S Cross Turismo AWD page shows 20-inch; the 2024 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "notes": "Estimated: the 2021 Taycan Turbo S Cross Turismo AWD page shows 20-inch; the 2024 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year. Conflict: Cars.com (US) shows 20 in; Porsche configurators for other markets list 21-inch Aero Design as standard, as on the sedan (per fact-check; not opened by me, no North American page found stating 21). 20 kept as standard for the US.",
        "low_confidence": true
       }
      ]
@@ -1802,7 +2008,7 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2021-420601",
-       "notes": "Estimated: the 2021 Taycan Turbo S Cross Turismo AWD page shows 20-inch; the 2025 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "notes": "Estimated: the 2021 Taycan Turbo S Cross Turismo AWD page shows 20-inch; the 2025 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year. Conflict: Cars.com (US) shows 20 in; Porsche configurators for other markets list 21-inch Aero Design as standard, as on the sedan (per fact-check; not opened by me, no North American page found stating 21). 20 kept as standard for the US.",
        "low_confidence": true
       }
      ]
@@ -1951,6 +2157,13 @@
        "source_id": "src-cars-porsche-taycan-2024-444253",
        "notes": "Estimated: the 2024 Taycan GTS Sport Turismo AWD page shows 20-inch; the 2026 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
        "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-taycan-2025-us",
+       "notes": "Porsche US newsroom: 21-inch RS Spyder Design optional on the GTS (2025 model-year release); carried to other years.",
+       "low_confidence": true
       }
      ]
     }
@@ -1965,6 +2178,13 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2026-475670",
        "notes": "Taycan GTS AWD 2026: 20-inch, read on this Cars.com page; applies to CA and US."
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-taycan-2025-us",
+       "notes": "Porsche US newsroom: 21-inch RS Spyder Design optional on the GTS (2025 model-year release); carried to other years.",
+       "low_confidence": true
       }
      ]
     }
@@ -2022,7 +2242,7 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2021-420601",
-       "notes": "Estimated: the 2021 Taycan Turbo S Cross Turismo AWD page shows 20-inch; the 2026 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "notes": "Estimated: the 2021 Taycan Turbo S Cross Turismo AWD page shows 20-inch; the 2026 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year. Conflict: Cars.com (US) shows 20 in; Porsche configurators for other markets list 21-inch Aero Design as standard, as on the sedan (per fact-check; not opened by me, no North American page found stating 21). 20 kept as standard for the US.",
        "low_confidence": true
       }
      ]
@@ -2112,6 +2332,13 @@
        "is_standard": true,
        "source_id": "src-cars-porsche-taycan-2026-475670",
        "notes": "Estimated: the 2026 Taycan GTS AWD page shows 20-inch; the 2027 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-porsche-taycan-2025-us",
+       "notes": "Porsche US newsroom: 21-inch RS Spyder Design optional on the GTS (2025 model-year release); carried to other years.",
        "low_confidence": true
       }
      ]
@@ -2290,7 +2517,8 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-cars-audi-etronsportback-2020-415231",
-       "notes": "e-tron Sportback Prestige quattro 2020: 20x9 read on this Cars.com page (Premium Plus page not read)."
+       "notes": "e-tron Sportback Prestige quattro 2020: 20x9 read on this Cars.com page (Premium Plus page not read). Only one trim page was read for this year; other trims not opened.",
+       "low_confidence": true
       }
      ]
     }
@@ -2484,6 +2712,13 @@
        "source_id": "src-cars-audi-q8etron-2024-437884",
        "notes": "Estimated: Q8 Sportback e-tron, sibling body style; the 2024 Q8 e-tron Premium quattro page shows 20-inch. Carried from another model year or trim, not read for this exact trim and year.",
        "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-cars-audi-q8etron-2024-437886",
+       "notes": "21-inch wheels in the Launch Edition and Black Optic options on the Q8 e-tron Prestige quattro 2024 page; assumed the same on the Sportback.",
+       "low_confidence": true
       }
      ]
     }
@@ -2498,6 +2733,13 @@
        "is_standard": true,
        "source_id": "src-cars-audi-q8etron-2024-437884",
        "notes": "Estimated: Q8 Sportback e-tron, sibling body style; the 2024 Q8 e-tron Premium quattro page shows 20-inch. Carried from another model year or trim, not read for this exact trim and year.",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-cars-audi-q8etron-2024-437886",
+       "notes": "21-inch wheels in the Launch Edition and Black Optic options on the Q8 e-tron Prestige quattro 2024 page; assumed the same on the Sportback.",
        "low_confidence": true
       }
      ]
@@ -2658,6 +2900,13 @@
        "is_standard": true,
        "source_id": "src-cars-audi-rsetrongt-2025-467477",
        "notes": "RS e-tron GT performance quattro 2025: 20x9/20x11 read on this Cars.com page."
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-cars-audi-setrongt-2025-466799",
+       "notes": "21-inch wheel package ($2,000) listed on the 2025 S e-tron GT Prestige quattro page; assumed also offered on the RS performance (not read on an RS page).",
+       "low_confidence": true
       }
      ]
     }
@@ -2692,6 +2941,13 @@
        "is_standard": true,
        "source_id": "src-cars-audi-rsetrongt-2025-467477",
        "notes": "Estimated: 2025 page shows 20-inch; 2026 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-cars-audi-setrongt-2025-466799",
+       "notes": "21-inch wheel package ($2,000) listed on the 2025 S e-tron GT Prestige quattro page; assumed also offered on the RS performance (not read on an RS page).",
        "low_confidence": true
       }
      ]
@@ -2729,6 +2985,13 @@
        "is_standard": true,
        "source_id": "src-cars-audi-rsetrongt-2025-467477",
        "notes": "Estimated: 2025 page shows 20-inch; 2027 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+       "low_confidence": true
+      },
+      {
+       "diameter_in": 21,
+       "is_standard": false,
+       "source_id": "src-cars-audi-setrongt-2025-466799",
+       "notes": "21-inch wheel package ($2,000) listed on the 2025 S e-tron GT Prestige quattro page; assumed also offered on the RS performance (not read on an RS page).",
        "low_confidence": true
       }
      ]
@@ -3282,7 +3545,8 @@
        "diameter_in": 16,
        "is_standard": true,
        "source_id": "src-cars-volkswagen-egolf-2016-378528",
-       "notes": "e-Golf SE 2016: 16x6.5 read on this Cars.com page (US market). The SEL Premium page for that year also shows 16-inch."
+       "notes": "e-Golf SE 2016: 16x6.5 read on this Cars.com page (US market). The SEL Premium page for that year also shows 16-inch. Only one trim page was read for this year; other trims not opened.",
+       "low_confidence": true
       }
      ]
     }
@@ -3296,7 +3560,8 @@
        "diameter_in": 16,
        "is_standard": true,
        "source_id": "src-cars-volkswagen-egolf-2018-404321",
-       "notes": "e-Golf SE 2018: 16x6.5 read on this Cars.com page (US market). SEL and SEL Premium 2018 pages not read."
+       "notes": "e-Golf SE 2018: 16x6.5 read on this Cars.com page (US market). SEL and SEL Premium 2018 pages not read. Only one trim page was read for this year; other trims not opened.",
+       "low_confidence": true
       }
      ]
     }
@@ -3310,7 +3575,8 @@
        "diameter_in": 16,
        "is_standard": true,
        "source_id": "src-cars-volkswagen-egolf-2019-404734",
-       "notes": "e-Golf SE 2019: 16x6.5 read on this Cars.com page (US market). The SEL Premium page for that year also shows 16-inch."
+       "notes": "e-Golf SE 2019: 16x6.5 read on this Cars.com page (US market). The SEL Premium page for that year also shows 16-inch. Only one trim page was read for this year; other trims not opened.",
+       "low_confidence": true
       }
      ]
     }
@@ -3657,14 +3923,14 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-cars-volkswagen-id4-2025-464031",
-       "notes": "Estimated: Pro S RWD pages 2023-2025 show 20-inch; Pro S AWD 2025 assumed the same (no Pro S AWD page read for 2025). Carried from another model year or trim, not read for this exact trim and year.",
+       "notes": "Estimated: the 20-inch size comes from the Cars.com 2025 ID.4 Pro S RWD page (Pro S AWD not read for 2025); Pro S AWD assumed to match.",
        "low_confidence": true
       },
       {
        "diameter_in": 21,
-       "is_standard": true,
+       "is_standard": false,
        "source_id": "src-cars-volkswagen-id4-2025-464034",
-       "notes": "ID.4 Pro S Plus AWD 2025 page shows 21-inch (front 21x8.5); standard on that trim, only if the variant covers it. Carried from another model year or trim, not read for this exact trim and year.",
+       "notes": "Pro S Plus AWD 2025 page shows 21-inch (front 21x8.5). Recorded as an option, not standard: not confirmed that this variant covers the Pro S Plus trim.",
        "low_confidence": true
       }
      ]
@@ -3752,7 +4018,7 @@
        "diameter_in": 20,
        "is_standard": true,
        "source_id": "src-cars-volkswagen-idbuzz-2025-469213",
-       "notes": "ID. Buzz Pro S Plus 4MOTION 2025: 20x8 read on this Cars.com page (the Pro S RWD page also shows 20)."
+       "notes": "ID. Buzz Pro S Plus 4MOTION 2025: 20x8 read on this Cars.com page (trim shown: Pro S Plus 4MOTION)."
       }
      ]
     }

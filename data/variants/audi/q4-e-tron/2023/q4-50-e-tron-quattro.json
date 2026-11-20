@@ -33,7 +33,23 @@
       "names": {
         "CA": "Q4 50 e-tron quattro",
         "US": "Q4 50 e-tron quattro"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-audi-q4etron-2022-425581",
+          "notes": "Estimated: 2022 Q4 e-tron page shows 19-inch; 2023 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-cars-audi-q4etron-2022-425581",
+          "notes": "20-inch S line Plus Package option on the 2022 page. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

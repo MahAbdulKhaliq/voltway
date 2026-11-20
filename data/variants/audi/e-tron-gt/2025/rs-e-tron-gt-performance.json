@@ -33,7 +33,22 @@
       "names": {
         "CA": "RS e-tron GT performance",
         "US": "RS e-tron GT performance"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-cars-audi-rsetrongt-2025-467477",
+          "notes": "RS e-tron GT performance quattro 2025: 20x9/20x11 read on this Cars.com page."
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": false,
+          "source_id": "src-cars-audi-setrongt-2025-466799",
+          "notes": "21-inch wheel package ($2,000) listed on the 2025 S e-tron GT Prestige quattro page; assumed also offered on the RS performance (not read on an RS page).",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

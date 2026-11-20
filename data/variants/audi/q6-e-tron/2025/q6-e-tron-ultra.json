@@ -31,7 +31,23 @@
       "id": "standard",
       "names": {
         "US": "Q6 e-tron ultra"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-audi-q6etron-2025-465464",
+          "notes": "Q6 e-tron 2025: 19x8/19x9 read on this Cars.com page. Page is for the Prestige RWD / quattro of the same year; this ultra/RWD edition shares the body and was not read separately.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-cars-audi-q6etron-2025-465464",
+          "notes": "20-inch Wheel Package ($1,000) option on the same Cars.com page. Page is for the Prestige RWD / quattro of the same year; this ultra/RWD edition shares the body and was not read separately.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

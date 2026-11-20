@@ -31,7 +31,23 @@
       "id": "standard",
       "names": {
         "US": "Q8 Sportback e-tron ultra quattro"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-cars-audi-q8etron-2024-437884",
+          "notes": "Estimated: Q8 Sportback e-tron, sibling body style; the 2024 Q8 e-tron Premium quattro page shows 20-inch. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": false,
+          "source_id": "src-cars-audi-q8etron-2024-437886",
+          "notes": "21-inch wheels in the Launch Edition and Black Optic options on the Q8 e-tron Prestige quattro 2024 page; assumed the same on the Sportback.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

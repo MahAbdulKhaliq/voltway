@@ -37,7 +37,16 @@
       "names": {
         "CA": "Taycan Turbo S Cross Turismo",
         "US": "Taycan Turbo S Cross Turismo"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-cars-porsche-taycan-2021-420601",
+          "notes": "Estimated: the 2021 Taycan Turbo S Cross Turismo AWD page shows 20-inch; the 2026 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year. Conflict: Cars.com (US) shows 20 in; Porsche configurators for other markets list 21-inch Aero Design as standard, as on the sedan (per fact-check; not opened by me, no North American page found stating 21). 20 kept as standard for the US.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

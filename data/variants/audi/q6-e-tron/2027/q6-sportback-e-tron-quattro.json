@@ -31,7 +31,23 @@
       "id": "standard",
       "names": {
         "US": "Q6 Sportback e-tron quattro"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-audi-q6etronsportback-2025-471662",
+          "notes": "Estimated: 2025 Q6 Sportback page shows 19-inch; 2027 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-cars-audi-q6etron-2025-465467",
+          "notes": "20-inch Wheel Package offered on the sibling Q6 e-tron 2025 Prestige quattro page. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

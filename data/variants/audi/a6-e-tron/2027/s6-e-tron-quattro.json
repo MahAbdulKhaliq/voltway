@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "S6 e-tron quattro"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-cars-audi-s6etron-2025-473173",
+          "notes": "Estimated: 2025 S6 e-tron page shows 20-inch; 2027 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -33,7 +33,16 @@
       "names": {
         "CA": "Pro AWD",
         "US": "Pro AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-volkswagen-id4-2021-418045",
+          "notes": "Estimated: 2021 ID.4 Pro AWD page shows 19x8; 2022 assumed unchanged (2025 and 2026 Pro RWD pages also show 19). Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

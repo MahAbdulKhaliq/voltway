@@ -32,7 +32,23 @@
       "names": {
         "CA": "Cayenne S Coupe Electric",
         "US": "Cayenne S Coupe Electric"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 21,
+          "is_standard": true,
+          "source_id": "src-cars-porsche-cayenne-2026-487222",
+          "notes": "Estimated: the Cayenne S is not listed on Cars.com; the sibling Electric Coupe AWD page shows 21-inch. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-cars-porsche-cayenne-2026-487222",
+          "notes": "Range Setup package lists 20-inch Cayenne Aero wheels on the Cars.com Electric Coupe AWD page. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

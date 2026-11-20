@@ -30,7 +30,16 @@
       "id": "standard",
       "names": {
         "US": "Taycan 4 Performance Battery Plus"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-porsche-taycan-2026-475669",
+          "notes": "Estimated: the 2026 Taycan 4 AWD page shows 19-inch; the 2027 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

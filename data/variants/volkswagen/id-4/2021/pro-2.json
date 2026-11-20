@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "1st Edition"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-volkswagen-id4-2022-426753",
+          "notes": "Estimated: the 2022 ID.4 Pro RWD page shows 19-inch; 2021 pro-2 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

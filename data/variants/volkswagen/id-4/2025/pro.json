@@ -33,7 +33,16 @@
       "names": {
         "CA": "Pro",
         "US": "Pro"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-volkswagen-id4-2026-481602",
+          "notes": "Estimated: the 2026 ID.4 Pro RWD page shows 19-inch; 2025 pro assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

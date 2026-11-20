@@ -35,7 +35,16 @@
       "id": "standard",
       "names": {
         "US": "Taycan 4S Performance Battery"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-porsche-taycan-2020-411636",
+          "notes": "Estimated: the 2020 Taycan 4S Sedan page shows 19-inch; the 2021 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

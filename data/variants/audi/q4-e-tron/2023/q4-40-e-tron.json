@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Q4 40 e-tron"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-audi-q4etron-2022-425579",
+          "notes": "Estimated: 2022 Q4 e-tron page shows 19-inch; 2023 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

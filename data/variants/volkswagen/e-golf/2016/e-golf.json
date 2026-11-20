@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "e-Golf"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 16,
+          "is_standard": true,
+          "source_id": "src-cars-volkswagen-egolf-2016-378528",
+          "notes": "e-Golf SE 2016: 16x6.5 read on this Cars.com page (US market). The SEL Premium page for that year also shows 16-inch. Only one trim page was read for this year; other trims not opened.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Pro S AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-volkswagen-id4-2021-418046",
+          "notes": "Estimated: 2021 Pro S AWD page shows 19x8; 2022 assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

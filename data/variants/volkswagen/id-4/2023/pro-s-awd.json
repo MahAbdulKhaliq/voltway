@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "Pro S AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-cars-volkswagen-id4-2025-464031",
+          "notes": "Estimated: Pro S RWD pages 2023-2025 show 20-inch; Pro S AWD 2023 assumed the same (no Pro S AWD page read for 2023). Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

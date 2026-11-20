@@ -31,7 +31,16 @@
       "id": "standard",
       "names": {
         "US": "A6 e-tron quattro ultra"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-cars-audi-a6etron-2027-483050",
+          "notes": "Estimated: A6 e-tron Prestige RWD 2027 page shows 20x8/20x9; carried to a6-e-tron-quattro-ultra (other trims and drivetrains not read, Premium trims may differ). Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

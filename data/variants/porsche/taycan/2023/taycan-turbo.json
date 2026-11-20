@@ -37,7 +37,16 @@
       "names": {
         "CA": "Taycan Turbo",
         "US": "Taycan Turbo"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-cars-porsche-taycan-2024-444599",
+          "notes": "Estimated: the 2024 Taycan Turbo AWD page shows 20-inch; the 2023 same trim is assumed unchanged. Carried from another model year or trim, not read for this exact trim and year.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

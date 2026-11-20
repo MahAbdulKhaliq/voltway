@@ -33,7 +33,27 @@
       "names": {
         "CA": "Q4 55 e-tron quattro",
         "US": "Q4 55 e-tron quattro"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-audi-q4etron-2026-479435",
+          "notes": "Q4 e-tron Premium Plus 55 quattro 2026: 19x8 read on this Cars.com page."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-cars-audi-q4etron-2026-479435",
+          "notes": "20-inch Black Optic option on the same page."
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": false,
+          "source_id": "src-cars-audi-q4etron-2026-479435",
+          "notes": "21-inch Wheel Package option on the same page."
+        }
+      ]
     }
   ]
 }

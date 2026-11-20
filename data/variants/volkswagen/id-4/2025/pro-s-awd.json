@@ -33,7 +33,23 @@
       "names": {
         "CA": "Pro S AWD",
         "US": "Pro S AWD"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 20,
+          "is_standard": true,
+          "source_id": "src-cars-volkswagen-id4-2025-464031",
+          "notes": "Estimated: the 20-inch size comes from the Cars.com 2025 ID.4 Pro S RWD page (Pro S AWD not read for 2025); Pro S AWD assumed to match.",
+          "low_confidence": true
+        },
+        {
+          "diameter_in": 21,
+          "is_standard": false,
+          "source_id": "src-cars-volkswagen-id4-2025-464034",
+          "notes": "Pro S Plus AWD 2025 page shows 21-inch (front 21x8.5). Recorded as an option, not standard: not confirmed that this variant covers the Pro S Plus trim.",
+          "low_confidence": true
+        }
+      ]
     }
   ]
 }

@@ -33,7 +33,21 @@
       "names": {
         "CA": "Q6 e-tron quattro",
         "US": "Q6 e-tron quattro"
-      }
+      },
+      "wheels": [
+        {
+          "diameter_in": 19,
+          "is_standard": true,
+          "source_id": "src-cars-audi-q6etron-2025-465467",
+          "notes": "Q6 e-tron 2025: 19x8/19x9 read on this Cars.com page."
+        },
+        {
+          "diameter_in": 20,
+          "is_standard": false,
+          "source_id": "src-cars-audi-q6etron-2025-465467",
+          "notes": "20-inch Wheel Package ($1,000) option on the same Cars.com page."
+        }
+      ]
     }
   ]
 }

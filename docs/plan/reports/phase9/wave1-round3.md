@@ -20,7 +20,7 @@ The owner chose a third research pass for the 53 labels still unnamed. Three wer
 
 ## Owner questions
 
-1. **Rated but never sold.** Researchers found pages saying these cars were rated by the regulator but not sold in that market and year. Options: leave them out, or add them marked as not sold.
+1. **Rated but never sold. Decided (owner 2026-11-19): left out, listed in `crosswalk/not-sold.csv`.** Researchers found pages saying these cars were rated by the regulator but not sold in that market and year. Options: leave them out, or add them marked as not sold.
    - Model 3 2020 Long Range RWD and Mid Range (CA + US). InsideEVs, Nov 2019.
    - Model Y 2022 US Standard Range RWD. InsideEVs, Dec 2021.
    - IONIQ 6 2023 CA Standard Range. Guide Auto: every Canadian car has the 77.4 kWh pack.
@@ -43,3 +43,5 @@ The owner chose a third research pass for the 53 labels still unnamed. Three wer
    - EV6 2023 Standard Range RWD / Light RWD.
 
 Still held from before: Kona 2025 CA Preferred, EV9 2025 Land, EPA #50036, IONIQ 5 and C-HR 20″ pairs, Solterra 2026 US ×2, and the legacy Mach-E links.
+
+New after the not-sold decision: the US 2023 IONIQ 6 "SE Standard Range RWD" stays in (only the Canadian Standard Range was never sold). Its proposed id is `se-long-range-rwd`, which is wrong; it needs a readable id before it's applied.

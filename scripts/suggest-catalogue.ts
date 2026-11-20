@@ -37,6 +37,13 @@ const rows: RegRow[] = [
     drive: r.drive, motor_kw: epaMotorKw(r.motor),
   }))),
 ].filter((r) => !linked.has(`${r.source}|${r.source_key}`));
+// Ratings of cars never sold to the public in that market and year stay out of the catalogue
+// (owner 2026-11-19): crosswalk/not-sold.csv, one row per regulator label, with its source.
+const nsFile = join(root, 'crosswalk/not-sold.csv');
+const notSold = new Set((existsSync(nsFile) ? parseCsv(readFileSync(nsFile, 'utf8')) : []).map((r) => trimNameKey(r.source, r.year, r.label)));
+const leftOut = rows.filter((r) => notSold.has(trimNameKey(r.source, String(r.year), r.label))).length;
+rows.splice(0, rows.length, ...rows.filter((r) => !notSold.has(trimNameKey(r.source, String(r.year), r.label))));
+if (leftOut) console.log(`  ${leftOut} not-sold ratings left out (crosswalk/not-sold.csv)`);
 
 const csvFile = join(root, 'crosswalk/catalogue-review.csv');
 // Researched buyer-facing names (B91, DESIGN-9 §2): one row per regulator label, with a cited source.

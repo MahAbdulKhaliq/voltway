@@ -60,6 +60,31 @@
 7. **EQE/EQS SUV mapping** depends on fragile label prefixes. Q4 e-tron 2024 mixes launch and update hardware.
 8. The B96 decisions in `b96-review.md` still stand.
 
-## Still running
+## Specs (11 groups + Escalade IQ, applied)
 
-Spec research for the 912 new cars (11 groups) and the Escalade fact-check, then curve research. Validate fails on B96 for the new cars until those batches land.
+Every group was fact-checked, fixed and then applied. Fields with no allowed basis (same hardware elsewhere, same-pack sibling, same-cell ratio, lineup-wide feature) were left empty for you; validate fails on those cars until you decide (list in ).
+
+**Questions from the spec batches:**
+1. **AC charger, standard vs optional:** Porsche (9.6 vs 11 kW Cayenne; 11 vs 19.2/22), Tesla, Audi, Maserati (11 vs 22). We store the standard unit. OK?
+2. **Chemistry  estimates** where no page names it (Audi e-tron/Q8/GT, e-Golf, older Hyundai/Kia/Genesis, Mercedes EQB/G 580/B-Class/smart). Keep as low-confidence estimates or leave empty?
+3. **Peak figures that disagree:** Cybertruck 325 kW display vs 250 kW stated; Stellantis 183 vs 203 kW; Rivian R2 217 vs 229; Rivian Max 210; Gen 2 Large 220 vs 215.
+4. **Supercharger access:**  set where a car is absent from Tesla's NACS table; pre-2025 Audi  vs ; Canadian evidence is thin.
+5. **Labels:**  for LMO cells (early Leaf/i-MiEV); Mercedes bare pack figures read as usable; i3 preconditioning  vs ; Tesla MCU1 preconditioning.
+6. **Hardware calls:** 2025 Hummer SUV 3X pack; Celestiq estimates; Polestar 3 2026 800 V and the CA/US split (repo 2026 data is itself inconsistent: gross 106, usable 107); 2026 i5 NACS build-date cut; Q8 NCA from one source.
+
+## Curves (3 batches, applied: 3f2d149, ad1a18d, 3df32cd)
+
+Fastned graphs (read with curl, robots allows), InsideEVs and Out of Spec. All points were re-fetched by the fact-checker and match.
+- **Borrowed, low confidence:** Q4 e-tron (Fastned's graph is a copy of the ID.4), Macan (copy of Q6), EQS SUV (copy of EQS sedan), EQE SUV, A6. Same series shown on two pages, marked low confidence: Polestar 3/EX90 2025, GV60/GV70, Ioniq 38/Soul 39, RZ 450e/Solterra/bZ4X.
+- **Held for you:**
+  7. **Model S/X (23 cars):** Fastned's only curve peaks at 218 kW, the EU CCS2 cap; the cars do 250 kW here. Use it anyway (low confidence) or keep the estimate?
+  8. **Polestar 4:** Fastned peaks at 212.6 kW and lists 210; Polestar US/CA states 200. Raise dc_max_kw to Fastned's 210 (measured) so the full curve passes, or keep 200 and hold the curve?
+  9. **2027 Bolt:** a sparse Out of Spec curve (8 points, 22 % gaps). Show it or keep the estimate?
+  10. **2017–19 Bolt:** the curve peaks at 46 kW; our dc_max_kw is a 55 kW estimate, other sources say 50. Change to 50?
+- **Dropped:** Plaid and Air Dream merges (too few true measurements), Sapphire borrowing the 2021 Dream test, Polestar 3 2026 and RZ 300e (pack mismatch), e-tron 2019/20/23.
+- 11. **Fastned reuse terms** are unconfirmed. Needed before any push.
+
+## Still open
+
+- Gap-fill research for the empty required fields is running; its batch gets fact-checked before it's applied.
+- Full checks (validate, tests, build) run once that lands.

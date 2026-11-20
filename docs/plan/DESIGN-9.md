@@ -179,6 +179,7 @@ Decisions from the waves 2–3 review, recorded in gaps-and-questions.md:
 - **B106** the Cars page shows 48 cards or 50 rows per page.
 - **B107** cars with no DC fast charging are left out (42 cars; `scripts/remove-variants.mjs`).
 - **B108** Cars.com and KBB may be cited for wheel sizes (owner, 2026-11-20).
+- **B109** Auto-Data.net stays as a source (owner, 2026-11-20).
 
 Research runs as background ev-data-researcher batches (wheels by make group, GM charger options, B97 trucks and consumption, B96 gaps), each fact-checked before it is applied. Data changes stay local until the owner reviews them.
 

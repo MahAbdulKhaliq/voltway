@@ -20,6 +20,7 @@ Shared brief for the round 2 researchers. Read `research/SPECS-BRIEF-W2.md` too:
   - A variant (one regulator rating) can cover several maker trims. Mark a size `is_standard: true` when it is standard on **any** trim the variant covers, and `false` only when it is an option on every trim that offers it. Name the trim in each entry's notes, and list the smallest standard size first. A size that differs by market follows the same rule, with the market named in the note. (Added 2026-11-20.)
   - Don't use iSeeCars, Tire Wheel Guide or Unplugged Performance: their terms bar reuse or scraping.
   - Cars.com and KBB are allowed for wheel sizes (owner decision B108, 2026-11-20). Cars.com pages show one trim's wheel only, so name the trim the page shows, and mark sizes carried to sibling trims `low_confidence`.
+  - Auto-Data.net is allowed (owner decision B109, 2026-11-20).
   - Best sources: the maker's spec or build pages, press kits and brochures (Canadian site for Canadian trims). After that: Car and Driver, MotorTrend, Edmunds-style spec pages that don't block, Driving.ca, Guide Auto, Wikipedia.
   - Sizes can carry over from the year before or after only when a source says that year is unchanged. Mark those `low_confidence` and say so in the notes.
 - **Onboard-charger options (B104):**

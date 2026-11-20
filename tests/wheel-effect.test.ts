@@ -55,6 +55,13 @@ describe('the real build: per-trim ratings and wheels', () => {
     expect(base.ac_max_kw?.value.value).toBe(11.5);
   });
 
+  it('gives a charger-option trim its own rated 240 V time (B104: 2026 Equinox EV AWD 19.2 kW)', () => {
+    const c = car('chevrolet/equinox-ev/2026/awd');
+    expect(c.fields.recharge_time_240v_h?.value.value).toBe(9.5);
+    expect(c.trims.find((x) => x.id === '19-2-kw-charger')!.recharge_time_240v_h?.value.value).toBe(5.9);
+    expect(c.trims.find((x) => x.id === '11-5-kw-charger')!.recharge_time_240v_h).toBeFalsy();
+  });
+
   it('makes NRCan wheel-split rows wheel options of one trim, each with its rating (IONIQ 5 AWD 19″ / 20″, B91)', () => {
     const trims = car('hyundai/ioniq-5/2026/long-range-awd').trims;
     expect(trims).toHaveLength(1);

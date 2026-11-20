@@ -10,6 +10,7 @@ import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CarDetail, Field, IndexEntry, SourcedValue } from '../lib/types.ts';
 import { applyWheelEffect, wheelSizeOptions, ratedOnItsOwn, ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
 import { display } from '../lib/format.ts';
+import { levelTwoTime } from '../lib/l2-time.ts';
 import CurveViewer from './CurveViewer.tsx';
 import { carMapInfo, linkPlugs } from '../lib/map-filter.ts';
 import { GROUPS } from '../lib/spec-groups.ts';
@@ -146,6 +147,12 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const usable = f.capacity_usable_kwh ?? null;
   const battery = usable ?? f.capacity_gross_kwh ?? null;
   const ac: Field = trim?.ac_max_kw ?? f.ac_max_kw ?? null;
+  // B104: the Level 2 time follows the picked trim's onboard charger (the car's time is rated with the first trim's).
+  const refAc = (car?.trims[0]?.ac_max_kw ?? f.ac_max_kw)?.value.value as number | undefined;
+  const trimAc = ac?.value.value as number | undefined;
+  const carL2 = f.recharge_time_240v_h ?? null;
+  const l2: Field = levelTwoTime(carL2, trim?.recharge_time_240v_h ?? null, refAc, trimAc,
+    t('l2.basis', { trim: formatNumber(trimAc ?? 0, 1), ref: formatNumber(refAc ?? 0, 1), hours: formatNumber((carL2?.value.value as number) ?? 0, 1) }));
   // Figures rated for this trim when it has its own rating, else the variant's.
   const rated: Record<string, Field> = {
     range_km: trim?.range_km ?? f.range_km ?? null,
@@ -376,7 +383,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
                   <table className="stack-table">
                     <tbody>
                       {g.fields.map((k) => {
-                        const field: Field = k in shown ? shown[k] : k === 'ac_max_kw' ? ac : f[k] ?? null;
+                        const field: Field = k in shown ? shown[k] : k === 'ac_max_kw' ? ac : k === 'recharge_time_240v_h' ? l2 : f[k] ?? null;
                         return <tr key={k}><th scope="row">{label(k)}</th><td data-label={label(k)}><Value field={field} sources={sources} label={label(k)} unit={unit} approx={adjusting && k in shown && !official[k]} />{k in shown && ratedLine(k)}</td></tr>;
                       })}
                       {g.title === 'group.ports' && (

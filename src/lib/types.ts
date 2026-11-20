@@ -58,6 +58,7 @@ export interface TrimOut {
   consumption_combined_wh_per_km: Field<number>; // only set when the trim is rated on its own
   consumption_city_wh_per_km: Field<number>;
   consumption_highway_wh_per_km: Field<number>;
+  recharge_time_240v_h?: Field<number>; // B104: only set when the trim is rated on its own row and differs
   ac_max_kw: Field<number>;     // the trim's own onboard charger (B7), when known
   wheels: { diameter_in: number; is_standard: boolean; tire_size?: string; source_id?: string; notes?: string; low_confidence?: boolean; rated_range_km?: SourcedValue; rated_consumption_wh_per_km?: SourcedValue }[];
 }

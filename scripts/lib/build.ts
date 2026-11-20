@@ -401,6 +401,7 @@ export function buildCars(root: string): BuildResult {
         consumption_combined_wh_per_km: differs(per('consumption_combined_wh_per_km'), fields.consumption_combined_wh_per_km) as Field<number>,
         consumption_city_wh_per_km: differs(per('consumption_city_wh_per_km'), fields.consumption_city_wh_per_km) as Field<number>,
         consumption_highway_wh_per_km: differs(per('consumption_highway_wh_per_km'), fields.consumption_highway_wh_per_km) as Field<number>,
+        recharge_time_240v_h: differs(per('recharge_time_240v_h'), fields.recharge_time_240v_h) as Field<number>,
         ac_max_kw: ac,
         wheels,
       };

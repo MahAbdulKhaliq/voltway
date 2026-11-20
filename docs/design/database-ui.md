@@ -131,6 +131,7 @@ One page per **model year**, with a **variant selector** (and an optional trim s
    - Each tile carries its **source badge** (§7).
 3. **Charging curve:** the full **curve viewer**, set up for this variant.
 4. **Specs (layer 2):** grouped tables (Battery · Charging · Efficiency & range · Ports & access · Dimensions *later*). "Unknown" values are shown, not hidden.
+   - *Added 2026-11-20 (B104):* the AC charger and the full charge at 240 V follow the trim picked. A charger-option trim with its own regulator row shows that row's 240 V time. One with no row of its own shows the car's rated time scaled by the charger ratio, marked Estimated, with the basis in its badge.
 5. **Trims:** a table of trims on this variant: wheels (standard and options), heat pump, trim-specific range where available.
 6. **Sources (layer 3):** every source used on this page, with license and access date. "Report a problem" (*later*, could be just a mailto or GitHub issue link).
 

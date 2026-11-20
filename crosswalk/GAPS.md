@@ -40,7 +40,7 @@ A warned curve is the default only once a person clears it: `reviewed_note` on a
 
 - `cadillac/lyriq/2026/awd` (template curve only · has published 10–80%): preconditioning, heat pump (OpenEV says standard-or-optional only), wheel sizes
 - `cadillac/lyriq/2026/standard` (template curve only · has published 10–80%): preconditioning, heat pump (OpenEV says standard-or-optional only)
-- `cadillac/lyriq/2026/v` (template curve only · has published 10–80%): preconditioning, heat pump (OpenEV says standard-or-optional only)
+- `cadillac/lyriq-v/2026/v` (template curve only · has published 10–80%): preconditioning, heat pump (OpenEV says standard-or-optional only)
 
 ## chevrolet/blazer-ev
 

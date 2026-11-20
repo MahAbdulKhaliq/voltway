@@ -1,0 +1,70 @@
+{
+  "id": "cadillac/lyriq-v/2026/v",
+  "model_id": "cadillac/lyriq-v",
+  "year": 2026,
+  "name": "LYRIQ-V",
+  "drivetrain": "awd",
+  "powertrain_id": "cadillac/lyriq-v/2026-v",
+  "markets": [
+    "CA",
+    "US"
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-guideautoweb-gm-nacs-adapter",
+      "low_confidence": true,
+      "notes": "Quick web lookup. Canadian article (Sept 2024) on the GM NACS adapter for Canadian owners of Blazer EV, Equinox EV, Silverado EV and LYRIQ. Says nothing about 2026 trim ports."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-thechargeport-lyriq-2027",
+      "low_confidence": true,
+      "notes": "US page: CCS1 cars use Superchargers with the GM-approved NACS adapter ($299) / optional adapter in GM's spec guide. Current state for model year 2026: adapter needed. Markets: CA/US. (2026 car: same port and adapter state as the 2025 car on this model.)"
+    }
+  ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "estimated",
+      "source_id": "src-thechargeport-lyriq",
+      "low_confidence": true,
+      "notes": "Estimated: CCS1 (J1772 native inlet) through the 2026 model year: press pages for this model line state CCS1 for 2024-2026 and NACS from 2027. Same port assumed for the Canadian car (Guide Auto 2024-09-18: Canadian owners need the GM adapter). Model year 2026. (2026 car: same port and adapter state as the 2025 car on this model.)"
+    }
+  ],
+  "trims": [
+    {
+      "id": "11-5-kw-charger",
+      "names": {
+        "CA": "LYRIQ-V (11.5 kW Charger)",
+        "US": "LYRIQ-V"
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-cars-lyriq-468080",
+          "low_confidence": true,
+          "notes": "US Cars.com: LYRIQ-V 22 in, 275/40R22. A Canadian snippet reportedly mentioned 20 in; not confirmed."
+        }
+      ]
+    },
+    {
+      "id": "19-2-kw-charger",
+      "names": {
+        "CA": "LYRIQ-V (19.2 kW Charger)"
+      },
+      "wheels": [
+        {
+          "diameter_in": 22,
+          "is_standard": true,
+          "source_id": "src-cars-lyriq-468080",
+          "low_confidence": true,
+          "notes": "US Cars.com: LYRIQ-V 22 in, 275/40R22. A Canadian snippet reportedly mentioned 20 in; not confirmed."
+        }
+      ]
+    }
+  ]
+}

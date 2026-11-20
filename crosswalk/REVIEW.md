@@ -684,7 +684,7 @@ NRCan (2, proposed as one variant: they differ only by kW onboard charger):
 - OpenEV Data: ★ 2025 Lyriq All-Wheel Drive All-Wheel Drive `cadillac:lyriq:2025:lyriq_awd` (95 kWh · awd) · score 0.55 · name 33% similar; drivetrain awd matches; motor power 380 kW ≈ 375 kW; 1 model year older
 - Chargeprice: *no candidate found*
 
-### `cadillac/lyriq/2026/v`
+### `cadillac/lyriq-v/2026/v`
 
 NRCan (2, proposed as one variant: they differ only by kW onboard charger):
 - `2026 · Cadillac · LYRIQ-V (11.5 kW Charger)` · 459 km · 375 kW

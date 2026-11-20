@@ -1,0 +1,53 @@
+{
+  "id": "toyota/bz4x/2024/xle-awd",
+  "model_id": "toyota/bz4x",
+  "year": 2024,
+  "name": "XLE AWD",
+  "drivetrain": "awd",
+  "powertrain_id": "toyota/bz4x/2024-xle-awd",
+  "markets": [
+    "CA",
+    "US"
+  ],
+  "charge_port": [
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-toyota-ca-media-bz-onsale-2026",
+      "low_confidence": true,
+      "notes": "Toyota Canada release footnote: \"MY2023-25 BEV drivers will need an CCS1 to J3400 adapter\" to use NACS plugs, so the car's own port is CCS1. The US page says the same (CCS to J3400 adapter)."
+    },
+    {
+      "value": "ccs1",
+      "kind": "manufacturer",
+      "source_id": "src-r19-toyota-us-bz-onsale-2026",
+      "low_confidence": true,
+      "notes": "Toyota USA release footnote: \"MY2023-25 BEV drivers will need a CCS to J3400 adapter (aka NACS Adapter)\"; the 2026 bZ is the first with a standard NACS inlet."
+    }
+  ],
+  "supercharger_access": [
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-r19-toyota-us-bz-onsale-2026",
+      "low_confidence": true,
+      "notes": "Toyota USA: 2023-25 bZ4X owners need a CCS to J3400 adapter and get one free through a dealer from November 2025 (current state)."
+    },
+    {
+      "value": "via_adapter",
+      "kind": "manufacturer",
+      "source_id": "src-r19-toyota-ca-charging",
+      "low_confidence": true,
+      "notes": "Toyota Canada: the NACS adaptor is designed exclusively for 2025 and earlier Toyota BEV models; with it owners can use the NACS network. Drive Tesla Canada reports the free adapter for 2023-25 bZ4X."
+    }
+  ],
+  "trims": [
+    {
+      "id": "standard",
+      "names": {
+        "CA": "XLE AWD",
+        "US": "XLE AWD"
+      }
+    }
+  ]
+}

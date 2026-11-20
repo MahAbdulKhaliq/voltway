@@ -181,9 +181,9 @@ cadillac/lyriq/2026/standard,openev,cadillac:lyriq:2025:lyriq,automatic,false,,"
 cadillac/lyriq/2026/awd,nrcan,2026 · Cadillac · LYRIQ AWD (11.5 kW Charger),automatic,true,11-5-kw-charger,Approved by the owner 2026-11-15 (B8).
 cadillac/lyriq/2026/awd,nrcan,2026 · Cadillac · LYRIQ AWD (19.2 kW Charger),automatic,true,19-2-kw-charger,Approved by the owner 2026-11-15 (B8).
 cadillac/lyriq/2026/awd,openev,cadillac:lyriq:2025:lyriq_awd,automatic,false,,Approved by the owner 2026-11-15 (B8). Suggested because: name 33% similar; drivetrain awd matches; motor power 380 kW ≈ 375 kW; 1 model year older
-cadillac/lyriq/2026/v,nrcan,2026 · Cadillac · LYRIQ-V (11.5 kW Charger),automatic,true,11-5-kw-charger,Approved by the owner 2026-11-15 (B8).
-cadillac/lyriq/2026/v,nrcan,2026 · Cadillac · LYRIQ-V (19.2 kW Charger),automatic,true,19-2-kw-charger,Approved by the owner 2026-11-15 (B8).
-cadillac/lyriq/2026/v,openev,cadillac:lyriq:2025:lyriq_awd,automatic,false,,"Approved by the owner 2026-11-15 (B8). Suggested because: name 33% similar; candidate is AWD; NRCan row not marked, but power matches; motor power 380 kW ≈ 375 kW; 1 model year older"
+cadillac/lyriq-v/2026/v,nrcan,2026 · Cadillac · LYRIQ-V (11.5 kW Charger),automatic,true,11-5-kw-charger,Approved by the owner 2026-11-15 (B8).
+cadillac/lyriq-v/2026/v,nrcan,2026 · Cadillac · LYRIQ-V (19.2 kW Charger),automatic,true,19-2-kw-charger,Approved by the owner 2026-11-15 (B8).
+cadillac/lyriq-v/2026/v,openev,cadillac:lyriq:2025:lyriq_awd,automatic,false,,"Approved by the owner 2026-11-15 (B8). Suggested because: name 33% similar; candidate is AWD; NRCan row not marked, but power matches; motor power 380 kW ≈ 375 kW; 1 model year older"
 bmw/i4/2026/edrive40-gran-coupe,nrcan,"2026 · BMW · i4 eDrive40 Gran Coupe (18"" Wheels)",automatic,true,18-in-wheels,Approved by the owner 2026-11-15 (B8).
 bmw/i4/2026/edrive40-gran-coupe,nrcan,"2026 · BMW · i4 eDrive40 Gran Coupe (19"" Wheels)",automatic,true,18-in-wheels,Approved by the owner 2026-11-15 (B8).
 bmw/i4/2026/edrive40-gran-coupe,openev,bmw:i4:2025:i4,automatic,true,,Approved by the owner 2026-11-15 (B8). Suggested because: name 67% similar; drivetrain rwd matches; motor power 250 kW ≈ 250 kW; 1 model year older
@@ -256,8 +256,8 @@ cadillac/lyriq/2023/rwd,nrcan,2023 · Cadillac · LYRIQ,manual,true,standard,App
 cadillac/lyriq/2023/rwd,epa,2023 · Cadillac · LYRIQ · #45749,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 cadillac/lyriq/2027/rwd,epa,2027 · Cadillac · LYRIQ 11kW Charger · #50612,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 cadillac/lyriq/2027/rwd,epa,2027 · Cadillac · LYRIQ 19kW Charger · #50613,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-cadillac/lyriq/2027/lyriq-v,epa,2027 · Cadillac · LYRIQ AWD V SERIES 11kW Charger · #50616,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-cadillac/lyriq/2027/lyriq-v,epa,2027 · Cadillac · LYRIQ AWD V SERIES 19kW Charger · #50617,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+cadillac/lyriq-v/2027/lyriq-v,epa,2027 · Cadillac · LYRIQ AWD V SERIES 11kW Charger · #50616,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+cadillac/lyriq-v/2027/lyriq-v,epa,2027 · Cadillac · LYRIQ AWD V SERIES 19kW Charger · #50617,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 chevrolet/blazer-ev/2024/awd,nrcan,2024 · Chevrolet · Blazer EV 2LT/RS AWD,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 chevrolet/blazer-ev/2024/awd,epa,2024 · Chevrolet · Blazer EV AWD · #47445,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 chevrolet/blazer-ev/2024/rs-rwd,nrcan,2024 · Chevrolet · Blazer EV RS,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
@@ -561,20 +561,20 @@ tesla/model-y/2027/l,epa,2027 · Tesla · Model Y L (20in Wheels) · #50862,manu
 tesla/model-y/2027/performance,epa,2027 · Tesla · Model Y Performance AWD · #51069,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 tesla/model-y/2027/premium-awd,epa,2027 · Tesla · Model Y Premium AWD · #51070,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 tesla/model-y/2027/premium-rwd,epa,2027 · Tesla · Model Y Premium RWD · #51071,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2023/xle,nrcan,2023 · Toyota · bZ4X AWD,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2023/xle,epa,2023 · Toyota · bZ4X AWD · #45758,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2023/xle-fwd,epa,2023 · Toyota · bZ4X · #45756,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2023/limited-awd,epa,2023 · Toyota · bZ4X LIMITED AWD · #45759,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2024/xle-awd,nrcan,2024 · Toyota · bZ4X AWD,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2024/xle-awd,epa,2024 · Toyota · bZ4X AWD · #47920,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2024/xle-fwd,epa,2024 · Toyota · bZ4X · #47918,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2024/limited-awd,epa,2024 · Toyota · bZ4X Limited AWD · #47921,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2025/le-awd,nrcan,"2025 · Toyota · bZ4X AWD (18"" Wheels)",manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2025/xle-awd-technology-package,nrcan,"2025 · Toyota · bZ4X AWD (20"" Wheels)",manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2025/xle-awd,epa,2025 · Toyota · bZ4X AWD (18inch Wheels) · #49127,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2025/nightshade-awd,epa,2025 · Toyota · bZ4X AWD (20inch Wheels) · #49128,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2025/limited-fwd,epa,2025 · Toyota · bZ4X LIMITED · #48997,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2025/limited-awd,epa,2025 · Toyota · bZ4X LIMITED AWD · #49129,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2023/xle,nrcan,2023 · Toyota · bZ4X AWD,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2023/xle,epa,2023 · Toyota · bZ4X AWD · #45758,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2023/xle-fwd,epa,2023 · Toyota · bZ4X · #45756,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2023/limited-awd,epa,2023 · Toyota · bZ4X LIMITED AWD · #45759,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2024/xle-awd,nrcan,2024 · Toyota · bZ4X AWD,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2024/xle-awd,epa,2024 · Toyota · bZ4X AWD · #47920,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2024/xle-fwd,epa,2024 · Toyota · bZ4X · #47918,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2024/limited-awd,epa,2024 · Toyota · bZ4X Limited AWD · #47921,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2025/le-awd,nrcan,"2025 · Toyota · bZ4X AWD (18"" Wheels)",manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2025/xle-awd-technology-package,nrcan,"2025 · Toyota · bZ4X AWD (20"" Wheels)",manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2025/xle-awd,epa,2025 · Toyota · bZ4X AWD (18inch Wheels) · #49127,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2025/nightshade-awd,epa,2025 · Toyota · bZ4X AWD (20inch Wheels) · #49128,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2025/limited-fwd,epa,2025 · Toyota · bZ4X LIMITED · #48997,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2025/limited-awd,epa,2025 · Toyota · bZ4X LIMITED AWD · #49129,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 toyota/bz/2026/xle-fwd,epa,2026 · Toyota · bZ (energy capacity 191 Ah) · #50042,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 toyota/bz/2026/xle-plus-fwd,epa,2026 · Toyota · bZ (energy capacity 200 Ah) · #49983,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 toyota/bz/2026/limited-awd,epa,2026 · Toyota · bZ AWD LIMITED · #49986,manual,true,standard,"Approved by the owner 2026-11-19 (B90 wave 1, joins an existing car)."
@@ -721,10 +721,10 @@ tesla/model-y/2025/long-range-awd,nrcan,2025 · Tesla · Model Y Long Range AWD-
 tesla/model-y/2025/long-range-awd,epa,2025 · Tesla · Model Y Long Range AWD · #48770,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 tesla/model-y/2025/performance,nrcan,2025 · Tesla · Model Y Performance-I,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 tesla/model-y/2025/performance,epa,2025 · Tesla · Model Y Performance AWD · #48772,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2024/le-fwd,nrcan,2024 · Toyota · bZ4X,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2024/limited-fwd,epa,2024 · Toyota · bZ4X Limited · #47919,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2025/le,nrcan,2025 · Toyota · bZ4X,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
-toyota/bz/2025/xle-fwd,epa,2025 · Toyota · bZ4X · #49126,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2024/le-fwd,nrcan,2024 · Toyota · bZ4X,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2024/limited-fwd,epa,2024 · Toyota · bZ4X Limited · #47919,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2025/le,nrcan,2025 · Toyota · bZ4X,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
+toyota/bz4x/2025/xle-fwd,epa,2025 · Toyota · bZ4X · #49126,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 toyota/bz/2027/limited-awd,epa,2027 · Toyota · bZ AWD LIMITED · #50866,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 toyota/bz/2027/woodland-awd,epa,2027 · Toyota · bZ Woodland AWD 235/60R18 · #50868,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 toyota/bz/2027/woodland-awd,epa,2027 · Toyota · bZ Woodland AWD 235/65R18 · #50869,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
@@ -740,8 +740,8 @@ cadillac/lyriq/2025/awd,nrcan,2025 · Cadillac · LYRIQ AWD (19.2 kW Charger),ma
 cadillac/lyriq/2025/awd,epa,2025 · Cadillac · LYRIQ AWD (11 kW Charger) · #48692,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 cadillac/lyriq/2025/awd,epa,2025 · Cadillac · LYRIQ AWD (19 kW Charger) · #48693,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 cadillac/lyriq/2026/awd,epa,2026 · Cadillac · LYRIQ AWD · #49948,manual,true,11-5-kw-charger,"Approved by the owner 2026-11-19 (B90 wave 1, joins an existing car)."
-cadillac/lyriq/2026/v,epa,2026 · Cadillac · LYRIQ PAWD V SERIES (11 kW Charger) · #49633,manual,true,11-5-kw-charger,"Approved by the owner 2026-11-19 (B90 wave 1, joins an existing car)."
-cadillac/lyriq/2026/v,epa,2026 · Cadillac · LYRIQ PAWD V SERIES (19 kW Charger) · #49634,manual,true,11-5-kw-charger,"Approved by the owner 2026-11-19 (B90 wave 1, joins an existing car)."
+cadillac/lyriq-v/2026/v,epa,2026 · Cadillac · LYRIQ PAWD V SERIES (11 kW Charger) · #49633,manual,true,11-5-kw-charger,"Approved by the owner 2026-11-19 (B90 wave 1, joins an existing car)."
+cadillac/lyriq-v/2026/v,epa,2026 · Cadillac · LYRIQ PAWD V SERIES (19 kW Charger) · #49634,manual,true,11-5-kw-charger,"Approved by the owner 2026-11-19 (B90 wave 1, joins an existing car)."
 cadillac/lyriq/2027/awd,epa,2027 · Cadillac · LYRIQ AWD 11kW Charger · #50614,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 cadillac/lyriq/2027/awd,epa,2027 · Cadillac · LYRIQ AWD 19kW Charger · #50615,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
 chevrolet/blazer-ev/2025/fwd,nrcan,2025 · Chevrolet · Blazer EV,manual,true,standard,Approved by the owner 2026-11-19 (B90 wave 1).
@@ -1087,7 +1087,6 @@ audi/q6-e-tron/2027/sq6-e-tron,epa,2027 · Audi · SQ6 e-tron (20 inch Tires) ·
 audi/q6-e-tron/2027/sq6-e-tron,epa,2027 · Audi · SQ6 e-tron (21 inch Tires) · #50381,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 audi/q6-e-tron/2027/sq6-sportback-e-tron,epa,2027 · Audi · SQ6 Sportback e-tron (20 inch Tires) · #50382,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 audi/q6-e-tron/2027/sq6-sportback-e-tron,epa,2027 · Audi · SQ6 Sportback e-tron (21 inch Tires) · #50383,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
-azure-dynamics/transit-connect-electric/2012/transit-connect-electric,epa,2012 · Azure Dynamics · Transit Connect Electric Van/Wagon · #31893,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 bmw/i3-sedan/2027/i3-50-xdrive,epa,2027 · BMW · i3 50 xDrive Sedan (19 inch All-Season Tires) · #51011,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 bmw/i3-sedan/2027/i3-50-xdrive,epa,2027 · BMW · i3 50 xDrive Sedan (20 inch All-Season Tires) · #51012,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 bmw/i3-sedan/2027/i3-50-xdrive,epa,2027 · BMW · i3 50 xDrive Sedan (21 inch Summer Tires) · #51014,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
@@ -1487,8 +1486,6 @@ gmc/sierra-ev/2027/extended-range,epa,2027 · GMC · Sierra EV Ext Range (11kW C
 honda/clarity-electric/2017/clarity-electric,epa,2017 · Honda · Clarity EV · #39191,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 honda/clarity-electric/2018/clarity-electric,epa,2018 · Honda · Clarity EV · #40044,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 honda/clarity-electric/2019/clarity-electric,epa,2019 · Honda · Clarity EV · #41185,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
-honda/fit-ev/2013/fit-ev,epa,2013 · Honda · Fit EV · #33265,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
-honda/fit-ev/2014/fit-ev,epa,2014 · Honda · Fit EV · #33905,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 honda/prologue/2024/ex-l-awd,nrcan,2024 · Honda · Prologue EX-L AWD,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 honda/prologue/2024/touring-awd,nrcan,2024 · Honda · Prologue Touring AWD,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 honda/prologue/2024/touring-awd,epa,2024 · Honda · Prologue AWD Touring · #47830,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
@@ -1535,7 +1532,6 @@ jeep/wagoneer-s/2025/awd,nrcan,2025 · Jeep · Wagoneer S AWD (Falken Tire),manu
 jeep/wagoneer-s/2025/awd,epa,2025 · Jeep · Wagoneer S AWD (Falken tire) · #49093,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 jeep/wagoneer-s/2026/awd,nrcan,2026 · Jeep · Wagoneer S AWD (Falken Tire),manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 jeep/wagoneer-s/2026/awd,epa,2026 · Jeep · Wagoneer S AWD (Falken tire) · #50209,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
-kandi/k27/2021/k27,epa,2021 · Kandi · K27 · #43640,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 kia/ev3/2027/long-range-awd,epa,2027 · Kia · EV3 Long Range AWD · #50648,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 kia/ev3/2027/long-range-fwd,epa,2027 · Kia · EV3 Long Range FWD · #50649,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).
 kia/ev3/2027/gt-long-range-awd,epa,2027 · Kia · EV3 Long Range GT AWD · #50650,manual,true,standard,Approved by the owner 2026-11-20 (B90 wave 1).

@@ -56,7 +56,13 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
   const [linkWindow, setLinkWindow] = useState<{ carId: string; start: number; end: number } | null>(null);
   // Heat pump checkbox (B116, owner 2026-11-20): only for trims where it's optional; unticked = the safe case.
   const [hpFitted, setHpFitted] = useState(false);
-  useEffect(() => { setWheelIn(null); setHpFitted(false); }, [carId, trimId]);
+  // B120: showing My car, Wheels and Heat pump start from its saved settings; any other car from the defaults.
+  useEffect(() => {
+    const first = car?.trims[0]?.id ?? null;
+    const mine = myCar && car && myCar.carId === car.id && carId === car.id && (car.trims.length < 2 || (myCar.trimId ?? first) === (trimId ?? first)) ? myCar : null;
+    setWheelIn(mine?.wheelIn ?? null);
+    setHpFitted(Boolean(mine?.heatPump));
+  }, [carId, trimId, car, myCar?.carId, myCar?.trimId, myCar?.wheelIn, myCar?.heatPump]); // eslint-disable-line react-hooks/exhaustive-deps
   // °C/°F (B116) is remembered; with no saved choice it follows the distance unit (miles → °F),
   // also when km/mi is switched later (design §1).
   useEffect(() => {

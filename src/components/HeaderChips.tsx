@@ -6,18 +6,19 @@
 // planner. The car's own plug is on by default; the trip panel opens this menu with the
 // "voltway:mycar-menu" event. The car dialog opens on "voltway:pick-car" (B58) and shows the
 // same switches for the car being chosen.
+// B120: "Modify car settings" (menu item, or the "voltway:mycar-settings" event from the trip
+// panel) opens a dialog with the trim, wheels, heat pump and plugs; changed wheels or heat pump
+// put a "*" after the car's name.
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { t } from '../i18n/t.ts';
-import { getMyCar, setMyCar, type MyCar } from '../lib/my-car.ts';
+import { getMyCar, setMyCar, settingsChanged, type MyCar } from '../lib/my-car.ts';
 import CarPicker from './CarPicker.tsx';
+import { CarSettingsPanel } from './CarSettings.tsx';
 import { carChipParts, carLabel, carModel, LABEL_VERSION } from '../lib/car-label.ts';
 import type { IndexEntry } from '../lib/types.ts';
 import { DC_PLUGS, carMapInfo, defaultDcPlugs, type DcPlug } from '../lib/map-filter.ts';
 import type { MessageKey } from '../i18n/t.ts';
-
-const carHref = (id: string, trim: string | null) =>
-  `/charging?car=${id.split('/').map(encodeURIComponent).join('/')}${trim ? `&trim=${encodeURIComponent(trim)}` : ''}`;
 
 export default function HeaderChips() {
   const [mine, setMine] = useState<MyCar | null>(null);
@@ -30,6 +31,8 @@ export default function HeaderChips() {
   const [cars, setCars] = useState<IndexEntry[] | null>(null);
   const [carsFailed, setCarsFailed] = useState(false);
   const [picking, setPicking] = useState(false);
+  const settingsDialog = useRef<HTMLDialogElement>(null);
+  const [setting, setSetting] = useState(false);
   // The car's own port (for the default plug switches), read from its car file when the menu opens.
   const [port, setPort] = useState<{ carId: string; port: string | null; adapter?: string | null } | null>(null);
   const focusPlugs = useRef(false);
@@ -81,7 +84,10 @@ export default function HeaderChips() {
     // B58: the trip form's "Choose your car", "Change car" and the map's car tile open the car dialog.
     const onPickCar = () => openPickerRef.current(document.activeElement as HTMLElement | null);
     window.addEventListener('voltway:pick-car', onPickCar);
+    const onSettings = () => openSettingsRef.current(document.activeElement as HTMLElement | null);
+    window.addEventListener('voltway:mycar-settings', onSettings);
     return () => {
+      window.removeEventListener('voltway:mycar-settings', onSettings);
       window.removeEventListener('voltway:pick-car', onPickCar);
       window.removeEventListener('voltway:mycar-menu', onMenu);
       window.removeEventListener('voltway:mycar', onMine);
@@ -150,20 +156,33 @@ export default function HeaderChips() {
   };
   const openPickerRef = useRef(openPicker);
   openPickerRef.current = openPicker;
+  // B120: the Modify car settings dialog (a modal <dialog> like the picker).
+  const openSettings = (from: HTMLElement | null) => {
+    if (!getMyCar()) return;
+    opener.current = from ?? button.current;
+    setOpen(false);
+    setSetting(true);
+    settingsDialog.current?.showModal();
+    requestAnimationFrame(() => settingsDialog.current && (settingsDialog.current.scrollTop = 0));
+  };
+  const openSettingsRef = useRef(openSettings);
+  openSettingsRef.current = openSettings;
+  const closeSettings = () => settingsDialog.current?.close();
   const closePicker = () => dialog.current?.close();
   useEffect(() => {
     // Focus the search box once the picker is in the dialog.
     if (picking && cars) dialog.current?.querySelector<HTMLInputElement>('input[type=search]')?.focus();
   }, [picking, cars]);
-  const onPick = (carId: string, trimId: string | null, plugs: DcPlug[] | null) => {
+  const onPick = (carId: string, trimId: string | null, plugs: DcPlug[] | null, extra?: Pick<MyCar, 'wheelIn' | 'heatPump'>) => {
     const e = cars?.find((c) => c.id === carId);
     // B58: the plug switches shown in the dialog are saved with the car (none changed and a new
     // car: its own plug, worked out from its file when needed).
-    setMyCar({ carId, trimId, label: e ? carLabel(e) : undefined, model: e ? carModel(e) : undefined, labelV: LABEL_VERSION, ...(plugs ? { plugs } : {}) });
+    setMyCar({ carId, trimId, label: e ? carLabel(e) : undefined, model: e ? carModel(e) : undefined, labelV: LABEL_VERSION, ...(plugs ? { plugs } : {}), ...extra });
     closePicker();
   };
 
   if (!ready) return null;
+  const changed = settingsChanged(mine);
   const onMenuKey = (e: React.KeyboardEvent) => {
     if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
     e.preventDefault();
@@ -176,13 +195,13 @@ export default function HeaderChips() {
     <div className="chips">
       {mine ? (
         <div className="chip-menu" ref={root}>
-          <button type="button" ref={button} className="chip" aria-haspopup="menu" aria-expanded={open} aria-label={t('mycar.chip', { car: carChipParts(mine)[2] })} title={carChipParts(mine)[2]} onClick={() => setOpen((o) => !o)}>
+          <button type="button" ref={button} className="chip" aria-haspopup="menu" aria-expanded={open} aria-label={t('mycar.chip', { car: carChipParts(mine)[2] }) + (changed ? ` (${t('mycar.changed')})` : '')} title={carChipParts(mine)[2] + (changed ? ` * ${t('mycar.changed')}` : '')} onClick={() => setOpen((o) => !o)}>
             {/* B71: no "My car:" once a car is picked; as much of the name as fits. */}
-            <span className="chip-text" ref={carText}>{carChipParts(mine)[fit]}</span> <span aria-hidden="true">▾</span>
+            <span className="chip-text" ref={carText}>{carChipParts(mine)[fit]}</span>{changed && <span className="car-changed" aria-hidden="true">*</span>} <span aria-hidden="true">▾</span>
           </button>
           {open && (
             <div className="chip-pop" role="menu" aria-label={t('mycar.menu')} onKeyDown={onMenuKey}>
-              <a role="menuitem" href={carHref(mine.carId, mine.trimId)}>{t('mycar.open')}</a>
+              <button type="button" role="menuitem" onClick={() => openSettings(button.current)}>{t('mycar.settings')}</button>
               <button type="button" role="menuitem" onClick={() => openPicker(button.current)}>{t('mycar.change')}</button>
               <button type="button" role="menuitem" onClick={() => { setMyCar(null); setOpen(false); button.current?.focus(); }}>{t('mycar.forget')}</button>
               <div className="chip-plugs" role="group" aria-labelledby="mycar-plugs-label">
@@ -201,7 +220,6 @@ export default function HeaderChips() {
                     <span>{t(`value.${p}` as MessageKey)}</span>
                   </button>
                 ))}
-                <p className="chip-plugs-note">{t('mycar.plugsNote')}</p>
               </div>
             </div>
           )}
@@ -222,9 +240,21 @@ export default function HeaderChips() {
         {picking && (cars
           ? <>
               <CarPicker cars={cars} level={2} onPick={onPick} onCancel={closePicker} tripTags
-                savedPlugs={mine?.plugs ? { carId: mine.carId, plugs: mine.plugs } : null} initialCar={mine?.carId ?? null} />
+                savedPlugs={mine?.plugs ? { carId: mine.carId, plugs: mine.plugs } : null} saved={mine} initialCar={mine?.carId ?? null} />
             </>
           : <p className="picker-wait" role="status">{carsFailed ? t('picker.loadFailed') : t('picker.loading')}</p>)}
+      </dialog>
+      <dialog
+        ref={settingsDialog}
+        className="picker-dialog settings-dialog"
+        aria-label={t('mycar.settingsTitle')}
+        onClose={() => { setSetting(false); (opener.current?.isConnected ? opener.current : document.querySelector<HTMLElement>('.chips .chip'))?.focus(); }}
+        onClick={(e) => { if (e.target === e.currentTarget) closeSettings(); }}
+      >
+        <button type="button" className="icon-btn picker-close" aria-label={t('mycar.settingsClose')} onClick={closeSettings}>
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+        </button>
+        {setting && mine && <CarSettingsPanel mine={mine} onDone={closeSettings} />}
       </dialog>
     </div>
   );

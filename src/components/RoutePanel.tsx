@@ -12,7 +12,7 @@ import { clearDrive, saveDrive } from '../lib/drive.ts';
 import PlaceField, { loadUsPlaces } from './PlaceField.tsx';
 import { borderRows } from '../lib/border-rows.ts';
 import type { TripState } from './useTrip.ts';
-import { setMyCar, type MyCar } from '../lib/my-car.ts';
+import { setMyCar, settingsChanged, type MyCar } from '../lib/my-car.ts';
 import type { PlaceSearch } from '../lib/place-search.ts';
 import { SOC_LIMITS } from '../lib/trip-link.ts';
 import { stopsText } from '../lib/trip-format.ts';
@@ -266,7 +266,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
               <path d="M4 13l1.6-4.4A2 2 0 0 1 7.5 7.3h9a2 2 0 0 1 1.9 1.3L20 13M4 13h16v5H4v-5ZM7 18v1.5M17 18v1.5M7.5 15.5h.01M16.5 15.5h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             </svg>
             <span className="car-tile-text">
-              <strong>{carLabel}</strong>
+              <strong>{carLabel}{settingsChanged(myCar) && <><span className="car-changed" aria-hidden="true">*</span><span className="sr-only"> ({t('mycar.changed')})</span></>}</strong>
               <span className="route-car-sub small muted">
                 {/* Open: the values and plugs live in the card below, so the line names what's there. */}
                 {settingsOpen ? t('route.settings') : (
@@ -299,6 +299,18 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
                 </label>
               </div>
               {plugsLine}
+              {/* B120: Modify car settings above Change car, the same kind of row. */}
+              <button type="button" className="route-car-change" onClick={() => window.dispatchEvent(new CustomEvent('voltway:mycar-settings'))}>
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 7h10M18 7h2M4 17h4M12 17h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+                  <circle cx="16" cy="7" r="2" stroke="currentColor" strokeWidth="2" fill="none" />
+                  <circle cx="10" cy="17" r="2" stroke="currentColor" strokeWidth="2" fill="none" />
+                </svg>
+                <span>{t('mycar.settings')}</span>
+                <svg className="route-car-change-go" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+              </button>
               <button type="button" className="route-car-change" onClick={openCarPicker}>
                 <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M4 13l1.6-4.4A2 2 0 0 1 7.5 7.3h9a2 2 0 0 1 1.9 1.3L20 13M4 13h16v5H4v-5ZM7 18v1.5M17 18v1.5M7.5 15.5h.01M16.5 15.5h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />

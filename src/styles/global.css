@@ -410,6 +410,7 @@ a.btn { display: inline-block; text-decoration: none; }
 .route-plug-list li:last-child { border-bottom: 0; }
 /* Change car: a full-width row action (car, label, go chevron) above a faint divider. */
 .route-car-change { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 8px 2px 0; background: none; border: 0; border-top: 1px solid color-mix(in srgb, var(--field-border) 35%, transparent); color: var(--text); font: inherit; font-weight: 600; font-size: 0.9rem; text-align: left; cursor: pointer; }
+.route-car-change + .route-car-change { margin-top: -4px; }
 .route-car-change-go { margin-left: auto; color: var(--muted); transition: translate 0.15s var(--ease-out); }
 .route-car-change:hover .route-car-change-go { translate: 3px 0; }
 .route-car-change:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
@@ -685,6 +686,31 @@ html[data-motion="off"] .chip-plug .switch::after, html[data-motion="off"] .sett
 .cp-plug-row { display: flex; flex-wrap: wrap; gap: 4px 8px; }
 .cp-plug { border: 1px solid var(--border); }
 .cp-plugs-note { margin: 0; max-width: 60ch; }
+/* B120: My car settings (Modify car settings dialog and the Change car dialog's Range estimates). */
+.car-changed { margin-left: 1px; color: var(--accent); font-weight: 700; }
+.cs-panel { display: grid; gap: 10px; margin-top: 4px; }
+.cs-panel .panel-title { margin: 0; }
+.cs-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.cs-field { display: grid; gap: 6px; align-content: start; min-width: 0; font-size: 0.875rem; }
+.cs-label { font-weight: 600; color: var(--text); }
+.cs-field select { width: 100%; min-width: 0; }
+.cs-switch { justify-content: space-between; justify-self: start; min-width: 150px; }
+.cs-note { margin: 0; max-width: 60ch; }
+.car-settings { display: grid; gap: 12px; }
+.cs-head { display: grid; gap: 4px; padding-right: 8px; }
+.cs-eyebrow { margin: 0; font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+.cs-car { margin: 0; font-family: var(--display); font-size: 2rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; }
+.cs-variant { margin: 0; font-size: 0.95rem; color: var(--muted); }
+@media (max-width: 640px) { .cs-car { font-size: 1.65rem; } }
+.settings-dialog { width: min(620px, calc(100vw - 24px)); }
+.cs-panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.cs-reset { font-size: 0.85rem; }
+/* The charging curve link: a row action on a raised block (§1), like the trip panel's Change car. */
+.cs-curve { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 16px; border-radius: 10px; background: var(--surface-2); color: var(--text); font-weight: 600; font-size: 0.9rem; text-decoration: none; }
+.cs-curve:hover { background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+.cs-curve:hover .route-car-change-go { translate: 3px 0; }
+.cs-curve:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 640px) { .settings-dialog .cs-field select, .settings-dialog .cp-actions .btn { min-height: 44px; } }
 
 /* ---- Trip planner on the charger map (B50): form fields and the itinerary. */
 .tp-field { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }

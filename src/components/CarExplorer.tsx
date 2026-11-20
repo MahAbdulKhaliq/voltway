@@ -5,11 +5,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { displayMinutes } from '../lib/charging.ts';
-import { getItem, KEYS } from '../lib/storage.ts';
+import { getItem, setItem, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
-import type { CarDetail, Field, IndexEntry, SourcedValue } from '../lib/types.ts';
+import type { CarDetail, Field, IndexEntry, Source, SourcedValue } from '../lib/types.ts';
 import { applyWheelEffect, wheelSizeOptions, ratedOnItsOwn, ratedWheelFor, standardWheel, type WheelEffect } from '../lib/wheel-effect.ts';
 import { display } from '../lib/format.ts';
+import { temperatureEffect, cToF, fToC, MILD_C, MIN_C, MAX_C, SPARSE_BELOW_C, TEMPERATURE_SOURCE_IDS, type TempUnit } from '../lib/temperature-effect.ts';
 import { levelTwoTime } from '../lib/l2-time.ts';
 import CurveViewer from './CurveViewer.tsx';
 import { carMapInfo, linkPlugs } from '../lib/map-filter.ts';
@@ -22,7 +23,7 @@ import VariantName from './VariantName.tsx';
 import { splitVariantName } from '../lib/variant-name.ts';
 import { linkWindowFrom } from '../lib/trip-link.ts';
 
-interface Props { index: IndexEntry[]; wheelEffect: WheelEffect | null }
+interface Props { index: IndexEntry[]; wheelEffect: WheelEffect | null; temperature?: { sources: Source[] } | null }
 
 const uniq = <T,>(xs: T[]) => [...new Set(xs)];
 const byName = (a: string, b: string) => a.localeCompare(b, 'en', { sensitivity: 'base' });
@@ -34,7 +35,7 @@ export function trimLabel(trim: string, variant: string): string {
   return rest || trim;
 }
 
-export default function CarExplorer({ index, wheelEffect }: Props) {
+export default function CarExplorer({ index, wheelEffect, temperature = null }: Props) {
   const cars = index; // B98: every car, whatever its markets
   const [carId, setCarId] = useState<string | null>(null);
   const [trimId, setTrimId] = useState<string | null>(null);
@@ -42,6 +43,9 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   const [error, setError] = useState(false);
   const [unit, setUnit] = useState<DistanceUnit>('km');
   const [wheelIn, setWheelIn] = useState<number | null>(null); // null = the trim's rated wheels
+  // Outside temperature (B116): kept in °C; the field's text is in the shown unit, so typing "-" works.
+  const [tempUnit, setTempUnitState] = useState<TempUnit>('C');
+  const [tempText, setTempText] = useState(String(MILD_C));
   const [pickerOpen, setPickerOpen] = useState(false); // B18: closed once a car is chosen
   const [linkMissing, setLinkMissing] = useState(false); // a ?car= link that matches no car
   const [myCar, setMyCarState] = useState<MyCar | null>(null);
@@ -50,7 +54,32 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
   // B31: "How fast would my car charge here?" links carry the station's top DC kW (?kw=) for this car only.
   const [linkKw, setLinkKw] = useState<{ carId: string; kw: number } | null>(null);
   const [linkWindow, setLinkWindow] = useState<{ carId: string; start: number; end: number } | null>(null);
-  useEffect(() => setWheelIn(null), [carId, trimId]);
+  // Heat pump checkbox (B116, owner 2026-11-20): only for trims where it's optional; unticked = the safe case.
+  const [hpFitted, setHpFitted] = useState(false);
+  useEffect(() => { setWheelIn(null); setHpFitted(false); }, [carId, trimId]);
+  // °C/°F (B116) is remembered; with no saved choice it follows the distance unit (miles → °F),
+  // also when km/mi is switched later (design §1).
+  useEffect(() => {
+    const saved = getItem(KEYS.tempUnit);
+    const u: TempUnit = saved === 'C' || saved === 'F' ? saved : getItem(KEYS.units) === 'mi' ? 'F' : 'C';
+    setTempUnitState(u);
+    if (u === 'F') setTempText(String(Math.round(cToF(MILD_C))));
+    const onUnits = (e: Event) => {
+      const s = getItem(KEYS.tempUnit);
+      if (s === 'C' || s === 'F') return;
+      const next: TempUnit = (e as CustomEvent<DistanceUnit>).detail === 'mi' ? 'F' : 'C';
+      setTempUnitState((prev) => {
+        if (prev !== next) setTempText((txt) => {
+          const n = txt.trim() === '' ? Number.NaN : Number(txt);
+          if (!Number.isFinite(n)) return txt;
+          return String(Math.round(next === 'F' ? cToF(n) : fToC(n)));
+        });
+        return next;
+      });
+    };
+    window.addEventListener('voltway:units', onUnits);
+    return () => window.removeEventListener('voltway:units', onUnits);
+  }, []);
 
   // First car: the link (?car=), else My car, else the first car in the list (B58: no first-load
   // picker; cars are chosen in the header's car dialog). An empty ?car= counts as no link (TD-P4).
@@ -178,22 +207,43 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     range_km: wheelRated?.rated_range_km,
     consumption_combined_wh_per_km: wheelRated?.rated_consumption_wh_per_km,
   };
+  // Outside temperature (B116): scales consumption by 1 / (share of mild-weather range kept).
+  const parsedTemp = tempText.trim() === '' ? Number.NaN : Number(tempText);
+  const tempC = Number.isFinite(parsedTemp) ? (tempUnit === 'F' ? fToC(parsedTemp) : parsedTemp) : MILD_C;
+  const heatPump = trim?.heat_pump ? String(trim.heat_pump.value.value) : null;
+  const chemistry = f.chemistry ? String(f.chemistry.value.value) : null;
+  const temp = temperatureEffect(tempC, heatPump, chemistry, { heatPumpFitted: hpFitted });
+  const tempAdjusting = Boolean(temperature) && Math.abs(temp.factor - 1) > 1e-9;
+  const showTemp = (c: number) => `${formatNumber(Math.round(tempUnit === 'F' ? cToF(c) : c))} ${t(`temp.unit.${tempUnit}` as MessageKey)}`;
+  const signedPct = (share: number) => { const n = Math.round((share - 1) * 100); return n > 0 ? `+${n}` : n < 0 ? `−${-n}` : '0'; };
+  const usedC = Math.min(MAX_C, Math.max(MIN_C, tempC));
+  const tempBasis = tempAdjusting
+    ? t('temp.basis', { temp: showTemp(usedC), pct: Math.round(temp.retained * 100), best: Math.round(temp.band.best * 100), worst: Math.round(temp.band.worst * 100), heating: t(`temp.heating.${temp.curve}` as MessageKey) }) + (temp.lfpPenalty > 0 ? ` ${t('temp.lfpBasis', { pts: Math.round(temp.lfpPenalty * 100) })}` : '')
+      + (temp.sparse ? ` ${t('temp.sparse', { temp: showTemp(SPARSE_BELOW_C) })}` : '')
+    : '';
   const estimate = (k: string): Field => {
     const o = official[k];
-    if (o) return { value: o, others: [], conflict: false };
-    const r = rated[k];
-    if (!adjusting || !r || typeof r.value.value !== 'number') return r;
-    const v = k === 'range_km' ? r.value.value / factor : r.value.value * factor;
+    const base: Field = o ? { value: o, others: [], conflict: false } : rated[k];
+    const wheelOn = adjusting && !o;
+    if (!base || typeof base.value.value !== 'number' || (!wheelOn && !tempAdjusting)) return base;
+    const total = (wheelOn ? factor : 1) * (tempAdjusting ? temp.factor : 1);
+    const v = k === 'range_km' ? base.value.value / total : base.value.value * total;
+    const notes = [wheelOn ? basis : '', tempBasis].filter(Boolean).join(' ');
+    const source = tempAdjusting ? TEMPERATURE_SOURCE_IDS[0] : wheelEffect!.source_ids[0] ?? base.value.source_id;
     return {
-      value: { value: Math.round(v * 10) / 10, unit: r.value.unit, kind: 'estimated', source_id: wheelEffect!.source_ids[0] ?? r.value.source_id, notes: basis },
-      others: [r.value, ...r.others],
+      value: { value: Math.round(v * 10) / 10, unit: base.value.unit, kind: 'estimated', source_id: source, notes },
+      others: [base.value, ...base.others],
       conflict: false,
     };
   };
+  // An estimate (wheels or temperature) rather than an official figure: shown with "~" and "Rated: …".
+  const isEstimate = (k: string) => (adjusting && !official[k]) || (tempAdjusting && Boolean(rated[k] || official[k]));
   const shown: Record<string, Field> = Object.fromEntries(Object.keys(rated).map((k) => [k, estimate(k)]));
   const range = shown.range_km;
-  const ratedLine = (k: string) =>
-    adjusting && rated[k] && !official[k] ? <span className="rated">{t('tile.rated', { value: display(rated[k]!.value, unit).text })}</span> : null;
+  const ratedLine = (k: string) => {
+    const ref = official[k] ?? rated[k]?.value;
+    return isEstimate(k) && ref ? <span className="rated">{t('tile.rated', { value: display(ref, unit).text })}</span> : null;
+  };
   const factorySizes = new Set((car?.trims ?? []).flatMap((x) => x.wheels.map((w) => w.diameter_in)));
   const officialTrim = adjusting ? car?.trims.find((x) => x.id !== trim?.id && x.wheels.some((w) => w.diameter_in === chosenIn) && (x.range_km || x.consumption_combined_wh_per_km)) : undefined;
   const sizes = baseIn !== null ? wheelSizeOptions([...factorySizes], baseIn) : []; // B93
@@ -220,7 +270,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
             ))}
           </select>
           {adjusting
-            ? <span className="control-note">{t('wheel.change', { pct: (factor >= 1 ? '+' : '') + pct(factor - 1) })}</span>
+            ? <span className="control-note est-change">{t('wheel.change', { pct: (factor >= 1 ? '+' : '') + pct(factor - 1) })}</span>
             : baseWheel?.tire_size && <span className="control-note">{t('wheel.tire', { tire: baseWheel.tire_size })}</span>}
           {officialTrim && (
             <button type="button" className="control-note linkish" onClick={() => setTrimId(officialTrim.id)}>{t('wheel.useOfficial', { trim: trimLabel(officialTrim.name, car?.name ?? '') })}</button>
@@ -231,6 +281,60 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
       )}
     </label>
   );
+  // Outside temperature (B116), with a °C/°F switch like km/mi; fills the cells under Range basis / Wheels.
+  const switchTempUnit = (u: TempUnit) => {
+    if (u === tempUnit) return;
+    setItem(KEYS.tempUnit, u);
+    setTempUnitState(u);
+    setTempText(String(Math.round(u === 'F' ? cToF(tempC) : tempC)));
+  };
+  const tempControl = temperature ? (
+    <div className="temp-pick">
+      <label>
+        <span>{t('temp.label')}</span>
+        <span className="temp-input">
+          <input
+            type="number" inputMode="numeric" step={1}
+            min={Math.round(tempUnit === 'F' ? cToF(MIN_C) : MIN_C)} max={Math.round(tempUnit === 'F' ? cToF(MAX_C) : MAX_C)}
+            value={tempText} aria-label={t('temp.inputLabel', { unit: t(`temp.unit.${tempUnit}` as MessageKey) })}
+            onChange={(e) => setTempText(e.target.value)}
+          />
+          <span className="temp-unit" aria-hidden="true">{t(`temp.unit.${tempUnit}` as MessageKey)}</span>
+        </span>
+      </label>
+      <div className="seg-field">
+        <span id="temp-units" className="seg-label">{t('temp.units')}</span>
+        <div className="seg" role="group" aria-labelledby="temp-units">
+          {(['C', 'F'] as const).map((u) => (
+            <button key={u} type="button" aria-pressed={tempUnit === u} onClick={() => switchTempUnit(u)}>{t(`temp.unit.${u}` as MessageKey)}</button>
+          ))}
+        </div>
+      </div>
+      {temp.heatPumpOptional && (
+        <label className="temp-hp" title={t('temp.heatPumpHelp')}>
+          <input type="checkbox" checked={hpFitted} onChange={(e) => setHpFitted(e.target.checked)} aria-describedby="temp-hp-help" />
+          <span>{t('temp.heatPump')}</span>
+          <span id="temp-hp-help" className="sr-only">{t('temp.heatPumpHelp')}</span>
+        </label>
+      )}
+      <p className="temp-notes" aria-live="polite">
+        <span className="control-note est-change">{tempAdjusting ? t('temp.change', { pct: signedPct(temp.retained), best: signedPct(temp.band.best), worst: signedPct(temp.band.worst) }) : t('temp.mild')}</span>
+        {tempAdjusting && temp.withHeatPump !== null && <span className="control-note">{t('temp.withHeatPump', { pct: signedPct(temp.withHeatPump), best: signedPct(temp.withHeatPumpBand!.best), worst: signedPct(temp.withHeatPumpBand!.worst) })}</span>}
+        {tempAdjusting && temp.heatPumpUnknown && tempC < MILD_C && <span className="control-note">{t('temp.heatPumpUnknown')}</span>}
+        {temp.clamped && <span className="control-note">{t('temp.clamped', { value: showTemp(usedC) })}</span>}
+        {temp.lfpNote && <span className="control-note">{t('temp.lfpNote')}</span>}
+        {tempAdjusting && temp.curve === 'heat_pump' && (() => {
+          // How much range the heat pump keeps over none here (owner 2026-11-20); none in the heat or the deepest cold.
+          const pts = Math.round(temp.heatPumpSaving * 100);
+          const standard = heatPump === 'standard';
+          return <span className="control-note">{pts > 0
+            ? t(standard ? 'temp.hasHeatPump' : 'temp.fittedHeatPump', { pct: pts })
+            : t(standard ? 'temp.hasHeatPumpNone' : 'temp.fittedHeatPumpNone')}</span>;
+        })()}
+        {tempAdjusting && tempC < MILD_C && heatPump === 'none' && <span className="control-note">{t('temp.noHeatPump')}</span>}
+      </p>
+    </div>
+  ) : null;
   // Trims table (4.3): a trim with no rating of its own but other wheels than the variant's rating
   // gets the wheel estimate instead of "Same as variant".
   const variantWheel = car ? standardWheel(car.trims[0]) : null;
@@ -247,12 +351,15 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
     };
   };
   const d = car?.derived;
-  // Added per 10 min (QA 9.1): uses the shown trim's highway consumption (and wheel estimate), like the viewer.
-  const hwWh = shown.consumption_highway_wh_per_km?.value.value as number | undefined;
+  // Added per 10 min (QA 9.1): uses the shown trim's consumption (with any wheel or temperature
+  // estimate) on the viewer's default basis: combined, else highway (B117).
+  const per10Key = shown.consumption_combined_wh_per_km ? 'consumption_combined_wh_per_km' : 'consumption_highway_wh_per_km';
+  const hwWh = shown[per10Key]?.value.value as number | undefined;
+  const per10Estimated = isEstimate(per10Key);
   const mathsKwh = battery?.value.value as number | undefined;
   const per10 = d && d.minutes_10_80 && hwWh && mathsKwh ? ((mathsKwh * 0.7 * 1000) / hwWh / d.minutes_10_80) * 10 : null;
   const distance = (km: number) => t(unit === 'km' ? 'fmt.km' : 'fmt.mi', { value: formatNumber(kmTo(km, unit)) });
-  const sources = car?.sources ?? [];
+  const sources = [...(car?.sources ?? []), ...(tempAdjusting ? (temperature?.sources ?? []).filter((s) => !car?.sources.some((c) => c.id === s.id)) : [])];
   // Closed "Car figures" section still shows the headline numbers.
   const detailsPreview = [battery, range, f.dc_max_kw ?? null]
     .filter((x): x is NonNullable<Field> => Boolean(x))
@@ -338,6 +445,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
             {car.curves.length ? (
               <CurveViewer
                 extraControls={wheelControl}
+                climateControls={tempControl}
                 key={car.id}
                 initialChargerKw={linkKw?.carId === car.id ? linkKw.kw : null}
                 initialWindow={linkWindow?.carId === car.id ? { start: linkWindow.start, end: linkWindow.end } : null}
@@ -345,6 +453,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
                 curves={car.curves}
                 usableKwh={(battery?.value.value as number) ?? null}
                 batteryIsGross={!usable && Boolean(f.capacity_gross_kwh)}
+                consumptionEstimated={['highway', 'combined', 'city'].some((b) => isEstimate(`consumption_${b}_wh_per_km`))}
                 consumption={{
                   highway: (shown.consumption_highway_wh_per_km?.value.value as number) ?? null,
                   combined: (shown.consumption_combined_wh_per_km?.value.value as number) ?? null,
@@ -358,8 +467,8 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
           <Accordion headingId="key" title={t('car.details')} preview={detailsPreview}>
             <p className="muted small acc-help">{t('car.detailsHelp')}</p>
             <div className="readouts tiles">
-              <div className="readout"><p className="readout-label">{t('tile.range')}</p><div className="readout-value"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={adjusting && !official.range_km} />{ratedLine('range_km')}</div></div>
-              <div className="readout"><p className="readout-label">{t('tile.efficiency')}</p><div className="readout-value"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={adjusting && !official.consumption_combined_wh_per_km} />{ratedLine('consumption_combined_wh_per_km')}</div></div>
+              <div className="readout"><p className="readout-label">{t('tile.range')}</p><div className="readout-value"><Value field={range} sources={sources} label={t('tile.range')} unit={unit} approx={isEstimate('range_km')} />{ratedLine('range_km')}</div></div>
+              <div className="readout"><p className="readout-label">{t('tile.efficiency')}</p><div className="readout-value"><Value field={shown.consumption_combined_wh_per_km} sources={sources} label={t('tile.efficiency')} unit={unit} approx={isEstimate('consumption_combined_wh_per_km')} />{ratedLine('consumption_combined_wh_per_km')}</div></div>
               <div className="readout"><p className="readout-label">{usable ? t('tile.battery') : t('tile.batteryGross')}</p><div className="readout-value"><Value field={battery} sources={sources} label={t('tile.battery')} unit={unit} /></div></div>
               <div className="readout"><p className="readout-label">{t('tile.dcPeak')}</p><div className="readout-value"><Value field={f.dc_max_kw ?? null} sources={sources} label={t('tile.dcPeak')} unit={unit} /></div></div>
               <div className="readout"><p className="readout-label">{t('tile.time1080')}</p><div className="readout-value">
@@ -369,7 +478,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
               </div></div>
               <div className="readout"><p className="readout-label">{t('tile.kmPer10')}</p><div className="readout-value">
                 {per10 !== null ? (
-                  <span className="fv">{d!.estimated || adjusting ? '~' : ''}{distance(per10)} <Badge field={curveField} sources={sources} label={t('tile.kmPer10')} unit={unit} /></span>
+                  <span className="fv">{d!.estimated || adjusting || per10Estimated ? '~' : ''}{distance(per10)} <Badge field={per10Estimated ? shown[per10Key] : curveField} sources={sources} label={t('tile.kmPer10')} unit={unit} /></span>
                 ) : <span className="unknown">{t('badge.unknown')}</span>}
               </div></div>
             </div>
@@ -384,7 +493,7 @@ export default function CarExplorer({ index, wheelEffect }: Props) {
                     <tbody>
                       {g.fields.map((k) => {
                         const field: Field = k in shown ? shown[k] : k === 'ac_max_kw' ? ac : k === 'recharge_time_240v_h' ? l2 : f[k] ?? null;
-                        return <tr key={k}><th scope="row">{label(k)}</th><td data-label={label(k)}><Value field={field} sources={sources} label={label(k)} unit={unit} approx={adjusting && k in shown && !official[k]} />{k in shown && ratedLine(k)}</td></tr>;
+                        return <tr key={k}><th scope="row">{label(k)}</th><td data-label={label(k)}><Value field={field} sources={sources} label={label(k)} unit={unit} approx={k in shown && isEstimate(k)} />{k in shown && ratedLine(k)}</td></tr>;
                       })}
                       {g.title === 'group.ports' && (
                         <tr><th scope="row">{t('field.heat_pump')}</th><td data-label={t('field.heat_pump')}><Value field={trim?.heat_pump ?? null} sources={sources} label={t('field.heat_pump')} unit={unit} /></td></tr>

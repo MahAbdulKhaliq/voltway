@@ -26,10 +26,14 @@ echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, Mark
 interface Props {
   /** Extra controls from the car section (B20: the wheel-size picker), shown with the others. */
   extraControls?: ReactNode;
+  /** Outside temperature (B116), after the price so it fills the cells under Range basis / Wheels. */
+  climateControls?: ReactNode;
   curves: CurveOut[];
   usableKwh: number | null;
   batteryIsGross: boolean;
   consumption: { highway: number | null; combined: number | null; city: number | null };
+  /** The consumption is a wheel or temperature estimate (B116), so the distance figures show "~". */
+  consumptionEstimated?: boolean;
   sources: { id: string; title: string; url: string; n: number }[];
   /** A charger cap from a map link (B31): shown as the custom preset, never saved over the remembered settings. */
   initialChargerKw?: number | null;
@@ -58,10 +62,12 @@ const cssVar = (name: string, fallback: string) =>
 
 export default function CurveViewer({
   extraControls,
+  climateControls,
   curves,
   usableKwh,
   batteryIsGross,
   consumption,
+  consumptionEstimated = false,
   sources,
   initialChargerKw = null,
   initialWindow = null,
@@ -70,7 +76,7 @@ export default function CurveViewer({
   const initial = curves.find((c) => c.is_display_default) ?? curves[0];
   const [curveId, setCurveId] = useState(initial.id);
   const [settings, setSettings] = useState<Settings>(DEFAULTS);
-  const [basis, setBasis] = useState<Basis>('highway');
+  const [basis, setBasis] = useState<Basis>('combined'); // B117 (owner 2026-11-20): combined by default
   const [xAxis, setXAxis] = useState<'soc' | 'time'>('soc');
   const [unit, setUnit] = useState<DistanceUnit>('km');
   const [themeTick, setThemeTick] = useState(0);
@@ -139,7 +145,10 @@ export default function CurveViewer({
     ? CHARGER_STOPS.length - 1
     : CHARGER_STOPS.reduce((best, kw, i) => (Number.isFinite(kw) && Math.abs(kw - chargerKw) < Math.abs(CHARGER_STOPS[best] - chargerKw) ? i : best), 0);
   const chargerLabel = chargerKw == null ? t('viewer.noLimit') : t('fmt.kw', { value: formatNumber(chargerKw, Number.isInteger(chargerKw) ? 0 : 1) }); // a map link may carry 62.5 kW
-  const whPerKm = consumption[basis] ?? consumption.highway ?? consumption.combined ?? undefined;
+  // The basis actually used: the picked one, else combined, else highway (B117). The select and the
+  // "Added (…)" label show this one, so a car without the picked figure isn't mislabelled.
+  const usedBasis: Basis = consumption[basis] != null ? basis : consumption.combined != null ? 'combined' : consumption.highway != null ? 'highway' : basis;
+  const whPerKm = consumption[usedBasis] ?? undefined;
   const source = sources.find((s) => s.id === curve.source_id);
 
   const result = useMemo(() => {
@@ -349,10 +358,10 @@ export default function CurveViewer({
               <span className="answer-time">{minutes(result.minutes)}</span>
             </p>
             <dl className="readouts figures">
-              {figure(t('viewer.result.km', { basis: t(`viewer.basis.${basis}` as MessageKey) }),
-                result.kmAdded !== null ? `${estimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>)}
+              {figure(t('viewer.result.km', { basis: t(`viewer.basis.${usedBasis}` as MessageKey) }),
+                result.kmAdded !== null ? `${estimated || consumptionEstimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>)}
               {figure(t('viewer.result.per10'),
-                result.kmPer10Min !== null ? `${estimated ? '~' : ''}${distance(result.kmPer10Min)}` : <span className="unknown small">{t('badge.unknown')}</span>)}
+                result.kmPer10Min !== null ? `${estimated || consumptionEstimated ? '~' : ''}${distance(result.kmPer10Min)}` : <span className="unknown small">{t('badge.unknown')}</span>)}
               {figure(t('viewer.result.added'), `${batteryIsGross ? '~' : ''}${t('fmt.kwh', { value: formatNumber(result.energyKwh, 1) })}`)}
               {figure(t('viewer.result.avg'), t('fmt.kw', { value: formatNumber(result.averageKw) }))}
               {figure(t('viewer.result.cost', { start: settings.start, end: settings.end }), `~${money.format(drawnKwh * settings.price)}`,
@@ -457,8 +466,8 @@ export default function CurveViewer({
         </div>
         <label>
           <span>{t('viewer.rangeBasis')}</span>
-          <select value={basis} onChange={(e) => setBasis(e.target.value as Basis)}>
-            {(['highway', 'combined', 'city'] as Basis[]).map((b) => <option key={b} value={b}>{t(`viewer.basis.${b}` as MessageKey)}</option>)}
+          <select value={usedBasis} onChange={(e) => setBasis(e.target.value as Basis)}>
+            {(['highway', 'combined', 'city'] as Basis[]).map((b) => <option key={b} value={b} disabled={consumption[b] == null && consumption[usedBasis] != null}>{t(`viewer.basis.${b}` as MessageKey)}</option>)}
           </select>
         </label>
         {extraControls}
@@ -479,6 +488,7 @@ export default function CurveViewer({
             onChange={(e) => { const price = Math.max(0, Number(e.target.value) || 0); update({ price }); setChargePrice(price); }}
           />
         </label>
+        {climateControls}
       </div>
 
       <details className="more">
@@ -530,6 +540,15 @@ export default function CurveViewer({
         .viewer .controls { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 16px; align-items: start; padding-top: 16px; border-top: 1px solid var(--border); }
         .viewer .controls > * { min-width: 0; }
         .viewer .curve-pick { grid-column: span 2; }
+        /* B116: outside temperature and its °C/°F switch share two columns; the notes run under both. */
+        .viewer .temp-pick { grid-column: span 2; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 16px; align-items: start; min-width: 0; }
+        .viewer .temp-input { display: flex; align-items: center; gap: 6px; }
+        .viewer .temp-input input { flex: 1 1 auto; }
+        .viewer .temp-unit { color: var(--text); font-weight: 600; }
+        .viewer .temp-notes { grid-column: 1 / -1; margin: 0; display: grid; gap: 2px; }
+        .viewer .est-change { color: var(--text); font-weight: 600; } /* the "Estimate:" line under Wheels and Outside temperature */
+        .viewer .temp-hp { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; color: var(--text); font-size: 0.875rem; cursor: pointer; }
+        .viewer .temp-hp input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); }
         .viewer .control-note { display: block; font-size: 0.8rem; color: var(--muted); }
         .viewer .control-note.linkish { padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: 0.8rem; font-weight: 600; text-align: left; cursor: pointer; text-decoration: underline; }
         .viewer label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }

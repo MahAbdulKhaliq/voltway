@@ -786,3 +786,29 @@ Run from a fresh clone of the branch. `npm ci`, then `npm run validate && npx vi
 | QD11 | | |
 | QD12 | | |
 | QD13 | | |
+
+## Outside temperature (B116, DESIGN-temperature)
+
+Branch `feat/b116-outside-temperature` (owner approved going live 2026-11-20). Run `npx vitest run tests/temperature-effect.test.ts tests/i18n.test.ts`, then `npx astro check && npm run build`. Screen checks run on the dev server at 1280 px and 375 px, dark and light.
+
+| ID | Requirement | How to check | Edge cases / failure paths |
+|----|-------------|--------------|----------------------------|
+| QT1 | The formula follows design §3 | Unit tests. Spot values: `retention(0,'none')` = 0.75, `retention(0,'heat_pump')` = 0.83, `retention(-10,'none')` = 0.60, `retention(32,…)` = 0.95 | −40 °C → clamped to the −30 °C value with `clamped: true`; 50 °C → 45 °C value; NaN → treated as 20 °C (no change) |
+| QT2 | Every adjusted figure is sourced | Set −10 °C: the range tile's badge is Estimated, its source is a B116 study, and the note gives the temperature basis. The Sources list gains the B116 studies. | Wheels and temperature both changed: the note gives both bases, and Rated: shows the official figure |
+| QT3 | Heat-pump states | `chevrolet/bolt/2027/bolt` (LFP, standard): −10 °C → −38 % (−33 % plus the LFP penalty, QT9). `audi/q4-e-tron/2023/q4-40-e-tron` (none) → −40 %. `audi/q4-e-tron/2022/q4-50-e-tron-quattro` (optional) → −40 % plus "With the heat pump: −33% (−20% to −42%)". A trim with unknown heat pump (`bmw/i3-sedan/2027/i3-50-xdrive-2`) → −40 % plus "assumes none" | 30 °C: no heat-pump notes (the curves are the same) |
+| QT4 | Chemistry | LFP car at −5 °C: charging note shown; at 5 °C: hidden. NMC/NCA cars: never shown | Unknown chemistry: no note |
+| QT5 | °C/°F switch | Switch to °F: −10 °C shows as 14 °F; typing 32 °F gives the 0 °C figures; reload keeps °F; with no saved choice and miles selected, °F is the default | Typing in °F then switching back shows whole °C |
+| QT6 | Placement and layout | 1280 px: the field and switch fill the cells under Range basis / Wheels. 375 px: no horizontal scroll, field and switch on one row, the note wraps cleanly. Dark and light: text contrast ≥ 4.5:1 | Car with several curves (a curve picker row): the field still follows Price, with no overlap |
+| QT7 | Figures follow | At −10 °C: range, consumption, "km added" and "km per 10 min" all change by the same factor as the note, and every changed figure (both "Added per 10 min" and "Added (…)") shows "~" | 20 °C: identical to before the feature |
+| QT9 | LFP penalty (owner 2026-11-20) | Unit tests; on screen, Bolt 2027 (LFP, heat pump) at −10 °C shows −38 % vs. −33 % for an NMC heat-pump car | 10 °C and above: same as NMC; LMFP treated as LFP |
+| QT10 | Heat pump checkbox (owner 2026-11-20) | `audi/q4-e-tron/2022/q4-50-e-tron-quattro` at −10 °C: checkbox unticked → −40 % + "With the heat pump: −33%"; ticked → −33 %, no extra line, and the range tile follows | No checkbox on standard/none/unknown trims; switching trim unticks it |
+| QT11 | Best/worst band and Estimate labels (owner 2026-11-20) | Unit tests. At −10 °C, `audi/q4-e-tron/2023/q4-40-e-tron` reads "Estimate: range −40% vs. mild weather (likely −28% to −48%)"; the Q4 50 with Heat pump unticked also shows "With the heat pump: −33% (−20% to −42%)"; picking 21″ wheels reads "Estimate: …% energy per km…" | 20 °C: "Mild weather: range as rated", no band; the figures use the middle only |
+| QT12 | Heat pump note (owner 2026-11-20) | −10 °C: 2027 Bolt (standard) shows "…saves about 7% of range here…" after the LFP note, and at 30 °C "…saves no range at this temperature."; Q4 50 with the box ticked shows "Heat pump: saves about 7%…"; the Wheels "Estimate:" line is bold; Q4 40 (none) shows "No heat pump on this trim…" | Q4 50 (optional, unticked) and i3 sedan (unknown): neither note. At 20 °C and up the no-heat-pump note is gone; a standard heat pump at 30 °C says it saves no range |
+| QT13 | Range basis defaults to Combined (B117) | Open `/charging` for a car with combined, highway and city figures: Range basis shows Combined, and the Car figures "Added per 10 min" equals the viewer's | A car without a combined figure (`cadillac/escalade-iq/2025/awd`): the select shows Highway, the label reads "Added (Highway)", and the missing bases are greyed out |
+| QT14 | New logo (B118, owner 2026-11-20) | Every page's header shows `/logo.png` (the V, road and bolt with a cream outline), the same file and size (39×28) in light, dark and a theme picked in Settings. `/favicon.ico` (16/32/48), `/favicon-192.png` and `/apple-touch-icon.png` show the new mark; Base.astro links all three; `/favicon.svg` is gone and nothing links it. `public/og.png` shows the new mark beside "Voltway". `node scripts/logo-assets.mjs` then `node scripts/og-image.mjs` reproduce the files | Animations off: no strike-in or hover jolt; first page of a visit: the mark strikes in once; 375 px: the header still fits with My car and Settings |
+| QT8 | Goes live as one PR | After the owner's go-ahead (2026-11-20): one PR from `feat/b116-outside-temperature`, CI green, squash-merged; production serves the new `/favicon.ico` and `/apple-touch-icon.png` | — |
+
+## Outside temperature results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|

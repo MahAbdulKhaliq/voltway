@@ -535,3 +535,61 @@ Design: B83 in `gaps-and-questions.md`, `charging-curve-viewer.md` §4–§5 not
 
 ## 9g: Finish
 - [ ] **[9] 9.21 QA** — Done when: qa-reviewer runs QA.md section 9; findings fixed and re-checked; CLAUDE.md scope line updated.
+
+# Outside temperature (B116, `docs/plan/DESIGN-temperature.md`)
+
+Branch `feat/b116-outside-temperature`. The owner reviewed it locally and approved going live on 2026-11-20 (one PR, after independent QA).
+
+- [x] **[T] T1 Model and tests**: `src/lib/temperature-effect.ts`, `tests/temperature-effect.test.ts`. **Done when:** `npx vitest run tests/temperature-effect.test.ts` passes. It checks the anchors (0 °C: 0.75 none / 0.83 heat pump; 20 °C: 1; 38 °C: 0.85 both), interpolation, clamping at −30/45 °C, the optional/unknown handling, the LFP note and the °C↔°F round trip.
+  - *Verified 2026-11-20:* 15 tests pass in tests/temperature-effect.test.ts.
+- [x] **[T] T2 Sources and build**: `data/sources/src-b116-*.json`, `scripts/lib/build.ts`, `src/lib/data.ts`. **Done when:** `npm run validate` shows no new errors; `public/data/estimates.json` has `temperature.sources` with every `TEMPERATURE_SOURCE_IDS` record; removing one makes `npm run data:build` throw.
+  - *Verified 2026-11-20:* 9 src-b116 sources (10 after T5 added the P3 cell study); validate OK (76 known B96 warnings only); estimates.json temperature.sources = 9 (now 10); new build test: removing one makes buildCars throw /B116/.
+- [x] **[T] T3 Field, switch and figures**: `CarExplorer.tsx`, `CurveViewer.tsx`, `ChargingPage.astro`, `src/lib/storage.ts`, `src/i18n/en.json`. **Done when:** on `/charging`:
+  - the Outside temperature field and the °C/°F switch sit under Range basis / Wheels;
+  - −10 °C shows "Range −40%" on a no-heat-pump car and −33% on a heat-pump car, and the range tile shows an estimate with "Rated: …";
+  - an optional-heat-pump trim shows the "with the optional heat pump" note;
+  - an LFP car below 0 °C shows the charging note;
+  - °F shows the same temperature converted, and switching back keeps the °C value;
+  - 20 °C shows no change.
+  - *Verified 2026-11-20:* dev server: Q4 50 (2022, optional) at −10 °C gives −40 % with −33 % for the heat pump, and Added (Highway) 228 → 137 km; Q4 40 (none) −40 %; Bolt 2027 (LFP, standard) −33 % + LFP note; i3 sedan (unknown) gives the assumes-none note; Model 3 Premium-I (LFP, standard_or_optional) shows both notes; 50 °C is clamped to 45 °C; −10 °C ↔ 14 °F round trip; °F remembered; range badge Estimated with the B116 basis; 9 studies in Sources.
+- [x] **[T] T4 Checks and screens**: **Done when:**
+  - `npx vitest run`, `npx astro check` and `npm run build` pass;
+  - the field is checked on the dev server at 1280 px and 375 px, dark and light, on cars of different chemistries and heat-pump states;
+  - dark-theme PNGs are sent to the owner;
+  - the work is committed on the local branch (not pushed).
+  - *Verified 2026-11-20:* vitest 951 passed, astro check 0 errors, validate OK. Headless Chrome at 1280 and 375 px, dark and light: scrollWidth = viewport. 7 PNGs in the session notes folder (b116-shots). Committed on local branch feat/b116-outside-temperature; not pushed. npm run build passes.
+- [x] **[T] T5 LFP cold penalty (owner 2026-11-20)**: `temperature-effect.ts`, tests, `data/sources/src-b116-p3-cell-low-temperature.json`, `en.json`. **Done when:** tests show LFP 3 points below NMC at 0 °C, 5 below at −10 °C, 8 below at −30 °C, and the same at 10 °C and above; the LFP note says it loses a little more.
+  - *Verified 2026-11-20:* 18 tests in tests/temperature-effect.test.ts; vitest 954 passed, astro check 0 errors, validate OK; estimates.json has 10 sources.
+- [x] **[T] T6 Heat pump checkbox (owner 2026-11-20)**: `CarExplorer.tsx`, `CurveViewer.tsx` CSS, `en.json`. **Done when:**
+  - an optional-heat-pump trim shows an unticked Heat pump checkbox;
+  - ticking it switches to the heat-pump figure and hides the "with the heat pump" line;
+  - standard, none and unknown trims show no checkbox;
+  - changing trim resets it;
+  - checked at 1280/375 px dark, PNGs sent, committed locally.
+  - *Verified 2026-11-20 (headless Chrome on the dev server):* Q4 50 (optional) at −10 °C: unticked −40 % + "With the heat pump: −33%", ticked −33 % with Added 137 → 153 km; Bolt 2027 (LFP, heat pump) −38 %, no checkbox; Model 3 Premium (LFP, optional, ticked) −38 %; Q4 40 (none) −40 %, no checkbox; 375 px scrollWidth 375; 6 PNGs (b116-shots/r2-*).
+- [x] **[T] T7 Best/worst band and Estimate labels (owner 2026-11-20)**: `temperature-effect.ts`, tests, `CarExplorer.tsx`, `en.json`. **Done when:**
+  - tests show best ≥ middle ≥ worst at every temperature, 1 at 20–25 °C, the design §3 anchors, and the LFP penalty on all three;
+  - on `/charging` at −10 °C, a no-heat-pump NMC car reads "Estimate: range −40% vs. mild weather (likely −28% to −48%)";
+  - a picked wheel size reads "Estimate: …";
+  - checked at 1280/375 px dark, PNGs sent, committed locally.
+  - *Verified 2026-11-20:* 23 tests in tests/temperature-effect.test.ts. Headless Chrome on the dev server: Q4 40 at −10 °C reads "Estimate: range −40% vs. mild weather (likely −28% to −48%)"; Q4 50 unticked adds "With the heat pump: −33% (−20% to −42%)"; 21″ wheels read "Estimate: +7.1% energy per km vs. rated wheels"; Bolt (LFP) −38% (−25% to −47%); 375 px scrollWidth 375. PNGs: b116-shots/r4-*.
+- [x] **[T] T8 Heat pump note (owner 2026-11-20)**: `CarExplorer.tsx`, `en.json`. **Done when:**
+  - after the LFP note, a standard-heat-pump trim (or a ticked optional one) shows how much range the heat pump saves: −10 °C "about 7%", 30 °C "saves no range";
+  - below 20 °C, a no-heat-pump trim shows "No heat pump on this trim…";
+  - the Wheels "Estimate:" line is bold like the temperature one;
+  - optional and unknown trims and 20 °C+ show neither;
+  - checked dark at 1280/375 px, PNGs sent, committed locally.
+  - *Verified 2026-11-20:* 25 tests. Headless Chrome on the dev server: 2027 Bolt at −10 °C shows the LFP note then "Heat pump: standard on this trim. It saves about 7% of range here…"; at 30 °C "…saves no range at this temperature."; Q4 50 ticked: "Heat pump: saves about 7%…"; Q4 40: no-heat-pump note; Wheels Estimate line bold. PNGs: b116-shots/r6-*.
+- [x] **[T] T9 New logo (B118, owner 2026-11-20)**: `scripts/logo-assets.mjs`, `scripts/assets/`, `public/logo.png`, favicons, `og.png`, `Base.astro`, `global.css`. **Done when:**
+  - the header, favicons, iOS icon and link-preview image show the owner's new mark;
+  - one outlined file in both themes, so the mark keeps its size when the theme changes;
+  - the old `favicon.svg` and the old green `favicon.ico` are gone.
+  - *Verified 2026-11-20:* headless Chrome on the dev server: `/logo.png` 39×28 in dark, light and dark picked in Settings; the icon links point to the new files; og.png checked by eye. vitest 961, astro check 0 errors. PNGs b116-shots/logo*/.
+- [x] **[T] T10 QA fixes (independent QA, 2026-11-20)**: `CarExplorer.tsx`, `CurveViewer.tsx`, `en.json`, docs. **Done when:**
+  - figures changed by temperature or wheels show "~" everywhere: the viewer's "Added (…)" and "Added per 10 min", and the Car figures tile, whose badge then gives the estimate's basis;
+  - the Range basis select and the "Added (…)" label show the basis actually used (a car with no combined figure shows Highway; missing bases are greyed out);
+  - the Car figures "Added per 10 min" uses the same default basis as the viewer (combined, else highway);
+  - with no saved °C/°F choice, switching km/mi switches the temperature unit too;
+  - the "beyond most published data" note shows −20 °C in the visitor's unit;
+  - stale "proposed / not pushed" statuses and the missing R6 source fixed in the docs.
+  - *Verified 2026-11-20:* vitest 961, astro check 0 errors. Headless Chrome on the dev server: Q4 40 at −10 °C shows ~159 km Added (Combined) and ~47 km per 10 min in both places, and the tile badge gives the temperature basis; at 20 °C both read ~79 km; Escalade IQ shows Highway in the select with Combined and City greyed out, and the label reads "Added (Highway)"; switching km → mi with no saved unit turned −10 °C into 14 °F.

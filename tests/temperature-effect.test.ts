@@ -132,3 +132,43 @@ describe('sources and strings', () => {
     for (const k of keys) expect((en as Record<string, string>)[k], k).toBeTruthy();
   });
 });
+
+describe('best and worst case (owner 2026-11-20, design §3)', () => {
+  it('keeps best ≥ middle ≥ worst at every temperature, for both curves and chemistries', () => {
+    for (const curve of ['none', 'heat_pump'] as const) {
+      for (const chem of ['nmc', 'lfp']) {
+        for (let t = -30; t <= 45; t += 0.5) {
+          const mid = retention(t, curve, chem);
+          expect(retention(t, curve, chem, 'best')).toBeGreaterThanOrEqual(mid - 1e-9);
+          expect(retention(t, curve, chem, 'worst')).toBeLessThanOrEqual(mid + 1e-9);
+        }
+      }
+    }
+  });
+  it('collapses to 1 in mild weather', () => {
+    for (const o of ['best', 'worst'] as const) expect(retention(22, 'none', 'nmc', o)).toBe(1);
+  });
+  it('hits the anchors', () => {
+    expect(retention(0, 'heat_pump', 'nmc', 'best')).toBeCloseTo(0.9); // best models in Recurrent's data
+    expect(retention(0, 'none', 'nmc', 'worst')).toBeCloseTo(0.65); // ID.4: 63 %
+    expect(retention(-7, 'none', 'nmc', 'worst')).toBeCloseTo(0.55); // lab tests, about −41 %
+    expect(retention(35, 'none', 'nmc', 'worst')).toBeCloseTo(0.86); // DOE −14 % at 35 °C
+    expect(retention(35, 'none', 'nmc', 'best')).toBeCloseTo(0.96); // AAA, AC off −4 %
+  });
+  it('the effect carries the band, and the heat-pump band for an unticked optional heat pump', () => {
+    const e = temperatureEffect(-10, 'none', 'nmc');
+    expect(e.band.best).toBeCloseTo(0.72);
+    expect(e.band.worst).toBeCloseTo(0.52);
+    expect(e.withHeatPumpBand).toBeNull();
+    const o = temperatureEffect(-10, 'optional', 'nmc');
+    expect(o.withHeatPumpBand?.best).toBeCloseTo(0.8);
+    expect(o.withHeatPumpBand?.worst).toBeCloseTo(0.58);
+    expect(temperatureEffect(-10, 'optional', 'nmc', { heatPumpFitted: true }).withHeatPumpBand).toBeNull();
+  });
+  it('the LFP penalty applies to the whole band', () => {
+    const n = temperatureEffect(-10, 'standard', 'nmc').band;
+    const l = temperatureEffect(-10, 'standard', 'lfp').band;
+    expect(n.best - l.best).toBeCloseTo(0.05);
+    expect(n.worst - l.worst).toBeCloseTo(0.05);
+  });
+});

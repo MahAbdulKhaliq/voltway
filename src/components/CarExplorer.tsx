@@ -202,7 +202,7 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
   const signedPct = (share: number) => { const n = Math.round((share - 1) * 100); return n > 0 ? `+${n}` : n < 0 ? `−${-n}` : '0'; };
   const usedC = Math.min(MAX_C, Math.max(MIN_C, tempC));
   const tempBasis = tempAdjusting
-    ? t('temp.basis', { temp: showTemp(usedC), pct: Math.round(temp.retained * 100), heating: t(`temp.heating.${temp.curve}` as MessageKey) }) + (temp.lfpPenalty > 0 ? ` ${t('temp.lfpBasis', { pts: Math.round(temp.lfpPenalty * 100) })}` : '')
+    ? t('temp.basis', { temp: showTemp(usedC), pct: Math.round(temp.retained * 100), best: Math.round(temp.band.best * 100), worst: Math.round(temp.band.worst * 100), heating: t(`temp.heating.${temp.curve}` as MessageKey) }) + (temp.lfpPenalty > 0 ? ` ${t('temp.lfpBasis', { pts: Math.round(temp.lfpPenalty * 100) })}` : '')
       + (temp.sparse ? ` ${t('temp.sparse')}` : '')
     : '';
   const estimate = (k: string): Field => {
@@ -302,8 +302,8 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
         </label>
       )}
       <p className="temp-notes" aria-live="polite">
-        <span className="control-note temp-change">{tempAdjusting ? t('temp.change', { pct: signedPct(temp.retained) }) : t('temp.mild')}</span>
-        {tempAdjusting && temp.withHeatPump !== null && <span className="control-note">{t('temp.withHeatPump', { pct: signedPct(temp.withHeatPump) })}</span>}
+        <span className="control-note temp-change">{tempAdjusting ? t('temp.change', { pct: signedPct(temp.retained), best: signedPct(temp.band.best), worst: signedPct(temp.band.worst) }) : t('temp.mild')}</span>
+        {tempAdjusting && temp.withHeatPump !== null && <span className="control-note">{t('temp.withHeatPump', { pct: signedPct(temp.withHeatPump), best: signedPct(temp.withHeatPumpBand!.best), worst: signedPct(temp.withHeatPumpBand!.worst) })}</span>}
         {tempAdjusting && temp.heatPumpUnknown && tempC < MILD_C && <span className="control-note">{t('temp.heatPumpUnknown')}</span>}
         {temp.clamped && <span className="control-note">{t('temp.clamped', { value: showTemp(usedC) })}</span>}
         {temp.lfpNote && <span className="control-note">{t('temp.lfpNote')}</span>}

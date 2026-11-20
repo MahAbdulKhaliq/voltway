@@ -64,6 +64,33 @@ How each anchor was set:
 - **30–40 °C:** 0.95 at 32 °C and 0.85 at 38 °C [R9]; 0.91 at 35 °C sits between AAA 2026 (0.915 [R7]) and DOE (0.86 [R4]).
 - **45 °C:** extrapolation.
 
+### Best and worst case (owner, 2026-11-20)
+
+One figure hides a wide spread. At 0 °C Recurrent's models run from about 63 % (VW ID.4) to about 90 % of their best range [R1][R2]. So each curve has a **best** and a **worst** case around the **middle** figure above. The page's figures (range, consumption, km added) use the middle. The note under the field gives the band, e.g. "Estimate: range −40% vs. mild weather (likely −28% to −48%)".
+
+- **Best case:** car preheated while plugged in, longer drives, seat heaters, a car that does well in the cold. Anchors:
+  - the best models in Recurrent's data (about 90 % at 0 °C with a heat pump [R1][R2]);
+  - AAA's cars with the heater off: −12 % at −7 °C, the floor for any heated drive [R5][R6];
+  - preconditioning saves 9–20 % on short trips at −7 °C [R4];
+  - AC off in the heat: −4 % at 35 °C [R5].
+- **Worst case:** cold-soaked car, short trips, cabin at 22 °C, a car that does poorly in the cold. Anchors:
+  - the lab tests: −41 % at −7 °C and about −50 % at −18 °C [R4][R5][R7];
+  - the worst models in Recurrent's data: ID.4 63 % at 0 °C without a heat pump; GM heat-pump cars 72–74 % [R1];
+  - Geotab's 47 % of best range at −15 °C [R8];
+  - −14 % at 35 °C [R4];
+  - −31 % at 38 °C from Recurrent's earlier, small summer sample [R9].
+
+| T (°C) | −30 | −25 | −20 | −15 | −10 | −7 | 0 | 5 | 10 | 15 | 20–25 | 30 | 32 | 35 | 38 | 40 | 45 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| No heat pump, best | 0.50 | 0.54 | 0.60 | 0.66 | 0.72 | 0.76 | 0.85 | 0.90 | 0.96 | 0.99 | 1 | 0.99 | 0.98 | 0.96 | 0.92 | 0.90 | 0.85 |
+| No heat pump, worst | 0.32 | 0.35 | 0.40 | 0.45 | 0.52 | 0.55 | 0.65 | 0.74 | 0.85 | 0.94 | 1 | 0.94 | 0.91 | 0.86 | 0.78 | 0.74 | 0.66 |
+| Heat pump, best | 0.52 | 0.56 | 0.62 | 0.70 | 0.80 | 0.84 | 0.90 | 0.94 | 0.97 | 0.99 | 1 | 0.99 | 0.98 | 0.96 | 0.92 | 0.90 | 0.85 |
+| Heat pump, worst | 0.32 | 0.36 | 0.41 | 0.48 | 0.58 | 0.62 | 0.72 | 0.80 | 0.88 | 0.95 | 1 | 0.94 | 0.91 | 0.86 | 0.78 | 0.74 | 0.66 |
+
+- The middle is roughly halfway between best and worst at each point, so it remains the fleet average, the most likely result.
+- The LFP penalty applies to all three figures.
+- Interpolation and clamping work as for the middle.
+
 ### LFP adjustment (owner, 2026-11-20)
 
 For `lfp` and `lmfp` packs, the share kept is **r(T) − p(T)**, with `p` linear between these points (0 at 10 °C and above, so hot weather is unchanged):
@@ -100,14 +127,16 @@ Range basis        Wheels
 Units              Price per kWh         Outside temperature     Temperature units
 [ km | mi ]        [0.45]                [ -10 ] °C              [ °C | °F ]
                                          [ ] Heat pump        (only when optional on this trim)
-                                         Range −40% vs. mild weather
-                                         With the optional heat pump: −33%
+                                         Estimate: range −40% vs. mild weather (likely −28% to −48%)
+                                         With the heat pump: −33% (−20% to −42%)
 ```
 
 - The field is a number input (step 1) in the chosen unit, with the unit after it. The °C/°F switch is the same segmented control as km/mi (`.seg`, `aria-pressed`).
 - At 375 px the controls grid has two columns, so the field and its switch share one row.
 - When the temperature changes the figures, the range and consumption tiles show "Rated: …" under the estimate, as they do for wheels. Their badge note gives the temperature basis, and the temperature studies are added to the car's Sources list.
 - All text comes from `src/i18n/en.json` (`temp.*` keys).
+
+**Estimates are labelled (owner, 2026-11-20).** Whenever the Wheels or Outside temperature setting changes a figure, the note under that control starts with "Estimate:". The changed figures show "~", the Estimated badge and "Rated: …", as before.
 
 ## 5. Sources (data/sources)
 

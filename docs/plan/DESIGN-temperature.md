@@ -34,6 +34,8 @@ A visitor sets the outside temperature (°C or °F) and sees how much range the 
 - **LFP penalty:** `lfpPenalty(tC)`, and `retention` takes the chemistry, per design §3 "LFP adjustment". Needs a new source, `src-b116-p3-cell-low-temperature`.
 - **Heat pump checkbox** for `optional` / `standard_or_optional` trims. State `hpTicked` resets when the car or trim changes. `temperatureEffect(t, heatPump, chemistry, { heatPumpFitted })`.
 
+- **Best/worst band (later the same day):** `RETENTION_BAND` best/worst tables (design §3). `temperatureEffect` returns `best` and `worst` (and the same for the heat-pump line). The note reads "Estimate: … (likely … to …)". The Wheels note also gets "Estimate:".
+
 ## Not in scope
 
 Cold charging speed, the trip planner, per-model winter data (design §6). Owner questions O1–O3 are in the design §7.

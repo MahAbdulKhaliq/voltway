@@ -567,3 +567,9 @@ Local branch `feat/b116-outside-temperature` only. Nothing is pushed until the o
   - changing trim resets it;
   - checked at 1280/375 px dark, PNGs sent, committed locally.
   - *Verified 2026-11-20 (headless Chrome on the dev server):* Q4 50 (optional) at −10 °C: unticked −40 % + "With the heat pump: −33%", ticked −33 % with Added 137 → 153 km; Bolt 2027 (LFP, heat pump) −38 %, no checkbox; Model 3 Premium (LFP, optional, ticked) −38 %; Q4 40 (none) −40 %, no checkbox; 375 px scrollWidth 375; 6 PNGs (b116-shots/r2-*).
+- [x] **[T] T7 Best/worst band and Estimate labels (owner 2026-11-20)**: `temperature-effect.ts`, tests, `CarExplorer.tsx`, `en.json`. **Done when:**
+  - tests show best ≥ middle ≥ worst at every temperature, 1 at 20–25 °C, the design §3 anchors, and the LFP penalty on all three;
+  - on `/charging` at −10 °C, a no-heat-pump NMC car reads "Estimate: range −40% vs. mild weather (likely −28% to −48%)";
+  - a picked wheel size reads "Estimate: …";
+  - checked at 1280/375 px dark, PNGs sent, committed locally.
+  - *Verified 2026-11-20:* 23 tests in tests/temperature-effect.test.ts. Headless Chrome on the dev server: Q4 40 at −10 °C reads "Estimate: range −40% vs. mild weather (likely −28% to −48%)"; Q4 50 unticked adds "With the heat pump: −33% (−20% to −42%)"; 21″ wheels read "Estimate: +7.1% energy per km vs. rated wheels"; Bolt (LFP) −38% (−25% to −47%); 375 px scrollWidth 375. PNGs: b116-shots/r4-*.

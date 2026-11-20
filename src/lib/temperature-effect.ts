@@ -20,6 +20,28 @@ export const RETENTION: Record<HeatCurve, ReadonlyArray<readonly [number, number
   heat_pump: [[-30, 0.40], [-25, 0.44], [-20, 0.50], [-15, 0.58], [-10, 0.67], [-7, 0.72], [0, 0.83], [5, 0.89], [10, 0.94], [15, 0.98], [20, 1], [25, 1], [30, 0.97], [32, 0.95], [35, 0.91], [38, 0.85], [40, 0.82], [45, 0.75]],
 };
 
+export type Outcome = 'best' | 'mid' | 'worst';
+
+/**
+ * Best and worst case around the middle (owner, 2026-11-20; design §3 "Best and worst case"):
+ * best = preheated while plugged in, longer drives, a car that does well in the cold;
+ * worst = cold-soaked, short trips, cabin at 22 °C (the lab tests), a car that does poorly.
+ * The figures on the page use the middle; the band is shown in the note.
+ */
+export const RETENTION_BAND: Record<'best' | 'worst', Record<HeatCurve, ReadonlyArray<readonly [number, number]>>> = {
+  best: {
+    none: [[-30, 0.50], [-25, 0.54], [-20, 0.60], [-15, 0.66], [-10, 0.72], [-7, 0.76], [0, 0.85], [5, 0.90], [10, 0.96], [15, 0.99], [20, 1], [25, 1], [30, 0.99], [32, 0.98], [35, 0.96], [38, 0.92], [40, 0.90], [45, 0.85]],
+    heat_pump: [[-30, 0.52], [-25, 0.56], [-20, 0.62], [-15, 0.70], [-10, 0.80], [-7, 0.84], [0, 0.90], [5, 0.94], [10, 0.97], [15, 0.99], [20, 1], [25, 1], [30, 0.99], [32, 0.98], [35, 0.96], [38, 0.92], [40, 0.90], [45, 0.85]],
+  },
+  worst: {
+    none: [[-30, 0.32], [-25, 0.35], [-20, 0.40], [-15, 0.45], [-10, 0.52], [-7, 0.55], [0, 0.65], [5, 0.74], [10, 0.85], [15, 0.94], [20, 1], [25, 1], [30, 0.94], [32, 0.91], [35, 0.86], [38, 0.78], [40, 0.74], [45, 0.66]],
+    heat_pump: [[-30, 0.32], [-25, 0.36], [-20, 0.41], [-15, 0.48], [-10, 0.58], [-7, 0.62], [0, 0.72], [5, 0.80], [10, 0.88], [15, 0.95], [20, 1], [25, 1], [30, 0.94], [32, 0.91], [35, 0.86], [38, 0.78], [40, 0.74], [45, 0.66]],
+  },
+};
+
+/** A best-to-worst band (shares of mild-weather range kept). */
+export interface Band { best: number; worst: number }
+
 /** LFP/LMFP extra loss in points of range (design §3 "LFP adjustment"): 0 from 10 °C up. Low confidence. */
 export const LFP_PENALTY: ReadonlyArray<readonly [number, number]> = [[-30, 0.08], [-20, 0.07], [-10, 0.05], [0, 0.03], [10, 0]];
 
@@ -66,20 +88,28 @@ export const fToC = (f: number): number => ((f - 32) * 5) / 9;
  * Share of mild-weather range kept at tC (°C), linear between table points, clamped to MIN_C…MAX_C.
  * With a chemistry, LFP/LMFP packs take the cold penalty.
  */
-export function retention(tC: number, curve: HeatCurve, chemistry?: string | null): number {
+export function retention(tC: number, curve: HeatCurve, chemistry?: string | null, outcome: Outcome = 'mid'): number {
   const t = Number.isFinite(tC) ? Math.min(MAX_C, Math.max(MIN_C, tC)) : MILD_C;
-  return interpolate(RETENTION[curve], t) - lfpPenalty(t, chemistry);
+  const table = outcome === 'mid' ? RETENTION[curve] : RETENTION_BAND[outcome][curve];
+  return interpolate(table, t) - lfpPenalty(t, chemistry);
 }
+
+const band = (t: number, curve: HeatCurve, chemistry: string | null | undefined): Band =>
+  ({ best: retention(t, curve, chemistry, 'best'), worst: retention(t, curve, chemistry, 'worst') });
 
 export interface TemperatureEffect {
   /** Multiplies consumption (= 1 / retained); range is divided by it. */
   factor: number;
   /** Share of mild-weather range kept (range change = retained − 1). */
   retained: number;
+  /** Best-to-worst band around `retained` (shown in the note; the figures use the middle). */
+  band: Band;
   /** Curve used for the figures. */
   curve: HeatCurve;
   /** The heat-pump curve's share, for an optional heat pump the visitor hasn't ticked, when it differs. */
   withHeatPump: number | null;
+  /** The heat-pump curve's band, alongside `withHeatPump`. */
+  withHeatPumpBand: Band | null;
   /** The trim's heat pump is optional, so the page offers a Heat pump checkbox. */
   heatPumpOptional: boolean;
   /** LFP cold penalty included in retained (share of range; 0 when none). */
@@ -111,11 +141,14 @@ export function temperatureEffect(
   const curve: HeatCurve = heatPump === 'standard' || (optional && opts.heatPumpFitted) ? 'heat_pump' : 'none';
   const retained = retention(t, curve, chemistry);
   const hp = retention(t, 'heat_pump', chemistry);
+  const showHp = optional && curve === 'none' && Math.abs(hp - retained) > 1e-9;
   return {
     factor: 1 / retained,
     retained,
+    band: band(t, curve, chemistry),
     curve,
-    withHeatPump: optional && curve === 'none' && Math.abs(hp - retained) > 1e-9 ? hp : null,
+    withHeatPump: showHp ? hp : null,
+    withHeatPumpBand: showHp ? band(t, 'heat_pump', chemistry) : null,
     heatPumpOptional: optional,
     lfpPenalty: lfpPenalty(t, chemistry),
     heatPumpUnknown: !heatPump || heatPump === 'unknown',

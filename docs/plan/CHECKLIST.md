@@ -557,5 +557,13 @@ Local branch `feat/b116-outside-temperature` only. Nothing is pushed until the o
   - the field is checked on the dev server at 1280 px and 375 px, dark and light, on cars of different chemistries and heat-pump states;
   - dark-theme PNGs are sent to the owner;
   - the work is committed on the local branch (not pushed).
-
   - *Verified 2026-11-20:* vitest 951 passed, astro check 0 errors, validate OK. Headless Chrome at 1280 and 375 px, dark and light: scrollWidth = viewport. 7 PNGs in the session notes folder (b116-shots). Committed on local branch feat/b116-outside-temperature; not pushed. npm run build passes.
+- [x] **[T] T5 LFP cold penalty (owner 2026-11-20)**: `temperature-effect.ts`, tests, `data/sources/src-b116-p3-cell-low-temperature.json`, `en.json`. **Done when:** tests show LFP 3 points below NMC at 0 °C, 5 below at −10 °C, 8 below at −30 °C, and the same at 10 °C and above; the LFP note says it loses a little more.
+  - *Verified 2026-11-20:* 18 tests in tests/temperature-effect.test.ts; vitest 954 passed, astro check 0 errors, validate OK; estimates.json has 10 sources.
+- [x] **[T] T6 Heat pump checkbox (owner 2026-11-20)**: `CarExplorer.tsx`, `CurveViewer.tsx` CSS, `en.json`. **Done when:**
+  - an optional-heat-pump trim shows an unticked Heat pump checkbox;
+  - ticking it switches to the heat-pump figure and hides the "with the heat pump" line;
+  - standard, none and unknown trims show no checkbox;
+  - changing trim resets it;
+  - checked at 1280/375 px dark, PNGs sent, committed locally.
+  - *Verified 2026-11-20 (headless Chrome on the dev server):* Q4 50 (optional) at −10 °C: unticked −40 % + "With the heat pump: −33%", ticked −33 % with Added 137 → 153 km; Bolt 2027 (LFP, heat pump) −38 %, no checkbox; Model 3 Premium (LFP, optional, ticked) −38 %; Q4 40 (none) −40 %, no checkbox; 375 px scrollWidth 375; 6 PNGs (b116-shots/r2-*).

@@ -541,6 +541,8 @@ export default function CurveViewer({
         .viewer .temp-unit { color: var(--text); font-weight: 600; }
         .viewer .temp-notes { grid-column: 1 / -1; margin: 0; display: grid; gap: 2px; }
         .viewer .temp-change { color: var(--text); font-weight: 600; }
+        .viewer .temp-hp { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; color: var(--text); font-size: 0.875rem; cursor: pointer; }
+        .viewer .temp-hp input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); }
         .viewer .control-note { display: block; font-size: 0.8rem; color: var(--muted); }
         .viewer .control-note.linkish { padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: 0.8rem; font-weight: 600; text-align: left; cursor: pointer; text-decoration: underline; }
         .viewer label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }

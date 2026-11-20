@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { RETENTION, TEMPERATURE_SOURCE_IDS, cToF, fToC, retention, temperatureEffect } from '../src/lib/temperature-effect.ts';
+import { RETENTION, TEMPERATURE_SOURCE_IDS, cToF, fToC, lfpPenalty, retention, temperatureEffect } from '../src/lib/temperature-effect.ts';
 import en from '../src/i18n/en.json';
 
 describe('retention table (B116, design §3)', () => {
@@ -55,13 +55,25 @@ describe('temperatureEffect by heat pump and chemistry', () => {
     expect(e.curve).toBe('none');
     expect(e.retained).toBeCloseTo(0.6);
   });
-  it('optional heat pump: safe figure plus the heat-pump figure', () => {
+  it('optional heat pump unticked: safe figure plus the heat-pump figure', () => {
     for (const hp of ['optional', 'standard_or_optional']) {
       const e = temperatureEffect(-10, hp, 'nmc');
+      expect(e.heatPumpOptional).toBe(true);
       expect(e.retained).toBeCloseTo(0.6);
       expect(e.withHeatPump).toBeCloseTo(0.67);
     }
     expect(temperatureEffect(35, 'optional', 'nmc').withHeatPump).toBeNull(); // same curve in the heat
+  });
+  it('optional heat pump ticked: the heat-pump curve, no second figure (owner 2026-11-20)', () => {
+    const e = temperatureEffect(-10, 'optional', 'nmc', { heatPumpFitted: true });
+    expect(e.curve).toBe('heat_pump');
+    expect(e.retained).toBeCloseTo(0.67);
+    expect(e.withHeatPump).toBeNull();
+  });
+  it('the tick only matters when the heat pump is optional', () => {
+    expect(temperatureEffect(-10, 'none', 'nmc', { heatPumpFitted: true }).curve).toBe('none');
+    expect(temperatureEffect(-10, null, 'nmc', { heatPumpFitted: true }).curve).toBe('none');
+    expect(temperatureEffect(-10, 'standard', 'nmc').heatPumpOptional).toBe(false);
   });
   it('unknown heat pump assumes none and says so', () => {
     for (const hp of [null, undefined, 'unknown']) {
@@ -70,8 +82,22 @@ describe('temperatureEffect by heat pump and chemistry', () => {
       expect(e.heatPumpUnknown).toBe(true);
     }
   });
-  it('chemistry does not change range; LFP gets the cold-charging note below 0 °C', () => {
-    expect(temperatureEffect(-5, 'standard', 'lfp').retained).toBe(temperatureEffect(-5, 'standard', 'nmc').retained);
+  it('LFP loses a few points more in the cold, growing as it gets colder (owner 2026-11-20)', () => {
+    const gap = (t: number, hp: string) => temperatureEffect(t, hp, 'nmc').retained - temperatureEffect(t, hp, 'lfp').retained;
+    for (const hp of ['standard', 'none']) {
+      expect(gap(0, hp)).toBeCloseTo(0.03);
+      expect(gap(-10, hp)).toBeCloseTo(0.05);
+      expect(gap(-20, hp)).toBeCloseTo(0.07);
+      expect(gap(-30, hp)).toBeCloseTo(0.08);
+      expect(gap(-40, hp)).toBeCloseTo(0.08); // clamped
+      for (const t of [10, 20, 35, 45]) expect(gap(t, hp)).toBe(0);
+    }
+    expect(gap(5, 'none')).toBeCloseTo(0.015);
+    expect(temperatureEffect(-10, 'standard', 'lmfp').retained).toBeCloseTo(0.62);
+    for (const c of ['nca', 'other', null]) expect(lfpPenalty(-10, c)).toBe(0);
+    expect(temperatureEffect(-10, 'optional', 'lfp').withHeatPump).toBeCloseTo(0.62); // penalty on both figures
+  });
+  it('LFP gets the cold-charging note below 0 °C', () => {
     expect(temperatureEffect(-5, 'standard', 'lfp').lfpNote).toBe(true);
     expect(temperatureEffect(-5, 'standard', 'lmfp').lfpNote).toBe(true);
     expect(temperatureEffect(5, 'standard', 'lfp').lfpNote).toBe(false);
@@ -102,7 +128,7 @@ describe('sources and strings', () => {
     expect(new Set(TEMPERATURE_SOURCE_IDS).size).toBe(TEMPERATURE_SOURCE_IDS.length);
   });
   it('has every temp.* string', () => {
-    const keys = ['temp.label', 'temp.units', 'temp.unit.C', 'temp.unit.F', 'temp.change', 'temp.mild', 'temp.withHeatPump', 'temp.heatPumpUnknown', 'temp.lfpNote', 'temp.clamped', 'temp.basis', 'temp.sparse'];
+    const keys = ['temp.label', 'temp.units', 'temp.unit.C', 'temp.unit.F', 'temp.change', 'temp.mild', 'temp.withHeatPump', 'temp.heatPumpUnknown', 'temp.lfpNote', 'temp.clamped', 'temp.basis', 'temp.sparse', 'temp.heatPump', 'temp.heatPumpHelp', 'temp.lfpBasis'];
     for (const k of keys) expect((en as Record<string, string>)[k], k).toBeTruthy();
   });
 });

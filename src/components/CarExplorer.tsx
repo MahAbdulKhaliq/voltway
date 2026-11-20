@@ -54,7 +54,9 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
   // B31: "How fast would my car charge here?" links carry the station's top DC kW (?kw=) for this car only.
   const [linkKw, setLinkKw] = useState<{ carId: string; kw: number } | null>(null);
   const [linkWindow, setLinkWindow] = useState<{ carId: string; start: number; end: number } | null>(null);
-  useEffect(() => setWheelIn(null), [carId, trimId]);
+  // Heat pump checkbox (B116, owner 2026-11-20): only for trims where it's optional; unticked = the safe case.
+  const [hpFitted, setHpFitted] = useState(false);
+  useEffect(() => { setWheelIn(null); setHpFitted(false); }, [carId, trimId]);
   // °C/°F (B116) is remembered; with no saved choice it follows the distance unit (miles → °F).
   useEffect(() => {
     const saved = getItem(KEYS.tempUnit);
@@ -194,13 +196,14 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
   const tempC = Number.isFinite(parsedTemp) ? (tempUnit === 'F' ? fToC(parsedTemp) : parsedTemp) : MILD_C;
   const heatPump = trim?.heat_pump ? String(trim.heat_pump.value.value) : null;
   const chemistry = f.chemistry ? String(f.chemistry.value.value) : null;
-  const temp = temperatureEffect(tempC, heatPump, chemistry);
+  const temp = temperatureEffect(tempC, heatPump, chemistry, { heatPumpFitted: hpFitted });
   const tempAdjusting = Boolean(temperature) && Math.abs(temp.factor - 1) > 1e-9;
   const showTemp = (c: number) => `${formatNumber(Math.round(tempUnit === 'F' ? cToF(c) : c))} ${t(`temp.unit.${tempUnit}` as MessageKey)}`;
   const signedPct = (share: number) => { const n = Math.round((share - 1) * 100); return n > 0 ? `+${n}` : n < 0 ? `−${-n}` : '0'; };
   const usedC = Math.min(MAX_C, Math.max(MIN_C, tempC));
   const tempBasis = tempAdjusting
-    ? t('temp.basis', { temp: showTemp(usedC), pct: Math.round(temp.retained * 100), heating: t(`temp.heating.${temp.curve}` as MessageKey) }) + (temp.sparse ? ` ${t('temp.sparse')}` : '')
+    ? t('temp.basis', { temp: showTemp(usedC), pct: Math.round(temp.retained * 100), heating: t(`temp.heating.${temp.curve}` as MessageKey) }) + (temp.lfpPenalty > 0 ? ` ${t('temp.lfpBasis', { pts: Math.round(temp.lfpPenalty * 100) })}` : '')
+      + (temp.sparse ? ` ${t('temp.sparse')}` : '')
     : '';
   const estimate = (k: string): Field => {
     const o = official[k];
@@ -291,6 +294,13 @@ export default function CarExplorer({ index, wheelEffect, temperature = null }: 
           ))}
         </div>
       </div>
+      {temp.heatPumpOptional && (
+        <label className="temp-hp" title={t('temp.heatPumpHelp')}>
+          <input type="checkbox" checked={hpFitted} onChange={(e) => setHpFitted(e.target.checked)} aria-describedby="temp-hp-help" />
+          <span>{t('temp.heatPump')}</span>
+          <span id="temp-hp-help" className="sr-only">{t('temp.heatPumpHelp')}</span>
+        </label>
+      )}
       <p className="temp-notes" aria-live="polite">
         <span className="control-note temp-change">{tempAdjusting ? t('temp.change', { pct: signedPct(temp.retained) }) : t('temp.mild')}</span>
         {tempAdjusting && temp.withHeatPump !== null && <span className="control-note">{t('temp.withHeatPump', { pct: signedPct(temp.withHeatPump) })}</span>}

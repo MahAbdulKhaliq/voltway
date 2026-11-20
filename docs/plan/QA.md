@@ -800,6 +800,8 @@ Branch `feat/b116-outside-temperature` (local). Run `npx vitest run tests/temper
 | QT5 | °C/°F switch | Switch to °F: −10 °C shows as 14 °F; typing 32 °F gives the 0 °C figures; reload keeps °F; with no saved choice and miles selected, °F is the default | Typing in °F then switching back shows whole °C |
 | QT6 | Placement and layout | 1280 px: the field and switch fill the cells under Range basis / Wheels. 375 px: no horizontal scroll, field and switch on one row, the note wraps cleanly. Dark and light: text contrast ≥ 4.5:1 | Car with several curves (a curve picker row): the field still follows Price, with no overlap |
 | QT7 | Figures follow | At −10 °C: range, consumption, "km added" and "km per 10 min" all change by the same factor as the note | 20 °C: identical to before the feature |
+| QT9 | LFP penalty (owner 2026-11-20) | Unit tests; on screen, Bolt 2027 (LFP, heat pump) at −10 °C shows −38 % vs. −33 % for an NMC heat-pump car | 10 °C and above: same as NMC; LMFP treated as LFP |
+| QT10 | Heat pump checkbox (owner 2026-11-20) | `audi/q4-e-tron/2022/q4-50-e-tron-quattro` at −10 °C: checkbox unticked → −40 % + "With the heat pump: −33%"; ticked → −33 %, no extra line, and the range tile follows | No checkbox on standard/none/unknown trims; switching trim unticks it |
 | QT8 | Not pushed | `git log origin/main..feat/b116-outside-temperature` exists only locally; `git ls-remote` has no such branch | — |
 
 ## Outside temperature results

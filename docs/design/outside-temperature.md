@@ -30,11 +30,11 @@ The baseline throughout is range in **mild weather** (about 20–25 °C), meanin
 | Fleet temperature curve | Range peaks at **115 % of rated** at 21.5 °C, stays at or above 100 % of rated from 10–31 °C, and falls to **54 % of rated at −15 °C** (4,200 EVs, 5.2 M trips). | Geotab, 2025-10-30 [R8] |
 | Hot weather (fleet) | **−5 % at 32 °C, −15 % at 38 °C** (29,719 EVs). Heat-pump cars did no better in the heat. | Recurrent, reported by InsideEVs, 2025-06-23 [R9] |
 | Winter road tests vs. WLTP | NAF El Prix 2025: −5 % to −32 % below freezing. ADAC 2025 at 0 °C and 111 km/h: about +50 % consumption over WLTP. | InsideEVs on NAF, 2025-01-16 [R10]; ADAC, 2025-01-31 [R11] |
-| **Chemistry (LFP vs. NMC/NCA)** | Mixed. Recurrent's 2025 fleet study: LFP cars "don't perform noticeably worse than NCA alternatives" when freezing [R12]. Recurrent's 2024 LFP article: reviewers say "a few percentage points" more loss than NCA Model 3s, and fast charging is poor below −20 °C [R13]. A one-car test at 0 °C showed the LFP Model 3 no less efficient than the NCA Long Range [R14]. | see refs |
+| **Chemistry (LFP vs. NMC/NCA)** | Points one way, but thin. LFP cathode resistance at −20 °C is about **3×** its room-temperature value, and NCA handles the cold better than LFP (P3 cell study [R16]). Mixed. Recurrent's 2025 fleet study: LFP cars "don't perform noticeably worse than NCA alternatives" when freezing [R12]. Recurrent's 2024 LFP article: reviewers say "a few percentage points" more loss than NCA Model 3s, and fast charging is poor below −20 °C [R13]. A one-car test at 0 °C showed the LFP Model 3 no less efficient than the NCA Long Range [R14]. | see refs |
 
 **What it means for the model:**
 - **Heating is what matters.** Without cabin heat, AAA measured only −12 % at −7 °C. With it, −41 %. A heat pump saves about 8–10 points around 0 °C, but its edge fades and is nearly gone by −18 to −20 °C.
-- **Chemistry: no reliable range difference is published.** No controlled study puts a number on LFP vs. NMC/NCA cold-weather *range*. The clear LFP effect is on *charging speed* when the battery is cold (one test: 20 kW vs. 111 kW warm [R15]), which is outside this feature (§6). So the range model does **not** change by chemistry. LFP cars get a note when it's below freezing (§4), and the owner can choose a small LFP penalty instead (open question O2).
+- **Chemistry: LFP loses a little more in the cold** (owner, 2026-11-20). No controlled same-car study publishes a number. The best figure is Recurrent's "a few percentage points" more for LFP Model 3s than NCA ones in Canadian and Norwegian winters, even with preheating [R13]. The cell physics (resistance tripling by −20 °C [R16]) says the gap widens as it gets colder. So LFP takes a small penalty that grows with the cold (§3), marked low confidence. NMC and NCA are treated the same, since nothing published separates them. The bigger LFP effect is still on *charging speed* when the pack is cold (20 kW vs. 111 kW warm in one test [R15]), so the note about that stays.
 - **Heat:** air conditioning costs a few percent at 30–32 °C and about 15 % at 38 °C. A heat pump doesn't help, so hot weather uses one curve.
 
 ## 3. The formula
@@ -64,20 +64,33 @@ How each anchor was set:
 - **30–40 °C:** 0.95 at 32 °C and 0.85 at 38 °C [R9]; 0.91 at 35 °C sits between AAA 2026 (0.915 [R7]) and DOE (0.86 [R4]).
 - **45 °C:** extrapolation.
 
+### LFP adjustment (owner, 2026-11-20)
+
+For `lfp` and `lmfp` packs, the share kept is **r(T) − p(T)**, with `p` linear between these points (0 at 10 °C and above, so hot weather is unchanged):
+
+| T (°C) | ≤ −30 | −20 | −10 | 0 | ≥ 10 |
+|---|---|---|---|---|---|
+| **LFP penalty p(T)** (points of range) | 0.08 | 0.07 | 0.05 | 0.03 | 0 |
+
+- **−5 to −15 °C, 4–6 points:** the conditions where reviewers saw "a few percentage points" more loss [R13].
+- **0 °C, 3 points:** at freezing, Recurrent's fleet study found LFP "not noticeably worse" [R12], and a one-car test showed no gap [R14]. So the penalty is small there.
+- **Below −10 °C, 5–8 points:** grows with the rise in cell resistance [R16]. This is a judgement, not a measurement, and the badge note says so.
+- `other`, `nmc`, `nca` and unknown chemistry get no adjustment.
+
 ### Which curve a trim uses (`trims[].heat_pump`, B112/B113)
 
 | `heat_pump` | Range figures use | Note under the field |
 |---|---|---|
 | `standard` | Heat pump curve | — |
 | `none` | No heat pump curve | — |
-| `optional`, `standard_or_optional` | **No heat pump** curve (the safe case) | "With the optional heat pump: −X%" |
+| `optional`, `standard_or_optional` | A **Heat pump** checkbox appears beside the field (owner, 2026-11-20). Unticked (the default, the safe case): no heat pump curve. Ticked: heat pump curve. | Unticked: "With the heat pump: −X%" |
 | unknown (`null`) | No heat pump curve | "Heat pump not known; assumes none" |
 
 Above 25 °C both curves are the same, so these notes appear only below 20 °C.
 
 ### Chemistry (`fields.chemistry`)
 
-The data holds `nmc` 1,129, `nca` 261, `lfp` 33, `other` 7 and unknown 3 cars. The range model is the same for all of them (§2). For `lfp` (and `lmfp`) below 0 °C, the note adds: "LFP battery: range loss is similar, but fast charging can be much slower until the battery warms up."
+The data holds `nmc` 1,129, `nca` 261, `lfp` 33, `other` 7 and unknown 3 cars. LFP and LMFP take the adjustment above. For them, below 0 °C, the note adds: "LFP battery: loses a little more range in the cold than NMC, and fast charging can be much slower until the battery warms up."
 
 ## 4. On screen
 
@@ -86,6 +99,7 @@ Range basis        Wheels
 [Highway ▾]        [19″ (as rated) ▾]
 Units              Price per kWh         Outside temperature     Temperature units
 [ km | mi ]        [0.45]                [ -10 ] °C              [ °C | °F ]
+                                         [ ] Heat pump        (only when optional on this trim)
                                          Range −40% vs. mild weather
                                          With the optional heat pump: −33%
 ```
@@ -113,6 +127,7 @@ The adjusted values cite `src-b116-recurrent-heat-pump-split` [R1]. The badge no
 - [R12] Carscoops on Recurrent's freezing study, 2025-01-31. https://www.carscoops.com/2025/01/evs-lose-20-range-on-average-in-freezing-conditions-study-finds/
 - [R13] `src-b116-recurrent-lfp`: Recurrent, "Why We're Excited about LFP Batteries", 2024-05-31. https://www.recurrentauto.com/research/excited-about-lfp-batteries
 - [R14] InsideEVs, Model 3 lineup real-world test at 0 °C, 2022-01-13. https://insideevs.com/news/560622/tesla-model3-lineup-realworld-test/ (context only)
+- [R16] `src-b116-p3-cell-low-temperature`: P3 group, "Cell behavior at low temperatures" (white paper), 2024. https://www.p3-group.com/wp-content/uploads/2024/04/P3-Cell_behavior_at_low_temperatures.pdf
 - [R15] InsideEVs, cold LFP Model 3 charging, https://insideevs.com/news/550021/cold-lfp-battery-tesla-model3/ (context only)
 
 The NRCan cold-weather page refused automated access (HTTP 403), so it isn't cited.
@@ -127,5 +142,5 @@ The NRCan cold-weather page refused automated access (HTTP 403), so it isn't cit
 ## 7. Open questions for the owner
 
 - ~~**O1, baseline.**~~ **Settled 2026-11-20:** losses only. The owner left it to Claude's judgement; the site already presents ratings as mild-weather range (`trip.winter`: "This plan assumes mild weather"), so adding a mild-weather gain would double-count. Original question: The model treats the official rating as the **mild-weather** range, so it only ever shows losses (or 0 % at 20–25 °C). Geotab's fleet beat its ratings by up to 15 % at 21.5 °C, but mostly on city-speed trips. Showing a gain would overstate highway range, so it is left out. The alternative: scale to rated range, with gains up to +15 % in mild weather.
-- **O2, LFP.** No penalty now (the evidence is mixed). The option: −3 points below −10 °C, ramping in from 0 °C.
+- ~~**O2, LFP.**~~ **Decided by the owner 2026-11-20:** LFP takes a penalty that grows with the cold (§3). Original note: No penalty now (the evidence is mixed). The option: −3 points below −10 °C, ramping in from 0 °C.
 - **O3, remember the temperature?** It is not remembered now.

@@ -808,6 +808,22 @@ Branch `feat/b116-outside-temperature` (owner approved going live 2026-11-20). R
 | QT14 | New logo (B118, owner 2026-11-20) | Every page's header shows `/logo.png` (the V, road and bolt with a cream outline), the same file and size (39×28) in light, dark and a theme picked in Settings. `/favicon.ico` (16/32/48), `/favicon-192.png` and `/apple-touch-icon.png` show the new mark; Base.astro links all three; `/favicon.svg` is gone and nothing links it. `public/og.png` shows the new mark beside "Voltway". `node scripts/logo-assets.mjs` then `node scripts/og-image.mjs` reproduce the files | Animations off: no strike-in or hover jolt; first page of a visit: the mark strikes in once; 375 px: the header still fits with My car and Settings |
 | QT8 | Goes live as one PR | After the owner's go-ahead (2026-11-20): one PR from `feat/b116-outside-temperature`, CI green, squash-merged; production serves the new `/favicon.ico` and `/apple-touch-icon.png` | — |
 
+## Compare costs (B119)
+
+Run `npx vitest run tests/price.test.ts`, then open `/compare?cars=kia/ev3/2027/long-range-awd,tesla/model-3/2018/long-range-awd` at 1280 px and 375 px, dark and light.
+
+| ID | Requirement | How to check | Edge cases / failure paths |
+|----|-------------|--------------|----------------------------|
+| QC1 | Controls under the curve | Charger, Range basis (starts at Combined), Distance km/mi and Price per kWh sit in one row at 1280 px; at 375 px the charger is full width and the others wrap two per row, with no sideways scroll | Switching km/mi here also switches the header and other pages; changing the price here shows on the Charging page and in Settings |
+| QC2 | Costs on each lane | Per 10 min shows ~$ for 10 minutes; 10% → 80% shows ~$ for the charge (= energy added ÷ 0.92 × price); Added shows ~$/100 km. Check one by hand: cost/100 km × km added ÷ 100 ≈ the charge cost | Average power has no cost; a car with no consumption figure shows no per-100 cost and Unknown for km; a car with no curve shows no costs |
+| QC4 | Sources and popovers (owner 2026-11-20) | Click any "[n]" in the spec table: the Sources section opens, scrolls to source n and highlights it; the same source shows the same number under every car. Scroll the table fully right and open a badge in the last column at 1280 and 375 px: the popover is fully visible. The km \| mi switch fills its cell; group rows have square top corners. With a 400v and an 800v car, Voltage class marks the 800v one best | Two 800v cars and no 400v: no star (all equal). A badge near the bottom of the table opens upward when there is more room above; Animations off: the highlight shows without the fade |
+| QC3 | Everything follows the settings | Highway → mi → /usr/bin/bash.60: every distance and cost changes, /100 km becomes /100 mi, and the race re-sorts when racing by Added | A car without a combined figure keeps its highway figure on Combined |
+
+## Compare costs results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|
+
 ## Outside temperature results
 
 | ID | Pass / Fail | Notes |

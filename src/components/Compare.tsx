@@ -16,12 +16,15 @@ import { GridComponent, MarkLineComponent, TooltipComponent } from 'echarts/comp
 import { CanvasRenderer } from 'echarts/renderers';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { calculateCharge, displayMinutes, powerAt, type ChargeResult } from '../lib/charging.ts';
-import { BETTER, bestIndices, compareHref, firstDir, readCarsParam, replaceAt, rowDiffers, sortBy } from '../lib/compare.ts';
+import { BETTER, bestIndices, compareHref, firstDir, rankValue, readCarsParam, replaceAt, rowDiffers, sortBy } from '../lib/compare.ts';
 import { reducedMotion } from '../lib/motion.ts';
 import { getCompare, setCompare } from '../lib/my-car.ts';
 import { GROUPS } from '../lib/spec-groups.ts';
 import { getItem, getJSON, KEYS, setJSON } from '../lib/storage.ts';
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
+import { chargeCost, chargePrice, costPer100, costPer10Min, money, PRICE_EVENT, setChargePrice } from '../lib/price.ts';
+import { setUnit as switchUnit } from '../scripts/units-client.ts';
+import { COST } from '../config.ts';
 import type { CarDetail, CurveOut, Field, IndexEntry } from '../lib/types.ts';
 import VariantName from './VariantName.tsx';
 import CarPicker from './CarPicker.tsx';
@@ -36,6 +39,9 @@ interface Props { index: IndexEntry[] }
 type Preset = 'none' | '50' | '100' | '150' | '250' | '350' | 'custom';
 const PRESETS: Preset[] = ['none', '50', '100', '150', '250', '350', 'custom'];
 type Col = 'per10' | 'minutes' | 'km' | 'avgKw';
+/** Range basis (B119), as on the Charging page: combined by default (B117). */
+type Basis = 'highway' | 'combined' | 'city';
+const BASES: Basis[] = ['highway', 'combined', 'city'];
 const COLS: Col[] = ['per10', 'minutes', 'km', 'avgKw'];
 /** Charger power in 50 kW steps, then Max (design-language.md §4), as on the Charging page. */
 const CHARGER_STOPS = [50, 100, 150, 200, 250, 300, 350, Number.POSITIVE_INFINITY];
@@ -56,6 +62,8 @@ interface Row {
   curve: CurveOut | null;
   result: ChargeResult | null;
   estimated: boolean;
+  /** The consumption used for distances and the cost per 100 km (B119); null when unknown. */
+  whPerKm: number | null;
 }
 
 /** A drawn finish flag for the leading lane (no glyphs for icons). */
@@ -86,6 +94,8 @@ export default function Compare({ index }: Props) {
   const [preset, setPreset] = useState<Preset>('none');
   const [customKw, setCustomKw] = useState(120);
   const [unit, setUnit] = useState<DistanceUnit>('km');
+  const [basis, setBasis] = useState<Basis>('combined');
+  const [price, setPrice] = useState(0);
   const [onlyDiff, setOnlyDiff] = useState(false);
   const [figure, setFigure] = useState<Col>('per10');
   const [themeTick, setThemeTick] = useState(0);
@@ -130,6 +140,10 @@ export default function Compare({ index }: Props) {
     if (saved.preset && PRESETS.includes(saved.preset)) setPreset(saved.preset);
     if (typeof saved.customKw === 'number' && saved.customKw > 0) setCustomKw(saved.customKw);
     setUnit(getItem(KEYS.units) === 'mi' ? 'mi' : 'km');
+    // The price is the site-wide setting (B66), shared with Settings, the Charging page and trips.
+    setPrice(chargePrice());
+    const onPrice = (e: Event) => setPrice((e as CustomEvent<number>).detail);
+    window.addEventListener(PRICE_EVENT, onPrice);
     const onUnits = (e: Event) => setUnit((e as CustomEvent<DistanceUnit>).detail);
     const onTheme = () => setThemeTick((n) => n + 1);
     const media = matchMedia('(prefers-color-scheme: dark)');
@@ -139,6 +153,7 @@ export default function Compare({ index }: Props) {
     return () => {
       window.removeEventListener('voltway:units', onUnits);
       window.removeEventListener('voltway:theme', onTheme);
+      window.removeEventListener(PRICE_EVENT, onPrice);
       media.removeEventListener('change', onTheme);
     };
   }, [byId]);
@@ -183,20 +198,25 @@ export default function Compare({ index }: Props) {
       const usable = car.fields.capacity_usable_kwh?.value.value;
       const gross = car.fields.capacity_gross_kwh?.value.value;
       const kwh = typeof usable === 'number' ? usable : typeof gross === 'number' ? gross : null;
-      const wh = car.fields.consumption_highway_wh_per_km?.value.value ?? car.fields.consumption_combined_wh_per_km?.value.value;
+      // The picked basis, else combined, else highway (B117's fallback, as on the Charging page).
+      const whOf = (b: Basis) => {
+        const v = car.fields[`consumption_${b}_wh_per_km`]?.value.value;
+        return typeof v === 'number' && v > 0 ? v : null;
+      };
+      const whPerKm = whOf(basis) ?? whOf('combined') ?? whOf('highway');
       let result: ChargeResult | null = null;
       if (curve && kwh) {
         try {
-          result = calculateCharge({ points: curve.points, usableKwh: kwh, startSoc: start, endSoc: end, chargerKw, whPerKm: typeof wh === 'number' ? wh : undefined });
+          result = calculateCharge({ points: curve.points, usableKwh: kwh, startSoc: start, endSoc: end, chargerKw, whPerKm: whPerKm ?? undefined });
         } catch {
           result = null;
         }
       }
       const estimated = curve?.kind === 'estimated' || typeof usable !== 'number' || Boolean(result?.extrapolated);
-      out.push({ id, slot, car, curve, result, estimated });
+      out.push({ id, slot, car, curve, result, estimated, whPerKm });
     });
     return out;
-  }, [ids, cars, start, end, chargerKw]);
+  }, [ids, cars, start, end, chargerKw, basis]);
 
   const name = (id: string) => {
     const e = byId.get(id);
@@ -321,6 +341,22 @@ export default function Compare({ index }: Props) {
     if (c === 'avgKw') return t('fmt.kw', { value: formatNumber(v) });
     return distance(v, approx(r));
   };
+  // Cost estimates beside the figures (B119): the whole charge, 10 minutes of it, and 100 km of driving.
+  const costText = (r: Row, c: Col): string | null => {
+    const res = r.result;
+    if (!res || c === 'avgKw') return null;
+    if (c === 'minutes') return t('compare.cost', { cost: money.format(chargeCost(res.energyKwh, price)) });
+    if (c === 'per10') {
+      const v = costPer10Min(res.energyKwh, res.minutes, price);
+      return v == null ? null : t('compare.cost', { cost: money.format(v) });
+    }
+    return r.whPerKm == null ? null : t(unit === 'km' ? 'compare.cost.per100km' : 'compare.cost.per100mi', { cost: money.format(costPer100(r.whPerKm, price, unit)) });
+  };
+  const withCost = (r: Row, c: Col) => {
+    const f = figureText(r, c) ?? t('badge.unknown');
+    const cost = costText(r, c);
+    return cost ? t('compare.withCost', { figure: f, cost }) : f;
+  };
   const colLabel: Record<Col, MessageKey> = { minutes: 'compare.col.minutes', km: 'compare.col.km', per10: 'compare.col.per10', avgKw: 'compare.col.avgKw' };
   const figureName = (c: Col) => t(colLabel[c], { start, end });
   const mixed = rows.some((r) => r.estimated) && rows.some((r) => !r.estimated && r.curve);
@@ -334,6 +370,9 @@ export default function Compare({ index }: Props) {
   const ready = ids.every((id) => cars[id]);
   const slotRows = ids.map((id) => rows.find((r) => r.id === id) ?? null);
   const failed = ids.filter((id) => cars[id] === 'error');
+  // B119: one source list for the page, in car order with repeats removed, so a "[n]" means the same
+  // source under every car and opens the Sources section below (openSource, as on the Charging page).
+  const sources = slotRows.flatMap((r) => r?.car.sources ?? []).filter((s, i, all) => all.findIndex((x) => x.id === s.id) === i);
 
   // The empty card after the cars (B87): the next car's colour, dashed, opens "Add a car".
   const ghost = (slot: number) => (
@@ -408,7 +447,7 @@ export default function Compare({ index }: Props) {
                 </div>
               </div>
             </div>
-            <p className="small muted race-note">{t(figure === 'minutes' ? 'compare.race.lower' : 'compare.race.higher')} {t('compare.shared')}</p>
+            <p className="small muted race-note">{t(figure === 'minutes' ? 'compare.race.lower' : 'compare.race.higher')} {t('compare.shared')} {t('compare.costNote', { loss: Math.round((1 - COST.dcEfficiency) * 100) })}</p>
             {mixed && <p className="banner small estimated" role="note">{t('compare.mixed')}</p>}
 
             <ol ref={raceEl} className={`race${grown ? ' grown' : ''}`} aria-label={t('compare.raceLabel', { figure: figureName(figure) })}>
@@ -417,6 +456,7 @@ export default function Compare({ index }: Props) {
                 const lead = leaders.includes(i);
                 const pct = typeof v === 'number' && raceMax > 0 ? Math.max(2, (v / raceMax) * 100) : 0;
                 const main = figureText(r, figure);
+                const mainCost = main ? costText(r, figure) : null;
                 return (
                   <li key={r.id} data-id={r.id} className={`lane${lead ? ' lead' : ''}`} style={{ ['--lane' as string]: carVar(r.slot) }}>
                     <span className="lane-car">
@@ -429,10 +469,11 @@ export default function Compare({ index }: Props) {
                     <span className="lane-value">
                       {lead && <><Flag /><span className="sr-only">{t('compare.best')} </span></>}
                       {main ?? <span className="unknown">{r.curve ? t('badge.unknown') : t('compare.noCurve')}</span>}
+                      {mainCost && <span className="lane-cost">{mainCost}</span>}
                     </span>
                     <dl className="lane-meta small">
                       {COLS.filter((c) => c !== figure).map((c) => (
-                        <div key={c}><dt>{figureName(c)}</dt><dd>{figureText(r, c) ?? t('badge.unknown')}</dd></div>
+                        <div key={c}><dt>{figureName(c)}</dt><dd>{withCost(r, c)}</dd></div>
                       ))}
                       {r.curve && (
                         <div>
@@ -471,6 +512,7 @@ export default function Compare({ index }: Props) {
               </div>
             </div>
 
+            <div className="cmp-controls">
             <div className="charger-pick">
               <label htmlFor={`${uid}-charger`} className="charger-words">
                 {t('viewer.charger')}: <strong>{chargerLabel}</strong>
@@ -493,6 +535,31 @@ export default function Compare({ index }: Props) {
                   <li key={i} style={{ left: stopPct(i) }}>{Number.isFinite(kw) ? formatNumber(kw) : t('map.power.maxStop')}</li>
                 ))}
               </ol>
+            </div>
+            {/* B119: the Charging page's Range basis, Distance and Price per kWh, for every car at once. */}
+            <label className="cmp-field">
+              <span>{t('viewer.rangeBasis')}</span>
+              <select value={basis} onChange={(e) => setBasis(e.target.value as Basis)}>
+                {BASES.map((b) => <option key={b} value={b}>{t(`viewer.basis.${b}` as MessageKey)}</option>)}
+              </select>
+            </label>
+            <div className="cmp-field">
+              <span id={`${uid}-units`}>{t('viewer.units')}</span>
+              <div className="seg" role="group" aria-labelledby={`${uid}-units`}>
+                {(['km', 'mi'] as const).map((u) => (
+                  <button key={u} type="button" aria-pressed={unit === u} onClick={() => switchUnit(u)}>{t(`units.${u}` as MessageKey)}</button>
+                ))}
+              </div>
+            </div>
+            <label className="cmp-field" title={t('viewer.priceHelp')}>
+              <span>{t('viewer.price')}</span>
+              <input
+                type="number" inputMode="decimal" min={0} max={5} step={0.01} value={price}
+                aria-describedby={`${uid}-price-help`}
+                onChange={(e) => { const p = Math.max(0, Number(e.target.value) || 0); setPrice(p); setChargePrice(p); }}
+              />
+            </label>
+            <p id={`${uid}-price-help`} className="small muted cmp-price-help">{t('viewer.priceHelp')}</p>
             </div>
           </section>
 
@@ -532,7 +599,7 @@ export default function Compare({ index }: Props) {
                         <tr className="group-row"><th scope="colgroup" colSpan={ids.length + 1}>{t(g.title)}</th></tr>
                         {fieldRows.map(({ k, fields, values }) => {
                           const label = t(`field.${k}` as MessageKey);
-                          const best = bestIndices(values.map((v) => (typeof v === 'number' ? v : null)), BETTER[k]);
+                          const best = bestIndices(values.map((v) => rankValue(k, v)), BETTER[k]);
                           return (
                             <tr key={k}>
                               <th scope="row">{label}</th>
@@ -541,7 +608,7 @@ export default function Compare({ index }: Props) {
                                   {best.includes(i) && (
                                     <span className="best-mark"><Star /><span className="sr-only">{t('compare.best')} </span></span>
                                   )}
-                                  {r ? <Value field={fields[i]} sources={r.car.sources} label={label} unit={unit} /> : <span className="unknown">{t('badge.unknown')}</span>}
+                                  {r ? <Value field={fields[i]} sources={sources} label={label} unit={unit} /> : <span className="unknown">{t('badge.unknown')}</span>}
                                 </td>
                               ))}
                             </tr>
@@ -557,6 +624,20 @@ export default function Compare({ index }: Props) {
             )}
             {ids.length < 4 && <p className="small add-more"><button type="button" className="link-btn" aria-haspopup="dialog" onClick={(e) => openAdd(e.currentTarget)}>{t('compare.addMore')}</button></p>}
           </Accordion>
+
+          {ready && sources.length > 0 && (
+            <Accordion id="sources-acc" headingId="cmp-sources" title={t('car.sources')} preview={t(sources.length === 1 ? 'car.sourceCount.one' : 'car.sourceCount.other', { count: sources.length })}>
+              <p className="muted small">{t('car.sourcesIntro')}</p>
+              <ol className="sources panel">
+                {sources.map((s, i) => (
+                  <li key={s.id} id={`source-${i + 1}`}>
+                    <a href={s.url} rel="noopener" target="_blank">{s.title}</a>
+                    <span className="source-meta muted small">{t('badge.accessed', { date: s.accessed_on })}{s.license && <> · {t('car.licence', { licence: s.license })}</>}</span>
+                  </li>
+                ))}
+              </ol>
+            </Accordion>
+          )}
         </>
       )}
 
@@ -625,7 +706,27 @@ export default function Compare({ index }: Props) {
         .cmp-race .window { padding: 0 16px 0 48px; }
         .cmp-race .window .power-track { margin: 0; }
         .cmp-race .window-labels { display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 600; font-variant-numeric: tabular-nums; margin-bottom: 2px; }
-        .cmp-race .charger-pick { display: grid; gap: 2px; max-width: 520px; padding-right: 8px; }
+        .cmp-race .charger-pick { display: grid; gap: 2px; padding-right: 8px; min-width: 0; }
+        /* B119: charger, range basis, distance and price in one row of controls (two on phones). */
+        .cmp-controls { display: grid; grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); gap: 12px 16px; align-items: start; }
+        .cmp-controls > * { min-width: 0; }
+        .cmp-field { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
+        .cmp-field select, .cmp-field input[type=number] { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 6px 8px; width: 100%; min-width: 0; }
+        .cmp-price-help { grid-column: 1 / -1; margin: 0; }
+        /* The km | mi switch fills its cell, like the fields beside it. */
+        .cmp-field .seg { display: flex; width: 100%; }
+        .cmp-field .seg button { flex: 1 1 0; padding-top: 7px; padding-bottom: 7px; }
+
+        /* Sources (B119), as on the Charging page: numbered, the one a "[n]" opened flashes. */
+        .compare .sources { list-style: none; counter-reset: src; margin: 0; padding: 4px 16px; }
+        .compare .sources li { counter-increment: src; display: grid; grid-template-columns: 2.2em 1fr; column-gap: 8px; padding: 10px 6px; border-bottom: 1px solid color-mix(in srgb, var(--field-border) 35%, transparent); border-radius: 6px; scroll-margin: 96px; }
+        .compare .sources li:last-child { border-bottom: 0; }
+        .compare .sources li::before { content: counter(src); grid-row: span 2; font-family: var(--display); font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+        .compare .sources .source-meta { display: block; margin-top: 2px; }
+        .compare .sources li.flash { animation: cmp-src-flash 2s ease-out; }
+        @keyframes cmp-src-flash { from { background: var(--accent-soft); } to { background: transparent; } }
+        html[data-motion="off"] .compare .sources li.flash { animation: none; background: var(--accent-soft); }
+        .lane-cost { font-family: var(--font); font-weight: 600; font-size: 0.9rem; color: var(--muted); }
         .cmp-race .charger-words { display: block; font-size: 0.875rem; color: var(--muted); }
         .cmp-race .charger-words strong { color: var(--text); font-weight: 650; font-variant-numeric: tabular-nums; }
         .cmp-race .charger-pick .power-ticks li { transform: translateX(-50%); }
@@ -648,7 +749,7 @@ export default function Compare({ index }: Props) {
         .cmp-table .car-head { vertical-align: bottom; box-shadow: inset 0 4px 0 var(--lane); padding-top: 14px; }
         .cmp-table .car-name { display: block; font-family: var(--display); font-weight: 700; }
         .cmp-table .variant { display: block; margin: 4px 0; color: var(--muted); font-weight: 400; }
-        .cmp-table .group-row th { background: var(--surface-2); color: var(--text); font-family: var(--display); font-weight: 700; font-size: 0.95rem; position: sticky; left: 0; border-bottom: 0; border-radius: 8px; }
+        .cmp-table .group-row th { background: var(--surface-2); color: var(--text); font-family: var(--display); font-weight: 700; font-size: 0.95rem; position: sticky; left: 0; border-bottom: 0; border-radius: 0 0 8px 8px; } /* square top: meets the line above (owner 2026-11-20) */
         .cmp-table td .v { font-family: var(--display); font-weight: 600; font-variant-numeric: tabular-nums; }
         .cmp-table td.best, .cmp-table td.best .v { font-weight: 800; }
         .cmp-table .best-mark { color: var(--accent); position: relative; margin-right: 4px; } /* keeps its sr-only text inside the scroller */
@@ -661,6 +762,8 @@ export default function Compare({ index }: Props) {
           .lane { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "car value" "road road" "meta meta"; padding: 10px 12px; column-gap: 10px; }
           .lane-car { align-self: center; padding-top: 0; }
           .cmp-race .chart { height: 240px; }
+          .cmp-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+          .cmp-controls .charger-pick { grid-column: 1 / -1; }
           .cmp-race .plot { padding: 8px 6px; }
           .race-head .seg-field { width: 100%; }
           .race-head .seg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }

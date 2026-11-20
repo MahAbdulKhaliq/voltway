@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { chargeCost, chargePrice, money } from '../src/lib/price';
+import { chargeCost, chargePrice, costPer10Min, costPer100, money } from '../src/lib/price';
 import { setItem, KEYS } from '../src/lib/storage';
 import { COST } from '../src/config';
 
@@ -16,6 +16,19 @@ describe('charging price (B66)', () => {
   it('bills the energy drawn, a little more than the energy added', () => {
     expect(chargeCost(46, 0.5)).toBeCloseTo((46 / COST.dcEfficiency) * 0.5);
     expect(chargeCost(0, 0.5)).toBe(0);
+  });
+});
+
+describe('Compare costs (B119)', () => {
+  it('costs 10 minutes at the window average rate', () => {
+    // 46 kWh in 23 min = 20 kWh per 10 min
+    expect(costPer10Min(46, 23, 0.5)).toBeCloseTo((20 / COST.dcEfficiency) * 0.5);
+    expect(costPer10Min(46, 0, 0.5)).toBeNull();
+  });
+  it('costs 100 km or 100 mi of driving, losses included', () => {
+    // 180 Wh/km → 18 kWh per 100 km
+    expect(costPer100(180, 0.5, 'km')).toBeCloseTo((18 / COST.dcEfficiency) * 0.5);
+    expect(costPer100(180, 0.5, 'mi')).toBeCloseTo((18 * 1.609344 / COST.dcEfficiency) * 0.5);
   });
 });
 

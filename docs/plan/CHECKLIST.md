@@ -535,3 +535,27 @@ Design: B83 in `gaps-and-questions.md`, `charging-curve-viewer.md` §4–§5 not
 
 ## 9g: Finish
 - [ ] **[9] 9.21 QA** — Done when: qa-reviewer runs QA.md section 9; findings fixed and re-checked; CLAUDE.md scope line updated.
+
+# Outside temperature (B116, `docs/plan/DESIGN-temperature.md`)
+
+Local branch `feat/b116-outside-temperature` only. Nothing is pushed until the owner has reviewed it (owner, 2026-11-20).
+
+- [x] **[T] T1 Model and tests**: `src/lib/temperature-effect.ts`, `tests/temperature-effect.test.ts`. **Done when:** `npx vitest run tests/temperature-effect.test.ts` passes. It checks the anchors (0 °C: 0.75 none / 0.83 heat pump; 20 °C: 1; 38 °C: 0.85 both), interpolation, clamping at −30/45 °C, the optional/unknown handling, the LFP note and the °C↔°F round trip.
+  - *Verified 2026-11-20:* 15 tests pass in tests/temperature-effect.test.ts.
+- [x] **[T] T2 Sources and build**: `data/sources/src-b116-*.json`, `scripts/lib/build.ts`, `src/lib/data.ts`. **Done when:** `npm run validate` shows no new errors; `public/data/estimates.json` has `temperature.sources` with every `TEMPERATURE_SOURCE_IDS` record; removing one makes `npm run data:build` throw.
+  - *Verified 2026-11-20:* 9 src-b116 sources; validate OK (76 known B96 warnings only); estimates.json temperature.sources = 9; new build test: removing one makes buildCars throw /B116/.
+- [x] **[T] T3 Field, switch and figures**: `CarExplorer.tsx`, `CurveViewer.tsx`, `ChargingPage.astro`, `src/lib/storage.ts`, `src/i18n/en.json`. **Done when:** on `/charging`:
+  - the Outside temperature field and the °C/°F switch sit under Range basis / Wheels;
+  - −10 °C shows "Range −40%" on a no-heat-pump car and −33% on a heat-pump car, and the range tile shows an estimate with "Rated: …";
+  - an optional-heat-pump trim shows the "with the optional heat pump" note;
+  - an LFP car below 0 °C shows the charging note;
+  - °F shows the same temperature converted, and switching back keeps the °C value;
+  - 20 °C shows no change.
+  - *Verified 2026-11-20:* dev server: Q4 50 (2022, optional) at −10 °C gives −40 % with −33 % for the heat pump, and Added (Highway) 228 → 137 km; Q4 40 (none) −40 %; Bolt 2027 (LFP, standard) −33 % + LFP note; i3 sedan (unknown) gives the assumes-none note; Model 3 Premium-I (LFP, standard_or_optional) shows both notes; 50 °C is clamped to 45 °C; −10 °C ↔ 14 °F round trip; °F remembered; range badge Estimated with the B116 basis; 9 studies in Sources.
+- [x] **[T] T4 Checks and screens**: **Done when:**
+  - `npx vitest run`, `npx astro check` and `npm run build` pass;
+  - the field is checked on the dev server at 1280 px and 375 px, dark and light, on cars of different chemistries and heat-pump states;
+  - dark-theme PNGs are sent to the owner;
+  - the work is committed on the local branch (not pushed).
+
+  - *Verified 2026-11-20:* vitest 951 passed, astro check 0 errors, validate OK. Headless Chrome at 1280 and 375 px, dark and light: scrollWidth = viewport. 7 PNGs in the session notes folder (b116-shots). Committed on local branch feat/b116-outside-temperature; not pushed. npm run build passes.

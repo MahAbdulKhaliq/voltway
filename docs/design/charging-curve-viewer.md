@@ -130,6 +130,7 @@ Add up across the window:
 - **v1 assumption: a warm or preconditioned battery and mild weather.** This matches how most published curves are measured. It's shown as a small note: "Assumes a warm battery. Cold batteries charge slower."
 - A curve's recorded `conditions` (preconditioned, temperature, charger used) appear in the More detail panel.
 - **Cold-weather effects are out of scope for v1**, in line with Q-V4. The later plan uses temperature and battery chemistry for a rough slow-down, following the same approach as the planned winter range estimate.
+- *B116 (proposed 2026-11-20): the winter **range** estimate is now an Outside temperature field on the Charging page; see [outside-temperature.md](outside-temperature.md). The research found that heat pumps, not chemistry, drive the range difference. Cold **charging** speed is still out of scope.*
 
 ---
 

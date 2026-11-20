@@ -6,11 +6,11 @@ import { t } from '../i18n/t.ts';
 import { loadEstimates, loadIndex } from '../lib/data.ts';
 
 const index = loadIndex();
-const { wheel } = loadEstimates();
+const { wheel, temperature } = loadEstimates();
 ---
 <Base title={t('charging.title')} active="charging">
   <p class="muted intro">{t('charging.intro')}</p>
-  <CarExplorer client:load index={index} wheelEffect={wheel} />
+  <CarExplorer client:load index={index} wheelEffect={wheel} temperature={temperature ?? null} />
   <noscript><p class="banner">{t('charging.noJs')} <a href="/cars">{t('nav.cars')}</a></p></noscript>
 </Base>
 <style>

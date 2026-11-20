@@ -755,5 +755,20 @@
   "trip.costAt": "at {price}/kWh",
   "trip.costChange": "Change cost estimate",
   "route.back": "Back to the trip form",
-  "map.list.away": "{distance} away"
+  "map.list.away": "{distance} away",
+  "temp.label": "Outside temperature",
+  "temp.units": "Temperature",
+  "temp.unit.C": "°C",
+  "temp.unit.F": "°F",
+  "temp.inputLabel": "Outside temperature in {unit}",
+  "temp.change": "Range {pct}% vs. mild weather",
+  "temp.mild": "Mild weather: range as rated",
+  "temp.withHeatPump": "With the optional heat pump: {pct}%",
+  "temp.heatPumpUnknown": "Heat pump not known for this trim; assumes none",
+  "temp.lfpNote": "LFP battery: range loss is similar, but fast charging can be much slower until the battery warms up.",
+  "temp.clamped": "Outside the data: shown for {value}",
+  "temp.sparse": "Below −20 °C is beyond most published data.",
+  "temp.basis": "Rough estimate for {temp} outside: about {pct}% of mild-weather range for a car {heating}. From fleet data (Recurrent, Geotab) and lab tests (US DOE/Argonne, AAA) with the cabin heated or cooled; the official rating is taken as mild-weather range. Driving style, speed, wind and short trips change it.",
+  "temp.heating.heat_pump": "with a heat pump",
+  "temp.heating.none": "without a heat pump"
 }

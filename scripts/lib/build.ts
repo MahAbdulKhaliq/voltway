@@ -8,6 +8,7 @@ import { join } from 'node:path';
 import { parseCsv } from './csv.ts';
 import { parseName } from './match.ts';
 import { deriveWheelEffect, type RatingRow, type WheelEffect } from '../../src/lib/wheel-effect.ts';
+import { TEMPERATURE_SOURCE_IDS } from '../../src/lib/temperature-effect.ts';
 import { calculateCharge } from '../../src/lib/charging.ts';
 import { t as msg } from '../../src/i18n/t.ts';
 import { estimateCurve } from '../../src/lib/estimated-curve.ts';
@@ -153,6 +154,17 @@ function ownFields(v: any): Record<string, SourcedValue[]> {
 export interface Estimates {
   /** Rough wheel-size effect on consumption (B13); null when no source rates a car at two sizes. */
   wheel: WheelEffect | null;
+  /** Outside-temperature model (B116): the studies its estimates cite. */
+  temperature: { sources: Source[] };
+}
+
+/** B116: every study the temperature model cites must be in data/sources, or the build fails (no unsourced estimates). */
+export function temperatureSources(sources: Map<string, Source>): Source[] {
+  return TEMPERATURE_SOURCE_IDS.map((id) => {
+    const s = sources.get(id);
+    if (!s) throw new Error(`temperature model (B116): source ${id} is missing from data/sources`);
+    return s;
+  });
 }
 
 export interface BuildResult {
@@ -537,7 +549,7 @@ export function buildCars(root: string): BuildResult {
   return {
     cars,
     index,
-    estimates: { wheel: deriveWheelEffect(ratingRows(imported)) },
+    estimates: { wheel: deriveWheelEffect(ratingRows(imported)), temperature: { sources: temperatureSources(sources) } },
     report: { cars: cars.length, unknownByField, conflicts, curves: curveKinds },
   };
 }

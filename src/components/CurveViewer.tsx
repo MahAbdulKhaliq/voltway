@@ -26,6 +26,8 @@ echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, Mark
 interface Props {
   /** Extra controls from the car section (B20: the wheel-size picker), shown with the others. */
   extraControls?: ReactNode;
+  /** Outside temperature (B116), after the price so it fills the cells under Range basis / Wheels. */
+  climateControls?: ReactNode;
   curves: CurveOut[];
   usableKwh: number | null;
   batteryIsGross: boolean;
@@ -58,6 +60,7 @@ const cssVar = (name: string, fallback: string) =>
 
 export default function CurveViewer({
   extraControls,
+  climateControls,
   curves,
   usableKwh,
   batteryIsGross,
@@ -479,6 +482,7 @@ export default function CurveViewer({
             onChange={(e) => { const price = Math.max(0, Number(e.target.value) || 0); update({ price }); setChargePrice(price); }}
           />
         </label>
+        {climateControls}
       </div>
 
       <details className="more">
@@ -530,6 +534,13 @@ export default function CurveViewer({
         .viewer .controls { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 16px; align-items: start; padding-top: 16px; border-top: 1px solid var(--border); }
         .viewer .controls > * { min-width: 0; }
         .viewer .curve-pick { grid-column: span 2; }
+        /* B116: outside temperature and its °C/°F switch share two columns; the notes run under both. */
+        .viewer .temp-pick { grid-column: span 2; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 16px; align-items: start; min-width: 0; }
+        .viewer .temp-input { display: flex; align-items: center; gap: 6px; }
+        .viewer .temp-input input { flex: 1 1 auto; }
+        .viewer .temp-unit { color: var(--text); font-weight: 600; }
+        .viewer .temp-notes { grid-column: 1 / -1; margin: 0; display: grid; gap: 2px; }
+        .viewer .temp-change { color: var(--text); font-weight: 600; }
         .viewer .control-note { display: block; font-size: 0.8rem; color: var(--muted); }
         .viewer .control-note.linkish { padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: 0.8rem; font-weight: 600; text-align: left; cursor: pointer; text-decoration: underline; }
         .viewer label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }

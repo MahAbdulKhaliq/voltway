@@ -53,6 +53,7 @@ export function setJSON(key: string, value: unknown): void {
 
 export const KEYS = {
   units: 'voltway.units',
+  tempUnit: 'voltway.tempUnit', // B116: °C / °F
   curveSettings: 'voltway.curveSettings',
   theme: 'voltway.theme',
   motion: 'voltway.motion',

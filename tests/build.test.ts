@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { buildCars, fillCurbWeights, hasConflict, oneWheelPerSize, rank, resolve } from '../scripts/lib/build.ts';
 import { chooseTemplate, estimateCurve } from '../src/lib/estimated-curve.ts';
+import { TEMPERATURE_SOURCE_IDS } from '../src/lib/temperature-effect.ts';
 import type { CarDetail, Source, SourcedValue } from '../src/lib/types.ts';
 
 const REPO = join(import.meta.dirname, '..');
@@ -87,8 +88,17 @@ describe('buildCars on the fixture', () => {
     const d = mkdtempSync(join(tmpdir(), 'voltway-build-'));
     dirs.push(d);
     cpSync(join(import.meta.dirname, 'fixtures', 'valid-repo'), d, { recursive: true });
+    // B116: the temperature model's studies must be in data/sources, or the build throws.
+    for (const id of TEMPERATURE_SOURCE_IDS) cpSync(join(REPO, 'data/sources', `${id}.json`), join(d, 'data/sources', `${id}.json`));
     return d;
   };
+
+  it('lists the temperature model sources and fails when one is missing (B116)', () => {
+    const d = repo();
+    expect(buildCars(d).estimates.temperature.sources.map((s) => s.id)).toEqual([...TEMPERATURE_SOURCE_IDS]);
+    rmSync(join(d, 'data/sources', `${TEMPERATURE_SOURCE_IDS[1]}.json`));
+    expect(() => buildCars(d)).toThrow(/B116/);
+  });
   const setCrosswalk = (d: string, rows: string[]) =>
     writeFileSync(join(d, 'crosswalk/crosswalk.csv'), ['our_variant_id,source,source_key,match_method,confirmed,our_trim_id,notes', ...rows].join('\n') + '\n');
   const V = 'testmake/sparkle/2025/long-range-awd';

@@ -786,3 +786,23 @@ Run from a fresh clone of the branch. `npm ci`, then `npm run validate && npx vi
 | QD11 | | |
 | QD12 | | |
 | QD13 | | |
+
+## Outside temperature (B116, DESIGN-temperature)
+
+Branch `feat/b116-outside-temperature` (local). Run `npx vitest run tests/temperature-effect.test.ts tests/i18n.test.ts`, then `npx astro check && npm run build`. Screen checks run on the dev server at 1280 px and 375 px, dark and light.
+
+| ID | Requirement | How to check | Edge cases / failure paths |
+|----|-------------|--------------|----------------------------|
+| QT1 | The formula follows design §3 | Unit tests. Spot values: `retention(0,'none')` = 0.75, `retention(0,'heat_pump')` = 0.83, `retention(-10,'none')` = 0.60, `retention(32,…)` = 0.95 | −40 °C → clamped to the −30 °C value with `clamped: true`; 50 °C → 45 °C value; NaN → treated as 20 °C (no change) |
+| QT2 | Every adjusted figure is sourced | Set −10 °C: the range tile's badge is Estimated, its source is a B116 study, and the note gives the temperature basis. The Sources list gains the B116 studies. | Wheels and temperature both changed: the note gives both bases, and Rated: shows the official figure |
+| QT3 | Heat-pump states | `chevrolet/bolt/2027/bolt` (LFP, standard): −10 °C → −33 %. `audi/q4-e-tron/2023/q4-40-e-tron` (none) → −40 %. `audi/q4-e-tron/2022/q4-50-e-tron-quattro` (optional) → −40 % plus "with the optional heat pump: −33%". A trim with unknown heat pump (`bmw/i3-sedan/2027/i3-50-xdrive-2`) → −40 % plus "assumes none" | 30 °C: no heat-pump notes (the curves are the same) |
+| QT4 | Chemistry | LFP car at −5 °C: charging note shown; at 5 °C: hidden. NMC/NCA cars: never shown | Unknown chemistry: no note |
+| QT5 | °C/°F switch | Switch to °F: −10 °C shows as 14 °F; typing 32 °F gives the 0 °C figures; reload keeps °F; with no saved choice and miles selected, °F is the default | Typing in °F then switching back shows whole °C |
+| QT6 | Placement and layout | 1280 px: the field and switch fill the cells under Range basis / Wheels. 375 px: no horizontal scroll, field and switch on one row, the note wraps cleanly. Dark and light: text contrast ≥ 4.5:1 | Car with several curves (a curve picker row): the field still follows Price, with no overlap |
+| QT7 | Figures follow | At −10 °C: range, consumption, "km added" and "km per 10 min" all change by the same factor as the note | 20 °C: identical to before the feature |
+| QT8 | Not pushed | `git log origin/main..feat/b116-outside-temperature` exists only locally; `git ls-remote` has no such branch | — |
+
+## Outside temperature results
+
+| ID | Pass / Fail | Notes |
+|----|-------------|-------|

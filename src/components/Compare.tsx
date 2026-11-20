@@ -16,7 +16,7 @@ import { GridComponent, MarkLineComponent, TooltipComponent } from 'echarts/comp
 import { CanvasRenderer } from 'echarts/renderers';
 import { t, type MessageKey } from '../i18n/t.ts';
 import { calculateCharge, displayMinutes, powerAt, type ChargeResult } from '../lib/charging.ts';
-import { BETTER, bestIndices, compareHref, firstDir, readCarsParam, replaceAt, rowDiffers, sortBy } from '../lib/compare.ts';
+import { BETTER, bestIndices, compareHref, firstDir, rankValue, readCarsParam, replaceAt, rowDiffers, sortBy } from '../lib/compare.ts';
 import { reducedMotion } from '../lib/motion.ts';
 import { getCompare, setCompare } from '../lib/my-car.ts';
 import { GROUPS } from '../lib/spec-groups.ts';
@@ -370,6 +370,9 @@ export default function Compare({ index }: Props) {
   const ready = ids.every((id) => cars[id]);
   const slotRows = ids.map((id) => rows.find((r) => r.id === id) ?? null);
   const failed = ids.filter((id) => cars[id] === 'error');
+  // B119: one source list for the page, in car order with repeats removed, so a "[n]" means the same
+  // source under every car and opens the Sources section below (openSource, as on the Charging page).
+  const sources = slotRows.flatMap((r) => r?.car.sources ?? []).filter((s, i, all) => all.findIndex((x) => x.id === s.id) === i);
 
   // The empty card after the cars (B87): the next car's colour, dashed, opens "Add a car".
   const ghost = (slot: number) => (
@@ -596,7 +599,7 @@ export default function Compare({ index }: Props) {
                         <tr className="group-row"><th scope="colgroup" colSpan={ids.length + 1}>{t(g.title)}</th></tr>
                         {fieldRows.map(({ k, fields, values }) => {
                           const label = t(`field.${k}` as MessageKey);
-                          const best = bestIndices(values.map((v) => (typeof v === 'number' ? v : null)), BETTER[k]);
+                          const best = bestIndices(values.map((v) => rankValue(k, v)), BETTER[k]);
                           return (
                             <tr key={k}>
                               <th scope="row">{label}</th>
@@ -605,7 +608,7 @@ export default function Compare({ index }: Props) {
                                   {best.includes(i) && (
                                     <span className="best-mark"><Star /><span className="sr-only">{t('compare.best')} </span></span>
                                   )}
-                                  {r ? <Value field={fields[i]} sources={r.car.sources} label={label} unit={unit} /> : <span className="unknown">{t('badge.unknown')}</span>}
+                                  {r ? <Value field={fields[i]} sources={sources} label={label} unit={unit} /> : <span className="unknown">{t('badge.unknown')}</span>}
                                 </td>
                               ))}
                             </tr>
@@ -621,6 +624,20 @@ export default function Compare({ index }: Props) {
             )}
             {ids.length < 4 && <p className="small add-more"><button type="button" className="link-btn" aria-haspopup="dialog" onClick={(e) => openAdd(e.currentTarget)}>{t('compare.addMore')}</button></p>}
           </Accordion>
+
+          {ready && sources.length > 0 && (
+            <Accordion id="sources-acc" headingId="cmp-sources" title={t('car.sources')} preview={t(sources.length === 1 ? 'car.sourceCount.one' : 'car.sourceCount.other', { count: sources.length })}>
+              <p className="muted small">{t('car.sourcesIntro')}</p>
+              <ol className="sources panel">
+                {sources.map((s, i) => (
+                  <li key={s.id} id={`source-${i + 1}`}>
+                    <a href={s.url} rel="noopener" target="_blank">{s.title}</a>
+                    <span className="source-meta muted small">{t('badge.accessed', { date: s.accessed_on })}{s.license && <> · {t('car.licence', { licence: s.license })}</>}</span>
+                  </li>
+                ))}
+              </ol>
+            </Accordion>
+          )}
         </>
       )}
 
@@ -696,6 +713,19 @@ export default function Compare({ index }: Props) {
         .cmp-field { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); min-width: 0; }
         .cmp-field select, .cmp-field input[type=number] { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 6px 8px; width: 100%; min-width: 0; }
         .cmp-price-help { grid-column: 1 / -1; margin: 0; }
+        /* The km | mi switch fills its cell, like the fields beside it. */
+        .cmp-field .seg { display: flex; width: 100%; }
+        .cmp-field .seg button { flex: 1 1 0; padding-top: 7px; padding-bottom: 7px; }
+
+        /* Sources (B119), as on the Charging page: numbered, the one a "[n]" opened flashes. */
+        .compare .sources { list-style: none; counter-reset: src; margin: 0; padding: 4px 16px; }
+        .compare .sources li { counter-increment: src; display: grid; grid-template-columns: 2.2em 1fr; column-gap: 8px; padding: 10px 6px; border-bottom: 1px solid color-mix(in srgb, var(--field-border) 35%, transparent); border-radius: 6px; scroll-margin: 96px; }
+        .compare .sources li:last-child { border-bottom: 0; }
+        .compare .sources li::before { content: counter(src); grid-row: span 2; font-family: var(--display); font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+        .compare .sources .source-meta { display: block; margin-top: 2px; }
+        .compare .sources li.flash { animation: cmp-src-flash 2s ease-out; }
+        @keyframes cmp-src-flash { from { background: var(--accent-soft); } to { background: transparent; } }
+        html[data-motion="off"] .compare .sources li.flash { animation: none; background: var(--accent-soft); }
         .lane-cost { font-family: var(--font); font-weight: 600; font-size: 0.9rem; color: var(--muted); }
         .cmp-race .charger-words { display: block; font-size: 0.875rem; color: var(--muted); }
         .cmp-race .charger-words strong { color: var(--text); font-weight: 650; font-variant-numeric: tabular-nums; }
@@ -719,7 +749,7 @@ export default function Compare({ index }: Props) {
         .cmp-table .car-head { vertical-align: bottom; box-shadow: inset 0 4px 0 var(--lane); padding-top: 14px; }
         .cmp-table .car-name { display: block; font-family: var(--display); font-weight: 700; }
         .cmp-table .variant { display: block; margin: 4px 0; color: var(--muted); font-weight: 400; }
-        .cmp-table .group-row th { background: var(--surface-2); color: var(--text); font-family: var(--display); font-weight: 700; font-size: 0.95rem; position: sticky; left: 0; border-bottom: 0; border-radius: 8px; }
+        .cmp-table .group-row th { background: var(--surface-2); color: var(--text); font-family: var(--display); font-weight: 700; font-size: 0.95rem; position: sticky; left: 0; border-bottom: 0; border-radius: 0 0 8px 8px; } /* square top: meets the line above (owner 2026-11-20) */
         .cmp-table td .v { font-family: var(--display); font-weight: 600; font-variant-numeric: tabular-nums; }
         .cmp-table td.best, .cmp-table td.best .v { font-weight: 800; }
         .cmp-table .best-mark { color: var(--accent); position: relative; margin-right: 4px; } /* keeps its sr-only text inside the scroller */

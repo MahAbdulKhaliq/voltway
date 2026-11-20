@@ -33,6 +33,27 @@ export function SourceRef({ n }: { n: number }) {
   );
 }
 
+/** Keeps an opened popover inside its scroller (the Compare table) and the screen (B119): it slides
+ *  left when it would run past the right edge, and opens upward when there is more room above. */
+export function fitPop(details: HTMLDetailsElement) {
+  const pop = details.querySelector<HTMLElement>('.pop');
+  if (!details.open || !pop) return;
+  pop.style.left = '';
+  pop.style.top = '';
+  pop.style.bottom = '';
+  const scroller = details.closest<HTMLElement>('.table-scroll');
+  const box = scroller?.getBoundingClientRect();
+  const gap = 8;
+  const right = Math.min(box?.right ?? innerWidth, innerWidth) - gap;
+  const left = Math.max(box?.left ?? 0, 0) + gap;
+  const r = pop.getBoundingClientRect();
+  if (r.right > right) pop.style.left = `${-Math.min(r.right - right, r.left - left)}px`;
+  if (box && r.bottom > box.bottom - gap) {
+    const above = details.getBoundingClientRect().top - box.top;
+    if (above > box.bottom - r.top) { pop.style.top = 'auto'; pop.style.bottom = 'calc(100% + 6px)'; }
+  }
+}
+
 export function Badge({ field, sources, label, unit }: Props) {
   if (!field) return null;
   const main = field.value;
@@ -42,7 +63,7 @@ export function Badge({ field, sources, label, unit }: Props) {
   const cls = ['badge', `kind-${main.kind}`, main.low_confidence ? 'low' : ''].filter(Boolean).join(' ');
   return (
     <span className="cite">
-    <details className={cls}>
+    <details className={cls} onToggle={(e) => fitPop(e.currentTarget)}>
       <summary aria-label={t('badge.open', { label })}>
         {kindLabel(main.kind)}
         {field.conflict && <span className="differ" title={t('badge.differ')} aria-label={t('badge.differ')}>⚠</span>}

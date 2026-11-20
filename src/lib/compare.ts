@@ -15,7 +15,19 @@ export const BETTER: Readonly<Record<string, 'higher' | 'lower'>> = {
   consumption_combined_wh_per_km: 'lower',
   consumption_city_wh_per_km: 'lower',
   consumption_highway_wh_per_km: 'lower',
+  nominal_voltage_class: 'higher', // owner 2026-11-20 (B119): 800v charges faster than 400v
 };
+
+/** A spec value as a number to rank, or null. Text rows that have an order ("400v", "800v") rank by
+ *  their number; other text never ranks. */
+export function rankValue(key: string, v: unknown): number | null {
+  if (typeof v === 'number') return Number.isFinite(v) ? v : null;
+  if (key === 'nominal_voltage_class' && typeof v === 'string') {
+    const n = parseInt(v, 10);
+    return Number.isFinite(n) ? n : null;
+  }
+  return null;
+}
 
 /** The cars in a /compare?cars=a,b link: known ids only, no repeats, at most four.
  *  null when the link has no cars param (then the saved list is used). */

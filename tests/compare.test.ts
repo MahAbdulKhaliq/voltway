@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { BETTER, bestIndices, compareHref, firstDir, readCarsParam, replaceAt, rowDiffers, sortBy } from '../src/lib/compare.ts';
+import { BETTER, bestIndices, compareHref, firstDir, rankValue, readCarsParam, replaceAt, rowDiffers, sortBy } from '../src/lib/compare.ts';
 
 const known = (id: string) => /^[a-z0-9-]+\/[a-z0-9-]+\/\d{4}\/[a-z0-9-]+$/.test(id) && !id.startsWith('zz');
 
@@ -59,6 +59,20 @@ describe('bestIndices (best value per row, with direction)', () => {
     expect(bestIndices([200, 200], 'higher')).toEqual([]);
     expect(bestIndices([1, 2], undefined)).toEqual([]);
     expect(BETTER.chemistry).toBeUndefined();
+  });
+});
+
+describe('rankValue (voltage class, owner 2026-11-20)', () => {
+  it('ranks 800v above 400v and marks it best', () => {
+    expect(rankValue('nominal_voltage_class', '800v')).toBe(800);
+    expect(rankValue('nominal_voltage_class', '400v')).toBe(400);
+    const vals = ['400v', '800v', null].map((v) => rankValue('nominal_voltage_class', v));
+    expect(bestIndices(vals, BETTER.nominal_voltage_class)).toEqual([1]);
+  });
+  it('leaves other text unranked and passes numbers through', () => {
+    expect(rankValue('chemistry', 'NMC')).toBeNull();
+    expect(rankValue('nominal_voltage_class', 'unknown')).toBeNull();
+    expect(rankValue('dc_max_kw', 250)).toBe(250);
   });
 });
 

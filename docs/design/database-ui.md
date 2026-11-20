@@ -156,7 +156,7 @@ One page per **model year**, with a **variant selector** (and an optional trim s
 - Each car keeps **one colour** across the curve, the table header and its badges.
 - **Phones:** two cars side by side, swiping to see the rest.
 - *(B85, owner 2026-11-18: the page uses the content-page design language, and the results table is a **Charge race**: a road lane per car, bar sized to the chosen figure, best first, animated re-sorting; see `design-language.md`.)*
-- *(B119, owner 2026-11-20: under the curve, beside the Charger slider, Compare has the Charging page's Range basis (Combined by default), Distance km/mi and Price per kWh; each lane shows costs: per 10 min, the whole charge, and per 100 km/mi for Added. See gaps-and-questions B119.)*
+- *(B119, owner 2026-11-20: under the curve, beside the Charger slider, Compare has the Charging page's Range basis (Combined by default), Distance km/mi and Price per kWh; each lane shows costs: per 10 min, the whole charge, and per 100 km/mi for Added. Compare also has a Sources section with one numbering across the cars, as on the car page, and Voltage class ranks 800v above 400v for the best mark. See gaps-and-questions B119.)*
 - *(B87, owner 2026-11-19: Compare adds cars itself through an "Add a car" dialog (the header car picker's search and steps), opened from an empty ghost card shown after the cars while fewer than 4 are compared, and from the empty page. Cars already compared can't be picked again.)*
 
 ---

@@ -15,7 +15,7 @@ Only when a trip is planned and on screen (the Trip panel in `RoutePanel.tsx` / 
 1. **Next stop** (large): `Stop 2 of 4 · Petro-Canada, Kingston`, then `148 km · arrive ~2:45 pm`, then `Arrive 22 % → charge to 80 % · ~24 min · ~$11.80`. After the last stop the "next stop" is the destination (`Arrive with 31 %`).
 2. **Navigate to this stop**: two big buttons, **Google Maps** and **Apple Maps**, each opening that app with the next stop as the destination.
 3. **Whole trip** (only when allowed, §1.3): `Open the whole trip in Google Maps / Apple Maps`, a quieter pair of buttons.
-4. **Stop list with progress**: start, each stop and the destination, as in the trip; reached stops are ticked and dimmed, the next one is marked "Next". Each stop has **Mark as reached** (or **Not reached yet** to undo), so progress works with location off.
+4. **Stop list with progress**: start, each stop and the destination, as in the trip; reached stops are ticked and dimmed, the next one is marked "Next". Each stop has **Mark as reached** (or **Not reached yet** to undo), so progress works with location off. *(B145, owner 2026-11-20: as in the itinerary, a stop's number opens its details on the map and the start and destination marks close in on that end.)*
 5. A short note: "Google Maps and Apple Maps can't show Voltway's chargers. Only your planned stops are sent to them." and "Location is used only while this page is open."
 
 Distances follow km / mi; times are local clock times; everything else (charge %, cost, ~ for estimated curves) comes from the existing plan, nothing new is stored.

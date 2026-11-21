@@ -4,7 +4,7 @@ Known shortcuts, gaps and deferred work, all in one place, so nothing lives only
 
 | File | What's in it |
 |---|---|
-| [data.md](data.md) | Missing or doubtful vehicle data, curve leads, crosswalk matches waiting on an owner decision |
+| [data.md](data.md) | Vehicle data questions not covered by checklist 9.20 / 9.20b (`TD-A…`); most car data gaps now live there |
 | [code.md](code.md) | Shortcuts and weak spots in the code |
 | [product.md](product.md) | Features or behaviour deferred by an owner decision |
 | [testing.md](testing.md) | What isn't tested, or was only checked once by hand |

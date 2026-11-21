@@ -936,13 +936,14 @@ html[data-motion="off"] button.ti-mark { transition: none; }
 .ti-notes { list-style: none; margin: 4px 0 0; padding: 10px 0 0; border-top: 1px solid var(--border); display: grid; gap: 6px; }
 /* B89: "How this was estimated" unrolls like every other section (design-language §8), on the
    rows' raised card. */
-details.acc.ti-how { margin-top: 12px; background: var(--surface-2); border-radius: 10px; }
-details.acc.ti-how > summary { padding: 8px 10px 8px 14px; gap: 10px; border-radius: 10px; }
-details.acc.ti-how > summary:hover { background: color-mix(in srgb, var(--field-border) 18%, var(--surface-2)); }
-details.acc.ti-how .acc-title { flex: 1 1 auto; font-family: var(--display); font-size: 0.95rem; }
-details.acc.ti-how .acc-chev { width: 28px; height: 28px; background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
-details.acc.ti-how > .acc-lane { margin: 0 14px 10px; }
-details.acc.ti-how > .acc-body { padding: 0 14px 12px; }
+details.acc.ti-how { margin-top: 12px; }
+details.acc.ti-how, details.acc.acc-raised { background: var(--surface-2); border-radius: 10px; }
+details.acc.ti-how > summary, details.acc.acc-raised > summary { padding: 8px 10px 8px 14px; gap: 10px; border-radius: 10px; }
+details.acc.ti-how > summary:hover, details.acc.acc-raised > summary:hover { background: color-mix(in srgb, var(--field-border) 18%, var(--surface-2)); }
+details.acc.ti-how .acc-title, details.acc.acc-raised .acc-title { flex: 1 1 auto; font-family: var(--display); font-size: 0.95rem; }
+details.acc.ti-how .acc-chev, details.acc.acc-raised .acc-chev { width: 28px; height: 28px; background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
+details.acc.ti-how > .acc-lane, details.acc.acc-raised > .acc-lane { margin: 0 14px 10px; }
+details.acc.ti-how > .acc-body, details.acc.acc-raised > .acc-body { padding: 0 14px 12px; }
 .ti-how .acc-body p { margin: 6px 0 0; }
 .ti-how .acc-body p:first-child { margin-top: 0; }
 
@@ -1159,6 +1160,33 @@ html[data-motion="off"] details.acc > .acc-lane { animation: none; }
   .acc-chev { width: 28px; height: 28px; }
 }
 
+/* Figure folds (B137/B138, design-language.md §12; react/Fold.tsx animates): like Settings' Trip
+   settings fold, a title and (closed) a small muted summary line, then the round chevron; open, the
+   lane line runs under it. .figfold-phone: no fold above 640 px. */
+.figfold-row { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 6px 4px 6px 2px; background: none; border: 0; border-radius: 8px; color: var(--text); font: inherit; text-align: left; cursor: pointer; transition: background-color 0.2s var(--ease-out); }
+.figfold-row:hover { background: color-mix(in srgb, var(--surface-2) 55%, transparent); }
+.figfold-row:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.figfold-text { display: grid; gap: 1px; flex: 1; min-width: 0; }
+.figfold-title { font-size: 0.9rem; font-weight: 600; }
+.figfold-sum { font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; text-wrap: pretty; }
+.figfold-row[aria-expanded="true"] .figfold-sum { display: none; }
+.figfold-sum .figfold-on { color: var(--text); font-weight: 700; }
+.figfold-row .acc-chev { width: 28px; height: 28px; }
+.figfold-row:hover .acc-chev { background: color-mix(in srgb, var(--field-border) 45%, var(--surface-2)); }
+.figfold-row[aria-expanded="true"] .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+.figfold-row[aria-expanded="true"] .acc-chev::before { border-color: var(--accent); }
+.figfold > .acc-lane { margin: 2px 2px 10px; }
+.figfold:not(.open) > .acc-lane, .figfold:not(.open) > .figfold-body { display: none; }
+.figfold[data-anim="opening"] > .acc-lane { animation: acc-paint 0.42s var(--ease-out) both; }
+.figfold[data-anim="shutting"] > .acc-lane { animation: acc-paint 0.2s var(--ease-out) reverse both; }
+.figfold[data-anim] > .figfold-body { overflow: hidden; }
+html[data-motion="off"] .figfold-row { transition: none; }
+html[data-motion="off"] .figfold > .acc-lane { animation: none; }
+@media (min-width: 641px) {
+  .figfold-phone > .figfold-row, .figfold-phone > .acc-lane { display: none; }
+  .figfold-phone > .figfold-body, .figfold-phone:not(.open) > .figfold-body { display: block; }
+}
+
 /* Select menus (B83 overdrive): the field look with a drawn chevron, the chosen value in Overpass.
    Where the browser supports a customizable select (Chrome/Edge), the open list takes the site's
    surface and drops in; elsewhere the native list opens under the new field. */
@@ -1279,6 +1307,13 @@ html[data-motion="off"] html[data-motion="off"] .bf-switch .switch, html[data-mo
 .cmp-toggle.on { background: var(--paint); color: var(--paint-ink); border-color: var(--paint-edge); font-weight: 600; }
 .cmp-toggle.on:hover:not(:disabled) { background: var(--paint); filter: brightness(0.95); }
 .cmp-toggle.icon { display: inline-grid; place-items: center; width: 32px; height: 32px; padding: 0; font-size: 1.15rem; line-height: 1; }
+/* B138: the per-row figures fold is for phones only. */
+.browse-table .bt-fold { display: none; }
+[data-resizing] { overflow: hidden; }
+/* B140: Per page, beside the page count. */
+.pager-size { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); white-space: nowrap; }
+.pager-size select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 4px 8px; min-height: 36px; }
+.pager-size select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 @media (max-width: 640px) {
   .browse-table-box { padding: 4px 14px; }
   .browse-table tr { padding: 10px 0; border-bottom: 1px solid color-mix(in srgb, var(--field-border) 45%, transparent); }
@@ -1291,6 +1326,13 @@ html[data-motion="off"] html[data-motion="off"] .bf-switch .switch, html[data-mo
   .browse-table td.bt-car { padding-right: 52px; }
   .browse-table td.bt-act { position: absolute; top: 8px; right: 0; width: auto; padding: 0; }
   .browse-table .bt-act .cmp-toggle.icon { width: 44px; height: 44px; }
+  /* B139: no divider under each cell (it drew a line under the + / −); rows keep theirs. */
+  .browse-table td, .browse-table tbody tr:last-child > td { border-bottom: 0; }
+  /* B138: figures stay folded until the row's fold opens them. */
+  .browse-table .bt-fold { display: flex; margin-top: 6px; min-height: 44px; }
+  .browse-table tr:not(.bt-open) > td.num { display: none; }
+  .browse-table tr.bt-open > td.num { padding-left: 2px; }
+  .browse-table tr.bt-open > td.num.on { font-weight: 800; }
   .browse-table td.num.on, .browse-table tbody tr:hover > td { background: none; }
 }
 

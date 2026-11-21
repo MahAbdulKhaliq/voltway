@@ -25,7 +25,11 @@ export interface BrowseFilters {
   measuredOnly: boolean;    // only cars whose default curve is measured (tested, community or manufacturer)
 }
 
-export interface BrowseState { filters: BrowseFilters; sort: SortKey; dir: SortDir; view: View }
+/** B140 (owner 2026-11-20): cars per page, the same in both views; 10 by default. */
+export const PER_PAGE = [5, 10, 25, 50] as const;
+export type PerPage = (typeof PER_PAGE)[number];
+export const DEFAULT_PER_PAGE: PerPage = 10;
+export interface BrowseState { filters: BrowseFilters; sort: SortKey; dir: SortDir; view: View; perPage: PerPage }
 
 export const SORTS: SortKey[] = ['name', 'range', 'efficiency', 'dc', 'time1080', 'km10', 'newest'];
 /** The natural direction for each sort: better first (§4). */
@@ -40,7 +44,7 @@ export function defaultFilters(_index: IndexEntry[]): BrowseFilters {
 }
 
 export function defaultState(index: IndexEntry[]): BrowseState {
-  return { filters: defaultFilters(index), sort: 'name', dir: 'asc', view: 'cards' };
+  return { filters: defaultFilters(index), sort: 'name', dir: 'asc', view: 'cards', perPage: DEFAULT_PER_PAGE };
 }
 
 /** How many filters differ from their defaults (shown on the phone Filters button). */
@@ -58,6 +62,7 @@ export function readState(saved: unknown, index: IndexEntry[]): BrowseState {
   if (SORTS.includes(o.sort as SortKey)) s.sort = o.sort as SortKey;
   if (o.dir === 'asc' || o.dir === 'desc') s.dir = o.dir;
   if (o.view === 'cards' || o.view === 'table') s.view = o.view;
+  if (PER_PAGE.includes(o.perPage as PerPage)) s.perPage = o.perPage as PerPage;
   const f = o.filters as Record<string, unknown> | undefined;
   if (f && typeof f === 'object') {
     for (const k of ['measuredOnly'] as const) if (typeof f[k] === 'boolean') s.filters[k] = f[k] as boolean;
@@ -133,14 +138,11 @@ export function optionsFor(index: IndexEntry[], pick: (e: IndexEntry) => string 
 /** Text that search looks at for a car. */
 export const searchText = (e: IndexEntry) => ({ id: e.id, make: e.make, model: e.model, name: e.name, trims: e.trims.join(' '), year: String(e.year) });
 
-/** B106: how many cars one page shows, per view. */
-export const PAGE_SIZE: Record<View, number> = { cards: 48, table: 50 };
-
 export interface PageSlice<T> { items: T[]; page: number; pages: number; from: number; to: number }
 
 /** One page of the results (1-based); an out-of-range page is clamped. `from`/`to` are 1-based positions. */
-export function pageSlice<T>(list: T[], page: number, view: View): PageSlice<T> {
-  const size = PAGE_SIZE[view];
+export function pageSlice<T>(list: T[], page: number, perPage: number): PageSlice<T> {
+  const size = Math.max(1, Math.floor(perPage) || DEFAULT_PER_PAGE);
   const pages = Math.max(1, Math.ceil(list.length / size));
   const p = Math.min(Math.max(1, Math.floor(page) || 1), pages);
   const start = (p - 1) * size;

@@ -93,6 +93,8 @@ Add up across the window:
 - The curve's raw points (table), its conditions and source link
 - *Later:* estimated pack voltage and current, as in the reference app
 
+*B137 (owner 2026-11-20): More detail is a raised Road-unrolls section (chips: peak and point count) with readouts for the peak and minutes above, then the notes and the points in a panel. The source link, warm-battery note, cost note and price help moved to a closed **About this curve** section. On phones the result figures fold under the answer with a live digest line. See design-language.md §12.*
+
 ---
 
 ## 5. The chart (C6) ✅

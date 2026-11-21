@@ -176,7 +176,7 @@ Decisions from the waves 2–3 review, recorded in gaps-and-questions.md:
 - **B103** B97 covers the Hummer EV pickup 2022–23 and Sierra EV 2024 Denali Edition 1; every B97 car gets a consumption figure (maker or independent test) so its 10–80 % time and range added work.
 - **B104** onboard-charger option trims carry their own `ac_max_kw`; GM's optional 19.2 kW is added per model and year.
 - **B105** factory wheel sizes for every trim; another source round for the 77 cars missing a B96 figure; ADAC accepted.
-- **B106** the Cars page shows 48 cards or 50 rows per page.
+- **B106** the Cars page shows 48 cards or 50 rows per page. *(B140 later: 10 per page, with 5/10/25/50.)*
 - **B107** cars with no DC fast charging are left out (42 cars; `scripts/remove-variants.mjs`).
 - **B108** Cars.com and KBB may be cited for wheel sizes (owner, 2026-11-20).
 - **B109** Auto-Data.net stays as a source (owner, 2026-11-20).

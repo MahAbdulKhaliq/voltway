@@ -572,12 +572,14 @@ export default function Compare({ index }: Props) {
               </button>
             </div>
             <div className="table-scroll snap" tabIndex={0} aria-label={t('compare.scrollLabel')}>
-              <table className="cmp-table" style={{ ['--cols' as string]: ids.length }}>
-                <thead>
-                  <tr>
-                    <td className="corner" />
+              {/* B141: phones restyle the table with display grid/flex, which drops table semantics in some
+                  browsers, so the roles are explicit and each value names its car for screen readers. */}
+              <table role="table" className="cmp-table" style={{ ['--cols' as string]: ids.length }}>
+                <thead role="rowgroup">
+                  <tr role="row">
+                    <td role="cell" className="corner" />
                     {ids.map((id, slot) => (
-                      <th key={id} scope="col" className="car-head" style={{ ['--lane' as string]: carVar(slot) }}>
+                      <th key={id} role="columnheader" scope="col" className="car-head" style={{ ['--lane' as string]: carVar(slot) }}>
                         <span className="car-name">{name(id)}</span>
                         <span className="variant"><VariantName name={byId.get(id)?.name ?? ''} /></span>
                       </th>
@@ -595,16 +597,17 @@ export default function Compare({ index }: Props) {
                       .filter((x) => !onlyDiff || rowDiffers(x.values));
                     if (!fieldRows.length) return null;
                     return (
-                      <tbody key={g.title}>
-                        <tr className="group-row"><th scope="colgroup" colSpan={ids.length + 1}>{t(g.title)}</th></tr>
+                      <tbody key={g.title} role="rowgroup">
+                        <tr role="row" className="group-row"><th role="rowheader" scope="colgroup" colSpan={ids.length + 1}>{t(g.title)}</th></tr>
                         {fieldRows.map(({ k, fields, values }) => {
                           const label = t(`field.${k}` as MessageKey);
                           const best = bestIndices(values.map((v) => rankValue(k, v)), BETTER[k]);
                           return (
-                            <tr key={k}>
-                              <th scope="row">{label}</th>
+                            <tr key={k} role="row">
+                              <th role="rowheader" scope="row">{label}</th>
                               {slotRows.map((r, i) => (
-                                <td key={ids[i]} className={best.includes(i) ? 'best' : undefined}>
+                                <td key={ids[i]} role="cell" className={best.includes(i) ? 'best' : undefined} style={{ ['--lane' as string]: carVar(i) }}>
+                                  <span className="sr-only cmp-cell-car">{name(ids[i])}: </span>
                                   {best.includes(i) && (
                                     <span className="best-mark"><Star /><span className="sr-only">{t('compare.best')} </span></span>
                                   )}
@@ -772,10 +775,24 @@ export default function Compare({ index }: Props) {
           .race-head .seg button:nth-child(2) { border-radius: 0 8px 0 0; border-left: 0; }
           .race-head .seg button:nth-child(3) { border-radius: 0 0 0 8px; border-top: 0; }
           .race-head .seg button:nth-child(4) { border-radius: 0 0 8px 0; border-top: 0; border-left: 0; }
-          .cmp-table { min-width: calc(110px + var(--cols) * ((100vw - 32px - 110px) / 2)); }
-          .cmp-table tbody th[scope="row"], .cmp-table .corner { width: 110px; font-size: 0.8rem; }
-          .table-scroll.snap { scroll-snap-type: x mandatory; scroll-padding-left: 110px; }
-          .cmp-table .car-head { scroll-snap-align: start; }
+          /* B141: phones stack the specs, no sideways scroll: each spec's name across the top, then one
+             line per car with its value beside a bar in the car's colour; the car names stay pinned as the key. */
+          .cmp-specs .table-scroll { overflow: visible; }
+          .cmp-table { display: block; min-width: 0; table-layout: auto; }
+          .cmp-table thead, .cmp-table tbody { display: block; }
+          .cmp-table thead tr { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); column-gap: 8px; }
+          .cmp-table tbody tr { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 4px; }
+          .cmp-table thead { position: sticky; top: var(--cmp-pin, 66px); z-index: 2; background: var(--surface); margin: 0 -14px; padding: 0 14px; box-shadow: 0 1px 0 color-mix(in srgb, var(--field-border) 45%, transparent); }
+          .cmp-table .corner { display: none; }
+          .cmp-table .car-head { padding: 10px 0 6px; box-shadow: inset 0 3px 0 var(--lane); border-bottom: 0; background: none; }
+          .cmp-table .car-head .car-name { font-size: 0.8rem; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+          .cmp-table .car-head .variant { display: none; }
+          .cmp-table tbody tr { border-bottom: 1px solid color-mix(in srgb, var(--field-border) 35%, transparent); padding-bottom: 8px; }
+          .cmp-table tbody th[scope="row"] { grid-column: 1 / -1; position: static; width: auto; padding: 10px 0 4px; border-bottom: 0; background: none; font-size: 0.85rem; }
+          .cmp-table tbody td { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; min-height: 30px; padding: 2px 0 2px 10px; border-bottom: 0; border-left: 4px solid var(--lane); border-radius: 2px; background: none; font-size: 0.9rem; min-width: 0; }
+          .cmp-table tbody td .best-mark { margin-right: 0; }
+          .cmp-table tr.group-row { display: block; margin-top: 12px; border-bottom: 0; padding: 0; }
+          .cmp-table .group-row th { display: block; position: static; padding: 7px 10px; border-radius: 8px; }
           .cmp-cars { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
           .cmp-car { padding: 14px 10px 10px; }
         }

@@ -146,15 +146,23 @@ describe("tripReadyFirst (DESIGN-4 4.7: the map car picker)", () => {
 
 describe('pages (B106)', () => {
   const list = Array.from({ length: 437 }, (_, i) => i);
-  it('cards: 48 per page, the last page holds the rest, out-of-range pages clamp', () => {
-    expect(pageSlice(list, 1, 'cards')).toMatchObject({ page: 1, pages: 10, from: 1, to: 48 });
-    expect(pageSlice(list, 2, 'cards').items[0]).toBe(48);
-    expect(pageSlice(list, 10, 'cards')).toMatchObject({ from: 433, to: 437 });
-    expect(pageSlice(list, 99, 'cards').page).toBe(10);
-    expect(pageSlice([], 1, 'cards')).toMatchObject({ page: 1, pages: 1, from: 0, to: 0 });
+  it('10 per page (B140 default), the last page holds the rest, out-of-range pages clamp', () => {
+    expect(pageSlice(list, 1, 10)).toMatchObject({ page: 1, pages: 44, from: 1, to: 10 });
+    expect(pageSlice(list, 2, 10).items[0]).toBe(10);
+    expect(pageSlice(list, 44, 10)).toMatchObject({ from: 431, to: 437 });
+    expect(pageSlice(list, 99, 10).page).toBe(44);
+    expect(pageSlice([], 1, 10)).toMatchObject({ page: 1, pages: 1, from: 0, to: 0 });
   });
-  it('table: 50 per page', () => {
-    expect(pageSlice(list, 9, 'table')).toMatchObject({ pages: 9, from: 401, to: 437 });
+  it('5, 25 and 50 per page', () => {
+    expect(pageSlice(list, 1, 5)).toMatchObject({ pages: 88, to: 5 });
+    expect(pageSlice(list, 18, 25)).toMatchObject({ pages: 18, from: 426, to: 437 });
+    expect(pageSlice(list, 9, 50)).toMatchObject({ pages: 9, from: 401, to: 437 });
+  });
+  it('per page: 10 by default, a saved 5/10/25/50 is kept, anything else ignored (B140)', () => {
+    expect(defaultState([]).perPage).toBe(10);
+    expect(readState({ perPage: 25 }, []).perPage).toBe(25);
+    expect(readState({ perPage: 48 }, []).perPage).toBe(10);
+    expect(readState({ perPage: '50' }, []).perPage).toBe(10);
   });
   it('page buttons: first, last, current ±1, gaps as null', () => {
     expect(pageButtons(1, 10)).toEqual([1, 2, null, 10]);

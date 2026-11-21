@@ -2,7 +2,7 @@
 // Inputs → calculateCharge() → results panel + ECharts chart. Settings are remembered
 // in the browser; km/mi follows the header switch ("voltway:units" event).
 
-import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
+import { Fragment, useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent, MarkAreaComponent, MarkLineComponent, MarkPointComponent, TooltipComponent } from 'echarts/components';
@@ -14,6 +14,8 @@ import { chargePrice, money, PRICE_EVENT, setChargePrice } from '../lib/price.ts
 import { formatNumber, kmTo, type DistanceUnit } from '../lib/units.ts';
 import type { CurveOut } from '../lib/types.ts';
 import { SourceRef } from './react/Badge.tsx';
+import { Accordion } from './react/Accordion.tsx';
+import { Fold } from './react/Fold.tsx';
 import { COST } from '../config.ts';
 import { setUnit as switchUnit } from '../scripts/units-client.ts';
 import { mapLink } from '../lib/map-filter.ts';
@@ -350,13 +352,22 @@ export default function CurveViewer({
 
   return (
     <div className="viewer card">
-      <div className="answer" aria-live="polite">
+      <div className="answer">
         {result ? (
           <>
-            <p className="answer-line">
+            <p className="answer-line" aria-live="polite">
               <span className="answer-label">{t('viewer.result.time', { start: settings.start, end: settings.end })}</span>{' '}
               <span className="answer-time">{minutes(result.minutes)}</span>
             </p>
+            {/* B137: on phones the figures fold under the answer; wider screens show them as they are. */}
+            <Fold phoneOnly title={t('viewer.figuresFold')} className="figures-fold"
+              summary={[
+                result.kmAdded !== null ? t('viewer.sum.added', { value: `${estimated || consumptionEstimated ? '~' : ''}${distance(result.kmAdded)}` }) : null,
+                result.kmPer10Min !== null ? t('viewer.sum.per10', { value: `${estimated || consumptionEstimated ? '~' : ''}${distance(result.kmPer10Min)}` }) : null,
+                `${batteryIsGross ? '~' : ''}${t('fmt.kwh', { value: formatNumber(result.energyKwh, 1) })}`,
+                t('viewer.sum.avg', { value: t('fmt.kw', { value: formatNumber(result.averageKw) }) }),
+                `~${money.format(drawnKwh * settings.price)}`,
+              ].filter(Boolean).join(' · ')}>
             <dl className="readouts figures">
               {figure(t('viewer.result.km', { basis: t(`viewer.basis.${usedBasis}` as MessageKey) }),
                 result.kmAdded !== null ? `${estimated || consumptionEstimated ? '~' : ''}${distance(result.kmAdded)}` : <span className="unknown small">{t('viewer.result.noConsumption')}</span>)}
@@ -369,6 +380,7 @@ export default function CurveViewer({
               {chargerKw !== null && result.lostToChargerMinutes > 0.05 &&
                 figure(t('viewer.result.lost'), t('viewer.result.lostValue', { value: formatNumber(result.lostToChargerMinutes), kw: chargerKw }))}
             </dl>
+            </Fold>
           </>
         ) : (
           <p className="unknown">{t('badge.unknown')}</p>
@@ -418,13 +430,17 @@ export default function CurveViewer({
         </div>
       </div>
 
-      <p className="small muted curve-note">
-        {t('viewer.curveFrom', { kind: curve.based_on ? t('viewer.option.borrowed') : kindLabel(curve.kind) })}
-        {source && <> <a href={source.url} target="_blank" rel="noopener">{source.title}</a> <SourceRef n={source.n} /></>}
-        {' · '}{t('viewer.warm')}
-        {result && <> {t('viewer.result.costNote', { kwh: formatNumber(drawnKwh, 1), loss: Math.round((1 - COST.dcEfficiency) * 100) })}. </>}
-        <span id="price-help">{t('viewer.priceHelp')}</span>
-      </p>
+      {/* B137: the curve's source and assumptions, closed on every screen. */}
+      <Accordion level={3} bare className="acc-raised curve-about" title={t('viewer.aboutCurve')}
+        chips={[curve.based_on ? t('viewer.option.borrowed') : kindLabel(curve.kind), ...(source ? [source.title] : [])]}>
+        <p className="small curve-note">
+          {t('viewer.curveFrom', { kind: curve.based_on ? t('viewer.option.borrowed') : kindLabel(curve.kind) })}
+          {source && <> <a href={source.url} target="_blank" rel="noopener">{source.title}</a> <SourceRef n={source.n} /></>}
+        </p>
+        <p className="small muted curve-note">{t('viewer.warm')}</p>
+        {result && <p className="small muted curve-note">{t('viewer.result.costNote', { kwh: formatNumber(drawnKwh, 1), loss: Math.round((1 - COST.dcEfficiency) * 100) })}.</p>}
+        <p className="small muted curve-note" id="price-help">{t('viewer.priceHelp')}</p>
+      </Accordion>
 
       <div className="controls">
         {choices.length > 1 && (
@@ -491,22 +507,31 @@ export default function CurveViewer({
         {climateControls}
       </div>
 
-      <details className="more">
-        <summary>{t('viewer.moreDetail')}</summary>
+      {/* B137: More detail on the design language: readouts, then the notes and the points table. */}
+      <Accordion level={3} bare className="acc-raised more" title={t('viewer.moreDetail')}
+        chips={[...(result ? [t('viewer.peakChip', { kw: formatNumber(result.peakKw) })] : []), t('viewer.pointsChip', { count: formatNumber(curve.points.length) })]}>
         {result && (
-          <ul>
-            <li>{t('viewer.peak', { kw: formatNumber(result.peakKw), soc: formatNumber(result.peakAtSoc) })}</li>
-            {([100, 150, 200] as const).map((k) => <li key={k}>{t('viewer.above', { kw: k })}: {t('fmt.min', { value: formatNumber(result.minutesAbove[k], 1) })}</li>)}
-          </ul>
+          <dl className="readouts more-figs">
+            {figure(t('viewer.peakLabel'), t('viewer.peakValue', { kw: formatNumber(result.peakKw), soc: formatNumber(result.peakAtSoc) }))}
+            {([100, 150, 200] as const).map((k) => <Fragment key={k}>{figure(t('viewer.above', { kw: k }), t('fmt.min', { value: formatNumber(result.minutesAbove[k], 1) }))}</Fragment>)}
+          </dl>
         )}
-        {(curve.notes || curve.basis) && <p className="small"><strong>{t('viewer.notes')}:</strong> {curve.basis ?? curve.notes}</p>}
-        {curve.conditions && <p className="small"><strong>{t('viewer.conditions')}:</strong> {Object.entries(curve.conditions).map(([k, v]) => t(`condition.${k}` as MessageKey, { value: typeof v === 'number' ? formatNumber(v) : t(`condition.value.${String(v)}` as MessageKey) })).join(' · ')}</p>}
-        <table className="points">
-          <caption className="small muted">{t('viewer.points')} · {t('viewer.chartTable')}</caption>
-          <thead><tr><th>{t('viewer.pointSoc')}</th><th>{t('viewer.pointKw')}</th></tr></thead>
-          <tbody>{curve.points.map((p) => <tr key={p.soc_percent}><td>{formatNumber(p.soc_percent)}</td><td>{formatNumber(p.power_kw, 1)}</td></tr>)}</tbody>
-        </table>
-      </details>
+        <div className="more-grid">
+          {(curve.notes || curve.basis || curve.conditions) && (
+            <div className="more-notes">
+              {(curve.notes || curve.basis) && <p className="small"><strong>{t('viewer.notes')}:</strong> {curve.basis ?? curve.notes}</p>}
+              {curve.conditions && <p className="small"><strong>{t('viewer.conditions')}:</strong> {Object.entries(curve.conditions).map(([k, v]) => t(`condition.${k}` as MessageKey, { value: typeof v === 'number' ? formatNumber(v) : t(`condition.value.${String(v)}` as MessageKey) })).join(' · ')}</p>}
+            </div>
+          )}
+          <div className="more-points">
+            <table className="points">
+              <caption>{t('viewer.points')}<span className="sr-only"> · {t('viewer.chartTable')}</span></caption>
+              <thead><tr><th scope="col">{t('viewer.pointSoc')}</th><th scope="col">{t('viewer.pointKw')}</th></tr></thead>
+              <tbody>{curve.points.map((p) => <tr key={p.soc_percent}><td>{formatNumber(p.soc_percent)}</td><td>{formatNumber(p.power_kw, 1)}</td></tr>)}</tbody>
+            </table>
+          </div>
+        </div>
+      </Accordion>
 
       <style>{`
         .viewer { display: grid; gap: 16px; }
@@ -516,7 +541,7 @@ export default function CurveViewer({
         .viewer .answer-label { font-family: var(--display); font-weight: 700; font-size: 1.1rem; color: var(--muted); letter-spacing: -0.01em; }
         .viewer .answer-time { font-family: var(--display); font-weight: 800; font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.05; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
         /* The chart sits on its own raised panel with its axis switch on top and the window slider under it. */
-        .viewer .figures { margin-top: 12px; }
+        .viewer .figures-fold { margin-top: 12px; }
         .viewer .plot { display: grid; gap: 4px; padding: 12px 12px 10px; }
         .viewer .chart-head { display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
         .viewer .seg-label { font-size: 0.875rem; color: var(--muted); }
@@ -536,6 +561,24 @@ export default function CurveViewer({
         .viewer .charger-pick .find-chargers { margin: 4px 0 0; }
 
         .viewer .curve-note { margin: 0; }
+        .viewer .curve-note + .curve-note { margin-top: 6px; }
+        /* About this curve / More detail (B137): raised sections; the title keeps its width, chips take the rest. */
+        .viewer details.acc.acc-raised .acc-title { flex: none; }
+        .viewer .acc-raised .acc-chips { flex: 1 1 0; min-width: 0; }
+        .viewer .acc-raised .acc-chip { background: var(--surface); }
+        .viewer .acc-raised .acc-chev { margin-left: auto; }
+        .viewer .more-figs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .viewer .more-figs .readout { background: var(--surface); }
+        .viewer .more-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 220px); gap: 12px 16px; align-items: start; margin-top: 12px; }
+        .viewer .more-notes { grid-column: 1; display: grid; gap: 6px; }
+        .viewer .more-notes p { margin: 0; }
+        .viewer .more-points { grid-column: 2; background: var(--surface); border-radius: 10px; padding: 8px 12px 6px; }
+        .viewer .points { width: 100%; border-collapse: collapse; }
+        .viewer .points caption { text-align: left; font-family: var(--display); font-weight: 700; font-size: 0.9rem; padding-bottom: 4px; }
+        .viewer .points th { font-size: 0.78rem; font-weight: 600; color: var(--muted); text-align: left; padding: 4px 0; border-bottom: 1px solid color-mix(in srgb, var(--field-border) 45%, transparent); }
+        .viewer .points td { padding: 3px 0; font-family: var(--display); font-weight: 600; font-variant-numeric: tabular-nums; border-bottom: 1px solid color-mix(in srgb, var(--field-border) 25%, transparent); }
+        .viewer .points tr:last-child td { border-bottom: 0; }
+        .viewer .points th:last-child, .viewer .points td:last-child { text-align: right; }
 
         .viewer .controls { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 16px; align-items: start; padding-top: 16px; border-top: 1px solid var(--border); }
         .viewer .controls > * { min-width: 0; }
@@ -562,13 +605,16 @@ export default function CurveViewer({
           .viewer .figures .readout { padding: 8px 10px; }
           .viewer .figures .readout-value { font-size: 1rem; }
           .viewer .plot { padding: 8px 6px 8px; }
+          .viewer .figures-fold { margin-top: 8px; }
+          /* Phones: title and chevron on one line, the chips under them. */
+          .viewer .acc-raised > summary .acc-chips { order: 3; flex: 1 1 100%; }
+          .viewer .more-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+          .viewer .more-grid { grid-template-columns: minmax(0, 1fr); }
+          .viewer .more-notes, .viewer .more-points { grid-column: 1; }
         }
         @media (max-width: 400px) {
           .viewer .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
-        .viewer .more summary { cursor: pointer; font-weight: 600; }
-        .viewer .points { max-width: 320px; margin-top: 8px; }
-        .viewer .points caption { text-align: left; }
       `}</style>
     </div>
   );

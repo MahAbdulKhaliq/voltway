@@ -852,3 +852,27 @@ Run `npx vitest run tests/price.test.ts`, then open `/compare?cars=kia/ev3/2027/
 
 | Id | Result | Notes |
 |----|--------|-------|
+
+## Content folds (B137–B141)
+
+Run after the owner's last review round. Dark and light, 1280 and 375 px.
+
+| Id | Check | How |
+|---|---|---|
+| 11a | Charging figures fold on phones | /charging at 375: figures hidden, fold line reads "Range added, energy, average power and cost"; tap opens with motion; Settings → Animations off: instant; 1280: no fold, figures shown. |
+| 11b | About this curve | Both widths: closed section with chips (kind, source); open shows source link + [n], warm note, cost note, price help; the price field's aria-describedby still resolves. |
+| 11c | More detail | Bare section with chips; readouts for peak and minutes above; points table in a panel; animated open/close; Enter/Space toggles. |
+| 11d | Cars table rows fold | /cars table view at 375: each row closed with the fold line; open shows 5 labelled figures; no line under + / −; 1280 unchanged; sorting/filtering with rows open keeps the layout. |
+| 11e | Per page | First visit: 10 per page in cards and table; 5/25/50 change it and reset to page 1; reload keeps it. |
+| 11f | Compare specs on phones | /compare with 1, 2, 4 cars at 375: no sideways scroll (scrollWidth = clientWidth); values under each spec name with car colour bars; stars on best; car strip pinned while scrolling; Only show differences still works; 1280 unchanged. |
+
+### Results
+
+| Id | Result | Notes |
+|---|---|---|
+| 11a | Pass | 2026-11-20 site-ui-checker: closed at 375 with title + live digest (updates ~292 → ~208 km with the end slider); animates; Animations off instant; desktop no fold. Estimated (Acura ZDX) and measured (BMW i4) curves. |
+| 11b | Pass | Closed raised section, chips kind + source; contents and #price-help present; Enter/Space toggle. |
+| 11c | Pass | Chips, readouts, points panel. qa-reviewer: title flex override lost on specificity → fixed. Pre-existing: "Time above 200 kW: 0.0 min" shows for a 190 kW peak. |
+| 11d | Pass | Rows closed with digest, sorted figure bold; 5 labelled figures open; no line under + / −; scrollWidth 375 with sorts. QA fixes: stuck overflow after quick double taps (now [data-resizing]); FLIP re-measures after a row fold; accessible name starts with "Range and charging"; sorted figure 800 in an open row. |
+| 11e | Pass | 10 on first visit; 5/25/50 reset to page 1; 50 survived reload; cards view too. Fix: a shorter page scrolls back to the list top. |
+| 11f | Pass | 1, 2, 4 cars: scrollWidth = clientWidth 375; strip pinned under the header; stars; Only show differences 17 → 16 rows; source popover on screen (x 39–339); desktop table unchanged. Fix: explicit table roles + screen-reader car name per value; scroller label "Spec table". Known limit: the pin offset is 66 px (no header-height variable). |

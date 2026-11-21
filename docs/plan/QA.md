@@ -852,3 +852,27 @@ Run `npx vitest run tests/price.test.ts`, then open `/compare?cars=kia/ev3/2027/
 
 | Id | Result | Notes |
 |----|--------|-------|
+
+## Content folds (B137–B141)
+
+Run after the owner's last review round. Dark and light, 1280 and 375 px.
+
+| Id | Check | How |
+|---|---|---|
+| 11a | Charging figures fold on phones | /charging at 375: figures hidden, fold line reads "Range added, energy, average power and cost"; tap opens with motion; Settings → Animations off: instant; 1280: no fold, figures shown. |
+| 11b | About this curve | Both widths: closed section with chips (kind, source); open shows source link + [n], warm note, cost note, price help; the price field's aria-describedby still resolves. |
+| 11c | More detail | Bare section with chips; readouts for peak and minutes above; points table in a panel; animated open/close; Enter/Space toggles. |
+| 11d | Cars table rows fold | /cars table view at 375: each row closed with the fold line; open shows 5 labelled figures; no line under + / −; 1280 unchanged; sorting/filtering with rows open keeps the layout. |
+| 11e | Per page | First visit: 10 per page in cards and table; 5/25/50 change it and reset to page 1; reload keeps it. |
+| 11f | Compare specs on phones | /compare with 1, 2, 4 cars at 375: no sideways scroll (scrollWidth = clientWidth); values under each spec name with car colour bars; stars on best; car strip pinned while scrolling; Only show differences still works; 1280 unchanged. |
+
+### Results
+
+| Id | Result | Notes |
+|---|---|---|
+| 11a | | |
+| 11b | | |
+| 11c | | |
+| 11d | | |
+| 11e | | |
+| 11f | | |

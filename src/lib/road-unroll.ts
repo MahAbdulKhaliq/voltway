@@ -5,13 +5,13 @@
 // native <details> opens and shuts at once.
 import { reducedMotion } from './motion.ts';
 
-const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)'; // --ease-out
-const OPEN_MS = 320;
-const SHUT_MS = 220;
-const STAGGER_MS = 30;
-const MAX_STAGGER = 10;
+export const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)'; // --ease-out
+export const OPEN_MS = 320;
+export const SHUT_MS = 220;
+export const STAGGER_MS = 30;
+export const MAX_STAGGER = 10;
 // What rises in sequence: the body's own blocks, and the cards inside a grid of them.
-const RISERS = ':scope > *:not(.readouts):not(.spec-grid):not(.rise-grid), :scope .readouts > *, :scope .spec-grid > *, :scope .selects > *, :scope .rise-grid > *';
+export const RISERS = ':scope > *:not(.readouts):not(.spec-grid):not(.rise-grid), :scope .readouts > *, :scope .spec-grid > *, :scope .selects > *, :scope .rise-grid > *';
 
 const running = new WeakMap<HTMLDetailsElement, Animation[]>();
 

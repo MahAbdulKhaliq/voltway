@@ -10,7 +10,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode, Fragment } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import {
-  activeCount, DEFAULT_DIR, defaultFilters, matches, optionsFor, pageButtons, pageSlice, readState, SORTS, sortCars,
+  activeCount, DEFAULT_DIR, defaultFilters, matches, optionsFor, pageButtons, pageSlice, PER_PAGE, readState, SORTS, sortCars, type PerPage,
   type BrowseFilters, type BrowseState, type SortKey,
 } from '../lib/browse.ts';
 import { makeCarSearch } from '../lib/car-search.ts';
@@ -23,6 +23,7 @@ import { formatNumber, kmTo, whPerKmToDisplay, type DistanceUnit } from '../lib/
 import VariantName from './VariantName.tsx';
 import { Accordion } from './react/Accordion.tsx';
 import { useFlip } from './react/useFlip.ts';
+import { resizeAcross } from './react/Fold.tsx';
 import type { IndexEntry } from '../lib/types.ts';
 
 interface Props { index: IndexEntry[] }
@@ -159,9 +160,15 @@ export default function Browse({ index }: Props) {
 
   // B106: one page at a time. A new filter, search, sort or view starts again at page 1.
   const [page, setPage] = useState(1);
-  const listKey = `${JSON.stringify(f)}|${query}|${state.sort}|${state.dir}|${state.view}`;
+  const listKey = `${JSON.stringify(f)}|${query}|${state.sort}|${state.dir}|${state.view}|${state.perPage}`;
   useEffect(() => setPage(1), [listKey]);
-  const slice = pageSlice(results, page, state.view);
+  const slice = pageSlice(results, page, state.perPage);
+  // B138: on phones each table row folds its figures; which rows are open isn't remembered.
+  const [openRows, setOpenRows] = useState<ReadonlySet<string>>(() => new Set());
+  const toggleRow = (id: string, row: HTMLElement | null) => {
+    const flip = () => setOpenRows((s) => { const n = new Set(s); if (n.has(id)) n.delete(id); else n.add(id); return n; });
+    if (row) resizeAcross(row, flip, 'td.num'); else flip();
+  };
   const resultsEl = useRef<HTMLElement>(null);
   const goPage = (n: number) => {
     setPage(n);
@@ -201,6 +208,21 @@ export default function Browse({ index }: Props) {
     return <span className={`kind-tag ${measured ? 'measured' : 'estimated'}`}>{t(`kind.${e.curve_kind}` as MessageKey)}</span>;
   };
   const unknown = <span className="muted">{t('badge.unknown')}</span>;
+  // B138 (owner 2026-11-20): the closed row fold digests the figures, like the Charging page's fold.
+  const rowDigest = (e: IndexEntry) => {
+    const time = timeText(e);
+    const km10 = km10Text(e);
+    const dc = dcText(e);
+    // The figure the list is sorted by is bold (owner 2026-11-20).
+    const parts = ([
+      ['range', rangeText(e)], ['efficiency', effText(e)], ['dc', dc && t('browse.sum.dc', { value: dc })],
+      ['time1080', time && t('browse.sum.time', { value: time })], ['km10', km10 && t('viewer.sum.per10', { value: km10 })],
+    ] as [SortKey, string | null][]).filter(([, text]) => text);
+    if (!parts.length) return t('browse.figuresFold');
+    return parts.map(([key, text], i) => (
+      <Fragment key={key}>{i > 0 && ' · '}{state.sort === key ? <strong className="figfold-on">{text}</strong> : text}</Fragment>
+    ));
+  };
   const show = (s: string | null) => s ?? unknown;
 
   // "+ Compare" is a toggle (B87): in the list it reads "− Compare" and removes the car.
@@ -421,7 +443,7 @@ export default function Browse({ index }: Props) {
               </thead>
               <tbody ref={rowsEl}>
                 {slice.items.map((e) => (
-                  <tr key={e.id} data-flip={e.id}>
+                  <tr key={e.id} data-flip={e.id} className={openRows.has(e.id) ? 'bt-open' : undefined}>
                     <td className="bt-car" data-label={t('browse.col.car')}>
                       <a className="bt-name" href={carHref(e.id)}><Mark text={`${e.make} ${e.model}`} terms={terms} /></a>
                       <span className="bt-variant">{terms.length ? <Mark text={e.name} terms={terms} /> : <VariantName name={e.name} />} <span className="muted">· {e.year}</span></span>
@@ -429,6 +451,15 @@ export default function Browse({ index }: Props) {
                         <span className="muted">{e.charge_port ? valueLabel(e.charge_port) : t('badge.unknown')}</span>
                         {curveBadge(e)}
                       </span>
+                      <button type="button" className="figfold-row bt-fold" aria-expanded={openRows.has(e.id)}
+                        aria-label={t('browse.figuresFoldFor', { car: carName(e) })}
+                        onClick={(ev) => toggleRow(e.id, ev.currentTarget.closest('tr'))}>
+                        <span className="figfold-text">
+                          <span className="figfold-title">{t('browse.figuresTitle')}</span>
+                          <span className="figfold-sum">{rowDigest(e)}</span>
+                        </span>
+                        <span className="acc-chev" aria-hidden="true" />
+                      </button>
                     </td>
                     {cols.map((c) => {
                       const v = c.value(e);
@@ -446,17 +477,24 @@ export default function Browse({ index }: Props) {
             </div>
           )}
 
-          {slice.pages > 1 && (
+          {results.length > PER_PAGE[0] && (
             <nav className="pager" aria-label={t('browse.pages')}>
               <p className="small muted pager-range">{t('browse.showing', { from: formatNumber(slice.from), to: formatNumber(slice.to), count: formatNumber(results.length) })}</p>
-              <div className="pager-buttons">
+              {/* B140: cars per page, both views; a change starts again at page 1 (listKey). */}
+              <label className="pager-size small">
+                <span>{t('browse.perPage')}</span>
+                <select value={state.perPage} onChange={(ev) => setState((s) => ({ ...s, perPage: Number(ev.target.value) as PerPage }))}>
+                  {PER_PAGE.map((n) => <option key={n} value={n}>{n}</option>)}
+                </select>
+              </label>
+              {slice.pages > 1 && <div className="pager-buttons">
                 <button type="button" className="btn small" disabled={slice.page === 1} onClick={() => goPage(slice.page - 1)}>{t('browse.prev')}</button>
                 {pageButtons(slice.page, slice.pages).map((n, i) => n === null
                   ? <span key={`gap${i}`} className="pager-gap" aria-hidden="true">…</span>
                   : <button key={n} type="button" className={`btn small pager-num${n === slice.page ? ' on' : ''}`} aria-current={n === slice.page ? 'page' : undefined}
                       aria-label={t('browse.pageN', { n })} onClick={() => goPage(n)}>{n}</button>)}
                 <button type="button" className="btn small" disabled={slice.page === slice.pages} onClick={() => goPage(slice.page + 1)}>{t('browse.next')}</button>
-              </div>
+              </div>}
             </nav>
           )}
         </section>

@@ -17,5 +17,9 @@
 ### TD-D4 M2's checklist line names `tests/fixtures/afdc/`
 - **Since:** 2026-11-16, Phase 2 QA (M10, report `qa-phase2-2026-11-16.md` in the session notes). The AFDC fixtures are written inside `tests/afdc.test.ts`; the folder doesn't exist. Harmless.
 
+### TD-D5 `crosswalk/GAPS.md` still shows the old 84-variant report
+- **Since:** 2026-11-21, tech-debt review. The committed report says "6 of 84 variants complete", from before the Phase 9 rebuild (1,433 car files), though PR #149 last touched it.
+- **Fix:** regenerate it with `npm run gaps` (check that the gap report reads the Phase 9 layout), or point it at 9.20b and `B96_STRICT=1 npm run validate`.
+
 ## Closed
 - 2026-11-16, PR #41: cost lines in `charging-curve-viewer.md` (B19); skip-log wording (QA #12); CHECKLIST 3.3 file reference (QA #14).

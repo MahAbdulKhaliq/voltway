@@ -173,7 +173,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
   const openCardAt = (at: 'route' | 'weather', fromResults = false) => {
     focusAt.current = at;
     if (at === 'route') setRouteOpen(true);
-    if (at === 'weather' && !trip.weather) T.setWeather(true);
+    // Owner 2026-11-20: "Cold out? Change" only takes the visitor to Range adjustments (no switching it on, no keyboard).
     if (fromResults) morph(() => { setEditing(true); setSettingsOpen(true); }, 'back', 'left');
     else if (!settingsOpen) toggleSettings();
     else setFocusTick((n) => n + 1);
@@ -200,15 +200,18 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
   useEffect(() => {
     const at = focusAt.current;
     if (!at || !settingsOpen || folded) return;
-    const id = requestAnimationFrame(() => {
+    // The card's sections can mount a frame or two after it opens (from the results), so look again for a few frames.
+    let id = 0;
+    let tries = 0;
+    const go = () => {
       const sec = document.getElementById(at === 'route' ? 'route-sec-route' : 'route-sec-weather');
-      const target = at === 'weather' ? tempIn.current : sec?.querySelector<HTMLElement>('[role="switch"]');
-      if (!sec || !target) return;
+      const target = sec?.querySelector<HTMLElement>('[role="switch"]');
+      if (!sec || !target) { if (++tries < 20) id = requestAnimationFrame(go); return; }
       focusAt.current = null;
       sec.scrollIntoView({ block: 'nearest', behavior: reducedMotion() ? 'auto' : 'smooth' });
       target.focus({ preventScroll: true });
-      if (at === 'weather') tempIn.current?.select();
-    });
+    };
+    id = requestAnimationFrame(go);
     return () => cancelAnimationFrame(id);
   }, [settingsOpen, folded, trip.weather, focusTick, routeOpen]);
 

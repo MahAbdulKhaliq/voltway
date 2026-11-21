@@ -76,6 +76,21 @@ function Ticker({ value, render }: { value: number; render: (n: number) => strin
   return <>{render(shown)}</>;
 }
 
+/** A message with its {placeholders} filled in as bold figures (B144: "Showing 11–20 of 1,433 cars"). */
+function withFigures(message: string, figures: Record<string, string>): ReactNode {
+  return message.split(/\{(\w+)\}/).map((part, i) => (i % 2 ? <strong key={i} className="pager-fig">{figures[part] ?? part}</strong> : part));
+}
+
+/** B144: the pager's arrows, drawn chevrons (one or two), pointing back or forward. */
+function PagerArrow({ back = false, double = false }: { back?: boolean; double?: boolean }) {
+  const d = double ? 'M5 4l5 6-5 6M11 4l5 6-5 6' : 'M8 4l5 6-5 6';
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style={back ? { transform: 'scaleX(-1)' } : undefined}>
+      <path d={d} fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 /** B98: the markets the Cars page can filter by (none ticked = all). */
 const MARKETS = ['CA', 'US'];
 
@@ -479,10 +494,10 @@ export default function Browse({ index }: Props) {
 
           {results.length > PER_PAGE[0] && (
             <nav className="pager" aria-label={t('browse.pages')}>
-              <p className="small muted pager-range">{t('browse.showing', { from: formatNumber(slice.from), to: formatNumber(slice.to), count: formatNumber(results.length) })}</p>
+              {/* B144: the range and the count stand out from the words around them. */}
+              <p className="small muted pager-range">{withFigures(t('browse.showing'), { range: `${formatNumber(slice.from)}–${formatNumber(slice.to)}`, count: formatNumber(results.length) })}</p>
               {/* B140: cars per page, both views; a change starts again at page 1 (listKey). */}
               <label className="pager-size small">
-                <span>{t('browse.perPage')}</span>
                 <select value={state.perPage} onChange={(ev) => {
                   setState((s) => ({ ...s, perPage: Number(ev.target.value) as PerPage }));
                   // A shorter page can leave the visitor below the list: back to its top, as a page change does.
@@ -490,15 +505,33 @@ export default function Browse({ index }: Props) {
                 }}>
                   {PER_PAGE.map((n) => <option key={n} value={n}>{formatNumber(n)}</option>)}
                 </select>
+                <span>{t('browse.perPage')}</span>
               </label>
               {slice.pages > 1 && <div className="pager-buttons">
-                <button type="button" className="btn small" disabled={slice.page === 1} onClick={() => goPage(slice.page - 1)}>{t('browse.prev')}</button>
+                {/* B144: arrows for first / previous / next / last; the names are for screen readers. */}
+                <button type="button" className="btn small pager-arrow" disabled={slice.page === 1} aria-label={t('browse.first')} title={t('browse.first')} onClick={() => goPage(1)}><PagerArrow double back /></button>
+                <button type="button" className="btn small pager-arrow" disabled={slice.page === 1} aria-label={t('browse.prev')} title={t('browse.prev')} onClick={() => goPage(slice.page - 1)}><PagerArrow back /></button>
                 {pageButtons(slice.page, slice.pages).map((n, i) => n === null
                   ? <span key={`gap${i}`} className="pager-gap" aria-hidden="true">…</span>
                   : <button key={n} type="button" className={`btn small pager-num${n === slice.page ? ' on' : ''}`} aria-current={n === slice.page ? 'page' : undefined}
                       aria-label={t('browse.pageN', { n })} onClick={() => goPage(n)}>{n}</button>)}
-                <button type="button" className="btn small" disabled={slice.page === slice.pages} onClick={() => goPage(slice.page + 1)}>{t('browse.next')}</button>
+                <button type="button" className="btn small pager-arrow" disabled={slice.page === slice.pages} aria-label={t('browse.next')} title={t('browse.next')} onClick={() => goPage(slice.page + 1)}><PagerArrow /></button>
+                <button type="button" className="btn small pager-arrow" disabled={slice.page === slice.pages} aria-label={t('browse.last')} title={t('browse.last')} onClick={() => goPage(slice.pages)}><PagerArrow double /></button>
               </div>}
+              {/* B144: jump straight to a page once the numbers skip some ("…"); Enter (or the keyboard's Go) jumps. */}
+              {slice.pages > 7 && <form className="pager-jump small" onSubmit={(ev) => {
+                ev.preventDefault();
+                const input = ev.currentTarget.elements.namedItem('page') as HTMLInputElement;
+                const n = Math.round(Number(input.value));
+                input.value = '';
+                if (Number.isFinite(n) && n >= 1) goPage(Math.min(n, slice.pages));
+              }}>
+                <label>
+                  <span>{t('browse.jump')}</span>
+                  <input name="page" className="field-input" type="text" inputMode="numeric" pattern="[0-9]*" enterKeyHint="go" autoComplete="off"
+                    placeholder={formatNumber(slice.page)} />
+                </label>
+              </form>}
             </nav>
           )}
         </section>

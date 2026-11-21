@@ -366,7 +366,8 @@ const short = (id: Page) => (id === 'map' || id === 'about' ? t(`nav.${id}.short
         showPop(true);
         const at = (e as CustomEvent<string>).detail;
         if (at === 'price' || at === 'route' || at === 'border') openTrips(true);
-        if (at === 'price') document.getElementById('settings-price')?.focus();
+        // Owner 2026-11-20: bring the price into view without focusing the field, so phones don't pop the keyboard.
+        if (at === 'price') { document.getElementById('settings-price')?.scrollIntoView({ block: 'nearest' }); pop.querySelector<HTMLButtonElement>('[data-fold="trips"]')?.focus({ preventScroll: true }); }
         if (at === 'route') pop.querySelector<HTMLButtonElement>('[data-avoid]')?.focus();
         if (at === 'border') pop.querySelector<HTMLButtonElement>('[data-border]')?.focus();
       }));

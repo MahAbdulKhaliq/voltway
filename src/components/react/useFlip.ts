@@ -21,6 +21,19 @@ interface Spot { x: number; y: number; w: number; h: number; el: HTMLElement }
 
 export function useFlip(list: RefObject<HTMLElement | null>, ghosts: RefObject<HTMLElement | null> | null, key: string) {
   const prev = useRef<Map<string, Spot> | null>(null);
+  // Positions change without a re-render too (a table row opening its figures, B138): call this
+  // afterwards so the next reflow starts from where the items really are.
+  const resnap = () => {
+    const box = list.current;
+    if (!box || !prev.current) return;
+    const boxRect = box.getBoundingClientRect();
+    const now = new Map<string, Spot>();
+    for (const el of box.querySelectorAll<HTMLElement>(':scope > [data-flip]')) {
+      const r = el.getBoundingClientRect();
+      now.set(el.dataset.flip!, { x: r.left - boxRect.left, y: r.top - boxRect.top, w: r.width, h: r.height, el });
+    }
+    prev.current = now;
+  };
 
   useLayoutEffect(() => {
     const box = list.current;
@@ -83,4 +96,5 @@ export function useFlip(list: RefObject<HTMLElement | null>, ghosts: RefObject<H
       a.finished.then(drop, drop);
     }
   }, [key]); // eslint-disable-line react-hooks/exhaustive-deps
+  return resnap;
 }

@@ -352,10 +352,10 @@ export default function CurveViewer({
 
   return (
     <div className="viewer card">
-      <div className="answer" aria-live="polite">
+      <div className="answer">
         {result ? (
           <>
-            <p className="answer-line">
+            <p className="answer-line" aria-live="polite">
               <span className="answer-label">{t('viewer.result.time', { start: settings.start, end: settings.end })}</span>{' '}
               <span className="answer-time">{minutes(result.minutes)}</span>
             </p>
@@ -509,7 +509,7 @@ export default function CurveViewer({
 
       {/* B137: More detail on the design language: readouts, then the notes and the points table. */}
       <Accordion level={3} bare className="acc-raised more" title={t('viewer.moreDetail')}
-        chips={[...(result ? [t('viewer.peakChip', { kw: formatNumber(result.peakKw) })] : []), t('viewer.pointsChip', { count: curve.points.length })]}>
+        chips={[...(result ? [t('viewer.peakChip', { kw: formatNumber(result.peakKw) })] : []), t('viewer.pointsChip', { count: formatNumber(curve.points.length) })]}>
         {result && (
           <dl className="readouts more-figs">
             {figure(t('viewer.peakLabel'), t('viewer.peakValue', { kw: formatNumber(result.peakKw), soc: formatNumber(result.peakAtSoc) }))}
@@ -563,7 +563,7 @@ export default function CurveViewer({
         .viewer .curve-note { margin: 0; }
         .viewer .curve-note + .curve-note { margin-top: 6px; }
         /* About this curve / More detail (B137): raised sections; the title keeps its width, chips take the rest. */
-        .viewer .acc-raised .acc-title { flex: none; }
+        .viewer details.acc.acc-raised .acc-title { flex: none; }
         .viewer .acc-raised .acc-chips { flex: 1 1 0; min-width: 0; }
         .viewer .acc-raised .acc-chip { background: var(--surface); }
         .viewer .acc-raised .acc-chev { margin-left: auto; }

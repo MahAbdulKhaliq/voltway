@@ -1309,6 +1309,7 @@ html[data-motion="off"] html[data-motion="off"] .bf-switch .switch, html[data-mo
 .cmp-toggle.icon { display: inline-grid; place-items: center; width: 32px; height: 32px; padding: 0; font-size: 1.15rem; line-height: 1; }
 /* B138: the per-row figures fold is for phones only. */
 .browse-table .bt-fold { display: none; }
+[data-resizing] { overflow: hidden; }
 /* B140: Per page, beside the page count. */
 .pager-size { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); white-space: nowrap; }
 .pager-size select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 4px 8px; min-height: 36px; }
@@ -1331,6 +1332,7 @@ html[data-motion="off"] html[data-motion="off"] .bf-switch .switch, html[data-mo
   .browse-table .bt-fold { display: flex; margin-top: 6px; min-height: 44px; }
   .browse-table tr:not(.bt-open) > td.num { display: none; }
   .browse-table tr.bt-open > td.num { padding-left: 2px; }
+  .browse-table tr.bt-open > td.num.on { font-weight: 800; }
   .browse-table td.num.on, .browse-table tbody tr:hover > td { background: none; }
 }
 

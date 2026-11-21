@@ -167,7 +167,7 @@ export default function Browse({ index }: Props) {
   const [openRows, setOpenRows] = useState<ReadonlySet<string>>(() => new Set());
   const toggleRow = (id: string, row: HTMLElement | null) => {
     const flip = () => setOpenRows((s) => { const n = new Set(s); if (n.has(id)) n.delete(id); else n.add(id); return n; });
-    if (row) resizeAcross(row, flip, 'td.num'); else flip();
+    if (row) resizeAcross(row, flip, 'td.num', () => resnap()); else flip();
   };
   const resultsEl = useRef<HTMLElement>(null);
   const goPage = (n: number) => {
@@ -178,7 +178,7 @@ export default function Browse({ index }: Props) {
 
   // Live reflow: the cards (or table rows) animate whenever the shown list or its order changes.
   const order = `${state.view}:${slice.items.map((e) => e.id).join('|')}`;
-  useFlip(state.view === 'cards' ? cardsEl : rowsEl, state.view === 'cards' ? ghostEl : null, order);
+  const resnap = useFlip(state.view === 'cards' ? cardsEl : rowsEl, state.view === 'cards' ? ghostEl : null, order);
 
   const active = activeCount(f, index);
   const onCompare = (e: IndexEntry) => {
@@ -452,10 +452,10 @@ export default function Browse({ index }: Props) {
                         {curveBadge(e)}
                       </span>
                       <button type="button" className="figfold-row bt-fold" aria-expanded={openRows.has(e.id)}
-                        aria-label={t('browse.figuresFoldFor', { car: carName(e) })}
                         onClick={(ev) => toggleRow(e.id, ev.currentTarget.closest('tr'))}>
                         <span className="figfold-text">
-                          <span className="figfold-title">{t('browse.figuresTitle')}</span>
+                          {/* The accessible name starts with the visible title (WCAG 2.5.3), then the car. */}
+                          <span className="figfold-title">{t('browse.figuresTitle')}<span className="sr-only"> {t('browse.figuresFoldFor', { car: carName(e) })}</span></span>
                           <span className="figfold-sum">{rowDigest(e)}</span>
                         </span>
                         <span className="acc-chev" aria-hidden="true" />
@@ -483,8 +483,12 @@ export default function Browse({ index }: Props) {
               {/* B140: cars per page, both views; a change starts again at page 1 (listKey). */}
               <label className="pager-size small">
                 <span>{t('browse.perPage')}</span>
-                <select value={state.perPage} onChange={(ev) => setState((s) => ({ ...s, perPage: Number(ev.target.value) as PerPage }))}>
-                  {PER_PAGE.map((n) => <option key={n} value={n}>{n}</option>)}
+                <select value={state.perPage} onChange={(ev) => {
+                  setState((s) => ({ ...s, perPage: Number(ev.target.value) as PerPage }));
+                  // A shorter page can leave the visitor below the list: back to its top, as a page change does.
+                  if ((resultsEl.current?.getBoundingClientRect().top ?? 0) < 0) goPage(1);
+                }}>
+                  {PER_PAGE.map((n) => <option key={n} value={n}>{formatNumber(n)}</option>)}
                 </select>
               </label>
               {slice.pages > 1 && <div className="pager-buttons">

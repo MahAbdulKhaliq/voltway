@@ -572,12 +572,14 @@ export default function Compare({ index }: Props) {
               </button>
             </div>
             <div className="table-scroll snap" tabIndex={0} aria-label={t('compare.scrollLabel')}>
-              <table className="cmp-table" style={{ ['--cols' as string]: ids.length }}>
-                <thead>
-                  <tr>
-                    <td className="corner" />
+              {/* B141: phones restyle the table with display grid/flex, which drops table semantics in some
+                  browsers, so the roles are explicit and each value names its car for screen readers. */}
+              <table role="table" className="cmp-table" style={{ ['--cols' as string]: ids.length }}>
+                <thead role="rowgroup">
+                  <tr role="row">
+                    <td role="cell" className="corner" />
                     {ids.map((id, slot) => (
-                      <th key={id} scope="col" className="car-head" style={{ ['--lane' as string]: carVar(slot) }}>
+                      <th key={id} role="columnheader" scope="col" className="car-head" style={{ ['--lane' as string]: carVar(slot) }}>
                         <span className="car-name">{name(id)}</span>
                         <span className="variant"><VariantName name={byId.get(id)?.name ?? ''} /></span>
                       </th>
@@ -595,16 +597,17 @@ export default function Compare({ index }: Props) {
                       .filter((x) => !onlyDiff || rowDiffers(x.values));
                     if (!fieldRows.length) return null;
                     return (
-                      <tbody key={g.title}>
-                        <tr className="group-row"><th scope="colgroup" colSpan={ids.length + 1}>{t(g.title)}</th></tr>
+                      <tbody key={g.title} role="rowgroup">
+                        <tr role="row" className="group-row"><th role="rowheader" scope="colgroup" colSpan={ids.length + 1}>{t(g.title)}</th></tr>
                         {fieldRows.map(({ k, fields, values }) => {
                           const label = t(`field.${k}` as MessageKey);
                           const best = bestIndices(values.map((v) => rankValue(k, v)), BETTER[k]);
                           return (
-                            <tr key={k}>
-                              <th scope="row">{label}</th>
+                            <tr key={k} role="row">
+                              <th role="rowheader" scope="row">{label}</th>
                               {slotRows.map((r, i) => (
-                                <td key={ids[i]} className={best.includes(i) ? 'best' : undefined} style={{ ['--lane' as string]: carVar(i) }}>
+                                <td key={ids[i]} role="cell" className={best.includes(i) ? 'best' : undefined} style={{ ['--lane' as string]: carVar(i) }}>
+                                  <span className="sr-only cmp-cell-car">{name(ids[i])}: </span>
                                   {best.includes(i) && (
                                     <span className="best-mark"><Star /><span className="sr-only">{t('compare.best')} </span></span>
                                   )}

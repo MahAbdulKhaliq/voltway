@@ -39,21 +39,21 @@ export function fold(box: HTMLElement, b: HTMLElement, isOpen: boolean, setOpen:
  * B138): measures, applies the change synchronously, and grows or shrinks from the old height.
  * New blocks matching `rise` fade up in sequence.
  */
-export function resizeAcross(el: HTMLElement, change: () => void, rise?: string): void {
-  if (reducedMotion() || typeof el.animate !== 'function') { change(); return; }
+export function resizeAcross(el: HTMLElement, change: () => void, rise?: string, onDone?: () => void): void {
+  if (reducedMotion() || typeof el.animate !== 'function') { flushSync(change); onDone?.(); return; }
   (foldRuns.get(el) ?? []).forEach((a) => a.cancel());
   const h0 = el.getBoundingClientRect().height;
   flushSync(change);
   const h1 = el.getBoundingClientRect().height;
-  if (Math.abs(h1 - h0) < 1) return;
-  const prev = el.style.overflow;
-  el.style.overflow = 'hidden';
+  if (Math.abs(h1 - h0) < 1) { onDone?.(); return; }
+  // Clipped while it resizes ([data-resizing] in global.css); a newer run takes over the attribute.
+  const run = String(Number(el.dataset.resizing ?? 0) + 1);
+  el.dataset.resizing = run;
   const grow = el.animate([{ height: `${h0}px` }, { height: `${h1}px` }], { duration: h1 > h0 ? OPEN_MS : SHUT_MS, easing: EASE });
   const risers = rise && h1 > h0 ? [...el.querySelectorAll<HTMLElement>(rise)].slice(0, MAX_STAGGER).map((x, i) =>
     x.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 240, delay: 40 + i * STAGGER_MS, easing: EASE, fill: 'backwards' })) : [];
   foldRuns.set(el, [grow, ...risers]);
-  const done = () => { el.style.overflow = prev; };
-  grow.finished.then(done, done);
+  grow.finished.then(() => { if (el.dataset.resizing === run) { delete el.dataset.resizing; onDone?.(); } }, () => {});
 }
 
 interface Props {

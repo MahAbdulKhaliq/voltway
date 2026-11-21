@@ -1,21 +1,21 @@
 # Voltway
 
-Voltway is a free, no-login website for EV drivers and shoppers. It shows EV specs and charging curves where **every figure shows its source**, a map of public chargers across Canada and the US, and a trip planner that picks charging stops for your car.
+![Voltway logo and wordmark in front of three phone screens: the Toronto to Boston trip, the Tesla Model 3 Performance charging curve, and the Cars list](docs/images/voltway-phones.png)
+
+Voltway is a free, no-login website for EV drivers and shoppers. It covers the electric cars sold in Canada and the US: specs and charging curves where **every figure shows its source**, a map of public chargers in both countries, and a trip planner that picks charging stops for your car.
 
 **Live site:** https://voltway-routing.vercel.app/
 
 ![A planned trip from Toronto to Boston on the desktop map: four charging stops and a border crossing, with the itinerary on the left](docs/images/trip-desktop.png)
-
-![Voltway on a phone: the Toronto to Boston trip, the Model 3 Performance charging curve, and the Cars list](docs/images/voltway-phones.png)
 
 ## What it does
 
 - **Charger map.** Public Level 2 and Level 3 stations in Canada and the US, grouped into rings that show the mix of fast and slow chargers. Filter by level, power and plug, or turn on *My car* to see only the plugs your car can use. Each pin shows its speed (one to three bolts: under 150 kW, 150 to 250 kW, 250 kW and up) and opens a panel with the station's details and where the data came from.
 - **Trip planner.** Pick a start, a destination and your car, and Voltway picks charging stops from the car's charging curve and plugs, with the charge time, the arrival and departure charge, and a cost estimate for each stop. Trips can cross the Canada–US border (or stay on one side of it), avoid tolls or highways, and hand off to Google Maps or Apple Maps to drive.
 - **Charging curves.** For each car: the curve against state of charge or time, the 10–80 % time, the distance added per 10 minutes, and the cost of a charge. Every figure is labelled *Official*, *Tested*, *Estimated* or *Unknown*, and links to its source.
-- **Cars and Compare.** Search, filter and sort the 84 variants sold in Canada, then compare up to four side by side, including a "charge race" of their curves.
+- **Cars and Compare.** Search, filter and sort 1,433 versions of 117 models sold in Canada and the US, then compare up to four side by side, including a "charge race" of their curves.
 
-Car data covers EVs sold in Canada today. The data model and the interface are built so more markets can be added.
+Car data covers EVs sold in Canada and the US. The data model and the interface are built so more markets can be added.
 
 ## How it's built
 
@@ -53,7 +53,8 @@ Full credits, with each licence, are on the site's [About & sources](https://vol
 
 **Cars**
 - **NRCan Fuel Consumption Ratings (battery-electric vehicles)**, Natural Resources Canada: which cars are sold in Canada, with official range and energy use. Open Government Licence – Canada.
-- **[OpenEV Data](https://github.com/open-ev-data/open-ev-data-dataset)**: battery size, charging power, ports and other specifications. CDLA-Permissive-2.0.
+- **[US EPA / DOE fuel economy data](https://www.fueleconomy.gov/feg/download.shtml)** (battery-electric vehicles): which cars are sold in the US, with official range and energy use. US government public data.
+- **[OpenEV Data](https://github.com/open-ev-data/open-ev-data-dataset)**: battery size, charging power, ports, voltage class and other specifications. CDLA-Permissive-2.0.
 - **[Open EV Data](https://github.com/KilowattApp/open-ev-data)** (Chargeprice archive): charging curves for older models, simplified from Fastned's published charts. MIT License with Attribution Requirement, Copyright (c) 2024 Tijs Teulings; full notice in `src/licenses/open-ev-data-mit.txt`.
 
 **Chargers**

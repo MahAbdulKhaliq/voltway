@@ -542,7 +542,8 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
 
       {showDrive && plan && T.routeData && trip.from && trip.to && (
         <DriveView plan={plan} route={T.routeData.route} from={trip.from} to={trip.to} unit={T.unit} opts={T.opts}
-          reached={reached} onReached={onReached} onFix={onDriveFix} />
+          reached={reached} onReached={onReached} onFix={onDriveFix}
+          selected={selectedStop} onOpenStop={onOpenStop} selectedSpot={selectedSpot} onOpenSpot={onOpenSpot} />
       )}
       {!showDrive && folded && plan && myCar && trip.from && trip.to && (
         <Itinerary

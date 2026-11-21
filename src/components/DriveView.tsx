@@ -31,9 +31,15 @@ interface Props {
   onReached: (next: boolean[]) => void;
   /** The car's position for the map dot (memory only), or null when there is none. */
   onFix: (at: [number, number] | null) => void;
+  /** B145: as in the itinerary, a stop's number opens its details (the same one again goes back to the route). */
+  selected: number | null;
+  onOpenStop: (i: number, button: HTMLButtonElement) => void;
+  /** B145: the start and destination marks close in on that end. */
+  selectedSpot: string | null;
+  onOpenSpot?: (key: string, at: [number, number]) => void;
 }
 
-export default function DriveView({ plan, route, from, to, unit, opts, reached, onReached, onFix }: Props) {
+export default function DriveView({ plan, route, from, to, unit, opts, reached, onReached, onFix, selected, onOpenStop, selectedSpot, onOpenSpot }: Props) {
   const [fix, setFix] = useState<Fix | null>(null);
   const [locating, setLocating] = useState<Locating>('waiting');
   const [now, setNow] = useState(() => new Date());
@@ -157,16 +163,19 @@ export default function DriveView({ plan, route, from, to, unit, opts, reached, 
       </p>
 
       <ol className="drive-list" aria-label={t('drive.listLabel')}>
-        <li className="drive-item done">
-          <span className="drive-mark" aria-hidden="true" />
+        <li className={`drive-item done${selectedSpot === 'from' ? ' on' : ''}`}>
+          <button type="button" className="drive-mark" aria-pressed={selectedSpot === 'from'} aria-label={t('trip.endShow', { name: from.label })} title={t('trip.endShow', { name: from.label })}
+            onClick={() => onOpenSpot?.('from', [from.lon, from.lat])} />
           <span className="drive-item-name">{from.label}</span>
         </li>
         {plan.stops.map((s, i) => {
           const isReached = reached[i] === true;
           const isNext = target.kind === 'stop' && target.index === i;
           return (
-            <li key={`${s.station.i}-${i}`} className={`drive-item${isReached ? ' done' : ''}${isNext ? ' next' : ''}`} aria-current={isNext ? 'step' : undefined}>
-              <span className="drive-mark drive-num" aria-hidden="true">{isReached ? '✓' : i + 1}</span>
+            <li key={`${s.station.i}-${i}`} className={`drive-item${isReached ? ' done' : ''}${isNext ? ' next' : ''}${selected === i ? ' on' : ''}`} aria-current={isNext ? 'step' : undefined}>
+              <button type="button" className="drive-mark drive-num" aria-pressed={selected === i}
+                aria-label={t('trip.stopShow', { n: i + 1, name: s.station.n })} title={t('trip.stopShow', { n: i + 1, name: s.station.n })}
+                onClick={(e) => onOpenStop(i, e.currentTarget)}>{isReached ? '✓' : i + 1}</button>
               <span className="drive-item-name">
                 <span className="sr-only">{t('trip.stopN', { n: i + 1 })} </span>
                 {s.station.n}
@@ -179,8 +188,9 @@ export default function DriveView({ plan, route, from, to, unit, opts, reached, 
             </li>
           );
         })}
-        <li className={`drive-item end${target.kind === 'end' ? ' next' : ''}`} aria-current={target.kind === 'end' ? 'step' : undefined}>
-          <span className="drive-mark" aria-hidden="true" />
+        <li className={`drive-item end${target.kind === 'end' ? ' next' : ''}${selectedSpot === 'to' ? ' on' : ''}`} aria-current={target.kind === 'end' ? 'step' : undefined}>
+          <button type="button" className="drive-mark" aria-pressed={selectedSpot === 'to'} aria-label={t('trip.endShow', { name: to.label })} title={t('trip.endShow', { name: to.label })}
+            onClick={() => onOpenSpot?.('to', [to.lon, to.lat])} />
           <span className="drive-item-name">{to.label}</span>
         </li>
       </ol>

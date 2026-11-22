@@ -54,13 +54,15 @@ interface Props {
   peek?: boolean;
   /** Charger data date, YYYY-MM-DD. */
   updated: string | null;
+  /** The map's centre when zoomed to a region (B147): From, and To before a start is set, look for addresses near it. */
+  focus?: { lat: number; lon: number } | null;
   /** Drive progress from this tab (B72): reopen Drive once the trip is planned again. */
   resumeDrive: boolean[] | null;
   /** The car's position while Drive watches it, for the map dot. */
   onDriveFix: (at: [number, number] | null) => void;
 }
 
-export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop, onOpenStop, selectedSpot, onOpenSpot, onClose, updated, resumeDrive, onDriveFix, peek = false }: Props) {
+export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop, onOpenStop, selectedSpot, onOpenSpot, onClose, updated, resumeDrive, onDriveFix, peek = false, focus = null }: Props) {
   const { trip, plan, status, current, planCar } = T;
   const [editing, setEditing] = useState(true);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -335,6 +337,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
             placeholder={t('trip.fromPlaceholder')}
             value={trip.from}
             search={search}
+            focus={focus}
             onChange={(from) => T.setTrip((x) => ({ ...x, from }))}
             onText={(v) => setLoose((l) => ({ ...l, from: v.trim() !== '' }))}
             extra={
@@ -350,7 +353,7 @@ export default function RoutePanel({ trip: T, cars, myCar, search, selectedStop,
             }
           />
           {T.locating === 'denied' && <p className="small muted" role="status">{t('trip.locationDenied')}</p>}
-          <PlaceField key={`to-${swaps}`} label={t('trip.to')} hideLabel placeholder={t('trip.toPlaceholder')} value={trip.to} search={search} near={trip.from} onChange={(to) => T.setTrip((x) => ({ ...x, to }))} onText={(v) => setLoose((l) => ({ ...l, to: v.trim() !== '' }))} />
+          <PlaceField key={`to-${swaps}`} label={t('trip.to')} hideLabel placeholder={t('trip.toPlaceholder')} value={trip.to} search={search} near={trip.from} focus={focus} onChange={(to) => T.setTrip((x) => ({ ...x, to }))} onText={(v) => setLoose((l) => ({ ...l, to: v.trim() !== '' }))} />
           </div>
           <button type="button" className="btn route-swap" aria-label={t('route.swap')} title={t('route.swap')} onClick={() => { T.swap(); setSwaps((n) => n + 1); }} disabled={!trip.from && !trip.to}>
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">

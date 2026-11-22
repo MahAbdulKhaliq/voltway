@@ -885,3 +885,12 @@ Run after the owner's last review round. Dark and light, 1280 and 375 px.
 | 12b | Search while typing | Type "59 Par", pause, finish the address: results appear without pressing the button; DevTools Network shows one /api/geocode per pause, none for "Hamilton" or "Toro". Button still works for "Hamilton General Hospital". |
 | 12c | Nearby street | Map zoomed to Hamilton, "184 Lynbrook Dr" → Hamilton first; zoomed to Seattle, "300 Pike St" → Seattle (Pike Street, not East Pike) first; "184 Lynbrook Dr, Mastic Beach" → no near search. Zoomed out to the continent: no `near` in the request. |
 | 12d | Failure paths | ORS over its allowance → "busy" as before; offline → offline message; an estimate lookup failing still shows the plain results. |
+
+### Results
+
+| Id | Result | Notes |
+|---|---|---|
+| 12a | Pass (server), browser not checked by QA | 2026-11-22 qa-reviewer: estimate at 45% between 41 and 81 checked by hand; exact 41 with no extra request. Fixed after: other-side neighbours used without asking for the street list; same number on another street counted as found. |
+| 12b | Pass after fixes | qa-reviewer (code): stale answer could fill the list and cancel the new search; "100 Mile House" / "108 Mile Ranch" searched by themselves. Both fixed (12.5); "100 Mil" → 0 requests in the browser. |
+| 12c | Pass after fixes | Hamilton, Seattle first on production; a typed town makes no near search. Fixed after: trip From / To didn't send the map's centre; a request was spent estimating on the far street first. |
+| 12d | Pass (code) | Busy, offline and a failed estimate lookup keep the plain results; nothing logged. |

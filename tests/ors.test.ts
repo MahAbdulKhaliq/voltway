@@ -252,6 +252,41 @@ describe('house-number estimate', () => {
   });
 });
 
+describe('house-number estimate: QA fixes (2026-11-22)', () => {
+  const geoUrl = (q: string, extra = '') => new URL(`https://x.test/api/geocode?q=${encodeURIComponent(q)}${extra}`);
+  const addr = (n: string, lon: number, lat: number, street = 'Paradise Road South') => ({ geometry: { coordinates: [lon, lat] }, properties: { layer: 'address', housenumber: n, street, locality: 'Hamilton', region_a: 'ON', country_a: 'CAN', label: `${n} ${street}, Hamilton, ON, Canada` } });
+  const calls = (...bodies: unknown[]) => { let i = 0; return vi.fn(async () => new Response(JSON.stringify(bodies[i++] ?? {}), { status: 200 })); };
+
+  it('bracket with anySide off needs neighbours on the same side', () => {
+    expect(bracket(59, [[41, 0, 0], [58, 1, 1], [62, 2, 2]], false)).toBeNull();
+    expect(bracket(59, [[41, 0, 0], [58, 1, 1], [62, 2, 2]])).toEqual([[58, 1, 1], [62, 2, 2]]);
+  });
+
+  it('neighbours in the answer only on the other side → asks for the street list and uses the same side', async () => {
+    const f = calls({ features: [addr('41', -79.8992, 43.2610), addr('58', -79.8995, 43.2605), addr('62', -79.8996, 43.2603)] },
+      { features: [addr('41', -79.8992, 43.2610), addr('81', -79.8997, 43.2599)] });
+    const { places } = await (await handleGeocode(geoUrl('59 Paradise Rd S, Hamilton'), KEY, f)).json();
+    expect(f).toHaveBeenCalledTimes(2);
+    expect(places[0]).toMatchObject({ label: '59 Paradise Road South, Hamilton, ON, Canada', lon: -79.899425, lat: 43.260505, estimated: true });
+  });
+
+  it('the same number on another street does not count as found', async () => {
+    const f = calls({ features: [addr('41', -79.8992, 43.2610), addr('81', -79.8997, 43.2599), addr('59', -79.9, 43.27, 'Paradise Road North')] });
+    const { places } = await (await handleGeocode(geoUrl('59 Paradise Rd S, Hamilton'), KEY, f)).json();
+    expect(places[0]).toMatchObject({ label: '59 Paradise Road South, Hamilton, ON, Canada', estimated: true });
+  });
+
+  it('a far street-only match with near: no request spent estimating on the far street', async () => {
+    const far = { geometry: { coordinates: [-72.85, 40.76] }, properties: { layer: 'street', street: 'Lynbrook Drive', locality: 'Mastic Beach', region_a: 'NY', country_a: 'USA', label: 'Lynbrook Drive, Mastic Beach, NY, USA' } };
+    const ham = { geometry: { coordinates: [-79.80, 43.20] }, properties: { layer: 'street', street: 'Lynbrook Drive', locality: 'Hamilton', region_a: 'ON', country_a: 'CAN', label: 'Lynbrook Drive, Hamilton, ON, Canada' } };
+    const lyn = (n: string, lon: number, lat: number) => ({ geometry: { coordinates: [lon, lat] }, properties: { layer: 'address', housenumber: n, street: 'Lynbrook Drive', locality: 'Hamilton', country_a: 'CAN', label: `${n} Lynbrook Drive, Hamilton, ON, Canada` } });
+    const f = calls({ features: [far] }, { features: [ham] }, { features: [lyn('180', -79.80, 43.20), lyn('190', -79.81, 43.21)] });
+    const { places } = await (await handleGeocode(geoUrl('184 Lynbrook Dr', '&near=-79.87,43.25'), KEY, f)).json();
+    expect(f).toHaveBeenCalledTimes(3);
+    expect(places[0]).toMatchObject({ label: '184 Lynbrook Drive, Hamilton, ON, Canada', estimated: true });
+  });
+});
+
 describe('route options (B73) and Canada only (B74)', () => {
   const url = (q: string) => new URL(`https://x.test/api/route?from=-79.38,43.65&to=-73.57,45.5${q}`);
   const body = (f: ReturnType<typeof reply>) => JSON.parse((f.mock.calls[0] as unknown as [string, RequestInit])[1].body as string);

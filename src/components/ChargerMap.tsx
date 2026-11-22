@@ -413,6 +413,8 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
   const [spotFocus, setSpotFocus] = useState<string | null>(null);
   // "Stations in view" (B34): the current view, refreshed when the map stops moving.
   const [view, setView] = useState<{ bounds: Bounds; center: [number, number]; zoom: number } | null>(null);
+  // Zoomed in to a region or closer, addresses typed without a town are looked for around here too (B147).
+  const searchFocus = useMemo(() => (view && view.zoom >= FOCUS_MIN_ZOOM ? { lon: view.center[0], lat: view.center[1] } : null), [view]);
   const [listOpen, setListOpen] = useState(false);
   const listItemRef = useRef<HTMLButtonElement | null>(null);
   // Opened from Stations in view (back arrow) or from the map (close), B71.
@@ -1220,6 +1222,7 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
             updated={usTrip ? updatedUs : meta?.updated ?? null}
             resumeDrive={resumeDrive}
             onDriveFix={onDriveFix}
+            focus={searchFocus}
           />
         ) : (<>
         <div className="map-where">
@@ -1233,8 +1236,7 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
             autoFocus={whereKey > 0 && !sheet.phone && !matchMedia('(pointer: coarse)').matches}
             value={place}
             search={placeSearch}
-            // Zoomed in to a region or closer, addresses typed without a town are looked for around here too.
-            focus={view && view.zoom >= FOCUS_MIN_ZOOM ? { lon: view.center[0], lat: view.center[1] } : null}
+            focus={searchFocus}
             onChange={pickPlace}
             extra={
               <button type="button" ref={routeBtnRef} className="btn small primary map-route-btn btn-with-icon" onClick={() => enterRoute(place ? { to: place } : {})}>

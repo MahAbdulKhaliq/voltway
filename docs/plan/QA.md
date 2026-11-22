@@ -876,3 +876,12 @@ Run after the owner's last review round. Dark and light, 1280 and 375 px.
 | 11d | Pass | Rows closed with digest, sorted figure bold; 5 labelled figures open; no line under + / −; scrollWidth 375 with sorts. QA fixes: stuck overflow after quick double taps (now [data-resizing]); FLIP re-measures after a row fold; accessible name starts with "Range and charging"; sorted figure 800 in an open row. |
 | 11e | Pass | 10 on first visit; 5/25/50 reset to page 1; 50 survived reload; cards view too. Fix: a shorter page scrolls back to the list top. |
 | 11f | Pass | 1, 2, 4 cars: scrollWidth = clientWidth 375; strip pinned under the header; stars; Only show differences 17 → 16 rows; source popover on screen (x 39–339); desktop table unchanged. Fix: explicit table roles + screen-reader car name per value; scroller label "Spec table". Known limit: the pin offset is 66 px (no header-height variable). |
+
+## Address search (B147)
+
+| Id | Check | How |
+|---|---|---|
+| 12a | House-number estimate | Map → Where to?: "59 Paradise Rd S, Hamilton" → first row "59 Paradise Road South, Hamilton, ON, Canada · estimated position"; picking it plans to a point between 41 and 81. "41 Paradise Road South, Hamilton" → exact, no "estimated". |
+| 12b | Search while typing | Type "59 Par", pause, finish the address: results appear without pressing the button; DevTools Network shows one /api/geocode per pause, none for "Hamilton" or "Toro". Button still works for "Hamilton General Hospital". |
+| 12c | Nearby street | Map zoomed to Hamilton, "184 Lynbrook Dr" → Hamilton first; zoomed to Seattle, "300 Pike St" → Seattle (Pike Street, not East Pike) first; "184 Lynbrook Dr, Mastic Beach" → no near search. Zoomed out to the continent: no `near` in the request. |
+| 12d | Failure paths | ORS over its allowance → "busy" as before; offline → offline message; an estimate lookup failing still shows the plain results. |

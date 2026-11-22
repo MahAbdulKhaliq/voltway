@@ -1,9 +1,10 @@
 // A place field (From, To, "Where to?"): instant suggestions from the GeoNames place list (B45),
-// and the address service (/api/geocode) only when "Search full address" is pressed.
+// and the address service (/api/geocode) when "Search full address" is pressed or, for text that
+// reads like an address ("59 Paradise…"), once typing pauses.
 
-import { useEffect, useId, useMemo, useState, useSyncExternalStore } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import { t } from '../i18n/t.ts';
-import { hasExactName, makePlaceSearch, type PlaceRow, type PlaceSearch, type TripEnd } from '../lib/place-search.ts';
+import { hasExactName, looksLikeAddress, makePlaceSearch, type PlaceRow, type PlaceSearch, type TripEnd } from '../lib/place-search.ts';
 import { routeOptions } from '../lib/route-options.ts';
 import { SHEET_MEDIA } from '../lib/sheet.ts';
 
@@ -34,6 +35,10 @@ const useWide = () => useSyncExternalStore((l) => { listeners.add(l); return () 
 const FEW = 3;
 /** B136 (owner 2026-11-20): on phones (the map sheet) at most this many suggestions show, so the list stays small. */
 const PHONE_MAX = 3;
+/** Address-like text is searched this long after the last keystroke, so a typing burst is one search. */
+const ADDRESS_PAUSE_MS = 700;
+/** Address answers already fetched this visit (query + country → places): editing back and forth asks once. */
+const addressCache = new Map<string, TripEnd[]>();
 const onPhone = () => typeof matchMedia !== 'undefined' && matchMedia(SHEET_MEDIA).matches;
 const usePhone = () => useSyncExternalStore((l) => { if (typeof matchMedia === 'undefined') return () => {}; const m = matchMedia(SHEET_MEDIA); m.addEventListener('change', l); return () => m.removeEventListener('change', l); }, onPhone, () => false);
 
@@ -52,9 +57,12 @@ interface FieldProps {
   onText?: (text: string) => void;
   /** The trip start: place results lean to its country, and address search keeps to it (B78). */
   near?: TripEnd | null;
+  /** Where the visitor is looking (the map's centre), when there is no trip start: an address typed
+   *  without a town ("184 Lynbrook Dr") is also looked for near it. */
+  focus?: { lat: number; lon: number } | null;
 }
 
-export default function PlaceField({ label, value, onChange, search: own, extra, placeholder, hideLabel, autoFocus, onText, near }: FieldProps) {
+export default function PlaceField({ label, value, onChange, search: own, extra, placeholder, hideLabel, autoFocus, onText, near, focus }: FieldProps) {
   const wideSearch = useWide();
   const search = own ? (wideSearch ?? own) : null;
   const id = useId();
@@ -82,39 +90,55 @@ export default function PlaceField({ label, value, onChange, search: own, extra,
   const options = phone ? all.slice(0, PHONE_MAX) : all;
   useEffect(() => setActive(-1), [text, remote]);
 
-  const pick = (end: TripEnd) => {
+  const pick = ({ estimated: _e, ...end }: TripEnd) => {
     onChange(end);
     setText(end.label);
     setOpen(false);
     setRemote(null);
     setRemoteState('idle');
   };
-  const searchAddress = async () => {
-    const q = text.trim();
+  // Only the latest search may fill the list (an older, slower answer is dropped).
+  const latest = useRef(0);
+  const searchAddress = async (raw = text) => {
+    const q = raw.trim();
     if (q.length < 3) return;
+    const seq = ++latest.current;
     setOpen(true);
+    // With a start, addresses come from its country only while Stay within the border is on (B78);
+    // with it off a destination may be in either country (B79, QA 2026-11-18).
+    const around = near ?? focus;
+    const at = (nearCc && !routeOptions().crossBorder ? `&country=${nearCc}` : '')
+      + (around ? `&near=${around.lon.toFixed(1)},${around.lat.toFixed(1)}` : '');
+    const key = `${q.toLowerCase()}|${at}`;
+    const show = (places: TripEnd[]) => { setRemote(places); setRemoteState(places.length ? 'idle' : 'none'); };
+    const cached = addressCache.get(key);
+    if (cached) { show(cached); return; }
     setRemoteState('loading');
     try {
-      // With a start, addresses come from its country only while Stay within the border is on (B78);
-      // with it off a destination may be in either country (B79, QA 2026-11-18).
-      const at = nearCc && !routeOptions().crossBorder ? `&country=${nearCc}` : '';
       const r = await fetch(`/api/geocode?q=${encodeURIComponent(q)}${at}`);
       if (!r.ok) throw new Error(String(r.status));
       const { places } = (await r.json()) as { places: TripEnd[] };
-      setRemote(places);
-      setRemoteState(places.length ? 'idle' : 'none');
+      addressCache.set(key, places);
+      if (seq === latest.current) show(places);
     } catch {
+      if (seq !== latest.current) return;
       setRemote([]);
       setRemoteState(navigator.onLine === false ? 'offline' : 'busy');
     }
   };
+  // Address-like text searches itself once typing pauses; town names stay with the local list.
+  useEffect(() => {
+    if (!open || remote !== null || value?.label === text || !looksLikeAddress(text)) return;
+    const timer = setTimeout(() => { void searchAddress(text); }, ADDRESS_PAUSE_MS);
+    return () => clearTimeout(timer);
+  }, [text, open, value, remote]);
   const listId = `${id}-list`;
   const optId = (i: number) => `${id}-opt-${i}`;
   const showList = open && text.trim() !== '' && (value?.label !== text || remote !== null);
   const onKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Escape') { if (showList) e.preventDefault(); setOpen(false); setRemote(null); return; }
     if (!showList || !options.length) {
-      if (e.key === 'Enter') { e.preventDefault(); searchAddress(); }
+      if (e.key === 'Enter') { e.preventDefault(); void searchAddress(); }
       return;
     }
     if (e.key === 'ArrowDown') { e.preventDefault(); setActive((a) => (a + 1) % options.length); }
@@ -155,6 +179,7 @@ export default function PlaceField({ label, value, onChange, search: own, extra,
             <li key={`${o.label}-${i}`} id={optId(i)} role="option" aria-selected={i === active} className={i === active ? 'on' : undefined}
               onMouseDown={(e) => e.preventDefault()} onClick={() => pick(o)}>
               {o.label}
+              {o.estimated && <span className="muted small"> · {t('trip.addressEstimated')}</span>}
             </li>
           ))}
         </ul>
@@ -166,7 +191,7 @@ export default function PlaceField({ label, value, onChange, search: own, extra,
         </div>
         {remote === null && (
           <div className="tp-address">
-            <button type="button" className="btn small" onMouseDown={(e) => e.preventDefault()} onClick={searchAddress} disabled={text.trim().length < 3}>
+            <button type="button" className="btn small" onMouseDown={(e) => e.preventDefault()} onClick={() => void searchAddress()} disabled={text.trim().length < 3}>
               {t('trip.searchAddress')}
             </button>
             {!options.length && <span className="muted small"> {t('trip.noPlace')}</span>}

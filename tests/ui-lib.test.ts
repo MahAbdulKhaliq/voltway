@@ -57,7 +57,7 @@ describe('runtime-built dictionary keys (QA 9.1)', () => {
     for (const k of ['tested', 'community', 'manufacturer', 'estimated', 'borrowed']) expect(keys.has(`viewer.option.${k}`), k).toBe(true);
     for (const k of ['highway', 'combined', 'city']) expect(keys.has(`viewer.basis.${k}`), k).toBe(true);
     for (const k of ['soc', 'time']) expect(keys.has(`viewer.axis.${k}`), k).toBe(true);
-    for (const k of ['400v-nmc', '800v-nmc', 'lfp']) expect(keys.has(`curve.template.${k}`), k).toBe(true);
+    for (const k of ['400v-nmc', '800v-nmc', 'lfp', 'tesla']) expect(keys.has(`curve.template.${k}`), k).toBe(true);
   });
 });
 

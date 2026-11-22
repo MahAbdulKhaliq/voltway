@@ -62,7 +62,7 @@ export function caseFor(car: CarDetail): CalibrationCase | null {
     refKind = k === 'tested' ? 'published-tested' : k === 'community' ? 'published-community' : 'published-manufacturer';
   } else return null;
   const weight = WEIGHTS[refKind] * (refExtrapolated ? 0.5 : 1);
-  const { id: template } = chooseTemplate(str(car.fields.chemistry), str(car.fields.nominal_voltage_class));
+  const { id: template } = chooseTemplate(str(car.fields.chemistry), str(car.fields.nominal_voltage_class), { makeId: car.make?.id, dcMaxKw: dc });
   return { ids: [car.id], template, dcMaxKw: dc, kwh, refMinutes, refKind, weight, refExtrapolated, published: curve ? published : null };
 }
 

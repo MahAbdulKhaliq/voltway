@@ -2,7 +2,7 @@
 // curves a person should look at before they are shown as a car's default. Messages go to the
 // gap report (a maintainer file), not to the site.
 
-import { chooseTemplate, TEMPLATES, TEMPLATE_SOC } from '../../src/lib/estimated-curve.ts';
+import { chooseTemplate, TEMPLATES, TEMPLATE_SOC, type TemplateId } from '../../src/lib/estimated-curve.ts';
 
 export interface CurveIssue {
   level: 'error' | 'warning';
@@ -14,6 +14,7 @@ export interface CurveContext {
   dcMaxKw?: number | null;
   chemistry?: string | null;
   voltageClass?: string | null;
+  makeId?: string | null;
   /** True when the curve was recorded for a different generation (or year, when the model lists no generations). */
   yearMismatch?: boolean;
 }
@@ -21,7 +22,7 @@ export interface CurveContext {
 type Point = { soc_percent: number; power_kw: number };
 
 /** Widest SoC window (in %) a template-type car plausibly holds within 5 % of its peak. */
-export const FLAT_PEAK_LIMIT: Record<'400v-nmc' | '800v-nmc' | 'lfp', number> = { '400v-nmc': 25, '800v-nmc': 45, lfp: 20 };
+export const FLAT_PEAK_LIMIT: Record<TemplateId, number> = { '400v-nmc': 25, '800v-nmc': 45, lfp: 20, tesla: 25 };
 export const MIN_POINTS = 8;
 export const MAX_GAP = 15;
 export const OFF_TEMPLATE = 0.4;
@@ -55,7 +56,7 @@ export function checkCurve(points: Point[], ctx: CurveContext = {}): CurveIssue[
   for (let i = 1; i < points.length; i++) gap = Math.max(gap, points[i].soc_percent - points[i - 1].soc_percent);
   if (gap > MAX_GAP) warn('gap', `a ${gap} % SoC gap between points (at most ${MAX_GAP} wanted)`);
 
-  const { id } = chooseTemplate(ctx.chemistry ?? null, ctx.voltageClass ?? null);
+  const { id } = chooseTemplate(ctx.chemistry ?? null, ctx.voltageClass ?? null, { makeId: ctx.makeId, dcMaxKw: ctx.dcMaxKw });
   const flat = below.filter((p) => p.power_kw >= peak * 0.95).map((p) => p.soc_percent);
   const window = flat.length ? Math.max(...flat) - Math.min(...flat) : 0;
   if (window > FLAT_PEAK_LIMIT[id]) warn('flat_peak', `holds within 5 % of its ${peak} kW peak over ${window} % SoC (a ${id} car rarely holds more than ${FLAT_PEAK_LIMIT[id]} %)`);

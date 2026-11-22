@@ -131,7 +131,8 @@ export default function PlaceField({ label, value, onChange, search: own, extra,
   searchRef.current = searchAddress;
   // Address-like text searches itself once typing pauses; town names (even "100 Mile House") stay
   // with the local list.
-  const auto = open && remote === null && value?.label !== text && autoSearchAddress(text, local);
+  // Not before the town list is in (it decides "100 Mile House"), nor while a search is running.
+  const auto = open && search !== null && remote === null && remoteState !== 'loading' && value?.label !== text && autoSearchAddress(text, local);
   useEffect(() => {
     if (!auto) return;
     const timer = setTimeout(() => { void searchRef.current(text); }, ADDRESS_PAUSE_MS);

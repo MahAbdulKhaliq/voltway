@@ -270,6 +270,14 @@ describe('house-number estimate: QA fixes (2026-11-22)', () => {
     expect(places[0]).toMatchObject({ label: '59 Paradise Road South, Hamilton, ON, Canada', lon: -79.899425, lat: 43.260505, estimated: true });
   });
 
+  it('a partly matching street further down does not replace the neighbours above it', async () => {
+    const north = { geometry: { coordinates: [-79.9, 43.27] }, properties: { layer: 'street', street: 'Paradise Road North', locality: 'Hamilton', region_a: 'ON', country_a: 'CAN', label: 'Paradise Road North, Hamilton, ON, Canada' } };
+    const f = calls({ features: [addr('41', -79.8992, 43.2610), addr('81', -79.8997, 43.2599), north] });
+    const { places } = await (await handleGeocode(geoUrl('59 Paradise Rd S, Hamilton'), KEY, f)).json();
+    expect(f).toHaveBeenCalledTimes(1);
+    expect(places[0]).toMatchObject({ label: '59 Paradise Road South, Hamilton, ON, Canada', estimated: true });
+  });
+
   it('the same number on another street does not count as found', async () => {
     const f = calls({ features: [addr('41', -79.8992, 43.2610), addr('81', -79.8997, 43.2599), addr('59', -79.9, 43.27, 'Paradise Road North')] });
     const { places } = await (await handleGeocode(geoUrl('59 Paradise Rd S, Hamilton'), KEY, f)).json();

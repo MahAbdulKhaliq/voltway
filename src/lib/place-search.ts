@@ -37,8 +37,10 @@ export const looksLikeAddress = (q: string): boolean => /^\s*\d{1,6}[a-z]?\s+(?=
  * Whether typed text should search addresses by itself (B147): it reads like an address and is not
  * the start of a listed town ("100 Mile House, BC", "108 Mile Ranch" start with numbers too).
  */
-export const autoSearchAddress = (q: string, towns: readonly TripEnd[]): boolean =>
-  looksLikeAddress(q) && !towns.some((p) => fold(p.label).startsWith(fold(q.trim())));
+export const autoSearchAddress = (q: string, towns: readonly TripEnd[]): boolean => {
+  const bare = (s: string) => fold(s).replace(/[\s,]+/g, ' ').trim();
+  return looksLikeAddress(q) && !towns.some((p) => bare(p.label).startsWith(bare(q)));
+};
 
 /** A border crossing is named after a town on the far side only when one is this close (km). */
 export const NEAR_PLACE_KM = 40;

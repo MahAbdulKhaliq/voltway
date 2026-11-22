@@ -403,7 +403,8 @@ async function estimateAddress(q: string, body: unknown, country: string, key: s
   const feats = (body as { features?: PeliasFeature[] } | null)?.features ?? [];
   const isAddress = (f: PeliasFeature) => f.properties?.layer === 'address';
   const named = (f: PeliasFeature) => !!(f.properties?.street && f.properties?.label);
-  const anchor = (feats.find((f) => f.properties?.layer === 'street' && named(f)) ?? feats.find((f) => isAddress(f) && named(f)))?.properties;
+  // The best-ranked street or address names the street (a later, partial street match doesn't).
+  const anchor = feats.find((f) => (f.properties?.layer === 'street' || isAddress(f)) && named(f))?.properties;
   if (!anchor) return null;
   const onStreet = (f: PeliasFeature) => f.properties?.street === anchor.street && f.properties?.locality === anchor.locality && Array.isArray(f.geometry?.coordinates);
   // The number is already known on this street (the same number elsewhere doesn't count).

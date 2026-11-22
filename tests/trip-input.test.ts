@@ -184,6 +184,8 @@ describe('address search while typing', () => {
     const town = [{ label: '100 Mile House, BC', lat: 51.64, lon: -121.29, cc: 'ca' as const }];
     expect(autoSearchAddress('100 Mil', town)).toBe(false);
     expect(autoSearchAddress('100 mile house', town)).toBe(false);
+    expect(autoSearchAddress('100 Mile House BC', town)).toBe(false);
+    expect(autoSearchAddress('100 Mile Rd', town)).toBe(true);
     expect(autoSearchAddress('59 Par', [])).toBe(true);
     expect(autoSearchAddress('Hamilton', [])).toBe(false);
   });

@@ -134,6 +134,7 @@ The contrast pairs are checked in `tests/contrast.test.ts`: field-border and est
   - the car's bar, ending in a round marker with a raised ring;
   - the value on the right in Overpass 700;
   - the other figures and the curve-kind tag as a small line under the road.
+- **Phones (B148, owner 2026-11-22):** at 640 px and below the race is slim so it and the curve chart fit on one screen with 4 cars: the Race by switch is one row ("Avg power"), each lane is one line (colour dot, make and model, value and cost) over an 8 px road with a 12 px marker, and the note plus each car's other figures and curve tag sit in a closed figure fold (§12) "All figures and notes" under the race. The year is left off the lane; the trim shows only when two compared cars share a model.
 - Bar length is proportional to the figure: the largest value fills the road. For time, the fastest car therefore has the *shortest* bar.
 - The best lane gets a drawn flag (accent) and "Best:" for screen readers. Ties are all flagged.
 - **Motion:**

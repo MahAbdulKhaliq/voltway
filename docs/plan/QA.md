@@ -894,3 +894,21 @@ Run after the owner's last review round. Dark and light, 1280 and 375 px.
 | 12b | Pass after fixes | qa-reviewer (code): stale answer could fill the list and cancel the new search; "100 Mile House" / "108 Mile Ranch" searched by themselves. Both fixed (12.5); "100 Mil" → 0 requests in the browser. |
 | 12c | Pass after fixes | Hamilton, Seattle first on production; a typed town makes no near search. Fixed after: trip From / To didn't send the map's centre; a request was spent estimating on the far street first. |
 | 12d | Pass (code) | Busy, offline and a failed estimate lookup keep the plain results; nothing logged. |
+
+## Compare race on phones (B148)
+
+| Id | Check | How |
+|---|---|---|
+| 13a | Race and chart on one screen | /compare with 4 cars at 375 × 812, dark and light: scroll the Charging race heading to just under the header; the curve chart panel's bottom edge is visible. Each lane: dot, make and model (no year), value + cost on one line, road under it. Two trims of one model: the trim shows. |
+| 13b | Nothing lost | Open "All figures and notes": the race note (best-first rule, shared window, cost note) and, per car in race order, the other three figures with costs and the curve tag. Animations off: opens at once. Each Race by choice still re-sorts the lanes. Screen reader: switch labelled "Race by"; the button reads "Avg power". |
+| 13c | Edge cases | 1 and 2 cars; a car with no curve ("No curve yet", empty road); a long name (Mustang Mach-E) truncates with … not wraps; the mixed-curves banner still shows; scrollWidth = clientWidth at 375. |
+| 13d | Desktop unchanged | 1280 px: lanes as before with the figures line under each, no fold, note above the lanes, Race by label shown. |
+
+### Results
+
+| Id | Result | Notes |
+|---|---|---|
+| 13a | Pass | 2026-11-22 local, dark and light: race heading under the header, chart panel bottom at 751 of 812 px; lanes 54 px, one line each, no year. Model 3 Performance + RWD: trims shown, one line with …. |
+| 13b | Pass | Fold opens (animated) to the note and per-car figures with costs and curve tags in race order. Switch row: Per 10 min, 10% → 80%, Added, Avg power; "Race by" kept for screen readers. Animations-off path is the shared Fold (11a). |
+| 13c | Partly | scrollWidth 375 with 3 and 4 cars; Mustang Mach-E on one line. A no-curve car not tried locally. |
+| 13d | Pass | 1280: fold hidden, note above lanes, figures line under each lane, "Average power" and the Race by label shown; lanes 74 px as before. |

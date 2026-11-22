@@ -30,6 +30,7 @@ import VariantName from './VariantName.tsx';
 import CarPicker from './CarPicker.tsx';
 import { Value } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
+import { Fold } from './react/Fold.tsx';
 
 echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, CanvasRenderer]);
 
@@ -359,6 +360,26 @@ export default function Compare({ index }: Props) {
   };
   const colLabel: Record<Col, MessageKey> = { minutes: 'compare.col.minutes', km: 'compare.col.km', per10: 'compare.col.per10', avgKw: 'compare.col.avgKw' };
   const figureName = (c: Col) => t(colLabel[c], { start, end });
+  const raceNote = `${t(figure === 'minutes' ? 'compare.race.lower' : 'compare.race.higher')} ${t('compare.shared')} ${t('compare.costNote', { loss: Math.round((1 - COST.dcEfficiency) * 100) })}`;
+  // B148: phone lanes show make and model only; the trim stays when two compared cars share a model.
+  const model = (id: string) => { const e = byId.get(id); return e ? `${e.make} ${e.model}` : id; };
+  const twins = new Set(rows.map((r) => model(r.id)).filter((m, i, all) => all.indexOf(m) !== i));
+  // A lane's other figures and its curve kind: under the lane on wide screens, in the race fold on phones.
+  const laneMeta = (r: Row) => (
+    <dl className="lane-meta small">
+      {COLS.filter((c) => c !== figure).map((c) => (
+        <div key={c}><dt>{figureName(c)}</dt><dd>{withCost(r, c)}</dd></div>
+      ))}
+      {r.curve && (
+        <div>
+          <dt className="sr-only">{t('viewer.curve')}</dt>
+          <dd><span className={`kind-tag ${r.curve.kind === 'estimated' ? 'estimated' : 'measured'}`}>
+            {r.curve.based_on ? t('viewer.option.borrowed') : t(`viewer.option.${r.curve.kind}` as MessageKey)}
+          </span></dd>
+        </div>
+      )}
+    </dl>
+  );
   const mixed = rows.some((r) => r.estimated) && rows.some((r) => !r.estimated && r.curve);
   const startOnTop = start >= end - 1 && start > 50;
 
@@ -442,12 +463,14 @@ export default function Compare({ index }: Props) {
                 <span id={`${uid}-by`} className="seg-label">{t('compare.raceBy')}</span>
                 <div className="seg" role="group" aria-labelledby={`${uid}-by`}>
                   {COLS.map((c) => (
-                    <button key={c} type="button" aria-pressed={figure === c} onClick={() => setFigure(c)}>{figureName(c)}</button>
+                    <button key={c} type="button" aria-pressed={figure === c} onClick={() => setFigure(c)}>
+                      {c === 'avgKw' ? <><span className="seg-long">{figureName(c)}</span><span className="seg-short">{t('compare.col.avgKw.short')}</span></> : figureName(c)}
+                    </button>
                   ))}
                 </div>
               </div>
             </div>
-            <p className="small muted race-note">{t(figure === 'minutes' ? 'compare.race.lower' : 'compare.race.higher')} {t('compare.shared')} {t('compare.costNote', { loss: Math.round((1 - COST.dcEfficiency) * 100) })}</p>
+            <p className="small muted race-note">{raceNote}</p>
             {mixed && <p className="banner small estimated" role="note">{t('compare.mixed')}</p>}
 
             <ol ref={raceEl} className={`race${grown ? ' grown' : ''}`} aria-label={t('compare.raceLabel', { figure: figureName(figure) })}>
@@ -461,7 +484,7 @@ export default function Compare({ index }: Props) {
                   <li key={r.id} data-id={r.id} className={`lane${lead ? ' lead' : ''}`} style={{ ['--lane' as string]: carVar(r.slot) }}>
                     <span className="lane-car">
                       <span className="lane-dot" aria-hidden="true" />
-                      <span className="lane-name">{name(r.id)} <span className="muted"><VariantName name={r.car.name} /></span></span>
+                      <span className="lane-name">{model(r.id)}<span className="lane-year"> {byId.get(r.id)?.year}</span> <span className={`muted${twins.has(model(r.id)) ? ' twin' : ''}`}><VariantName name={r.car.name} /></span></span>
                     </span>
                     <span className="lane-road" aria-hidden="true">
                       {main && <span className="lane-fill" style={{ width: grown ? `${pct}%` : '0%' }} />}
@@ -471,23 +494,27 @@ export default function Compare({ index }: Props) {
                       {main ?? <span className="unknown">{r.curve ? t('badge.unknown') : t('compare.noCurve')}</span>}
                       {mainCost && <span className="lane-cost">{mainCost}</span>}
                     </span>
-                    <dl className="lane-meta small">
-                      {COLS.filter((c) => c !== figure).map((c) => (
-                        <div key={c}><dt>{figureName(c)}</dt><dd>{withCost(r, c)}</dd></div>
-                      ))}
-                      {r.curve && (
-                        <div>
-                          <dt className="sr-only">{t('viewer.curve')}</dt>
-                          <dd><span className={`kind-tag ${r.curve.kind === 'estimated' ? 'estimated' : 'measured'}`}>
-                            {r.curve.based_on ? t('viewer.option.borrowed') : t(`viewer.option.${r.curve.kind}` as MessageKey)}
-                          </span></dd>
-                        </div>
-                      )}
-                    </dl>
+                    {laneMeta(r)}
                   </li>
                 );
               })}
             </ol>
+
+            {/* B148: on phones each lane is one line; the note and every car's other figures fold here. */}
+            <Fold phoneOnly title={t('compare.raceFold')} className="race-fold">
+              <p className="small muted race-fold-note">{raceNote}</p>
+              <ul className="race-fold-cars">
+                {race.map((r) => (
+                  <li key={r.id} style={{ ['--lane' as string]: carVar(r.slot) }}>
+                    <span className="lane-car">
+                      <span className="lane-dot" aria-hidden="true" />
+                      <span className="lane-name">{name(r.id)} <span className="muted"><VariantName name={r.car.name} /></span></span>
+                    </span>
+                    {laneMeta(r)}
+                  </li>
+                ))}
+              </ul>
+            </Fold>
 
             <div className="plot panel">
               <div ref={chartEl} className="chart" role="img" aria-label={(() => { const n = rows.filter((r) => r.curve).length; return n === 1 ? t('compare.chartAlt.one') : t('compare.chartAlt', { count: n }); })()} />
@@ -701,6 +728,8 @@ export default function Compare({ index }: Props) {
         .lane-meta > div { display: inline-flex; gap: 5px; align-items: baseline; }
         .lane-meta dt { margin: 0; }
         .lane-meta dd { margin: 0; color: var(--text); font-variant-numeric: tabular-nums; font-weight: 600; }
+        /* B148: the phone-only race fold and short switch label; wider screens keep the lanes as they are. */
+        .race-fold, .seg-short { display: none; }
 
         /* The chart on its panel, the window slider under it lined up with the 0-100 % axis. */
         .cmp-race .plot { display: grid; gap: 4px; padding: 12px 12px 10px; }
@@ -768,13 +797,33 @@ export default function Compare({ index }: Props) {
           .cmp-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
           .cmp-controls .charger-pick { grid-column: 1 / -1; }
           .cmp-race .plot { padding: 8px 6px; }
+          /* B148: a slim race so it and the curve chart fit one phone screen with 4 cars. */
+          .cmp-race { gap: 10px; }
+          .race-head { gap: 8px; }
           .race-head .seg-field { width: 100%; }
-          .race-head .seg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
-          .race-head .seg button { border-radius: 0; border-left: 1px solid var(--field-border); }
-          .race-head .seg button:nth-child(1) { border-radius: 8px 0 0 0; }
-          .race-head .seg button:nth-child(2) { border-radius: 0 8px 0 0; border-left: 0; }
-          .race-head .seg button:nth-child(3) { border-radius: 0 0 0 8px; border-top: 0; }
-          .race-head .seg button:nth-child(4) { border-radius: 0 0 8px 0; border-top: 0; border-left: 0; }
+          .race-head .seg-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+          .race-head .seg { display: flex; width: 100%; }
+          .race-head .seg button { flex: 1 1 auto; padding: 6px 4px; font-size: 0.8rem; white-space: nowrap; }
+          .seg-long { display: none; }
+          .seg-short { display: inline; }
+          .cmp-race > .race-note { display: none; }
+          .race { gap: 6px; }
+          .lane { grid-template-areas: "car value" "road road"; padding: 7px 10px 9px; row-gap: 6px; }
+          .race .lane-meta { display: none; }
+          .race .lane-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.9rem; }
+          .race .lane-year, .race .lane-name .muted:not(.twin) { display: none; }
+          .race .lane-dot { width: 10px; height: 10px; }
+          .lane-road { height: 8px; }
+          .lane-fill::after { width: 12px; height: 12px; margin-top: -6px; box-shadow: 0 0 0 2px var(--surface-2); }
+          .lane-value { font-size: 1rem; gap: 5px; }
+          .lane-cost { font-size: 0.8rem; }
+          .race-fold { display: block; margin-top: -4px; }
+          .race-fold-note { margin: 0 0 10px; }
+          .race-fold-cars { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+          .race-fold-cars li { display: grid; gap: 4px; padding-left: 2px; }
+          .race-fold-cars li > * { grid-area: auto; }
+          .race-fold-cars .lane-car { padding-top: 0; }
+          .race-fold-cars .lane-meta { padding-left: 20px; }
           /* B141: phones stack the specs, no sideways scroll: each spec's name across the top, then one
              line per car with its value beside a bar in the car's colour; the car names stay pinned as the key. */
           .cmp-specs .table-scroll { overflow: visible; }

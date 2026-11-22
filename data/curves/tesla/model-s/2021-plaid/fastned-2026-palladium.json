@@ -1,0 +1,33 @@
+{
+  "id": "fastned-2026-palladium",
+  "powertrain_id": "tesla/model-s/2021-plaid",
+  "kind": "tested",
+  "source_id": "src-fastned-tesla-model-s-2026",
+  "points": [
+    { "soc_percent": 3, "power_kw": 131.66 },
+    { "soc_percent": 5, "power_kw": 163.48 },
+    { "soc_percent": 10, "power_kw": 204.83 },
+    { "soc_percent": 15, "power_kw": 208.57 },
+    { "soc_percent": 20, "power_kw": 210.98 },
+    { "soc_percent": 25, "power_kw": 213.04 },
+    { "soc_percent": 30, "power_kw": 214.86 },
+    { "soc_percent": 35, "power_kw": 217.72 },
+    { "soc_percent": 36, "power_kw": 218.23 },
+    { "soc_percent": 40, "power_kw": 191.88 },
+    { "soc_percent": 45, "power_kw": 164.57 },
+    { "soc_percent": 50, "power_kw": 145.16 },
+    { "soc_percent": 55, "power_kw": 127.44 },
+    { "soc_percent": 60, "power_kw": 113.66 },
+    { "soc_percent": 65, "power_kw": 101.5 },
+    { "soc_percent": 70, "power_kw": 89.91 },
+    { "soc_percent": 75, "power_kw": 75.69 },
+    { "soc_percent": 80, "power_kw": 64.58 },
+    { "soc_percent": 85, "power_kw": 55.62 },
+    { "soc_percent": 90, "power_kw": 45.11 },
+    { "soc_percent": 91, "power_kw": 41.45 }
+  ],
+  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 300 },
+  "notes": "Fastned \"Model S Plaid 100 kWh\" / \"100 kWh (2022+)\" curve (the two entries are identical), measured on a European CCS2 300-class charger, battery around 30 C, 3-91 % SoC, peak 218.2 kW at 36 % (the listed 218 kW CCS2 cap, below the 250 kW Supercharger V3 peak). Time-weighted 10-80 % takes 28.3 min at 92.3 kWh usable, which matches Out of Spec Reviews' Oct 2021 Plaid test on a V3 Supercharger (preconditioned, \"a little bit over 28 minutes\" 10-80 %, about 150 kW at the start, 249 kW from 8 to 33 %, under 148 kW at 50 %, under 68 kW at 80 %; as reported by InsideEVs 549335). Fastned reads 145 kW at 50 % and 64.6 kW at 80 %, so the taper agrees; the early plateau is understated by about 30 kW for a V3 session. The 5-30 % ramp is slow in the first 8 % (131 kW at 3 %). No separate Dual Motor/Long Range curve exists and Fastned gives the Plaid and 2022+ entries identical numbers; no source shows Plaid and Dual Motor charging differently. Covered range 3-91 %; outside it the viewer holds the end values. 2021 build: Fastned labels the curve \"Plaid 100 kWh\" and \"2022+\"; the 2021 Plaid and Long Range already use the 92.3 kWh pack, so assumed the same (low confidence). InsideEVs lists the tested 2021 Plaid at about 95 kWh usable.",
+  "low_confidence": true,
+  "is_display_default": false
+}

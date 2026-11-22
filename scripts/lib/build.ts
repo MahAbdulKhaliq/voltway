@@ -442,6 +442,7 @@ export function buildCars(root: string): BuildResult {
         chemistry: (fields.chemistry?.value.value as string) ?? null,
         voltageClass: (fields.nominal_voltage_class?.value.value as string) ?? null,
         sourceId: dc.source_id,
+        makeId: make?.id ?? null,
       }));
     }
     // B95: check every curve that isn't our own template; a warned curve is the default only once
@@ -452,6 +453,7 @@ export function buildCars(root: string): BuildResult {
         dcMaxKw: typeof dc?.value === 'number' ? dc.value : null,
         chemistry: (fields.chemistry?.value.value as string) ?? null,
         voltageClass: (fields.nominal_voltage_class?.value.value as string) ?? null,
+        makeId: make?.id ?? null,
       });
       if (issues.length) c.issues = issues;
       const review = c.reviewed_note ?? curveReviews[`${v.id}#${c.id}`];

@@ -1,0 +1,30 @@
+{
+  "id": "insideevs-nyland-2021",
+  "powertrain_id": "tesla/model-3/2021-standard-range-plus",
+  "kind": "tested",
+  "source_id": "src-insideevs-model3-srp-2021-nyland",
+  "points": [
+    { "soc_percent": 11, "power_kw": 156.6 },
+    { "soc_percent": 15, "power_kw": 144.4 },
+    { "soc_percent": 20, "power_kw": 132.3 },
+    { "soc_percent": 25, "power_kw": 121.9 },
+    { "soc_percent": 30, "power_kw": 112.5 },
+    { "soc_percent": 35, "power_kw": 99.3 },
+    { "soc_percent": 40, "power_kw": 86.2 },
+    { "soc_percent": 45, "power_kw": 76.4 },
+    { "soc_percent": 50, "power_kw": 67.7 },
+    { "soc_percent": 55, "power_kw": 61.6 },
+    { "soc_percent": 60, "power_kw": 56.9 },
+    { "soc_percent": 65, "power_kw": 50.2 },
+    { "soc_percent": 70, "power_kw": 42.8 },
+    { "soc_percent": 75, "power_kw": 37.7 },
+    { "soc_percent": 80, "power_kw": 31.3 },
+    { "soc_percent": 85, "power_kw": 25.9 },
+    { "soc_percent": 89, "power_kw": 22.2 }
+  ],
+  "notes": "Read in the built-in browser by sampling the line's pixels in the published chart image against its gridlines (about ±2 kW); Bjørn Nyland 2021 Model 3 SR+ (50.9 kWh usable; Panasonic NCA cells likely made in Nevada, per the article), Europe, 2021-04. Peak 159 kW at ~10 %. 10-80 % ≈ 31 min at 51 kWh.",
+  "low_confidence": true,
+  "conditions": { "preconditioned": "unknown" },
+  "is_display_default": false,
+  "reviewed_note": "Owner cleared 2026-11-22: off_template is the generic 400V template being too optimistic for this car (it gives 18 min; Nyland measured ~31 min 10-80 %)."
+}

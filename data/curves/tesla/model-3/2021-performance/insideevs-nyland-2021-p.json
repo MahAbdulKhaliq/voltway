@@ -1,0 +1,33 @@
+{
+  "id": "insideevs-nyland-2021-p",
+  "powertrain_id": "tesla/model-3/2021-performance",
+  "kind": "tested",
+  "source_id": "src-insideevs-model3-lr-2021-nyland",
+  "points": [
+    { "soc_percent": 10, "power_kw": 228.4 },
+    { "soc_percent": 11, "power_kw": 230.3 },
+    { "soc_percent": 12, "power_kw": 220.6 },
+    { "soc_percent": 15, "power_kw": 200.9 },
+    { "soc_percent": 17, "power_kw": 191.7 },
+    { "soc_percent": 20, "power_kw": 178.9 },
+    { "soc_percent": 22, "power_kw": 172.9 },
+    { "soc_percent": 25, "power_kw": 164.2 },
+    { "soc_percent": 30, "power_kw": 153.2 },
+    { "soc_percent": 35, "power_kw": 135.8 },
+    { "soc_percent": 40, "power_kw": 125.2 },
+    { "soc_percent": 45, "power_kw": 115.1 },
+    { "soc_percent": 50, "power_kw": 100.5 },
+    { "soc_percent": 55, "power_kw": 89.4 },
+    { "soc_percent": 60, "power_kw": 80.7 },
+    { "soc_percent": 65, "power_kw": 71.6 },
+    { "soc_percent": 70, "power_kw": 62.4 },
+    { "soc_percent": 75, "power_kw": 53.7 },
+    { "soc_percent": 80, "power_kw": 44 },
+    { "soc_percent": 85, "power_kw": 36.2 },
+    { "soc_percent": 89, "power_kw": 29.8 }
+  ],
+  "notes": "Read in the built-in browser by sampling the line's pixels in the published chart image against its gridlines (about ±2 kW); Bjørn Nyland 2021 Model 3 Performance AWD (black line in the article's comparison chart), V3 Supercharger, Europe, July 2021. Text: peak 233 kW, 20-80 % avg 90 kW. Same cell caveats as the Long Range curve.",
+  "low_confidence": true,
+  "conditions": { "preconditioned": "unknown", "charger_kw": 250 },
+  "is_display_default": false
+}

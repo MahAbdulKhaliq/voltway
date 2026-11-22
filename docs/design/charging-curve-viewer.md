@@ -172,6 +172,14 @@ For variants with no measured curve. Each template is a list of **SoC → fracti
 
 **Chemistry unknown:** use the NMC template for the variant's voltage class, and say so in the curve's `basis` note.
 
+**Tesla template (B149, owner 2026-11-22).** Step 5 applied: the 400V template held 97 % of peak to 30 % SoC, so 250 kW Teslas came out at ~18 min for 10–80 %, while tests show 25–33 min (and the plausibility check rejected accurate Tesla curves as off-template). Teslas with a **DC peak of 250 kW or more** (Model 3/Y 2017 on, Model S/X 2020 on, Cybertruck) now use their own template. **Update (owner, 2026-11-22):** the floor is **225 kW, whatever the chemistry**, so the 2026+ LFP Standard Model 3/Y use it too (the LFP template gave 19 min; the one test found, EverCars 2026 Model Y Standard, took 31 min; the Tesla template gives 26). The 170 kW LFP RWDs keep the LFP template (22 min, tests 23–25), and V2-era S/X (≤ 200 kW) keep the 400V one. The plausibility check compares a Tesla curve with this template (flat-peak limit 25 %).
+
+| SoC | 0% | 10% | 30% | 50% | 70% | 80% | 90% | 100% |
+|-----|----|-----|-----|-----|-----|-----|-----|------|
+| **Tesla** | 0.70 | 1.00 | 0.72 | 0.45 | 0.30 | 0.22 | 0.14 | 0.05 |
+
+Fitted to Fastned's Model Y Long Range and Model S Palladium curves (normalised to 250 kW) and press tests: Model 3 LR 2021 on V3 (InsideEVs, 10–80 % at ~28 min), Highland (21–80 % in 28 min), Model Y Performance (33 min), Cybertruck on V3 (40–45 min). Results: 75 kWh / 250 kW → 27 min; 79 kWh → 29 min; Cybertruck 117 kWh → 42 min.
+
 ### Calibration (before launch)
 1. Take every variant that has a **tested curve**, **or** a published **10–80% time** (a manufacturer claim or a single cited test result; see data-sources.md, "The practical plan for curves").
 2. Build its estimated curve from the template anyway.

@@ -1,7 +1,7 @@
 {
-  "id": "fastned-2026-my-lr",
-  "powertrain_id": "tesla/model-y/2024-long-range-awd-ca",
-  "kind": "tested",
+  "id": "borrowed-fastned-2026-my-lr",
+  "powertrain_id": "tesla/model-y/2024-performance-import",
+  "kind": "estimated",
   "source_id": "src-fastned-tesla-model-y-2026",
   "points": [
     { "soc_percent": 8, "power_kw": 230.75 },
@@ -23,8 +23,8 @@
     { "soc_percent": 85, "power_kw": 43.9 },
     { "soc_percent": 90, "power_kw": 34.3 }
   ],
-  "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 300 },
-  "note_id": "n-c58b297372",
   "low_confidence": true,
+  "notes": "Borrowed from Fastned's European Model Y Long Range 2022-2025 curve (about 30 C, CCS2, preconditioning not stated). Fastned does not test the Performance; the pack match rests on spec-site estimates.",
+  "based_on": { "variant_id": "tesla/model-y/2023/long-range-awd-import", "reason": "Same 78.1 kWh gross / 75 kWh usable 400 V NMC pack and 250 kW peak in our data (spec-site estimates); Fastned tests the Long Range, not the Performance." },
   "is_display_default": false
 }

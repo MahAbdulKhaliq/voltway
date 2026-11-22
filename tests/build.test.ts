@@ -79,6 +79,17 @@ describe('estimated curves (charging-curve-viewer.md §9)', () => {
     expect(c.basis).not.toMatch(/calibrated/);
     expect(c.basis).toMatch(/800V NMC.*200 kW/);
   });
+  it('uses the Tesla template for Teslas at 225 kW or more (B149)', () => {
+    expect(chooseTemplate('nca', '400v', { makeId: 'tesla', dcMaxKw: 250 }).id).toBe('tesla');
+    expect(chooseTemplate('nmc', '800v', { makeId: 'tesla', dcMaxKw: 250 }).id).toBe('tesla'); // Cybertruck
+    expect(chooseTemplate('lfp', '400v', { makeId: 'tesla', dcMaxKw: 225 }).id).toBe('tesla'); // 2026+ Standard LFP
+    expect(chooseTemplate('lfp', '400v', { makeId: 'tesla', dcMaxKw: 170 }).id).toBe('lfp'); // older RWD LFP
+    expect(chooseTemplate('nca', '400v', { makeId: 'tesla', dcMaxKw: 120 }).id).toBe('400v-nmc'); // V2-era S/X
+    expect(chooseTemplate('nmc', '400v', { makeId: 'ford', dcMaxKw: 250 }).id).toBe('400v-nmc');
+    const c = estimateCurve({ dcMaxKw: 250, chemistry: 'nca', voltageClass: '400v', sourceId: 'src-x', makeId: 'tesla' });
+    expect(c.basis).toMatch(/Tesla.*250 kW/);
+    expect(c.points.find((p) => p.soc_percent === 50)?.power_kw).toBe(112.5); // 0.45 × 250
+  });
 });
 
 describe('buildCars on the fixture', () => {

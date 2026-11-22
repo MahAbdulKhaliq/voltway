@@ -24,7 +24,7 @@
     { "soc_percent": 90, "power_kw": 34.3 }
   ],
   "conditions": { "preconditioned": "unknown", "battery_temp_c": 30, "charger_kw": 300 },
-  "note_id": "n-c58b297372",
+  "notes": "Fastned \"Model Y Long Range (2022 - 2025)\" curve, measured on a European CCS2 300 kW charger (market EU/CCS2), battery around 30 C, 8-90 % SoC, peak 230.75 kW at 8 % (page chargeSpeed 250 kW). EU CCS2; NA Supercharger early peak ~250 kW. Pack unknown: Fastned does not state the cell or pack for this entry, so the match to these Canadian-market ids is unconfirmed; the two ids carry different packs in the spec data (2023 import 78.1 kWh NMC; 2024 CA 82 kWh NCA). No second source for this curve.",
   "low_confidence": true,
   "is_display_default": false
 }

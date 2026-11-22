@@ -895,6 +895,8 @@ Run after the owner's last review round. Dark and light, 1280 and 375 px.
 | 12c | Pass after fixes | Hamilton, Seattle first on production; a typed town makes no near search. Fixed after: trip From / To didn't send the map's centre; a request was spent estimating on the far street first. |
 | 12d | Pass (code) | Busy, offline and a failed estimate lookup keep the plain results; nothing logged. |
 
+Re-check 2026-11-22 (qa-reviewer, after #166): all eight first-round issues fixed. Three follow-ups fixed in #167: a partly matching street lower in the answer replaced the neighbours above it (the best-ranked row names the street again); "100 Mile House BC" without the comma, or any text before the town list loaded, searched by itself; pressing the button before the pause ended could send a second request. Still browser-only, not checked by QA: request counts while typing in a real page, picking an estimate and planning to it, offline/busy messages.
+
 ## Compare race on phones (B148)
 
 | Id | Check | How |

@@ -11,7 +11,7 @@ export interface PlaceRow { n: string; p: string; lat: number; lon: number; pop:
 export type PlaceCountry = 'ca' | 'us';
 
 /** A trip end: a label to show and a position; `cc` is its country when known (from a place or address pick). */
-export interface TripEnd { label: string; lat: number; lon: number; cc?: PlaceCountry }
+export interface TripEnd { label: string; lat: number; lon: number; cc?: PlaceCountry; estimated?: true }
 
 /** "Montréal" → "montreal": accents and case don't matter when matching. */
 export const fold = (s: string): string => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -26,6 +26,12 @@ export interface PlaceSearch {
   /** B79: the label of the listed place in `cc` nearest a point, within NEAR_PLACE_KM, or null (names a border crossing). */
   placeNear: (lat: number, lon: number, cc: PlaceCountry) => string | null;
 }
+
+/**
+ * Text that reads like a street address: a house number, then at least three letters of the street
+ * ("59 Par…", "600 4th Ave"). Only such text is sent to the address service while typing; town names never are.
+ */
+export const looksLikeAddress = (q: string): boolean => /^\s*\d{1,6}[a-z]?\s+(?=[^\s,]*[a-z])[^\s,]{3,}/i.test(q);
 
 /** A border crossing is named after a town on the far side only when one is this close (km). */
 export const NEAR_PLACE_KM = 40;

@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { buildCars } from '../scripts/lib/build.ts';
 import { toPlaceRows } from '../scripts/lib/geonames.ts';
 import { TRIP } from '../src/config.ts';
-import { fold, hasExactName, makePlaceSearch, type PlaceRow } from '../src/lib/place-search.ts';
+import { fold, hasExactName, looksLikeAddress, makePlaceSearch, type PlaceRow } from '../src/lib/place-search.ts';
 import { planCarFrom } from '../src/lib/trip-car.ts';
 import { apiPoint, readEnd, readSavedTrip, readTripLink, writeTripLink } from '../src/lib/trip-link.ts';
 import type { CarDetail } from '../src/lib/types.ts';
@@ -172,5 +172,12 @@ describe('US list triggers and country guess (B78)', () => {
     expect(both.countryNear(42.3, -83.0)).toBe('ca'); // Windsor
     expect(both.countryNear(61.22, -149.9)).toBe('us'); // Anchorage
     expect(both.countryNear(60.72, -135.05)).toBe('ca'); // Whitehorse
+  });
+});
+
+describe('address search while typing', () => {
+  it('only text that reads like a street address is searched (a number, then 3+ letters)', () => {
+    for (const yes of ['59 Par', '59 Paradise Rd S, Hamilton', ' 1600 Pennsylvania', '59A Main St', '401 Hwy', '600 4th Ave']) expect(looksLikeAddress(yes)).toBe(true);
+    for (const no of ['Hamilton', 'Saint-Jean', '59', '59 Pa', '59 100', '59, Main', '']) expect(looksLikeAddress(no)).toBe(false);
   });
 });

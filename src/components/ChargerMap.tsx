@@ -360,6 +360,9 @@ function quickFly(map: maplibregl.Map, at: maplibregl.LngLatLike, zoom: number) 
   return { curve: 1.2, duration: Math.round(Math.min(1100, 450 + px / 6 + dz * 45)) };
 }
 
+/** From this zoom (a region) the map's centre says where the visitor is looking, for address search. */
+const FOCUS_MIN_ZOOM = 7;
+
 export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: IndexEntry[]; wheelEffect?: WheelEffect | null }) {
   const box = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
@@ -1230,6 +1233,8 @@ export default function ChargerMap({ cars = [], wheelEffect = null }: { cars?: I
             autoFocus={whereKey > 0 && !sheet.phone && !matchMedia('(pointer: coarse)').matches}
             value={place}
             search={placeSearch}
+            // Zoomed in to a region or closer, addresses typed without a town are looked for around here too.
+            focus={view && view.zoom >= FOCUS_MIN_ZOOM ? { lon: view.center[0], lat: view.center[1] } : null}
             onChange={pickPlace}
             extra={
               <button type="button" ref={routeBtnRef} className="btn small primary map-route-btn btn-with-icon" onClick={() => enterRoute(place ? { to: place } : {})}>

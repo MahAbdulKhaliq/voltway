@@ -142,9 +142,13 @@ Uses the **Phase 1 curve maths** (charging-curve-viewer.md §3) with no changes:
 
 To stay inside the 1,000 searches per day:
 1. As the user types, match first against a **static list of Canadian places**. That needs no service. **Decided (B45, 2026-11-16):** the list is **GeoNames** places with population ≥ 1,000 (CC BY 4.0, credited on About; see data-sources.md §5a). The map never got its own list (B29).
-2. Call **ORS geocoding** only when the user presses Search or picks "Search full address", **not on every keystroke**.
+2. Call **ORS geocoding** when the user presses Search or picks "Search full address". *(B147, owner 2026-11-22: also automatically for text that reads like an address, a house number then 3+ characters of a street, 0.7 s after typing pauses; town names still never call ORS. Answers are kept for the visit.)*
 3. Cache results through the function's CDN cache headers.
 4. **"Use my location"** works for From (browser location, only when asked).
+5. **House numbers ORS doesn't have (B147, 2026-11-22).** When the search finds the street but not the number, the number is placed between the nearest known numbers on that street (the same side of the street when it has numbers both sides), in proportion, and listed first as "estimated position". The known numbers come from the search answer or, if they don't bracket it, one ORS autocomplete request for that street (layers=address, up to 40).
+6. **Same street near the visitor (B147).** The page sends the map's centre (from zoom 7) or the trip start, rounded to 0.1°. When no town is typed (no comma) and the best match is more than 50 km away: a nearby exact match already in the answer moves up; otherwise the street name is searched with that focus point (a street of exactly the far match's name first, then the closest), and the number is found or estimated on it. Up to 2 extra requests, only in that case.
+
+*Allowance (owner's ORS dashboard, 2026-11-22): 2,000 geocodes per day.*
 
 ---
 

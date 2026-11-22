@@ -7,6 +7,8 @@ import { inServiceArea, usPart, type CountryCode } from './country.ts';
 export const ORS_BASE = 'https://api.heigit.org';
 const DIRECTIONS = `${ORS_BASE}/openrouteservice/v2/directions/driving-car/geojson`;
 const GEOCODE = `${ORS_BASE}/pelias/v1/search`;
+/** Lists the house numbers ORS knows on a street (a plain search only returns the street). */
+const AUTOCOMPLETE = `${ORS_BASE}/pelias/v1/autocomplete`;
 const TIMEOUT_MS = 20_000;
 
 
@@ -144,7 +146,7 @@ export function findCrossings(coords: readonly (readonly number[])[], countriesO
 }
 
 /** An address result; `cc` is its country when the service says (B78: lets the next search lean to it). */
-export interface Place { label: string; lon: number; lat: number; cc?: CountryCode }
+export interface Place { label: string; lon: number; lat: number; cc?: CountryCode; estimated?: true }
 
 const PELIAS_COUNTRY: Readonly<Record<string, CountryCode>> = { CAN: 'ca', USA: 'us' };
 
@@ -283,5 +285,160 @@ export async function handleGeocode(url: URL, key: string | undefined, fetchFn: 
   }
   if (res.status === 400) return errorResponse('badRequest', 400);
   if (!res.ok) return orsFailure();
-  return json({ places: trimPlaces(await res.json().catch(() => null)) }, 200, CACHE_OK);
+  const body = await res.json().catch(() => null);
+  const places = trimPlaces(body);
+  const boundary = target.searchParams.get('boundary.country')!;
+  const guess = await estimateAddress(q, body, boundary, key, fetchFn);
+  let found = guess ? [guess, ...places] : places;
+  // No town typed ("184 Lynbrook Dr"): the best match may be a same-named street far away. With
+  // `near` (the map's centre or the trip start, ~10 km), look for that street nearby too.
+  const near = parseNear(url.searchParams.get('near'));
+  if (near && !q.includes(',') && (!found.length || km([found[0].lon, found[0].lat], near) > NEAR_STREET_KM)) {
+    // The street the far matches name ("Pike Street"): a nearby street of exactly that name wins over
+    // a similar one ("East Pike Street").
+    const feats = (body as { features?: PeliasFeature[] } | null)?.features ?? [];
+    const name = feats.find((f) => f.properties?.street)?.properties?.street;
+    const n = leadingNumber(q);
+    const isClose = (f: PeliasFeature) => Array.isArray(f.geometry?.coordinates) && km(f.geometry!.coordinates!, near) <= NEAR_STREET_KM;
+    const exactHere = (sameName: boolean) => feats.find((f) => f.properties?.layer === 'address' && isClose(f)
+      && leadingNumber(f.properties.housenumber ?? '') === n && (!sameName || !name || f.properties.street === name));
+    // 1. Already in the answer, same street name: move it up (no extra request).
+    let close: Place | null = toPlace(exactHere(true));
+    // 2. Otherwise look for the street nearby and find the number on it.
+    close ??= await nearbyAddress(q, near, boundary, key, fetchFn, name);
+    // 3. Otherwise a nearby match on a similar street from the answer.
+    close ??= toPlace(exactHere(false));
+    if (close) found = [close, ...found.filter((p) => p.label !== close.label)];
+  }
+  return json({ places: found.slice(0, 5) }, 200, CACHE_OK);
+}
+
+const toPlace = (f: PeliasFeature | undefined): Place | null => (f ? trimPlaces({ features: [f] })[0] ?? null : null);
+
+/** A same-named street counts as "near" the visitor within this distance (km). */
+export const NEAR_STREET_KM = 50;
+
+/** `near=lon,lat` → a point rounded to 0.1° (~10 km: enough to rank streets, and few cache keys), or null. */
+export function parseNear(raw: string | null): [number, number] | null {
+  const p = parseLonLat(raw);
+  return p ? [Math.round(p[0] * 10) / 10, Math.round(p[1] * 10) / 10] : null;
+}
+
+/**
+ * The typed street near `near`: search the street name (without the number) with a focus point, keep
+ * the streets within NEAR_STREET_KM (one named exactly `name` first, then the closest), and find the
+ * number on it (exact or estimated). Two extra requests at most, only when the best match was far away.
+ */
+async function nearbyAddress(q: string, near: [number, number], country: string, key: string, fetchFn: Fetch, name?: string): Promise<Place | null> {
+  const n = leadingNumber(q);
+  const street = q.replace(/^\s*\d{1,6}[a-z]?\b\s*/i, '');
+  if (n === null || street.length < 3) return null;
+  const find = new URL(GEOCODE);
+  find.searchParams.set('text', street);
+  find.searchParams.set('layers', 'street');
+  find.searchParams.set('size', '10');
+  find.searchParams.set('focus.point.lon', String(near[0]));
+  find.searchParams.set('focus.point.lat', String(near[1]));
+  find.searchParams.set('boundary.country', country);
+  try {
+    const res = await fetchFn(find, { headers: { Authorization: key, Accept: 'application/json' }, signal: AbortSignal.timeout(TIMEOUT_MS) });
+    if (!res.ok) return null;
+    const feats = (((await res.json()) as { features?: PeliasFeature[] }).features ?? [])
+      .filter((f) => f.properties?.layer === 'street' && f.properties.street && Array.isArray(f.geometry?.coordinates))
+      .map((f) => ({ f, d: km(f.geometry!.coordinates!, near) }))
+      .filter((x) => x.d <= NEAR_STREET_KM)
+      .sort((a, b) => Number(b.f.properties!.street === name) - Number(a.f.properties!.street === name) || a.d - b.d);
+    if (!feats.length) return null;
+    return await estimateAddress(q, { features: [feats[0].f] }, country, key, fetchFn);
+  } catch {
+    return null;
+  }
+}
+
+interface PeliasFeature {
+  geometry?: { coordinates?: number[] };
+  properties?: { layer?: string; label?: string; country_a?: string; housenumber?: string; street?: string; locality?: string; region_a?: string };
+}
+
+/** The house number a query starts with ("59 Paradise Rd S…" → 59; "59A …" → 59), or null. */
+export function leadingNumber(q: string): number | null {
+  const m = /^\s*(\d{1,6})(?:[a-z])?\b/i.exec(q);
+  return m ? Number(m[1]) : null;
+}
+
+/**
+ * The known house numbers just below and above `n` on one street ([number, lon, lat]), preferring
+ * the same side of the street (same odd/even) when it has numbers on both sides; null unless `n` is
+ * between two known numbers.
+ */
+export function bracket(n: number, known: readonly (readonly [number, number, number])[]): [readonly [number, number, number], readonly [number, number, number]] | null {
+  const pick = (list: readonly (readonly [number, number, number])[]) => {
+    let lo: (typeof list)[number] | null = null;
+    let hi: (typeof list)[number] | null = null;
+    for (const k of list) {
+      if (k[0] < n && (!lo || k[0] > lo[0])) lo = k;
+      if (k[0] > n && (!hi || k[0] < hi[0])) hi = k;
+    }
+    return lo && hi ? ([lo, hi] as [typeof lo, typeof hi]) : null;
+  };
+  return pick(known.filter((k) => k[0] % 2 === n % 2)) ?? pick(known);
+}
+
+/**
+ * A house number ORS doesn't have: place it between the numbers ORS knows either side of it on the
+ * same street ("59" between 41 and 81 → 45% of the way). The search may answer with the street
+ * ("59 Paradise Rd S") or with nearby numbers on it ("59 Paradise Rd S, Hamilton"); either names the
+ * street. Neighbours in that answer are used first; otherwise one extra request lists the numbers ORS
+ * knows on the street. Any failure → null.
+ */
+async function estimateAddress(q: string, body: unknown, country: string, key: string, fetchFn: Fetch): Promise<Place | null> {
+  const n = leadingNumber(q);
+  if (n === null) return null;
+  const feats = (body as { features?: PeliasFeature[] } | null)?.features ?? [];
+  const isAddress = (f: PeliasFeature) => f.properties?.layer === 'address';
+  if (feats.some((f) => isAddress(f) && leadingNumber(f.properties!.housenumber ?? '') === n)) return null;
+  const anchor = feats.find((f) => (f.properties?.layer === 'street' || isAddress(f)) && f.properties?.street && f.properties?.label)?.properties;
+  if (!anchor) return null;
+  const onStreet = (f: PeliasFeature) => f.properties?.street === anchor.street && f.properties?.locality === anchor.locality && Array.isArray(f.geometry?.coordinates);
+  const numbered = (list: PeliasFeature[]) => list
+    .filter((f) => isAddress(f) && onStreet(f))
+    .map((f) => [leadingNumber(f.properties!.housenumber ?? ''), f.geometry!.coordinates![0], f.geometry!.coordinates![1]] as const)
+    .filter((k): k is readonly [number, number, number] => k[0] !== null);
+  let pair = bracket(n, numbered(feats));
+  let lastList: PeliasFeature[] | null = null;
+  if (!pair) {
+    const list = new URL(AUTOCOMPLETE);
+    list.searchParams.set('text', [anchor.street, anchor.locality, anchor.region_a].filter(Boolean).join(', '));
+    list.searchParams.set('layers', 'address');
+    list.searchParams.set('size', '40');
+    list.searchParams.set('boundary.country', country);
+    try {
+      const res = await fetchFn(list, { headers: { Authorization: key, Accept: 'application/json' }, signal: AbortSignal.timeout(TIMEOUT_MS) });
+      if (!res.ok) return null;
+      const more = ((await res.json()) as { features?: PeliasFeature[] }).features ?? [];
+      lastList = more;
+      if (more.some((f) => isAddress(f) && onStreet(f) && leadingNumber(f.properties!.housenumber ?? '') === n)) pair = null;
+      else pair = bracket(n, numbered([...feats, ...more]));
+    } catch {
+      return null;
+    }
+  }
+  if (!pair) {
+    const hit = (lastList ?? []).find((f) => isAddress(f) && onStreet(f) && leadingNumber(f.properties!.housenumber ?? '') === n);
+    if (!hit) return null;
+    const cc = PELIAS_COUNTRY[hit.properties!.country_a ?? anchor.country_a ?? ''];
+    return { label: hit.properties!.label!, lon: hit.geometry!.coordinates![0], lat: hit.geometry!.coordinates![1], ...(cc ? { cc } : {}) };
+  }
+  const [lo, hi] = pair;
+  const t = (n - lo[0]) / (hi[0] - lo[0]);
+  const cc = PELIAS_COUNTRY[anchor.country_a ?? ''];
+  // An address label starts with its number ("41 Paradise Road South, …"); a street label has none.
+  const rest = anchor.layer === 'address' ? anchor.label!.replace(/^\S+\s+/, '') : anchor.label!;
+  return {
+    label: `${n} ${rest}`,
+    lon: Math.round((lo[1] + t * (hi[1] - lo[1])) * 1e6) / 1e6,
+    lat: Math.round((lo[2] + t * (hi[2] - lo[2])) * 1e6) / 1e6,
+    ...(cc ? { cc } : {}),
+    estimated: true,
+  };
 }

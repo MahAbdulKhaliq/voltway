@@ -618,9 +618,10 @@ html[data-motion="off"] .map-btn-label { transition: none; }
   .map-chargers-toggle .acc-chev { flex: none; transform: scale(0.8); background: color-mix(in srgb, var(--field-border) 30%, var(--surface-2)); }
   .map-chargers-toggle[aria-expanded=true] .acc-chev { rotate: 180deg; background: var(--accent-soft); }
   .map-chargers-toggle[aria-expanded=true] .acc-chev::before { border-color: var(--accent); }
-  .map-chargers .map-filters { display: flex; flex-direction: column; min-height: 0; flex: 0 1 auto; }
+  /* Owner 2026-11-22: the phone fold keeps the shared .fold grid so it grows open and shrinks shut
+     like on desktop; the body still scrolls inside the column. */
+  .map-chargers .map-filters { min-height: 0; flex: 0 1 auto; }
   .map-chargers .map-filters > .map-filters-body { overflow-y: auto; overscroll-behavior: contain; min-height: 0; }
-  .map-chargers .map-filters.shut { display: none; }
 
 }
 

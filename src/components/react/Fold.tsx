@@ -27,10 +27,12 @@ export function fold(box: HTMLElement, b: HTMLElement, isOpen: boolean, setOpen:
     foldRuns.set(box, [grow, ...rise]);
     grow.finished.then(() => { if (box.dataset.anim === 'opening') delete box.dataset.anim; }, () => {});
   } else {
+    // Held at 0 when done (fill) and hidden in the same frame (flushSync), so the open body never
+    // flashes back between the animation ending and React hiding it.
     box.dataset.anim = 'shutting';
-    const shrink = b.animate([{ height: `${from ?? b.offsetHeight}px`, opacity: 1 }, { height: '0px', opacity: 0 }], { duration: SHUT_MS, easing: EASE });
+    const shrink = b.animate([{ height: `${from ?? b.offsetHeight}px`, opacity: 1 }, { height: '0px', opacity: 0 }], { duration: SHUT_MS, easing: EASE, fill: 'forwards' });
     foldRuns.set(box, [shrink]);
-    shrink.finished.then(() => { if (box.dataset.anim === 'shutting') { delete box.dataset.anim; setOpen(false); } }, () => {});
+    shrink.finished.then(() => { if (box.dataset.anim === 'shutting') { delete box.dataset.anim; flushSync(() => setOpen(false)); shrink.cancel(); } }, () => {});
   }
 }
 

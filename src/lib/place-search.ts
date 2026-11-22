@@ -1,7 +1,7 @@
 // From/To suggestions on the trip planner (route-planner.md §6, B45): an in-browser search over
 // the GeoNames places in public/data/places-ca.json and, once loaded, places-us.json (B78, DESIGN-7
-// D5). No network request while typing; the address service (/api/geocode) is called only when the
-// visitor presses "Search full address".
+// D5). Town names never reach the network; the address service (/api/geocode) is called when the
+// visitor presses "Search full address", or for text that reads like a street address (B147).
 
 import MiniSearch from 'minisearch';
 
@@ -32,6 +32,13 @@ export interface PlaceSearch {
  * ("59 Par…", "600 4th Ave"). Only such text is sent to the address service while typing; town names never are.
  */
 export const looksLikeAddress = (q: string): boolean => /^\s*\d{1,6}[a-z]?\s+(?=[^\s,]*[a-z])[^\s,]{3,}/i.test(q);
+
+/**
+ * Whether typed text should search addresses by itself (B147): it reads like an address and is not
+ * the start of a listed town ("100 Mile House, BC", "108 Mile Ranch" start with numbers too).
+ */
+export const autoSearchAddress = (q: string, towns: readonly TripEnd[]): boolean =>
+  looksLikeAddress(q) && !towns.some((p) => fold(p.label).startsWith(fold(q.trim())));
 
 /** A border crossing is named after a town on the far side only when one is this close (km). */
 export const NEAR_PLACE_KM = 40;

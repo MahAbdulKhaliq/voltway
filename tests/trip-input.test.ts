@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { buildCars } from '../scripts/lib/build.ts';
 import { toPlaceRows } from '../scripts/lib/geonames.ts';
 import { TRIP } from '../src/config.ts';
-import { fold, hasExactName, looksLikeAddress, makePlaceSearch, type PlaceRow } from '../src/lib/place-search.ts';
+import { autoSearchAddress, fold, hasExactName, looksLikeAddress, makePlaceSearch, type PlaceRow } from '../src/lib/place-search.ts';
 import { planCarFrom } from '../src/lib/trip-car.ts';
 import { apiPoint, readEnd, readSavedTrip, readTripLink, writeTripLink } from '../src/lib/trip-link.ts';
 import type { CarDetail } from '../src/lib/types.ts';
@@ -179,5 +179,12 @@ describe('address search while typing', () => {
   it('only text that reads like a street address is searched (a number, then 3+ letters)', () => {
     for (const yes of ['59 Par', '59 Paradise Rd S, Hamilton', ' 1600 Pennsylvania', '59A Main St', '401 Hwy', '600 4th Ave']) expect(looksLikeAddress(yes)).toBe(true);
     for (const no of ['Hamilton', 'Saint-Jean', '59', '59 Pa', '59 100', '59, Main', '']) expect(looksLikeAddress(no)).toBe(false);
+  });
+  it('towns whose names start with a number (100 Mile House, BC) never search by themselves', () => {
+    const town = [{ label: '100 Mile House, BC', lat: 51.64, lon: -121.29, cc: 'ca' as const }];
+    expect(autoSearchAddress('100 Mil', town)).toBe(false);
+    expect(autoSearchAddress('100 mile house', town)).toBe(false);
+    expect(autoSearchAddress('59 Par', [])).toBe(true);
+    expect(autoSearchAddress('Hamilton', [])).toBe(false);
   });
 });

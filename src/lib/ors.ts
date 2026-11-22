@@ -264,7 +264,7 @@ export async function handleRoute(url: URL, key: string | undefined, fetchFn: Fe
   return json(countries ? { ...route, countries } : route, 200, CACHE_OK);
 }
 
-/** GET /api/geocode?q=… (only when the visitor presses Search, §6) */
+/** GET /api/geocode?q=…[&country=ca|us][&near=lon,lat] (Search full address, or address-like text after a pause; §6, B147) */
 export async function handleGeocode(url: URL, key: string | undefined, fetchFn: Fetch = fetch): Promise<Response> {
   const q = (url.searchParams.get('q') ?? '').trim().replace(/\s+/g, ' ');
   if (q.length < 3 || q.length > 200) return errorResponse('badRequest', 400);
@@ -272,8 +272,8 @@ export async function handleGeocode(url: URL, key: string | undefined, fetchFn: 
   const target = new URL(GEOCODE);
   target.searchParams.set('text', q);
   // Canada and the US (B78, DESIGN-7 D5); with a trip start and Stay within the border on, only its
-  // country (`country=ca|us`; B79: with it off the page sends no country). A focus point outweighed
-  // the typed city in tests, so there is none.
+  // country (`country=ca|us`; B79: with it off the page sends no country). This first search has no focus
+  // point (one outweighed the typed city in tests); `near` is used only after it (B147).
   const country = url.searchParams.get('country');
   target.searchParams.set('boundary.country', country === 'ca' ? 'CA' : country === 'us' ? 'US' : 'CA,US');
   target.searchParams.set('size', '5');
@@ -288,12 +288,13 @@ export async function handleGeocode(url: URL, key: string | undefined, fetchFn: 
   const body = await res.json().catch(() => null);
   const places = trimPlaces(body);
   const boundary = target.searchParams.get('boundary.country')!;
-  const guess = await estimateAddress(q, body, boundary, key, fetchFn);
-  let found = guess ? [guess, ...places] : places;
   // No town typed ("184 Lynbrook Dr"): the best match may be a same-named street far away. With
-  // `near` (the map's centre or the trip start, ~10 km), look for that street nearby too.
+  // `near` (the map's centre or the trip start, ~10 km), look for that street nearby first, and
+  // estimate on the far street only if nothing turns up nearby (no request spent on it otherwise).
   const near = parseNear(url.searchParams.get('near'));
-  if (near && !q.includes(',') && (!found.length || km([found[0].lon, found[0].lat], near) > NEAR_STREET_KM)) {
+  let found = places;
+  let nearbyFound = false;
+  if (near && !q.includes(',') && (!places.length || km([places[0].lon, places[0].lat], near) > NEAR_STREET_KM)) {
     // The street the far matches name ("Pike Street"): a nearby street of exactly that name wins over
     // a similar one ("East Pike Street").
     const feats = (body as { features?: PeliasFeature[] } | null)?.features ?? [];
@@ -308,7 +309,11 @@ export async function handleGeocode(url: URL, key: string | undefined, fetchFn: 
     close ??= await nearbyAddress(q, near, boundary, key, fetchFn, name);
     // 3. Otherwise a nearby match on a similar street from the answer.
     close ??= toPlace(exactHere(false));
-    if (close) found = [close, ...found.filter((p) => p.label !== close.label)];
+    if (close) { found = [close, ...found.filter((p) => p.label !== close.label)]; nearbyFound = true; }
+  }
+  if (!nearbyFound) {
+    const guess = await estimateAddress(q, body, boundary, key, fetchFn);
+    if (guess) found = [guess, ...found];
   }
   return json({ places: found.slice(0, 5) }, 200, CACHE_OK);
 }
@@ -371,7 +376,7 @@ export function leadingNumber(q: string): number | null {
  * the same side of the street (same odd/even) when it has numbers on both sides; null unless `n` is
  * between two known numbers.
  */
-export function bracket(n: number, known: readonly (readonly [number, number, number])[]): [readonly [number, number, number], readonly [number, number, number]] | null {
+export function bracket(n: number, known: readonly (readonly [number, number, number])[], anySide = true): [readonly [number, number, number], readonly [number, number, number]] | null {
   const pick = (list: readonly (readonly [number, number, number])[]) => {
     let lo: (typeof list)[number] | null = null;
     let hi: (typeof list)[number] | null = null;
@@ -381,7 +386,8 @@ export function bracket(n: number, known: readonly (readonly [number, number, nu
     }
     return lo && hi ? ([lo, hi] as [typeof lo, typeof hi]) : null;
   };
-  return pick(known.filter((k) => k[0] % 2 === n % 2)) ?? pick(known);
+  const same = pick(known.filter((k) => k[0] % 2 === n % 2));
+  return same ?? (anySide ? pick(known) : null);
 }
 
 /**
@@ -396,15 +402,18 @@ async function estimateAddress(q: string, body: unknown, country: string, key: s
   if (n === null) return null;
   const feats = (body as { features?: PeliasFeature[] } | null)?.features ?? [];
   const isAddress = (f: PeliasFeature) => f.properties?.layer === 'address';
-  if (feats.some((f) => isAddress(f) && leadingNumber(f.properties!.housenumber ?? '') === n)) return null;
-  const anchor = feats.find((f) => (f.properties?.layer === 'street' || isAddress(f)) && f.properties?.street && f.properties?.label)?.properties;
+  const named = (f: PeliasFeature) => !!(f.properties?.street && f.properties?.label);
+  const anchor = (feats.find((f) => f.properties?.layer === 'street' && named(f)) ?? feats.find((f) => isAddress(f) && named(f)))?.properties;
   if (!anchor) return null;
   const onStreet = (f: PeliasFeature) => f.properties?.street === anchor.street && f.properties?.locality === anchor.locality && Array.isArray(f.geometry?.coordinates);
+  // The number is already known on this street (the same number elsewhere doesn't count).
+  if (feats.some((f) => isAddress(f) && onStreet(f) && leadingNumber(f.properties!.housenumber ?? '') === n)) return null;
   const numbered = (list: PeliasFeature[]) => list
     .filter((f) => isAddress(f) && onStreet(f))
     .map((f) => [leadingNumber(f.properties!.housenumber ?? ''), f.geometry!.coordinates![0], f.geometry!.coordinates![1]] as const)
     .filter((k): k is readonly [number, number, number] => k[0] !== null);
-  let pair = bracket(n, numbered(feats));
+  // Neighbours in the answer count only on the same side; otherwise the street's list is worth a request.
+  let pair = bracket(n, numbered(feats), false);
   let lastList: PeliasFeature[] | null = null;
   if (!pair) {
     const list = new URL(AUTOCOMPLETE);

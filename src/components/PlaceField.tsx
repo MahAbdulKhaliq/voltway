@@ -4,7 +4,7 @@
 
 import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import { t } from '../i18n/t.ts';
-import { hasExactName, looksLikeAddress, makePlaceSearch, type PlaceRow, type PlaceSearch, type TripEnd } from '../lib/place-search.ts';
+import { autoSearchAddress, hasExactName, makePlaceSearch, type PlaceRow, type PlaceSearch, type TripEnd } from '../lib/place-search.ts';
 import { routeOptions } from '../lib/route-options.ts';
 import { SHEET_MEDIA } from '../lib/sheet.ts';
 
@@ -126,12 +126,17 @@ export default function PlaceField({ label, value, onChange, search: own, extra,
       setRemoteState(navigator.onLine === false ? 'offline' : 'busy');
     }
   };
-  // Address-like text searches itself once typing pauses; town names stay with the local list.
+  // The timer below calls the newest searchAddress (its country and near point are current).
+  const searchRef = useRef(searchAddress);
+  searchRef.current = searchAddress;
+  // Address-like text searches itself once typing pauses; town names (even "100 Mile House") stay
+  // with the local list.
+  const auto = open && remote === null && value?.label !== text && autoSearchAddress(text, local);
   useEffect(() => {
-    if (!open || remote !== null || value?.label === text || !looksLikeAddress(text)) return;
-    const timer = setTimeout(() => { void searchAddress(text); }, ADDRESS_PAUSE_MS);
+    if (!auto) return;
+    const timer = setTimeout(() => { void searchRef.current(text); }, ADDRESS_PAUSE_MS);
     return () => clearTimeout(timer);
-  }, [text, open, value, remote]);
+  }, [auto, text]);
   const listId = `${id}-list`;
   const optId = (i: number) => `${id}-opt-${i}`;
   const showList = open && text.trim() !== '' && (value?.label !== text || remote !== null);
@@ -163,7 +168,7 @@ export default function PlaceField({ label, value, onChange, search: own, extra,
           autoFocus={autoFocus}
           autoComplete="off"
           value={text}
-          onChange={(e) => { setText(e.target.value); onText?.(e.target.value); setOpen(true); setRemote(null); setRemoteState('idle'); if (value) onChange(null); }}
+          onChange={(e) => { latest.current++; setText(e.target.value); onText?.(e.target.value); setOpen(true); setRemote(null); setRemoteState('idle'); if (value) onChange(null); }}
           onFocus={() => setOpen(true)}
           onBlur={() => setTimeout(() => setOpen(false), 150)}
           onKeyDown={onKey}
@@ -179,7 +184,7 @@ export default function PlaceField({ label, value, onChange, search: own, extra,
             <li key={`${o.label}-${i}`} id={optId(i)} role="option" aria-selected={i === active} className={i === active ? 'on' : undefined}
               onMouseDown={(e) => e.preventDefault()} onClick={() => pick(o)}>
               {o.label}
-              {o.estimated && <span className="muted small"> · {t('trip.addressEstimated')}</span>}
+              {o.estimated && <span className="muted small"> {t('trip.addressEstimated')}</span>}
             </li>
           ))}
         </ul>

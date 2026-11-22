@@ -7,7 +7,7 @@
 // Filtering, searching and sorting animate the results (useFlip), the count ticks, and search
 // highlights the matched words. With Animations off every change is instant.
 
-import { useEffect, useMemo, useRef, useState, type ReactNode, Fragment } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type ReactNode, Fragment } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import {
   activeCount, DEFAULT_DIR, defaultFilters, matches, optionsFor, pageButtons, pageSlice, PER_PAGE, readState, SORTS, sortCars, type PerPage,
@@ -24,6 +24,7 @@ import VariantName from './VariantName.tsx';
 import { Accordion } from './react/Accordion.tsx';
 import { useFlip } from './react/useFlip.ts';
 import { resizeAcross } from './react/Fold.tsx';
+import { FilterIcon } from './ButtonIcons.tsx';
 import type { IndexEntry } from '../lib/types.ts';
 
 interface Props { index: IndexEntry[] }
@@ -98,6 +99,7 @@ export default function Browse({ index }: Props) {
   const [state, setState] = useState<BrowseState>(() => readState(null, index));
   const [ready, setReady] = useState(false);
   const [query, setQuery] = useState('');
+  const uid = useId();
   const [unit, setUnit] = useState<DistanceUnit>('km');
   const [compare, setCompareList] = useState<string[]>([]);
   const [notice, setNotice] = useState<string | null>(null);
@@ -373,9 +375,11 @@ export default function Browse({ index }: Props) {
           <span className="sr-only">{t('browse.search')}</span>
           <input type="search" value={query} placeholder={t('browse.searchPlaceholder')} onChange={(ev) => setQuery(ev.target.value)} />
         </label>
-        <button type="button" ref={sheetBtn} className="btn bf-open" aria-expanded={sheetOpen} aria-controls="browse-filters" onClick={() => setSheetOpen(true)}>
-          {active ? t('browse.filtersCount', { count: active }) : t('browse.filters')}
+        <button type="button" ref={sheetBtn} className="btn bf-open btn-with-icon" aria-expanded={sheetOpen} aria-controls="browse-filters" onClick={() => setSheetOpen(true)}>
+          <FilterIcon />{active ? t('browse.filtersCount', { count: active }) : t('browse.filters')}
         </button>
+        {/* Phones: a faint line between finding cars and arranging them; Sort by and View as labelled rows. */}
+        <span className="browse-rule" aria-hidden="true" />
         <label className="browse-sort">
           <span>{t('browse.sort')}</span>
           <select value={state.sort} onChange={(ev) => setSort(ev.target.value as SortKey)}>
@@ -389,7 +393,8 @@ export default function Browse({ index }: Props) {
             <option value="desc">{dirLabel('desc')}</option>
           </select>
         </label>
-        <div className="seg" role="group" aria-label={t('browse.view')}>
+        <span id={`${uid}-view`} className="browse-view-label" aria-hidden="true">{t('browse.view')}</span>
+        <div className="seg browse-view" role="group" aria-labelledby={`${uid}-view`}>
           {(['cards', 'table'] as const).map((v) => (
             <button key={v} type="button" aria-pressed={state.view === v} onClick={() => setState((s) => ({ ...s, view: v, ...(v === 'table' && s.view !== 'table' && s.sort === 'name' ? { sort: 'km10', dir: 'desc' } : {}) }))}>
               {t(`browse.${v}`)}

@@ -173,7 +173,7 @@ Decided by the owner 2026-11-19 (B86, under review). The Cars page uses everythi
 - **The count ticks** to its new value in large Overpass figures; screen readers hear the final count once, from a separate status line.
 - **Search highlights the matched words** (word starts) in names and trims, with the accent tint and underline.
 - **Animations off** (the site's setting, B65): every change is instant, with no copies, no ticking and no transitions on switches.
-- **The toolbar on phones and narrow tablets** (B151, owner 2026-11-22; up to 767 px): a grid, not a wrapping row. Search and Filters (with a sliders icon) share the first row, a faint line follows, then "Sort by" with the sort and order menus at equal widths, and "View" with Cards / Table across the same width, so the controls line up under each other. Every control is 44 px with its text centred.
+- **The toolbar on phones and narrow tablets** (B151, owner 2026-11-22; up to 767 px): a grid, not a wrapping row. Search and Filters (with a sliders icon) share the first row, a faint line follows, then "Sort by" with the sort and order menus at equal widths, and "View" with Cards / Table across the same width, so the controls line up under each other. Every control is 44 px with its text centred. The Filters sheet slides up from the bottom as its backdrop fades in and slides back down when it closes (fold timing; instant with Animations off).
 
 ### Cars table and the compare toggle (B87, owner 2026-11-19)
 

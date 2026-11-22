@@ -7,7 +7,7 @@
 // Filtering, searching and sorting animate the results (useFlip), the count ticks, and search
 // highlights the matched words. With Animations off every change is instant.
 
-import { useEffect, useMemo, useRef, useState, type ReactNode, Fragment } from 'react';
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type ReactNode, Fragment } from 'react';
 import { t, type MessageKey } from '../i18n/t.ts';
 import {
   activeCount, DEFAULT_DIR, defaultFilters, matches, optionsFor, pageButtons, pageSlice, PER_PAGE, readState, SORTS, sortCars, type PerPage,
@@ -16,7 +16,10 @@ import {
 import { makeCarSearch } from '../lib/car-search.ts';
 import { displayMinutes } from '../lib/charging.ts';
 import { valueLabel } from '../lib/format.ts';
+import { flushSync } from 'react-dom';
 import { reducedMotion } from '../lib/motion.ts';
+import { EASE, OPEN_MS, SHUT_MS } from '../lib/road-unroll.ts';
+
 import { addToCompare, getCompare, removeFromCompare, type AddResult } from '../lib/my-car.ts';
 import { getItem, getJSON, setJSON, KEYS } from '../lib/storage.ts';
 import { formatNumber, kmTo, whPerKmToDisplay, type DistanceUnit } from '../lib/units.ts';
@@ -24,7 +27,11 @@ import VariantName from './VariantName.tsx';
 import { Accordion } from './react/Accordion.tsx';
 import { useFlip } from './react/useFlip.ts';
 import { resizeAcross } from './react/Fold.tsx';
+import { FilterIcon } from './ButtonIcons.tsx';
 import type { IndexEntry } from '../lib/types.ts';
+
+// Filters is a bottom sheet up to here (global.css, .browse-filters @media).
+const FILTER_SHEET_MEDIA = '(max-width: 767px)';
 
 interface Props { index: IndexEntry[] }
 
@@ -98,6 +105,7 @@ export default function Browse({ index }: Props) {
   const [state, setState] = useState<BrowseState>(() => readState(null, index));
   const [ready, setReady] = useState(false);
   const [query, setQuery] = useState('');
+  const uid = useId();
   const [unit, setUnit] = useState<DistanceUnit>('km');
   const [compare, setCompareList] = useState<string[]>([]);
   const [notice, setNotice] = useState<string | null>(null);
@@ -111,6 +119,26 @@ export default function Browse({ index }: Props) {
   const [opened, setOpened] = useState<Record<string, boolean>>({});
   const sheetBtn = useRef<HTMLButtonElement>(null);
   const sheetRef = useRef<HTMLElement>(null);
+  const backdropEl = useRef<HTMLDivElement>(null);
+  const sheetShutting = useRef(false);
+  // The phone sheet slides up from the bottom as the backdrop fades in (owner 2026-11-22).
+  useLayoutEffect(() => {
+    const el = sheetRef.current;
+    if (!sheetOpen || !el || reducedMotion() || typeof el.animate !== 'function' || !matchMedia(FILTER_SHEET_MEDIA).matches) return;
+    el.animate([{ transform: 'translateY(100%)' }, { transform: 'none' }], { duration: OPEN_MS, easing: EASE });
+    backdropEl.current?.animate([{ opacity: 0 }, { opacity: 1 }], { duration: OPEN_MS, easing: EASE });
+  }, [sheetOpen]);
+  /** Closes the phone sheet: it slides back down, then hides in the same frame (no flash), and focus returns to Filters. */
+  const closeSheet = () => {
+    const el = sheetRef.current;
+    const done = () => { sheetShutting.current = false; flushSync(() => setSheetOpen(false)); sheetBtn.current?.focus(); };
+    if (sheetShutting.current) return;
+    if (!el || reducedMotion() || typeof el.animate !== 'function' || !matchMedia(FILTER_SHEET_MEDIA).matches) { done(); return; }
+    sheetShutting.current = true;
+    const down = el.animate([{ transform: 'none' }, { transform: 'translateY(100%)' }], { duration: SHUT_MS, easing: EASE, fill: 'forwards' });
+    const fade = backdropEl.current?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: SHUT_MS, easing: EASE, fill: 'forwards' });
+    down.finished.then(() => { done(); down.cancel(); fade?.cancel(); }, () => { sheetShutting.current = false; });
+  };
   const cardsEl = useRef<HTMLUListElement>(null);
   const ghostEl = useRef<HTMLDivElement>(null);
   const rowsEl = useRef<HTMLTableSectionElement>(null);
@@ -149,7 +177,7 @@ export default function Browse({ index }: Props) {
     // The phone sheet is modal: focus moves in, Tab stays inside, Escape closes.
     sheetRef.current?.querySelector<HTMLElement>('.bf-close')?.focus();
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { setSheetOpen(false); sheetBtn.current?.focus(); return; }
+      if (e.key === 'Escape') { closeSheet(); return; }
       if (e.key !== 'Tab' || !sheetRef.current) return;
       const els = [...sheetRef.current.querySelectorAll<HTMLElement>('button:not([disabled]), input:not([disabled]), select:not([disabled]), a[href], summary')]
         .filter((el) => el.offsetParent !== null);
@@ -373,9 +401,11 @@ export default function Browse({ index }: Props) {
           <span className="sr-only">{t('browse.search')}</span>
           <input type="search" value={query} placeholder={t('browse.searchPlaceholder')} onChange={(ev) => setQuery(ev.target.value)} />
         </label>
-        <button type="button" ref={sheetBtn} className="btn bf-open" aria-expanded={sheetOpen} aria-controls="browse-filters" onClick={() => setSheetOpen(true)}>
-          {active ? t('browse.filtersCount', { count: active }) : t('browse.filters')}
+        <button type="button" ref={sheetBtn} className="btn bf-open btn-with-icon" aria-expanded={sheetOpen} aria-controls="browse-filters" onClick={() => setSheetOpen(true)}>
+          <FilterIcon />{active ? t('browse.filtersCount', { count: active }) : t('browse.filters')}
         </button>
+        {/* Phones: a faint line between finding cars and arranging them; Sort by and View as labelled rows. */}
+        <span className="browse-rule" aria-hidden="true" />
         <label className="browse-sort">
           <span>{t('browse.sort')}</span>
           <select value={state.sort} onChange={(ev) => setSort(ev.target.value as SortKey)}>
@@ -389,7 +419,8 @@ export default function Browse({ index }: Props) {
             <option value="desc">{dirLabel('desc')}</option>
           </select>
         </label>
-        <div className="seg" role="group" aria-label={t('browse.view')}>
+        <span id={`${uid}-view`} className="browse-view-label" aria-hidden="true">{t('browse.view')}</span>
+        <div className="seg browse-view" role="group" aria-labelledby={`${uid}-view`}>
           {(['cards', 'table'] as const).map((v) => (
             <button key={v} type="button" aria-pressed={state.view === v} onClick={() => setState((s) => ({ ...s, view: v, ...(v === 'table' && s.view !== 'table' && s.sort === 'name' ? { sort: 'km10', dir: 'desc' } : {}) }))}>
               {t(`browse.${v}`)}
@@ -403,13 +434,13 @@ export default function Browse({ index }: Props) {
           <div className="bf-head">
             <h2 className="bf-title">{t('browse.filters')}</h2>
             <button type="button" className="btn small" onClick={() => setState((s) => ({ ...s, filters: defaultFilters(index) }))} disabled={active === 0}>{t('browse.clear')}</button>
-            <button type="button" className="icon-btn bf-close" aria-label={t('browse.close')} onClick={() => { setSheetOpen(false); sheetBtn.current?.focus(); }}>
+            <button type="button" className="icon-btn bf-close" aria-label={t('browse.close')} onClick={closeSheet}>
               <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
             </button>
           </div>
           {panel}
         </aside>
-        {sheetOpen && <div className="bf-backdrop" onClick={() => { setSheetOpen(false); sheetBtn.current?.focus(); }} aria-hidden="true" />}
+        {sheetOpen && <div ref={backdropEl} className="bf-backdrop" onClick={closeSheet} aria-hidden="true" />}
 
         <section ref={resultsEl} className="browse-results" aria-busy={!ready}>
           {/* Only the status line is live (the final count, once); the big number beside it ticks. */}

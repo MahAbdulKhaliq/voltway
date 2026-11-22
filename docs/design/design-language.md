@@ -173,6 +173,7 @@ Decided by the owner 2026-11-19 (B86, under review). The Cars page uses everythi
 - **The count ticks** to its new value in large Overpass figures; screen readers hear the final count once, from a separate status line.
 - **Search highlights the matched words** (word starts) in names and trims, with the accent tint and underline.
 - **Animations off** (the site's setting, B65): every change is instant, with no copies, no ticking and no transitions on switches.
+- **The toolbar on phones and narrow tablets** (B151, owner 2026-11-22; up to 767 px): a grid, not a wrapping row. Search and Filters (with a sliders icon) share the first row, a faint line follows, then "Sort by" with the sort and order menus at equal widths, and "View" with Cards / Table across the same width, so the controls line up under each other. Every control is 44 px with its text centred. The Filters sheet slides up from the bottom as its backdrop fades in and slides back down when it closes (fold timing; instant with Animations off).
 
 ### Cars table and the compare toggle (B87, owner 2026-11-19)
 
@@ -185,6 +186,8 @@ Decided by the owner 2026-11-19 (B86, under review). The Cars page uses everythi
 
 - **"Add a car" is the header's car picker** in a modal dialog (search with suggestions, then Make → Model → Year → Variant), titled "Add a car to compare", without the trim and plug steps. Cars already compared are greyed with "Already in Compare" and can't be picked. Its suggestion list sits in the flow (the dialog is shorter than the My car picker). The dialog is rendered outside the Compare page's wrapper, so its dropdowns look exactly like the My car picker's: one line each, long variant names cut off rather than wrapping.
 - **A ghost card** follows the car cards while fewer than 4 are compared: a single dashed outline in the next car's colour (owner review: no stripe on top), a + and "Add a car", and "Car n of 4". It opens the dialog; afterwards focus returns to it, so adding several cars is quick. The empty page shows the same card, and the specs' "Add another car" opens the dialog too.
+
+- **On phones (B150, owner 2026-11-22) the car cards are compact:** one row per car (colour down the left edge, name, muted trim, the fold's round chevron), opening with the fold motion to show the trim menu, "Charging curve" and Remove; one open at a time, Escape shuts it. The ghost card matches their 56 px height and drops "Car n of 4". Desktop keeps the full cards.
 
 ### Car picker (B89 round 3, owner 2026-11-19)
 

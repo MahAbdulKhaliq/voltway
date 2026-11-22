@@ -30,7 +30,7 @@ import VariantName from './VariantName.tsx';
 import CarPicker from './CarPicker.tsx';
 import { Value } from './react/Badge.tsx';
 import { Accordion } from './react/Accordion.tsx';
-import { Fold } from './react/Fold.tsx';
+import { Fold, fold } from './react/Fold.tsx';
 
 echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, CanvasRenderer]);
 
@@ -85,6 +85,8 @@ function Star() {
   );
 }
 
+const PHONE_MEDIA = '(max-width: 640px)'; // the page's phone layout (the @media rule below)
+
 export default function Compare({ index }: Props) {
   const byId = useMemo(() => new Map(index.map((e) => [e.id, e])), [index]);
   const [ids, setIds] = useState<string[] | null>(null);
@@ -113,6 +115,30 @@ export default function Compare({ index }: Props) {
   const addDialog = useRef<HTMLDialogElement>(null);
   const addOpener = useRef<HTMLElement | null>(null);
   const [adding, setAdding] = useState(false);
+  // Phones get compact car cards (one row each); the open one shows its trim, curve link and Remove.
+  const [phone, setPhone] = useState(false);
+  // A list, so the card shutting and the one opening can animate at the same time.
+  const [openCars, setOpenCars] = useState<string[]>([]);
+  const setCarOpen = (id: string) => (open: boolean) => setOpenCars((l) => (open ? [...l.filter((x) => x !== id), id] : l.filter((x) => x !== id)));
+  // Opens or shuts a card with the fold motion (Fold.tsx); opening one shuts any other.
+  const toggleCar = (id: string, li: HTMLElement | null) => {
+    const box = li?.closest<HTMLElement>('.cmp-car');
+    const body = box?.querySelector<HTMLElement>('.cmp-car-body');
+    if (!box || !body) return;
+    const isOpen = openCars.includes(id);
+    if (!isOpen) for (const other of box.parentElement?.querySelectorAll<HTMLElement>('.cmp-car.open') ?? []) {
+      const otherId = other.dataset.car, otherBody = other.querySelector<HTMLElement>('.cmp-car-body');
+      if (otherId && otherId !== id && otherBody && other.dataset.anim !== 'shutting') fold(other, otherBody, true, setCarOpen(otherId));
+    }
+    fold(box, body, isOpen, setCarOpen(id));
+  };
+  useEffect(() => {
+    const media = matchMedia(PHONE_MEDIA);
+    const sync = () => setPhone(media.matches);
+    sync();
+    media.addEventListener('change', sync);
+    return () => media.removeEventListener('change', sync);
+  }, []);
   const openAdd = (from: HTMLElement) => {
     addOpener.current = from;
     setAdding(true);
@@ -432,24 +458,41 @@ export default function Compare({ index }: Props) {
               const sibs = siblings(id);
               const label = name(id);
               return (
-                <li key={id} className="card cmp-car" style={{ ['--lane' as string]: carVar(slot) }}>
-                  <span className="car-name">{label}</span>
-                  {sibs.length > 1 ? (
-                    <select aria-label={t('compare.variantFor', { car: label })} value={id} onChange={(e) => change(replaceAt(ids, slot, e.target.value))}>
-                      {sibs.map((s) => (
-                        <option key={s.id} value={s.id} disabled={s.id !== id && ids.includes(s.id)}>{s.name}</option>
-                      ))}
-                    </select>
-                  ) : (
-                    <span className="variant"><VariantName name={byId.get(id)?.name ?? ''} /></span>
-                  )}
-                  {cars[id] === 'error' && <span className="small unknown">{t('compare.notLoaded')}</span>}
-                  <span className="car-actions">
-                    <a className="small" href={`/charging?car=${id}`}>{t('compare.open')}</a>
-                    <button type="button" className="btn small" onClick={() => { change(ids.filter((x) => x !== id)); requestAnimationFrame(() => document.querySelector<HTMLElement>('.cmp-ghost button')?.focus()); }} aria-label={t('compare.removeFor', { car: `${label} ${byId.get(id)?.name ?? ''}` })}>
-                      {t('compare.remove')}
+                <li key={id} className={`card cmp-car${phone ? ' compact' : ''}${phone && openCars.includes(id) ? ' open' : ''}`} data-car={id} style={{ ['--lane' as string]: carVar(slot) }}
+                  onKeyDown={phone ? (e) => { if (e.key === 'Escape' && openCars.includes(id)) { const li = e.currentTarget; toggleCar(id, li); li.querySelector<HTMLElement>('.cmp-car-toggle')?.focus(); } } : undefined}>
+                  {phone ? (
+                    <button type="button" className="cmp-car-toggle" aria-expanded={openCars.includes(id)} aria-controls={`${uid}-car-${slot}`} onClick={(e) => toggleCar(id, e.currentTarget)}>
+                      <span className="cmp-car-text">
+                        <span className="car-name">{label}</span>
+                        {cars[id] === 'error'
+                          ? <span className="small unknown">{t('compare.notLoaded')}</span>
+                          : <span className="variant small"><VariantName name={byId.get(id)?.name ?? ''} /></span>}
+                      </span>
+                      <span className="acc-chev" aria-hidden="true" />
                     </button>
-                  </span>
+                  ) : (
+                    <span className="car-name">{label}</span>
+                  )}
+                  <div id={`${uid}-car-${slot}`} className="cmp-car-body" hidden={phone && !openCars.includes(id)}>
+                    <div className="cmp-car-inner rise-grid">
+                    {sibs.length > 1 ? (
+                      <select aria-label={t('compare.variantFor', { car: label })} value={id} onChange={(e) => { const next = e.target.value; change(replaceAt(ids, slot, next)); if (phone) setOpenCars((l) => l.map((x) => (x === id ? next : x))); }}>
+                        {sibs.map((s) => (
+                          <option key={s.id} value={s.id} disabled={s.id !== id && ids.includes(s.id)}>{s.name}</option>
+                        ))}
+                      </select>
+                    ) : !phone && (
+                      <span className="variant"><VariantName name={byId.get(id)?.name ?? ''} /></span>
+                    )}
+                    {!phone && cars[id] === 'error' && <span className="small unknown">{t('compare.notLoaded')}</span>}
+                    <span className="car-actions">
+                      <a className="small" href={`/charging?car=${id}`}>{t('compare.open')}</a>
+                      <button type="button" className="btn small" onClick={() => { setOpenCars((l) => l.filter((x) => x !== id)); change(ids.filter((x) => x !== id)); requestAnimationFrame(() => document.querySelector<HTMLElement>('.cmp-ghost button')?.focus()); }} aria-label={t('compare.removeFor', { car: `${label} ${byId.get(id)?.name ?? ''}` })}>
+                        {t('compare.remove')}
+                      </button>
+                    </span>
+                    </div>
+                  </div>
                 </li>
               );
             })}
@@ -696,6 +739,8 @@ export default function Compare({ index }: Props) {
         .cmp-car .car-name { font-family: var(--display); font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; }
         .cmp-car .variant { color: var(--muted); }
         .cmp-car .car-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+        .cmp-car-body, .cmp-car-inner { display: grid; gap: 8px; }
+        .cmp-car-body[hidden] { display: none; }
 
         /* The race (B85): one road lane per car, best first. */
         .cmp-race { display: grid; gap: 14px; }
@@ -842,8 +887,30 @@ export default function Compare({ index }: Props) {
           .cmp-table tbody td .best-mark { margin-right: 0; }
           .cmp-table tr.group-row { display: block; margin-top: 12px; border-bottom: 0; padding: 0; }
           .cmp-table .group-row th { display: block; position: static; padding: 7px 10px; border-radius: 8px; }
-          .cmp-cars { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-          .cmp-car { padding: 14px 10px 10px; }
+          /* Compact car cards on phones: one row (stripe down the side, name, trim, chevron); open, the
+             trim menu, curve link and Remove. Only the open card grows (align-items: start). */
+          .cmp-cars { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 8px; }
+          .cmp-car.compact { padding: 0; gap: 0; }
+          .cmp-car.compact::before { inset: 0 auto 0 0; width: 4px; height: auto; }
+          .cmp-car-toggle { display: flex; align-items: center; gap: 6px; width: 100%; min-height: 56px; padding: 8px 8px 8px 14px; border: 0; background: none; color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+          .cmp-car-toggle:hover { background: var(--surface-2); }
+          .cmp-car-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+          .cmp-car-text { display: grid; min-width: 0; flex: 1; }
+          .cmp-car-text > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+          .cmp-car.compact .car-name { font-size: 0.88rem; }
+          /* The fold's round chevron (design-language.md §12), turning as the card opens. */
+          .cmp-car-toggle .acc-chev { flex: none; width: 28px; height: 28px; }
+          .cmp-car-toggle[aria-expanded="true"] .acc-chev { rotate: 180deg; background: var(--accent-soft); }
+          .cmp-car-toggle[aria-expanded="true"] .acc-chev::before { border-color: var(--accent); }
+          /* The body grows and shrinks with the fold motion; its padding sits inside, so it reaches 0. */
+          .cmp-car.compact .cmp-car-body { display: block; }
+          .cmp-car.compact .cmp-car-body[hidden] { display: none; }
+          .cmp-car[data-anim] > .cmp-car-body { overflow: hidden; }
+          .cmp-car.compact .cmp-car-inner { padding: 0 10px 10px 14px; }
+          .cmp-ghost { min-height: 56px; }
+          .cmp-ghost button { display: flex; align-items: center; gap: 8px; padding: 8px 12px; }
+          .cmp-ghost-plus { width: 26px; height: 26px; font-size: 1.1rem; }
+          .cmp-ghost-count { display: none; }
         }
       `}</style>
     </div>

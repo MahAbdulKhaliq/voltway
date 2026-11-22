@@ -680,6 +680,24 @@ html[data-motion="off"] .map-panel, html[data-motion="off"] .charger-map .maplib
 .browse-search input, .browse-sort select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--field-border); border-radius: 8px; padding: 7px 10px; width: 100%; }
 .browse-sort { display: flex; align-items: center; gap: 6px; font-size: 0.875rem; color: var(--muted); }
 .browse-sort select { width: auto; }
+.browse-rule, .browse-view-label { display: none; }
+/* Phones and narrow tablets (owner 2026-11-22; up to 767 px, where Filters becomes a button): the
+   toolbar on a grid. Search and Filters, a faint line, then "Sort by" and "View" as labelled rows
+   whose controls line up; every control 44 px, text centred. */
+@media (max-width: 767px) {
+  .browse-bar { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr); gap: 10px; align-items: center; }
+  .browse-bar .browse-search { grid-column: 1 / 3; }
+  .browse-bar .bf-open { grid-column: 3; }
+  .browse-rule { display: block; grid-column: 1 / -1; height: 1px; margin: 2px 0; background: color-mix(in srgb, var(--field-border) 55%, transparent); }
+  .browse-bar .browse-sort { display: contents; }
+  .browse-bar .browse-sort > span:not(.sr-only), .browse-view-label { display: block; font-size: 0.875rem; color: var(--muted); }
+  .browse-bar .browse-search input, .browse-bar .bf-open, .browse-view button { height: 44px; }
+  /* Overpass sits high in its line box: 2 px on top centres the words; the chevron sits at 50 %. */
+  .browse .browse-bar .browse-sort select { width: 100%; min-width: 0; height: 44px; padding-top: 2px; padding-bottom: 0; line-height: 40px; background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%; }
+  .browse-bar .bf-open { justify-content: center; align-items: center; padding-block: 0; line-height: 1; }
+  .browse-view { grid-column: 2 / 4; display: grid; grid-template-columns: 1fr 1fr; }
+  .browse-view button { display: grid; place-items: center; padding-block: 0; }
+}
 .browse-main { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 20px; align-items: start; }
 .browse-filters { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; padding: 12px 14px; }
 .bf-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
